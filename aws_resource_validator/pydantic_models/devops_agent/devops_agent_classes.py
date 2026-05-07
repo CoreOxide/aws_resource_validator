@@ -3,6 +3,7 @@
 from datetime import datetime
 from decimal import Decimal
 from typing import (
+    Annotated,
     Any,
     Callable,
     Dict,
@@ -24,6 +25,7 @@ from botocore.response import StreamingBody
 from pydantic import Field
 
 from aws_resource_validator.core.base_validator_model import BaseValidatorModel, EventStream
+from aws_resource_validator.core.pattern_validation import aws_field_pattern as _aws_pattern
 from aws_resource_validator.pydantic_models.devops_agent.devops_agent_constants import *  # noqa: F401,F403
 
 # Optional boto3 symbols — imported lazily so services that don't need them
@@ -39,8 +41,8 @@ except ImportError:  # pragma: no cover
 
 
 class AWSConfigurationTypeDef(BaseValidatorModel):
-    assumableRoleArn: str
-    accountId: str
+    assumableRoleArn: Annotated[str, _aws_pattern("DevopsAgent", "RoleArn")]
+    accountId: Annotated[str, _aws_pattern("DevopsAgent", "AWSConfigurationAccountIdString")]
     accountType: Literal["monitor"]
 
 
@@ -68,7 +70,7 @@ class RegisteredGithubServiceDetailsTypeDef(BaseValidatorModel):
 
 
 class RegisteredGrafanaServerDetailsTypeDef(BaseValidatorModel):
-    endpoint: str
+    endpoint: Annotated[str, _aws_pattern("DevopsAgent", "RegisteredGrafanaServerDetailsEndpointString")]
     authorizationMethod: MCPServerAuthorizationMethodType
 
 
@@ -76,14 +78,14 @@ class RegisteredMCPServerDetailsTypeDef(BaseValidatorModel):
     name: str
     endpoint: str
     authorizationMethod: MCPServerAuthorizationMethodType
-    description: Optional[str] = None
+    description: Optional[Annotated[str, _aws_pattern("DevopsAgent", "Description")]] = None
     apiKeyHeader: Optional[str] = None
 
 
 class RegisteredNewRelicDetailsTypeDef(BaseValidatorModel):
     accountId: str
     region: NewRelicRegionType
-    description: Optional[str] = None
+    description: Optional[Annotated[str, _aws_pattern("DevopsAgent", "Description")]] = None
 
 
 class RegisteredPagerDutyDetailsTypeDef(BaseValidatorModel):
@@ -91,7 +93,7 @@ class RegisteredPagerDutyDetailsTypeDef(BaseValidatorModel):
 
 
 class RegisteredServiceNowDetailsTypeDef(BaseValidatorModel):
-    instanceUrl: Optional[str] = None
+    instanceUrl: Optional[Annotated[str, _aws_pattern("DevopsAgent", "ServiceNowInstanceUrl")]] = None
 
 
 class RegisteredSlackServiceDetailsTypeDef(BaseValidatorModel):
@@ -104,13 +106,13 @@ class OAuthAdditionalStepDetailsTypeDef(BaseValidatorModel):
 
 
 class AgentSpaceTypeDef(BaseValidatorModel):
-    name: str
+    name: Annotated[str, _aws_pattern("DevopsAgent", "AgentSpaceName")]
     createdAt: datetime
     updatedAt: datetime
-    agentSpaceId: str
-    description: Optional[str] = None
-    locale: Optional[str] = None
-    kmsKeyArn: Optional[str] = None
+    agentSpaceId: Annotated[str, _aws_pattern("DevopsAgent", "AgentSpaceId")]
+    description: Optional[Annotated[str, _aws_pattern("DevopsAgent", "Description")]] = None
+    locale: Optional[Annotated[str, _aws_pattern("DevopsAgent", "Locale")]] = None
+    kmsKeyArn: Optional[Annotated[str, _aws_pattern("DevopsAgent", "KmsKeyArn")]] = None
 
 
 class AssistantMessageBlockTypeDef(BaseValidatorModel):
@@ -145,7 +147,7 @@ class AzureDevOpsConfigurationTypeDef(BaseValidatorModel):
 
 
 class ChatExecutionTypeDef(BaseValidatorModel):
-    executionId: str
+    executionId: Annotated[str, _aws_pattern("DevopsAgent", "ResourceId")]
     createdAt: datetime
     updatedAt: Optional[datetime] = None
     summary: Optional[str] = None
@@ -153,60 +155,62 @@ class ChatExecutionTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'create_agent_space' function.
 class CreateAgentSpaceInputTypeDef(BaseValidatorModel):
-    name: str
-    description: Optional[str] = None
-    locale: Optional[str] = None
-    kmsKeyArn: Optional[str] = None
-    clientToken: Optional[str] = None
+    name: Annotated[str, _aws_pattern("DevopsAgent", "AgentSpaceName")]
+    description: Optional[Annotated[str, _aws_pattern("DevopsAgent", "Description")]] = None
+    locale: Optional[Annotated[str, _aws_pattern("DevopsAgent", "Locale")]] = None
+    kmsKeyArn: Optional[Annotated[str, _aws_pattern("DevopsAgent", "KmsKeyArn")]] = None
+    clientToken: Optional[Annotated[str, _aws_pattern("DevopsAgent", "CreateAgentSpaceInputClientTokenString")]] = None
     tags: Optional[Dict[str, str]] = None
 
 
 class ReferenceInputTypeDef(BaseValidatorModel):
     system: str
-    referenceId: str
+    referenceId: Annotated[str, _aws_pattern("DevopsAgent", "ResourceId")]
     referenceUrl: str
-    associationId: str
+    associationId: Annotated[str, _aws_pattern("DevopsAgent", "ResourceId")]
     title: Optional[str] = None
 
 
 # This class is the input for the 'create_chat' function.
 class CreateChatRequestTypeDef(BaseValidatorModel):
-    agentSpaceId: str
-    userId: Optional[str] = None
+    agentSpaceId: Annotated[str, _aws_pattern("DevopsAgent", "AgentSpaceId")]
+    userId: Optional[Annotated[str, _aws_pattern("DevopsAgent", "ResourceId")]] = None
     userType: Optional[UserTypeType] = None
 
 
 class MCPServerAuthorizationDiscoveryConfigTypeDef(BaseValidatorModel):
-    returnToEndpoint: str
+    returnToEndpoint: Annotated[
+        str, _aws_pattern("DevopsAgent", "MCPServerAuthorizationDiscoveryConfigReturnToEndpointString")
+    ]
 
 
 class DeleteAgentSpaceInputTypeDef(BaseValidatorModel):
-    agentSpaceId: str
+    agentSpaceId: Annotated[str, _aws_pattern("DevopsAgent", "AgentSpaceId")]
 
 
 # This class is the input for the 'delete_private_connection' function.
 class DeletePrivateConnectionInputTypeDef(BaseValidatorModel):
-    name: str
+    name: Annotated[str, _aws_pattern("DevopsAgent", "PrivateConnectionName")]
 
 
 class DeregisterServiceInputTypeDef(BaseValidatorModel):
-    serviceId: str
+    serviceId: Annotated[str, _aws_pattern("DevopsAgent", "ServiceId")]
 
 
 # This class is the input for the 'describe_private_connection' function.
 class DescribePrivateConnectionInputTypeDef(BaseValidatorModel):
-    name: str
+    name: Annotated[str, _aws_pattern("DevopsAgent", "PrivateConnectionName")]
 
 
 # This class is the input for the 'disable_operator_app' function.
 class DisableOperatorAppInputTypeDef(BaseValidatorModel):
-    agentSpaceId: str
+    agentSpaceId: Annotated[str, _aws_pattern("DevopsAgent", "AgentSpaceId")]
     authFlow: Optional[AuthFlowType] = None
 
 
 class DisassociateServiceInputTypeDef(BaseValidatorModel):
-    agentSpaceId: str
-    associationId: str
+    agentSpaceId: Annotated[str, _aws_pattern("DevopsAgent", "AgentSpaceId")]
+    associationId: Annotated[str, _aws_pattern("DevopsAgent", "AssociationId")]
 
 
 class DynatraceConfigurationOutputTypeDef(BaseValidatorModel):
@@ -220,17 +224,19 @@ class DynatraceConfigurationTypeDef(BaseValidatorModel):
 
 
 class DynatraceOAuthClientCredentialsConfigTypeDef(BaseValidatorModel):
-    clientId: str
-    clientSecret: str
-    clientName: Optional[str] = None
+    clientId: Annotated[str, _aws_pattern("DevopsAgent", "ClientId")]
+    clientSecret: Annotated[str, _aws_pattern("DevopsAgent", "ClientSecret")]
+    clientName: Optional[
+        Annotated[str, _aws_pattern("DevopsAgent", "DynatraceOAuthClientCredentialsConfigClientNameString")]
+    ] = None
     exchangeParameters: Optional[Dict[str, str]] = None
 
 
 # This class is the input for the 'enable_operator_app' function.
 class EnableOperatorAppInputTypeDef(BaseValidatorModel):
-    agentSpaceId: str
+    agentSpaceId: Annotated[str, _aws_pattern("DevopsAgent", "AgentSpaceId")]
     authFlow: AuthFlowType
-    operatorAppRoleArn: str
+    operatorAppRoleArn: Annotated[str, _aws_pattern("DevopsAgent", "RoleArn")]
     idcInstanceArn: Optional[str] = None
     issuerUrl: Optional[str] = None
     idpClientId: Optional[str] = None
@@ -284,36 +290,36 @@ class UsageMetricTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'get_agent_space' function.
 class GetAgentSpaceInputTypeDef(BaseValidatorModel):
-    agentSpaceId: str
+    agentSpaceId: Annotated[str, _aws_pattern("DevopsAgent", "AgentSpaceId")]
 
 
 # This class is the input for the 'get_association' function.
 class GetAssociationInputTypeDef(BaseValidatorModel):
-    agentSpaceId: str
-    associationId: str
+    agentSpaceId: Annotated[str, _aws_pattern("DevopsAgent", "AgentSpaceId")]
+    associationId: Annotated[str, _aws_pattern("DevopsAgent", "AssociationId")]
 
 
 # This class is the input for the 'get_backlog_task' function.
 class GetBacklogTaskRequestTypeDef(BaseValidatorModel):
-    agentSpaceId: str
-    taskId: str
+    agentSpaceId: Annotated[str, _aws_pattern("DevopsAgent", "AgentSpaceId")]
+    taskId: Annotated[str, _aws_pattern("DevopsAgent", "ResourceId")]
 
 
 # This class is the input for the 'get_operator_app' function.
 class GetOperatorAppInputTypeDef(BaseValidatorModel):
-    agentSpaceId: str
+    agentSpaceId: Annotated[str, _aws_pattern("DevopsAgent", "AgentSpaceId")]
 
 
 # This class is the input for the 'get_recommendation' function.
 class GetRecommendationRequestTypeDef(BaseValidatorModel):
-    agentSpaceId: str
-    recommendationId: str
+    agentSpaceId: Annotated[str, _aws_pattern("DevopsAgent", "AgentSpaceId")]
+    recommendationId: Annotated[str, _aws_pattern("DevopsAgent", "ResourceId")]
     recommendationVersion: Optional[int] = None
 
 
 # This class is the input for the 'get_service' function.
 class GetServiceInputTypeDef(BaseValidatorModel):
-    serviceId: str
+    serviceId: Annotated[str, _aws_pattern("DevopsAgent", "ServiceId")]
 
 
 class GitHubConfigurationTypeDef(BaseValidatorModel):
@@ -331,9 +337,9 @@ class GitLabConfigurationTypeDef(BaseValidatorModel):
 
 
 class GitLabDetailsTypeDef(BaseValidatorModel):
-    targetUrl: str
+    targetUrl: Annotated[str, _aws_pattern("DevopsAgent", "GitLabDetailsTargetUrlString")]
     tokenType: GitLabTokenTypeType
-    tokenValue: str
+    tokenValue: Annotated[str, _aws_pattern("DevopsAgent", "GitLabDetailsTokenValueString")]
     groupId: Optional[str] = None
 
 
@@ -370,31 +376,33 @@ class ListAgentSpacesInputTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'list_associations' function.
 class ListAssociationsInputTypeDef(BaseValidatorModel):
-    agentSpaceId: str
+    agentSpaceId: Annotated[str, _aws_pattern("DevopsAgent", "AgentSpaceId")]
     maxResults: Optional[int] = None
     nextToken: Optional[str] = None
-    filterServiceTypes: Optional[str] = None
+    filterServiceTypes: Optional[
+        Annotated[str, _aws_pattern("DevopsAgent", "ListAssociationsInputFilterServiceTypesString")]
+    ] = None
 
 
 # This class is the input for the 'list_chats' function.
 class ListChatsRequestTypeDef(BaseValidatorModel):
-    agentSpaceId: str
-    userId: Optional[str] = None
+    agentSpaceId: Annotated[str, _aws_pattern("DevopsAgent", "AgentSpaceId")]
+    userId: Optional[Annotated[str, _aws_pattern("DevopsAgent", "ResourceId")]] = None
     maxResults: Optional[int] = None
     nextToken: Optional[str] = None
 
 
 # This class is the input for the 'list_executions' function.
 class ListExecutionsRequestTypeDef(BaseValidatorModel):
-    agentSpaceId: str
-    taskId: str
+    agentSpaceId: Annotated[str, _aws_pattern("DevopsAgent", "AgentSpaceId")]
+    taskId: Annotated[str, _aws_pattern("DevopsAgent", "ResourceId")]
     limit: Optional[int] = None
     nextToken: Optional[str] = None
 
 
 # This class is the input for the 'list_goals' function.
 class ListGoalsRequestTypeDef(BaseValidatorModel):
-    agentSpaceId: str
+    agentSpaceId: Annotated[str, _aws_pattern("DevopsAgent", "AgentSpaceId")]
     status: Optional[GoalStatusType] = None
     goalType: Optional[GoalTypeType] = None
     limit: Optional[int] = None
@@ -403,8 +411,8 @@ class ListGoalsRequestTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'list_journal_records' function.
 class ListJournalRecordsRequestTypeDef(BaseValidatorModel):
-    agentSpaceId: str
-    executionId: str
+    agentSpaceId: Annotated[str, _aws_pattern("DevopsAgent", "AgentSpaceId")]
+    executionId: Annotated[str, _aws_pattern("DevopsAgent", "ResourceId")]
     limit: Optional[int] = None
     nextToken: Optional[str] = None
     recordType: Optional[str] = None
@@ -413,26 +421,26 @@ class ListJournalRecordsRequestTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'list_pending_messages' function.
 class ListPendingMessagesRequestTypeDef(BaseValidatorModel):
-    agentSpaceId: str
-    executionId: str
+    agentSpaceId: Annotated[str, _aws_pattern("DevopsAgent", "AgentSpaceId")]
+    executionId: Annotated[str, _aws_pattern("DevopsAgent", "ResourceId")]
 
 
 class PrivateConnectionSummaryTypeDef(BaseValidatorModel):
-    name: str
+    name: Annotated[str, _aws_pattern("DevopsAgent", "PrivateConnectionName")]
     type: PrivateConnectionTypeType
     status: PrivateConnectionStatusType
-    resourceGatewayId: Optional[str] = None
-    hostAddress: Optional[str] = None
-    vpcId: Optional[str] = None
-    resourceConfigurationId: Optional[str] = None
+    resourceGatewayId: Optional[Annotated[str, _aws_pattern("DevopsAgent", "ResourceGatewayArn")]] = None
+    hostAddress: Optional[Annotated[str, _aws_pattern("DevopsAgent", "IpAddressOrDnsName")]] = None
+    vpcId: Optional[Annotated[str, _aws_pattern("DevopsAgent", "VpcId")]] = None
+    resourceConfigurationId: Optional[Annotated[str, _aws_pattern("DevopsAgent", "ResourceConfigurationArn")]] = None
     certificateExpiryTime: Optional[datetime] = None
 
 
 # This class is the input for the 'list_recommendations' function.
 class ListRecommendationsRequestTypeDef(BaseValidatorModel):
-    agentSpaceId: str
-    taskId: Optional[str] = None
-    goalId: Optional[str] = None
+    agentSpaceId: Annotated[str, _aws_pattern("DevopsAgent", "AgentSpaceId")]
+    taskId: Optional[Annotated[str, _aws_pattern("DevopsAgent", "ResourceId")]] = None
+    goalId: Optional[Annotated[str, _aws_pattern("DevopsAgent", "ResourceId")]] = None
     status: Optional[RecommendationStatusType] = None
     priority: Optional[RecommendationPriorityType] = None
     limit: Optional[int] = None
@@ -448,50 +456,54 @@ class ListServicesInputTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'list_tags_for_resource' function.
 class ListTagsForResourceRequestTypeDef(BaseValidatorModel):
-    resourceArn: str
+    resourceArn: Annotated[str, _aws_pattern("DevopsAgent", "ListTagsForResourceRequestResourceArnString")]
 
 
 # This class is the input for the 'list_webhooks' function.
 class ListWebhooksInputTypeDef(BaseValidatorModel):
-    agentSpaceId: str
-    associationId: str
+    agentSpaceId: Annotated[str, _aws_pattern("DevopsAgent", "AgentSpaceId")]
+    associationId: Annotated[str, _aws_pattern("DevopsAgent", "AssociationId")]
 
 
 class WebhookTypeDef(BaseValidatorModel):
-    webhookUrl: str
+    webhookUrl: Annotated[str, _aws_pattern("DevopsAgent", "WebhookWebhookUrlString")]
     webhookId: str
     webhookType: Optional[WebhookTypeType] = None
 
 
 class MCPServerAPIKeyConfigTypeDef(BaseValidatorModel):
-    apiKeyName: str
-    apiKeyValue: str
-    apiKeyHeader: str
+    apiKeyName: Annotated[str, _aws_pattern("DevopsAgent", "MCPServerAPIKeyConfigApiKeyNameString")]
+    apiKeyValue: Annotated[str, _aws_pattern("DevopsAgent", "MCPServerAPIKeyConfigApiKeyValueString")]
+    apiKeyHeader: Annotated[str, _aws_pattern("DevopsAgent", "MCPServerAPIKeyConfigApiKeyHeaderString")]
 
 
 class MCPServerBearerTokenConfigTypeDef(BaseValidatorModel):
-    tokenName: str
-    tokenValue: str
-    authorizationHeader: Optional[str] = None
+    tokenName: Annotated[str, _aws_pattern("DevopsAgent", "MCPServerBearerTokenConfigTokenNameString")]
+    tokenValue: Annotated[str, _aws_pattern("DevopsAgent", "MCPServerBearerTokenConfigTokenValueString")]
+    authorizationHeader: Optional[
+        Annotated[str, _aws_pattern("DevopsAgent", "MCPServerBearerTokenConfigAuthorizationHeaderString")]
+    ] = None
 
 
 class MCPServerOAuth3LOConfigTypeDef(BaseValidatorModel):
-    clientId: str
-    returnToEndpoint: str
-    authorizationUrl: str
-    exchangeUrl: str
-    clientName: Optional[str] = None
+    clientId: Annotated[str, _aws_pattern("DevopsAgent", "ClientId")]
+    returnToEndpoint: Annotated[str, _aws_pattern("DevopsAgent", "MCPServerOAuth3LOConfigReturnToEndpointString")]
+    authorizationUrl: Annotated[str, _aws_pattern("DevopsAgent", "MCPServerOAuth3LOConfigAuthorizationUrlString")]
+    exchangeUrl: Annotated[str, _aws_pattern("DevopsAgent", "MCPServerOAuth3LOConfigExchangeUrlString")]
+    clientName: Optional[Annotated[str, _aws_pattern("DevopsAgent", "MCPServerOAuth3LOConfigClientNameString")]] = None
     exchangeParameters: Optional[Dict[str, str]] = None
-    clientSecret: Optional[str] = None
+    clientSecret: Optional[Annotated[str, _aws_pattern("DevopsAgent", "ClientSecret")]] = None
     supportCodeChallenge: Optional[bool] = None
     scopes: Optional[List[str]] = None
 
 
 class MCPServerOAuthClientCredentialsConfigTypeDef(BaseValidatorModel):
-    clientId: str
-    clientSecret: str
-    exchangeUrl: str
-    clientName: Optional[str] = None
+    clientId: Annotated[str, _aws_pattern("DevopsAgent", "ClientId")]
+    clientSecret: Annotated[str, _aws_pattern("DevopsAgent", "ClientSecret")]
+    exchangeUrl: Annotated[str, _aws_pattern("DevopsAgent", "MCPServerOAuthClientCredentialsConfigExchangeUrlString")]
+    clientName: Optional[
+        Annotated[str, _aws_pattern("DevopsAgent", "MCPServerOAuthClientCredentialsConfigClientNameString")]
+    ] = None
     exchangeParameters: Optional[Dict[str, str]] = None
     scopes: Optional[List[str]] = None
 
@@ -501,7 +513,7 @@ class MCPServerConfigurationOutputTypeDef(BaseValidatorModel):
 
 
 class MCPServerConfigurationTypeDef(BaseValidatorModel):
-    tools: List[str]
+    tools: List[Annotated[str, _aws_pattern("DevopsAgent", "MCPToolsListMemberString")]]
 
 
 class MCPServerGrafanaConfigurationOutputTypeDef(BaseValidatorModel):
@@ -511,14 +523,16 @@ class MCPServerGrafanaConfigurationOutputTypeDef(BaseValidatorModel):
 
 
 class MCPServerGrafanaConfigurationTypeDef(BaseValidatorModel):
-    endpoint: str
-    organizationId: Optional[str] = None
-    tools: Optional[List[str]] = None
+    endpoint: Annotated[str, _aws_pattern("DevopsAgent", "MCPServerGrafanaConfigurationEndpointString")]
+    organizationId: Optional[
+        Annotated[str, _aws_pattern("DevopsAgent", "MCPServerGrafanaConfigurationOrganizationIdString")]
+    ] = None
+    tools: Optional[List[Annotated[str, _aws_pattern("DevopsAgent", "MCPToolsListMemberString")]]] = None
 
 
 class MCPServerNewRelicConfigurationTypeDef(BaseValidatorModel):
-    accountId: str
-    endpoint: str
+    accountId: Annotated[str, _aws_pattern("DevopsAgent", "MCPServerNewRelicConfigurationAccountIdString")]
+    endpoint: Annotated[str, _aws_pattern("DevopsAgent", "MCPServerNewRelicConfigurationEndpointString")]
 
 
 class UserMessageBlockTypeDef(BaseValidatorModel):
@@ -527,18 +541,24 @@ class UserMessageBlockTypeDef(BaseValidatorModel):
 
 
 class NewRelicApiKeyConfigTypeDef(BaseValidatorModel):
-    apiKey: str
-    accountId: str
+    apiKey: Annotated[str, _aws_pattern("DevopsAgent", "NewRelicApiKeyConfigApiKeyString")]
+    accountId: Annotated[str, _aws_pattern("DevopsAgent", "NewRelicApiKeyConfigAccountIdString")]
     region: NewRelicRegionType
-    applicationIds: Optional[List[str]] = None
-    entityGuids: Optional[List[str]] = None
-    alertPolicyIds: Optional[List[str]] = None
+    applicationIds: Optional[
+        List[Annotated[str, _aws_pattern("DevopsAgent", "NewRelicApplicationIdsMemberString")]]
+    ] = None
+    entityGuids: Optional[List[Annotated[str, _aws_pattern("DevopsAgent", "NewRelicEntityGuidsMemberString")]]] = None
+    alertPolicyIds: Optional[
+        List[Annotated[str, _aws_pattern("DevopsAgent", "NewRelicAlertPolicyIdsMemberString")]]
+    ] = None
 
 
 class PagerDutyOAuthClientCredentialsConfigTypeDef(BaseValidatorModel):
-    clientId: str
-    clientSecret: str
-    clientName: Optional[str] = None
+    clientId: Annotated[str, _aws_pattern("DevopsAgent", "ClientId")]
+    clientSecret: Annotated[str, _aws_pattern("DevopsAgent", "ClientSecret")]
+    clientName: Optional[
+        Annotated[str, _aws_pattern("DevopsAgent", "PagerDutyOAuthClientCredentialsConfigClientNameString")]
+    ] = None
     exchangeParameters: Optional[Dict[str, str]] = None
 
 
@@ -549,22 +569,22 @@ class PagerDutyConfigurationOutputTypeDef(BaseValidatorModel):
 
 class PagerDutyConfigurationTypeDef(BaseValidatorModel):
     services: List[str]
-    customerEmail: str
+    customerEmail: Annotated[str, _aws_pattern("DevopsAgent", "EmailAddress")]
 
 
 class SelfManagedInputTypeDef(BaseValidatorModel):
-    resourceConfigurationId: str
+    resourceConfigurationId: Annotated[str, _aws_pattern("DevopsAgent", "ResourceConfigurationArn")]
     certificate: Optional[str] = None
 
 
 class ServiceManagedInputTypeDef(BaseValidatorModel):
-    hostAddress: str
-    vpcId: str
-    subnetIds: List[str]
-    securityGroupIds: Optional[List[str]] = None
+    hostAddress: Annotated[str, _aws_pattern("DevopsAgent", "IpAddressOrDnsName")]
+    vpcId: Annotated[str, _aws_pattern("DevopsAgent", "VpcId")]
+    subnetIds: List[Annotated[str, _aws_pattern("DevopsAgent", "SubnetId")]]
+    securityGroupIds: Optional[List[Annotated[str, _aws_pattern("DevopsAgent", "SecurityGroupId")]]] = None
     ipAddressType: Optional[IpAddressTypeType] = None
     ipv4AddressesPerEni: Optional[int] = None
-    portRanges: Optional[List[str]] = None
+    portRanges: Optional[List[Annotated[str, _aws_pattern("DevopsAgent", "PortRange")]]] = None
     certificate: Optional[str] = None
 
 
@@ -582,9 +602,9 @@ class ReferenceOutputTypeDef(BaseValidatorModel):
 
 
 class RegisteredAzureIdentityDetailsTypeDef(BaseValidatorModel):
-    tenantId: str
-    clientId: str
-    webIdentityRoleArn: str
+    tenantId: Annotated[str, _aws_pattern("DevopsAgent", "Guid")]
+    clientId: Annotated[str, _aws_pattern("DevopsAgent", "Guid")]
+    webIdentityRoleArn: Annotated[str, _aws_pattern("DevopsAgent", "RoleArn")]
     webIdentityTokenAudiences: List[str]
 
 
@@ -652,9 +672,9 @@ class ServiceNowConfigurationOutputTypeDef(BaseValidatorModel):
 
 
 class SourceAwsConfigurationTypeDef(BaseValidatorModel):
-    accountId: str
+    accountId: Annotated[str, _aws_pattern("DevopsAgent", "SourceAwsConfigurationAccountIdString")]
     accountType: Literal["source"]
-    assumableRoleArn: str
+    assumableRoleArn: Annotated[str, _aws_pattern("DevopsAgent", "RoleArn")]
     externalId: Optional[str] = None
 
 
@@ -664,19 +684,21 @@ class ServiceNowConfigurationTypeDef(BaseValidatorModel):
 
 
 class ServiceNowOAuthClientCredentialsConfigTypeDef(BaseValidatorModel):
-    clientId: str
-    clientSecret: str
-    clientName: Optional[str] = None
+    clientId: Annotated[str, _aws_pattern("DevopsAgent", "ClientId")]
+    clientSecret: Annotated[str, _aws_pattern("DevopsAgent", "ClientSecret")]
+    clientName: Optional[
+        Annotated[str, _aws_pattern("DevopsAgent", "ServiceNowOAuthClientCredentialsConfigClientNameString")]
+    ] = None
     exchangeParameters: Optional[Dict[str, str]] = None
 
 
 class SlackChannelTypeDef(BaseValidatorModel):
-    channelId: str
+    channelId: Annotated[str, _aws_pattern("DevopsAgent", "SlackChannelChannelIdString")]
     channelName: Optional[str] = None
 
 
 class TagResourceRequestTypeDef(BaseValidatorModel):
-    resourceArn: str
+    resourceArn: Annotated[str, _aws_pattern("DevopsAgent", "TagResourceRequestResourceArnString")]
     tags: Dict[str, str]
 
 
@@ -684,49 +706,49 @@ TimestampTypeDef = Union[datetime, str]
 
 
 class UntagResourceRequestTypeDef(BaseValidatorModel):
-    resourceArn: str
-    tagKeys: List[str]
+    resourceArn: Annotated[str, _aws_pattern("DevopsAgent", "UntagResourceRequestResourceArnString")]
+    tagKeys: List[Annotated[str, _aws_pattern("DevopsAgent", "TagKey")]]
 
 
 # This class is the input for the 'update_agent_space' function.
 class UpdateAgentSpaceInputTypeDef(BaseValidatorModel):
-    agentSpaceId: str
-    name: Optional[str] = None
-    description: Optional[str] = None
-    locale: Optional[str] = None
+    agentSpaceId: Annotated[str, _aws_pattern("DevopsAgent", "AgentSpaceId")]
+    name: Optional[Annotated[str, _aws_pattern("DevopsAgent", "AgentSpaceName")]] = None
+    description: Optional[Annotated[str, _aws_pattern("DevopsAgent", "Description")]] = None
+    locale: Optional[Annotated[str, _aws_pattern("DevopsAgent", "Locale")]] = None
 
 
 # This class is the input for the 'update_backlog_task' function.
 class UpdateBacklogTaskRequestTypeDef(BaseValidatorModel):
-    agentSpaceId: str
-    taskId: str
+    agentSpaceId: Annotated[str, _aws_pattern("DevopsAgent", "AgentSpaceId")]
+    taskId: Annotated[str, _aws_pattern("DevopsAgent", "ResourceId")]
     taskStatus: Optional[TaskStatusType] = None
     clientToken: Optional[str] = None
 
 
 # This class is the input for the 'update_operator_app_idp_config' function.
 class UpdateOperatorAppIdpConfigInputTypeDef(BaseValidatorModel):
-    agentSpaceId: str
+    agentSpaceId: Annotated[str, _aws_pattern("DevopsAgent", "AgentSpaceId")]
     idpClientSecret: Optional[str] = None
 
 
 # This class is the input for the 'update_private_connection_certificate' function.
 class UpdatePrivateConnectionCertificateInputTypeDef(BaseValidatorModel):
-    name: str
+    name: Annotated[str, _aws_pattern("DevopsAgent", "PrivateConnectionName")]
     certificate: str
 
 
 # This class is the input for the 'update_recommendation' function.
 class UpdateRecommendationRequestTypeDef(BaseValidatorModel):
-    agentSpaceId: str
-    recommendationId: str
+    agentSpaceId: Annotated[str, _aws_pattern("DevopsAgent", "AgentSpaceId")]
+    recommendationId: Annotated[str, _aws_pattern("DevopsAgent", "ResourceId")]
     status: Optional[RecommendationStatusType] = None
     additionalContext: Optional[str] = None
     clientToken: Optional[str] = None
 
 
 class ValidateAwsAssociationsInputTypeDef(BaseValidatorModel):
-    agentSpaceId: str
+    agentSpaceId: Annotated[str, _aws_pattern("DevopsAgent", "AgentSpaceId")]
 
 
 class AdditionalServiceDetailsTypeDef(BaseValidatorModel):
@@ -757,19 +779,19 @@ class CreateAgentSpaceOutputTypeDef(BaseValidatorModel):
 
 # This class is the output for the 'create_chat' function.
 class CreateChatResponseTypeDef(BaseValidatorModel):
-    executionId: str
+    executionId: Annotated[str, _aws_pattern("DevopsAgent", "ResourceId")]
     createdAt: datetime
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 # This class is the output for the 'create_private_connection' function.
 class CreatePrivateConnectionOutputTypeDef(BaseValidatorModel):
-    name: str
+    name: Annotated[str, _aws_pattern("DevopsAgent", "PrivateConnectionName")]
     type: PrivateConnectionTypeType
-    resourceGatewayId: str
-    hostAddress: str
-    vpcId: str
-    resourceConfigurationId: str
+    resourceGatewayId: Annotated[str, _aws_pattern("DevopsAgent", "ResourceGatewayArn")]
+    hostAddress: Annotated[str, _aws_pattern("DevopsAgent", "IpAddressOrDnsName")]
+    vpcId: Annotated[str, _aws_pattern("DevopsAgent", "VpcId")]
+    resourceConfigurationId: Annotated[str, _aws_pattern("DevopsAgent", "ResourceConfigurationArn")]
     status: PrivateConnectionStatusType
     certificateExpiryTime: datetime
     tags: Dict[str, str]
@@ -778,19 +800,19 @@ class CreatePrivateConnectionOutputTypeDef(BaseValidatorModel):
 
 # This class is the output for the 'delete_private_connection' function.
 class DeletePrivateConnectionOutputTypeDef(BaseValidatorModel):
-    name: str
+    name: Annotated[str, _aws_pattern("DevopsAgent", "PrivateConnectionName")]
     status: PrivateConnectionStatusType
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 # This class is the output for the 'describe_private_connection' function.
 class DescribePrivateConnectionOutputTypeDef(BaseValidatorModel):
-    name: str
+    name: Annotated[str, _aws_pattern("DevopsAgent", "PrivateConnectionName")]
     type: PrivateConnectionTypeType
-    resourceGatewayId: str
-    hostAddress: str
-    vpcId: str
-    resourceConfigurationId: str
+    resourceGatewayId: Annotated[str, _aws_pattern("DevopsAgent", "ResourceGatewayArn")]
+    hostAddress: Annotated[str, _aws_pattern("DevopsAgent", "IpAddressOrDnsName")]
+    vpcId: Annotated[str, _aws_pattern("DevopsAgent", "VpcId")]
+    resourceConfigurationId: Annotated[str, _aws_pattern("DevopsAgent", "ResourceConfigurationArn")]
     status: PrivateConnectionStatusType
     certificateExpiryTime: datetime
     tags: Dict[str, str]
@@ -830,12 +852,12 @@ class UpdateAgentSpaceOutputTypeDef(BaseValidatorModel):
 
 # This class is the output for the 'update_private_connection_certificate' function.
 class UpdatePrivateConnectionCertificateOutputTypeDef(BaseValidatorModel):
-    name: str
+    name: Annotated[str, _aws_pattern("DevopsAgent", "PrivateConnectionName")]
     type: PrivateConnectionTypeType
-    resourceGatewayId: str
-    hostAddress: str
-    vpcId: str
-    resourceConfigurationId: str
+    resourceGatewayId: Annotated[str, _aws_pattern("DevopsAgent", "ResourceGatewayArn")]
+    hostAddress: Annotated[str, _aws_pattern("DevopsAgent", "IpAddressOrDnsName")]
+    vpcId: Annotated[str, _aws_pattern("DevopsAgent", "VpcId")]
+    resourceConfigurationId: Annotated[str, _aws_pattern("DevopsAgent", "ResourceConfigurationArn")]
     status: PrivateConnectionStatusType
     certificateExpiryTime: datetime
     ResponseMetadata: ResponseMetadataTypeDef
@@ -850,7 +872,7 @@ class ListChatsResponseTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'create_backlog_task' function.
 class CreateBacklogTaskRequestTypeDef(BaseValidatorModel):
-    agentSpaceId: str
+    agentSpaceId: Annotated[str, _aws_pattern("DevopsAgent", "AgentSpaceId")]
     taskType: TaskTypeType
     title: str
     priority: PriorityType
@@ -869,7 +891,7 @@ class DynatraceServiceAuthorizationConfigTypeDef(BaseValidatorModel):
 
 # This class is the output for the 'enable_operator_app' function.
 class EnableOperatorAppOutputTypeDef(BaseValidatorModel):
-    agentSpaceId: str
+    agentSpaceId: Annotated[str, _aws_pattern("DevopsAgent", "AgentSpaceId")]
     iam: IamAuthConfigurationTypeDef
     idc: IdcAuthConfigurationTypeDef
     idp: IdpAuthConfigurationTypeDef
@@ -886,7 +908,7 @@ class GetOperatorAppOutputTypeDef(BaseValidatorModel):
 
 # This class is the output for the 'update_operator_app_idp_config' function.
 class UpdateOperatorAppIdpConfigOutputTypeDef(BaseValidatorModel):
-    agentSpaceId: str
+    agentSpaceId: Annotated[str, _aws_pattern("DevopsAgent", "AgentSpaceId")]
     idp: IdpAuthConfigurationTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
@@ -910,7 +932,7 @@ class GetAccountUsageOutputTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'update_goal' function.
 class UpdateGoalRequestTypeDef(BaseValidatorModel):
-    agentSpaceId: str
+    agentSpaceId: Annotated[str, _aws_pattern("DevopsAgent", "AgentSpaceId")]
     goalId: str
     evaluationSchedule: Optional[GoalScheduleInputTypeDef] = None
     clientToken: Optional[str] = None
@@ -1063,11 +1085,11 @@ class SendMessageContentBlockDeltaTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'send_message' function.
 class SendMessageRequestTypeDef(BaseValidatorModel):
-    agentSpaceId: str
-    executionId: str
+    agentSpaceId: Annotated[str, _aws_pattern("DevopsAgent", "AgentSpaceId")]
+    executionId: Annotated[str, _aws_pattern("DevopsAgent", "ResourceId")]
     content: str
     context: Optional[SendMessageContextTypeDef] = None
-    userId: Optional[str] = None
+    userId: Optional[Annotated[str, _aws_pattern("DevopsAgent", "ResourceId")]] = None
 
 
 class SendMessageResponseCompletedEventTypeDef(BaseValidatorModel):
@@ -1091,37 +1113,37 @@ class TaskFilterTypeDef(BaseValidatorModel):
     priority: Optional[List[PriorityType]] = None
     status: Optional[List[TaskStatusType]] = None
     taskType: Optional[List[TaskTypeType]] = None
-    primaryTaskId: Optional[str] = None
+    primaryTaskId: Optional[Annotated[str, _aws_pattern("DevopsAgent", "ResourceId")]] = None
 
 
 class RegisteredServiceTypeDef(BaseValidatorModel):
-    serviceId: str
+    serviceId: Annotated[str, _aws_pattern("DevopsAgent", "ServiceId")]
     serviceType: ServiceType
-    name: Optional[str] = None
+    name: Optional[Annotated[str, _aws_pattern("DevopsAgent", "ServiceName")]] = None
     accessibleResources: Optional[List[Dict[str, Any]]] = None
     additionalServiceDetails: Optional[AdditionalServiceDetailsTypeDef] = None
-    kmsKeyArn: Optional[str] = None
-    privateConnectionName: Optional[str] = None
+    kmsKeyArn: Optional[Annotated[str, _aws_pattern("DevopsAgent", "KmsKeyArn")]] = None
+    privateConnectionName: Optional[Annotated[str, _aws_pattern("DevopsAgent", "PrivateConnectionName")]] = None
 
 
 # This class is the output for the 'register_service' function.
 class RegisterServiceOutputTypeDef(BaseValidatorModel):
-    serviceId: str
+    serviceId: Annotated[str, _aws_pattern("DevopsAgent", "ServiceId")]
     additionalStep: AdditionalServiceRegistrationStepTypeDef
-    kmsKeyArn: str
+    kmsKeyArn: Annotated[str, _aws_pattern("DevopsAgent", "KmsKeyArn")]
     tags: Dict[str, str]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 class DatadogServiceDetailsTypeDef(BaseValidatorModel):
-    name: str
-    endpoint: str
+    name: Annotated[str, _aws_pattern("DevopsAgent", "DatadogServiceDetailsNameString")]
+    endpoint: Annotated[str, _aws_pattern("DevopsAgent", "DatadogServiceDetailsEndpointString")]
     authorizationConfig: DatadogAuthorizationConfigTypeDef
-    description: Optional[str] = None
+    description: Optional[Annotated[str, _aws_pattern("DevopsAgent", "DatadogServiceDetailsDescriptionString")]] = None
 
 
 class DynatraceServiceDetailsTypeDef(BaseValidatorModel):
-    accountUrn: str
+    accountUrn: Annotated[str, _aws_pattern("DevopsAgent", "DynatraceServiceDetailsAccountUrnString")]
     authorizationConfig: Optional[DynatraceServiceAuthorizationConfigTypeDef] = None
 
 
@@ -1146,17 +1168,17 @@ class ListJournalRecordsResponseTypeDef(BaseValidatorModel):
 
 
 class GrafanaServiceDetailsTypeDef(BaseValidatorModel):
-    name: str
-    endpoint: str
+    name: Annotated[str, _aws_pattern("DevopsAgent", "GrafanaServiceDetailsNameString")]
+    endpoint: Annotated[str, _aws_pattern("DevopsAgent", "GrafanaServiceDetailsEndpointString")]
     authorizationConfig: MCPServerAuthorizationConfigTypeDef
-    description: Optional[str] = None
+    description: Optional[Annotated[str, _aws_pattern("DevopsAgent", "GrafanaServiceDetailsDescriptionString")]] = None
 
 
 class MCPServerDetailsTypeDef(BaseValidatorModel):
-    name: str
-    endpoint: str
+    name: Annotated[str, _aws_pattern("DevopsAgent", "MCPServerDetailsNameString")]
+    endpoint: Annotated[str, _aws_pattern("DevopsAgent", "MCPServerDetailsEndpointString")]
     authorizationConfig: MCPServerAuthorizationConfigTypeDef
-    description: Optional[str] = None
+    description: Optional[Annotated[str, _aws_pattern("DevopsAgent", "MCPServerDetailsDescriptionString")]] = None
 
 
 class PendingMessageTypeDef(BaseValidatorModel):
@@ -1175,7 +1197,7 @@ class PagerDutyDetailsTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'create_private_connection' function.
 class CreatePrivateConnectionInputTypeDef(BaseValidatorModel):
-    name: str
+    name: Annotated[str, _aws_pattern("DevopsAgent", "PrivateConnectionName")]
     mode: PrivateConnectionModeTypeDef
     tags: Optional[Dict[str, str]] = None
 
@@ -1231,12 +1253,12 @@ class SendMessageContentBlockDeltaEventTypeDef(BaseValidatorModel):
 
 
 class ServiceNowServiceDetailsTypeDef(BaseValidatorModel):
-    instanceUrl: str
+    instanceUrl: Annotated[str, _aws_pattern("DevopsAgent", "ServiceNowInstanceUrl")]
     authorizationConfig: Optional[ServiceNowServiceAuthorizationConfigTypeDef] = None
 
 
 class SlackConfigurationTypeDef(BaseValidatorModel):
-    workspaceId: str
+    workspaceId: Annotated[str, _aws_pattern("DevopsAgent", "SlackConfigurationWorkspaceIdString")]
     workspaceName: str
     transmissionTarget: SlackTransmissionTargetTypeDef
 
@@ -1251,7 +1273,7 @@ class ListBacklogTasksRequestPaginateTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'list_backlog_tasks' function.
 class ListBacklogTasksRequestTypeDef(BaseValidatorModel):
-    agentSpaceId: str
+    agentSpaceId: Annotated[str, _aws_pattern("DevopsAgent", "AgentSpaceId")]
     filter: Optional[TaskFilterTypeDef] = None
     limit: Optional[int] = None
     nextToken: Optional[str] = None
@@ -1275,7 +1297,7 @@ class ListServicesOutputTypeDef(BaseValidatorModel):
 
 # This class is the output for the 'list_pending_messages' function.
 class ListPendingMessagesResponseTypeDef(BaseValidatorModel):
-    agentSpaceId: str
+    agentSpaceId: Annotated[str, _aws_pattern("DevopsAgent", "AgentSpaceId")]
     executionId: str
     messages: List[PendingMessageTypeDef]
     createdAt: datetime
@@ -1355,18 +1377,18 @@ class SendMessageResponseTypeDef(EventStream[SendMessageEventsTypeDef]):
 class RegisterServiceInputTypeDef(BaseValidatorModel):
     service: PostRegisterServiceSupportedServiceType
     serviceDetails: ServiceDetailsTypeDef
-    kmsKeyArn: Optional[str] = None
-    privateConnectionName: Optional[str] = None
-    name: Optional[str] = None
+    kmsKeyArn: Optional[Annotated[str, _aws_pattern("DevopsAgent", "KmsKeyArn")]] = None
+    privateConnectionName: Optional[Annotated[str, _aws_pattern("DevopsAgent", "PrivateConnectionName")]] = None
+    name: Optional[Annotated[str, _aws_pattern("DevopsAgent", "ServiceName")]] = None
     tags: Optional[Dict[str, str]] = None
 
 
 class AssociationTypeDef(BaseValidatorModel):
-    agentSpaceId: str
+    agentSpaceId: Annotated[str, _aws_pattern("DevopsAgent", "AgentSpaceId")]
     createdAt: datetime
     updatedAt: datetime
-    associationId: str
-    serviceId: str
+    associationId: Annotated[str, _aws_pattern("DevopsAgent", "AssociationId")]
+    serviceId: Annotated[str, _aws_pattern("DevopsAgent", "ServiceId")]
     configuration: ServiceConfigurationOutputTypeDef
     status: Optional[ValidationStatusType] = None
 
@@ -1403,13 +1425,13 @@ class UpdateAssociationOutputTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'associate_service' function.
 class AssociateServiceInputTypeDef(BaseValidatorModel):
-    agentSpaceId: str
-    serviceId: str
+    agentSpaceId: Annotated[str, _aws_pattern("DevopsAgent", "AgentSpaceId")]
+    serviceId: Annotated[str, _aws_pattern("DevopsAgent", "ServiceId")]
     configuration: ServiceConfigurationUnionTypeDef
 
 
 # This class is the input for the 'update_association' function.
 class UpdateAssociationInputTypeDef(BaseValidatorModel):
-    agentSpaceId: str
-    associationId: str
+    agentSpaceId: Annotated[str, _aws_pattern("DevopsAgent", "AgentSpaceId")]
+    associationId: Annotated[str, _aws_pattern("DevopsAgent", "AssociationId")]
     configuration: ServiceConfigurationUnionTypeDef

@@ -3,6 +3,7 @@
 from datetime import datetime
 from decimal import Decimal
 from typing import (
+    Annotated,
     Any,
     Callable,
     Dict,
@@ -24,6 +25,7 @@ from botocore.response import StreamingBody
 from pydantic import Field
 
 from aws_resource_validator.core.base_validator_model import BaseValidatorModel, EventStream
+from aws_resource_validator.core.pattern_validation import aws_field_pattern as _aws_pattern
 from aws_resource_validator.pydantic_models.codebuild.codebuild_constants import *  # noqa: F401,F403
 
 # Optional boto3 symbols — imported lazily so services that don't need them
@@ -224,8 +226,8 @@ class ComputeConfigurationTypeDef(BaseValidatorModel):
 
 
 class TagTypeDef(BaseValidatorModel):
-    key: Optional[str] = None
-    value: Optional[str] = None
+    key: Optional[Annotated[str, _aws_pattern("Codebuild", "KeyInput")]] = None
+    value: Optional[Annotated[str, _aws_pattern("Codebuild", "ValueInput")]] = None
 
 
 class ProjectArtifactsTypeDef(BaseValidatorModel):
@@ -285,7 +287,7 @@ class DeleteSourceCredentialsInputTypeDef(BaseValidatorModel):
 
 
 class DeleteWebhookInputTypeDef(BaseValidatorModel):
-    projectName: str
+    projectName: Annotated[str, _aws_pattern("Codebuild", "ProjectName")]
 
 
 class PaginatorConfigTypeDef(BaseValidatorModel):
@@ -1196,7 +1198,7 @@ class UpdateWebhookOutputTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'create_webhook' function.
 class CreateWebhookInputTypeDef(BaseValidatorModel):
-    projectName: str
+    projectName: Annotated[str, _aws_pattern("Codebuild", "ProjectName")]
     branchFilter: Optional[str] = None
     filterGroups: Optional[List[List[WebhookFilterTypeDef]]] = None
     buildType: Optional[WebhookBuildTypeType] = None
@@ -1207,7 +1209,7 @@ class CreateWebhookInputTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'update_webhook' function.
 class UpdateWebhookInputTypeDef(BaseValidatorModel):
-    projectName: str
+    projectName: Annotated[str, _aws_pattern("Codebuild", "ProjectName")]
     branchFilter: Optional[str] = None
     rotateSecret: Optional[bool] = None
     filterGroups: Optional[List[List[WebhookFilterTypeDef]]] = None
@@ -1258,7 +1260,7 @@ class UpdateReportGroupInputTypeDef(BaseValidatorModel):
 
 class FleetTypeDef(BaseValidatorModel):
     arn: Optional[str] = None
-    name: Optional[str] = None
+    name: Optional[Annotated[str, _aws_pattern("Codebuild", "FleetName")]] = None
     id: Optional[str] = None
     created: Optional[datetime] = None
     lastModified: Optional[datetime] = None
@@ -1382,7 +1384,7 @@ class BuildTypeDef(BaseValidatorModel):
 
 
 class ProjectTypeDef(BaseValidatorModel):
-    name: Optional[str] = None
+    name: Optional[Annotated[str, _aws_pattern("Codebuild", "ProjectName")]] = None
     arn: Optional[str] = None
     description: Optional[str] = None
     source: Optional[ProjectSourceTypeDef] = None
@@ -1423,7 +1425,7 @@ class ListCuratedEnvironmentImagesOutputTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'create_fleet' function.
 class CreateFleetInputTypeDef(BaseValidatorModel):
-    name: str
+    name: Annotated[str, _aws_pattern("Codebuild", "FleetName")]
     baseCapacity: int
     environmentType: EnvironmentTypeType
     computeType: ComputeTypeType
@@ -1612,7 +1614,7 @@ class UpdateProjectOutputTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'create_project' function.
 class CreateProjectInputTypeDef(BaseValidatorModel):
-    name: str
+    name: Annotated[str, _aws_pattern("Codebuild", "ProjectName")]
     source: ProjectSourceTypeDef
     artifacts: ProjectArtifactsTypeDef
     environment: ProjectEnvironmentUnionTypeDef

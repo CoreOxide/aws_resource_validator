@@ -3,6 +3,7 @@
 from datetime import datetime
 from decimal import Decimal
 from typing import (
+    Annotated,
     Any,
     Callable,
     Dict,
@@ -24,6 +25,7 @@ from botocore.response import StreamingBody
 from pydantic import Field
 
 from aws_resource_validator.core.base_validator_model import BaseValidatorModel, EventStream
+from aws_resource_validator.core.pattern_validation import aws_field_pattern as _aws_pattern
 from aws_resource_validator.pydantic_models.mediastore_data.mediastore_data_constants import *  # noqa: F401,F403
 
 # Optional boto3 symbols — imported lazily so services that don't need them
@@ -41,12 +43,12 @@ BlobTypeDef = Union[IO[Any], StreamingBody, bytes, str]
 
 
 class DeleteObjectRequestTypeDef(BaseValidatorModel):
-    Path: str
+    Path: Annotated[str, _aws_pattern("MediastoreData", "PathNaming")]
 
 
 # This class is the input for the 'describe_object' function.
 class DescribeObjectRequestTypeDef(BaseValidatorModel):
-    Path: str
+    Path: Annotated[str, _aws_pattern("MediastoreData", "PathNaming")]
 
 
 class ResponseMetadataTypeDef(BaseValidatorModel):
@@ -59,16 +61,16 @@ class ResponseMetadataTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'get_object' function.
 class GetObjectRequestTypeDef(BaseValidatorModel):
-    Path: str
-    Range: Optional[str] = None
+    Path: Annotated[str, _aws_pattern("MediastoreData", "PathNaming")]
+    Range: Optional[Annotated[str, _aws_pattern("MediastoreData", "RangePattern")]] = None
 
 
 class ItemTypeDef(BaseValidatorModel):
-    Name: Optional[str] = None
+    Name: Optional[Annotated[str, _aws_pattern("MediastoreData", "ItemName")]] = None
     Type: Optional[ItemTypeType] = None
-    ETag: Optional[str] = None
+    ETag: Optional[Annotated[str, _aws_pattern("MediastoreData", "ETag")]] = None
     LastModified: Optional[datetime] = None
-    ContentType: Optional[str] = None
+    ContentType: Optional[Annotated[str, _aws_pattern("MediastoreData", "ContentType")]] = None
     ContentLength: Optional[int] = None
 
 
@@ -80,7 +82,7 @@ class PaginatorConfigTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'list_items' function.
 class ListItemsRequestTypeDef(BaseValidatorModel):
-    Path: Optional[str] = None
+    Path: Optional[Annotated[str, _aws_pattern("MediastoreData", "ListPathNaming")]] = None
     MaxResults: Optional[int] = None
     NextToken: Optional[str] = None
 
@@ -88,8 +90,8 @@ class ListItemsRequestTypeDef(BaseValidatorModel):
 # This class is the input for the 'put_object' function.
 class PutObjectRequestTypeDef(BaseValidatorModel):
     Body: BlobTypeDef
-    Path: str
-    ContentType: Optional[str] = None
+    Path: Annotated[str, _aws_pattern("MediastoreData", "PathNaming")]
+    ContentType: Optional[Annotated[str, _aws_pattern("MediastoreData", "ContentType")]] = None
     CacheControl: Optional[str] = None
     StorageClass: Optional[Literal["TEMPORAL"]] = None
     UploadAvailability: Optional[UploadAvailabilityType] = None
@@ -97,8 +99,8 @@ class PutObjectRequestTypeDef(BaseValidatorModel):
 
 # This class is the output for the 'describe_object' function.
 class DescribeObjectResponseTypeDef(BaseValidatorModel):
-    ETag: str
-    ContentType: str
+    ETag: Annotated[str, _aws_pattern("MediastoreData", "ETag")]
+    ContentType: Annotated[str, _aws_pattern("MediastoreData", "ContentType")]
     ContentLength: int
     CacheControl: str
     LastModified: datetime
@@ -109,10 +111,10 @@ class DescribeObjectResponseTypeDef(BaseValidatorModel):
 class GetObjectResponseTypeDef(BaseValidatorModel):
     Body: StreamingBody
     CacheControl: str
-    ContentRange: str
+    ContentRange: Annotated[str, _aws_pattern("MediastoreData", "ContentRangePattern")]
     ContentLength: int
-    ContentType: str
-    ETag: str
+    ContentType: Annotated[str, _aws_pattern("MediastoreData", "ContentType")]
+    ETag: Annotated[str, _aws_pattern("MediastoreData", "ETag")]
     LastModified: datetime
     StatusCode: int
     ResponseMetadata: ResponseMetadataTypeDef
@@ -120,8 +122,8 @@ class GetObjectResponseTypeDef(BaseValidatorModel):
 
 # This class is the output for the 'put_object' function.
 class PutObjectResponseTypeDef(BaseValidatorModel):
-    ContentSHA256: str
-    ETag: str
+    ContentSHA256: Annotated[str, _aws_pattern("MediastoreData", "SHA256Hash")]
+    ETag: Annotated[str, _aws_pattern("MediastoreData", "ETag")]
     StorageClass: Literal["TEMPORAL"]
     ResponseMetadata: ResponseMetadataTypeDef
 

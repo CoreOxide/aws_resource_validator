@@ -3,6 +3,7 @@
 from datetime import datetime
 from decimal import Decimal
 from typing import (
+    Annotated,
     Any,
     Callable,
     Dict,
@@ -24,6 +25,7 @@ from botocore.response import StreamingBody
 from pydantic import Field
 
 from aws_resource_validator.core.base_validator_model import BaseValidatorModel, EventStream
+from aws_resource_validator.core.pattern_validation import aws_field_pattern as _aws_pattern
 from aws_resource_validator.pydantic_models.timestream_query.timestream_query_constants import *  # noqa: F401,F403
 
 # Optional boto3 symbols — imported lazily so services that don't need them
@@ -44,7 +46,7 @@ class SnsConfigurationTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'cancel_query' function.
 class CancelQueryRequestTypeDef(BaseValidatorModel):
-    QueryId: str
+    QueryId: Annotated[str, _aws_pattern("TimestreamQuery", "QueryId")]
 
 
 class ResponseMetadataTypeDef(BaseValidatorModel):
@@ -107,13 +109,13 @@ class DimensionMappingTypeDef(BaseValidatorModel):
 
 
 class S3ConfigurationTypeDef(BaseValidatorModel):
-    BucketName: str
-    ObjectKeyPrefix: Optional[str] = None
+    BucketName: Annotated[str, _aws_pattern("TimestreamQuery", "S3BucketName")]
+    ObjectKeyPrefix: Optional[Annotated[str, _aws_pattern("TimestreamQuery", "S3ObjectKeyPrefix")]] = None
     EncryptionOption: Optional[S3EncryptionOptionType] = None
 
 
 class S3ReportLocationTypeDef(BaseValidatorModel):
-    BucketName: Optional[str] = None
+    BucketName: Optional[Annotated[str, _aws_pattern("TimestreamQuery", "S3BucketName")]] = None
     ObjectKey: Optional[str] = None
 
 
@@ -430,7 +432,7 @@ class ScheduledQueryInsightsResponseTypeDef(BaseValidatorModel):
 
 class ScheduledQueryTypeDef(BaseValidatorModel):
     Arn: str
-    Name: str
+    Name: Annotated[str, _aws_pattern("TimestreamQuery", "ScheduledQueryName")]
     State: ScheduledQueryStateType
     CreationTime: Optional[datetime] = None
     PreviousInvocationTime: Optional[datetime] = None
@@ -478,7 +480,7 @@ class QueryResponsePaginatorTypeDef(BaseValidatorModel):
 
 # This class is the output for the 'query' function.
 class QueryResponseTypeDef(BaseValidatorModel):
-    QueryId: str
+    QueryId: Annotated[str, _aws_pattern("TimestreamQuery", "QueryId")]
     Rows: List[RowTypeDef]
     ColumnInfo: List[ColumnInfoTypeDef]
     QueryStatus: QueryStatusTypeDef
@@ -531,7 +533,7 @@ TargetConfigurationUnionTypeDef = Union[TargetConfigurationOutputTypeDef, Target
 
 class ScheduledQueryDescriptionTypeDef(BaseValidatorModel):
     Arn: str
-    Name: str
+    Name: Annotated[str, _aws_pattern("TimestreamQuery", "ScheduledQueryName")]
     QueryString: str
     State: ScheduledQueryStateType
     ScheduleConfiguration: ScheduleConfigurationTypeDef
@@ -549,7 +551,7 @@ class ScheduledQueryDescriptionTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'create_scheduled_query' function.
 class CreateScheduledQueryRequestTypeDef(BaseValidatorModel):
-    Name: str
+    Name: Annotated[str, _aws_pattern("TimestreamQuery", "ScheduledQueryName")]
     QueryString: str
     ScheduleConfiguration: ScheduleConfigurationTypeDef
     NotificationConfiguration: NotificationConfigurationTypeDef

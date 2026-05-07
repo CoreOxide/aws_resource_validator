@@ -3,6 +3,7 @@
 from datetime import datetime
 from decimal import Decimal
 from typing import (
+    Annotated,
     Any,
     Callable,
     Dict,
@@ -24,6 +25,7 @@ from botocore.response import StreamingBody
 from pydantic import Field
 
 from aws_resource_validator.core.base_validator_model import BaseValidatorModel, EventStream
+from aws_resource_validator.core.pattern_validation import aws_field_pattern as _aws_pattern
 from aws_resource_validator.pydantic_models.pipes.pipes_constants import *  # noqa: F401,F403
 
 # Optional boto3 symbols — imported lazily so services that don't need them
@@ -45,8 +47,8 @@ class AwsVpcConfigurationOutputTypeDef(BaseValidatorModel):
 
 
 class AwsVpcConfigurationTypeDef(BaseValidatorModel):
-    Subnets: List[str]
-    SecurityGroups: Optional[List[str]] = None
+    Subnets: List[Annotated[str, _aws_pattern("Pipes", "Subnet")]]
+    SecurityGroups: Optional[List[Annotated[str, _aws_pattern("Pipes", "SecurityGroup")]]] = None
     AssignPublicIp: Optional[AssignPublicIpType] = None
 
 
@@ -80,11 +82,11 @@ class CapacityProviderStrategyItemTypeDef(BaseValidatorModel):
 
 
 class CloudwatchLogsLogDestinationParametersTypeDef(BaseValidatorModel):
-    LogGroupArn: str
+    LogGroupArn: Annotated[str, _aws_pattern("Pipes", "CloudwatchLogGroupArn")]
 
 
 class CloudwatchLogsLogDestinationTypeDef(BaseValidatorModel):
-    LogGroupArn: Optional[str] = None
+    LogGroupArn: Optional[Annotated[str, _aws_pattern("Pipes", "CloudwatchLogGroupArn")]] = None
 
 
 class ResponseMetadataTypeDef(BaseValidatorModel):
@@ -96,17 +98,17 @@ class ResponseMetadataTypeDef(BaseValidatorModel):
 
 
 class DeadLetterConfigTypeDef(BaseValidatorModel):
-    Arn: Optional[str] = None
+    Arn: Optional[Annotated[str, _aws_pattern("Pipes", "Arn")]] = None
 
 
 # This class is the input for the 'delete_pipe' function.
 class DeletePipeRequestTypeDef(BaseValidatorModel):
-    Name: str
+    Name: Annotated[str, _aws_pattern("Pipes", "PipeName")]
 
 
 # This class is the input for the 'describe_pipe' function.
 class DescribePipeRequestTypeDef(BaseValidatorModel):
-    Name: str
+    Name: Annotated[str, _aws_pattern("Pipes", "PipeName")]
 
 
 class DimensionMappingTypeDef(BaseValidatorModel):
@@ -144,11 +146,11 @@ class FilterTypeDef(BaseValidatorModel):
 
 
 class FirehoseLogDestinationParametersTypeDef(BaseValidatorModel):
-    DeliveryStreamArn: str
+    DeliveryStreamArn: Annotated[str, _aws_pattern("Pipes", "FirehoseArn")]
 
 
 class FirehoseLogDestinationTypeDef(BaseValidatorModel):
-    DeliveryStreamArn: Optional[str] = None
+    DeliveryStreamArn: Optional[Annotated[str, _aws_pattern("Pipes", "FirehoseArn")]] = None
 
 
 class PaginatorConfigTypeDef(BaseValidatorModel):
@@ -159,7 +161,7 @@ class PaginatorConfigTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'list_pipes' function.
 class ListPipesRequestTypeDef(BaseValidatorModel):
-    NamePrefix: Optional[str] = None
+    NamePrefix: Optional[Annotated[str, _aws_pattern("Pipes", "PipeName")]] = None
     DesiredState: Optional[RequestedPipeStateType] = None
     CurrentState: Optional[PipeStateType] = None
     SourcePrefix: Optional[str] = None
@@ -169,30 +171,30 @@ class ListPipesRequestTypeDef(BaseValidatorModel):
 
 
 class PipeTypeDef(BaseValidatorModel):
-    Name: Optional[str] = None
-    Arn: Optional[str] = None
+    Name: Optional[Annotated[str, _aws_pattern("Pipes", "PipeName")]] = None
+    Arn: Optional[Annotated[str, _aws_pattern("Pipes", "PipeArn")]] = None
     DesiredState: Optional[RequestedPipeStateType] = None
     CurrentState: Optional[PipeStateType] = None
-    StateReason: Optional[str] = None
+    StateReason: Optional[Annotated[str, _aws_pattern("Pipes", "PipeStateReason")]] = None
     CreationTime: Optional[datetime] = None
     LastModifiedTime: Optional[datetime] = None
-    Source: Optional[str] = None
-    Target: Optional[str] = None
-    Enrichment: Optional[str] = None
+    Source: Optional[Annotated[str, _aws_pattern("Pipes", "ArnOrUrl")]] = None
+    Target: Optional[Annotated[str, _aws_pattern("Pipes", "Arn")]] = None
+    Enrichment: Optional[Annotated[str, _aws_pattern("Pipes", "OptionalArn")]] = None
 
 
 # This class is the input for the 'list_tags_for_resource' function.
 class ListTagsForResourceRequestTypeDef(BaseValidatorModel):
-    resourceArn: str
+    resourceArn: Annotated[str, _aws_pattern("Pipes", "PipeArn")]
 
 
 class MQBrokerAccessCredentialsTypeDef(BaseValidatorModel):
-    BasicAuth: Optional[str] = None
+    BasicAuth: Optional[Annotated[str, _aws_pattern("Pipes", "SecretManagerArn")]] = None
 
 
 class MSKAccessCredentialsTypeDef(BaseValidatorModel):
-    SaslScram512Auth: Optional[str] = None
-    ClientCertificateTlsAuth: Optional[str] = None
+    SaslScram512Auth: Optional[Annotated[str, _aws_pattern("Pipes", "SecretManagerArn")]] = None
+    ClientCertificateTlsAuth: Optional[Annotated[str, _aws_pattern("Pipes", "SecretManagerArn")]] = None
 
 
 class MultiMeasureAttributeMappingTypeDef(BaseValidatorModel):
@@ -208,14 +210,14 @@ class PipeEnrichmentHttpParametersOutputTypeDef(BaseValidatorModel):
 
 
 class PipeEnrichmentHttpParametersTypeDef(BaseValidatorModel):
-    PathParameterValues: Optional[List[str]] = None
+    PathParameterValues: Optional[List[Annotated[str, _aws_pattern("Pipes", "PathParameter")]]] = None
     HeaderParameters: Optional[Dict[str, str]] = None
     QueryStringParameters: Optional[Dict[str, str]] = None
 
 
 class S3LogDestinationParametersTypeDef(BaseValidatorModel):
     BucketName: str
-    BucketOwner: str
+    BucketOwner: Annotated[str, _aws_pattern("Pipes", "S3LogDestinationParametersBucketOwnerString")]
     OutputFormat: Optional[S3OutputFormatType] = None
     Prefix: Optional[str] = None
 
@@ -236,10 +238,10 @@ class PipeSourceSqsQueueParametersTypeDef(BaseValidatorModel):
 
 
 class SelfManagedKafkaAccessConfigurationCredentialsTypeDef(BaseValidatorModel):
-    BasicAuth: Optional[str] = None
-    SaslScram512Auth: Optional[str] = None
-    SaslScram256Auth: Optional[str] = None
-    ClientCertificateTlsAuth: Optional[str] = None
+    BasicAuth: Optional[Annotated[str, _aws_pattern("Pipes", "SecretManagerArn")]] = None
+    SaslScram512Auth: Optional[Annotated[str, _aws_pattern("Pipes", "SecretManagerArn")]] = None
+    SaslScram256Auth: Optional[Annotated[str, _aws_pattern("Pipes", "SecretManagerArn")]] = None
+    ClientCertificateTlsAuth: Optional[Annotated[str, _aws_pattern("Pipes", "SecretManagerArn")]] = None
 
 
 class SelfManagedKafkaAccessConfigurationVpcOutputTypeDef(BaseValidatorModel):
@@ -248,13 +250,13 @@ class SelfManagedKafkaAccessConfigurationVpcOutputTypeDef(BaseValidatorModel):
 
 
 class SelfManagedKafkaAccessConfigurationVpcTypeDef(BaseValidatorModel):
-    Subnets: Optional[List[str]] = None
-    SecurityGroup: Optional[List[str]] = None
+    Subnets: Optional[List[Annotated[str, _aws_pattern("Pipes", "SubnetId")]]] = None
+    SecurityGroup: Optional[List[Annotated[str, _aws_pattern("Pipes", "SecurityGroupId")]]] = None
 
 
 class PipeTargetCloudWatchLogsParametersTypeDef(BaseValidatorModel):
     LogStreamName: Optional[str] = None
-    Timestamp: Optional[str] = None
+    Timestamp: Optional[Annotated[str, _aws_pattern("Pipes", "JsonPath")]] = None
 
 
 class PlacementConstraintTypeDef(BaseValidatorModel):
@@ -281,11 +283,11 @@ class PipeTargetEventBridgeEventBusParametersOutputTypeDef(BaseValidatorModel):
 
 
 class PipeTargetEventBridgeEventBusParametersTypeDef(BaseValidatorModel):
-    EndpointId: Optional[str] = None
+    EndpointId: Optional[Annotated[str, _aws_pattern("Pipes", "EventBridgeEndpointId")]] = None
     DetailType: Optional[str] = None
-    Source: Optional[str] = None
-    Resources: Optional[List[str]] = None
-    Time: Optional[str] = None
+    Source: Optional[Annotated[str, _aws_pattern("Pipes", "EventBridgeEventSource")]] = None
+    Resources: Optional[List[Annotated[str, _aws_pattern("Pipes", "ArnOrJsonPath")]]] = None
+    Time: Optional[Annotated[str, _aws_pattern("Pipes", "JsonPath")]] = None
 
 
 class PipeTargetHttpParametersOutputTypeDef(BaseValidatorModel):
@@ -295,7 +297,7 @@ class PipeTargetHttpParametersOutputTypeDef(BaseValidatorModel):
 
 
 class PipeTargetHttpParametersTypeDef(BaseValidatorModel):
-    PathParameterValues: Optional[List[str]] = None
+    PathParameterValues: Optional[List[Annotated[str, _aws_pattern("Pipes", "PathParameter")]]] = None
     HeaderParameters: Optional[Dict[str, str]] = None
     QueryStringParameters: Optional[Dict[str, str]] = None
 
@@ -329,14 +331,14 @@ class PipeTargetStateMachineParametersTypeDef(BaseValidatorModel):
 class PipeTargetRedshiftDataParametersTypeDef(BaseValidatorModel):
     Database: str
     Sqls: List[str]
-    SecretManagerArn: Optional[str] = None
+    SecretManagerArn: Optional[Annotated[str, _aws_pattern("Pipes", "SecretManagerArnOrJsonPath")]] = None
     DbUser: Optional[str] = None
     StatementName: Optional[str] = None
     WithEvent: Optional[bool] = None
 
 
 class SageMakerPipelineParameterTypeDef(BaseValidatorModel):
-    Name: str
+    Name: Annotated[str, _aws_pattern("Pipes", "SageMakerPipelineParameterName")]
     Value: str
 
 
@@ -348,21 +350,21 @@ class SingleMeasureMappingTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'start_pipe' function.
 class StartPipeRequestTypeDef(BaseValidatorModel):
-    Name: str
+    Name: Annotated[str, _aws_pattern("Pipes", "PipeName")]
 
 
 # This class is the input for the 'stop_pipe' function.
 class StopPipeRequestTypeDef(BaseValidatorModel):
-    Name: str
+    Name: Annotated[str, _aws_pattern("Pipes", "PipeName")]
 
 
 class TagResourceRequestTypeDef(BaseValidatorModel):
-    resourceArn: str
+    resourceArn: Annotated[str, _aws_pattern("Pipes", "PipeArn")]
     tags: Dict[str, str]
 
 
 class UntagResourceRequestTypeDef(BaseValidatorModel):
-    resourceArn: str
+    resourceArn: Annotated[str, _aws_pattern("Pipes", "PipeArn")]
     tagKeys: List[str]
 
 
@@ -395,8 +397,8 @@ class BatchContainerOverridesTypeDef(BaseValidatorModel):
 
 # This class is the output for the 'create_pipe' function.
 class CreatePipeResponseTypeDef(BaseValidatorModel):
-    Arn: str
-    Name: str
+    Arn: Annotated[str, _aws_pattern("Pipes", "PipeArn")]
+    Name: Annotated[str, _aws_pattern("Pipes", "PipeName")]
     DesiredState: RequestedPipeStateType
     CurrentState: PipeStateType
     CreationTime: datetime
@@ -406,8 +408,8 @@ class CreatePipeResponseTypeDef(BaseValidatorModel):
 
 # This class is the output for the 'delete_pipe' function.
 class DeletePipeResponseTypeDef(BaseValidatorModel):
-    Arn: str
-    Name: str
+    Arn: Annotated[str, _aws_pattern("Pipes", "PipeArn")]
+    Name: Annotated[str, _aws_pattern("Pipes", "PipeName")]
     DesiredState: RequestedPipeStateDescribeResponseType
     CurrentState: PipeStateType
     CreationTime: datetime
@@ -423,8 +425,8 @@ class ListTagsForResourceResponseTypeDef(BaseValidatorModel):
 
 # This class is the output for the 'start_pipe' function.
 class StartPipeResponseTypeDef(BaseValidatorModel):
-    Arn: str
-    Name: str
+    Arn: Annotated[str, _aws_pattern("Pipes", "PipeArn")]
+    Name: Annotated[str, _aws_pattern("Pipes", "PipeName")]
     DesiredState: RequestedPipeStateType
     CurrentState: PipeStateType
     CreationTime: datetime
@@ -434,8 +436,8 @@ class StartPipeResponseTypeDef(BaseValidatorModel):
 
 # This class is the output for the 'stop_pipe' function.
 class StopPipeResponseTypeDef(BaseValidatorModel):
-    Arn: str
-    Name: str
+    Arn: Annotated[str, _aws_pattern("Pipes", "PipeArn")]
+    Name: Annotated[str, _aws_pattern("Pipes", "PipeName")]
     DesiredState: RequestedPipeStateType
     CurrentState: PipeStateType
     CreationTime: datetime
@@ -445,8 +447,8 @@ class StopPipeResponseTypeDef(BaseValidatorModel):
 
 # This class is the output for the 'update_pipe' function.
 class UpdatePipeResponseTypeDef(BaseValidatorModel):
-    Arn: str
-    Name: str
+    Arn: Annotated[str, _aws_pattern("Pipes", "PipeArn")]
+    Name: Annotated[str, _aws_pattern("Pipes", "PipeName")]
     DesiredState: RequestedPipeStateType
     CurrentState: PipeStateType
     CreationTime: datetime
@@ -545,15 +547,15 @@ class ListPipesResponseTypeDef(BaseValidatorModel):
 
 class PipeSourceActiveMQBrokerParametersTypeDef(BaseValidatorModel):
     Credentials: MQBrokerAccessCredentialsTypeDef
-    QueueName: str
+    QueueName: Annotated[str, _aws_pattern("Pipes", "MQBrokerQueueName")]
     BatchSize: Optional[int] = None
     MaximumBatchingWindowInSeconds: Optional[int] = None
 
 
 class PipeSourceRabbitMQBrokerParametersTypeDef(BaseValidatorModel):
     Credentials: MQBrokerAccessCredentialsTypeDef
-    QueueName: str
-    VirtualHost: Optional[str] = None
+    QueueName: Annotated[str, _aws_pattern("Pipes", "MQBrokerQueueName")]
+    VirtualHost: Optional[Annotated[str, _aws_pattern("Pipes", "URI")]] = None
     BatchSize: Optional[int] = None
     MaximumBatchingWindowInSeconds: Optional[int] = None
 
@@ -571,11 +573,11 @@ class UpdatePipeSourceRabbitMQBrokerParametersTypeDef(BaseValidatorModel):
 
 
 class PipeSourceManagedStreamingKafkaParametersTypeDef(BaseValidatorModel):
-    TopicName: str
+    TopicName: Annotated[str, _aws_pattern("Pipes", "KafkaTopicName")]
     StartingPosition: Optional[MSKStartPositionType] = None
     BatchSize: Optional[int] = None
     MaximumBatchingWindowInSeconds: Optional[int] = None
-    ConsumerGroupID: Optional[str] = None
+    ConsumerGroupID: Optional[Annotated[str, _aws_pattern("Pipes", "URI")]] = None
     Credentials: Optional[MSKAccessCredentialsTypeDef] = None
 
 
@@ -646,14 +648,14 @@ class PipeSourceSelfManagedKafkaParametersOutputTypeDef(BaseValidatorModel):
 
 
 class PipeSourceSelfManagedKafkaParametersTypeDef(BaseValidatorModel):
-    TopicName: str
+    TopicName: Annotated[str, _aws_pattern("Pipes", "KafkaTopicName")]
     StartingPosition: Optional[SelfManagedKafkaStartPositionType] = None
-    AdditionalBootstrapServers: Optional[List[str]] = None
+    AdditionalBootstrapServers: Optional[List[Annotated[str, _aws_pattern("Pipes", "EndpointString")]]] = None
     BatchSize: Optional[int] = None
     MaximumBatchingWindowInSeconds: Optional[int] = None
-    ConsumerGroupID: Optional[str] = None
+    ConsumerGroupID: Optional[Annotated[str, _aws_pattern("Pipes", "URI")]] = None
     Credentials: Optional[SelfManagedKafkaAccessConfigurationCredentialsTypeDef] = None
-    ServerRootCaCertificate: Optional[str] = None
+    ServerRootCaCertificate: Optional[Annotated[str, _aws_pattern("Pipes", "SecretManagerArn")]] = None
     Vpc: Optional[SelfManagedKafkaAccessConfigurationVpcTypeDef] = None
 
 
@@ -704,10 +706,10 @@ class EcsTaskOverrideTypeDef(BaseValidatorModel):
     ContainerOverrides: Optional[List[EcsContainerOverrideTypeDef]] = None
     Cpu: Optional[str] = None
     EphemeralStorage: Optional[EcsEphemeralStorageTypeDef] = None
-    ExecutionRoleArn: Optional[str] = None
+    ExecutionRoleArn: Optional[Annotated[str, _aws_pattern("Pipes", "ArnOrJsonPath")]] = None
     InferenceAcceleratorOverrides: Optional[List[EcsInferenceAcceleratorOverrideTypeDef]] = None
     Memory: Optional[str] = None
-    TaskRoleArn: Optional[str] = None
+    TaskRoleArn: Optional[Annotated[str, _aws_pattern("Pipes", "ArnOrJsonPath")]] = None
 
 
 FilterCriteriaUnionTypeDef = Union[FilterCriteriaOutputTypeDef, FilterCriteriaTypeDef]
@@ -764,7 +766,7 @@ class UpdatePipeSourceSelfManagedKafkaParametersTypeDef(BaseValidatorModel):
     BatchSize: Optional[int] = None
     MaximumBatchingWindowInSeconds: Optional[int] = None
     Credentials: Optional[SelfManagedKafkaAccessConfigurationCredentialsTypeDef] = None
-    ServerRootCaCertificate: Optional[str] = None
+    ServerRootCaCertificate: Optional[Annotated[str, _aws_pattern("Pipes", "SecretManagerArn")]] = None
     Vpc: Optional[SelfManagedKafkaAccessConfigurationVpcUnionTypeDef] = None
 
 
@@ -787,7 +789,7 @@ class PipeTargetEcsTaskParametersOutputTypeDef(BaseValidatorModel):
 
 
 class PipeTargetEcsTaskParametersTypeDef(BaseValidatorModel):
-    TaskDefinitionArn: str
+    TaskDefinitionArn: Annotated[str, _aws_pattern("Pipes", "ArnOrJsonPath")]
     TaskCount: Optional[int] = None
     LaunchType: Optional[LaunchTypeType] = None
     NetworkConfiguration: Optional[NetworkConfigurationTypeDef] = None
@@ -852,24 +854,24 @@ class PipeTargetParametersTypeDef(BaseValidatorModel):
 
 # This class is the output for the 'describe_pipe' function.
 class DescribePipeResponseTypeDef(BaseValidatorModel):
-    Arn: str
-    Name: str
-    Description: str
+    Arn: Annotated[str, _aws_pattern("Pipes", "PipeArn")]
+    Name: Annotated[str, _aws_pattern("Pipes", "PipeName")]
+    Description: Annotated[str, _aws_pattern("Pipes", "PipeDescription")]
     DesiredState: RequestedPipeStateDescribeResponseType
     CurrentState: PipeStateType
-    StateReason: str
-    Source: str
+    StateReason: Annotated[str, _aws_pattern("Pipes", "PipeStateReason")]
+    Source: Annotated[str, _aws_pattern("Pipes", "ArnOrUrl")]
     SourceParameters: PipeSourceParametersOutputTypeDef
-    Enrichment: str
+    Enrichment: Annotated[str, _aws_pattern("Pipes", "OptionalArn")]
     EnrichmentParameters: PipeEnrichmentParametersOutputTypeDef
-    Target: str
+    Target: Annotated[str, _aws_pattern("Pipes", "Arn")]
     TargetParameters: PipeTargetParametersOutputTypeDef
-    RoleArn: str
+    RoleArn: Annotated[str, _aws_pattern("Pipes", "RoleArn")]
     Tags: Dict[str, str]
     CreationTime: datetime
     LastModifiedTime: datetime
     LogConfiguration: PipeLogConfigurationTypeDef
-    KmsKeyIdentifier: str
+    KmsKeyIdentifier: Annotated[str, _aws_pattern("Pipes", "KmsKeyIdentifier")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
@@ -878,31 +880,31 @@ PipeTargetParametersUnionTypeDef = Union[PipeTargetParametersOutputTypeDef, Pipe
 
 # This class is the input for the 'create_pipe' function.
 class CreatePipeRequestTypeDef(BaseValidatorModel):
-    Name: str
-    Source: str
-    Target: str
-    RoleArn: str
-    Description: Optional[str] = None
+    Name: Annotated[str, _aws_pattern("Pipes", "PipeName")]
+    Source: Annotated[str, _aws_pattern("Pipes", "ArnOrUrl")]
+    Target: Annotated[str, _aws_pattern("Pipes", "Arn")]
+    RoleArn: Annotated[str, _aws_pattern("Pipes", "RoleArn")]
+    Description: Optional[Annotated[str, _aws_pattern("Pipes", "PipeDescription")]] = None
     DesiredState: Optional[RequestedPipeStateType] = None
     SourceParameters: Optional[PipeSourceParametersUnionTypeDef] = None
-    Enrichment: Optional[str] = None
+    Enrichment: Optional[Annotated[str, _aws_pattern("Pipes", "OptionalArn")]] = None
     EnrichmentParameters: Optional[PipeEnrichmentParametersUnionTypeDef] = None
     TargetParameters: Optional[PipeTargetParametersUnionTypeDef] = None
     Tags: Optional[Dict[str, str]] = None
     LogConfiguration: Optional[PipeLogConfigurationParametersTypeDef] = None
-    KmsKeyIdentifier: Optional[str] = None
+    KmsKeyIdentifier: Optional[Annotated[str, _aws_pattern("Pipes", "KmsKeyIdentifier")]] = None
 
 
 # This class is the input for the 'update_pipe' function.
 class UpdatePipeRequestTypeDef(BaseValidatorModel):
-    Name: str
-    RoleArn: str
-    Description: Optional[str] = None
+    Name: Annotated[str, _aws_pattern("Pipes", "PipeName")]
+    RoleArn: Annotated[str, _aws_pattern("Pipes", "RoleArn")]
+    Description: Optional[Annotated[str, _aws_pattern("Pipes", "PipeDescription")]] = None
     DesiredState: Optional[RequestedPipeStateType] = None
     SourceParameters: Optional[UpdatePipeSourceParametersTypeDef] = None
-    Enrichment: Optional[str] = None
+    Enrichment: Optional[Annotated[str, _aws_pattern("Pipes", "OptionalArn")]] = None
     EnrichmentParameters: Optional[PipeEnrichmentParametersUnionTypeDef] = None
-    Target: Optional[str] = None
+    Target: Optional[Annotated[str, _aws_pattern("Pipes", "Arn")]] = None
     TargetParameters: Optional[PipeTargetParametersUnionTypeDef] = None
     LogConfiguration: Optional[PipeLogConfigurationParametersTypeDef] = None
-    KmsKeyIdentifier: Optional[str] = None
+    KmsKeyIdentifier: Optional[Annotated[str, _aws_pattern("Pipes", "KmsKeyIdentifier")]] = None

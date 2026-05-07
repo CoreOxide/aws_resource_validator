@@ -3,6 +3,7 @@
 from datetime import datetime
 from decimal import Decimal
 from typing import (
+    Annotated,
     Any,
     Callable,
     Dict,
@@ -24,6 +25,7 @@ from botocore.response import StreamingBody
 from pydantic import Field
 
 from aws_resource_validator.core.base_validator_model import BaseValidatorModel, EventStream
+from aws_resource_validator.core.pattern_validation import aws_field_pattern as _aws_pattern
 from aws_resource_validator.pydantic_models.customer_profiles.customer_profiles_constants import *  # noqa: F401,F403
 
 # Optional boto3 symbols — imported lazily so services that don't need them
@@ -40,10 +42,10 @@ except ImportError:  # pragma: no cover
 
 # This class is the input for the 'add_profile_key' function.
 class AddProfileKeyRequestTypeDef(BaseValidatorModel):
-    ProfileId: str
-    KeyName: str
+    ProfileId: Annotated[str, _aws_pattern("CustomerProfiles", "uuid")]
+    KeyName: Annotated[str, _aws_pattern("CustomerProfiles", "name")]
     Values: List[str]
-    DomainName: str
+    DomainName: Annotated[str, _aws_pattern("CustomerProfiles", "name")]
 
 
 class ResponseMetadataTypeDef(BaseValidatorModel):
@@ -55,7 +57,7 @@ class ResponseMetadataTypeDef(BaseValidatorModel):
 
 
 class AdditionalSearchKeyTypeDef(BaseValidatorModel):
-    KeyName: str
+    KeyName: Annotated[str, _aws_pattern("CustomerProfiles", "name")]
     Values: List[str]
 
 
@@ -79,7 +81,7 @@ class AddressTypeDef(BaseValidatorModel):
 
 class AppflowIntegrationWorkflowAttributesTypeDef(BaseValidatorModel):
     SourceConnectorType: SourceConnectorTypeType
-    ConnectorProfileName: str
+    ConnectorProfileName: Annotated[str, _aws_pattern("CustomerProfiles", "ConnectorProfileName")]
     RoleArn: Optional[str] = None
 
 
@@ -90,7 +92,7 @@ class AppflowIntegrationWorkflowMetricsTypeDef(BaseValidatorModel):
 
 
 class AppflowIntegrationWorkflowStepTypeDef(BaseValidatorModel):
-    FlowName: str
+    FlowName: Annotated[str, _aws_pattern("CustomerProfiles", "FlowName")]
     Status: StatusType
     ExecutionMessage: str
     RecordsProcessed: int
@@ -101,7 +103,7 @@ class AppflowIntegrationWorkflowStepTypeDef(BaseValidatorModel):
 
 
 class AttributeItemTypeDef(BaseValidatorModel):
-    Name: str
+    Name: Annotated[str, _aws_pattern("CustomerProfiles", "attributeName")]
 
 
 class AttributeDimensionOutputTypeDef(BaseValidatorModel):
@@ -144,14 +146,14 @@ class ConsolidationOutputTypeDef(BaseValidatorModel):
 class BatchGetCalculatedAttributeForProfileErrorTypeDef(BaseValidatorModel):
     Code: str
     Message: str
-    ProfileId: str
+    ProfileId: Annotated[str, _aws_pattern("CustomerProfiles", "uuid")]
 
 
 class CalculatedAttributeValueTypeDef(BaseValidatorModel):
-    CalculatedAttributeName: Optional[str] = None
-    DisplayName: Optional[str] = None
+    CalculatedAttributeName: Optional[Annotated[str, _aws_pattern("CustomerProfiles", "typeName")]] = None
+    DisplayName: Optional[Annotated[str, _aws_pattern("CustomerProfiles", "displayName")]] = None
     IsDataPartial: Optional[str] = None
-    ProfileId: Optional[str] = None
+    ProfileId: Optional[Annotated[str, _aws_pattern("CustomerProfiles", "uuid")]] = None
     Value: Optional[str] = None
     LastObjectTimestamp: Optional[datetime] = None
 
@@ -159,13 +161,13 @@ class CalculatedAttributeValueTypeDef(BaseValidatorModel):
 class BatchGetProfileErrorTypeDef(BaseValidatorModel):
     Code: str
     Message: str
-    ProfileId: str
+    ProfileId: Annotated[str, _aws_pattern("CustomerProfiles", "uuid")]
 
 
 # This class is the input for the 'batch_get_profile' function.
 class BatchGetProfileRequestTypeDef(BaseValidatorModel):
-    DomainName: str
-    ProfileIds: List[str]
+    DomainName: Annotated[str, _aws_pattern("CustomerProfiles", "name")]
+    ProfileIds: List[Annotated[str, _aws_pattern("CustomerProfiles", "uuid")]]
 
 
 TimestampTypeDef = Union[datetime, str]
@@ -211,9 +213,9 @@ class ConsolidationTypeDef(BaseValidatorModel):
 
 
 class ContactPreferenceTypeDef(BaseValidatorModel):
-    KeyName: Optional[str] = None
+    KeyName: Optional[Annotated[str, _aws_pattern("CustomerProfiles", "name")]] = None
     KeyValue: Optional[str] = None
-    ProfileId: Optional[str] = None
+    ProfileId: Optional[Annotated[str, _aws_pattern("CustomerProfiles", "uuid")]] = None
     ContactType: Optional[ContactTypeType] = None
 
 
@@ -224,10 +226,10 @@ class ReadinessTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'create_domain_layout' function.
 class CreateDomainLayoutRequestTypeDef(BaseValidatorModel):
-    DomainName: str
-    LayoutDefinitionName: str
+    DomainName: Annotated[str, _aws_pattern("CustomerProfiles", "name")]
+    LayoutDefinitionName: Annotated[str, _aws_pattern("CustomerProfiles", "name")]
     Description: str
-    DisplayName: str
+    DisplayName: Annotated[str, _aws_pattern("CustomerProfiles", "displayName")]
     LayoutType: Literal["PROFILE_EXPLORER"]
     Layout: str
     IsDefault: Optional[bool] = None
@@ -240,18 +242,18 @@ class DataStoreRequestTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'create_event_stream' function.
 class CreateEventStreamRequestTypeDef(BaseValidatorModel):
-    DomainName: str
+    DomainName: Annotated[str, _aws_pattern("CustomerProfiles", "name")]
     Uri: str
-    EventStreamName: str
+    EventStreamName: Annotated[str, _aws_pattern("CustomerProfiles", "name")]
     Tags: Optional[Dict[str, str]] = None
 
 
 # This class is the input for the 'create_recommender_filter' function.
 class CreateRecommenderFilterRequestTypeDef(BaseValidatorModel):
-    DomainName: str
-    RecommenderFilterName: str
+    DomainName: Annotated[str, _aws_pattern("CustomerProfiles", "name")]
+    RecommenderFilterName: Annotated[str, _aws_pattern("CustomerProfiles", "RecommenderFilterName")]
     RecommenderFilterExpression: str
-    RecommenderSchemaName: Optional[str] = None
+    RecommenderSchemaName: Optional[Annotated[str, _aws_pattern("CustomerProfiles", "name")]] = None
     Description: Optional[str] = None
     Tags: Optional[Dict[str, str]] = None
 
@@ -264,11 +266,11 @@ class RecommenderSchemaFieldTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'create_segment_snapshot' function.
 class CreateSegmentSnapshotRequestTypeDef(BaseValidatorModel):
-    DomainName: str
-    SegmentDefinitionName: str
+    DomainName: Annotated[str, _aws_pattern("CustomerProfiles", "name")]
+    SegmentDefinitionName: Annotated[str, _aws_pattern("CustomerProfiles", "name")]
     DataFormat: DataFormatType
     EncryptionKey: Optional[str] = None
-    RoleArn: Optional[str] = None
+    RoleArn: Optional[Annotated[str, _aws_pattern("CustomerProfiles", "RoleArn")]] = None
     DestinationUri: Optional[str] = None
 
 
@@ -289,95 +291,95 @@ class DateDimensionTypeDef(BaseValidatorModel):
 
 
 class DeleteCalculatedAttributeDefinitionRequestTypeDef(BaseValidatorModel):
-    DomainName: str
-    CalculatedAttributeName: str
+    DomainName: Annotated[str, _aws_pattern("CustomerProfiles", "name")]
+    CalculatedAttributeName: Annotated[str, _aws_pattern("CustomerProfiles", "typeName")]
 
 
 # This class is the input for the 'delete_domain_layout' function.
 class DeleteDomainLayoutRequestTypeDef(BaseValidatorModel):
-    DomainName: str
-    LayoutDefinitionName: str
+    DomainName: Annotated[str, _aws_pattern("CustomerProfiles", "name")]
+    LayoutDefinitionName: Annotated[str, _aws_pattern("CustomerProfiles", "name")]
 
 
 class DeleteDomainObjectTypeRequestTypeDef(BaseValidatorModel):
-    DomainName: str
-    ObjectTypeName: str
+    DomainName: Annotated[str, _aws_pattern("CustomerProfiles", "name")]
+    ObjectTypeName: Annotated[str, _aws_pattern("CustomerProfiles", "typeName")]
 
 
 # This class is the input for the 'delete_domain' function.
 class DeleteDomainRequestTypeDef(BaseValidatorModel):
-    DomainName: str
+    DomainName: Annotated[str, _aws_pattern("CustomerProfiles", "name")]
 
 
 class DeleteEventStreamRequestTypeDef(BaseValidatorModel):
-    DomainName: str
-    EventStreamName: str
+    DomainName: Annotated[str, _aws_pattern("CustomerProfiles", "name")]
+    EventStreamName: Annotated[str, _aws_pattern("CustomerProfiles", "name")]
 
 
 # This class is the input for the 'delete_event_trigger' function.
 class DeleteEventTriggerRequestTypeDef(BaseValidatorModel):
-    DomainName: str
-    EventTriggerName: str
+    DomainName: Annotated[str, _aws_pattern("CustomerProfiles", "name")]
+    EventTriggerName: Annotated[str, _aws_pattern("CustomerProfiles", "name")]
 
 
 # This class is the input for the 'delete_integration' function.
 class DeleteIntegrationRequestTypeDef(BaseValidatorModel):
-    DomainName: str
+    DomainName: Annotated[str, _aws_pattern("CustomerProfiles", "name")]
     Uri: str
 
 
 # This class is the input for the 'delete_profile_key' function.
 class DeleteProfileKeyRequestTypeDef(BaseValidatorModel):
-    ProfileId: str
-    KeyName: str
+    ProfileId: Annotated[str, _aws_pattern("CustomerProfiles", "uuid")]
+    KeyName: Annotated[str, _aws_pattern("CustomerProfiles", "name")]
     Values: List[str]
-    DomainName: str
+    DomainName: Annotated[str, _aws_pattern("CustomerProfiles", "name")]
 
 
 # This class is the input for the 'delete_profile_object' function.
 class DeleteProfileObjectRequestTypeDef(BaseValidatorModel):
-    ProfileId: str
+    ProfileId: Annotated[str, _aws_pattern("CustomerProfiles", "uuid")]
     ProfileObjectUniqueKey: str
-    ObjectTypeName: str
-    DomainName: str
+    ObjectTypeName: Annotated[str, _aws_pattern("CustomerProfiles", "typeName")]
+    DomainName: Annotated[str, _aws_pattern("CustomerProfiles", "name")]
 
 
 # This class is the input for the 'delete_profile_object_type' function.
 class DeleteProfileObjectTypeRequestTypeDef(BaseValidatorModel):
-    DomainName: str
-    ObjectTypeName: str
+    DomainName: Annotated[str, _aws_pattern("CustomerProfiles", "name")]
+    ObjectTypeName: Annotated[str, _aws_pattern("CustomerProfiles", "typeName")]
 
 
 # This class is the input for the 'delete_profile' function.
 class DeleteProfileRequestTypeDef(BaseValidatorModel):
-    ProfileId: str
-    DomainName: str
+    ProfileId: Annotated[str, _aws_pattern("CustomerProfiles", "uuid")]
+    DomainName: Annotated[str, _aws_pattern("CustomerProfiles", "name")]
 
 
 # This class is the input for the 'delete_recommender_filter' function.
 class DeleteRecommenderFilterRequestTypeDef(BaseValidatorModel):
-    DomainName: str
-    RecommenderFilterName: str
+    DomainName: Annotated[str, _aws_pattern("CustomerProfiles", "name")]
+    RecommenderFilterName: Annotated[str, _aws_pattern("CustomerProfiles", "RecommenderFilterName")]
 
 
 class DeleteRecommenderRequestTypeDef(BaseValidatorModel):
-    DomainName: str
-    RecommenderName: str
+    DomainName: Annotated[str, _aws_pattern("CustomerProfiles", "name")]
+    RecommenderName: Annotated[str, _aws_pattern("CustomerProfiles", "name")]
 
 
 class DeleteRecommenderSchemaRequestTypeDef(BaseValidatorModel):
-    DomainName: str
-    RecommenderSchemaName: str
+    DomainName: Annotated[str, _aws_pattern("CustomerProfiles", "name")]
+    RecommenderSchemaName: Annotated[str, _aws_pattern("CustomerProfiles", "name")]
 
 
 # This class is the input for the 'delete_segment_definition' function.
 class DeleteSegmentDefinitionRequestTypeDef(BaseValidatorModel):
-    DomainName: str
-    SegmentDefinitionName: str
+    DomainName: Annotated[str, _aws_pattern("CustomerProfiles", "name")]
+    SegmentDefinitionName: Annotated[str, _aws_pattern("CustomerProfiles", "name")]
 
 
 class DeleteWorkflowRequestTypeDef(BaseValidatorModel):
-    DomainName: str
+    DomainName: Annotated[str, _aws_pattern("CustomerProfiles", "name")]
     WorkflowId: str
 
 
@@ -390,7 +392,7 @@ class DestinationSummaryTypeDef(BaseValidatorModel):
 # This class is the input for the 'detect_profile_object_type' function.
 class DetectProfileObjectTypeRequestTypeDef(BaseValidatorModel):
     Objects: List[str]
-    DomainName: str
+    DomainName: Annotated[str, _aws_pattern("CustomerProfiles", "name")]
 
 
 class ObjectTypeKeyOutputTypeDef(BaseValidatorModel):
@@ -406,7 +408,7 @@ class DomainObjectTypeFieldTypeDef(BaseValidatorModel):
 
 
 class DomainObjectTypesListItemTypeDef(BaseValidatorModel):
-    ObjectTypeName: str
+    ObjectTypeName: Annotated[str, _aws_pattern("CustomerProfiles", "typeName")]
     Description: Optional[str] = None
     CreatedAt: Optional[datetime] = None
     LastUpdatedAt: Optional[datetime] = None
@@ -448,8 +450,8 @@ class PeriodTypeDef(BaseValidatorModel):
 
 
 class EventTriggerSummaryItemTypeDef(BaseValidatorModel):
-    ObjectTypeName: Optional[str] = None
-    EventTriggerName: Optional[str] = None
+    ObjectTypeName: Optional[Annotated[str, _aws_pattern("CustomerProfiles", "typeName")]] = None
+    EventTriggerName: Optional[Annotated[str, _aws_pattern("CustomerProfiles", "name")]] = None
     Description: Optional[str] = None
     CreatedAt: Optional[datetime] = None
     LastUpdatedAt: Optional[datetime] = None
@@ -457,13 +459,13 @@ class EventTriggerSummaryItemTypeDef(BaseValidatorModel):
 
 
 class S3ExportingConfigTypeDef(BaseValidatorModel):
-    S3BucketName: str
-    S3KeyName: Optional[str] = None
+    S3BucketName: Annotated[str, _aws_pattern("CustomerProfiles", "s3BucketName")]
+    S3KeyName: Optional[Annotated[str, _aws_pattern("CustomerProfiles", "s3KeyNameCustomerOutputConfig")]] = None
 
 
 class S3ExportingLocationTypeDef(BaseValidatorModel):
-    S3BucketName: Optional[str] = None
-    S3KeyName: Optional[str] = None
+    S3BucketName: Optional[Annotated[str, _aws_pattern("CustomerProfiles", "s3BucketName")]] = None
+    S3KeyName: Optional[Annotated[str, _aws_pattern("CustomerProfiles", "s3KeyName")]] = None
 
 
 class ExtraLengthValueProfileDimensionOutputTypeDef(BaseValidatorModel):
@@ -477,29 +479,29 @@ class ExtraLengthValueProfileDimensionTypeDef(BaseValidatorModel):
 
 
 class FieldSourceProfileIdsTypeDef(BaseValidatorModel):
-    AccountNumber: Optional[str] = None
-    AdditionalInformation: Optional[str] = None
-    PartyType: Optional[str] = None
-    BusinessName: Optional[str] = None
-    FirstName: Optional[str] = None
-    MiddleName: Optional[str] = None
-    LastName: Optional[str] = None
-    BirthDate: Optional[str] = None
-    Gender: Optional[str] = None
-    PhoneNumber: Optional[str] = None
-    MobilePhoneNumber: Optional[str] = None
-    HomePhoneNumber: Optional[str] = None
-    BusinessPhoneNumber: Optional[str] = None
-    EmailAddress: Optional[str] = None
-    PersonalEmailAddress: Optional[str] = None
-    BusinessEmailAddress: Optional[str] = None
-    Address: Optional[str] = None
-    ShippingAddress: Optional[str] = None
-    MailingAddress: Optional[str] = None
-    BillingAddress: Optional[str] = None
+    AccountNumber: Optional[Annotated[str, _aws_pattern("CustomerProfiles", "uuid")]] = None
+    AdditionalInformation: Optional[Annotated[str, _aws_pattern("CustomerProfiles", "uuid")]] = None
+    PartyType: Optional[Annotated[str, _aws_pattern("CustomerProfiles", "uuid")]] = None
+    BusinessName: Optional[Annotated[str, _aws_pattern("CustomerProfiles", "uuid")]] = None
+    FirstName: Optional[Annotated[str, _aws_pattern("CustomerProfiles", "uuid")]] = None
+    MiddleName: Optional[Annotated[str, _aws_pattern("CustomerProfiles", "uuid")]] = None
+    LastName: Optional[Annotated[str, _aws_pattern("CustomerProfiles", "uuid")]] = None
+    BirthDate: Optional[Annotated[str, _aws_pattern("CustomerProfiles", "uuid")]] = None
+    Gender: Optional[Annotated[str, _aws_pattern("CustomerProfiles", "uuid")]] = None
+    PhoneNumber: Optional[Annotated[str, _aws_pattern("CustomerProfiles", "uuid")]] = None
+    MobilePhoneNumber: Optional[Annotated[str, _aws_pattern("CustomerProfiles", "uuid")]] = None
+    HomePhoneNumber: Optional[Annotated[str, _aws_pattern("CustomerProfiles", "uuid")]] = None
+    BusinessPhoneNumber: Optional[Annotated[str, _aws_pattern("CustomerProfiles", "uuid")]] = None
+    EmailAddress: Optional[Annotated[str, _aws_pattern("CustomerProfiles", "uuid")]] = None
+    PersonalEmailAddress: Optional[Annotated[str, _aws_pattern("CustomerProfiles", "uuid")]] = None
+    BusinessEmailAddress: Optional[Annotated[str, _aws_pattern("CustomerProfiles", "uuid")]] = None
+    Address: Optional[Annotated[str, _aws_pattern("CustomerProfiles", "uuid")]] = None
+    ShippingAddress: Optional[Annotated[str, _aws_pattern("CustomerProfiles", "uuid")]] = None
+    MailingAddress: Optional[Annotated[str, _aws_pattern("CustomerProfiles", "uuid")]] = None
+    BillingAddress: Optional[Annotated[str, _aws_pattern("CustomerProfiles", "uuid")]] = None
     Attributes: Optional[Dict[str, str]] = None
-    ProfileType: Optional[str] = None
-    EngagementPreferences: Optional[str] = None
+    ProfileType: Optional[Annotated[str, _aws_pattern("CustomerProfiles", "uuid")]] = None
+    EngagementPreferences: Optional[Annotated[str, _aws_pattern("CustomerProfiles", "uuid")]] = None
 
 
 class FilterAttributeDimensionOutputTypeDef(BaseValidatorModel):
@@ -513,56 +515,56 @@ class FilterAttributeDimensionTypeDef(BaseValidatorModel):
 
 
 class FoundByKeyValueTypeDef(BaseValidatorModel):
-    KeyName: Optional[str] = None
+    KeyName: Optional[Annotated[str, _aws_pattern("CustomerProfiles", "name")]] = None
     Values: Optional[List[str]] = None
 
 
 # This class is the input for the 'get_calculated_attribute_definition' function.
 class GetCalculatedAttributeDefinitionRequestTypeDef(BaseValidatorModel):
-    DomainName: str
-    CalculatedAttributeName: str
+    DomainName: Annotated[str, _aws_pattern("CustomerProfiles", "name")]
+    CalculatedAttributeName: Annotated[str, _aws_pattern("CustomerProfiles", "typeName")]
 
 
 # This class is the input for the 'get_calculated_attribute_for_profile' function.
 class GetCalculatedAttributeForProfileRequestTypeDef(BaseValidatorModel):
-    DomainName: str
-    ProfileId: str
-    CalculatedAttributeName: str
+    DomainName: Annotated[str, _aws_pattern("CustomerProfiles", "name")]
+    ProfileId: Annotated[str, _aws_pattern("CustomerProfiles", "uuid")]
+    CalculatedAttributeName: Annotated[str, _aws_pattern("CustomerProfiles", "typeName")]
 
 
 # This class is the input for the 'get_domain_layout' function.
 class GetDomainLayoutRequestTypeDef(BaseValidatorModel):
-    DomainName: str
-    LayoutDefinitionName: str
+    DomainName: Annotated[str, _aws_pattern("CustomerProfiles", "name")]
+    LayoutDefinitionName: Annotated[str, _aws_pattern("CustomerProfiles", "name")]
 
 
 # This class is the input for the 'get_domain_object_type' function.
 class GetDomainObjectTypeRequestTypeDef(BaseValidatorModel):
-    DomainName: str
-    ObjectTypeName: str
+    DomainName: Annotated[str, _aws_pattern("CustomerProfiles", "name")]
+    ObjectTypeName: Annotated[str, _aws_pattern("CustomerProfiles", "typeName")]
 
 
 # This class is the input for the 'get_domain' function.
 class GetDomainRequestTypeDef(BaseValidatorModel):
-    DomainName: str
+    DomainName: Annotated[str, _aws_pattern("CustomerProfiles", "name")]
 
 
 # This class is the input for the 'get_event_stream' function.
 class GetEventStreamRequestTypeDef(BaseValidatorModel):
-    DomainName: str
-    EventStreamName: str
+    DomainName: Annotated[str, _aws_pattern("CustomerProfiles", "name")]
+    EventStreamName: Annotated[str, _aws_pattern("CustomerProfiles", "name")]
 
 
 # This class is the input for the 'get_event_trigger' function.
 class GetEventTriggerRequestTypeDef(BaseValidatorModel):
-    DomainName: str
-    EventTriggerName: str
+    DomainName: Annotated[str, _aws_pattern("CustomerProfiles", "name")]
+    EventTriggerName: Annotated[str, _aws_pattern("CustomerProfiles", "name")]
 
 
 # This class is the input for the 'get_identity_resolution_job' function.
 class GetIdentityResolutionJobRequestTypeDef(BaseValidatorModel):
-    DomainName: str
-    JobId: str
+    DomainName: Annotated[str, _aws_pattern("CustomerProfiles", "name")]
+    JobId: Annotated[str, _aws_pattern("CustomerProfiles", "uuid")]
 
 
 class JobStatsTypeDef(BaseValidatorModel):
@@ -573,20 +575,20 @@ class JobStatsTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'get_integration' function.
 class GetIntegrationRequestTypeDef(BaseValidatorModel):
-    DomainName: str
+    DomainName: Annotated[str, _aws_pattern("CustomerProfiles", "name")]
     Uri: str
 
 
 # This class is the input for the 'get_matches' function.
 class GetMatchesRequestTypeDef(BaseValidatorModel):
-    DomainName: str
+    DomainName: Annotated[str, _aws_pattern("CustomerProfiles", "name")]
     NextToken: Optional[str] = None
     MaxResults: Optional[int] = None
 
 
 class MatchItemTypeDef(BaseValidatorModel):
     MatchId: Optional[str] = None
-    ProfileIds: Optional[List[str]] = None
+    ProfileIds: Optional[List[Annotated[str, _aws_pattern("CustomerProfiles", "uuid")]]] = None
     ConfidenceScore: Optional[float] = None
 
 
@@ -600,27 +602,27 @@ class GetObjectTypeAttributeStatisticsPercentilesTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'get_object_type_attribute_statistics' function.
 class GetObjectTypeAttributeStatisticsRequestTypeDef(BaseValidatorModel):
-    DomainName: str
-    ObjectTypeName: str
+    DomainName: Annotated[str, _aws_pattern("CustomerProfiles", "name")]
+    ObjectTypeName: Annotated[str, _aws_pattern("CustomerProfiles", "typeName")]
     AttributeName: str
 
 
 # This class is the input for the 'get_profile_history_record' function.
 class GetProfileHistoryRecordRequestTypeDef(BaseValidatorModel):
-    DomainName: str
-    ProfileId: str
-    Id: str
+    DomainName: Annotated[str, _aws_pattern("CustomerProfiles", "name")]
+    ProfileId: Annotated[str, _aws_pattern("CustomerProfiles", "uuid")]
+    Id: Annotated[str, _aws_pattern("CustomerProfiles", "uuid")]
 
 
 # This class is the input for the 'get_profile_object_type' function.
 class GetProfileObjectTypeRequestTypeDef(BaseValidatorModel):
-    DomainName: str
-    ObjectTypeName: str
+    DomainName: Annotated[str, _aws_pattern("CustomerProfiles", "name")]
+    ObjectTypeName: Annotated[str, _aws_pattern("CustomerProfiles", "typeName")]
 
 
 # This class is the input for the 'get_profile_object_type_template' function.
 class GetProfileObjectTypeTemplateRequestTypeDef(BaseValidatorModel):
-    TemplateId: str
+    TemplateId: Annotated[str, _aws_pattern("CustomerProfiles", "name")]
 
 
 class MetadataConfigTypeDef(BaseValidatorModel):
@@ -628,27 +630,27 @@ class MetadataConfigTypeDef(BaseValidatorModel):
 
 
 class RecommenderFilterTypeDef(BaseValidatorModel):
-    Name: Optional[str] = None
+    Name: Optional[Annotated[str, _aws_pattern("CustomerProfiles", "name")]] = None
     Values: Optional[Dict[str, str]] = None
 
 
 class RecommenderPromotionalFilterTypeDef(BaseValidatorModel):
-    Name: Optional[str] = None
+    Name: Optional[Annotated[str, _aws_pattern("CustomerProfiles", "name")]] = None
     Values: Optional[Dict[str, str]] = None
-    PromotionName: Optional[str] = None
+    PromotionName: Optional[Annotated[str, _aws_pattern("CustomerProfiles", "name")]] = None
     PercentPromotedItems: Optional[int] = None
 
 
 # This class is the input for the 'get_recommender_filter' function.
 class GetRecommenderFilterRequestTypeDef(BaseValidatorModel):
-    DomainName: str
-    RecommenderFilterName: str
+    DomainName: Annotated[str, _aws_pattern("CustomerProfiles", "name")]
+    RecommenderFilterName: Annotated[str, _aws_pattern("CustomerProfiles", "RecommenderFilterName")]
 
 
 # This class is the input for the 'get_recommender' function.
 class GetRecommenderRequestTypeDef(BaseValidatorModel):
-    DomainName: str
-    RecommenderName: str
+    DomainName: Annotated[str, _aws_pattern("CustomerProfiles", "name")]
+    RecommenderName: Annotated[str, _aws_pattern("CustomerProfiles", "name")]
     TrainingMetricsCount: Optional[int] = None
 
 
@@ -659,27 +661,27 @@ class TrainingMetricsTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'get_recommender_schema' function.
 class GetRecommenderSchemaRequestTypeDef(BaseValidatorModel):
-    DomainName: str
-    RecommenderSchemaName: str
+    DomainName: Annotated[str, _aws_pattern("CustomerProfiles", "name")]
+    RecommenderSchemaName: Annotated[str, _aws_pattern("CustomerProfiles", "name")]
 
 
 # This class is the input for the 'get_segment_definition' function.
 class GetSegmentDefinitionRequestTypeDef(BaseValidatorModel):
-    DomainName: str
-    SegmentDefinitionName: str
+    DomainName: Annotated[str, _aws_pattern("CustomerProfiles", "name")]
+    SegmentDefinitionName: Annotated[str, _aws_pattern("CustomerProfiles", "name")]
 
 
 # This class is the input for the 'get_segment_estimate' function.
 class GetSegmentEstimateRequestTypeDef(BaseValidatorModel):
-    DomainName: str
+    DomainName: Annotated[str, _aws_pattern("CustomerProfiles", "name")]
     EstimateId: str
 
 
 # This class is the input for the 'get_segment_membership' function.
 class GetSegmentMembershipRequestTypeDef(BaseValidatorModel):
-    DomainName: str
-    SegmentDefinitionName: str
-    ProfileIds: List[str]
+    DomainName: Annotated[str, _aws_pattern("CustomerProfiles", "name")]
+    SegmentDefinitionName: Annotated[str, _aws_pattern("CustomerProfiles", "name")]
+    ProfileIds: List[Annotated[str, _aws_pattern("CustomerProfiles", "uuid")]]
 
 
 class ProfileQueryFailuresTypeDef(BaseValidatorModel):
@@ -690,9 +692,9 @@ class ProfileQueryFailuresTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'get_segment_snapshot' function.
 class GetSegmentSnapshotRequestTypeDef(BaseValidatorModel):
-    DomainName: str
-    SegmentDefinitionName: str
-    SnapshotId: str
+    DomainName: Annotated[str, _aws_pattern("CustomerProfiles", "name")]
+    SegmentDefinitionName: Annotated[str, _aws_pattern("CustomerProfiles", "name")]
+    SnapshotId: Annotated[str, _aws_pattern("CustomerProfiles", "uuid")]
 
 
 class PaginatorConfigTypeDef(BaseValidatorModel):
@@ -703,7 +705,7 @@ class PaginatorConfigTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'get_similar_profiles' function.
 class GetSimilarProfilesRequestTypeDef(BaseValidatorModel):
-    DomainName: str
+    DomainName: Annotated[str, _aws_pattern("CustomerProfiles", "name")]
     MatchType: MatchTypeType
     SearchKey: str
     SearchValue: str
@@ -713,14 +715,14 @@ class GetSimilarProfilesRequestTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'get_upload_job_path' function.
 class GetUploadJobPathRequestTypeDef(BaseValidatorModel):
-    DomainName: str
-    JobId: str
+    DomainName: Annotated[str, _aws_pattern("CustomerProfiles", "name")]
+    JobId: Annotated[str, _aws_pattern("CustomerProfiles", "name")]
 
 
 # This class is the input for the 'get_upload_job' function.
 class GetUploadJobRequestTypeDef(BaseValidatorModel):
-    DomainName: str
-    JobId: str
+    DomainName: Annotated[str, _aws_pattern("CustomerProfiles", "name")]
+    JobId: Annotated[str, _aws_pattern("CustomerProfiles", "uuid")]
 
 
 class ResultsSummaryTypeDef(BaseValidatorModel):
@@ -731,24 +733,24 @@ class ResultsSummaryTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'get_workflow' function.
 class GetWorkflowRequestTypeDef(BaseValidatorModel):
-    DomainName: str
-    WorkflowId: str
+    DomainName: Annotated[str, _aws_pattern("CustomerProfiles", "name")]
+    WorkflowId: Annotated[str, _aws_pattern("CustomerProfiles", "uuid")]
 
 
 # This class is the input for the 'get_workflow_steps' function.
 class GetWorkflowStepsRequestTypeDef(BaseValidatorModel):
-    DomainName: str
-    WorkflowId: str
+    DomainName: Annotated[str, _aws_pattern("CustomerProfiles", "name")]
+    WorkflowId: Annotated[str, _aws_pattern("CustomerProfiles", "uuid")]
     NextToken: Optional[str] = None
     MaxResults: Optional[int] = None
 
 
 class SourceSegmentTypeDef(BaseValidatorModel):
-    SegmentDefinitionName: Optional[str] = None
+    SegmentDefinitionName: Optional[Annotated[str, _aws_pattern("CustomerProfiles", "name")]] = None
 
 
 class IncrementalPullConfigTypeDef(BaseValidatorModel):
-    DatetimeTypeFieldName: Optional[str] = None
+    DatetimeTypeFieldName: Optional[Annotated[str, _aws_pattern("CustomerProfiles", "DatetimeTypeFieldName")]] = None
 
 
 class InferenceConfigTypeDef(BaseValidatorModel):
@@ -757,13 +759,13 @@ class InferenceConfigTypeDef(BaseValidatorModel):
 
 class JobScheduleTypeDef(BaseValidatorModel):
     DayOfTheWeek: JobScheduleDayOfTheWeekType
-    Time: str
+    Time: Annotated[str, _aws_pattern("CustomerProfiles", "JobScheduleTime")]
 
 
 class LayoutItemTypeDef(BaseValidatorModel):
-    LayoutDefinitionName: str
+    LayoutDefinitionName: Annotated[str, _aws_pattern("CustomerProfiles", "name")]
     Description: str
-    DisplayName: str
+    DisplayName: Annotated[str, _aws_pattern("CustomerProfiles", "displayName")]
     LayoutType: Literal["PROFILE_EXPLORER"]
     CreatedAt: datetime
     LastUpdatedAt: datetime
@@ -780,23 +782,23 @@ class ListAccountIntegrationsRequestTypeDef(BaseValidatorModel):
 
 
 class ListIntegrationItemTypeDef(BaseValidatorModel):
-    DomainName: str
+    DomainName: Annotated[str, _aws_pattern("CustomerProfiles", "name")]
     Uri: str
     CreatedAt: datetime
     LastUpdatedAt: datetime
-    ObjectTypeName: Optional[str] = None
+    ObjectTypeName: Optional[Annotated[str, _aws_pattern("CustomerProfiles", "typeName")]] = None
     Tags: Optional[Dict[str, str]] = None
     ObjectTypeNames: Optional[Dict[str, str]] = None
     WorkflowId: Optional[str] = None
     IsUnstructured: Optional[bool] = None
-    RoleArn: Optional[str] = None
-    EventTriggerNames: Optional[List[str]] = None
+    RoleArn: Optional[Annotated[str, _aws_pattern("CustomerProfiles", "RoleArn")]] = None
+    EventTriggerNames: Optional[List[Annotated[str, _aws_pattern("CustomerProfiles", "name")]]] = None
     Scope: Optional[ScopeType] = None
 
 
 class ListCalculatedAttributeDefinitionItemTypeDef(BaseValidatorModel):
-    CalculatedAttributeName: Optional[str] = None
-    DisplayName: Optional[str] = None
+    CalculatedAttributeName: Optional[Annotated[str, _aws_pattern("CustomerProfiles", "typeName")]] = None
+    DisplayName: Optional[Annotated[str, _aws_pattern("CustomerProfiles", "displayName")]] = None
     Description: Optional[str] = None
     CreatedAt: Optional[datetime] = None
     LastUpdatedAt: Optional[datetime] = None
@@ -807,14 +809,14 @@ class ListCalculatedAttributeDefinitionItemTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'list_calculated_attribute_definitions' function.
 class ListCalculatedAttributeDefinitionsRequestTypeDef(BaseValidatorModel):
-    DomainName: str
+    DomainName: Annotated[str, _aws_pattern("CustomerProfiles", "name")]
     NextToken: Optional[str] = None
     MaxResults: Optional[int] = None
 
 
 class ListCalculatedAttributeForProfileItemTypeDef(BaseValidatorModel):
-    CalculatedAttributeName: Optional[str] = None
-    DisplayName: Optional[str] = None
+    CalculatedAttributeName: Optional[Annotated[str, _aws_pattern("CustomerProfiles", "typeName")]] = None
+    DisplayName: Optional[Annotated[str, _aws_pattern("CustomerProfiles", "displayName")]] = None
     IsDataPartial: Optional[str] = None
     Value: Optional[str] = None
     LastObjectTimestamp: Optional[datetime] = None
@@ -822,14 +824,14 @@ class ListCalculatedAttributeForProfileItemTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'list_calculated_attributes_for_profile' function.
 class ListCalculatedAttributesForProfileRequestTypeDef(BaseValidatorModel):
-    DomainName: str
-    ProfileId: str
+    DomainName: Annotated[str, _aws_pattern("CustomerProfiles", "name")]
+    ProfileId: Annotated[str, _aws_pattern("CustomerProfiles", "uuid")]
     NextToken: Optional[str] = None
     MaxResults: Optional[int] = None
 
 
 class ListDomainItemTypeDef(BaseValidatorModel):
-    DomainName: str
+    DomainName: Annotated[str, _aws_pattern("CustomerProfiles", "name")]
     CreatedAt: datetime
     LastUpdatedAt: datetime
     Tags: Optional[Dict[str, str]] = None
@@ -837,14 +839,14 @@ class ListDomainItemTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'list_domain_layouts' function.
 class ListDomainLayoutsRequestTypeDef(BaseValidatorModel):
-    DomainName: str
+    DomainName: Annotated[str, _aws_pattern("CustomerProfiles", "name")]
     NextToken: Optional[str] = None
     MaxResults: Optional[int] = None
 
 
 # This class is the input for the 'list_domain_object_types' function.
 class ListDomainObjectTypesRequestTypeDef(BaseValidatorModel):
-    DomainName: str
+    DomainName: Annotated[str, _aws_pattern("CustomerProfiles", "name")]
     MaxResults: Optional[int] = None
     NextToken: Optional[str] = None
 
@@ -857,35 +859,35 @@ class ListDomainsRequestTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'list_event_streams' function.
 class ListEventStreamsRequestTypeDef(BaseValidatorModel):
-    DomainName: str
+    DomainName: Annotated[str, _aws_pattern("CustomerProfiles", "name")]
     NextToken: Optional[str] = None
     MaxResults: Optional[int] = None
 
 
 # This class is the input for the 'list_event_triggers' function.
 class ListEventTriggersRequestTypeDef(BaseValidatorModel):
-    DomainName: str
+    DomainName: Annotated[str, _aws_pattern("CustomerProfiles", "name")]
     NextToken: Optional[str] = None
     MaxResults: Optional[int] = None
 
 
 # This class is the input for the 'list_identity_resolution_jobs' function.
 class ListIdentityResolutionJobsRequestTypeDef(BaseValidatorModel):
-    DomainName: str
+    DomainName: Annotated[str, _aws_pattern("CustomerProfiles", "name")]
     NextToken: Optional[str] = None
     MaxResults: Optional[int] = None
 
 
 # This class is the input for the 'list_integrations' function.
 class ListIntegrationsRequestTypeDef(BaseValidatorModel):
-    DomainName: str
+    DomainName: Annotated[str, _aws_pattern("CustomerProfiles", "name")]
     NextToken: Optional[str] = None
     MaxResults: Optional[int] = None
     IncludeHidden: Optional[bool] = None
 
 
 class ListObjectTypeAttributeItemTypeDef(BaseValidatorModel):
-    AttributeName: str
+    AttributeName: Annotated[str, _aws_pattern("CustomerProfiles", "name")]
     LastUpdatedAt: datetime
 
 
@@ -896,8 +898,8 @@ class ListObjectTypeAttributeValuesItemTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'list_object_type_attribute_values' function.
 class ListObjectTypeAttributeValuesRequestTypeDef(BaseValidatorModel):
-    DomainName: str
-    ObjectTypeName: str
+    DomainName: Annotated[str, _aws_pattern("CustomerProfiles", "name")]
+    ObjectTypeName: Annotated[str, _aws_pattern("CustomerProfiles", "typeName")]
     AttributeName: str
     NextToken: Optional[str] = None
     MaxResults: Optional[int] = None
@@ -905,17 +907,17 @@ class ListObjectTypeAttributeValuesRequestTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'list_object_type_attributes' function.
 class ListObjectTypeAttributesRequestTypeDef(BaseValidatorModel):
-    DomainName: str
-    ObjectTypeName: str
+    DomainName: Annotated[str, _aws_pattern("CustomerProfiles", "name")]
+    ObjectTypeName: Annotated[str, _aws_pattern("CustomerProfiles", "typeName")]
     NextToken: Optional[str] = None
     MaxResults: Optional[int] = None
 
 
 # This class is the input for the 'list_profile_history_records' function.
 class ListProfileHistoryRecordsRequestTypeDef(BaseValidatorModel):
-    DomainName: str
-    ProfileId: str
-    ObjectTypeName: Optional[str] = None
+    DomainName: Annotated[str, _aws_pattern("CustomerProfiles", "name")]
+    ProfileId: Annotated[str, _aws_pattern("CustomerProfiles", "uuid")]
+    ObjectTypeName: Optional[Annotated[str, _aws_pattern("CustomerProfiles", "typeName")]] = None
     NextToken: Optional[str] = None
     MaxResults: Optional[int] = None
     ActionType: Optional[ActionTypeType] = None
@@ -923,8 +925,8 @@ class ListProfileHistoryRecordsRequestTypeDef(BaseValidatorModel):
 
 
 class ProfileHistoryRecordTypeDef(BaseValidatorModel):
-    Id: str
-    ObjectTypeName: str
+    Id: Annotated[str, _aws_pattern("CustomerProfiles", "uuid")]
+    ObjectTypeName: Annotated[str, _aws_pattern("CustomerProfiles", "typeName")]
     CreatedAt: datetime
     ActionType: ActionTypeType
     LastUpdatedAt: Optional[datetime] = None
@@ -933,7 +935,7 @@ class ProfileHistoryRecordTypeDef(BaseValidatorModel):
 
 
 class ListProfileObjectTypeItemTypeDef(BaseValidatorModel):
-    ObjectTypeName: str
+    ObjectTypeName: Annotated[str, _aws_pattern("CustomerProfiles", "typeName")]
     Description: str
     CreatedAt: Optional[datetime] = None
     LastUpdatedAt: Optional[datetime] = None
@@ -944,9 +946,9 @@ class ListProfileObjectTypeItemTypeDef(BaseValidatorModel):
 
 
 class ListProfileObjectTypeTemplateItemTypeDef(BaseValidatorModel):
-    TemplateId: Optional[str] = None
-    SourceName: Optional[str] = None
-    SourceObject: Optional[str] = None
+    TemplateId: Optional[Annotated[str, _aws_pattern("CustomerProfiles", "name")]] = None
+    SourceName: Optional[Annotated[str, _aws_pattern("CustomerProfiles", "name")]] = None
+    SourceObject: Optional[Annotated[str, _aws_pattern("CustomerProfiles", "name")]] = None
 
 
 # This class is the input for the 'list_profile_object_type_templates' function.
@@ -957,32 +959,32 @@ class ListProfileObjectTypeTemplatesRequestTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'list_profile_object_types' function.
 class ListProfileObjectTypesRequestTypeDef(BaseValidatorModel):
-    DomainName: str
+    DomainName: Annotated[str, _aws_pattern("CustomerProfiles", "name")]
     NextToken: Optional[str] = None
     MaxResults: Optional[int] = None
 
 
 class ListProfileObjectsItemTypeDef(BaseValidatorModel):
-    ObjectTypeName: Optional[str] = None
+    ObjectTypeName: Optional[Annotated[str, _aws_pattern("CustomerProfiles", "typeName")]] = None
     ProfileObjectUniqueKey: Optional[str] = None
     Object: Optional[str] = None
 
 
 class ObjectFilterTypeDef(BaseValidatorModel):
-    KeyName: str
+    KeyName: Annotated[str, _aws_pattern("CustomerProfiles", "name")]
     Values: List[str]
 
 
 # This class is the input for the 'list_recommender_filters' function.
 class ListRecommenderFiltersRequestTypeDef(BaseValidatorModel):
-    DomainName: str
+    DomainName: Annotated[str, _aws_pattern("CustomerProfiles", "name")]
     MaxResults: Optional[int] = None
     NextToken: Optional[str] = None
 
 
 class RecommenderFilterSummaryTypeDef(BaseValidatorModel):
-    RecommenderFilterName: Optional[str] = None
-    RecommenderSchemaName: Optional[str] = None
+    RecommenderFilterName: Optional[Annotated[str, _aws_pattern("CustomerProfiles", "RecommenderFilterName")]] = None
+    RecommenderSchemaName: Optional[Annotated[str, _aws_pattern("CustomerProfiles", "name")]] = None
     RecommenderFilterExpression: Optional[str] = None
     CreatedAt: Optional[datetime] = None
     Description: Optional[str] = None
@@ -1004,34 +1006,34 @@ class RecommenderRecipeTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'list_recommender_schemas' function.
 class ListRecommenderSchemasRequestTypeDef(BaseValidatorModel):
-    DomainName: str
+    DomainName: Annotated[str, _aws_pattern("CustomerProfiles", "name")]
     MaxResults: Optional[int] = None
     NextToken: Optional[str] = None
 
 
 # This class is the input for the 'list_recommenders' function.
 class ListRecommendersRequestTypeDef(BaseValidatorModel):
-    DomainName: str
+    DomainName: Annotated[str, _aws_pattern("CustomerProfiles", "name")]
     MaxResults: Optional[int] = None
     NextToken: Optional[str] = None
 
 
 # This class is the input for the 'list_rule_based_matches' function.
 class ListRuleBasedMatchesRequestTypeDef(BaseValidatorModel):
-    DomainName: str
+    DomainName: Annotated[str, _aws_pattern("CustomerProfiles", "name")]
     NextToken: Optional[str] = None
     MaxResults: Optional[int] = None
 
 
 # This class is the input for the 'list_segment_definitions' function.
 class ListSegmentDefinitionsRequestTypeDef(BaseValidatorModel):
-    DomainName: str
+    DomainName: Annotated[str, _aws_pattern("CustomerProfiles", "name")]
     MaxResults: Optional[int] = None
     NextToken: Optional[str] = None
 
 
 class SegmentDefinitionItemTypeDef(BaseValidatorModel):
-    SegmentDefinitionName: Optional[str] = None
+    SegmentDefinitionName: Optional[Annotated[str, _aws_pattern("CustomerProfiles", "name")]] = None
     DisplayName: Optional[str] = None
     Description: Optional[str] = None
     SegmentDefinitionArn: Optional[str] = None
@@ -1042,18 +1044,18 @@ class SegmentDefinitionItemTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'list_tags_for_resource' function.
 class ListTagsForResourceRequestTypeDef(BaseValidatorModel):
-    resourceArn: str
+    resourceArn: Annotated[str, _aws_pattern("CustomerProfiles", "TagArn")]
 
 
 # This class is the input for the 'list_upload_jobs' function.
 class ListUploadJobsRequestTypeDef(BaseValidatorModel):
-    DomainName: str
+    DomainName: Annotated[str, _aws_pattern("CustomerProfiles", "name")]
     MaxResults: Optional[int] = None
     NextToken: Optional[str] = None
 
 
 class UploadJobItemTypeDef(BaseValidatorModel):
-    JobId: Optional[str] = None
+    JobId: Optional[Annotated[str, _aws_pattern("CustomerProfiles", "uuid")]] = None
     DisplayName: Optional[str] = None
     Status: Optional[UploadJobStatusType] = None
     StatusReason: Optional[StatusReasonType] = None
@@ -1072,7 +1074,7 @@ class ListWorkflowsItemTypeDef(BaseValidatorModel):
 
 
 class MarketoSourcePropertiesTypeDef(BaseValidatorModel):
-    Object: str
+    Object: Annotated[str, _aws_pattern("CustomerProfiles", "Object")]
 
 
 class MatchingRuleOutputTypeDef(BaseValidatorModel):
@@ -1087,17 +1089,17 @@ class ObjectAttributeTypeDef(BaseValidatorModel):
     ComparisonOperator: ComparisonOperatorType
     Values: List[str]
     Source: Optional[str] = None
-    FieldName: Optional[str] = None
+    FieldName: Optional[Annotated[str, _aws_pattern("CustomerProfiles", "fieldName")]] = None
 
 
 class ObjectTypeKeyTypeDef(BaseValidatorModel):
     StandardIdentifiers: Optional[List[StandardIdentifierType]] = None
-    FieldNames: Optional[List[str]] = None
+    FieldNames: Optional[List[Annotated[str, _aws_pattern("CustomerProfiles", "name")]]] = None
 
 
 # This class is the input for the 'list_profile_attribute_values' function.
 class ProfileAttributeValuesRequestTypeDef(BaseValidatorModel):
-    DomainName: str
+    DomainName: Annotated[str, _aws_pattern("CustomerProfiles", "name")]
     AttributeName: str
 
 
@@ -1118,9 +1120,9 @@ class ProfileTypeDimensionTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'put_profile_object' function.
 class PutProfileObjectRequestTypeDef(BaseValidatorModel):
-    ObjectTypeName: str
+    ObjectTypeName: Annotated[str, _aws_pattern("CustomerProfiles", "typeName")]
     Object: str
-    DomainName: str
+    DomainName: Annotated[str, _aws_pattern("CustomerProfiles", "name")]
 
 
 class ValueRangeTypeDef(BaseValidatorModel):
@@ -1129,59 +1131,59 @@ class ValueRangeTypeDef(BaseValidatorModel):
 
 
 class S3SourcePropertiesTypeDef(BaseValidatorModel):
-    BucketName: str
-    BucketPrefix: Optional[str] = None
+    BucketName: Annotated[str, _aws_pattern("CustomerProfiles", "BucketName")]
+    BucketPrefix: Optional[Annotated[str, _aws_pattern("CustomerProfiles", "BucketPrefix")]] = None
 
 
 class SalesforceSourcePropertiesTypeDef(BaseValidatorModel):
-    Object: str
+    Object: Annotated[str, _aws_pattern("CustomerProfiles", "Object")]
     EnableDynamicFieldUpdate: Optional[bool] = None
     IncludeDeletedRecords: Optional[bool] = None
 
 
 class SortAttributeTypeDef(BaseValidatorModel):
-    Name: str
+    Name: Annotated[str, _aws_pattern("CustomerProfiles", "fieldName")]
     Order: SegmentSortOrderType
     DataType: Optional[SegmentSortDataTypeType] = None
     Type: Optional[SortAttributeTypeType] = None
 
 
 class ServiceNowSourcePropertiesTypeDef(BaseValidatorModel):
-    Object: str
+    Object: Annotated[str, _aws_pattern("CustomerProfiles", "Object")]
 
 
 class ZendeskSourcePropertiesTypeDef(BaseValidatorModel):
-    Object: str
+    Object: Annotated[str, _aws_pattern("CustomerProfiles", "Object")]
 
 
 class StartRecommenderRequestTypeDef(BaseValidatorModel):
-    DomainName: str
-    RecommenderName: str
+    DomainName: Annotated[str, _aws_pattern("CustomerProfiles", "name")]
+    RecommenderName: Annotated[str, _aws_pattern("CustomerProfiles", "name")]
 
 
 class StartUploadJobRequestTypeDef(BaseValidatorModel):
-    DomainName: str
-    JobId: str
+    DomainName: Annotated[str, _aws_pattern("CustomerProfiles", "name")]
+    JobId: Annotated[str, _aws_pattern("CustomerProfiles", "name")]
 
 
 class StopRecommenderRequestTypeDef(BaseValidatorModel):
-    DomainName: str
-    RecommenderName: str
+    DomainName: Annotated[str, _aws_pattern("CustomerProfiles", "name")]
+    RecommenderName: Annotated[str, _aws_pattern("CustomerProfiles", "name")]
 
 
 class StopUploadJobRequestTypeDef(BaseValidatorModel):
-    DomainName: str
-    JobId: str
+    DomainName: Annotated[str, _aws_pattern("CustomerProfiles", "name")]
+    JobId: Annotated[str, _aws_pattern("CustomerProfiles", "name")]
 
 
 class TagResourceRequestTypeDef(BaseValidatorModel):
-    resourceArn: str
+    resourceArn: Annotated[str, _aws_pattern("CustomerProfiles", "TagArn")]
     tags: Dict[str, str]
 
 
 class UntagResourceRequestTypeDef(BaseValidatorModel):
-    resourceArn: str
-    tagKeys: List[str]
+    resourceArn: Annotated[str, _aws_pattern("CustomerProfiles", "TagArn")]
+    tagKeys: List[Annotated[str, _aws_pattern("CustomerProfiles", "TagKey")]]
 
 
 class UpdateAddressTypeDef(BaseValidatorModel):
@@ -1199,10 +1201,10 @@ class UpdateAddressTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'update_domain_layout' function.
 class UpdateDomainLayoutRequestTypeDef(BaseValidatorModel):
-    DomainName: str
-    LayoutDefinitionName: str
+    DomainName: Annotated[str, _aws_pattern("CustomerProfiles", "name")]
+    LayoutDefinitionName: Annotated[str, _aws_pattern("CustomerProfiles", "name")]
     Description: Optional[str] = None
-    DisplayName: Optional[str] = None
+    DisplayName: Optional[Annotated[str, _aws_pattern("CustomerProfiles", "displayName")]] = None
     IsDefault: Optional[bool] = None
     LayoutType: Optional[Literal["PROFILE_EXPLORER"]] = None
     Layout: Optional[str] = None
@@ -1210,16 +1212,16 @@ class UpdateDomainLayoutRequestTypeDef(BaseValidatorModel):
 
 # This class is the output for the 'add_profile_key' function.
 class AddProfileKeyResponseTypeDef(BaseValidatorModel):
-    KeyName: str
+    KeyName: Annotated[str, _aws_pattern("CustomerProfiles", "name")]
     Values: List[str]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 # This class is the output for the 'create_domain_layout' function.
 class CreateDomainLayoutResponseTypeDef(BaseValidatorModel):
-    LayoutDefinitionName: str
+    LayoutDefinitionName: Annotated[str, _aws_pattern("CustomerProfiles", "name")]
     Description: str
-    DisplayName: str
+    DisplayName: Annotated[str, _aws_pattern("CustomerProfiles", "displayName")]
     IsDefault: bool
     LayoutType: Literal["PROFILE_EXPLORER"]
     Layout: str
@@ -1239,34 +1241,34 @@ class CreateEventStreamResponseTypeDef(BaseValidatorModel):
 
 # This class is the output for the 'create_integration_workflow' function.
 class CreateIntegrationWorkflowResponseTypeDef(BaseValidatorModel):
-    WorkflowId: str
+    WorkflowId: Annotated[str, _aws_pattern("CustomerProfiles", "uuid")]
     Message: str
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 # This class is the output for the 'create_profile' function.
 class CreateProfileResponseTypeDef(BaseValidatorModel):
-    ProfileId: str
+    ProfileId: Annotated[str, _aws_pattern("CustomerProfiles", "uuid")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 # This class is the output for the 'create_recommender_filter' function.
 class CreateRecommenderFilterResponseTypeDef(BaseValidatorModel):
-    RecommenderFilterArn: str
+    RecommenderFilterArn: Annotated[str, _aws_pattern("CustomerProfiles", "Arn")]
     Tags: Dict[str, str]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 # This class is the output for the 'create_recommender' function.
 class CreateRecommenderResponseTypeDef(BaseValidatorModel):
-    RecommenderArn: str
+    RecommenderArn: Annotated[str, _aws_pattern("CustomerProfiles", "Arn")]
     Tags: Dict[str, str]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 # This class is the output for the 'create_segment_definition' function.
 class CreateSegmentDefinitionResponseTypeDef(BaseValidatorModel):
-    SegmentDefinitionName: str
+    SegmentDefinitionName: Annotated[str, _aws_pattern("CustomerProfiles", "name")]
     DisplayName: str
     Description: str
     CreatedAt: datetime
@@ -1277,7 +1279,7 @@ class CreateSegmentDefinitionResponseTypeDef(BaseValidatorModel):
 
 # This class is the output for the 'create_segment_estimate' function.
 class CreateSegmentEstimateResponseTypeDef(BaseValidatorModel):
-    DomainName: str
+    DomainName: Annotated[str, _aws_pattern("CustomerProfiles", "name")]
     EstimateId: str
     StatusCode: int
     ResponseMetadata: ResponseMetadataTypeDef
@@ -1285,13 +1287,13 @@ class CreateSegmentEstimateResponseTypeDef(BaseValidatorModel):
 
 # This class is the output for the 'create_segment_snapshot' function.
 class CreateSegmentSnapshotResponseTypeDef(BaseValidatorModel):
-    SnapshotId: str
+    SnapshotId: Annotated[str, _aws_pattern("CustomerProfiles", "uuid")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 # This class is the output for the 'create_upload_job' function.
 class CreateUploadJobResponseTypeDef(BaseValidatorModel):
-    JobId: str
+    JobId: Annotated[str, _aws_pattern("CustomerProfiles", "uuid")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
@@ -1357,7 +1359,7 @@ class DeleteSegmentDefinitionResponseTypeDef(BaseValidatorModel):
 
 # This class is the output for the 'get_auto_merging_preview' function.
 class GetAutoMergingPreviewResponseTypeDef(BaseValidatorModel):
-    DomainName: str
+    DomainName: Annotated[str, _aws_pattern("CustomerProfiles", "name")]
     NumberOfMatchesInSample: int
     NumberOfProfilesInSample: int
     NumberOfProfilesWillBeMerged: int
@@ -1366,8 +1368,8 @@ class GetAutoMergingPreviewResponseTypeDef(BaseValidatorModel):
 
 # This class is the output for the 'get_calculated_attribute_for_profile' function.
 class GetCalculatedAttributeForProfileResponseTypeDef(BaseValidatorModel):
-    CalculatedAttributeName: str
-    DisplayName: str
+    CalculatedAttributeName: Annotated[str, _aws_pattern("CustomerProfiles", "typeName")]
+    DisplayName: Annotated[str, _aws_pattern("CustomerProfiles", "displayName")]
     IsDataPartial: str
     Value: str
     LastObjectTimestamp: datetime
@@ -1376,9 +1378,9 @@ class GetCalculatedAttributeForProfileResponseTypeDef(BaseValidatorModel):
 
 # This class is the output for the 'get_domain_layout' function.
 class GetDomainLayoutResponseTypeDef(BaseValidatorModel):
-    LayoutDefinitionName: str
+    LayoutDefinitionName: Annotated[str, _aws_pattern("CustomerProfiles", "name")]
     Description: str
-    DisplayName: str
+    DisplayName: Annotated[str, _aws_pattern("CustomerProfiles", "displayName")]
     IsDefault: bool
     LayoutType: Literal["PROFILE_EXPLORER"]
     Layout: str
@@ -1391,25 +1393,25 @@ class GetDomainLayoutResponseTypeDef(BaseValidatorModel):
 
 # This class is the output for the 'get_integration' function.
 class GetIntegrationResponseTypeDef(BaseValidatorModel):
-    DomainName: str
+    DomainName: Annotated[str, _aws_pattern("CustomerProfiles", "name")]
     Uri: str
-    ObjectTypeName: str
+    ObjectTypeName: Annotated[str, _aws_pattern("CustomerProfiles", "typeName")]
     CreatedAt: datetime
     LastUpdatedAt: datetime
     Tags: Dict[str, str]
     ObjectTypeNames: Dict[str, str]
     WorkflowId: str
     IsUnstructured: bool
-    RoleArn: str
-    EventTriggerNames: List[str]
+    RoleArn: Annotated[str, _aws_pattern("CustomerProfiles", "RoleArn")]
+    EventTriggerNames: List[Annotated[str, _aws_pattern("CustomerProfiles", "name")]]
     Scope: ScopeType
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 # This class is the output for the 'get_profile_history_record' function.
 class GetProfileHistoryRecordResponseTypeDef(BaseValidatorModel):
-    Id: str
-    ObjectTypeName: str
+    Id: Annotated[str, _aws_pattern("CustomerProfiles", "uuid")]
+    ObjectTypeName: Annotated[str, _aws_pattern("CustomerProfiles", "typeName")]
     CreatedAt: datetime
     LastUpdatedAt: datetime
     ActionType: ActionTypeType
@@ -1421,9 +1423,9 @@ class GetProfileHistoryRecordResponseTypeDef(BaseValidatorModel):
 
 # This class is the output for the 'get_recommender_filter' function.
 class GetRecommenderFilterResponseTypeDef(BaseValidatorModel):
-    RecommenderFilterName: str
+    RecommenderFilterName: Annotated[str, _aws_pattern("CustomerProfiles", "RecommenderFilterName")]
     RecommenderFilterExpression: str
-    RecommenderSchemaName: str
+    RecommenderSchemaName: Annotated[str, _aws_pattern("CustomerProfiles", "name")]
     CreatedAt: datetime
     Status: RecommenderFilterStatusType
     Description: str
@@ -1434,7 +1436,7 @@ class GetRecommenderFilterResponseTypeDef(BaseValidatorModel):
 
 # This class is the output for the 'get_segment_estimate' function.
 class GetSegmentEstimateResponseTypeDef(BaseValidatorModel):
-    DomainName: str
+    DomainName: Annotated[str, _aws_pattern("CustomerProfiles", "name")]
     EstimateId: str
     Status: EstimateStatusType
     Estimate: str
@@ -1445,19 +1447,19 @@ class GetSegmentEstimateResponseTypeDef(BaseValidatorModel):
 
 # This class is the output for the 'get_segment_snapshot' function.
 class GetSegmentSnapshotResponseTypeDef(BaseValidatorModel):
-    SnapshotId: str
+    SnapshotId: Annotated[str, _aws_pattern("CustomerProfiles", "uuid")]
     Status: SegmentSnapshotStatusType
     StatusMessage: str
     DataFormat: DataFormatType
     EncryptionKey: str
-    RoleArn: str
+    RoleArn: Annotated[str, _aws_pattern("CustomerProfiles", "RoleArn")]
     DestinationUri: str
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 # This class is the output for the 'get_similar_profiles' function.
 class GetSimilarProfilesResponseTypeDef(BaseValidatorModel):
-    ProfileIds: List[str]
+    ProfileIds: List[Annotated[str, _aws_pattern("CustomerProfiles", "uuid")]]
     MatchId: str
     MatchType: MatchTypeType
     RuleLevel: int
@@ -1468,7 +1470,7 @@ class GetSimilarProfilesResponseTypeDef(BaseValidatorModel):
 
 # This class is the output for the 'get_upload_job_path' function.
 class GetUploadJobPathResponseTypeDef(BaseValidatorModel):
-    Url: str
+    Url: Annotated[str, _aws_pattern("CustomerProfiles", "stringTo2048")]
     ClientToken: str
     ValidUntil: datetime
     ResponseMetadata: ResponseMetadataTypeDef
@@ -1495,17 +1497,17 @@ class MergeProfilesResponseTypeDef(BaseValidatorModel):
 
 # This class is the output for the 'put_integration' function.
 class PutIntegrationResponseTypeDef(BaseValidatorModel):
-    DomainName: str
+    DomainName: Annotated[str, _aws_pattern("CustomerProfiles", "name")]
     Uri: str
-    ObjectTypeName: str
+    ObjectTypeName: Annotated[str, _aws_pattern("CustomerProfiles", "typeName")]
     CreatedAt: datetime
     LastUpdatedAt: datetime
     Tags: Dict[str, str]
     ObjectTypeNames: Dict[str, str]
     WorkflowId: str
     IsUnstructured: bool
-    RoleArn: str
-    EventTriggerNames: List[str]
+    RoleArn: Annotated[str, _aws_pattern("CustomerProfiles", "RoleArn")]
+    EventTriggerNames: List[Annotated[str, _aws_pattern("CustomerProfiles", "name")]]
     Scope: ScopeType
     ResponseMetadata: ResponseMetadataTypeDef
 
@@ -1518,9 +1520,9 @@ class PutProfileObjectResponseTypeDef(BaseValidatorModel):
 
 # This class is the output for the 'update_domain_layout' function.
 class UpdateDomainLayoutResponseTypeDef(BaseValidatorModel):
-    LayoutDefinitionName: str
+    LayoutDefinitionName: Annotated[str, _aws_pattern("CustomerProfiles", "name")]
     Description: str
-    DisplayName: str
+    DisplayName: Annotated[str, _aws_pattern("CustomerProfiles", "displayName")]
     IsDefault: bool
     LayoutType: Literal["PROFILE_EXPLORER"]
     Layout: str
@@ -1533,20 +1535,20 @@ class UpdateDomainLayoutResponseTypeDef(BaseValidatorModel):
 
 # This class is the output for the 'update_profile' function.
 class UpdateProfileResponseTypeDef(BaseValidatorModel):
-    ProfileId: str
+    ProfileId: Annotated[str, _aws_pattern("CustomerProfiles", "uuid")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 # This class is the output for the 'update_recommender' function.
 class UpdateRecommenderResponseTypeDef(BaseValidatorModel):
-    RecommenderName: str
+    RecommenderName: Annotated[str, _aws_pattern("CustomerProfiles", "name")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 # This class is the input for the 'search_profiles' function.
 class SearchProfilesRequestTypeDef(BaseValidatorModel):
-    DomainName: str
-    KeyName: str
+    DomainName: Annotated[str, _aws_pattern("CustomerProfiles", "name")]
+    KeyName: Annotated[str, _aws_pattern("CustomerProfiles", "name")]
     Values: List[str]
     NextToken: Optional[str] = None
     MaxResults: Optional[int] = None
@@ -1592,7 +1594,7 @@ AttributeTypesSelectorUnionTypeDef = Union[AttributeTypesSelectorOutputTypeDef, 
 
 # This class is the output for the 'list_profile_attribute_values' function.
 class ProfileAttributeValuesResponseTypeDef(BaseValidatorModel):
-    DomainName: str
+    DomainName: Annotated[str, _aws_pattern("CustomerProfiles", "name")]
     AttributeName: str
     Items: List[AttributeValueItemTypeDef]
     StatusCode: int
@@ -1613,7 +1615,7 @@ class BatchTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'list_workflows' function.
 class ListWorkflowsRequestTypeDef(BaseValidatorModel):
-    DomainName: str
+    DomainName: Annotated[str, _aws_pattern("CustomerProfiles", "name")]
     WorkflowType: Optional[Literal["APPFLOW_INTEGRATION"]] = None
     Status: Optional[StatusType] = None
     QueryStartDate: Optional[TimestampTypeDef] = None
@@ -1623,11 +1625,11 @@ class ListWorkflowsRequestTypeDef(BaseValidatorModel):
 
 
 class ScheduledTriggerPropertiesTypeDef(BaseValidatorModel):
-    ScheduleExpression: str
+    ScheduleExpression: Annotated[str, _aws_pattern("CustomerProfiles", "ScheduleExpression")]
     DataPullMode: Optional[DataPullModeType] = None
     ScheduleStartTime: Optional[TimestampTypeDef] = None
     ScheduleEndTime: Optional[TimestampTypeDef] = None
-    Timezone: Optional[str] = None
+    Timezone: Optional[Annotated[str, _aws_pattern("CustomerProfiles", "Timezone")]] = None
     ScheduleOffset: Optional[int] = None
     FirstExecutionFrom: Optional[TimestampTypeDef] = None
 
@@ -1642,10 +1644,10 @@ class ConditionOverridesTypeDef(BaseValidatorModel):
 
 
 class TaskTypeDef(BaseValidatorModel):
-    SourceFields: List[str]
+    SourceFields: List[Annotated[str, _aws_pattern("CustomerProfiles", "stringTo2048")]]
     TaskType: TaskTypeType
     ConnectorOperator: Optional[ConnectorOperatorTypeDef] = None
-    DestinationField: Optional[str] = None
+    DestinationField: Optional[Annotated[str, _aws_pattern("CustomerProfiles", "DestinationField")]] = None
     TaskProperties: Optional[Dict[OperatorPropertiesKeysType, str]] = None
 
 
@@ -1669,16 +1671,16 @@ class DataStoreResponseTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'create_recommender_schema' function.
 class CreateRecommenderSchemaRequestTypeDef(BaseValidatorModel):
-    DomainName: str
-    RecommenderSchemaName: str
+    DomainName: Annotated[str, _aws_pattern("CustomerProfiles", "name")]
+    RecommenderSchemaName: Annotated[str, _aws_pattern("CustomerProfiles", "name")]
     Fields: Dict[str, List[RecommenderSchemaFieldTypeDef]]
     Tags: Optional[Dict[str, str]] = None
 
 
 # This class is the output for the 'create_recommender_schema' function.
 class CreateRecommenderSchemaResponseTypeDef(BaseValidatorModel):
-    RecommenderSchemaArn: str
-    RecommenderSchemaName: str
+    RecommenderSchemaArn: Annotated[str, _aws_pattern("CustomerProfiles", "Arn")]
+    RecommenderSchemaName: Annotated[str, _aws_pattern("CustomerProfiles", "name")]
     Fields: Dict[str, List[RecommenderSchemaFieldTypeDef]]
     CreatedAt: datetime
     Status: RecommenderSchemaStatusType
@@ -1688,7 +1690,7 @@ class CreateRecommenderSchemaResponseTypeDef(BaseValidatorModel):
 
 # This class is the output for the 'get_recommender_schema' function.
 class GetRecommenderSchemaResponseTypeDef(BaseValidatorModel):
-    RecommenderSchemaName: str
+    RecommenderSchemaName: Annotated[str, _aws_pattern("CustomerProfiles", "name")]
     Fields: Dict[str, List[RecommenderSchemaFieldTypeDef]]
     CreatedAt: datetime
     Status: RecommenderSchemaStatusType
@@ -1696,7 +1698,7 @@ class GetRecommenderSchemaResponseTypeDef(BaseValidatorModel):
 
 
 class RecommenderSchemaSummaryTypeDef(BaseValidatorModel):
-    RecommenderSchemaName: str
+    RecommenderSchemaName: Annotated[str, _aws_pattern("CustomerProfiles", "name")]
     Fields: Dict[str, List[RecommenderSchemaFieldTypeDef]]
     CreatedAt: datetime
     Status: RecommenderSchemaStatusType
@@ -1704,7 +1706,7 @@ class RecommenderSchemaSummaryTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'create_upload_job' function.
 class CreateUploadJobRequestTypeDef(BaseValidatorModel):
-    DomainName: str
+    DomainName: Annotated[str, _aws_pattern("CustomerProfiles", "name")]
     DisplayName: str
     Fields: Dict[str, ObjectTypeFieldTypeDef]
     UniqueKey: str
@@ -1715,8 +1717,8 @@ DateDimensionUnionTypeDef = Union[DateDimensionOutputTypeDef, DateDimensionTypeD
 
 
 class EventStreamSummaryTypeDef(BaseValidatorModel):
-    DomainName: str
-    EventStreamName: str
+    DomainName: Annotated[str, _aws_pattern("CustomerProfiles", "name")]
+    EventStreamName: Annotated[str, _aws_pattern("CustomerProfiles", "name")]
     EventStreamArn: str
     State: EventStreamStateType
     StoppedSince: Optional[datetime] = None
@@ -1732,9 +1734,9 @@ class DetectedProfileObjectTypeTypeDef(BaseValidatorModel):
 
 # This class is the output for the 'get_profile_object_type' function.
 class GetProfileObjectTypeResponseTypeDef(BaseValidatorModel):
-    ObjectTypeName: str
+    ObjectTypeName: Annotated[str, _aws_pattern("CustomerProfiles", "typeName")]
     Description: str
-    TemplateId: str
+    TemplateId: Annotated[str, _aws_pattern("CustomerProfiles", "name")]
     ExpirationDays: int
     EncryptionKey: str
     AllowProfileCreation: bool
@@ -1752,9 +1754,9 @@ class GetProfileObjectTypeResponseTypeDef(BaseValidatorModel):
 
 # This class is the output for the 'get_profile_object_type_template' function.
 class GetProfileObjectTypeTemplateResponseTypeDef(BaseValidatorModel):
-    TemplateId: str
-    SourceName: str
-    SourceObject: str
+    TemplateId: Annotated[str, _aws_pattern("CustomerProfiles", "name")]
+    SourceName: Annotated[str, _aws_pattern("CustomerProfiles", "name")]
+    SourceObject: Annotated[str, _aws_pattern("CustomerProfiles", "name")]
     AllowProfileCreation: bool
     SourceLastUpdatedTimestampFormat: str
     Fields: Dict[str, ObjectTypeFieldTypeDef]
@@ -1764,9 +1766,9 @@ class GetProfileObjectTypeTemplateResponseTypeDef(BaseValidatorModel):
 
 # This class is the output for the 'put_profile_object_type' function.
 class PutProfileObjectTypeResponseTypeDef(BaseValidatorModel):
-    ObjectTypeName: str
+    ObjectTypeName: Annotated[str, _aws_pattern("CustomerProfiles", "typeName")]
     Description: str
-    TemplateId: str
+    TemplateId: Annotated[str, _aws_pattern("CustomerProfiles", "name")]
     ExpirationDays: int
     EncryptionKey: str
     AllowProfileCreation: bool
@@ -1784,7 +1786,7 @@ class PutProfileObjectTypeResponseTypeDef(BaseValidatorModel):
 
 # This class is the output for the 'get_domain_object_type' function.
 class GetDomainObjectTypeResponseTypeDef(BaseValidatorModel):
-    ObjectTypeName: str
+    ObjectTypeName: Annotated[str, _aws_pattern("CustomerProfiles", "typeName")]
     Description: str
     EncryptionKey: str
     Fields: Dict[str, DomainObjectTypeFieldTypeDef]
@@ -1796,8 +1798,8 @@ class GetDomainObjectTypeResponseTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'put_domain_object_type' function.
 class PutDomainObjectTypeRequestTypeDef(BaseValidatorModel):
-    DomainName: str
-    ObjectTypeName: str
+    DomainName: Annotated[str, _aws_pattern("CustomerProfiles", "name")]
+    ObjectTypeName: Annotated[str, _aws_pattern("CustomerProfiles", "typeName")]
     Fields: Dict[str, DomainObjectTypeFieldTypeDef]
     Description: Optional[str] = None
     EncryptionKey: Optional[str] = None
@@ -1806,7 +1808,7 @@ class PutDomainObjectTypeRequestTypeDef(BaseValidatorModel):
 
 # This class is the output for the 'put_domain_object_type' function.
 class PutDomainObjectTypeResponseTypeDef(BaseValidatorModel):
-    ObjectTypeName: str
+    ObjectTypeName: Annotated[str, _aws_pattern("CustomerProfiles", "typeName")]
     Description: str
     EncryptionKey: str
     Fields: Dict[str, DomainObjectTypeFieldTypeDef]
@@ -1833,7 +1835,7 @@ class EventsConfigTypeDef(BaseValidatorModel):
 
 # This class is the output for the 'get_event_stream' function.
 class GetEventStreamResponseTypeDef(BaseValidatorModel):
-    DomainName: str
+    DomainName: Annotated[str, _aws_pattern("CustomerProfiles", "name")]
     EventStreamArn: str
     CreatedAt: datetime
     State: EventStreamStateType
@@ -1879,9 +1881,9 @@ ExtraLengthValueProfileDimensionUnionTypeDef = Union[
 
 # This class is the input for the 'merge_profiles' function.
 class MergeProfilesRequestTypeDef(BaseValidatorModel):
-    DomainName: str
-    MainProfileId: str
-    ProfileIdsToBeMerged: List[str]
+    DomainName: Annotated[str, _aws_pattern("CustomerProfiles", "name")]
+    MainProfileId: Annotated[str, _aws_pattern("CustomerProfiles", "uuid")]
+    ProfileIdsToBeMerged: List[Annotated[str, _aws_pattern("CustomerProfiles", "uuid")]]
     FieldSourceProfileIds: Optional[FieldSourceProfileIdsTypeDef] = None
 
 
@@ -1912,9 +1914,9 @@ class GetObjectTypeAttributeStatisticsStatsTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'get_profile_recommendations' function.
 class GetProfileRecommendationsRequestTypeDef(BaseValidatorModel):
-    DomainName: str
-    ProfileId: str
-    RecommenderName: str
+    DomainName: Annotated[str, _aws_pattern("CustomerProfiles", "name")]
+    ProfileId: Annotated[str, _aws_pattern("CustomerProfiles", "uuid")]
+    RecommenderName: Annotated[str, _aws_pattern("CustomerProfiles", "name")]
     Context: Optional[Dict[str, str]] = None
     RecommenderFilters: Optional[List[RecommenderFilterTypeDef]] = None
     RecommenderPromotionalFilters: Optional[List[RecommenderPromotionalFilterTypeDef]] = None
@@ -1993,7 +1995,7 @@ class ListUploadJobsRequestPaginateTypeDef(BaseValidatorModel):
 
 # This class is the output for the 'get_upload_job' function.
 class GetUploadJobResponseTypeDef(BaseValidatorModel):
-    JobId: str
+    JobId: Annotated[str, _aws_pattern("CustomerProfiles", "uuid")]
     DisplayName: str
     Status: UploadJobStatusType
     StatusReason: StatusReasonType
@@ -2092,9 +2094,9 @@ class ListProfileObjectsResponseTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'list_profile_objects' function.
 class ListProfileObjectsRequestTypeDef(BaseValidatorModel):
-    DomainName: str
-    ObjectTypeName: str
-    ProfileId: str
+    DomainName: Annotated[str, _aws_pattern("CustomerProfiles", "name")]
+    ObjectTypeName: Annotated[str, _aws_pattern("CustomerProfiles", "typeName")]
+    ProfileId: Annotated[str, _aws_pattern("CustomerProfiles", "uuid")]
     NextToken: Optional[str] = None
     MaxResults: Optional[int] = None
     ObjectFilter: Optional[ObjectFilterTypeDef] = None
@@ -2197,7 +2199,7 @@ class ProfileAttributesOutputTypeDef(BaseValidatorModel):
 
 # This class is the output for the 'get_workflow' function.
 class GetWorkflowResponseTypeDef(BaseValidatorModel):
-    WorkflowId: str
+    WorkflowId: Annotated[str, _aws_pattern("CustomerProfiles", "uuid")]
     WorkflowType: Literal["APPFLOW_INTEGRATION"]
     Status: StatusType
     ErrorDescription: str
@@ -2210,7 +2212,7 @@ class GetWorkflowResponseTypeDef(BaseValidatorModel):
 
 # This class is the output for the 'get_workflow_steps' function.
 class GetWorkflowStepsResponseTypeDef(BaseValidatorModel):
-    WorkflowId: str
+    WorkflowId: Annotated[str, _aws_pattern("CustomerProfiles", "uuid")]
     WorkflowType: Literal["APPFLOW_INTEGRATION"]
     Items: List[WorkflowStepItemTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
@@ -2232,9 +2234,9 @@ class GetProfileRecommendationsResponseTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'batch_get_calculated_attribute_for_profile' function.
 class BatchGetCalculatedAttributeForProfileRequestTypeDef(BaseValidatorModel):
-    CalculatedAttributeName: str
-    DomainName: str
-    ProfileIds: List[str]
+    CalculatedAttributeName: Annotated[str, _aws_pattern("CustomerProfiles", "typeName")]
+    DomainName: Annotated[str, _aws_pattern("CustomerProfiles", "name")]
+    ProfileIds: List[Annotated[str, _aws_pattern("CustomerProfiles", "uuid")]]
     ConditionOverrides: Optional[ConditionOverridesTypeDef] = None
 
 
@@ -2267,14 +2269,14 @@ class AutoMergingTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'get_auto_merging_preview' function.
 class GetAutoMergingPreviewRequestTypeDef(BaseValidatorModel):
-    DomainName: str
+    DomainName: Annotated[str, _aws_pattern("CustomerProfiles", "name")]
     Consolidation: ConsolidationUnionTypeDef
     ConflictResolution: ConflictResolutionTypeDef
     MinAllowedConfidenceScoreForMerging: Optional[float] = None
 
 
 class ProfileTypeDef(BaseValidatorModel):
-    ProfileId: Optional[str] = None
+    ProfileId: Optional[Annotated[str, _aws_pattern("CustomerProfiles", "uuid")]] = None
     AccountNumber: Optional[str] = None
     AdditionalInformation: Optional[str] = None
     PartyType: Optional[PartyTypeType] = None
@@ -2368,10 +2370,10 @@ class RuleBasedMatchingResponseTypeDef(BaseValidatorModel):
 
 # This class is the output for the 'get_identity_resolution_job' function.
 class GetIdentityResolutionJobResponseTypeDef(BaseValidatorModel):
-    DomainName: str
-    JobId: str
+    DomainName: Annotated[str, _aws_pattern("CustomerProfiles", "name")]
+    JobId: Annotated[str, _aws_pattern("CustomerProfiles", "uuid")]
     Status: IdentityResolutionJobStatusType
-    Message: str
+    Message: Annotated[str, _aws_pattern("CustomerProfiles", "stringTo2048")]
     JobStartTime: datetime
     JobEndTime: datetime
     LastUpdatedAt: datetime
@@ -2383,14 +2385,14 @@ class GetIdentityResolutionJobResponseTypeDef(BaseValidatorModel):
 
 
 class IdentityResolutionJobTypeDef(BaseValidatorModel):
-    DomainName: Optional[str] = None
-    JobId: Optional[str] = None
+    DomainName: Optional[Annotated[str, _aws_pattern("CustomerProfiles", "name")]] = None
+    JobId: Optional[Annotated[str, _aws_pattern("CustomerProfiles", "uuid")]] = None
     Status: Optional[IdentityResolutionJobStatusType] = None
     JobStartTime: Optional[datetime] = None
     JobEndTime: Optional[datetime] = None
     JobStats: Optional[JobStatsTypeDef] = None
     ExportingLocation: Optional[ExportingLocationTypeDef] = None
-    Message: Optional[str] = None
+    Message: Optional[Annotated[str, _aws_pattern("CustomerProfiles", "stringTo2048")]] = None
 
 
 class FilterGroupOutputTypeDef(BaseValidatorModel):
@@ -2426,10 +2428,10 @@ class EventTriggerDimensionTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'put_profile_object_type' function.
 class PutProfileObjectTypeRequestTypeDef(BaseValidatorModel):
-    DomainName: str
-    ObjectTypeName: str
+    DomainName: Annotated[str, _aws_pattern("CustomerProfiles", "name")]
+    ObjectTypeName: Annotated[str, _aws_pattern("CustomerProfiles", "typeName")]
     Description: str
-    TemplateId: Optional[str] = None
+    TemplateId: Optional[Annotated[str, _aws_pattern("CustomerProfiles", "name")]] = None
     ExpirationDays: Optional[int] = None
     EncryptionKey: Optional[str] = None
     AllowProfileCreation: Optional[bool] = None
@@ -2462,7 +2464,7 @@ SegmentSortUnionTypeDef = Union[SegmentSortOutputTypeDef, SegmentSortTypeDef]
 class SourceFlowConfigTypeDef(BaseValidatorModel):
     ConnectorType: SourceConnectorTypeType
     SourceConnectorProperties: SourceConnectorPropertiesTypeDef
-    ConnectorProfileName: Optional[str] = None
+    ConnectorProfileName: Optional[Annotated[str, _aws_pattern("CustomerProfiles", "ConnectorProfileName")]] = None
     IncrementalPullConfig: Optional[IncrementalPullConfigTypeDef] = None
 
 
@@ -2505,7 +2507,7 @@ class SearchProfilesResponseTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'create_profile' function.
 class CreateProfileRequestTypeDef(BaseValidatorModel):
-    DomainName: str
+    DomainName: Annotated[str, _aws_pattern("CustomerProfiles", "name")]
     AccountNumber: Optional[str] = None
     AdditionalInformation: Optional[str] = None
     PartyType: Optional[PartyTypeType] = None
@@ -2535,8 +2537,8 @@ class CreateProfileRequestTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'update_profile' function.
 class UpdateProfileRequestTypeDef(BaseValidatorModel):
-    DomainName: str
-    ProfileId: str
+    DomainName: Annotated[str, _aws_pattern("CustomerProfiles", "name")]
+    ProfileId: Annotated[str, _aws_pattern("CustomerProfiles", "uuid")]
     AdditionalInformation: Optional[str] = None
     AccountNumber: Optional[str] = None
     PartyType: Optional[PartyTypeType] = None
@@ -2577,11 +2579,11 @@ RecommenderConfigUnionTypeDef = Union[RecommenderConfigOutputTypeDef, Recommende
 
 # This class is the output for the 'create_event_trigger' function.
 class CreateEventTriggerResponseTypeDef(BaseValidatorModel):
-    EventTriggerName: str
-    ObjectTypeName: str
+    EventTriggerName: Annotated[str, _aws_pattern("CustomerProfiles", "name")]
+    ObjectTypeName: Annotated[str, _aws_pattern("CustomerProfiles", "typeName")]
     Description: str
     EventTriggerConditions: List[EventTriggerConditionOutputTypeDef]
-    SegmentFilter: str
+    SegmentFilter: Annotated[str, _aws_pattern("CustomerProfiles", "name")]
     EventTriggerLimits: EventTriggerLimitsOutputTypeDef
     CreatedAt: datetime
     LastUpdatedAt: datetime
@@ -2591,11 +2593,11 @@ class CreateEventTriggerResponseTypeDef(BaseValidatorModel):
 
 # This class is the output for the 'get_event_trigger' function.
 class GetEventTriggerResponseTypeDef(BaseValidatorModel):
-    EventTriggerName: str
-    ObjectTypeName: str
+    EventTriggerName: Annotated[str, _aws_pattern("CustomerProfiles", "name")]
+    ObjectTypeName: Annotated[str, _aws_pattern("CustomerProfiles", "typeName")]
     Description: str
     EventTriggerConditions: List[EventTriggerConditionOutputTypeDef]
-    SegmentFilter: str
+    SegmentFilter: Annotated[str, _aws_pattern("CustomerProfiles", "name")]
     EventTriggerLimits: EventTriggerLimitsOutputTypeDef
     CreatedAt: datetime
     LastUpdatedAt: datetime
@@ -2605,11 +2607,11 @@ class GetEventTriggerResponseTypeDef(BaseValidatorModel):
 
 # This class is the output for the 'update_event_trigger' function.
 class UpdateEventTriggerResponseTypeDef(BaseValidatorModel):
-    EventTriggerName: str
-    ObjectTypeName: str
+    EventTriggerName: Annotated[str, _aws_pattern("CustomerProfiles", "name")]
+    ObjectTypeName: Annotated[str, _aws_pattern("CustomerProfiles", "typeName")]
     Description: str
     EventTriggerConditions: List[EventTriggerConditionOutputTypeDef]
-    SegmentFilter: str
+    SegmentFilter: Annotated[str, _aws_pattern("CustomerProfiles", "name")]
     EventTriggerLimits: EventTriggerLimitsOutputTypeDef
     CreatedAt: datetime
     LastUpdatedAt: datetime
@@ -2619,7 +2621,7 @@ class UpdateEventTriggerResponseTypeDef(BaseValidatorModel):
 
 # This class is the output for the 'create_domain' function.
 class CreateDomainResponseTypeDef(BaseValidatorModel):
-    DomainName: str
+    DomainName: Annotated[str, _aws_pattern("CustomerProfiles", "name")]
     DefaultExpirationDays: int
     DefaultEncryptionKey: str
     DeadLetterQueueUrl: str
@@ -2634,7 +2636,7 @@ class CreateDomainResponseTypeDef(BaseValidatorModel):
 
 # This class is the output for the 'get_domain' function.
 class GetDomainResponseTypeDef(BaseValidatorModel):
-    DomainName: str
+    DomainName: Annotated[str, _aws_pattern("CustomerProfiles", "name")]
     DefaultExpirationDays: int
     DefaultEncryptionKey: str
     DeadLetterQueueUrl: str
@@ -2650,7 +2652,7 @@ class GetDomainResponseTypeDef(BaseValidatorModel):
 
 # This class is the output for the 'update_domain' function.
 class UpdateDomainResponseTypeDef(BaseValidatorModel):
-    DomainName: str
+    DomainName: Annotated[str, _aws_pattern("CustomerProfiles", "name")]
     DefaultExpirationDays: int
     DefaultEncryptionKey: str
     DeadLetterQueueUrl: str
@@ -2687,17 +2689,17 @@ AddressDimensionUnionTypeDef = Union[AddressDimensionOutputTypeDef, AddressDimen
 
 # This class is the input for the 'update_calculated_attribute_definition' function.
 class UpdateCalculatedAttributeDefinitionRequestTypeDef(BaseValidatorModel):
-    DomainName: str
-    CalculatedAttributeName: str
-    DisplayName: Optional[str] = None
+    DomainName: Annotated[str, _aws_pattern("CustomerProfiles", "name")]
+    CalculatedAttributeName: Annotated[str, _aws_pattern("CustomerProfiles", "typeName")]
+    DisplayName: Optional[Annotated[str, _aws_pattern("CustomerProfiles", "displayName")]] = None
     Description: Optional[str] = None
     Conditions: Optional[ConditionsTypeDef] = None
 
 
 # This class is the output for the 'update_calculated_attribute_definition' function.
 class UpdateCalculatedAttributeDefinitionResponseTypeDef(BaseValidatorModel):
-    CalculatedAttributeName: str
-    DisplayName: str
+    CalculatedAttributeName: Annotated[str, _aws_pattern("CustomerProfiles", "typeName")]
+    DisplayName: Annotated[str, _aws_pattern("CustomerProfiles", "displayName")]
     Description: str
     CreatedAt: datetime
     LastUpdatedAt: datetime
@@ -2712,12 +2714,12 @@ class UpdateCalculatedAttributeDefinitionResponseTypeDef(BaseValidatorModel):
 
 
 class FlowDefinitionTypeDef(BaseValidatorModel):
-    FlowName: str
-    KmsArn: str
+    FlowName: Annotated[str, _aws_pattern("CustomerProfiles", "FlowName")]
+    KmsArn: Annotated[str, _aws_pattern("CustomerProfiles", "KmsArn")]
     SourceFlowConfig: SourceFlowConfigTypeDef
     Tasks: List[TaskTypeDef]
     TriggerConfig: TriggerConfigTypeDef
-    Description: Optional[str] = None
+    Description: Optional[Annotated[str, _aws_pattern("CustomerProfiles", "FlowDescription")]] = None
 
 
 class GroupOutputTypeDef(BaseValidatorModel):
@@ -2736,7 +2738,7 @@ class MatchingRequestTypeDef(BaseValidatorModel):
 
 # This class is the output for the 'get_segment_membership' function.
 class GetSegmentMembershipResponseTypeDef(BaseValidatorModel):
-    SegmentDefinitionName: str
+    SegmentDefinitionName: Annotated[str, _aws_pattern("CustomerProfiles", "name")]
     Profiles: List[ProfileQueryResultTypeDef]
     Failures: List[ProfileQueryFailuresTypeDef]
     LastComputedAt: datetime
@@ -2745,9 +2747,9 @@ class GetSegmentMembershipResponseTypeDef(BaseValidatorModel):
 
 # This class is the output for the 'get_recommender' function.
 class GetRecommenderResponseTypeDef(BaseValidatorModel):
-    RecommenderName: str
+    RecommenderName: Annotated[str, _aws_pattern("CustomerProfiles", "name")]
     RecommenderRecipeName: RecommenderRecipeNameType
-    RecommenderSchemaName: str
+    RecommenderSchemaName: Annotated[str, _aws_pattern("CustomerProfiles", "name")]
     RecommenderConfig: RecommenderConfigOutputTypeDef
     Description: str
     Status: RecommenderStatusType
@@ -2761,9 +2763,9 @@ class GetRecommenderResponseTypeDef(BaseValidatorModel):
 
 
 class RecommenderSummaryTypeDef(BaseValidatorModel):
-    RecommenderName: Optional[str] = None
+    RecommenderName: Optional[Annotated[str, _aws_pattern("CustomerProfiles", "name")]] = None
     RecipeName: Optional[RecommenderRecipeNameType] = None
-    RecommenderSchemaName: Optional[str] = None
+    RecommenderSchemaName: Optional[Annotated[str, _aws_pattern("CustomerProfiles", "name")]] = None
     RecommenderConfig: Optional[RecommenderConfigOutputTypeDef] = None
     CreatedAt: Optional[datetime] = None
     Description: Optional[str] = None
@@ -2776,27 +2778,27 @@ class RecommenderSummaryTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'create_recommender' function.
 class CreateRecommenderRequestTypeDef(BaseValidatorModel):
-    DomainName: str
-    RecommenderName: str
+    DomainName: Annotated[str, _aws_pattern("CustomerProfiles", "name")]
+    RecommenderName: Annotated[str, _aws_pattern("CustomerProfiles", "name")]
     RecommenderRecipeName: RecommenderRecipeNameType
     RecommenderConfig: Optional[RecommenderConfigUnionTypeDef] = None
     Description: Optional[str] = None
-    RecommenderSchemaName: Optional[str] = None
+    RecommenderSchemaName: Optional[Annotated[str, _aws_pattern("CustomerProfiles", "name")]] = None
     Tags: Optional[Dict[str, str]] = None
 
 
 # This class is the input for the 'update_recommender' function.
 class UpdateRecommenderRequestTypeDef(BaseValidatorModel):
-    DomainName: str
-    RecommenderName: str
+    DomainName: Annotated[str, _aws_pattern("CustomerProfiles", "name")]
+    RecommenderName: Annotated[str, _aws_pattern("CustomerProfiles", "name")]
     Description: Optional[str] = None
     RecommenderConfig: Optional[RecommenderConfigUnionTypeDef] = None
 
 
 # This class is the output for the 'create_calculated_attribute_definition' function.
 class CreateCalculatedAttributeDefinitionResponseTypeDef(BaseValidatorModel):
-    CalculatedAttributeName: str
-    DisplayName: str
+    CalculatedAttributeName: Annotated[str, _aws_pattern("CustomerProfiles", "typeName")]
+    DisplayName: Annotated[str, _aws_pattern("CustomerProfiles", "displayName")]
     Description: str
     AttributeDetails: AttributeDetailsOutputTypeDef
     Conditions: ConditionsTypeDef
@@ -2813,8 +2815,8 @@ class CreateCalculatedAttributeDefinitionResponseTypeDef(BaseValidatorModel):
 
 # This class is the output for the 'get_calculated_attribute_definition' function.
 class GetCalculatedAttributeDefinitionResponseTypeDef(BaseValidatorModel):
-    CalculatedAttributeName: str
-    DisplayName: str
+    CalculatedAttributeName: Annotated[str, _aws_pattern("CustomerProfiles", "typeName")]
+    DisplayName: Annotated[str, _aws_pattern("CustomerProfiles", "displayName")]
     Description: str
     CreatedAt: datetime
     LastUpdatedAt: datetime
@@ -2869,14 +2871,14 @@ class AppflowIntegrationTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'put_integration' function.
 class PutIntegrationRequestTypeDef(BaseValidatorModel):
-    DomainName: str
+    DomainName: Annotated[str, _aws_pattern("CustomerProfiles", "name")]
     Uri: Optional[str] = None
-    ObjectTypeName: Optional[str] = None
+    ObjectTypeName: Optional[Annotated[str, _aws_pattern("CustomerProfiles", "typeName")]] = None
     ObjectTypeNames: Optional[Dict[str, str]] = None
     Tags: Optional[Dict[str, str]] = None
     FlowDefinition: Optional[FlowDefinitionTypeDef] = None
-    RoleArn: Optional[str] = None
-    EventTriggerNames: Optional[List[str]] = None
+    RoleArn: Optional[Annotated[str, _aws_pattern("CustomerProfiles", "RoleArn")]] = None
+    EventTriggerNames: Optional[List[Annotated[str, _aws_pattern("CustomerProfiles", "name")]]] = None
     Scope: Optional[ScopeType] = None
 
 
@@ -2887,7 +2889,7 @@ class SegmentGroupOutputTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'create_domain' function.
 class CreateDomainRequestTypeDef(BaseValidatorModel):
-    DomainName: str
+    DomainName: Annotated[str, _aws_pattern("CustomerProfiles", "name")]
     DefaultExpirationDays: int
     DefaultEncryptionKey: Optional[str] = None
     DeadLetterQueueUrl: Optional[str] = None
@@ -2899,7 +2901,7 @@ class CreateDomainRequestTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'update_domain' function.
 class UpdateDomainRequestTypeDef(BaseValidatorModel):
-    DomainName: str
+    DomainName: Annotated[str, _aws_pattern("CustomerProfiles", "name")]
     DefaultExpirationDays: Optional[int] = None
     DefaultEncryptionKey: Optional[str] = None
     DeadLetterQueueUrl: Optional[str] = None
@@ -2918,11 +2920,11 @@ class ListRecommendersResponseTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'create_calculated_attribute_definition' function.
 class CreateCalculatedAttributeDefinitionRequestTypeDef(BaseValidatorModel):
-    DomainName: str
-    CalculatedAttributeName: str
+    DomainName: Annotated[str, _aws_pattern("CustomerProfiles", "name")]
+    CalculatedAttributeName: Annotated[str, _aws_pattern("CustomerProfiles", "typeName")]
     AttributeDetails: AttributeDetailsUnionTypeDef
     Statistic: StatisticType
-    DisplayName: Optional[str] = None
+    DisplayName: Optional[Annotated[str, _aws_pattern("CustomerProfiles", "displayName")]] = None
     Description: Optional[str] = None
     Conditions: Optional[ConditionsTypeDef] = None
     Filter: Optional[FilterUnionTypeDef] = None
@@ -2941,7 +2943,7 @@ class IntegrationConfigTypeDef(BaseValidatorModel):
 
 # This class is the output for the 'get_segment_definition' function.
 class GetSegmentDefinitionResponseTypeDef(BaseValidatorModel):
-    SegmentDefinitionName: str
+    SegmentDefinitionName: Annotated[str, _aws_pattern("CustomerProfiles", "name")]
     DisplayName: str
     Description: str
     SegmentGroups: SegmentGroupOutputTypeDef
@@ -2956,24 +2958,24 @@ class GetSegmentDefinitionResponseTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'create_event_trigger' function.
 class CreateEventTriggerRequestTypeDef(BaseValidatorModel):
-    DomainName: str
-    EventTriggerName: str
-    ObjectTypeName: str
+    DomainName: Annotated[str, _aws_pattern("CustomerProfiles", "name")]
+    EventTriggerName: Annotated[str, _aws_pattern("CustomerProfiles", "name")]
+    ObjectTypeName: Annotated[str, _aws_pattern("CustomerProfiles", "typeName")]
     EventTriggerConditions: List[EventTriggerConditionUnionTypeDef]
     Description: Optional[str] = None
-    SegmentFilter: Optional[str] = None
+    SegmentFilter: Optional[Annotated[str, _aws_pattern("CustomerProfiles", "name")]] = None
     EventTriggerLimits: Optional[EventTriggerLimitsUnionTypeDef] = None
     Tags: Optional[Dict[str, str]] = None
 
 
 # This class is the input for the 'update_event_trigger' function.
 class UpdateEventTriggerRequestTypeDef(BaseValidatorModel):
-    DomainName: str
-    EventTriggerName: str
-    ObjectTypeName: Optional[str] = None
+    DomainName: Annotated[str, _aws_pattern("CustomerProfiles", "name")]
+    EventTriggerName: Annotated[str, _aws_pattern("CustomerProfiles", "name")]
+    ObjectTypeName: Optional[Annotated[str, _aws_pattern("CustomerProfiles", "typeName")]] = None
     Description: Optional[str] = None
     EventTriggerConditions: Optional[List[EventTriggerConditionUnionTypeDef]] = None
-    SegmentFilter: Optional[str] = None
+    SegmentFilter: Optional[Annotated[str, _aws_pattern("CustomerProfiles", "name")]] = None
     EventTriggerLimits: Optional[EventTriggerLimitsUnionTypeDef] = None
 
 
@@ -2984,11 +2986,11 @@ class DimensionTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'create_integration_workflow' function.
 class CreateIntegrationWorkflowRequestTypeDef(BaseValidatorModel):
-    DomainName: str
+    DomainName: Annotated[str, _aws_pattern("CustomerProfiles", "name")]
     WorkflowType: Literal["APPFLOW_INTEGRATION"]
     IntegrationConfig: IntegrationConfigTypeDef
-    ObjectTypeName: str
-    RoleArn: str
+    ObjectTypeName: Annotated[str, _aws_pattern("CustomerProfiles", "typeName")]
+    RoleArn: Annotated[str, _aws_pattern("CustomerProfiles", "RoleArn")]
     Tags: Optional[Dict[str, str]] = None
 
 
@@ -3020,15 +3022,15 @@ SegmentGroupUnionTypeDef = Union[SegmentGroupOutputTypeDef, SegmentGroupTypeDef]
 
 # This class is the input for the 'create_segment_estimate' function.
 class CreateSegmentEstimateRequestTypeDef(BaseValidatorModel):
-    DomainName: str
+    DomainName: Annotated[str, _aws_pattern("CustomerProfiles", "name")]
     SegmentQuery: Optional[SegmentGroupStructureTypeDef] = None
     SegmentSqlQuery: Optional[str] = None
 
 
 # This class is the input for the 'create_segment_definition' function.
 class CreateSegmentDefinitionRequestTypeDef(BaseValidatorModel):
-    DomainName: str
-    SegmentDefinitionName: str
+    DomainName: Annotated[str, _aws_pattern("CustomerProfiles", "name")]
+    SegmentDefinitionName: Annotated[str, _aws_pattern("CustomerProfiles", "name")]
     DisplayName: str
     Description: Optional[str] = None
     SegmentGroups: Optional[SegmentGroupUnionTypeDef] = None

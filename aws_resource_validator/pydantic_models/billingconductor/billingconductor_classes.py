@@ -3,6 +3,7 @@
 from datetime import datetime
 from decimal import Decimal
 from typing import (
+    Annotated,
     Any,
     Callable,
     Dict,
@@ -24,6 +25,7 @@ from botocore.response import StreamingBody
 from pydantic import Field
 
 from aws_resource_validator.core.base_validator_model import BaseValidatorModel, EventStream
+from aws_resource_validator.core.pattern_validation import aws_field_pattern as _aws_pattern
 from aws_resource_validator.pydantic_models.billingconductor.billingconductor_constants import *  # noqa: F401,F403
 
 # Optional boto3 symbols — imported lazily so services that don't need them
@@ -39,22 +41,24 @@ except ImportError:  # pragma: no cover
 
 
 class AccountAssociationsListElementTypeDef(BaseValidatorModel):
-    AccountId: Optional[str] = None
-    BillingGroupArn: Optional[str] = None
+    AccountId: Optional[Annotated[str, _aws_pattern("Billingconductor", "AccountId")]] = None
+    BillingGroupArn: Optional[Annotated[str, _aws_pattern("Billingconductor", "BillingGroupArn")]] = None
     AccountName: Optional[str] = None
     AccountEmail: Optional[str] = None
 
 
 class AccountGroupingTypeDef(BaseValidatorModel):
-    LinkedAccountIds: Optional[List[str]] = None
+    LinkedAccountIds: Optional[List[Annotated[str, _aws_pattern("Billingconductor", "AccountId")]]] = None
     AutoAssociate: Optional[bool] = None
-    ResponsibilityTransferArn: Optional[str] = None
+    ResponsibilityTransferArn: Optional[
+        Annotated[str, _aws_pattern("Billingconductor", "ResponsibilityTransferArn")]
+    ] = None
 
 
 # This class is the input for the 'associate_accounts' function.
 class AssociateAccountsInputTypeDef(BaseValidatorModel):
-    Arn: str
-    AccountIds: List[str]
+    Arn: Annotated[str, _aws_pattern("Billingconductor", "BillingGroupArn")]
+    AccountIds: List[Annotated[str, _aws_pattern("Billingconductor", "AccountId")]]
 
 
 class ResponseMetadataTypeDef(BaseValidatorModel):
@@ -67,8 +71,8 @@ class ResponseMetadataTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'associate_pricing_rules' function.
 class AssociatePricingRulesInputTypeDef(BaseValidatorModel):
-    Arn: str
-    PricingRuleArns: List[str]
+    Arn: Annotated[str, _aws_pattern("Billingconductor", "PricingPlanArn")]
+    PricingRuleArns: List[Annotated[str, _aws_pattern("Billingconductor", "PricingRuleArn")]]
 
 
 class AssociateResourceErrorTypeDef(BaseValidatorModel):
@@ -82,12 +86,12 @@ class AttributeTypeDef(BaseValidatorModel):
 
 
 class CustomLineItemBillingPeriodRangeTypeDef(BaseValidatorModel):
-    InclusiveStartBillingPeriod: str
-    ExclusiveEndBillingPeriod: Optional[str] = None
+    InclusiveStartBillingPeriod: Annotated[str, _aws_pattern("Billingconductor", "BillingPeriod")]
+    ExclusiveEndBillingPeriod: Optional[Annotated[str, _aws_pattern("Billingconductor", "BillingPeriod")]] = None
 
 
 class BillingGroupCostReportElementTypeDef(BaseValidatorModel):
-    Arn: Optional[str] = None
+    Arn: Optional[Annotated[str, _aws_pattern("Billingconductor", "BillingGroupArn")]] = None
     AWSCost: Optional[str] = None
     ProformaCost: Optional[str] = None
     Margin: Optional[str] = None
@@ -96,21 +100,23 @@ class BillingGroupCostReportElementTypeDef(BaseValidatorModel):
 
 
 class ComputationPreferenceTypeDef(BaseValidatorModel):
-    PricingPlanArn: str
+    PricingPlanArn: Annotated[str, _aws_pattern("Billingconductor", "PricingPlanFullArn")]
 
 
 class ListBillingGroupAccountGroupingTypeDef(BaseValidatorModel):
     AutoAssociate: Optional[bool] = None
-    ResponsibilityTransferArn: Optional[str] = None
+    ResponsibilityTransferArn: Optional[
+        Annotated[str, _aws_pattern("Billingconductor", "ResponsibilityTransferArn")]
+    ] = None
 
 
 class BillingPeriodRangeTypeDef(BaseValidatorModel):
-    InclusiveStartBillingPeriod: str
-    ExclusiveEndBillingPeriod: str
+    InclusiveStartBillingPeriod: Annotated[str, _aws_pattern("Billingconductor", "BillingPeriod")]
+    ExclusiveEndBillingPeriod: Annotated[str, _aws_pattern("Billingconductor", "BillingPeriod")]
 
 
 class PresentationObjectTypeDef(BaseValidatorModel):
-    Service: str
+    Service: Annotated[str, _aws_pattern("Billingconductor", "Service")]
 
 
 class CreateFreeTierConfigTypeDef(BaseValidatorModel):
@@ -119,10 +125,10 @@ class CreateFreeTierConfigTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'create_pricing_plan' function.
 class CreatePricingPlanInputTypeDef(BaseValidatorModel):
-    Name: str
-    ClientToken: Optional[str] = None
+    Name: Annotated[str, _aws_pattern("Billingconductor", "PricingPlanName")]
+    ClientToken: Optional[Annotated[str, _aws_pattern("Billingconductor", "ClientToken")]] = None
     Description: Optional[str] = None
-    PricingRuleArns: Optional[List[str]] = None
+    PricingRuleArns: Optional[List[Annotated[str, _aws_pattern("Billingconductor", "PricingRuleArn")]]] = None
     Tags: Optional[Dict[str, str]] = None
 
 
@@ -132,34 +138,36 @@ class CustomLineItemFlatChargeDetailsTypeDef(BaseValidatorModel):
 
 class CustomLineItemPercentageChargeDetailsTypeDef(BaseValidatorModel):
     PercentageValue: float
-    AssociatedValues: Optional[List[str]] = None
+    AssociatedValues: Optional[
+        List[Annotated[str, _aws_pattern("Billingconductor", "CustomLineItemAssociationElement")]]
+    ] = None
 
 
 # This class is the input for the 'delete_billing_group' function.
 class DeleteBillingGroupInputTypeDef(BaseValidatorModel):
-    Arn: str
+    Arn: Annotated[str, _aws_pattern("Billingconductor", "BillingGroupArn")]
 
 
 # This class is the input for the 'delete_pricing_plan' function.
 class DeletePricingPlanInputTypeDef(BaseValidatorModel):
-    Arn: str
+    Arn: Annotated[str, _aws_pattern("Billingconductor", "PricingPlanArn")]
 
 
 # This class is the input for the 'delete_pricing_rule' function.
 class DeletePricingRuleInputTypeDef(BaseValidatorModel):
-    Arn: str
+    Arn: Annotated[str, _aws_pattern("Billingconductor", "PricingRuleArn")]
 
 
 # This class is the input for the 'disassociate_accounts' function.
 class DisassociateAccountsInputTypeDef(BaseValidatorModel):
-    Arn: str
-    AccountIds: List[str]
+    Arn: Annotated[str, _aws_pattern("Billingconductor", "BillingGroupArn")]
+    AccountIds: List[Annotated[str, _aws_pattern("Billingconductor", "AccountId")]]
 
 
 # This class is the input for the 'disassociate_pricing_rules' function.
 class DisassociatePricingRulesInputTypeDef(BaseValidatorModel):
-    Arn: str
-    PricingRuleArns: List[str]
+    Arn: Annotated[str, _aws_pattern("Billingconductor", "PricingPlanArn")]
+    PricingRuleArns: List[Annotated[str, _aws_pattern("Billingconductor", "PricingRuleArn")]]
 
 
 class FreeTierConfigTypeDef(BaseValidatorModel):
@@ -177,13 +185,13 @@ class LineItemFilterTypeDef(BaseValidatorModel):
     Attribute: LineItemFilterAttributeNameType
     MatchOption: MatchOptionType
     Values: Optional[List[Literal["SAVINGS_PLAN_NEGATION"]]] = None
-    AttributeValues: Optional[List[str]] = None
+    AttributeValues: Optional[List[Annotated[str, _aws_pattern("Billingconductor", "AttributeValue")]]] = None
 
 
 class ListAccountAssociationsFilterTypeDef(BaseValidatorModel):
-    Association: Optional[str] = None
-    AccountId: Optional[str] = None
-    AccountIds: Optional[List[str]] = None
+    Association: Optional[Annotated[str, _aws_pattern("Billingconductor", "Association")]] = None
+    AccountId: Optional[Annotated[str, _aws_pattern("Billingconductor", "AccountId")]] = None
+    AccountIds: Optional[List[Annotated[str, _aws_pattern("Billingconductor", "AccountId")]]] = None
 
 
 class PaginatorConfigTypeDef(BaseValidatorModel):
@@ -193,12 +201,12 @@ class PaginatorConfigTypeDef(BaseValidatorModel):
 
 
 class ListBillingGroupCostReportsFilterTypeDef(BaseValidatorModel):
-    BillingGroupArns: Optional[List[str]] = None
+    BillingGroupArns: Optional[List[Annotated[str, _aws_pattern("Billingconductor", "BillingGroupArn")]]] = None
 
 
 class StringSearchTypeDef(BaseValidatorModel):
     SearchOption: Literal["STARTS_WITH"]
-    SearchValue: str
+    SearchValue: Annotated[str, _aws_pattern("Billingconductor", "SearchValue")]
 
 
 class ListCustomLineItemFlatChargeDetailsTypeDef(BaseValidatorModel):
@@ -210,32 +218,32 @@ class ListCustomLineItemPercentageChargeDetailsTypeDef(BaseValidatorModel):
 
 
 class ListCustomLineItemVersionsBillingPeriodRangeFilterTypeDef(BaseValidatorModel):
-    StartBillingPeriod: Optional[str] = None
-    EndBillingPeriod: Optional[str] = None
+    StartBillingPeriod: Optional[Annotated[str, _aws_pattern("Billingconductor", "BillingPeriod")]] = None
+    EndBillingPeriod: Optional[Annotated[str, _aws_pattern("Billingconductor", "BillingPeriod")]] = None
 
 
 class ListCustomLineItemsFilterTypeDef(BaseValidatorModel):
-    Names: Optional[List[str]] = None
-    BillingGroups: Optional[List[str]] = None
-    Arns: Optional[List[str]] = None
-    AccountIds: Optional[List[str]] = None
+    Names: Optional[List[Annotated[str, _aws_pattern("Billingconductor", "CustomLineItemName")]]] = None
+    BillingGroups: Optional[List[Annotated[str, _aws_pattern("Billingconductor", "BillingGroupArn")]]] = None
+    Arns: Optional[List[Annotated[str, _aws_pattern("Billingconductor", "CustomLineItemArn")]]] = None
+    AccountIds: Optional[List[Annotated[str, _aws_pattern("Billingconductor", "AccountId")]]] = None
 
 
 # This class is the input for the 'list_pricing_plans_associated_with_pricing_rule' function.
 class ListPricingPlansAssociatedWithPricingRuleInputTypeDef(BaseValidatorModel):
-    PricingRuleArn: str
-    BillingPeriod: Optional[str] = None
+    PricingRuleArn: Annotated[str, _aws_pattern("Billingconductor", "PricingRuleArn")]
+    BillingPeriod: Optional[Annotated[str, _aws_pattern("Billingconductor", "BillingPeriod")]] = None
     MaxResults: Optional[int] = None
     NextToken: Optional[str] = None
 
 
 class ListPricingPlansFilterTypeDef(BaseValidatorModel):
-    Arns: Optional[List[str]] = None
+    Arns: Optional[List[Annotated[str, _aws_pattern("Billingconductor", "PricingPlanArn")]]] = None
 
 
 class PricingPlanListElementTypeDef(BaseValidatorModel):
-    Name: Optional[str] = None
-    Arn: Optional[str] = None
+    Name: Optional[Annotated[str, _aws_pattern("Billingconductor", "PricingPlanName")]] = None
+    Arn: Optional[Annotated[str, _aws_pattern("Billingconductor", "PricingPlanArn")]] = None
     Description: Optional[str] = None
     Size: Optional[int] = None
     CreationTime: Optional[int] = None
@@ -244,14 +252,14 @@ class PricingPlanListElementTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'list_pricing_rules_associated_to_pricing_plan' function.
 class ListPricingRulesAssociatedToPricingPlanInputTypeDef(BaseValidatorModel):
-    PricingPlanArn: str
-    BillingPeriod: Optional[str] = None
+    PricingPlanArn: Annotated[str, _aws_pattern("Billingconductor", "PricingPlanArn")]
+    BillingPeriod: Optional[Annotated[str, _aws_pattern("Billingconductor", "BillingPeriod")]] = None
     MaxResults: Optional[int] = None
     NextToken: Optional[str] = None
 
 
 class ListPricingRulesFilterTypeDef(BaseValidatorModel):
-    Arns: Optional[List[str]] = None
+    Arns: Optional[List[Annotated[str, _aws_pattern("Billingconductor", "PricingRuleArn")]]] = None
 
 
 class ListResourcesAssociatedToCustomLineItemFilterTypeDef(BaseValidatorModel):
@@ -259,29 +267,31 @@ class ListResourcesAssociatedToCustomLineItemFilterTypeDef(BaseValidatorModel):
 
 
 class ListResourcesAssociatedToCustomLineItemResponseElementTypeDef(BaseValidatorModel):
-    Arn: Optional[str] = None
+    Arn: Optional[Annotated[str, _aws_pattern("Billingconductor", "CustomLineItemAssociationElement")]] = None
     Relationship: Optional[CustomLineItemRelationshipType] = None
-    EndBillingPeriod: Optional[str] = None
+    EndBillingPeriod: Optional[Annotated[str, _aws_pattern("Billingconductor", "BillingPeriod")]] = None
 
 
 # This class is the input for the 'list_tags_for_resource' function.
 class ListTagsForResourceRequestTypeDef(BaseValidatorModel):
-    ResourceArn: str
+    ResourceArn: Annotated[str, _aws_pattern("Billingconductor", "Arn")]
 
 
 class TagResourceRequestTypeDef(BaseValidatorModel):
-    ResourceArn: str
+    ResourceArn: Annotated[str, _aws_pattern("Billingconductor", "Arn")]
     Tags: Dict[str, str]
 
 
 class UntagResourceRequestTypeDef(BaseValidatorModel):
-    ResourceArn: str
+    ResourceArn: Annotated[str, _aws_pattern("Billingconductor", "Arn")]
     TagKeys: List[str]
 
 
 class UpdateBillingGroupAccountGroupingTypeDef(BaseValidatorModel):
     AutoAssociate: Optional[bool] = None
-    ResponsibilityTransferArn: Optional[str] = None
+    ResponsibilityTransferArn: Optional[
+        Annotated[str, _aws_pattern("Billingconductor", "ResponsibilityTransferArn")]
+    ] = None
 
 
 class UpdateCustomLineItemFlatChargeDetailsTypeDef(BaseValidatorModel):
@@ -298,80 +308,80 @@ class UpdateFreeTierConfigTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'update_pricing_plan' function.
 class UpdatePricingPlanInputTypeDef(BaseValidatorModel):
-    Arn: str
-    Name: Optional[str] = None
+    Arn: Annotated[str, _aws_pattern("Billingconductor", "PricingPlanArn")]
+    Name: Optional[Annotated[str, _aws_pattern("Billingconductor", "PricingPlanName")]] = None
     Description: Optional[str] = None
 
 
 # This class is the output for the 'associate_accounts' function.
 class AssociateAccountsOutputTypeDef(BaseValidatorModel):
-    Arn: str
+    Arn: Annotated[str, _aws_pattern("Billingconductor", "BillingGroupArn")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 # This class is the output for the 'associate_pricing_rules' function.
 class AssociatePricingRulesOutputTypeDef(BaseValidatorModel):
-    Arn: str
+    Arn: Annotated[str, _aws_pattern("Billingconductor", "PricingPlanArn")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 # This class is the output for the 'create_billing_group' function.
 class CreateBillingGroupOutputTypeDef(BaseValidatorModel):
-    Arn: str
+    Arn: Annotated[str, _aws_pattern("Billingconductor", "BillingGroupArn")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 # This class is the output for the 'create_custom_line_item' function.
 class CreateCustomLineItemOutputTypeDef(BaseValidatorModel):
-    Arn: str
+    Arn: Annotated[str, _aws_pattern("Billingconductor", "CustomLineItemArn")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 # This class is the output for the 'create_pricing_plan' function.
 class CreatePricingPlanOutputTypeDef(BaseValidatorModel):
-    Arn: str
+    Arn: Annotated[str, _aws_pattern("Billingconductor", "PricingPlanArn")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 # This class is the output for the 'create_pricing_rule' function.
 class CreatePricingRuleOutputTypeDef(BaseValidatorModel):
-    Arn: str
+    Arn: Annotated[str, _aws_pattern("Billingconductor", "PricingRuleArn")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 # This class is the output for the 'delete_billing_group' function.
 class DeleteBillingGroupOutputTypeDef(BaseValidatorModel):
-    Arn: str
+    Arn: Annotated[str, _aws_pattern("Billingconductor", "BillingGroupArn")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 # This class is the output for the 'delete_custom_line_item' function.
 class DeleteCustomLineItemOutputTypeDef(BaseValidatorModel):
-    Arn: str
+    Arn: Annotated[str, _aws_pattern("Billingconductor", "CustomLineItemArn")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 # This class is the output for the 'delete_pricing_plan' function.
 class DeletePricingPlanOutputTypeDef(BaseValidatorModel):
-    Arn: str
+    Arn: Annotated[str, _aws_pattern("Billingconductor", "PricingPlanArn")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 # This class is the output for the 'delete_pricing_rule' function.
 class DeletePricingRuleOutputTypeDef(BaseValidatorModel):
-    Arn: str
+    Arn: Annotated[str, _aws_pattern("Billingconductor", "PricingRuleArn")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 # This class is the output for the 'disassociate_accounts' function.
 class DisassociateAccountsOutputTypeDef(BaseValidatorModel):
-    Arn: str
+    Arn: Annotated[str, _aws_pattern("Billingconductor", "BillingGroupArn")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 # This class is the output for the 'disassociate_pricing_rules' function.
 class DisassociatePricingRulesOutputTypeDef(BaseValidatorModel):
-    Arn: str
+    Arn: Annotated[str, _aws_pattern("Billingconductor", "PricingPlanArn")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
@@ -384,18 +394,18 @@ class ListAccountAssociationsOutputTypeDef(BaseValidatorModel):
 
 # This class is the output for the 'list_pricing_plans_associated_with_pricing_rule' function.
 class ListPricingPlansAssociatedWithPricingRuleOutputTypeDef(BaseValidatorModel):
-    BillingPeriod: str
-    PricingRuleArn: str
-    PricingPlanArns: List[str]
+    BillingPeriod: Annotated[str, _aws_pattern("Billingconductor", "BillingPeriod")]
+    PricingRuleArn: Annotated[str, _aws_pattern("Billingconductor", "PricingRuleArn")]
+    PricingPlanArns: List[Annotated[str, _aws_pattern("Billingconductor", "PricingPlanArn")]]
     ResponseMetadata: ResponseMetadataTypeDef
     NextToken: Optional[str] = None
 
 
 # This class is the output for the 'list_pricing_rules_associated_to_pricing_plan' function.
 class ListPricingRulesAssociatedToPricingPlanOutputTypeDef(BaseValidatorModel):
-    BillingPeriod: str
-    PricingPlanArn: str
-    PricingRuleArns: List[str]
+    BillingPeriod: Annotated[str, _aws_pattern("Billingconductor", "BillingPeriod")]
+    PricingPlanArn: Annotated[str, _aws_pattern("Billingconductor", "PricingPlanArn")]
+    PricingRuleArns: List[Annotated[str, _aws_pattern("Billingconductor", "PricingRuleArn")]]
     ResponseMetadata: ResponseMetadataTypeDef
     NextToken: Optional[str] = None
 
@@ -408,8 +418,8 @@ class ListTagsForResourceResponseTypeDef(BaseValidatorModel):
 
 # This class is the output for the 'update_pricing_plan' function.
 class UpdatePricingPlanOutputTypeDef(BaseValidatorModel):
-    Arn: str
-    Name: str
+    Arn: Annotated[str, _aws_pattern("Billingconductor", "PricingPlanArn")]
+    Name: Annotated[str, _aws_pattern("Billingconductor", "PricingPlanName")]
     Description: str
     Size: int
     LastModifiedTime: int
@@ -417,17 +427,17 @@ class UpdatePricingPlanOutputTypeDef(BaseValidatorModel):
 
 
 class AssociateResourceResponseElementTypeDef(BaseValidatorModel):
-    Arn: Optional[str] = None
+    Arn: Optional[Annotated[str, _aws_pattern("Billingconductor", "CustomLineItemAssociationElement")]] = None
     Error: Optional[AssociateResourceErrorTypeDef] = None
 
 
 class DisassociateResourceResponseElementTypeDef(BaseValidatorModel):
-    Arn: Optional[str] = None
+    Arn: Optional[Annotated[str, _aws_pattern("Billingconductor", "CustomLineItemAssociationElement")]] = None
     Error: Optional[AssociateResourceErrorTypeDef] = None
 
 
 class BillingGroupCostReportResultElementTypeDef(BaseValidatorModel):
-    Arn: Optional[str] = None
+    Arn: Optional[Annotated[str, _aws_pattern("Billingconductor", "BillingGroupArn")]] = None
     AWSCost: Optional[str] = None
     ProformaCost: Optional[str] = None
     Margin: Optional[str] = None
@@ -438,21 +448,21 @@ class BillingGroupCostReportResultElementTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'batch_associate_resources_to_custom_line_item' function.
 class BatchAssociateResourcesToCustomLineItemInputTypeDef(BaseValidatorModel):
-    TargetArn: str
-    ResourceArns: List[str]
+    TargetArn: Annotated[str, _aws_pattern("Billingconductor", "CustomLineItemArn")]
+    ResourceArns: List[Annotated[str, _aws_pattern("Billingconductor", "CustomLineItemAssociationElement")]]
     BillingPeriodRange: Optional[CustomLineItemBillingPeriodRangeTypeDef] = None
 
 
 # This class is the input for the 'batch_disassociate_resources_from_custom_line_item' function.
 class BatchDisassociateResourcesFromCustomLineItemInputTypeDef(BaseValidatorModel):
-    TargetArn: str
-    ResourceArns: List[str]
+    TargetArn: Annotated[str, _aws_pattern("Billingconductor", "CustomLineItemArn")]
+    ResourceArns: List[Annotated[str, _aws_pattern("Billingconductor", "CustomLineItemAssociationElement")]]
     BillingPeriodRange: Optional[CustomLineItemBillingPeriodRangeTypeDef] = None
 
 
 # This class is the input for the 'delete_custom_line_item' function.
 class DeleteCustomLineItemInputTypeDef(BaseValidatorModel):
-    Arn: str
+    Arn: Annotated[str, _aws_pattern("Billingconductor", "CustomLineItemArn")]
     BillingPeriodRange: Optional[CustomLineItemBillingPeriodRangeTypeDef] = None
 
 
@@ -465,20 +475,20 @@ class ListBillingGroupCostReportsOutputTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'create_billing_group' function.
 class CreateBillingGroupInputTypeDef(BaseValidatorModel):
-    Name: str
+    Name: Annotated[str, _aws_pattern("Billingconductor", "BillingGroupName")]
     AccountGrouping: AccountGroupingTypeDef
     ComputationPreference: ComputationPreferenceTypeDef
-    ClientToken: Optional[str] = None
-    PrimaryAccountId: Optional[str] = None
+    ClientToken: Optional[Annotated[str, _aws_pattern("Billingconductor", "ClientToken")]] = None
+    PrimaryAccountId: Optional[Annotated[str, _aws_pattern("Billingconductor", "AccountId")]] = None
     Description: Optional[str] = None
     Tags: Optional[Dict[str, str]] = None
 
 
 class BillingGroupListElementTypeDef(BaseValidatorModel):
-    Name: Optional[str] = None
-    Arn: Optional[str] = None
+    Name: Optional[Annotated[str, _aws_pattern("Billingconductor", "BillingGroupName")]] = None
+    Arn: Optional[Annotated[str, _aws_pattern("Billingconductor", "BillingGroupArn")]] = None
     Description: Optional[str] = None
-    PrimaryAccountId: Optional[str] = None
+    PrimaryAccountId: Optional[Annotated[str, _aws_pattern("Billingconductor", "AccountId")]] = None
     ComputationPreference: Optional[ComputationPreferenceTypeDef] = None
     Size: Optional[int] = None
     CreationTime: Optional[int] = None
@@ -491,7 +501,7 @@ class BillingGroupListElementTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'get_billing_group_cost_report' function.
 class GetBillingGroupCostReportInputTypeDef(BaseValidatorModel):
-    Arn: str
+    Arn: Annotated[str, _aws_pattern("Billingconductor", "BillingGroupArn")]
     BillingPeriodRange: Optional[BillingPeriodRangeTypeDef] = None
     GroupBy: Optional[List[GroupByAttributeNameType]] = None
     MaxResults: Optional[int] = None
@@ -511,7 +521,7 @@ LineItemFilterUnionTypeDef = Union[LineItemFilterOutputTypeDef, LineItemFilterTy
 
 # This class is the input for the 'list_account_associations' function.
 class ListAccountAssociationsInputTypeDef(BaseValidatorModel):
-    BillingPeriod: Optional[str] = None
+    BillingPeriod: Optional[Annotated[str, _aws_pattern("Billingconductor", "BillingPeriod")]] = None
     Filters: Optional[ListAccountAssociationsFilterTypeDef] = None
     NextToken: Optional[str] = None
 
@@ -542,21 +552,23 @@ class ListBillingGroupCostReportsInputPaginateTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'list_billing_group_cost_reports' function.
 class ListBillingGroupCostReportsInputTypeDef(BaseValidatorModel):
-    BillingPeriod: Optional[str] = None
+    BillingPeriod: Optional[Annotated[str, _aws_pattern("Billingconductor", "BillingPeriod")]] = None
     MaxResults: Optional[int] = None
     NextToken: Optional[str] = None
     Filters: Optional[ListBillingGroupCostReportsFilterTypeDef] = None
 
 
 class ListBillingGroupsFilterTypeDef(BaseValidatorModel):
-    Arns: Optional[List[str]] = None
-    PricingPlan: Optional[str] = None
+    Arns: Optional[List[Annotated[str, _aws_pattern("Billingconductor", "BillingGroupArn")]]] = None
+    PricingPlan: Optional[Annotated[str, _aws_pattern("Billingconductor", "PricingPlanFullArn")]] = None
     Statuses: Optional[List[BillingGroupStatusType]] = None
     AutoAssociate: Optional[bool] = None
-    PrimaryAccountIds: Optional[List[str]] = None
+    PrimaryAccountIds: Optional[List[Annotated[str, _aws_pattern("Billingconductor", "AccountId")]]] = None
     BillingGroupTypes: Optional[List[BillingGroupTypeType]] = None
     Names: Optional[List[StringSearchTypeDef]] = None
-    ResponsibilityTransferArns: Optional[List[str]] = None
+    ResponsibilityTransferArns: Optional[
+        List[Annotated[str, _aws_pattern("Billingconductor", "ResponsibilityTransferArn")]]
+    ] = None
 
 
 class ListCustomLineItemChargeDetailsTypeDef(BaseValidatorModel):
@@ -578,7 +590,7 @@ class ListCustomLineItemsInputPaginateTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'list_custom_line_items' function.
 class ListCustomLineItemsInputTypeDef(BaseValidatorModel):
-    BillingPeriod: Optional[str] = None
+    BillingPeriod: Optional[Annotated[str, _aws_pattern("Billingconductor", "BillingPeriod")]] = None
     MaxResults: Optional[int] = None
     NextToken: Optional[str] = None
     Filters: Optional[ListCustomLineItemsFilterTypeDef] = None
@@ -592,7 +604,7 @@ class ListPricingPlansInputPaginateTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'list_pricing_plans' function.
 class ListPricingPlansInputTypeDef(BaseValidatorModel):
-    BillingPeriod: Optional[str] = None
+    BillingPeriod: Optional[Annotated[str, _aws_pattern("Billingconductor", "BillingPeriod")]] = None
     Filters: Optional[ListPricingPlansFilterTypeDef] = None
     MaxResults: Optional[int] = None
     NextToken: Optional[str] = None
@@ -600,7 +612,7 @@ class ListPricingPlansInputTypeDef(BaseValidatorModel):
 
 # This class is the output for the 'list_pricing_plans' function.
 class ListPricingPlansOutputTypeDef(BaseValidatorModel):
-    BillingPeriod: str
+    BillingPeriod: Annotated[str, _aws_pattern("Billingconductor", "BillingPeriod")]
     PricingPlans: List[PricingPlanListElementTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
     NextToken: Optional[str] = None
@@ -614,7 +626,7 @@ class ListPricingRulesInputPaginateTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'list_pricing_rules' function.
 class ListPricingRulesInputTypeDef(BaseValidatorModel):
-    BillingPeriod: Optional[str] = None
+    BillingPeriod: Optional[Annotated[str, _aws_pattern("Billingconductor", "BillingPeriod")]] = None
     Filters: Optional[ListPricingRulesFilterTypeDef] = None
     MaxResults: Optional[int] = None
     NextToken: Optional[str] = None
@@ -629,8 +641,8 @@ class ListResourcesAssociatedToCustomLineItemInputPaginateTypeDef(BaseValidatorM
 
 # This class is the input for the 'list_resources_associated_to_custom_line_item' function.
 class ListResourcesAssociatedToCustomLineItemInputTypeDef(BaseValidatorModel):
-    Arn: str
-    BillingPeriod: Optional[str] = None
+    Arn: Annotated[str, _aws_pattern("Billingconductor", "CustomLineItemArn")]
+    BillingPeriod: Optional[Annotated[str, _aws_pattern("Billingconductor", "BillingPeriod")]] = None
     MaxResults: Optional[int] = None
     NextToken: Optional[str] = None
     Filters: Optional[ListResourcesAssociatedToCustomLineItemFilterTypeDef] = None
@@ -638,7 +650,7 @@ class ListResourcesAssociatedToCustomLineItemInputTypeDef(BaseValidatorModel):
 
 # This class is the output for the 'list_resources_associated_to_custom_line_item' function.
 class ListResourcesAssociatedToCustomLineItemOutputTypeDef(BaseValidatorModel):
-    Arn: str
+    Arn: Annotated[str, _aws_pattern("Billingconductor", "CustomLineItemArn")]
     AssociatedResources: List[ListResourcesAssociatedToCustomLineItemResponseElementTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
     NextToken: Optional[str] = None
@@ -646,8 +658,8 @@ class ListResourcesAssociatedToCustomLineItemOutputTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'update_billing_group' function.
 class UpdateBillingGroupInputTypeDef(BaseValidatorModel):
-    Arn: str
-    Name: Optional[str] = None
+    Arn: Annotated[str, _aws_pattern("Billingconductor", "BillingGroupArn")]
+    Name: Optional[Annotated[str, _aws_pattern("Billingconductor", "BillingGroupName")]] = None
     Status: Optional[BillingGroupStatusType] = None
     ComputationPreference: Optional[ComputationPreferenceTypeDef] = None
     Description: Optional[str] = None
@@ -656,11 +668,11 @@ class UpdateBillingGroupInputTypeDef(BaseValidatorModel):
 
 # This class is the output for the 'update_billing_group' function.
 class UpdateBillingGroupOutputTypeDef(BaseValidatorModel):
-    Arn: str
-    Name: str
+    Arn: Annotated[str, _aws_pattern("Billingconductor", "BillingGroupArn")]
+    Name: Annotated[str, _aws_pattern("Billingconductor", "BillingGroupName")]
     Description: str
-    PrimaryAccountId: str
-    PricingPlanArn: str
+    PrimaryAccountId: Annotated[str, _aws_pattern("Billingconductor", "AccountId")]
+    PricingPlanArn: Annotated[str, _aws_pattern("Billingconductor", "PricingPlanArn")]
     Size: int
     LastModifiedTime: int
     Status: BillingGroupStatusType
@@ -703,35 +715,35 @@ class ListBillingGroupsOutputTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'create_pricing_rule' function.
 class CreatePricingRuleInputTypeDef(BaseValidatorModel):
-    Name: str
+    Name: Annotated[str, _aws_pattern("Billingconductor", "PricingRuleName")]
     Scope: PricingRuleScopeType
     Type: PricingRuleTypeType
-    ClientToken: Optional[str] = None
+    ClientToken: Optional[Annotated[str, _aws_pattern("Billingconductor", "ClientToken")]] = None
     Description: Optional[str] = None
     ModifierPercentage: Optional[float] = None
-    Service: Optional[str] = None
+    Service: Optional[Annotated[str, _aws_pattern("Billingconductor", "Service")]] = None
     Tags: Optional[Dict[str, str]] = None
-    BillingEntity: Optional[str] = None
+    BillingEntity: Optional[Annotated[str, _aws_pattern("Billingconductor", "BillingEntity")]] = None
     Tiering: Optional[CreateTieringInputTypeDef] = None
-    UsageType: Optional[str] = None
-    Operation: Optional[str] = None
+    UsageType: Optional[Annotated[str, _aws_pattern("Billingconductor", "UsageType")]] = None
+    Operation: Optional[Annotated[str, _aws_pattern("Billingconductor", "Operation")]] = None
 
 
 class PricingRuleListElementTypeDef(BaseValidatorModel):
-    Name: Optional[str] = None
-    Arn: Optional[str] = None
+    Name: Optional[Annotated[str, _aws_pattern("Billingconductor", "PricingRuleName")]] = None
+    Arn: Optional[Annotated[str, _aws_pattern("Billingconductor", "PricingRuleArn")]] = None
     Description: Optional[str] = None
     Scope: Optional[PricingRuleScopeType] = None
     Type: Optional[PricingRuleTypeType] = None
     ModifierPercentage: Optional[float] = None
-    Service: Optional[str] = None
+    Service: Optional[Annotated[str, _aws_pattern("Billingconductor", "Service")]] = None
     AssociatedPricingPlanCount: Optional[int] = None
     CreationTime: Optional[int] = None
     LastModifiedTime: Optional[int] = None
-    BillingEntity: Optional[str] = None
+    BillingEntity: Optional[Annotated[str, _aws_pattern("Billingconductor", "BillingEntity")]] = None
     Tiering: Optional[TieringTypeDef] = None
-    UsageType: Optional[str] = None
-    Operation: Optional[str] = None
+    UsageType: Optional[Annotated[str, _aws_pattern("Billingconductor", "UsageType")]] = None
+    Operation: Optional[Annotated[str, _aws_pattern("Billingconductor", "Operation")]] = None
 
 
 class CustomLineItemChargeDetailsTypeDef(BaseValidatorModel):
@@ -755,52 +767,52 @@ class ListBillingGroupsInputPaginateTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'list_billing_groups' function.
 class ListBillingGroupsInputTypeDef(BaseValidatorModel):
-    BillingPeriod: Optional[str] = None
+    BillingPeriod: Optional[Annotated[str, _aws_pattern("Billingconductor", "BillingPeriod")]] = None
     MaxResults: Optional[int] = None
     NextToken: Optional[str] = None
     Filters: Optional[ListBillingGroupsFilterTypeDef] = None
 
 
 class CustomLineItemListElementTypeDef(BaseValidatorModel):
-    Arn: Optional[str] = None
-    Name: Optional[str] = None
+    Arn: Optional[Annotated[str, _aws_pattern("Billingconductor", "CustomLineItemArn")]] = None
+    Name: Optional[Annotated[str, _aws_pattern("Billingconductor", "CustomLineItemName")]] = None
     ChargeDetails: Optional[ListCustomLineItemChargeDetailsTypeDef] = None
     CurrencyCode: Optional[CurrencyCodeType] = None
     Description: Optional[str] = None
     ProductCode: Optional[str] = None
-    BillingGroupArn: Optional[str] = None
+    BillingGroupArn: Optional[Annotated[str, _aws_pattern("Billingconductor", "BillingGroupArn")]] = None
     CreationTime: Optional[int] = None
     LastModifiedTime: Optional[int] = None
     AssociationSize: Optional[int] = None
-    AccountId: Optional[str] = None
+    AccountId: Optional[Annotated[str, _aws_pattern("Billingconductor", "AccountId")]] = None
     ComputationRule: Optional[ComputationRuleEnumType] = None
     PresentationDetails: Optional[PresentationObjectTypeDef] = None
 
 
 class CustomLineItemVersionListElementTypeDef(BaseValidatorModel):
-    Name: Optional[str] = None
+    Name: Optional[Annotated[str, _aws_pattern("Billingconductor", "CustomLineItemName")]] = None
     ChargeDetails: Optional[ListCustomLineItemChargeDetailsTypeDef] = None
     CurrencyCode: Optional[CurrencyCodeType] = None
     Description: Optional[str] = None
     ProductCode: Optional[str] = None
-    BillingGroupArn: Optional[str] = None
+    BillingGroupArn: Optional[Annotated[str, _aws_pattern("Billingconductor", "BillingGroupArn")]] = None
     CreationTime: Optional[int] = None
     LastModifiedTime: Optional[int] = None
     AssociationSize: Optional[int] = None
-    StartBillingPeriod: Optional[str] = None
-    EndBillingPeriod: Optional[str] = None
-    Arn: Optional[str] = None
+    StartBillingPeriod: Optional[Annotated[str, _aws_pattern("Billingconductor", "BillingPeriod")]] = None
+    EndBillingPeriod: Optional[Annotated[str, _aws_pattern("Billingconductor", "BillingPeriod")]] = None
+    Arn: Optional[Annotated[str, _aws_pattern("Billingconductor", "CustomLineItemArn")]] = None
     StartTime: Optional[int] = None
-    AccountId: Optional[str] = None
+    AccountId: Optional[Annotated[str, _aws_pattern("Billingconductor", "AccountId")]] = None
     ComputationRule: Optional[ComputationRuleEnumType] = None
     PresentationDetails: Optional[PresentationObjectTypeDef] = None
 
 
 # This class is the output for the 'update_custom_line_item' function.
 class UpdateCustomLineItemOutputTypeDef(BaseValidatorModel):
-    Arn: str
-    BillingGroupArn: str
-    Name: str
+    Arn: Annotated[str, _aws_pattern("Billingconductor", "CustomLineItemArn")]
+    BillingGroupArn: Annotated[str, _aws_pattern("Billingconductor", "BillingGroupFullArn")]
+    Name: Annotated[str, _aws_pattern("Billingconductor", "CustomLineItemName")]
     Description: str
     ChargeDetails: ListCustomLineItemChargeDetailsTypeDef
     LastModifiedTime: int
@@ -816,7 +828,7 @@ class ListCustomLineItemVersionsInputPaginateTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'list_custom_line_item_versions' function.
 class ListCustomLineItemVersionsInputTypeDef(BaseValidatorModel):
-    Arn: str
+    Arn: Annotated[str, _aws_pattern("Billingconductor", "CustomLineItemArn")]
     MaxResults: Optional[int] = None
     NextToken: Optional[str] = None
     Filters: Optional[ListCustomLineItemVersionsFilterTypeDef] = None
@@ -824,8 +836,8 @@ class ListCustomLineItemVersionsInputTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'update_pricing_rule' function.
 class UpdatePricingRuleInputTypeDef(BaseValidatorModel):
-    Arn: str
-    Name: Optional[str] = None
+    Arn: Annotated[str, _aws_pattern("Billingconductor", "PricingRuleArn")]
+    Name: Optional[Annotated[str, _aws_pattern("Billingconductor", "PricingRuleName")]] = None
     Description: Optional[str] = None
     Type: Optional[PricingRuleTypeType] = None
     ModifierPercentage: Optional[float] = None
@@ -834,25 +846,25 @@ class UpdatePricingRuleInputTypeDef(BaseValidatorModel):
 
 # This class is the output for the 'update_pricing_rule' function.
 class UpdatePricingRuleOutputTypeDef(BaseValidatorModel):
-    Arn: str
-    Name: str
+    Arn: Annotated[str, _aws_pattern("Billingconductor", "PricingRuleArn")]
+    Name: Annotated[str, _aws_pattern("Billingconductor", "PricingRuleName")]
     Description: str
     Scope: PricingRuleScopeType
     Type: PricingRuleTypeType
     ModifierPercentage: float
-    Service: str
+    Service: Annotated[str, _aws_pattern("Billingconductor", "Service")]
     AssociatedPricingPlanCount: int
     LastModifiedTime: int
-    BillingEntity: str
+    BillingEntity: Annotated[str, _aws_pattern("Billingconductor", "BillingEntity")]
     Tiering: UpdateTieringInputTypeDef
-    UsageType: str
-    Operation: str
+    UsageType: Annotated[str, _aws_pattern("Billingconductor", "UsageType")]
+    Operation: Annotated[str, _aws_pattern("Billingconductor", "Operation")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 # This class is the output for the 'list_pricing_rules' function.
 class ListPricingRulesOutputTypeDef(BaseValidatorModel):
-    BillingPeriod: str
+    BillingPeriod: Annotated[str, _aws_pattern("Billingconductor", "BillingPeriod")]
     PricingRules: List[PricingRuleListElementTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
     NextToken: Optional[str] = None
@@ -860,22 +872,22 @@ class ListPricingRulesOutputTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'create_custom_line_item' function.
 class CreateCustomLineItemInputTypeDef(BaseValidatorModel):
-    Name: str
+    Name: Annotated[str, _aws_pattern("Billingconductor", "CustomLineItemName")]
     Description: str
-    BillingGroupArn: str
+    BillingGroupArn: Annotated[str, _aws_pattern("Billingconductor", "BillingGroupArn")]
     ChargeDetails: CustomLineItemChargeDetailsTypeDef
-    ClientToken: Optional[str] = None
+    ClientToken: Optional[Annotated[str, _aws_pattern("Billingconductor", "ClientToken")]] = None
     BillingPeriodRange: Optional[CustomLineItemBillingPeriodRangeTypeDef] = None
     Tags: Optional[Dict[str, str]] = None
-    AccountId: Optional[str] = None
+    AccountId: Optional[Annotated[str, _aws_pattern("Billingconductor", "AccountId")]] = None
     ComputationRule: Optional[ComputationRuleEnumType] = None
     PresentationDetails: Optional[PresentationObjectTypeDef] = None
 
 
 # This class is the input for the 'update_custom_line_item' function.
 class UpdateCustomLineItemInputTypeDef(BaseValidatorModel):
-    Arn: str
-    Name: Optional[str] = None
+    Arn: Annotated[str, _aws_pattern("Billingconductor", "CustomLineItemArn")]
+    Name: Optional[Annotated[str, _aws_pattern("Billingconductor", "CustomLineItemName")]] = None
     Description: Optional[str] = None
     ChargeDetails: Optional[UpdateCustomLineItemChargeDetailsTypeDef] = None
     BillingPeriodRange: Optional[CustomLineItemBillingPeriodRangeTypeDef] = None

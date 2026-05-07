@@ -3,6 +3,7 @@
 from datetime import datetime
 from decimal import Decimal
 from typing import (
+    Annotated,
     Any,
     Callable,
     Dict,
@@ -24,6 +25,7 @@ from botocore.response import StreamingBody
 from pydantic import Field
 
 from aws_resource_validator.core.base_validator_model import BaseValidatorModel, EventStream
+from aws_resource_validator.core.pattern_validation import aws_field_pattern as _aws_pattern
 from aws_resource_validator.pydantic_models.entityresolution.entityresolution_constants import *  # noqa: F401,F403
 
 # Optional boto3 symbols — imported lazily so services that don't need them
@@ -40,11 +42,11 @@ except ImportError:  # pragma: no cover
 
 # This class is the input for the 'add_policy_statement' function.
 class AddPolicyStatementInputTypeDef(BaseValidatorModel):
-    arn: str
-    statementId: str
+    arn: Annotated[str, _aws_pattern("Entityresolution", "VeniceGlobalArn")]
+    statementId: Annotated[str, _aws_pattern("Entityresolution", "StatementId")]
     effect: StatementEffectType
-    action: List[str]
-    principal: List[str]
+    action: List[Annotated[str, _aws_pattern("Entityresolution", "StatementAction")]]
+    principal: List[Annotated[str, _aws_pattern("Entityresolution", "StatementPrincipal")]]
     condition: Optional[str] = None
 
 
@@ -58,18 +60,20 @@ class ResponseMetadataTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'batch_delete_unique_id' function.
 class BatchDeleteUniqueIdInputTypeDef(BaseValidatorModel):
-    workflowName: str
-    uniqueIds: List[str]
-    inputSource: Optional[str] = None
+    workflowName: Annotated[str, _aws_pattern("Entityresolution", "EntityName")]
+    uniqueIds: List[Annotated[str, _aws_pattern("Entityresolution", "HeaderSafeUniqueId")]]
+    inputSource: Optional[
+        Annotated[str, _aws_pattern("Entityresolution", "BatchDeleteUniqueIdInputInputSourceString")]
+    ] = None
 
 
 class DeleteUniqueIdErrorTypeDef(BaseValidatorModel):
-    uniqueId: str
+    uniqueId: Annotated[str, _aws_pattern("Entityresolution", "HeaderSafeUniqueId")]
     errorType: DeleteUniqueIdErrorTypeType
 
 
 class DeletedUniqueIdTypeDef(BaseValidatorModel):
-    uniqueId: str
+    uniqueId: Annotated[str, _aws_pattern("Entityresolution", "HeaderSafeUniqueId")]
 
 
 class IdMappingIncrementalRunConfigTypeDef(BaseValidatorModel):
@@ -77,19 +81,19 @@ class IdMappingIncrementalRunConfigTypeDef(BaseValidatorModel):
 
 
 class IdMappingWorkflowInputSourceTypeDef(BaseValidatorModel):
-    inputSourceARN: str
-    schemaName: Optional[str] = None
+    inputSourceARN: Annotated[str, _aws_pattern("Entityresolution", "InputSourceARN")]
+    schemaName: Optional[Annotated[str, _aws_pattern("Entityresolution", "EntityName")]] = None
     type: Optional[IdNamespaceTypeType] = None
 
 
 class IdMappingWorkflowOutputSourceTypeDef(BaseValidatorModel):
-    outputS3Path: str
-    KMSArn: Optional[str] = None
+    outputS3Path: Annotated[str, _aws_pattern("Entityresolution", "S3Path")]
+    KMSArn: Optional[Annotated[str, _aws_pattern("Entityresolution", "KMSArn")]] = None
 
 
 class IdNamespaceInputSourceTypeDef(BaseValidatorModel):
-    inputSourceARN: str
-    schemaName: Optional[str] = None
+    inputSourceARN: Annotated[str, _aws_pattern("Entityresolution", "InputSourceARN")]
+    schemaName: Optional[Annotated[str, _aws_pattern("Entityresolution", "EntityName")]] = None
 
 
 class IncrementalRunConfigTypeDef(BaseValidatorModel):
@@ -97,49 +101,49 @@ class IncrementalRunConfigTypeDef(BaseValidatorModel):
 
 
 class InputSourceTypeDef(BaseValidatorModel):
-    inputSourceARN: str
-    schemaName: str
+    inputSourceARN: Annotated[str, _aws_pattern("Entityresolution", "InputSourceARN")]
+    schemaName: Annotated[str, _aws_pattern("Entityresolution", "EntityName")]
     applyNormalization: Optional[bool] = None
 
 
 class SchemaInputAttributeTypeDef(BaseValidatorModel):
-    fieldName: str
+    fieldName: Annotated[str, _aws_pattern("Entityresolution", "AttributeName")]
     type: SchemaAttributeTypeType
-    groupName: Optional[str] = None
-    matchKey: Optional[str] = None
-    subType: Optional[str] = None
+    groupName: Optional[Annotated[str, _aws_pattern("Entityresolution", "AttributeName")]] = None
+    matchKey: Optional[Annotated[str, _aws_pattern("Entityresolution", "AttributeName")]] = None
+    subType: Optional[Annotated[str, _aws_pattern("Entityresolution", "AttributeName")]] = None
     hashed: Optional[bool] = None
 
 
 class CustomerProfilesIntegrationConfigTypeDef(BaseValidatorModel):
-    domainArn: str
-    objectTypeArn: str
+    domainArn: Annotated[str, _aws_pattern("Entityresolution", "CustomerProfilesDomainArn")]
+    objectTypeArn: Annotated[str, _aws_pattern("Entityresolution", "CustomerProfilesObjectTypeArn")]
 
 
 # This class is the input for the 'delete_id_mapping_workflow' function.
 class DeleteIdMappingWorkflowInputTypeDef(BaseValidatorModel):
-    workflowName: str
+    workflowName: Annotated[str, _aws_pattern("Entityresolution", "EntityName")]
 
 
 # This class is the input for the 'delete_id_namespace' function.
 class DeleteIdNamespaceInputTypeDef(BaseValidatorModel):
-    idNamespaceName: str
+    idNamespaceName: Annotated[str, _aws_pattern("Entityresolution", "EntityName")]
 
 
 # This class is the input for the 'delete_matching_workflow' function.
 class DeleteMatchingWorkflowInputTypeDef(BaseValidatorModel):
-    workflowName: str
+    workflowName: Annotated[str, _aws_pattern("Entityresolution", "EntityName")]
 
 
 # This class is the input for the 'delete_policy_statement' function.
 class DeletePolicyStatementInputTypeDef(BaseValidatorModel):
-    arn: str
-    statementId: str
+    arn: Annotated[str, _aws_pattern("Entityresolution", "VeniceGlobalArn")]
+    statementId: Annotated[str, _aws_pattern("Entityresolution", "StatementId")]
 
 
 # This class is the input for the 'delete_schema_mapping' function.
 class DeleteSchemaMappingInputTypeDef(BaseValidatorModel):
-    schemaName: str
+    schemaName: Annotated[str, _aws_pattern("Entityresolution", "EntityName")]
 
 
 class ErrorDetailsTypeDef(BaseValidatorModel):
@@ -147,21 +151,21 @@ class ErrorDetailsTypeDef(BaseValidatorModel):
 
 
 class FailedRecordTypeDef(BaseValidatorModel):
-    inputSourceARN: str
+    inputSourceARN: Annotated[str, _aws_pattern("Entityresolution", "InputSourceARN")]
     uniqueId: str
     errorMessage: str
 
 
 class RecordTypeDef(BaseValidatorModel):
-    inputSourceARN: str
-    uniqueId: str
+    inputSourceARN: Annotated[str, _aws_pattern("Entityresolution", "InputSourceARN")]
+    uniqueId: Annotated[str, _aws_pattern("Entityresolution", "UniqueId")]
     recordAttributeMap: Dict[str, str]
 
 
 # This class is the input for the 'get_id_mapping_job' function.
 class GetIdMappingJobInputTypeDef(BaseValidatorModel):
-    workflowName: str
-    jobId: str
+    workflowName: Annotated[str, _aws_pattern("Entityresolution", "EntityNameOrIdMappingWorkflowArn")]
+    jobId: Annotated[str, _aws_pattern("Entityresolution", "JobId")]
 
 
 class IdMappingJobMetricsTypeDef(BaseValidatorModel):
@@ -183,32 +187,32 @@ class IdMappingJobMetricsTypeDef(BaseValidatorModel):
 
 
 class IdMappingJobOutputSourceTypeDef(BaseValidatorModel):
-    roleArn: str
-    outputS3Path: str
-    KMSArn: Optional[str] = None
+    roleArn: Annotated[str, _aws_pattern("Entityresolution", "RoleArn")]
+    outputS3Path: Annotated[str, _aws_pattern("Entityresolution", "S3Path")]
+    KMSArn: Optional[Annotated[str, _aws_pattern("Entityresolution", "KMSArn")]] = None
 
 
 # This class is the input for the 'get_id_mapping_workflow' function.
 class GetIdMappingWorkflowInputTypeDef(BaseValidatorModel):
-    workflowName: str
+    workflowName: Annotated[str, _aws_pattern("Entityresolution", "EntityName")]
 
 
 # This class is the input for the 'get_id_namespace' function.
 class GetIdNamespaceInputTypeDef(BaseValidatorModel):
-    idNamespaceName: str
+    idNamespaceName: Annotated[str, _aws_pattern("Entityresolution", "EntityNameOrIdNamespaceArn")]
 
 
 # This class is the input for the 'get_match_id' function.
 class GetMatchIdInputTypeDef(BaseValidatorModel):
-    workflowName: str
+    workflowName: Annotated[str, _aws_pattern("Entityresolution", "EntityName")]
     record: Dict[str, str]
     applyNormalization: Optional[bool] = None
 
 
 # This class is the input for the 'get_matching_job' function.
 class GetMatchingJobInputTypeDef(BaseValidatorModel):
-    workflowName: str
-    jobId: str
+    workflowName: Annotated[str, _aws_pattern("Entityresolution", "EntityName")]
+    jobId: Annotated[str, _aws_pattern("Entityresolution", "JobId")]
 
 
 class JobMetricsTypeDef(BaseValidatorModel):
@@ -220,25 +224,25 @@ class JobMetricsTypeDef(BaseValidatorModel):
 
 
 class JobOutputSourceTypeDef(BaseValidatorModel):
-    roleArn: str
-    outputS3Path: str
-    KMSArn: Optional[str] = None
+    roleArn: Annotated[str, _aws_pattern("Entityresolution", "RoleArn")]
+    outputS3Path: Annotated[str, _aws_pattern("Entityresolution", "S3Path")]
+    KMSArn: Optional[Annotated[str, _aws_pattern("Entityresolution", "KMSArn")]] = None
 
 
 # This class is the input for the 'get_matching_workflow' function.
 class GetMatchingWorkflowInputTypeDef(BaseValidatorModel):
-    workflowName: str
+    workflowName: Annotated[str, _aws_pattern("Entityresolution", "EntityName")]
 
 
 # This class is the input for the 'get_policy' function.
 class GetPolicyInputTypeDef(BaseValidatorModel):
-    arn: str
+    arn: Annotated[str, _aws_pattern("Entityresolution", "VeniceGlobalArn")]
 
 
 # This class is the input for the 'get_provider_service' function.
 class GetProviderServiceInputTypeDef(BaseValidatorModel):
-    providerName: str
-    providerServiceName: str
+    providerName: Annotated[str, _aws_pattern("Entityresolution", "EntityName")]
+    providerServiceName: Annotated[str, _aws_pattern("Entityresolution", "ProviderServiceArn")]
 
 
 class ProviderIdNameSpaceConfigurationTypeDef(BaseValidatorModel):
@@ -248,13 +252,13 @@ class ProviderIdNameSpaceConfigurationTypeDef(BaseValidatorModel):
 
 
 class ProviderIntermediateDataAccessConfigurationTypeDef(BaseValidatorModel):
-    awsAccountIds: Optional[List[str]] = None
+    awsAccountIds: Optional[List[Annotated[str, _aws_pattern("Entityresolution", "AwsAccountId")]]] = None
     requiredBucketActions: Optional[List[str]] = None
 
 
 # This class is the input for the 'get_schema_mapping' function.
 class GetSchemaMappingInputTypeDef(BaseValidatorModel):
-    schemaName: str
+    schemaName: Annotated[str, _aws_pattern("Entityresolution", "EntityName")]
 
 
 class RuleOutputTypeDef(BaseValidatorModel):
@@ -263,13 +267,13 @@ class RuleOutputTypeDef(BaseValidatorModel):
 
 
 class RuleTypeDef(BaseValidatorModel):
-    ruleName: str
-    matchingKeys: List[str]
+    ruleName: Annotated[str, _aws_pattern("Entityresolution", "RuleRuleNameString")]
+    matchingKeys: List[Annotated[str, _aws_pattern("Entityresolution", "AttributeName")]]
 
 
 class IdMappingWorkflowSummaryTypeDef(BaseValidatorModel):
-    workflowName: str
-    workflowArn: str
+    workflowName: Annotated[str, _aws_pattern("Entityresolution", "EntityName")]
+    workflowArn: Annotated[str, _aws_pattern("Entityresolution", "IdMappingWorkflowArn")]
     createdAt: datetime
     updatedAt: datetime
 
@@ -284,11 +288,11 @@ class NamespaceProviderPropertiesOutputTypeDef(BaseValidatorModel):
 
 
 class IntermediateSourceConfigurationTypeDef(BaseValidatorModel):
-    intermediateS3Path: str
+    intermediateS3Path: Annotated[str, _aws_pattern("Entityresolution", "S3Path")]
 
 
 class JobSummaryTypeDef(BaseValidatorModel):
-    jobId: str
+    jobId: Annotated[str, _aws_pattern("Entityresolution", "JobId")]
     status: JobStatusType
     startTime: datetime
     endTime: Optional[datetime] = None
@@ -302,39 +306,39 @@ class PaginatorConfigTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'list_id_mapping_jobs' function.
 class ListIdMappingJobsInputTypeDef(BaseValidatorModel):
-    workflowName: str
-    nextToken: Optional[str] = None
+    workflowName: Annotated[str, _aws_pattern("Entityresolution", "EntityNameOrIdMappingWorkflowArn")]
+    nextToken: Optional[Annotated[str, _aws_pattern("Entityresolution", "NextToken")]] = None
     maxResults: Optional[int] = None
 
 
 # This class is the input for the 'list_id_mapping_workflows' function.
 class ListIdMappingWorkflowsInputTypeDef(BaseValidatorModel):
-    nextToken: Optional[str] = None
+    nextToken: Optional[Annotated[str, _aws_pattern("Entityresolution", "NextToken")]] = None
     maxResults: Optional[int] = None
 
 
 # This class is the input for the 'list_id_namespaces' function.
 class ListIdNamespacesInputTypeDef(BaseValidatorModel):
-    nextToken: Optional[str] = None
+    nextToken: Optional[Annotated[str, _aws_pattern("Entityresolution", "NextToken")]] = None
     maxResults: Optional[int] = None
 
 
 # This class is the input for the 'list_matching_jobs' function.
 class ListMatchingJobsInputTypeDef(BaseValidatorModel):
-    workflowName: str
-    nextToken: Optional[str] = None
+    workflowName: Annotated[str, _aws_pattern("Entityresolution", "EntityName")]
+    nextToken: Optional[Annotated[str, _aws_pattern("Entityresolution", "NextToken")]] = None
     maxResults: Optional[int] = None
 
 
 # This class is the input for the 'list_matching_workflows' function.
 class ListMatchingWorkflowsInputTypeDef(BaseValidatorModel):
-    nextToken: Optional[str] = None
+    nextToken: Optional[Annotated[str, _aws_pattern("Entityresolution", "NextToken")]] = None
     maxResults: Optional[int] = None
 
 
 class MatchingWorkflowSummaryTypeDef(BaseValidatorModel):
-    workflowName: str
-    workflowArn: str
+    workflowName: Annotated[str, _aws_pattern("Entityresolution", "EntityName")]
+    workflowArn: Annotated[str, _aws_pattern("Entityresolution", "MatchingWorkflowArn")]
     createdAt: datetime
     updatedAt: datetime
     resolutionType: ResolutionTypeType
@@ -342,28 +346,28 @@ class MatchingWorkflowSummaryTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'list_provider_services' function.
 class ListProviderServicesInputTypeDef(BaseValidatorModel):
-    nextToken: Optional[str] = None
+    nextToken: Optional[Annotated[str, _aws_pattern("Entityresolution", "NextToken")]] = None
     maxResults: Optional[int] = None
-    providerName: Optional[str] = None
+    providerName: Optional[Annotated[str, _aws_pattern("Entityresolution", "EntityName")]] = None
 
 
 class ProviderServiceSummaryTypeDef(BaseValidatorModel):
-    providerServiceArn: str
-    providerName: str
+    providerServiceArn: Annotated[str, _aws_pattern("Entityresolution", "ProviderServiceArn")]
+    providerName: Annotated[str, _aws_pattern("Entityresolution", "EntityName")]
     providerServiceDisplayName: str
-    providerServiceName: str
+    providerServiceName: Annotated[str, _aws_pattern("Entityresolution", "EntityName")]
     providerServiceType: ServiceTypeType
 
 
 # This class is the input for the 'list_schema_mappings' function.
 class ListSchemaMappingsInputTypeDef(BaseValidatorModel):
-    nextToken: Optional[str] = None
+    nextToken: Optional[Annotated[str, _aws_pattern("Entityresolution", "NextToken")]] = None
     maxResults: Optional[int] = None
 
 
 class SchemaMappingSummaryTypeDef(BaseValidatorModel):
-    schemaName: str
-    schemaArn: str
+    schemaName: Annotated[str, _aws_pattern("Entityresolution", "EntityName")]
+    schemaArn: Annotated[str, _aws_pattern("Entityresolution", "SchemaMappingArn")]
     createdAt: datetime
     updatedAt: datetime
     hasWorkflows: bool
@@ -371,28 +375,32 @@ class SchemaMappingSummaryTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'list_tags_for_resource' function.
 class ListTagsForResourceInputTypeDef(BaseValidatorModel):
-    resourceArn: str
+    resourceArn: Annotated[str, _aws_pattern("Entityresolution", "VeniceGlobalArn")]
 
 
 class MatchedRecordTypeDef(BaseValidatorModel):
-    inputSourceARN: str
+    inputSourceARN: Annotated[str, _aws_pattern("Entityresolution", "InputSourceARN")]
     recordId: str
 
 
+class MatchingConfigTypeDef(BaseValidatorModel):
+    enableTransitiveMatching: Optional[bool] = None
+
+
 class NamespaceProviderPropertiesTypeDef(BaseValidatorModel):
-    providerServiceArn: str
+    providerServiceArn: Annotated[str, _aws_pattern("Entityresolution", "ProviderServiceArn")]
     providerConfiguration: Optional[Dict[str, Any]] = None
 
 
 class OutputAttributeTypeDef(BaseValidatorModel):
-    name: str
+    name: Annotated[str, _aws_pattern("Entityresolution", "AttributeName")]
     hashed: Optional[bool] = None
 
 
 class ProviderSchemaAttributeTypeDef(BaseValidatorModel):
-    fieldName: str
+    fieldName: Annotated[str, _aws_pattern("Entityresolution", "AttributeName")]
     type: SchemaAttributeTypeType
-    subType: Optional[str] = None
+    subType: Optional[Annotated[str, _aws_pattern("Entityresolution", "AttributeName")]] = None
     hashing: Optional[bool] = None
 
 
@@ -405,35 +413,35 @@ class ProviderMarketplaceConfigurationTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'put_policy' function.
 class PutPolicyInputTypeDef(BaseValidatorModel):
-    arn: str
+    arn: Annotated[str, _aws_pattern("Entityresolution", "VeniceGlobalArn")]
     policy: str
-    token: Optional[str] = None
+    token: Optional[Annotated[str, _aws_pattern("Entityresolution", "PolicyToken")]] = None
 
 
 class RuleConditionTypeDef(BaseValidatorModel):
-    ruleName: str
+    ruleName: Annotated[str, _aws_pattern("Entityresolution", "RuleConditionRuleNameString")]
     condition: str
 
 
 # This class is the input for the 'start_matching_job' function.
 class StartMatchingJobInputTypeDef(BaseValidatorModel):
-    workflowName: str
+    workflowName: Annotated[str, _aws_pattern("Entityresolution", "EntityName")]
 
 
 class TagResourceInputTypeDef(BaseValidatorModel):
-    resourceArn: str
+    resourceArn: Annotated[str, _aws_pattern("Entityresolution", "VeniceGlobalArn")]
     tags: Dict[str, str]
 
 
 class UntagResourceInputTypeDef(BaseValidatorModel):
-    resourceArn: str
+    resourceArn: Annotated[str, _aws_pattern("Entityresolution", "VeniceGlobalArn")]
     tagKeys: List[str]
 
 
 # This class is the output for the 'add_policy_statement' function.
 class AddPolicyStatementOutputTypeDef(BaseValidatorModel):
-    arn: str
-    token: str
+    arn: Annotated[str, _aws_pattern("Entityresolution", "VeniceGlobalArn")]
+    token: Annotated[str, _aws_pattern("Entityresolution", "PolicyToken")]
     policy: str
     ResponseMetadata: ResponseMetadataTypeDef
 
@@ -458,8 +466,8 @@ class DeleteMatchingWorkflowOutputTypeDef(BaseValidatorModel):
 
 # This class is the output for the 'delete_policy_statement' function.
 class DeletePolicyStatementOutputTypeDef(BaseValidatorModel):
-    arn: str
-    token: str
+    arn: Annotated[str, _aws_pattern("Entityresolution", "VeniceGlobalArn")]
+    token: Annotated[str, _aws_pattern("Entityresolution", "PolicyToken")]
     policy: str
     ResponseMetadata: ResponseMetadataTypeDef
 
@@ -479,8 +487,8 @@ class GetMatchIdOutputTypeDef(BaseValidatorModel):
 
 # This class is the output for the 'get_policy' function.
 class GetPolicyOutputTypeDef(BaseValidatorModel):
-    arn: str
-    token: str
+    arn: Annotated[str, _aws_pattern("Entityresolution", "VeniceGlobalArn")]
+    token: Annotated[str, _aws_pattern("Entityresolution", "PolicyToken")]
     policy: str
     ResponseMetadata: ResponseMetadataTypeDef
 
@@ -493,15 +501,15 @@ class ListTagsForResourceOutputTypeDef(BaseValidatorModel):
 
 # This class is the output for the 'put_policy' function.
 class PutPolicyOutputTypeDef(BaseValidatorModel):
-    arn: str
-    token: str
+    arn: Annotated[str, _aws_pattern("Entityresolution", "VeniceGlobalArn")]
+    token: Annotated[str, _aws_pattern("Entityresolution", "PolicyToken")]
     policy: str
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 # This class is the output for the 'start_matching_job' function.
 class StartMatchingJobOutputTypeDef(BaseValidatorModel):
-    jobId: str
+    jobId: Annotated[str, _aws_pattern("Entityresolution", "JobId")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
@@ -510,13 +518,13 @@ class BatchDeleteUniqueIdOutputTypeDef(BaseValidatorModel):
     status: DeleteUniqueIdStatusType
     errors: List[DeleteUniqueIdErrorTypeDef]
     deleted: List[DeletedUniqueIdTypeDef]
-    disconnectedUniqueIds: List[str]
+    disconnectedUniqueIds: List[Annotated[str, _aws_pattern("Entityresolution", "HeaderSafeUniqueId")]]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 # This class is the input for the 'create_schema_mapping' function.
 class CreateSchemaMappingInputTypeDef(BaseValidatorModel):
-    schemaName: str
+    schemaName: Annotated[str, _aws_pattern("Entityresolution", "EntityName")]
     mappedInputFields: List[SchemaInputAttributeTypeDef]
     description: Optional[str] = None
     tags: Optional[Dict[str, str]] = None
@@ -524,8 +532,8 @@ class CreateSchemaMappingInputTypeDef(BaseValidatorModel):
 
 # This class is the output for the 'create_schema_mapping' function.
 class CreateSchemaMappingOutputTypeDef(BaseValidatorModel):
-    schemaName: str
-    schemaArn: str
+    schemaName: Annotated[str, _aws_pattern("Entityresolution", "EntityName")]
+    schemaArn: Annotated[str, _aws_pattern("Entityresolution", "SchemaMappingArn")]
     description: str
     mappedInputFields: List[SchemaInputAttributeTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
@@ -533,8 +541,8 @@ class CreateSchemaMappingOutputTypeDef(BaseValidatorModel):
 
 # This class is the output for the 'get_schema_mapping' function.
 class GetSchemaMappingOutputTypeDef(BaseValidatorModel):
-    schemaName: str
-    schemaArn: str
+    schemaName: Annotated[str, _aws_pattern("Entityresolution", "EntityName")]
+    schemaArn: Annotated[str, _aws_pattern("Entityresolution", "SchemaMappingArn")]
     description: str
     mappedInputFields: List[SchemaInputAttributeTypeDef]
     createdAt: datetime
@@ -546,15 +554,15 @@ class GetSchemaMappingOutputTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'update_schema_mapping' function.
 class UpdateSchemaMappingInputTypeDef(BaseValidatorModel):
-    schemaName: str
+    schemaName: Annotated[str, _aws_pattern("Entityresolution", "EntityName")]
     mappedInputFields: List[SchemaInputAttributeTypeDef]
     description: Optional[str] = None
 
 
 # This class is the output for the 'update_schema_mapping' function.
 class UpdateSchemaMappingOutputTypeDef(BaseValidatorModel):
-    schemaName: str
-    schemaArn: str
+    schemaName: Annotated[str, _aws_pattern("Entityresolution", "EntityName")]
+    schemaArn: Annotated[str, _aws_pattern("Entityresolution", "SchemaMappingArn")]
     description: str
     mappedInputFields: List[SchemaInputAttributeTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
@@ -562,14 +570,14 @@ class UpdateSchemaMappingOutputTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'generate_match_id' function.
 class GenerateMatchIdInputTypeDef(BaseValidatorModel):
-    workflowName: str
+    workflowName: Annotated[str, _aws_pattern("Entityresolution", "EntityName")]
     records: List[RecordTypeDef]
     processingType: Optional[ProcessingTypeType] = None
 
 
 # This class is the output for the 'get_id_mapping_job' function.
 class GetIdMappingJobOutputTypeDef(BaseValidatorModel):
-    jobId: str
+    jobId: Annotated[str, _aws_pattern("Entityresolution", "JobId")]
     status: JobStatusType
     startTime: datetime
     endTime: datetime
@@ -582,14 +590,14 @@ class GetIdMappingJobOutputTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'start_id_mapping_job' function.
 class StartIdMappingJobInputTypeDef(BaseValidatorModel):
-    workflowName: str
+    workflowName: Annotated[str, _aws_pattern("Entityresolution", "EntityNameOrIdMappingWorkflowArn")]
     outputSourceConfig: Optional[List[IdMappingJobOutputSourceTypeDef]] = None
     jobType: Optional[JobTypeType] = None
 
 
 # This class is the output for the 'start_id_mapping_job' function.
 class StartIdMappingJobOutputTypeDef(BaseValidatorModel):
-    jobId: str
+    jobId: Annotated[str, _aws_pattern("Entityresolution", "JobId")]
     outputSourceConfig: List[IdMappingJobOutputSourceTypeDef]
     jobType: JobTypeType
     ResponseMetadata: ResponseMetadataTypeDef
@@ -597,7 +605,7 @@ class StartIdMappingJobOutputTypeDef(BaseValidatorModel):
 
 # This class is the output for the 'get_matching_job' function.
 class GetMatchingJobOutputTypeDef(BaseValidatorModel):
-    jobId: str
+    jobId: Annotated[str, _aws_pattern("Entityresolution", "JobId")]
     status: JobStatusType
     startTime: datetime
     endTime: datetime
@@ -647,12 +655,12 @@ RuleUnionTypeDef = Union[RuleOutputTypeDef, RuleTypeDef]
 class ListIdMappingWorkflowsOutputTypeDef(BaseValidatorModel):
     workflowSummaries: List[IdMappingWorkflowSummaryTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
-    nextToken: Optional[str] = None
+    nextToken: Optional[Annotated[str, _aws_pattern("Entityresolution", "NextToken")]] = None
 
 
 class IdNamespaceSummaryTypeDef(BaseValidatorModel):
-    idNamespaceName: str
-    idNamespaceArn: str
+    idNamespaceName: Annotated[str, _aws_pattern("Entityresolution", "EntityName")]
+    idNamespaceArn: Annotated[str, _aws_pattern("Entityresolution", "IdNamespaceArn")]
     type: IdNamespaceTypeType
     createdAt: datetime
     updatedAt: datetime
@@ -667,7 +675,7 @@ class ProviderPropertiesOutputTypeDef(BaseValidatorModel):
 
 
 class ProviderPropertiesTypeDef(BaseValidatorModel):
-    providerServiceArn: str
+    providerServiceArn: Annotated[str, _aws_pattern("Entityresolution", "ProviderServiceArn")]
     providerConfiguration: Optional[Dict[str, Any]] = None
     intermediateSourceConfiguration: Optional[IntermediateSourceConfigurationTypeDef] = None
 
@@ -676,14 +684,14 @@ class ProviderPropertiesTypeDef(BaseValidatorModel):
 class ListIdMappingJobsOutputTypeDef(BaseValidatorModel):
     jobs: List[JobSummaryTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
-    nextToken: Optional[str] = None
+    nextToken: Optional[Annotated[str, _aws_pattern("Entityresolution", "NextToken")]] = None
 
 
 # This class is the output for the 'list_matching_jobs' function.
 class ListMatchingJobsOutputTypeDef(BaseValidatorModel):
     jobs: List[JobSummaryTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
-    nextToken: Optional[str] = None
+    nextToken: Optional[Annotated[str, _aws_pattern("Entityresolution", "NextToken")]] = None
 
 
 class ListIdMappingJobsInputPaginateTypeDef(BaseValidatorModel):
@@ -721,21 +729,21 @@ class ListSchemaMappingsInputPaginateTypeDef(BaseValidatorModel):
 class ListMatchingWorkflowsOutputTypeDef(BaseValidatorModel):
     workflowSummaries: List[MatchingWorkflowSummaryTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
-    nextToken: Optional[str] = None
+    nextToken: Optional[Annotated[str, _aws_pattern("Entityresolution", "NextToken")]] = None
 
 
 # This class is the output for the 'list_provider_services' function.
 class ListProviderServicesOutputTypeDef(BaseValidatorModel):
     providerServiceSummaries: List[ProviderServiceSummaryTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
-    nextToken: Optional[str] = None
+    nextToken: Optional[Annotated[str, _aws_pattern("Entityresolution", "NextToken")]] = None
 
 
 # This class is the output for the 'list_schema_mappings' function.
 class ListSchemaMappingsOutputTypeDef(BaseValidatorModel):
     schemaList: List[SchemaMappingSummaryTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
-    nextToken: Optional[str] = None
+    nextToken: Optional[Annotated[str, _aws_pattern("Entityresolution", "NextToken")]] = None
 
 
 class MatchGroupTypeDef(BaseValidatorModel):
@@ -759,8 +767,8 @@ class OutputSourceOutputTypeDef(BaseValidatorModel):
 
 class OutputSourceTypeDef(BaseValidatorModel):
     output: List[OutputAttributeTypeDef]
-    KMSArn: Optional[str] = None
-    outputS3Path: Optional[str] = None
+    KMSArn: Optional[Annotated[str, _aws_pattern("Entityresolution", "KMSArn")]] = None
+    outputS3Path: Optional[Annotated[str, _aws_pattern("Entityresolution", "OptionalS3Path")]] = None
     applyNormalization: Optional[bool] = None
     customerProfilesIntegrationConfig: Optional[CustomerProfilesIntegrationConfigTypeDef] = None
 
@@ -776,10 +784,12 @@ class ProviderEndpointConfigurationTypeDef(BaseValidatorModel):
 
 class RuleConditionPropertiesOutputTypeDef(BaseValidatorModel):
     rules: List[RuleConditionTypeDef]
+    matchingConfig: Optional[MatchingConfigTypeDef] = None
 
 
 class RuleConditionPropertiesTypeDef(BaseValidatorModel):
     rules: List[RuleConditionTypeDef]
+    matchingConfig: Optional[MatchingConfigTypeDef] = None
 
 
 class IdNamespaceIdMappingWorkflowPropertiesOutputTypeDef(BaseValidatorModel):
@@ -799,7 +809,7 @@ class NamespaceRuleBasedPropertiesTypeDef(BaseValidatorModel):
 class ListIdNamespacesOutputTypeDef(BaseValidatorModel):
     idNamespaceSummaries: List[IdNamespaceSummaryTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
-    nextToken: Optional[str] = None
+    nextToken: Optional[Annotated[str, _aws_pattern("Entityresolution", "NextToken")]] = None
 
 
 class IdMappingTechniquesOutputTypeDef(BaseValidatorModel):
@@ -826,11 +836,11 @@ OutputSourceUnionTypeDef = Union[OutputSourceOutputTypeDef, OutputSourceTypeDef]
 
 # This class is the output for the 'get_provider_service' function.
 class GetProviderServiceOutputTypeDef(BaseValidatorModel):
-    providerName: str
-    providerServiceName: str
+    providerName: Annotated[str, _aws_pattern("Entityresolution", "EntityName")]
+    providerServiceName: Annotated[str, _aws_pattern("Entityresolution", "EntityName")]
     providerServiceDisplayName: str
     providerServiceType: ServiceTypeType
-    providerServiceArn: str
+    providerServiceArn: Annotated[str, _aws_pattern("Entityresolution", "ProviderServiceArn")]
     providerConfigurationDefinition: Dict[str, Any]
     providerIdNameSpaceConfiguration: ProviderIdNameSpaceConfigurationTypeDef
     providerJobConfiguration: Dict[str, Any]
@@ -858,13 +868,13 @@ class ResolutionTechniquesTypeDef(BaseValidatorModel):
 
 # This class is the output for the 'create_id_namespace' function.
 class CreateIdNamespaceOutputTypeDef(BaseValidatorModel):
-    idNamespaceName: str
-    idNamespaceArn: str
+    idNamespaceName: Annotated[str, _aws_pattern("Entityresolution", "EntityName")]
+    idNamespaceArn: Annotated[str, _aws_pattern("Entityresolution", "IdNamespaceArn")]
     description: str
     inputSourceConfig: List[IdNamespaceInputSourceTypeDef]
     idMappingWorkflowProperties: List[IdNamespaceIdMappingWorkflowPropertiesOutputTypeDef]
     type: IdNamespaceTypeType
-    roleArn: str
+    roleArn: Annotated[str, _aws_pattern("Entityresolution", "RoleArn")]
     createdAt: datetime
     updatedAt: datetime
     tags: Dict[str, str]
@@ -873,13 +883,13 @@ class CreateIdNamespaceOutputTypeDef(BaseValidatorModel):
 
 # This class is the output for the 'get_id_namespace' function.
 class GetIdNamespaceOutputTypeDef(BaseValidatorModel):
-    idNamespaceName: str
-    idNamespaceArn: str
+    idNamespaceName: Annotated[str, _aws_pattern("Entityresolution", "EntityName")]
+    idNamespaceArn: Annotated[str, _aws_pattern("Entityresolution", "IdNamespaceArn")]
     description: str
     inputSourceConfig: List[IdNamespaceInputSourceTypeDef]
     idMappingWorkflowProperties: List[IdNamespaceIdMappingWorkflowPropertiesOutputTypeDef]
     type: IdNamespaceTypeType
-    roleArn: str
+    roleArn: Annotated[str, _aws_pattern("Entityresolution", "RoleArn")]
     createdAt: datetime
     updatedAt: datetime
     tags: Dict[str, str]
@@ -888,13 +898,13 @@ class GetIdNamespaceOutputTypeDef(BaseValidatorModel):
 
 # This class is the output for the 'update_id_namespace' function.
 class UpdateIdNamespaceOutputTypeDef(BaseValidatorModel):
-    idNamespaceName: str
-    idNamespaceArn: str
+    idNamespaceName: Annotated[str, _aws_pattern("Entityresolution", "EntityName")]
+    idNamespaceArn: Annotated[str, _aws_pattern("Entityresolution", "IdNamespaceArn")]
     description: str
     inputSourceConfig: List[IdNamespaceInputSourceTypeDef]
     idMappingWorkflowProperties: List[IdNamespaceIdMappingWorkflowPropertiesOutputTypeDef]
     type: IdNamespaceTypeType
-    roleArn: str
+    roleArn: Annotated[str, _aws_pattern("Entityresolution", "RoleArn")]
     createdAt: datetime
     updatedAt: datetime
     ResponseMetadata: ResponseMetadataTypeDef
@@ -907,21 +917,21 @@ NamespaceRuleBasedPropertiesUnionTypeDef = Union[
 
 # This class is the output for the 'create_id_mapping_workflow' function.
 class CreateIdMappingWorkflowOutputTypeDef(BaseValidatorModel):
-    workflowName: str
-    workflowArn: str
+    workflowName: Annotated[str, _aws_pattern("Entityresolution", "EntityName")]
+    workflowArn: Annotated[str, _aws_pattern("Entityresolution", "IdMappingWorkflowArn")]
     description: str
     inputSourceConfig: List[IdMappingWorkflowInputSourceTypeDef]
     outputSourceConfig: List[IdMappingWorkflowOutputSourceTypeDef]
     idMappingTechniques: IdMappingTechniquesOutputTypeDef
     incrementalRunConfig: IdMappingIncrementalRunConfigTypeDef
-    roleArn: str
+    roleArn: Annotated[str, _aws_pattern("Entityresolution", "IdMappingRoleArn")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 # This class is the output for the 'get_id_mapping_workflow' function.
 class GetIdMappingWorkflowOutputTypeDef(BaseValidatorModel):
-    workflowName: str
-    workflowArn: str
+    workflowName: Annotated[str, _aws_pattern("Entityresolution", "EntityName")]
+    workflowArn: Annotated[str, _aws_pattern("Entityresolution", "IdMappingWorkflowArn")]
     description: str
     inputSourceConfig: List[IdMappingWorkflowInputSourceTypeDef]
     outputSourceConfig: List[IdMappingWorkflowOutputSourceTypeDef]
@@ -929,21 +939,21 @@ class GetIdMappingWorkflowOutputTypeDef(BaseValidatorModel):
     createdAt: datetime
     updatedAt: datetime
     incrementalRunConfig: IdMappingIncrementalRunConfigTypeDef
-    roleArn: str
+    roleArn: Annotated[str, _aws_pattern("Entityresolution", "IdMappingRoleArn")]
     tags: Dict[str, str]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 # This class is the output for the 'update_id_mapping_workflow' function.
 class UpdateIdMappingWorkflowOutputTypeDef(BaseValidatorModel):
-    workflowName: str
-    workflowArn: str
+    workflowName: Annotated[str, _aws_pattern("Entityresolution", "EntityName")]
+    workflowArn: Annotated[str, _aws_pattern("Entityresolution", "IdMappingWorkflowArn")]
     description: str
     inputSourceConfig: List[IdMappingWorkflowInputSourceTypeDef]
     outputSourceConfig: List[IdMappingWorkflowOutputSourceTypeDef]
     idMappingTechniques: IdMappingTechniquesOutputTypeDef
     incrementalRunConfig: IdMappingIncrementalRunConfigTypeDef
-    roleArn: str
+    roleArn: Annotated[str, _aws_pattern("Entityresolution", "IdMappingRoleArn")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
@@ -952,8 +962,8 @@ IdMappingTechniquesUnionTypeDef = Union[IdMappingTechniquesOutputTypeDef, IdMapp
 
 # This class is the output for the 'create_matching_workflow' function.
 class CreateMatchingWorkflowOutputTypeDef(BaseValidatorModel):
-    workflowName: str
-    workflowArn: str
+    workflowName: Annotated[str, _aws_pattern("Entityresolution", "EntityName")]
+    workflowArn: Annotated[str, _aws_pattern("Entityresolution", "MatchingWorkflowArn")]
     description: str
     inputSourceConfig: List[InputSourceTypeDef]
     outputSourceConfig: List[OutputSourceOutputTypeDef]
@@ -965,8 +975,8 @@ class CreateMatchingWorkflowOutputTypeDef(BaseValidatorModel):
 
 # This class is the output for the 'get_matching_workflow' function.
 class GetMatchingWorkflowOutputTypeDef(BaseValidatorModel):
-    workflowName: str
-    workflowArn: str
+    workflowName: Annotated[str, _aws_pattern("Entityresolution", "EntityName")]
+    workflowArn: Annotated[str, _aws_pattern("Entityresolution", "MatchingWorkflowArn")]
     description: str
     inputSourceConfig: List[InputSourceTypeDef]
     outputSourceConfig: List[OutputSourceOutputTypeDef]
@@ -981,7 +991,7 @@ class GetMatchingWorkflowOutputTypeDef(BaseValidatorModel):
 
 # This class is the output for the 'update_matching_workflow' function.
 class UpdateMatchingWorkflowOutputTypeDef(BaseValidatorModel):
-    workflowName: str
+    workflowName: Annotated[str, _aws_pattern("Entityresolution", "EntityName")]
     description: str
     inputSourceConfig: List[InputSourceTypeDef]
     outputSourceConfig: List[OutputSourceOutputTypeDef]
@@ -1002,30 +1012,30 @@ class IdNamespaceIdMappingWorkflowPropertiesTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'create_id_mapping_workflow' function.
 class CreateIdMappingWorkflowInputTypeDef(BaseValidatorModel):
-    workflowName: str
+    workflowName: Annotated[str, _aws_pattern("Entityresolution", "EntityName")]
     inputSourceConfig: List[IdMappingWorkflowInputSourceTypeDef]
     idMappingTechniques: IdMappingTechniquesUnionTypeDef
     description: Optional[str] = None
     outputSourceConfig: Optional[List[IdMappingWorkflowOutputSourceTypeDef]] = None
     incrementalRunConfig: Optional[IdMappingIncrementalRunConfigTypeDef] = None
-    roleArn: Optional[str] = None
+    roleArn: Optional[Annotated[str, _aws_pattern("Entityresolution", "IdMappingRoleArn")]] = None
     tags: Optional[Dict[str, str]] = None
 
 
 # This class is the input for the 'update_id_mapping_workflow' function.
 class UpdateIdMappingWorkflowInputTypeDef(BaseValidatorModel):
-    workflowName: str
+    workflowName: Annotated[str, _aws_pattern("Entityresolution", "EntityName")]
     inputSourceConfig: List[IdMappingWorkflowInputSourceTypeDef]
     idMappingTechniques: IdMappingTechniquesUnionTypeDef
     description: Optional[str] = None
     outputSourceConfig: Optional[List[IdMappingWorkflowOutputSourceTypeDef]] = None
     incrementalRunConfig: Optional[IdMappingIncrementalRunConfigTypeDef] = None
-    roleArn: Optional[str] = None
+    roleArn: Optional[Annotated[str, _aws_pattern("Entityresolution", "IdMappingRoleArn")]] = None
 
 
 # This class is the input for the 'create_matching_workflow' function.
 class CreateMatchingWorkflowInputTypeDef(BaseValidatorModel):
-    workflowName: str
+    workflowName: Annotated[str, _aws_pattern("Entityresolution", "EntityName")]
     inputSourceConfig: List[InputSourceTypeDef]
     outputSourceConfig: List[OutputSourceUnionTypeDef]
     resolutionTechniques: ResolutionTechniquesUnionTypeDef
@@ -1037,7 +1047,7 @@ class CreateMatchingWorkflowInputTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'update_matching_workflow' function.
 class UpdateMatchingWorkflowInputTypeDef(BaseValidatorModel):
-    workflowName: str
+    workflowName: Annotated[str, _aws_pattern("Entityresolution", "EntityName")]
     inputSourceConfig: List[InputSourceTypeDef]
     outputSourceConfig: List[OutputSourceUnionTypeDef]
     resolutionTechniques: ResolutionTechniquesUnionTypeDef
@@ -1053,19 +1063,19 @@ IdNamespaceIdMappingWorkflowPropertiesUnionTypeDef = Union[
 
 # This class is the input for the 'create_id_namespace' function.
 class CreateIdNamespaceInputTypeDef(BaseValidatorModel):
-    idNamespaceName: str
+    idNamespaceName: Annotated[str, _aws_pattern("Entityresolution", "EntityName")]
     type: IdNamespaceTypeType
     description: Optional[str] = None
     inputSourceConfig: Optional[List[IdNamespaceInputSourceTypeDef]] = None
     idMappingWorkflowProperties: Optional[List[IdNamespaceIdMappingWorkflowPropertiesUnionTypeDef]] = None
-    roleArn: Optional[str] = None
+    roleArn: Optional[Annotated[str, _aws_pattern("Entityresolution", "RoleArn")]] = None
     tags: Optional[Dict[str, str]] = None
 
 
 # This class is the input for the 'update_id_namespace' function.
 class UpdateIdNamespaceInputTypeDef(BaseValidatorModel):
-    idNamespaceName: str
+    idNamespaceName: Annotated[str, _aws_pattern("Entityresolution", "EntityName")]
     description: Optional[str] = None
     inputSourceConfig: Optional[List[IdNamespaceInputSourceTypeDef]] = None
     idMappingWorkflowProperties: Optional[List[IdNamespaceIdMappingWorkflowPropertiesUnionTypeDef]] = None
-    roleArn: Optional[str] = None
+    roleArn: Optional[Annotated[str, _aws_pattern("Entityresolution", "RoleArn")]] = None

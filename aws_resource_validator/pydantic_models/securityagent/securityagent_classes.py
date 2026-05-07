@@ -3,6 +3,7 @@
 from datetime import datetime
 from decimal import Decimal
 from typing import (
+    Annotated,
     Any,
     Callable,
     Dict,
@@ -24,6 +25,7 @@ from botocore.response import StreamingBody
 from pydantic import Field
 
 from aws_resource_validator.core.base_validator_model import BaseValidatorModel, EventStream
+from aws_resource_validator.core.pattern_validation import aws_field_pattern as _aws_pattern
 from aws_resource_validator.pydantic_models.securityagent.securityagent_constants import *  # noqa: F401,F403
 
 # Optional boto3 symbols — imported lazily so services that don't need them
@@ -685,6 +687,7 @@ class VerifyTargetDomainOutputTypeDef(BaseValidatorModel):
     updatedAt: datetime
     verifiedAt: datetime
     status: TargetDomainStatusType
+    verificationStatusReason: str
     ResponseMetadata: ResponseMetadataTypeDef
 
 
@@ -1036,6 +1039,7 @@ class CreateTargetDomainOutputTypeDef(BaseValidatorModel):
     targetDomainId: str
     domainName: str
     verificationStatus: TargetDomainStatusType
+    verificationStatusReason: str
     verificationDetails: VerificationDetailsTypeDef
     createdAt: datetime
     verifiedAt: datetime
@@ -1046,6 +1050,7 @@ class TargetDomainTypeDef(BaseValidatorModel):
     targetDomainId: str
     domainName: str
     verificationStatus: Optional[TargetDomainStatusType] = None
+    verificationStatusReason: Optional[str] = None
     verificationDetails: Optional[VerificationDetailsTypeDef] = None
     createdAt: Optional[datetime] = None
     verifiedAt: Optional[datetime] = None
@@ -1056,6 +1061,7 @@ class UpdateTargetDomainOutputTypeDef(BaseValidatorModel):
     targetDomainId: str
     domainName: str
     verificationStatus: TargetDomainStatusType
+    verificationStatusReason: str
     verificationDetails: VerificationDetailsTypeDef
     createdAt: datetime
     verifiedAt: datetime

@@ -3,6 +3,7 @@
 from datetime import datetime
 from decimal import Decimal
 from typing import (
+    Annotated,
     Any,
     Callable,
     Dict,
@@ -24,6 +25,7 @@ from botocore.response import StreamingBody
 from pydantic import Field
 
 from aws_resource_validator.core.base_validator_model import BaseValidatorModel, EventStream
+from aws_resource_validator.core.pattern_validation import aws_field_pattern as _aws_pattern
 from aws_resource_validator.pydantic_models.mwaa_serverless.mwaa_serverless_constants import *  # noqa: F401,F403
 
 # Optional boto3 symbols — imported lazily so services that don't need them
@@ -63,21 +65,21 @@ class ResponseMetadataTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'delete_workflow' function.
 class DeleteWorkflowRequestTypeDef(BaseValidatorModel):
-    WorkflowArn: str
-    WorkflowVersion: Optional[str] = None
+    WorkflowArn: Annotated[str, _aws_pattern("MwaaServerless", "WorkflowArn")]
+    WorkflowVersion: Optional[Annotated[str, _aws_pattern("MwaaServerless", "WorkflowVersion")]] = None
 
 
 # This class is the input for the 'get_task_instance' function.
 class GetTaskInstanceRequestTypeDef(BaseValidatorModel):
-    WorkflowArn: str
-    TaskInstanceId: str
-    RunId: str
+    WorkflowArn: Annotated[str, _aws_pattern("MwaaServerless", "WorkflowArn")]
+    TaskInstanceId: Annotated[str, _aws_pattern("MwaaServerless", "IdString")]
+    RunId: Annotated[str, _aws_pattern("MwaaServerless", "IdString")]
 
 
 # This class is the input for the 'get_workflow' function.
 class GetWorkflowRequestTypeDef(BaseValidatorModel):
-    WorkflowArn: str
-    WorkflowVersion: Optional[str] = None
+    WorkflowArn: Annotated[str, _aws_pattern("MwaaServerless", "WorkflowArn")]
+    WorkflowVersion: Optional[Annotated[str, _aws_pattern("MwaaServerless", "WorkflowVersion")]] = None
 
 
 class NetworkConfigurationOutputTypeDef(BaseValidatorModel):
@@ -91,28 +93,28 @@ class ScheduleConfigurationTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'get_workflow_run' function.
 class GetWorkflowRunRequestTypeDef(BaseValidatorModel):
-    WorkflowArn: str
-    RunId: str
+    WorkflowArn: Annotated[str, _aws_pattern("MwaaServerless", "WorkflowArn")]
+    RunId: Annotated[str, _aws_pattern("MwaaServerless", "IdString")]
 
 
 class WorkflowRunDetailTypeDef(BaseValidatorModel):
-    WorkflowArn: Optional[str] = None
-    WorkflowVersion: Optional[str] = None
-    RunId: Optional[str] = None
+    WorkflowArn: Optional[Annotated[str, _aws_pattern("MwaaServerless", "WorkflowArn")]] = None
+    WorkflowVersion: Optional[Annotated[str, _aws_pattern("MwaaServerless", "VersionId")]] = None
+    RunId: Optional[Annotated[str, _aws_pattern("MwaaServerless", "IdString")]] = None
     RunType: Optional[RunTypeType] = None
     StartedOn: Optional[datetime] = None
     CreatedAt: Optional[datetime] = None
     CompletedOn: Optional[datetime] = None
     ModifiedAt: Optional[datetime] = None
     Duration: Optional[int] = None
-    ErrorMessage: Optional[str] = None
-    TaskInstances: Optional[List[str]] = None
+    ErrorMessage: Optional[Annotated[str, _aws_pattern("MwaaServerless", "GenericString")]] = None
+    TaskInstances: Optional[List[Annotated[str, _aws_pattern("MwaaServerless", "IdString")]]] = None
     RunState: Optional[WorkflowRunStatusType] = None
 
 
 # This class is the input for the 'list_tags_for_resource' function.
 class ListTagsForResourceRequestTypeDef(BaseValidatorModel):
-    ResourceArn: str
+    ResourceArn: Annotated[str, _aws_pattern("MwaaServerless", "TaggableResourceArn")]
 
 
 class PaginatorConfigTypeDef(BaseValidatorModel):
@@ -123,33 +125,33 @@ class PaginatorConfigTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'list_task_instances' function.
 class ListTaskInstancesRequestTypeDef(BaseValidatorModel):
-    WorkflowArn: str
-    RunId: str
+    WorkflowArn: Annotated[str, _aws_pattern("MwaaServerless", "WorkflowArn")]
+    RunId: Annotated[str, _aws_pattern("MwaaServerless", "IdString")]
     MaxResults: Optional[int] = None
     NextToken: Optional[str] = None
 
 
 class TaskInstanceSummaryTypeDef(BaseValidatorModel):
-    WorkflowArn: Optional[str] = None
-    WorkflowVersion: Optional[str] = None
-    RunId: Optional[str] = None
-    TaskInstanceId: Optional[str] = None
+    WorkflowArn: Optional[Annotated[str, _aws_pattern("MwaaServerless", "WorkflowArn")]] = None
+    WorkflowVersion: Optional[Annotated[str, _aws_pattern("MwaaServerless", "VersionId")]] = None
+    RunId: Optional[Annotated[str, _aws_pattern("MwaaServerless", "IdString")]] = None
+    TaskInstanceId: Optional[Annotated[str, _aws_pattern("MwaaServerless", "IdString")]] = None
     Status: Optional[TaskInstanceStatusType] = None
     DurationInSeconds: Optional[int] = None
-    OperatorName: Optional[str] = None
+    OperatorName: Optional[Annotated[str, _aws_pattern("MwaaServerless", "GenericString")]] = None
 
 
 # This class is the input for the 'list_workflow_runs' function.
 class ListWorkflowRunsRequestTypeDef(BaseValidatorModel):
-    WorkflowArn: str
+    WorkflowArn: Annotated[str, _aws_pattern("MwaaServerless", "WorkflowArn")]
     MaxResults: Optional[int] = None
     NextToken: Optional[str] = None
-    WorkflowVersion: Optional[str] = None
+    WorkflowVersion: Optional[Annotated[str, _aws_pattern("MwaaServerless", "VersionId")]] = None
 
 
 # This class is the input for the 'list_workflow_versions' function.
 class ListWorkflowVersionsRequestTypeDef(BaseValidatorModel):
-    WorkflowArn: str
+    WorkflowArn: Annotated[str, _aws_pattern("MwaaServerless", "WorkflowArn")]
     MaxResults: Optional[int] = None
     NextToken: Optional[str] = None
 
@@ -161,19 +163,19 @@ class ListWorkflowsRequestTypeDef(BaseValidatorModel):
 
 
 class WorkflowSummaryTypeDef(BaseValidatorModel):
-    WorkflowArn: str
-    WorkflowVersion: Optional[str] = None
-    Name: Optional[str] = None
-    Description: Optional[str] = None
+    WorkflowArn: Annotated[str, _aws_pattern("MwaaServerless", "WorkflowArn")]
+    WorkflowVersion: Optional[Annotated[str, _aws_pattern("MwaaServerless", "WorkflowVersion")]] = None
+    Name: Optional[Annotated[str, _aws_pattern("MwaaServerless", "NameString")]] = None
+    Description: Optional[Annotated[str, _aws_pattern("MwaaServerless", "DescriptionString")]] = None
     CreatedAt: Optional[datetime] = None
     ModifiedAt: Optional[datetime] = None
     WorkflowStatus: Optional[WorkflowStatusType] = None
-    TriggerMode: Optional[str] = None
+    TriggerMode: Optional[Annotated[str, _aws_pattern("MwaaServerless", "GenericString")]] = None
 
 
 class NetworkConfigurationTypeDef(BaseValidatorModel):
-    SecurityGroupIds: Optional[List[str]] = None
-    SubnetIds: Optional[List[str]] = None
+    SecurityGroupIds: Optional[List[Annotated[str, _aws_pattern("MwaaServerless", "SecurityGroupString")]]] = None
+    SubnetIds: Optional[List[Annotated[str, _aws_pattern("MwaaServerless", "SubnetString")]]] = None
 
 
 class RunDetailSummaryTypeDef(BaseValidatorModel):
@@ -185,35 +187,35 @@ class RunDetailSummaryTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'start_workflow_run' function.
 class StartWorkflowRunRequestTypeDef(BaseValidatorModel):
-    WorkflowArn: str
-    ClientToken: Optional[str] = None
+    WorkflowArn: Annotated[str, _aws_pattern("MwaaServerless", "WorkflowArn")]
+    ClientToken: Optional[Annotated[str, _aws_pattern("MwaaServerless", "IdempotencyTokenString")]] = None
     OverrideParameters: Optional[Dict[str, Dict[str, Any]]] = None
-    WorkflowVersion: Optional[str] = None
+    WorkflowVersion: Optional[Annotated[str, _aws_pattern("MwaaServerless", "VersionId")]] = None
 
 
 # This class is the input for the 'stop_workflow_run' function.
 class StopWorkflowRunRequestTypeDef(BaseValidatorModel):
-    WorkflowArn: str
-    RunId: str
+    WorkflowArn: Annotated[str, _aws_pattern("MwaaServerless", "WorkflowArn")]
+    RunId: Annotated[str, _aws_pattern("MwaaServerless", "IdString")]
 
 
 class TagResourceRequestTypeDef(BaseValidatorModel):
-    ResourceArn: str
+    ResourceArn: Annotated[str, _aws_pattern("MwaaServerless", "TaggableResourceArn")]
     Tags: Dict[str, str]
 
 
 class UntagResourceRequestTypeDef(BaseValidatorModel):
-    ResourceArn: str
-    TagKeys: List[str]
+    ResourceArn: Annotated[str, _aws_pattern("MwaaServerless", "TaggableResourceArn")]
+    TagKeys: List[Annotated[str, _aws_pattern("MwaaServerless", "TagKey")]]
 
 
 # This class is the output for the 'create_workflow' function.
 class CreateWorkflowResponseTypeDef(BaseValidatorModel):
-    WorkflowArn: str
+    WorkflowArn: Annotated[str, _aws_pattern("MwaaServerless", "WorkflowArn")]
     CreatedAt: datetime
     RevisionId: str
     WorkflowStatus: WorkflowStatusType
-    WorkflowVersion: str
+    WorkflowVersion: Annotated[str, _aws_pattern("MwaaServerless", "WorkflowVersion")]
     IsLatestVersion: bool
     Warnings: List[str]
     ResponseMetadata: ResponseMetadataTypeDef
@@ -221,27 +223,27 @@ class CreateWorkflowResponseTypeDef(BaseValidatorModel):
 
 # This class is the output for the 'delete_workflow' function.
 class DeleteWorkflowResponseTypeDef(BaseValidatorModel):
-    WorkflowArn: str
-    WorkflowVersion: str
+    WorkflowArn: Annotated[str, _aws_pattern("MwaaServerless", "WorkflowArn")]
+    WorkflowVersion: Annotated[str, _aws_pattern("MwaaServerless", "WorkflowVersion")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 # This class is the output for the 'get_task_instance' function.
 class GetTaskInstanceResponseTypeDef(BaseValidatorModel):
-    WorkflowArn: str
-    RunId: str
-    TaskInstanceId: str
-    WorkflowVersion: str
+    WorkflowArn: Annotated[str, _aws_pattern("MwaaServerless", "WorkflowArn")]
+    RunId: Annotated[str, _aws_pattern("MwaaServerless", "IdString")]
+    TaskInstanceId: Annotated[str, _aws_pattern("MwaaServerless", "IdString")]
+    WorkflowVersion: Annotated[str, _aws_pattern("MwaaServerless", "VersionId")]
     Status: TaskInstanceStatusType
     DurationInSeconds: int
-    OperatorName: str
+    OperatorName: Annotated[str, _aws_pattern("MwaaServerless", "GenericString")]
     ModifiedAt: datetime
     EndedAt: datetime
     StartedAt: datetime
     AttemptNumber: int
-    ErrorMessage: str
-    TaskId: str
-    LogStream: str
+    ErrorMessage: Annotated[str, _aws_pattern("MwaaServerless", "GenericString")]
+    TaskId: Annotated[str, _aws_pattern("MwaaServerless", "IdString")]
+    LogStream: Annotated[str, _aws_pattern("MwaaServerless", "IdString")]
     Xcom: Dict[str, str]
     ResponseMetadata: ResponseMetadataTypeDef
 
@@ -254,7 +256,7 @@ class ListTagsForResourceResponseTypeDef(BaseValidatorModel):
 
 # This class is the output for the 'start_workflow_run' function.
 class StartWorkflowRunResponseTypeDef(BaseValidatorModel):
-    RunId: str
+    RunId: Annotated[str, _aws_pattern("MwaaServerless", "IdString")]
     Status: WorkflowRunStatusType
     StartedAt: datetime
     ResponseMetadata: ResponseMetadataTypeDef
@@ -262,28 +264,28 @@ class StartWorkflowRunResponseTypeDef(BaseValidatorModel):
 
 # This class is the output for the 'stop_workflow_run' function.
 class StopWorkflowRunResponseTypeDef(BaseValidatorModel):
-    WorkflowArn: str
-    WorkflowVersion: str
-    RunId: str
+    WorkflowArn: Annotated[str, _aws_pattern("MwaaServerless", "WorkflowArn")]
+    WorkflowVersion: Annotated[str, _aws_pattern("MwaaServerless", "VersionId")]
+    RunId: Annotated[str, _aws_pattern("MwaaServerless", "IdString")]
     Status: WorkflowRunStatusType
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 # This class is the output for the 'update_workflow' function.
 class UpdateWorkflowResponseTypeDef(BaseValidatorModel):
-    WorkflowArn: str
+    WorkflowArn: Annotated[str, _aws_pattern("MwaaServerless", "WorkflowArn")]
     ModifiedAt: datetime
-    WorkflowVersion: str
+    WorkflowVersion: Annotated[str, _aws_pattern("MwaaServerless", "WorkflowVersion")]
     Warnings: List[str]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 # This class is the output for the 'get_workflow' function.
 class GetWorkflowResponseTypeDef(BaseValidatorModel):
-    WorkflowArn: str
-    WorkflowVersion: str
-    Name: str
-    Description: str
+    WorkflowArn: Annotated[str, _aws_pattern("MwaaServerless", "WorkflowArn")]
+    WorkflowVersion: Annotated[str, _aws_pattern("MwaaServerless", "WorkflowVersion")]
+    Name: Annotated[str, _aws_pattern("MwaaServerless", "NameString")]
+    Description: Annotated[str, _aws_pattern("MwaaServerless", "DescriptionString")]
     CreatedAt: datetime
     ModifiedAt: datetime
     EncryptionConfiguration: EncryptionConfigurationTypeDef
@@ -292,29 +294,29 @@ class GetWorkflowResponseTypeDef(BaseValidatorModel):
     WorkflowStatus: WorkflowStatusType
     DefinitionS3Location: DefinitionS3LocationTypeDef
     ScheduleConfiguration: ScheduleConfigurationTypeDef
-    RoleArn: str
+    RoleArn: Annotated[str, _aws_pattern("MwaaServerless", "RoleARN")]
     NetworkConfiguration: NetworkConfigurationOutputTypeDef
-    TriggerMode: str
-    WorkflowDefinition: str
+    TriggerMode: Annotated[str, _aws_pattern("MwaaServerless", "GenericString")]
+    WorkflowDefinition: Annotated[str, _aws_pattern("MwaaServerless", "GenericString")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 class WorkflowVersionSummaryTypeDef(BaseValidatorModel):
-    WorkflowVersion: str
-    WorkflowArn: str
+    WorkflowVersion: Annotated[str, _aws_pattern("MwaaServerless", "WorkflowVersion")]
+    WorkflowArn: Annotated[str, _aws_pattern("MwaaServerless", "WorkflowArn")]
     IsLatestVersion: Optional[bool] = None
     CreatedAt: Optional[datetime] = None
     ModifiedAt: Optional[datetime] = None
     DefinitionS3Location: Optional[DefinitionS3LocationTypeDef] = None
     ScheduleConfiguration: Optional[ScheduleConfigurationTypeDef] = None
-    TriggerMode: Optional[str] = None
+    TriggerMode: Optional[Annotated[str, _aws_pattern("MwaaServerless", "GenericString")]] = None
 
 
 # This class is the output for the 'get_workflow_run' function.
 class GetWorkflowRunResponseTypeDef(BaseValidatorModel):
-    WorkflowArn: str
-    WorkflowVersion: str
-    RunId: str
+    WorkflowArn: Annotated[str, _aws_pattern("MwaaServerless", "WorkflowArn")]
+    WorkflowVersion: Annotated[str, _aws_pattern("MwaaServerless", "VersionId")]
+    RunId: Annotated[str, _aws_pattern("MwaaServerless", "IdString")]
     RunType: RunTypeType
     OverrideParameters: Dict[str, Dict[str, Any]]
     RunDetail: WorkflowRunDetailTypeDef
@@ -360,9 +362,9 @@ NetworkConfigurationUnionTypeDef = Union[NetworkConfigurationOutputTypeDef, Netw
 
 
 class WorkflowRunSummaryTypeDef(BaseValidatorModel):
-    RunId: Optional[str] = None
-    WorkflowArn: Optional[str] = None
-    WorkflowVersion: Optional[str] = None
+    RunId: Optional[Annotated[str, _aws_pattern("MwaaServerless", "IdString")]] = None
+    WorkflowArn: Optional[Annotated[str, _aws_pattern("MwaaServerless", "WorkflowArn")]] = None
+    WorkflowVersion: Optional[Annotated[str, _aws_pattern("MwaaServerless", "VersionId")]] = None
     RunType: Optional[RunTypeType] = None
     RunDetailSummary: Optional[RunDetailSummaryTypeDef] = None
 
@@ -376,29 +378,29 @@ class ListWorkflowVersionsResponseTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'create_workflow' function.
 class CreateWorkflowRequestTypeDef(BaseValidatorModel):
-    Name: str
+    Name: Annotated[str, _aws_pattern("MwaaServerless", "NameString")]
     DefinitionS3Location: DefinitionS3LocationTypeDef
-    RoleArn: str
-    ClientToken: Optional[str] = None
-    Description: Optional[str] = None
+    RoleArn: Annotated[str, _aws_pattern("MwaaServerless", "RoleARN")]
+    ClientToken: Optional[Annotated[str, _aws_pattern("MwaaServerless", "IdempotencyTokenString")]] = None
+    Description: Optional[Annotated[str, _aws_pattern("MwaaServerless", "DescriptionString")]] = None
     EncryptionConfiguration: Optional[EncryptionConfigurationTypeDef] = None
     LoggingConfiguration: Optional[LoggingConfigurationTypeDef] = None
     EngineVersion: Optional[int] = None
     NetworkConfiguration: Optional[NetworkConfigurationUnionTypeDef] = None
     Tags: Optional[Dict[str, str]] = None
-    TriggerMode: Optional[str] = None
+    TriggerMode: Optional[Annotated[str, _aws_pattern("MwaaServerless", "GenericString")]] = None
 
 
 # This class is the input for the 'update_workflow' function.
 class UpdateWorkflowRequestTypeDef(BaseValidatorModel):
-    WorkflowArn: str
+    WorkflowArn: Annotated[str, _aws_pattern("MwaaServerless", "WorkflowArn")]
     DefinitionS3Location: DefinitionS3LocationTypeDef
-    RoleArn: str
-    Description: Optional[str] = None
+    RoleArn: Annotated[str, _aws_pattern("MwaaServerless", "RoleARN")]
+    Description: Optional[Annotated[str, _aws_pattern("MwaaServerless", "DescriptionString")]] = None
     LoggingConfiguration: Optional[LoggingConfigurationTypeDef] = None
     EngineVersion: Optional[int] = None
     NetworkConfiguration: Optional[NetworkConfigurationUnionTypeDef] = None
-    TriggerMode: Optional[str] = None
+    TriggerMode: Optional[Annotated[str, _aws_pattern("MwaaServerless", "GenericString")]] = None
 
 
 # This class is the output for the 'list_workflow_runs' function.

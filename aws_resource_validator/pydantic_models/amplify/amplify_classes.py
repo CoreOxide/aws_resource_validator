@@ -3,6 +3,7 @@
 from datetime import datetime
 from decimal import Decimal
 from typing import (
+    Annotated,
     Any,
     Callable,
     Dict,
@@ -24,6 +25,7 @@ from botocore.response import StreamingBody
 from pydantic import Field
 
 from aws_resource_validator.core.base_validator_model import BaseValidatorModel, EventStream
+from aws_resource_validator.core.pattern_validation import aws_field_pattern as _aws_pattern
 from aws_resource_validator.pydantic_models.amplify.amplify_constants import *  # noqa: F401,F403
 
 # Optional boto3 symbols — imported lazily so services that don't need them
@@ -56,10 +58,10 @@ class CacheConfigTypeDef(BaseValidatorModel):
 
 
 class CustomRuleTypeDef(BaseValidatorModel):
-    source: str
-    target: str
-    status: Optional[str] = None
-    condition: Optional[str] = None
+    source: Annotated[str, _aws_pattern("Amplify", "Source")]
+    target: Annotated[str, _aws_pattern("Amplify", "Target")]
+    status: Optional[Annotated[str, _aws_pattern("Amplify", "Status")]] = None
+    condition: Optional[Annotated[str, _aws_pattern("Amplify", "Condition")]] = None
 
 
 class JobConfigTypeDef(BaseValidatorModel):
@@ -68,56 +70,56 @@ class JobConfigTypeDef(BaseValidatorModel):
 
 class ProductionBranchTypeDef(BaseValidatorModel):
     lastDeployTime: Optional[datetime] = None
-    status: Optional[str] = None
+    status: Optional[Annotated[str, _aws_pattern("Amplify", "Status")]] = None
     thumbnailUrl: Optional[str] = None
-    branchName: Optional[str] = None
+    branchName: Optional[Annotated[str, _aws_pattern("Amplify", "BranchName")]] = None
 
 
 class WafConfigurationTypeDef(BaseValidatorModel):
-    webAclArn: Optional[str] = None
+    webAclArn: Optional[Annotated[str, _aws_pattern("Amplify", "WebAclArn")]] = None
     wafStatus: Optional[WafStatusType] = None
     statusReason: Optional[str] = None
 
 
 class ArtifactTypeDef(BaseValidatorModel):
     artifactFileName: str
-    artifactId: str
+    artifactId: Annotated[str, _aws_pattern("Amplify", "ArtifactId")]
 
 
 class AutoBranchCreationConfigTypeDef(BaseValidatorModel):
     stage: Optional[StageType] = None
-    framework: Optional[str] = None
+    framework: Optional[Annotated[str, _aws_pattern("Amplify", "Framework")]] = None
     enableAutoBuild: Optional[bool] = None
     environmentVariables: Optional[Dict[str, str]] = None
-    basicAuthCredentials: Optional[str] = None
+    basicAuthCredentials: Optional[Annotated[str, _aws_pattern("Amplify", "BasicAuthCredentials")]] = None
     enableBasicAuth: Optional[bool] = None
     enablePerformanceMode: Optional[bool] = None
-    buildSpec: Optional[str] = None
+    buildSpec: Optional[Annotated[str, _aws_pattern("Amplify", "BuildSpec")]] = None
     enablePullRequestPreview: Optional[bool] = None
-    pullRequestEnvironmentName: Optional[str] = None
+    pullRequestEnvironmentName: Optional[Annotated[str, _aws_pattern("Amplify", "PullRequestEnvironmentName")]] = None
 
 
 class BackendEnvironmentTypeDef(BaseValidatorModel):
-    backendEnvironmentArn: str
-    environmentName: str
+    backendEnvironmentArn: Annotated[str, _aws_pattern("Amplify", "BackendEnvironmentArn")]
+    environmentName: Annotated[str, _aws_pattern("Amplify", "EnvironmentName")]
     createTime: datetime
     updateTime: datetime
-    stackName: Optional[str] = None
-    deploymentArtifacts: Optional[str] = None
+    stackName: Optional[Annotated[str, _aws_pattern("Amplify", "StackName")]] = None
+    deploymentArtifacts: Optional[Annotated[str, _aws_pattern("Amplify", "DeploymentArtifacts")]] = None
 
 
 class BackendTypeDef(BaseValidatorModel):
-    stackArn: Optional[str] = None
+    stackArn: Optional[Annotated[str, _aws_pattern("Amplify", "StackArn")]] = None
 
 
 class CertificateSettingsTypeDef(BaseValidatorModel):
     type: CertificateTypeType
-    customCertificateArn: Optional[str] = None
+    customCertificateArn: Optional[Annotated[str, _aws_pattern("Amplify", "CertificateArn")]] = None
 
 
 class CertificateTypeDef(BaseValidatorModel):
     type: CertificateTypeType
-    customCertificateArn: Optional[str] = None
+    customCertificateArn: Optional[Annotated[str, _aws_pattern("Amplify", "CertificateArn")]] = None
     certificateVerificationDNSRecord: Optional[str] = None
 
 
@@ -131,89 +133,89 @@ class ResponseMetadataTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'create_backend_environment' function.
 class CreateBackendEnvironmentRequestTypeDef(BaseValidatorModel):
-    appId: str
-    environmentName: str
-    stackName: Optional[str] = None
-    deploymentArtifacts: Optional[str] = None
+    appId: Annotated[str, _aws_pattern("Amplify", "AppId")]
+    environmentName: Annotated[str, _aws_pattern("Amplify", "EnvironmentName")]
+    stackName: Optional[Annotated[str, _aws_pattern("Amplify", "StackName")]] = None
+    deploymentArtifacts: Optional[Annotated[str, _aws_pattern("Amplify", "DeploymentArtifacts")]] = None
 
 
 # This class is the input for the 'create_deployment' function.
 class CreateDeploymentRequestTypeDef(BaseValidatorModel):
-    appId: str
-    branchName: str
+    appId: Annotated[str, _aws_pattern("Amplify", "AppId")]
+    branchName: Annotated[str, _aws_pattern("Amplify", "BranchName")]
     fileMap: Optional[Dict[str, str]] = None
 
 
 class SubDomainSettingTypeDef(BaseValidatorModel):
-    prefix: str
-    branchName: str
+    prefix: Annotated[str, _aws_pattern("Amplify", "DomainPrefix")]
+    branchName: Annotated[str, _aws_pattern("Amplify", "BranchName")]
 
 
 # This class is the input for the 'create_webhook' function.
 class CreateWebhookRequestTypeDef(BaseValidatorModel):
-    appId: str
-    branchName: str
-    description: Optional[str] = None
+    appId: Annotated[str, _aws_pattern("Amplify", "AppId")]
+    branchName: Annotated[str, _aws_pattern("Amplify", "BranchName")]
+    description: Optional[Annotated[str, _aws_pattern("Amplify", "Description")]] = None
 
 
 class WebhookTypeDef(BaseValidatorModel):
     webhookArn: str
-    webhookId: str
+    webhookId: Annotated[str, _aws_pattern("Amplify", "WebhookId")]
     webhookUrl: str
-    branchName: str
-    description: str
+    branchName: Annotated[str, _aws_pattern("Amplify", "BranchName")]
+    description: Annotated[str, _aws_pattern("Amplify", "Description")]
     createTime: datetime
     updateTime: datetime
-    appId: Optional[str] = None
+    appId: Optional[Annotated[str, _aws_pattern("Amplify", "AppId")]] = None
 
 
 # This class is the input for the 'delete_app' function.
 class DeleteAppRequestTypeDef(BaseValidatorModel):
-    appId: str
+    appId: Annotated[str, _aws_pattern("Amplify", "AppId")]
 
 
 # This class is the input for the 'delete_backend_environment' function.
 class DeleteBackendEnvironmentRequestTypeDef(BaseValidatorModel):
-    appId: str
-    environmentName: str
+    appId: Annotated[str, _aws_pattern("Amplify", "AppId")]
+    environmentName: Annotated[str, _aws_pattern("Amplify", "EnvironmentName")]
 
 
 # This class is the input for the 'delete_branch' function.
 class DeleteBranchRequestTypeDef(BaseValidatorModel):
-    appId: str
-    branchName: str
+    appId: Annotated[str, _aws_pattern("Amplify", "AppId")]
+    branchName: Annotated[str, _aws_pattern("Amplify", "BranchName")]
 
 
 # This class is the input for the 'delete_domain_association' function.
 class DeleteDomainAssociationRequestTypeDef(BaseValidatorModel):
-    appId: str
-    domainName: str
+    appId: Annotated[str, _aws_pattern("Amplify", "AppId")]
+    domainName: Annotated[str, _aws_pattern("Amplify", "DomainName")]
 
 
 # This class is the input for the 'delete_job' function.
 class DeleteJobRequestTypeDef(BaseValidatorModel):
-    appId: str
-    branchName: str
-    jobId: str
+    appId: Annotated[str, _aws_pattern("Amplify", "AppId")]
+    branchName: Annotated[str, _aws_pattern("Amplify", "BranchName")]
+    jobId: Annotated[str, _aws_pattern("Amplify", "JobId")]
 
 
 class JobSummaryTypeDef(BaseValidatorModel):
     jobArn: str
-    jobId: str
-    commitId: str
-    commitMessage: str
+    jobId: Annotated[str, _aws_pattern("Amplify", "JobId")]
+    commitId: Annotated[str, _aws_pattern("Amplify", "CommitId")]
+    commitMessage: Annotated[str, _aws_pattern("Amplify", "CommitMessage")]
     commitTime: datetime
     startTime: datetime
     status: JobStatusType
     jobType: JobTypeType
     endTime: Optional[datetime] = None
-    sourceUrl: Optional[str] = None
+    sourceUrl: Optional[Annotated[str, _aws_pattern("Amplify", "SourceUrl")]] = None
     sourceUrlType: Optional[SourceUrlTypeType] = None
 
 
 # This class is the input for the 'delete_webhook' function.
 class DeleteWebhookRequestTypeDef(BaseValidatorModel):
-    webhookId: str
+    webhookId: Annotated[str, _aws_pattern("Amplify", "WebhookId")]
 
 
 TimestampTypeDef = Union[datetime, str]
@@ -221,42 +223,42 @@ TimestampTypeDef = Union[datetime, str]
 
 # This class is the input for the 'get_app' function.
 class GetAppRequestTypeDef(BaseValidatorModel):
-    appId: str
+    appId: Annotated[str, _aws_pattern("Amplify", "AppId")]
 
 
 # This class is the input for the 'get_artifact_url' function.
 class GetArtifactUrlRequestTypeDef(BaseValidatorModel):
-    artifactId: str
+    artifactId: Annotated[str, _aws_pattern("Amplify", "ArtifactId")]
 
 
 # This class is the input for the 'get_backend_environment' function.
 class GetBackendEnvironmentRequestTypeDef(BaseValidatorModel):
-    appId: str
-    environmentName: str
+    appId: Annotated[str, _aws_pattern("Amplify", "AppId")]
+    environmentName: Annotated[str, _aws_pattern("Amplify", "EnvironmentName")]
 
 
 # This class is the input for the 'get_branch' function.
 class GetBranchRequestTypeDef(BaseValidatorModel):
-    appId: str
-    branchName: str
+    appId: Annotated[str, _aws_pattern("Amplify", "AppId")]
+    branchName: Annotated[str, _aws_pattern("Amplify", "BranchName")]
 
 
 # This class is the input for the 'get_domain_association' function.
 class GetDomainAssociationRequestTypeDef(BaseValidatorModel):
-    appId: str
-    domainName: str
+    appId: Annotated[str, _aws_pattern("Amplify", "AppId")]
+    domainName: Annotated[str, _aws_pattern("Amplify", "DomainName")]
 
 
 # This class is the input for the 'get_job' function.
 class GetJobRequestTypeDef(BaseValidatorModel):
-    appId: str
-    branchName: str
-    jobId: str
+    appId: Annotated[str, _aws_pattern("Amplify", "AppId")]
+    branchName: Annotated[str, _aws_pattern("Amplify", "BranchName")]
+    jobId: Annotated[str, _aws_pattern("Amplify", "JobId")]
 
 
 # This class is the input for the 'get_webhook' function.
 class GetWebhookRequestTypeDef(BaseValidatorModel):
-    webhookId: str
+    webhookId: Annotated[str, _aws_pattern("Amplify", "WebhookId")]
 
 
 class StepTypeDef(BaseValidatorModel):
@@ -281,100 +283,100 @@ class PaginatorConfigTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'list_apps' function.
 class ListAppsRequestTypeDef(BaseValidatorModel):
-    nextToken: Optional[str] = None
+    nextToken: Optional[Annotated[str, _aws_pattern("Amplify", "NextToken")]] = None
     maxResults: Optional[int] = None
 
 
 # This class is the input for the 'list_artifacts' function.
 class ListArtifactsRequestTypeDef(BaseValidatorModel):
-    appId: str
-    branchName: str
-    jobId: str
-    nextToken: Optional[str] = None
+    appId: Annotated[str, _aws_pattern("Amplify", "AppId")]
+    branchName: Annotated[str, _aws_pattern("Amplify", "BranchName")]
+    jobId: Annotated[str, _aws_pattern("Amplify", "JobId")]
+    nextToken: Optional[Annotated[str, _aws_pattern("Amplify", "NextToken")]] = None
     maxResults: Optional[int] = None
 
 
 # This class is the input for the 'list_backend_environments' function.
 class ListBackendEnvironmentsRequestTypeDef(BaseValidatorModel):
-    appId: str
-    environmentName: Optional[str] = None
-    nextToken: Optional[str] = None
+    appId: Annotated[str, _aws_pattern("Amplify", "AppId")]
+    environmentName: Optional[Annotated[str, _aws_pattern("Amplify", "EnvironmentName")]] = None
+    nextToken: Optional[Annotated[str, _aws_pattern("Amplify", "NextToken")]] = None
     maxResults: Optional[int] = None
 
 
 # This class is the input for the 'list_branches' function.
 class ListBranchesRequestTypeDef(BaseValidatorModel):
-    appId: str
-    nextToken: Optional[str] = None
+    appId: Annotated[str, _aws_pattern("Amplify", "AppId")]
+    nextToken: Optional[Annotated[str, _aws_pattern("Amplify", "NextToken")]] = None
     maxResults: Optional[int] = None
 
 
 # This class is the input for the 'list_domain_associations' function.
 class ListDomainAssociationsRequestTypeDef(BaseValidatorModel):
-    appId: str
-    nextToken: Optional[str] = None
+    appId: Annotated[str, _aws_pattern("Amplify", "AppId")]
+    nextToken: Optional[Annotated[str, _aws_pattern("Amplify", "NextToken")]] = None
     maxResults: Optional[int] = None
 
 
 # This class is the input for the 'list_jobs' function.
 class ListJobsRequestTypeDef(BaseValidatorModel):
-    appId: str
-    branchName: str
-    nextToken: Optional[str] = None
+    appId: Annotated[str, _aws_pattern("Amplify", "AppId")]
+    branchName: Annotated[str, _aws_pattern("Amplify", "BranchName")]
+    nextToken: Optional[Annotated[str, _aws_pattern("Amplify", "NextToken")]] = None
     maxResults: Optional[int] = None
 
 
 # This class is the input for the 'list_tags_for_resource' function.
 class ListTagsForResourceRequestTypeDef(BaseValidatorModel):
-    resourceArn: str
+    resourceArn: Annotated[str, _aws_pattern("Amplify", "ResourceArn")]
 
 
 # This class is the input for the 'list_webhooks' function.
 class ListWebhooksRequestTypeDef(BaseValidatorModel):
-    appId: str
-    nextToken: Optional[str] = None
+    appId: Annotated[str, _aws_pattern("Amplify", "AppId")]
+    nextToken: Optional[Annotated[str, _aws_pattern("Amplify", "NextToken")]] = None
     maxResults: Optional[int] = None
 
 
 # This class is the input for the 'start_deployment' function.
 class StartDeploymentRequestTypeDef(BaseValidatorModel):
-    appId: str
-    branchName: str
-    jobId: Optional[str] = None
-    sourceUrl: Optional[str] = None
+    appId: Annotated[str, _aws_pattern("Amplify", "AppId")]
+    branchName: Annotated[str, _aws_pattern("Amplify", "BranchName")]
+    jobId: Optional[Annotated[str, _aws_pattern("Amplify", "JobId")]] = None
+    sourceUrl: Optional[Annotated[str, _aws_pattern("Amplify", "SourceUrl")]] = None
     sourceUrlType: Optional[SourceUrlTypeType] = None
 
 
 # This class is the input for the 'stop_job' function.
 class StopJobRequestTypeDef(BaseValidatorModel):
-    appId: str
-    branchName: str
-    jobId: str
+    appId: Annotated[str, _aws_pattern("Amplify", "AppId")]
+    branchName: Annotated[str, _aws_pattern("Amplify", "BranchName")]
+    jobId: Annotated[str, _aws_pattern("Amplify", "JobId")]
 
 
 class TagResourceRequestTypeDef(BaseValidatorModel):
-    resourceArn: str
+    resourceArn: Annotated[str, _aws_pattern("Amplify", "ResourceArn")]
     tags: Dict[str, str]
 
 
 class UntagResourceRequestTypeDef(BaseValidatorModel):
-    resourceArn: str
-    tagKeys: List[str]
+    resourceArn: Annotated[str, _aws_pattern("Amplify", "ResourceArn")]
+    tagKeys: List[Annotated[str, _aws_pattern("Amplify", "TagKey")]]
 
 
 # This class is the input for the 'update_webhook' function.
 class UpdateWebhookRequestTypeDef(BaseValidatorModel):
-    webhookId: str
-    branchName: Optional[str] = None
-    description: Optional[str] = None
+    webhookId: Annotated[str, _aws_pattern("Amplify", "WebhookId")]
+    branchName: Optional[Annotated[str, _aws_pattern("Amplify", "BranchName")]] = None
+    description: Optional[Annotated[str, _aws_pattern("Amplify", "Description")]] = None
 
 
 class AppTypeDef(BaseValidatorModel):
-    appId: str
+    appId: Annotated[str, _aws_pattern("Amplify", "AppId")]
     appArn: str
-    name: str
-    description: str
-    repository: str
+    name: Annotated[str, _aws_pattern("Amplify", "Name")]
+    description: Annotated[str, _aws_pattern("Amplify", "Description")]
+    repository: Annotated[str, _aws_pattern("Amplify", "Repository")]
     platform: PlatformType
     createTime: datetime
     updateTime: datetime
@@ -383,16 +385,18 @@ class AppTypeDef(BaseValidatorModel):
     enableBranchAutoBuild: bool
     enableBasicAuth: bool
     tags: Optional[Dict[str, str]] = None
-    computeRoleArn: Optional[str] = None
-    iamServiceRoleArn: Optional[str] = None
+    computeRoleArn: Optional[Annotated[str, _aws_pattern("Amplify", "ComputeRoleArn")]] = None
+    iamServiceRoleArn: Optional[Annotated[str, _aws_pattern("Amplify", "ServiceRoleArn")]] = None
     enableBranchAutoDeletion: Optional[bool] = None
-    basicAuthCredentials: Optional[str] = None
+    basicAuthCredentials: Optional[Annotated[str, _aws_pattern("Amplify", "BasicAuthCredentials")]] = None
     customRules: Optional[List[CustomRuleTypeDef]] = None
     productionBranch: Optional[ProductionBranchTypeDef] = None
-    buildSpec: Optional[str] = None
-    customHeaders: Optional[str] = None
+    buildSpec: Optional[Annotated[str, _aws_pattern("Amplify", "BuildSpec")]] = None
+    customHeaders: Optional[Annotated[str, _aws_pattern("Amplify", "CustomHeaders")]] = None
     enableAutoBranchCreation: Optional[bool] = None
-    autoBranchCreationPatterns: Optional[List[str]] = None
+    autoBranchCreationPatterns: Optional[List[Annotated[str, _aws_pattern("Amplify", "AutoBranchCreationPattern")]]] = (
+        None
+    )
     autoBranchCreationConfig: Optional[AutoBranchCreationConfigOutputTypeDef] = None
     repositoryCloneMethod: Optional[RepositoryCloneMethodType] = None
     cacheConfig: Optional[CacheConfigTypeDef] = None
@@ -405,85 +409,85 @@ AutoBranchCreationConfigUnionTypeDef = Union[AutoBranchCreationConfigOutputTypeD
 
 
 class BranchTypeDef(BaseValidatorModel):
-    branchArn: str
-    branchName: str
-    description: str
+    branchArn: Annotated[str, _aws_pattern("Amplify", "BranchArn")]
+    branchName: Annotated[str, _aws_pattern("Amplify", "BranchName")]
+    description: Annotated[str, _aws_pattern("Amplify", "Description")]
     stage: StageType
-    displayName: str
+    displayName: Annotated[str, _aws_pattern("Amplify", "DisplayName")]
     enableNotification: bool
     createTime: datetime
     updateTime: datetime
     environmentVariables: Dict[str, str]
     enableAutoBuild: bool
     customDomains: List[str]
-    framework: str
+    framework: Annotated[str, _aws_pattern("Amplify", "Framework")]
     activeJobId: str
     totalNumberOfJobs: str
     enableBasicAuth: bool
-    ttl: str
+    ttl: Annotated[str, _aws_pattern("Amplify", "TTL")]
     enablePullRequestPreview: bool
     tags: Optional[Dict[str, str]] = None
     enableSkewProtection: Optional[bool] = None
     enablePerformanceMode: Optional[bool] = None
     thumbnailUrl: Optional[str] = None
-    basicAuthCredentials: Optional[str] = None
-    buildSpec: Optional[str] = None
+    basicAuthCredentials: Optional[Annotated[str, _aws_pattern("Amplify", "BasicAuthCredentials")]] = None
+    buildSpec: Optional[Annotated[str, _aws_pattern("Amplify", "BuildSpec")]] = None
     associatedResources: Optional[List[str]] = None
-    pullRequestEnvironmentName: Optional[str] = None
-    destinationBranch: Optional[str] = None
-    sourceBranch: Optional[str] = None
-    backendEnvironmentArn: Optional[str] = None
+    pullRequestEnvironmentName: Optional[Annotated[str, _aws_pattern("Amplify", "PullRequestEnvironmentName")]] = None
+    destinationBranch: Optional[Annotated[str, _aws_pattern("Amplify", "BranchName")]] = None
+    sourceBranch: Optional[Annotated[str, _aws_pattern("Amplify", "BranchName")]] = None
+    backendEnvironmentArn: Optional[Annotated[str, _aws_pattern("Amplify", "BackendEnvironmentArn")]] = None
     backend: Optional[BackendTypeDef] = None
-    computeRoleArn: Optional[str] = None
+    computeRoleArn: Optional[Annotated[str, _aws_pattern("Amplify", "ComputeRoleArn")]] = None
 
 
 # This class is the input for the 'create_branch' function.
 class CreateBranchRequestTypeDef(BaseValidatorModel):
-    appId: str
-    branchName: str
-    description: Optional[str] = None
+    appId: Annotated[str, _aws_pattern("Amplify", "AppId")]
+    branchName: Annotated[str, _aws_pattern("Amplify", "BranchName")]
+    description: Optional[Annotated[str, _aws_pattern("Amplify", "Description")]] = None
     stage: Optional[StageType] = None
-    framework: Optional[str] = None
+    framework: Optional[Annotated[str, _aws_pattern("Amplify", "Framework")]] = None
     enableNotification: Optional[bool] = None
     enableAutoBuild: Optional[bool] = None
     enableSkewProtection: Optional[bool] = None
     environmentVariables: Optional[Dict[str, str]] = None
-    basicAuthCredentials: Optional[str] = None
+    basicAuthCredentials: Optional[Annotated[str, _aws_pattern("Amplify", "BasicAuthCredentials")]] = None
     enableBasicAuth: Optional[bool] = None
     enablePerformanceMode: Optional[bool] = None
     tags: Optional[Dict[str, str]] = None
-    buildSpec: Optional[str] = None
-    ttl: Optional[str] = None
-    displayName: Optional[str] = None
+    buildSpec: Optional[Annotated[str, _aws_pattern("Amplify", "BuildSpec")]] = None
+    ttl: Optional[Annotated[str, _aws_pattern("Amplify", "TTL")]] = None
+    displayName: Optional[Annotated[str, _aws_pattern("Amplify", "DisplayName")]] = None
     enablePullRequestPreview: Optional[bool] = None
-    pullRequestEnvironmentName: Optional[str] = None
-    backendEnvironmentArn: Optional[str] = None
+    pullRequestEnvironmentName: Optional[Annotated[str, _aws_pattern("Amplify", "PullRequestEnvironmentName")]] = None
+    backendEnvironmentArn: Optional[Annotated[str, _aws_pattern("Amplify", "BackendEnvironmentArn")]] = None
     backend: Optional[BackendTypeDef] = None
-    computeRoleArn: Optional[str] = None
+    computeRoleArn: Optional[Annotated[str, _aws_pattern("Amplify", "ComputeRoleArn")]] = None
 
 
 # This class is the input for the 'update_branch' function.
 class UpdateBranchRequestTypeDef(BaseValidatorModel):
-    appId: str
-    branchName: str
-    description: Optional[str] = None
-    framework: Optional[str] = None
+    appId: Annotated[str, _aws_pattern("Amplify", "AppId")]
+    branchName: Annotated[str, _aws_pattern("Amplify", "BranchName")]
+    description: Optional[Annotated[str, _aws_pattern("Amplify", "Description")]] = None
+    framework: Optional[Annotated[str, _aws_pattern("Amplify", "Framework")]] = None
     stage: Optional[StageType] = None
     enableNotification: Optional[bool] = None
     enableAutoBuild: Optional[bool] = None
     enableSkewProtection: Optional[bool] = None
     environmentVariables: Optional[Dict[str, str]] = None
-    basicAuthCredentials: Optional[str] = None
+    basicAuthCredentials: Optional[Annotated[str, _aws_pattern("Amplify", "BasicAuthCredentials")]] = None
     enableBasicAuth: Optional[bool] = None
     enablePerformanceMode: Optional[bool] = None
-    buildSpec: Optional[str] = None
-    ttl: Optional[str] = None
-    displayName: Optional[str] = None
+    buildSpec: Optional[Annotated[str, _aws_pattern("Amplify", "BuildSpec")]] = None
+    ttl: Optional[Annotated[str, _aws_pattern("Amplify", "TTL")]] = None
+    displayName: Optional[Annotated[str, _aws_pattern("Amplify", "DisplayName")]] = None
     enablePullRequestPreview: Optional[bool] = None
-    pullRequestEnvironmentName: Optional[str] = None
-    backendEnvironmentArn: Optional[str] = None
+    pullRequestEnvironmentName: Optional[Annotated[str, _aws_pattern("Amplify", "PullRequestEnvironmentName")]] = None
+    backendEnvironmentArn: Optional[Annotated[str, _aws_pattern("Amplify", "BackendEnvironmentArn")]] = None
     backend: Optional[BackendTypeDef] = None
-    computeRoleArn: Optional[str] = None
+    computeRoleArn: Optional[Annotated[str, _aws_pattern("Amplify", "ComputeRoleArn")]] = None
 
 
 # This class is the output for the 'create_backend_environment' function.
@@ -494,7 +498,7 @@ class CreateBackendEnvironmentResultTypeDef(BaseValidatorModel):
 
 # This class is the output for the 'create_deployment' function.
 class CreateDeploymentResultTypeDef(BaseValidatorModel):
-    jobId: str
+    jobId: Annotated[str, _aws_pattern("Amplify", "JobId")]
     fileUploadUrls: Dict[str, str]
     zipUploadUrl: str
     ResponseMetadata: ResponseMetadataTypeDef
@@ -514,7 +518,7 @@ class GenerateAccessLogsResultTypeDef(BaseValidatorModel):
 
 # This class is the output for the 'get_artifact_url' function.
 class GetArtifactUrlResultTypeDef(BaseValidatorModel):
-    artifactId: str
+    artifactId: Annotated[str, _aws_pattern("Amplify", "ArtifactId")]
     artifactUrl: str
     ResponseMetadata: ResponseMetadataTypeDef
 
@@ -529,14 +533,14 @@ class GetBackendEnvironmentResultTypeDef(BaseValidatorModel):
 class ListArtifactsResultTypeDef(BaseValidatorModel):
     artifacts: List[ArtifactTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
-    nextToken: Optional[str] = None
+    nextToken: Optional[Annotated[str, _aws_pattern("Amplify", "NextToken")]] = None
 
 
 # This class is the output for the 'list_backend_environments' function.
 class ListBackendEnvironmentsResultTypeDef(BaseValidatorModel):
     backendEnvironments: List[BackendEnvironmentTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
-    nextToken: Optional[str] = None
+    nextToken: Optional[Annotated[str, _aws_pattern("Amplify", "NextToken")]] = None
 
 
 # This class is the output for the 'list_tags_for_resource' function.
@@ -547,12 +551,14 @@ class ListTagsForResourceResponseTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'create_domain_association' function.
 class CreateDomainAssociationRequestTypeDef(BaseValidatorModel):
-    appId: str
-    domainName: str
+    appId: Annotated[str, _aws_pattern("Amplify", "AppId")]
+    domainName: Annotated[str, _aws_pattern("Amplify", "DomainName")]
     subDomainSettings: List[SubDomainSettingTypeDef]
     enableAutoSubDomain: Optional[bool] = None
-    autoSubDomainCreationPatterns: Optional[List[str]] = None
-    autoSubDomainIAMRole: Optional[str] = None
+    autoSubDomainCreationPatterns: Optional[
+        List[Annotated[str, _aws_pattern("Amplify", "AutoSubDomainCreationPattern")]]
+    ] = None
+    autoSubDomainIAMRole: Optional[Annotated[str, _aws_pattern("Amplify", "AutoSubDomainIAMRole")]] = None
     certificateSettings: Optional[CertificateSettingsTypeDef] = None
 
 
@@ -564,12 +570,14 @@ class SubDomainTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'update_domain_association' function.
 class UpdateDomainAssociationRequestTypeDef(BaseValidatorModel):
-    appId: str
-    domainName: str
+    appId: Annotated[str, _aws_pattern("Amplify", "AppId")]
+    domainName: Annotated[str, _aws_pattern("Amplify", "DomainName")]
     enableAutoSubDomain: Optional[bool] = None
     subDomainSettings: Optional[List[SubDomainSettingTypeDef]] = None
-    autoSubDomainCreationPatterns: Optional[List[str]] = None
-    autoSubDomainIAMRole: Optional[str] = None
+    autoSubDomainCreationPatterns: Optional[
+        List[Annotated[str, _aws_pattern("Amplify", "AutoSubDomainCreationPattern")]]
+    ] = None
+    autoSubDomainIAMRole: Optional[Annotated[str, _aws_pattern("Amplify", "AutoSubDomainIAMRole")]] = None
     certificateSettings: Optional[CertificateSettingsTypeDef] = None
 
 
@@ -595,7 +603,7 @@ class GetWebhookResultTypeDef(BaseValidatorModel):
 class ListWebhooksResultTypeDef(BaseValidatorModel):
     webhooks: List[WebhookTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
-    nextToken: Optional[str] = None
+    nextToken: Optional[Annotated[str, _aws_pattern("Amplify", "NextToken")]] = None
 
 
 # This class is the output for the 'update_webhook' function.
@@ -614,7 +622,7 @@ class DeleteJobResultTypeDef(BaseValidatorModel):
 class ListJobsResultTypeDef(BaseValidatorModel):
     jobSummaries: List[JobSummaryTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
-    nextToken: Optional[str] = None
+    nextToken: Optional[Annotated[str, _aws_pattern("Amplify", "NextToken")]] = None
 
 
 # This class is the output for the 'start_deployment' function.
@@ -637,21 +645,21 @@ class StopJobResultTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'generate_access_logs' function.
 class GenerateAccessLogsRequestTypeDef(BaseValidatorModel):
-    domainName: str
-    appId: str
+    domainName: Annotated[str, _aws_pattern("Amplify", "DomainName")]
+    appId: Annotated[str, _aws_pattern("Amplify", "AppId")]
     startTime: Optional[TimestampTypeDef] = None
     endTime: Optional[TimestampTypeDef] = None
 
 
 # This class is the input for the 'start_job' function.
 class StartJobRequestTypeDef(BaseValidatorModel):
-    appId: str
-    branchName: str
+    appId: Annotated[str, _aws_pattern("Amplify", "AppId")]
+    branchName: Annotated[str, _aws_pattern("Amplify", "BranchName")]
     jobType: JobTypeType
-    jobId: Optional[str] = None
-    jobReason: Optional[str] = None
-    commitId: Optional[str] = None
-    commitMessage: Optional[str] = None
+    jobId: Optional[Annotated[str, _aws_pattern("Amplify", "JobId")]] = None
+    jobReason: Optional[Annotated[str, _aws_pattern("Amplify", "JobReason")]] = None
+    commitId: Optional[Annotated[str, _aws_pattern("Amplify", "CommitId")]] = None
+    commitMessage: Optional[Annotated[str, _aws_pattern("Amplify", "CommitMessage")]] = None
     commitTime: Optional[TimestampTypeDef] = None
 
 
@@ -702,7 +710,7 @@ class GetAppResultTypeDef(BaseValidatorModel):
 class ListAppsResultTypeDef(BaseValidatorModel):
     apps: List[AppTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
-    nextToken: Optional[str] = None
+    nextToken: Optional[Annotated[str, _aws_pattern("Amplify", "NextToken")]] = None
 
 
 # This class is the output for the 'update_app' function.
@@ -713,25 +721,27 @@ class UpdateAppResultTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'create_app' function.
 class CreateAppRequestTypeDef(BaseValidatorModel):
-    name: str
-    description: Optional[str] = None
-    repository: Optional[str] = None
+    name: Annotated[str, _aws_pattern("Amplify", "Name")]
+    description: Optional[Annotated[str, _aws_pattern("Amplify", "Description")]] = None
+    repository: Optional[Annotated[str, _aws_pattern("Amplify", "Repository")]] = None
     platform: Optional[PlatformType] = None
-    computeRoleArn: Optional[str] = None
-    iamServiceRoleArn: Optional[str] = None
-    oauthToken: Optional[str] = None
-    accessToken: Optional[str] = None
+    computeRoleArn: Optional[Annotated[str, _aws_pattern("Amplify", "ComputeRoleArn")]] = None
+    iamServiceRoleArn: Optional[Annotated[str, _aws_pattern("Amplify", "ServiceRoleArn")]] = None
+    oauthToken: Optional[Annotated[str, _aws_pattern("Amplify", "OauthToken")]] = None
+    accessToken: Optional[Annotated[str, _aws_pattern("Amplify", "AccessToken")]] = None
     environmentVariables: Optional[Dict[str, str]] = None
     enableBranchAutoBuild: Optional[bool] = None
     enableBranchAutoDeletion: Optional[bool] = None
     enableBasicAuth: Optional[bool] = None
-    basicAuthCredentials: Optional[str] = None
+    basicAuthCredentials: Optional[Annotated[str, _aws_pattern("Amplify", "BasicAuthCredentials")]] = None
     customRules: Optional[List[CustomRuleTypeDef]] = None
     tags: Optional[Dict[str, str]] = None
-    buildSpec: Optional[str] = None
-    customHeaders: Optional[str] = None
+    buildSpec: Optional[Annotated[str, _aws_pattern("Amplify", "BuildSpec")]] = None
+    customHeaders: Optional[Annotated[str, _aws_pattern("Amplify", "CustomHeaders")]] = None
     enableAutoBranchCreation: Optional[bool] = None
-    autoBranchCreationPatterns: Optional[List[str]] = None
+    autoBranchCreationPatterns: Optional[List[Annotated[str, _aws_pattern("Amplify", "AutoBranchCreationPattern")]]] = (
+        None
+    )
     autoBranchCreationConfig: Optional[AutoBranchCreationConfigUnionTypeDef] = None
     jobConfig: Optional[JobConfigTypeDef] = None
     cacheConfig: Optional[CacheConfigTypeDef] = None
@@ -739,26 +749,28 @@ class CreateAppRequestTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'update_app' function.
 class UpdateAppRequestTypeDef(BaseValidatorModel):
-    appId: str
-    name: Optional[str] = None
-    description: Optional[str] = None
+    appId: Annotated[str, _aws_pattern("Amplify", "AppId")]
+    name: Optional[Annotated[str, _aws_pattern("Amplify", "Name")]] = None
+    description: Optional[Annotated[str, _aws_pattern("Amplify", "Description")]] = None
     platform: Optional[PlatformType] = None
-    computeRoleArn: Optional[str] = None
-    iamServiceRoleArn: Optional[str] = None
+    computeRoleArn: Optional[Annotated[str, _aws_pattern("Amplify", "ComputeRoleArn")]] = None
+    iamServiceRoleArn: Optional[Annotated[str, _aws_pattern("Amplify", "ServiceRoleArn")]] = None
     environmentVariables: Optional[Dict[str, str]] = None
     enableBranchAutoBuild: Optional[bool] = None
     enableBranchAutoDeletion: Optional[bool] = None
     enableBasicAuth: Optional[bool] = None
-    basicAuthCredentials: Optional[str] = None
+    basicAuthCredentials: Optional[Annotated[str, _aws_pattern("Amplify", "BasicAuthCredentials")]] = None
     customRules: Optional[List[CustomRuleTypeDef]] = None
-    buildSpec: Optional[str] = None
-    customHeaders: Optional[str] = None
+    buildSpec: Optional[Annotated[str, _aws_pattern("Amplify", "BuildSpec")]] = None
+    customHeaders: Optional[Annotated[str, _aws_pattern("Amplify", "CustomHeaders")]] = None
     enableAutoBranchCreation: Optional[bool] = None
-    autoBranchCreationPatterns: Optional[List[str]] = None
+    autoBranchCreationPatterns: Optional[List[Annotated[str, _aws_pattern("Amplify", "AutoBranchCreationPattern")]]] = (
+        None
+    )
     autoBranchCreationConfig: Optional[AutoBranchCreationConfigUnionTypeDef] = None
-    repository: Optional[str] = None
-    oauthToken: Optional[str] = None
-    accessToken: Optional[str] = None
+    repository: Optional[Annotated[str, _aws_pattern("Amplify", "Repository")]] = None
+    oauthToken: Optional[Annotated[str, _aws_pattern("Amplify", "OauthToken")]] = None
+    accessToken: Optional[Annotated[str, _aws_pattern("Amplify", "AccessToken")]] = None
     jobConfig: Optional[JobConfigTypeDef] = None
     cacheConfig: Optional[CacheConfigTypeDef] = None
 
@@ -785,7 +797,7 @@ class GetBranchResultTypeDef(BaseValidatorModel):
 class ListBranchesResultTypeDef(BaseValidatorModel):
     branches: List[BranchTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
-    nextToken: Optional[str] = None
+    nextToken: Optional[Annotated[str, _aws_pattern("Amplify", "NextToken")]] = None
 
 
 # This class is the output for the 'update_branch' function.
@@ -796,13 +808,15 @@ class UpdateBranchResultTypeDef(BaseValidatorModel):
 
 class DomainAssociationTypeDef(BaseValidatorModel):
     domainAssociationArn: str
-    domainName: str
+    domainName: Annotated[str, _aws_pattern("Amplify", "DomainName")]
     enableAutoSubDomain: bool
     domainStatus: DomainStatusType
     statusReason: str
     subDomains: List[SubDomainTypeDef]
-    autoSubDomainCreationPatterns: Optional[List[str]] = None
-    autoSubDomainIAMRole: Optional[str] = None
+    autoSubDomainCreationPatterns: Optional[
+        List[Annotated[str, _aws_pattern("Amplify", "AutoSubDomainCreationPattern")]]
+    ] = None
+    autoSubDomainIAMRole: Optional[Annotated[str, _aws_pattern("Amplify", "AutoSubDomainIAMRole")]] = None
     updateStatus: Optional[UpdateStatusType] = None
     certificateVerificationDNSRecord: Optional[str] = None
     certificate: Optional[CertificateTypeDef] = None
@@ -836,7 +850,7 @@ class GetDomainAssociationResultTypeDef(BaseValidatorModel):
 class ListDomainAssociationsResultTypeDef(BaseValidatorModel):
     domainAssociations: List[DomainAssociationTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
-    nextToken: Optional[str] = None
+    nextToken: Optional[Annotated[str, _aws_pattern("Amplify", "NextToken")]] = None
 
 
 # This class is the output for the 'update_domain_association' function.

@@ -3,6 +3,7 @@
 from datetime import datetime
 from decimal import Decimal
 from typing import (
+    Annotated,
     Any,
     Callable,
     Dict,
@@ -24,6 +25,7 @@ from botocore.response import StreamingBody
 from pydantic import Field
 
 from aws_resource_validator.core.base_validator_model import BaseValidatorModel, EventStream
+from aws_resource_validator.core.pattern_validation import aws_field_pattern as _aws_pattern
 from aws_resource_validator.pydantic_models.lakeformation.lakeformation_constants import *  # noqa: F401,F403
 
 # Optional boto3 symbols — imported lazily so services that don't need them
@@ -47,8 +49,8 @@ class ResponseMetadataTypeDef(BaseValidatorModel):
 
 
 class AddObjectInputTypeDef(BaseValidatorModel):
-    Uri: str
-    ETag: str
+    Uri: Annotated[str, _aws_pattern("Lakeformation", "URI")]
+    ETag: Annotated[str, _aws_pattern("Lakeformation", "ETagString")]
     Size: int
     PartitionValues: Optional[List[str]] = None
 
@@ -56,18 +58,18 @@ class AddObjectInputTypeDef(BaseValidatorModel):
 # This class is the input for the 'assume_decorated_role_with_saml' function.
 class AssumeDecoratedRoleWithSAMLRequestTypeDef(BaseValidatorModel):
     SAMLAssertion: str
-    RoleArn: str
-    PrincipalArn: str
+    RoleArn: Annotated[str, _aws_pattern("Lakeformation", "IAMRoleArn")]
+    PrincipalArn: Annotated[str, _aws_pattern("Lakeformation", "IAMSAMLProviderArn")]
     DurationSeconds: Optional[int] = None
 
 
 class AuditContextTypeDef(BaseValidatorModel):
-    AdditionalAuditContext: Optional[str] = None
+    AdditionalAuditContext: Optional[Annotated[str, _aws_pattern("Lakeformation", "AuditContextString")]] = None
 
 
 class ErrorDetailTypeDef(BaseValidatorModel):
-    ErrorCode: Optional[str] = None
-    ErrorMessage: Optional[str] = None
+    ErrorCode: Optional[Annotated[str, _aws_pattern("Lakeformation", "NameString")]] = None
+    ErrorMessage: Optional[Annotated[str, _aws_pattern("Lakeformation", "DescriptionString")]] = None
 
 
 class ConditionTypeDef(BaseValidatorModel):
@@ -79,11 +81,11 @@ class DataLakePrincipalTypeDef(BaseValidatorModel):
 
 
 class CancelTransactionRequestTypeDef(BaseValidatorModel):
-    TransactionId: str
+    TransactionId: Annotated[str, _aws_pattern("Lakeformation", "TransactionIdString")]
 
 
 class CatalogResourceTypeDef(BaseValidatorModel):
-    Id: Optional[str] = None
+    Id: Optional[Annotated[str, _aws_pattern("Lakeformation", "CatalogIdString")]] = None
 
 
 class LFTagPairOutputTypeDef(BaseValidatorModel):
@@ -97,18 +99,18 @@ class ColumnWildcardOutputTypeDef(BaseValidatorModel):
 
 
 class ColumnWildcardTypeDef(BaseValidatorModel):
-    ExcludedColumnNames: Optional[List[str]] = None
+    ExcludedColumnNames: Optional[List[Annotated[str, _aws_pattern("Lakeformation", "NameString")]]] = None
 
 
 # This class is the input for the 'commit_transaction' function.
 class CommitTransactionRequestTypeDef(BaseValidatorModel):
-    TransactionId: str
+    TransactionId: Annotated[str, _aws_pattern("Lakeformation", "TransactionIdString")]
 
 
 class CreateLFTagRequestTypeDef(BaseValidatorModel):
-    TagKey: str
-    TagValues: List[str]
-    CatalogId: Optional[str] = None
+    TagKey: Annotated[str, _aws_pattern("Lakeformation", "LFTagKey")]
+    TagValues: List[Annotated[str, _aws_pattern("Lakeformation", "LFTagValue")]]
+    CatalogId: Optional[Annotated[str, _aws_pattern("Lakeformation", "CatalogIdString")]] = None
 
 
 class RowFilterOutputTypeDef(BaseValidatorModel):
@@ -117,57 +119,57 @@ class RowFilterOutputTypeDef(BaseValidatorModel):
 
 
 class DataCellsFilterResourceTypeDef(BaseValidatorModel):
-    TableCatalogId: Optional[str] = None
-    DatabaseName: Optional[str] = None
-    TableName: Optional[str] = None
-    Name: Optional[str] = None
+    TableCatalogId: Optional[Annotated[str, _aws_pattern("Lakeformation", "CatalogIdString")]] = None
+    DatabaseName: Optional[Annotated[str, _aws_pattern("Lakeformation", "NameString")]] = None
+    TableName: Optional[Annotated[str, _aws_pattern("Lakeformation", "NameString")]] = None
+    Name: Optional[Annotated[str, _aws_pattern("Lakeformation", "NameString")]] = None
 
 
 class RowFilterTypeDef(BaseValidatorModel):
-    FilterExpression: Optional[str] = None
+    FilterExpression: Optional[Annotated[str, _aws_pattern("Lakeformation", "PredicateString")]] = None
     AllRowsWildcard: Optional[Dict[str, Any]] = None
 
 
 class DataLocationResourceTypeDef(BaseValidatorModel):
     ResourceArn: str
-    CatalogId: Optional[str] = None
+    CatalogId: Optional[Annotated[str, _aws_pattern("Lakeformation", "CatalogIdString")]] = None
 
 
 class DatabaseResourceTypeDef(BaseValidatorModel):
-    Name: str
-    CatalogId: Optional[str] = None
+    Name: Annotated[str, _aws_pattern("Lakeformation", "NameString")]
+    CatalogId: Optional[Annotated[str, _aws_pattern("Lakeformation", "CatalogIdString")]] = None
 
 
 class DeleteDataCellsFilterRequestTypeDef(BaseValidatorModel):
-    TableCatalogId: Optional[str] = None
-    DatabaseName: Optional[str] = None
-    TableName: Optional[str] = None
-    Name: Optional[str] = None
+    TableCatalogId: Optional[Annotated[str, _aws_pattern("Lakeformation", "CatalogIdString")]] = None
+    DatabaseName: Optional[Annotated[str, _aws_pattern("Lakeformation", "NameString")]] = None
+    TableName: Optional[Annotated[str, _aws_pattern("Lakeformation", "NameString")]] = None
+    Name: Optional[Annotated[str, _aws_pattern("Lakeformation", "NameString")]] = None
 
 
 class DeleteLFTagExpressionRequestTypeDef(BaseValidatorModel):
-    Name: str
-    CatalogId: Optional[str] = None
+    Name: Annotated[str, _aws_pattern("Lakeformation", "NameString")]
+    CatalogId: Optional[Annotated[str, _aws_pattern("Lakeformation", "CatalogIdString")]] = None
 
 
 class DeleteLFTagRequestTypeDef(BaseValidatorModel):
-    TagKey: str
-    CatalogId: Optional[str] = None
+    TagKey: Annotated[str, _aws_pattern("Lakeformation", "LFTagKey")]
+    CatalogId: Optional[Annotated[str, _aws_pattern("Lakeformation", "CatalogIdString")]] = None
 
 
 class DeleteLakeFormationIdentityCenterConfigurationRequestTypeDef(BaseValidatorModel):
-    CatalogId: Optional[str] = None
+    CatalogId: Optional[Annotated[str, _aws_pattern("Lakeformation", "CatalogIdString")]] = None
 
 
 class DeleteObjectInputTypeDef(BaseValidatorModel):
-    Uri: str
-    ETag: Optional[str] = None
+    Uri: Annotated[str, _aws_pattern("Lakeformation", "URI")]
+    ETag: Optional[Annotated[str, _aws_pattern("Lakeformation", "ETagString")]] = None
     PartitionValues: Optional[List[str]] = None
 
 
 class VirtualObjectTypeDef(BaseValidatorModel):
-    Uri: str
-    ETag: Optional[str] = None
+    Uri: Annotated[str, _aws_pattern("Lakeformation", "URI")]
+    ETag: Optional[Annotated[str, _aws_pattern("Lakeformation", "ETagString")]] = None
 
 
 class DeregisterResourceRequestTypeDef(BaseValidatorModel):
@@ -176,7 +178,7 @@ class DeregisterResourceRequestTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'describe_lake_formation_identity_center_configuration' function.
 class DescribeLakeFormationIdentityCenterConfigurationRequestTypeDef(BaseValidatorModel):
-    CatalogId: Optional[str] = None
+    CatalogId: Optional[Annotated[str, _aws_pattern("Lakeformation", "CatalogIdString")]] = None
 
 
 class ExternalFilteringConfigurationOutputTypeDef(BaseValidatorModel):
@@ -191,22 +193,22 @@ class DescribeResourceRequestTypeDef(BaseValidatorModel):
 
 class ResourceInfoTypeDef(BaseValidatorModel):
     ResourceArn: Optional[str] = None
-    RoleArn: Optional[str] = None
+    RoleArn: Optional[Annotated[str, _aws_pattern("Lakeformation", "IAMRoleArn")]] = None
     LastModified: Optional[datetime] = None
     WithFederation: Optional[bool] = None
     HybridAccessEnabled: Optional[bool] = None
     WithPrivilegedAccess: Optional[bool] = None
     VerificationStatus: Optional[VerificationStatusType] = None
-    ExpectedResourceOwnerAccount: Optional[str] = None
+    ExpectedResourceOwnerAccount: Optional[Annotated[str, _aws_pattern("Lakeformation", "AccountIdString")]] = None
 
 
 # This class is the input for the 'describe_transaction' function.
 class DescribeTransactionRequestTypeDef(BaseValidatorModel):
-    TransactionId: str
+    TransactionId: Annotated[str, _aws_pattern("Lakeformation", "TransactionIdString")]
 
 
 class TransactionDescriptionTypeDef(BaseValidatorModel):
-    TransactionId: Optional[str] = None
+    TransactionId: Optional[Annotated[str, _aws_pattern("Lakeformation", "TransactionIdString")]] = None
     TransactionStatus: Optional[TransactionStatusType] = None
     TransactionStartTime: Optional[datetime] = None
     TransactionEndTime: Optional[datetime] = None
@@ -223,7 +225,7 @@ class ExecutionStatisticsTypeDef(BaseValidatorModel):
 
 
 class ExtendTransactionRequestTypeDef(BaseValidatorModel):
-    TransactionId: Optional[str] = None
+    TransactionId: Optional[Annotated[str, _aws_pattern("Lakeformation", "TransactionIdString")]] = None
 
 
 class ExternalFilteringConfigurationTypeDef(BaseValidatorModel):
@@ -239,29 +241,29 @@ class FilterConditionTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'get_data_cells_filter' function.
 class GetDataCellsFilterRequestTypeDef(BaseValidatorModel):
-    TableCatalogId: str
-    DatabaseName: str
-    TableName: str
-    Name: str
+    TableCatalogId: Annotated[str, _aws_pattern("Lakeformation", "CatalogIdString")]
+    DatabaseName: Annotated[str, _aws_pattern("Lakeformation", "NameString")]
+    TableName: Annotated[str, _aws_pattern("Lakeformation", "NameString")]
+    Name: Annotated[str, _aws_pattern("Lakeformation", "NameString")]
 
 
 # This class is the input for the 'get_data_lake_settings' function.
 class GetDataLakeSettingsRequestTypeDef(BaseValidatorModel):
-    CatalogId: Optional[str] = None
+    CatalogId: Optional[Annotated[str, _aws_pattern("Lakeformation", "CatalogIdString")]] = None
 
 
 # This class is the input for the 'get_effective_permissions_for_path' function.
 class GetEffectivePermissionsForPathRequestTypeDef(BaseValidatorModel):
     ResourceArn: str
-    CatalogId: Optional[str] = None
+    CatalogId: Optional[Annotated[str, _aws_pattern("Lakeformation", "CatalogIdString")]] = None
     NextToken: Optional[str] = None
     MaxResults: Optional[int] = None
 
 
 # This class is the input for the 'get_lf_tag_expression' function.
 class GetLFTagExpressionRequestTypeDef(BaseValidatorModel):
-    Name: str
-    CatalogId: Optional[str] = None
+    Name: Annotated[str, _aws_pattern("Lakeformation", "NameString")]
+    CatalogId: Optional[Annotated[str, _aws_pattern("Lakeformation", "CatalogIdString")]] = None
 
 
 class LFTagOutputTypeDef(BaseValidatorModel):
@@ -271,8 +273,8 @@ class LFTagOutputTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'get_lf_tag' function.
 class GetLFTagRequestTypeDef(BaseValidatorModel):
-    TagKey: str
-    CatalogId: Optional[str] = None
+    TagKey: Annotated[str, _aws_pattern("Lakeformation", "LFTagKey")]
+    CatalogId: Optional[Annotated[str, _aws_pattern("Lakeformation", "CatalogIdString")]] = None
 
 
 # This class is the input for the 'get_query_state' function.
@@ -333,8 +335,8 @@ class WorkUnitRangeTypeDef(BaseValidatorModel):
 
 
 class LFTagExpressionResourceTypeDef(BaseValidatorModel):
-    Name: str
-    CatalogId: Optional[str] = None
+    Name: Annotated[str, _aws_pattern("Lakeformation", "NameString")]
+    CatalogId: Optional[Annotated[str, _aws_pattern("Lakeformation", "CatalogIdString")]] = None
 
 
 class LFTagKeyResourceOutputTypeDef(BaseValidatorModel):
@@ -344,32 +346,32 @@ class LFTagKeyResourceOutputTypeDef(BaseValidatorModel):
 
 
 class LFTagKeyResourceTypeDef(BaseValidatorModel):
-    TagKey: str
-    TagValues: List[str]
-    CatalogId: Optional[str] = None
+    TagKey: Annotated[str, _aws_pattern("Lakeformation", "NameString")]
+    TagValues: List[Annotated[str, _aws_pattern("Lakeformation", "LFTagValue")]]
+    CatalogId: Optional[Annotated[str, _aws_pattern("Lakeformation", "CatalogIdString")]] = None
 
 
 class LFTagPairTypeDef(BaseValidatorModel):
-    TagKey: str
-    TagValues: List[str]
-    CatalogId: Optional[str] = None
+    TagKey: Annotated[str, _aws_pattern("Lakeformation", "LFTagKey")]
+    TagValues: List[Annotated[str, _aws_pattern("Lakeformation", "LFTagValue")]]
+    CatalogId: Optional[Annotated[str, _aws_pattern("Lakeformation", "CatalogIdString")]] = None
 
 
 class LFTagTypeDef(BaseValidatorModel):
-    TagKey: str
-    TagValues: List[str]
+    TagKey: Annotated[str, _aws_pattern("Lakeformation", "LFTagKey")]
+    TagValues: List[Annotated[str, _aws_pattern("Lakeformation", "LFTagValue")]]
 
 
 # This class is the input for the 'list_lf_tag_expressions' function.
 class ListLFTagExpressionsRequestTypeDef(BaseValidatorModel):
-    CatalogId: Optional[str] = None
+    CatalogId: Optional[Annotated[str, _aws_pattern("Lakeformation", "CatalogIdString")]] = None
     MaxResults: Optional[int] = None
     NextToken: Optional[str] = None
 
 
 # This class is the input for the 'list_lf_tags' function.
 class ListLFTagsRequestTypeDef(BaseValidatorModel):
-    CatalogId: Optional[str] = None
+    CatalogId: Optional[Annotated[str, _aws_pattern("Lakeformation", "CatalogIdString")]] = None
     ResourceShareType: Optional[ResourceShareTypeType] = None
     MaxResults: Optional[int] = None
     NextToken: Optional[str] = None
@@ -377,9 +379,9 @@ class ListLFTagsRequestTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'list_table_storage_optimizers' function.
 class ListTableStorageOptimizersRequestTypeDef(BaseValidatorModel):
-    DatabaseName: str
-    TableName: str
-    CatalogId: Optional[str] = None
+    DatabaseName: Annotated[str, _aws_pattern("Lakeformation", "NameString")]
+    TableName: Annotated[str, _aws_pattern("Lakeformation", "NameString")]
+    CatalogId: Optional[Annotated[str, _aws_pattern("Lakeformation", "CatalogIdString")]] = None
     StorageOptimizerType: Optional[OptimizerTypeType] = None
     MaxResults: Optional[int] = None
     NextToken: Optional[str] = None
@@ -395,15 +397,15 @@ class StorageOptimizerTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'list_transactions' function.
 class ListTransactionsRequestTypeDef(BaseValidatorModel):
-    CatalogId: Optional[str] = None
+    CatalogId: Optional[Annotated[str, _aws_pattern("Lakeformation", "CatalogIdString")]] = None
     StatusFilter: Optional[TransactionStatusFilterType] = None
     MaxResults: Optional[int] = None
     NextToken: Optional[str] = None
 
 
 class TableObjectTypeDef(BaseValidatorModel):
-    Uri: Optional[str] = None
-    ETag: Optional[str] = None
+    Uri: Optional[Annotated[str, _aws_pattern("Lakeformation", "URI")]] = None
+    ETag: Optional[Annotated[str, _aws_pattern("Lakeformation", "ETagString")]] = None
     Size: Optional[int] = None
 
 
@@ -414,11 +416,11 @@ class RedshiftConnectTypeDef(BaseValidatorModel):
 class RegisterResourceRequestTypeDef(BaseValidatorModel):
     ResourceArn: str
     UseServiceLinkedRole: Optional[bool] = None
-    RoleArn: Optional[str] = None
+    RoleArn: Optional[Annotated[str, _aws_pattern("Lakeformation", "IAMRoleArn")]] = None
     WithFederation: Optional[bool] = None
     HybridAccessEnabled: Optional[bool] = None
     WithPrivilegedAccess: Optional[bool] = None
-    ExpectedResourceOwnerAccount: Optional[str] = None
+    ExpectedResourceOwnerAccount: Optional[Annotated[str, _aws_pattern("Lakeformation", "AccountIdString")]] = None
 
 
 class TableResourceOutputTypeDef(BaseValidatorModel):
@@ -434,33 +436,33 @@ class StartTransactionRequestTypeDef(BaseValidatorModel):
 
 
 class TableResourceTypeDef(BaseValidatorModel):
-    DatabaseName: str
-    CatalogId: Optional[str] = None
-    Name: Optional[str] = None
+    DatabaseName: Annotated[str, _aws_pattern("Lakeformation", "NameString")]
+    CatalogId: Optional[Annotated[str, _aws_pattern("Lakeformation", "CatalogIdString")]] = None
+    Name: Optional[Annotated[str, _aws_pattern("Lakeformation", "NameString")]] = None
     TableWildcard: Optional[Dict[str, Any]] = None
 
 
 class UpdateLFTagRequestTypeDef(BaseValidatorModel):
-    TagKey: str
-    CatalogId: Optional[str] = None
-    TagValuesToDelete: Optional[List[str]] = None
-    TagValuesToAdd: Optional[List[str]] = None
+    TagKey: Annotated[str, _aws_pattern("Lakeformation", "LFTagKey")]
+    CatalogId: Optional[Annotated[str, _aws_pattern("Lakeformation", "CatalogIdString")]] = None
+    TagValuesToDelete: Optional[List[Annotated[str, _aws_pattern("Lakeformation", "LFTagValue")]]] = None
+    TagValuesToAdd: Optional[List[Annotated[str, _aws_pattern("Lakeformation", "LFTagValue")]]] = None
 
 
 class UpdateResourceRequestTypeDef(BaseValidatorModel):
-    RoleArn: str
+    RoleArn: Annotated[str, _aws_pattern("Lakeformation", "IAMRoleArn")]
     ResourceArn: str
     WithFederation: Optional[bool] = None
     HybridAccessEnabled: Optional[bool] = None
-    ExpectedResourceOwnerAccount: Optional[str] = None
+    ExpectedResourceOwnerAccount: Optional[Annotated[str, _aws_pattern("Lakeformation", "AccountIdString")]] = None
 
 
 # This class is the input for the 'update_table_storage_optimizer' function.
 class UpdateTableStorageOptimizerRequestTypeDef(BaseValidatorModel):
-    DatabaseName: str
-    TableName: str
+    DatabaseName: Annotated[str, _aws_pattern("Lakeformation", "NameString")]
+    TableName: Annotated[str, _aws_pattern("Lakeformation", "NameString")]
     StorageOptimizerConfig: Dict[OptimizerTypeType, Dict[str, str]]
-    CatalogId: Optional[str] = None
+    CatalogId: Optional[Annotated[str, _aws_pattern("Lakeformation", "CatalogIdString")]] = None
 
 
 # This class is the output for the 'assume_decorated_role_with_saml' function.
@@ -491,9 +493,9 @@ class GetDataLakePrincipalResponseTypeDef(BaseValidatorModel):
 
 # This class is the output for the 'get_lf_tag' function.
 class GetLFTagResponseTypeDef(BaseValidatorModel):
-    CatalogId: str
-    TagKey: str
-    TagValues: List[str]
+    CatalogId: Annotated[str, _aws_pattern("Lakeformation", "CatalogIdString")]
+    TagKey: Annotated[str, _aws_pattern("Lakeformation", "LFTagKey")]
+    TagValues: List[Annotated[str, _aws_pattern("Lakeformation", "LFTagValue")]]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
@@ -537,7 +539,7 @@ class StartQueryPlanningResponseTypeDef(BaseValidatorModel):
 
 # This class is the output for the 'start_transaction' function.
 class StartTransactionResponseTypeDef(BaseValidatorModel):
-    TransactionId: str
+    TransactionId: Annotated[str, _aws_pattern("Lakeformation", "TransactionIdString")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
@@ -566,7 +568,7 @@ class PrincipalPermissionsTypeDef(BaseValidatorModel):
 
 
 class ColumnLFTagTypeDef(BaseValidatorModel):
-    Name: Optional[str] = None
+    Name: Optional[Annotated[str, _aws_pattern("Lakeformation", "NameString")]] = None
     LFTags: Optional[List[LFTagPairOutputTypeDef]] = None
 
 
@@ -605,14 +607,14 @@ class DataCellsFilterOutputTypeDef(BaseValidatorModel):
 
 
 class DataCellsFilterTypeDef(BaseValidatorModel):
-    TableCatalogId: str
-    DatabaseName: str
-    TableName: str
-    Name: str
+    TableCatalogId: Annotated[str, _aws_pattern("Lakeformation", "CatalogIdString")]
+    DatabaseName: Annotated[str, _aws_pattern("Lakeformation", "NameString")]
+    TableName: Annotated[str, _aws_pattern("Lakeformation", "NameString")]
+    Name: Annotated[str, _aws_pattern("Lakeformation", "NameString")]
     RowFilter: Optional[RowFilterTypeDef] = None
-    ColumnNames: Optional[List[str]] = None
+    ColumnNames: Optional[List[Annotated[str, _aws_pattern("Lakeformation", "NameString")]]] = None
     ColumnWildcard: Optional[ColumnWildcardTypeDef] = None
-    VersionId: Optional[str] = None
+    VersionId: Optional[Annotated[str, _aws_pattern("Lakeformation", "VersionString")]] = None
 
 
 class TaggedDatabaseTypeDef(BaseValidatorModel):
@@ -626,11 +628,11 @@ class WriteOperationTypeDef(BaseValidatorModel):
 
 
 class DeleteObjectsOnCancelRequestTypeDef(BaseValidatorModel):
-    DatabaseName: str
-    TableName: str
-    TransactionId: str
+    DatabaseName: Annotated[str, _aws_pattern("Lakeformation", "NameString")]
+    TableName: Annotated[str, _aws_pattern("Lakeformation", "NameString")]
+    TransactionId: Annotated[str, _aws_pattern("Lakeformation", "TransactionIdString")]
     Objects: List[VirtualObjectTypeDef]
-    CatalogId: Optional[str] = None
+    CatalogId: Optional[Annotated[str, _aws_pattern("Lakeformation", "CatalogIdString")]] = None
 
 
 # This class is the output for the 'describe_resource' function.
@@ -673,17 +675,17 @@ class ListResourcesRequestTypeDef(BaseValidatorModel):
 
 # This class is the output for the 'get_lf_tag_expression' function.
 class GetLFTagExpressionResponseTypeDef(BaseValidatorModel):
-    Name: str
-    Description: str
-    CatalogId: str
+    Name: Annotated[str, _aws_pattern("Lakeformation", "NameString")]
+    Description: Annotated[str, _aws_pattern("Lakeformation", "DescriptionString")]
+    CatalogId: Annotated[str, _aws_pattern("Lakeformation", "CatalogIdString")]
     Expression: List[LFTagOutputTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 class LFTagExpressionTypeDef(BaseValidatorModel):
-    Name: Optional[str] = None
-    Description: Optional[str] = None
-    CatalogId: Optional[str] = None
+    Name: Optional[Annotated[str, _aws_pattern("Lakeformation", "NameString")]] = None
+    Description: Optional[Annotated[str, _aws_pattern("Lakeformation", "DescriptionString")]] = None
+    CatalogId: Optional[Annotated[str, _aws_pattern("Lakeformation", "CatalogIdString")]] = None
     Expression: Optional[List[LFTagOutputTypeDef]] = None
 
 
@@ -704,29 +706,29 @@ class GetQueryStatisticsResponseTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'get_table_objects' function.
 class GetTableObjectsRequestTypeDef(BaseValidatorModel):
-    DatabaseName: str
-    TableName: str
-    CatalogId: Optional[str] = None
-    TransactionId: Optional[str] = None
+    DatabaseName: Annotated[str, _aws_pattern("Lakeformation", "NameString")]
+    TableName: Annotated[str, _aws_pattern("Lakeformation", "NameString")]
+    CatalogId: Optional[Annotated[str, _aws_pattern("Lakeformation", "CatalogIdString")]] = None
+    TransactionId: Optional[Annotated[str, _aws_pattern("Lakeformation", "TransactionIdString")]] = None
     QueryAsOfTime: Optional[TimestampTypeDef] = None
-    PartitionPredicate: Optional[str] = None
+    PartitionPredicate: Optional[Annotated[str, _aws_pattern("Lakeformation", "PredicateString")]] = None
     MaxResults: Optional[int] = None
     NextToken: Optional[str] = None
 
 
 class QueryPlanningContextTypeDef(BaseValidatorModel):
-    DatabaseName: str
-    CatalogId: Optional[str] = None
+    DatabaseName: Annotated[str, _aws_pattern("Lakeformation", "QueryPlanningContextDatabaseNameString")]
+    CatalogId: Optional[Annotated[str, _aws_pattern("Lakeformation", "CatalogIdString")]] = None
     QueryAsOfTime: Optional[TimestampTypeDef] = None
     QueryParameters: Optional[Dict[str, str]] = None
-    TransactionId: Optional[str] = None
+    TransactionId: Optional[Annotated[str, _aws_pattern("Lakeformation", "TransactionIdString")]] = None
 
 
 class QuerySessionContextTypeDef(BaseValidatorModel):
-    QueryId: Optional[str] = None
+    QueryId: Optional[Annotated[str, _aws_pattern("Lakeformation", "HashString")]] = None
     QueryStartTime: Optional[TimestampTypeDef] = None
     ClusterId: Optional[str] = None
-    QueryAuthorizationId: Optional[str] = None
+    QueryAuthorizationId: Optional[Annotated[str, _aws_pattern("Lakeformation", "HashString")]] = None
     AdditionalContext: Optional[Dict[str, str]] = None
 
 
@@ -817,11 +819,11 @@ class DataLakeSettingsTypeDef(BaseValidatorModel):
     CreateDatabaseDefaultPermissions: Optional[List[PrincipalPermissionsTypeDef]] = None
     CreateTableDefaultPermissions: Optional[List[PrincipalPermissionsTypeDef]] = None
     Parameters: Optional[Dict[str, str]] = None
-    TrustedResourceOwners: Optional[List[str]] = None
+    TrustedResourceOwners: Optional[List[Annotated[str, _aws_pattern("Lakeformation", "CatalogIdString")]]] = None
     AllowExternalDataFiltering: Optional[bool] = None
     AllowFullTableExternalDataAccess: Optional[bool] = None
     ExternalDataFilteringAllowList: Optional[List[DataLakePrincipalTypeDef]] = None
-    AuthorizedSessionTagValueList: Optional[List[str]] = None
+    AuthorizedSessionTagValueList: Optional[List[Annotated[str, _aws_pattern("Lakeformation", "NameString")]]] = None
 
 
 # This class is the output for the 'get_resource_lf_tags' function.
@@ -852,10 +854,10 @@ class RemoveLFTagsFromResourceResponseTypeDef(BaseValidatorModel):
 
 
 class TableWithColumnsResourceTypeDef(BaseValidatorModel):
-    DatabaseName: str
-    Name: str
-    CatalogId: Optional[str] = None
-    ColumnNames: Optional[List[str]] = None
+    DatabaseName: Annotated[str, _aws_pattern("Lakeformation", "NameString")]
+    Name: Annotated[str, _aws_pattern("Lakeformation", "NameString")]
+    CatalogId: Optional[Annotated[str, _aws_pattern("Lakeformation", "CatalogIdString")]] = None
+    ColumnNames: Optional[List[Annotated[str, _aws_pattern("Lakeformation", "NameString")]]] = None
     ColumnWildcard: Optional[ColumnWildcardUnionTypeDef] = None
 
 
@@ -883,11 +885,11 @@ class SearchDatabasesByLFTagsResponseTypeDef(BaseValidatorModel):
 
 
 class UpdateTableObjectsRequestTypeDef(BaseValidatorModel):
-    DatabaseName: str
-    TableName: str
+    DatabaseName: Annotated[str, _aws_pattern("Lakeformation", "NameString")]
+    TableName: Annotated[str, _aws_pattern("Lakeformation", "NameString")]
     WriteOperations: List[WriteOperationTypeDef]
-    CatalogId: Optional[str] = None
-    TransactionId: Optional[str] = None
+    CatalogId: Optional[Annotated[str, _aws_pattern("Lakeformation", "CatalogIdString")]] = None
+    TransactionId: Optional[Annotated[str, _aws_pattern("Lakeformation", "TransactionIdString")]] = None
 
 
 # This class is the output for the 'list_lf_tag_expressions' function.
@@ -927,17 +929,17 @@ class GetTemporaryGlueTableCredentialsRequestTypeDef(BaseValidatorModel):
 
 
 class CreateLFTagExpressionRequestTypeDef(BaseValidatorModel):
-    Name: str
+    Name: Annotated[str, _aws_pattern("Lakeformation", "NameString")]
     Expression: List[LFTagUnionTypeDef]
-    Description: Optional[str] = None
-    CatalogId: Optional[str] = None
+    Description: Optional[Annotated[str, _aws_pattern("Lakeformation", "DescriptionString")]] = None
+    CatalogId: Optional[Annotated[str, _aws_pattern("Lakeformation", "CatalogIdString")]] = None
 
 
 class LFTagPolicyResourceTypeDef(BaseValidatorModel):
     ResourceType: ResourceTypeType
-    CatalogId: Optional[str] = None
+    CatalogId: Optional[Annotated[str, _aws_pattern("Lakeformation", "CatalogIdString")]] = None
     Expression: Optional[List[LFTagUnionTypeDef]] = None
-    ExpressionName: Optional[str] = None
+    ExpressionName: Optional[Annotated[str, _aws_pattern("Lakeformation", "NameString")]] = None
 
 
 class SearchDatabasesByLFTagsRequestPaginateTypeDef(BaseValidatorModel):
@@ -951,7 +953,7 @@ class SearchDatabasesByLFTagsRequestTypeDef(BaseValidatorModel):
     Expression: List[LFTagUnionTypeDef]
     NextToken: Optional[str] = None
     MaxResults: Optional[int] = None
-    CatalogId: Optional[str] = None
+    CatalogId: Optional[Annotated[str, _aws_pattern("Lakeformation", "CatalogIdString")]] = None
 
 
 class SearchTablesByLFTagsRequestPaginateTypeDef(BaseValidatorModel):
@@ -965,14 +967,14 @@ class SearchTablesByLFTagsRequestTypeDef(BaseValidatorModel):
     Expression: List[LFTagUnionTypeDef]
     NextToken: Optional[str] = None
     MaxResults: Optional[int] = None
-    CatalogId: Optional[str] = None
+    CatalogId: Optional[Annotated[str, _aws_pattern("Lakeformation", "CatalogIdString")]] = None
 
 
 class UpdateLFTagExpressionRequestTypeDef(BaseValidatorModel):
-    Name: str
+    Name: Annotated[str, _aws_pattern("Lakeformation", "NameString")]
     Expression: List[LFTagUnionTypeDef]
-    Description: Optional[str] = None
-    CatalogId: Optional[str] = None
+    Description: Optional[Annotated[str, _aws_pattern("Lakeformation", "DescriptionString")]] = None
+    CatalogId: Optional[Annotated[str, _aws_pattern("Lakeformation", "CatalogIdString")]] = None
 
 
 # This class is the output for the 'get_table_objects' function.
@@ -1043,7 +1045,7 @@ class LakeFormationOptInsInfoTypeDef(BaseValidatorModel):
     Principal: Optional[DataLakePrincipalTypeDef] = None
     Condition: Optional[ConditionTypeDef] = None
     LastModified: Optional[datetime] = None
-    LastUpdatedBy: Optional[str] = None
+    LastUpdatedBy: Optional[Annotated[str, _aws_pattern("Lakeformation", "NameString")]] = None
 
 
 class PrincipalResourcePermissionsTypeDef(BaseValidatorModel):
@@ -1054,7 +1056,7 @@ class PrincipalResourcePermissionsTypeDef(BaseValidatorModel):
     PermissionsWithGrantOption: Optional[List[PermissionType]] = None
     AdditionalDetails: Optional[DetailsMapTypeDef] = None
     LastUpdated: Optional[datetime] = None
-    LastUpdatedBy: Optional[str] = None
+    LastUpdatedBy: Optional[Annotated[str, _aws_pattern("Lakeformation", "NameString")]] = None
 
 
 LFTagPolicyResourceUnionTypeDef = Union[LFTagPolicyResourceOutputTypeDef, LFTagPolicyResourceTypeDef]
@@ -1062,7 +1064,7 @@ LFTagPolicyResourceUnionTypeDef = Union[LFTagPolicyResourceOutputTypeDef, LFTagP
 
 # This class is the output for the 'describe_lake_formation_identity_center_configuration' function.
 class DescribeLakeFormationIdentityCenterConfigurationResponseTypeDef(BaseValidatorModel):
-    CatalogId: str
+    CatalogId: Annotated[str, _aws_pattern("Lakeformation", "CatalogIdString")]
     InstanceArn: str
     ApplicationArn: str
     ExternalFiltering: ExternalFilteringConfigurationOutputTypeDef
@@ -1077,7 +1079,7 @@ ServiceIntegrationUnionUnionTypeDef = Union[ServiceIntegrationUnionOutputTypeDef
 
 class PutDataLakeSettingsRequestTypeDef(BaseValidatorModel):
     DataLakeSettings: DataLakeSettingsUnionTypeDef
-    CatalogId: Optional[str] = None
+    CatalogId: Optional[Annotated[str, _aws_pattern("Lakeformation", "CatalogIdString")]] = None
 
 
 class BatchPermissionsFailureEntryTypeDef(BaseValidatorModel):
@@ -1120,7 +1122,7 @@ class ResourceTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'create_lake_formation_identity_center_configuration' function.
 class CreateLakeFormationIdentityCenterConfigurationRequestTypeDef(BaseValidatorModel):
-    CatalogId: Optional[str] = None
+    CatalogId: Optional[Annotated[str, _aws_pattern("Lakeformation", "CatalogIdString")]] = None
     InstanceArn: Optional[str] = None
     ExternalFiltering: Optional[ExternalFilteringConfigurationUnionTypeDef] = None
     ShareRecipients: Optional[List[DataLakePrincipalTypeDef]] = None
@@ -1128,7 +1130,7 @@ class CreateLakeFormationIdentityCenterConfigurationRequestTypeDef(BaseValidator
 
 
 class UpdateLakeFormationIdentityCenterConfigurationRequestTypeDef(BaseValidatorModel):
-    CatalogId: Optional[str] = None
+    CatalogId: Optional[Annotated[str, _aws_pattern("Lakeformation", "CatalogIdString")]] = None
     ShareRecipients: Optional[List[DataLakePrincipalTypeDef]] = None
     ServiceIntegrations: Optional[List[ServiceIntegrationUnionUnionTypeDef]] = None
     ApplicationStatus: Optional[ApplicationStatusType] = None
@@ -1154,7 +1156,7 @@ ResourceUnionTypeDef = Union[ResourceOutputTypeDef, ResourceTypeDef]
 class AddLFTagsToResourceRequestTypeDef(BaseValidatorModel):
     Resource: ResourceUnionTypeDef
     LFTags: List[LFTagPairUnionTypeDef]
-    CatalogId: Optional[str] = None
+    CatalogId: Optional[Annotated[str, _aws_pattern("Lakeformation", "CatalogIdString")]] = None
 
 
 class BatchPermissionsRequestEntryTypeDef(BaseValidatorModel):
@@ -1181,7 +1183,7 @@ class DeleteLakeFormationOptInRequestTypeDef(BaseValidatorModel):
 # This class is the input for the 'get_resource_lf_tags' function.
 class GetResourceLFTagsRequestTypeDef(BaseValidatorModel):
     Resource: ResourceUnionTypeDef
-    CatalogId: Optional[str] = None
+    CatalogId: Optional[Annotated[str, _aws_pattern("Lakeformation", "CatalogIdString")]] = None
     ShowAssignedLFTags: Optional[bool] = None
 
 
@@ -1189,7 +1191,7 @@ class GrantPermissionsRequestTypeDef(BaseValidatorModel):
     Principal: DataLakePrincipalTypeDef
     Resource: ResourceUnionTypeDef
     Permissions: List[PermissionType]
-    CatalogId: Optional[str] = None
+    CatalogId: Optional[Annotated[str, _aws_pattern("Lakeformation", "CatalogIdString")]] = None
     Condition: Optional[ConditionTypeDef] = None
     PermissionsWithGrantOption: Optional[List[PermissionType]] = None
 
@@ -1204,27 +1206,27 @@ class ListLakeFormationOptInsRequestTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'list_permissions' function.
 class ListPermissionsRequestTypeDef(BaseValidatorModel):
-    CatalogId: Optional[str] = None
+    CatalogId: Optional[Annotated[str, _aws_pattern("Lakeformation", "CatalogIdString")]] = None
     Principal: Optional[DataLakePrincipalTypeDef] = None
     ResourceType: Optional[DataLakeResourceTypeType] = None
     Resource: Optional[ResourceUnionTypeDef] = None
     NextToken: Optional[str] = None
     MaxResults: Optional[int] = None
-    IncludeRelated: Optional[str] = None
+    IncludeRelated: Optional[Annotated[str, _aws_pattern("Lakeformation", "TrueFalseString")]] = None
 
 
 # This class is the input for the 'remove_lf_tags_from_resource' function.
 class RemoveLFTagsFromResourceRequestTypeDef(BaseValidatorModel):
     Resource: ResourceUnionTypeDef
     LFTags: List[LFTagPairUnionTypeDef]
-    CatalogId: Optional[str] = None
+    CatalogId: Optional[Annotated[str, _aws_pattern("Lakeformation", "CatalogIdString")]] = None
 
 
 class RevokePermissionsRequestTypeDef(BaseValidatorModel):
     Principal: DataLakePrincipalTypeDef
     Resource: ResourceUnionTypeDef
     Permissions: List[PermissionType]
-    CatalogId: Optional[str] = None
+    CatalogId: Optional[Annotated[str, _aws_pattern("Lakeformation", "CatalogIdString")]] = None
     Condition: Optional[ConditionTypeDef] = None
     PermissionsWithGrantOption: Optional[List[PermissionType]] = None
 
@@ -1237,10 +1239,10 @@ BatchPermissionsRequestEntryUnionTypeDef = Union[
 # This class is the input for the 'batch_grant_permissions' function.
 class BatchGrantPermissionsRequestTypeDef(BaseValidatorModel):
     Entries: List[BatchPermissionsRequestEntryUnionTypeDef]
-    CatalogId: Optional[str] = None
+    CatalogId: Optional[Annotated[str, _aws_pattern("Lakeformation", "CatalogIdString")]] = None
 
 
 # This class is the input for the 'batch_revoke_permissions' function.
 class BatchRevokePermissionsRequestTypeDef(BaseValidatorModel):
     Entries: List[BatchPermissionsRequestEntryUnionTypeDef]
-    CatalogId: Optional[str] = None
+    CatalogId: Optional[Annotated[str, _aws_pattern("Lakeformation", "CatalogIdString")]] = None

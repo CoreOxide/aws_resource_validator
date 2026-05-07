@@ -3,6 +3,7 @@
 from datetime import datetime
 from decimal import Decimal
 from typing import (
+    Annotated,
     Any,
     Callable,
     Dict,
@@ -24,6 +25,7 @@ from botocore.response import StreamingBody
 from pydantic import Field
 
 from aws_resource_validator.core.base_validator_model import BaseValidatorModel, EventStream
+from aws_resource_validator.core.pattern_validation import aws_field_pattern as _aws_pattern
 from aws_resource_validator.pydantic_models.wisdom.wisdom_constants import *  # noqa: F401,F403
 
 # Optional boto3 symbols — imported lazily so services that don't need them
@@ -44,21 +46,21 @@ class AppIntegrationsConfigurationOutputTypeDef(BaseValidatorModel):
 
 
 class AppIntegrationsConfigurationTypeDef(BaseValidatorModel):
-    appIntegrationArn: str
+    appIntegrationArn: Annotated[str, _aws_pattern("Wisdom", "GenericArn")]
     objectFields: Optional[List[str]] = None
 
 
 class AssistantAssociationInputDataTypeDef(BaseValidatorModel):
-    knowledgeBaseId: Optional[str] = None
+    knowledgeBaseId: Optional[Annotated[str, _aws_pattern("Wisdom", "Uuid")]] = None
 
 
 class KnowledgeBaseAssociationDataTypeDef(BaseValidatorModel):
-    knowledgeBaseArn: Optional[str] = None
-    knowledgeBaseId: Optional[str] = None
+    knowledgeBaseArn: Optional[Annotated[str, _aws_pattern("Wisdom", "Arn")]] = None
+    knowledgeBaseId: Optional[Annotated[str, _aws_pattern("Wisdom", "Uuid")]] = None
 
 
 class AssistantIntegrationConfigurationTypeDef(BaseValidatorModel):
-    topicIntegrationArn: Optional[str] = None
+    topicIntegrationArn: Optional[Annotated[str, _aws_pattern("Wisdom", "GenericArn")]] = None
 
 
 class ServerSideEncryptionConfigurationTypeDef(BaseValidatorModel):
@@ -70,13 +72,13 @@ class ConnectConfigurationTypeDef(BaseValidatorModel):
 
 
 class ContentDataTypeDef(BaseValidatorModel):
-    contentArn: str
-    contentId: str
-    contentType: str
-    knowledgeBaseArn: str
-    knowledgeBaseId: str
+    contentArn: Annotated[str, _aws_pattern("Wisdom", "Arn")]
+    contentId: Annotated[str, _aws_pattern("Wisdom", "Uuid")]
+    contentType: Annotated[str, _aws_pattern("Wisdom", "ContentType")]
+    knowledgeBaseArn: Annotated[str, _aws_pattern("Wisdom", "Arn")]
+    knowledgeBaseId: Annotated[str, _aws_pattern("Wisdom", "Uuid")]
     metadata: Dict[str, str]
-    name: str
+    name: Annotated[str, _aws_pattern("Wisdom", "Name")]
     revisionId: str
     status: ContentStatusType
     title: str
@@ -87,20 +89,20 @@ class ContentDataTypeDef(BaseValidatorModel):
 
 
 class ContentReferenceTypeDef(BaseValidatorModel):
-    contentArn: Optional[str] = None
-    contentId: Optional[str] = None
-    knowledgeBaseArn: Optional[str] = None
-    knowledgeBaseId: Optional[str] = None
+    contentArn: Optional[Annotated[str, _aws_pattern("Wisdom", "Arn")]] = None
+    contentId: Optional[Annotated[str, _aws_pattern("Wisdom", "Uuid")]] = None
+    knowledgeBaseArn: Optional[Annotated[str, _aws_pattern("Wisdom", "Arn")]] = None
+    knowledgeBaseId: Optional[Annotated[str, _aws_pattern("Wisdom", "Uuid")]] = None
 
 
 class ContentSummaryTypeDef(BaseValidatorModel):
-    contentArn: str
-    contentId: str
-    contentType: str
-    knowledgeBaseArn: str
-    knowledgeBaseId: str
+    contentArn: Annotated[str, _aws_pattern("Wisdom", "Arn")]
+    contentId: Annotated[str, _aws_pattern("Wisdom", "Uuid")]
+    contentType: Annotated[str, _aws_pattern("Wisdom", "ContentType")]
+    knowledgeBaseArn: Annotated[str, _aws_pattern("Wisdom", "Arn")]
+    knowledgeBaseId: Annotated[str, _aws_pattern("Wisdom", "Uuid")]
     metadata: Dict[str, str]
-    name: str
+    name: Annotated[str, _aws_pattern("Wisdom", "Name")]
     revisionId: str
     status: ContentStatusType
     title: str
@@ -117,8 +119,8 @@ class ResponseMetadataTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'create_content' function.
 class CreateContentRequestTypeDef(BaseValidatorModel):
-    knowledgeBaseId: str
-    name: str
+    knowledgeBaseId: Annotated[str, _aws_pattern("Wisdom", "UuidOrArn")]
+    name: Annotated[str, _aws_pattern("Wisdom", "Name")]
     uploadId: str
     clientToken: Optional[str] = None
     metadata: Optional[Dict[str, str]] = None
@@ -137,39 +139,39 @@ class QuickResponseDataProviderTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'create_session' function.
 class CreateSessionRequestTypeDef(BaseValidatorModel):
-    assistantId: str
-    name: str
+    assistantId: Annotated[str, _aws_pattern("Wisdom", "UuidOrArn")]
+    name: Annotated[str, _aws_pattern("Wisdom", "Name")]
     clientToken: Optional[str] = None
-    description: Optional[str] = None
+    description: Optional[Annotated[str, _aws_pattern("Wisdom", "Description")]] = None
     tags: Optional[Dict[str, str]] = None
 
 
 class DeleteAssistantAssociationRequestTypeDef(BaseValidatorModel):
-    assistantAssociationId: str
-    assistantId: str
+    assistantAssociationId: Annotated[str, _aws_pattern("Wisdom", "UuidOrArn")]
+    assistantId: Annotated[str, _aws_pattern("Wisdom", "UuidOrArn")]
 
 
 class DeleteAssistantRequestTypeDef(BaseValidatorModel):
-    assistantId: str
+    assistantId: Annotated[str, _aws_pattern("Wisdom", "UuidOrArn")]
 
 
 class DeleteContentRequestTypeDef(BaseValidatorModel):
-    contentId: str
-    knowledgeBaseId: str
+    contentId: Annotated[str, _aws_pattern("Wisdom", "UuidOrArn")]
+    knowledgeBaseId: Annotated[str, _aws_pattern("Wisdom", "UuidOrArn")]
 
 
 class DeleteImportJobRequestTypeDef(BaseValidatorModel):
-    importJobId: str
-    knowledgeBaseId: str
+    importJobId: Annotated[str, _aws_pattern("Wisdom", "Uuid")]
+    knowledgeBaseId: Annotated[str, _aws_pattern("Wisdom", "UuidOrArn")]
 
 
 class DeleteKnowledgeBaseRequestTypeDef(BaseValidatorModel):
-    knowledgeBaseId: str
+    knowledgeBaseId: Annotated[str, _aws_pattern("Wisdom", "UuidOrArn")]
 
 
 class DeleteQuickResponseRequestTypeDef(BaseValidatorModel):
-    knowledgeBaseId: str
-    quickResponseId: str
+    knowledgeBaseId: Annotated[str, _aws_pattern("Wisdom", "UuidOrArn")]
+    quickResponseId: Annotated[str, _aws_pattern("Wisdom", "UuidOrArn")]
 
 
 class HighlightTypeDef(BaseValidatorModel):
@@ -185,56 +187,56 @@ class FilterTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'get_assistant_association' function.
 class GetAssistantAssociationRequestTypeDef(BaseValidatorModel):
-    assistantAssociationId: str
-    assistantId: str
+    assistantAssociationId: Annotated[str, _aws_pattern("Wisdom", "UuidOrArn")]
+    assistantId: Annotated[str, _aws_pattern("Wisdom", "UuidOrArn")]
 
 
 # This class is the input for the 'get_assistant' function.
 class GetAssistantRequestTypeDef(BaseValidatorModel):
-    assistantId: str
+    assistantId: Annotated[str, _aws_pattern("Wisdom", "UuidOrArn")]
 
 
 # This class is the input for the 'get_content' function.
 class GetContentRequestTypeDef(BaseValidatorModel):
-    contentId: str
-    knowledgeBaseId: str
+    contentId: Annotated[str, _aws_pattern("Wisdom", "UuidOrArn")]
+    knowledgeBaseId: Annotated[str, _aws_pattern("Wisdom", "UuidOrArn")]
 
 
 # This class is the input for the 'get_content_summary' function.
 class GetContentSummaryRequestTypeDef(BaseValidatorModel):
-    contentId: str
-    knowledgeBaseId: str
+    contentId: Annotated[str, _aws_pattern("Wisdom", "UuidOrArn")]
+    knowledgeBaseId: Annotated[str, _aws_pattern("Wisdom", "UuidOrArn")]
 
 
 # This class is the input for the 'get_import_job' function.
 class GetImportJobRequestTypeDef(BaseValidatorModel):
-    importJobId: str
-    knowledgeBaseId: str
+    importJobId: Annotated[str, _aws_pattern("Wisdom", "Uuid")]
+    knowledgeBaseId: Annotated[str, _aws_pattern("Wisdom", "UuidOrArn")]
 
 
 # This class is the input for the 'get_knowledge_base' function.
 class GetKnowledgeBaseRequestTypeDef(BaseValidatorModel):
-    knowledgeBaseId: str
+    knowledgeBaseId: Annotated[str, _aws_pattern("Wisdom", "UuidOrArn")]
 
 
 # This class is the input for the 'get_quick_response' function.
 class GetQuickResponseRequestTypeDef(BaseValidatorModel):
-    knowledgeBaseId: str
-    quickResponseId: str
+    knowledgeBaseId: Annotated[str, _aws_pattern("Wisdom", "UuidOrArn")]
+    quickResponseId: Annotated[str, _aws_pattern("Wisdom", "UuidOrArn")]
 
 
 # This class is the input for the 'get_recommendations' function.
 class GetRecommendationsRequestTypeDef(BaseValidatorModel):
-    assistantId: str
-    sessionId: str
+    assistantId: Annotated[str, _aws_pattern("Wisdom", "UuidOrArn")]
+    sessionId: Annotated[str, _aws_pattern("Wisdom", "UuidOrArn")]
     maxResults: Optional[int] = None
     waitTimeSeconds: Optional[int] = None
 
 
 # This class is the input for the 'get_session' function.
 class GetSessionRequestTypeDef(BaseValidatorModel):
-    assistantId: str
-    sessionId: str
+    assistantId: Annotated[str, _aws_pattern("Wisdom", "UuidOrArn")]
+    sessionId: Annotated[str, _aws_pattern("Wisdom", "UuidOrArn")]
 
 
 class GroupingConfigurationOutputTypeDef(BaseValidatorModel):
@@ -255,7 +257,7 @@ class PaginatorConfigTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'list_assistant_associations' function.
 class ListAssistantAssociationsRequestTypeDef(BaseValidatorModel):
-    assistantId: str
+    assistantId: Annotated[str, _aws_pattern("Wisdom", "UuidOrArn")]
     maxResults: Optional[int] = None
     nextToken: Optional[str] = None
 
@@ -268,14 +270,14 @@ class ListAssistantsRequestTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'list_contents' function.
 class ListContentsRequestTypeDef(BaseValidatorModel):
-    knowledgeBaseId: str
+    knowledgeBaseId: Annotated[str, _aws_pattern("Wisdom", "UuidOrArn")]
     maxResults: Optional[int] = None
     nextToken: Optional[str] = None
 
 
 # This class is the input for the 'list_import_jobs' function.
 class ListImportJobsRequestTypeDef(BaseValidatorModel):
-    knowledgeBaseId: str
+    knowledgeBaseId: Annotated[str, _aws_pattern("Wisdom", "UuidOrArn")]
     maxResults: Optional[int] = None
     nextToken: Optional[str] = None
 
@@ -288,31 +290,31 @@ class ListKnowledgeBasesRequestTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'list_quick_responses' function.
 class ListQuickResponsesRequestTypeDef(BaseValidatorModel):
-    knowledgeBaseId: str
+    knowledgeBaseId: Annotated[str, _aws_pattern("Wisdom", "UuidOrArn")]
     maxResults: Optional[int] = None
     nextToken: Optional[str] = None
 
 
 class QuickResponseSummaryTypeDef(BaseValidatorModel):
-    contentType: str
+    contentType: Annotated[str, _aws_pattern("Wisdom", "QuickResponseType")]
     createdTime: datetime
-    knowledgeBaseArn: str
-    knowledgeBaseId: str
+    knowledgeBaseArn: Annotated[str, _aws_pattern("Wisdom", "Arn")]
+    knowledgeBaseId: Annotated[str, _aws_pattern("Wisdom", "Uuid")]
     lastModifiedTime: datetime
     name: str
-    quickResponseArn: str
-    quickResponseId: str
+    quickResponseArn: Annotated[str, _aws_pattern("Wisdom", "Arn")]
+    quickResponseId: Annotated[str, _aws_pattern("Wisdom", "Uuid")]
     status: QuickResponseStatusType
     channels: Optional[List[str]] = None
     description: Optional[str] = None
     isActive: Optional[bool] = None
-    lastModifiedBy: Optional[str] = None
+    lastModifiedBy: Optional[Annotated[str, _aws_pattern("Wisdom", "GenericArn")]] = None
     tags: Optional[Dict[str, str]] = None
 
 
 # This class is the input for the 'list_tags_for_resource' function.
 class ListTagsForResourceRequestTypeDef(BaseValidatorModel):
-    resourceArn: str
+    resourceArn: Annotated[str, _aws_pattern("Wisdom", "Arn")]
 
 
 class NotifyRecommendationsReceivedErrorTypeDef(BaseValidatorModel):
@@ -322,14 +324,14 @@ class NotifyRecommendationsReceivedErrorTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'notify_recommendations_received' function.
 class NotifyRecommendationsReceivedRequestTypeDef(BaseValidatorModel):
-    assistantId: str
+    assistantId: Annotated[str, _aws_pattern("Wisdom", "UuidOrArn")]
     recommendationIds: List[str]
-    sessionId: str
+    sessionId: Annotated[str, _aws_pattern("Wisdom", "UuidOrArn")]
 
 
 # This class is the input for the 'query_assistant' function.
 class QueryAssistantRequestTypeDef(BaseValidatorModel):
-    assistantId: str
+    assistantId: Annotated[str, _aws_pattern("Wisdom", "UuidOrArn")]
     queryText: str
     maxResults: Optional[int] = None
     nextToken: Optional[str] = None
@@ -364,41 +366,41 @@ class QuickResponseQueryFieldTypeDef(BaseValidatorModel):
 
 
 class RemoveKnowledgeBaseTemplateUriRequestTypeDef(BaseValidatorModel):
-    knowledgeBaseId: str
+    knowledgeBaseId: Annotated[str, _aws_pattern("Wisdom", "UuidOrArn")]
 
 
 class SessionSummaryTypeDef(BaseValidatorModel):
-    assistantArn: str
-    assistantId: str
-    sessionArn: str
-    sessionId: str
+    assistantArn: Annotated[str, _aws_pattern("Wisdom", "Arn")]
+    assistantId: Annotated[str, _aws_pattern("Wisdom", "Uuid")]
+    sessionArn: Annotated[str, _aws_pattern("Wisdom", "Arn")]
+    sessionId: Annotated[str, _aws_pattern("Wisdom", "Uuid")]
 
 
 class SessionIntegrationConfigurationTypeDef(BaseValidatorModel):
-    topicIntegrationArn: Optional[str] = None
+    topicIntegrationArn: Optional[Annotated[str, _aws_pattern("Wisdom", "GenericArn")]] = None
 
 
 # This class is the input for the 'start_content_upload' function.
 class StartContentUploadRequestTypeDef(BaseValidatorModel):
-    contentType: str
-    knowledgeBaseId: str
+    contentType: Annotated[str, _aws_pattern("Wisdom", "ContentType")]
+    knowledgeBaseId: Annotated[str, _aws_pattern("Wisdom", "UuidOrArn")]
     presignedUrlTimeToLive: Optional[int] = None
 
 
 class TagResourceRequestTypeDef(BaseValidatorModel):
-    resourceArn: str
+    resourceArn: Annotated[str, _aws_pattern("Wisdom", "Arn")]
     tags: Dict[str, str]
 
 
 class UntagResourceRequestTypeDef(BaseValidatorModel):
-    resourceArn: str
-    tagKeys: List[str]
+    resourceArn: Annotated[str, _aws_pattern("Wisdom", "Arn")]
+    tagKeys: List[Annotated[str, _aws_pattern("Wisdom", "TagKey")]]
 
 
 # This class is the input for the 'update_content' function.
 class UpdateContentRequestTypeDef(BaseValidatorModel):
-    contentId: str
-    knowledgeBaseId: str
+    contentId: Annotated[str, _aws_pattern("Wisdom", "UuidOrArn")]
+    knowledgeBaseId: Annotated[str, _aws_pattern("Wisdom", "UuidOrArn")]
     metadata: Optional[Dict[str, str]] = None
     overrideLinkOutUri: Optional[str] = None
     removeOverrideLinkOutUri: Optional[bool] = None
@@ -409,7 +411,7 @@ class UpdateContentRequestTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'update_knowledge_base_template_uri' function.
 class UpdateKnowledgeBaseTemplateUriRequestTypeDef(BaseValidatorModel):
-    knowledgeBaseId: str
+    knowledgeBaseId: Annotated[str, _aws_pattern("Wisdom", "UuidOrArn")]
     templateUri: str
 
 
@@ -423,7 +425,7 @@ class SourceConfigurationTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'create_assistant_association' function.
 class CreateAssistantAssociationRequestTypeDef(BaseValidatorModel):
-    assistantId: str
+    assistantId: Annotated[str, _aws_pattern("Wisdom", "UuidOrArn")]
     association: AssistantAssociationInputDataTypeDef
     associationType: Literal["KNOWLEDGE_BASE"]
     clientToken: Optional[str] = None
@@ -435,24 +437,24 @@ class AssistantAssociationOutputDataTypeDef(BaseValidatorModel):
 
 
 class AssistantDataTypeDef(BaseValidatorModel):
-    assistantArn: str
-    assistantId: str
-    name: str
+    assistantArn: Annotated[str, _aws_pattern("Wisdom", "Arn")]
+    assistantId: Annotated[str, _aws_pattern("Wisdom", "Uuid")]
+    name: Annotated[str, _aws_pattern("Wisdom", "Name")]
     status: AssistantStatusType
     type: Literal["AGENT"]
-    description: Optional[str] = None
+    description: Optional[Annotated[str, _aws_pattern("Wisdom", "Description")]] = None
     integrationConfiguration: Optional[AssistantIntegrationConfigurationTypeDef] = None
     serverSideEncryptionConfiguration: Optional[ServerSideEncryptionConfigurationTypeDef] = None
     tags: Optional[Dict[str, str]] = None
 
 
 class AssistantSummaryTypeDef(BaseValidatorModel):
-    assistantArn: str
-    assistantId: str
-    name: str
+    assistantArn: Annotated[str, _aws_pattern("Wisdom", "Arn")]
+    assistantId: Annotated[str, _aws_pattern("Wisdom", "Uuid")]
+    name: Annotated[str, _aws_pattern("Wisdom", "Name")]
     status: AssistantStatusType
     type: Literal["AGENT"]
-    description: Optional[str] = None
+    description: Optional[Annotated[str, _aws_pattern("Wisdom", "Description")]] = None
     integrationConfiguration: Optional[AssistantIntegrationConfigurationTypeDef] = None
     serverSideEncryptionConfiguration: Optional[ServerSideEncryptionConfigurationTypeDef] = None
     tags: Optional[Dict[str, str]] = None
@@ -460,10 +462,10 @@ class AssistantSummaryTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'create_assistant' function.
 class CreateAssistantRequestTypeDef(BaseValidatorModel):
-    name: str
+    name: Annotated[str, _aws_pattern("Wisdom", "Name")]
     type: Literal["AGENT"]
     clientToken: Optional[str] = None
-    description: Optional[str] = None
+    description: Optional[Annotated[str, _aws_pattern("Wisdom", "Description")]] = None
     serverSideEncryptionConfiguration: Optional[ServerSideEncryptionConfigurationTypeDef] = None
     tags: Optional[Dict[str, str]] = None
 
@@ -608,21 +610,21 @@ class SearchSessionsResponseTypeDef(BaseValidatorModel):
 
 
 class SessionDataTypeDef(BaseValidatorModel):
-    name: str
-    sessionArn: str
-    sessionId: str
-    description: Optional[str] = None
+    name: Annotated[str, _aws_pattern("Wisdom", "Name")]
+    sessionArn: Annotated[str, _aws_pattern("Wisdom", "Arn")]
+    sessionId: Annotated[str, _aws_pattern("Wisdom", "Uuid")]
+    description: Optional[Annotated[str, _aws_pattern("Wisdom", "Description")]] = None
     integrationConfiguration: Optional[SessionIntegrationConfigurationTypeDef] = None
     tags: Optional[Dict[str, str]] = None
 
 
 class KnowledgeBaseDataTypeDef(BaseValidatorModel):
-    knowledgeBaseArn: str
-    knowledgeBaseId: str
+    knowledgeBaseArn: Annotated[str, _aws_pattern("Wisdom", "Arn")]
+    knowledgeBaseId: Annotated[str, _aws_pattern("Wisdom", "Uuid")]
     knowledgeBaseType: KnowledgeBaseTypeType
-    name: str
+    name: Annotated[str, _aws_pattern("Wisdom", "Name")]
     status: KnowledgeBaseStatusType
-    description: Optional[str] = None
+    description: Optional[Annotated[str, _aws_pattern("Wisdom", "Description")]] = None
     lastContentModificationTime: Optional[datetime] = None
     renderingConfiguration: Optional[RenderingConfigurationTypeDef] = None
     serverSideEncryptionConfiguration: Optional[ServerSideEncryptionConfigurationTypeDef] = None
@@ -631,12 +633,12 @@ class KnowledgeBaseDataTypeDef(BaseValidatorModel):
 
 
 class KnowledgeBaseSummaryTypeDef(BaseValidatorModel):
-    knowledgeBaseArn: str
-    knowledgeBaseId: str
+    knowledgeBaseArn: Annotated[str, _aws_pattern("Wisdom", "Arn")]
+    knowledgeBaseId: Annotated[str, _aws_pattern("Wisdom", "Uuid")]
     knowledgeBaseType: KnowledgeBaseTypeType
-    name: str
+    name: Annotated[str, _aws_pattern("Wisdom", "Name")]
     status: KnowledgeBaseStatusType
-    description: Optional[str] = None
+    description: Optional[Annotated[str, _aws_pattern("Wisdom", "Description")]] = None
     renderingConfiguration: Optional[RenderingConfigurationTypeDef] = None
     serverSideEncryptionConfiguration: Optional[ServerSideEncryptionConfigurationTypeDef] = None
     sourceConfiguration: Optional[SourceConfigurationOutputTypeDef] = None
@@ -647,20 +649,20 @@ SourceConfigurationUnionTypeDef = Union[SourceConfigurationOutputTypeDef, Source
 
 
 class AssistantAssociationDataTypeDef(BaseValidatorModel):
-    assistantArn: str
-    assistantAssociationArn: str
-    assistantAssociationId: str
-    assistantId: str
+    assistantArn: Annotated[str, _aws_pattern("Wisdom", "Arn")]
+    assistantAssociationArn: Annotated[str, _aws_pattern("Wisdom", "Arn")]
+    assistantAssociationId: Annotated[str, _aws_pattern("Wisdom", "Uuid")]
+    assistantId: Annotated[str, _aws_pattern("Wisdom", "Uuid")]
     associationData: AssistantAssociationOutputDataTypeDef
     associationType: Literal["KNOWLEDGE_BASE"]
     tags: Optional[Dict[str, str]] = None
 
 
 class AssistantAssociationSummaryTypeDef(BaseValidatorModel):
-    assistantArn: str
-    assistantAssociationArn: str
-    assistantAssociationId: str
-    assistantId: str
+    assistantArn: Annotated[str, _aws_pattern("Wisdom", "Arn")]
+    assistantAssociationArn: Annotated[str, _aws_pattern("Wisdom", "Arn")]
+    assistantAssociationId: Annotated[str, _aws_pattern("Wisdom", "Uuid")]
+    assistantId: Annotated[str, _aws_pattern("Wisdom", "Uuid")]
     associationData: AssistantAssociationOutputDataTypeDef
     associationType: Literal["KNOWLEDGE_BASE"]
     tags: Optional[Dict[str, str]] = None
@@ -704,7 +706,7 @@ class SearchContentRequestPaginateTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'search_content' function.
 class SearchContentRequestTypeDef(BaseValidatorModel):
-    knowledgeBaseId: str
+    knowledgeBaseId: Annotated[str, _aws_pattern("Wisdom", "UuidOrArn")]
     searchExpression: SearchExpressionTypeDef
     maxResults: Optional[int] = None
     nextToken: Optional[str] = None
@@ -718,7 +720,7 @@ class SearchSessionsRequestPaginateTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'search_sessions' function.
 class SearchSessionsRequestTypeDef(BaseValidatorModel):
-    assistantId: str
+    assistantId: Annotated[str, _aws_pattern("Wisdom", "UuidOrArn")]
     searchExpression: SearchExpressionTypeDef
     maxResults: Optional[int] = None
     nextToken: Optional[str] = None
@@ -727,11 +729,11 @@ class SearchSessionsRequestTypeDef(BaseValidatorModel):
 # This class is the input for the 'create_quick_response' function.
 class CreateQuickResponseRequestTypeDef(BaseValidatorModel):
     content: QuickResponseDataProviderTypeDef
-    knowledgeBaseId: str
+    knowledgeBaseId: Annotated[str, _aws_pattern("Wisdom", "UuidOrArn")]
     name: str
     channels: Optional[List[str]] = None
     clientToken: Optional[str] = None
-    contentType: Optional[str] = None
+    contentType: Optional[Annotated[str, _aws_pattern("Wisdom", "QuickResponseType")]] = None
     description: Optional[str] = None
     groupingConfiguration: Optional[GroupingConfigurationUnionTypeDef] = None
     isActive: Optional[bool] = None
@@ -742,11 +744,11 @@ class CreateQuickResponseRequestTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'update_quick_response' function.
 class UpdateQuickResponseRequestTypeDef(BaseValidatorModel):
-    knowledgeBaseId: str
-    quickResponseId: str
+    knowledgeBaseId: Annotated[str, _aws_pattern("Wisdom", "UuidOrArn")]
+    quickResponseId: Annotated[str, _aws_pattern("Wisdom", "UuidOrArn")]
     channels: Optional[List[str]] = None
     content: Optional[QuickResponseDataProviderTypeDef] = None
-    contentType: Optional[str] = None
+    contentType: Optional[Annotated[str, _aws_pattern("Wisdom", "QuickResponseType")]] = None
     description: Optional[str] = None
     groupingConfiguration: Optional[GroupingConfigurationUnionTypeDef] = None
     isActive: Optional[bool] = None
@@ -760,21 +762,21 @@ class UpdateQuickResponseRequestTypeDef(BaseValidatorModel):
 
 class RecommendationTriggerTypeDef(BaseValidatorModel):
     data: RecommendationTriggerDataTypeDef
-    id: str
+    id: Annotated[str, _aws_pattern("Wisdom", "Uuid")]
     recommendationIds: List[str]
     source: RecommendationSourceTypeType
     type: Literal["QUERY"]
 
 
 class QuickResponseDataTypeDef(BaseValidatorModel):
-    contentType: str
+    contentType: Annotated[str, _aws_pattern("Wisdom", "QuickResponseType")]
     createdTime: datetime
-    knowledgeBaseArn: str
-    knowledgeBaseId: str
+    knowledgeBaseArn: Annotated[str, _aws_pattern("Wisdom", "Arn")]
+    knowledgeBaseId: Annotated[str, _aws_pattern("Wisdom", "Uuid")]
     lastModifiedTime: datetime
     name: str
-    quickResponseArn: str
-    quickResponseId: str
+    quickResponseArn: Annotated[str, _aws_pattern("Wisdom", "Arn")]
+    quickResponseId: Annotated[str, _aws_pattern("Wisdom", "Uuid")]
     status: QuickResponseStatusType
     channels: Optional[List[str]] = None
     contents: Optional[QuickResponseContentsTypeDef] = None
@@ -782,22 +784,22 @@ class QuickResponseDataTypeDef(BaseValidatorModel):
     groupingConfiguration: Optional[GroupingConfigurationOutputTypeDef] = None
     isActive: Optional[bool] = None
     language: Optional[str] = None
-    lastModifiedBy: Optional[str] = None
+    lastModifiedBy: Optional[Annotated[str, _aws_pattern("Wisdom", "GenericArn")]] = None
     shortcutKey: Optional[str] = None
     tags: Optional[Dict[str, str]] = None
 
 
 class QuickResponseSearchResultDataTypeDef(BaseValidatorModel):
-    contentType: str
+    contentType: Annotated[str, _aws_pattern("Wisdom", "QuickResponseType")]
     contents: QuickResponseContentsTypeDef
     createdTime: datetime
     isActive: bool
-    knowledgeBaseArn: str
-    knowledgeBaseId: str
+    knowledgeBaseArn: Annotated[str, _aws_pattern("Wisdom", "Arn")]
+    knowledgeBaseId: Annotated[str, _aws_pattern("Wisdom", "Uuid")]
     lastModifiedTime: datetime
     name: str
-    quickResponseArn: str
-    quickResponseId: str
+    quickResponseArn: Annotated[str, _aws_pattern("Wisdom", "Arn")]
+    quickResponseId: Annotated[str, _aws_pattern("Wisdom", "Uuid")]
     status: QuickResponseStatusType
     attributesInterpolated: Optional[List[str]] = None
     attributesNotInterpolated: Optional[List[str]] = None
@@ -805,7 +807,7 @@ class QuickResponseSearchResultDataTypeDef(BaseValidatorModel):
     description: Optional[str] = None
     groupingConfiguration: Optional[GroupingConfigurationOutputTypeDef] = None
     language: Optional[str] = None
-    lastModifiedBy: Optional[str] = None
+    lastModifiedBy: Optional[Annotated[str, _aws_pattern("Wisdom", "GenericArn")]] = None
     shortcutKey: Optional[str] = None
     tags: Optional[Dict[str, str]] = None
 
@@ -819,7 +821,7 @@ class SearchQuickResponsesRequestPaginateTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'search_quick_responses' function.
 class SearchQuickResponsesRequestTypeDef(BaseValidatorModel):
-    knowledgeBaseId: str
+    knowledgeBaseId: Annotated[str, _aws_pattern("Wisdom", "UuidOrArn")]
     searchExpression: QuickResponseSearchExpressionTypeDef
     attributes: Optional[Dict[str, str]] = None
     maxResults: Optional[int] = None
@@ -866,9 +868,9 @@ class ListKnowledgeBasesResponseTypeDef(BaseValidatorModel):
 # This class is the input for the 'create_knowledge_base' function.
 class CreateKnowledgeBaseRequestTypeDef(BaseValidatorModel):
     knowledgeBaseType: KnowledgeBaseTypeType
-    name: str
+    name: Annotated[str, _aws_pattern("Wisdom", "Name")]
     clientToken: Optional[str] = None
-    description: Optional[str] = None
+    description: Optional[Annotated[str, _aws_pattern("Wisdom", "Description")]] = None
     renderingConfiguration: Optional[RenderingConfigurationTypeDef] = None
     serverSideEncryptionConfiguration: Optional[ServerSideEncryptionConfigurationTypeDef] = None
     sourceConfiguration: Optional[SourceConfigurationUnionTypeDef] = None
@@ -896,10 +898,10 @@ class ListAssistantAssociationsResponseTypeDef(BaseValidatorModel):
 
 class ImportJobDataTypeDef(BaseValidatorModel):
     createdTime: datetime
-    importJobId: str
+    importJobId: Annotated[str, _aws_pattern("Wisdom", "Uuid")]
     importJobType: Literal["QUICK_RESPONSES"]
-    knowledgeBaseArn: str
-    knowledgeBaseId: str
+    knowledgeBaseArn: Annotated[str, _aws_pattern("Wisdom", "Arn")]
+    knowledgeBaseId: Annotated[str, _aws_pattern("Wisdom", "Uuid")]
     lastModifiedTime: datetime
     status: ImportJobStatusType
     uploadId: str
@@ -912,10 +914,10 @@ class ImportJobDataTypeDef(BaseValidatorModel):
 
 class ImportJobSummaryTypeDef(BaseValidatorModel):
     createdTime: datetime
-    importJobId: str
+    importJobId: Annotated[str, _aws_pattern("Wisdom", "Uuid")]
     importJobType: Literal["QUICK_RESPONSES"]
-    knowledgeBaseArn: str
-    knowledgeBaseId: str
+    knowledgeBaseArn: Annotated[str, _aws_pattern("Wisdom", "Arn")]
+    knowledgeBaseId: Annotated[str, _aws_pattern("Wisdom", "Uuid")]
     lastModifiedTime: datetime
     status: ImportJobStatusType
     uploadId: str
@@ -926,7 +928,7 @@ class ImportJobSummaryTypeDef(BaseValidatorModel):
 # This class is the input for the 'start_import_job' function.
 class StartImportJobRequestTypeDef(BaseValidatorModel):
     importJobType: Literal["QUICK_RESPONSES"]
-    knowledgeBaseId: str
+    knowledgeBaseId: Annotated[str, _aws_pattern("Wisdom", "UuidOrArn")]
     uploadId: str
     clientToken: Optional[str] = None
     externalSourceConfiguration: Optional[ExternalSourceConfigurationTypeDef] = None
@@ -943,7 +945,7 @@ class RecommendationDataTypeDef(BaseValidatorModel):
 
 class ResultDataTypeDef(BaseValidatorModel):
     document: DocumentTypeDef
-    resultId: str
+    resultId: Annotated[str, _aws_pattern("Wisdom", "Uuid")]
     relevanceScore: Optional[float] = None
 
 

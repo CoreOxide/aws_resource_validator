@@ -3,6 +3,7 @@
 from datetime import datetime
 from decimal import Decimal
 from typing import (
+    Annotated,
     Any,
     Callable,
     Dict,
@@ -24,6 +25,7 @@ from botocore.response import StreamingBody
 from pydantic import Field
 
 from aws_resource_validator.core.base_validator_model import BaseValidatorModel, EventStream
+from aws_resource_validator.core.pattern_validation import aws_field_pattern as _aws_pattern
 from aws_resource_validator.pydantic_models.signin.signin_constants import *  # noqa: F401,F403
 
 # Optional boto3 symbols — imported lazily so services that don't need them
@@ -45,11 +47,11 @@ class AccessTokenTypeDef(BaseValidatorModel):
 
 
 class CreateOAuth2TokenRequestBodyTypeDef(BaseValidatorModel):
-    clientId: str
-    grantType: str
+    clientId: Annotated[str, _aws_pattern("Signin", "ClientId")]
+    grantType: Annotated[str, _aws_pattern("Signin", "GrantType")]
     code: Optional[str] = None
     redirectUri: Optional[str] = None
-    codeVerifier: Optional[str] = None
+    codeVerifier: Optional[Annotated[str, _aws_pattern("Signin", "CodeVerifier")]] = None
     refreshToken: Optional[str] = None
 
 
@@ -63,7 +65,7 @@ class ResponseMetadataTypeDef(BaseValidatorModel):
 
 class CreateOAuth2TokenResponseBodyTypeDef(BaseValidatorModel):
     accessToken: AccessTokenTypeDef
-    tokenType: str
+    tokenType: Annotated[str, _aws_pattern("Signin", "TokenType")]
     expiresIn: int
     refreshToken: str
     idToken: Optional[str] = None

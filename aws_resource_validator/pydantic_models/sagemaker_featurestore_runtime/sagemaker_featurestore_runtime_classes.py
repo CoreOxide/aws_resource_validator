@@ -3,6 +3,7 @@
 from datetime import datetime
 from decimal import Decimal
 from typing import (
+    Annotated,
     Any,
     Callable,
     Dict,
@@ -24,6 +25,7 @@ from botocore.response import StreamingBody
 from pydantic import Field
 
 from aws_resource_validator.core.base_validator_model import BaseValidatorModel, EventStream
+from aws_resource_validator.core.pattern_validation import aws_field_pattern as _aws_pattern
 from aws_resource_validator.pydantic_models.sagemaker_featurestore_runtime.sagemaker_featurestore_runtime_constants import *  # noqa: F401,F403
 
 # Optional boto3 symbols — imported lazily so services that don't need them
@@ -39,9 +41,9 @@ except ImportError:  # pragma: no cover
 
 
 class BatchGetRecordErrorTypeDef(BaseValidatorModel):
-    FeatureGroupName: str
-    RecordIdentifierValueAsString: str
-    ErrorCode: str
+    FeatureGroupName: Annotated[str, _aws_pattern("SagemakerFeaturestoreRuntime", "ValueAsString")]
+    RecordIdentifierValueAsString: Annotated[str, _aws_pattern("SagemakerFeaturestoreRuntime", "ValueAsString")]
+    ErrorCode: Annotated[str, _aws_pattern("SagemakerFeaturestoreRuntime", "ValueAsString")]
     ErrorMessage: str
 
 
@@ -52,9 +54,9 @@ class BatchGetRecordIdentifierOutputTypeDef(BaseValidatorModel):
 
 
 class BatchGetRecordIdentifierTypeDef(BaseValidatorModel):
-    FeatureGroupName: str
-    RecordIdentifiersValueAsString: List[str]
-    FeatureNames: Optional[List[str]] = None
+    FeatureGroupName: Annotated[str, _aws_pattern("SagemakerFeaturestoreRuntime", "FeatureGroupNameOrArn")]
+    RecordIdentifiersValueAsString: List[Annotated[str, _aws_pattern("SagemakerFeaturestoreRuntime", "ValueAsString")]]
+    FeatureNames: Optional[List[Annotated[str, _aws_pattern("SagemakerFeaturestoreRuntime", "FeatureName")]]] = None
 
 
 class ResponseMetadataTypeDef(BaseValidatorModel):
@@ -73,24 +75,26 @@ class FeatureValueOutputTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'delete_record' function.
 class DeleteRecordRequestTypeDef(BaseValidatorModel):
-    FeatureGroupName: str
-    RecordIdentifierValueAsString: str
-    EventTime: str
+    FeatureGroupName: Annotated[str, _aws_pattern("SagemakerFeaturestoreRuntime", "FeatureGroupNameOrArn")]
+    RecordIdentifierValueAsString: Annotated[str, _aws_pattern("SagemakerFeaturestoreRuntime", "ValueAsString")]
+    EventTime: Annotated[str, _aws_pattern("SagemakerFeaturestoreRuntime", "ValueAsString")]
     TargetStores: Optional[List[TargetStoreType]] = None
     DeletionMode: Optional[DeletionModeType] = None
 
 
 class FeatureValueTypeDef(BaseValidatorModel):
-    FeatureName: str
-    ValueAsString: Optional[str] = None
-    ValueAsStringList: Optional[List[str]] = None
+    FeatureName: Annotated[str, _aws_pattern("SagemakerFeaturestoreRuntime", "FeatureName")]
+    ValueAsString: Optional[Annotated[str, _aws_pattern("SagemakerFeaturestoreRuntime", "ValueAsString")]] = None
+    ValueAsStringList: Optional[List[Annotated[str, _aws_pattern("SagemakerFeaturestoreRuntime", "ValueAsString")]]] = (
+        None
+    )
 
 
 # This class is the input for the 'get_record' function.
 class GetRecordRequestTypeDef(BaseValidatorModel):
-    FeatureGroupName: str
-    RecordIdentifierValueAsString: str
-    FeatureNames: Optional[List[str]] = None
+    FeatureGroupName: Annotated[str, _aws_pattern("SagemakerFeaturestoreRuntime", "FeatureGroupNameOrArn")]
+    RecordIdentifierValueAsString: Annotated[str, _aws_pattern("SagemakerFeaturestoreRuntime", "ValueAsString")]
+    FeatureNames: Optional[List[Annotated[str, _aws_pattern("SagemakerFeaturestoreRuntime", "FeatureName")]]] = None
     ExpirationTimeResponse: Optional[ExpirationTimeResponseType] = None
 
 
@@ -108,8 +112,8 @@ class EmptyResponseMetadataTypeDef(BaseValidatorModel):
 
 
 class BatchGetRecordResultDetailTypeDef(BaseValidatorModel):
-    FeatureGroupName: str
-    RecordIdentifierValueAsString: str
+    FeatureGroupName: Annotated[str, _aws_pattern("SagemakerFeaturestoreRuntime", "ValueAsString")]
+    RecordIdentifierValueAsString: Annotated[str, _aws_pattern("SagemakerFeaturestoreRuntime", "ValueAsString")]
     Record: List[FeatureValueOutputTypeDef]
     ExpiresAt: Optional[str] = None
 
@@ -140,7 +144,7 @@ class BatchGetRecordResponseTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'put_record' function.
 class PutRecordRequestTypeDef(BaseValidatorModel):
-    FeatureGroupName: str
+    FeatureGroupName: Annotated[str, _aws_pattern("SagemakerFeaturestoreRuntime", "FeatureGroupNameOrArn")]
     Record: List[FeatureValueUnionTypeDef]
     TargetStores: Optional[List[TargetStoreType]] = None
     TtlDuration: Optional[TtlDurationTypeDef] = None

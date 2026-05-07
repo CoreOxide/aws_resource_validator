@@ -3,6 +3,7 @@
 from datetime import datetime
 from decimal import Decimal
 from typing import (
+    Annotated,
     Any,
     Callable,
     Dict,
@@ -24,6 +25,7 @@ from botocore.response import StreamingBody
 from pydantic import Field
 
 from aws_resource_validator.core.base_validator_model import BaseValidatorModel, EventStream
+from aws_resource_validator.core.pattern_validation import aws_field_pattern as _aws_pattern
 from aws_resource_validator.pydantic_models.quicksight.quicksight_constants import *  # noqa: F401,F403
 
 # Optional boto3 symbols — imported lazily so services that don't need them
@@ -39,9 +41,9 @@ except ImportError:  # pragma: no cover
 
 
 class APIKeyConnectionMetadataTypeDef(BaseValidatorModel):
-    BaseEndpoint: str
+    BaseEndpoint: Annotated[str, _aws_pattern("Quicksight", "Endpoint")]
     ApiKey: str
-    Email: Optional[str] = None
+    Email: Optional[Annotated[str, _aws_pattern("Quicksight", "Email")]] = None
 
 
 class AccountCustomizationTypeDef(BaseValidatorModel):
@@ -61,7 +63,7 @@ class AccountInfoTypeDef(BaseValidatorModel):
 class AccountSettingsTypeDef(BaseValidatorModel):
     AccountName: Optional[str] = None
     Edition: Optional[EditionType] = None
-    DefaultNamespace: Optional[str] = None
+    DefaultNamespace: Optional[Annotated[str, _aws_pattern("Quicksight", "Namespace")]] = None
     NotificationEmail: Optional[str] = None
     PublicSharingEnabled: Optional[bool] = None
     TerminationProtectionEnabled: Optional[bool] = None
@@ -79,7 +81,7 @@ class ActionConnectorSearchFilterTypeDef(BaseValidatorModel):
 
 
 class ActiveIAMPolicyAssignmentTypeDef(BaseValidatorModel):
-    AssignmentName: Optional[str] = None
+    AssignmentName: Optional[Annotated[str, _aws_pattern("Quicksight", "IAMPolicyAssignmentName")]] = None
     PolicyArn: Optional[str] = None
 
 
@@ -156,7 +158,7 @@ class QueryExecutionOptionsTypeDef(BaseValidatorModel):
 
 
 class EntityTypeDef(BaseValidatorModel):
-    Path: Optional[str] = None
+    Path: Optional[Annotated[str, _aws_pattern("Quicksight", "NonEmptyString")]] = None
 
 
 class AnalysisSearchFilterTypeDef(BaseValidatorModel):
@@ -166,13 +168,13 @@ class AnalysisSearchFilterTypeDef(BaseValidatorModel):
 
 
 class DataSetReferenceTypeDef(BaseValidatorModel):
-    DataSetPlaceholder: str
+    DataSetPlaceholder: Annotated[str, _aws_pattern("Quicksight", "NonEmptyString")]
     DataSetArn: str
 
 
 class AnalysisSummaryTypeDef(BaseValidatorModel):
     Arn: Optional[str] = None
-    AnalysisId: Optional[str] = None
+    AnalysisId: Optional[Annotated[str, _aws_pattern("Quicksight", "ShortRestrictiveResourceId")]] = None
     Name: Optional[str] = None
     Status: Optional[ResourceStatusType] = None
     CreatedTime: Optional[datetime] = None
@@ -181,7 +183,7 @@ class AnalysisSummaryTypeDef(BaseValidatorModel):
 
 class AnchorDateConfigurationTypeDef(BaseValidatorModel):
     AnchorOption: Optional[Literal["NOW"]] = None
-    ParameterName: Optional[str] = None
+    ParameterName: Optional[Annotated[str, _aws_pattern("Quicksight", "ParameterName")]] = None
 
 
 class AnchorTypeDef(BaseValidatorModel):
@@ -195,17 +197,17 @@ class SharedViewConfigurationsTypeDef(BaseValidatorModel):
 
 
 class DashboardVisualIdTypeDef(BaseValidatorModel):
-    DashboardId: str
-    SheetId: str
-    VisualId: str
+    DashboardId: Annotated[str, _aws_pattern("Quicksight", "ShortRestrictiveResourceId")]
+    SheetId: Annotated[str, _aws_pattern("Quicksight", "ShortRestrictiveResourceId")]
+    VisualId: Annotated[str, _aws_pattern("Quicksight", "ShortRestrictiveResourceId")]
 
 
 class AnonymousUserGenerativeQnAEmbeddingConfigurationTypeDef(BaseValidatorModel):
-    InitialTopicId: str
+    InitialTopicId: Annotated[str, _aws_pattern("Quicksight", "RestrictiveResourceId")]
 
 
 class AnonymousUserQSearchBarEmbeddingConfigurationTypeDef(BaseValidatorModel):
-    InitialTopicId: str
+    InitialTopicId: Annotated[str, _aws_pattern("Quicksight", "RestrictiveResourceId")]
 
 
 class AppendedColumnTypeDef(BaseValidatorModel):
@@ -313,15 +315,15 @@ class AssetBundleExportJobVPCConnectionOverridePropertiesTypeDef(BaseValidatorMo
 
 class AssetBundleExportJobErrorTypeDef(BaseValidatorModel):
     Arn: Optional[str] = None
-    Type: Optional[str] = None
-    Message: Optional[str] = None
+    Type: Optional[Annotated[str, _aws_pattern("Quicksight", "NonEmptyString")]] = None
+    Message: Optional[Annotated[str, _aws_pattern("Quicksight", "NonEmptyString")]] = None
 
 
 class AssetBundleExportJobSummaryTypeDef(BaseValidatorModel):
     JobStatus: Optional[AssetBundleExportJobStatusType] = None
     Arn: Optional[str] = None
     CreatedTime: Optional[datetime] = None
-    AssetBundleExportJobId: Optional[str] = None
+    AssetBundleExportJobId: Optional[Annotated[str, _aws_pattern("Quicksight", "ShortRestrictiveResourceId")]] = None
     IncludeAllDependencies: Optional[bool] = None
     ExportFormat: Optional[AssetBundleExportFormatType] = None
     IncludePermissions: Optional[bool] = None
@@ -334,7 +336,7 @@ class AssetBundleExportJobValidationStrategyTypeDef(BaseValidatorModel):
 
 class AssetBundleExportJobWarningTypeDef(BaseValidatorModel):
     Arn: Optional[str] = None
-    Message: Optional[str] = None
+    Message: Optional[Annotated[str, _aws_pattern("Quicksight", "NonEmptyString")]] = None
 
 
 class AssetBundleImportJobAnalysisOverrideParametersTypeDef(BaseValidatorModel):
@@ -377,8 +379,8 @@ class VpcConnectionPropertiesTypeDef(BaseValidatorModel):
 
 class AssetBundleImportJobErrorTypeDef(BaseValidatorModel):
     Arn: Optional[str] = None
-    Type: Optional[str] = None
-    Message: Optional[str] = None
+    Type: Optional[Annotated[str, _aws_pattern("Quicksight", "NonEmptyString")]] = None
+    Message: Optional[Annotated[str, _aws_pattern("Quicksight", "NonEmptyString")]] = None
 
 
 class AssetBundleImportJobFolderOverrideParametersTypeDef(BaseValidatorModel):
@@ -414,8 +416,8 @@ class AssetBundleImportJobVPCConnectionOverrideParametersOutputTypeDef(BaseValid
 class AssetBundleImportJobVPCConnectionOverrideParametersTypeDef(BaseValidatorModel):
     VPCConnectionId: str
     Name: Optional[str] = None
-    SubnetIds: Optional[List[str]] = None
-    SecurityGroupIds: Optional[List[str]] = None
+    SubnetIds: Optional[List[Annotated[str, _aws_pattern("Quicksight", "SubnetId")]]] = None
+    SecurityGroupIds: Optional[List[Annotated[str, _aws_pattern("Quicksight", "SecurityGroupId")]]] = None
     DnsResolvers: Optional[List[str]] = None
     RoleArn: Optional[str] = None
 
@@ -431,18 +433,18 @@ class AssetBundleImportJobSummaryTypeDef(BaseValidatorModel):
     JobStatus: Optional[AssetBundleImportJobStatusType] = None
     Arn: Optional[str] = None
     CreatedTime: Optional[datetime] = None
-    AssetBundleImportJobId: Optional[str] = None
+    AssetBundleImportJobId: Optional[Annotated[str, _aws_pattern("Quicksight", "ShortRestrictiveResourceId")]] = None
     FailureAction: Optional[AssetBundleImportFailureActionType] = None
 
 
 class AssetBundleImportJobWarningTypeDef(BaseValidatorModel):
     Arn: Optional[str] = None
-    Message: Optional[str] = None
+    Message: Optional[Annotated[str, _aws_pattern("Quicksight", "NonEmptyString")]] = None
 
 
 class AssetBundleImportSourceDescriptionTypeDef(BaseValidatorModel):
-    Body: Optional[str] = None
-    S3Uri: Optional[str] = None
+    Body: Optional[Annotated[str, _aws_pattern("Quicksight", "SensitiveS3Uri")]] = None
+    S3Uri: Optional[Annotated[str, _aws_pattern("Quicksight", "S3Uri")]] = None
 
 
 BlobTypeDef = Union[IO[Any], StreamingBody, bytes, str]
@@ -465,7 +467,7 @@ class AuroraPostgreSqlParametersTypeDef(BaseValidatorModel):
 
 
 class BasicAuthConnectionMetadataTypeDef(BaseValidatorModel):
-    BaseEndpoint: str
+    BaseEndpoint: Annotated[str, _aws_pattern("Quicksight", "Endpoint")]
     Username: str
     Password: str
 
@@ -475,14 +477,14 @@ class IAMConnectionMetadataTypeDef(BaseValidatorModel):
 
 
 class NoneConnectionMetadataTypeDef(BaseValidatorModel):
-    BaseEndpoint: str
+    BaseEndpoint: Annotated[str, _aws_pattern("Quicksight", "Endpoint")]
 
 
 class AuthorizationCodeGrantDetailsTypeDef(BaseValidatorModel):
     ClientId: str
     ClientSecret: str
-    TokenEndpoint: str
-    AuthorizationEndpoint: str
+    TokenEndpoint: Annotated[str, _aws_pattern("Quicksight", "Endpoint")]
+    AuthorizationEndpoint: Annotated[str, _aws_pattern("Quicksight", "Endpoint")]
 
 
 class AuthorizedTargetsByServiceTypeDef(BaseValidatorModel):
@@ -515,13 +517,13 @@ class AxisLogarithmicScaleTypeDef(BaseValidatorModel):
 class BorderSettingsTypeDef(BaseValidatorModel):
     BorderVisibility: Optional[VisibilityType] = None
     BorderWidth: Optional[str] = None
-    BorderColor: Optional[str] = None
+    BorderColor: Optional[Annotated[str, _aws_pattern("Quicksight", "HexColorWithTransparency")]] = None
 
 
 class DecalSettingsTypeDef(BaseValidatorModel):
     ElementValue: Optional[str] = None
     DecalVisibility: Optional[VisibilityType] = None
-    DecalColor: Optional[str] = None
+    DecalColor: Optional[Annotated[str, _aws_pattern("Quicksight", "HexColorWithTransparency")]] = None
     DecalPatternType: Optional[DecalPatternTypeType] = None
     DecalStyleType: Optional[DecalStyleTypeType] = None
 
@@ -532,7 +534,7 @@ class ItemsLimitConfigurationTypeDef(BaseValidatorModel):
 
 
 class InvalidTopicReviewedAnswerTypeDef(BaseValidatorModel):
-    AnswerId: Optional[str] = None
+    AnswerId: Optional[Annotated[str, _aws_pattern("Quicksight", "AnswerId")]] = None
     Error: Optional[ReviewedAnswerErrorCodeType] = None
 
 
@@ -545,14 +547,14 @@ class ResponseMetadataTypeDef(BaseValidatorModel):
 
 
 class SucceededTopicReviewedAnswerTypeDef(BaseValidatorModel):
-    AnswerId: Optional[str] = None
+    AnswerId: Optional[Annotated[str, _aws_pattern("Quicksight", "AnswerId")]] = None
 
 
 # This class is the input for the 'batch_delete_topic_reviewed_answer' function.
 class BatchDeleteTopicReviewedAnswerRequestTypeDef(BaseValidatorModel):
-    AwsAccountId: str
-    TopicId: str
-    AnswerIds: Optional[List[str]] = None
+    AwsAccountId: Annotated[str, _aws_pattern("Quicksight", "AwsAccountId")]
+    TopicId: Annotated[str, _aws_pattern("Quicksight", "TopicId")]
+    AnswerIds: Optional[List[Annotated[str, _aws_pattern("Quicksight", "AnswerId")]]] = None
 
 
 class BigQueryParametersTypeDef(BaseValidatorModel):
@@ -593,15 +595,15 @@ class PaginationConfigurationTypeDef(BaseValidatorModel):
 
 
 class PaletteTypeDef(BaseValidatorModel):
-    Foreground: Optional[str] = None
-    Background: Optional[str] = None
+    Foreground: Optional[Annotated[str, _aws_pattern("Quicksight", "HexColor")]] = None
+    Background: Optional[Annotated[str, _aws_pattern("Quicksight", "HexColor")]] = None
 
 
 class BrandSummaryTypeDef(BaseValidatorModel):
     Arn: Optional[str] = None
-    BrandId: Optional[str] = None
-    BrandName: Optional[str] = None
-    Description: Optional[str] = None
+    BrandId: Optional[Annotated[str, _aws_pattern("Quicksight", "ShortRestrictiveResourceId")]] = None
+    BrandName: Optional[Annotated[str, _aws_pattern("Quicksight", "Name")]] = None
+    Description: Optional[Annotated[str, _aws_pattern("Quicksight", "Description")]] = None
     BrandStatus: Optional[BrandStatusType] = None
     CreatedTime: Optional[datetime] = None
     LastUpdatedTime: Optional[datetime] = None
@@ -620,9 +622,9 @@ class CalculatedMeasureFieldTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'cancel_ingestion' function.
 class CancelIngestionRequestTypeDef(BaseValidatorModel):
-    AwsAccountId: str
+    AwsAccountId: Annotated[str, _aws_pattern("Quicksight", "AwsAccountId")]
     DataSetId: str
-    IngestionId: str
+    IngestionId: Annotated[str, _aws_pattern("Quicksight", "IngestionId")]
 
 
 class CapabilitiesTypeDef(BaseValidatorModel):
@@ -847,6 +849,8 @@ class CapabilitiesTypeDef(BaseValidatorModel):
     Extension: Optional[Literal["DENY"]] = None
     ManageSharedFolders: Optional[Literal["DENY"]] = None
     GenerateAnalyses: Optional[Literal["DENY"]] = None
+    Story: Optional[Literal["DENY"]] = None
+    Scenario: Optional[Literal["DENY"]] = None
 
 
 class CastColumnTypeOperationTypeDef(BaseValidatorModel):
@@ -861,7 +865,7 @@ class CustomFilterConfigurationTypeDef(BaseValidatorModel):
     NullOption: FilterNullOptionType
     CategoryValue: Optional[str] = None
     SelectAllOptions: Optional[Literal["FILTER_ALL_VALUES"]] = None
-    ParameterName: Optional[str] = None
+    ParameterName: Optional[Annotated[str, _aws_pattern("Quicksight", "ParameterName")]] = None
 
 
 class CustomFilterListConfigurationOutputTypeDef(BaseValidatorModel):
@@ -905,11 +909,11 @@ class CellValueSynonymTypeDef(BaseValidatorModel):
 class ClientCredentialsGrantDetailsTypeDef(BaseValidatorModel):
     ClientId: str
     ClientSecret: str
-    TokenEndpoint: str
+    TokenEndpoint: Annotated[str, _aws_pattern("Quicksight", "Endpoint")]
 
 
 class SimpleClusterMarkerTypeDef(BaseValidatorModel):
-    Color: Optional[str] = None
+    Color: Optional[Annotated[str, _aws_pattern("Quicksight", "HexColor")]] = None
 
 
 class CollectiveConstantEntryTypeDef(BaseValidatorModel):
@@ -926,12 +930,12 @@ class CollectiveConstantTypeDef(BaseValidatorModel):
 
 
 class DataColorTypeDef(BaseValidatorModel):
-    Color: Optional[str] = None
+    Color: Optional[Annotated[str, _aws_pattern("Quicksight", "HexColor")]] = None
     DataValue: Optional[float] = None
 
 
 class CustomColorTypeDef(BaseValidatorModel):
-    Color: str
+    Color: Annotated[str, _aws_pattern("Quicksight", "HexColor")]
     FieldValue: Optional[str] = None
     SpecialValue: Optional[SpecialValueType] = None
 
@@ -982,7 +986,7 @@ class LineChartMarkerStyleSettingsTypeDef(BaseValidatorModel):
     MarkerVisibility: Optional[VisibilityType] = None
     MarkerShape: Optional[LineChartMarkerShapeType] = None
     MarkerSize: Optional[str] = None
-    MarkerColor: Optional[str] = None
+    MarkerColor: Optional[Annotated[str, _aws_pattern("Quicksight", "HexColor")]] = None
 
 
 class ComparativeOrderOutputTypeDef(BaseValidatorModel):
@@ -999,12 +1003,12 @@ class ComparativeOrderTypeDef(BaseValidatorModel):
 
 class ConditionalFormattingSolidColorTypeDef(BaseValidatorModel):
     Expression: str
-    Color: Optional[str] = None
+    Color: Optional[Annotated[str, _aws_pattern("Quicksight", "HexColor")]] = None
 
 
 class ConditionalFormattingCustomIconOptionsTypeDef(BaseValidatorModel):
     Icon: Optional[IconType] = None
-    UnicodeIcon: Optional[str] = None
+    UnicodeIcon: Optional[Annotated[str, _aws_pattern("Quicksight", "UnicodeIcon")]] = None
 
 
 class ConditionalFormattingIconDisplayConfigurationTypeDef(BaseValidatorModel):
@@ -1032,6 +1036,11 @@ class SelectableValuesSortTypeDef(BaseValidatorModel):
     Direction: ControlSortDirectionType
 
 
+class ControlTitleFormatTextTypeDef(BaseValidatorModel):
+    PlainText: Optional[str] = None
+    RichText: Optional[str] = None
+
+
 class CoordinateTypeDef(BaseValidatorModel):
     Latitude: float
     Longitude: float
@@ -1040,8 +1049,8 @@ class CoordinateTypeDef(BaseValidatorModel):
 # This class is the input for the 'create_account_subscription' function.
 class CreateAccountSubscriptionRequestTypeDef(BaseValidatorModel):
     AuthenticationMethod: AuthenticationMethodOptionType
-    AwsAccountId: str
-    AccountName: str
+    AwsAccountId: Annotated[str, _aws_pattern("Quicksight", "AwsAccountId")]
+    AccountName: Annotated[str, _aws_pattern("Quicksight", "AccountName")]
     NotificationEmail: str
     Edition: Optional[EditionType] = None
     ActiveDirectoryName: Optional[str] = None
@@ -1079,58 +1088,58 @@ class DataSetUsageConfigurationTypeDef(BaseValidatorModel):
 class RowLevelPermissionDataSetTypeDef(BaseValidatorModel):
     Arn: str
     PermissionPolicy: RowLevelPermissionPolicyType
-    Namespace: Optional[str] = None
+    Namespace: Optional[Annotated[str, _aws_pattern("Quicksight", "Namespace")]] = None
     FormatVersion: Optional[RowLevelPermissionFormatVersionType] = None
     Status: Optional[StatusType] = None
 
 
 # This class is the input for the 'create_folder_membership' function.
 class CreateFolderMembershipRequestTypeDef(BaseValidatorModel):
-    AwsAccountId: str
-    FolderId: str
-    MemberId: str
+    AwsAccountId: Annotated[str, _aws_pattern("Quicksight", "AwsAccountId")]
+    FolderId: Annotated[str, _aws_pattern("Quicksight", "RestrictiveResourceId")]
+    MemberId: Annotated[str, _aws_pattern("Quicksight", "RestrictiveResourceId")]
     MemberType: MemberTypeType
 
 
 class FolderMemberTypeDef(BaseValidatorModel):
-    MemberId: Optional[str] = None
+    MemberId: Optional[Annotated[str, _aws_pattern("Quicksight", "RestrictiveResourceId")]] = None
     MemberType: Optional[MemberTypeType] = None
 
 
 # This class is the input for the 'create_group_membership' function.
 class CreateGroupMembershipRequestTypeDef(BaseValidatorModel):
-    MemberName: str
-    GroupName: str
-    AwsAccountId: str
-    Namespace: str
+    MemberName: Annotated[str, _aws_pattern("Quicksight", "GroupMemberName")]
+    GroupName: Annotated[str, _aws_pattern("Quicksight", "GroupName")]
+    AwsAccountId: Annotated[str, _aws_pattern("Quicksight", "AwsAccountId")]
+    Namespace: Annotated[str, _aws_pattern("Quicksight", "Namespace")]
 
 
 class GroupMemberTypeDef(BaseValidatorModel):
     Arn: Optional[str] = None
-    MemberName: Optional[str] = None
+    MemberName: Optional[Annotated[str, _aws_pattern("Quicksight", "GroupMemberName")]] = None
 
 
 # This class is the input for the 'create_group' function.
 class CreateGroupRequestTypeDef(BaseValidatorModel):
-    GroupName: str
-    AwsAccountId: str
-    Namespace: str
+    GroupName: Annotated[str, _aws_pattern("Quicksight", "GroupName")]
+    AwsAccountId: Annotated[str, _aws_pattern("Quicksight", "AwsAccountId")]
+    Namespace: Annotated[str, _aws_pattern("Quicksight", "Namespace")]
     Description: Optional[str] = None
 
 
 class GroupTypeDef(BaseValidatorModel):
     Arn: Optional[str] = None
-    GroupName: Optional[str] = None
+    GroupName: Optional[Annotated[str, _aws_pattern("Quicksight", "GroupName")]] = None
     Description: Optional[str] = None
     PrincipalId: Optional[str] = None
 
 
 # This class is the input for the 'create_iam_policy_assignment' function.
 class CreateIAMPolicyAssignmentRequestTypeDef(BaseValidatorModel):
-    AwsAccountId: str
-    AssignmentName: str
+    AwsAccountId: Annotated[str, _aws_pattern("Quicksight", "AwsAccountId")]
+    AssignmentName: Annotated[str, _aws_pattern("Quicksight", "IAMPolicyAssignmentName")]
     AssignmentStatus: AssignmentStatusType
-    Namespace: str
+    Namespace: Annotated[str, _aws_pattern("Quicksight", "Namespace")]
     PolicyArn: Optional[str] = None
     Identities: Optional[Dict[str, List[str]]] = None
 
@@ -1138,44 +1147,44 @@ class CreateIAMPolicyAssignmentRequestTypeDef(BaseValidatorModel):
 # This class is the input for the 'create_ingestion' function.
 class CreateIngestionRequestTypeDef(BaseValidatorModel):
     DataSetId: str
-    IngestionId: str
-    AwsAccountId: str
+    IngestionId: Annotated[str, _aws_pattern("Quicksight", "IngestionId")]
+    AwsAccountId: Annotated[str, _aws_pattern("Quicksight", "AwsAccountId")]
     IngestionType: Optional[IngestionTypeType] = None
 
 
 # This class is the input for the 'create_role_membership' function.
 class CreateRoleMembershipRequestTypeDef(BaseValidatorModel):
-    MemberName: str
-    AwsAccountId: str
-    Namespace: str
+    MemberName: Annotated[str, _aws_pattern("Quicksight", "GroupName")]
+    AwsAccountId: Annotated[str, _aws_pattern("Quicksight", "AwsAccountId")]
+    Namespace: Annotated[str, _aws_pattern("Quicksight", "Namespace")]
     Role: RoleType
 
 
 # This class is the input for the 'create_template_alias' function.
 class CreateTemplateAliasRequestTypeDef(BaseValidatorModel):
-    AwsAccountId: str
-    TemplateId: str
-    AliasName: str
+    AwsAccountId: Annotated[str, _aws_pattern("Quicksight", "AwsAccountId")]
+    TemplateId: Annotated[str, _aws_pattern("Quicksight", "ShortRestrictiveResourceId")]
+    AliasName: Annotated[str, _aws_pattern("Quicksight", "AliasName")]
     TemplateVersionNumber: int
 
 
 class TemplateAliasTypeDef(BaseValidatorModel):
-    AliasName: Optional[str] = None
+    AliasName: Optional[Annotated[str, _aws_pattern("Quicksight", "AliasName")]] = None
     Arn: Optional[str] = None
     TemplateVersionNumber: Optional[int] = None
 
 
 # This class is the input for the 'create_theme_alias' function.
 class CreateThemeAliasRequestTypeDef(BaseValidatorModel):
-    AwsAccountId: str
-    ThemeId: str
-    AliasName: str
+    AwsAccountId: Annotated[str, _aws_pattern("Quicksight", "AwsAccountId")]
+    ThemeId: Annotated[str, _aws_pattern("Quicksight", "ShortRestrictiveResourceId")]
+    AliasName: Annotated[str, _aws_pattern("Quicksight", "AliasName")]
     ThemeVersionNumber: int
 
 
 class ThemeAliasTypeDef(BaseValidatorModel):
     Arn: Optional[str] = None
-    AliasName: Optional[str] = None
+    AliasName: Optional[Annotated[str, _aws_pattern("Quicksight", "AliasName")]] = None
     ThemeVersionNumber: Optional[int] = None
 
 
@@ -1196,7 +1205,7 @@ class NullValueFormatConfigurationTypeDef(BaseValidatorModel):
 
 
 class LocalNavigationConfigurationTypeDef(BaseValidatorModel):
-    TargetSheetId: str
+    TargetSheetId: Annotated[str, _aws_pattern("Quicksight", "ShortRestrictiveResourceId")]
 
 
 class CustomActionURLOperationTypeDef(BaseValidatorModel):
@@ -1290,7 +1299,7 @@ class DashboardSearchFilterTypeDef(BaseValidatorModel):
 
 class DashboardSummaryTypeDef(BaseValidatorModel):
     Arn: Optional[str] = None
-    DashboardId: Optional[str] = None
+    DashboardId: Optional[Annotated[str, _aws_pattern("Quicksight", "ShortRestrictiveResourceId")]] = None
     Name: Optional[str] = None
     CreatedTime: Optional[datetime] = None
     LastUpdatedTime: Optional[datetime] = None
@@ -1312,11 +1321,11 @@ class ExportHiddenFieldsOptionTypeDef(BaseValidatorModel):
 
 
 class DashboardVisualResultTypeDef(BaseValidatorModel):
-    DashboardId: Optional[str] = None
+    DashboardId: Optional[Annotated[str, _aws_pattern("Quicksight", "ShortRestrictiveResourceId")]] = None
     DashboardName: Optional[str] = None
-    SheetId: Optional[str] = None
+    SheetId: Optional[Annotated[str, _aws_pattern("Quicksight", "ShortRestrictiveResourceId")]] = None
     SheetName: Optional[str] = None
-    VisualId: Optional[str] = None
+    VisualId: Optional[Annotated[str, _aws_pattern("Quicksight", "ShortRestrictiveResourceId")]] = None
     VisualTitle: Optional[str] = None
     VisualSubtitle: Optional[str] = None
     DashboardUrl: Optional[str] = None
@@ -1329,8 +1338,8 @@ class DataAggregationTypeDef(BaseValidatorModel):
 
 class DataBarsOptionsTypeDef(BaseValidatorModel):
     FieldId: str
-    PositiveColor: Optional[str] = None
-    NegativeColor: Optional[str] = None
+    PositiveColor: Optional[Annotated[str, _aws_pattern("Quicksight", "HexColor")]] = None
+    NegativeColor: Optional[Annotated[str, _aws_pattern("Quicksight", "HexColor")]] = None
 
 
 class DataColorPaletteOutputTypeDef(BaseValidatorModel):
@@ -1340,9 +1349,9 @@ class DataColorPaletteOutputTypeDef(BaseValidatorModel):
 
 
 class DataColorPaletteTypeDef(BaseValidatorModel):
-    Colors: Optional[List[str]] = None
-    MinMaxGradient: Optional[List[str]] = None
-    EmptyFillColor: Optional[str] = None
+    Colors: Optional[List[Annotated[str, _aws_pattern("Quicksight", "HexColor")]]] = None
+    MinMaxGradient: Optional[List[Annotated[str, _aws_pattern("Quicksight", "HexColor")]]] = None
+    EmptyFillColor: Optional[Annotated[str, _aws_pattern("Quicksight", "HexColor")]] = None
 
 
 class DataPathLabelTypeTypeDef(BaseValidatorModel):
@@ -1429,7 +1438,7 @@ class OutputColumnTypeDef(BaseValidatorModel):
 
 class KeyPairCredentialsTypeDef(BaseValidatorModel):
     KeyPairUsername: str
-    PrivateKey: str
+    PrivateKey: Annotated[str, _aws_pattern("Quicksight", "PrivateKey")]
     PrivateKeyPassphrase: Optional[str] = None
 
 
@@ -1503,7 +1512,7 @@ class PrestoParametersTypeDef(BaseValidatorModel):
 
 
 class QBusinessParametersTypeDef(BaseValidatorModel):
-    ApplicationArn: str
+    ApplicationArn: Annotated[str, _aws_pattern("Quicksight", "ApplicationArn")]
 
 
 class RdsParametersTypeDef(BaseValidatorModel):
@@ -1518,7 +1527,7 @@ class S3KnowledgeBaseParametersTypeDef(BaseValidatorModel):
 
 
 class S3TablesParametersTypeDef(BaseValidatorModel):
-    TableBucketArn: Optional[str] = None
+    TableBucketArn: Optional[Annotated[str, _aws_pattern("Quicksight", "S3TableBucketArn")]] = None
 
 
 class ServiceNowParametersTypeDef(BaseValidatorModel):
@@ -1595,7 +1604,7 @@ class DateTimeValueWhenUnsetConfigurationOutputTypeDef(BaseValidatorModel):
 
 class MappedDataSetParameterTypeDef(BaseValidatorModel):
     DataSetIdentifier: str
-    DataSetParameterName: str
+    DataSetParameterName: Annotated[str, _aws_pattern("Quicksight", "ParameterName")]
 
 
 class DateTimeParameterOutputTypeDef(BaseValidatorModel):
@@ -1627,7 +1636,7 @@ class DecimalParameterOutputTypeDef(BaseValidatorModel):
 
 
 class DecimalParameterTypeDef(BaseValidatorModel):
-    Name: str
+    Name: Annotated[str, _aws_pattern("Quicksight", "NonEmptyString")]
     Values: List[float]
 
 
@@ -1641,246 +1650,246 @@ class FilterSelectableValuesTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'delete_account_custom_permission' function.
 class DeleteAccountCustomPermissionRequestTypeDef(BaseValidatorModel):
-    AwsAccountId: str
+    AwsAccountId: Annotated[str, _aws_pattern("Quicksight", "AwsAccountId")]
 
 
 # This class is the input for the 'delete_account_customization' function.
 class DeleteAccountCustomizationRequestTypeDef(BaseValidatorModel):
-    AwsAccountId: str
-    Namespace: Optional[str] = None
+    AwsAccountId: Annotated[str, _aws_pattern("Quicksight", "AwsAccountId")]
+    Namespace: Optional[Annotated[str, _aws_pattern("Quicksight", "Namespace")]] = None
 
 
 # This class is the input for the 'delete_account_subscription' function.
 class DeleteAccountSubscriptionRequestTypeDef(BaseValidatorModel):
-    AwsAccountId: str
+    AwsAccountId: Annotated[str, _aws_pattern("Quicksight", "AwsAccountId")]
 
 
 # This class is the input for the 'delete_action_connector' function.
 class DeleteActionConnectorRequestTypeDef(BaseValidatorModel):
-    AwsAccountId: str
-    ActionConnectorId: str
+    AwsAccountId: Annotated[str, _aws_pattern("Quicksight", "AwsAccountId")]
+    ActionConnectorId: Annotated[str, _aws_pattern("Quicksight", "ShortRestrictiveResourceId")]
 
 
 # This class is the input for the 'delete_analysis' function.
 class DeleteAnalysisRequestTypeDef(BaseValidatorModel):
-    AwsAccountId: str
-    AnalysisId: str
+    AwsAccountId: Annotated[str, _aws_pattern("Quicksight", "AwsAccountId")]
+    AnalysisId: Annotated[str, _aws_pattern("Quicksight", "ShortRestrictiveResourceId")]
     RecoveryWindowInDays: Optional[int] = None
     ForceDeleteWithoutRecovery: Optional[bool] = None
 
 
 # This class is the input for the 'delete_brand_assignment' function.
 class DeleteBrandAssignmentRequestTypeDef(BaseValidatorModel):
-    AwsAccountId: str
+    AwsAccountId: Annotated[str, _aws_pattern("Quicksight", "AwsAccountId")]
 
 
 # This class is the input for the 'delete_brand' function.
 class DeleteBrandRequestTypeDef(BaseValidatorModel):
-    AwsAccountId: str
-    BrandId: str
+    AwsAccountId: Annotated[str, _aws_pattern("Quicksight", "AwsAccountId")]
+    BrandId: Annotated[str, _aws_pattern("Quicksight", "ShortRestrictiveResourceId")]
 
 
 # This class is the input for the 'delete_custom_permissions' function.
 class DeleteCustomPermissionsRequestTypeDef(BaseValidatorModel):
-    AwsAccountId: str
-    CustomPermissionsName: str
+    AwsAccountId: Annotated[str, _aws_pattern("Quicksight", "AwsAccountId")]
+    CustomPermissionsName: Annotated[str, _aws_pattern("Quicksight", "CustomPermissionsName")]
 
 
 # This class is the input for the 'delete_dashboard' function.
 class DeleteDashboardRequestTypeDef(BaseValidatorModel):
-    AwsAccountId: str
-    DashboardId: str
+    AwsAccountId: Annotated[str, _aws_pattern("Quicksight", "AwsAccountId")]
+    DashboardId: Annotated[str, _aws_pattern("Quicksight", "ShortRestrictiveResourceId")]
     VersionNumber: Optional[int] = None
 
 
 # This class is the input for the 'delete_data_set_refresh_properties' function.
 class DeleteDataSetRefreshPropertiesRequestTypeDef(BaseValidatorModel):
-    AwsAccountId: str
+    AwsAccountId: Annotated[str, _aws_pattern("Quicksight", "AwsAccountId")]
     DataSetId: str
 
 
 # This class is the input for the 'delete_data_set' function.
 class DeleteDataSetRequestTypeDef(BaseValidatorModel):
-    AwsAccountId: str
+    AwsAccountId: Annotated[str, _aws_pattern("Quicksight", "AwsAccountId")]
     DataSetId: str
 
 
 # This class is the input for the 'delete_data_source' function.
 class DeleteDataSourceRequestTypeDef(BaseValidatorModel):
-    AwsAccountId: str
+    AwsAccountId: Annotated[str, _aws_pattern("Quicksight", "AwsAccountId")]
     DataSourceId: str
 
 
 # This class is the input for the 'delete_default_q_business_application' function.
 class DeleteDefaultQBusinessApplicationRequestTypeDef(BaseValidatorModel):
-    AwsAccountId: str
-    Namespace: Optional[str] = None
+    AwsAccountId: Annotated[str, _aws_pattern("Quicksight", "AwsAccountId")]
+    Namespace: Optional[Annotated[str, _aws_pattern("Quicksight", "Namespace")]] = None
 
 
 # This class is the input for the 'delete_folder_membership' function.
 class DeleteFolderMembershipRequestTypeDef(BaseValidatorModel):
-    AwsAccountId: str
-    FolderId: str
-    MemberId: str
+    AwsAccountId: Annotated[str, _aws_pattern("Quicksight", "AwsAccountId")]
+    FolderId: Annotated[str, _aws_pattern("Quicksight", "RestrictiveResourceId")]
+    MemberId: Annotated[str, _aws_pattern("Quicksight", "RestrictiveResourceId")]
     MemberType: MemberTypeType
 
 
 # This class is the input for the 'delete_folder' function.
 class DeleteFolderRequestTypeDef(BaseValidatorModel):
-    AwsAccountId: str
-    FolderId: str
+    AwsAccountId: Annotated[str, _aws_pattern("Quicksight", "AwsAccountId")]
+    FolderId: Annotated[str, _aws_pattern("Quicksight", "RestrictiveResourceId")]
 
 
 # This class is the input for the 'delete_group_membership' function.
 class DeleteGroupMembershipRequestTypeDef(BaseValidatorModel):
-    MemberName: str
-    GroupName: str
-    AwsAccountId: str
-    Namespace: str
+    MemberName: Annotated[str, _aws_pattern("Quicksight", "GroupMemberName")]
+    GroupName: Annotated[str, _aws_pattern("Quicksight", "GroupName")]
+    AwsAccountId: Annotated[str, _aws_pattern("Quicksight", "AwsAccountId")]
+    Namespace: Annotated[str, _aws_pattern("Quicksight", "Namespace")]
 
 
 # This class is the input for the 'delete_group' function.
 class DeleteGroupRequestTypeDef(BaseValidatorModel):
-    GroupName: str
-    AwsAccountId: str
-    Namespace: str
+    GroupName: Annotated[str, _aws_pattern("Quicksight", "GroupName")]
+    AwsAccountId: Annotated[str, _aws_pattern("Quicksight", "AwsAccountId")]
+    Namespace: Annotated[str, _aws_pattern("Quicksight", "Namespace")]
 
 
 # This class is the input for the 'delete_iam_policy_assignment' function.
 class DeleteIAMPolicyAssignmentRequestTypeDef(BaseValidatorModel):
-    AwsAccountId: str
-    AssignmentName: str
-    Namespace: str
+    AwsAccountId: Annotated[str, _aws_pattern("Quicksight", "AwsAccountId")]
+    AssignmentName: Annotated[str, _aws_pattern("Quicksight", "IAMPolicyAssignmentName")]
+    Namespace: Annotated[str, _aws_pattern("Quicksight", "Namespace")]
 
 
 # This class is the input for the 'delete_identity_propagation_config' function.
 class DeleteIdentityPropagationConfigRequestTypeDef(BaseValidatorModel):
-    AwsAccountId: str
+    AwsAccountId: Annotated[str, _aws_pattern("Quicksight", "AwsAccountId")]
     Service: ServiceTypeType
 
 
 # This class is the input for the 'delete_namespace' function.
 class DeleteNamespaceRequestTypeDef(BaseValidatorModel):
-    AwsAccountId: str
-    Namespace: str
+    AwsAccountId: Annotated[str, _aws_pattern("Quicksight", "AwsAccountId")]
+    Namespace: Annotated[str, _aws_pattern("Quicksight", "Namespace")]
 
 
 # This class is the input for the 'delete_refresh_schedule' function.
 class DeleteRefreshScheduleRequestTypeDef(BaseValidatorModel):
     DataSetId: str
-    AwsAccountId: str
+    AwsAccountId: Annotated[str, _aws_pattern("Quicksight", "AwsAccountId")]
     ScheduleId: str
 
 
 # This class is the input for the 'delete_role_custom_permission' function.
 class DeleteRoleCustomPermissionRequestTypeDef(BaseValidatorModel):
     Role: RoleType
-    AwsAccountId: str
-    Namespace: str
+    AwsAccountId: Annotated[str, _aws_pattern("Quicksight", "AwsAccountId")]
+    Namespace: Annotated[str, _aws_pattern("Quicksight", "Namespace")]
 
 
 # This class is the input for the 'delete_role_membership' function.
 class DeleteRoleMembershipRequestTypeDef(BaseValidatorModel):
-    MemberName: str
+    MemberName: Annotated[str, _aws_pattern("Quicksight", "GroupName")]
     Role: RoleType
-    AwsAccountId: str
-    Namespace: str
+    AwsAccountId: Annotated[str, _aws_pattern("Quicksight", "AwsAccountId")]
+    Namespace: Annotated[str, _aws_pattern("Quicksight", "Namespace")]
 
 
 # This class is the input for the 'delete_template_alias' function.
 class DeleteTemplateAliasRequestTypeDef(BaseValidatorModel):
-    AwsAccountId: str
-    TemplateId: str
-    AliasName: str
+    AwsAccountId: Annotated[str, _aws_pattern("Quicksight", "AwsAccountId")]
+    TemplateId: Annotated[str, _aws_pattern("Quicksight", "ShortRestrictiveResourceId")]
+    AliasName: Annotated[str, _aws_pattern("Quicksight", "AliasName")]
 
 
 # This class is the input for the 'delete_template' function.
 class DeleteTemplateRequestTypeDef(BaseValidatorModel):
-    AwsAccountId: str
-    TemplateId: str
+    AwsAccountId: Annotated[str, _aws_pattern("Quicksight", "AwsAccountId")]
+    TemplateId: Annotated[str, _aws_pattern("Quicksight", "ShortRestrictiveResourceId")]
     VersionNumber: Optional[int] = None
 
 
 # This class is the input for the 'delete_theme_alias' function.
 class DeleteThemeAliasRequestTypeDef(BaseValidatorModel):
-    AwsAccountId: str
-    ThemeId: str
-    AliasName: str
+    AwsAccountId: Annotated[str, _aws_pattern("Quicksight", "AwsAccountId")]
+    ThemeId: Annotated[str, _aws_pattern("Quicksight", "ShortRestrictiveResourceId")]
+    AliasName: Annotated[str, _aws_pattern("Quicksight", "AliasName")]
 
 
 # This class is the input for the 'delete_theme' function.
 class DeleteThemeRequestTypeDef(BaseValidatorModel):
-    AwsAccountId: str
-    ThemeId: str
+    AwsAccountId: Annotated[str, _aws_pattern("Quicksight", "AwsAccountId")]
+    ThemeId: Annotated[str, _aws_pattern("Quicksight", "ShortRestrictiveResourceId")]
     VersionNumber: Optional[int] = None
 
 
 # This class is the input for the 'delete_topic_refresh_schedule' function.
 class DeleteTopicRefreshScheduleRequestTypeDef(BaseValidatorModel):
-    AwsAccountId: str
-    TopicId: str
+    AwsAccountId: Annotated[str, _aws_pattern("Quicksight", "AwsAccountId")]
+    TopicId: Annotated[str, _aws_pattern("Quicksight", "TopicId")]
     DatasetId: str
 
 
 # This class is the input for the 'delete_topic' function.
 class DeleteTopicRequestTypeDef(BaseValidatorModel):
-    AwsAccountId: str
-    TopicId: str
+    AwsAccountId: Annotated[str, _aws_pattern("Quicksight", "AwsAccountId")]
+    TopicId: Annotated[str, _aws_pattern("Quicksight", "TopicId")]
 
 
 # This class is the input for the 'delete_user_by_principal_id' function.
 class DeleteUserByPrincipalIdRequestTypeDef(BaseValidatorModel):
     PrincipalId: str
-    AwsAccountId: str
-    Namespace: str
+    AwsAccountId: Annotated[str, _aws_pattern("Quicksight", "AwsAccountId")]
+    Namespace: Annotated[str, _aws_pattern("Quicksight", "Namespace")]
 
 
 # This class is the input for the 'delete_user_custom_permission' function.
 class DeleteUserCustomPermissionRequestTypeDef(BaseValidatorModel):
-    UserName: str
-    AwsAccountId: str
-    Namespace: str
+    UserName: Annotated[str, _aws_pattern("Quicksight", "UserName")]
+    AwsAccountId: Annotated[str, _aws_pattern("Quicksight", "AwsAccountId")]
+    Namespace: Annotated[str, _aws_pattern("Quicksight", "Namespace")]
 
 
 # This class is the input for the 'delete_user' function.
 class DeleteUserRequestTypeDef(BaseValidatorModel):
-    UserName: str
-    AwsAccountId: str
-    Namespace: str
+    UserName: Annotated[str, _aws_pattern("Quicksight", "UserName")]
+    AwsAccountId: Annotated[str, _aws_pattern("Quicksight", "AwsAccountId")]
+    Namespace: Annotated[str, _aws_pattern("Quicksight", "Namespace")]
 
 
 # This class is the input for the 'delete_vpc_connection' function.
 class DeleteVPCConnectionRequestTypeDef(BaseValidatorModel):
-    AwsAccountId: str
+    AwsAccountId: Annotated[str, _aws_pattern("Quicksight", "AwsAccountId")]
     VPCConnectionId: str
 
 
 # This class is the input for the 'describe_account_custom_permission' function.
 class DescribeAccountCustomPermissionRequestTypeDef(BaseValidatorModel):
-    AwsAccountId: str
+    AwsAccountId: Annotated[str, _aws_pattern("Quicksight", "AwsAccountId")]
 
 
 # This class is the input for the 'describe_account_customization' function.
 class DescribeAccountCustomizationRequestTypeDef(BaseValidatorModel):
-    AwsAccountId: str
-    Namespace: Optional[str] = None
+    AwsAccountId: Annotated[str, _aws_pattern("Quicksight", "AwsAccountId")]
+    Namespace: Optional[Annotated[str, _aws_pattern("Quicksight", "Namespace")]] = None
     Resolved: Optional[bool] = None
 
 
 # This class is the input for the 'describe_account_settings' function.
 class DescribeAccountSettingsRequestTypeDef(BaseValidatorModel):
-    AwsAccountId: str
+    AwsAccountId: Annotated[str, _aws_pattern("Quicksight", "AwsAccountId")]
 
 
 # This class is the input for the 'describe_account_subscription' function.
 class DescribeAccountSubscriptionRequestTypeDef(BaseValidatorModel):
-    AwsAccountId: str
+    AwsAccountId: Annotated[str, _aws_pattern("Quicksight", "AwsAccountId")]
 
 
 # This class is the input for the 'describe_action_connector_permissions' function.
 class DescribeActionConnectorPermissionsRequestTypeDef(BaseValidatorModel):
-    AwsAccountId: str
-    ActionConnectorId: str
+    AwsAccountId: Annotated[str, _aws_pattern("Quicksight", "AwsAccountId")]
+    ActionConnectorId: Annotated[str, _aws_pattern("Quicksight", "ShortRestrictiveResourceId")]
 
 
 class ResourcePermissionOutputTypeDef(BaseValidatorModel):
@@ -1890,108 +1899,108 @@ class ResourcePermissionOutputTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'describe_action_connector' function.
 class DescribeActionConnectorRequestTypeDef(BaseValidatorModel):
-    AwsAccountId: str
-    ActionConnectorId: str
+    AwsAccountId: Annotated[str, _aws_pattern("Quicksight", "AwsAccountId")]
+    ActionConnectorId: Annotated[str, _aws_pattern("Quicksight", "ShortRestrictiveResourceId")]
 
 
 # This class is the input for the 'describe_analysis_definition' function.
 class DescribeAnalysisDefinitionRequestTypeDef(BaseValidatorModel):
-    AwsAccountId: str
-    AnalysisId: str
+    AwsAccountId: Annotated[str, _aws_pattern("Quicksight", "AwsAccountId")]
+    AnalysisId: Annotated[str, _aws_pattern("Quicksight", "ShortRestrictiveResourceId")]
 
 
 # This class is the input for the 'describe_analysis_permissions' function.
 class DescribeAnalysisPermissionsRequestTypeDef(BaseValidatorModel):
-    AwsAccountId: str
-    AnalysisId: str
+    AwsAccountId: Annotated[str, _aws_pattern("Quicksight", "AwsAccountId")]
+    AnalysisId: Annotated[str, _aws_pattern("Quicksight", "ShortRestrictiveResourceId")]
 
 
 # This class is the input for the 'describe_analysis' function.
 class DescribeAnalysisRequestTypeDef(BaseValidatorModel):
-    AwsAccountId: str
-    AnalysisId: str
+    AwsAccountId: Annotated[str, _aws_pattern("Quicksight", "AwsAccountId")]
+    AnalysisId: Annotated[str, _aws_pattern("Quicksight", "ShortRestrictiveResourceId")]
 
 
 # This class is the input for the 'describe_asset_bundle_export_job' function.
 class DescribeAssetBundleExportJobRequestTypeDef(BaseValidatorModel):
-    AwsAccountId: str
-    AssetBundleExportJobId: str
+    AwsAccountId: Annotated[str, _aws_pattern("Quicksight", "AwsAccountId")]
+    AssetBundleExportJobId: Annotated[str, _aws_pattern("Quicksight", "ShortRestrictiveResourceId")]
 
 
 # This class is the input for the 'describe_asset_bundle_import_job' function.
 class DescribeAssetBundleImportJobRequestTypeDef(BaseValidatorModel):
-    AwsAccountId: str
-    AssetBundleImportJobId: str
+    AwsAccountId: Annotated[str, _aws_pattern("Quicksight", "AwsAccountId")]
+    AssetBundleImportJobId: Annotated[str, _aws_pattern("Quicksight", "ShortRestrictiveResourceId")]
 
 
 # This class is the input for the 'describe_automation_job' function.
 class DescribeAutomationJobRequestTypeDef(BaseValidatorModel):
-    AwsAccountId: str
-    AutomationGroupId: str
-    AutomationId: str
-    JobId: str
+    AwsAccountId: Annotated[str, _aws_pattern("Quicksight", "AwsAccountId")]
+    AutomationGroupId: Annotated[str, _aws_pattern("Quicksight", "AutomateId")]
+    AutomationId: Annotated[str, _aws_pattern("Quicksight", "AutomateId")]
+    JobId: Annotated[str, _aws_pattern("Quicksight", "AutomateId")]
     IncludeInputPayload: Optional[bool] = None
     IncludeOutputPayload: Optional[bool] = None
 
 
 # This class is the input for the 'describe_brand_assignment' function.
 class DescribeBrandAssignmentRequestTypeDef(BaseValidatorModel):
-    AwsAccountId: str
+    AwsAccountId: Annotated[str, _aws_pattern("Quicksight", "AwsAccountId")]
 
 
 # This class is the input for the 'describe_brand_published_version' function.
 class DescribeBrandPublishedVersionRequestTypeDef(BaseValidatorModel):
-    AwsAccountId: str
-    BrandId: str
+    AwsAccountId: Annotated[str, _aws_pattern("Quicksight", "AwsAccountId")]
+    BrandId: Annotated[str, _aws_pattern("Quicksight", "ShortRestrictiveResourceId")]
 
 
 # This class is the input for the 'describe_brand' function.
 class DescribeBrandRequestTypeDef(BaseValidatorModel):
-    AwsAccountId: str
-    BrandId: str
-    VersionId: Optional[str] = None
+    AwsAccountId: Annotated[str, _aws_pattern("Quicksight", "AwsAccountId")]
+    BrandId: Annotated[str, _aws_pattern("Quicksight", "ShortRestrictiveResourceId")]
+    VersionId: Optional[Annotated[str, _aws_pattern("Quicksight", "ShortRestrictiveResourceId")]] = None
 
 
 # This class is the input for the 'describe_custom_permissions' function.
 class DescribeCustomPermissionsRequestTypeDef(BaseValidatorModel):
-    AwsAccountId: str
-    CustomPermissionsName: str
+    AwsAccountId: Annotated[str, _aws_pattern("Quicksight", "AwsAccountId")]
+    CustomPermissionsName: Annotated[str, _aws_pattern("Quicksight", "CustomPermissionsName")]
 
 
 # This class is the input for the 'describe_dashboard_definition' function.
 class DescribeDashboardDefinitionRequestTypeDef(BaseValidatorModel):
-    AwsAccountId: str
-    DashboardId: str
+    AwsAccountId: Annotated[str, _aws_pattern("Quicksight", "AwsAccountId")]
+    DashboardId: Annotated[str, _aws_pattern("Quicksight", "ShortRestrictiveResourceId")]
     VersionNumber: Optional[int] = None
-    AliasName: Optional[str] = None
+    AliasName: Optional[Annotated[str, _aws_pattern("Quicksight", "AliasName")]] = None
 
 
 # This class is the input for the 'describe_dashboard_permissions' function.
 class DescribeDashboardPermissionsRequestTypeDef(BaseValidatorModel):
-    AwsAccountId: str
-    DashboardId: str
+    AwsAccountId: Annotated[str, _aws_pattern("Quicksight", "AwsAccountId")]
+    DashboardId: Annotated[str, _aws_pattern("Quicksight", "ShortRestrictiveResourceId")]
 
 
 # This class is the input for the 'describe_dashboard' function.
 class DescribeDashboardRequestTypeDef(BaseValidatorModel):
-    AwsAccountId: str
-    DashboardId: str
+    AwsAccountId: Annotated[str, _aws_pattern("Quicksight", "AwsAccountId")]
+    DashboardId: Annotated[str, _aws_pattern("Quicksight", "ShortRestrictiveResourceId")]
     VersionNumber: Optional[int] = None
-    AliasName: Optional[str] = None
+    AliasName: Optional[Annotated[str, _aws_pattern("Quicksight", "AliasName")]] = None
 
 
 # This class is the input for the 'describe_dashboard_snapshot_job' function.
 class DescribeDashboardSnapshotJobRequestTypeDef(BaseValidatorModel):
-    AwsAccountId: str
-    DashboardId: str
-    SnapshotJobId: str
+    AwsAccountId: Annotated[str, _aws_pattern("Quicksight", "AwsAccountId")]
+    DashboardId: Annotated[str, _aws_pattern("Quicksight", "ShortRestrictiveResourceId")]
+    SnapshotJobId: Annotated[str, _aws_pattern("Quicksight", "ShortRestrictiveResourceId")]
 
 
 # This class is the input for the 'describe_dashboard_snapshot_job_result' function.
 class DescribeDashboardSnapshotJobResultRequestTypeDef(BaseValidatorModel):
-    AwsAccountId: str
-    DashboardId: str
-    SnapshotJobId: str
+    AwsAccountId: Annotated[str, _aws_pattern("Quicksight", "AwsAccountId")]
+    DashboardId: Annotated[str, _aws_pattern("Quicksight", "ShortRestrictiveResourceId")]
+    SnapshotJobId: Annotated[str, _aws_pattern("Quicksight", "ShortRestrictiveResourceId")]
 
 
 class SnapshotJobErrorInfoTypeDef(BaseValidatorModel):
@@ -2001,43 +2010,43 @@ class SnapshotJobErrorInfoTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'describe_dashboards_qa_configuration' function.
 class DescribeDashboardsQAConfigurationRequestTypeDef(BaseValidatorModel):
-    AwsAccountId: str
+    AwsAccountId: Annotated[str, _aws_pattern("Quicksight", "AwsAccountId")]
 
 
 # This class is the input for the 'describe_data_set_permissions' function.
 class DescribeDataSetPermissionsRequestTypeDef(BaseValidatorModel):
-    AwsAccountId: str
+    AwsAccountId: Annotated[str, _aws_pattern("Quicksight", "AwsAccountId")]
     DataSetId: str
 
 
 # This class is the input for the 'describe_data_set_refresh_properties' function.
 class DescribeDataSetRefreshPropertiesRequestTypeDef(BaseValidatorModel):
-    AwsAccountId: str
+    AwsAccountId: Annotated[str, _aws_pattern("Quicksight", "AwsAccountId")]
     DataSetId: str
 
 
 # This class is the input for the 'describe_data_set' function.
 class DescribeDataSetRequestTypeDef(BaseValidatorModel):
-    AwsAccountId: str
+    AwsAccountId: Annotated[str, _aws_pattern("Quicksight", "AwsAccountId")]
     DataSetId: str
 
 
 # This class is the input for the 'describe_data_source_permissions' function.
 class DescribeDataSourcePermissionsRequestTypeDef(BaseValidatorModel):
-    AwsAccountId: str
+    AwsAccountId: Annotated[str, _aws_pattern("Quicksight", "AwsAccountId")]
     DataSourceId: str
 
 
 # This class is the input for the 'describe_data_source' function.
 class DescribeDataSourceRequestTypeDef(BaseValidatorModel):
-    AwsAccountId: str
+    AwsAccountId: Annotated[str, _aws_pattern("Quicksight", "AwsAccountId")]
     DataSourceId: str
 
 
 # This class is the input for the 'describe_default_q_business_application' function.
 class DescribeDefaultQBusinessApplicationRequestTypeDef(BaseValidatorModel):
-    AwsAccountId: str
-    Namespace: Optional[str] = None
+    AwsAccountId: Annotated[str, _aws_pattern("Quicksight", "AwsAccountId")]
+    Namespace: Optional[Annotated[str, _aws_pattern("Quicksight", "Namespace")]] = None
 
 
 class PaginatorConfigTypeDef(BaseValidatorModel):
@@ -2048,30 +2057,30 @@ class PaginatorConfigTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'describe_folder_permissions' function.
 class DescribeFolderPermissionsRequestTypeDef(BaseValidatorModel):
-    AwsAccountId: str
-    FolderId: str
-    Namespace: Optional[str] = None
+    AwsAccountId: Annotated[str, _aws_pattern("Quicksight", "AwsAccountId")]
+    FolderId: Annotated[str, _aws_pattern("Quicksight", "RestrictiveResourceId")]
+    Namespace: Optional[Annotated[str, _aws_pattern("Quicksight", "Namespace")]] = None
     MaxResults: Optional[int] = None
     NextToken: Optional[str] = None
 
 
 # This class is the input for the 'describe_folder' function.
 class DescribeFolderRequestTypeDef(BaseValidatorModel):
-    AwsAccountId: str
-    FolderId: str
+    AwsAccountId: Annotated[str, _aws_pattern("Quicksight", "AwsAccountId")]
+    FolderId: Annotated[str, _aws_pattern("Quicksight", "RestrictiveResourceId")]
 
 
 # This class is the input for the 'describe_folder_resolved_permissions' function.
 class DescribeFolderResolvedPermissionsRequestTypeDef(BaseValidatorModel):
-    AwsAccountId: str
-    FolderId: str
-    Namespace: Optional[str] = None
+    AwsAccountId: Annotated[str, _aws_pattern("Quicksight", "AwsAccountId")]
+    FolderId: Annotated[str, _aws_pattern("Quicksight", "RestrictiveResourceId")]
+    Namespace: Optional[Annotated[str, _aws_pattern("Quicksight", "Namespace")]] = None
     MaxResults: Optional[int] = None
     NextToken: Optional[str] = None
 
 
 class FolderTypeDef(BaseValidatorModel):
-    FolderId: Optional[str] = None
+    FolderId: Optional[Annotated[str, _aws_pattern("Quicksight", "RestrictiveResourceId")]] = None
     Arn: Optional[str] = None
     Name: Optional[str] = None
     FolderType: Optional[FolderTypeType] = None
@@ -2083,30 +2092,30 @@ class FolderTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'describe_group_membership' function.
 class DescribeGroupMembershipRequestTypeDef(BaseValidatorModel):
-    MemberName: str
-    GroupName: str
-    AwsAccountId: str
-    Namespace: str
+    MemberName: Annotated[str, _aws_pattern("Quicksight", "GroupMemberName")]
+    GroupName: Annotated[str, _aws_pattern("Quicksight", "GroupName")]
+    AwsAccountId: Annotated[str, _aws_pattern("Quicksight", "AwsAccountId")]
+    Namespace: Annotated[str, _aws_pattern("Quicksight", "Namespace")]
 
 
 # This class is the input for the 'describe_group' function.
 class DescribeGroupRequestTypeDef(BaseValidatorModel):
-    GroupName: str
-    AwsAccountId: str
-    Namespace: str
+    GroupName: Annotated[str, _aws_pattern("Quicksight", "GroupName")]
+    AwsAccountId: Annotated[str, _aws_pattern("Quicksight", "AwsAccountId")]
+    Namespace: Annotated[str, _aws_pattern("Quicksight", "Namespace")]
 
 
 # This class is the input for the 'describe_iam_policy_assignment' function.
 class DescribeIAMPolicyAssignmentRequestTypeDef(BaseValidatorModel):
-    AwsAccountId: str
-    AssignmentName: str
-    Namespace: str
+    AwsAccountId: Annotated[str, _aws_pattern("Quicksight", "AwsAccountId")]
+    AssignmentName: Annotated[str, _aws_pattern("Quicksight", "IAMPolicyAssignmentName")]
+    Namespace: Annotated[str, _aws_pattern("Quicksight", "Namespace")]
 
 
 class IAMPolicyAssignmentTypeDef(BaseValidatorModel):
-    AwsAccountId: Optional[str] = None
+    AwsAccountId: Optional[Annotated[str, _aws_pattern("Quicksight", "AwsAccountId")]] = None
     AssignmentId: Optional[str] = None
-    AssignmentName: Optional[str] = None
+    AssignmentName: Optional[Annotated[str, _aws_pattern("Quicksight", "IAMPolicyAssignmentName")]] = None
     PolicyArn: Optional[str] = None
     Identities: Optional[Dict[str, List[str]]] = None
     AssignmentStatus: Optional[AssignmentStatusType] = None
@@ -2114,19 +2123,19 @@ class IAMPolicyAssignmentTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'describe_ingestion' function.
 class DescribeIngestionRequestTypeDef(BaseValidatorModel):
-    AwsAccountId: str
+    AwsAccountId: Annotated[str, _aws_pattern("Quicksight", "AwsAccountId")]
     DataSetId: str
-    IngestionId: str
+    IngestionId: Annotated[str, _aws_pattern("Quicksight", "IngestionId")]
 
 
 # This class is the input for the 'describe_ip_restriction' function.
 class DescribeIpRestrictionRequestTypeDef(BaseValidatorModel):
-    AwsAccountId: str
+    AwsAccountId: Annotated[str, _aws_pattern("Quicksight", "AwsAccountId")]
 
 
 # This class is the input for the 'describe_key_registration' function.
 class DescribeKeyRegistrationRequestTypeDef(BaseValidatorModel):
-    AwsAccountId: str
+    AwsAccountId: Annotated[str, _aws_pattern("Quicksight", "AwsAccountId")]
     DefaultKeyOnly: Optional[bool] = None
 
 
@@ -2142,23 +2151,23 @@ class RegisteredCustomerManagedKeyTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'describe_namespace' function.
 class DescribeNamespaceRequestTypeDef(BaseValidatorModel):
-    AwsAccountId: str
-    Namespace: str
+    AwsAccountId: Annotated[str, _aws_pattern("Quicksight", "AwsAccountId")]
+    Namespace: Annotated[str, _aws_pattern("Quicksight", "Namespace")]
 
 
 # This class is the input for the 'describe_q_personalization_configuration' function.
 class DescribeQPersonalizationConfigurationRequestTypeDef(BaseValidatorModel):
-    AwsAccountId: str
+    AwsAccountId: Annotated[str, _aws_pattern("Quicksight", "AwsAccountId")]
 
 
 # This class is the input for the 'describe_quick_sight_q_search_configuration' function.
 class DescribeQuickSightQSearchConfigurationRequestTypeDef(BaseValidatorModel):
-    AwsAccountId: str
+    AwsAccountId: Annotated[str, _aws_pattern("Quicksight", "AwsAccountId")]
 
 
 # This class is the input for the 'describe_refresh_schedule' function.
 class DescribeRefreshScheduleRequestTypeDef(BaseValidatorModel):
-    AwsAccountId: str
+    AwsAccountId: Annotated[str, _aws_pattern("Quicksight", "AwsAccountId")]
     DataSetId: str
     ScheduleId: str
 
@@ -2166,14 +2175,14 @@ class DescribeRefreshScheduleRequestTypeDef(BaseValidatorModel):
 # This class is the input for the 'describe_role_custom_permission' function.
 class DescribeRoleCustomPermissionRequestTypeDef(BaseValidatorModel):
     Role: RoleType
-    AwsAccountId: str
-    Namespace: str
+    AwsAccountId: Annotated[str, _aws_pattern("Quicksight", "AwsAccountId")]
+    Namespace: Annotated[str, _aws_pattern("Quicksight", "Namespace")]
 
 
 # This class is the input for the 'describe_self_upgrade_configuration' function.
 class DescribeSelfUpgradeConfigurationRequestTypeDef(BaseValidatorModel):
-    AwsAccountId: str
-    Namespace: str
+    AwsAccountId: Annotated[str, _aws_pattern("Quicksight", "AwsAccountId")]
+    Namespace: Annotated[str, _aws_pattern("Quicksight", "Namespace")]
 
 
 class SelfUpgradeConfigurationTypeDef(BaseValidatorModel):
@@ -2182,64 +2191,64 @@ class SelfUpgradeConfigurationTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'describe_template_alias' function.
 class DescribeTemplateAliasRequestTypeDef(BaseValidatorModel):
-    AwsAccountId: str
-    TemplateId: str
-    AliasName: str
+    AwsAccountId: Annotated[str, _aws_pattern("Quicksight", "AwsAccountId")]
+    TemplateId: Annotated[str, _aws_pattern("Quicksight", "ShortRestrictiveResourceId")]
+    AliasName: Annotated[str, _aws_pattern("Quicksight", "AliasName")]
 
 
 # This class is the input for the 'describe_template_definition' function.
 class DescribeTemplateDefinitionRequestTypeDef(BaseValidatorModel):
-    AwsAccountId: str
-    TemplateId: str
+    AwsAccountId: Annotated[str, _aws_pattern("Quicksight", "AwsAccountId")]
+    TemplateId: Annotated[str, _aws_pattern("Quicksight", "ShortRestrictiveResourceId")]
     VersionNumber: Optional[int] = None
-    AliasName: Optional[str] = None
+    AliasName: Optional[Annotated[str, _aws_pattern("Quicksight", "AliasName")]] = None
 
 
 # This class is the input for the 'describe_template_permissions' function.
 class DescribeTemplatePermissionsRequestTypeDef(BaseValidatorModel):
-    AwsAccountId: str
-    TemplateId: str
+    AwsAccountId: Annotated[str, _aws_pattern("Quicksight", "AwsAccountId")]
+    TemplateId: Annotated[str, _aws_pattern("Quicksight", "ShortRestrictiveResourceId")]
 
 
 # This class is the input for the 'describe_template' function.
 class DescribeTemplateRequestTypeDef(BaseValidatorModel):
-    AwsAccountId: str
-    TemplateId: str
+    AwsAccountId: Annotated[str, _aws_pattern("Quicksight", "AwsAccountId")]
+    TemplateId: Annotated[str, _aws_pattern("Quicksight", "ShortRestrictiveResourceId")]
     VersionNumber: Optional[int] = None
-    AliasName: Optional[str] = None
+    AliasName: Optional[Annotated[str, _aws_pattern("Quicksight", "AliasName")]] = None
 
 
 # This class is the input for the 'describe_theme_alias' function.
 class DescribeThemeAliasRequestTypeDef(BaseValidatorModel):
-    AwsAccountId: str
-    ThemeId: str
-    AliasName: str
+    AwsAccountId: Annotated[str, _aws_pattern("Quicksight", "AwsAccountId")]
+    ThemeId: Annotated[str, _aws_pattern("Quicksight", "ShortRestrictiveResourceId")]
+    AliasName: Annotated[str, _aws_pattern("Quicksight", "AliasName")]
 
 
 # This class is the input for the 'describe_theme_permissions' function.
 class DescribeThemePermissionsRequestTypeDef(BaseValidatorModel):
-    AwsAccountId: str
-    ThemeId: str
+    AwsAccountId: Annotated[str, _aws_pattern("Quicksight", "AwsAccountId")]
+    ThemeId: Annotated[str, _aws_pattern("Quicksight", "ShortRestrictiveResourceId")]
 
 
 # This class is the input for the 'describe_theme' function.
 class DescribeThemeRequestTypeDef(BaseValidatorModel):
-    AwsAccountId: str
-    ThemeId: str
+    AwsAccountId: Annotated[str, _aws_pattern("Quicksight", "AwsAndAccountId")]
+    ThemeId: Annotated[str, _aws_pattern("Quicksight", "ShortRestrictiveResourceId")]
     VersionNumber: Optional[int] = None
-    AliasName: Optional[str] = None
+    AliasName: Optional[Annotated[str, _aws_pattern("Quicksight", "AliasName")]] = None
 
 
 # This class is the input for the 'describe_topic_permissions' function.
 class DescribeTopicPermissionsRequestTypeDef(BaseValidatorModel):
-    AwsAccountId: str
-    TopicId: str
+    AwsAccountId: Annotated[str, _aws_pattern("Quicksight", "AwsAccountId")]
+    TopicId: Annotated[str, _aws_pattern("Quicksight", "TopicId")]
 
 
 # This class is the input for the 'describe_topic_refresh' function.
 class DescribeTopicRefreshRequestTypeDef(BaseValidatorModel):
-    AwsAccountId: str
-    TopicId: str
+    AwsAccountId: Annotated[str, _aws_pattern("Quicksight", "AwsAccountId")]
+    TopicId: Annotated[str, _aws_pattern("Quicksight", "TopicId")]
     RefreshId: str
 
 
@@ -2251,8 +2260,8 @@ class TopicRefreshDetailsTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'describe_topic_refresh_schedule' function.
 class DescribeTopicRefreshScheduleRequestTypeDef(BaseValidatorModel):
-    AwsAccountId: str
-    TopicId: str
+    AwsAccountId: Annotated[str, _aws_pattern("Quicksight", "AwsAccountId")]
+    TopicId: Annotated[str, _aws_pattern("Quicksight", "TopicId")]
     DatasetId: str
 
 
@@ -2267,26 +2276,26 @@ class TopicRefreshScheduleOutputTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'describe_topic' function.
 class DescribeTopicRequestTypeDef(BaseValidatorModel):
-    AwsAccountId: str
-    TopicId: str
+    AwsAccountId: Annotated[str, _aws_pattern("Quicksight", "AwsAccountId")]
+    TopicId: Annotated[str, _aws_pattern("Quicksight", "TopicId")]
 
 
 # This class is the input for the 'describe_user' function.
 class DescribeUserRequestTypeDef(BaseValidatorModel):
-    UserName: str
-    AwsAccountId: str
-    Namespace: str
+    UserName: Annotated[str, _aws_pattern("Quicksight", "UserName")]
+    AwsAccountId: Annotated[str, _aws_pattern("Quicksight", "AwsAccountId")]
+    Namespace: Annotated[str, _aws_pattern("Quicksight", "Namespace")]
 
 
 class UserTypeDef(BaseValidatorModel):
     Arn: Optional[str] = None
-    UserName: Optional[str] = None
+    UserName: Optional[Annotated[str, _aws_pattern("Quicksight", "UserName")]] = None
     Email: Optional[str] = None
     Role: Optional[UserRoleType] = None
     IdentityType: Optional[IdentityTypeType] = None
     Active: Optional[bool] = None
     PrincipalId: Optional[str] = None
-    CustomPermissionsName: Optional[str] = None
+    CustomPermissionsName: Optional[Annotated[str, _aws_pattern("Quicksight", "RoleName")]] = None
     ExternalLoginFederationProviderType: Optional[str] = None
     ExternalLoginFederationProviderUrl: Optional[str] = None
     ExternalLoginId: Optional[str] = None
@@ -2294,12 +2303,12 @@ class UserTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'describe_vpc_connection' function.
 class DescribeVPCConnectionRequestTypeDef(BaseValidatorModel):
-    AwsAccountId: str
+    AwsAccountId: Annotated[str, _aws_pattern("Quicksight", "AwsAccountId")]
     VPCConnectionId: str
 
 
 class DestinationTableSourceTypeDef(BaseValidatorModel):
-    TransformOperationId: str
+    TransformOperationId: Annotated[str, _aws_pattern("Quicksight", "DataSetEntityResourceId")]
 
 
 class NegativeFormatTypeDef(BaseValidatorModel):
@@ -2327,7 +2336,7 @@ class ExcludePeriodConfigurationTypeDef(BaseValidatorModel):
 
 
 class FailedKeyRegistrationEntryTypeDef(BaseValidatorModel):
-    Message: str
+    Message: Annotated[str, _aws_pattern("Quicksight", "NonEmptyString")]
     StatusCode: int
     SenderFault: bool
     KeyArn: Optional[str] = None
@@ -2364,13 +2373,13 @@ class SameSheetTargetVisualConfigurationOutputTypeDef(BaseValidatorModel):
 
 
 class SameSheetTargetVisualConfigurationTypeDef(BaseValidatorModel):
-    TargetVisuals: Optional[List[str]] = None
+    TargetVisuals: Optional[List[Annotated[str, _aws_pattern("Quicksight", "ShortRestrictiveResourceId")]]] = None
     TargetVisualOptions: Optional[Literal["ALL_VISUALS"]] = None
 
 
 class FlowSummaryTypeDef(BaseValidatorModel):
     Arn: str
-    FlowId: str
+    FlowId: Annotated[str, _aws_pattern("Quicksight", "FlowId")]
     Name: str
     CreatedTime: datetime
     Description: Optional[str] = None
@@ -2392,7 +2401,7 @@ class FolderSearchFilterTypeDef(BaseValidatorModel):
 
 class FolderSummaryTypeDef(BaseValidatorModel):
     Arn: Optional[str] = None
-    FolderId: Optional[str] = None
+    FolderId: Optional[Annotated[str, _aws_pattern("Quicksight", "RestrictiveResourceId")]] = None
     Name: Optional[str] = None
     FolderType: Optional[FolderTypeType] = None
     CreatedTime: Optional[datetime] = None
@@ -2439,12 +2448,12 @@ class FreeFormLayoutScreenCanvasSizeOptionsTypeDef(BaseValidatorModel):
 
 class FreeFormLayoutElementBackgroundStyleTypeDef(BaseValidatorModel):
     Visibility: Optional[VisibilityType] = None
-    Color: Optional[str] = None
+    Color: Optional[Annotated[str, _aws_pattern("Quicksight", "HexColorWithTransparency")]] = None
 
 
 class FreeFormLayoutElementBorderStyleTypeDef(BaseValidatorModel):
     Visibility: Optional[VisibilityType] = None
-    Color: Optional[str] = None
+    Color: Optional[Annotated[str, _aws_pattern("Quicksight", "HexColorWithTransparency")]] = None
     Width: Optional[str] = None
 
 
@@ -2453,8 +2462,8 @@ class LoadingAnimationTypeDef(BaseValidatorModel):
 
 
 class GaugeChartColorConfigurationTypeDef(BaseValidatorModel):
-    ForegroundColor: Optional[str] = None
-    BackgroundColor: Optional[str] = None
+    ForegroundColor: Optional[Annotated[str, _aws_pattern("Quicksight", "HexColor")]] = None
+    BackgroundColor: Optional[Annotated[str, _aws_pattern("Quicksight", "HexColor")]] = None
 
 
 class SessionTagTypeDef(BaseValidatorModel):
@@ -2465,11 +2474,11 @@ class SessionTagTypeDef(BaseValidatorModel):
 class GeneratedAnswerResultTypeDef(BaseValidatorModel):
     QuestionText: Optional[str] = None
     AnswerStatus: Optional[GeneratedAnswerStatusType] = None
-    TopicId: Optional[str] = None
+    TopicId: Optional[Annotated[str, _aws_pattern("Quicksight", "TopicId")]] = None
     TopicName: Optional[str] = None
     Restatement: Optional[str] = None
-    QuestionId: Optional[str] = None
-    AnswerId: Optional[str] = None
+    QuestionId: Optional[Annotated[str, _aws_pattern("Quicksight", "QuestionId")]] = None
+    AnswerId: Optional[Annotated[str, _aws_pattern("Quicksight", "AnswerId")]] = None
     QuestionUrl: Optional[str] = None
 
 
@@ -2488,7 +2497,7 @@ class GeocoderHierarchyTypeDef(BaseValidatorModel):
 
 
 class GeospatialCategoricalDataColorTypeDef(BaseValidatorModel):
-    Color: str
+    Color: Annotated[str, _aws_pattern("Quicksight", "HexColorWithTransparency")]
     DataValue: str
 
 
@@ -2501,7 +2510,7 @@ class GeospatialLineWidthTypeDef(BaseValidatorModel):
 
 
 class GeospatialSolidColorTypeDef(BaseValidatorModel):
-    Color: str
+    Color: Annotated[str, _aws_pattern("Quicksight", "HexColorWithTransparency")]
     State: Optional[GeospatialColorStateType] = None
 
 
@@ -2513,54 +2522,56 @@ class GeospatialCoordinateBoundsTypeDef(BaseValidatorModel):
 
 
 class GeospatialStaticFileSourceTypeDef(BaseValidatorModel):
-    StaticFileId: str
+    StaticFileId: Annotated[str, _aws_pattern("Quicksight", "ShortRestrictiveResourceId")]
 
 
 class GeospatialGradientStepColorTypeDef(BaseValidatorModel):
-    Color: str
+    Color: Annotated[str, _aws_pattern("Quicksight", "HexColorWithTransparency")]
     DataValue: float
 
 
 class GeospatialHeatmapDataColorTypeDef(BaseValidatorModel):
-    Color: str
+    Color: Annotated[str, _aws_pattern("Quicksight", "HexColor")]
 
 
 class GeospatialMapStyleTypeDef(BaseValidatorModel):
     BaseMapStyle: Optional[BaseMapStyleTypeType] = None
-    BackgroundColor: Optional[str] = None
+    BackgroundColor: Optional[Annotated[str, _aws_pattern("Quicksight", "HexColorWithTransparency")]] = None
     BaseMapVisibility: Optional[VisibilityType] = None
 
 
 class GeospatialNullSymbolStyleTypeDef(BaseValidatorModel):
-    FillColor: Optional[str] = None
-    StrokeColor: Optional[str] = None
+    FillColor: Optional[Annotated[str, _aws_pattern("Quicksight", "HexColorWithTransparency")]] = None
+    StrokeColor: Optional[Annotated[str, _aws_pattern("Quicksight", "HexColorWithTransparency")]] = None
     StrokeWidth: Optional[float] = None
 
 
 # This class is the input for the 'get_dashboard_embed_url' function.
 class GetDashboardEmbedUrlRequestTypeDef(BaseValidatorModel):
-    AwsAccountId: str
-    DashboardId: str
+    AwsAccountId: Annotated[str, _aws_pattern("Quicksight", "AwsAccountId")]
+    DashboardId: Annotated[str, _aws_pattern("Quicksight", "ShortRestrictiveResourceId")]
     IdentityType: EmbeddingIdentityTypeType
     SessionLifetimeInMinutes: Optional[int] = None
     UndoRedoDisabled: Optional[bool] = None
     ResetDisabled: Optional[bool] = None
     StatePersistenceEnabled: Optional[bool] = None
     UserArn: Optional[str] = None
-    Namespace: Optional[str] = None
-    AdditionalDashboardIds: Optional[List[str]] = None
+    Namespace: Optional[Annotated[str, _aws_pattern("Quicksight", "Namespace")]] = None
+    AdditionalDashboardIds: Optional[List[Annotated[str, _aws_pattern("Quicksight", "ShortRestrictiveResourceId")]]] = (
+        None
+    )
 
 
 # This class is the input for the 'get_flow_metadata' function.
 class GetFlowMetadataInputTypeDef(BaseValidatorModel):
-    AwsAccountId: str
-    FlowId: str
+    AwsAccountId: Annotated[str, _aws_pattern("Quicksight", "AccountId")]
+    FlowId: Annotated[str, _aws_pattern("Quicksight", "FlowId")]
 
 
 # This class is the input for the 'get_flow_permissions' function.
 class GetFlowPermissionsInputTypeDef(BaseValidatorModel):
-    AwsAccountId: str
-    FlowId: str
+    AwsAccountId: Annotated[str, _aws_pattern("Quicksight", "AccountId")]
+    FlowId: Annotated[str, _aws_pattern("Quicksight", "FlowId")]
 
 
 class PermissionOutputTypeDef(BaseValidatorModel):
@@ -2576,14 +2587,14 @@ class UserIdentifierTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'get_session_embed_url' function.
 class GetSessionEmbedUrlRequestTypeDef(BaseValidatorModel):
-    AwsAccountId: str
+    AwsAccountId: Annotated[str, _aws_pattern("Quicksight", "AwsAccountId")]
     EntryPoint: Optional[str] = None
     SessionLifetimeInMinutes: Optional[int] = None
     UserArn: Optional[str] = None
 
 
 class TableBorderOptionsTypeDef(BaseValidatorModel):
-    Color: Optional[str] = None
+    Color: Optional[Annotated[str, _aws_pattern("Quicksight", "HexColor")]] = None
     Thickness: Optional[int] = None
     Style: Optional[TableBorderStyleType] = None
 
@@ -2591,7 +2602,7 @@ class TableBorderOptionsTypeDef(BaseValidatorModel):
 class GradientStopTypeDef(BaseValidatorModel):
     GradientOffset: float
     DataValue: Optional[float] = None
-    Color: Optional[str] = None
+    Color: Optional[Annotated[str, _aws_pattern("Quicksight", "HexColor")]] = None
 
 
 class GridLayoutScreenCanvasSizeOptionsTypeDef(BaseValidatorModel):
@@ -2601,12 +2612,12 @@ class GridLayoutScreenCanvasSizeOptionsTypeDef(BaseValidatorModel):
 
 class GridLayoutElementBackgroundStyleTypeDef(BaseValidatorModel):
     Visibility: Optional[VisibilityType] = None
-    Color: Optional[str] = None
+    Color: Optional[Annotated[str, _aws_pattern("Quicksight", "HexColorWithTransparency")]] = None
 
 
 class GridLayoutElementBorderStyleTypeDef(BaseValidatorModel):
     Visibility: Optional[VisibilityType] = None
-    Color: Optional[str] = None
+    Color: Optional[Annotated[str, _aws_pattern("Quicksight", "HexColorWithTransparency")]] = None
     Width: Optional[str] = None
 
 
@@ -2621,7 +2632,7 @@ class GutterStyleTypeDef(BaseValidatorModel):
 
 
 class IAMPolicyAssignmentSummaryTypeDef(BaseValidatorModel):
-    AssignmentName: Optional[str] = None
+    AssignmentName: Optional[Annotated[str, _aws_pattern("Quicksight", "IAMPolicyAssignmentName")]] = None
     AssignmentStatus: Optional[AssignmentStatusType] = None
 
 
@@ -2670,7 +2681,7 @@ class IntegerParameterOutputTypeDef(BaseValidatorModel):
 
 
 class IntegerParameterTypeDef(BaseValidatorModel):
-    Name: str
+    Name: Annotated[str, _aws_pattern("Quicksight", "NonEmptyString")]
     Values: List[int]
 
 
@@ -2686,7 +2697,7 @@ class OutputColumnNameOverrideTypeDef(BaseValidatorModel):
 class KPISparklineOptionsTypeDef(BaseValidatorModel):
     Type: KPISparklineTypeType
     Visibility: Optional[VisibilityType] = None
-    Color: Optional[str] = None
+    Color: Optional[Annotated[str, _aws_pattern("Quicksight", "HexColor")]] = None
     TooltipVisibility: Optional[VisibilityType] = None
 
 
@@ -2717,35 +2728,35 @@ class ResourcePermissionTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'list_action_connectors' function.
 class ListActionConnectorsRequestTypeDef(BaseValidatorModel):
-    AwsAccountId: str
+    AwsAccountId: Annotated[str, _aws_pattern("Quicksight", "AwsAccountId")]
     MaxResults: Optional[int] = None
     NextToken: Optional[str] = None
 
 
 # This class is the input for the 'list_analyses' function.
 class ListAnalysesRequestTypeDef(BaseValidatorModel):
-    AwsAccountId: str
+    AwsAccountId: Annotated[str, _aws_pattern("Quicksight", "AwsAccountId")]
     NextToken: Optional[str] = None
     MaxResults: Optional[int] = None
 
 
 # This class is the input for the 'list_asset_bundle_export_jobs' function.
 class ListAssetBundleExportJobsRequestTypeDef(BaseValidatorModel):
-    AwsAccountId: str
+    AwsAccountId: Annotated[str, _aws_pattern("Quicksight", "AwsAccountId")]
     NextToken: Optional[str] = None
     MaxResults: Optional[int] = None
 
 
 # This class is the input for the 'list_asset_bundle_import_jobs' function.
 class ListAssetBundleImportJobsRequestTypeDef(BaseValidatorModel):
-    AwsAccountId: str
+    AwsAccountId: Annotated[str, _aws_pattern("Quicksight", "AwsAccountId")]
     NextToken: Optional[str] = None
     MaxResults: Optional[int] = None
 
 
 # This class is the input for the 'list_brands' function.
 class ListBrandsRequestTypeDef(BaseValidatorModel):
-    AwsAccountId: str
+    AwsAccountId: Annotated[str, _aws_pattern("Quicksight", "AwsAccountId")]
     MaxResults: Optional[int] = None
     NextToken: Optional[str] = None
 
@@ -2756,63 +2767,63 @@ class ListControlSearchOptionsTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'list_custom_permissions' function.
 class ListCustomPermissionsRequestTypeDef(BaseValidatorModel):
-    AwsAccountId: str
+    AwsAccountId: Annotated[str, _aws_pattern("Quicksight", "AwsAccountId")]
     MaxResults: Optional[int] = None
     NextToken: Optional[str] = None
 
 
 # This class is the input for the 'list_dashboard_versions' function.
 class ListDashboardVersionsRequestTypeDef(BaseValidatorModel):
-    AwsAccountId: str
-    DashboardId: str
+    AwsAccountId: Annotated[str, _aws_pattern("Quicksight", "AwsAccountId")]
+    DashboardId: Annotated[str, _aws_pattern("Quicksight", "ShortRestrictiveResourceId")]
     NextToken: Optional[str] = None
     MaxResults: Optional[int] = None
 
 
 # This class is the input for the 'list_dashboards' function.
 class ListDashboardsRequestTypeDef(BaseValidatorModel):
-    AwsAccountId: str
+    AwsAccountId: Annotated[str, _aws_pattern("Quicksight", "AwsAccountId")]
     NextToken: Optional[str] = None
     MaxResults: Optional[int] = None
 
 
 # This class is the input for the 'list_data_sets' function.
 class ListDataSetsRequestTypeDef(BaseValidatorModel):
-    AwsAccountId: str
+    AwsAccountId: Annotated[str, _aws_pattern("Quicksight", "AwsAccountId")]
     NextToken: Optional[str] = None
     MaxResults: Optional[int] = None
 
 
 # This class is the input for the 'list_data_sources' function.
 class ListDataSourcesRequestTypeDef(BaseValidatorModel):
-    AwsAccountId: str
+    AwsAccountId: Annotated[str, _aws_pattern("Quicksight", "AwsAccountId")]
     NextToken: Optional[str] = None
     MaxResults: Optional[int] = None
 
 
 # This class is the input for the 'list_flows' function.
 class ListFlowsInputTypeDef(BaseValidatorModel):
-    AwsAccountId: str
+    AwsAccountId: Annotated[str, _aws_pattern("Quicksight", "AccountId")]
     NextToken: Optional[str] = None
     MaxResults: Optional[int] = None
 
 
 # This class is the input for the 'list_folder_members' function.
 class ListFolderMembersRequestTypeDef(BaseValidatorModel):
-    AwsAccountId: str
-    FolderId: str
+    AwsAccountId: Annotated[str, _aws_pattern("Quicksight", "AwsAccountId")]
+    FolderId: Annotated[str, _aws_pattern("Quicksight", "RestrictiveResourceId")]
     NextToken: Optional[str] = None
     MaxResults: Optional[int] = None
 
 
 class MemberIdArnPairTypeDef(BaseValidatorModel):
-    MemberId: Optional[str] = None
+    MemberId: Optional[Annotated[str, _aws_pattern("Quicksight", "RestrictiveResourceId")]] = None
     MemberArn: Optional[str] = None
 
 
 # This class is the input for the 'list_folders_for_resource' function.
 class ListFoldersForResourceRequestTypeDef(BaseValidatorModel):
-    AwsAccountId: str
+    AwsAccountId: Annotated[str, _aws_pattern("Quicksight", "AwsAccountId")]
     ResourceArn: str
     NextToken: Optional[str] = None
     MaxResults: Optional[int] = None
@@ -2820,41 +2831,41 @@ class ListFoldersForResourceRequestTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'list_folders' function.
 class ListFoldersRequestTypeDef(BaseValidatorModel):
-    AwsAccountId: str
+    AwsAccountId: Annotated[str, _aws_pattern("Quicksight", "AwsAccountId")]
     NextToken: Optional[str] = None
     MaxResults: Optional[int] = None
 
 
 # This class is the input for the 'list_group_memberships' function.
 class ListGroupMembershipsRequestTypeDef(BaseValidatorModel):
-    GroupName: str
-    AwsAccountId: str
-    Namespace: str
+    GroupName: Annotated[str, _aws_pattern("Quicksight", "GroupName")]
+    AwsAccountId: Annotated[str, _aws_pattern("Quicksight", "AwsAccountId")]
+    Namespace: Annotated[str, _aws_pattern("Quicksight", "Namespace")]
     NextToken: Optional[str] = None
     MaxResults: Optional[int] = None
 
 
 # This class is the input for the 'list_groups' function.
 class ListGroupsRequestTypeDef(BaseValidatorModel):
-    AwsAccountId: str
-    Namespace: str
+    AwsAccountId: Annotated[str, _aws_pattern("Quicksight", "AwsAccountId")]
+    Namespace: Annotated[str, _aws_pattern("Quicksight", "Namespace")]
     NextToken: Optional[str] = None
     MaxResults: Optional[int] = None
 
 
 # This class is the input for the 'list_iam_policy_assignments_for_user' function.
 class ListIAMPolicyAssignmentsForUserRequestTypeDef(BaseValidatorModel):
-    AwsAccountId: str
-    UserName: str
-    Namespace: str
+    AwsAccountId: Annotated[str, _aws_pattern("Quicksight", "AwsAccountId")]
+    UserName: Annotated[str, _aws_pattern("Quicksight", "UserName")]
+    Namespace: Annotated[str, _aws_pattern("Quicksight", "Namespace")]
     NextToken: Optional[str] = None
     MaxResults: Optional[int] = None
 
 
 # This class is the input for the 'list_iam_policy_assignments' function.
 class ListIAMPolicyAssignmentsRequestTypeDef(BaseValidatorModel):
-    AwsAccountId: str
-    Namespace: str
+    AwsAccountId: Annotated[str, _aws_pattern("Quicksight", "AwsAccountId")]
+    Namespace: Annotated[str, _aws_pattern("Quicksight", "Namespace")]
     AssignmentStatus: Optional[AssignmentStatusType] = None
     NextToken: Optional[str] = None
     MaxResults: Optional[int] = None
@@ -2862,7 +2873,7 @@ class ListIAMPolicyAssignmentsRequestTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'list_identity_propagation_configs' function.
 class ListIdentityPropagationConfigsRequestTypeDef(BaseValidatorModel):
-    AwsAccountId: str
+    AwsAccountId: Annotated[str, _aws_pattern("Quicksight", "AwsAccountId")]
     MaxResults: Optional[int] = None
     NextToken: Optional[str] = None
 
@@ -2870,44 +2881,44 @@ class ListIdentityPropagationConfigsRequestTypeDef(BaseValidatorModel):
 # This class is the input for the 'list_ingestions' function.
 class ListIngestionsRequestTypeDef(BaseValidatorModel):
     DataSetId: str
-    AwsAccountId: str
+    AwsAccountId: Annotated[str, _aws_pattern("Quicksight", "AwsAccountId")]
     NextToken: Optional[str] = None
     MaxResults: Optional[int] = None
 
 
 # This class is the input for the 'list_namespaces' function.
 class ListNamespacesRequestTypeDef(BaseValidatorModel):
-    AwsAccountId: str
+    AwsAccountId: Annotated[str, _aws_pattern("Quicksight", "AwsAccountId")]
     NextToken: Optional[str] = None
     MaxResults: Optional[int] = None
 
 
 # This class is the input for the 'list_refresh_schedules' function.
 class ListRefreshSchedulesRequestTypeDef(BaseValidatorModel):
-    AwsAccountId: str
+    AwsAccountId: Annotated[str, _aws_pattern("Quicksight", "AwsAccountId")]
     DataSetId: str
 
 
 # This class is the input for the 'list_role_memberships' function.
 class ListRoleMembershipsRequestTypeDef(BaseValidatorModel):
     Role: RoleType
-    AwsAccountId: str
-    Namespace: str
+    AwsAccountId: Annotated[str, _aws_pattern("Quicksight", "AwsAccountId")]
+    Namespace: Annotated[str, _aws_pattern("Quicksight", "Namespace")]
     NextToken: Optional[str] = None
     MaxResults: Optional[int] = None
 
 
 # This class is the input for the 'list_self_upgrades' function.
 class ListSelfUpgradesRequestTypeDef(BaseValidatorModel):
-    AwsAccountId: str
-    Namespace: str
+    AwsAccountId: Annotated[str, _aws_pattern("Quicksight", "AwsAccountId")]
+    Namespace: Annotated[str, _aws_pattern("Quicksight", "Namespace")]
     NextToken: Optional[str] = None
     MaxResults: Optional[int] = None
 
 
 class SelfUpgradeRequestDetailTypeDef(BaseValidatorModel):
     UpgradeRequestId: Optional[str] = None
-    UserName: Optional[str] = None
+    UserName: Optional[Annotated[str, _aws_pattern("Quicksight", "UserName")]] = None
     OriginalRole: Optional[UserRoleType] = None
     RequestedRole: Optional[UserRoleType] = None
     RequestNote: Optional[str] = None
@@ -2924,16 +2935,16 @@ class ListTagsForResourceRequestTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'list_template_aliases' function.
 class ListTemplateAliasesRequestTypeDef(BaseValidatorModel):
-    AwsAccountId: str
-    TemplateId: str
+    AwsAccountId: Annotated[str, _aws_pattern("Quicksight", "AwsAccountId")]
+    TemplateId: Annotated[str, _aws_pattern("Quicksight", "ShortRestrictiveResourceId")]
     NextToken: Optional[str] = None
     MaxResults: Optional[int] = None
 
 
 # This class is the input for the 'list_template_versions' function.
 class ListTemplateVersionsRequestTypeDef(BaseValidatorModel):
-    AwsAccountId: str
-    TemplateId: str
+    AwsAccountId: Annotated[str, _aws_pattern("Quicksight", "AwsAccountId")]
+    TemplateId: Annotated[str, _aws_pattern("Quicksight", "ShortRestrictiveResourceId")]
     NextToken: Optional[str] = None
     MaxResults: Optional[int] = None
 
@@ -2948,14 +2959,14 @@ class TemplateVersionSummaryTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'list_templates' function.
 class ListTemplatesRequestTypeDef(BaseValidatorModel):
-    AwsAccountId: str
+    AwsAccountId: Annotated[str, _aws_pattern("Quicksight", "AwsAccountId")]
     NextToken: Optional[str] = None
     MaxResults: Optional[int] = None
 
 
 class TemplateSummaryTypeDef(BaseValidatorModel):
     Arn: Optional[str] = None
-    TemplateId: Optional[str] = None
+    TemplateId: Optional[Annotated[str, _aws_pattern("Quicksight", "ShortRestrictiveResourceId")]] = None
     Name: Optional[str] = None
     LatestVersionNumber: Optional[int] = None
     CreatedTime: Optional[datetime] = None
@@ -2964,16 +2975,16 @@ class TemplateSummaryTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'list_theme_aliases' function.
 class ListThemeAliasesRequestTypeDef(BaseValidatorModel):
-    AwsAccountId: str
-    ThemeId: str
+    AwsAccountId: Annotated[str, _aws_pattern("Quicksight", "AwsAccountId")]
+    ThemeId: Annotated[str, _aws_pattern("Quicksight", "ShortRestrictiveResourceId")]
     NextToken: Optional[str] = None
     MaxResults: Optional[int] = None
 
 
 # This class is the input for the 'list_theme_versions' function.
 class ListThemeVersionsRequestTypeDef(BaseValidatorModel):
-    AwsAccountId: str
-    ThemeId: str
+    AwsAccountId: Annotated[str, _aws_pattern("Quicksight", "AwsAccountId")]
+    ThemeId: Annotated[str, _aws_pattern("Quicksight", "ShortRestrictiveResourceId")]
     NextToken: Optional[str] = None
     MaxResults: Optional[int] = None
 
@@ -2988,7 +2999,7 @@ class ThemeVersionSummaryTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'list_themes' function.
 class ListThemesRequestTypeDef(BaseValidatorModel):
-    AwsAccountId: str
+    AwsAccountId: Annotated[str, _aws_pattern("Quicksight", "AwsAccountId")]
     NextToken: Optional[str] = None
     MaxResults: Optional[int] = None
     Type: Optional[ThemeTypeType] = None
@@ -2997,7 +3008,7 @@ class ListThemesRequestTypeDef(BaseValidatorModel):
 class ThemeSummaryTypeDef(BaseValidatorModel):
     Arn: Optional[str] = None
     Name: Optional[str] = None
-    ThemeId: Optional[str] = None
+    ThemeId: Optional[Annotated[str, _aws_pattern("Quicksight", "ShortRestrictiveResourceId")]] = None
     LatestVersionNumber: Optional[int] = None
     CreatedTime: Optional[datetime] = None
     LastUpdatedTime: Optional[datetime] = None
@@ -3005,50 +3016,50 @@ class ThemeSummaryTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'list_topic_refresh_schedules' function.
 class ListTopicRefreshSchedulesRequestTypeDef(BaseValidatorModel):
-    AwsAccountId: str
-    TopicId: str
+    AwsAccountId: Annotated[str, _aws_pattern("Quicksight", "AwsAccountId")]
+    TopicId: Annotated[str, _aws_pattern("Quicksight", "TopicId")]
 
 
 # This class is the input for the 'list_topic_reviewed_answers' function.
 class ListTopicReviewedAnswersRequestTypeDef(BaseValidatorModel):
-    AwsAccountId: str
-    TopicId: str
+    AwsAccountId: Annotated[str, _aws_pattern("Quicksight", "AwsAccountId")]
+    TopicId: Annotated[str, _aws_pattern("Quicksight", "TopicId")]
 
 
 # This class is the input for the 'list_topics' function.
 class ListTopicsRequestTypeDef(BaseValidatorModel):
-    AwsAccountId: str
+    AwsAccountId: Annotated[str, _aws_pattern("Quicksight", "AwsAccountId")]
     NextToken: Optional[str] = None
     MaxResults: Optional[int] = None
 
 
 class TopicSummaryTypeDef(BaseValidatorModel):
     Arn: Optional[str] = None
-    TopicId: Optional[str] = None
+    TopicId: Optional[Annotated[str, _aws_pattern("Quicksight", "TopicId")]] = None
     Name: Optional[str] = None
     UserExperienceVersion: Optional[TopicUserExperienceVersionType] = None
 
 
 # This class is the input for the 'list_user_groups' function.
 class ListUserGroupsRequestTypeDef(BaseValidatorModel):
-    UserName: str
-    AwsAccountId: str
-    Namespace: str
+    UserName: Annotated[str, _aws_pattern("Quicksight", "UserName")]
+    AwsAccountId: Annotated[str, _aws_pattern("Quicksight", "AwsAccountId")]
+    Namespace: Annotated[str, _aws_pattern("Quicksight", "Namespace")]
     NextToken: Optional[str] = None
     MaxResults: Optional[int] = None
 
 
 # This class is the input for the 'list_users' function.
 class ListUsersRequestTypeDef(BaseValidatorModel):
-    AwsAccountId: str
-    Namespace: str
+    AwsAccountId: Annotated[str, _aws_pattern("Quicksight", "AwsAccountId")]
+    Namespace: Annotated[str, _aws_pattern("Quicksight", "Namespace")]
     NextToken: Optional[str] = None
     MaxResults: Optional[int] = None
 
 
 # This class is the input for the 'list_vpc_connections' function.
 class ListVPCConnectionsRequestTypeDef(BaseValidatorModel):
-    AwsAccountId: str
+    AwsAccountId: Annotated[str, _aws_pattern("Quicksight", "AwsAccountId")]
     NextToken: Optional[str] = None
     MaxResults: Optional[int] = None
 
@@ -3087,11 +3098,11 @@ class NamespaceErrorTypeDef(BaseValidatorModel):
 
 
 class NetworkInterfaceTypeDef(BaseValidatorModel):
-    SubnetId: Optional[str] = None
+    SubnetId: Optional[Annotated[str, _aws_pattern("Quicksight", "SubnetId")]] = None
     AvailabilityZone: Optional[str] = None
     ErrorMessage: Optional[str] = None
     Status: Optional[NetworkInterfaceStatusType] = None
-    NetworkInterfaceId: Optional[str] = None
+    NetworkInterfaceId: Optional[Annotated[str, _aws_pattern("Quicksight", "NetworkInterfaceId")]] = None
 
 
 class NewDefaultValuesOutputTypeDef(BaseValidatorModel):
@@ -3103,7 +3114,7 @@ class NewDefaultValuesOutputTypeDef(BaseValidatorModel):
 
 class NumericRangeFilterValueTypeDef(BaseValidatorModel):
     StaticValue: Optional[float] = None
-    Parameter: Optional[str] = None
+    Parameter: Optional[Annotated[str, _aws_pattern("Quicksight", "ParameterName")]] = None
 
 
 class ThousandSeparatorOptionsTypeDef(BaseValidatorModel):
@@ -3122,7 +3133,7 @@ class StringParameterOutputTypeDef(BaseValidatorModel):
 
 
 class StringParameterTypeDef(BaseValidatorModel):
-    Name: str
+    Name: Annotated[str, _aws_pattern("Quicksight", "NonEmptyString")]
     Values: List[str]
 
 
@@ -3182,7 +3193,7 @@ class RowAlternateColorOptionsOutputTypeDef(BaseValidatorModel):
 
 class RowAlternateColorOptionsTypeDef(BaseValidatorModel):
     Status: Optional[WidgetStatusType] = None
-    RowAlternateColors: Optional[List[str]] = None
+    RowAlternateColors: Optional[List[Annotated[str, _aws_pattern("Quicksight", "HexColor")]]] = None
     UsePrimaryBackgroundColor: Optional[WidgetStatusType] = None
 
 
@@ -3197,7 +3208,7 @@ class PluginVisualPropertyTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'predict_qa_results' function.
 class PredictQAResultsRequestTypeDef(BaseValidatorModel):
-    AwsAccountId: str
+    AwsAccountId: Annotated[str, _aws_pattern("Quicksight", "AwsAccountId")]
     QueryText: str
     IncludeQuickSightQIndex: Optional[IncludeQuickSightQIndexType] = None
     IncludeGeneratedAnswer: Optional[IncludeGeneratedAnswerType] = None
@@ -3214,12 +3225,12 @@ class RangeConstantTypeDef(BaseValidatorModel):
 
 
 class ReadAPIKeyConnectionMetadataTypeDef(BaseValidatorModel):
-    BaseEndpoint: str
-    Email: Optional[str] = None
+    BaseEndpoint: Annotated[str, _aws_pattern("Quicksight", "Endpoint")]
+    Email: Optional[Annotated[str, _aws_pattern("Quicksight", "Email")]] = None
 
 
 class ReadBasicAuthConnectionMetadataTypeDef(BaseValidatorModel):
-    BaseEndpoint: str
+    BaseEndpoint: Annotated[str, _aws_pattern("Quicksight", "Endpoint")]
     Username: str
 
 
@@ -3229,18 +3240,18 @@ class ReadIamConnectionMetadataTypeDef(BaseValidatorModel):
 
 
 class ReadNoneConnectionMetadataTypeDef(BaseValidatorModel):
-    BaseEndpoint: str
+    BaseEndpoint: Annotated[str, _aws_pattern("Quicksight", "Endpoint")]
 
 
 class ReadAuthorizationCodeGrantDetailsTypeDef(BaseValidatorModel):
     ClientId: str
-    TokenEndpoint: str
-    AuthorizationEndpoint: str
+    TokenEndpoint: Annotated[str, _aws_pattern("Quicksight", "Endpoint")]
+    AuthorizationEndpoint: Annotated[str, _aws_pattern("Quicksight", "Endpoint")]
 
 
 class ReadClientCredentialsGrantDetailsTypeDef(BaseValidatorModel):
     ClientId: str
-    TokenEndpoint: str
+    TokenEndpoint: Annotated[str, _aws_pattern("Quicksight", "Endpoint")]
 
 
 class RecentSnapshotsConfigurationsTypeDef(BaseValidatorModel):
@@ -3262,7 +3273,7 @@ class RedshiftIAMParametersTypeDef(BaseValidatorModel):
 
 
 class ReferenceLineCustomLabelConfigurationTypeDef(BaseValidatorModel):
-    CustomLabel: str
+    CustomLabel: Annotated[str, _aws_pattern("Quicksight", "NonEmptyString")]
 
 
 class ReferenceLineStaticDataConfigurationTypeDef(BaseValidatorModel):
@@ -3271,7 +3282,7 @@ class ReferenceLineStaticDataConfigurationTypeDef(BaseValidatorModel):
 
 class ReferenceLineStyleConfigurationTypeDef(BaseValidatorModel):
     Pattern: Optional[ReferenceLinePatternTypeType] = None
-    Color: Optional[str] = None
+    Color: Optional[Annotated[str, _aws_pattern("Quicksight", "HexColor")]] = None
 
 
 class RefreshFailureEmailAlertTypeDef(BaseValidatorModel):
@@ -3280,7 +3291,7 @@ class RefreshFailureEmailAlertTypeDef(BaseValidatorModel):
 
 class ScheduleRefreshOnEntityTypeDef(BaseValidatorModel):
     DayOfWeek: Optional[DayOfWeekType] = None
-    DayOfMonth: Optional[str] = None
+    DayOfMonth: Optional[Annotated[str, _aws_pattern("Quicksight", "DayOfMonth")]] = None
 
 
 class SchedulesConfigurationsTypeDef(BaseValidatorModel):
@@ -3296,11 +3307,11 @@ class ThresholdAlertsConfigurationsTypeDef(BaseValidatorModel):
 
 
 class RegisteredUserGenerativeQnAEmbeddingConfigurationTypeDef(BaseValidatorModel):
-    InitialTopicId: Optional[str] = None
+    InitialTopicId: Optional[Annotated[str, _aws_pattern("Quicksight", "RestrictiveResourceId")]] = None
 
 
 class RegisteredUserQSearchBarEmbeddingConfigurationTypeDef(BaseValidatorModel):
-    InitialTopicId: Optional[str] = None
+    InitialTopicId: Optional[Annotated[str, _aws_pattern("Quicksight", "RestrictiveResourceId")]] = None
 
 
 class RenameColumnOperationTypeDef(BaseValidatorModel):
@@ -3310,8 +3321,8 @@ class RenameColumnOperationTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'restore_analysis' function.
 class RestoreAnalysisRequestTypeDef(BaseValidatorModel):
-    AwsAccountId: str
-    AnalysisId: str
+    AwsAccountId: Annotated[str, _aws_pattern("Quicksight", "AwsAccountId")]
+    AnalysisId: Annotated[str, _aws_pattern("Quicksight", "ShortRestrictiveResourceId")]
     RestoreToFolders: Optional[bool] = None
 
 
@@ -3323,9 +3334,9 @@ class RowLevelPermissionTagRuleTypeDef(BaseValidatorModel):
 
 
 class S3BucketConfigurationTypeDef(BaseValidatorModel):
-    BucketName: str
-    BucketPrefix: str
-    BucketRegion: str
+    BucketName: Annotated[str, _aws_pattern("Quicksight", "NonEmptyString")]
+    BucketPrefix: Annotated[str, _aws_pattern("Quicksight", "NonEmptyString")]
+    BucketRegion: Annotated[str, _aws_pattern("Quicksight", "NonEmptyString")]
 
 
 class UploadSettingsTypeDef(BaseValidatorModel):
@@ -3368,9 +3379,9 @@ class SheetVisualScopingConfigurationOutputTypeDef(BaseValidatorModel):
 
 
 class SheetVisualScopingConfigurationTypeDef(BaseValidatorModel):
-    SheetId: str
+    SheetId: Annotated[str, _aws_pattern("Quicksight", "ShortRestrictiveResourceId")]
     Scope: FilterVisualScopeType
-    VisualIds: Optional[List[str]] = None
+    VisualIds: Optional[List[Annotated[str, _aws_pattern("Quicksight", "ShortRestrictiveResourceId")]]] = None
 
 
 class SemanticEntityTypeOutputTypeDef(BaseValidatorModel):
@@ -3419,7 +3430,7 @@ class SheetImageScalingConfigurationTypeDef(BaseValidatorModel):
 
 
 class SheetImageStaticFileSourceTypeDef(BaseValidatorModel):
-    StaticFileId: str
+    StaticFileId: Annotated[str, _aws_pattern("Quicksight", "ShortRestrictiveResourceId")]
 
 
 class SheetImageTooltipTextTypeDef(BaseValidatorModel):
@@ -3427,12 +3438,12 @@ class SheetImageTooltipTextTypeDef(BaseValidatorModel):
 
 
 class SheetLayoutGroupMemberTypeDef(BaseValidatorModel):
-    Id: str
+    Id: Annotated[str, _aws_pattern("Quicksight", "ShortRestrictiveResourceId")]
     Type: SheetLayoutGroupMemberTypeType
 
 
 class SheetTooltipTypeDef(BaseValidatorModel):
-    SheetId: Optional[str] = None
+    SheetId: Optional[Annotated[str, _aws_pattern("Quicksight", "ShortRestrictiveResourceId")]] = None
 
 
 class ShortFormatTextTypeDef(BaseValidatorModel):
@@ -3465,9 +3476,9 @@ class SnapshotFileSheetSelectionOutputTypeDef(BaseValidatorModel):
 
 
 class SnapshotFileSheetSelectionTypeDef(BaseValidatorModel):
-    SheetId: str
+    SheetId: Annotated[str, _aws_pattern("Quicksight", "ShortRestrictiveResourceId")]
     SelectionScope: SnapshotFileSheetSelectionScopeType
-    VisualIds: Optional[List[str]] = None
+    VisualIds: Optional[List[Annotated[str, _aws_pattern("Quicksight", "ShortRestrictiveResourceId")]]] = None
 
 
 class SnapshotJobResultErrorInfoTypeDef(BaseValidatorModel):
@@ -3477,17 +3488,17 @@ class SnapshotJobResultErrorInfoTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'start_automation_job' function.
 class StartAutomationJobRequestTypeDef(BaseValidatorModel):
-    AwsAccountId: str
-    AutomationGroupId: str
-    AutomationId: str
-    InputPayload: Optional[str] = None
+    AwsAccountId: Annotated[str, _aws_pattern("Quicksight", "AwsAccountId")]
+    AutomationGroupId: Annotated[str, _aws_pattern("Quicksight", "AutomateId")]
+    AutomationId: Annotated[str, _aws_pattern("Quicksight", "AutomateId")]
+    InputPayload: Optional[Annotated[str, _aws_pattern("Quicksight", "SensitiveIOPayload")]] = None
 
 
 # This class is the input for the 'start_dashboard_snapshot_job_schedule' function.
 class StartDashboardSnapshotJobScheduleRequestTypeDef(BaseValidatorModel):
-    AwsAccountId: str
-    DashboardId: str
-    ScheduleId: str
+    AwsAccountId: Annotated[str, _aws_pattern("Quicksight", "AwsAccountId")]
+    DashboardId: Annotated[str, _aws_pattern("Quicksight", "ShortRestrictiveResourceId")]
+    ScheduleId: Annotated[str, _aws_pattern("Quicksight", "ShortRestrictiveResourceId")]
 
 
 class StaticFileS3SourceOptionsTypeDef(BaseValidatorModel):
@@ -3562,27 +3573,27 @@ class TextBoxMenuOptionTypeDef(BaseValidatorModel):
 
 
 class UIColorPaletteTypeDef(BaseValidatorModel):
-    PrimaryForeground: Optional[str] = None
-    PrimaryBackground: Optional[str] = None
-    SecondaryForeground: Optional[str] = None
-    SecondaryBackground: Optional[str] = None
-    Accent: Optional[str] = None
-    AccentForeground: Optional[str] = None
-    Danger: Optional[str] = None
-    DangerForeground: Optional[str] = None
-    Warning: Optional[str] = None
-    WarningForeground: Optional[str] = None
-    Success: Optional[str] = None
-    SuccessForeground: Optional[str] = None
-    Dimension: Optional[str] = None
-    DimensionForeground: Optional[str] = None
-    Measure: Optional[str] = None
-    MeasureForeground: Optional[str] = None
+    PrimaryForeground: Optional[Annotated[str, _aws_pattern("Quicksight", "HexColor")]] = None
+    PrimaryBackground: Optional[Annotated[str, _aws_pattern("Quicksight", "HexColor")]] = None
+    SecondaryForeground: Optional[Annotated[str, _aws_pattern("Quicksight", "HexColor")]] = None
+    SecondaryBackground: Optional[Annotated[str, _aws_pattern("Quicksight", "HexColor")]] = None
+    Accent: Optional[Annotated[str, _aws_pattern("Quicksight", "HexColor")]] = None
+    AccentForeground: Optional[Annotated[str, _aws_pattern("Quicksight", "HexColor")]] = None
+    Danger: Optional[Annotated[str, _aws_pattern("Quicksight", "HexColor")]] = None
+    DangerForeground: Optional[Annotated[str, _aws_pattern("Quicksight", "HexColor")]] = None
+    Warning: Optional[Annotated[str, _aws_pattern("Quicksight", "HexColor")]] = None
+    WarningForeground: Optional[Annotated[str, _aws_pattern("Quicksight", "HexColor")]] = None
+    Success: Optional[Annotated[str, _aws_pattern("Quicksight", "HexColor")]] = None
+    SuccessForeground: Optional[Annotated[str, _aws_pattern("Quicksight", "HexColor")]] = None
+    Dimension: Optional[Annotated[str, _aws_pattern("Quicksight", "HexColor")]] = None
+    DimensionForeground: Optional[Annotated[str, _aws_pattern("Quicksight", "HexColor")]] = None
+    Measure: Optional[Annotated[str, _aws_pattern("Quicksight", "HexColor")]] = None
+    MeasureForeground: Optional[Annotated[str, _aws_pattern("Quicksight", "HexColor")]] = None
 
 
 class ThemeErrorTypeDef(BaseValidatorModel):
     Type: Optional[Literal["INTERNAL_FAILURE"]] = None
-    Message: Optional[str] = None
+    Message: Optional[Annotated[str, _aws_pattern("Quicksight", "NonEmptyString")]] = None
 
 
 class TopicConfigOptionsTypeDef(BaseValidatorModel):
@@ -3626,84 +3637,84 @@ class UntagResourceRequestTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'update_account_custom_permission' function.
 class UpdateAccountCustomPermissionRequestTypeDef(BaseValidatorModel):
-    CustomPermissionsName: str
-    AwsAccountId: str
+    CustomPermissionsName: Annotated[str, _aws_pattern("Quicksight", "CustomPermissionsName")]
+    AwsAccountId: Annotated[str, _aws_pattern("Quicksight", "AwsAccountId")]
 
 
 # This class is the input for the 'update_account_settings' function.
 class UpdateAccountSettingsRequestTypeDef(BaseValidatorModel):
-    AwsAccountId: str
-    DefaultNamespace: str
+    AwsAccountId: Annotated[str, _aws_pattern("Quicksight", "AwsAccountId")]
+    DefaultNamespace: Annotated[str, _aws_pattern("Quicksight", "Namespace")]
     NotificationEmail: Optional[str] = None
     TerminationProtectionEnabled: Optional[bool] = None
 
 
 # This class is the input for the 'update_application_with_token_exchange_grant' function.
 class UpdateApplicationWithTokenExchangeGrantRequestTypeDef(BaseValidatorModel):
-    AwsAccountId: str
-    Namespace: str
+    AwsAccountId: Annotated[str, _aws_pattern("Quicksight", "AwsAccountId")]
+    Namespace: Annotated[str, _aws_pattern("Quicksight", "Namespace")]
 
 
 # This class is the input for the 'update_brand_assignment' function.
 class UpdateBrandAssignmentRequestTypeDef(BaseValidatorModel):
-    AwsAccountId: str
+    AwsAccountId: Annotated[str, _aws_pattern("Quicksight", "AwsAccountId")]
     BrandArn: str
 
 
 # This class is the input for the 'update_brand_published_version' function.
 class UpdateBrandPublishedVersionRequestTypeDef(BaseValidatorModel):
-    AwsAccountId: str
-    BrandId: str
-    VersionId: str
+    AwsAccountId: Annotated[str, _aws_pattern("Quicksight", "AwsAccountId")]
+    BrandId: Annotated[str, _aws_pattern("Quicksight", "ShortRestrictiveResourceId")]
+    VersionId: Annotated[str, _aws_pattern("Quicksight", "ShortRestrictiveResourceId")]
 
 
 # This class is the input for the 'update_dashboard_links' function.
 class UpdateDashboardLinksRequestTypeDef(BaseValidatorModel):
-    AwsAccountId: str
-    DashboardId: str
-    LinkEntities: List[str]
+    AwsAccountId: Annotated[str, _aws_pattern("Quicksight", "AwsAccountId")]
+    DashboardId: Annotated[str, _aws_pattern("Quicksight", "ShortRestrictiveResourceId")]
+    LinkEntities: List[Annotated[str, _aws_pattern("Quicksight", "LinkEntityArn")]]
 
 
 # This class is the input for the 'update_dashboard_published_version' function.
 class UpdateDashboardPublishedVersionRequestTypeDef(BaseValidatorModel):
-    AwsAccountId: str
-    DashboardId: str
+    AwsAccountId: Annotated[str, _aws_pattern("Quicksight", "AwsAccountId")]
+    DashboardId: Annotated[str, _aws_pattern("Quicksight", "ShortRestrictiveResourceId")]
     VersionNumber: int
 
 
 # This class is the input for the 'update_dashboards_qa_configuration' function.
 class UpdateDashboardsQAConfigurationRequestTypeDef(BaseValidatorModel):
-    AwsAccountId: str
+    AwsAccountId: Annotated[str, _aws_pattern("Quicksight", "AwsAccountId")]
     DashboardsQAStatus: DashboardsQAStatusType
 
 
 # This class is the input for the 'update_default_q_business_application' function.
 class UpdateDefaultQBusinessApplicationRequestTypeDef(BaseValidatorModel):
-    AwsAccountId: str
+    AwsAccountId: Annotated[str, _aws_pattern("Quicksight", "AwsAccountId")]
     ApplicationId: str
-    Namespace: Optional[str] = None
+    Namespace: Optional[Annotated[str, _aws_pattern("Quicksight", "Namespace")]] = None
 
 
 # This class is the input for the 'update_folder' function.
 class UpdateFolderRequestTypeDef(BaseValidatorModel):
-    AwsAccountId: str
-    FolderId: str
+    AwsAccountId: Annotated[str, _aws_pattern("Quicksight", "AwsAccountId")]
+    FolderId: Annotated[str, _aws_pattern("Quicksight", "RestrictiveResourceId")]
     Name: str
 
 
 # This class is the input for the 'update_group' function.
 class UpdateGroupRequestTypeDef(BaseValidatorModel):
-    GroupName: str
-    AwsAccountId: str
-    Namespace: str
+    GroupName: Annotated[str, _aws_pattern("Quicksight", "GroupName")]
+    AwsAccountId: Annotated[str, _aws_pattern("Quicksight", "AwsAccountId")]
+    Namespace: Annotated[str, _aws_pattern("Quicksight", "Namespace")]
     Description: Optional[str] = None
 
 
 # This class is the input for the 'update_iam_policy_assignment' function.
 class UpdateIAMPolicyAssignmentRequestTypeDef(BaseValidatorModel):
-    AwsAccountId: str
-    AssignmentName: str
-    Namespace: str
+    AwsAccountId: Annotated[str, _aws_pattern("Quicksight", "AwsAccountId")]
+    AssignmentName: Annotated[str, _aws_pattern("Quicksight", "IAMPolicyAssignmentName")]
+    Namespace: Annotated[str, _aws_pattern("Quicksight", "Namespace")]
     AssignmentStatus: Optional[AssignmentStatusType] = None
     PolicyArn: Optional[str] = None
     Identities: Optional[Dict[str, List[str]]] = None
@@ -3711,14 +3722,14 @@ class UpdateIAMPolicyAssignmentRequestTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'update_identity_propagation_config' function.
 class UpdateIdentityPropagationConfigRequestTypeDef(BaseValidatorModel):
-    AwsAccountId: str
+    AwsAccountId: Annotated[str, _aws_pattern("Quicksight", "AwsAccountId")]
     Service: ServiceTypeType
     AuthorizedTargets: Optional[List[str]] = None
 
 
 # This class is the input for the 'update_ip_restriction' function.
 class UpdateIpRestrictionRequestTypeDef(BaseValidatorModel):
-    AwsAccountId: str
+    AwsAccountId: Annotated[str, _aws_pattern("Quicksight", "AwsAccountId")]
     IpRestrictionRuleMap: Optional[Dict[str, str]] = None
     VpcIdRestrictionRuleMap: Optional[Dict[str, str]] = None
     VpcEndpointIdRestrictionRuleMap: Optional[Dict[str, str]] = None
@@ -3727,83 +3738,83 @@ class UpdateIpRestrictionRequestTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'update_public_sharing_settings' function.
 class UpdatePublicSharingSettingsRequestTypeDef(BaseValidatorModel):
-    AwsAccountId: str
+    AwsAccountId: Annotated[str, _aws_pattern("Quicksight", "AwsAccountId")]
     PublicSharingEnabled: Optional[bool] = None
 
 
 # This class is the input for the 'update_q_personalization_configuration' function.
 class UpdateQPersonalizationConfigurationRequestTypeDef(BaseValidatorModel):
-    AwsAccountId: str
+    AwsAccountId: Annotated[str, _aws_pattern("Quicksight", "AwsAccountId")]
     PersonalizationMode: PersonalizationModeType
 
 
 # This class is the input for the 'update_quick_sight_q_search_configuration' function.
 class UpdateQuickSightQSearchConfigurationRequestTypeDef(BaseValidatorModel):
-    AwsAccountId: str
+    AwsAccountId: Annotated[str, _aws_pattern("Quicksight", "AwsAccountId")]
     QSearchStatus: QSearchStatusType
 
 
 # This class is the input for the 'update_role_custom_permission' function.
 class UpdateRoleCustomPermissionRequestTypeDef(BaseValidatorModel):
-    CustomPermissionsName: str
+    CustomPermissionsName: Annotated[str, _aws_pattern("Quicksight", "RoleName")]
     Role: RoleType
-    AwsAccountId: str
-    Namespace: str
+    AwsAccountId: Annotated[str, _aws_pattern("Quicksight", "AwsAccountId")]
+    Namespace: Annotated[str, _aws_pattern("Quicksight", "Namespace")]
 
 
 # This class is the input for the 'update_spice_capacity_configuration' function.
 class UpdateSPICECapacityConfigurationRequestTypeDef(BaseValidatorModel):
-    AwsAccountId: str
+    AwsAccountId: Annotated[str, _aws_pattern("Quicksight", "AwsAccountId")]
     PurchaseMode: PurchaseModeType
 
 
 # This class is the input for the 'update_self_upgrade_configuration' function.
 class UpdateSelfUpgradeConfigurationRequestTypeDef(BaseValidatorModel):
-    AwsAccountId: str
-    Namespace: str
+    AwsAccountId: Annotated[str, _aws_pattern("Quicksight", "AwsAccountId")]
+    Namespace: Annotated[str, _aws_pattern("Quicksight", "Namespace")]
     SelfUpgradeStatus: SelfUpgradeStatusType
 
 
 # This class is the input for the 'update_self_upgrade' function.
 class UpdateSelfUpgradeRequestTypeDef(BaseValidatorModel):
-    AwsAccountId: str
-    Namespace: str
+    AwsAccountId: Annotated[str, _aws_pattern("Quicksight", "AwsAccountId")]
+    Namespace: Annotated[str, _aws_pattern("Quicksight", "Namespace")]
     UpgradeRequestId: str
     Action: SelfUpgradeAdminActionType
 
 
 # This class is the input for the 'update_template_alias' function.
 class UpdateTemplateAliasRequestTypeDef(BaseValidatorModel):
-    AwsAccountId: str
-    TemplateId: str
-    AliasName: str
+    AwsAccountId: Annotated[str, _aws_pattern("Quicksight", "AwsAccountId")]
+    TemplateId: Annotated[str, _aws_pattern("Quicksight", "ShortRestrictiveResourceId")]
+    AliasName: Annotated[str, _aws_pattern("Quicksight", "AliasName")]
     TemplateVersionNumber: int
 
 
 # This class is the input for the 'update_theme_alias' function.
 class UpdateThemeAliasRequestTypeDef(BaseValidatorModel):
-    AwsAccountId: str
-    ThemeId: str
-    AliasName: str
+    AwsAccountId: Annotated[str, _aws_pattern("Quicksight", "AwsAccountId")]
+    ThemeId: Annotated[str, _aws_pattern("Quicksight", "ShortRestrictiveResourceId")]
+    AliasName: Annotated[str, _aws_pattern("Quicksight", "AliasName")]
     ThemeVersionNumber: int
 
 
 # This class is the input for the 'update_user_custom_permission' function.
 class UpdateUserCustomPermissionRequestTypeDef(BaseValidatorModel):
-    UserName: str
-    AwsAccountId: str
-    Namespace: str
-    CustomPermissionsName: str
+    UserName: Annotated[str, _aws_pattern("Quicksight", "UserName")]
+    AwsAccountId: Annotated[str, _aws_pattern("Quicksight", "AwsAccountId")]
+    Namespace: Annotated[str, _aws_pattern("Quicksight", "Namespace")]
+    CustomPermissionsName: Annotated[str, _aws_pattern("Quicksight", "CustomPermissionsName")]
 
 
 # This class is the input for the 'update_user' function.
 class UpdateUserRequestTypeDef(BaseValidatorModel):
-    UserName: str
-    AwsAccountId: str
-    Namespace: str
+    UserName: Annotated[str, _aws_pattern("Quicksight", "UserName")]
+    AwsAccountId: Annotated[str, _aws_pattern("Quicksight", "AwsAccountId")]
+    Namespace: Annotated[str, _aws_pattern("Quicksight", "Namespace")]
     Email: str
     Role: UserRoleType
-    CustomPermissionsName: Optional[str] = None
+    CustomPermissionsName: Optional[Annotated[str, _aws_pattern("Quicksight", "RoleName")]] = None
     UnapplyCustomPermissions: Optional[bool] = None
     ExternalLoginFederationProviderType: Optional[str] = None
     CustomFederationProviderUrl: Optional[str] = None
@@ -3812,11 +3823,11 @@ class UpdateUserRequestTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'update_vpc_connection' function.
 class UpdateVPCConnectionRequestTypeDef(BaseValidatorModel):
-    AwsAccountId: str
+    AwsAccountId: Annotated[str, _aws_pattern("Quicksight", "AwsAccountId")]
     VPCConnectionId: str
     Name: str
-    SubnetIds: List[str]
-    SecurityGroupIds: List[str]
+    SubnetIds: List[Annotated[str, _aws_pattern("Quicksight", "SubnetId")]]
+    SecurityGroupIds: List[Annotated[str, _aws_pattern("Quicksight", "SecurityGroupId")]]
     RoleArn: str
     DnsResolvers: Optional[List[str]] = None
 
@@ -3826,9 +3837,9 @@ class VisualHighlightOperationTypeDef(BaseValidatorModel):
 
 
 class WaterfallChartGroupColorConfigurationTypeDef(BaseValidatorModel):
-    PositiveBarColor: Optional[str] = None
-    NegativeBarColor: Optional[str] = None
-    TotalBarColor: Optional[str] = None
+    PositiveBarColor: Optional[Annotated[str, _aws_pattern("Quicksight", "HexColor")]] = None
+    NegativeBarColor: Optional[Annotated[str, _aws_pattern("Quicksight", "HexColor")]] = None
+    TotalBarColor: Optional[Annotated[str, _aws_pattern("Quicksight", "HexColor")]] = None
 
 
 class WaterfallChartOptionsTypeDef(BaseValidatorModel):
@@ -3846,16 +3857,16 @@ class WordCloudOptionsTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'update_account_customization' function.
 class UpdateAccountCustomizationRequestTypeDef(BaseValidatorModel):
-    AwsAccountId: str
+    AwsAccountId: Annotated[str, _aws_pattern("Quicksight", "AwsAccountId")]
     AccountCustomization: AccountCustomizationTypeDef
-    Namespace: Optional[str] = None
+    Namespace: Optional[Annotated[str, _aws_pattern("Quicksight", "Namespace")]] = None
 
 
 class ActionConnectorSummaryTypeDef(BaseValidatorModel):
     Arn: str
-    ActionConnectorId: str
+    ActionConnectorId: Annotated[str, _aws_pattern("Quicksight", "ShortRestrictiveResourceId")]
     Type: ActionConnectorTypeType
-    Name: str
+    Name: Annotated[str, _aws_pattern("Quicksight", "ActionConnectorName")]
     LastUpdatedTime: datetime
     CreatedTime: Optional[datetime] = None
     Status: Optional[ResourceStatusType] = None
@@ -3864,7 +3875,7 @@ class ActionConnectorSummaryTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'search_action_connectors' function.
 class SearchActionConnectorsRequestTypeDef(BaseValidatorModel):
-    AwsAccountId: str
+    AwsAccountId: Annotated[str, _aws_pattern("Quicksight", "AwsAccountId")]
     Filters: List[ActionConnectorSearchFilterTypeDef]
     MaxResults: Optional[int] = None
     NextToken: Optional[str] = None
@@ -3966,25 +3977,25 @@ class AmazonQInQuickSightConsoleConfigurationsTypeDef(BaseValidatorModel):
 
 class AnalysisErrorTypeDef(BaseValidatorModel):
     Type: Optional[AnalysisErrorTypeType] = None
-    Message: Optional[str] = None
+    Message: Optional[Annotated[str, _aws_pattern("Quicksight", "NonEmptyString")]] = None
     ViolatedEntities: Optional[List[EntityTypeDef]] = None
 
 
 class DashboardErrorTypeDef(BaseValidatorModel):
     Type: Optional[DashboardErrorTypeType] = None
-    Message: Optional[str] = None
+    Message: Optional[Annotated[str, _aws_pattern("Quicksight", "NonEmptyString")]] = None
     ViolatedEntities: Optional[List[EntityTypeDef]] = None
 
 
 class TemplateErrorTypeDef(BaseValidatorModel):
     Type: Optional[TemplateErrorTypeType] = None
-    Message: Optional[str] = None
+    Message: Optional[Annotated[str, _aws_pattern("Quicksight", "NonEmptyString")]] = None
     ViolatedEntities: Optional[List[EntityTypeDef]] = None
 
 
 # This class is the input for the 'search_analyses' function.
 class SearchAnalysesRequestTypeDef(BaseValidatorModel):
-    AwsAccountId: str
+    AwsAccountId: Annotated[str, _aws_pattern("Quicksight", "AwsAccountId")]
     Filters: List[AnalysisSearchFilterTypeDef]
     NextToken: Optional[str] = None
     MaxResults: Optional[int] = None
@@ -4076,27 +4087,27 @@ class AssetBundleResourceLinkSharingConfigurationOutputTypeDef(BaseValidatorMode
 
 
 class AssetBundleImportJobAnalysisOverridePermissionsTypeDef(BaseValidatorModel):
-    AnalysisIds: List[str]
+    AnalysisIds: List[Annotated[str, _aws_pattern("Quicksight", "AssetBundleRestrictiveResourceId")]]
     Permissions: AssetBundleResourcePermissionsTypeDef
 
 
 class AssetBundleImportJobDataSetOverridePermissionsTypeDef(BaseValidatorModel):
-    DataSetIds: List[str]
+    DataSetIds: List[Annotated[str, _aws_pattern("Quicksight", "AssetBundleRestrictiveResourceId")]]
     Permissions: AssetBundleResourcePermissionsTypeDef
 
 
 class AssetBundleImportJobDataSourceOverridePermissionsTypeDef(BaseValidatorModel):
-    DataSourceIds: List[str]
+    DataSourceIds: List[Annotated[str, _aws_pattern("Quicksight", "AssetBundleRestrictiveResourceId")]]
     Permissions: AssetBundleResourcePermissionsTypeDef
 
 
 class AssetBundleImportJobFolderOverridePermissionsTypeDef(BaseValidatorModel):
-    FolderIds: List[str]
+    FolderIds: List[Annotated[str, _aws_pattern("Quicksight", "AssetBundleRestrictiveResourceId")]]
     Permissions: Optional[AssetBundleResourcePermissionsTypeDef] = None
 
 
 class AssetBundleImportJobThemeOverridePermissionsTypeDef(BaseValidatorModel):
-    ThemeIds: List[str]
+    ThemeIds: List[Annotated[str, _aws_pattern("Quicksight", "AssetBundleRestrictiveResourceId")]]
     Permissions: AssetBundleResourcePermissionsTypeDef
 
 
@@ -4110,7 +4121,7 @@ class AssetBundleImportJobAnalysisOverrideTagsOutputTypeDef(BaseValidatorModel):
 
 
 class AssetBundleImportJobAnalysisOverrideTagsTypeDef(BaseValidatorModel):
-    AnalysisIds: List[str]
+    AnalysisIds: List[Annotated[str, _aws_pattern("Quicksight", "AssetBundleRestrictiveResourceId")]]
     Tags: List[TagTypeDef]
 
 
@@ -4120,7 +4131,7 @@ class AssetBundleImportJobDashboardOverrideTagsOutputTypeDef(BaseValidatorModel)
 
 
 class AssetBundleImportJobDashboardOverrideTagsTypeDef(BaseValidatorModel):
-    DashboardIds: List[str]
+    DashboardIds: List[Annotated[str, _aws_pattern("Quicksight", "AssetBundleRestrictiveResourceId")]]
     Tags: List[TagTypeDef]
 
 
@@ -4130,7 +4141,7 @@ class AssetBundleImportJobDataSetOverrideTagsOutputTypeDef(BaseValidatorModel):
 
 
 class AssetBundleImportJobDataSetOverrideTagsTypeDef(BaseValidatorModel):
-    DataSetIds: List[str]
+    DataSetIds: List[Annotated[str, _aws_pattern("Quicksight", "AssetBundleRestrictiveResourceId")]]
     Tags: List[TagTypeDef]
 
 
@@ -4140,7 +4151,7 @@ class AssetBundleImportJobDataSourceOverrideTagsOutputTypeDef(BaseValidatorModel
 
 
 class AssetBundleImportJobDataSourceOverrideTagsTypeDef(BaseValidatorModel):
-    DataSourceIds: List[str]
+    DataSourceIds: List[Annotated[str, _aws_pattern("Quicksight", "AssetBundleRestrictiveResourceId")]]
     Tags: List[TagTypeDef]
 
 
@@ -4150,7 +4161,7 @@ class AssetBundleImportJobFolderOverrideTagsOutputTypeDef(BaseValidatorModel):
 
 
 class AssetBundleImportJobFolderOverrideTagsTypeDef(BaseValidatorModel):
-    FolderIds: List[str]
+    FolderIds: List[Annotated[str, _aws_pattern("Quicksight", "AssetBundleRestrictiveResourceId")]]
     Tags: List[TagTypeDef]
 
 
@@ -4160,7 +4171,7 @@ class AssetBundleImportJobThemeOverrideTagsOutputTypeDef(BaseValidatorModel):
 
 
 class AssetBundleImportJobThemeOverrideTagsTypeDef(BaseValidatorModel):
-    ThemeIds: List[str]
+    ThemeIds: List[Annotated[str, _aws_pattern("Quicksight", "AssetBundleRestrictiveResourceId")]]
     Tags: List[TagTypeDef]
 
 
@@ -4170,33 +4181,33 @@ class AssetBundleImportJobVPCConnectionOverrideTagsOutputTypeDef(BaseValidatorMo
 
 
 class AssetBundleImportJobVPCConnectionOverrideTagsTypeDef(BaseValidatorModel):
-    VPCConnectionIds: List[str]
+    VPCConnectionIds: List[Annotated[str, _aws_pattern("Quicksight", "AssetBundleRestrictiveResourceId")]]
     Tags: List[TagTypeDef]
 
 
 # This class is the input for the 'create_account_customization' function.
 class CreateAccountCustomizationRequestTypeDef(BaseValidatorModel):
-    AwsAccountId: str
+    AwsAccountId: Annotated[str, _aws_pattern("Quicksight", "AwsAccountId")]
     AccountCustomization: AccountCustomizationTypeDef
-    Namespace: Optional[str] = None
+    Namespace: Optional[Annotated[str, _aws_pattern("Quicksight", "Namespace")]] = None
     Tags: Optional[List[TagTypeDef]] = None
 
 
 # This class is the input for the 'create_namespace' function.
 class CreateNamespaceRequestTypeDef(BaseValidatorModel):
-    AwsAccountId: str
-    Namespace: str
+    AwsAccountId: Annotated[str, _aws_pattern("Quicksight", "AwsAccountId")]
+    Namespace: Annotated[str, _aws_pattern("Quicksight", "Namespace")]
     IdentityStore: Literal["QUICKSIGHT"]
     Tags: Optional[List[TagTypeDef]] = None
 
 
 # This class is the input for the 'create_vpc_connection' function.
 class CreateVPCConnectionRequestTypeDef(BaseValidatorModel):
-    AwsAccountId: str
-    VPCConnectionId: str
+    AwsAccountId: Annotated[str, _aws_pattern("Quicksight", "AwsAccountId")]
+    VPCConnectionId: Annotated[str, _aws_pattern("Quicksight", "VPCConnectionResourceIdRestricted")]
     Name: str
-    SubnetIds: List[str]
-    SecurityGroupIds: List[str]
+    SubnetIds: List[Annotated[str, _aws_pattern("Quicksight", "SubnetId")]]
+    SecurityGroupIds: List[Annotated[str, _aws_pattern("Quicksight", "SecurityGroupId")]]
     RoleArn: str
     DnsResolvers: Optional[List[str]] = None
     Tags: Optional[List[TagTypeDef]] = None
@@ -4207,12 +4218,12 @@ class RegisterUserRequestTypeDef(BaseValidatorModel):
     IdentityType: IdentityTypeType
     Email: str
     UserRole: UserRoleType
-    AwsAccountId: str
-    Namespace: str
+    AwsAccountId: Annotated[str, _aws_pattern("Quicksight", "AwsAccountId")]
+    Namespace: Annotated[str, _aws_pattern("Quicksight", "Namespace")]
     IamArn: Optional[str] = None
-    SessionName: Optional[str] = None
-    UserName: Optional[str] = None
-    CustomPermissionsName: Optional[str] = None
+    SessionName: Optional[Annotated[str, _aws_pattern("Quicksight", "RoleSessionName")]] = None
+    UserName: Optional[Annotated[str, _aws_pattern("Quicksight", "UserName")]] = None
+    CustomPermissionsName: Optional[Annotated[str, _aws_pattern("Quicksight", "RoleName")]] = None
     ExternalLoginFederationProviderType: Optional[str] = None
     CustomFederationProviderUrl: Optional[str] = None
     ExternalLoginId: Optional[str] = None
@@ -4227,7 +4238,7 @@ class TagResourceRequestTypeDef(BaseValidatorModel):
 
 class AssetBundleImportJobDataSourceCredentialsTypeDef(BaseValidatorModel):
     CredentialPair: Optional[AssetBundleImportJobDataSourceCredentialPairTypeDef] = None
-    SecretArn: Optional[str] = None
+    SecretArn: Optional[Annotated[str, _aws_pattern("Quicksight", "SecretArn")]] = None
 
 
 class OAuthParametersTypeDef(BaseValidatorModel):
@@ -4235,6 +4246,9 @@ class OAuthParametersTypeDef(BaseValidatorModel):
     OAuthScope: Optional[str] = None
     IdentityProviderVpcConnectionProperties: Optional[VpcConnectionPropertiesTypeDef] = None
     IdentityProviderResourceUri: Optional[str] = None
+    IdentityProviderCACertificatesBundleS3Uri: Optional[
+        Annotated[str, _aws_pattern("Quicksight", "CACertificatesBundleS3Uri")]
+    ] = None
 
 
 class AssetBundleImportJobRefreshScheduleOverrideParametersTypeDef(BaseValidatorModel):
@@ -4259,7 +4273,7 @@ class DateTimeDatasetParameterDefaultValuesTypeDef(BaseValidatorModel):
 
 
 class DateTimeParameterTypeDef(BaseValidatorModel):
-    Name: str
+    Name: Annotated[str, _aws_pattern("Quicksight", "NonEmptyString")]
     Values: List[TimestampTypeDef]
 
 
@@ -4304,7 +4318,7 @@ class WhatIfRangeScenarioTypeDef(BaseValidatorModel):
 
 class AssetBundleImportSourceTypeDef(BaseValidatorModel):
     Body: Optional[BlobTypeDef] = None
-    S3Uri: Optional[str] = None
+    S3Uri: Optional[Annotated[str, _aws_pattern("Quicksight", "S3Uri")]] = None
 
 
 class AthenaParametersTypeDef(BaseValidatorModel):
@@ -4358,7 +4372,7 @@ class ScatterPlotSortConfigurationTypeDef(BaseValidatorModel):
 # This class is the output for the 'cancel_ingestion' function.
 class CancelIngestionResponseTypeDef(BaseValidatorModel):
     Arn: str
-    IngestionId: str
+    IngestionId: Annotated[str, _aws_pattern("Quicksight", "IngestionId")]
     RequestId: str
     Status: int
     ResponseMetadata: ResponseMetadataTypeDef
@@ -4367,8 +4381,8 @@ class CancelIngestionResponseTypeDef(BaseValidatorModel):
 # This class is the output for the 'create_account_customization' function.
 class CreateAccountCustomizationResponseTypeDef(BaseValidatorModel):
     Arn: str
-    AwsAccountId: str
-    Namespace: str
+    AwsAccountId: Annotated[str, _aws_pattern("Quicksight", "AwsAccountId")]
+    Namespace: Annotated[str, _aws_pattern("Quicksight", "Namespace")]
     AccountCustomization: AccountCustomizationTypeDef
     RequestId: str
     Status: int
@@ -4388,7 +4402,7 @@ class CreateActionConnectorResponseTypeDef(BaseValidatorModel):
 # This class is the output for the 'create_analysis' function.
 class CreateAnalysisResponseTypeDef(BaseValidatorModel):
     Arn: str
-    AnalysisId: str
+    AnalysisId: Annotated[str, _aws_pattern("Quicksight", "ShortRestrictiveResourceId")]
     CreationStatus: ResourceStatusType
     Status: int
     RequestId: str
@@ -4407,7 +4421,7 @@ class CreateCustomPermissionsResponseTypeDef(BaseValidatorModel):
 class CreateDashboardResponseTypeDef(BaseValidatorModel):
     Arn: str
     VersionArn: str
-    DashboardId: str
+    DashboardId: Annotated[str, _aws_pattern("Quicksight", "ShortRestrictiveResourceId")]
     CreationStatus: ResourceStatusType
     Status: int
     RequestId: str
@@ -4439,14 +4453,14 @@ class CreateDataSourceResponseTypeDef(BaseValidatorModel):
 class CreateFolderResponseTypeDef(BaseValidatorModel):
     Status: int
     Arn: str
-    FolderId: str
+    FolderId: Annotated[str, _aws_pattern("Quicksight", "RestrictiveResourceId")]
     RequestId: str
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 # This class is the output for the 'create_iam_policy_assignment' function.
 class CreateIAMPolicyAssignmentResponseTypeDef(BaseValidatorModel):
-    AssignmentName: str
+    AssignmentName: Annotated[str, _aws_pattern("Quicksight", "IAMPolicyAssignmentName")]
     AssignmentId: str
     AssignmentStatus: AssignmentStatusType
     PolicyArn: str
@@ -4459,7 +4473,7 @@ class CreateIAMPolicyAssignmentResponseTypeDef(BaseValidatorModel):
 # This class is the output for the 'create_ingestion' function.
 class CreateIngestionResponseTypeDef(BaseValidatorModel):
     Arn: str
-    IngestionId: str
+    IngestionId: Annotated[str, _aws_pattern("Quicksight", "IngestionId")]
     IngestionStatus: IngestionStatusType
     RequestId: str
     Status: int
@@ -4469,7 +4483,7 @@ class CreateIngestionResponseTypeDef(BaseValidatorModel):
 # This class is the output for the 'create_namespace' function.
 class CreateNamespaceResponseTypeDef(BaseValidatorModel):
     Arn: str
-    Name: str
+    Name: Annotated[str, _aws_pattern("Quicksight", "Namespace")]
     CapacityRegion: str
     CreationStatus: NamespaceStatusType
     IdentityStore: Literal["QUICKSIGHT"]
@@ -4498,7 +4512,7 @@ class CreateRoleMembershipResponseTypeDef(BaseValidatorModel):
 class CreateTemplateResponseTypeDef(BaseValidatorModel):
     Arn: str
     VersionArn: str
-    TemplateId: str
+    TemplateId: Annotated[str, _aws_pattern("Quicksight", "ShortRestrictiveResourceId")]
     CreationStatus: ResourceStatusType
     Status: int
     RequestId: str
@@ -4509,7 +4523,7 @@ class CreateTemplateResponseTypeDef(BaseValidatorModel):
 class CreateThemeResponseTypeDef(BaseValidatorModel):
     Arn: str
     VersionArn: str
-    ThemeId: str
+    ThemeId: Annotated[str, _aws_pattern("Quicksight", "ShortRestrictiveResourceId")]
     CreationStatus: ResourceStatusType
     Status: int
     RequestId: str
@@ -4518,7 +4532,7 @@ class CreateThemeResponseTypeDef(BaseValidatorModel):
 
 # This class is the output for the 'create_topic_refresh_schedule' function.
 class CreateTopicRefreshScheduleResponseTypeDef(BaseValidatorModel):
-    TopicId: str
+    TopicId: Annotated[str, _aws_pattern("Quicksight", "TopicId")]
     TopicArn: str
     DatasetArn: str
     Status: int
@@ -4529,7 +4543,7 @@ class CreateTopicRefreshScheduleResponseTypeDef(BaseValidatorModel):
 # This class is the output for the 'create_topic' function.
 class CreateTopicResponseTypeDef(BaseValidatorModel):
     Arn: str
-    TopicId: str
+    TopicId: Annotated[str, _aws_pattern("Quicksight", "TopicId")]
     RefreshArn: str
     RequestId: str
     Status: int
@@ -4539,7 +4553,7 @@ class CreateTopicResponseTypeDef(BaseValidatorModel):
 # This class is the output for the 'create_vpc_connection' function.
 class CreateVPCConnectionResponseTypeDef(BaseValidatorModel):
     Arn: str
-    VPCConnectionId: str
+    VPCConnectionId: Annotated[str, _aws_pattern("Quicksight", "VPCConnectionResourceIdRestricted")]
     CreationStatus: VPCConnectionResourceStatusType
     AvailabilityStatus: VPCConnectionAvailabilityStatusType
     RequestId: str
@@ -4571,7 +4585,7 @@ class DeleteAccountSubscriptionResponseTypeDef(BaseValidatorModel):
 # This class is the output for the 'delete_action_connector' function.
 class DeleteActionConnectorResponseTypeDef(BaseValidatorModel):
     Arn: str
-    ActionConnectorId: str
+    ActionConnectorId: Annotated[str, _aws_pattern("Quicksight", "ShortRestrictiveResourceId")]
     RequestId: str
     Status: int
     ResponseMetadata: ResponseMetadataTypeDef
@@ -4581,7 +4595,7 @@ class DeleteActionConnectorResponseTypeDef(BaseValidatorModel):
 class DeleteAnalysisResponseTypeDef(BaseValidatorModel):
     Status: int
     Arn: str
-    AnalysisId: str
+    AnalysisId: Annotated[str, _aws_pattern("Quicksight", "ShortRestrictiveResourceId")]
     DeletionTime: datetime
     RequestId: str
     ResponseMetadata: ResponseMetadataTypeDef
@@ -4611,7 +4625,7 @@ class DeleteCustomPermissionsResponseTypeDef(BaseValidatorModel):
 class DeleteDashboardResponseTypeDef(BaseValidatorModel):
     Status: int
     Arn: str
-    DashboardId: str
+    DashboardId: Annotated[str, _aws_pattern("Quicksight", "ShortRestrictiveResourceId")]
     RequestId: str
     ResponseMetadata: ResponseMetadataTypeDef
 
@@ -4659,7 +4673,7 @@ class DeleteFolderMembershipResponseTypeDef(BaseValidatorModel):
 class DeleteFolderResponseTypeDef(BaseValidatorModel):
     Status: int
     Arn: str
-    FolderId: str
+    FolderId: Annotated[str, _aws_pattern("Quicksight", "RestrictiveResourceId")]
     RequestId: str
     ResponseMetadata: ResponseMetadataTypeDef
 
@@ -4680,7 +4694,7 @@ class DeleteGroupResponseTypeDef(BaseValidatorModel):
 
 # This class is the output for the 'delete_iam_policy_assignment' function.
 class DeleteIAMPolicyAssignmentResponseTypeDef(BaseValidatorModel):
-    AssignmentName: str
+    AssignmentName: Annotated[str, _aws_pattern("Quicksight", "IAMPolicyAssignmentName")]
     RequestId: str
     Status: int
     ResponseMetadata: ResponseMetadataTypeDef
@@ -4726,8 +4740,8 @@ class DeleteRoleMembershipResponseTypeDef(BaseValidatorModel):
 # This class is the output for the 'delete_template_alias' function.
 class DeleteTemplateAliasResponseTypeDef(BaseValidatorModel):
     Status: int
-    TemplateId: str
-    AliasName: str
+    TemplateId: Annotated[str, _aws_pattern("Quicksight", "ShortRestrictiveResourceId")]
+    AliasName: Annotated[str, _aws_pattern("Quicksight", "AliasName")]
     Arn: str
     RequestId: str
     ResponseMetadata: ResponseMetadataTypeDef
@@ -4737,18 +4751,18 @@ class DeleteTemplateAliasResponseTypeDef(BaseValidatorModel):
 class DeleteTemplateResponseTypeDef(BaseValidatorModel):
     RequestId: str
     Arn: str
-    TemplateId: str
+    TemplateId: Annotated[str, _aws_pattern("Quicksight", "ShortRestrictiveResourceId")]
     Status: int
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 # This class is the output for the 'delete_theme_alias' function.
 class DeleteThemeAliasResponseTypeDef(BaseValidatorModel):
-    AliasName: str
+    AliasName: Annotated[str, _aws_pattern("Quicksight", "AliasName")]
     Arn: str
     RequestId: str
     Status: int
-    ThemeId: str
+    ThemeId: Annotated[str, _aws_pattern("Quicksight", "ShortRestrictiveResourceId")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
@@ -4757,13 +4771,13 @@ class DeleteThemeResponseTypeDef(BaseValidatorModel):
     Arn: str
     RequestId: str
     Status: int
-    ThemeId: str
+    ThemeId: Annotated[str, _aws_pattern("Quicksight", "ShortRestrictiveResourceId")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 # This class is the output for the 'delete_topic_refresh_schedule' function.
 class DeleteTopicRefreshScheduleResponseTypeDef(BaseValidatorModel):
-    TopicId: str
+    TopicId: Annotated[str, _aws_pattern("Quicksight", "TopicId")]
     TopicArn: str
     DatasetArn: str
     Status: int
@@ -4774,7 +4788,7 @@ class DeleteTopicRefreshScheduleResponseTypeDef(BaseValidatorModel):
 # This class is the output for the 'delete_topic' function.
 class DeleteTopicResponseTypeDef(BaseValidatorModel):
     Arn: str
-    TopicId: str
+    TopicId: Annotated[str, _aws_pattern("Quicksight", "TopicId")]
     RequestId: str
     Status: int
     ResponseMetadata: ResponseMetadataTypeDef
@@ -4814,7 +4828,7 @@ class DeleteVPCConnectionResponseTypeDef(BaseValidatorModel):
 
 # This class is the output for the 'describe_account_custom_permission' function.
 class DescribeAccountCustomPermissionResponseTypeDef(BaseValidatorModel):
-    CustomPermissionsName: str
+    CustomPermissionsName: Annotated[str, _aws_pattern("Quicksight", "CustomPermissionsName")]
     RequestId: str
     Status: int
     ResponseMetadata: ResponseMetadataTypeDef
@@ -4823,8 +4837,8 @@ class DescribeAccountCustomPermissionResponseTypeDef(BaseValidatorModel):
 # This class is the output for the 'describe_account_customization' function.
 class DescribeAccountCustomizationResponseTypeDef(BaseValidatorModel):
     Arn: str
-    AwsAccountId: str
-    Namespace: str
+    AwsAccountId: Annotated[str, _aws_pattern("Quicksight", "AwsAccountId")]
+    Namespace: Annotated[str, _aws_pattern("Quicksight", "Namespace")]
     AccountCustomization: AccountCustomizationTypeDef
     RequestId: str
     Status: int
@@ -4854,8 +4868,8 @@ class DescribeAutomationJobResponseTypeDef(BaseValidatorModel):
     StartedAt: datetime
     EndedAt: datetime
     JobStatus: AutomationJobStatusType
-    InputPayload: str
-    OutputPayload: str
+    InputPayload: Annotated[str, _aws_pattern("Quicksight", "SensitiveIOPayload")]
+    OutputPayload: Annotated[str, _aws_pattern("Quicksight", "SensitiveIOPayload")]
     RequestId: str
     ResponseMetadata: ResponseMetadataTypeDef
 
@@ -4885,7 +4899,7 @@ class DescribeDefaultQBusinessApplicationResponseTypeDef(BaseValidatorModel):
 
 # This class is the output for the 'describe_ip_restriction' function.
 class DescribeIpRestrictionResponseTypeDef(BaseValidatorModel):
-    AwsAccountId: str
+    AwsAccountId: Annotated[str, _aws_pattern("Quicksight", "AwsAccountId")]
     IpRestrictionRuleMap: Dict[str, str]
     VpcIdRestrictionRuleMap: Dict[str, str]
     VpcEndpointIdRestrictionRuleMap: Dict[str, str]
@@ -4913,7 +4927,7 @@ class DescribeQuickSightQSearchConfigurationResponseTypeDef(BaseValidatorModel):
 
 # This class is the output for the 'describe_role_custom_permission' function.
 class DescribeRoleCustomPermissionResponseTypeDef(BaseValidatorModel):
-    CustomPermissionsName: str
+    CustomPermissionsName: Annotated[str, _aws_pattern("Quicksight", "RoleName")]
     RequestId: str
     Status: int
     ResponseMetadata: ResponseMetadataTypeDef
@@ -4955,7 +4969,7 @@ class GetDashboardEmbedUrlResponseTypeDef(BaseValidatorModel):
 # This class is the output for the 'get_flow_metadata' function.
 class GetFlowMetadataOutputTypeDef(BaseValidatorModel):
     Arn: str
-    FlowId: str
+    FlowId: Annotated[str, _aws_pattern("Quicksight", "FlowId")]
     Name: str
     Description: str
     PublishState: FlowPublishStateType
@@ -4996,7 +5010,7 @@ class ListAnalysesResponseTypeDef(BaseValidatorModel):
 # This class is the output for the 'list_asset_bundle_export_jobs' function.
 class ListAssetBundleExportJobsResponseTypeDef(BaseValidatorModel):
     AssetBundleExportJobSummaryList: List[AssetBundleExportJobSummaryTypeDef]
-    RequestId: str
+    RequestId: Annotated[str, _aws_pattern("Quicksight", "NonEmptyString")]
     Status: int
     ResponseMetadata: ResponseMetadataTypeDef
     NextToken: Optional[str] = None
@@ -5005,7 +5019,7 @@ class ListAssetBundleExportJobsResponseTypeDef(BaseValidatorModel):
 # This class is the output for the 'list_asset_bundle_import_jobs' function.
 class ListAssetBundleImportJobsResponseTypeDef(BaseValidatorModel):
     AssetBundleImportJobSummaryList: List[AssetBundleImportJobSummaryTypeDef]
-    RequestId: str
+    RequestId: Annotated[str, _aws_pattern("Quicksight", "NonEmptyString")]
     Status: int
     ResponseMetadata: ResponseMetadataTypeDef
     NextToken: Optional[str] = None
@@ -5066,7 +5080,7 @@ class PutDataSetRefreshPropertiesResponseTypeDef(BaseValidatorModel):
 class RestoreAnalysisResponseTypeDef(BaseValidatorModel):
     Status: int
     Arn: str
-    AnalysisId: str
+    AnalysisId: Annotated[str, _aws_pattern("Quicksight", "ShortRestrictiveResourceId")]
     RequestId: str
     RestorationFailedFolderArns: List[str]
     ResponseMetadata: ResponseMetadataTypeDef
@@ -5084,8 +5098,8 @@ class SearchAnalysesResponseTypeDef(BaseValidatorModel):
 # This class is the output for the 'start_asset_bundle_export_job' function.
 class StartAssetBundleExportJobResponseTypeDef(BaseValidatorModel):
     Arn: str
-    AssetBundleExportJobId: str
-    RequestId: str
+    AssetBundleExportJobId: Annotated[str, _aws_pattern("Quicksight", "ShortRestrictiveResourceId")]
+    RequestId: Annotated[str, _aws_pattern("Quicksight", "NonEmptyString")]
     Status: int
     ResponseMetadata: ResponseMetadataTypeDef
 
@@ -5093,8 +5107,8 @@ class StartAssetBundleExportJobResponseTypeDef(BaseValidatorModel):
 # This class is the output for the 'start_asset_bundle_import_job' function.
 class StartAssetBundleImportJobResponseTypeDef(BaseValidatorModel):
     Arn: str
-    AssetBundleImportJobId: str
-    RequestId: str
+    AssetBundleImportJobId: Annotated[str, _aws_pattern("Quicksight", "ShortRestrictiveResourceId")]
+    RequestId: Annotated[str, _aws_pattern("Quicksight", "NonEmptyString")]
     Status: int
     ResponseMetadata: ResponseMetadataTypeDef
 
@@ -5102,7 +5116,7 @@ class StartAssetBundleImportJobResponseTypeDef(BaseValidatorModel):
 # This class is the output for the 'start_automation_job' function.
 class StartAutomationJobResponseTypeDef(BaseValidatorModel):
     Arn: str
-    JobId: str
+    JobId: Annotated[str, _aws_pattern("Quicksight", "AutomateId")]
     Status: int
     RequestId: str
     ResponseMetadata: ResponseMetadataTypeDef
@@ -5111,15 +5125,15 @@ class StartAutomationJobResponseTypeDef(BaseValidatorModel):
 # This class is the output for the 'start_dashboard_snapshot_job' function.
 class StartDashboardSnapshotJobResponseTypeDef(BaseValidatorModel):
     Arn: str
-    SnapshotJobId: str
-    RequestId: str
+    SnapshotJobId: Annotated[str, _aws_pattern("Quicksight", "ShortRestrictiveResourceId")]
+    RequestId: Annotated[str, _aws_pattern("Quicksight", "NonEmptyString")]
     Status: int
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 # This class is the output for the 'start_dashboard_snapshot_job_schedule' function.
 class StartDashboardSnapshotJobScheduleResponseTypeDef(BaseValidatorModel):
-    RequestId: str
+    RequestId: Annotated[str, _aws_pattern("Quicksight", "NonEmptyString")]
     Status: int
     ResponseMetadata: ResponseMetadataTypeDef
 
@@ -5148,8 +5162,8 @@ class UpdateAccountCustomPermissionResponseTypeDef(BaseValidatorModel):
 # This class is the output for the 'update_account_customization' function.
 class UpdateAccountCustomizationResponseTypeDef(BaseValidatorModel):
     Arn: str
-    AwsAccountId: str
-    Namespace: str
+    AwsAccountId: Annotated[str, _aws_pattern("Quicksight", "AwsAccountId")]
+    Namespace: Annotated[str, _aws_pattern("Quicksight", "Namespace")]
     AccountCustomization: AccountCustomizationTypeDef
     RequestId: str
     Status: int
@@ -5166,7 +5180,7 @@ class UpdateAccountSettingsResponseTypeDef(BaseValidatorModel):
 # This class is the output for the 'update_action_connector' function.
 class UpdateActionConnectorResponseTypeDef(BaseValidatorModel):
     Arn: str
-    ActionConnectorId: str
+    ActionConnectorId: Annotated[str, _aws_pattern("Quicksight", "ShortRestrictiveResourceId")]
     RequestId: str
     UpdateStatus: ResourceStatusType
     Status: int
@@ -5176,7 +5190,7 @@ class UpdateActionConnectorResponseTypeDef(BaseValidatorModel):
 # This class is the output for the 'update_analysis' function.
 class UpdateAnalysisResponseTypeDef(BaseValidatorModel):
     Arn: str
-    AnalysisId: str
+    AnalysisId: Annotated[str, _aws_pattern("Quicksight", "ShortRestrictiveResourceId")]
     UpdateStatus: ResourceStatusType
     Status: int
     RequestId: str
@@ -5200,7 +5214,7 @@ class UpdateBrandAssignmentResponseTypeDef(BaseValidatorModel):
 # This class is the output for the 'update_brand_published_version' function.
 class UpdateBrandPublishedVersionResponseTypeDef(BaseValidatorModel):
     RequestId: str
-    VersionId: str
+    VersionId: Annotated[str, _aws_pattern("Quicksight", "ShortRestrictiveResourceId")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
@@ -5217,13 +5231,13 @@ class UpdateDashboardLinksResponseTypeDef(BaseValidatorModel):
     RequestId: str
     Status: int
     DashboardArn: str
-    LinkEntities: List[str]
+    LinkEntities: List[Annotated[str, _aws_pattern("Quicksight", "LinkEntityArn")]]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 # This class is the output for the 'update_dashboard_published_version' function.
 class UpdateDashboardPublishedVersionResponseTypeDef(BaseValidatorModel):
-    DashboardId: str
+    DashboardId: Annotated[str, _aws_pattern("Quicksight", "ShortRestrictiveResourceId")]
     DashboardArn: str
     Status: int
     RequestId: str
@@ -5234,7 +5248,7 @@ class UpdateDashboardPublishedVersionResponseTypeDef(BaseValidatorModel):
 class UpdateDashboardResponseTypeDef(BaseValidatorModel):
     Arn: str
     VersionArn: str
-    DashboardId: str
+    DashboardId: Annotated[str, _aws_pattern("Quicksight", "ShortRestrictiveResourceId")]
     CreationStatus: ResourceStatusType
     Status: int
     RequestId: str
@@ -5299,14 +5313,14 @@ class UpdateDefaultQBusinessApplicationResponseTypeDef(BaseValidatorModel):
 class UpdateFolderResponseTypeDef(BaseValidatorModel):
     Status: int
     Arn: str
-    FolderId: str
+    FolderId: Annotated[str, _aws_pattern("Quicksight", "RestrictiveResourceId")]
     RequestId: str
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 # This class is the output for the 'update_iam_policy_assignment' function.
 class UpdateIAMPolicyAssignmentResponseTypeDef(BaseValidatorModel):
-    AssignmentName: str
+    AssignmentName: Annotated[str, _aws_pattern("Quicksight", "IAMPolicyAssignmentName")]
     AssignmentId: str
     PolicyArn: str
     Identities: Dict[str, List[str]]
@@ -5325,7 +5339,7 @@ class UpdateIdentityPropagationConfigResponseTypeDef(BaseValidatorModel):
 
 # This class is the output for the 'update_ip_restriction' function.
 class UpdateIpRestrictionResponseTypeDef(BaseValidatorModel):
-    AwsAccountId: str
+    AwsAccountId: Annotated[str, _aws_pattern("Quicksight", "AwsAccountId")]
     RequestId: str
     Status: int
     ResponseMetadata: ResponseMetadataTypeDef
@@ -5386,7 +5400,7 @@ class UpdateSelfUpgradeConfigurationResponseTypeDef(BaseValidatorModel):
 
 # This class is the output for the 'update_template' function.
 class UpdateTemplateResponseTypeDef(BaseValidatorModel):
-    TemplateId: str
+    TemplateId: Annotated[str, _aws_pattern("Quicksight", "ShortRestrictiveResourceId")]
     Arn: str
     VersionArn: str
     CreationStatus: ResourceStatusType
@@ -5397,7 +5411,7 @@ class UpdateTemplateResponseTypeDef(BaseValidatorModel):
 
 # This class is the output for the 'update_theme' function.
 class UpdateThemeResponseTypeDef(BaseValidatorModel):
-    ThemeId: str
+    ThemeId: Annotated[str, _aws_pattern("Quicksight", "ShortRestrictiveResourceId")]
     Arn: str
     VersionArn: str
     CreationStatus: ResourceStatusType
@@ -5408,7 +5422,7 @@ class UpdateThemeResponseTypeDef(BaseValidatorModel):
 
 # This class is the output for the 'update_topic_refresh_schedule' function.
 class UpdateTopicRefreshScheduleResponseTypeDef(BaseValidatorModel):
-    TopicId: str
+    TopicId: Annotated[str, _aws_pattern("Quicksight", "TopicId")]
     TopicArn: str
     DatasetArn: str
     Status: int
@@ -5418,7 +5432,7 @@ class UpdateTopicRefreshScheduleResponseTypeDef(BaseValidatorModel):
 
 # This class is the output for the 'update_topic' function.
 class UpdateTopicResponseTypeDef(BaseValidatorModel):
-    TopicId: str
+    TopicId: Annotated[str, _aws_pattern("Quicksight", "TopicId")]
     Arn: str
     RefreshArn: str
     RequestId: str
@@ -5446,7 +5460,7 @@ class UpdateVPCConnectionResponseTypeDef(BaseValidatorModel):
 
 # This class is the output for the 'batch_create_topic_reviewed_answer' function.
 class BatchCreateTopicReviewedAnswerResponseTypeDef(BaseValidatorModel):
-    TopicId: str
+    TopicId: Annotated[str, _aws_pattern("Quicksight", "TopicId")]
     TopicArn: str
     SucceededAnswers: List[SucceededTopicReviewedAnswerTypeDef]
     InvalidAnswers: List[InvalidTopicReviewedAnswerTypeDef]
@@ -5457,7 +5471,7 @@ class BatchCreateTopicReviewedAnswerResponseTypeDef(BaseValidatorModel):
 
 # This class is the output for the 'batch_delete_topic_reviewed_answer' function.
 class BatchDeleteTopicReviewedAnswerResponseTypeDef(BaseValidatorModel):
-    TopicId: str
+    TopicId: Annotated[str, _aws_pattern("Quicksight", "TopicId")]
     TopicArn: str
     SucceededAnswers: List[SucceededTopicReviewedAnswerTypeDef]
     InvalidAnswers: List[InvalidTopicReviewedAnswerTypeDef]
@@ -5527,22 +5541,22 @@ class ListBrandsResponseTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'create_custom_permissions' function.
 class CreateCustomPermissionsRequestTypeDef(BaseValidatorModel):
-    AwsAccountId: str
-    CustomPermissionsName: str
+    AwsAccountId: Annotated[str, _aws_pattern("Quicksight", "AwsAccountId")]
+    CustomPermissionsName: Annotated[str, _aws_pattern("Quicksight", "CustomPermissionsName")]
     Capabilities: Optional[CapabilitiesTypeDef] = None
     Tags: Optional[List[TagTypeDef]] = None
 
 
 class CustomPermissionsTypeDef(BaseValidatorModel):
     Arn: Optional[str] = None
-    CustomPermissionsName: Optional[str] = None
+    CustomPermissionsName: Optional[Annotated[str, _aws_pattern("Quicksight", "CustomPermissionsName")]] = None
     Capabilities: Optional[CapabilitiesTypeDef] = None
 
 
 # This class is the input for the 'update_custom_permissions' function.
 class UpdateCustomPermissionsRequestTypeDef(BaseValidatorModel):
-    AwsAccountId: str
-    CustomPermissionsName: str
+    AwsAccountId: Annotated[str, _aws_pattern("Quicksight", "AwsAccountId")]
+    CustomPermissionsName: Annotated[str, _aws_pattern("Quicksight", "CustomPermissionsName")]
     Capabilities: Optional[CapabilitiesTypeDef] = None
 
 
@@ -5674,7 +5688,7 @@ class LineChartSeriesSettingsTypeDef(BaseValidatorModel):
 class ConditionalFormattingCustomIconConditionTypeDef(BaseValidatorModel):
     Expression: str
     IconOptions: ConditionalFormattingCustomIconOptionsTypeDef
-    Color: Optional[str] = None
+    Color: Optional[Annotated[str, _aws_pattern("Quicksight", "HexColor")]] = None
     DisplayConfiguration: Optional[ConditionalFormattingIconDisplayConfigurationTypeDef] = None
 
 
@@ -5906,7 +5920,7 @@ class VisualInteractionOptionsTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'search_dashboards' function.
 class SearchDashboardsRequestTypeDef(BaseValidatorModel):
-    AwsAccountId: str
+    AwsAccountId: Annotated[str, _aws_pattern("Quicksight", "AwsAccountId")]
     Filters: List[DashboardSearchFilterTypeDef]
     NextToken: Optional[str] = None
     MaxResults: Optional[int] = None
@@ -5968,7 +5982,7 @@ class ImportTableOperationSourceOutputTypeDef(BaseValidatorModel):
 
 
 class ImportTableOperationSourceTypeDef(BaseValidatorModel):
-    SourceTableId: str
+    SourceTableId: Annotated[str, _aws_pattern("Quicksight", "DataSetEntityResourceId")]
     ColumnIdMappings: Optional[List[DataSetColumnIdMappingTypeDef]] = None
 
 
@@ -5978,7 +5992,7 @@ class TransformOperationSourceOutputTypeDef(BaseValidatorModel):
 
 
 class TransformOperationSourceTypeDef(BaseValidatorModel):
-    TransformOperationId: str
+    TransformOperationId: Annotated[str, _aws_pattern("Quicksight", "DataSetEntityResourceId")]
     ColumnIdMappings: Optional[List[DataSetColumnIdMappingTypeDef]] = None
 
 
@@ -6008,7 +6022,7 @@ class DataSetNumericRangeFilterConditionTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'search_data_sets' function.
 class SearchDataSetsRequestTypeDef(BaseValidatorModel):
-    AwsAccountId: str
+    AwsAccountId: Annotated[str, _aws_pattern("Quicksight", "AwsAccountId")]
     Filters: List[DataSetSearchFilterTypeDef]
     NextToken: Optional[str] = None
     MaxResults: Optional[int] = None
@@ -6031,7 +6045,7 @@ DataSetStringListFilterValueUnionTypeDef = Union[
 
 # This class is the input for the 'search_data_sources' function.
 class SearchDataSourcesRequestTypeDef(BaseValidatorModel):
-    AwsAccountId: str
+    AwsAccountId: Annotated[str, _aws_pattern("Quicksight", "AwsAccountId")]
     Filters: List[DataSourceSearchFilterTypeDef]
     NextToken: Optional[str] = None
     MaxResults: Optional[int] = None
@@ -6063,7 +6077,7 @@ class TimeRangeFilterValueOutputTypeDef(BaseValidatorModel):
 class TimeRangeFilterValueTypeDef(BaseValidatorModel):
     StaticValue: Optional[TimestampTypeDef] = None
     RollingDate: Optional[RollingDateConfigurationTypeDef] = None
-    Parameter: Optional[str] = None
+    Parameter: Optional[Annotated[str, _aws_pattern("Quicksight", "ParameterName")]] = None
 
 
 class DecimalDatasetParameterOutputTypeDef(BaseValidatorModel):
@@ -6081,7 +6095,7 @@ DecimalDatasetParameterDefaultValuesUnionTypeDef = Union[
 # This class is the output for the 'describe_action_connector_permissions' function.
 class DescribeActionConnectorPermissionsResponseTypeDef(BaseValidatorModel):
     Arn: str
-    ActionConnectorId: str
+    ActionConnectorId: Annotated[str, _aws_pattern("Quicksight", "ShortRestrictiveResourceId")]
     Permissions: List[ResourcePermissionOutputTypeDef]
     RequestId: str
     Status: int
@@ -6090,7 +6104,7 @@ class DescribeActionConnectorPermissionsResponseTypeDef(BaseValidatorModel):
 
 # This class is the output for the 'describe_analysis_permissions' function.
 class DescribeAnalysisPermissionsResponseTypeDef(BaseValidatorModel):
-    AnalysisId: str
+    AnalysisId: Annotated[str, _aws_pattern("Quicksight", "ShortRestrictiveResourceId")]
     AnalysisArn: str
     Permissions: List[ResourcePermissionOutputTypeDef]
     Status: int
@@ -6121,7 +6135,7 @@ class DescribeDataSourcePermissionsResponseTypeDef(BaseValidatorModel):
 # This class is the output for the 'describe_folder_permissions' function.
 class DescribeFolderPermissionsResponseTypeDef(BaseValidatorModel):
     Status: int
-    FolderId: str
+    FolderId: Annotated[str, _aws_pattern("Quicksight", "RestrictiveResourceId")]
     Arn: str
     Permissions: List[ResourcePermissionOutputTypeDef]
     RequestId: str
@@ -6132,7 +6146,7 @@ class DescribeFolderPermissionsResponseTypeDef(BaseValidatorModel):
 # This class is the output for the 'describe_folder_resolved_permissions' function.
 class DescribeFolderResolvedPermissionsResponseTypeDef(BaseValidatorModel):
     Status: int
-    FolderId: str
+    FolderId: Annotated[str, _aws_pattern("Quicksight", "RestrictiveResourceId")]
     Arn: str
     Permissions: List[ResourcePermissionOutputTypeDef]
     RequestId: str
@@ -6142,7 +6156,7 @@ class DescribeFolderResolvedPermissionsResponseTypeDef(BaseValidatorModel):
 
 # This class is the output for the 'describe_template_permissions' function.
 class DescribeTemplatePermissionsResponseTypeDef(BaseValidatorModel):
-    TemplateId: str
+    TemplateId: Annotated[str, _aws_pattern("Quicksight", "ShortRestrictiveResourceId")]
     TemplateArn: str
     Permissions: List[ResourcePermissionOutputTypeDef]
     RequestId: str
@@ -6152,7 +6166,7 @@ class DescribeTemplatePermissionsResponseTypeDef(BaseValidatorModel):
 
 # This class is the output for the 'describe_theme_permissions' function.
 class DescribeThemePermissionsResponseTypeDef(BaseValidatorModel):
-    ThemeId: str
+    ThemeId: Annotated[str, _aws_pattern("Quicksight", "ShortRestrictiveResourceId")]
     ThemeArn: str
     Permissions: List[ResourcePermissionOutputTypeDef]
     RequestId: str
@@ -6162,7 +6176,7 @@ class DescribeThemePermissionsResponseTypeDef(BaseValidatorModel):
 
 # This class is the output for the 'describe_topic_permissions' function.
 class DescribeTopicPermissionsResponseTypeDef(BaseValidatorModel):
-    TopicId: str
+    TopicId: Annotated[str, _aws_pattern("Quicksight", "TopicId")]
     TopicArn: str
     Permissions: List[ResourcePermissionOutputTypeDef]
     Status: int
@@ -6177,7 +6191,7 @@ class LinkSharingConfigurationOutputTypeDef(BaseValidatorModel):
 # This class is the output for the 'update_action_connector_permissions' function.
 class UpdateActionConnectorPermissionsResponseTypeDef(BaseValidatorModel):
     Arn: str
-    ActionConnectorId: str
+    ActionConnectorId: Annotated[str, _aws_pattern("Quicksight", "ShortRestrictiveResourceId")]
     RequestId: str
     Status: int
     Permissions: List[ResourcePermissionOutputTypeDef]
@@ -6187,7 +6201,7 @@ class UpdateActionConnectorPermissionsResponseTypeDef(BaseValidatorModel):
 # This class is the output for the 'update_analysis_permissions' function.
 class UpdateAnalysisPermissionsResponseTypeDef(BaseValidatorModel):
     AnalysisArn: str
-    AnalysisId: str
+    AnalysisId: Annotated[str, _aws_pattern("Quicksight", "ShortRestrictiveResourceId")]
     Permissions: List[ResourcePermissionOutputTypeDef]
     RequestId: str
     Status: int
@@ -6198,7 +6212,7 @@ class UpdateAnalysisPermissionsResponseTypeDef(BaseValidatorModel):
 class UpdateFolderPermissionsResponseTypeDef(BaseValidatorModel):
     Status: int
     Arn: str
-    FolderId: str
+    FolderId: Annotated[str, _aws_pattern("Quicksight", "RestrictiveResourceId")]
     Permissions: List[ResourcePermissionOutputTypeDef]
     RequestId: str
     ResponseMetadata: ResponseMetadataTypeDef
@@ -6206,7 +6220,7 @@ class UpdateFolderPermissionsResponseTypeDef(BaseValidatorModel):
 
 # This class is the output for the 'update_template_permissions' function.
 class UpdateTemplatePermissionsResponseTypeDef(BaseValidatorModel):
-    TemplateId: str
+    TemplateId: Annotated[str, _aws_pattern("Quicksight", "ShortRestrictiveResourceId")]
     TemplateArn: str
     Permissions: List[ResourcePermissionOutputTypeDef]
     RequestId: str
@@ -6216,7 +6230,7 @@ class UpdateTemplatePermissionsResponseTypeDef(BaseValidatorModel):
 
 # This class is the output for the 'update_theme_permissions' function.
 class UpdateThemePermissionsResponseTypeDef(BaseValidatorModel):
-    ThemeId: str
+    ThemeId: Annotated[str, _aws_pattern("Quicksight", "ShortRestrictiveResourceId")]
     ThemeArn: str
     Permissions: List[ResourcePermissionOutputTypeDef]
     RequestId: str
@@ -6226,7 +6240,7 @@ class UpdateThemePermissionsResponseTypeDef(BaseValidatorModel):
 
 # This class is the output for the 'update_topic_permissions' function.
 class UpdateTopicPermissionsResponseTypeDef(BaseValidatorModel):
-    TopicId: str
+    TopicId: Annotated[str, _aws_pattern("Quicksight", "TopicId")]
     TopicArn: str
     Permissions: List[ResourcePermissionOutputTypeDef]
     Status: int
@@ -6456,17 +6470,17 @@ class DescribeIAMPolicyAssignmentResponseTypeDef(BaseValidatorModel):
 
 # This class is the output for the 'describe_key_registration' function.
 class DescribeKeyRegistrationResponseTypeDef(BaseValidatorModel):
-    AwsAccountId: str
+    AwsAccountId: Annotated[str, _aws_pattern("Quicksight", "AwsAccountId")]
     KeyRegistration: List[RegisteredCustomerManagedKeyTypeDef]
     QDataKey: QDataKeyTypeDef
-    RequestId: str
+    RequestId: Annotated[str, _aws_pattern("Quicksight", "NonEmptyString")]
     Status: int
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 # This class is the input for the 'update_key_registration' function.
 class UpdateKeyRegistrationRequestTypeDef(BaseValidatorModel):
-    AwsAccountId: str
+    AwsAccountId: Annotated[str, _aws_pattern("Quicksight", "AwsAccountId")]
     KeyRegistration: List[RegisteredCustomerManagedKeyTypeDef]
 
 
@@ -6488,7 +6502,7 @@ class DescribeTopicRefreshResponseTypeDef(BaseValidatorModel):
 
 # This class is the output for the 'describe_topic_refresh_schedule' function.
 class DescribeTopicRefreshScheduleResponseTypeDef(BaseValidatorModel):
-    TopicId: str
+    TopicId: Annotated[str, _aws_pattern("Quicksight", "TopicId")]
     TopicArn: str
     DatasetArn: str
     RefreshSchedule: TopicRefreshScheduleOutputTypeDef
@@ -6611,7 +6625,7 @@ class SearchFoldersRequestPaginateTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'search_folders' function.
 class SearchFoldersRequestTypeDef(BaseValidatorModel):
-    AwsAccountId: str
+    AwsAccountId: Annotated[str, _aws_pattern("Quicksight", "AwsAccountId")]
     Filters: List[FolderSearchFilterTypeDef]
     NextToken: Optional[str] = None
     MaxResults: Optional[int] = None
@@ -6638,7 +6652,7 @@ class SearchFoldersResponseTypeDef(BaseValidatorModel):
 class FontConfigurationTypeDef(BaseValidatorModel):
     FontSize: Optional[FontSizeTypeDef] = None
     FontDecoration: Optional[FontDecorationType] = None
-    FontColor: Optional[str] = None
+    FontColor: Optional[Annotated[str, _aws_pattern("Quicksight", "HexColor")]] = None
     FontWeight: Optional[FontWeightTypeDef] = None
     FontStyle: Optional[FontStyleType] = None
     FontFamily: Optional[str] = None
@@ -6700,7 +6714,7 @@ class GeospatialNullDataSettingsTypeDef(BaseValidatorModel):
 # This class is the output for the 'get_flow_permissions' function.
 class GetFlowPermissionsOutputTypeDef(BaseValidatorModel):
     Arn: str
-    FlowId: str
+    FlowId: Annotated[str, _aws_pattern("Quicksight", "FlowId")]
     Permissions: List[PermissionOutputTypeDef]
     RequestId: str
     Status: int
@@ -6713,16 +6727,17 @@ class UpdateFlowPermissionsOutputTypeDef(BaseValidatorModel):
     Arn: str
     Permissions: List[PermissionOutputTypeDef]
     RequestId: str
-    FlowId: str
+    FlowId: Annotated[str, _aws_pattern("Quicksight", "FlowId")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 # This class is the input for the 'get_identity_context' function.
 class GetIdentityContextRequestTypeDef(BaseValidatorModel):
-    AwsAccountId: str
+    AwsAccountId: Annotated[str, _aws_pattern("Quicksight", "AwsAccountId")]
     UserIdentifier: UserIdentifierTypeDef
-    Namespace: Optional[str] = None
+    Namespace: Optional[Annotated[str, _aws_pattern("Quicksight", "Namespace")]] = None
     SessionExpiresAt: Optional[TimestampTypeDef] = None
+    ContextRegion: Optional[Annotated[str, _aws_pattern("Quicksight", "Region")]] = None
 
 
 class TableSideBorderOptionsTypeDef(BaseValidatorModel):
@@ -6747,7 +6762,7 @@ class GridLayoutCanvasSizeOptionsTypeDef(BaseValidatorModel):
 
 
 class GridLayoutElementTypeDef(BaseValidatorModel):
-    ElementId: str
+    ElementId: Annotated[str, _aws_pattern("Quicksight", "ShortRestrictiveResourceId")]
     ElementType: LayoutElementTypeType
     ColumnSpan: int
     RowSpan: int
@@ -6770,8 +6785,8 @@ class SearchGroupsRequestPaginateTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'search_groups' function.
 class SearchGroupsRequestTypeDef(BaseValidatorModel):
-    AwsAccountId: str
-    Namespace: str
+    AwsAccountId: Annotated[str, _aws_pattern("Quicksight", "AwsAccountId")]
+    Namespace: Annotated[str, _aws_pattern("Quicksight", "Namespace")]
     Filters: List[GroupSearchFilterTypeDef]
     NextToken: Optional[str] = None
     MaxResults: Optional[int] = None
@@ -6807,7 +6822,7 @@ class IngestionTypeDef(BaseValidatorModel):
     Arn: str
     IngestionStatus: IngestionStatusType
     CreatedTime: datetime
-    IngestionId: Optional[str] = None
+    IngestionId: Optional[Annotated[str, _aws_pattern("Quicksight", "IngestionId")]] = None
     ErrorInfo: Optional[ErrorInfoTypeDef] = None
     RowInfo: Optional[RowInfoTypeDef] = None
     QueueInfo: Optional[QueueInfoTypeDef] = None
@@ -6830,8 +6845,8 @@ IntegerDatasetParameterDefaultValuesUnionTypeDef = Union[
 
 
 class JoinInstructionTypeDef(BaseValidatorModel):
-    LeftOperand: str
-    RightOperand: str
+    LeftOperand: Annotated[str, _aws_pattern("Quicksight", "LogicalTableId")]
+    RightOperand: Annotated[str, _aws_pattern("Quicksight", "LogicalTableId")]
     Type: JoinTypeType
     OnClause: str
     LeftJoinKeyProperties: Optional[JoinKeyPropertiesTypeDef] = None
@@ -6969,7 +6984,7 @@ class NamedEntityDefinitionTypeDef(BaseValidatorModel):
 
 
 class NamespaceInfoV2TypeDef(BaseValidatorModel):
-    Name: Optional[str] = None
+    Name: Optional[Annotated[str, _aws_pattern("Quicksight", "Namespace")]] = None
     Arn: Optional[str] = None
     CapacityRegion: Optional[str] = None
     CreationStatus: Optional[NamespaceStatusType] = None
@@ -6984,7 +6999,7 @@ class VPCConnectionSummaryTypeDef(BaseValidatorModel):
     Arn: Optional[str] = None
     Name: Optional[str] = None
     VPCId: Optional[str] = None
-    SecurityGroupIds: Optional[List[str]] = None
+    SecurityGroupIds: Optional[List[Annotated[str, _aws_pattern("Quicksight", "SecurityGroupId")]]] = None
     DnsResolvers: Optional[List[str]] = None
     Status: Optional[VPCConnectionResourceStatusType] = None
     AvailabilityStatus: Optional[VPCConnectionAvailabilityStatusType] = None
@@ -6999,7 +7014,7 @@ class VPCConnectionTypeDef(BaseValidatorModel):
     Arn: Optional[str] = None
     Name: Optional[str] = None
     VPCId: Optional[str] = None
-    SecurityGroupIds: Optional[List[str]] = None
+    SecurityGroupIds: Optional[List[Annotated[str, _aws_pattern("Quicksight", "SecurityGroupId")]]] = None
     DnsResolvers: Optional[List[str]] = None
     Status: Optional[VPCConnectionResourceStatusType] = None
     AvailabilityStatus: Optional[VPCConnectionAvailabilityStatusType] = None
@@ -7153,7 +7168,7 @@ class SearchFlowsInputPaginateTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'search_flows' function.
 class SearchFlowsInputTypeDef(BaseValidatorModel):
-    AwsAccountId: str
+    AwsAccountId: Annotated[str, _aws_pattern("Quicksight", "AccountId")]
     Filters: List[SearchFlowsFilterTypeDef]
     NextToken: Optional[str] = None
     MaxResults: Optional[int] = None
@@ -7167,7 +7182,7 @@ class SearchTopicsRequestPaginateTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'search_topics' function.
 class SearchTopicsRequestTypeDef(BaseValidatorModel):
-    AwsAccountId: str
+    AwsAccountId: Annotated[str, _aws_pattern("Quicksight", "AwsAccountId")]
     Filters: List[TopicSearchFilterTypeDef]
     NextToken: Optional[str] = None
     MaxResults: Optional[int] = None
@@ -7212,7 +7227,7 @@ class SheetLayoutGroupOutputTypeDef(BaseValidatorModel):
 
 
 class SheetLayoutGroupTypeDef(BaseValidatorModel):
-    Id: str
+    Id: Annotated[str, _aws_pattern("Quicksight", "ShortRestrictiveResourceId")]
     Members: List[SheetLayoutGroupMemberTypeDef]
 
 
@@ -7270,7 +7285,7 @@ StringDatasetParameterDefaultValuesUnionTypeDef = Union[
 class UpdateKeyRegistrationResponseTypeDef(BaseValidatorModel):
     FailedKeyRegistration: List[FailedKeyRegistrationEntryTypeDef]
     SuccessfulKeyRegistration: List[SuccessfulKeyRegistrationEntryTypeDef]
-    RequestId: str
+    RequestId: Annotated[str, _aws_pattern("Quicksight", "NonEmptyString")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
@@ -7432,7 +7447,7 @@ class TemplateSourceEntityTypeDef(BaseValidatorModel):
 
 
 class AnonymousUserDashboardEmbeddingConfigurationTypeDef(BaseValidatorModel):
-    InitialDashboardId: str
+    InitialDashboardId: Annotated[str, _aws_pattern("Quicksight", "ShortRestrictiveResourceId")]
     EnabledFeatures: Optional[List[Literal["SHARED_VIEW"]]] = None
     DisabledFeatures: Optional[List[Literal["SHARED_VIEW"]]] = None
     FeatureConfigurations: Optional[AnonymousUserDashboardFeatureConfigurationsTypeDef] = None
@@ -7441,17 +7456,17 @@ class AnonymousUserDashboardEmbeddingConfigurationTypeDef(BaseValidatorModel):
 # This class is the output for the 'describe_asset_bundle_export_job' function.
 class DescribeAssetBundleExportJobResponseTypeDef(BaseValidatorModel):
     JobStatus: AssetBundleExportJobStatusType
-    DownloadUrl: str
+    DownloadUrl: Annotated[str, _aws_pattern("Quicksight", "SensitiveS3Uri")]
     Errors: List[AssetBundleExportJobErrorTypeDef]
     Arn: str
     CreatedTime: datetime
-    AssetBundleExportJobId: str
-    AwsAccountId: str
+    AssetBundleExportJobId: Annotated[str, _aws_pattern("Quicksight", "ShortRestrictiveResourceId")]
+    AwsAccountId: Annotated[str, _aws_pattern("Quicksight", "AwsAccountId")]
     ResourceArns: List[str]
     IncludeAllDependencies: bool
     ExportFormat: AssetBundleExportFormatType
     CloudFormationOverridePropertyConfiguration: AssetBundleCloudFormationOverridePropertyConfigurationOutputTypeDef
-    RequestId: str
+    RequestId: Annotated[str, _aws_pattern("Quicksight", "NonEmptyString")]
     Status: int
     IncludePermissions: bool
     IncludeTags: bool
@@ -7475,7 +7490,7 @@ class AssetBundleImportJobDashboardOverridePermissionsOutputTypeDef(BaseValidato
 
 
 class AssetBundleImportJobDashboardOverridePermissionsTypeDef(BaseValidatorModel):
-    DashboardIds: List[str]
+    DashboardIds: List[Annotated[str, _aws_pattern("Quicksight", "AssetBundleRestrictiveResourceId")]]
     Permissions: Optional[AssetBundleResourcePermissionsTypeDef] = None
     LinkSharingConfiguration: Optional[AssetBundleResourceLinkSharingConfigurationTypeDef] = None
 
@@ -7556,8 +7571,8 @@ class ForecastScenarioTypeDef(BaseValidatorModel):
 
 
 class AuthorizationCodeGrantMetadataTypeDef(BaseValidatorModel):
-    BaseEndpoint: str
-    RedirectUrl: str
+    BaseEndpoint: Annotated[str, _aws_pattern("Quicksight", "Endpoint")]
+    RedirectUrl: Annotated[str, _aws_pattern("Quicksight", "Endpoint")]
     AuthorizationCodeGrantCredentialsSource: Optional[Literal["PLAIN_CREDENTIALS"]] = None
     AuthorizationCodeGrantCredentialsDetails: Optional[AuthorizationCodeGrantCredentialsDetailsTypeDef] = None
 
@@ -7605,7 +7620,7 @@ class ListCustomPermissionsResponseTypeDef(BaseValidatorModel):
 
 
 class ClientCredentialsGrantMetadataTypeDef(BaseValidatorModel):
-    BaseEndpoint: str
+    BaseEndpoint: Annotated[str, _aws_pattern("Quicksight", "Endpoint")]
     ClientCredentialsSource: Optional[Literal["PLAIN_CREDENTIALS"]] = None
     ClientCredentialsDetails: Optional[ClientCredentialsDetailsTypeDef] = None
 
@@ -7717,7 +7732,7 @@ class SourceTableOutputTypeDef(BaseValidatorModel):
 
 
 class SourceTableTypeDef(BaseValidatorModel):
-    PhysicalTableId: Optional[str] = None
+    PhysicalTableId: Optional[Annotated[str, _aws_pattern("Quicksight", "DataSetEntityResourceId")]] = None
     DataSet: Optional[ParentDataSetTypeDef] = None
 
 
@@ -7751,7 +7766,7 @@ class DashboardPublishOptionsTypeDef(BaseValidatorModel):
 
 class DataPathColorTypeDef(BaseValidatorModel):
     Element: DataPathValueTypeDef
-    Color: str
+    Color: Annotated[str, _aws_pattern("Quicksight", "HexColor")]
     TimeGranularity: Optional[TimeGranularityType] = None
 
 
@@ -7902,15 +7917,15 @@ class DataSetStringListFilterConditionTypeDef(BaseValidatorModel):
 
 
 class DecimalDatasetParameterTypeDef(BaseValidatorModel):
-    Id: str
-    Name: str
+    Id: Annotated[str, _aws_pattern("Quicksight", "DatasetParameterId")]
+    Name: Annotated[str, _aws_pattern("Quicksight", "DatasetParameterName")]
     ValueType: DatasetParameterValueTypeType
     DefaultValues: Optional[DecimalDatasetParameterDefaultValuesUnionTypeDef] = None
 
 
 # This class is the output for the 'describe_dashboard_permissions' function.
 class DescribeDashboardPermissionsResponseTypeDef(BaseValidatorModel):
-    DashboardId: str
+    DashboardId: Annotated[str, _aws_pattern("Quicksight", "ShortRestrictiveResourceId")]
     DashboardArn: str
     Permissions: List[ResourcePermissionOutputTypeDef]
     Status: int
@@ -7922,7 +7937,7 @@ class DescribeDashboardPermissionsResponseTypeDef(BaseValidatorModel):
 # This class is the output for the 'update_dashboard_permissions' function.
 class UpdateDashboardPermissionsResponseTypeDef(BaseValidatorModel):
     DashboardArn: str
-    DashboardId: str
+    DashboardId: Annotated[str, _aws_pattern("Quicksight", "ShortRestrictiveResourceId")]
     Permissions: List[ResourcePermissionOutputTypeDef]
     RequestId: str
     Status: int
@@ -7932,7 +7947,7 @@ class UpdateDashboardPermissionsResponseTypeDef(BaseValidatorModel):
 
 # This class is the output for the 'list_topic_refresh_schedules' function.
 class ListTopicRefreshSchedulesResponseTypeDef(BaseValidatorModel):
-    TopicId: str
+    TopicId: Annotated[str, _aws_pattern("Quicksight", "TopicId")]
     TopicArn: str
     RefreshSchedules: List[TopicRefreshScheduleSummaryTypeDef]
     Status: int
@@ -8015,6 +8030,11 @@ class AxisLabelOptionsTypeDef(BaseValidatorModel):
     ApplyTo: Optional[AxisLabelReferenceOptionsTypeDef] = None
 
 
+class ControlTitleFontConfigurationTypeDef(BaseValidatorModel):
+    FontConfiguration: Optional[FontConfigurationTypeDef] = None
+    TextAlignment: Optional[HorizontalTextAlignmentType] = None
+
+
 class DataLabelOptionsOutputTypeDef(BaseValidatorModel):
     Visibility: Optional[VisibilityType] = None
     CategoryLabelVisibility: Optional[VisibilityType] = None
@@ -8036,7 +8056,7 @@ class DataLabelOptionsTypeDef(BaseValidatorModel):
     Position: Optional[DataLabelPositionType] = None
     LabelContent: Optional[DataLabelContentType] = None
     LabelFontConfiguration: Optional[FontConfigurationTypeDef] = None
-    LabelColor: Optional[str] = None
+    LabelColor: Optional[Annotated[str, _aws_pattern("Quicksight", "HexColor")]] = None
     Overlap: Optional[DataLabelOverlapType] = None
     TotalsVisibility: Optional[VisibilityType] = None
 
@@ -8047,7 +8067,7 @@ class FunnelChartDataLabelOptionsTypeDef(BaseValidatorModel):
     MeasureLabelVisibility: Optional[VisibilityType] = None
     Position: Optional[DataLabelPositionType] = None
     LabelFontConfiguration: Optional[FontConfigurationTypeDef] = None
-    LabelColor: Optional[str] = None
+    LabelColor: Optional[Annotated[str, _aws_pattern("Quicksight", "HexColor")]] = None
     MeasureDataLabelStyle: Optional[FunnelChartMeasureDataLabelStyleType] = None
 
 
@@ -8208,15 +8228,15 @@ class ListIngestionsResponseTypeDef(BaseValidatorModel):
 
 
 class IntegerDatasetParameterTypeDef(BaseValidatorModel):
-    Id: str
-    Name: str
+    Id: Annotated[str, _aws_pattern("Quicksight", "DatasetParameterId")]
+    Name: Annotated[str, _aws_pattern("Quicksight", "DatasetParameterName")]
     ValueType: DatasetParameterValueTypeType
     DefaultValues: Optional[IntegerDatasetParameterDefaultValuesUnionTypeDef] = None
 
 
 class LogicalTableSourceTypeDef(BaseValidatorModel):
     JoinInstruction: Optional[JoinInstructionTypeDef] = None
-    PhysicalTableId: Optional[str] = None
+    PhysicalTableId: Optional[Annotated[str, _aws_pattern("Quicksight", "PhysicalTableId")]] = None
     DataSetArn: Optional[str] = None
 
 
@@ -8245,8 +8265,8 @@ LinkSharingConfigurationUnionTypeDef = Union[LinkSharingConfigurationOutputTypeD
 
 # This class is the input for the 'create_folder' function.
 class CreateFolderRequestTypeDef(BaseValidatorModel):
-    AwsAccountId: str
-    FolderId: str
+    AwsAccountId: Annotated[str, _aws_pattern("Quicksight", "AwsAccountId")]
+    FolderId: Annotated[str, _aws_pattern("Quicksight", "RestrictiveResourceId")]
     Name: Optional[str] = None
     FolderType: Optional[FolderTypeType] = None
     ParentFolderArn: Optional[str] = None
@@ -8257,24 +8277,24 @@ class CreateFolderRequestTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'update_action_connector_permissions' function.
 class UpdateActionConnectorPermissionsRequestTypeDef(BaseValidatorModel):
-    AwsAccountId: str
-    ActionConnectorId: str
+    AwsAccountId: Annotated[str, _aws_pattern("Quicksight", "AwsAccountId")]
+    ActionConnectorId: Annotated[str, _aws_pattern("Quicksight", "ShortRestrictiveResourceId")]
     GrantPermissions: Optional[List[ResourcePermissionUnionTypeDef]] = None
     RevokePermissions: Optional[List[ResourcePermissionUnionTypeDef]] = None
 
 
 # This class is the input for the 'update_analysis_permissions' function.
 class UpdateAnalysisPermissionsRequestTypeDef(BaseValidatorModel):
-    AwsAccountId: str
-    AnalysisId: str
+    AwsAccountId: Annotated[str, _aws_pattern("Quicksight", "AwsAccountId")]
+    AnalysisId: Annotated[str, _aws_pattern("Quicksight", "ShortRestrictiveResourceId")]
     GrantPermissions: Optional[List[ResourcePermissionUnionTypeDef]] = None
     RevokePermissions: Optional[List[ResourcePermissionUnionTypeDef]] = None
 
 
 # This class is the input for the 'update_dashboard_permissions' function.
 class UpdateDashboardPermissionsRequestTypeDef(BaseValidatorModel):
-    AwsAccountId: str
-    DashboardId: str
+    AwsAccountId: Annotated[str, _aws_pattern("Quicksight", "AwsAccountId")]
+    DashboardId: Annotated[str, _aws_pattern("Quicksight", "ShortRestrictiveResourceId")]
     GrantPermissions: Optional[List[ResourcePermissionUnionTypeDef]] = None
     RevokePermissions: Optional[List[ResourcePermissionUnionTypeDef]] = None
     GrantLinkPermissions: Optional[List[ResourcePermissionUnionTypeDef]] = None
@@ -8283,7 +8303,7 @@ class UpdateDashboardPermissionsRequestTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'update_data_set_permissions' function.
 class UpdateDataSetPermissionsRequestTypeDef(BaseValidatorModel):
-    AwsAccountId: str
+    AwsAccountId: Annotated[str, _aws_pattern("Quicksight", "AwsAccountId")]
     DataSetId: str
     GrantPermissions: Optional[List[ResourcePermissionUnionTypeDef]] = None
     RevokePermissions: Optional[List[ResourcePermissionUnionTypeDef]] = None
@@ -8291,7 +8311,7 @@ class UpdateDataSetPermissionsRequestTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'update_data_source_permissions' function.
 class UpdateDataSourcePermissionsRequestTypeDef(BaseValidatorModel):
-    AwsAccountId: str
+    AwsAccountId: Annotated[str, _aws_pattern("Quicksight", "AwsAccountId")]
     DataSourceId: str
     GrantPermissions: Optional[List[ResourcePermissionUnionTypeDef]] = None
     RevokePermissions: Optional[List[ResourcePermissionUnionTypeDef]] = None
@@ -8299,32 +8319,32 @@ class UpdateDataSourcePermissionsRequestTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'update_folder_permissions' function.
 class UpdateFolderPermissionsRequestTypeDef(BaseValidatorModel):
-    AwsAccountId: str
-    FolderId: str
+    AwsAccountId: Annotated[str, _aws_pattern("Quicksight", "AwsAccountId")]
+    FolderId: Annotated[str, _aws_pattern("Quicksight", "RestrictiveResourceId")]
     GrantPermissions: Optional[List[ResourcePermissionUnionTypeDef]] = None
     RevokePermissions: Optional[List[ResourcePermissionUnionTypeDef]] = None
 
 
 # This class is the input for the 'update_template_permissions' function.
 class UpdateTemplatePermissionsRequestTypeDef(BaseValidatorModel):
-    AwsAccountId: str
-    TemplateId: str
+    AwsAccountId: Annotated[str, _aws_pattern("Quicksight", "AwsAccountId")]
+    TemplateId: Annotated[str, _aws_pattern("Quicksight", "ShortRestrictiveResourceId")]
     GrantPermissions: Optional[List[ResourcePermissionUnionTypeDef]] = None
     RevokePermissions: Optional[List[ResourcePermissionUnionTypeDef]] = None
 
 
 # This class is the input for the 'update_theme_permissions' function.
 class UpdateThemePermissionsRequestTypeDef(BaseValidatorModel):
-    AwsAccountId: str
-    ThemeId: str
+    AwsAccountId: Annotated[str, _aws_pattern("Quicksight", "AwsAccountId")]
+    ThemeId: Annotated[str, _aws_pattern("Quicksight", "ShortRestrictiveResourceId")]
     GrantPermissions: Optional[List[ResourcePermissionUnionTypeDef]] = None
     RevokePermissions: Optional[List[ResourcePermissionUnionTypeDef]] = None
 
 
 # This class is the input for the 'update_topic_permissions' function.
 class UpdateTopicPermissionsRequestTypeDef(BaseValidatorModel):
-    AwsAccountId: str
-    TopicId: str
+    AwsAccountId: Annotated[str, _aws_pattern("Quicksight", "AwsAccountId")]
+    TopicId: Annotated[str, _aws_pattern("Quicksight", "TopicId")]
     GrantPermissions: Optional[List[ResourcePermissionUnionTypeDef]] = None
     RevokePermissions: Optional[List[ResourcePermissionUnionTypeDef]] = None
 
@@ -8389,7 +8409,7 @@ class CurrencyDisplayFormatConfigurationTypeDef(BaseValidatorModel):
     Prefix: Optional[str] = None
     Suffix: Optional[str] = None
     SeparatorConfiguration: Optional[NumericSeparatorConfigurationTypeDef] = None
-    Symbol: Optional[str] = None
+    Symbol: Optional[Annotated[str, _aws_pattern("Quicksight", "CurrencyCode")]] = None
     DecimalPlacesConfiguration: Optional[DecimalPlacesConfigurationTypeDef] = None
     NumberScale: Optional[NumberScaleType] = None
     NegativeValueConfiguration: Optional[NegativeValueConfigurationTypeDef] = None
@@ -8432,8 +8452,8 @@ PerformanceConfigurationUnionTypeDef = Union[PerformanceConfigurationOutputTypeD
 
 # This class is the input for the 'update_flow_permissions' function.
 class UpdateFlowPermissionsInputTypeDef(BaseValidatorModel):
-    AwsAccountId: str
-    FlowId: str
+    AwsAccountId: Annotated[str, _aws_pattern("Quicksight", "AccountId")]
+    FlowId: Annotated[str, _aws_pattern("Quicksight", "FlowId")]
     GrantPermissions: Optional[List[PermissionUnionTypeDef]] = None
     RevokePermissions: Optional[List[PermissionUnionTypeDef]] = None
 
@@ -8450,14 +8470,14 @@ class TopicNumericRangeFilterTypeDef(BaseValidatorModel):
 
 
 class ReadAuthorizationCodeGrantMetadataTypeDef(BaseValidatorModel):
-    BaseEndpoint: str
-    RedirectUrl: str
+    BaseEndpoint: Annotated[str, _aws_pattern("Quicksight", "Endpoint")]
+    RedirectUrl: Annotated[str, _aws_pattern("Quicksight", "Endpoint")]
     ReadAuthorizationCodeGrantCredentialsDetails: Optional[ReadAuthorizationCodeGrantCredentialsDetailsTypeDef] = None
     AuthorizationCodeGrantCredentialsSource: Optional[Literal["PLAIN_CREDENTIALS"]] = None
 
 
 class ReadClientCredentialsGrantMetadataTypeDef(BaseValidatorModel):
-    BaseEndpoint: str
+    BaseEndpoint: Annotated[str, _aws_pattern("Quicksight", "Endpoint")]
     ReadClientCredentialsDetails: Optional[ReadClientCredentialsDetailsTypeDef] = None
     ClientCredentialsSource: Optional[Literal["PLAIN_CREDENTIALS"]] = None
 
@@ -8512,7 +8532,7 @@ class SnapshotDestinationConfigurationTypeDef(BaseValidatorModel):
 
 class SnapshotJobS3ResultTypeDef(BaseValidatorModel):
     S3DestinationConfiguration: Optional[SnapshotS3DestinationConfigurationTypeDef] = None
-    S3Uri: Optional[str] = None
+    S3Uri: Optional[Annotated[str, _aws_pattern("Quicksight", "SensitiveS3Uri")]] = None
     ErrorInfo: Optional[List[SnapshotJobResultErrorInfoTypeDef]] = None
 
 
@@ -8561,7 +8581,7 @@ class FreeFormLayoutElementOutputTypeDef(BaseValidatorModel):
 
 
 class FreeFormLayoutElementTypeDef(BaseValidatorModel):
-    ElementId: str
+    ElementId: Annotated[str, _aws_pattern("Quicksight", "ShortRestrictiveResourceId")]
     ElementType: LayoutElementTypeType
     XAxisLocation: str
     YAxisLocation: str
@@ -8589,12 +8609,12 @@ class SnapshotFileGroupTypeDef(BaseValidatorModel):
 
 
 class ImageStaticFileTypeDef(BaseValidatorModel):
-    StaticFileId: str
+    StaticFileId: Annotated[str, _aws_pattern("Quicksight", "ShortRestrictiveResourceId")]
     Source: Optional[StaticFileSourceTypeDef] = None
 
 
 class SpatialStaticFileTypeDef(BaseValidatorModel):
-    StaticFileId: str
+    StaticFileId: Annotated[str, _aws_pattern("Quicksight", "ShortRestrictiveResourceId")]
     Source: Optional[StaticFileSourceTypeDef] = None
 
 
@@ -8606,14 +8626,14 @@ class DatasetParameterOutputTypeDef(BaseValidatorModel):
 
 
 class StringDatasetParameterTypeDef(BaseValidatorModel):
-    Id: str
-    Name: str
+    Id: Annotated[str, _aws_pattern("Quicksight", "DatasetParameterId")]
+    Name: Annotated[str, _aws_pattern("Quicksight", "DatasetParameterName")]
     ValueType: DatasetParameterValueTypeType
     DefaultValues: Optional[StringDatasetParameterDefaultValuesUnionTypeDef] = None
 
 
 class SheetTextBoxTypeDef(BaseValidatorModel):
-    SheetTextBoxId: str
+    SheetTextBoxId: Annotated[str, _aws_pattern("Quicksight", "ShortRestrictiveResourceId")]
     Content: Optional[str] = None
     Interactions: Optional[TextBoxInteractionOptionsTypeDef] = None
 
@@ -8641,8 +8661,8 @@ class FilterCrossSheetControlOutputTypeDef(BaseValidatorModel):
 
 
 class FilterCrossSheetControlTypeDef(BaseValidatorModel):
-    FilterControlId: str
-    SourceFilterId: str
+    FilterControlId: Annotated[str, _aws_pattern("Quicksight", "ShortRestrictiveResourceId")]
+    SourceFilterId: Annotated[str, _aws_pattern("Quicksight", "ShortRestrictiveResourceId")]
     CascadingControlConfiguration: Optional[CascadingControlConfigurationTypeDef] = None
 
 
@@ -8655,7 +8675,7 @@ class DateTimeParameterDeclarationOutputTypeDef(BaseValidatorModel):
 
 
 class DateTimeParameterDeclarationTypeDef(BaseValidatorModel):
-    Name: str
+    Name: Annotated[str, _aws_pattern("Quicksight", "ParameterName")]
     DefaultValues: Optional[DateTimeDefaultValuesTypeDef] = None
     TimeGranularity: Optional[TimeGranularityType] = None
     ValueWhenUnset: Optional[DateTimeValueWhenUnsetConfigurationTypeDef] = None
@@ -8672,7 +8692,7 @@ class DecimalParameterDeclarationOutputTypeDef(BaseValidatorModel):
 
 class DecimalParameterDeclarationTypeDef(BaseValidatorModel):
     ParameterValueType: ParameterValueTypeType
-    Name: str
+    Name: Annotated[str, _aws_pattern("Quicksight", "ParameterName")]
     DefaultValues: Optional[DecimalDefaultValuesTypeDef] = None
     ValueWhenUnset: Optional[DecimalValueWhenUnsetConfigurationTypeDef] = None
     MappedDataSetParameters: Optional[List[MappedDataSetParameterTypeDef]] = None
@@ -8688,7 +8708,7 @@ class IntegerParameterDeclarationOutputTypeDef(BaseValidatorModel):
 
 class IntegerParameterDeclarationTypeDef(BaseValidatorModel):
     ParameterValueType: ParameterValueTypeType
-    Name: str
+    Name: Annotated[str, _aws_pattern("Quicksight", "ParameterName")]
     DefaultValues: Optional[IntegerDefaultValuesTypeDef] = None
     ValueWhenUnset: Optional[IntegerValueWhenUnsetConfigurationTypeDef] = None
     MappedDataSetParameters: Optional[List[MappedDataSetParameterTypeDef]] = None
@@ -8704,7 +8724,7 @@ class StringParameterDeclarationOutputTypeDef(BaseValidatorModel):
 
 class StringParameterDeclarationTypeDef(BaseValidatorModel):
     ParameterValueType: ParameterValueTypeType
-    Name: str
+    Name: Annotated[str, _aws_pattern("Quicksight", "ParameterName")]
     DefaultValues: Optional[StringDefaultValuesTypeDef] = None
     ValueWhenUnset: Optional[StringValueWhenUnsetConfigurationTypeDef] = None
     MappedDataSetParameters: Optional[List[MappedDataSetParameterTypeDef]] = None
@@ -8728,7 +8748,7 @@ class PredefinedHierarchyOutputTypeDef(BaseValidatorModel):
 
 
 class RegisteredUserDashboardEmbeddingConfigurationTypeDef(BaseValidatorModel):
-    InitialDashboardId: str
+    InitialDashboardId: Annotated[str, _aws_pattern("Quicksight", "ShortRestrictiveResourceId")]
     FeatureConfigurations: Optional[RegisteredUserDashboardFeatureConfigurationsTypeDef] = None
 
 
@@ -8746,8 +8766,8 @@ class AnonymousUserEmbeddingExperienceConfigurationTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'start_asset_bundle_export_job' function.
 class StartAssetBundleExportJobRequestTypeDef(BaseValidatorModel):
-    AwsAccountId: str
-    AssetBundleExportJobId: str
+    AwsAccountId: Annotated[str, _aws_pattern("Quicksight", "AwsAccountId")]
+    AssetBundleExportJobId: Annotated[str, _aws_pattern("Quicksight", "ShortRestrictiveResourceId")]
     ResourceArns: List[str]
     ExportFormat: AssetBundleExportFormatType
     IncludeAllDependencies: Optional[bool] = None
@@ -8841,8 +8861,8 @@ class DataSetDateRangeFilterConditionTypeDef(BaseValidatorModel):
 
 
 class DateTimeDatasetParameterTypeDef(BaseValidatorModel):
-    Id: str
-    Name: str
+    Id: Annotated[str, _aws_pattern("Quicksight", "DatasetParameterId")]
+    Name: Annotated[str, _aws_pattern("Quicksight", "DatasetParameterName")]
     ValueType: DatasetParameterValueTypeType
     TimeGranularity: Optional[TimeGranularityType] = None
     DefaultValues: Optional[DateTimeDatasetParameterDefaultValuesUnionTypeDef] = None
@@ -8852,8 +8872,8 @@ ParametersUnionTypeDef = Union[ParametersOutputTypeDef, ParametersTypeDef]
 
 
 class OverrideDatasetParameterOperationTypeDef(BaseValidatorModel):
-    ParameterName: str
-    NewParameterName: Optional[str] = None
+    ParameterName: Annotated[str, _aws_pattern("Quicksight", "DatasetParameterName")]
+    NewParameterName: Optional[Annotated[str, _aws_pattern("Quicksight", "DatasetParameterName")]] = None
     NewDefaultValues: Optional[NewDefaultValuesUnionTypeDef] = None
 
 
@@ -8876,8 +8896,8 @@ class PredefinedHierarchyTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'create_topic_refresh_schedule' function.
 class CreateTopicRefreshScheduleRequestTypeDef(BaseValidatorModel):
-    AwsAccountId: str
-    TopicId: str
+    AwsAccountId: Annotated[str, _aws_pattern("Quicksight", "AwsAccountId")]
+    TopicId: Annotated[str, _aws_pattern("Quicksight", "TopicId")]
     DatasetArn: str
     RefreshSchedule: TopicRefreshScheduleUnionTypeDef
     DatasetName: Optional[str] = None
@@ -8885,8 +8905,8 @@ class CreateTopicRefreshScheduleRequestTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'update_topic_refresh_schedule' function.
 class UpdateTopicRefreshScheduleRequestTypeDef(BaseValidatorModel):
-    AwsAccountId: str
-    TopicId: str
+    AwsAccountId: Annotated[str, _aws_pattern("Quicksight", "AwsAccountId")]
+    TopicId: Annotated[str, _aws_pattern("Quicksight", "TopicId")]
     DatasetId: str
     RefreshSchedule: TopicRefreshScheduleUnionTypeDef
 
@@ -8971,7 +8991,7 @@ class VisualPaletteOutputTypeDef(BaseValidatorModel):
 
 
 class VisualPaletteTypeDef(BaseValidatorModel):
-    ChartColor: Optional[str] = None
+    ChartColor: Optional[Annotated[str, _aws_pattern("Quicksight", "HexColor")]] = None
     ColorMap: Optional[List[DataPathColorTypeDef]] = None
 
 
@@ -9204,11 +9224,11 @@ class PanelConfigurationTypeDef(BaseValidatorModel):
     BorderVisibility: Optional[VisibilityType] = None
     BorderThickness: Optional[str] = None
     BorderStyle: Optional[PanelBorderStyleType] = None
-    BorderColor: Optional[str] = None
+    BorderColor: Optional[Annotated[str, _aws_pattern("Quicksight", "HexColorWithTransparency")]] = None
     GutterVisibility: Optional[VisibilityType] = None
     GutterSpacing: Optional[str] = None
     BackgroundVisibility: Optional[VisibilityType] = None
-    BackgroundColor: Optional[str] = None
+    BackgroundColor: Optional[Annotated[str, _aws_pattern("Quicksight", "HexColorWithTransparency")]] = None
 
 
 class TableFieldLinkContentConfigurationTypeDef(BaseValidatorModel):
@@ -9225,6 +9245,7 @@ class TypographyOutputTypeDef(BaseValidatorModel):
     DataLabelFontConfiguration: Optional[FontConfigurationTypeDef] = None
     VisualTitleFontConfiguration: Optional[VisualTitleFontConfigurationTypeDef] = None
     VisualSubtitleFontConfiguration: Optional[VisualSubtitleFontConfigurationTypeDef] = None
+    ControlTitleFontConfiguration: Optional[ControlTitleFontConfigurationTypeDef] = None
 
 
 class TypographyTypeDef(BaseValidatorModel):
@@ -9236,6 +9257,7 @@ class TypographyTypeDef(BaseValidatorModel):
     DataLabelFontConfiguration: Optional[FontConfigurationTypeDef] = None
     VisualTitleFontConfiguration: Optional[VisualTitleFontConfigurationTypeDef] = None
     VisualSubtitleFontConfiguration: Optional[VisualSubtitleFontConfigurationTypeDef] = None
+    ControlTitleFontConfiguration: Optional[ControlTitleFontConfigurationTypeDef] = None
 
 
 ColumnGroupUnionTypeDef = Union[ColumnGroupOutputTypeDef, ColumnGroupTypeDef]
@@ -9271,7 +9293,7 @@ class TableCellStyleTypeDef(BaseValidatorModel):
     TextWrap: Optional[TextWrapType] = None
     HorizontalTextAlignment: Optional[HorizontalTextAlignmentType] = None
     VerticalTextAlignment: Optional[VerticalTextAlignmentType] = None
-    BackgroundColor: Optional[str] = None
+    BackgroundColor: Optional[Annotated[str, _aws_pattern("Quicksight", "HexColor")]] = None
     Height: Optional[int] = None
     Border: Optional[GlobalTableBorderOptionsTypeDef] = None
 
@@ -9424,7 +9446,7 @@ class SemanticTableOutputTypeDef(BaseValidatorModel):
 
 class SemanticTableTypeDef(BaseValidatorModel):
     Alias: str
-    DestinationTableId: str
+    DestinationTableId: Annotated[str, _aws_pattern("Quicksight", "DataSetEntityResourceId")]
     RowLevelPermissionConfiguration: Optional[RowLevelPermissionConfigurationTypeDef] = None
 
 
@@ -9515,8 +9537,8 @@ class RegisteredUserEmbeddingExperienceConfigurationTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'generate_embed_url_for_anonymous_user' function.
 class GenerateEmbedUrlForAnonymousUserRequestTypeDef(BaseValidatorModel):
-    AwsAccountId: str
-    Namespace: str
+    AwsAccountId: Annotated[str, _aws_pattern("Quicksight", "AwsAccountId")]
+    Namespace: Annotated[str, _aws_pattern("Quicksight", "Namespace")]
     AuthorizedResourceArns: List[str]
     ExperienceConfiguration: AnonymousUserEmbeddingExperienceConfigurationTypeDef
     SessionLifetimeInMinutes: Optional[int] = None
@@ -9551,11 +9573,11 @@ class DataSourceTypeDef(BaseValidatorModel):
     VpcConnectionProperties: Optional[VpcConnectionPropertiesTypeDef] = None
     SslProperties: Optional[SslPropertiesTypeDef] = None
     ErrorInfo: Optional[DataSourceErrorInfoTypeDef] = None
-    SecretArn: Optional[str] = None
+    SecretArn: Optional[Annotated[str, _aws_pattern("Quicksight", "SecretArn")]] = None
 
 
 class SetParameterValueConfigurationTypeDef(BaseValidatorModel):
-    DestinationParameterName: str
+    DestinationParameterName: Annotated[str, _aws_pattern("Quicksight", "ParameterName")]
     Value: DestinationParameterValueConfigurationTypeDef
 
 
@@ -9664,19 +9686,21 @@ class DefaultDateTimePickerControlOptionsTypeDef(BaseValidatorModel):
 
 
 class FilterDateTimePickerControlTypeDef(BaseValidatorModel):
-    FilterControlId: str
-    Title: str
-    SourceFilterId: str
+    FilterControlId: Annotated[str, _aws_pattern("Quicksight", "ShortRestrictiveResourceId")]
+    SourceFilterId: Annotated[str, _aws_pattern("Quicksight", "ShortRestrictiveResourceId")]
+    Title: Optional[str] = None
     DisplayOptions: Optional[DateTimePickerControlDisplayOptionsTypeDef] = None
     Type: Optional[SheetControlDateTimePickerTypeType] = None
     CommitMode: Optional[CommitModeType] = None
+    ControlTitleFormatText: Optional[ControlTitleFormatTextTypeDef] = None
 
 
 class ParameterDateTimePickerControlTypeDef(BaseValidatorModel):
-    ParameterControlId: str
-    Title: str
-    SourceParameterName: str
+    ParameterControlId: Annotated[str, _aws_pattern("Quicksight", "ShortRestrictiveResourceId")]
+    SourceParameterName: Annotated[str, _aws_pattern("Quicksight", "ParameterName")]
+    Title: Optional[str] = None
     DisplayOptions: Optional[DateTimePickerControlDisplayOptionsTypeDef] = None
+    ControlTitleFormatText: Optional[ControlTitleFormatTextTypeDef] = None
 
 
 class DefaultRelativeDateTimeControlOptionsTypeDef(BaseValidatorModel):
@@ -9685,11 +9709,12 @@ class DefaultRelativeDateTimeControlOptionsTypeDef(BaseValidatorModel):
 
 
 class FilterRelativeDateTimeControlTypeDef(BaseValidatorModel):
-    FilterControlId: str
-    Title: str
-    SourceFilterId: str
+    FilterControlId: Annotated[str, _aws_pattern("Quicksight", "ShortRestrictiveResourceId")]
+    SourceFilterId: Annotated[str, _aws_pattern("Quicksight", "ShortRestrictiveResourceId")]
+    Title: Optional[str] = None
     DisplayOptions: Optional[RelativeDateTimeControlDisplayOptionsTypeDef] = None
     CommitMode: Optional[CommitModeType] = None
+    ControlTitleFormatText: Optional[ControlTitleFormatTextTypeDef] = None
 
 
 class DefaultSliderControlOptionsTypeDef(BaseValidatorModel):
@@ -9701,24 +9726,26 @@ class DefaultSliderControlOptionsTypeDef(BaseValidatorModel):
 
 
 class FilterSliderControlTypeDef(BaseValidatorModel):
-    FilterControlId: str
-    Title: str
-    SourceFilterId: str
+    FilterControlId: Annotated[str, _aws_pattern("Quicksight", "ShortRestrictiveResourceId")]
+    SourceFilterId: Annotated[str, _aws_pattern("Quicksight", "ShortRestrictiveResourceId")]
     MaximumValue: float
     MinimumValue: float
     StepSize: float
+    Title: Optional[str] = None
     DisplayOptions: Optional[SliderControlDisplayOptionsTypeDef] = None
     Type: Optional[SheetControlSliderTypeType] = None
+    ControlTitleFormatText: Optional[ControlTitleFormatTextTypeDef] = None
 
 
 class ParameterSliderControlTypeDef(BaseValidatorModel):
-    ParameterControlId: str
-    Title: str
-    SourceParameterName: str
+    ParameterControlId: Annotated[str, _aws_pattern("Quicksight", "ShortRestrictiveResourceId")]
+    SourceParameterName: Annotated[str, _aws_pattern("Quicksight", "ParameterName")]
     MaximumValue: float
     MinimumValue: float
     StepSize: float
+    Title: Optional[str] = None
     DisplayOptions: Optional[SliderControlDisplayOptionsTypeDef] = None
+    ControlTitleFormatText: Optional[ControlTitleFormatTextTypeDef] = None
 
 
 class DefaultTextAreaControlOptionsTypeDef(BaseValidatorModel):
@@ -9727,19 +9754,21 @@ class DefaultTextAreaControlOptionsTypeDef(BaseValidatorModel):
 
 
 class FilterTextAreaControlTypeDef(BaseValidatorModel):
-    FilterControlId: str
-    Title: str
-    SourceFilterId: str
+    FilterControlId: Annotated[str, _aws_pattern("Quicksight", "ShortRestrictiveResourceId")]
+    SourceFilterId: Annotated[str, _aws_pattern("Quicksight", "ShortRestrictiveResourceId")]
+    Title: Optional[str] = None
     Delimiter: Optional[str] = None
     DisplayOptions: Optional[TextAreaControlDisplayOptionsTypeDef] = None
+    ControlTitleFormatText: Optional[ControlTitleFormatTextTypeDef] = None
 
 
 class ParameterTextAreaControlTypeDef(BaseValidatorModel):
-    ParameterControlId: str
-    Title: str
-    SourceParameterName: str
+    ParameterControlId: Annotated[str, _aws_pattern("Quicksight", "ShortRestrictiveResourceId")]
+    SourceParameterName: Annotated[str, _aws_pattern("Quicksight", "ParameterName")]
+    Title: Optional[str] = None
     Delimiter: Optional[str] = None
     DisplayOptions: Optional[TextAreaControlDisplayOptionsTypeDef] = None
+    ControlTitleFormatText: Optional[ControlTitleFormatTextTypeDef] = None
 
 
 class DefaultTextFieldControlOptionsTypeDef(BaseValidatorModel):
@@ -9747,17 +9776,19 @@ class DefaultTextFieldControlOptionsTypeDef(BaseValidatorModel):
 
 
 class FilterTextFieldControlTypeDef(BaseValidatorModel):
-    FilterControlId: str
-    Title: str
-    SourceFilterId: str
+    FilterControlId: Annotated[str, _aws_pattern("Quicksight", "ShortRestrictiveResourceId")]
+    SourceFilterId: Annotated[str, _aws_pattern("Quicksight", "ShortRestrictiveResourceId")]
+    Title: Optional[str] = None
     DisplayOptions: Optional[TextFieldControlDisplayOptionsTypeDef] = None
+    ControlTitleFormatText: Optional[ControlTitleFormatTextTypeDef] = None
 
 
 class ParameterTextFieldControlTypeDef(BaseValidatorModel):
-    ParameterControlId: str
-    Title: str
-    SourceParameterName: str
+    ParameterControlId: Annotated[str, _aws_pattern("Quicksight", "ShortRestrictiveResourceId")]
+    SourceParameterName: Annotated[str, _aws_pattern("Quicksight", "ParameterName")]
+    Title: Optional[str] = None
     DisplayOptions: Optional[TextFieldControlDisplayOptionsTypeDef] = None
+    ControlTitleFormatText: Optional[ControlTitleFormatTextTypeDef] = None
 
 
 class SmallMultiplesOptionsTypeDef(BaseValidatorModel):
@@ -10031,7 +10062,7 @@ class LogoConfigurationTypeDef(BaseValidatorModel):
 
 
 class LogoTypeDef(BaseValidatorModel):
-    AltText: str
+    AltText: Annotated[str, _aws_pattern("Quicksight", "AltText")]
     LogoSet: LogoSetTypeDef
 
 
@@ -10051,7 +10082,7 @@ class DescribeDataSetRefreshPropertiesResponseTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'put_data_set_refresh_properties' function.
 class PutDataSetRefreshPropertiesRequestTypeDef(BaseValidatorModel):
-    AwsAccountId: str
+    AwsAccountId: Annotated[str, _aws_pattern("Quicksight", "AwsAccountId")]
     DataSetId: str
     DataSetRefreshProperties: DataSetRefreshPropertiesTypeDef
 
@@ -10205,14 +10236,14 @@ class DataSourceParametersTypeDef(BaseValidatorModel):
 # This class is the input for the 'create_refresh_schedule' function.
 class CreateRefreshScheduleRequestTypeDef(BaseValidatorModel):
     DataSetId: str
-    AwsAccountId: str
+    AwsAccountId: Annotated[str, _aws_pattern("Quicksight", "AwsAccountId")]
     Schedule: RefreshScheduleUnionTypeDef
 
 
 # This class is the input for the 'update_refresh_schedule' function.
 class UpdateRefreshScheduleRequestTypeDef(BaseValidatorModel):
     DataSetId: str
-    AwsAccountId: str
+    AwsAccountId: Annotated[str, _aws_pattern("Quicksight", "AwsAccountId")]
     Schedule: RefreshScheduleUnionTypeDef
 
 
@@ -10249,16 +10280,16 @@ class SectionLayoutConfigurationTypeDef(BaseValidatorModel):
 
 # This class is the output for the 'describe_dashboard_snapshot_job' function.
 class DescribeDashboardSnapshotJobResponseTypeDef(BaseValidatorModel):
-    AwsAccountId: str
-    DashboardId: str
-    SnapshotJobId: str
+    AwsAccountId: Annotated[str, _aws_pattern("Quicksight", "AwsAccountId")]
+    DashboardId: Annotated[str, _aws_pattern("Quicksight", "ShortRestrictiveResourceId")]
+    SnapshotJobId: Annotated[str, _aws_pattern("Quicksight", "ShortRestrictiveResourceId")]
     UserConfiguration: SnapshotUserConfigurationRedactedTypeDef
     SnapshotConfiguration: SnapshotConfigurationOutputTypeDef
     Arn: str
     JobStatus: SnapshotJobStatusType
     CreatedTime: datetime
     LastUpdatedTime: datetime
-    RequestId: str
+    RequestId: Annotated[str, _aws_pattern("Quicksight", "NonEmptyString")]
     Status: int
     ResponseMetadata: ResponseMetadataTypeDef
 
@@ -10268,7 +10299,7 @@ SnapshotConfigurationUnionTypeDef = Union[SnapshotConfigurationOutputTypeDef, Sn
 
 # This class is the input for the 'generate_embed_url_for_registered_user' function.
 class GenerateEmbedUrlForRegisteredUserRequestTypeDef(BaseValidatorModel):
-    AwsAccountId: str
+    AwsAccountId: Annotated[str, _aws_pattern("Quicksight", "AwsAccountId")]
     UserArn: str
     ExperienceConfiguration: RegisteredUserEmbeddingExperienceConfigurationTypeDef
     SessionLifetimeInMinutes: Optional[int] = None
@@ -10277,7 +10308,7 @@ class GenerateEmbedUrlForRegisteredUserRequestTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'generate_embed_url_for_registered_user_with_identity' function.
 class GenerateEmbedUrlForRegisteredUserWithIdentityRequestTypeDef(BaseValidatorModel):
-    AwsAccountId: str
+    AwsAccountId: Annotated[str, _aws_pattern("Quicksight", "AwsAccountId")]
     ExperienceConfiguration: RegisteredUserEmbeddingExperienceConfigurationTypeDef
     SessionLifetimeInMinutes: Optional[int] = None
     AllowedDomains: Optional[List[str]] = None
@@ -10319,12 +10350,12 @@ class DatasetParameterTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'create_action_connector' function.
 class CreateActionConnectorRequestTypeDef(BaseValidatorModel):
-    AwsAccountId: str
-    ActionConnectorId: str
-    Name: str
+    AwsAccountId: Annotated[str, _aws_pattern("Quicksight", "AwsAccountId")]
+    ActionConnectorId: Annotated[str, _aws_pattern("Quicksight", "ShortRestrictiveResourceId")]
+    Name: Annotated[str, _aws_pattern("Quicksight", "ActionConnectorName")]
     Type: ActionConnectorTypeType
     AuthenticationConfig: AuthConfigTypeDef
-    Description: Optional[str] = None
+    Description: Optional[Annotated[str, _aws_pattern("Quicksight", "ActionConnectorDescription")]] = None
     Permissions: Optional[List[ResourcePermissionUnionTypeDef]] = None
     VpcConnectionArn: Optional[str] = None
     Tags: Optional[List[TagTypeDef]] = None
@@ -10332,11 +10363,11 @@ class CreateActionConnectorRequestTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'update_action_connector' function.
 class UpdateActionConnectorRequestTypeDef(BaseValidatorModel):
-    AwsAccountId: str
-    ActionConnectorId: str
-    Name: str
+    AwsAccountId: Annotated[str, _aws_pattern("Quicksight", "AwsAccountId")]
+    ActionConnectorId: Annotated[str, _aws_pattern("Quicksight", "ShortRestrictiveResourceId")]
+    Name: Annotated[str, _aws_pattern("Quicksight", "ActionConnectorName")]
     AuthenticationConfig: AuthConfigTypeDef
-    Description: Optional[str] = None
+    Description: Optional[Annotated[str, _aws_pattern("Quicksight", "ActionConnectorDescription")]] = None
     VpcConnectionArn: Optional[str] = None
 
 
@@ -10418,7 +10449,7 @@ class ThemeVersionTypeDef(BaseValidatorModel):
     VersionNumber: Optional[int] = None
     Arn: Optional[str] = None
     Description: Optional[str] = None
-    BaseThemeId: Optional[str] = None
+    BaseThemeId: Optional[Annotated[str, _aws_pattern("Quicksight", "ShortRestrictiveResourceId")]] = None
     CreatedTime: Optional[datetime] = None
     Configuration: Optional[ThemeConfigurationOutputTypeDef] = None
     Errors: Optional[List[ThemeErrorTypeDef]] = None
@@ -10525,19 +10556,19 @@ class TableCellConditionalFormattingTypeDef(BaseValidatorModel):
 
 
 class BrandDefinitionTypeDef(BaseValidatorModel):
-    BrandName: str
-    Description: Optional[str] = None
+    BrandName: Annotated[str, _aws_pattern("Quicksight", "Name")]
+    Description: Optional[Annotated[str, _aws_pattern("Quicksight", "Description")]] = None
     ApplicationTheme: Optional[ApplicationThemeTypeDef] = None
     LogoConfiguration: Optional[LogoConfigurationTypeDef] = None
 
 
 class BrandDetailTypeDef(BaseValidatorModel):
-    BrandId: str
+    BrandId: Annotated[str, _aws_pattern("Quicksight", "ShortRestrictiveResourceId")]
     Arn: Optional[str] = None
     BrandStatus: Optional[BrandStatusType] = None
     CreatedTime: Optional[datetime] = None
     LastUpdatedTime: Optional[datetime] = None
-    VersionId: Optional[str] = None
+    VersionId: Optional[Annotated[str, _aws_pattern("Quicksight", "ShortRestrictiveResourceId")]] = None
     VersionStatus: Optional[BrandVersionStatusType] = None
     Errors: Optional[List[str]] = None
     Logo: Optional[LogoTypeDef] = None
@@ -10608,7 +10639,7 @@ class ReferenceLineLabelConfigurationTypeDef(BaseValidatorModel):
     ValueLabelConfiguration: Optional[ReferenceLineValueLabelConfigurationTypeDef] = None
     CustomLabelConfiguration: Optional[ReferenceLineCustomLabelConfigurationTypeDef] = None
     FontConfiguration: Optional[FontConfigurationTypeDef] = None
-    FontColor: Optional[str] = None
+    FontColor: Optional[Annotated[str, _aws_pattern("Quicksight", "HexColor")]] = None
     HorizontalPosition: Optional[ReferenceLineLabelHorizontalPositionType] = None
     VerticalPosition: Optional[ReferenceLineLabelVerticalPositionType] = None
 
@@ -10665,94 +10696,102 @@ class DefaultFilterListControlOptionsTypeDef(BaseValidatorModel):
 
 class FilterDropDownControlOutputTypeDef(BaseValidatorModel):
     FilterControlId: str
-    Title: str
     SourceFilterId: str
+    Title: Optional[str] = None
     DisplayOptions: Optional[DropDownControlDisplayOptionsTypeDef] = None
     Type: Optional[SheetControlListTypeType] = None
     SelectableValues: Optional[FilterSelectableValuesOutputTypeDef] = None
     CascadingControlConfiguration: Optional[CascadingControlConfigurationOutputTypeDef] = None
     CommitMode: Optional[CommitModeType] = None
     ControlSortConfigurations: Optional[List[ControlSortConfigurationTypeDef]] = None
+    ControlTitleFormatText: Optional[ControlTitleFormatTextTypeDef] = None
 
 
 class FilterDropDownControlTypeDef(BaseValidatorModel):
-    FilterControlId: str
-    Title: str
-    SourceFilterId: str
+    FilterControlId: Annotated[str, _aws_pattern("Quicksight", "ShortRestrictiveResourceId")]
+    SourceFilterId: Annotated[str, _aws_pattern("Quicksight", "ShortRestrictiveResourceId")]
+    Title: Optional[str] = None
     DisplayOptions: Optional[DropDownControlDisplayOptionsTypeDef] = None
     Type: Optional[SheetControlListTypeType] = None
     SelectableValues: Optional[FilterSelectableValuesTypeDef] = None
     CascadingControlConfiguration: Optional[CascadingControlConfigurationTypeDef] = None
     CommitMode: Optional[CommitModeType] = None
     ControlSortConfigurations: Optional[List[ControlSortConfigurationTypeDef]] = None
+    ControlTitleFormatText: Optional[ControlTitleFormatTextTypeDef] = None
 
 
 class FilterListControlOutputTypeDef(BaseValidatorModel):
     FilterControlId: str
-    Title: str
     SourceFilterId: str
+    Title: Optional[str] = None
     DisplayOptions: Optional[ListControlDisplayOptionsTypeDef] = None
     Type: Optional[SheetControlListTypeType] = None
     SelectableValues: Optional[FilterSelectableValuesOutputTypeDef] = None
     CascadingControlConfiguration: Optional[CascadingControlConfigurationOutputTypeDef] = None
     ControlSortConfigurations: Optional[List[ControlSortConfigurationTypeDef]] = None
+    ControlTitleFormatText: Optional[ControlTitleFormatTextTypeDef] = None
 
 
 class FilterListControlTypeDef(BaseValidatorModel):
-    FilterControlId: str
-    Title: str
-    SourceFilterId: str
+    FilterControlId: Annotated[str, _aws_pattern("Quicksight", "ShortRestrictiveResourceId")]
+    SourceFilterId: Annotated[str, _aws_pattern("Quicksight", "ShortRestrictiveResourceId")]
+    Title: Optional[str] = None
     DisplayOptions: Optional[ListControlDisplayOptionsTypeDef] = None
     Type: Optional[SheetControlListTypeType] = None
     SelectableValues: Optional[FilterSelectableValuesTypeDef] = None
     CascadingControlConfiguration: Optional[CascadingControlConfigurationTypeDef] = None
     ControlSortConfigurations: Optional[List[ControlSortConfigurationTypeDef]] = None
+    ControlTitleFormatText: Optional[ControlTitleFormatTextTypeDef] = None
 
 
 class ParameterDropDownControlOutputTypeDef(BaseValidatorModel):
     ParameterControlId: str
-    Title: str
     SourceParameterName: str
+    Title: Optional[str] = None
     DisplayOptions: Optional[DropDownControlDisplayOptionsTypeDef] = None
     Type: Optional[SheetControlListTypeType] = None
     SelectableValues: Optional[ParameterSelectableValuesOutputTypeDef] = None
     CascadingControlConfiguration: Optional[CascadingControlConfigurationOutputTypeDef] = None
     CommitMode: Optional[CommitModeType] = None
     ControlSortConfigurations: Optional[List[ControlSortConfigurationTypeDef]] = None
+    ControlTitleFormatText: Optional[ControlTitleFormatTextTypeDef] = None
 
 
 class ParameterDropDownControlTypeDef(BaseValidatorModel):
-    ParameterControlId: str
-    Title: str
-    SourceParameterName: str
+    ParameterControlId: Annotated[str, _aws_pattern("Quicksight", "ShortRestrictiveResourceId")]
+    SourceParameterName: Annotated[str, _aws_pattern("Quicksight", "ParameterName")]
+    Title: Optional[str] = None
     DisplayOptions: Optional[DropDownControlDisplayOptionsTypeDef] = None
     Type: Optional[SheetControlListTypeType] = None
     SelectableValues: Optional[ParameterSelectableValuesTypeDef] = None
     CascadingControlConfiguration: Optional[CascadingControlConfigurationTypeDef] = None
     CommitMode: Optional[CommitModeType] = None
     ControlSortConfigurations: Optional[List[ControlSortConfigurationTypeDef]] = None
+    ControlTitleFormatText: Optional[ControlTitleFormatTextTypeDef] = None
 
 
 class ParameterListControlOutputTypeDef(BaseValidatorModel):
     ParameterControlId: str
-    Title: str
     SourceParameterName: str
+    Title: Optional[str] = None
     DisplayOptions: Optional[ListControlDisplayOptionsTypeDef] = None
     Type: Optional[SheetControlListTypeType] = None
     SelectableValues: Optional[ParameterSelectableValuesOutputTypeDef] = None
     CascadingControlConfiguration: Optional[CascadingControlConfigurationOutputTypeDef] = None
     ControlSortConfigurations: Optional[List[ControlSortConfigurationTypeDef]] = None
+    ControlTitleFormatText: Optional[ControlTitleFormatTextTypeDef] = None
 
 
 class ParameterListControlTypeDef(BaseValidatorModel):
-    ParameterControlId: str
-    Title: str
-    SourceParameterName: str
+    ParameterControlId: Annotated[str, _aws_pattern("Quicksight", "ShortRestrictiveResourceId")]
+    SourceParameterName: Annotated[str, _aws_pattern("Quicksight", "ParameterName")]
+    Title: Optional[str] = None
     DisplayOptions: Optional[ListControlDisplayOptionsTypeDef] = None
     Type: Optional[SheetControlListTypeType] = None
     SelectableValues: Optional[ParameterSelectableValuesTypeDef] = None
     CascadingControlConfiguration: Optional[CascadingControlConfigurationTypeDef] = None
     ControlSortConfigurations: Optional[List[ControlSortConfigurationTypeDef]] = None
+    ControlTitleFormatText: Optional[ControlTitleFormatTextTypeDef] = None
 
 
 class BodySectionRepeatDimensionConfigurationOutputTypeDef(BaseValidatorModel):
@@ -10995,16 +11034,16 @@ class TopicDetailsTypeDef(BaseValidatorModel):
 
 class ActionConnectorTypeDef(BaseValidatorModel):
     Arn: str
-    ActionConnectorId: str
+    ActionConnectorId: Annotated[str, _aws_pattern("Quicksight", "ShortRestrictiveResourceId")]
     Type: ActionConnectorTypeType
-    Name: str
+    Name: Annotated[str, _aws_pattern("Quicksight", "ActionConnectorName")]
     LastUpdatedTime: datetime
     CreatedTime: Optional[datetime] = None
     Status: Optional[ResourceStatusType] = None
     Error: Optional[ActionConnectorErrorTypeDef] = None
-    Description: Optional[str] = None
+    Description: Optional[Annotated[str, _aws_pattern("Quicksight", "ActionConnectorDescription")]] = None
     AuthenticationConfig: Optional[ReadAuthConfigTypeDef] = None
-    EnabledActions: Optional[List[str]] = None
+    EnabledActions: Optional[List[Annotated[str, _aws_pattern("Quicksight", "ActionId")]]] = None
     VpcConnectionArn: Optional[str] = None
 
 
@@ -11050,16 +11089,16 @@ class BodySectionContentTypeDef(BaseValidatorModel):
 
 
 class HeaderFooterSectionConfigurationTypeDef(BaseValidatorModel):
-    SectionId: str
+    SectionId: Annotated[str, _aws_pattern("Quicksight", "ShortRestrictiveResourceId")]
     Layout: SectionLayoutConfigurationTypeDef
     Style: Optional[SectionStyleTypeDef] = None
 
 
 # This class is the input for the 'start_dashboard_snapshot_job' function.
 class StartDashboardSnapshotJobRequestTypeDef(BaseValidatorModel):
-    AwsAccountId: str
-    DashboardId: str
-    SnapshotJobId: str
+    AwsAccountId: Annotated[str, _aws_pattern("Quicksight", "AwsAccountId")]
+    DashboardId: Annotated[str, _aws_pattern("Quicksight", "ShortRestrictiveResourceId")]
+    SnapshotJobId: Annotated[str, _aws_pattern("Quicksight", "ShortRestrictiveResourceId")]
     SnapshotConfiguration: SnapshotConfigurationUnionTypeDef
     UserConfiguration: Optional[SnapshotUserConfigurationTypeDef] = None
 
@@ -11143,7 +11182,7 @@ class TableFieldOptionTypeDef(BaseValidatorModel):
 class ThemeTypeDef(BaseValidatorModel):
     Arn: Optional[str] = None
     Name: Optional[str] = None
-    ThemeId: Optional[str] = None
+    ThemeId: Optional[Annotated[str, _aws_pattern("Quicksight", "ShortRestrictiveResourceId")]] = None
     Version: Optional[ThemeVersionTypeDef] = None
     CreatedTime: Optional[datetime] = None
     LastUpdatedTime: Optional[datetime] = None
@@ -11152,10 +11191,10 @@ class ThemeTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'create_theme' function.
 class CreateThemeRequestTypeDef(BaseValidatorModel):
-    AwsAccountId: str
-    ThemeId: str
+    AwsAccountId: Annotated[str, _aws_pattern("Quicksight", "AwsAccountId")]
+    ThemeId: Annotated[str, _aws_pattern("Quicksight", "ShortRestrictiveResourceId")]
     Name: str
-    BaseThemeId: str
+    BaseThemeId: Annotated[str, _aws_pattern("Quicksight", "ShortRestrictiveResourceId")]
     Configuration: ThemeConfigurationUnionTypeDef
     VersionDescription: Optional[str] = None
     Permissions: Optional[List[ResourcePermissionUnionTypeDef]] = None
@@ -11164,9 +11203,9 @@ class CreateThemeRequestTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'update_theme' function.
 class UpdateThemeRequestTypeDef(BaseValidatorModel):
-    AwsAccountId: str
-    ThemeId: str
-    BaseThemeId: str
+    AwsAccountId: Annotated[str, _aws_pattern("Quicksight", "AwsAccountId")]
+    ThemeId: Annotated[str, _aws_pattern("Quicksight", "ShortRestrictiveResourceId")]
+    BaseThemeId: Annotated[str, _aws_pattern("Quicksight", "ShortRestrictiveResourceId")]
     Name: Optional[str] = None
     VersionDescription: Optional[str] = None
     Configuration: Optional[ThemeConfigurationUnionTypeDef] = None
@@ -11240,16 +11279,16 @@ class TableConditionalFormattingOptionTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'create_brand' function.
 class CreateBrandRequestTypeDef(BaseValidatorModel):
-    AwsAccountId: str
-    BrandId: str
+    AwsAccountId: Annotated[str, _aws_pattern("Quicksight", "AwsAccountId")]
+    BrandId: Annotated[str, _aws_pattern("Quicksight", "ShortRestrictiveResourceId")]
     BrandDefinition: Optional[BrandDefinitionTypeDef] = None
     Tags: Optional[List[TagTypeDef]] = None
 
 
 # This class is the input for the 'update_brand' function.
 class UpdateBrandRequestTypeDef(BaseValidatorModel):
-    AwsAccountId: str
-    BrandId: str
+    AwsAccountId: Annotated[str, _aws_pattern("Quicksight", "AwsAccountId")]
+    BrandId: Annotated[str, _aws_pattern("Quicksight", "ShortRestrictiveResourceId")]
     BrandDefinition: Optional[BrandDefinitionTypeDef] = None
 
 
@@ -11292,12 +11331,12 @@ class DescribeAssetBundleImportJobResponseTypeDef(BaseValidatorModel):
     RollbackErrors: List[AssetBundleImportJobErrorTypeDef]
     Arn: str
     CreatedTime: datetime
-    AssetBundleImportJobId: str
-    AwsAccountId: str
+    AssetBundleImportJobId: Annotated[str, _aws_pattern("Quicksight", "ShortRestrictiveResourceId")]
+    AwsAccountId: Annotated[str, _aws_pattern("Quicksight", "AwsAccountId")]
     AssetBundleImportSource: AssetBundleImportSourceDescriptionTypeDef
     OverrideParameters: AssetBundleImportJobOverrideParametersOutputTypeDef
     FailureAction: AssetBundleImportFailureActionType
-    RequestId: str
+    RequestId: Annotated[str, _aws_pattern("Quicksight", "NonEmptyString")]
     Status: int
     OverridePermissions: AssetBundleImportJobOverridePermissionsOutputTypeDef
     OverrideTags: AssetBundleImportJobOverrideTagsOutputTypeDef
@@ -11417,7 +11456,7 @@ class BodySectionRepeatConfigurationOutputTypeDef(BaseValidatorModel):
 class BodySectionRepeatConfigurationTypeDef(BaseValidatorModel):
     DimensionConfigurations: Optional[List[BodySectionRepeatDimensionConfigurationTypeDef]] = None
     PageBreakConfiguration: Optional[BodySectionRepeatPageBreakConfigurationTypeDef] = None
-    NonRepeatingVisuals: Optional[List[str]] = None
+    NonRepeatingVisuals: Optional[List[Annotated[str, _aws_pattern("Quicksight", "ShortRestrictiveResourceId")]]] = None
 
 
 class PluginVisualSortConfigurationOutputTypeDef(BaseValidatorModel):
@@ -11453,7 +11492,7 @@ class TooltipOptionsTypeDef(BaseValidatorModel):
 # This class is the output for the 'describe_topic' function.
 class DescribeTopicResponseTypeDef(BaseValidatorModel):
     Arn: str
-    TopicId: str
+    TopicId: Annotated[str, _aws_pattern("Quicksight", "TopicId")]
     Topic: TopicDetailsOutputTypeDef
     RequestId: str
     Status: int
@@ -11498,7 +11537,7 @@ class DescribeDashboardSnapshotJobResultResponseTypeDef(BaseValidatorModel):
     LastUpdatedTime: datetime
     Result: SnapshotJobResultTypeDef
     ErrorInfo: SnapshotJobErrorInfoTypeDef
-    RequestId: str
+    RequestId: Annotated[str, _aws_pattern("Quicksight", "NonEmptyString")]
     Status: int
     ResponseMetadata: ResponseMetadataTypeDef
 
@@ -11508,7 +11547,7 @@ class AnalysisDefaultsTypeDef(BaseValidatorModel):
 
 
 class ImageCustomActionTypeDef(BaseValidatorModel):
-    CustomActionId: str
+    CustomActionId: Annotated[str, _aws_pattern("Quicksight", "ShortRestrictiveResourceId")]
     Name: str
     Trigger: ImageCustomActionTriggerType
     ActionOperations: List[ImageCustomActionOperationTypeDef]
@@ -11516,7 +11555,7 @@ class ImageCustomActionTypeDef(BaseValidatorModel):
 
 
 class LayerCustomActionTypeDef(BaseValidatorModel):
-    CustomActionId: str
+    CustomActionId: Annotated[str, _aws_pattern("Quicksight", "ShortRestrictiveResourceId")]
     Name: str
     Trigger: LayerCustomActionTriggerType
     ActionOperations: List[LayerCustomActionOperationTypeDef]
@@ -11524,7 +11563,7 @@ class LayerCustomActionTypeDef(BaseValidatorModel):
 
 
 class VisualCustomActionTypeDef(BaseValidatorModel):
-    CustomActionId: str
+    CustomActionId: Annotated[str, _aws_pattern("Quicksight", "ShortRestrictiveResourceId")]
     Name: str
     Trigger: VisualCustomActionTriggerType
     ActionOperations: List[VisualCustomActionOperationTypeDef]
@@ -11596,7 +11635,7 @@ class DataSetTypeDef(BaseValidatorModel):
 
 
 class TopicReviewedAnswerTypeDef(BaseValidatorModel):
-    AnswerId: str
+    AnswerId: Annotated[str, _aws_pattern("Quicksight", "AnswerId")]
     DatasetArn: str
     Question: str
     Arn: Optional[str] = None
@@ -11668,7 +11707,7 @@ class SparklinesOptionsTypeDef(BaseValidatorModel):
     XAxisField: DimensionFieldTypeDef
     YAxisBehavior: Optional[SparklineAxisBehaviorType] = None
     VisualType: Optional[SparklineVisualTypeType] = None
-    LineColor: Optional[str] = None
+    LineColor: Optional[Annotated[str, _aws_pattern("Quicksight", "HexColor")]] = None
     LineInterpolation: Optional[LineInterpolationType] = None
     AllPointsMarker: Optional[LineChartMarkerStyleSettingsTypeDef] = None
     MaxValueMarker: Optional[LineChartMarkerStyleSettingsTypeDef] = None
@@ -11676,7 +11715,7 @@ class SparklinesOptionsTypeDef(BaseValidatorModel):
 
 
 class UniqueValuesComputationTypeDef(BaseValidatorModel):
-    ComputationId: str
+    ComputationId: Annotated[str, _aws_pattern("Quicksight", "ShortRestrictiveResourceId")]
     Name: Optional[str] = None
     Category: Optional[DimensionFieldTypeDef] = None
 
@@ -11730,7 +11769,7 @@ class FilledMapAggregatedFieldWellsTypeDef(BaseValidatorModel):
 
 
 class ForecastComputationTypeDef(BaseValidatorModel):
-    ComputationId: str
+    ComputationId: Annotated[str, _aws_pattern("Quicksight", "ShortRestrictiveResourceId")]
     Name: Optional[str] = None
     Time: Optional[DimensionFieldTypeDef] = None
     Value: Optional[MeasureFieldTypeDef] = None
@@ -11786,7 +11825,7 @@ class GeospatialMapAggregatedFieldWellsTypeDef(BaseValidatorModel):
 
 
 class GrowthRateComputationTypeDef(BaseValidatorModel):
-    ComputationId: str
+    ComputationId: Annotated[str, _aws_pattern("Quicksight", "ShortRestrictiveResourceId")]
     Name: Optional[str] = None
     Time: Optional[DimensionFieldTypeDef] = None
     Value: Optional[MeasureFieldTypeDef] = None
@@ -11840,7 +11879,7 @@ class LineChartAggregatedFieldWellsTypeDef(BaseValidatorModel):
 
 
 class MaximumMinimumComputationTypeDef(BaseValidatorModel):
-    ComputationId: str
+    ComputationId: Annotated[str, _aws_pattern("Quicksight", "ShortRestrictiveResourceId")]
     Type: MaximumMinimumComputationTypeType
     Name: Optional[str] = None
     Time: Optional[DimensionFieldTypeDef] = None
@@ -11848,7 +11887,7 @@ class MaximumMinimumComputationTypeDef(BaseValidatorModel):
 
 
 class MetricComparisonComputationTypeDef(BaseValidatorModel):
-    ComputationId: str
+    ComputationId: Annotated[str, _aws_pattern("Quicksight", "ShortRestrictiveResourceId")]
     Name: Optional[str] = None
     Time: Optional[DimensionFieldTypeDef] = None
     FromValue: Optional[MeasureFieldTypeDef] = None
@@ -11856,14 +11895,14 @@ class MetricComparisonComputationTypeDef(BaseValidatorModel):
 
 
 class PeriodOverPeriodComputationTypeDef(BaseValidatorModel):
-    ComputationId: str
+    ComputationId: Annotated[str, _aws_pattern("Quicksight", "ShortRestrictiveResourceId")]
     Name: Optional[str] = None
     Time: Optional[DimensionFieldTypeDef] = None
     Value: Optional[MeasureFieldTypeDef] = None
 
 
 class PeriodToDateComputationTypeDef(BaseValidatorModel):
-    ComputationId: str
+    ComputationId: Annotated[str, _aws_pattern("Quicksight", "ShortRestrictiveResourceId")]
     Name: Optional[str] = None
     Time: Optional[DimensionFieldTypeDef] = None
     Value: Optional[MeasureFieldTypeDef] = None
@@ -11961,7 +12000,7 @@ class TableAggregatedFieldWellsTypeDef(BaseValidatorModel):
 
 
 class TopBottomMoversComputationTypeDef(BaseValidatorModel):
-    ComputationId: str
+    ComputationId: Annotated[str, _aws_pattern("Quicksight", "ShortRestrictiveResourceId")]
     Type: TopBottomComputationTypeType
     Name: Optional[str] = None
     Time: Optional[DimensionFieldTypeDef] = None
@@ -11972,7 +12011,7 @@ class TopBottomMoversComputationTypeDef(BaseValidatorModel):
 
 
 class TopBottomRankedComputationTypeDef(BaseValidatorModel):
-    ComputationId: str
+    ComputationId: Annotated[str, _aws_pattern("Quicksight", "ShortRestrictiveResourceId")]
     Type: TopBottomComputationTypeType
     Name: Optional[str] = None
     Category: Optional[DimensionFieldTypeDef] = None
@@ -11981,7 +12020,7 @@ class TopBottomRankedComputationTypeDef(BaseValidatorModel):
 
 
 class TotalAggregationComputationTypeDef(BaseValidatorModel):
-    ComputationId: str
+    ComputationId: Annotated[str, _aws_pattern("Quicksight", "ShortRestrictiveResourceId")]
     Name: Optional[str] = None
     Value: Optional[MeasureFieldTypeDef] = None
 
@@ -12043,13 +12082,15 @@ class TableUnaggregatedFieldWellsTypeDef(BaseValidatorModel):
 
 
 class DefaultFilterControlConfigurationOutputTypeDef(BaseValidatorModel):
-    Title: str
     ControlOptions: DefaultFilterControlOptionsOutputTypeDef
+    Title: Optional[str] = None
+    ControlTitleFormatText: Optional[ControlTitleFormatTextTypeDef] = None
 
 
 class DefaultFilterControlConfigurationTypeDef(BaseValidatorModel):
-    Title: str
     ControlOptions: DefaultFilterControlOptionsTypeDef
+    Title: Optional[str] = None
+    ControlTitleFormatText: Optional[ControlTitleFormatTextTypeDef] = None
 
 
 class BodySectionConfigurationOutputTypeDef(BaseValidatorModel):
@@ -12061,7 +12102,7 @@ class BodySectionConfigurationOutputTypeDef(BaseValidatorModel):
 
 
 class BodySectionConfigurationTypeDef(BaseValidatorModel):
-    SectionId: str
+    SectionId: Annotated[str, _aws_pattern("Quicksight", "ShortRestrictiveResourceId")]
     Content: BodySectionContentTypeDef
     Style: Optional[SectionStyleTypeDef] = None
     PageBreakConfiguration: Optional[SectionPageBreakConfigurationTypeDef] = None
@@ -12070,8 +12111,8 @@ class BodySectionConfigurationTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'create_topic' function.
 class CreateTopicRequestTypeDef(BaseValidatorModel):
-    AwsAccountId: str
-    TopicId: str
+    AwsAccountId: Annotated[str, _aws_pattern("Quicksight", "AwsAccountId")]
+    TopicId: Annotated[str, _aws_pattern("Quicksight", "TopicId")]
     Topic: TopicDetailsUnionTypeDef
     Tags: Optional[List[TagTypeDef]] = None
     FolderArns: Optional[List[str]] = None
@@ -12080,8 +12121,8 @@ class CreateTopicRequestTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'update_topic' function.
 class UpdateTopicRequestTypeDef(BaseValidatorModel):
-    AwsAccountId: str
-    TopicId: str
+    AwsAccountId: Annotated[str, _aws_pattern("Quicksight", "AwsAccountId")]
+    TopicId: Annotated[str, _aws_pattern("Quicksight", "TopicId")]
     Topic: TopicDetailsUnionTypeDef
     CustomInstructions: Optional[CustomInstructionsTypeDef] = None
 
@@ -12093,15 +12134,15 @@ AssetBundleImportJobOverrideParametersUnionTypeDef = Union[
 
 class DataSourceCredentialsTypeDef(BaseValidatorModel):
     CredentialPair: Optional[CredentialPairTypeDef] = None
-    CopySourceArn: Optional[str] = None
-    SecretArn: Optional[str] = None
+    CopySourceArn: Optional[Annotated[str, _aws_pattern("Quicksight", "CopySourceArn")]] = None
+    SecretArn: Optional[Annotated[str, _aws_pattern("Quicksight", "SecretArn")]] = None
     KeyPairCredentials: Optional[KeyPairCredentialsTypeDef] = None
     WebProxyCredentials: Optional[WebProxyCredentialsTypeDef] = None
     OAuthClientCredentials: Optional[OAuthClientCredentialsTypeDef] = None
 
 
 class SheetImageTypeDef(BaseValidatorModel):
-    SheetImageId: str
+    SheetImageId: Annotated[str, _aws_pattern("Quicksight", "ShortRestrictiveResourceId")]
     Source: SheetImageSourceTypeDef
     Scaling: Optional[SheetImageScalingConfigurationTypeDef] = None
     Tooltip: Optional[SheetImageTooltipConfigurationTypeDef] = None
@@ -12111,7 +12152,7 @@ class SheetImageTypeDef(BaseValidatorModel):
 
 
 class CustomContentVisualTypeDef(BaseValidatorModel):
-    VisualId: str
+    VisualId: Annotated[str, _aws_pattern("Quicksight", "ShortRestrictiveResourceId")]
     DataSetIdentifier: str
     Title: Optional[VisualTitleLabelOptionsTypeDef] = None
     Subtitle: Optional[VisualSubtitleLabelOptionsTypeDef] = None
@@ -12121,7 +12162,7 @@ class CustomContentVisualTypeDef(BaseValidatorModel):
 
 
 class EmptyVisualTypeDef(BaseValidatorModel):
-    VisualId: str
+    VisualId: Annotated[str, _aws_pattern("Quicksight", "ShortRestrictiveResourceId")]
     DataSetIdentifier: str
     Actions: Optional[List[VisualCustomActionTypeDef]] = None
 
@@ -12141,7 +12182,7 @@ TopicIRContributionAnalysisUnionTypeDef = Union[
 
 
 class SheetTypeDef(BaseValidatorModel):
-    SheetId: Optional[str] = None
+    SheetId: Optional[Annotated[str, _aws_pattern("Quicksight", "ShortRestrictiveResourceId")]] = None
     Name: Optional[str] = None
     Images: Optional[List[SheetImageOutputTypeDef]] = None
 
@@ -12156,7 +12197,7 @@ class DescribeDataSetResponseTypeDef(BaseValidatorModel):
 
 # This class is the output for the 'list_topic_reviewed_answers' function.
 class ListTopicReviewedAnswersResponseTypeDef(BaseValidatorModel):
-    TopicId: str
+    TopicId: Annotated[str, _aws_pattern("Quicksight", "TopicId")]
     TopicArn: str
     Answers: List[TopicReviewedAnswerTypeDef]
     Status: int
@@ -12476,7 +12517,7 @@ class TopBottomFilterOutputTypeDef(BaseValidatorModel):
 
 
 class CategoryFilterTypeDef(BaseValidatorModel):
-    FilterId: str
+    FilterId: Annotated[str, _aws_pattern("Quicksight", "ShortRestrictiveResourceId")]
     Column: ColumnIdentifierTypeDef
     Configuration: CategoryFilterConfigurationTypeDef
     DefaultFilterControlConfiguration: Optional[DefaultFilterControlConfigurationTypeDef] = None
@@ -12489,19 +12530,19 @@ class CategoryInnerFilterTypeDef(BaseValidatorModel):
 
 
 class NumericEqualityFilterTypeDef(BaseValidatorModel):
-    FilterId: str
+    FilterId: Annotated[str, _aws_pattern("Quicksight", "ShortRestrictiveResourceId")]
     Column: ColumnIdentifierTypeDef
     MatchOperator: NumericEqualityMatchOperatorType
     NullOption: FilterNullOptionType
     Value: Optional[float] = None
     SelectAllOptions: Optional[Literal["FILTER_ALL_VALUES"]] = None
     AggregationFunction: Optional[AggregationFunctionTypeDef] = None
-    ParameterName: Optional[str] = None
+    ParameterName: Optional[Annotated[str, _aws_pattern("Quicksight", "ParameterName")]] = None
     DefaultFilterControlConfiguration: Optional[DefaultFilterControlConfigurationTypeDef] = None
 
 
 class NumericRangeFilterTypeDef(BaseValidatorModel):
-    FilterId: str
+    FilterId: Annotated[str, _aws_pattern("Quicksight", "ShortRestrictiveResourceId")]
     Column: ColumnIdentifierTypeDef
     NullOption: FilterNullOptionType
     IncludeMinimum: Optional[bool] = None
@@ -12514,7 +12555,7 @@ class NumericRangeFilterTypeDef(BaseValidatorModel):
 
 
 class RelativeDatesFilterTypeDef(BaseValidatorModel):
-    FilterId: str
+    FilterId: Annotated[str, _aws_pattern("Quicksight", "ShortRestrictiveResourceId")]
     Column: ColumnIdentifierTypeDef
     AnchorDateConfiguration: AnchorDateConfigurationTypeDef
     TimeGranularity: TimeGranularityType
@@ -12522,23 +12563,23 @@ class RelativeDatesFilterTypeDef(BaseValidatorModel):
     NullOption: FilterNullOptionType
     MinimumGranularity: Optional[TimeGranularityType] = None
     RelativeDateValue: Optional[int] = None
-    ParameterName: Optional[str] = None
+    ParameterName: Optional[Annotated[str, _aws_pattern("Quicksight", "ParameterName")]] = None
     ExcludePeriodConfiguration: Optional[ExcludePeriodConfigurationTypeDef] = None
     DefaultFilterControlConfiguration: Optional[DefaultFilterControlConfigurationTypeDef] = None
 
 
 class TimeEqualityFilterTypeDef(BaseValidatorModel):
-    FilterId: str
+    FilterId: Annotated[str, _aws_pattern("Quicksight", "ShortRestrictiveResourceId")]
     Column: ColumnIdentifierTypeDef
     Value: Optional[TimestampTypeDef] = None
-    ParameterName: Optional[str] = None
+    ParameterName: Optional[Annotated[str, _aws_pattern("Quicksight", "ParameterName")]] = None
     TimeGranularity: Optional[TimeGranularityType] = None
     RollingDate: Optional[RollingDateConfigurationTypeDef] = None
     DefaultFilterControlConfiguration: Optional[DefaultFilterControlConfigurationTypeDef] = None
 
 
 class TimeRangeFilterTypeDef(BaseValidatorModel):
-    FilterId: str
+    FilterId: Annotated[str, _aws_pattern("Quicksight", "ShortRestrictiveResourceId")]
     Column: ColumnIdentifierTypeDef
     NullOption: FilterNullOptionType
     IncludeMinimum: Optional[bool] = None
@@ -12551,12 +12592,12 @@ class TimeRangeFilterTypeDef(BaseValidatorModel):
 
 
 class TopBottomFilterTypeDef(BaseValidatorModel):
-    FilterId: str
+    FilterId: Annotated[str, _aws_pattern("Quicksight", "ShortRestrictiveResourceId")]
     Column: ColumnIdentifierTypeDef
     AggregationSortConfigurations: List[AggregationSortConfigurationTypeDef]
     Limit: Optional[int] = None
     TimeGranularity: Optional[TimeGranularityType] = None
-    ParameterName: Optional[str] = None
+    ParameterName: Optional[Annotated[str, _aws_pattern("Quicksight", "ParameterName")]] = None
     DefaultFilterControlConfiguration: Optional[DefaultFilterControlConfigurationTypeDef] = None
 
 
@@ -12576,8 +12617,8 @@ class SectionBasedLayoutConfigurationTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'start_asset_bundle_import_job' function.
 class StartAssetBundleImportJobRequestTypeDef(BaseValidatorModel):
-    AwsAccountId: str
-    AssetBundleImportJobId: str
+    AwsAccountId: Annotated[str, _aws_pattern("Quicksight", "AwsAccountId")]
+    AssetBundleImportJobId: Annotated[str, _aws_pattern("Quicksight", "ShortRestrictiveResourceId")]
     AssetBundleImportSource: AssetBundleImportSourceTypeDef
     OverrideParameters: Optional[AssetBundleImportJobOverrideParametersUnionTypeDef] = None
     FailureAction: Optional[AssetBundleImportFailureActionType] = None
@@ -12588,7 +12629,7 @@ class StartAssetBundleImportJobRequestTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'create_data_source' function.
 class CreateDataSourceRequestTypeDef(BaseValidatorModel):
-    AwsAccountId: str
+    AwsAccountId: Annotated[str, _aws_pattern("Quicksight", "AwsAccountId")]
     DataSourceId: str
     Name: str
     Type: DataSourceTypeType
@@ -12603,7 +12644,7 @@ class CreateDataSourceRequestTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'update_data_source' function.
 class UpdateDataSourceRequestTypeDef(BaseValidatorModel):
-    AwsAccountId: str
+    AwsAccountId: Annotated[str, _aws_pattern("Quicksight", "AwsAccountId")]
     DataSourceId: str
     Name: str
     DataSourceParameters: Optional[DataSourceParametersUnionTypeDef] = None
@@ -12647,7 +12688,7 @@ class TopicIRTypeDef(BaseValidatorModel):
 
 
 class AnalysisTypeDef(BaseValidatorModel):
-    AnalysisId: Optional[str] = None
+    AnalysisId: Optional[Annotated[str, _aws_pattern("Quicksight", "ShortRestrictiveResourceId")]] = None
     Arn: Optional[str] = None
     Name: Optional[str] = None
     Status: Optional[ResourceStatusType] = None
@@ -12857,7 +12898,7 @@ class GaugeChartVisualOutputTypeDef(BaseValidatorModel):
 
 
 class GaugeChartVisualTypeDef(BaseValidatorModel):
-    VisualId: str
+    VisualId: Annotated[str, _aws_pattern("Quicksight", "ShortRestrictiveResourceId")]
     Title: Optional[VisualTitleLabelOptionsTypeDef] = None
     Subtitle: Optional[VisualSubtitleLabelOptionsTypeDef] = None
     ChartConfiguration: Optional[GaugeChartConfigurationTypeDef] = None
@@ -12976,7 +13017,7 @@ class KPIVisualOutputTypeDef(BaseValidatorModel):
 
 
 class KPIVisualTypeDef(BaseValidatorModel):
-    VisualId: str
+    VisualId: Annotated[str, _aws_pattern("Quicksight", "ShortRestrictiveResourceId")]
     Title: Optional[VisualTitleLabelOptionsTypeDef] = None
     Subtitle: Optional[VisualSubtitleLabelOptionsTypeDef] = None
     ChartConfiguration: Optional[KPIConfigurationTypeDef] = None
@@ -13115,8 +13156,8 @@ class RadarChartConfigurationTypeDef(BaseValidatorModel):
     StartAngle: Optional[float] = None
     VisualPalette: Optional[VisualPaletteTypeDef] = None
     AlternateBandColorsVisibility: Optional[VisibilityType] = None
-    AlternateBandEvenColor: Optional[str] = None
-    AlternateBandOddColor: Optional[str] = None
+    AlternateBandEvenColor: Optional[Annotated[str, _aws_pattern("Quicksight", "HexColor")]] = None
+    AlternateBandOddColor: Optional[Annotated[str, _aws_pattern("Quicksight", "HexColor")]] = None
     CategoryAxis: Optional[AxisDisplayOptionsTypeDef] = None
     CategoryLabelOptions: Optional[ChartAxisLabelOptionsTypeDef] = None
     ColorAxis: Optional[AxisDisplayOptionsTypeDef] = None
@@ -13263,7 +13304,7 @@ class PluginVisualOutputTypeDef(BaseValidatorModel):
 
 
 class PluginVisualTypeDef(BaseValidatorModel):
-    VisualId: str
+    VisualId: Annotated[str, _aws_pattern("Quicksight", "ShortRestrictiveResourceId")]
     PluginArn: str
     Title: Optional[VisualTitleLabelOptionsTypeDef] = None
     Subtitle: Optional[VisualSubtitleLabelOptionsTypeDef] = None
@@ -13339,21 +13380,21 @@ class DescribeAnalysisResponseTypeDef(BaseValidatorModel):
 
 
 class DashboardTypeDef(BaseValidatorModel):
-    DashboardId: Optional[str] = None
+    DashboardId: Optional[Annotated[str, _aws_pattern("Quicksight", "ShortRestrictiveResourceId")]] = None
     Arn: Optional[str] = None
     Name: Optional[str] = None
     Version: Optional[DashboardVersionTypeDef] = None
     CreatedTime: Optional[datetime] = None
     LastPublishedTime: Optional[datetime] = None
     LastUpdatedTime: Optional[datetime] = None
-    LinkEntities: Optional[List[str]] = None
+    LinkEntities: Optional[List[Annotated[str, _aws_pattern("Quicksight", "LinkEntityArn")]]] = None
 
 
 class TemplateTypeDef(BaseValidatorModel):
     Arn: Optional[str] = None
     Name: Optional[str] = None
     Version: Optional[TemplateVersionTypeDef] = None
-    TemplateId: Optional[str] = None
+    TemplateId: Optional[Annotated[str, _aws_pattern("Quicksight", "ShortRestrictiveResourceId")]] = None
     LastUpdatedTime: Optional[datetime] = None
     CreatedTime: Optional[datetime] = None
 
@@ -13369,7 +13410,7 @@ class BarChartVisualOutputTypeDef(BaseValidatorModel):
 
 
 class BarChartVisualTypeDef(BaseValidatorModel):
-    VisualId: str
+    VisualId: Annotated[str, _aws_pattern("Quicksight", "ShortRestrictiveResourceId")]
     Title: Optional[VisualTitleLabelOptionsTypeDef] = None
     Subtitle: Optional[VisualSubtitleLabelOptionsTypeDef] = None
     ChartConfiguration: Optional[BarChartConfigurationTypeDef] = None
@@ -13389,7 +13430,7 @@ class BoxPlotVisualOutputTypeDef(BaseValidatorModel):
 
 
 class BoxPlotVisualTypeDef(BaseValidatorModel):
-    VisualId: str
+    VisualId: Annotated[str, _aws_pattern("Quicksight", "ShortRestrictiveResourceId")]
     Title: Optional[VisualTitleLabelOptionsTypeDef] = None
     Subtitle: Optional[VisualSubtitleLabelOptionsTypeDef] = None
     ChartConfiguration: Optional[BoxPlotChartConfigurationTypeDef] = None
@@ -13409,7 +13450,7 @@ class ComboChartVisualOutputTypeDef(BaseValidatorModel):
 
 
 class ComboChartVisualTypeDef(BaseValidatorModel):
-    VisualId: str
+    VisualId: Annotated[str, _aws_pattern("Quicksight", "ShortRestrictiveResourceId")]
     Title: Optional[VisualTitleLabelOptionsTypeDef] = None
     Subtitle: Optional[VisualSubtitleLabelOptionsTypeDef] = None
     ChartConfiguration: Optional[ComboChartConfigurationTypeDef] = None
@@ -13431,7 +13472,7 @@ class FilledMapVisualOutputTypeDef(BaseValidatorModel):
 
 
 class FilledMapVisualTypeDef(BaseValidatorModel):
-    VisualId: str
+    VisualId: Annotated[str, _aws_pattern("Quicksight", "ShortRestrictiveResourceId")]
     Title: Optional[VisualTitleLabelOptionsTypeDef] = None
     Subtitle: Optional[VisualSubtitleLabelOptionsTypeDef] = None
     ChartConfiguration: Optional[FilledMapConfigurationTypeDef] = None
@@ -13453,7 +13494,7 @@ class FunnelChartVisualOutputTypeDef(BaseValidatorModel):
 
 
 class FunnelChartVisualTypeDef(BaseValidatorModel):
-    VisualId: str
+    VisualId: Annotated[str, _aws_pattern("Quicksight", "ShortRestrictiveResourceId")]
     Title: Optional[VisualTitleLabelOptionsTypeDef] = None
     Subtitle: Optional[VisualSubtitleLabelOptionsTypeDef] = None
     ChartConfiguration: Optional[FunnelChartConfigurationTypeDef] = None
@@ -13490,7 +13531,7 @@ class GeospatialMapVisualOutputTypeDef(BaseValidatorModel):
 
 
 class GeospatialMapVisualTypeDef(BaseValidatorModel):
-    VisualId: str
+    VisualId: Annotated[str, _aws_pattern("Quicksight", "ShortRestrictiveResourceId")]
     Title: Optional[VisualTitleLabelOptionsTypeDef] = None
     Subtitle: Optional[VisualSubtitleLabelOptionsTypeDef] = None
     ChartConfiguration: Optional[GeospatialMapConfigurationTypeDef] = None
@@ -13511,7 +13552,7 @@ class HeatMapVisualOutputTypeDef(BaseValidatorModel):
 
 
 class HeatMapVisualTypeDef(BaseValidatorModel):
-    VisualId: str
+    VisualId: Annotated[str, _aws_pattern("Quicksight", "ShortRestrictiveResourceId")]
     Title: Optional[VisualTitleLabelOptionsTypeDef] = None
     Subtitle: Optional[VisualSubtitleLabelOptionsTypeDef] = None
     ChartConfiguration: Optional[HeatMapConfigurationTypeDef] = None
@@ -13530,7 +13571,7 @@ class HistogramVisualOutputTypeDef(BaseValidatorModel):
 
 
 class HistogramVisualTypeDef(BaseValidatorModel):
-    VisualId: str
+    VisualId: Annotated[str, _aws_pattern("Quicksight", "ShortRestrictiveResourceId")]
     Title: Optional[VisualTitleLabelOptionsTypeDef] = None
     Subtitle: Optional[VisualSubtitleLabelOptionsTypeDef] = None
     ChartConfiguration: Optional[HistogramConfigurationTypeDef] = None
@@ -13549,7 +13590,7 @@ class LineChartVisualOutputTypeDef(BaseValidatorModel):
 
 
 class LineChartVisualTypeDef(BaseValidatorModel):
-    VisualId: str
+    VisualId: Annotated[str, _aws_pattern("Quicksight", "ShortRestrictiveResourceId")]
     Title: Optional[VisualTitleLabelOptionsTypeDef] = None
     Subtitle: Optional[VisualSubtitleLabelOptionsTypeDef] = None
     ChartConfiguration: Optional[LineChartConfigurationTypeDef] = None
@@ -13569,7 +13610,7 @@ class PieChartVisualOutputTypeDef(BaseValidatorModel):
 
 
 class PieChartVisualTypeDef(BaseValidatorModel):
-    VisualId: str
+    VisualId: Annotated[str, _aws_pattern("Quicksight", "ShortRestrictiveResourceId")]
     Title: Optional[VisualTitleLabelOptionsTypeDef] = None
     Subtitle: Optional[VisualSubtitleLabelOptionsTypeDef] = None
     ChartConfiguration: Optional[PieChartConfigurationTypeDef] = None
@@ -13589,7 +13630,7 @@ class PivotTableVisualOutputTypeDef(BaseValidatorModel):
 
 
 class PivotTableVisualTypeDef(BaseValidatorModel):
-    VisualId: str
+    VisualId: Annotated[str, _aws_pattern("Quicksight", "ShortRestrictiveResourceId")]
     Title: Optional[VisualTitleLabelOptionsTypeDef] = None
     Subtitle: Optional[VisualSubtitleLabelOptionsTypeDef] = None
     ChartConfiguration: Optional[PivotTableConfigurationTypeDef] = None
@@ -13609,7 +13650,7 @@ class RadarChartVisualOutputTypeDef(BaseValidatorModel):
 
 
 class RadarChartVisualTypeDef(BaseValidatorModel):
-    VisualId: str
+    VisualId: Annotated[str, _aws_pattern("Quicksight", "ShortRestrictiveResourceId")]
     Title: Optional[VisualTitleLabelOptionsTypeDef] = None
     Subtitle: Optional[VisualSubtitleLabelOptionsTypeDef] = None
     ChartConfiguration: Optional[RadarChartConfigurationTypeDef] = None
@@ -13628,7 +13669,7 @@ class SankeyDiagramVisualOutputTypeDef(BaseValidatorModel):
 
 
 class SankeyDiagramVisualTypeDef(BaseValidatorModel):
-    VisualId: str
+    VisualId: Annotated[str, _aws_pattern("Quicksight", "ShortRestrictiveResourceId")]
     Title: Optional[VisualTitleLabelOptionsTypeDef] = None
     Subtitle: Optional[VisualSubtitleLabelOptionsTypeDef] = None
     ChartConfiguration: Optional[SankeyDiagramChartConfigurationTypeDef] = None
@@ -13647,7 +13688,7 @@ class ScatterPlotVisualOutputTypeDef(BaseValidatorModel):
 
 
 class ScatterPlotVisualTypeDef(BaseValidatorModel):
-    VisualId: str
+    VisualId: Annotated[str, _aws_pattern("Quicksight", "ShortRestrictiveResourceId")]
     Title: Optional[VisualTitleLabelOptionsTypeDef] = None
     Subtitle: Optional[VisualSubtitleLabelOptionsTypeDef] = None
     ChartConfiguration: Optional[ScatterPlotConfigurationTypeDef] = None
@@ -13667,7 +13708,7 @@ class InsightVisualOutputTypeDef(BaseValidatorModel):
 
 
 class InsightVisualTypeDef(BaseValidatorModel):
-    VisualId: str
+    VisualId: Annotated[str, _aws_pattern("Quicksight", "ShortRestrictiveResourceId")]
     DataSetIdentifier: str
     Title: Optional[VisualTitleLabelOptionsTypeDef] = None
     Subtitle: Optional[VisualSubtitleLabelOptionsTypeDef] = None
@@ -13687,7 +13728,7 @@ class TreeMapVisualOutputTypeDef(BaseValidatorModel):
 
 
 class TreeMapVisualTypeDef(BaseValidatorModel):
-    VisualId: str
+    VisualId: Annotated[str, _aws_pattern("Quicksight", "ShortRestrictiveResourceId")]
     Title: Optional[VisualTitleLabelOptionsTypeDef] = None
     Subtitle: Optional[VisualSubtitleLabelOptionsTypeDef] = None
     ChartConfiguration: Optional[TreeMapConfigurationTypeDef] = None
@@ -13707,7 +13748,7 @@ class WaterfallVisualOutputTypeDef(BaseValidatorModel):
 
 
 class WaterfallVisualTypeDef(BaseValidatorModel):
-    VisualId: str
+    VisualId: Annotated[str, _aws_pattern("Quicksight", "ShortRestrictiveResourceId")]
     Title: Optional[VisualTitleLabelOptionsTypeDef] = None
     Subtitle: Optional[VisualSubtitleLabelOptionsTypeDef] = None
     ChartConfiguration: Optional[WaterfallChartConfigurationTypeDef] = None
@@ -13727,7 +13768,7 @@ class WordCloudVisualOutputTypeDef(BaseValidatorModel):
 
 
 class WordCloudVisualTypeDef(BaseValidatorModel):
-    VisualId: str
+    VisualId: Annotated[str, _aws_pattern("Quicksight", "ShortRestrictiveResourceId")]
     Title: Optional[VisualTitleLabelOptionsTypeDef] = None
     Subtitle: Optional[VisualSubtitleLabelOptionsTypeDef] = None
     ChartConfiguration: Optional[WordCloudChartConfigurationTypeDef] = None
@@ -13747,7 +13788,7 @@ class TableVisualOutputTypeDef(BaseValidatorModel):
 
 
 class TableVisualTypeDef(BaseValidatorModel):
-    VisualId: str
+    VisualId: Annotated[str, _aws_pattern("Quicksight", "ShortRestrictiveResourceId")]
     Title: Optional[VisualTitleLabelOptionsTypeDef] = None
     Subtitle: Optional[VisualSubtitleLabelOptionsTypeDef] = None
     ChartConfiguration: Optional[TableConfigurationTypeDef] = None
@@ -13764,7 +13805,7 @@ class NestedFilterOutputTypeDef(BaseValidatorModel):
 
 
 class NestedFilterTypeDef(BaseValidatorModel):
-    FilterId: str
+    FilterId: Annotated[str, _aws_pattern("Quicksight", "ShortRestrictiveResourceId")]
     Column: ColumnIdentifierTypeDef
     IncludeInnerSet: bool
     InnerFilter: InnerFilterTypeDef
@@ -13820,7 +13861,7 @@ class LayerMapVisualOutputTypeDef(BaseValidatorModel):
 
 
 class LayerMapVisualTypeDef(BaseValidatorModel):
-    VisualId: str
+    VisualId: Annotated[str, _aws_pattern("Quicksight", "ShortRestrictiveResourceId")]
     DataSetIdentifier: str
     Title: Optional[VisualTitleLabelOptionsTypeDef] = None
     Subtitle: Optional[VisualSubtitleLabelOptionsTypeDef] = None
@@ -13920,7 +13961,7 @@ class FilterGroupOutputTypeDef(BaseValidatorModel):
 
 
 class FilterGroupTypeDef(BaseValidatorModel):
-    FilterGroupId: str
+    FilterGroupId: Annotated[str, _aws_pattern("Quicksight", "ShortRestrictiveResourceId")]
     Filters: List[FilterTypeDef]
     ScopeConfiguration: FilterScopeConfigurationTypeDef
     CrossDataset: CrossDatasetTypesType
@@ -13929,7 +13970,7 @@ class FilterGroupTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'create_data_set' function.
 class CreateDataSetRequestTypeDef(BaseValidatorModel):
-    AwsAccountId: str
+    AwsAccountId: Annotated[str, _aws_pattern("Quicksight", "AwsAccountId")]
     DataSetId: str
     Name: str
     PhysicalTableMap: Dict[str, PhysicalTableUnionTypeDef]
@@ -13953,7 +13994,7 @@ class CreateDataSetRequestTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'update_data_set' function.
 class UpdateDataSetRequestTypeDef(BaseValidatorModel):
-    AwsAccountId: str
+    AwsAccountId: Annotated[str, _aws_pattern("Quicksight", "AwsAccountId")]
     DataSetId: str
     Name: str
     PhysicalTableMap: Dict[str, PhysicalTableUnionTypeDef]
@@ -13972,7 +14013,7 @@ class UpdateDataSetRequestTypeDef(BaseValidatorModel):
 
 
 class CreateTopicReviewedAnswerTypeDef(BaseValidatorModel):
-    AnswerId: str
+    AnswerId: Annotated[str, _aws_pattern("Quicksight", "AnswerId")]
     DatasetArn: str
     Question: str
     Mir: Optional[TopicIRUnionTypeDef] = None
@@ -14006,7 +14047,7 @@ class TooltipSheetDefinitionOutputTypeDef(BaseValidatorModel):
 
 
 class SheetDefinitionTypeDef(BaseValidatorModel):
-    SheetId: str
+    SheetId: Annotated[str, _aws_pattern("Quicksight", "ShortRestrictiveResourceId")]
     Title: Optional[str] = None
     Description: Optional[str] = None
     Name: Optional[str] = None
@@ -14022,7 +14063,7 @@ class SheetDefinitionTypeDef(BaseValidatorModel):
 
 
 class TooltipSheetDefinitionTypeDef(BaseValidatorModel):
-    SheetId: str
+    SheetId: Annotated[str, _aws_pattern("Quicksight", "ShortRestrictiveResourceId")]
     Name: Optional[str] = None
     Visuals: Optional[List[VisualTypeDef]] = None
     TextBoxes: Optional[List[SheetTextBoxTypeDef]] = None
@@ -14032,8 +14073,8 @@ class TooltipSheetDefinitionTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'batch_create_topic_reviewed_answer' function.
 class BatchCreateTopicReviewedAnswerRequestTypeDef(BaseValidatorModel):
-    AwsAccountId: str
-    TopicId: str
+    AwsAccountId: Annotated[str, _aws_pattern("Quicksight", "AwsAccountId")]
+    TopicId: Annotated[str, _aws_pattern("Quicksight", "TopicId")]
     Answers: List[CreateTopicReviewedAnswerTypeDef]
 
 
@@ -14121,7 +14162,7 @@ class TemplateVersionDefinitionTypeDef(BaseValidatorModel):
 
 # This class is the output for the 'describe_analysis_definition' function.
 class DescribeAnalysisDefinitionResponseTypeDef(BaseValidatorModel):
-    AnalysisId: str
+    AnalysisId: Annotated[str, _aws_pattern("Quicksight", "ShortRestrictiveResourceId")]
     Name: str
     Errors: List[AnalysisErrorTypeDef]
     ResourceStatus: ResourceStatusType
@@ -14134,7 +14175,7 @@ class DescribeAnalysisDefinitionResponseTypeDef(BaseValidatorModel):
 
 # This class is the output for the 'describe_dashboard_definition' function.
 class DescribeDashboardDefinitionResponseTypeDef(BaseValidatorModel):
-    DashboardId: str
+    DashboardId: Annotated[str, _aws_pattern("Quicksight", "ShortRestrictiveResourceId")]
     Errors: List[DashboardErrorTypeDef]
     Name: str
     ResourceStatus: ResourceStatusType
@@ -14149,7 +14190,7 @@ class DescribeDashboardDefinitionResponseTypeDef(BaseValidatorModel):
 # This class is the output for the 'describe_template_definition' function.
 class DescribeTemplateDefinitionResponseTypeDef(BaseValidatorModel):
     Name: str
-    TemplateId: str
+    TemplateId: Annotated[str, _aws_pattern("Quicksight", "ShortRestrictiveResourceId")]
     Errors: List[TemplateErrorTypeDef]
     ResourceStatus: ResourceStatusType
     ThemeArn: str
@@ -14170,8 +14211,8 @@ TemplateVersionDefinitionUnionTypeDef = Union[TemplateVersionDefinitionOutputTyp
 
 # This class is the input for the 'create_analysis' function.
 class CreateAnalysisRequestTypeDef(BaseValidatorModel):
-    AwsAccountId: str
-    AnalysisId: str
+    AwsAccountId: Annotated[str, _aws_pattern("Quicksight", "AwsAccountId")]
+    AnalysisId: Annotated[str, _aws_pattern("Quicksight", "ShortRestrictiveResourceId")]
     Name: str
     Parameters: Optional[ParametersUnionTypeDef] = None
     Permissions: Optional[List[ResourcePermissionUnionTypeDef]] = None
@@ -14185,8 +14226,8 @@ class CreateAnalysisRequestTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'update_analysis' function.
 class UpdateAnalysisRequestTypeDef(BaseValidatorModel):
-    AwsAccountId: str
-    AnalysisId: str
+    AwsAccountId: Annotated[str, _aws_pattern("Quicksight", "AwsAccountId")]
+    AnalysisId: Annotated[str, _aws_pattern("Quicksight", "ShortRestrictiveResourceId")]
     Name: str
     Parameters: Optional[ParametersUnionTypeDef] = None
     SourceEntity: Optional[AnalysisSourceEntityTypeDef] = None
@@ -14197,8 +14238,8 @@ class UpdateAnalysisRequestTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'create_dashboard' function.
 class CreateDashboardRequestTypeDef(BaseValidatorModel):
-    AwsAccountId: str
-    DashboardId: str
+    AwsAccountId: Annotated[str, _aws_pattern("Quicksight", "AwsAccountId")]
+    DashboardId: Annotated[str, _aws_pattern("Quicksight", "ShortRestrictiveResourceId")]
     Name: str
     Parameters: Optional[ParametersUnionTypeDef] = None
     Permissions: Optional[List[ResourcePermissionUnionTypeDef]] = None
@@ -14211,13 +14252,13 @@ class CreateDashboardRequestTypeDef(BaseValidatorModel):
     ValidationStrategy: Optional[ValidationStrategyTypeDef] = None
     FolderArns: Optional[List[str]] = None
     LinkSharingConfiguration: Optional[LinkSharingConfigurationUnionTypeDef] = None
-    LinkEntities: Optional[List[str]] = None
+    LinkEntities: Optional[List[Annotated[str, _aws_pattern("Quicksight", "LinkEntityArn")]]] = None
 
 
 # This class is the input for the 'update_dashboard' function.
 class UpdateDashboardRequestTypeDef(BaseValidatorModel):
-    AwsAccountId: str
-    DashboardId: str
+    AwsAccountId: Annotated[str, _aws_pattern("Quicksight", "AwsAccountId")]
+    DashboardId: Annotated[str, _aws_pattern("Quicksight", "ShortRestrictiveResourceId")]
     Name: str
     SourceEntity: Optional[DashboardSourceEntityTypeDef] = None
     Parameters: Optional[ParametersUnionTypeDef] = None
@@ -14230,8 +14271,8 @@ class UpdateDashboardRequestTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'create_template' function.
 class CreateTemplateRequestTypeDef(BaseValidatorModel):
-    AwsAccountId: str
-    TemplateId: str
+    AwsAccountId: Annotated[str, _aws_pattern("Quicksight", "AwsAccountId")]
+    TemplateId: Annotated[str, _aws_pattern("Quicksight", "ShortRestrictiveResourceId")]
     Name: Optional[str] = None
     Permissions: Optional[List[ResourcePermissionUnionTypeDef]] = None
     SourceEntity: Optional[TemplateSourceEntityTypeDef] = None
@@ -14243,8 +14284,8 @@ class CreateTemplateRequestTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'update_template' function.
 class UpdateTemplateRequestTypeDef(BaseValidatorModel):
-    AwsAccountId: str
-    TemplateId: str
+    AwsAccountId: Annotated[str, _aws_pattern("Quicksight", "AwsAccountId")]
+    TemplateId: Annotated[str, _aws_pattern("Quicksight", "ShortRestrictiveResourceId")]
     SourceEntity: Optional[TemplateSourceEntityTypeDef] = None
     VersionDescription: Optional[str] = None
     Name: Optional[str] = None

@@ -3,6 +3,7 @@
 from datetime import datetime
 from decimal import Decimal
 from typing import (
+    Annotated,
     Any,
     Callable,
     Dict,
@@ -24,6 +25,7 @@ from botocore.response import StreamingBody
 from pydantic import Field
 
 from aws_resource_validator.core.base_validator_model import BaseValidatorModel, EventStream
+from aws_resource_validator.core.pattern_validation import aws_field_pattern as _aws_pattern
 from aws_resource_validator.pydantic_models.cleanroomsml.cleanroomsml_constants import *  # noqa: F401,F403
 
 # Optional boto3 symbols — imported lazily so services that don't need them
@@ -48,7 +50,7 @@ class AccessBudgetDetailsTypeDef(BaseValidatorModel):
 
 
 class S3ConfigMapTypeDef(BaseValidatorModel):
-    s3Uri: str
+    s3Uri: Annotated[str, _aws_pattern("Cleanroomsml", "S3Path")]
 
 
 class AudienceSizeTypeDef(BaseValidatorModel):
@@ -69,30 +71,30 @@ class ProtectedQuerySQLParametersOutputTypeDef(BaseValidatorModel):
 
 class ProtectedQuerySQLParametersTypeDef(BaseValidatorModel):
     queryString: Optional[str] = None
-    analysisTemplateArn: Optional[str] = None
+    analysisTemplateArn: Optional[Annotated[str, _aws_pattern("Cleanroomsml", "AnalysisTemplateArn")]] = None
     parameters: Optional[Dict[str, str]] = None
 
 
 class AudienceGenerationJobSummaryTypeDef(BaseValidatorModel):
     createTime: datetime
     updateTime: datetime
-    audienceGenerationJobArn: str
-    name: str
+    audienceGenerationJobArn: Annotated[str, _aws_pattern("Cleanroomsml", "AudienceGenerationJobArn")]
+    name: Annotated[str, _aws_pattern("Cleanroomsml", "NameString")]
     status: AudienceGenerationJobStatusType
-    configuredAudienceModelArn: str
-    description: Optional[str] = None
-    collaborationId: Optional[str] = None
-    startedBy: Optional[str] = None
+    configuredAudienceModelArn: Annotated[str, _aws_pattern("Cleanroomsml", "ConfiguredAudienceModelArn")]
+    description: Optional[Annotated[str, _aws_pattern("Cleanroomsml", "ResourceDescription")]] = None
+    collaborationId: Optional[Annotated[str, _aws_pattern("Cleanroomsml", "UUID")]] = None
+    startedBy: Optional[Annotated[str, _aws_pattern("Cleanroomsml", "AccountId")]] = None
 
 
 class AudienceModelSummaryTypeDef(BaseValidatorModel):
     createTime: datetime
     updateTime: datetime
-    audienceModelArn: str
-    name: str
-    trainingDatasetArn: str
+    audienceModelArn: Annotated[str, _aws_pattern("Cleanroomsml", "AudienceModelArn")]
+    name: Annotated[str, _aws_pattern("Cleanroomsml", "NameString")]
+    trainingDatasetArn: Annotated[str, _aws_pattern("Cleanroomsml", "TrainingDatasetArn")]
     status: AudienceModelStatusType
-    description: Optional[str] = None
+    description: Optional[Annotated[str, _aws_pattern("Cleanroomsml", "ResourceDescription")]] = None
 
 
 class AudienceSizeConfigOutputTypeDef(BaseValidatorModel):
@@ -107,50 +109,54 @@ class AudienceSizeConfigTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'cancel_trained_model_inference_job' function.
 class CancelTrainedModelInferenceJobRequestTypeDef(BaseValidatorModel):
-    membershipIdentifier: str
-    trainedModelInferenceJobArn: str
+    membershipIdentifier: Annotated[str, _aws_pattern("Cleanroomsml", "UUID")]
+    trainedModelInferenceJobArn: Annotated[str, _aws_pattern("Cleanroomsml", "TrainedModelInferenceJobArn")]
 
 
 # This class is the input for the 'cancel_trained_model' function.
 class CancelTrainedModelRequestTypeDef(BaseValidatorModel):
-    membershipIdentifier: str
-    trainedModelArn: str
-    versionIdentifier: Optional[str] = None
+    membershipIdentifier: Annotated[str, _aws_pattern("Cleanroomsml", "UUID")]
+    trainedModelArn: Annotated[str, _aws_pattern("Cleanroomsml", "TrainedModelArn")]
+    versionIdentifier: Optional[Annotated[str, _aws_pattern("Cleanroomsml", "UUID")]] = None
 
 
 class CollaborationConfiguredModelAlgorithmAssociationSummaryTypeDef(BaseValidatorModel):
     createTime: datetime
     updateTime: datetime
-    configuredModelAlgorithmAssociationArn: str
-    name: str
-    membershipIdentifier: str
-    collaborationIdentifier: str
-    configuredModelAlgorithmArn: str
-    creatorAccountId: str
-    description: Optional[str] = None
+    configuredModelAlgorithmAssociationArn: Annotated[
+        str, _aws_pattern("Cleanroomsml", "ConfiguredModelAlgorithmAssociationArn")
+    ]
+    name: Annotated[str, _aws_pattern("Cleanroomsml", "NameString")]
+    membershipIdentifier: Annotated[str, _aws_pattern("Cleanroomsml", "UUID")]
+    collaborationIdentifier: Annotated[str, _aws_pattern("Cleanroomsml", "UUID")]
+    configuredModelAlgorithmArn: Annotated[str, _aws_pattern("Cleanroomsml", "ConfiguredModelAlgorithmArn")]
+    creatorAccountId: Annotated[str, _aws_pattern("Cleanroomsml", "AccountId")]
+    description: Optional[Annotated[str, _aws_pattern("Cleanroomsml", "ResourceDescription")]] = None
 
 
 class CollaborationMLInputChannelSummaryTypeDef(BaseValidatorModel):
     createTime: datetime
     updateTime: datetime
-    membershipIdentifier: str
-    collaborationIdentifier: str
-    name: str
-    configuredModelAlgorithmAssociations: List[str]
-    mlInputChannelArn: str
+    membershipIdentifier: Annotated[str, _aws_pattern("Cleanroomsml", "UUID")]
+    collaborationIdentifier: Annotated[str, _aws_pattern("Cleanroomsml", "UUID")]
+    name: Annotated[str, _aws_pattern("Cleanroomsml", "NameString")]
+    configuredModelAlgorithmAssociations: List[
+        Annotated[str, _aws_pattern("Cleanroomsml", "ConfiguredModelAlgorithmAssociationArn")]
+    ]
+    mlInputChannelArn: Annotated[str, _aws_pattern("Cleanroomsml", "MLInputChannelArn")]
     status: MLInputChannelStatusType
-    creatorAccountId: str
-    description: Optional[str] = None
+    creatorAccountId: Annotated[str, _aws_pattern("Cleanroomsml", "AccountId")]
+    description: Optional[Annotated[str, _aws_pattern("Cleanroomsml", "ResourceDescription")]] = None
 
 
 class IncrementalTrainingDataChannelOutputTypeDef(BaseValidatorModel):
-    channelName: str
-    modelName: str
-    versionIdentifier: Optional[str] = None
+    channelName: Annotated[str, _aws_pattern("Cleanroomsml", "ModelTrainingDataChannelName")]
+    modelName: Annotated[str, _aws_pattern("Cleanroomsml", "NameString")]
+    versionIdentifier: Optional[Annotated[str, _aws_pattern("Cleanroomsml", "UUID")]] = None
 
 
 class SyntheticDataColumnPropertiesTypeDef(BaseValidatorModel):
-    columnName: str
+    columnName: Annotated[str, _aws_pattern("Cleanroomsml", "SyntheticDataColumnName")]
     columnType: SyntheticDataColumnTypeType
     isPredictiveValue: bool
 
@@ -161,32 +167,34 @@ class ColumnSchemaOutputTypeDef(BaseValidatorModel):
 
 
 class ColumnSchemaTypeDef(BaseValidatorModel):
-    columnName: str
+    columnName: Annotated[str, _aws_pattern("Cleanroomsml", "ColumnName")]
     columnTypes: List[ColumnTypeType]
 
 
 class ConfiguredModelAlgorithmAssociationSummaryTypeDef(BaseValidatorModel):
     createTime: datetime
     updateTime: datetime
-    configuredModelAlgorithmAssociationArn: str
-    configuredModelAlgorithmArn: str
-    name: str
-    membershipIdentifier: str
-    collaborationIdentifier: str
-    description: Optional[str] = None
+    configuredModelAlgorithmAssociationArn: Annotated[
+        str, _aws_pattern("Cleanroomsml", "ConfiguredModelAlgorithmAssociationArn")
+    ]
+    configuredModelAlgorithmArn: Annotated[str, _aws_pattern("Cleanroomsml", "ConfiguredModelAlgorithmArn")]
+    name: Annotated[str, _aws_pattern("Cleanroomsml", "NameString")]
+    membershipIdentifier: Annotated[str, _aws_pattern("Cleanroomsml", "UUID")]
+    collaborationIdentifier: Annotated[str, _aws_pattern("Cleanroomsml", "UUID")]
+    description: Optional[Annotated[str, _aws_pattern("Cleanroomsml", "ResourceDescription")]] = None
 
 
 class ConfiguredModelAlgorithmSummaryTypeDef(BaseValidatorModel):
     createTime: datetime
     updateTime: datetime
-    configuredModelAlgorithmArn: str
-    name: str
-    description: Optional[str] = None
+    configuredModelAlgorithmArn: Annotated[str, _aws_pattern("Cleanroomsml", "ConfiguredModelAlgorithmArn")]
+    name: Annotated[str, _aws_pattern("Cleanroomsml", "NameString")]
+    description: Optional[Annotated[str, _aws_pattern("Cleanroomsml", "ResourceDescription")]] = None
 
 
 class MetricDefinitionTypeDef(BaseValidatorModel):
-    name: str
-    regex: str
+    name: Annotated[str, _aws_pattern("Cleanroomsml", "MetricName")]
+    regex: Annotated[str, _aws_pattern("Cleanroomsml", "MetricRegex")]
 
 
 TimestampTypeDef = Union[datetime, str]
@@ -201,18 +209,18 @@ class ResponseMetadataTypeDef(BaseValidatorModel):
 
 
 class InferenceContainerConfigTypeDef(BaseValidatorModel):
-    imageUri: str
+    imageUri: Annotated[str, _aws_pattern("Cleanroomsml", "AlgorithmImage")]
 
 
 class IncrementalTrainingDataChannelTypeDef(BaseValidatorModel):
-    trainedModelArn: str
-    channelName: str
-    versionIdentifier: Optional[str] = None
+    trainedModelArn: Annotated[str, _aws_pattern("Cleanroomsml", "TrainedModelArn")]
+    channelName: Annotated[str, _aws_pattern("Cleanroomsml", "ModelTrainingDataChannelName")]
+    versionIdentifier: Optional[Annotated[str, _aws_pattern("Cleanroomsml", "UUID")]] = None
 
 
 class ModelTrainingDataChannelTypeDef(BaseValidatorModel):
-    mlInputChannelArn: str
-    channelName: str
+    mlInputChannelArn: Annotated[str, _aws_pattern("Cleanroomsml", "MLInputChannelArn")]
+    channelName: Annotated[str, _aws_pattern("Cleanroomsml", "ModelTrainingDataChannelName")]
     s3DataDistributionType: Optional[S3DataDistributionTypeType] = None
 
 
@@ -231,7 +239,7 @@ class CustomEntityConfigOutputTypeDef(BaseValidatorModel):
 
 
 class CustomEntityConfigTypeDef(BaseValidatorModel):
-    customDataIdentifiers: List[str]
+    customDataIdentifiers: List[Annotated[str, _aws_pattern("Cleanroomsml", "CustomDataIdentifier")]]
 
 
 class MembershipInferenceAttackScoreTypeDef(BaseValidatorModel):
@@ -240,130 +248,136 @@ class MembershipInferenceAttackScoreTypeDef(BaseValidatorModel):
 
 
 class GlueDataSourceTypeDef(BaseValidatorModel):
-    tableName: str
-    databaseName: str
-    catalogId: Optional[str] = None
+    tableName: Annotated[str, _aws_pattern("Cleanroomsml", "GlueTableName")]
+    databaseName: Annotated[str, _aws_pattern("Cleanroomsml", "GlueDatabaseName")]
+    catalogId: Optional[Annotated[str, _aws_pattern("Cleanroomsml", "AccountId")]] = None
 
 
 # This class is the input for the 'delete_audience_generation_job' function.
 class DeleteAudienceGenerationJobRequestTypeDef(BaseValidatorModel):
-    audienceGenerationJobArn: str
+    audienceGenerationJobArn: Annotated[str, _aws_pattern("Cleanroomsml", "AudienceGenerationJobArn")]
 
 
 # This class is the input for the 'delete_audience_model' function.
 class DeleteAudienceModelRequestTypeDef(BaseValidatorModel):
-    audienceModelArn: str
+    audienceModelArn: Annotated[str, _aws_pattern("Cleanroomsml", "AudienceModelArn")]
 
 
 # This class is the input for the 'delete_configured_audience_model_policy' function.
 class DeleteConfiguredAudienceModelPolicyRequestTypeDef(BaseValidatorModel):
-    configuredAudienceModelArn: str
+    configuredAudienceModelArn: Annotated[str, _aws_pattern("Cleanroomsml", "ConfiguredAudienceModelArn")]
 
 
 # This class is the input for the 'delete_configured_audience_model' function.
 class DeleteConfiguredAudienceModelRequestTypeDef(BaseValidatorModel):
-    configuredAudienceModelArn: str
+    configuredAudienceModelArn: Annotated[str, _aws_pattern("Cleanroomsml", "ConfiguredAudienceModelArn")]
 
 
 # This class is the input for the 'delete_configured_model_algorithm_association' function.
 class DeleteConfiguredModelAlgorithmAssociationRequestTypeDef(BaseValidatorModel):
-    configuredModelAlgorithmAssociationArn: str
-    membershipIdentifier: str
+    configuredModelAlgorithmAssociationArn: Annotated[
+        str, _aws_pattern("Cleanroomsml", "ConfiguredModelAlgorithmAssociationArn")
+    ]
+    membershipIdentifier: Annotated[str, _aws_pattern("Cleanroomsml", "UUID")]
 
 
 # This class is the input for the 'delete_configured_model_algorithm' function.
 class DeleteConfiguredModelAlgorithmRequestTypeDef(BaseValidatorModel):
-    configuredModelAlgorithmArn: str
+    configuredModelAlgorithmArn: Annotated[str, _aws_pattern("Cleanroomsml", "ConfiguredModelAlgorithmArn")]
 
 
 # This class is the input for the 'delete_ml_configuration' function.
 class DeleteMLConfigurationRequestTypeDef(BaseValidatorModel):
-    membershipIdentifier: str
+    membershipIdentifier: Annotated[str, _aws_pattern("Cleanroomsml", "UUID")]
 
 
 # This class is the input for the 'delete_ml_input_channel_data' function.
 class DeleteMLInputChannelDataRequestTypeDef(BaseValidatorModel):
-    mlInputChannelArn: str
-    membershipIdentifier: str
+    mlInputChannelArn: Annotated[str, _aws_pattern("Cleanroomsml", "MLInputChannelArn")]
+    membershipIdentifier: Annotated[str, _aws_pattern("Cleanroomsml", "UUID")]
 
 
 # This class is the input for the 'delete_trained_model_output' function.
 class DeleteTrainedModelOutputRequestTypeDef(BaseValidatorModel):
-    trainedModelArn: str
-    membershipIdentifier: str
-    versionIdentifier: Optional[str] = None
+    trainedModelArn: Annotated[str, _aws_pattern("Cleanroomsml", "TrainedModelArn")]
+    membershipIdentifier: Annotated[str, _aws_pattern("Cleanroomsml", "UUID")]
+    versionIdentifier: Optional[Annotated[str, _aws_pattern("Cleanroomsml", "UUID")]] = None
 
 
 # This class is the input for the 'delete_training_dataset' function.
 class DeleteTrainingDatasetRequestTypeDef(BaseValidatorModel):
-    trainingDatasetArn: str
+    trainingDatasetArn: Annotated[str, _aws_pattern("Cleanroomsml", "TrainingDatasetArn")]
 
 
 # This class is the input for the 'get_audience_generation_job' function.
 class GetAudienceGenerationJobRequestTypeDef(BaseValidatorModel):
-    audienceGenerationJobArn: str
+    audienceGenerationJobArn: Annotated[str, _aws_pattern("Cleanroomsml", "AudienceGenerationJobArn")]
 
 
 # This class is the input for the 'get_audience_model' function.
 class GetAudienceModelRequestTypeDef(BaseValidatorModel):
-    audienceModelArn: str
+    audienceModelArn: Annotated[str, _aws_pattern("Cleanroomsml", "AudienceModelArn")]
 
 
 # This class is the input for the 'get_collaboration_configured_model_algorithm_association' function.
 class GetCollaborationConfiguredModelAlgorithmAssociationRequestTypeDef(BaseValidatorModel):
-    configuredModelAlgorithmAssociationArn: str
-    collaborationIdentifier: str
+    configuredModelAlgorithmAssociationArn: Annotated[
+        str, _aws_pattern("Cleanroomsml", "ConfiguredModelAlgorithmAssociationArn")
+    ]
+    collaborationIdentifier: Annotated[str, _aws_pattern("Cleanroomsml", "UUID")]
 
 
 # This class is the input for the 'get_collaboration_ml_input_channel' function.
 class GetCollaborationMLInputChannelRequestTypeDef(BaseValidatorModel):
-    mlInputChannelArn: str
-    collaborationIdentifier: str
+    mlInputChannelArn: Annotated[str, _aws_pattern("Cleanroomsml", "MLInputChannelArn")]
+    collaborationIdentifier: Annotated[str, _aws_pattern("Cleanroomsml", "UUID")]
 
 
 # This class is the input for the 'get_collaboration_trained_model' function.
 class GetCollaborationTrainedModelRequestTypeDef(BaseValidatorModel):
-    trainedModelArn: str
-    collaborationIdentifier: str
-    versionIdentifier: Optional[str] = None
+    trainedModelArn: Annotated[str, _aws_pattern("Cleanroomsml", "TrainedModelArn")]
+    collaborationIdentifier: Annotated[str, _aws_pattern("Cleanroomsml", "UUID")]
+    versionIdentifier: Optional[Annotated[str, _aws_pattern("Cleanroomsml", "UUID")]] = None
 
 
 # This class is the input for the 'get_configured_audience_model_policy' function.
 class GetConfiguredAudienceModelPolicyRequestTypeDef(BaseValidatorModel):
-    configuredAudienceModelArn: str
+    configuredAudienceModelArn: Annotated[str, _aws_pattern("Cleanroomsml", "ConfiguredAudienceModelArn")]
 
 
 # This class is the input for the 'get_configured_audience_model' function.
 class GetConfiguredAudienceModelRequestTypeDef(BaseValidatorModel):
-    configuredAudienceModelArn: str
+    configuredAudienceModelArn: Annotated[str, _aws_pattern("Cleanroomsml", "ConfiguredAudienceModelArn")]
 
 
 # This class is the input for the 'get_configured_model_algorithm_association' function.
 class GetConfiguredModelAlgorithmAssociationRequestTypeDef(BaseValidatorModel):
-    configuredModelAlgorithmAssociationArn: str
-    membershipIdentifier: str
+    configuredModelAlgorithmAssociationArn: Annotated[
+        str, _aws_pattern("Cleanroomsml", "ConfiguredModelAlgorithmAssociationArn")
+    ]
+    membershipIdentifier: Annotated[str, _aws_pattern("Cleanroomsml", "UUID")]
 
 
 # This class is the input for the 'get_configured_model_algorithm' function.
 class GetConfiguredModelAlgorithmRequestTypeDef(BaseValidatorModel):
-    configuredModelAlgorithmArn: str
+    configuredModelAlgorithmArn: Annotated[str, _aws_pattern("Cleanroomsml", "ConfiguredModelAlgorithmArn")]
 
 
 # This class is the input for the 'get_ml_configuration' function.
 class GetMLConfigurationRequestTypeDef(BaseValidatorModel):
-    membershipIdentifier: str
+    membershipIdentifier: Annotated[str, _aws_pattern("Cleanroomsml", "UUID")]
 
 
 # This class is the input for the 'get_ml_input_channel' function.
 class GetMLInputChannelRequestTypeDef(BaseValidatorModel):
-    mlInputChannelArn: str
-    membershipIdentifier: str
+    mlInputChannelArn: Annotated[str, _aws_pattern("Cleanroomsml", "MLInputChannelArn")]
+    membershipIdentifier: Annotated[str, _aws_pattern("Cleanroomsml", "UUID")]
 
 
 # This class is the input for the 'get_trained_model_inference_job' function.
 class GetTrainedModelInferenceJobRequestTypeDef(BaseValidatorModel):
-    membershipIdentifier: str
-    trainedModelInferenceJobArn: str
+    membershipIdentifier: Annotated[str, _aws_pattern("Cleanroomsml", "UUID")]
+    trainedModelInferenceJobArn: Annotated[str, _aws_pattern("Cleanroomsml", "TrainedModelInferenceJobArn")]
 
 
 class InferenceContainerExecutionParametersTypeDef(BaseValidatorModel):
@@ -376,23 +390,23 @@ class InferenceResourceConfigTypeDef(BaseValidatorModel):
 
 
 class ModelInferenceDataSourceTypeDef(BaseValidatorModel):
-    mlInputChannelArn: str
+    mlInputChannelArn: Annotated[str, _aws_pattern("Cleanroomsml", "MLInputChannelArn")]
 
 
 # This class is the input for the 'get_trained_model' function.
 class GetTrainedModelRequestTypeDef(BaseValidatorModel):
-    trainedModelArn: str
-    membershipIdentifier: str
-    versionIdentifier: Optional[str] = None
+    trainedModelArn: Annotated[str, _aws_pattern("Cleanroomsml", "TrainedModelArn")]
+    membershipIdentifier: Annotated[str, _aws_pattern("Cleanroomsml", "UUID")]
+    versionIdentifier: Optional[Annotated[str, _aws_pattern("Cleanroomsml", "UUID")]] = None
 
 
 # This class is the input for the 'get_training_dataset' function.
 class GetTrainingDatasetRequestTypeDef(BaseValidatorModel):
-    trainingDatasetArn: str
+    trainingDatasetArn: Annotated[str, _aws_pattern("Cleanroomsml", "TrainingDatasetArn")]
 
 
 class InferenceReceiverMemberTypeDef(BaseValidatorModel):
-    accountId: str
+    accountId: Annotated[str, _aws_pattern("Cleanroomsml", "AccountId")]
 
 
 class PaginatorConfigTypeDef(BaseValidatorModel):
@@ -405,15 +419,17 @@ class PaginatorConfigTypeDef(BaseValidatorModel):
 class ListAudienceExportJobsRequestTypeDef(BaseValidatorModel):
     nextToken: Optional[str] = None
     maxResults: Optional[int] = None
-    audienceGenerationJobArn: Optional[str] = None
+    audienceGenerationJobArn: Optional[Annotated[str, _aws_pattern("Cleanroomsml", "AudienceGenerationJobArn")]] = None
 
 
 # This class is the input for the 'list_audience_generation_jobs' function.
 class ListAudienceGenerationJobsRequestTypeDef(BaseValidatorModel):
     nextToken: Optional[str] = None
     maxResults: Optional[int] = None
-    configuredAudienceModelArn: Optional[str] = None
-    collaborationId: Optional[str] = None
+    configuredAudienceModelArn: Optional[Annotated[str, _aws_pattern("Cleanroomsml", "ConfiguredAudienceModelArn")]] = (
+        None
+    )
+    collaborationId: Optional[Annotated[str, _aws_pattern("Cleanroomsml", "UUID")]] = None
 
 
 # This class is the input for the 'list_audience_models' function.
@@ -424,39 +440,39 @@ class ListAudienceModelsRequestTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'list_collaboration_configured_model_algorithm_associations' function.
 class ListCollaborationConfiguredModelAlgorithmAssociationsRequestTypeDef(BaseValidatorModel):
-    collaborationIdentifier: str
+    collaborationIdentifier: Annotated[str, _aws_pattern("Cleanroomsml", "UUID")]
     nextToken: Optional[str] = None
     maxResults: Optional[int] = None
 
 
 # This class is the input for the 'list_collaboration_ml_input_channels' function.
 class ListCollaborationMLInputChannelsRequestTypeDef(BaseValidatorModel):
-    collaborationIdentifier: str
+    collaborationIdentifier: Annotated[str, _aws_pattern("Cleanroomsml", "UUID")]
     nextToken: Optional[str] = None
     maxResults: Optional[int] = None
 
 
 # This class is the input for the 'list_collaboration_trained_model_export_jobs' function.
 class ListCollaborationTrainedModelExportJobsRequestTypeDef(BaseValidatorModel):
-    collaborationIdentifier: str
-    trainedModelArn: str
+    collaborationIdentifier: Annotated[str, _aws_pattern("Cleanroomsml", "UUID")]
+    trainedModelArn: Annotated[str, _aws_pattern("Cleanroomsml", "TrainedModelArn")]
     nextToken: Optional[str] = None
     maxResults: Optional[int] = None
-    trainedModelVersionIdentifier: Optional[str] = None
+    trainedModelVersionIdentifier: Optional[Annotated[str, _aws_pattern("Cleanroomsml", "UUID")]] = None
 
 
 # This class is the input for the 'list_collaboration_trained_model_inference_jobs' function.
 class ListCollaborationTrainedModelInferenceJobsRequestTypeDef(BaseValidatorModel):
-    collaborationIdentifier: str
+    collaborationIdentifier: Annotated[str, _aws_pattern("Cleanroomsml", "UUID")]
     nextToken: Optional[str] = None
     maxResults: Optional[int] = None
-    trainedModelArn: Optional[str] = None
-    trainedModelVersionIdentifier: Optional[str] = None
+    trainedModelArn: Optional[Annotated[str, _aws_pattern("Cleanroomsml", "TrainedModelArn")]] = None
+    trainedModelVersionIdentifier: Optional[Annotated[str, _aws_pattern("Cleanroomsml", "UUID")]] = None
 
 
 # This class is the input for the 'list_collaboration_trained_models' function.
 class ListCollaborationTrainedModelsRequestTypeDef(BaseValidatorModel):
-    collaborationIdentifier: str
+    collaborationIdentifier: Annotated[str, _aws_pattern("Cleanroomsml", "UUID")]
     nextToken: Optional[str] = None
     maxResults: Optional[int] = None
 
@@ -469,7 +485,7 @@ class ListConfiguredAudienceModelsRequestTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'list_configured_model_algorithm_associations' function.
 class ListConfiguredModelAlgorithmAssociationsRequestTypeDef(BaseValidatorModel):
-    membershipIdentifier: str
+    membershipIdentifier: Annotated[str, _aws_pattern("Cleanroomsml", "UUID")]
     nextToken: Optional[str] = None
     maxResults: Optional[int] = None
 
@@ -482,7 +498,7 @@ class ListConfiguredModelAlgorithmsRequestTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'list_ml_input_channels' function.
 class ListMLInputChannelsRequestTypeDef(BaseValidatorModel):
-    membershipIdentifier: str
+    membershipIdentifier: Annotated[str, _aws_pattern("Cleanroomsml", "UUID")]
     nextToken: Optional[str] = None
     maxResults: Optional[int] = None
 
@@ -490,34 +506,36 @@ class ListMLInputChannelsRequestTypeDef(BaseValidatorModel):
 class MLInputChannelSummaryTypeDef(BaseValidatorModel):
     createTime: datetime
     updateTime: datetime
-    membershipIdentifier: str
-    collaborationIdentifier: str
-    name: str
-    configuredModelAlgorithmAssociations: List[str]
-    mlInputChannelArn: str
+    membershipIdentifier: Annotated[str, _aws_pattern("Cleanroomsml", "UUID")]
+    collaborationIdentifier: Annotated[str, _aws_pattern("Cleanroomsml", "UUID")]
+    name: Annotated[str, _aws_pattern("Cleanroomsml", "NameString")]
+    configuredModelAlgorithmAssociations: List[
+        Annotated[str, _aws_pattern("Cleanroomsml", "ConfiguredModelAlgorithmAssociationArn")]
+    ]
+    mlInputChannelArn: Annotated[str, _aws_pattern("Cleanroomsml", "MLInputChannelArn")]
     status: MLInputChannelStatusType
-    protectedQueryIdentifier: Optional[str] = None
-    description: Optional[str] = None
+    protectedQueryIdentifier: Optional[Annotated[str, _aws_pattern("Cleanroomsml", "UUID")]] = None
+    description: Optional[Annotated[str, _aws_pattern("Cleanroomsml", "ResourceDescription")]] = None
 
 
 # This class is the input for the 'list_tags_for_resource' function.
 class ListTagsForResourceRequestTypeDef(BaseValidatorModel):
-    resourceArn: str
+    resourceArn: Annotated[str, _aws_pattern("Cleanroomsml", "TaggableArn")]
 
 
 # This class is the input for the 'list_trained_model_inference_jobs' function.
 class ListTrainedModelInferenceJobsRequestTypeDef(BaseValidatorModel):
-    membershipIdentifier: str
+    membershipIdentifier: Annotated[str, _aws_pattern("Cleanroomsml", "UUID")]
     nextToken: Optional[str] = None
     maxResults: Optional[int] = None
-    trainedModelArn: Optional[str] = None
-    trainedModelVersionIdentifier: Optional[str] = None
+    trainedModelArn: Optional[Annotated[str, _aws_pattern("Cleanroomsml", "TrainedModelArn")]] = None
+    trainedModelVersionIdentifier: Optional[Annotated[str, _aws_pattern("Cleanroomsml", "UUID")]] = None
 
 
 # This class is the input for the 'list_trained_model_versions' function.
 class ListTrainedModelVersionsRequestTypeDef(BaseValidatorModel):
-    membershipIdentifier: str
-    trainedModelArn: str
+    membershipIdentifier: Annotated[str, _aws_pattern("Cleanroomsml", "UUID")]
+    trainedModelArn: Annotated[str, _aws_pattern("Cleanroomsml", "TrainedModelArn")]
     nextToken: Optional[str] = None
     maxResults: Optional[int] = None
     status: Optional[TrainedModelStatusType] = None
@@ -525,7 +543,7 @@ class ListTrainedModelVersionsRequestTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'list_trained_models' function.
 class ListTrainedModelsRequestTypeDef(BaseValidatorModel):
-    membershipIdentifier: str
+    membershipIdentifier: Annotated[str, _aws_pattern("Cleanroomsml", "UUID")]
     nextToken: Optional[str] = None
     maxResults: Optional[int] = None
 
@@ -539,10 +557,10 @@ class ListTrainingDatasetsRequestTypeDef(BaseValidatorModel):
 class TrainingDatasetSummaryTypeDef(BaseValidatorModel):
     createTime: datetime
     updateTime: datetime
-    trainingDatasetArn: str
-    name: str
+    trainingDatasetArn: Annotated[str, _aws_pattern("Cleanroomsml", "TrainingDatasetArn")]
+    name: Annotated[str, _aws_pattern("Cleanroomsml", "NameString")]
     status: Literal["ACTIVE"]
-    description: Optional[str] = None
+    description: Optional[Annotated[str, _aws_pattern("Cleanroomsml", "ResourceDescription")]] = None
 
 
 class MetricsConfigurationPolicyTypeDef(BaseValidatorModel):
@@ -551,14 +569,14 @@ class MetricsConfigurationPolicyTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'put_configured_audience_model_policy' function.
 class PutConfiguredAudienceModelPolicyRequestTypeDef(BaseValidatorModel):
-    configuredAudienceModelArn: str
+    configuredAudienceModelArn: Annotated[str, _aws_pattern("Cleanroomsml", "ConfiguredAudienceModelArn")]
     configuredAudienceModelPolicy: str
-    previousPolicyHash: Optional[str] = None
+    previousPolicyHash: Optional[Annotated[str, _aws_pattern("Cleanroomsml", "Hash")]] = None
     policyExistenceCondition: Optional[PolicyExistenceConditionType] = None
 
 
 class TagResourceRequestTypeDef(BaseValidatorModel):
-    resourceArn: str
+    resourceArn: Annotated[str, _aws_pattern("Cleanroomsml", "TaggableArn")]
     tags: Dict[str, str]
 
 
@@ -568,7 +586,7 @@ class TrainedModelArtifactMaxSizeTypeDef(BaseValidatorModel):
 
 
 class TrainedModelExportReceiverMemberTypeDef(BaseValidatorModel):
-    accountId: str
+    accountId: Annotated[str, _aws_pattern("Cleanroomsml", "AccountId")]
 
 
 class TrainedModelExportsMaxSizeTypeDef(BaseValidatorModel):
@@ -582,7 +600,7 @@ class TrainedModelInferenceMaxOutputSizeTypeDef(BaseValidatorModel):
 
 
 class UntagResourceRequestTypeDef(BaseValidatorModel):
-    resourceArn: str
+    resourceArn: Annotated[str, _aws_pattern("Cleanroomsml", "TaggableArn")]
     tagKeys: List[str]
 
 
@@ -595,7 +613,7 @@ class WorkerComputeConfigurationPropertiesTypeDef(BaseValidatorModel):
 
 
 class AccessBudgetTypeDef(BaseValidatorModel):
-    resourceArn: str
+    resourceArn: Annotated[str, _aws_pattern("Cleanroomsml", "BudgetedResourceArn")]
     details: List[AccessBudgetDetailsTypeDef]
     aggregateRemainingBudget: int
 
@@ -615,22 +633,22 @@ class RelevanceMetricTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'start_audience_export_job' function.
 class StartAudienceExportJobRequestTypeDef(BaseValidatorModel):
-    name: str
-    audienceGenerationJobArn: str
+    name: Annotated[str, _aws_pattern("Cleanroomsml", "NameString")]
+    audienceGenerationJobArn: Annotated[str, _aws_pattern("Cleanroomsml", "AudienceGenerationJobArn")]
     audienceSize: AudienceSizeTypeDef
-    description: Optional[str] = None
+    description: Optional[Annotated[str, _aws_pattern("Cleanroomsml", "ResourceDescription")]] = None
 
 
 class AudienceExportJobSummaryTypeDef(BaseValidatorModel):
     createTime: datetime
     updateTime: datetime
-    name: str
-    audienceGenerationJobArn: str
+    name: Annotated[str, _aws_pattern("Cleanroomsml", "NameString")]
+    audienceGenerationJobArn: Annotated[str, _aws_pattern("Cleanroomsml", "AudienceGenerationJobArn")]
     audienceSize: AudienceSizeTypeDef
     status: AudienceExportJobStatusType
-    description: Optional[str] = None
+    description: Optional[Annotated[str, _aws_pattern("Cleanroomsml", "ResourceDescription")]] = None
     statusDetails: Optional[StatusDetailsTypeDef] = None
-    outputLocation: Optional[str] = None
+    outputLocation: Optional[Annotated[str, _aws_pattern("Cleanroomsml", "S3Path")]] = None
 
 
 AudienceSizeConfigUnionTypeDef = Union[AudienceSizeConfigOutputTypeDef, AudienceSizeConfigTypeDef]
@@ -639,30 +657,34 @@ AudienceSizeConfigUnionTypeDef = Union[AudienceSizeConfigOutputTypeDef, Audience
 class CollaborationTrainedModelSummaryTypeDef(BaseValidatorModel):
     createTime: datetime
     updateTime: datetime
-    trainedModelArn: str
-    name: str
-    membershipIdentifier: str
-    collaborationIdentifier: str
+    trainedModelArn: Annotated[str, _aws_pattern("Cleanroomsml", "TrainedModelArn")]
+    name: Annotated[str, _aws_pattern("Cleanroomsml", "NameString")]
+    membershipIdentifier: Annotated[str, _aws_pattern("Cleanroomsml", "UUID")]
+    collaborationIdentifier: Annotated[str, _aws_pattern("Cleanroomsml", "UUID")]
     status: TrainedModelStatusType
-    configuredModelAlgorithmAssociationArn: str
-    creatorAccountId: str
-    versionIdentifier: Optional[str] = None
+    configuredModelAlgorithmAssociationArn: Annotated[
+        str, _aws_pattern("Cleanroomsml", "ConfiguredModelAlgorithmAssociationArn")
+    ]
+    creatorAccountId: Annotated[str, _aws_pattern("Cleanroomsml", "AccountId")]
+    versionIdentifier: Optional[Annotated[str, _aws_pattern("Cleanroomsml", "UUID")]] = None
     incrementalTrainingDataChannels: Optional[List[IncrementalTrainingDataChannelOutputTypeDef]] = None
-    description: Optional[str] = None
+    description: Optional[Annotated[str, _aws_pattern("Cleanroomsml", "ResourceDescription")]] = None
 
 
 class TrainedModelSummaryTypeDef(BaseValidatorModel):
     createTime: datetime
     updateTime: datetime
-    trainedModelArn: str
-    name: str
-    membershipIdentifier: str
-    collaborationIdentifier: str
+    trainedModelArn: Annotated[str, _aws_pattern("Cleanroomsml", "TrainedModelArn")]
+    name: Annotated[str, _aws_pattern("Cleanroomsml", "NameString")]
+    membershipIdentifier: Annotated[str, _aws_pattern("Cleanroomsml", "UUID")]
+    collaborationIdentifier: Annotated[str, _aws_pattern("Cleanroomsml", "UUID")]
     status: TrainedModelStatusType
-    configuredModelAlgorithmAssociationArn: str
-    versionIdentifier: Optional[str] = None
+    configuredModelAlgorithmAssociationArn: Annotated[
+        str, _aws_pattern("Cleanroomsml", "ConfiguredModelAlgorithmAssociationArn")
+    ]
+    versionIdentifier: Optional[Annotated[str, _aws_pattern("Cleanroomsml", "UUID")]] = None
     incrementalTrainingDataChannels: Optional[List[IncrementalTrainingDataChannelOutputTypeDef]] = None
-    description: Optional[str] = None
+    description: Optional[Annotated[str, _aws_pattern("Cleanroomsml", "ResourceDescription")]] = None
 
 
 class ColumnClassificationDetailsTypeDef(BaseValidatorModel):
@@ -680,63 +702,65 @@ class ContainerConfigOutputTypeDef(BaseValidatorModel):
 
 
 class ContainerConfigTypeDef(BaseValidatorModel):
-    imageUri: str
-    entrypoint: Optional[List[str]] = None
-    arguments: Optional[List[str]] = None
+    imageUri: Annotated[str, _aws_pattern("Cleanroomsml", "AlgorithmImage")]
+    entrypoint: Optional[List[Annotated[str, _aws_pattern("Cleanroomsml", "ContainerEntrypointString")]]] = None
+    arguments: Optional[List[Annotated[str, _aws_pattern("Cleanroomsml", "ContainerArgument")]]] = None
     metricDefinitions: Optional[List[MetricDefinitionTypeDef]] = None
 
 
 # This class is the input for the 'create_audience_model' function.
 class CreateAudienceModelRequestTypeDef(BaseValidatorModel):
-    name: str
-    trainingDatasetArn: str
+    name: Annotated[str, _aws_pattern("Cleanroomsml", "NameString")]
+    trainingDatasetArn: Annotated[str, _aws_pattern("Cleanroomsml", "TrainingDatasetArn")]
     trainingDataStartTime: Optional[TimestampTypeDef] = None
     trainingDataEndTime: Optional[TimestampTypeDef] = None
-    kmsKeyArn: Optional[str] = None
+    kmsKeyArn: Optional[Annotated[str, _aws_pattern("Cleanroomsml", "KmsKeyArn")]] = None
     tags: Optional[Dict[str, str]] = None
-    description: Optional[str] = None
+    description: Optional[Annotated[str, _aws_pattern("Cleanroomsml", "ResourceDescription")]] = None
 
 
 # This class is the output for the 'create_audience_model' function.
 class CreateAudienceModelResponseTypeDef(BaseValidatorModel):
-    audienceModelArn: str
+    audienceModelArn: Annotated[str, _aws_pattern("Cleanroomsml", "AudienceModelArn")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 # This class is the output for the 'create_configured_audience_model' function.
 class CreateConfiguredAudienceModelResponseTypeDef(BaseValidatorModel):
-    configuredAudienceModelArn: str
+    configuredAudienceModelArn: Annotated[str, _aws_pattern("Cleanroomsml", "ConfiguredAudienceModelArn")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 # This class is the output for the 'create_configured_model_algorithm_association' function.
 class CreateConfiguredModelAlgorithmAssociationResponseTypeDef(BaseValidatorModel):
-    configuredModelAlgorithmAssociationArn: str
+    configuredModelAlgorithmAssociationArn: Annotated[
+        str, _aws_pattern("Cleanroomsml", "ConfiguredModelAlgorithmAssociationArn")
+    ]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 # This class is the output for the 'create_configured_model_algorithm' function.
 class CreateConfiguredModelAlgorithmResponseTypeDef(BaseValidatorModel):
-    configuredModelAlgorithmArn: str
+    configuredModelAlgorithmArn: Annotated[str, _aws_pattern("Cleanroomsml", "ConfiguredModelAlgorithmArn")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 # This class is the output for the 'create_ml_input_channel' function.
 class CreateMLInputChannelResponseTypeDef(BaseValidatorModel):
-    mlInputChannelArn: str
+    mlInputChannelArn: Annotated[str, _aws_pattern("Cleanroomsml", "MLInputChannelArn")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 # This class is the output for the 'create_trained_model' function.
 class CreateTrainedModelResponseTypeDef(BaseValidatorModel):
-    trainedModelArn: str
-    versionIdentifier: str
+    trainedModelArn: Annotated[str, _aws_pattern("Cleanroomsml", "TrainedModelArn")]
+    versionIdentifier: Annotated[str, _aws_pattern("Cleanroomsml", "UUID")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 # This class is the output for the 'create_training_dataset' function.
 class CreateTrainingDatasetResponseTypeDef(BaseValidatorModel):
-    trainingDatasetArn: str
+    trainingDatasetArn: Annotated[str, _aws_pattern("Cleanroomsml", "TrainingDatasetArn")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
@@ -751,22 +775,22 @@ class GetAudienceModelResponseTypeDef(BaseValidatorModel):
     updateTime: datetime
     trainingDataStartTime: datetime
     trainingDataEndTime: datetime
-    audienceModelArn: str
-    name: str
-    trainingDatasetArn: str
+    audienceModelArn: Annotated[str, _aws_pattern("Cleanroomsml", "AudienceModelArn")]
+    name: Annotated[str, _aws_pattern("Cleanroomsml", "NameString")]
+    trainingDatasetArn: Annotated[str, _aws_pattern("Cleanroomsml", "TrainingDatasetArn")]
     status: AudienceModelStatusType
     statusDetails: StatusDetailsTypeDef
-    kmsKeyArn: str
+    kmsKeyArn: Annotated[str, _aws_pattern("Cleanroomsml", "KmsKeyArn")]
     tags: Dict[str, str]
-    description: str
+    description: Annotated[str, _aws_pattern("Cleanroomsml", "ResourceDescription")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 # This class is the output for the 'get_configured_audience_model_policy' function.
 class GetConfiguredAudienceModelPolicyResponseTypeDef(BaseValidatorModel):
-    configuredAudienceModelArn: str
+    configuredAudienceModelArn: Annotated[str, _aws_pattern("Cleanroomsml", "ConfiguredAudienceModelArn")]
     configuredAudienceModelPolicy: str
-    policyHash: str
+    policyHash: Annotated[str, _aws_pattern("Cleanroomsml", "Hash")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
@@ -823,33 +847,35 @@ class ListTagsForResourceResponseTypeDef(BaseValidatorModel):
 # This class is the output for the 'put_configured_audience_model_policy' function.
 class PutConfiguredAudienceModelPolicyResponseTypeDef(BaseValidatorModel):
     configuredAudienceModelPolicy: str
-    policyHash: str
+    policyHash: Annotated[str, _aws_pattern("Cleanroomsml", "Hash")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 # This class is the output for the 'start_audience_generation_job' function.
 class StartAudienceGenerationJobResponseTypeDef(BaseValidatorModel):
-    audienceGenerationJobArn: str
+    audienceGenerationJobArn: Annotated[str, _aws_pattern("Cleanroomsml", "AudienceGenerationJobArn")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 # This class is the output for the 'start_trained_model_inference_job' function.
 class StartTrainedModelInferenceJobResponseTypeDef(BaseValidatorModel):
-    trainedModelInferenceJobArn: str
+    trainedModelInferenceJobArn: Annotated[str, _aws_pattern("Cleanroomsml", "TrainedModelInferenceJobArn")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 # This class is the output for the 'update_configured_audience_model' function.
 class UpdateConfiguredAudienceModelResponseTypeDef(BaseValidatorModel):
-    configuredAudienceModelArn: str
+    configuredAudienceModelArn: Annotated[str, _aws_pattern("Cleanroomsml", "ConfiguredAudienceModelArn")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 # This class is the input for the 'create_trained_model' function.
 class CreateTrainedModelRequestTypeDef(BaseValidatorModel):
-    membershipIdentifier: str
-    name: str
-    configuredModelAlgorithmAssociationArn: str
+    membershipIdentifier: Annotated[str, _aws_pattern("Cleanroomsml", "UUID")]
+    name: Annotated[str, _aws_pattern("Cleanroomsml", "NameString")]
+    configuredModelAlgorithmAssociationArn: Annotated[
+        str, _aws_pattern("Cleanroomsml", "ConfiguredModelAlgorithmAssociationArn")
+    ]
     resourceConfig: ResourceConfigTypeDef
     dataChannels: List[ModelTrainingDataChannelTypeDef]
     hyperparameters: Optional[Dict[str, str]] = None
@@ -857,23 +883,25 @@ class CreateTrainedModelRequestTypeDef(BaseValidatorModel):
     stoppingCondition: Optional[StoppingConditionTypeDef] = None
     incrementalTrainingDataChannels: Optional[List[IncrementalTrainingDataChannelTypeDef]] = None
     trainingInputMode: Optional[TrainingInputModeType] = None
-    description: Optional[str] = None
-    kmsKeyArn: Optional[str] = None
+    description: Optional[Annotated[str, _aws_pattern("Cleanroomsml", "ResourceDescription")]] = None
+    kmsKeyArn: Optional[Annotated[str, _aws_pattern("Cleanroomsml", "KmsKeyArn")]] = None
     tags: Optional[Dict[str, str]] = None
 
 
 # This class is the output for the 'get_collaboration_trained_model' function.
 class GetCollaborationTrainedModelResponseTypeDef(BaseValidatorModel):
-    membershipIdentifier: str
-    collaborationIdentifier: str
-    trainedModelArn: str
-    versionIdentifier: str
+    membershipIdentifier: Annotated[str, _aws_pattern("Cleanroomsml", "UUID")]
+    collaborationIdentifier: Annotated[str, _aws_pattern("Cleanroomsml", "UUID")]
+    trainedModelArn: Annotated[str, _aws_pattern("Cleanroomsml", "TrainedModelArn")]
+    versionIdentifier: Annotated[str, _aws_pattern("Cleanroomsml", "UUID")]
     incrementalTrainingDataChannels: List[IncrementalTrainingDataChannelOutputTypeDef]
-    name: str
-    description: str
+    name: Annotated[str, _aws_pattern("Cleanroomsml", "NameString")]
+    description: Annotated[str, _aws_pattern("Cleanroomsml", "ResourceDescription")]
     status: TrainedModelStatusType
     statusDetails: StatusDetailsTypeDef
-    configuredModelAlgorithmAssociationArn: str
+    configuredModelAlgorithmAssociationArn: Annotated[
+        str, _aws_pattern("Cleanroomsml", "ConfiguredModelAlgorithmAssociationArn")
+    ]
     resourceConfig: ResourceConfigTypeDef
     trainingInputMode: TrainingInputModeType
     stoppingCondition: StoppingConditionTypeDef
@@ -884,22 +912,24 @@ class GetCollaborationTrainedModelResponseTypeDef(BaseValidatorModel):
     trainingContainerImageDigest: str
     createTime: datetime
     updateTime: datetime
-    creatorAccountId: str
+    creatorAccountId: Annotated[str, _aws_pattern("Cleanroomsml", "AccountId")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 # This class is the output for the 'get_trained_model' function.
 class GetTrainedModelResponseTypeDef(BaseValidatorModel):
-    membershipIdentifier: str
-    collaborationIdentifier: str
-    trainedModelArn: str
-    versionIdentifier: str
+    membershipIdentifier: Annotated[str, _aws_pattern("Cleanroomsml", "UUID")]
+    collaborationIdentifier: Annotated[str, _aws_pattern("Cleanroomsml", "UUID")]
+    trainedModelArn: Annotated[str, _aws_pattern("Cleanroomsml", "TrainedModelArn")]
+    versionIdentifier: Annotated[str, _aws_pattern("Cleanroomsml", "UUID")]
     incrementalTrainingDataChannels: List[IncrementalTrainingDataChannelOutputTypeDef]
-    name: str
-    description: str
+    name: Annotated[str, _aws_pattern("Cleanroomsml", "NameString")]
+    description: Annotated[str, _aws_pattern("Cleanroomsml", "ResourceDescription")]
     status: TrainedModelStatusType
     statusDetails: StatusDetailsTypeDef
-    configuredModelAlgorithmAssociationArn: str
+    configuredModelAlgorithmAssociationArn: Annotated[
+        str, _aws_pattern("Cleanroomsml", "ConfiguredModelAlgorithmAssociationArn")
+    ]
     resourceConfig: ResourceConfigTypeDef
     trainingInputMode: TrainingInputModeType
     stoppingCondition: StoppingConditionTypeDef
@@ -912,7 +942,7 @@ class GetTrainedModelResponseTypeDef(BaseValidatorModel):
     updateTime: datetime
     hyperparameters: Dict[str, str]
     environment: Dict[str, str]
-    kmsKeyArn: str
+    kmsKeyArn: Annotated[str, _aws_pattern("Cleanroomsml", "KmsKeyArn")]
     tags: Dict[str, str]
     dataChannels: List[ModelTrainingDataChannelTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
@@ -943,7 +973,7 @@ class InferenceOutputConfigurationOutputTypeDef(BaseValidatorModel):
 
 class InferenceOutputConfigurationTypeDef(BaseValidatorModel):
     members: List[InferenceReceiverMemberTypeDef]
-    accept: Optional[str] = None
+    accept: Optional[Annotated[str, _aws_pattern("Cleanroomsml", "InferenceOutputConfigurationAcceptString")]] = None
 
 
 class ListAudienceExportJobsRequestPaginateTypeDef(BaseValidatorModel):
@@ -1081,11 +1111,11 @@ class PrivacyBudgetsTypeDef(BaseValidatorModel):
 
 class ConfiguredAudienceModelOutputConfigTypeDef(BaseValidatorModel):
     destination: AudienceDestinationTypeDef
-    roleArn: str
+    roleArn: Annotated[str, _aws_pattern("Cleanroomsml", "IamRoleArn")]
 
 
 class MLOutputConfigurationTypeDef(BaseValidatorModel):
-    roleArn: str
+    roleArn: Annotated[str, _aws_pattern("Cleanroomsml", "IamRoleArn")]
     destination: Optional[DestinationTypeDef] = None
 
 
@@ -1132,14 +1162,14 @@ class MLSyntheticDataParametersTypeDef(BaseValidatorModel):
 class GetConfiguredModelAlgorithmResponseTypeDef(BaseValidatorModel):
     createTime: datetime
     updateTime: datetime
-    configuredModelAlgorithmArn: str
-    name: str
+    configuredModelAlgorithmArn: Annotated[str, _aws_pattern("Cleanroomsml", "ConfiguredModelAlgorithmArn")]
+    name: Annotated[str, _aws_pattern("Cleanroomsml", "NameString")]
     trainingContainerConfig: ContainerConfigOutputTypeDef
     inferenceContainerConfig: InferenceContainerConfigTypeDef
-    roleArn: str
-    description: str
+    roleArn: Annotated[str, _aws_pattern("Cleanroomsml", "IamRoleArn")]
+    description: Annotated[str, _aws_pattern("Cleanroomsml", "ResourceDescription")]
     tags: Dict[str, str]
-    kmsKeyArn: str
+    kmsKeyArn: Annotated[str, _aws_pattern("Cleanroomsml", "KmsKeyArn")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
@@ -1175,19 +1205,21 @@ class DatasetInputConfigTypeDef(BaseValidatorModel):
 
 
 class CollaborationTrainedModelInferenceJobSummaryTypeDef(BaseValidatorModel):
-    trainedModelInferenceJobArn: str
-    membershipIdentifier: str
-    trainedModelArn: str
-    collaborationIdentifier: str
+    trainedModelInferenceJobArn: Annotated[str, _aws_pattern("Cleanroomsml", "TrainedModelInferenceJobArn")]
+    membershipIdentifier: Annotated[str, _aws_pattern("Cleanroomsml", "UUID")]
+    trainedModelArn: Annotated[str, _aws_pattern("Cleanroomsml", "TrainedModelArn")]
+    collaborationIdentifier: Annotated[str, _aws_pattern("Cleanroomsml", "UUID")]
     status: TrainedModelInferenceJobStatusType
     outputConfiguration: InferenceOutputConfigurationOutputTypeDef
-    name: str
+    name: Annotated[str, _aws_pattern("Cleanroomsml", "NameString")]
     createTime: datetime
     updateTime: datetime
-    creatorAccountId: str
-    configuredModelAlgorithmAssociationArn: Optional[str] = None
-    trainedModelVersionIdentifier: Optional[str] = None
-    description: Optional[str] = None
+    creatorAccountId: Annotated[str, _aws_pattern("Cleanroomsml", "AccountId")]
+    configuredModelAlgorithmAssociationArn: Optional[
+        Annotated[str, _aws_pattern("Cleanroomsml", "ConfiguredModelAlgorithmAssociationArn")]
+    ] = None
+    trainedModelVersionIdentifier: Optional[Annotated[str, _aws_pattern("Cleanroomsml", "UUID")]] = None
+    description: Optional[Annotated[str, _aws_pattern("Cleanroomsml", "ResourceDescription")]] = None
     metricsStatus: Optional[MetricsStatusType] = None
     metricsStatusDetails: Optional[str] = None
     logsStatus: Optional[LogsStatusType] = None
@@ -1198,22 +1230,24 @@ class CollaborationTrainedModelInferenceJobSummaryTypeDef(BaseValidatorModel):
 class GetTrainedModelInferenceJobResponseTypeDef(BaseValidatorModel):
     createTime: datetime
     updateTime: datetime
-    trainedModelInferenceJobArn: str
-    configuredModelAlgorithmAssociationArn: str
-    name: str
+    trainedModelInferenceJobArn: Annotated[str, _aws_pattern("Cleanroomsml", "TrainedModelInferenceJobArn")]
+    configuredModelAlgorithmAssociationArn: Annotated[
+        str, _aws_pattern("Cleanroomsml", "ConfiguredModelAlgorithmAssociationArn")
+    ]
+    name: Annotated[str, _aws_pattern("Cleanroomsml", "NameString")]
     status: TrainedModelInferenceJobStatusType
-    trainedModelArn: str
-    trainedModelVersionIdentifier: str
+    trainedModelArn: Annotated[str, _aws_pattern("Cleanroomsml", "TrainedModelArn")]
+    trainedModelVersionIdentifier: Annotated[str, _aws_pattern("Cleanroomsml", "UUID")]
     resourceConfig: InferenceResourceConfigTypeDef
     outputConfiguration: InferenceOutputConfigurationOutputTypeDef
-    membershipIdentifier: str
+    membershipIdentifier: Annotated[str, _aws_pattern("Cleanroomsml", "UUID")]
     dataSource: ModelInferenceDataSourceTypeDef
     containerExecutionParameters: InferenceContainerExecutionParametersTypeDef
     statusDetails: StatusDetailsTypeDef
-    description: str
+    description: Annotated[str, _aws_pattern("Cleanroomsml", "ResourceDescription")]
     inferenceContainerImageDigest: str
     environment: Dict[str, str]
-    kmsKeyArn: str
+    kmsKeyArn: Annotated[str, _aws_pattern("Cleanroomsml", "KmsKeyArn")]
     metricsStatus: MetricsStatusType
     metricsStatusDetails: str
     logsStatus: LogsStatusType
@@ -1223,18 +1257,20 @@ class GetTrainedModelInferenceJobResponseTypeDef(BaseValidatorModel):
 
 
 class TrainedModelInferenceJobSummaryTypeDef(BaseValidatorModel):
-    trainedModelInferenceJobArn: str
-    membershipIdentifier: str
-    trainedModelArn: str
-    collaborationIdentifier: str
+    trainedModelInferenceJobArn: Annotated[str, _aws_pattern("Cleanroomsml", "TrainedModelInferenceJobArn")]
+    membershipIdentifier: Annotated[str, _aws_pattern("Cleanroomsml", "UUID")]
+    trainedModelArn: Annotated[str, _aws_pattern("Cleanroomsml", "TrainedModelArn")]
+    collaborationIdentifier: Annotated[str, _aws_pattern("Cleanroomsml", "UUID")]
     status: TrainedModelInferenceJobStatusType
     outputConfiguration: InferenceOutputConfigurationOutputTypeDef
-    name: str
+    name: Annotated[str, _aws_pattern("Cleanroomsml", "NameString")]
     createTime: datetime
     updateTime: datetime
-    configuredModelAlgorithmAssociationArn: Optional[str] = None
-    trainedModelVersionIdentifier: Optional[str] = None
-    description: Optional[str] = None
+    configuredModelAlgorithmAssociationArn: Optional[
+        Annotated[str, _aws_pattern("Cleanroomsml", "ConfiguredModelAlgorithmAssociationArn")]
+    ] = None
+    trainedModelVersionIdentifier: Optional[Annotated[str, _aws_pattern("Cleanroomsml", "UUID")]] = None
+    description: Optional[Annotated[str, _aws_pattern("Cleanroomsml", "ResourceDescription")]] = None
     metricsStatus: Optional[MetricsStatusType] = None
     metricsStatusDetails: Optional[str] = None
     logsStatus: Optional[LogsStatusType] = None
@@ -1249,16 +1285,16 @@ InferenceOutputConfigurationUnionTypeDef = Union[
 class CollaborationTrainedModelExportJobSummaryTypeDef(BaseValidatorModel):
     createTime: datetime
     updateTime: datetime
-    name: str
+    name: Annotated[str, _aws_pattern("Cleanroomsml", "NameString")]
     outputConfiguration: TrainedModelExportOutputConfigurationOutputTypeDef
     status: TrainedModelExportJobStatusType
-    creatorAccountId: str
-    trainedModelArn: str
-    membershipIdentifier: str
-    collaborationIdentifier: str
+    creatorAccountId: Annotated[str, _aws_pattern("Cleanroomsml", "AccountId")]
+    trainedModelArn: Annotated[str, _aws_pattern("Cleanroomsml", "TrainedModelArn")]
+    membershipIdentifier: Annotated[str, _aws_pattern("Cleanroomsml", "UUID")]
+    collaborationIdentifier: Annotated[str, _aws_pattern("Cleanroomsml", "UUID")]
     statusDetails: Optional[StatusDetailsTypeDef] = None
-    description: Optional[str] = None
-    trainedModelVersionIdentifier: Optional[str] = None
+    description: Optional[Annotated[str, _aws_pattern("Cleanroomsml", "ResourceDescription")]] = None
+    trainedModelVersionIdentifier: Optional[Annotated[str, _aws_pattern("Cleanroomsml", "UUID")]] = None
 
 
 TrainedModelExportOutputConfigurationUnionTypeDef = Union[
@@ -1277,21 +1313,21 @@ class ComputeConfigurationTypeDef(BaseValidatorModel):
 class ConfiguredAudienceModelSummaryTypeDef(BaseValidatorModel):
     createTime: datetime
     updateTime: datetime
-    name: str
-    audienceModelArn: str
+    name: Annotated[str, _aws_pattern("Cleanroomsml", "NameString")]
+    audienceModelArn: Annotated[str, _aws_pattern("Cleanroomsml", "AudienceModelArn")]
     outputConfig: ConfiguredAudienceModelOutputConfigTypeDef
-    configuredAudienceModelArn: str
+    configuredAudienceModelArn: Annotated[str, _aws_pattern("Cleanroomsml", "ConfiguredAudienceModelArn")]
     status: Literal["ACTIVE"]
-    description: Optional[str] = None
+    description: Optional[Annotated[str, _aws_pattern("Cleanroomsml", "ResourceDescription")]] = None
 
 
 # This class is the input for the 'create_configured_audience_model' function.
 class CreateConfiguredAudienceModelRequestTypeDef(BaseValidatorModel):
-    name: str
-    audienceModelArn: str
+    name: Annotated[str, _aws_pattern("Cleanroomsml", "NameString")]
+    audienceModelArn: Annotated[str, _aws_pattern("Cleanroomsml", "AudienceModelArn")]
     outputConfig: ConfiguredAudienceModelOutputConfigTypeDef
     sharedAudienceMetrics: List[SharedAudienceMetricsType]
-    description: Optional[str] = None
+    description: Optional[Annotated[str, _aws_pattern("Cleanroomsml", "ResourceDescription")]] = None
     minMatchingSeedSize: Optional[int] = None
     audienceSizeConfig: Optional[AudienceSizeConfigUnionTypeDef] = None
     tags: Optional[Dict[str, str]] = None
@@ -1302,11 +1338,11 @@ class CreateConfiguredAudienceModelRequestTypeDef(BaseValidatorModel):
 class GetConfiguredAudienceModelResponseTypeDef(BaseValidatorModel):
     createTime: datetime
     updateTime: datetime
-    configuredAudienceModelArn: str
-    name: str
-    audienceModelArn: str
+    configuredAudienceModelArn: Annotated[str, _aws_pattern("Cleanroomsml", "ConfiguredAudienceModelArn")]
+    name: Annotated[str, _aws_pattern("Cleanroomsml", "NameString")]
+    audienceModelArn: Annotated[str, _aws_pattern("Cleanroomsml", "AudienceModelArn")]
     outputConfig: ConfiguredAudienceModelOutputConfigTypeDef
-    description: str
+    description: Annotated[str, _aws_pattern("Cleanroomsml", "ResourceDescription")]
     status: Literal["ACTIVE"]
     sharedAudienceMetrics: List[SharedAudienceMetricsType]
     minMatchingSeedSize: int
@@ -1318,18 +1354,18 @@ class GetConfiguredAudienceModelResponseTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'update_configured_audience_model' function.
 class UpdateConfiguredAudienceModelRequestTypeDef(BaseValidatorModel):
-    configuredAudienceModelArn: str
+    configuredAudienceModelArn: Annotated[str, _aws_pattern("Cleanroomsml", "ConfiguredAudienceModelArn")]
     outputConfig: Optional[ConfiguredAudienceModelOutputConfigTypeDef] = None
-    audienceModelArn: Optional[str] = None
+    audienceModelArn: Optional[Annotated[str, _aws_pattern("Cleanroomsml", "AudienceModelArn")]] = None
     sharedAudienceMetrics: Optional[List[SharedAudienceMetricsType]] = None
     minMatchingSeedSize: Optional[int] = None
     audienceSizeConfig: Optional[AudienceSizeConfigUnionTypeDef] = None
-    description: Optional[str] = None
+    description: Optional[Annotated[str, _aws_pattern("Cleanroomsml", "ResourceDescription")]] = None
 
 
 # This class is the output for the 'get_ml_configuration' function.
 class GetMLConfigurationResponseTypeDef(BaseValidatorModel):
-    membershipIdentifier: str
+    membershipIdentifier: Annotated[str, _aws_pattern("Cleanroomsml", "UUID")]
     defaultOutputLocation: MLOutputConfigurationTypeDef
     createTime: datetime
     updateTime: datetime
@@ -1338,19 +1374,19 @@ class GetMLConfigurationResponseTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'put_ml_configuration' function.
 class PutMLConfigurationRequestTypeDef(BaseValidatorModel):
-    membershipIdentifier: str
+    membershipIdentifier: Annotated[str, _aws_pattern("Cleanroomsml", "UUID")]
     defaultOutputLocation: MLOutputConfigurationTypeDef
 
 
 # This class is the input for the 'create_configured_model_algorithm' function.
 class CreateConfiguredModelAlgorithmRequestTypeDef(BaseValidatorModel):
-    name: str
-    roleArn: str
-    description: Optional[str] = None
+    name: Annotated[str, _aws_pattern("Cleanroomsml", "NameString")]
+    roleArn: Annotated[str, _aws_pattern("Cleanroomsml", "IamRoleArn")]
+    description: Optional[Annotated[str, _aws_pattern("Cleanroomsml", "ResourceDescription")]] = None
     trainingContainerConfig: Optional[ContainerConfigUnionTypeDef] = None
     inferenceContainerConfig: Optional[InferenceContainerConfigTypeDef] = None
     tags: Optional[Dict[str, str]] = None
-    kmsKeyArn: Optional[str] = None
+    kmsKeyArn: Optional[Annotated[str, _aws_pattern("Cleanroomsml", "KmsKeyArn")]] = None
 
 
 class TrainedModelInferenceJobsConfigurationPolicyOutputTypeDef(BaseValidatorModel):
@@ -1404,18 +1440,20 @@ class ListTrainedModelInferenceJobsResponseTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'start_trained_model_inference_job' function.
 class StartTrainedModelInferenceJobRequestTypeDef(BaseValidatorModel):
-    membershipIdentifier: str
-    name: str
-    trainedModelArn: str
+    membershipIdentifier: Annotated[str, _aws_pattern("Cleanroomsml", "UUID")]
+    name: Annotated[str, _aws_pattern("Cleanroomsml", "NameString")]
+    trainedModelArn: Annotated[str, _aws_pattern("Cleanroomsml", "TrainedModelArn")]
     resourceConfig: InferenceResourceConfigTypeDef
     outputConfiguration: InferenceOutputConfigurationUnionTypeDef
     dataSource: ModelInferenceDataSourceTypeDef
-    trainedModelVersionIdentifier: Optional[str] = None
-    configuredModelAlgorithmAssociationArn: Optional[str] = None
-    description: Optional[str] = None
+    trainedModelVersionIdentifier: Optional[Annotated[str, _aws_pattern("Cleanroomsml", "UUID")]] = None
+    configuredModelAlgorithmAssociationArn: Optional[
+        Annotated[str, _aws_pattern("Cleanroomsml", "ConfiguredModelAlgorithmAssociationArn")]
+    ] = None
+    description: Optional[Annotated[str, _aws_pattern("Cleanroomsml", "ResourceDescription")]] = None
     containerExecutionParameters: Optional[InferenceContainerExecutionParametersTypeDef] = None
     environment: Optional[Dict[str, str]] = None
-    kmsKeyArn: Optional[str] = None
+    kmsKeyArn: Optional[Annotated[str, _aws_pattern("Cleanroomsml", "KmsKeyArn")]] = None
     tags: Optional[Dict[str, str]] = None
 
 
@@ -1428,12 +1466,12 @@ class ListCollaborationTrainedModelExportJobsResponseTypeDef(BaseValidatorModel)
 
 # This class is the input for the 'start_trained_model_export_job' function.
 class StartTrainedModelExportJobRequestTypeDef(BaseValidatorModel):
-    name: str
-    trainedModelArn: str
-    membershipIdentifier: str
+    name: Annotated[str, _aws_pattern("Cleanroomsml", "NameString")]
+    trainedModelArn: Annotated[str, _aws_pattern("Cleanroomsml", "TrainedModelArn")]
+    membershipIdentifier: Annotated[str, _aws_pattern("Cleanroomsml", "UUID")]
     outputConfiguration: TrainedModelExportOutputConfigurationUnionTypeDef
-    trainedModelVersionIdentifier: Optional[str] = None
-    description: Optional[str] = None
+    trainedModelVersionIdentifier: Optional[Annotated[str, _aws_pattern("Cleanroomsml", "UUID")]] = None
+    description: Optional[Annotated[str, _aws_pattern("Cleanroomsml", "ResourceDescription")]] = None
 
 
 class AudienceGenerationJobDataSourceOutputTypeDef(BaseValidatorModel):
@@ -1450,7 +1488,7 @@ class ProtectedQueryInputParametersOutputTypeDef(BaseValidatorModel):
 
 
 class AudienceGenerationJobDataSourceTypeDef(BaseValidatorModel):
-    roleArn: str
+    roleArn: Annotated[str, _aws_pattern("Cleanroomsml", "IamRoleArn")]
     dataSource: Optional[S3ConfigMapTypeDef] = None
     sqlParameters: Optional[ProtectedQuerySQLParametersTypeDef] = None
     sqlComputeConfiguration: Optional[ComputeConfigurationTypeDef] = None
@@ -1483,21 +1521,23 @@ class PrivacyConfigurationPoliciesTypeDef(BaseValidatorModel):
 
 # This class is the output for the 'get_collaboration_ml_input_channel' function.
 class GetCollaborationMLInputChannelResponseTypeDef(BaseValidatorModel):
-    membershipIdentifier: str
-    collaborationIdentifier: str
-    mlInputChannelArn: str
-    name: str
-    configuredModelAlgorithmAssociations: List[str]
+    membershipIdentifier: Annotated[str, _aws_pattern("Cleanroomsml", "UUID")]
+    collaborationIdentifier: Annotated[str, _aws_pattern("Cleanroomsml", "UUID")]
+    mlInputChannelArn: Annotated[str, _aws_pattern("Cleanroomsml", "MLInputChannelArn")]
+    name: Annotated[str, _aws_pattern("Cleanroomsml", "NameString")]
+    configuredModelAlgorithmAssociations: List[
+        Annotated[str, _aws_pattern("Cleanroomsml", "ConfiguredModelAlgorithmAssociationArn")]
+    ]
     status: MLInputChannelStatusType
     statusDetails: StatusDetailsTypeDef
     retentionInDays: int
     numberOfRecords: int
     privacyBudgets: PrivacyBudgetsTypeDef
-    description: str
+    description: Annotated[str, _aws_pattern("Cleanroomsml", "ResourceDescription")]
     syntheticDataConfiguration: SyntheticDataConfigurationTypeDef
     createTime: datetime
     updateTime: datetime
-    creatorAccountId: str
+    creatorAccountId: Annotated[str, _aws_pattern("Cleanroomsml", "AccountId")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
@@ -1505,13 +1545,13 @@ class GetCollaborationMLInputChannelResponseTypeDef(BaseValidatorModel):
 class GetTrainingDatasetResponseTypeDef(BaseValidatorModel):
     createTime: datetime
     updateTime: datetime
-    trainingDatasetArn: str
-    name: str
+    trainingDatasetArn: Annotated[str, _aws_pattern("Cleanroomsml", "TrainingDatasetArn")]
+    name: Annotated[str, _aws_pattern("Cleanroomsml", "NameString")]
     trainingData: List[DatasetOutputTypeDef]
     status: Literal["ACTIVE"]
-    roleArn: str
+    roleArn: Annotated[str, _aws_pattern("Cleanroomsml", "IamRoleArn")]
     tags: Dict[str, str]
-    description: str
+    description: Annotated[str, _aws_pattern("Cleanroomsml", "ResourceDescription")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
@@ -1524,17 +1564,17 @@ class DatasetTypeDef(BaseValidatorModel):
 class GetAudienceGenerationJobResponseTypeDef(BaseValidatorModel):
     createTime: datetime
     updateTime: datetime
-    audienceGenerationJobArn: str
-    name: str
-    description: str
+    audienceGenerationJobArn: Annotated[str, _aws_pattern("Cleanroomsml", "AudienceGenerationJobArn")]
+    name: Annotated[str, _aws_pattern("Cleanroomsml", "NameString")]
+    description: Annotated[str, _aws_pattern("Cleanroomsml", "ResourceDescription")]
     status: AudienceGenerationJobStatusType
     statusDetails: StatusDetailsTypeDef
-    configuredAudienceModelArn: str
+    configuredAudienceModelArn: Annotated[str, _aws_pattern("Cleanroomsml", "ConfiguredAudienceModelArn")]
     seedAudience: AudienceGenerationJobDataSourceOutputTypeDef
     includeSeedInOutput: bool
-    collaborationId: str
+    collaborationId: Annotated[str, _aws_pattern("Cleanroomsml", "UUID")]
     metrics: AudienceQualityMetricsTypeDef
-    startedBy: str
+    startedBy: Annotated[str, _aws_pattern("Cleanroomsml", "AccountId")]
     tags: Dict[str, str]
     protectedQueryIdentifier: str
     ResponseMetadata: ResponseMetadataTypeDef
@@ -1571,31 +1611,33 @@ class InputChannelOutputTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'start_audience_generation_job' function.
 class StartAudienceGenerationJobRequestTypeDef(BaseValidatorModel):
-    name: str
-    configuredAudienceModelArn: str
+    name: Annotated[str, _aws_pattern("Cleanroomsml", "NameString")]
+    configuredAudienceModelArn: Annotated[str, _aws_pattern("Cleanroomsml", "ConfiguredAudienceModelArn")]
     seedAudience: AudienceGenerationJobDataSourceUnionTypeDef
     includeSeedInOutput: Optional[bool] = None
-    collaborationId: Optional[str] = None
-    description: Optional[str] = None
+    collaborationId: Optional[Annotated[str, _aws_pattern("Cleanroomsml", "UUID")]] = None
+    description: Optional[Annotated[str, _aws_pattern("Cleanroomsml", "ResourceDescription")]] = None
     tags: Optional[Dict[str, str]] = None
 
 
 class InputChannelTypeDef(BaseValidatorModel):
     dataSource: InputChannelDataSourceTypeDef
-    roleArn: str
+    roleArn: Annotated[str, _aws_pattern("Cleanroomsml", "IamRoleArn")]
 
 
 # This class is the output for the 'get_collaboration_configured_model_algorithm_association' function.
 class GetCollaborationConfiguredModelAlgorithmAssociationResponseTypeDef(BaseValidatorModel):
     createTime: datetime
     updateTime: datetime
-    configuredModelAlgorithmAssociationArn: str
-    membershipIdentifier: str
-    collaborationIdentifier: str
-    configuredModelAlgorithmArn: str
-    name: str
-    description: str
-    creatorAccountId: str
+    configuredModelAlgorithmAssociationArn: Annotated[
+        str, _aws_pattern("Cleanroomsml", "ConfiguredModelAlgorithmAssociationArn")
+    ]
+    membershipIdentifier: Annotated[str, _aws_pattern("Cleanroomsml", "UUID")]
+    collaborationIdentifier: Annotated[str, _aws_pattern("Cleanroomsml", "UUID")]
+    configuredModelAlgorithmArn: Annotated[str, _aws_pattern("Cleanroomsml", "ConfiguredModelAlgorithmArn")]
+    name: Annotated[str, _aws_pattern("Cleanroomsml", "NameString")]
+    description: Annotated[str, _aws_pattern("Cleanroomsml", "ResourceDescription")]
+    creatorAccountId: Annotated[str, _aws_pattern("Cleanroomsml", "AccountId")]
     privacyConfiguration: PrivacyConfigurationOutputTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
@@ -1604,13 +1646,15 @@ class GetCollaborationConfiguredModelAlgorithmAssociationResponseTypeDef(BaseVal
 class GetConfiguredModelAlgorithmAssociationResponseTypeDef(BaseValidatorModel):
     createTime: datetime
     updateTime: datetime
-    configuredModelAlgorithmAssociationArn: str
-    membershipIdentifier: str
-    collaborationIdentifier: str
-    configuredModelAlgorithmArn: str
-    name: str
+    configuredModelAlgorithmAssociationArn: Annotated[
+        str, _aws_pattern("Cleanroomsml", "ConfiguredModelAlgorithmAssociationArn")
+    ]
+    membershipIdentifier: Annotated[str, _aws_pattern("Cleanroomsml", "UUID")]
+    collaborationIdentifier: Annotated[str, _aws_pattern("Cleanroomsml", "UUID")]
+    configuredModelAlgorithmArn: Annotated[str, _aws_pattern("Cleanroomsml", "ConfiguredModelAlgorithmArn")]
+    name: Annotated[str, _aws_pattern("Cleanroomsml", "NameString")]
     privacyConfiguration: PrivacyConfigurationOutputTypeDef
-    description: str
+    description: Annotated[str, _aws_pattern("Cleanroomsml", "ResourceDescription")]
     tags: Dict[str, str]
     ResponseMetadata: ResponseMetadataTypeDef
 
@@ -1620,34 +1664,36 @@ PrivacyConfigurationUnionTypeDef = Union[PrivacyConfigurationOutputTypeDef, Priv
 
 # This class is the input for the 'create_training_dataset' function.
 class CreateTrainingDatasetRequestTypeDef(BaseValidatorModel):
-    name: str
-    roleArn: str
+    name: Annotated[str, _aws_pattern("Cleanroomsml", "NameString")]
+    roleArn: Annotated[str, _aws_pattern("Cleanroomsml", "IamRoleArn")]
     trainingData: List[DatasetUnionTypeDef]
     tags: Optional[Dict[str, str]] = None
-    description: Optional[str] = None
+    description: Optional[Annotated[str, _aws_pattern("Cleanroomsml", "ResourceDescription")]] = None
 
 
 # This class is the output for the 'get_ml_input_channel' function.
 class GetMLInputChannelResponseTypeDef(BaseValidatorModel):
-    membershipIdentifier: str
-    collaborationIdentifier: str
-    mlInputChannelArn: str
-    name: str
-    configuredModelAlgorithmAssociations: List[str]
+    membershipIdentifier: Annotated[str, _aws_pattern("Cleanroomsml", "UUID")]
+    collaborationIdentifier: Annotated[str, _aws_pattern("Cleanroomsml", "UUID")]
+    mlInputChannelArn: Annotated[str, _aws_pattern("Cleanroomsml", "MLInputChannelArn")]
+    name: Annotated[str, _aws_pattern("Cleanroomsml", "NameString")]
+    configuredModelAlgorithmAssociations: List[
+        Annotated[str, _aws_pattern("Cleanroomsml", "ConfiguredModelAlgorithmAssociationArn")]
+    ]
     status: MLInputChannelStatusType
     statusDetails: StatusDetailsTypeDef
     retentionInDays: int
     numberOfRecords: int
     privacyBudgets: PrivacyBudgetsTypeDef
-    description: str
+    description: Annotated[str, _aws_pattern("Cleanroomsml", "ResourceDescription")]
     syntheticDataConfiguration: SyntheticDataConfigurationTypeDef
     createTime: datetime
     updateTime: datetime
     inputChannel: InputChannelOutputTypeDef
-    protectedQueryIdentifier: str
+    protectedQueryIdentifier: Annotated[str, _aws_pattern("Cleanroomsml", "UUID")]
     numberOfFiles: float
     sizeInGb: float
-    kmsKeyArn: str
+    kmsKeyArn: Annotated[str, _aws_pattern("Cleanroomsml", "KmsKeyArn")]
     tags: Dict[str, str]
     ResponseMetadata: ResponseMetadataTypeDef
 
@@ -1657,21 +1703,23 @@ InputChannelUnionTypeDef = Union[InputChannelOutputTypeDef, InputChannelTypeDef]
 
 # This class is the input for the 'create_configured_model_algorithm_association' function.
 class CreateConfiguredModelAlgorithmAssociationRequestTypeDef(BaseValidatorModel):
-    membershipIdentifier: str
-    configuredModelAlgorithmArn: str
-    name: str
-    description: Optional[str] = None
+    membershipIdentifier: Annotated[str, _aws_pattern("Cleanroomsml", "UUID")]
+    configuredModelAlgorithmArn: Annotated[str, _aws_pattern("Cleanroomsml", "ConfiguredModelAlgorithmArn")]
+    name: Annotated[str, _aws_pattern("Cleanroomsml", "NameString")]
+    description: Optional[Annotated[str, _aws_pattern("Cleanroomsml", "ResourceDescription")]] = None
     privacyConfiguration: Optional[PrivacyConfigurationUnionTypeDef] = None
     tags: Optional[Dict[str, str]] = None
 
 
 # This class is the input for the 'create_ml_input_channel' function.
 class CreateMLInputChannelRequestTypeDef(BaseValidatorModel):
-    membershipIdentifier: str
-    configuredModelAlgorithmAssociations: List[str]
+    membershipIdentifier: Annotated[str, _aws_pattern("Cleanroomsml", "UUID")]
+    configuredModelAlgorithmAssociations: List[
+        Annotated[str, _aws_pattern("Cleanroomsml", "ConfiguredModelAlgorithmAssociationArn")]
+    ]
     inputChannel: InputChannelUnionTypeDef
-    name: str
+    name: Annotated[str, _aws_pattern("Cleanroomsml", "NameString")]
     retentionInDays: int
-    description: Optional[str] = None
-    kmsKeyArn: Optional[str] = None
+    description: Optional[Annotated[str, _aws_pattern("Cleanroomsml", "ResourceDescription")]] = None
+    kmsKeyArn: Optional[Annotated[str, _aws_pattern("Cleanroomsml", "KmsKeyArn")]] = None
     tags: Optional[Dict[str, str]] = None

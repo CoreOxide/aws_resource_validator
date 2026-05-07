@@ -3,6 +3,7 @@
 from datetime import datetime
 from decimal import Decimal
 from typing import (
+    Annotated,
     Any,
     Callable,
     Dict,
@@ -24,6 +25,7 @@ from botocore.response import StreamingBody
 from pydantic import Field
 
 from aws_resource_validator.core.base_validator_model import BaseValidatorModel, EventStream
+from aws_resource_validator.core.pattern_validation import aws_field_pattern as _aws_pattern
 from aws_resource_validator.pydantic_models.sagemaker_a2i_runtime.sagemaker_a2i_runtime_constants import *  # noqa: F401,F403
 
 # Optional boto3 symbols — imported lazily so services that don't need them
@@ -39,12 +41,12 @@ except ImportError:  # pragma: no cover
 
 
 class DeleteHumanLoopRequestTypeDef(BaseValidatorModel):
-    HumanLoopName: str
+    HumanLoopName: Annotated[str, _aws_pattern("SagemakerA2iRuntime", "HumanLoopName")]
 
 
 # This class is the input for the 'describe_human_loop' function.
 class DescribeHumanLoopRequestTypeDef(BaseValidatorModel):
-    HumanLoopName: str
+    HumanLoopName: Annotated[str, _aws_pattern("SagemakerA2iRuntime", "HumanLoopName")]
 
 
 class HumanLoopOutputTypeDef(BaseValidatorModel):
@@ -68,11 +70,11 @@ class HumanLoopInputTypeDef(BaseValidatorModel):
 
 
 class HumanLoopSummaryTypeDef(BaseValidatorModel):
-    HumanLoopName: Optional[str] = None
+    HumanLoopName: Optional[Annotated[str, _aws_pattern("SagemakerA2iRuntime", "HumanLoopName")]] = None
     HumanLoopStatus: Optional[HumanLoopStatusType] = None
     CreationTime: Optional[datetime] = None
     FailureReason: Optional[str] = None
-    FlowDefinitionArn: Optional[str] = None
+    FlowDefinitionArn: Optional[Annotated[str, _aws_pattern("SagemakerA2iRuntime", "FlowDefinitionArn")]] = None
 
 
 class PaginatorConfigTypeDef(BaseValidatorModel):
@@ -85,7 +87,7 @@ TimestampTypeDef = Union[datetime, str]
 
 
 class StopHumanLoopRequestTypeDef(BaseValidatorModel):
-    HumanLoopName: str
+    HumanLoopName: Annotated[str, _aws_pattern("SagemakerA2iRuntime", "HumanLoopName")]
 
 
 # This class is the output for the 'describe_human_loop' function.
@@ -94,23 +96,23 @@ class DescribeHumanLoopResponseTypeDef(BaseValidatorModel):
     FailureReason: str
     FailureCode: str
     HumanLoopStatus: HumanLoopStatusType
-    HumanLoopName: str
-    HumanLoopArn: str
-    FlowDefinitionArn: str
+    HumanLoopName: Annotated[str, _aws_pattern("SagemakerA2iRuntime", "HumanLoopName")]
+    HumanLoopArn: Annotated[str, _aws_pattern("SagemakerA2iRuntime", "HumanLoopArn")]
+    FlowDefinitionArn: Annotated[str, _aws_pattern("SagemakerA2iRuntime", "FlowDefinitionArn")]
     HumanLoopOutput: HumanLoopOutputTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 # This class is the output for the 'start_human_loop' function.
 class StartHumanLoopResponseTypeDef(BaseValidatorModel):
-    HumanLoopArn: str
+    HumanLoopArn: Annotated[str, _aws_pattern("SagemakerA2iRuntime", "HumanLoopArn")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 # This class is the input for the 'start_human_loop' function.
 class StartHumanLoopRequestTypeDef(BaseValidatorModel):
-    HumanLoopName: str
-    FlowDefinitionArn: str
+    HumanLoopName: Annotated[str, _aws_pattern("SagemakerA2iRuntime", "HumanLoopName")]
+    FlowDefinitionArn: Annotated[str, _aws_pattern("SagemakerA2iRuntime", "FlowDefinitionArn")]
     HumanLoopInput: HumanLoopInputTypeDef
     DataAttributes: Optional[HumanLoopDataAttributesTypeDef] = None
 
@@ -119,7 +121,7 @@ class StartHumanLoopRequestTypeDef(BaseValidatorModel):
 class ListHumanLoopsResponseTypeDef(BaseValidatorModel):
     HumanLoopSummaries: List[HumanLoopSummaryTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
-    NextToken: Optional[str] = None
+    NextToken: Optional[Annotated[str, _aws_pattern("SagemakerA2iRuntime", "NextToken")]] = None
 
 
 class ListHumanLoopsRequestPaginateTypeDef(BaseValidatorModel):
@@ -132,9 +134,9 @@ class ListHumanLoopsRequestPaginateTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'list_human_loops' function.
 class ListHumanLoopsRequestTypeDef(BaseValidatorModel):
-    FlowDefinitionArn: str
+    FlowDefinitionArn: Annotated[str, _aws_pattern("SagemakerA2iRuntime", "FlowDefinitionArn")]
     CreationTimeAfter: Optional[TimestampTypeDef] = None
     CreationTimeBefore: Optional[TimestampTypeDef] = None
     SortOrder: Optional[SortOrderType] = None
-    NextToken: Optional[str] = None
+    NextToken: Optional[Annotated[str, _aws_pattern("SagemakerA2iRuntime", "NextToken")]] = None
     MaxResults: Optional[int] = None

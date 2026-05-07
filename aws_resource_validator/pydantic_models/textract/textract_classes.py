@@ -3,6 +3,7 @@
 from datetime import datetime
 from decimal import Decimal
 from typing import (
+    Annotated,
     Any,
     Callable,
     Dict,
@@ -24,6 +25,7 @@ from botocore.response import StreamingBody
 from pydantic import Field
 
 from aws_resource_validator.core.base_validator_model import BaseValidatorModel, EventStream
+from aws_resource_validator.core.pattern_validation import aws_field_pattern as _aws_pattern
 from aws_resource_validator.pydantic_models.textract.textract_constants import *  # noqa: F401,F403
 
 # Optional boto3 symbols — imported lazily so services that don't need them
@@ -40,7 +42,7 @@ except ImportError:  # pragma: no cover
 
 class AdapterOverviewTypeDef(BaseValidatorModel):
     AdapterId: Optional[str] = None
-    AdapterName: Optional[str] = None
+    AdapterName: Optional[Annotated[str, _aws_pattern("Textract", "AdapterName")]] = None
     CreationTime: Optional[datetime] = None
     FeatureTypes: Optional[List[FeatureTypeType]] = None
 
@@ -48,13 +50,13 @@ class AdapterOverviewTypeDef(BaseValidatorModel):
 class AdapterTypeDef(BaseValidatorModel):
     AdapterId: str
     Version: str
-    Pages: Optional[List[str]] = None
+    Pages: Optional[List[Annotated[str, _aws_pattern("Textract", "AdapterPage")]]] = None
 
 
 class S3ObjectTypeDef(BaseValidatorModel):
-    Bucket: Optional[str] = None
-    Name: Optional[str] = None
-    Version: Optional[str] = None
+    Bucket: Optional[Annotated[str, _aws_pattern("Textract", "S3Bucket")]] = None
+    Name: Optional[Annotated[str, _aws_pattern("Textract", "S3ObjectName")]] = None
+    Version: Optional[Annotated[str, _aws_pattern("Textract", "S3ObjectVersion")]] = None
 
 
 class EvaluationMetricTypeDef(BaseValidatorModel):
@@ -69,7 +71,7 @@ class AdapterVersionOverviewTypeDef(BaseValidatorModel):
     CreationTime: Optional[datetime] = None
     FeatureTypes: Optional[List[FeatureTypeType]] = None
     Status: Optional[AdapterVersionStatusType] = None
-    StatusMessage: Optional[str] = None
+    StatusMessage: Optional[Annotated[str, _aws_pattern("Textract", "AdapterVersionStatusMessage")]] = None
 
 
 class DocumentMetadataTypeDef(BaseValidatorModel):
@@ -106,7 +108,7 @@ class QueryOutputTypeDef(BaseValidatorModel):
 
 class RelationshipTypeDef(BaseValidatorModel):
     Type: Optional[RelationshipTypeType] = None
-    Ids: Optional[List[str]] = None
+    Ids: Optional[List[Annotated[str, _aws_pattern("Textract", "NonEmptyString")]]] = None
 
 
 class BoundingBoxTypeDef(BaseValidatorModel):
@@ -118,17 +120,17 @@ class BoundingBoxTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'create_adapter' function.
 class CreateAdapterRequestTypeDef(BaseValidatorModel):
-    AdapterName: str
+    AdapterName: Annotated[str, _aws_pattern("Textract", "AdapterName")]
     FeatureTypes: List[FeatureTypeType]
-    ClientRequestToken: Optional[str] = None
-    Description: Optional[str] = None
+    ClientRequestToken: Optional[Annotated[str, _aws_pattern("Textract", "ClientRequestToken")]] = None
+    Description: Optional[Annotated[str, _aws_pattern("Textract", "AdapterDescription")]] = None
     AutoUpdate: Optional[AutoUpdateType] = None
     Tags: Optional[Dict[str, str]] = None
 
 
 class OutputConfigTypeDef(BaseValidatorModel):
-    S3Bucket: str
-    S3Prefix: Optional[str] = None
+    S3Bucket: Annotated[str, _aws_pattern("Textract", "S3Bucket")]
+    S3Prefix: Optional[Annotated[str, _aws_pattern("Textract", "S3ObjectName")]] = None
 
 
 class DeleteAdapterRequestTypeDef(BaseValidatorModel):
@@ -186,9 +188,9 @@ class GetAdapterVersionRequestTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'get_document_analysis' function.
 class GetDocumentAnalysisRequestTypeDef(BaseValidatorModel):
-    JobId: str
+    JobId: Annotated[str, _aws_pattern("Textract", "JobId")]
     MaxResults: Optional[int] = None
-    NextToken: Optional[str] = None
+    NextToken: Optional[Annotated[str, _aws_pattern("Textract", "PaginationToken")]] = None
 
 
 class WarningTypeDef(BaseValidatorModel):
@@ -198,28 +200,28 @@ class WarningTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'get_document_text_detection' function.
 class GetDocumentTextDetectionRequestTypeDef(BaseValidatorModel):
-    JobId: str
+    JobId: Annotated[str, _aws_pattern("Textract", "JobId")]
     MaxResults: Optional[int] = None
-    NextToken: Optional[str] = None
+    NextToken: Optional[Annotated[str, _aws_pattern("Textract", "PaginationToken")]] = None
 
 
 # This class is the input for the 'get_expense_analysis' function.
 class GetExpenseAnalysisRequestTypeDef(BaseValidatorModel):
-    JobId: str
+    JobId: Annotated[str, _aws_pattern("Textract", "JobId")]
     MaxResults: Optional[int] = None
-    NextToken: Optional[str] = None
+    NextToken: Optional[Annotated[str, _aws_pattern("Textract", "PaginationToken")]] = None
 
 
 # This class is the input for the 'get_lending_analysis' function.
 class GetLendingAnalysisRequestTypeDef(BaseValidatorModel):
-    JobId: str
+    JobId: Annotated[str, _aws_pattern("Textract", "JobId")]
     MaxResults: Optional[int] = None
-    NextToken: Optional[str] = None
+    NextToken: Optional[Annotated[str, _aws_pattern("Textract", "PaginationToken")]] = None
 
 
 # This class is the input for the 'get_lending_analysis_summary' function.
 class GetLendingAnalysisSummaryRequestTypeDef(BaseValidatorModel):
-    JobId: str
+    JobId: Annotated[str, _aws_pattern("Textract", "JobId")]
 
 
 class HumanLoopDataAttributesTypeDef(BaseValidatorModel):
@@ -241,19 +243,19 @@ class ListTagsForResourceRequestTypeDef(BaseValidatorModel):
 
 
 class NotificationChannelTypeDef(BaseValidatorModel):
-    SNSTopicArn: str
-    RoleArn: str
+    SNSTopicArn: Annotated[str, _aws_pattern("Textract", "SNSTopicArn")]
+    RoleArn: Annotated[str, _aws_pattern("Textract", "RoleArn")]
 
 
 class PredictionTypeDef(BaseValidatorModel):
-    Value: Optional[str] = None
+    Value: Optional[Annotated[str, _aws_pattern("Textract", "NonEmptyString")]] = None
     Confidence: Optional[float] = None
 
 
 class QueryTypeDef(BaseValidatorModel):
-    Text: str
-    Alias: Optional[str] = None
-    Pages: Optional[List[str]] = None
+    Text: Annotated[str, _aws_pattern("Textract", "QueryInput")]
+    Alias: Optional[Annotated[str, _aws_pattern("Textract", "QueryInput")]] = None
+    Pages: Optional[List[Annotated[str, _aws_pattern("Textract", "QueryPage")]]] = None
 
 
 class TagResourceRequestTypeDef(BaseValidatorModel):
@@ -263,14 +265,14 @@ class TagResourceRequestTypeDef(BaseValidatorModel):
 
 class UntagResourceRequestTypeDef(BaseValidatorModel):
     ResourceARN: str
-    TagKeys: List[str]
+    TagKeys: List[Annotated[str, _aws_pattern("Textract", "TagKey")]]
 
 
 # This class is the input for the 'update_adapter' function.
 class UpdateAdapterRequestTypeDef(BaseValidatorModel):
     AdapterId: str
-    Description: Optional[str] = None
-    AdapterName: Optional[str] = None
+    Description: Optional[Annotated[str, _aws_pattern("Textract", "AdapterDescription")]] = None
+    AdapterName: Optional[Annotated[str, _aws_pattern("Textract", "AdapterName")]] = None
     AutoUpdate: Optional[AutoUpdateType] = None
 
 
@@ -308,9 +310,9 @@ class CreateAdapterVersionResponseTypeDef(BaseValidatorModel):
 # This class is the output for the 'get_adapter' function.
 class GetAdapterResponseTypeDef(BaseValidatorModel):
     AdapterId: str
-    AdapterName: str
+    AdapterName: Annotated[str, _aws_pattern("Textract", "AdapterName")]
     CreationTime: datetime
-    Description: str
+    Description: Annotated[str, _aws_pattern("Textract", "AdapterDescription")]
     FeatureTypes: List[FeatureTypeType]
     AutoUpdate: AutoUpdateType
     Tags: Dict[str, str]
@@ -321,14 +323,14 @@ class GetAdapterResponseTypeDef(BaseValidatorModel):
 class ListAdapterVersionsResponseTypeDef(BaseValidatorModel):
     AdapterVersions: List[AdapterVersionOverviewTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
-    NextToken: Optional[str] = None
+    NextToken: Optional[Annotated[str, _aws_pattern("Textract", "PaginationToken")]] = None
 
 
 # This class is the output for the 'list_adapters' function.
 class ListAdaptersResponseTypeDef(BaseValidatorModel):
     Adapters: List[AdapterOverviewTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
-    NextToken: Optional[str] = None
+    NextToken: Optional[Annotated[str, _aws_pattern("Textract", "PaginationToken")]] = None
 
 
 # This class is the output for the 'list_tags_for_resource' function.
@@ -339,34 +341,34 @@ class ListTagsForResourceResponseTypeDef(BaseValidatorModel):
 
 # This class is the output for the 'start_document_analysis' function.
 class StartDocumentAnalysisResponseTypeDef(BaseValidatorModel):
-    JobId: str
+    JobId: Annotated[str, _aws_pattern("Textract", "JobId")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 # This class is the output for the 'start_document_text_detection' function.
 class StartDocumentTextDetectionResponseTypeDef(BaseValidatorModel):
-    JobId: str
+    JobId: Annotated[str, _aws_pattern("Textract", "JobId")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 # This class is the output for the 'start_expense_analysis' function.
 class StartExpenseAnalysisResponseTypeDef(BaseValidatorModel):
-    JobId: str
+    JobId: Annotated[str, _aws_pattern("Textract", "JobId")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 # This class is the output for the 'start_lending_analysis' function.
 class StartLendingAnalysisResponseTypeDef(BaseValidatorModel):
-    JobId: str
+    JobId: Annotated[str, _aws_pattern("Textract", "JobId")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 # This class is the output for the 'update_adapter' function.
 class UpdateAdapterResponseTypeDef(BaseValidatorModel):
     AdapterId: str
-    AdapterName: str
+    AdapterName: Annotated[str, _aws_pattern("Textract", "AdapterName")]
     CreationTime: datetime
-    Description: str
+    Description: Annotated[str, _aws_pattern("Textract", "AdapterDescription")]
     FeatureTypes: List[FeatureTypeType]
     AutoUpdate: AutoUpdateType
     ResponseMetadata: ResponseMetadataTypeDef
@@ -384,7 +386,7 @@ class DocumentTypeDef(BaseValidatorModel):
 
 
 class DocumentGroupTypeDef(BaseValidatorModel):
-    Type: Optional[str] = None
+    Type: Optional[Annotated[str, _aws_pattern("Textract", "NonEmptyString")]] = None
     SplitDocuments: Optional[List[SplitDocumentTypeDef]] = None
     DetectedSignatures: Optional[List[DetectedSignatureTypeDef]] = None
     UndetectedSignatures: Optional[List[UndetectedSignatureTypeDef]] = None
@@ -397,7 +399,7 @@ class GeometryTypeDef(BaseValidatorModel):
 
 
 class HumanLoopConfigTypeDef(BaseValidatorModel):
-    HumanLoopName: str
+    HumanLoopName: Annotated[str, _aws_pattern("Textract", "HumanLoopName")]
     FlowDefinitionArn: str
     DataAttributes: Optional[HumanLoopDataAttributesTypeDef] = None
 
@@ -415,7 +417,7 @@ class ListAdapterVersionsRequestTypeDef(BaseValidatorModel):
     AfterCreationTime: Optional[TimestampTypeDef] = None
     BeforeCreationTime: Optional[TimestampTypeDef] = None
     MaxResults: Optional[int] = None
-    NextToken: Optional[str] = None
+    NextToken: Optional[Annotated[str, _aws_pattern("Textract", "PaginationToken")]] = None
 
 
 class ListAdaptersRequestPaginateTypeDef(BaseValidatorModel):
@@ -429,7 +431,7 @@ class ListAdaptersRequestTypeDef(BaseValidatorModel):
     AfterCreationTime: Optional[TimestampTypeDef] = None
     BeforeCreationTime: Optional[TimestampTypeDef] = None
     MaxResults: Optional[int] = None
-    NextToken: Optional[str] = None
+    NextToken: Optional[Annotated[str, _aws_pattern("Textract", "PaginationToken")]] = None
 
 
 class PageClassificationTypeDef(BaseValidatorModel):
@@ -445,39 +447,39 @@ class CreateAdapterVersionRequestTypeDef(BaseValidatorModel):
     AdapterId: str
     DatasetConfig: AdapterVersionDatasetConfigTypeDef
     OutputConfig: OutputConfigTypeDef
-    ClientRequestToken: Optional[str] = None
-    KMSKeyId: Optional[str] = None
+    ClientRequestToken: Optional[Annotated[str, _aws_pattern("Textract", "ClientRequestToken")]] = None
+    KMSKeyId: Optional[Annotated[str, _aws_pattern("Textract", "KMSKeyId")]] = None
     Tags: Optional[Dict[str, str]] = None
 
 
 # This class is the input for the 'start_document_text_detection' function.
 class StartDocumentTextDetectionRequestTypeDef(BaseValidatorModel):
     DocumentLocation: DocumentLocationTypeDef
-    ClientRequestToken: Optional[str] = None
-    JobTag: Optional[str] = None
+    ClientRequestToken: Optional[Annotated[str, _aws_pattern("Textract", "ClientRequestToken")]] = None
+    JobTag: Optional[Annotated[str, _aws_pattern("Textract", "JobTag")]] = None
     NotificationChannel: Optional[NotificationChannelTypeDef] = None
     OutputConfig: Optional[OutputConfigTypeDef] = None
-    KMSKeyId: Optional[str] = None
+    KMSKeyId: Optional[Annotated[str, _aws_pattern("Textract", "KMSKeyId")]] = None
 
 
 # This class is the input for the 'start_expense_analysis' function.
 class StartExpenseAnalysisRequestTypeDef(BaseValidatorModel):
     DocumentLocation: DocumentLocationTypeDef
-    ClientRequestToken: Optional[str] = None
-    JobTag: Optional[str] = None
+    ClientRequestToken: Optional[Annotated[str, _aws_pattern("Textract", "ClientRequestToken")]] = None
+    JobTag: Optional[Annotated[str, _aws_pattern("Textract", "JobTag")]] = None
     NotificationChannel: Optional[NotificationChannelTypeDef] = None
     OutputConfig: Optional[OutputConfigTypeDef] = None
-    KMSKeyId: Optional[str] = None
+    KMSKeyId: Optional[Annotated[str, _aws_pattern("Textract", "KMSKeyId")]] = None
 
 
 # This class is the input for the 'start_lending_analysis' function.
 class StartLendingAnalysisRequestTypeDef(BaseValidatorModel):
     DocumentLocation: DocumentLocationTypeDef
-    ClientRequestToken: Optional[str] = None
-    JobTag: Optional[str] = None
+    ClientRequestToken: Optional[Annotated[str, _aws_pattern("Textract", "ClientRequestToken")]] = None
+    JobTag: Optional[Annotated[str, _aws_pattern("Textract", "JobTag")]] = None
     NotificationChannel: Optional[NotificationChannelTypeDef] = None
     OutputConfig: Optional[OutputConfigTypeDef] = None
-    KMSKeyId: Optional[str] = None
+    KMSKeyId: Optional[Annotated[str, _aws_pattern("Textract", "KMSKeyId")]] = None
 
 
 # This class is the output for the 'get_adapter_version' function.
@@ -487,9 +489,9 @@ class GetAdapterVersionResponseTypeDef(BaseValidatorModel):
     CreationTime: datetime
     FeatureTypes: List[FeatureTypeType]
     Status: AdapterVersionStatusType
-    StatusMessage: str
+    StatusMessage: Annotated[str, _aws_pattern("Textract", "AdapterVersionStatusMessage")]
     DatasetConfig: AdapterVersionDatasetConfigTypeDef
-    KMSKeyId: str
+    KMSKeyId: Annotated[str, _aws_pattern("Textract", "KMSKeyId")]
     OutputConfig: OutputConfigTypeDef
     EvaluationMetrics: List[AdapterVersionEvaluationMetricTypeDef]
     Tags: Dict[str, str]
@@ -518,7 +520,7 @@ class DetectDocumentTextRequestTypeDef(BaseValidatorModel):
 
 class LendingSummaryTypeDef(BaseValidatorModel):
     DocumentGroups: Optional[List[DocumentGroupTypeDef]] = None
-    UndetectedDocumentTypes: Optional[List[str]] = None
+    UndetectedDocumentTypes: Optional[List[Annotated[str, _aws_pattern("Textract", "NonEmptyString")]]] = None
 
 
 class BlockTypeDef(BaseValidatorModel):
@@ -531,7 +533,7 @@ class BlockTypeDef(BaseValidatorModel):
     RowSpan: Optional[int] = None
     ColumnSpan: Optional[int] = None
     Geometry: Optional[GeometryTypeDef] = None
-    Id: Optional[str] = None
+    Id: Optional[Annotated[str, _aws_pattern("Textract", "NonEmptyString")]] = None
     Relationships: Optional[List[RelationshipTypeDef]] = None
     EntityTypes: Optional[List[EntityTypeType]] = None
     SelectionStatus: Optional[SelectionStatusType] = None
@@ -598,7 +600,7 @@ class GetDocumentAnalysisResponseTypeDef(BaseValidatorModel):
     StatusMessage: str
     AnalyzeDocumentModelVersion: str
     ResponseMetadata: ResponseMetadataTypeDef
-    NextToken: Optional[str] = None
+    NextToken: Optional[Annotated[str, _aws_pattern("Textract", "PaginationToken")]] = None
 
 
 # This class is the output for the 'get_document_text_detection' function.
@@ -610,7 +612,7 @@ class GetDocumentTextDetectionResponseTypeDef(BaseValidatorModel):
     StatusMessage: str
     DetectDocumentTextModelVersion: str
     ResponseMetadata: ResponseMetadataTypeDef
-    NextToken: Optional[str] = None
+    NextToken: Optional[Annotated[str, _aws_pattern("Textract", "PaginationToken")]] = None
 
 
 class IdentityDocumentTypeDef(BaseValidatorModel):
@@ -647,11 +649,11 @@ class AnalyzeDocumentRequestTypeDef(BaseValidatorModel):
 class StartDocumentAnalysisRequestTypeDef(BaseValidatorModel):
     DocumentLocation: DocumentLocationTypeDef
     FeatureTypes: List[FeatureTypeType]
-    ClientRequestToken: Optional[str] = None
-    JobTag: Optional[str] = None
+    ClientRequestToken: Optional[Annotated[str, _aws_pattern("Textract", "ClientRequestToken")]] = None
+    JobTag: Optional[Annotated[str, _aws_pattern("Textract", "JobTag")]] = None
     NotificationChannel: Optional[NotificationChannelTypeDef] = None
     OutputConfig: Optional[OutputConfigTypeDef] = None
-    KMSKeyId: Optional[str] = None
+    KMSKeyId: Optional[Annotated[str, _aws_pattern("Textract", "KMSKeyId")]] = None
     QueriesConfig: Optional[QueriesConfigTypeDef] = None
     AdaptersConfig: Optional[AdaptersConfigTypeDef] = None
 
@@ -707,7 +709,7 @@ class GetExpenseAnalysisResponseTypeDef(BaseValidatorModel):
     StatusMessage: str
     AnalyzeExpenseModelVersion: str
     ResponseMetadata: ResponseMetadataTypeDef
-    NextToken: Optional[str] = None
+    NextToken: Optional[Annotated[str, _aws_pattern("Textract", "PaginationToken")]] = None
 
 
 class LendingResultTypeDef(BaseValidatorModel):
@@ -725,4 +727,4 @@ class GetLendingAnalysisResponseTypeDef(BaseValidatorModel):
     StatusMessage: str
     AnalyzeLendingModelVersion: str
     ResponseMetadata: ResponseMetadataTypeDef
-    NextToken: Optional[str] = None
+    NextToken: Optional[Annotated[str, _aws_pattern("Textract", "PaginationToken")]] = None

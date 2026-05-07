@@ -3,6 +3,7 @@
 from datetime import datetime
 from decimal import Decimal
 from typing import (
+    Annotated,
     Any,
     Callable,
     Dict,
@@ -24,6 +25,7 @@ from botocore.response import StreamingBody
 from pydantic import Field
 
 from aws_resource_validator.core.base_validator_model import BaseValidatorModel, EventStream
+from aws_resource_validator.core.pattern_validation import aws_field_pattern as _aws_pattern
 from aws_resource_validator.pydantic_models.route53.route53_constants import *  # noqa: F401,F403
 
 # Optional boto3 symbols — imported lazily so services that don't need them
@@ -81,9 +83,9 @@ class VPCTypeDef(BaseValidatorModel):
 
 
 class CidrCollectionChangeTypeDef(BaseValidatorModel):
-    LocationName: str
+    LocationName: Annotated[str, _aws_pattern("Route53", "CidrLocationNameDefaultNotAllowed")]
     Action: CidrCollectionChangeActionType
-    CidrList: List[str]
+    CidrList: List[Annotated[str, _aws_pattern("Route53", "Cidr")]]
 
 
 class TagTypeDef(BaseValidatorModel):
@@ -92,20 +94,20 @@ class TagTypeDef(BaseValidatorModel):
 
 
 class CidrBlockSummaryTypeDef(BaseValidatorModel):
-    CidrBlock: Optional[str] = None
-    LocationName: Optional[str] = None
+    CidrBlock: Optional[Annotated[str, _aws_pattern("Route53", "Cidr")]] = None
+    LocationName: Optional[Annotated[str, _aws_pattern("Route53", "CidrLocationNameDefaultNotAllowed")]] = None
 
 
 class CidrCollectionTypeDef(BaseValidatorModel):
-    Arn: Optional[str] = None
-    Id: Optional[str] = None
-    Name: Optional[str] = None
+    Arn: Optional[Annotated[str, _aws_pattern("Route53", "ARN")]] = None
+    Id: Optional[Annotated[str, _aws_pattern("Route53", "UUID")]] = None
+    Name: Optional[Annotated[str, _aws_pattern("Route53", "CollectionName")]] = None
     Version: Optional[int] = None
 
 
 class CidrRoutingConfigTypeDef(BaseValidatorModel):
-    CollectionId: str
-    LocationName: str
+    CollectionId: Annotated[str, _aws_pattern("Route53", "UUID")]
+    LocationName: Annotated[str, _aws_pattern("Route53", "CidrLocationNameDefaultAllowed")]
 
 
 class DimensionTypeDef(BaseValidatorModel):
@@ -114,21 +116,21 @@ class DimensionTypeDef(BaseValidatorModel):
 
 
 class CollectionSummaryTypeDef(BaseValidatorModel):
-    Arn: Optional[str] = None
-    Id: Optional[str] = None
-    Name: Optional[str] = None
+    Arn: Optional[Annotated[str, _aws_pattern("Route53", "ARN")]] = None
+    Id: Optional[Annotated[str, _aws_pattern("Route53", "UUID")]] = None
+    Name: Optional[Annotated[str, _aws_pattern("Route53", "CollectionName")]] = None
     Version: Optional[int] = None
 
 
 class CoordinatesTypeDef(BaseValidatorModel):
-    Latitude: str
-    Longitude: str
+    Latitude: Annotated[str, _aws_pattern("Route53", "Latitude")]
+    Longitude: Annotated[str, _aws_pattern("Route53", "Longitude")]
 
 
 # This class is the input for the 'create_cidr_collection' function.
 class CreateCidrCollectionRequestTypeDef(BaseValidatorModel):
-    Name: str
-    CallerReference: str
+    Name: Annotated[str, _aws_pattern("Route53", "CollectionName")]
+    CallerReference: Annotated[str, _aws_pattern("Route53", "CidrNonce")]
 
 
 class HostedZoneConfigTypeDef(BaseValidatorModel):
@@ -244,7 +246,7 @@ class DeactivateKeySigningKeyRequestTypeDef(BaseValidatorModel):
 
 
 class DeleteCidrCollectionRequestTypeDef(BaseValidatorModel):
-    Id: str
+    Id: Annotated[str, _aws_pattern("Route53", "UUID")]
 
 
 class DeleteHealthCheckRequestTypeDef(BaseValidatorModel):
@@ -421,8 +423,8 @@ class PaginatorConfigTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'list_cidr_blocks' function.
 class ListCidrBlocksRequestTypeDef(BaseValidatorModel):
-    CollectionId: str
-    LocationName: Optional[str] = None
+    CollectionId: Annotated[str, _aws_pattern("Route53", "UUID")]
+    LocationName: Optional[Annotated[str, _aws_pattern("Route53", "CidrLocationNameDefaultNotAllowed")]] = None
     NextToken: Optional[str] = None
     MaxResults: Optional[str] = None
 
@@ -435,13 +437,13 @@ class ListCidrCollectionsRequestTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'list_cidr_locations' function.
 class ListCidrLocationsRequestTypeDef(BaseValidatorModel):
-    CollectionId: str
+    CollectionId: Annotated[str, _aws_pattern("Route53", "UUID")]
     NextToken: Optional[str] = None
     MaxResults: Optional[str] = None
 
 
 class LocationSummaryTypeDef(BaseValidatorModel):
-    LocationName: Optional[str] = None
+    LocationName: Optional[Annotated[str, _aws_pattern("Route53", "CidrLocationNameDefaultAllowed")]] = None
 
 
 # This class is the input for the 'list_geo_locations' function.
@@ -578,8 +580,8 @@ class TestDNSAnswerRequestTypeDef(BaseValidatorModel):
     HostedZoneId: str
     RecordName: str
     RecordType: RRTypeType
-    ResolverIP: Optional[str] = None
-    EDNS0ClientSubnetIP: Optional[str] = None
+    ResolverIP: Optional[Annotated[str, _aws_pattern("Route53", "IPAddress")]] = None
+    EDNS0ClientSubnetIP: Optional[Annotated[str, _aws_pattern("Route53", "IPAddress")]] = None
     EDNS0ClientSubnetMask: Optional[str] = None
 
 
@@ -736,7 +738,7 @@ class HealthCheckConfigOutputTypeDef(BaseValidatorModel):
 
 class HealthCheckConfigTypeDef(BaseValidatorModel):
     Type: HealthCheckTypeType
-    IPAddress: Optional[str] = None
+    IPAddress: Optional[Annotated[str, _aws_pattern("Route53", "IPAddress")]] = None
     Port: Optional[int] = None
     ResourcePath: Optional[str] = None
     FullyQualifiedDomainName: Optional[str] = None
@@ -759,7 +761,7 @@ class HealthCheckConfigTypeDef(BaseValidatorModel):
 class UpdateHealthCheckRequestTypeDef(BaseValidatorModel):
     HealthCheckId: str
     HealthCheckVersion: Optional[int] = None
-    IPAddress: Optional[str] = None
+    IPAddress: Optional[Annotated[str, _aws_pattern("Route53", "IPAddress")]] = None
     Port: Optional[int] = None
     ResourcePath: Optional[str] = None
     FullyQualifiedDomainName: Optional[str] = None
@@ -818,7 +820,7 @@ class ListVPCAssociationAuthorizationsResponseTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'change_cidr_collection' function.
 class ChangeCidrCollectionRequestTypeDef(BaseValidatorModel):
-    Id: str
+    Id: Annotated[str, _aws_pattern("Route53", "UUID")]
     Changes: List[CidrCollectionChangeTypeDef]
     CollectionVersion: Optional[int] = None
 
@@ -1066,7 +1068,7 @@ class GetReusableDelegationSetLimitResponseTypeDef(BaseValidatorModel):
 
 class HealthCheckObservationTypeDef(BaseValidatorModel):
     Region: Optional[HealthCheckRegionType] = None
-    IPAddress: Optional[str] = None
+    IPAddress: Optional[Annotated[str, _aws_pattern("Route53", "IPAddress")]] = None
     StatusReport: Optional[StatusReportTypeDef] = None
 
 

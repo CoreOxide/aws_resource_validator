@@ -3,6 +3,7 @@
 from datetime import datetime
 from decimal import Decimal
 from typing import (
+    Annotated,
     Any,
     Callable,
     Dict,
@@ -24,6 +25,7 @@ from botocore.response import StreamingBody
 from pydantic import Field
 
 from aws_resource_validator.core.base_validator_model import BaseValidatorModel, EventStream
+from aws_resource_validator.core.pattern_validation import aws_field_pattern as _aws_pattern
 from aws_resource_validator.pydantic_models.ivschat.ivschat_constants import *  # noqa: F401,F403
 
 # Optional boto3 symbols — imported lazily so services that don't need them
@@ -39,12 +41,12 @@ except ImportError:  # pragma: no cover
 
 
 class CloudWatchLogsDestinationConfigurationTypeDef(BaseValidatorModel):
-    logGroupName: str
+    logGroupName: Annotated[str, _aws_pattern("Ivschat", "LogGroupName")]
 
 
 # This class is the input for the 'create_chat_token' function.
 class CreateChatTokenRequestTypeDef(BaseValidatorModel):
-    roomIdentifier: str
+    roomIdentifier: Annotated[str, _aws_pattern("Ivschat", "RoomIdentifier")]
     userId: str
     capabilities: Optional[List[ChatTokenCapabilityType]] = None
     sessionDurationInMinutes: Optional[int] = None
@@ -60,49 +62,49 @@ class ResponseMetadataTypeDef(BaseValidatorModel):
 
 
 class MessageReviewHandlerTypeDef(BaseValidatorModel):
-    uri: Optional[str] = None
+    uri: Optional[Annotated[str, _aws_pattern("Ivschat", "LambdaArn")]] = None
     fallbackResult: Optional[FallbackResultType] = None
 
 
 # This class is the input for the 'delete_logging_configuration' function.
 class DeleteLoggingConfigurationRequestTypeDef(BaseValidatorModel):
-    identifier: str
+    identifier: Annotated[str, _aws_pattern("Ivschat", "LoggingConfigurationIdentifier")]
 
 
 # This class is the input for the 'delete_message' function.
 class DeleteMessageRequestTypeDef(BaseValidatorModel):
-    roomIdentifier: str
-    id: str
+    roomIdentifier: Annotated[str, _aws_pattern("Ivschat", "RoomIdentifier")]
+    id: Annotated[str, _aws_pattern("Ivschat", "MessageID")]
     reason: Optional[str] = None
 
 
 # This class is the input for the 'delete_room' function.
 class DeleteRoomRequestTypeDef(BaseValidatorModel):
-    identifier: str
+    identifier: Annotated[str, _aws_pattern("Ivschat", "RoomIdentifier")]
 
 
 class FirehoseDestinationConfigurationTypeDef(BaseValidatorModel):
-    deliveryStreamName: str
+    deliveryStreamName: Annotated[str, _aws_pattern("Ivschat", "DeliveryStreamName")]
 
 
 class S3DestinationConfigurationTypeDef(BaseValidatorModel):
-    bucketName: str
+    bucketName: Annotated[str, _aws_pattern("Ivschat", "BucketName")]
 
 
 class DisconnectUserRequestTypeDef(BaseValidatorModel):
-    roomIdentifier: str
+    roomIdentifier: Annotated[str, _aws_pattern("Ivschat", "RoomIdentifier")]
     userId: str
     reason: Optional[str] = None
 
 
 # This class is the input for the 'get_logging_configuration' function.
 class GetLoggingConfigurationRequestTypeDef(BaseValidatorModel):
-    identifier: str
+    identifier: Annotated[str, _aws_pattern("Ivschat", "LoggingConfigurationIdentifier")]
 
 
 # This class is the input for the 'get_room' function.
 class GetRoomRequestTypeDef(BaseValidatorModel):
-    identifier: str
+    identifier: Annotated[str, _aws_pattern("Ivschat", "RoomIdentifier")]
 
 
 # This class is the input for the 'list_logging_configurations' function.
@@ -113,32 +115,34 @@ class ListLoggingConfigurationsRequestTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'list_rooms' function.
 class ListRoomsRequestTypeDef(BaseValidatorModel):
-    name: Optional[str] = None
+    name: Optional[Annotated[str, _aws_pattern("Ivschat", "RoomName")]] = None
     nextToken: Optional[str] = None
     maxResults: Optional[int] = None
-    messageReviewHandlerUri: Optional[str] = None
-    loggingConfigurationIdentifier: Optional[str] = None
+    messageReviewHandlerUri: Optional[Annotated[str, _aws_pattern("Ivschat", "LambdaArn")]] = None
+    loggingConfigurationIdentifier: Optional[
+        Annotated[str, _aws_pattern("Ivschat", "LoggingConfigurationIdentifier")]
+    ] = None
 
 
 # This class is the input for the 'list_tags_for_resource' function.
 class ListTagsForResourceRequestTypeDef(BaseValidatorModel):
-    resourceArn: str
+    resourceArn: Annotated[str, _aws_pattern("Ivschat", "ResourceArn")]
 
 
 # This class is the input for the 'send_event' function.
 class SendEventRequestTypeDef(BaseValidatorModel):
-    roomIdentifier: str
+    roomIdentifier: Annotated[str, _aws_pattern("Ivschat", "RoomIdentifier")]
     eventName: str
     attributes: Optional[Dict[str, str]] = None
 
 
 class TagResourceRequestTypeDef(BaseValidatorModel):
-    resourceArn: str
+    resourceArn: Annotated[str, _aws_pattern("Ivschat", "ResourceArn")]
     tags: Dict[str, str]
 
 
 class UntagResourceRequestTypeDef(BaseValidatorModel):
-    resourceArn: str
+    resourceArn: Annotated[str, _aws_pattern("Ivschat", "ResourceArn")]
     tagKeys: List[str]
 
 
@@ -152,7 +156,7 @@ class CreateChatTokenResponseTypeDef(BaseValidatorModel):
 
 # This class is the output for the 'delete_message' function.
 class DeleteMessageResponseTypeDef(BaseValidatorModel):
-    id: str
+    id: Annotated[str, _aws_pattern("Ivschat", "ID")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
@@ -169,83 +173,89 @@ class ListTagsForResourceResponseTypeDef(BaseValidatorModel):
 
 # This class is the output for the 'send_event' function.
 class SendEventResponseTypeDef(BaseValidatorModel):
-    id: str
+    id: Annotated[str, _aws_pattern("Ivschat", "ID")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 # This class is the input for the 'create_room' function.
 class CreateRoomRequestTypeDef(BaseValidatorModel):
-    name: Optional[str] = None
+    name: Optional[Annotated[str, _aws_pattern("Ivschat", "RoomName")]] = None
     maximumMessageRatePerSecond: Optional[int] = None
     maximumMessageLength: Optional[int] = None
     messageReviewHandler: Optional[MessageReviewHandlerTypeDef] = None
     tags: Optional[Dict[str, str]] = None
-    loggingConfigurationIdentifiers: Optional[List[str]] = None
+    loggingConfigurationIdentifiers: Optional[
+        List[Annotated[str, _aws_pattern("Ivschat", "LoggingConfigurationIdentifier")]]
+    ] = None
 
 
 # This class is the output for the 'create_room' function.
 class CreateRoomResponseTypeDef(BaseValidatorModel):
-    arn: str
-    id: str
-    name: str
+    arn: Annotated[str, _aws_pattern("Ivschat", "RoomArn")]
+    id: Annotated[str, _aws_pattern("Ivschat", "RoomID")]
+    name: Annotated[str, _aws_pattern("Ivschat", "RoomName")]
     createTime: datetime
     updateTime: datetime
     maximumMessageRatePerSecond: int
     maximumMessageLength: int
     messageReviewHandler: MessageReviewHandlerTypeDef
     tags: Dict[str, str]
-    loggingConfigurationIdentifiers: List[str]
+    loggingConfigurationIdentifiers: List[Annotated[str, _aws_pattern("Ivschat", "LoggingConfigurationIdentifier")]]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 # This class is the output for the 'get_room' function.
 class GetRoomResponseTypeDef(BaseValidatorModel):
-    arn: str
-    id: str
-    name: str
+    arn: Annotated[str, _aws_pattern("Ivschat", "RoomArn")]
+    id: Annotated[str, _aws_pattern("Ivschat", "RoomID")]
+    name: Annotated[str, _aws_pattern("Ivschat", "RoomName")]
     createTime: datetime
     updateTime: datetime
     maximumMessageRatePerSecond: int
     maximumMessageLength: int
     messageReviewHandler: MessageReviewHandlerTypeDef
     tags: Dict[str, str]
-    loggingConfigurationIdentifiers: List[str]
+    loggingConfigurationIdentifiers: List[Annotated[str, _aws_pattern("Ivschat", "LoggingConfigurationIdentifier")]]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 class RoomSummaryTypeDef(BaseValidatorModel):
-    arn: Optional[str] = None
-    id: Optional[str] = None
-    name: Optional[str] = None
+    arn: Optional[Annotated[str, _aws_pattern("Ivschat", "RoomArn")]] = None
+    id: Optional[Annotated[str, _aws_pattern("Ivschat", "RoomID")]] = None
+    name: Optional[Annotated[str, _aws_pattern("Ivschat", "RoomName")]] = None
     messageReviewHandler: Optional[MessageReviewHandlerTypeDef] = None
     createTime: Optional[datetime] = None
     updateTime: Optional[datetime] = None
     tags: Optional[Dict[str, str]] = None
-    loggingConfigurationIdentifiers: Optional[List[str]] = None
+    loggingConfigurationIdentifiers: Optional[
+        List[Annotated[str, _aws_pattern("Ivschat", "LoggingConfigurationIdentifier")]]
+    ] = None
 
 
 # This class is the input for the 'update_room' function.
 class UpdateRoomRequestTypeDef(BaseValidatorModel):
-    identifier: str
-    name: Optional[str] = None
+    identifier: Annotated[str, _aws_pattern("Ivschat", "RoomIdentifier")]
+    name: Optional[Annotated[str, _aws_pattern("Ivschat", "RoomName")]] = None
     maximumMessageRatePerSecond: Optional[int] = None
     maximumMessageLength: Optional[int] = None
     messageReviewHandler: Optional[MessageReviewHandlerTypeDef] = None
-    loggingConfigurationIdentifiers: Optional[List[str]] = None
+    loggingConfigurationIdentifiers: Optional[
+        List[Annotated[str, _aws_pattern("Ivschat", "LoggingConfigurationIdentifier")]]
+    ] = None
 
 
 # This class is the output for the 'update_room' function.
 class UpdateRoomResponseTypeDef(BaseValidatorModel):
-    arn: str
-    id: str
-    name: str
+    arn: Annotated[str, _aws_pattern("Ivschat", "RoomArn")]
+    id: Annotated[str, _aws_pattern("Ivschat", "RoomID")]
+    name: Annotated[str, _aws_pattern("Ivschat", "RoomName")]
     createTime: datetime
     updateTime: datetime
     maximumMessageRatePerSecond: int
     maximumMessageLength: int
     messageReviewHandler: MessageReviewHandlerTypeDef
     tags: Dict[str, str]
-    loggingConfigurationIdentifiers: List[str]
+    loggingConfigurationIdentifiers: List[Annotated[str, _aws_pattern("Ivschat", "LoggingConfigurationIdentifier")]]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
@@ -265,17 +275,17 @@ class ListRoomsResponseTypeDef(BaseValidatorModel):
 # This class is the input for the 'create_logging_configuration' function.
 class CreateLoggingConfigurationRequestTypeDef(BaseValidatorModel):
     destinationConfiguration: DestinationConfigurationTypeDef
-    name: Optional[str] = None
+    name: Optional[Annotated[str, _aws_pattern("Ivschat", "LoggingConfigurationName")]] = None
     tags: Optional[Dict[str, str]] = None
 
 
 # This class is the output for the 'create_logging_configuration' function.
 class CreateLoggingConfigurationResponseTypeDef(BaseValidatorModel):
-    arn: str
-    id: str
+    arn: Annotated[str, _aws_pattern("Ivschat", "LoggingConfigurationArn")]
+    id: Annotated[str, _aws_pattern("Ivschat", "LoggingConfigurationID")]
     createTime: datetime
     updateTime: datetime
-    name: str
+    name: Annotated[str, _aws_pattern("Ivschat", "LoggingConfigurationName")]
     destinationConfiguration: DestinationConfigurationTypeDef
     state: Literal["ACTIVE"]
     tags: Dict[str, str]
@@ -284,11 +294,11 @@ class CreateLoggingConfigurationResponseTypeDef(BaseValidatorModel):
 
 # This class is the output for the 'get_logging_configuration' function.
 class GetLoggingConfigurationResponseTypeDef(BaseValidatorModel):
-    arn: str
-    id: str
+    arn: Annotated[str, _aws_pattern("Ivschat", "LoggingConfigurationArn")]
+    id: Annotated[str, _aws_pattern("Ivschat", "LoggingConfigurationID")]
     createTime: datetime
     updateTime: datetime
-    name: str
+    name: Annotated[str, _aws_pattern("Ivschat", "LoggingConfigurationName")]
     destinationConfiguration: DestinationConfigurationTypeDef
     state: LoggingConfigurationStateType
     tags: Dict[str, str]
@@ -296,11 +306,11 @@ class GetLoggingConfigurationResponseTypeDef(BaseValidatorModel):
 
 
 class LoggingConfigurationSummaryTypeDef(BaseValidatorModel):
-    arn: Optional[str] = None
-    id: Optional[str] = None
+    arn: Optional[Annotated[str, _aws_pattern("Ivschat", "LoggingConfigurationArn")]] = None
+    id: Optional[Annotated[str, _aws_pattern("Ivschat", "LoggingConfigurationID")]] = None
     createTime: Optional[datetime] = None
     updateTime: Optional[datetime] = None
-    name: Optional[str] = None
+    name: Optional[Annotated[str, _aws_pattern("Ivschat", "LoggingConfigurationName")]] = None
     destinationConfiguration: Optional[DestinationConfigurationTypeDef] = None
     state: Optional[LoggingConfigurationStateType] = None
     tags: Optional[Dict[str, str]] = None
@@ -308,18 +318,18 @@ class LoggingConfigurationSummaryTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'update_logging_configuration' function.
 class UpdateLoggingConfigurationRequestTypeDef(BaseValidatorModel):
-    identifier: str
-    name: Optional[str] = None
+    identifier: Annotated[str, _aws_pattern("Ivschat", "LoggingConfigurationIdentifier")]
+    name: Optional[Annotated[str, _aws_pattern("Ivschat", "LoggingConfigurationName")]] = None
     destinationConfiguration: Optional[DestinationConfigurationTypeDef] = None
 
 
 # This class is the output for the 'update_logging_configuration' function.
 class UpdateLoggingConfigurationResponseTypeDef(BaseValidatorModel):
-    arn: str
-    id: str
+    arn: Annotated[str, _aws_pattern("Ivschat", "LoggingConfigurationArn")]
+    id: Annotated[str, _aws_pattern("Ivschat", "LoggingConfigurationID")]
     createTime: datetime
     updateTime: datetime
-    name: str
+    name: Annotated[str, _aws_pattern("Ivschat", "LoggingConfigurationName")]
     destinationConfiguration: DestinationConfigurationTypeDef
     state: Literal["ACTIVE"]
     tags: Dict[str, str]

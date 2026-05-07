@@ -3,6 +3,7 @@
 from datetime import datetime
 from decimal import Decimal
 from typing import (
+    Annotated,
     Any,
     Callable,
     Dict,
@@ -24,6 +25,7 @@ from botocore.response import StreamingBody
 from pydantic import Field
 
 from aws_resource_validator.core.base_validator_model import BaseValidatorModel, EventStream
+from aws_resource_validator.core.pattern_validation import aws_field_pattern as _aws_pattern
 from aws_resource_validator.pydantic_models.bedrock.bedrock_constants import *  # noqa: F401,F403
 
 # Optional boto3 symbols — imported lazily so services that don't need them
@@ -54,8 +56,8 @@ class AgreementAvailabilityTypeDef(BaseValidatorModel):
 
 
 class AutomatedReasoningCheckRuleTypeDef(BaseValidatorModel):
-    id: Optional[str] = None
-    policyVersionArn: Optional[str] = None
+    id: Optional[Annotated[str, _aws_pattern("Bedrock", "AutomatedReasoningPolicyDefinitionRuleId")]] = None
+    policyVersionArn: Optional[Annotated[str, _aws_pattern("Bedrock", "AutomatedReasoningPolicyArn")]] = None
 
 
 class AutomatedReasoningCheckInputTextReferenceTypeDef(BaseValidatorModel):
@@ -68,39 +70,45 @@ class AutomatedReasoningLogicStatementTypeDef(BaseValidatorModel):
 
 
 class AutomatedReasoningPolicyAddRuleAnnotationTypeDef(BaseValidatorModel):
-    expression: str
+    expression: Annotated[str, _aws_pattern("Bedrock", "AutomatedReasoningPolicyDefinitionRuleExpression")]
 
 
 class AutomatedReasoningPolicyAddRuleFromNaturalLanguageAnnotationTypeDef(BaseValidatorModel):
-    naturalLanguage: str
+    naturalLanguage: Annotated[str, _aws_pattern("Bedrock", "AutomatedReasoningPolicyAnnotationRuleNaturalLanguage")]
 
 
 class AutomatedReasoningPolicyDefinitionRuleTypeDef(BaseValidatorModel):
-    id: str
-    expression: str
-    alternateExpression: Optional[str] = None
+    id: Annotated[str, _aws_pattern("Bedrock", "AutomatedReasoningPolicyDefinitionRuleId")]
+    expression: Annotated[str, _aws_pattern("Bedrock", "AutomatedReasoningPolicyDefinitionRuleExpression")]
+    alternateExpression: Optional[
+        Annotated[str, _aws_pattern("Bedrock", "AutomatedReasoningPolicyDefinitionRuleAlternateExpression")]
+    ] = None
 
 
 class AutomatedReasoningPolicyDefinitionTypeValueTypeDef(BaseValidatorModel):
-    value: str
-    description: Optional[str] = None
+    value: Annotated[str, _aws_pattern("Bedrock", "AutomatedReasoningPolicyDefinitionTypeValueName")]
+    description: Optional[
+        Annotated[str, _aws_pattern("Bedrock", "AutomatedReasoningPolicyDefinitionTypeValueDescription")]
+    ] = None
 
 
 class AutomatedReasoningPolicyAddTypeValueTypeDef(BaseValidatorModel):
-    value: str
-    description: Optional[str] = None
+    value: Annotated[str, _aws_pattern("Bedrock", "AutomatedReasoningPolicyDefinitionTypeValueName")]
+    description: Optional[
+        Annotated[str, _aws_pattern("Bedrock", "AutomatedReasoningPolicyDefinitionTypeValueDescription")]
+    ] = None
 
 
 class AutomatedReasoningPolicyAddVariableAnnotationTypeDef(BaseValidatorModel):
-    name: str
-    type: str
-    description: str
+    name: Annotated[str, _aws_pattern("Bedrock", "AutomatedReasoningPolicyDefinitionVariableName")]
+    type: Annotated[str, _aws_pattern("Bedrock", "AutomatedReasoningPolicyDefinitionTypeName")]
+    description: Annotated[str, _aws_pattern("Bedrock", "AutomatedReasoningPolicyDefinitionVariableDescription")]
 
 
 class AutomatedReasoningPolicyDefinitionVariableTypeDef(BaseValidatorModel):
-    name: str
-    type: str
-    description: str
+    name: Annotated[str, _aws_pattern("Bedrock", "AutomatedReasoningPolicyDefinitionVariableName")]
+    type: Annotated[str, _aws_pattern("Bedrock", "AutomatedReasoningPolicyDefinitionTypeName")]
+    description: Annotated[str, _aws_pattern("Bedrock", "AutomatedReasoningPolicyDefinitionVariableDescription")]
 
 
 class AutomatedReasoningPolicyAnnotatedLineTypeDef(BaseValidatorModel):
@@ -109,19 +117,19 @@ class AutomatedReasoningPolicyAnnotatedLineTypeDef(BaseValidatorModel):
 
 
 class AutomatedReasoningPolicyDeleteRuleAnnotationTypeDef(BaseValidatorModel):
-    ruleId: str
+    ruleId: Annotated[str, _aws_pattern("Bedrock", "AutomatedReasoningPolicyDefinitionRuleId")]
 
 
 class AutomatedReasoningPolicyDeleteTypeAnnotationTypeDef(BaseValidatorModel):
-    name: str
+    name: Annotated[str, _aws_pattern("Bedrock", "AutomatedReasoningPolicyDefinitionTypeName")]
 
 
 class AutomatedReasoningPolicyDeleteVariableAnnotationTypeDef(BaseValidatorModel):
-    name: str
+    name: Annotated[str, _aws_pattern("Bedrock", "AutomatedReasoningPolicyDefinitionVariableName")]
 
 
 class AutomatedReasoningPolicyIngestContentAnnotationTypeDef(BaseValidatorModel):
-    content: str
+    content: Annotated[str, _aws_pattern("Bedrock", "AutomatedReasoningPolicyAnnotationIngestContent")]
 
 
 class AutomatedReasoningPolicyUpdateFromRuleFeedbackAnnotationOutputTypeDef(BaseValidatorModel):
@@ -136,14 +144,16 @@ class AutomatedReasoningPolicyUpdateFromScenarioFeedbackAnnotationOutputTypeDef(
 
 
 class AutomatedReasoningPolicyUpdateRuleAnnotationTypeDef(BaseValidatorModel):
-    ruleId: str
-    expression: str
+    ruleId: Annotated[str, _aws_pattern("Bedrock", "AutomatedReasoningPolicyDefinitionRuleId")]
+    expression: Annotated[str, _aws_pattern("Bedrock", "AutomatedReasoningPolicyDefinitionRuleExpression")]
 
 
 class AutomatedReasoningPolicyUpdateVariableAnnotationTypeDef(BaseValidatorModel):
-    name: str
-    newName: Optional[str] = None
-    description: Optional[str] = None
+    name: Annotated[str, _aws_pattern("Bedrock", "AutomatedReasoningPolicyDefinitionVariableName")]
+    newName: Optional[Annotated[str, _aws_pattern("Bedrock", "AutomatedReasoningPolicyDefinitionVariableName")]] = None
+    description: Optional[
+        Annotated[str, _aws_pattern("Bedrock", "AutomatedReasoningPolicyDefinitionVariableDescription")]
+    ] = None
 
 
 class AutomatedReasoningPolicyStatementLocationTypeDef(BaseValidatorModel):
@@ -153,7 +163,7 @@ class AutomatedReasoningPolicyStatementLocationTypeDef(BaseValidatorModel):
 class AutomatedReasoningPolicyBuildResultAssetManifestEntryTypeDef(BaseValidatorModel):
     assetType: AutomatedReasoningPolicyBuildResultAssetTypeType
     assetName: Optional[str] = None
-    assetId: Optional[str] = None
+    assetId: Optional[Annotated[str, _aws_pattern("Bedrock", "AutomatedReasoningPolicyBuildResultAssetId")]] = None
 
 
 class AutomatedReasoningPolicySourceDocumentTypeDef(BaseValidatorModel):
@@ -173,8 +183,8 @@ BlobTypeDef = Union[IO[Any], StreamingBody, bytes, str]
 
 
 class AutomatedReasoningPolicyBuildWorkflowSummaryTypeDef(BaseValidatorModel):
-    policyArn: str
-    buildWorkflowId: str
+    policyArn: Annotated[str, _aws_pattern("Bedrock", "AutomatedReasoningPolicyArn")]
+    buildWorkflowId: Annotated[str, _aws_pattern("Bedrock", "AutomatedReasoningPolicyBuildWorkflowId")]
     status: AutomatedReasoningPolicyBuildWorkflowStatusType
     buildWorkflowType: AutomatedReasoningPolicyBuildWorkflowTypeType
     createdAt: datetime
@@ -182,29 +192,29 @@ class AutomatedReasoningPolicyBuildWorkflowSummaryTypeDef(BaseValidatorModel):
 
 
 class AutomatedReasoningPolicyDefinitionTypeValuePairTypeDef(BaseValidatorModel):
-    typeName: str
-    valueName: str
+    typeName: Annotated[str, _aws_pattern("Bedrock", "AutomatedReasoningPolicyDefinitionTypeName")]
+    valueName: Annotated[str, _aws_pattern("Bedrock", "AutomatedReasoningPolicyDefinitionTypeValueName")]
 
 
 class AutomatedReasoningPolicyDisjointRuleSetTypeDef(BaseValidatorModel):
-    variables: List[str]
-    rules: List[str]
+    variables: List[Annotated[str, _aws_pattern("Bedrock", "AutomatedReasoningPolicyDefinitionVariableName")]]
+    rules: List[Annotated[str, _aws_pattern("Bedrock", "AutomatedReasoningPolicyDefinitionRuleId")]]
 
 
 class AutomatedReasoningPolicyDeleteRuleMutationTypeDef(BaseValidatorModel):
-    id: str
+    id: Annotated[str, _aws_pattern("Bedrock", "AutomatedReasoningPolicyDefinitionRuleId")]
 
 
 class AutomatedReasoningPolicyDeleteTypeMutationTypeDef(BaseValidatorModel):
-    name: str
+    name: Annotated[str, _aws_pattern("Bedrock", "AutomatedReasoningPolicyDefinitionTypeName")]
 
 
 class AutomatedReasoningPolicyDeleteTypeValueTypeDef(BaseValidatorModel):
-    value: str
+    value: Annotated[str, _aws_pattern("Bedrock", "AutomatedReasoningPolicyDefinitionTypeValueName")]
 
 
 class AutomatedReasoningPolicyDeleteVariableMutationTypeDef(BaseValidatorModel):
-    name: str
+    name: Annotated[str, _aws_pattern("Bedrock", "AutomatedReasoningPolicyDefinitionVariableName")]
 
 
 class AutomatedReasoningPolicyGeneratedTestCaseTypeDef(BaseValidatorModel):
@@ -214,29 +224,29 @@ class AutomatedReasoningPolicyGeneratedTestCaseTypeDef(BaseValidatorModel):
 
 
 class AutomatedReasoningPolicyStatementReferenceTypeDef(BaseValidatorModel):
-    documentId: str
-    statementId: str
+    documentId: Annotated[str, _aws_pattern("Bedrock", "AutomatedReasoningPolicyDocumentId")]
+    statementId: Annotated[str, _aws_pattern("Bedrock", "AutomatedReasoningPolicyStatementId")]
 
 
 class AutomatedReasoningPolicyScenarioTypeDef(BaseValidatorModel):
     expression: str
     alternateExpression: str
     expectedResult: AutomatedReasoningCheckResultType
-    ruleIds: List[str]
+    ruleIds: List[Annotated[str, _aws_pattern("Bedrock", "AutomatedReasoningPolicyDefinitionRuleId")]]
 
 
 class AutomatedReasoningPolicySummaryTypeDef(BaseValidatorModel):
-    policyArn: str
-    name: str
-    version: str
-    policyId: str
+    policyArn: Annotated[str, _aws_pattern("Bedrock", "AutomatedReasoningPolicyArn")]
+    name: Annotated[str, _aws_pattern("Bedrock", "AutomatedReasoningPolicyName")]
+    version: Annotated[str, _aws_pattern("Bedrock", "AutomatedReasoningPolicyVersion")]
+    policyId: Annotated[str, _aws_pattern("Bedrock", "AutomatedReasoningPolicyId")]
     createdAt: datetime
     updatedAt: datetime
-    description: Optional[str] = None
+    description: Optional[Annotated[str, _aws_pattern("Bedrock", "AutomatedReasoningPolicyDescription")]] = None
 
 
 class AutomatedReasoningPolicyTestCaseTypeDef(BaseValidatorModel):
-    testCaseId: str
+    testCaseId: Annotated[str, _aws_pattern("Bedrock", "AutomatedReasoningPolicyTestCaseId")]
     guardContent: str
     createdAt: datetime
     updatedAt: datetime
@@ -246,36 +256,42 @@ class AutomatedReasoningPolicyTestCaseTypeDef(BaseValidatorModel):
 
 
 class AutomatedReasoningPolicyUpdateTypeValueTypeDef(BaseValidatorModel):
-    value: str
-    newValue: Optional[str] = None
-    description: Optional[str] = None
+    value: Annotated[str, _aws_pattern("Bedrock", "AutomatedReasoningPolicyDefinitionTypeValueName")]
+    newValue: Optional[Annotated[str, _aws_pattern("Bedrock", "AutomatedReasoningPolicyDefinitionTypeValueName")]] = (
+        None
+    )
+    description: Optional[
+        Annotated[str, _aws_pattern("Bedrock", "AutomatedReasoningPolicyDefinitionTypeValueDescription")]
+    ] = None
 
 
 class AutomatedReasoningPolicyUpdateFromRuleFeedbackAnnotationTypeDef(BaseValidatorModel):
-    feedback: str
-    ruleIds: Optional[List[str]] = None
+    feedback: Annotated[str, _aws_pattern("Bedrock", "AutomatedReasoningPolicyAnnotationFeedbackNaturalLanguage")]
+    ruleIds: Optional[List[Annotated[str, _aws_pattern("Bedrock", "AutomatedReasoningPolicyDefinitionRuleId")]]] = None
 
 
 class AutomatedReasoningPolicyUpdateFromScenarioFeedbackAnnotationTypeDef(BaseValidatorModel):
     scenarioExpression: str
-    ruleIds: Optional[List[str]] = None
-    feedback: Optional[str] = None
+    ruleIds: Optional[List[Annotated[str, _aws_pattern("Bedrock", "AutomatedReasoningPolicyDefinitionRuleId")]]] = None
+    feedback: Optional[
+        Annotated[str, _aws_pattern("Bedrock", "AutomatedReasoningPolicyAnnotationFeedbackNaturalLanguage")]
+    ] = None
 
 
 class BatchDeleteEvaluationJobErrorTypeDef(BaseValidatorModel):
-    jobIdentifier: str
+    jobIdentifier: Annotated[str, _aws_pattern("Bedrock", "EvaluationJobIdentifier")]
     code: str
     message: Optional[str] = None
 
 
 class BatchDeleteEvaluationJobItemTypeDef(BaseValidatorModel):
-    jobIdentifier: str
+    jobIdentifier: Annotated[str, _aws_pattern("Bedrock", "EvaluationJobIdentifier")]
     jobStatus: EvaluationJobStatusType
 
 
 # This class is the input for the 'batch_delete_evaluation_job' function.
 class BatchDeleteEvaluationJobRequestTypeDef(BaseValidatorModel):
-    jobIdentifiers: List[str]
+    jobIdentifiers: List[Annotated[str, _aws_pattern("Bedrock", "EvaluationJobIdentifier")]]
 
 
 class ResponseMetadataTypeDef(BaseValidatorModel):
@@ -287,7 +303,7 @@ class ResponseMetadataTypeDef(BaseValidatorModel):
 
 
 class BedrockEvaluatorModelTypeDef(BaseValidatorModel):
-    modelIdentifier: str
+    modelIdentifier: Annotated[str, _aws_pattern("Bedrock", "EvaluatorModelIdentifier")]
 
 
 class ByteContentDocOutputTypeDef(BaseValidatorModel):
@@ -297,8 +313,8 @@ class ByteContentDocOutputTypeDef(BaseValidatorModel):
 
 
 class CancelAutomatedReasoningPolicyBuildWorkflowRequestTypeDef(BaseValidatorModel):
-    policyArn: str
-    buildWorkflowId: str
+    policyArn: Annotated[str, _aws_pattern("Bedrock", "AutomatedReasoningPolicyArn")]
+    buildWorkflowId: Annotated[str, _aws_pattern("Bedrock", "AutomatedReasoningPolicyBuildWorkflowId")]
 
 
 class S3ConfigTypeDef(BaseValidatorModel):
@@ -307,56 +323,58 @@ class S3ConfigTypeDef(BaseValidatorModel):
 
 
 class TagTypeDef(BaseValidatorModel):
-    key: str
-    value: str
+    key: Annotated[str, _aws_pattern("Bedrock", "TagKey")]
+    value: Annotated[str, _aws_pattern("Bedrock", "TagValue")]
 
 
 # This class is the input for the 'create_automated_reasoning_policy_test_case' function.
 class CreateAutomatedReasoningPolicyTestCaseRequestTypeDef(BaseValidatorModel):
-    policyArn: str
+    policyArn: Annotated[str, _aws_pattern("Bedrock", "AutomatedReasoningPolicyArn")]
     guardContent: str
     expectedAggregatedFindingsResult: AutomatedReasoningCheckResultType
     queryContent: Optional[str] = None
-    clientRequestToken: Optional[str] = None
+    clientRequestToken: Optional[Annotated[str, _aws_pattern("Bedrock", "IdempotencyToken")]] = None
     confidenceThreshold: Optional[float] = None
 
 
 class EvaluationOutputDataConfigTypeDef(BaseValidatorModel):
-    s3Uri: str
+    s3Uri: Annotated[str, _aws_pattern("Bedrock", "S3Uri")]
 
 
 # This class is the input for the 'create_foundation_model_agreement' function.
 class CreateFoundationModelAgreementRequestTypeDef(BaseValidatorModel):
     offerToken: str
-    modelId: str
+    modelId: Annotated[str, _aws_pattern("Bedrock", "BedrockModelId")]
 
 
 class GuardrailAutomatedReasoningPolicyConfigTypeDef(BaseValidatorModel):
-    policies: List[str]
+    policies: List[Annotated[str, _aws_pattern("Bedrock", "AutomatedReasoningPolicyArn")]]
     confidenceThreshold: Optional[float] = None
 
 
 class GuardrailCrossRegionConfigTypeDef(BaseValidatorModel):
-    guardrailProfileIdentifier: str
+    guardrailProfileIdentifier: Annotated[
+        str, _aws_pattern("Bedrock", "GuardrailCrossRegionGuardrailProfileIdentifier")
+    ]
 
 
 # This class is the input for the 'create_guardrail_version' function.
 class CreateGuardrailVersionRequestTypeDef(BaseValidatorModel):
-    guardrailIdentifier: str
+    guardrailIdentifier: Annotated[str, _aws_pattern("Bedrock", "GuardrailIdentifier")]
     description: Optional[str] = None
-    clientRequestToken: Optional[str] = None
+    clientRequestToken: Optional[Annotated[str, _aws_pattern("Bedrock", "IdempotencyToken")]] = None
 
 
 class InferenceProfileModelSourceTypeDef(BaseValidatorModel):
-    copyFrom: Optional[str] = None
+    copyFrom: Optional[Annotated[str, _aws_pattern("Bedrock", "InferenceProfileModelSourceArn")]] = None
 
 
 class OutputDataConfigTypeDef(BaseValidatorModel):
-    s3Uri: str
+    s3Uri: Annotated[str, _aws_pattern("Bedrock", "S3Uri")]
 
 
 class PromptRouterTargetModelTypeDef(BaseValidatorModel):
-    modelArn: str
+    modelArn: Annotated[str, _aws_pattern("Bedrock", "PromptRouterTargetModelArn")]
 
 
 class RoutingCriteriaTypeDef(BaseValidatorModel):
@@ -364,13 +382,13 @@ class RoutingCriteriaTypeDef(BaseValidatorModel):
 
 
 class CustomMetricBedrockEvaluatorModelTypeDef(BaseValidatorModel):
-    modelIdentifier: str
+    modelIdentifier: Annotated[str, _aws_pattern("Bedrock", "EvaluatorModelIdentifier")]
 
 
 class CustomModelDeploymentSummaryTypeDef(BaseValidatorModel):
-    customModelDeploymentArn: str
-    customModelDeploymentName: str
-    modelArn: str
+    customModelDeploymentArn: Annotated[str, _aws_pattern("Bedrock", "CustomModelDeploymentArn")]
+    customModelDeploymentName: Annotated[str, _aws_pattern("Bedrock", "ModelDeploymentName")]
+    modelArn: Annotated[str, _aws_pattern("Bedrock", "ModelArn")]
     createdAt: datetime
     status: CustomModelDeploymentStatusType
     lastUpdatedAt: Optional[datetime] = None
@@ -378,24 +396,24 @@ class CustomModelDeploymentSummaryTypeDef(BaseValidatorModel):
 
 
 class CustomModelDeploymentUpdateDetailsTypeDef(BaseValidatorModel):
-    modelArn: str
+    modelArn: Annotated[str, _aws_pattern("Bedrock", "ModelArn")]
     updateStatus: CustomModelDeploymentUpdateStatusType
 
 
 class CustomModelSummaryTypeDef(BaseValidatorModel):
-    modelArn: str
-    modelName: str
+    modelArn: Annotated[str, _aws_pattern("Bedrock", "CustomModelArn")]
+    modelName: Annotated[str, _aws_pattern("Bedrock", "CustomModelName")]
     creationTime: datetime
-    baseModelArn: str
-    baseModelName: str
+    baseModelArn: Annotated[str, _aws_pattern("Bedrock", "ModelArn")]
+    baseModelName: Annotated[str, _aws_pattern("Bedrock", "ModelName")]
     customizationType: Optional[CustomizationTypeType] = None
-    ownerAccountId: Optional[str] = None
+    ownerAccountId: Optional[Annotated[str, _aws_pattern("Bedrock", "AccountId")]] = None
     modelStatus: Optional[ModelStatusType] = None
 
 
 class CustomModelUnitsTypeDef(BaseValidatorModel):
     customModelUnitsPerModelCopy: Optional[int] = None
-    customModelUnitsVersion: Optional[str] = None
+    customModelUnitsVersion: Optional[Annotated[str, _aws_pattern("Bedrock", "CustomModelUnitsVersion")]] = None
 
 
 class DataProcessingDetailsTypeDef(BaseValidatorModel):
@@ -408,37 +426,37 @@ TimestampTypeDef = Union[datetime, str]
 
 
 class DeleteAutomatedReasoningPolicyRequestTypeDef(BaseValidatorModel):
-    policyArn: str
+    policyArn: Annotated[str, _aws_pattern("Bedrock", "AutomatedReasoningPolicyArn")]
     force: Optional[bool] = None
 
 
 class DeleteCustomModelDeploymentRequestTypeDef(BaseValidatorModel):
-    customModelDeploymentIdentifier: str
+    customModelDeploymentIdentifier: Annotated[str, _aws_pattern("Bedrock", "CustomModelDeploymentIdentifier")]
 
 
 class DeleteCustomModelRequestTypeDef(BaseValidatorModel):
-    modelIdentifier: str
+    modelIdentifier: Annotated[str, _aws_pattern("Bedrock", "ModelIdentifier")]
 
 
 class DeleteEnforcedGuardrailConfigurationRequestTypeDef(BaseValidatorModel):
-    configId: str
+    configId: Annotated[str, _aws_pattern("Bedrock", "AccountEnforcedGuardrailConfigurationId")]
 
 
 class DeleteFoundationModelAgreementRequestTypeDef(BaseValidatorModel):
-    modelId: str
+    modelId: Annotated[str, _aws_pattern("Bedrock", "BedrockModelId")]
 
 
 class DeleteGuardrailRequestTypeDef(BaseValidatorModel):
-    guardrailIdentifier: str
-    guardrailVersion: Optional[str] = None
+    guardrailIdentifier: Annotated[str, _aws_pattern("Bedrock", "GuardrailIdentifier")]
+    guardrailVersion: Optional[Annotated[str, _aws_pattern("Bedrock", "GuardrailNumericalVersion")]] = None
 
 
 class DeleteImportedModelRequestTypeDef(BaseValidatorModel):
-    modelIdentifier: str
+    modelIdentifier: Annotated[str, _aws_pattern("Bedrock", "ImportedModelIdentifier")]
 
 
 class DeleteInferenceProfileRequestTypeDef(BaseValidatorModel):
-    inferenceProfileIdentifier: str
+    inferenceProfileIdentifier: Annotated[str, _aws_pattern("Bedrock", "InferenceProfileIdentifier")]
 
 
 class DeleteMarketplaceModelEndpointRequestTypeDef(BaseValidatorModel):
@@ -446,11 +464,11 @@ class DeleteMarketplaceModelEndpointRequestTypeDef(BaseValidatorModel):
 
 
 class DeletePromptRouterRequestTypeDef(BaseValidatorModel):
-    promptRouterArn: str
+    promptRouterArn: Annotated[str, _aws_pattern("Bedrock", "PromptRouterArn")]
 
 
 class DeleteProvisionedModelThroughputRequestTypeDef(BaseValidatorModel):
-    provisionedModelId: str
+    provisionedModelId: Annotated[str, _aws_pattern("Bedrock", "ProvisionedModelId")]
 
 
 class DeleteResourcePolicyRequestTypeDef(BaseValidatorModel):
@@ -469,7 +487,7 @@ class DimensionalPriceRateTypeDef(BaseValidatorModel):
 
 
 class TeacherModelConfigTypeDef(BaseValidatorModel):
-    teacherModelIdentifier: str
+    teacherModelIdentifier: Annotated[str, _aws_pattern("Bedrock", "TeacherModelIdentifier")]
     maxResponseLengthForInference: Optional[int] = None
 
 
@@ -478,43 +496,49 @@ class PerformanceConfigurationTypeDef(BaseValidatorModel):
 
 
 class EvaluationDatasetLocationTypeDef(BaseValidatorModel):
-    s3Uri: Optional[str] = None
+    s3Uri: Optional[Annotated[str, _aws_pattern("Bedrock", "S3Uri")]] = None
 
 
 class EvaluationModelConfigSummaryTypeDef(BaseValidatorModel):
-    bedrockModelIdentifiers: Optional[List[str]] = None
-    precomputedInferenceSourceIdentifiers: Optional[List[str]] = None
+    bedrockModelIdentifiers: Optional[
+        List[Annotated[str, _aws_pattern("Bedrock", "EvaluationBedrockModelIdentifier")]]
+    ] = None
+    precomputedInferenceSourceIdentifiers: Optional[
+        List[Annotated[str, _aws_pattern("Bedrock", "EvaluationPrecomputedInferenceSourceIdentifier")]]
+    ] = None
 
 
 class EvaluationRagConfigSummaryTypeDef(BaseValidatorModel):
-    bedrockKnowledgeBaseIdentifiers: Optional[List[str]] = None
-    precomputedRagSourceIdentifiers: Optional[List[str]] = None
+    bedrockKnowledgeBaseIdentifiers: Optional[List[Annotated[str, _aws_pattern("Bedrock", "KnowledgeBaseId")]]] = None
+    precomputedRagSourceIdentifiers: Optional[
+        List[Annotated[str, _aws_pattern("Bedrock", "EvaluationPrecomputedRagSourceIdentifier")]]
+    ] = None
 
 
 class EvaluationPrecomputedInferenceSourceTypeDef(BaseValidatorModel):
-    inferenceSourceIdentifier: str
+    inferenceSourceIdentifier: Annotated[str, _aws_pattern("Bedrock", "EvaluationPrecomputedInferenceSourceIdentifier")]
 
 
 class EvaluationPrecomputedRetrieveAndGenerateSourceConfigTypeDef(BaseValidatorModel):
-    ragSourceIdentifier: str
+    ragSourceIdentifier: Annotated[str, _aws_pattern("Bedrock", "EvaluationPrecomputedRagSourceIdentifier")]
 
 
 class EvaluationPrecomputedRetrieveSourceConfigTypeDef(BaseValidatorModel):
-    ragSourceIdentifier: str
+    ragSourceIdentifier: Annotated[str, _aws_pattern("Bedrock", "EvaluationPrecomputedRagSourceIdentifier")]
 
 
 # This class is the input for the 'export_automated_reasoning_policy_version' function.
 class ExportAutomatedReasoningPolicyVersionRequestTypeDef(BaseValidatorModel):
-    policyArn: str
+    policyArn: Annotated[str, _aws_pattern("Bedrock", "AutomatedReasoningPolicyArn")]
 
 
 class S3ObjectDocTypeDef(BaseValidatorModel):
-    uri: str
+    uri: Annotated[str, _aws_pattern("Bedrock", "kBS3Uri")]
 
 
 class GuardrailConfigurationTypeDef(BaseValidatorModel):
-    guardrailId: str
-    guardrailVersion: str
+    guardrailId: Annotated[str, _aws_pattern("Bedrock", "GuardrailConfigurationGuardrailIdString")]
+    guardrailVersion: Annotated[str, _aws_pattern("Bedrock", "GuardrailConfigurationGuardrailVersionString")]
 
 
 class PromptTemplateTypeDef(BaseValidatorModel):
@@ -545,56 +569,56 @@ class FoundationModelLifecycleTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'get_automated_reasoning_policy_annotations' function.
 class GetAutomatedReasoningPolicyAnnotationsRequestTypeDef(BaseValidatorModel):
-    policyArn: str
-    buildWorkflowId: str
+    policyArn: Annotated[str, _aws_pattern("Bedrock", "AutomatedReasoningPolicyArn")]
+    buildWorkflowId: Annotated[str, _aws_pattern("Bedrock", "AutomatedReasoningPolicyBuildWorkflowId")]
 
 
 # This class is the input for the 'get_automated_reasoning_policy_build_workflow' function.
 class GetAutomatedReasoningPolicyBuildWorkflowRequestTypeDef(BaseValidatorModel):
-    policyArn: str
-    buildWorkflowId: str
+    policyArn: Annotated[str, _aws_pattern("Bedrock", "AutomatedReasoningPolicyArn")]
+    buildWorkflowId: Annotated[str, _aws_pattern("Bedrock", "AutomatedReasoningPolicyBuildWorkflowId")]
 
 
 # This class is the input for the 'get_automated_reasoning_policy_build_workflow_result_assets' function.
 class GetAutomatedReasoningPolicyBuildWorkflowResultAssetsRequestTypeDef(BaseValidatorModel):
-    policyArn: str
-    buildWorkflowId: str
+    policyArn: Annotated[str, _aws_pattern("Bedrock", "AutomatedReasoningPolicyArn")]
+    buildWorkflowId: Annotated[str, _aws_pattern("Bedrock", "AutomatedReasoningPolicyBuildWorkflowId")]
     assetType: AutomatedReasoningPolicyBuildResultAssetTypeType
-    assetId: Optional[str] = None
+    assetId: Optional[Annotated[str, _aws_pattern("Bedrock", "AutomatedReasoningPolicyBuildResultAssetId")]] = None
 
 
 # This class is the input for the 'get_automated_reasoning_policy_next_scenario' function.
 class GetAutomatedReasoningPolicyNextScenarioRequestTypeDef(BaseValidatorModel):
-    policyArn: str
-    buildWorkflowId: str
+    policyArn: Annotated[str, _aws_pattern("Bedrock", "AutomatedReasoningPolicyArn")]
+    buildWorkflowId: Annotated[str, _aws_pattern("Bedrock", "AutomatedReasoningPolicyBuildWorkflowId")]
 
 
 # This class is the input for the 'get_automated_reasoning_policy' function.
 class GetAutomatedReasoningPolicyRequestTypeDef(BaseValidatorModel):
-    policyArn: str
+    policyArn: Annotated[str, _aws_pattern("Bedrock", "AutomatedReasoningPolicyArn")]
 
 
 # This class is the input for the 'get_automated_reasoning_policy_test_case' function.
 class GetAutomatedReasoningPolicyTestCaseRequestTypeDef(BaseValidatorModel):
-    policyArn: str
-    testCaseId: str
+    policyArn: Annotated[str, _aws_pattern("Bedrock", "AutomatedReasoningPolicyArn")]
+    testCaseId: Annotated[str, _aws_pattern("Bedrock", "AutomatedReasoningPolicyTestCaseId")]
 
 
 # This class is the input for the 'get_automated_reasoning_policy_test_result' function.
 class GetAutomatedReasoningPolicyTestResultRequestTypeDef(BaseValidatorModel):
-    policyArn: str
-    buildWorkflowId: str
-    testCaseId: str
+    policyArn: Annotated[str, _aws_pattern("Bedrock", "AutomatedReasoningPolicyArn")]
+    buildWorkflowId: Annotated[str, _aws_pattern("Bedrock", "AutomatedReasoningPolicyBuildWorkflowId")]
+    testCaseId: Annotated[str, _aws_pattern("Bedrock", "AutomatedReasoningPolicyTestCaseId")]
 
 
 # This class is the input for the 'get_custom_model_deployment' function.
 class GetCustomModelDeploymentRequestTypeDef(BaseValidatorModel):
-    customModelDeploymentIdentifier: str
+    customModelDeploymentIdentifier: Annotated[str, _aws_pattern("Bedrock", "CustomModelDeploymentIdentifier")]
 
 
 # This class is the input for the 'get_custom_model' function.
 class GetCustomModelRequestTypeDef(BaseValidatorModel):
-    modelIdentifier: str
+    modelIdentifier: Annotated[str, _aws_pattern("Bedrock", "ModelIdentifier")]
 
 
 class TrainingMetricsTypeDef(BaseValidatorModel):
@@ -607,47 +631,51 @@ class ValidatorMetricTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'get_evaluation_job' function.
 class GetEvaluationJobRequestTypeDef(BaseValidatorModel):
-    jobIdentifier: str
+    jobIdentifier: Annotated[str, _aws_pattern("Bedrock", "EvaluationJobIdentifier")]
 
 
 # This class is the input for the 'get_foundation_model_availability' function.
 class GetFoundationModelAvailabilityRequestTypeDef(BaseValidatorModel):
-    modelId: str
+    modelId: Annotated[str, _aws_pattern("Bedrock", "BedrockModelId")]
 
 
 # This class is the input for the 'get_foundation_model' function.
 class GetFoundationModelRequestTypeDef(BaseValidatorModel):
-    modelIdentifier: str
+    modelIdentifier: Annotated[str, _aws_pattern("Bedrock", "GetFoundationModelIdentifier")]
 
 
 # This class is the input for the 'get_guardrail' function.
 class GetGuardrailRequestTypeDef(BaseValidatorModel):
-    guardrailIdentifier: str
-    guardrailVersion: Optional[str] = None
+    guardrailIdentifier: Annotated[str, _aws_pattern("Bedrock", "GuardrailIdentifier")]
+    guardrailVersion: Optional[Annotated[str, _aws_pattern("Bedrock", "GuardrailVersion")]] = None
 
 
 class GuardrailAutomatedReasoningPolicyTypeDef(BaseValidatorModel):
-    policies: List[str]
+    policies: List[Annotated[str, _aws_pattern("Bedrock", "AutomatedReasoningPolicyArn")]]
     confidenceThreshold: Optional[float] = None
 
 
 class GuardrailCrossRegionDetailsTypeDef(BaseValidatorModel):
-    guardrailProfileId: Optional[str] = None
-    guardrailProfileArn: Optional[str] = None
+    guardrailProfileId: Optional[Annotated[str, _aws_pattern("Bedrock", "GuardrailCrossRegionGuardrailProfileId")]] = (
+        None
+    )
+    guardrailProfileArn: Optional[
+        Annotated[str, _aws_pattern("Bedrock", "GuardrailCrossRegionGuardrailProfileArn")]
+    ] = None
 
 
 # This class is the input for the 'get_imported_model' function.
 class GetImportedModelRequestTypeDef(BaseValidatorModel):
-    modelIdentifier: str
+    modelIdentifier: Annotated[str, _aws_pattern("Bedrock", "ImportedModelIdentifier")]
 
 
 # This class is the input for the 'get_inference_profile' function.
 class GetInferenceProfileRequestTypeDef(BaseValidatorModel):
-    inferenceProfileIdentifier: str
+    inferenceProfileIdentifier: Annotated[str, _aws_pattern("Bedrock", "InferenceProfileIdentifier")]
 
 
 class InferenceProfileModelTypeDef(BaseValidatorModel):
-    modelArn: Optional[str] = None
+    modelArn: Optional[Annotated[str, _aws_pattern("Bedrock", "FoundationModelArn")]] = None
 
 
 # This class is the input for the 'get_marketplace_model_endpoint' function.
@@ -657,12 +685,12 @@ class GetMarketplaceModelEndpointRequestTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'get_model_copy_job' function.
 class GetModelCopyJobRequestTypeDef(BaseValidatorModel):
-    jobArn: str
+    jobArn: Annotated[str, _aws_pattern("Bedrock", "ModelCopyJobArn")]
 
 
 # This class is the input for the 'get_model_customization_job' function.
 class GetModelCustomizationJobRequestTypeDef(BaseValidatorModel):
-    jobIdentifier: str
+    jobIdentifier: Annotated[str, _aws_pattern("Bedrock", "ModelCustomizationJobIdentifier")]
 
 
 class VpcConfigOutputTypeDef(BaseValidatorModel):
@@ -672,22 +700,22 @@ class VpcConfigOutputTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'get_model_import_job' function.
 class GetModelImportJobRequestTypeDef(BaseValidatorModel):
-    jobIdentifier: str
+    jobIdentifier: Annotated[str, _aws_pattern("Bedrock", "ModelImportJobIdentifier")]
 
 
 # This class is the input for the 'get_model_invocation_job' function.
 class GetModelInvocationJobRequestTypeDef(BaseValidatorModel):
-    jobIdentifier: str
+    jobIdentifier: Annotated[str, _aws_pattern("Bedrock", "ModelInvocationJobIdentifier")]
 
 
 # This class is the input for the 'get_prompt_router' function.
 class GetPromptRouterRequestTypeDef(BaseValidatorModel):
-    promptRouterArn: str
+    promptRouterArn: Annotated[str, _aws_pattern("Bedrock", "PromptRouterArn")]
 
 
 # This class is the input for the 'get_provisioned_model_throughput' function.
 class GetProvisionedModelThroughputRequestTypeDef(BaseValidatorModel):
-    provisionedModelId: str
+    provisionedModelId: Annotated[str, _aws_pattern("Bedrock", "ProvisionedModelId")]
 
 
 # This class is the input for the 'get_resource_policy' function.
@@ -696,7 +724,7 @@ class GetResourcePolicyRequestTypeDef(BaseValidatorModel):
 
 
 class LambdaGraderConfigTypeDef(BaseValidatorModel):
-    lambdaArn: str
+    lambdaArn: Annotated[str, _aws_pattern("Bedrock", "LambdaArn")]
 
 
 class GuardrailContentFilterConfigTypeDef(BaseValidatorModel):
@@ -802,7 +830,7 @@ class GuardrailRegexTypeDef(BaseValidatorModel):
 
 
 class GuardrailTopicConfigTypeDef(BaseValidatorModel):
-    name: str
+    name: Annotated[str, _aws_pattern("Bedrock", "GuardrailTopicName")]
     definition: str
     type: Literal["DENY"]
     examples: Optional[List[str]] = None
@@ -817,7 +845,7 @@ class GuardrailTopicsTierConfigTypeDef(BaseValidatorModel):
 
 
 class GuardrailTopicTypeDef(BaseValidatorModel):
-    name: str
+    name: Annotated[str, _aws_pattern("Bedrock", "GuardrailTopicName")]
     definition: str
     examples: Optional[List[str]] = None
     type: Optional[Literal["DENY"]] = None
@@ -848,32 +876,32 @@ class GuardrailWordTypeDef(BaseValidatorModel):
 
 
 class HumanEvaluationCustomMetricTypeDef(BaseValidatorModel):
-    name: str
-    ratingMethod: str
-    description: Optional[str] = None
+    name: Annotated[str, _aws_pattern("Bedrock", "EvaluationMetricName")]
+    ratingMethod: Annotated[str, _aws_pattern("Bedrock", "EvaluationRatingMethod")]
+    description: Optional[Annotated[str, _aws_pattern("Bedrock", "EvaluationMetricDescription")]] = None
 
 
 class HumanWorkflowConfigTypeDef(BaseValidatorModel):
-    flowDefinitionArn: str
-    instructions: Optional[str] = None
+    flowDefinitionArn: Annotated[str, _aws_pattern("Bedrock", "SageMakerFlowDefinitionArn")]
+    instructions: Optional[Annotated[str, _aws_pattern("Bedrock", "HumanTaskInstructions")]] = None
 
 
 class MetadataAttributeSchemaTypeDef(BaseValidatorModel):
-    key: str
+    key: Annotated[str, _aws_pattern("Bedrock", "MetadataAttributeSchemaKeyString")]
     type: AttributeTypeType
-    description: str
+    description: Annotated[str, _aws_pattern("Bedrock", "MetadataAttributeSchemaDescriptionString")]
 
 
 class ImportedModelSummaryTypeDef(BaseValidatorModel):
-    modelArn: str
-    modelName: str
+    modelArn: Annotated[str, _aws_pattern("Bedrock", "ImportedModelArn")]
+    modelName: Annotated[str, _aws_pattern("Bedrock", "ImportedModelName")]
     creationTime: datetime
     instructSupported: Optional[bool] = None
     modelArchitecture: Optional[str] = None
 
 
 class InvocationLogSourceTypeDef(BaseValidatorModel):
-    s3Uri: Optional[str] = None
+    s3Uri: Optional[Annotated[str, _aws_pattern("Bedrock", "S3Uri")]] = None
 
 
 class TextInferenceConfigOutputTypeDef(BaseValidatorModel):
@@ -902,47 +930,47 @@ class PaginatorConfigTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'list_automated_reasoning_policies' function.
 class ListAutomatedReasoningPoliciesRequestTypeDef(BaseValidatorModel):
-    policyArn: Optional[str] = None
-    nextToken: Optional[str] = None
+    policyArn: Optional[Annotated[str, _aws_pattern("Bedrock", "AutomatedReasoningPolicyArn")]] = None
+    nextToken: Optional[Annotated[str, _aws_pattern("Bedrock", "PaginationToken")]] = None
     maxResults: Optional[int] = None
 
 
 # This class is the input for the 'list_automated_reasoning_policy_build_workflows' function.
 class ListAutomatedReasoningPolicyBuildWorkflowsRequestTypeDef(BaseValidatorModel):
-    policyArn: str
-    nextToken: Optional[str] = None
+    policyArn: Annotated[str, _aws_pattern("Bedrock", "AutomatedReasoningPolicyArn")]
+    nextToken: Optional[Annotated[str, _aws_pattern("Bedrock", "PaginationToken")]] = None
     maxResults: Optional[int] = None
 
 
 # This class is the input for the 'list_automated_reasoning_policy_test_cases' function.
 class ListAutomatedReasoningPolicyTestCasesRequestTypeDef(BaseValidatorModel):
-    policyArn: str
-    nextToken: Optional[str] = None
+    policyArn: Annotated[str, _aws_pattern("Bedrock", "AutomatedReasoningPolicyArn")]
+    nextToken: Optional[Annotated[str, _aws_pattern("Bedrock", "PaginationToken")]] = None
     maxResults: Optional[int] = None
 
 
 # This class is the input for the 'list_automated_reasoning_policy_test_results' function.
 class ListAutomatedReasoningPolicyTestResultsRequestTypeDef(BaseValidatorModel):
-    policyArn: str
-    buildWorkflowId: str
-    nextToken: Optional[str] = None
+    policyArn: Annotated[str, _aws_pattern("Bedrock", "AutomatedReasoningPolicyArn")]
+    buildWorkflowId: Annotated[str, _aws_pattern("Bedrock", "AutomatedReasoningPolicyBuildWorkflowId")]
+    nextToken: Optional[Annotated[str, _aws_pattern("Bedrock", "PaginationToken")]] = None
     maxResults: Optional[int] = None
 
 
 # This class is the input for the 'list_enforced_guardrails_configuration' function.
 class ListEnforcedGuardrailsConfigurationRequestTypeDef(BaseValidatorModel):
-    nextToken: Optional[str] = None
+    nextToken: Optional[Annotated[str, _aws_pattern("Bedrock", "PaginationToken")]] = None
 
 
 # This class is the input for the 'list_foundation_model_agreement_offers' function.
 class ListFoundationModelAgreementOffersRequestTypeDef(BaseValidatorModel):
-    modelId: str
+    modelId: Annotated[str, _aws_pattern("Bedrock", "BedrockModelId")]
     offerType: Optional[OfferTypeType] = None
 
 
 # This class is the input for the 'list_foundation_models' function.
 class ListFoundationModelsRequestTypeDef(BaseValidatorModel):
-    byProvider: Optional[str] = None
+    byProvider: Optional[Annotated[str, _aws_pattern("Bedrock", "Provider")]] = None
     byCustomizationType: Optional[ModelCustomizationType] = None
     byOutputModality: Optional[ModelModalityType] = None
     byInferenceType: Optional[InferenceTypeType] = None
@@ -950,28 +978,28 @@ class ListFoundationModelsRequestTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'list_guardrails' function.
 class ListGuardrailsRequestTypeDef(BaseValidatorModel):
-    guardrailIdentifier: Optional[str] = None
+    guardrailIdentifier: Optional[Annotated[str, _aws_pattern("Bedrock", "GuardrailIdentifier")]] = None
     maxResults: Optional[int] = None
-    nextToken: Optional[str] = None
+    nextToken: Optional[Annotated[str, _aws_pattern("Bedrock", "PaginationToken")]] = None
 
 
 # This class is the input for the 'list_inference_profiles' function.
 class ListInferenceProfilesRequestTypeDef(BaseValidatorModel):
     maxResults: Optional[int] = None
-    nextToken: Optional[str] = None
+    nextToken: Optional[Annotated[str, _aws_pattern("Bedrock", "PaginationToken")]] = None
     typeEquals: Optional[InferenceProfileTypeType] = None
 
 
 # This class is the input for the 'list_marketplace_model_endpoints' function.
 class ListMarketplaceModelEndpointsRequestTypeDef(BaseValidatorModel):
     maxResults: Optional[int] = None
-    nextToken: Optional[str] = None
-    modelSourceEquals: Optional[str] = None
+    nextToken: Optional[Annotated[str, _aws_pattern("Bedrock", "PaginationToken")]] = None
+    modelSourceEquals: Optional[Annotated[str, _aws_pattern("Bedrock", "ModelSourceIdentifier")]] = None
 
 
 class MarketplaceModelEndpointSummaryTypeDef(BaseValidatorModel):
     endpointArn: str
-    modelSourceIdentifier: str
+    modelSourceIdentifier: Annotated[str, _aws_pattern("Bedrock", "ModelSourceIdentifier")]
     createdAt: datetime
     updatedAt: datetime
     status: Optional[StatusType] = None
@@ -979,29 +1007,29 @@ class MarketplaceModelEndpointSummaryTypeDef(BaseValidatorModel):
 
 
 class ModelImportJobSummaryTypeDef(BaseValidatorModel):
-    jobArn: str
-    jobName: str
+    jobArn: Annotated[str, _aws_pattern("Bedrock", "ModelImportJobArn")]
+    jobName: Annotated[str, _aws_pattern("Bedrock", "JobName")]
     status: ModelImportJobStatusType
     creationTime: datetime
     lastModifiedTime: Optional[datetime] = None
     endTime: Optional[datetime] = None
-    importedModelArn: Optional[str] = None
-    importedModelName: Optional[str] = None
+    importedModelArn: Optional[Annotated[str, _aws_pattern("Bedrock", "ImportedModelArn")]] = None
+    importedModelName: Optional[Annotated[str, _aws_pattern("Bedrock", "ImportedModelName")]] = None
 
 
 # This class is the input for the 'list_prompt_routers' function.
 class ListPromptRoutersRequestTypeDef(BaseValidatorModel):
     maxResults: Optional[int] = None
-    nextToken: Optional[str] = None
+    nextToken: Optional[Annotated[str, _aws_pattern("Bedrock", "PaginationToken")]] = None
     type: Optional[PromptRouterTypeType] = None
 
 
 class ProvisionedModelSummaryTypeDef(BaseValidatorModel):
-    provisionedModelName: str
-    provisionedModelArn: str
-    modelArn: str
-    desiredModelArn: str
-    foundationModelArn: str
+    provisionedModelName: Annotated[str, _aws_pattern("Bedrock", "ProvisionedModelName")]
+    provisionedModelArn: Annotated[str, _aws_pattern("Bedrock", "ProvisionedModelArn")]
+    modelArn: Annotated[str, _aws_pattern("Bedrock", "ModelArn")]
+    desiredModelArn: Annotated[str, _aws_pattern("Bedrock", "ModelArn")]
+    foundationModelArn: Annotated[str, _aws_pattern("Bedrock", "FoundationModelArn")]
     modelUnits: int
     desiredModelUnits: int
     status: ProvisionedModelStatusType
@@ -1013,28 +1041,28 @@ class ProvisionedModelSummaryTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'list_tags_for_resource' function.
 class ListTagsForResourceRequestTypeDef(BaseValidatorModel):
-    resourceARN: str
+    resourceARN: Annotated[str, _aws_pattern("Bedrock", "TaggableResourcesArn")]
 
 
 class S3DataSourceTypeDef(BaseValidatorModel):
-    s3Uri: str
+    s3Uri: Annotated[str, _aws_pattern("Bedrock", "S3Uri")]
 
 
 class ModelEnforcementTypeDef(BaseValidatorModel):
-    includedModels: List[str]
-    excludedModels: List[str]
+    includedModels: List[Annotated[str, _aws_pattern("Bedrock", "IncludedModelId")]]
+    excludedModels: List[Annotated[str, _aws_pattern("Bedrock", "ExcludedModelId")]]
 
 
 class ModelInvocationJobS3InputDataConfigTypeDef(BaseValidatorModel):
-    s3Uri: str
+    s3Uri: Annotated[str, _aws_pattern("Bedrock", "S3Uri")]
     s3InputFormat: Optional[Literal["JSONL"]] = None
-    s3BucketOwner: Optional[str] = None
+    s3BucketOwner: Optional[Annotated[str, _aws_pattern("Bedrock", "AccountId")]] = None
 
 
 class ModelInvocationJobS3OutputDataConfigTypeDef(BaseValidatorModel):
-    s3Uri: str
-    s3EncryptionKeyId: Optional[str] = None
-    s3BucketOwner: Optional[str] = None
+    s3Uri: Annotated[str, _aws_pattern("Bedrock", "S3Uri")]
+    s3EncryptionKeyId: Optional[Annotated[str, _aws_pattern("Bedrock", "KmsKeyId")]] = None
+    s3BucketOwner: Optional[Annotated[str, _aws_pattern("Bedrock", "AccountId")]] = None
 
 
 class QueryTransformationConfigurationTypeDef(BaseValidatorModel):
@@ -1044,7 +1072,7 @@ class QueryTransformationConfigurationTypeDef(BaseValidatorModel):
 # This class is the input for the 'put_resource_policy' function.
 class PutResourcePolicyRequestTypeDef(BaseValidatorModel):
     resourceArn: str
-    resourcePolicy: str
+    resourcePolicy: Annotated[str, _aws_pattern("Bedrock", "ResourcePolicyDocument")]
 
 
 class RFTHyperParametersTypeDef(BaseValidatorModel):
@@ -1066,7 +1094,7 @@ class RatingScaleItemValueTypeDef(BaseValidatorModel):
 # This class is the input for the 'register_marketplace_model_endpoint' function.
 class RegisterMarketplaceModelEndpointRequestTypeDef(BaseValidatorModel):
     endpointIdentifier: str
-    modelSourceIdentifier: str
+    modelSourceIdentifier: Annotated[str, _aws_pattern("Bedrock", "ModelSourceIdentifier")]
 
 
 class RequestMetadataBaseFiltersOutputTypeDef(BaseValidatorModel):
@@ -1080,16 +1108,16 @@ class RequestMetadataBaseFiltersTypeDef(BaseValidatorModel):
 
 
 class VpcConfigTypeDef(BaseValidatorModel):
-    subnetIds: List[str]
-    securityGroupIds: List[str]
+    subnetIds: List[Annotated[str, _aws_pattern("Bedrock", "SubnetId")]]
+    securityGroupIds: List[Annotated[str, _aws_pattern("Bedrock", "SecurityGroupId")]]
 
 
 # This class is the input for the 'start_automated_reasoning_policy_test_workflow' function.
 class StartAutomatedReasoningPolicyTestWorkflowRequestTypeDef(BaseValidatorModel):
-    policyArn: str
-    buildWorkflowId: str
-    testCaseIds: Optional[List[str]] = None
-    clientRequestToken: Optional[str] = None
+    policyArn: Annotated[str, _aws_pattern("Bedrock", "AutomatedReasoningPolicyArn")]
+    buildWorkflowId: Annotated[str, _aws_pattern("Bedrock", "AutomatedReasoningPolicyBuildWorkflowId")]
+    testCaseIds: Optional[List[Annotated[str, _aws_pattern("Bedrock", "AutomatedReasoningPolicyTestCaseId")]]] = None
+    clientRequestToken: Optional[Annotated[str, _aws_pattern("Bedrock", "IdempotencyToken")]] = None
 
 
 class TrainingDetailsTypeDef(BaseValidatorModel):
@@ -1105,15 +1133,15 @@ class ValidationDetailsTypeDef(BaseValidatorModel):
 
 
 class StopEvaluationJobRequestTypeDef(BaseValidatorModel):
-    jobIdentifier: str
+    jobIdentifier: Annotated[str, _aws_pattern("Bedrock", "EvaluationJobIdentifier")]
 
 
 class StopModelCustomizationJobRequestTypeDef(BaseValidatorModel):
-    jobIdentifier: str
+    jobIdentifier: Annotated[str, _aws_pattern("Bedrock", "ModelCustomizationJobIdentifier")]
 
 
 class StopModelInvocationJobRequestTypeDef(BaseValidatorModel):
-    jobIdentifier: str
+    jobIdentifier: Annotated[str, _aws_pattern("Bedrock", "ModelInvocationJobIdentifier")]
 
 
 class SupportTermTypeDef(BaseValidatorModel):
@@ -1125,24 +1153,24 @@ class ValidityTermTypeDef(BaseValidatorModel):
 
 
 class UntagResourceRequestTypeDef(BaseValidatorModel):
-    resourceARN: str
-    tagKeys: List[str]
+    resourceARN: Annotated[str, _aws_pattern("Bedrock", "TaggableResourcesArn")]
+    tagKeys: List[Annotated[str, _aws_pattern("Bedrock", "TagKey")]]
 
 
 # This class is the input for the 'update_custom_model_deployment' function.
 class UpdateCustomModelDeploymentRequestTypeDef(BaseValidatorModel):
-    modelArn: str
-    customModelDeploymentIdentifier: str
+    modelArn: Annotated[str, _aws_pattern("Bedrock", "CustomModelArn")]
+    customModelDeploymentIdentifier: Annotated[str, _aws_pattern("Bedrock", "CustomModelDeploymentIdentifier")]
 
 
 class UpdateProvisionedModelThroughputRequestTypeDef(BaseValidatorModel):
-    provisionedModelId: str
-    desiredProvisionedModelName: Optional[str] = None
-    desiredModelId: Optional[str] = None
+    provisionedModelId: Annotated[str, _aws_pattern("Bedrock", "ProvisionedModelId")]
+    desiredProvisionedModelName: Optional[Annotated[str, _aws_pattern("Bedrock", "ProvisionedModelName")]] = None
+    desiredModelId: Optional[Annotated[str, _aws_pattern("Bedrock", "ModelIdentifier")]] = None
 
 
 class ValidatorTypeDef(BaseValidatorModel):
-    s3Uri: str
+    s3Uri: Annotated[str, _aws_pattern("Bedrock", "S3Uri")]
 
 
 class VectorSearchBedrockRerankingModelConfigurationOutputTypeDef(BaseValidatorModel):
@@ -1151,17 +1179,17 @@ class VectorSearchBedrockRerankingModelConfigurationOutputTypeDef(BaseValidatorM
 
 
 class VectorSearchBedrockRerankingModelConfigurationTypeDef(BaseValidatorModel):
-    modelArn: str
+    modelArn: Annotated[str, _aws_pattern("Bedrock", "BedrockRerankingModelArn")]
     additionalModelRequestFields: Optional[Dict[str, Dict[str, Any]]] = None
 
 
 class AccountEnforcedGuardrailOutputConfigurationTypeDef(BaseValidatorModel):
-    configId: Optional[str] = None
-    guardrailArn: Optional[str] = None
-    guardrailId: Optional[str] = None
+    configId: Optional[Annotated[str, _aws_pattern("Bedrock", "AccountEnforcedGuardrailConfigurationId")]] = None
+    guardrailArn: Optional[Annotated[str, _aws_pattern("Bedrock", "GuardrailArn")]] = None
+    guardrailId: Optional[Annotated[str, _aws_pattern("Bedrock", "GuardrailId")]] = None
     inputTags: Optional[InputTagsType] = None
     selectiveContentGuarding: Optional[SelectiveContentGuardingTypeDef] = None
-    guardrailVersion: Optional[str] = None
+    guardrailVersion: Optional[Annotated[str, _aws_pattern("Bedrock", "GuardrailNumericalVersion")]] = None
     createdAt: Optional[datetime] = None
     createdBy: Optional[str] = None
     updatedAt: Optional[datetime] = None
@@ -1203,8 +1231,8 @@ class AutomatedReasoningPolicyAddTypeAnnotationOutputTypeDef(BaseValidatorModel)
 
 
 class AutomatedReasoningPolicyAddTypeAnnotationTypeDef(BaseValidatorModel):
-    name: str
-    description: str
+    name: Annotated[str, _aws_pattern("Bedrock", "AutomatedReasoningPolicyDefinitionTypeName")]
+    description: Annotated[str, _aws_pattern("Bedrock", "AutomatedReasoningPolicyDefinitionTypeDescription")]
     values: List[AutomatedReasoningPolicyDefinitionTypeValueTypeDef]
 
 
@@ -1215,9 +1243,11 @@ class AutomatedReasoningPolicyDefinitionTypeOutputTypeDef(BaseValidatorModel):
 
 
 class AutomatedReasoningPolicyDefinitionTypeTypeDef(BaseValidatorModel):
-    name: str
+    name: Annotated[str, _aws_pattern("Bedrock", "AutomatedReasoningPolicyDefinitionTypeName")]
     values: List[AutomatedReasoningPolicyDefinitionTypeValueTypeDef]
-    description: Optional[str] = None
+    description: Optional[
+        Annotated[str, _aws_pattern("Bedrock", "AutomatedReasoningPolicyDefinitionTypeDescription")]
+    ] = None
 
 
 class AutomatedReasoningPolicyAddVariableMutationTypeDef(BaseValidatorModel):
@@ -1233,7 +1263,7 @@ class AutomatedReasoningPolicyAnnotatedContentTypeDef(BaseValidatorModel):
 
 
 class AutomatedReasoningPolicyAtomicStatementTypeDef(BaseValidatorModel):
-    id: str
+    id: Annotated[str, _aws_pattern("Bedrock", "AutomatedReasoningPolicyStatementId")]
     text: str
     location: AutomatedReasoningPolicyStatementLocationTypeDef
 
@@ -1251,7 +1281,7 @@ class AutomatedReasoningPolicyBuildWorkflowDocumentTypeDef(BaseValidatorModel):
 
 class ByteContentDocTypeDef(BaseValidatorModel):
     identifier: str
-    contentType: str
+    contentType: Annotated[str, _aws_pattern("Bedrock", "ContentType")]
     data: BlobTypeDef
 
 
@@ -1263,10 +1293,10 @@ class AutomatedReasoningPolicyDefinitionQualityReportTypeDef(BaseValidatorModel)
     typeCount: int
     variableCount: int
     ruleCount: int
-    unusedTypes: List[str]
+    unusedTypes: List[Annotated[str, _aws_pattern("Bedrock", "AutomatedReasoningPolicyDefinitionTypeName")]]
     unusedTypeValues: List[AutomatedReasoningPolicyDefinitionTypeValuePairTypeDef]
-    unusedVariables: List[str]
-    conflictingRules: List[str]
+    unusedVariables: List[Annotated[str, _aws_pattern("Bedrock", "AutomatedReasoningPolicyDefinitionVariableName")]]
+    conflictingRules: List[Annotated[str, _aws_pattern("Bedrock", "AutomatedReasoningPolicyDefinitionRuleId")]]
     disjointRuleSets: List[AutomatedReasoningPolicyDisjointRuleSetTypeDef]
 
 
@@ -1275,7 +1305,7 @@ class AutomatedReasoningPolicyGeneratedTestCasesTypeDef(BaseValidatorModel):
 
 
 class AutomatedReasoningPolicyRuleReportTypeDef(BaseValidatorModel):
-    rule: str
+    rule: Annotated[str, _aws_pattern("Bedrock", "AutomatedReasoningPolicyDefinitionRuleId")]
     groundingStatements: Optional[List[AutomatedReasoningPolicyStatementReferenceTypeDef]] = None
     groundingJustifications: Optional[List[str]] = None
     accuracyScore: Optional[float] = None
@@ -1283,7 +1313,7 @@ class AutomatedReasoningPolicyRuleReportTypeDef(BaseValidatorModel):
 
 
 class AutomatedReasoningPolicyVariableReportTypeDef(BaseValidatorModel):
-    policyVariable: str
+    policyVariable: Annotated[str, _aws_pattern("Bedrock", "AutomatedReasoningPolicyDefinitionVariableName")]
     groundingStatements: Optional[List[AutomatedReasoningPolicyStatementReferenceTypeDef]] = None
     groundingJustifications: Optional[List[str]] = None
     accuracyScore: Optional[float] = None
@@ -1320,11 +1350,11 @@ class BatchDeleteEvaluationJobResponseTypeDef(BaseValidatorModel):
 
 # This class is the output for the 'create_automated_reasoning_policy' function.
 class CreateAutomatedReasoningPolicyResponseTypeDef(BaseValidatorModel):
-    policyArn: str
-    version: str
-    name: str
-    description: str
-    definitionHash: str
+    policyArn: Annotated[str, _aws_pattern("Bedrock", "AutomatedReasoningPolicyArn")]
+    version: Annotated[str, _aws_pattern("Bedrock", "AutomatedReasoningPolicyVersion")]
+    name: Annotated[str, _aws_pattern("Bedrock", "AutomatedReasoningPolicyName")]
+    description: Annotated[str, _aws_pattern("Bedrock", "AutomatedReasoningPolicyDescription")]
+    definitionHash: Annotated[str, _aws_pattern("Bedrock", "AutomatedReasoningPolicyHash")]
     createdAt: datetime
     updatedAt: datetime
     ResponseMetadata: ResponseMetadataTypeDef
@@ -1332,109 +1362,109 @@ class CreateAutomatedReasoningPolicyResponseTypeDef(BaseValidatorModel):
 
 # This class is the output for the 'create_automated_reasoning_policy_test_case' function.
 class CreateAutomatedReasoningPolicyTestCaseResponseTypeDef(BaseValidatorModel):
-    policyArn: str
-    testCaseId: str
+    policyArn: Annotated[str, _aws_pattern("Bedrock", "AutomatedReasoningPolicyArn")]
+    testCaseId: Annotated[str, _aws_pattern("Bedrock", "AutomatedReasoningPolicyTestCaseId")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 # This class is the output for the 'create_automated_reasoning_policy_version' function.
 class CreateAutomatedReasoningPolicyVersionResponseTypeDef(BaseValidatorModel):
-    policyArn: str
-    version: str
-    name: str
-    description: str
-    definitionHash: str
+    policyArn: Annotated[str, _aws_pattern("Bedrock", "AutomatedReasoningPolicyArn")]
+    version: Annotated[str, _aws_pattern("Bedrock", "AutomatedReasoningPolicyVersion")]
+    name: Annotated[str, _aws_pattern("Bedrock", "AutomatedReasoningPolicyName")]
+    description: Annotated[str, _aws_pattern("Bedrock", "AutomatedReasoningPolicyDescription")]
+    definitionHash: Annotated[str, _aws_pattern("Bedrock", "AutomatedReasoningPolicyHash")]
     createdAt: datetime
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 # This class is the output for the 'create_custom_model_deployment' function.
 class CreateCustomModelDeploymentResponseTypeDef(BaseValidatorModel):
-    customModelDeploymentArn: str
+    customModelDeploymentArn: Annotated[str, _aws_pattern("Bedrock", "CustomModelDeploymentArn")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 # This class is the output for the 'create_custom_model' function.
 class CreateCustomModelResponseTypeDef(BaseValidatorModel):
-    modelArn: str
+    modelArn: Annotated[str, _aws_pattern("Bedrock", "ModelArn")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 # This class is the output for the 'create_evaluation_job' function.
 class CreateEvaluationJobResponseTypeDef(BaseValidatorModel):
-    jobArn: str
+    jobArn: Annotated[str, _aws_pattern("Bedrock", "EvaluationJobArn")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 # This class is the output for the 'create_foundation_model_agreement' function.
 class CreateFoundationModelAgreementResponseTypeDef(BaseValidatorModel):
-    modelId: str
+    modelId: Annotated[str, _aws_pattern("Bedrock", "BedrockModelId")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 # This class is the output for the 'create_guardrail' function.
 class CreateGuardrailResponseTypeDef(BaseValidatorModel):
-    guardrailId: str
-    guardrailArn: str
-    version: str
+    guardrailId: Annotated[str, _aws_pattern("Bedrock", "GuardrailId")]
+    guardrailArn: Annotated[str, _aws_pattern("Bedrock", "GuardrailArn")]
+    version: Annotated[str, _aws_pattern("Bedrock", "GuardrailDraftVersion")]
     createdAt: datetime
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 # This class is the output for the 'create_guardrail_version' function.
 class CreateGuardrailVersionResponseTypeDef(BaseValidatorModel):
-    guardrailId: str
-    version: str
+    guardrailId: Annotated[str, _aws_pattern("Bedrock", "GuardrailId")]
+    version: Annotated[str, _aws_pattern("Bedrock", "GuardrailNumericalVersion")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 # This class is the output for the 'create_inference_profile' function.
 class CreateInferenceProfileResponseTypeDef(BaseValidatorModel):
-    inferenceProfileArn: str
+    inferenceProfileArn: Annotated[str, _aws_pattern("Bedrock", "InferenceProfileArn")]
     status: Literal["ACTIVE"]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 # This class is the output for the 'create_model_copy_job' function.
 class CreateModelCopyJobResponseTypeDef(BaseValidatorModel):
-    jobArn: str
+    jobArn: Annotated[str, _aws_pattern("Bedrock", "ModelCopyJobArn")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 # This class is the output for the 'create_model_customization_job' function.
 class CreateModelCustomizationJobResponseTypeDef(BaseValidatorModel):
-    jobArn: str
+    jobArn: Annotated[str, _aws_pattern("Bedrock", "ModelCustomizationJobArn")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 # This class is the output for the 'create_model_import_job' function.
 class CreateModelImportJobResponseTypeDef(BaseValidatorModel):
-    jobArn: str
+    jobArn: Annotated[str, _aws_pattern("Bedrock", "ModelImportJobArn")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 # This class is the output for the 'create_model_invocation_job' function.
 class CreateModelInvocationJobResponseTypeDef(BaseValidatorModel):
-    jobArn: str
+    jobArn: Annotated[str, _aws_pattern("Bedrock", "ModelInvocationJobArn")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 # This class is the output for the 'create_prompt_router' function.
 class CreatePromptRouterResponseTypeDef(BaseValidatorModel):
-    promptRouterArn: str
+    promptRouterArn: Annotated[str, _aws_pattern("Bedrock", "PromptRouterArn")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 # This class is the output for the 'create_provisioned_model_throughput' function.
 class CreateProvisionedModelThroughputResponseTypeDef(BaseValidatorModel):
-    provisionedModelArn: str
+    provisionedModelArn: Annotated[str, _aws_pattern("Bedrock", "ProvisionedModelArn")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 # This class is the output for the 'get_automated_reasoning_policy_build_workflow' function.
 class GetAutomatedReasoningPolicyBuildWorkflowResponseTypeDef(BaseValidatorModel):
-    policyArn: str
-    buildWorkflowId: str
+    policyArn: Annotated[str, _aws_pattern("Bedrock", "AutomatedReasoningPolicyArn")]
+    buildWorkflowId: Annotated[str, _aws_pattern("Bedrock", "AutomatedReasoningPolicyBuildWorkflowId")]
     status: AutomatedReasoningPolicyBuildWorkflowStatusType
     buildWorkflowType: AutomatedReasoningPolicyBuildWorkflowTypeType
     documentName: str
@@ -1447,20 +1477,20 @@ class GetAutomatedReasoningPolicyBuildWorkflowResponseTypeDef(BaseValidatorModel
 
 # This class is the output for the 'get_automated_reasoning_policy_next_scenario' function.
 class GetAutomatedReasoningPolicyNextScenarioResponseTypeDef(BaseValidatorModel):
-    policyArn: str
+    policyArn: Annotated[str, _aws_pattern("Bedrock", "AutomatedReasoningPolicyArn")]
     scenario: AutomatedReasoningPolicyScenarioTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 # This class is the output for the 'get_automated_reasoning_policy' function.
 class GetAutomatedReasoningPolicyResponseTypeDef(BaseValidatorModel):
-    policyArn: str
-    name: str
-    version: str
-    policyId: str
-    description: str
-    definitionHash: str
-    kmsKeyArn: str
+    policyArn: Annotated[str, _aws_pattern("Bedrock", "AutomatedReasoningPolicyArn")]
+    name: Annotated[str, _aws_pattern("Bedrock", "AutomatedReasoningPolicyName")]
+    version: Annotated[str, _aws_pattern("Bedrock", "AutomatedReasoningPolicyVersion")]
+    policyId: Annotated[str, _aws_pattern("Bedrock", "AutomatedReasoningPolicyId")]
+    description: Annotated[str, _aws_pattern("Bedrock", "AutomatedReasoningPolicyDescription")]
+    definitionHash: Annotated[str, _aws_pattern("Bedrock", "AutomatedReasoningPolicyHash")]
+    kmsKeyArn: Annotated[str, _aws_pattern("Bedrock", "KmsKeyArn")]
     createdAt: datetime
     updatedAt: datetime
     ResponseMetadata: ResponseMetadataTypeDef
@@ -1468,14 +1498,14 @@ class GetAutomatedReasoningPolicyResponseTypeDef(BaseValidatorModel):
 
 # This class is the output for the 'get_automated_reasoning_policy_test_case' function.
 class GetAutomatedReasoningPolicyTestCaseResponseTypeDef(BaseValidatorModel):
-    policyArn: str
+    policyArn: Annotated[str, _aws_pattern("Bedrock", "AutomatedReasoningPolicyArn")]
     testCase: AutomatedReasoningPolicyTestCaseTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 # This class is the output for the 'get_foundation_model_availability' function.
 class GetFoundationModelAvailabilityResponseTypeDef(BaseValidatorModel):
-    modelId: str
+    modelId: Annotated[str, _aws_pattern("Bedrock", "BedrockModelId")]
     agreementAvailability: AgreementAvailabilityTypeDef
     authorizationStatus: AuthorizationStatusType
     entitlementAvailability: EntitlementAvailabilityType
@@ -1487,11 +1517,11 @@ class GetFoundationModelAvailabilityResponseTypeDef(BaseValidatorModel):
 class GetProvisionedModelThroughputResponseTypeDef(BaseValidatorModel):
     modelUnits: int
     desiredModelUnits: int
-    provisionedModelName: str
-    provisionedModelArn: str
-    modelArn: str
-    desiredModelArn: str
-    foundationModelArn: str
+    provisionedModelName: Annotated[str, _aws_pattern("Bedrock", "ProvisionedModelName")]
+    provisionedModelArn: Annotated[str, _aws_pattern("Bedrock", "ProvisionedModelArn")]
+    modelArn: Annotated[str, _aws_pattern("Bedrock", "ModelArn")]
+    desiredModelArn: Annotated[str, _aws_pattern("Bedrock", "ModelArn")]
+    foundationModelArn: Annotated[str, _aws_pattern("Bedrock", "FoundationModelArn")]
     status: ProvisionedModelStatusType
     creationTime: datetime
     lastModifiedTime: datetime
@@ -1503,7 +1533,7 @@ class GetProvisionedModelThroughputResponseTypeDef(BaseValidatorModel):
 
 # This class is the output for the 'get_resource_policy' function.
 class GetResourcePolicyResponseTypeDef(BaseValidatorModel):
-    resourcePolicy: str
+    resourcePolicy: Annotated[str, _aws_pattern("Bedrock", "ResourcePolicyDocument")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
@@ -1516,26 +1546,26 @@ class GetUseCaseForModelAccessResponseTypeDef(BaseValidatorModel):
 class ListAutomatedReasoningPoliciesResponseTypeDef(BaseValidatorModel):
     automatedReasoningPolicySummaries: List[AutomatedReasoningPolicySummaryTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
-    nextToken: Optional[str] = None
+    nextToken: Optional[Annotated[str, _aws_pattern("Bedrock", "PaginationToken")]] = None
 
 
 # This class is the output for the 'list_automated_reasoning_policy_build_workflows' function.
 class ListAutomatedReasoningPolicyBuildWorkflowsResponseTypeDef(BaseValidatorModel):
     automatedReasoningPolicyBuildWorkflowSummaries: List[AutomatedReasoningPolicyBuildWorkflowSummaryTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
-    nextToken: Optional[str] = None
+    nextToken: Optional[Annotated[str, _aws_pattern("Bedrock", "PaginationToken")]] = None
 
 
 # This class is the output for the 'list_automated_reasoning_policy_test_cases' function.
 class ListAutomatedReasoningPolicyTestCasesResponseTypeDef(BaseValidatorModel):
     testCases: List[AutomatedReasoningPolicyTestCaseTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
-    nextToken: Optional[str] = None
+    nextToken: Optional[Annotated[str, _aws_pattern("Bedrock", "PaginationToken")]] = None
 
 
 # This class is the output for the 'put_enforced_guardrail_configuration' function.
 class PutEnforcedGuardrailConfigurationResponseTypeDef(BaseValidatorModel):
-    configId: str
+    configId: Annotated[str, _aws_pattern("Bedrock", "AccountEnforcedGuardrailConfigurationId")]
     updatedAt: datetime
     updatedBy: str
     ResponseMetadata: ResponseMetadataTypeDef
@@ -1549,53 +1579,53 @@ class PutResourcePolicyResponseTypeDef(BaseValidatorModel):
 
 # This class is the output for the 'start_automated_reasoning_policy_build_workflow' function.
 class StartAutomatedReasoningPolicyBuildWorkflowResponseTypeDef(BaseValidatorModel):
-    policyArn: str
-    buildWorkflowId: str
+    policyArn: Annotated[str, _aws_pattern("Bedrock", "AutomatedReasoningPolicyArn")]
+    buildWorkflowId: Annotated[str, _aws_pattern("Bedrock", "AutomatedReasoningPolicyBuildWorkflowId")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 # This class is the output for the 'start_automated_reasoning_policy_test_workflow' function.
 class StartAutomatedReasoningPolicyTestWorkflowResponseTypeDef(BaseValidatorModel):
-    policyArn: str
+    policyArn: Annotated[str, _aws_pattern("Bedrock", "AutomatedReasoningPolicyArn")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 # This class is the output for the 'update_automated_reasoning_policy_annotations' function.
 class UpdateAutomatedReasoningPolicyAnnotationsResponseTypeDef(BaseValidatorModel):
-    policyArn: str
-    buildWorkflowId: str
-    annotationSetHash: str
+    policyArn: Annotated[str, _aws_pattern("Bedrock", "AutomatedReasoningPolicyArn")]
+    buildWorkflowId: Annotated[str, _aws_pattern("Bedrock", "AutomatedReasoningPolicyBuildWorkflowId")]
+    annotationSetHash: Annotated[str, _aws_pattern("Bedrock", "AutomatedReasoningPolicyHash")]
     updatedAt: datetime
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 # This class is the output for the 'update_automated_reasoning_policy' function.
 class UpdateAutomatedReasoningPolicyResponseTypeDef(BaseValidatorModel):
-    policyArn: str
-    name: str
-    definitionHash: str
+    policyArn: Annotated[str, _aws_pattern("Bedrock", "AutomatedReasoningPolicyArn")]
+    name: Annotated[str, _aws_pattern("Bedrock", "AutomatedReasoningPolicyName")]
+    definitionHash: Annotated[str, _aws_pattern("Bedrock", "AutomatedReasoningPolicyHash")]
     updatedAt: datetime
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 # This class is the output for the 'update_automated_reasoning_policy_test_case' function.
 class UpdateAutomatedReasoningPolicyTestCaseResponseTypeDef(BaseValidatorModel):
-    policyArn: str
-    testCaseId: str
+    policyArn: Annotated[str, _aws_pattern("Bedrock", "AutomatedReasoningPolicyArn")]
+    testCaseId: Annotated[str, _aws_pattern("Bedrock", "AutomatedReasoningPolicyTestCaseId")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 # This class is the output for the 'update_custom_model_deployment' function.
 class UpdateCustomModelDeploymentResponseTypeDef(BaseValidatorModel):
-    customModelDeploymentArn: str
+    customModelDeploymentArn: Annotated[str, _aws_pattern("Bedrock", "CustomModelDeploymentArn")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 # This class is the output for the 'update_guardrail' function.
 class UpdateGuardrailResponseTypeDef(BaseValidatorModel):
-    guardrailId: str
-    guardrailArn: str
-    version: str
+    guardrailId: Annotated[str, _aws_pattern("Bedrock", "GuardrailId")]
+    guardrailArn: Annotated[str, _aws_pattern("Bedrock", "GuardrailArn")]
+    version: Annotated[str, _aws_pattern("Bedrock", "GuardrailDraftVersion")]
     updatedAt: datetime
     ResponseMetadata: ResponseMetadataTypeDef
 
@@ -1610,59 +1640,59 @@ class EvaluatorModelConfigTypeDef(BaseValidatorModel):
 
 class CloudWatchConfigTypeDef(BaseValidatorModel):
     logGroupName: str
-    roleArn: str
+    roleArn: Annotated[str, _aws_pattern("Bedrock", "RoleArn")]
     largeDataDeliveryS3Config: Optional[S3ConfigTypeDef] = None
 
 
 # This class is the input for the 'create_automated_reasoning_policy_version' function.
 class CreateAutomatedReasoningPolicyVersionRequestTypeDef(BaseValidatorModel):
-    policyArn: str
-    lastUpdatedDefinitionHash: str
-    clientRequestToken: Optional[str] = None
+    policyArn: Annotated[str, _aws_pattern("Bedrock", "AutomatedReasoningPolicyArn")]
+    lastUpdatedDefinitionHash: Annotated[str, _aws_pattern("Bedrock", "AutomatedReasoningPolicyHash")]
+    clientRequestToken: Optional[Annotated[str, _aws_pattern("Bedrock", "IdempotencyToken")]] = None
     tags: Optional[List[TagTypeDef]] = None
 
 
 # This class is the input for the 'create_custom_model_deployment' function.
 class CreateCustomModelDeploymentRequestTypeDef(BaseValidatorModel):
-    modelDeploymentName: str
-    modelArn: str
-    description: Optional[str] = None
+    modelDeploymentName: Annotated[str, _aws_pattern("Bedrock", "ModelDeploymentName")]
+    modelArn: Annotated[str, _aws_pattern("Bedrock", "CustomModelArn")]
+    description: Optional[Annotated[str, _aws_pattern("Bedrock", "CustomModelDeploymentDescription")]] = None
     tags: Optional[List[TagTypeDef]] = None
-    clientRequestToken: Optional[str] = None
+    clientRequestToken: Optional[Annotated[str, _aws_pattern("Bedrock", "IdempotencyToken")]] = None
 
 
 # This class is the input for the 'create_model_copy_job' function.
 class CreateModelCopyJobRequestTypeDef(BaseValidatorModel):
-    sourceModelArn: str
-    targetModelName: str
-    modelKmsKeyId: Optional[str] = None
+    sourceModelArn: Annotated[str, _aws_pattern("Bedrock", "ModelArn")]
+    targetModelName: Annotated[str, _aws_pattern("Bedrock", "CustomModelName")]
+    modelKmsKeyId: Optional[Annotated[str, _aws_pattern("Bedrock", "KmsKeyId")]] = None
     targetModelTags: Optional[List[TagTypeDef]] = None
-    clientRequestToken: Optional[str] = None
+    clientRequestToken: Optional[Annotated[str, _aws_pattern("Bedrock", "IdempotencyToken")]] = None
 
 
 # This class is the input for the 'create_provisioned_model_throughput' function.
 class CreateProvisionedModelThroughputRequestTypeDef(BaseValidatorModel):
     modelUnits: int
-    provisionedModelName: str
-    modelId: str
-    clientRequestToken: Optional[str] = None
+    provisionedModelName: Annotated[str, _aws_pattern("Bedrock", "ProvisionedModelName")]
+    modelId: Annotated[str, _aws_pattern("Bedrock", "ModelIdentifier")]
+    clientRequestToken: Optional[Annotated[str, _aws_pattern("Bedrock", "IdempotencyToken")]] = None
     commitmentDuration: Optional[CommitmentDurationType] = None
     tags: Optional[List[TagTypeDef]] = None
 
 
 # This class is the output for the 'get_model_copy_job' function.
 class GetModelCopyJobResponseTypeDef(BaseValidatorModel):
-    jobArn: str
+    jobArn: Annotated[str, _aws_pattern("Bedrock", "ModelCopyJobArn")]
     status: ModelCopyJobStatusType
     creationTime: datetime
-    targetModelArn: str
-    targetModelName: str
-    sourceAccountId: str
-    sourceModelArn: str
-    targetModelKmsKeyArn: str
+    targetModelArn: Annotated[str, _aws_pattern("Bedrock", "CustomModelArn")]
+    targetModelName: Annotated[str, _aws_pattern("Bedrock", "CustomModelName")]
+    sourceAccountId: Annotated[str, _aws_pattern("Bedrock", "AccountId")]
+    sourceModelArn: Annotated[str, _aws_pattern("Bedrock", "ModelArn")]
+    targetModelKmsKeyArn: Annotated[str, _aws_pattern("Bedrock", "KmsKeyArn")]
     targetModelTags: List[TagTypeDef]
     failureMessage: str
-    sourceModelName: str
+    sourceModelName: Annotated[str, _aws_pattern("Bedrock", "CustomModelName")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
@@ -1673,52 +1703,52 @@ class ListTagsForResourceResponseTypeDef(BaseValidatorModel):
 
 
 class ModelCopyJobSummaryTypeDef(BaseValidatorModel):
-    jobArn: str
+    jobArn: Annotated[str, _aws_pattern("Bedrock", "ModelCopyJobArn")]
     status: ModelCopyJobStatusType
     creationTime: datetime
-    targetModelArn: str
-    sourceAccountId: str
-    sourceModelArn: str
-    targetModelName: Optional[str] = None
-    targetModelKmsKeyArn: Optional[str] = None
+    targetModelArn: Annotated[str, _aws_pattern("Bedrock", "CustomModelArn")]
+    sourceAccountId: Annotated[str, _aws_pattern("Bedrock", "AccountId")]
+    sourceModelArn: Annotated[str, _aws_pattern("Bedrock", "ModelArn")]
+    targetModelName: Optional[Annotated[str, _aws_pattern("Bedrock", "CustomModelName")]] = None
+    targetModelKmsKeyArn: Optional[Annotated[str, _aws_pattern("Bedrock", "KmsKeyArn")]] = None
     targetModelTags: Optional[List[TagTypeDef]] = None
     failureMessage: Optional[str] = None
-    sourceModelName: Optional[str] = None
+    sourceModelName: Optional[Annotated[str, _aws_pattern("Bedrock", "CustomModelName")]] = None
 
 
 class TagResourceRequestTypeDef(BaseValidatorModel):
-    resourceARN: str
+    resourceARN: Annotated[str, _aws_pattern("Bedrock", "TaggableResourcesArn")]
     tags: List[TagTypeDef]
 
 
 # This class is the input for the 'create_inference_profile' function.
 class CreateInferenceProfileRequestTypeDef(BaseValidatorModel):
-    inferenceProfileName: str
+    inferenceProfileName: Annotated[str, _aws_pattern("Bedrock", "InferenceProfileName")]
     modelSource: InferenceProfileModelSourceTypeDef
-    description: Optional[str] = None
-    clientRequestToken: Optional[str] = None
+    description: Optional[Annotated[str, _aws_pattern("Bedrock", "InferenceProfileDescription")]] = None
+    clientRequestToken: Optional[Annotated[str, _aws_pattern("Bedrock", "IdempotencyToken")]] = None
     tags: Optional[List[TagTypeDef]] = None
 
 
 # This class is the input for the 'create_prompt_router' function.
 class CreatePromptRouterRequestTypeDef(BaseValidatorModel):
-    promptRouterName: str
+    promptRouterName: Annotated[str, _aws_pattern("Bedrock", "PromptRouterName")]
     models: List[PromptRouterTargetModelTypeDef]
     routingCriteria: RoutingCriteriaTypeDef
     fallbackModel: PromptRouterTargetModelTypeDef
-    clientRequestToken: Optional[str] = None
-    description: Optional[str] = None
+    clientRequestToken: Optional[Annotated[str, _aws_pattern("Bedrock", "IdempotencyToken")]] = None
+    description: Optional[Annotated[str, _aws_pattern("Bedrock", "PromptRouterDescription")]] = None
     tags: Optional[List[TagTypeDef]] = None
 
 
 # This class is the output for the 'get_prompt_router' function.
 class GetPromptRouterResponseTypeDef(BaseValidatorModel):
-    promptRouterName: str
+    promptRouterName: Annotated[str, _aws_pattern("Bedrock", "PromptRouterName")]
     routingCriteria: RoutingCriteriaTypeDef
-    description: str
+    description: Annotated[str, _aws_pattern("Bedrock", "PromptRouterDescription")]
     createdAt: datetime
     updatedAt: datetime
-    promptRouterArn: str
+    promptRouterArn: Annotated[str, _aws_pattern("Bedrock", "PromptRouterArn")]
     models: List[PromptRouterTargetModelTypeDef]
     fallbackModel: PromptRouterTargetModelTypeDef
     status: Literal["AVAILABLE"]
@@ -1727,14 +1757,14 @@ class GetPromptRouterResponseTypeDef(BaseValidatorModel):
 
 
 class PromptRouterSummaryTypeDef(BaseValidatorModel):
-    promptRouterName: str
+    promptRouterName: Annotated[str, _aws_pattern("Bedrock", "PromptRouterName")]
     routingCriteria: RoutingCriteriaTypeDef
-    promptRouterArn: str
+    promptRouterArn: Annotated[str, _aws_pattern("Bedrock", "PromptRouterArn")]
     models: List[PromptRouterTargetModelTypeDef]
     fallbackModel: PromptRouterTargetModelTypeDef
     status: Literal["AVAILABLE"]
     type: PromptRouterTypeType
-    description: Optional[str] = None
+    description: Optional[Annotated[str, _aws_pattern("Bedrock", "PromptRouterDescription")]] = None
     createdAt: Optional[datetime] = None
     updatedAt: Optional[datetime] = None
 
@@ -1751,17 +1781,17 @@ class CustomMetricEvaluatorModelConfigTypeDef(BaseValidatorModel):
 class ListCustomModelDeploymentsResponseTypeDef(BaseValidatorModel):
     modelDeploymentSummaries: List[CustomModelDeploymentSummaryTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
-    nextToken: Optional[str] = None
+    nextToken: Optional[Annotated[str, _aws_pattern("Bedrock", "PaginationToken")]] = None
 
 
 # This class is the output for the 'get_custom_model_deployment' function.
 class GetCustomModelDeploymentResponseTypeDef(BaseValidatorModel):
-    customModelDeploymentArn: str
-    modelDeploymentName: str
-    modelArn: str
+    customModelDeploymentArn: Annotated[str, _aws_pattern("Bedrock", "CustomModelDeploymentArn")]
+    modelDeploymentName: Annotated[str, _aws_pattern("Bedrock", "ModelDeploymentName")]
+    modelArn: Annotated[str, _aws_pattern("Bedrock", "CustomModelArn")]
     createdAt: datetime
     status: CustomModelDeploymentStatusType
-    description: str
+    description: Annotated[str, _aws_pattern("Bedrock", "CustomModelDeploymentDescription")]
     updateDetails: CustomModelDeploymentUpdateDetailsTypeDef
     failureMessage: str
     lastUpdatedAt: datetime
@@ -1772,18 +1802,18 @@ class GetCustomModelDeploymentResponseTypeDef(BaseValidatorModel):
 class ListCustomModelsResponseTypeDef(BaseValidatorModel):
     modelSummaries: List[CustomModelSummaryTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
-    nextToken: Optional[str] = None
+    nextToken: Optional[Annotated[str, _aws_pattern("Bedrock", "PaginationToken")]] = None
 
 
 class DeleteAutomatedReasoningPolicyBuildWorkflowRequestTypeDef(BaseValidatorModel):
-    policyArn: str
-    buildWorkflowId: str
+    policyArn: Annotated[str, _aws_pattern("Bedrock", "AutomatedReasoningPolicyArn")]
+    buildWorkflowId: Annotated[str, _aws_pattern("Bedrock", "AutomatedReasoningPolicyBuildWorkflowId")]
     lastUpdatedAt: TimestampTypeDef
 
 
 class DeleteAutomatedReasoningPolicyTestCaseRequestTypeDef(BaseValidatorModel):
-    policyArn: str
-    testCaseId: str
+    policyArn: Annotated[str, _aws_pattern("Bedrock", "AutomatedReasoningPolicyArn")]
+    testCaseId: Annotated[str, _aws_pattern("Bedrock", "AutomatedReasoningPolicyTestCaseId")]
     lastUpdatedAt: TimestampTypeDef
 
 
@@ -1791,24 +1821,24 @@ class DeleteAutomatedReasoningPolicyTestCaseRequestTypeDef(BaseValidatorModel):
 class ListCustomModelDeploymentsRequestTypeDef(BaseValidatorModel):
     createdBefore: Optional[TimestampTypeDef] = None
     createdAfter: Optional[TimestampTypeDef] = None
-    nameContains: Optional[str] = None
+    nameContains: Optional[Annotated[str, _aws_pattern("Bedrock", "ModelDeploymentName")]] = None
     maxResults: Optional[int] = None
-    nextToken: Optional[str] = None
+    nextToken: Optional[Annotated[str, _aws_pattern("Bedrock", "PaginationToken")]] = None
     sortBy: Optional[Literal["CreationTime"]] = None
     sortOrder: Optional[SortOrderType] = None
     statusEquals: Optional[CustomModelDeploymentStatusType] = None
-    modelArnEquals: Optional[str] = None
+    modelArnEquals: Optional[Annotated[str, _aws_pattern("Bedrock", "CustomModelArn")]] = None
 
 
 # This class is the input for the 'list_custom_models' function.
 class ListCustomModelsRequestTypeDef(BaseValidatorModel):
     creationTimeBefore: Optional[TimestampTypeDef] = None
     creationTimeAfter: Optional[TimestampTypeDef] = None
-    nameContains: Optional[str] = None
-    baseModelArnEquals: Optional[str] = None
-    foundationModelArnEquals: Optional[str] = None
+    nameContains: Optional[Annotated[str, _aws_pattern("Bedrock", "CustomModelName")]] = None
+    baseModelArnEquals: Optional[Annotated[str, _aws_pattern("Bedrock", "ModelArn")]] = None
+    foundationModelArnEquals: Optional[Annotated[str, _aws_pattern("Bedrock", "FoundationModelArn")]] = None
     maxResults: Optional[int] = None
-    nextToken: Optional[str] = None
+    nextToken: Optional[Annotated[str, _aws_pattern("Bedrock", "PaginationToken")]] = None
     sortBy: Optional[Literal["CreationTime"]] = None
     sortOrder: Optional[SortOrderType] = None
     isOwned: Optional[bool] = None
@@ -1821,9 +1851,9 @@ class ListEvaluationJobsRequestTypeDef(BaseValidatorModel):
     creationTimeBefore: Optional[TimestampTypeDef] = None
     statusEquals: Optional[EvaluationJobStatusType] = None
     applicationTypeEquals: Optional[ApplicationTypeType] = None
-    nameContains: Optional[str] = None
+    nameContains: Optional[Annotated[str, _aws_pattern("Bedrock", "EvaluationJobName")]] = None
     maxResults: Optional[int] = None
-    nextToken: Optional[str] = None
+    nextToken: Optional[Annotated[str, _aws_pattern("Bedrock", "PaginationToken")]] = None
     sortBy: Optional[Literal["CreationTime"]] = None
     sortOrder: Optional[SortOrderType] = None
 
@@ -1832,9 +1862,9 @@ class ListEvaluationJobsRequestTypeDef(BaseValidatorModel):
 class ListImportedModelsRequestTypeDef(BaseValidatorModel):
     creationTimeBefore: Optional[TimestampTypeDef] = None
     creationTimeAfter: Optional[TimestampTypeDef] = None
-    nameContains: Optional[str] = None
+    nameContains: Optional[Annotated[str, _aws_pattern("Bedrock", "ImportedModelName")]] = None
     maxResults: Optional[int] = None
-    nextToken: Optional[str] = None
+    nextToken: Optional[Annotated[str, _aws_pattern("Bedrock", "PaginationToken")]] = None
     sortBy: Optional[Literal["CreationTime"]] = None
     sortOrder: Optional[SortOrderType] = None
 
@@ -1844,11 +1874,11 @@ class ListModelCopyJobsRequestTypeDef(BaseValidatorModel):
     creationTimeAfter: Optional[TimestampTypeDef] = None
     creationTimeBefore: Optional[TimestampTypeDef] = None
     statusEquals: Optional[ModelCopyJobStatusType] = None
-    sourceAccountEquals: Optional[str] = None
-    sourceModelArnEquals: Optional[str] = None
-    targetModelNameContains: Optional[str] = None
+    sourceAccountEquals: Optional[Annotated[str, _aws_pattern("Bedrock", "AccountId")]] = None
+    sourceModelArnEquals: Optional[Annotated[str, _aws_pattern("Bedrock", "ModelArn")]] = None
+    targetModelNameContains: Optional[Annotated[str, _aws_pattern("Bedrock", "CustomModelName")]] = None
     maxResults: Optional[int] = None
-    nextToken: Optional[str] = None
+    nextToken: Optional[Annotated[str, _aws_pattern("Bedrock", "PaginationToken")]] = None
     sortBy: Optional[Literal["CreationTime"]] = None
     sortOrder: Optional[SortOrderType] = None
 
@@ -1858,9 +1888,9 @@ class ListModelCustomizationJobsRequestTypeDef(BaseValidatorModel):
     creationTimeAfter: Optional[TimestampTypeDef] = None
     creationTimeBefore: Optional[TimestampTypeDef] = None
     statusEquals: Optional[FineTuningJobStatusType] = None
-    nameContains: Optional[str] = None
+    nameContains: Optional[Annotated[str, _aws_pattern("Bedrock", "JobName")]] = None
     maxResults: Optional[int] = None
-    nextToken: Optional[str] = None
+    nextToken: Optional[Annotated[str, _aws_pattern("Bedrock", "PaginationToken")]] = None
     sortBy: Optional[Literal["CreationTime"]] = None
     sortOrder: Optional[SortOrderType] = None
 
@@ -1870,9 +1900,9 @@ class ListModelImportJobsRequestTypeDef(BaseValidatorModel):
     creationTimeAfter: Optional[TimestampTypeDef] = None
     creationTimeBefore: Optional[TimestampTypeDef] = None
     statusEquals: Optional[ModelImportJobStatusType] = None
-    nameContains: Optional[str] = None
+    nameContains: Optional[Annotated[str, _aws_pattern("Bedrock", "JobName")]] = None
     maxResults: Optional[int] = None
-    nextToken: Optional[str] = None
+    nextToken: Optional[Annotated[str, _aws_pattern("Bedrock", "PaginationToken")]] = None
     sortBy: Optional[Literal["CreationTime"]] = None
     sortOrder: Optional[SortOrderType] = None
 
@@ -1882,9 +1912,9 @@ class ListModelInvocationJobsRequestTypeDef(BaseValidatorModel):
     submitTimeAfter: Optional[TimestampTypeDef] = None
     submitTimeBefore: Optional[TimestampTypeDef] = None
     statusEquals: Optional[ModelInvocationJobStatusType] = None
-    nameContains: Optional[str] = None
+    nameContains: Optional[Annotated[str, _aws_pattern("Bedrock", "ModelInvocationJobName")]] = None
     maxResults: Optional[int] = None
-    nextToken: Optional[str] = None
+    nextToken: Optional[Annotated[str, _aws_pattern("Bedrock", "PaginationToken")]] = None
     sortBy: Optional[Literal["CreationTime"]] = None
     sortOrder: Optional[SortOrderType] = None
 
@@ -1894,24 +1924,24 @@ class ListProvisionedModelThroughputsRequestTypeDef(BaseValidatorModel):
     creationTimeAfter: Optional[TimestampTypeDef] = None
     creationTimeBefore: Optional[TimestampTypeDef] = None
     statusEquals: Optional[ProvisionedModelStatusType] = None
-    modelArnEquals: Optional[str] = None
-    nameContains: Optional[str] = None
+    modelArnEquals: Optional[Annotated[str, _aws_pattern("Bedrock", "ModelArn")]] = None
+    nameContains: Optional[Annotated[str, _aws_pattern("Bedrock", "ProvisionedModelName")]] = None
     maxResults: Optional[int] = None
-    nextToken: Optional[str] = None
+    nextToken: Optional[Annotated[str, _aws_pattern("Bedrock", "PaginationToken")]] = None
     sortBy: Optional[Literal["CreationTime"]] = None
     sortOrder: Optional[SortOrderType] = None
 
 
 # This class is the input for the 'update_automated_reasoning_policy_test_case' function.
 class UpdateAutomatedReasoningPolicyTestCaseRequestTypeDef(BaseValidatorModel):
-    policyArn: str
-    testCaseId: str
+    policyArn: Annotated[str, _aws_pattern("Bedrock", "AutomatedReasoningPolicyArn")]
+    testCaseId: Annotated[str, _aws_pattern("Bedrock", "AutomatedReasoningPolicyTestCaseId")]
     guardContent: str
     lastUpdatedAt: TimestampTypeDef
     expectedAggregatedFindingsResult: AutomatedReasoningCheckResultType
     queryContent: Optional[str] = None
     confidenceThreshold: Optional[float] = None
-    clientRequestToken: Optional[str] = None
+    clientRequestToken: Optional[Annotated[str, _aws_pattern("Bedrock", "IdempotencyToken")]] = None
 
 
 class PricingTermTypeDef(BaseValidatorModel):
@@ -1923,13 +1953,13 @@ class DistillationConfigTypeDef(BaseValidatorModel):
 
 
 class EvaluationBedrockModelTypeDef(BaseValidatorModel):
-    modelIdentifier: str
+    modelIdentifier: Annotated[str, _aws_pattern("Bedrock", "EvaluationBedrockModelIdentifier")]
     inferenceParams: Optional[str] = None
     performanceConfig: Optional[PerformanceConfigurationTypeDef] = None
 
 
 class EvaluationDatasetTypeDef(BaseValidatorModel):
-    name: str
+    name: Annotated[str, _aws_pattern("Bedrock", "EvaluationDatasetName")]
     datasetLocation: Optional[EvaluationDatasetLocationTypeDef] = None
 
 
@@ -1992,10 +2022,10 @@ class RetrievalFilterTypeDef(BaseValidatorModel):
 
 
 class FoundationModelDetailsTypeDef(BaseValidatorModel):
-    modelArn: str
-    modelId: str
-    modelName: Optional[str] = None
-    providerName: Optional[str] = None
+    modelArn: Annotated[str, _aws_pattern("Bedrock", "FoundationModelArn")]
+    modelId: Annotated[str, _aws_pattern("Bedrock", "BedrockModelId")]
+    modelName: Optional[Annotated[str, _aws_pattern("Bedrock", "BrandedName")]] = None
+    providerName: Optional[Annotated[str, _aws_pattern("Bedrock", "BrandedName")]] = None
     inputModalities: Optional[List[ModelModalityType]] = None
     outputModalities: Optional[List[ModelModalityType]] = None
     responseStreamingSupported: Optional[bool] = None
@@ -2005,10 +2035,10 @@ class FoundationModelDetailsTypeDef(BaseValidatorModel):
 
 
 class FoundationModelSummaryTypeDef(BaseValidatorModel):
-    modelArn: str
-    modelId: str
-    modelName: Optional[str] = None
-    providerName: Optional[str] = None
+    modelArn: Annotated[str, _aws_pattern("Bedrock", "FoundationModelArn")]
+    modelId: Annotated[str, _aws_pattern("Bedrock", "BedrockModelId")]
+    modelName: Optional[Annotated[str, _aws_pattern("Bedrock", "BrandedName")]] = None
+    providerName: Optional[Annotated[str, _aws_pattern("Bedrock", "BrandedName")]] = None
     inputModalities: Optional[List[ModelModalityType]] = None
     outputModalities: Optional[List[ModelModalityType]] = None
     responseStreamingSupported: Optional[bool] = None
@@ -2018,11 +2048,11 @@ class FoundationModelSummaryTypeDef(BaseValidatorModel):
 
 
 class GuardrailSummaryTypeDef(BaseValidatorModel):
-    id: str
-    arn: str
+    id: Annotated[str, _aws_pattern("Bedrock", "GuardrailId")]
+    arn: Annotated[str, _aws_pattern("Bedrock", "GuardrailArn")]
     status: GuardrailStatusType
-    name: str
-    version: str
+    name: Annotated[str, _aws_pattern("Bedrock", "GuardrailName")]
+    version: Annotated[str, _aws_pattern("Bedrock", "GuardrailVersion")]
     createdAt: datetime
     updatedAt: datetime
     description: Optional[str] = None
@@ -2031,26 +2061,26 @@ class GuardrailSummaryTypeDef(BaseValidatorModel):
 
 # This class is the output for the 'get_inference_profile' function.
 class GetInferenceProfileResponseTypeDef(BaseValidatorModel):
-    inferenceProfileName: str
-    description: str
+    inferenceProfileName: Annotated[str, _aws_pattern("Bedrock", "InferenceProfileName")]
+    description: Annotated[str, _aws_pattern("Bedrock", "InferenceProfileDescription")]
     createdAt: datetime
     updatedAt: datetime
-    inferenceProfileArn: str
+    inferenceProfileArn: Annotated[str, _aws_pattern("Bedrock", "InferenceProfileArn")]
     models: List[InferenceProfileModelTypeDef]
-    inferenceProfileId: str
+    inferenceProfileId: Annotated[str, _aws_pattern("Bedrock", "InferenceProfileId")]
     status: Literal["ACTIVE"]
     type: InferenceProfileTypeType
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 class InferenceProfileSummaryTypeDef(BaseValidatorModel):
-    inferenceProfileName: str
-    inferenceProfileArn: str
+    inferenceProfileName: Annotated[str, _aws_pattern("Bedrock", "InferenceProfileName")]
+    inferenceProfileArn: Annotated[str, _aws_pattern("Bedrock", "InferenceProfileArn")]
     models: List[InferenceProfileModelTypeDef]
-    inferenceProfileId: str
+    inferenceProfileId: Annotated[str, _aws_pattern("Bedrock", "InferenceProfileId")]
     status: Literal["ACTIVE"]
     type: InferenceProfileTypeType
-    description: Optional[str] = None
+    description: Optional[Annotated[str, _aws_pattern("Bedrock", "InferenceProfileDescription")]] = None
     createdAt: Optional[datetime] = None
     updatedAt: Optional[datetime] = None
 
@@ -2122,14 +2152,14 @@ class ImplicitFilterConfigurationOutputTypeDef(BaseValidatorModel):
 
 class ImplicitFilterConfigurationTypeDef(BaseValidatorModel):
     metadataAttributes: List[MetadataAttributeSchemaTypeDef]
-    modelArn: str
+    modelArn: Annotated[str, _aws_pattern("Bedrock", "BedrockModelArn")]
 
 
 # This class is the output for the 'list_imported_models' function.
 class ListImportedModelsResponseTypeDef(BaseValidatorModel):
     modelSummaries: List[ImportedModelSummaryTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
-    nextToken: Optional[str] = None
+    nextToken: Optional[Annotated[str, _aws_pattern("Bedrock", "PaginationToken")]] = None
 
 
 class KbInferenceConfigOutputTypeDef(BaseValidatorModel):
@@ -2286,21 +2316,21 @@ class ListProvisionedModelThroughputsRequestPaginateTypeDef(BaseValidatorModel):
 class ListMarketplaceModelEndpointsResponseTypeDef(BaseValidatorModel):
     marketplaceModelEndpoints: List[MarketplaceModelEndpointSummaryTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
-    nextToken: Optional[str] = None
+    nextToken: Optional[Annotated[str, _aws_pattern("Bedrock", "PaginationToken")]] = None
 
 
 # This class is the output for the 'list_model_import_jobs' function.
 class ListModelImportJobsResponseTypeDef(BaseValidatorModel):
     modelImportJobSummaries: List[ModelImportJobSummaryTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
-    nextToken: Optional[str] = None
+    nextToken: Optional[Annotated[str, _aws_pattern("Bedrock", "PaginationToken")]] = None
 
 
 # This class is the output for the 'list_provisioned_model_throughputs' function.
 class ListProvisionedModelThroughputsResponseTypeDef(BaseValidatorModel):
     provisionedModelSummaries: List[ProvisionedModelSummaryTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
-    nextToken: Optional[str] = None
+    nextToken: Optional[Annotated[str, _aws_pattern("Bedrock", "PaginationToken")]] = None
 
 
 class ModelDataSourceTypeDef(BaseValidatorModel):
@@ -2344,8 +2374,8 @@ class RequestMetadataFiltersTypeDef(BaseValidatorModel):
 class SageMakerEndpointTypeDef(BaseValidatorModel):
     initialInstanceCount: int
     instanceType: str
-    executionRole: str
-    kmsEncryptionKey: Optional[str] = None
+    executionRole: Annotated[str, _aws_pattern("Bedrock", "RoleArn")]
+    kmsEncryptionKey: Optional[Annotated[str, _aws_pattern("Bedrock", "KmsKeyId")]] = None
     vpc: Optional[VpcConfigTypeDef] = None
 
 
@@ -2370,7 +2400,7 @@ class ValidationDataConfigTypeDef(BaseValidatorModel):
 class ListEnforcedGuardrailsConfigurationResponseTypeDef(BaseValidatorModel):
     guardrailsConfig: List[AccountEnforcedGuardrailOutputConfigurationTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
-    nextToken: Optional[str] = None
+    nextToken: Optional[Annotated[str, _aws_pattern("Bedrock", "PaginationToken")]] = None
 
 
 class AutomatedReasoningCheckImpossibleFindingTypeDef(BaseValidatorModel):
@@ -2457,10 +2487,12 @@ class AutomatedReasoningPolicyUpdateTypeAnnotationOutputTypeDef(BaseValidatorMod
 
 
 class AutomatedReasoningPolicyUpdateTypeAnnotationTypeDef(BaseValidatorModel):
-    name: str
+    name: Annotated[str, _aws_pattern("Bedrock", "AutomatedReasoningPolicyDefinitionTypeName")]
     values: List[AutomatedReasoningPolicyTypeValueAnnotationTypeDef]
-    newName: Optional[str] = None
-    description: Optional[str] = None
+    newName: Optional[Annotated[str, _aws_pattern("Bedrock", "AutomatedReasoningPolicyDefinitionTypeName")]] = None
+    description: Optional[
+        Annotated[str, _aws_pattern("Bedrock", "AutomatedReasoningPolicyDefinitionTypeDescription")]
+    ] = None
 
 
 class LoggingConfigTypeDef(BaseValidatorModel):
@@ -2477,14 +2509,14 @@ class LoggingConfigTypeDef(BaseValidatorModel):
 class ListModelCopyJobsResponseTypeDef(BaseValidatorModel):
     modelCopyJobSummaries: List[ModelCopyJobSummaryTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
-    nextToken: Optional[str] = None
+    nextToken: Optional[Annotated[str, _aws_pattern("Bedrock", "PaginationToken")]] = None
 
 
 # This class is the output for the 'list_prompt_routers' function.
 class ListPromptRoutersResponseTypeDef(BaseValidatorModel):
     promptRouterSummaries: List[PromptRouterSummaryTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
-    nextToken: Optional[str] = None
+    nextToken: Optional[Annotated[str, _aws_pattern("Bedrock", "PaginationToken")]] = None
 
 
 class TermDetailsTypeDef(BaseValidatorModel):
@@ -2508,20 +2540,24 @@ class EvaluationDatasetMetricConfigOutputTypeDef(BaseValidatorModel):
 class EvaluationDatasetMetricConfigTypeDef(BaseValidatorModel):
     taskType: EvaluationTaskTypeType
     dataset: EvaluationDatasetTypeDef
-    metricNames: List[str]
+    metricNames: List[Annotated[str, _aws_pattern("Bedrock", "EvaluationMetricName")]]
 
 
 class EvaluationSummaryTypeDef(BaseValidatorModel):
-    jobArn: str
-    jobName: str
+    jobArn: Annotated[str, _aws_pattern("Bedrock", "EvaluationJobArn")]
+    jobName: Annotated[str, _aws_pattern("Bedrock", "EvaluationJobName")]
     status: EvaluationJobStatusType
     creationTime: datetime
     jobType: EvaluationJobTypeType
     evaluationTaskTypes: List[EvaluationTaskTypeType]
-    modelIdentifiers: Optional[List[str]] = None
-    ragIdentifiers: Optional[List[str]] = None
-    evaluatorModelIdentifiers: Optional[List[str]] = None
-    customMetricsEvaluatorModelIdentifiers: Optional[List[str]] = None
+    modelIdentifiers: Optional[List[Annotated[str, _aws_pattern("Bedrock", "EvaluationBedrockModelIdentifier")]]] = None
+    ragIdentifiers: Optional[List[Annotated[str, _aws_pattern("Bedrock", "KnowledgeBaseId")]]] = None
+    evaluatorModelIdentifiers: Optional[List[Annotated[str, _aws_pattern("Bedrock", "EvaluatorModelIdentifier")]]] = (
+        None
+    )
+    customMetricsEvaluatorModelIdentifiers: Optional[
+        List[Annotated[str, _aws_pattern("Bedrock", "EvaluatorModelIdentifier")]]
+    ] = None
     inferenceConfigSummary: Optional[EvaluationInferenceConfigSummaryTypeDef] = None
     applicationType: Optional[ApplicationTypeType] = None
 
@@ -2552,14 +2588,14 @@ class ListFoundationModelsResponseTypeDef(BaseValidatorModel):
 class ListGuardrailsResponseTypeDef(BaseValidatorModel):
     guardrails: List[GuardrailSummaryTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
-    nextToken: Optional[str] = None
+    nextToken: Optional[Annotated[str, _aws_pattern("Bedrock", "PaginationToken")]] = None
 
 
 # This class is the output for the 'list_inference_profiles' function.
 class ListInferenceProfilesResponseTypeDef(BaseValidatorModel):
     inferenceProfileSummaries: List[InferenceProfileSummaryTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
-    nextToken: Optional[str] = None
+    nextToken: Optional[Annotated[str, _aws_pattern("Bedrock", "PaginationToken")]] = None
 
 
 class EndpointConfigOutputTypeDef(BaseValidatorModel):
@@ -2573,7 +2609,7 @@ class RFTConfigTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'create_guardrail' function.
 class CreateGuardrailRequestTypeDef(BaseValidatorModel):
-    name: str
+    name: Annotated[str, _aws_pattern("Bedrock", "GuardrailName")]
     blockedInputMessaging: str
     blockedOutputsMessaging: str
     description: Optional[str] = None
@@ -2584,15 +2620,15 @@ class CreateGuardrailRequestTypeDef(BaseValidatorModel):
     contextualGroundingPolicyConfig: Optional[GuardrailContextualGroundingPolicyConfigTypeDef] = None
     automatedReasoningPolicyConfig: Optional[GuardrailAutomatedReasoningPolicyConfigTypeDef] = None
     crossRegionConfig: Optional[GuardrailCrossRegionConfigTypeDef] = None
-    kmsKeyId: Optional[str] = None
+    kmsKeyId: Optional[Annotated[str, _aws_pattern("Bedrock", "KmsKeyId")]] = None
     tags: Optional[List[TagTypeDef]] = None
-    clientRequestToken: Optional[str] = None
+    clientRequestToken: Optional[Annotated[str, _aws_pattern("Bedrock", "IdempotencyToken")]] = None
 
 
 # This class is the input for the 'update_guardrail' function.
 class UpdateGuardrailRequestTypeDef(BaseValidatorModel):
-    guardrailIdentifier: str
-    name: str
+    guardrailIdentifier: Annotated[str, _aws_pattern("Bedrock", "GuardrailIdentifier")]
+    name: Annotated[str, _aws_pattern("Bedrock", "GuardrailName")]
     blockedInputMessaging: str
     blockedOutputsMessaging: str
     description: Optional[str] = None
@@ -2603,16 +2639,16 @@ class UpdateGuardrailRequestTypeDef(BaseValidatorModel):
     contextualGroundingPolicyConfig: Optional[GuardrailContextualGroundingPolicyConfigTypeDef] = None
     automatedReasoningPolicyConfig: Optional[GuardrailAutomatedReasoningPolicyConfigTypeDef] = None
     crossRegionConfig: Optional[GuardrailCrossRegionConfigTypeDef] = None
-    kmsKeyId: Optional[str] = None
+    kmsKeyId: Optional[Annotated[str, _aws_pattern("Bedrock", "KmsKeyId")]] = None
 
 
 # This class is the output for the 'get_guardrail' function.
 class GetGuardrailResponseTypeDef(BaseValidatorModel):
-    name: str
+    name: Annotated[str, _aws_pattern("Bedrock", "GuardrailName")]
     description: str
-    guardrailId: str
-    guardrailArn: str
-    version: str
+    guardrailId: Annotated[str, _aws_pattern("Bedrock", "GuardrailId")]
+    guardrailArn: Annotated[str, _aws_pattern("Bedrock", "GuardrailArn")]
+    version: Annotated[str, _aws_pattern("Bedrock", "GuardrailVersion")]
     status: GuardrailStatusType
     topicPolicy: GuardrailTopicPolicyTypeDef
     contentPolicy: GuardrailContentPolicyTypeDef
@@ -2627,7 +2663,7 @@ class GetGuardrailResponseTypeDef(BaseValidatorModel):
     failureRecommendations: List[str]
     blockedInputMessaging: str
     blockedOutputsMessaging: str
-    kmsKeyArn: str
+    kmsKeyArn: Annotated[str, _aws_pattern("Bedrock", "KmsKeyArn")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
@@ -2661,24 +2697,24 @@ class GenerationConfigurationTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'create_custom_model' function.
 class CreateCustomModelRequestTypeDef(BaseValidatorModel):
-    modelName: str
+    modelName: Annotated[str, _aws_pattern("Bedrock", "CustomModelName")]
     modelSourceConfig: ModelDataSourceTypeDef
-    modelKmsKeyArn: Optional[str] = None
-    roleArn: Optional[str] = None
+    modelKmsKeyArn: Optional[Annotated[str, _aws_pattern("Bedrock", "KmsKeyArn")]] = None
+    roleArn: Optional[Annotated[str, _aws_pattern("Bedrock", "RoleArn")]] = None
     modelTags: Optional[List[TagTypeDef]] = None
-    clientRequestToken: Optional[str] = None
+    clientRequestToken: Optional[Annotated[str, _aws_pattern("Bedrock", "IdempotencyToken")]] = None
 
 
 # This class is the output for the 'get_imported_model' function.
 class GetImportedModelResponseTypeDef(BaseValidatorModel):
-    modelArn: str
-    modelName: str
-    jobName: str
-    jobArn: str
+    modelArn: Annotated[str, _aws_pattern("Bedrock", "ImportedModelArn")]
+    modelName: Annotated[str, _aws_pattern("Bedrock", "ImportedModelName")]
+    jobName: Annotated[str, _aws_pattern("Bedrock", "JobName")]
+    jobArn: Annotated[str, _aws_pattern("Bedrock", "ModelImportJobArn")]
     modelDataSource: ModelDataSourceTypeDef
     creationTime: datetime
     modelArchitecture: str
-    modelKmsKeyArn: str
+    modelKmsKeyArn: Annotated[str, _aws_pattern("Bedrock", "KmsKeyArn")]
     instructSupported: bool
     customModelUnits: CustomModelUnitsTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
@@ -2686,11 +2722,11 @@ class GetImportedModelResponseTypeDef(BaseValidatorModel):
 
 # This class is the output for the 'get_model_import_job' function.
 class GetModelImportJobResponseTypeDef(BaseValidatorModel):
-    jobArn: str
-    jobName: str
-    importedModelName: str
-    importedModelArn: str
-    roleArn: str
+    jobArn: Annotated[str, _aws_pattern("Bedrock", "ModelImportJobArn")]
+    jobName: Annotated[str, _aws_pattern("Bedrock", "JobName")]
+    importedModelName: Annotated[str, _aws_pattern("Bedrock", "ImportedModelName")]
+    importedModelArn: Annotated[str, _aws_pattern("Bedrock", "ImportedModelArn")]
+    roleArn: Annotated[str, _aws_pattern("Bedrock", "RoleArn")]
     modelDataSource: ModelDataSourceTypeDef
     status: ModelImportJobStatusType
     failureMessage: str
@@ -2698,24 +2734,24 @@ class GetModelImportJobResponseTypeDef(BaseValidatorModel):
     lastModifiedTime: datetime
     endTime: datetime
     vpcConfig: VpcConfigOutputTypeDef
-    importedModelKmsKeyArn: str
+    importedModelKmsKeyArn: Annotated[str, _aws_pattern("Bedrock", "KmsKeyArn")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 class AccountEnforcedGuardrailInferenceInputConfigurationTypeDef(BaseValidatorModel):
-    guardrailIdentifier: str
-    guardrailVersion: str
+    guardrailIdentifier: Annotated[str, _aws_pattern("Bedrock", "GuardrailIdentifier")]
+    guardrailVersion: Annotated[str, _aws_pattern("Bedrock", "GuardrailNumericalVersion")]
     selectiveContentGuarding: Optional[SelectiveContentGuardingTypeDef] = None
     modelEnforcement: Optional[ModelEnforcementUnionTypeDef] = None
 
 
 # This class is the output for the 'get_model_invocation_job' function.
 class GetModelInvocationJobResponseTypeDef(BaseValidatorModel):
-    jobArn: str
-    jobName: str
-    modelId: str
-    clientRequestToken: str
-    roleArn: str
+    jobArn: Annotated[str, _aws_pattern("Bedrock", "ModelInvocationJobArn")]
+    jobName: Annotated[str, _aws_pattern("Bedrock", "ModelInvocationJobName")]
+    modelId: Annotated[str, _aws_pattern("Bedrock", "ModelId")]
+    clientRequestToken: Annotated[str, _aws_pattern("Bedrock", "ModelInvocationIdempotencyToken")]
+    roleArn: Annotated[str, _aws_pattern("Bedrock", "RoleArn")]
     status: ModelInvocationJobStatusType
     message: str
     submitTime: datetime
@@ -2735,14 +2771,14 @@ class GetModelInvocationJobResponseTypeDef(BaseValidatorModel):
 
 
 class ModelInvocationJobSummaryTypeDef(BaseValidatorModel):
-    jobArn: str
-    jobName: str
-    modelId: str
-    roleArn: str
+    jobArn: Annotated[str, _aws_pattern("Bedrock", "ModelInvocationJobArn")]
+    jobName: Annotated[str, _aws_pattern("Bedrock", "ModelInvocationJobName")]
+    modelId: Annotated[str, _aws_pattern("Bedrock", "ModelId")]
+    roleArn: Annotated[str, _aws_pattern("Bedrock", "RoleArn")]
     submitTime: datetime
     inputDataConfig: ModelInvocationJobInputDataConfigTypeDef
     outputDataConfig: ModelInvocationJobOutputDataConfigTypeDef
-    clientRequestToken: Optional[str] = None
+    clientRequestToken: Optional[Annotated[str, _aws_pattern("Bedrock", "ModelInvocationIdempotencyToken")]] = None
     status: Optional[ModelInvocationJobStatusType] = None
     message: Optional[str] = None
     lastModifiedTime: Optional[datetime] = None
@@ -2764,7 +2800,7 @@ class CustomMetricDefinitionOutputTypeDef(BaseValidatorModel):
 
 
 class CustomMetricDefinitionTypeDef(BaseValidatorModel):
-    name: str
+    name: Annotated[str, _aws_pattern("Bedrock", "MetricName")]
     instructions: str
     ratingScale: Optional[List[RatingScaleItemTypeDef]] = None
 
@@ -2787,25 +2823,25 @@ class EndpointConfigTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'create_model_import_job' function.
 class CreateModelImportJobRequestTypeDef(BaseValidatorModel):
-    jobName: str
-    importedModelName: str
-    roleArn: str
+    jobName: Annotated[str, _aws_pattern("Bedrock", "JobName")]
+    importedModelName: Annotated[str, _aws_pattern("Bedrock", "ImportedModelName")]
+    roleArn: Annotated[str, _aws_pattern("Bedrock", "RoleArn")]
     modelDataSource: ModelDataSourceTypeDef
     jobTags: Optional[List[TagTypeDef]] = None
     importedModelTags: Optional[List[TagTypeDef]] = None
-    clientRequestToken: Optional[str] = None
+    clientRequestToken: Optional[Annotated[str, _aws_pattern("Bedrock", "IdempotencyToken")]] = None
     vpcConfig: Optional[VpcConfigUnionTypeDef] = None
-    importedModelKmsKeyId: Optional[str] = None
+    importedModelKmsKeyId: Optional[Annotated[str, _aws_pattern("Bedrock", "KmsKeyId")]] = None
 
 
 # This class is the input for the 'create_model_invocation_job' function.
 class CreateModelInvocationJobRequestTypeDef(BaseValidatorModel):
-    jobName: str
-    roleArn: str
-    modelId: str
+    jobName: Annotated[str, _aws_pattern("Bedrock", "ModelInvocationJobName")]
+    roleArn: Annotated[str, _aws_pattern("Bedrock", "RoleArn")]
+    modelId: Annotated[str, _aws_pattern("Bedrock", "ModelId")]
     inputDataConfig: ModelInvocationJobInputDataConfigTypeDef
     outputDataConfig: ModelInvocationJobOutputDataConfigTypeDef
-    clientRequestToken: Optional[str] = None
+    clientRequestToken: Optional[Annotated[str, _aws_pattern("Bedrock", "ModelInvocationIdempotencyToken")]] = None
     vpcConfig: Optional[VpcConfigUnionTypeDef] = None
     timeoutDurationInHours: Optional[int] = None
     tags: Optional[List[TagTypeDef]] = None
@@ -2813,16 +2849,16 @@ class CreateModelInvocationJobRequestTypeDef(BaseValidatorModel):
 
 
 class ModelCustomizationJobSummaryTypeDef(BaseValidatorModel):
-    jobArn: str
-    baseModelArn: str
-    jobName: str
+    jobArn: Annotated[str, _aws_pattern("Bedrock", "ModelCustomizationJobArn")]
+    baseModelArn: Annotated[str, _aws_pattern("Bedrock", "ModelArn")]
+    jobName: Annotated[str, _aws_pattern("Bedrock", "JobName")]
     status: ModelCustomizationJobStatusType
     creationTime: datetime
     statusDetails: Optional[StatusDetailsTypeDef] = None
     lastModifiedTime: Optional[datetime] = None
     endTime: Optional[datetime] = None
-    customModelArn: Optional[str] = None
-    customModelName: Optional[str] = None
+    customModelArn: Optional[Annotated[str, _aws_pattern("Bedrock", "CustomModelArn")]] = None
+    customModelName: Optional[Annotated[str, _aws_pattern("Bedrock", "CustomModelName")]] = None
     customizationType: Optional[CustomizationTypeType] = None
 
 
@@ -2862,7 +2898,7 @@ class AutomatedReasoningPolicyDefinitionTypeDef(BaseValidatorModel):
 class AutomatedReasoningPolicyReportSourceDocumentTypeDef(BaseValidatorModel):
     documentName: str
     documentHash: str
-    documentId: str
+    documentId: Annotated[str, _aws_pattern("Bedrock", "AutomatedReasoningPolicyDocumentId")]
     atomicStatements: List[AutomatedReasoningPolicyAtomicStatementTypeDef]
     documentContent: List[AutomatedReasoningPolicyAnnotatedChunkTypeDef]
 
@@ -2921,7 +2957,7 @@ class HumanEvaluationConfigTypeDef(BaseValidatorModel):
 class ListEvaluationJobsResponseTypeDef(BaseValidatorModel):
     jobSummaries: List[EvaluationSummaryTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
-    nextToken: Optional[str] = None
+    nextToken: Optional[Annotated[str, _aws_pattern("Bedrock", "PaginationToken")]] = None
 
 
 class VectorSearchBedrockRerankingConfigurationOutputTypeDef(BaseValidatorModel):
@@ -2938,7 +2974,7 @@ class VectorSearchBedrockRerankingConfigurationTypeDef(BaseValidatorModel):
 
 class MarketplaceModelEndpointTypeDef(BaseValidatorModel):
     endpointArn: str
-    modelSourceIdentifier: str
+    modelSourceIdentifier: Annotated[str, _aws_pattern("Bedrock", "ModelSourceIdentifier")]
     createdAt: datetime
     updatedAt: datetime
     endpointConfig: EndpointConfigOutputTypeDef
@@ -2960,7 +2996,7 @@ class ExternalSourcesRetrieveAndGenerateConfigurationOutputTypeDef(BaseValidator
 
 
 class ExternalSourcesRetrieveAndGenerateConfigurationTypeDef(BaseValidatorModel):
-    modelArn: str
+    modelArn: Annotated[str, _aws_pattern("Bedrock", "BedrockModelArn")]
     sources: List[ExternalSourceTypeDef]
     generationConfiguration: Optional[ExternalSourcesGenerationConfigurationTypeDef] = None
 
@@ -2968,14 +3004,14 @@ class ExternalSourcesRetrieveAndGenerateConfigurationTypeDef(BaseValidatorModel)
 # This class is the input for the 'put_enforced_guardrail_configuration' function.
 class PutEnforcedGuardrailConfigurationRequestTypeDef(BaseValidatorModel):
     guardrailInferenceConfig: AccountEnforcedGuardrailInferenceInputConfigurationTypeDef
-    configId: Optional[str] = None
+    configId: Optional[Annotated[str, _aws_pattern("Bedrock", "AccountEnforcedGuardrailConfigurationId")]] = None
 
 
 # This class is the output for the 'list_model_invocation_jobs' function.
 class ListModelInvocationJobsResponseTypeDef(BaseValidatorModel):
     invocationJobSummaries: List[ModelInvocationJobSummaryTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
-    nextToken: Optional[str] = None
+    nextToken: Optional[Annotated[str, _aws_pattern("Bedrock", "PaginationToken")]] = None
 
 
 class AutomatedEvaluationCustomMetricSourceOutputTypeDef(BaseValidatorModel):
@@ -2992,7 +3028,7 @@ class TrainingDataConfigOutputTypeDef(BaseValidatorModel):
 
 
 class TrainingDataConfigTypeDef(BaseValidatorModel):
-    s3Uri: Optional[str] = None
+    s3Uri: Optional[Annotated[str, _aws_pattern("Bedrock", "S3Uri")]] = None
     invocationLogsConfig: Optional[InvocationLogsConfigTypeDef] = None
 
 
@@ -3003,7 +3039,7 @@ EndpointConfigUnionTypeDef = Union[EndpointConfigOutputTypeDef, EndpointConfigTy
 class ListModelCustomizationJobsResponseTypeDef(BaseValidatorModel):
     modelCustomizationJobSummaries: List[ModelCustomizationJobSummaryTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
-    nextToken: Optional[str] = None
+    nextToken: Optional[Annotated[str, _aws_pattern("Bedrock", "PaginationToken")]] = None
 
 
 class AutomatedReasoningCheckFindingTypeDef(BaseValidatorModel):
@@ -3036,11 +3072,11 @@ class AutomatedReasoningPolicyFidelityReportTypeDef(BaseValidatorModel):
 
 # This class is the output for the 'get_automated_reasoning_policy_annotations' function.
 class GetAutomatedReasoningPolicyAnnotationsResponseTypeDef(BaseValidatorModel):
-    policyArn: str
-    name: str
-    buildWorkflowId: str
+    policyArn: Annotated[str, _aws_pattern("Bedrock", "AutomatedReasoningPolicyArn")]
+    name: Annotated[str, _aws_pattern("Bedrock", "AutomatedReasoningPolicyName")]
+    buildWorkflowId: Annotated[str, _aws_pattern("Bedrock", "AutomatedReasoningPolicyBuildWorkflowId")]
     annotations: List[AutomatedReasoningPolicyAnnotationOutputTypeDef]
-    annotationSetHash: str
+    annotationSetHash: Annotated[str, _aws_pattern("Bedrock", "AutomatedReasoningPolicyHash")]
     updatedAt: datetime
     ResponseMetadata: ResponseMetadataTypeDef
 
@@ -3065,7 +3101,7 @@ class AutomatedReasoningPolicyAnnotationTypeDef(BaseValidatorModel):
 
 # This class is the output for the 'list_foundation_model_agreement_offers' function.
 class ListFoundationModelAgreementOffersResponseTypeDef(BaseValidatorModel):
-    modelId: str
+    modelId: Annotated[str, _aws_pattern("Bedrock", "BedrockModelId")]
     offers: List[OfferTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
 
@@ -3116,13 +3152,13 @@ class AutomatedEvaluationCustomMetricConfigTypeDef(BaseValidatorModel):
 
 # This class is the output for the 'get_custom_model' function.
 class GetCustomModelResponseTypeDef(BaseValidatorModel):
-    modelArn: str
-    modelName: str
-    jobName: str
-    jobArn: str
-    baseModelArn: str
+    modelArn: Annotated[str, _aws_pattern("Bedrock", "ModelArn")]
+    modelName: Annotated[str, _aws_pattern("Bedrock", "CustomModelName")]
+    jobName: Annotated[str, _aws_pattern("Bedrock", "JobName")]
+    jobArn: Annotated[str, _aws_pattern("Bedrock", "ModelCustomizationJobArn")]
+    baseModelArn: Annotated[str, _aws_pattern("Bedrock", "ModelArn")]
     customizationType: CustomizationTypeType
-    modelKmsKeyArn: str
+    modelKmsKeyArn: Annotated[str, _aws_pattern("Bedrock", "KmsKeyArn")]
     hyperParameters: Dict[str, str]
     trainingDataConfig: TrainingDataConfigOutputTypeDef
     validationDataConfig: ValidationDataConfigOutputTypeDef
@@ -3138,25 +3174,25 @@ class GetCustomModelResponseTypeDef(BaseValidatorModel):
 
 # This class is the output for the 'get_model_customization_job' function.
 class GetModelCustomizationJobResponseTypeDef(BaseValidatorModel):
-    jobArn: str
-    jobName: str
-    outputModelName: str
-    outputModelArn: str
-    clientRequestToken: str
-    roleArn: str
+    jobArn: Annotated[str, _aws_pattern("Bedrock", "ModelCustomizationJobArn")]
+    jobName: Annotated[str, _aws_pattern("Bedrock", "JobName")]
+    outputModelName: Annotated[str, _aws_pattern("Bedrock", "CustomModelName")]
+    outputModelArn: Annotated[str, _aws_pattern("Bedrock", "CustomModelArn")]
+    clientRequestToken: Annotated[str, _aws_pattern("Bedrock", "IdempotencyToken")]
+    roleArn: Annotated[str, _aws_pattern("Bedrock", "RoleArn")]
     status: ModelCustomizationJobStatusType
     statusDetails: StatusDetailsTypeDef
     failureMessage: str
     creationTime: datetime
     lastModifiedTime: datetime
     endTime: datetime
-    baseModelArn: str
+    baseModelArn: Annotated[str, _aws_pattern("Bedrock", "FoundationModelArn")]
     hyperParameters: Dict[str, str]
     trainingDataConfig: TrainingDataConfigOutputTypeDef
     validationDataConfig: ValidationDataConfigOutputTypeDef
     outputDataConfig: OutputDataConfigTypeDef
     customizationType: CustomizationTypeType
-    outputModelKmsKeyArn: str
+    outputModelKmsKeyArn: Annotated[str, _aws_pattern("Bedrock", "KmsKeyArn")]
     trainingMetrics: TrainingMetricsTypeDef
     validationMetrics: List[ValidatorMetricTypeDef]
     vpcConfig: VpcConfigOutputTypeDef
@@ -3169,11 +3205,11 @@ TrainingDataConfigUnionTypeDef = Union[TrainingDataConfigOutputTypeDef, Training
 
 # This class is the input for the 'create_marketplace_model_endpoint' function.
 class CreateMarketplaceModelEndpointRequestTypeDef(BaseValidatorModel):
-    modelSourceIdentifier: str
+    modelSourceIdentifier: Annotated[str, _aws_pattern("Bedrock", "ModelSourceIdentifier")]
     endpointConfig: EndpointConfigUnionTypeDef
     endpointName: str
     acceptEula: Optional[bool] = None
-    clientRequestToken: Optional[str] = None
+    clientRequestToken: Optional[Annotated[str, _aws_pattern("Bedrock", "IdempotencyToken")]] = None
     tags: Optional[List[TagTypeDef]] = None
 
 
@@ -3181,12 +3217,12 @@ class CreateMarketplaceModelEndpointRequestTypeDef(BaseValidatorModel):
 class UpdateMarketplaceModelEndpointRequestTypeDef(BaseValidatorModel):
     endpointArn: str
     endpointConfig: EndpointConfigUnionTypeDef
-    clientRequestToken: Optional[str] = None
+    clientRequestToken: Optional[Annotated[str, _aws_pattern("Bedrock", "IdempotencyToken")]] = None
 
 
 class AutomatedReasoningPolicyTestResultTypeDef(BaseValidatorModel):
     testCase: AutomatedReasoningPolicyTestCaseTypeDef
-    policyArn: str
+    policyArn: Annotated[str, _aws_pattern("Bedrock", "AutomatedReasoningPolicyArn")]
     testRunStatus: AutomatedReasoningPolicyTestRunStatusType
     updatedAt: datetime
     testFindings: Optional[List[AutomatedReasoningCheckFindingTypeDef]] = None
@@ -3202,20 +3238,20 @@ class AutomatedReasoningPolicyBuildStepTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'create_automated_reasoning_policy' function.
 class CreateAutomatedReasoningPolicyRequestTypeDef(BaseValidatorModel):
-    name: str
-    description: Optional[str] = None
-    clientRequestToken: Optional[str] = None
+    name: Annotated[str, _aws_pattern("Bedrock", "AutomatedReasoningPolicyName")]
+    description: Optional[Annotated[str, _aws_pattern("Bedrock", "AutomatedReasoningPolicyDescription")]] = None
+    clientRequestToken: Optional[Annotated[str, _aws_pattern("Bedrock", "IdempotencyToken")]] = None
     policyDefinition: Optional[AutomatedReasoningPolicyDefinitionUnionTypeDef] = None
-    kmsKeyId: Optional[str] = None
+    kmsKeyId: Optional[Annotated[str, _aws_pattern("Bedrock", "KmsKeyId")]] = None
     tags: Optional[List[TagTypeDef]] = None
 
 
 # This class is the input for the 'update_automated_reasoning_policy' function.
 class UpdateAutomatedReasoningPolicyRequestTypeDef(BaseValidatorModel):
-    policyArn: str
+    policyArn: Annotated[str, _aws_pattern("Bedrock", "AutomatedReasoningPolicyArn")]
     policyDefinition: AutomatedReasoningPolicyDefinitionUnionTypeDef
-    name: Optional[str] = None
-    description: Optional[str] = None
+    name: Optional[Annotated[str, _aws_pattern("Bedrock", "AutomatedReasoningPolicyName")]] = None
+    description: Optional[Annotated[str, _aws_pattern("Bedrock", "AutomatedReasoningPolicyDescription")]] = None
 
 
 AutomatedReasoningPolicyAnnotationUnionTypeDef = Union[
@@ -3253,15 +3289,15 @@ class AutomatedEvaluationConfigTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'create_model_customization_job' function.
 class CreateModelCustomizationJobRequestTypeDef(BaseValidatorModel):
-    jobName: str
-    customModelName: str
-    roleArn: str
-    baseModelIdentifier: str
+    jobName: Annotated[str, _aws_pattern("Bedrock", "JobName")]
+    customModelName: Annotated[str, _aws_pattern("Bedrock", "CustomModelName")]
+    roleArn: Annotated[str, _aws_pattern("Bedrock", "RoleArn")]
+    baseModelIdentifier: Annotated[str, _aws_pattern("Bedrock", "BaseModelIdentifier")]
     trainingDataConfig: TrainingDataConfigUnionTypeDef
     outputDataConfig: OutputDataConfigTypeDef
-    clientRequestToken: Optional[str] = None
+    clientRequestToken: Optional[Annotated[str, _aws_pattern("Bedrock", "IdempotencyToken")]] = None
     customizationType: Optional[CustomizationTypeType] = None
-    customModelKmsKeyId: Optional[str] = None
+    customModelKmsKeyId: Optional[Annotated[str, _aws_pattern("Bedrock", "KmsKeyId")]] = None
     jobTags: Optional[List[TagTypeDef]] = None
     customModelTags: Optional[List[TagTypeDef]] = None
     validationDataConfig: Optional[ValidationDataConfigUnionTypeDef] = None
@@ -3280,7 +3316,7 @@ class GetAutomatedReasoningPolicyTestResultResponseTypeDef(BaseValidatorModel):
 class ListAutomatedReasoningPolicyTestResultsResponseTypeDef(BaseValidatorModel):
     testResults: List[AutomatedReasoningPolicyTestResultTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
-    nextToken: Optional[str] = None
+    nextToken: Optional[Annotated[str, _aws_pattern("Bedrock", "PaginationToken")]] = None
 
 
 class AutomatedReasoningPolicyBuildLogEntryTypeDef(BaseValidatorModel):
@@ -3295,10 +3331,10 @@ class AutomatedReasoningPolicyBuildWorkflowRepairContentTypeDef(BaseValidatorMod
 
 # This class is the input for the 'update_automated_reasoning_policy_annotations' function.
 class UpdateAutomatedReasoningPolicyAnnotationsRequestTypeDef(BaseValidatorModel):
-    policyArn: str
-    buildWorkflowId: str
+    policyArn: Annotated[str, _aws_pattern("Bedrock", "AutomatedReasoningPolicyArn")]
+    buildWorkflowId: Annotated[str, _aws_pattern("Bedrock", "AutomatedReasoningPolicyBuildWorkflowId")]
     annotations: List[AutomatedReasoningPolicyAnnotationUnionTypeDef]
-    lastUpdatedAnnotationSetHash: str
+    lastUpdatedAnnotationSetHash: Annotated[str, _aws_pattern("Bedrock", "AutomatedReasoningPolicyHash")]
 
 
 class KnowledgeBaseRetrievalConfigurationOutputTypeDef(BaseValidatorModel):
@@ -3343,15 +3379,15 @@ class RetrieveConfigOutputTypeDef(BaseValidatorModel):
 
 
 class KnowledgeBaseRetrieveAndGenerateConfigurationTypeDef(BaseValidatorModel):
-    knowledgeBaseId: str
-    modelArn: str
+    knowledgeBaseId: Annotated[str, _aws_pattern("Bedrock", "KnowledgeBaseId")]
+    modelArn: Annotated[str, _aws_pattern("Bedrock", "BedrockModelArn")]
     retrievalConfiguration: Optional[KnowledgeBaseRetrievalConfigurationTypeDef] = None
     generationConfiguration: Optional[GenerationConfigurationTypeDef] = None
     orchestrationConfiguration: Optional[OrchestrationConfigurationTypeDef] = None
 
 
 class RetrieveConfigTypeDef(BaseValidatorModel):
-    knowledgeBaseId: str
+    knowledgeBaseId: Annotated[str, _aws_pattern("Bedrock", "KnowledgeBaseId")]
     knowledgeBaseRetrievalConfiguration: KnowledgeBaseRetrievalConfigurationTypeDef
 
 
@@ -3388,18 +3424,18 @@ class RetrieveAndGenerateConfigurationTypeDef(BaseValidatorModel):
 
 # This class is the output for the 'get_automated_reasoning_policy_build_workflow_result_assets' function.
 class GetAutomatedReasoningPolicyBuildWorkflowResultAssetsResponseTypeDef(BaseValidatorModel):
-    policyArn: str
-    buildWorkflowId: str
+    policyArn: Annotated[str, _aws_pattern("Bedrock", "AutomatedReasoningPolicyArn")]
+    buildWorkflowId: Annotated[str, _aws_pattern("Bedrock", "AutomatedReasoningPolicyBuildWorkflowId")]
     buildWorkflowAssets: AutomatedReasoningPolicyBuildResultAssetsTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 # This class is the input for the 'start_automated_reasoning_policy_build_workflow' function.
 class StartAutomatedReasoningPolicyBuildWorkflowRequestTypeDef(BaseValidatorModel):
-    policyArn: str
+    policyArn: Annotated[str, _aws_pattern("Bedrock", "AutomatedReasoningPolicyArn")]
     buildWorkflowType: AutomatedReasoningPolicyBuildWorkflowTypeType
     sourceContent: AutomatedReasoningPolicyBuildWorkflowSourceTypeDef
-    clientRequestToken: Optional[str] = None
+    clientRequestToken: Optional[Annotated[str, _aws_pattern("Bedrock", "IdempotencyToken")]] = None
 
 
 class KnowledgeBaseConfigOutputTypeDef(BaseValidatorModel):
@@ -3434,12 +3470,12 @@ class EvaluationInferenceConfigTypeDef(BaseValidatorModel):
 
 # This class is the output for the 'get_evaluation_job' function.
 class GetEvaluationJobResponseTypeDef(BaseValidatorModel):
-    jobName: str
+    jobName: Annotated[str, _aws_pattern("Bedrock", "EvaluationJobName")]
     status: EvaluationJobStatusType
-    jobArn: str
-    jobDescription: str
-    roleArn: str
-    customerEncryptionKeyId: str
+    jobArn: Annotated[str, _aws_pattern("Bedrock", "EvaluationJobArn")]
+    jobDescription: Annotated[str, _aws_pattern("Bedrock", "EvaluationJobDescription")]
+    roleArn: Annotated[str, _aws_pattern("Bedrock", "RoleArn")]
+    customerEncryptionKeyId: Annotated[str, _aws_pattern("Bedrock", "KmsKeyId")]
     jobType: EvaluationJobTypeType
     applicationType: ApplicationTypeType
     evaluationConfig: EvaluationConfigOutputTypeDef
@@ -3456,13 +3492,13 @@ EvaluationInferenceConfigUnionTypeDef = Union[EvaluationInferenceConfigOutputTyp
 
 # This class is the input for the 'create_evaluation_job' function.
 class CreateEvaluationJobRequestTypeDef(BaseValidatorModel):
-    jobName: str
-    roleArn: str
+    jobName: Annotated[str, _aws_pattern("Bedrock", "EvaluationJobName")]
+    roleArn: Annotated[str, _aws_pattern("Bedrock", "RoleArn")]
     evaluationConfig: EvaluationConfigUnionTypeDef
     inferenceConfig: EvaluationInferenceConfigUnionTypeDef
     outputDataConfig: EvaluationOutputDataConfigTypeDef
-    jobDescription: Optional[str] = None
-    clientRequestToken: Optional[str] = None
-    customerEncryptionKeyId: Optional[str] = None
+    jobDescription: Optional[Annotated[str, _aws_pattern("Bedrock", "EvaluationJobDescription")]] = None
+    clientRequestToken: Optional[Annotated[str, _aws_pattern("Bedrock", "IdempotencyToken")]] = None
+    customerEncryptionKeyId: Optional[Annotated[str, _aws_pattern("Bedrock", "KmsKeyId")]] = None
     jobTags: Optional[List[TagTypeDef]] = None
     applicationType: Optional[ApplicationTypeType] = None

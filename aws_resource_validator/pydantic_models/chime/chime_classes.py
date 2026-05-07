@@ -3,6 +3,7 @@
 from datetime import datetime
 from decimal import Decimal
 from typing import (
+    Annotated,
     Any,
     Callable,
     Dict,
@@ -24,6 +25,7 @@ from botocore.response import StreamingBody
 from pydantic import Field
 
 from aws_resource_validator.core.base_validator_model import BaseValidatorModel, EventStream
+from aws_resource_validator.core.pattern_validation import aws_field_pattern as _aws_pattern
 from aws_resource_validator.pydantic_models.chime.chime_constants import *  # noqa: F401,F403
 
 # Optional boto3 symbols — imported lazily so services that don't need them
@@ -44,7 +46,7 @@ class AccountSettingsTypeDef(BaseValidatorModel):
 
 
 class SigninDelegateGroupTypeDef(BaseValidatorModel):
-    GroupName: Optional[str] = None
+    GroupName: Optional[Annotated[str, _aws_pattern("Chime", "NonEmptyString")]] = None
 
 
 class AlexaForBusinessMetadataTypeDef(BaseValidatorModel):
@@ -55,16 +57,16 @@ class AlexaForBusinessMetadataTypeDef(BaseValidatorModel):
 class AssociatePhoneNumberWithUserRequestTypeDef(BaseValidatorModel):
     AccountId: str
     UserId: str
-    E164PhoneNumber: str
+    E164PhoneNumber: Annotated[str, _aws_pattern("Chime", "E164PhoneNumber")]
 
 
 class MembershipItemTypeDef(BaseValidatorModel):
-    MemberId: Optional[str] = None
+    MemberId: Optional[Annotated[str, _aws_pattern("Chime", "NonEmptyString")]] = None
     Role: Optional[RoomMembershipRoleType] = None
 
 
 class MemberErrorTypeDef(BaseValidatorModel):
-    MemberId: Optional[str] = None
+    MemberId: Optional[Annotated[str, _aws_pattern("Chime", "NonEmptyString")]] = None
     ErrorCode: Optional[ErrorCodeType] = None
     ErrorMessage: Optional[str] = None
 
@@ -83,33 +85,33 @@ class BatchDeletePhoneNumberRequestTypeDef(BaseValidatorModel):
 
 
 class PhoneNumberErrorTypeDef(BaseValidatorModel):
-    PhoneNumberId: Optional[str] = None
+    PhoneNumberId: Optional[Annotated[str, _aws_pattern("Chime", "NonEmptyString")]] = None
     ErrorCode: Optional[ErrorCodeType] = None
     ErrorMessage: Optional[str] = None
 
 
 # This class is the input for the 'batch_suspend_user' function.
 class BatchSuspendUserRequestTypeDef(BaseValidatorModel):
-    AccountId: str
-    UserIdList: List[str]
+    AccountId: Annotated[str, _aws_pattern("Chime", "NonEmptyString")]
+    UserIdList: List[Annotated[str, _aws_pattern("Chime", "NonEmptyString")]]
 
 
 class UserErrorTypeDef(BaseValidatorModel):
-    UserId: Optional[str] = None
+    UserId: Optional[Annotated[str, _aws_pattern("Chime", "NonEmptyString")]] = None
     ErrorCode: Optional[ErrorCodeType] = None
     ErrorMessage: Optional[str] = None
 
 
 # This class is the input for the 'batch_unsuspend_user' function.
 class BatchUnsuspendUserRequestTypeDef(BaseValidatorModel):
-    AccountId: str
-    UserIdList: List[str]
+    AccountId: Annotated[str, _aws_pattern("Chime", "NonEmptyString")]
+    UserIdList: List[Annotated[str, _aws_pattern("Chime", "NonEmptyString")]]
 
 
 class UpdatePhoneNumberRequestItemTypeDef(BaseValidatorModel):
-    PhoneNumberId: str
+    PhoneNumberId: Annotated[str, _aws_pattern("Chime", "NonEmptyString")]
     ProductType: Optional[PhoneNumberProductTypeType] = None
-    CallingName: Optional[str] = None
+    CallingName: Optional[Annotated[str, _aws_pattern("Chime", "CallingName")]] = None
 
 
 class BotTypeDef(BaseValidatorModel):
@@ -134,70 +136,70 @@ class ConversationRetentionSettingsTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'create_account' function.
 class CreateAccountRequestTypeDef(BaseValidatorModel):
-    Name: str
+    Name: Annotated[str, _aws_pattern("Chime", "AccountName")]
 
 
 # This class is the input for the 'create_bot' function.
 class CreateBotRequestTypeDef(BaseValidatorModel):
-    AccountId: str
+    AccountId: Annotated[str, _aws_pattern("Chime", "NonEmptyString")]
     DisplayName: str
-    Domain: Optional[str] = None
+    Domain: Optional[Annotated[str, _aws_pattern("Chime", "NonEmptyString")]] = None
 
 
 # This class is the input for the 'create_meeting_dial_out' function.
 class CreateMeetingDialOutRequestTypeDef(BaseValidatorModel):
-    MeetingId: str
-    FromPhoneNumber: str
-    ToPhoneNumber: str
-    JoinToken: str
+    MeetingId: Annotated[str, _aws_pattern("Chime", "GuidString")]
+    FromPhoneNumber: Annotated[str, _aws_pattern("Chime", "E164PhoneNumber")]
+    ToPhoneNumber: Annotated[str, _aws_pattern("Chime", "E164PhoneNumber")]
+    JoinToken: Annotated[str, _aws_pattern("Chime", "JoinTokenString")]
 
 
 # This class is the input for the 'create_phone_number_order' function.
 class CreatePhoneNumberOrderRequestTypeDef(BaseValidatorModel):
     ProductType: PhoneNumberProductTypeType
-    E164PhoneNumbers: List[str]
+    E164PhoneNumbers: List[Annotated[str, _aws_pattern("Chime", "E164PhoneNumber")]]
 
 
 # This class is the input for the 'create_room_membership' function.
 class CreateRoomMembershipRequestTypeDef(BaseValidatorModel):
-    AccountId: str
-    RoomId: str
-    MemberId: str
+    AccountId: Annotated[str, _aws_pattern("Chime", "NonEmptyString")]
+    RoomId: Annotated[str, _aws_pattern("Chime", "NonEmptyString")]
+    MemberId: Annotated[str, _aws_pattern("Chime", "NonEmptyString")]
     Role: Optional[RoomMembershipRoleType] = None
 
 
 # This class is the input for the 'create_room' function.
 class CreateRoomRequestTypeDef(BaseValidatorModel):
-    AccountId: str
+    AccountId: Annotated[str, _aws_pattern("Chime", "NonEmptyString")]
     Name: str
-    ClientRequestToken: Optional[str] = None
+    ClientRequestToken: Optional[Annotated[str, _aws_pattern("Chime", "ClientRequestToken")]] = None
 
 
 class RoomTypeDef(BaseValidatorModel):
-    RoomId: Optional[str] = None
+    RoomId: Optional[Annotated[str, _aws_pattern("Chime", "NonEmptyString")]] = None
     Name: Optional[str] = None
-    AccountId: Optional[str] = None
-    CreatedBy: Optional[str] = None
+    AccountId: Optional[Annotated[str, _aws_pattern("Chime", "NonEmptyString")]] = None
+    CreatedBy: Optional[Annotated[str, _aws_pattern("Chime", "NonEmptyString")]] = None
     CreatedTimestamp: Optional[datetime] = None
     UpdatedTimestamp: Optional[datetime] = None
 
 
 # This class is the input for the 'create_user' function.
 class CreateUserRequestTypeDef(BaseValidatorModel):
-    AccountId: str
+    AccountId: Annotated[str, _aws_pattern("Chime", "NonEmptyString")]
     Username: Optional[str] = None
-    Email: Optional[str] = None
+    Email: Optional[Annotated[str, _aws_pattern("Chime", "EmailAddress")]] = None
     UserType: Optional[UserTypeType] = None
 
 
 class DeleteAccountRequestTypeDef(BaseValidatorModel):
-    AccountId: str
+    AccountId: Annotated[str, _aws_pattern("Chime", "NonEmptyString")]
 
 
 # This class is the input for the 'delete_events_configuration' function.
 class DeleteEventsConfigurationRequestTypeDef(BaseValidatorModel):
-    AccountId: str
-    BotId: str
+    AccountId: Annotated[str, _aws_pattern("Chime", "NonEmptyString")]
+    BotId: Annotated[str, _aws_pattern("Chime", "NonEmptyString")]
 
 
 # This class is the input for the 'delete_phone_number' function.
@@ -207,15 +209,15 @@ class DeletePhoneNumberRequestTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'delete_room_membership' function.
 class DeleteRoomMembershipRequestTypeDef(BaseValidatorModel):
-    AccountId: str
-    RoomId: str
-    MemberId: str
+    AccountId: Annotated[str, _aws_pattern("Chime", "NonEmptyString")]
+    RoomId: Annotated[str, _aws_pattern("Chime", "NonEmptyString")]
+    MemberId: Annotated[str, _aws_pattern("Chime", "NonEmptyString")]
 
 
 # This class is the input for the 'delete_room' function.
 class DeleteRoomRequestTypeDef(BaseValidatorModel):
-    AccountId: str
-    RoomId: str
+    AccountId: Annotated[str, _aws_pattern("Chime", "NonEmptyString")]
+    RoomId: Annotated[str, _aws_pattern("Chime", "NonEmptyString")]
 
 
 class DisassociatePhoneNumberFromUserRequestTypeDef(BaseValidatorModel):
@@ -224,7 +226,7 @@ class DisassociatePhoneNumberFromUserRequestTypeDef(BaseValidatorModel):
 
 
 class DisassociateSigninDelegateGroupsFromAccountRequestTypeDef(BaseValidatorModel):
-    AccountId: str
+    AccountId: Annotated[str, _aws_pattern("Chime", "NonEmptyString")]
     GroupNames: List[str]
 
 
@@ -236,24 +238,24 @@ class EventsConfigurationTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'get_account' function.
 class GetAccountRequestTypeDef(BaseValidatorModel):
-    AccountId: str
+    AccountId: Annotated[str, _aws_pattern("Chime", "NonEmptyString")]
 
 
 # This class is the input for the 'get_account_settings' function.
 class GetAccountSettingsRequestTypeDef(BaseValidatorModel):
-    AccountId: str
+    AccountId: Annotated[str, _aws_pattern("Chime", "NonEmptyString")]
 
 
 # This class is the input for the 'get_bot' function.
 class GetBotRequestTypeDef(BaseValidatorModel):
-    AccountId: str
-    BotId: str
+    AccountId: Annotated[str, _aws_pattern("Chime", "NonEmptyString")]
+    BotId: Annotated[str, _aws_pattern("Chime", "NonEmptyString")]
 
 
 # This class is the input for the 'get_events_configuration' function.
 class GetEventsConfigurationRequestTypeDef(BaseValidatorModel):
-    AccountId: str
-    BotId: str
+    AccountId: Annotated[str, _aws_pattern("Chime", "NonEmptyString")]
+    BotId: Annotated[str, _aws_pattern("Chime", "NonEmptyString")]
 
 
 class VoiceConnectorSettingsTypeDef(BaseValidatorModel):
@@ -262,7 +264,7 @@ class VoiceConnectorSettingsTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'get_phone_number_order' function.
 class GetPhoneNumberOrderRequestTypeDef(BaseValidatorModel):
-    PhoneNumberOrderId: str
+    PhoneNumberOrderId: Annotated[str, _aws_pattern("Chime", "GuidString")]
 
 
 # This class is the input for the 'get_phone_number' function.
@@ -272,19 +274,19 @@ class GetPhoneNumberRequestTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'get_retention_settings' function.
 class GetRetentionSettingsRequestTypeDef(BaseValidatorModel):
-    AccountId: str
+    AccountId: Annotated[str, _aws_pattern("Chime", "NonEmptyString")]
 
 
 # This class is the input for the 'get_room' function.
 class GetRoomRequestTypeDef(BaseValidatorModel):
-    AccountId: str
-    RoomId: str
+    AccountId: Annotated[str, _aws_pattern("Chime", "NonEmptyString")]
+    RoomId: Annotated[str, _aws_pattern("Chime", "NonEmptyString")]
 
 
 # This class is the input for the 'get_user' function.
 class GetUserRequestTypeDef(BaseValidatorModel):
-    AccountId: str
-    UserId: str
+    AccountId: Annotated[str, _aws_pattern("Chime", "NonEmptyString")]
+    UserId: Annotated[str, _aws_pattern("Chime", "NonEmptyString")]
 
 
 # This class is the input for the 'get_user_settings' function.
@@ -296,14 +298,14 @@ class GetUserSettingsRequestTypeDef(BaseValidatorModel):
 class InviteTypeDef(BaseValidatorModel):
     InviteId: Optional[str] = None
     Status: Optional[InviteStatusType] = None
-    EmailAddress: Optional[str] = None
+    EmailAddress: Optional[Annotated[str, _aws_pattern("Chime", "EmailAddress")]] = None
     EmailStatus: Optional[EmailStatusType] = None
 
 
 # This class is the input for the 'invite_users' function.
 class InviteUsersRequestTypeDef(BaseValidatorModel):
-    AccountId: str
-    UserEmailList: List[str]
+    AccountId: Annotated[str, _aws_pattern("Chime", "NonEmptyString")]
+    UserEmailList: List[Annotated[str, _aws_pattern("Chime", "EmailAddress")]]
     UserType: Optional[UserTypeType] = None
 
 
@@ -315,15 +317,15 @@ class PaginatorConfigTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'list_accounts' function.
 class ListAccountsRequestTypeDef(BaseValidatorModel):
-    Name: Optional[str] = None
-    UserEmail: Optional[str] = None
+    Name: Optional[Annotated[str, _aws_pattern("Chime", "AccountName")]] = None
+    UserEmail: Optional[Annotated[str, _aws_pattern("Chime", "EmailAddress")]] = None
     NextToken: Optional[str] = None
     MaxResults: Optional[int] = None
 
 
 # This class is the input for the 'list_bots' function.
 class ListBotsRequestTypeDef(BaseValidatorModel):
-    AccountId: str
+    AccountId: Annotated[str, _aws_pattern("Chime", "NonEmptyString")]
     MaxResults: Optional[int] = None
     NextToken: Optional[str] = None
 
@@ -346,15 +348,15 @@ class ListPhoneNumbersRequestTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'list_room_memberships' function.
 class ListRoomMembershipsRequestTypeDef(BaseValidatorModel):
-    AccountId: str
-    RoomId: str
+    AccountId: Annotated[str, _aws_pattern("Chime", "NonEmptyString")]
+    RoomId: Annotated[str, _aws_pattern("Chime", "NonEmptyString")]
     MaxResults: Optional[int] = None
     NextToken: Optional[str] = None
 
 
 # This class is the input for the 'list_rooms' function.
 class ListRoomsRequestTypeDef(BaseValidatorModel):
-    AccountId: str
+    AccountId: Annotated[str, _aws_pattern("Chime", "NonEmptyString")]
     MemberId: Optional[str] = None
     MaxResults: Optional[int] = None
     NextToken: Optional[str] = None
@@ -366,34 +368,34 @@ class ListSupportedPhoneNumberCountriesRequestTypeDef(BaseValidatorModel):
 
 
 class PhoneNumberCountryTypeDef(BaseValidatorModel):
-    CountryCode: Optional[str] = None
+    CountryCode: Optional[Annotated[str, _aws_pattern("Chime", "Alpha2CountryCode")]] = None
     SupportedPhoneNumberTypes: Optional[List[PhoneNumberTypeType]] = None
 
 
 # This class is the input for the 'list_users' function.
 class ListUsersRequestTypeDef(BaseValidatorModel):
-    AccountId: str
-    UserEmail: Optional[str] = None
+    AccountId: Annotated[str, _aws_pattern("Chime", "NonEmptyString")]
+    UserEmail: Optional[Annotated[str, _aws_pattern("Chime", "EmailAddress")]] = None
     UserType: Optional[UserTypeType] = None
     MaxResults: Optional[int] = None
     NextToken: Optional[str] = None
 
 
 class LogoutUserRequestTypeDef(BaseValidatorModel):
-    AccountId: str
-    UserId: str
+    AccountId: Annotated[str, _aws_pattern("Chime", "NonEmptyString")]
+    UserId: Annotated[str, _aws_pattern("Chime", "NonEmptyString")]
 
 
 class MemberTypeDef(BaseValidatorModel):
-    MemberId: Optional[str] = None
+    MemberId: Optional[Annotated[str, _aws_pattern("Chime", "NonEmptyString")]] = None
     MemberType: Optional[MemberTypeType] = None
     Email: Optional[str] = None
     FullName: Optional[str] = None
-    AccountId: Optional[str] = None
+    AccountId: Optional[Annotated[str, _aws_pattern("Chime", "NonEmptyString")]] = None
 
 
 class OrderedPhoneNumberTypeDef(BaseValidatorModel):
-    E164PhoneNumber: Optional[str] = None
+    E164PhoneNumber: Optional[Annotated[str, _aws_pattern("Chime", "E164PhoneNumber")]] = None
     Status: Optional[OrderedPhoneNumberStatusType] = None
 
 
@@ -414,39 +416,39 @@ class PhoneNumberCapabilitiesTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'put_events_configuration' function.
 class PutEventsConfigurationRequestTypeDef(BaseValidatorModel):
-    AccountId: str
-    BotId: str
+    AccountId: Annotated[str, _aws_pattern("Chime", "NonEmptyString")]
+    BotId: Annotated[str, _aws_pattern("Chime", "NonEmptyString")]
     OutboundEventsHTTPSEndpoint: Optional[str] = None
     LambdaFunctionArn: Optional[str] = None
 
 
 class RedactConversationMessageRequestTypeDef(BaseValidatorModel):
-    AccountId: str
-    ConversationId: str
-    MessageId: str
+    AccountId: Annotated[str, _aws_pattern("Chime", "NonEmptyString")]
+    ConversationId: Annotated[str, _aws_pattern("Chime", "NonEmptyString")]
+    MessageId: Annotated[str, _aws_pattern("Chime", "NonEmptyString")]
 
 
 class RedactRoomMessageRequestTypeDef(BaseValidatorModel):
-    AccountId: str
-    RoomId: str
-    MessageId: str
+    AccountId: Annotated[str, _aws_pattern("Chime", "NonEmptyString")]
+    RoomId: Annotated[str, _aws_pattern("Chime", "NonEmptyString")]
+    MessageId: Annotated[str, _aws_pattern("Chime", "NonEmptyString")]
 
 
 # This class is the input for the 'regenerate_security_token' function.
 class RegenerateSecurityTokenRequestTypeDef(BaseValidatorModel):
-    AccountId: str
-    BotId: str
+    AccountId: Annotated[str, _aws_pattern("Chime", "NonEmptyString")]
+    BotId: Annotated[str, _aws_pattern("Chime", "NonEmptyString")]
 
 
 # This class is the input for the 'reset_personal_pin' function.
 class ResetPersonalPINRequestTypeDef(BaseValidatorModel):
-    AccountId: str
-    UserId: str
+    AccountId: Annotated[str, _aws_pattern("Chime", "NonEmptyString")]
+    UserId: Annotated[str, _aws_pattern("Chime", "NonEmptyString")]
 
 
 # This class is the input for the 'restore_phone_number' function.
 class RestorePhoneNumberRequestTypeDef(BaseValidatorModel):
-    PhoneNumberId: str
+    PhoneNumberId: Annotated[str, _aws_pattern("Chime", "NonEmptyString")]
 
 
 class RoomRetentionSettingsTypeDef(BaseValidatorModel):
@@ -457,9 +459,9 @@ class RoomRetentionSettingsTypeDef(BaseValidatorModel):
 class SearchAvailablePhoneNumbersRequestTypeDef(BaseValidatorModel):
     AreaCode: Optional[str] = None
     City: Optional[str] = None
-    Country: Optional[str] = None
+    Country: Optional[Annotated[str, _aws_pattern("Chime", "Alpha2CountryCode")]] = None
     State: Optional[str] = None
-    TollFreePrefix: Optional[str] = None
+    TollFreePrefix: Optional[Annotated[str, _aws_pattern("Chime", "TollFreePrefix")]] = None
     PhoneNumberType: Optional[PhoneNumberTypeType] = None
     MaxResults: Optional[int] = None
     NextToken: Optional[str] = None
@@ -473,15 +475,15 @@ class TelephonySettingsTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'update_account' function.
 class UpdateAccountRequestTypeDef(BaseValidatorModel):
-    AccountId: str
-    Name: Optional[str] = None
+    AccountId: Annotated[str, _aws_pattern("Chime", "NonEmptyString")]
+    Name: Optional[Annotated[str, _aws_pattern("Chime", "AccountName")]] = None
     DefaultLicense: Optional[LicenseType] = None
 
 
 # This class is the input for the 'update_bot' function.
 class UpdateBotRequestTypeDef(BaseValidatorModel):
-    AccountId: str
-    BotId: str
+    AccountId: Annotated[str, _aws_pattern("Chime", "NonEmptyString")]
+    BotId: Annotated[str, _aws_pattern("Chime", "NonEmptyString")]
     Disabled: Optional[bool] = None
 
 
@@ -489,31 +491,31 @@ class UpdateBotRequestTypeDef(BaseValidatorModel):
 class UpdatePhoneNumberRequestTypeDef(BaseValidatorModel):
     PhoneNumberId: str
     ProductType: Optional[PhoneNumberProductTypeType] = None
-    CallingName: Optional[str] = None
+    CallingName: Optional[Annotated[str, _aws_pattern("Chime", "CallingName")]] = None
 
 
 # This class is the input for the 'update_phone_number_settings' function.
 class UpdatePhoneNumberSettingsRequestTypeDef(BaseValidatorModel):
-    CallingName: str
+    CallingName: Annotated[str, _aws_pattern("Chime", "CallingName")]
 
 
 # This class is the input for the 'update_room_membership' function.
 class UpdateRoomMembershipRequestTypeDef(BaseValidatorModel):
-    AccountId: str
-    RoomId: str
-    MemberId: str
+    AccountId: Annotated[str, _aws_pattern("Chime", "NonEmptyString")]
+    RoomId: Annotated[str, _aws_pattern("Chime", "NonEmptyString")]
+    MemberId: Annotated[str, _aws_pattern("Chime", "NonEmptyString")]
     Role: Optional[RoomMembershipRoleType] = None
 
 
 # This class is the input for the 'update_room' function.
 class UpdateRoomRequestTypeDef(BaseValidatorModel):
-    AccountId: str
-    RoomId: str
+    AccountId: Annotated[str, _aws_pattern("Chime", "NonEmptyString")]
+    RoomId: Annotated[str, _aws_pattern("Chime", "NonEmptyString")]
     Name: Optional[str] = None
 
 
 class UpdateAccountSettingsRequestTypeDef(BaseValidatorModel):
-    AccountId: str
+    AccountId: Annotated[str, _aws_pattern("Chime", "NonEmptyString")]
     AccountSettings: AccountSettingsTypeDef
 
 
@@ -530,12 +532,12 @@ class AccountTypeDef(BaseValidatorModel):
 
 
 class AssociateSigninDelegateGroupsWithAccountRequestTypeDef(BaseValidatorModel):
-    AccountId: str
+    AccountId: Annotated[str, _aws_pattern("Chime", "NonEmptyString")]
     SigninDelegateGroups: List[SigninDelegateGroupTypeDef]
 
 
 class UpdateUserRequestItemTypeDef(BaseValidatorModel):
-    UserId: str
+    UserId: Annotated[str, _aws_pattern("Chime", "NonEmptyString")]
     LicenseType: Optional[LicenseType] = None
     UserType: Optional[UserTypeType] = None
     AlexaForBusinessMetadata: Optional[AlexaForBusinessMetadataTypeDef] = None
@@ -543,8 +545,8 @@ class UpdateUserRequestItemTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'update_user' function.
 class UpdateUserRequestTypeDef(BaseValidatorModel):
-    AccountId: str
-    UserId: str
+    AccountId: Annotated[str, _aws_pattern("Chime", "NonEmptyString")]
+    UserId: Annotated[str, _aws_pattern("Chime", "NonEmptyString")]
     LicenseType: Optional[LicenseType] = None
     UserType: Optional[UserTypeType] = None
     AlexaForBusinessMetadata: Optional[AlexaForBusinessMetadataTypeDef] = None
@@ -553,7 +555,7 @@ class UpdateUserRequestTypeDef(BaseValidatorModel):
 class UserTypeDef(BaseValidatorModel):
     UserId: str
     AccountId: Optional[str] = None
-    PrimaryEmail: Optional[str] = None
+    PrimaryEmail: Optional[Annotated[str, _aws_pattern("Chime", "EmailAddress")]] = None
     PrimaryProvisionedNumber: Optional[str] = None
     DisplayName: Optional[str] = None
     LicenseType: Optional[LicenseType] = None
@@ -568,8 +570,8 @@ class UserTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'batch_create_room_membership' function.
 class BatchCreateRoomMembershipRequestTypeDef(BaseValidatorModel):
-    AccountId: str
-    RoomId: str
+    AccountId: Annotated[str, _aws_pattern("Chime", "NonEmptyString")]
+    RoomId: Annotated[str, _aws_pattern("Chime", "NonEmptyString")]
     MembershipItemList: List[MembershipItemTypeDef]
 
 
@@ -581,7 +583,7 @@ class BatchCreateRoomMembershipResponseTypeDef(BaseValidatorModel):
 
 # This class is the output for the 'create_meeting_dial_out' function.
 class CreateMeetingDialOutResponseTypeDef(BaseValidatorModel):
-    TransactionId: str
+    TransactionId: Annotated[str, _aws_pattern("Chime", "GuidString")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
@@ -597,14 +599,14 @@ class GetAccountSettingsResponseTypeDef(BaseValidatorModel):
 
 
 class GetPhoneNumberSettingsResponseTypeDef(BaseValidatorModel):
-    CallingName: str
+    CallingName: Annotated[str, _aws_pattern("Chime", "CallingName")]
     CallingNameUpdatedTimestamp: datetime
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 # This class is the output for the 'search_available_phone_numbers' function.
 class SearchAvailablePhoneNumbersResponseTypeDef(BaseValidatorModel):
-    E164PhoneNumbers: List[str]
+    E164PhoneNumbers: List[Annotated[str, _aws_pattern("Chime", "E164PhoneNumber")]]
     ResponseMetadata: ResponseMetadataTypeDef
     NextToken: Optional[str] = None
 
@@ -750,15 +752,15 @@ class ListSupportedPhoneNumberCountriesResponseTypeDef(BaseValidatorModel):
 
 
 class RoomMembershipTypeDef(BaseValidatorModel):
-    RoomId: Optional[str] = None
+    RoomId: Optional[Annotated[str, _aws_pattern("Chime", "NonEmptyString")]] = None
     Member: Optional[MemberTypeDef] = None
     Role: Optional[RoomMembershipRoleType] = None
-    InvitedBy: Optional[str] = None
+    InvitedBy: Optional[Annotated[str, _aws_pattern("Chime", "NonEmptyString")]] = None
     UpdatedTimestamp: Optional[datetime] = None
 
 
 class PhoneNumberOrderTypeDef(BaseValidatorModel):
-    PhoneNumberOrderId: Optional[str] = None
+    PhoneNumberOrderId: Optional[Annotated[str, _aws_pattern("Chime", "GuidString")]] = None
     ProductType: Optional[PhoneNumberProductTypeType] = None
     Status: Optional[PhoneNumberOrderStatusType] = None
     OrderedPhoneNumbers: Optional[List[OrderedPhoneNumberTypeDef]] = None
@@ -768,14 +770,14 @@ class PhoneNumberOrderTypeDef(BaseValidatorModel):
 
 class PhoneNumberTypeDef(BaseValidatorModel):
     PhoneNumberId: Optional[str] = None
-    E164PhoneNumber: Optional[str] = None
-    Country: Optional[str] = None
+    E164PhoneNumber: Optional[Annotated[str, _aws_pattern("Chime", "E164PhoneNumber")]] = None
+    Country: Optional[Annotated[str, _aws_pattern("Chime", "Alpha2CountryCode")]] = None
     Type: Optional[PhoneNumberTypeType] = None
     ProductType: Optional[PhoneNumberProductTypeType] = None
     Status: Optional[PhoneNumberStatusType] = None
     Capabilities: Optional[PhoneNumberCapabilitiesTypeDef] = None
     Associations: Optional[List[PhoneNumberAssociationTypeDef]] = None
-    CallingName: Optional[str] = None
+    CallingName: Optional[Annotated[str, _aws_pattern("Chime", "CallingName")]] = None
     CallingNameStatus: Optional[CallingNameStatusType] = None
     CreatedTimestamp: Optional[datetime] = None
     UpdatedTimestamp: Optional[datetime] = None
@@ -818,7 +820,7 @@ class UpdateAccountResponseTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'batch_update_user' function.
 class BatchUpdateUserRequestTypeDef(BaseValidatorModel):
-    AccountId: str
+    AccountId: Annotated[str, _aws_pattern("Chime", "NonEmptyString")]
     UpdateUserRequestItems: List[UpdateUserRequestItemTypeDef]
 
 
@@ -925,7 +927,7 @@ class GetRetentionSettingsResponseTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'put_retention_settings' function.
 class PutRetentionSettingsRequestTypeDef(BaseValidatorModel):
-    AccountId: str
+    AccountId: Annotated[str, _aws_pattern("Chime", "NonEmptyString")]
     RetentionSettings: RetentionSettingsTypeDef
 
 

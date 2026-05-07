@@ -3,6 +3,7 @@
 from datetime import datetime
 from decimal import Decimal
 from typing import (
+    Annotated,
     Any,
     Callable,
     Dict,
@@ -24,6 +25,7 @@ from botocore.response import StreamingBody
 from pydantic import Field
 
 from aws_resource_validator.core.base_validator_model import BaseValidatorModel, EventStream
+from aws_resource_validator.core.pattern_validation import aws_field_pattern as _aws_pattern
 from aws_resource_validator.pydantic_models.synthetics.synthetics_constants import *  # noqa: F401,F403
 
 # Optional boto3 symbols — imported lazily so services that don't need them
@@ -40,12 +42,12 @@ except ImportError:  # pragma: no cover
 
 class S3EncryptionConfigTypeDef(BaseValidatorModel):
     EncryptionMode: Optional[EncryptionModeType] = None
-    KmsKeyArn: Optional[str] = None
+    KmsKeyArn: Optional[Annotated[str, _aws_pattern("Synthetics", "KmsKeyArn")]] = None
 
 
 class AssociateResourceRequestTypeDef(BaseValidatorModel):
     GroupIdentifier: str
-    ResourceArn: str
+    ResourceArn: Annotated[str, _aws_pattern("Synthetics", "CanaryArn")]
 
 
 class BaseScreenshotOutputTypeDef(BaseValidatorModel):
@@ -55,7 +57,9 @@ class BaseScreenshotOutputTypeDef(BaseValidatorModel):
 
 class BaseScreenshotTypeDef(BaseValidatorModel):
     ScreenshotName: str
-    IgnoreCoordinates: Optional[List[str]] = None
+    IgnoreCoordinates: Optional[
+        List[Annotated[str, _aws_pattern("Synthetics", "BaseScreenshotConfigIgnoreCoordinate")]]
+    ] = None
 
 
 BlobTypeDef = Union[IO[Any], StreamingBody, bytes, str]
@@ -71,7 +75,7 @@ class DependencyTypeDef(BaseValidatorModel):
 
 
 class CanaryDryRunConfigOutputTypeDef(BaseValidatorModel):
-    DryRunId: Optional[str] = None
+    DryRunId: Optional[Annotated[str, _aws_pattern("Synthetics", "UUID")]] = None
 
 
 class CanaryRunConfigInputTypeDef(BaseValidatorModel):
@@ -124,12 +128,12 @@ class CanaryTimelineTypeDef(BaseValidatorModel):
 
 
 class DryRunConfigOutputTypeDef(BaseValidatorModel):
-    DryRunId: Optional[str] = None
+    DryRunId: Optional[Annotated[str, _aws_pattern("Synthetics", "UUID")]] = None
     LastDryRunExecutionStatus: Optional[str] = None
 
 
 class EngineConfigTypeDef(BaseValidatorModel):
-    EngineArn: Optional[str] = None
+    EngineArn: Optional[Annotated[str, _aws_pattern("Synthetics", "FunctionArn")]] = None
     BrowserType: Optional[BrowserTypeType] = None
 
 
@@ -163,14 +167,14 @@ class CreateGroupRequestTypeDef(BaseValidatorModel):
 class GroupTypeDef(BaseValidatorModel):
     Id: Optional[str] = None
     Name: Optional[str] = None
-    Arn: Optional[str] = None
+    Arn: Optional[Annotated[str, _aws_pattern("Synthetics", "GroupArn")]] = None
     Tags: Optional[Dict[str, str]] = None
     CreatedTime: Optional[datetime] = None
     LastModifiedTime: Optional[datetime] = None
 
 
 class DeleteCanaryRequestTypeDef(BaseValidatorModel):
-    Name: str
+    Name: Annotated[str, _aws_pattern("Synthetics", "CanaryName")]
     DeleteLambda: Optional[bool] = None
 
 
@@ -182,7 +186,7 @@ class DeleteGroupRequestTypeDef(BaseValidatorModel):
 class DescribeCanariesLastRunRequestTypeDef(BaseValidatorModel):
     NextToken: Optional[str] = None
     MaxResults: Optional[int] = None
-    Names: Optional[List[str]] = None
+    Names: Optional[List[Annotated[str, _aws_pattern("Synthetics", "CanaryName")]]] = None
     BrowserType: Optional[BrowserTypeType] = None
 
 
@@ -190,7 +194,7 @@ class DescribeCanariesLastRunRequestTypeDef(BaseValidatorModel):
 class DescribeCanariesRequestTypeDef(BaseValidatorModel):
     NextToken: Optional[str] = None
     MaxResults: Optional[int] = None
-    Names: Optional[List[str]] = None
+    Names: Optional[List[Annotated[str, _aws_pattern("Synthetics", "CanaryName")]]] = None
 
 
 # This class is the input for the 'describe_runtime_versions' function.
@@ -208,21 +212,21 @@ class RuntimeVersionTypeDef(BaseValidatorModel):
 
 class DisassociateResourceRequestTypeDef(BaseValidatorModel):
     GroupIdentifier: str
-    ResourceArn: str
+    ResourceArn: Annotated[str, _aws_pattern("Synthetics", "CanaryArn")]
 
 
 # This class is the input for the 'get_canary' function.
 class GetCanaryRequestTypeDef(BaseValidatorModel):
-    Name: str
-    DryRunId: Optional[str] = None
+    Name: Annotated[str, _aws_pattern("Synthetics", "CanaryName")]
+    DryRunId: Optional[Annotated[str, _aws_pattern("Synthetics", "UUID")]] = None
 
 
 # This class is the input for the 'get_canary_runs' function.
 class GetCanaryRunsRequestTypeDef(BaseValidatorModel):
-    Name: str
+    Name: Annotated[str, _aws_pattern("Synthetics", "CanaryName")]
     NextToken: Optional[str] = None
     MaxResults: Optional[int] = None
-    DryRunId: Optional[str] = None
+    DryRunId: Optional[Annotated[str, _aws_pattern("Synthetics", "UUID")]] = None
     RunType: Optional[RunTypeType] = None
 
 
@@ -234,50 +238,50 @@ class GetGroupRequestTypeDef(BaseValidatorModel):
 class GroupSummaryTypeDef(BaseValidatorModel):
     Id: Optional[str] = None
     Name: Optional[str] = None
-    Arn: Optional[str] = None
+    Arn: Optional[Annotated[str, _aws_pattern("Synthetics", "GroupArn")]] = None
 
 
 # This class is the input for the 'list_associated_groups' function.
 class ListAssociatedGroupsRequestTypeDef(BaseValidatorModel):
-    ResourceArn: str
-    NextToken: Optional[str] = None
+    ResourceArn: Annotated[str, _aws_pattern("Synthetics", "CanaryArn")]
+    NextToken: Optional[Annotated[str, _aws_pattern("Synthetics", "PaginationToken")]] = None
     MaxResults: Optional[int] = None
 
 
 # This class is the input for the 'list_group_resources' function.
 class ListGroupResourcesRequestTypeDef(BaseValidatorModel):
     GroupIdentifier: str
-    NextToken: Optional[str] = None
+    NextToken: Optional[Annotated[str, _aws_pattern("Synthetics", "PaginationToken")]] = None
     MaxResults: Optional[int] = None
 
 
 # This class is the input for the 'list_groups' function.
 class ListGroupsRequestTypeDef(BaseValidatorModel):
-    NextToken: Optional[str] = None
+    NextToken: Optional[Annotated[str, _aws_pattern("Synthetics", "PaginationToken")]] = None
     MaxResults: Optional[int] = None
 
 
 # This class is the input for the 'list_tags_for_resource' function.
 class ListTagsForResourceRequestTypeDef(BaseValidatorModel):
-    ResourceArn: str
+    ResourceArn: Annotated[str, _aws_pattern("Synthetics", "ResourceArn")]
 
 
 class StartCanaryRequestTypeDef(BaseValidatorModel):
-    Name: str
+    Name: Annotated[str, _aws_pattern("Synthetics", "CanaryName")]
 
 
 class StopCanaryRequestTypeDef(BaseValidatorModel):
-    Name: str
+    Name: Annotated[str, _aws_pattern("Synthetics", "CanaryName")]
 
 
 class TagResourceRequestTypeDef(BaseValidatorModel):
-    ResourceArn: str
+    ResourceArn: Annotated[str, _aws_pattern("Synthetics", "ResourceArn")]
     Tags: Dict[str, str]
 
 
 class UntagResourceRequestTypeDef(BaseValidatorModel):
-    ResourceArn: str
-    TagKeys: List[str]
+    ResourceArn: Annotated[str, _aws_pattern("Synthetics", "ResourceArn")]
+    TagKeys: List[Annotated[str, _aws_pattern("Synthetics", "TagKey")]]
 
 
 class ArtifactConfigInputTypeDef(BaseValidatorModel):
@@ -302,23 +306,23 @@ class CanaryCodeInputTypeDef(BaseValidatorModel):
     S3Key: Optional[str] = None
     S3Version: Optional[str] = None
     ZipFile: Optional[BlobTypeDef] = None
-    Handler: Optional[str] = None
-    BlueprintTypes: Optional[List[str]] = None
+    Handler: Optional[Annotated[str, _aws_pattern("Synthetics", "CodeHandler")]] = None
+    BlueprintTypes: Optional[List[Annotated[str, _aws_pattern("Synthetics", "BlueprintType")]]] = None
     Dependencies: Optional[List[DependencyTypeDef]] = None
 
 
 class CanaryCodeOutputTypeDef(BaseValidatorModel):
     SourceLocationArn: Optional[str] = None
     Handler: Optional[str] = None
-    BlueprintTypes: Optional[List[str]] = None
+    BlueprintTypes: Optional[List[Annotated[str, _aws_pattern("Synthetics", "BlueprintType")]]] = None
     Dependencies: Optional[List[DependencyTypeDef]] = None
 
 
 class CanaryRunTypeDef(BaseValidatorModel):
-    Id: Optional[str] = None
-    ScheduledRunId: Optional[str] = None
+    Id: Optional[Annotated[str, _aws_pattern("Synthetics", "UUID")]] = None
+    ScheduledRunId: Optional[Annotated[str, _aws_pattern("Synthetics", "UUID")]] = None
     RetryAttempt: Optional[int] = None
-    Name: Optional[str] = None
+    Name: Optional[Annotated[str, _aws_pattern("Synthetics", "CanaryName")]] = None
     Status: Optional[CanaryRunStatusTypeDef] = None
     Timeline: Optional[CanaryRunTimelineTypeDef] = None
     ArtifactS3Location: Optional[str] = None
@@ -342,7 +346,7 @@ class CanaryScheduleOutputTypeDef(BaseValidatorModel):
 class ListGroupResourcesResponseTypeDef(BaseValidatorModel):
     Resources: List[str]
     ResponseMetadata: ResponseMetadataTypeDef
-    NextToken: Optional[str] = None
+    NextToken: Optional[Annotated[str, _aws_pattern("Synthetics", "PaginationToken")]] = None
 
 
 # This class is the output for the 'list_tags_for_resource' function.
@@ -380,7 +384,7 @@ class DescribeRuntimeVersionsResponseTypeDef(BaseValidatorModel):
 class ListAssociatedGroupsResponseTypeDef(BaseValidatorModel):
     Groups: List[GroupSummaryTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
-    NextToken: Optional[str] = None
+    NextToken: Optional[Annotated[str, _aws_pattern("Synthetics", "PaginationToken")]] = None
 
 
 # This class is the output for the 'list_groups' function.
@@ -397,7 +401,7 @@ class VisualReferenceInputTypeDef(BaseValidatorModel):
 
 
 class CanaryLastRunTypeDef(BaseValidatorModel):
-    CanaryName: Optional[str] = None
+    CanaryName: Optional[Annotated[str, _aws_pattern("Synthetics", "CanaryName")]] = None
     LastRun: Optional[CanaryRunTypeDef] = None
 
 
@@ -410,10 +414,10 @@ class GetCanaryRunsResponseTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'create_canary' function.
 class CreateCanaryRequestTypeDef(BaseValidatorModel):
-    Name: str
+    Name: Annotated[str, _aws_pattern("Synthetics", "CanaryName")]
     Code: CanaryCodeInputTypeDef
     ArtifactS3Location: str
-    ExecutionRoleArn: str
+    ExecutionRoleArn: Annotated[str, _aws_pattern("Synthetics", "RoleArn")]
     Schedule: CanaryScheduleInputTypeDef
     RuntimeVersion: str
     RunConfig: Optional[CanaryRunConfigInputTypeDef] = None
@@ -428,10 +432,10 @@ class CreateCanaryRequestTypeDef(BaseValidatorModel):
 
 
 class CanaryTypeDef(BaseValidatorModel):
-    Id: Optional[str] = None
-    Name: Optional[str] = None
+    Id: Optional[Annotated[str, _aws_pattern("Synthetics", "UUID")]] = None
+    Name: Optional[Annotated[str, _aws_pattern("Synthetics", "CanaryName")]] = None
     Code: Optional[CanaryCodeOutputTypeDef] = None
-    ExecutionRoleArn: Optional[str] = None
+    ExecutionRoleArn: Optional[Annotated[str, _aws_pattern("Synthetics", "RoleArn")]] = None
     Schedule: Optional[CanaryScheduleOutputTypeDef] = None
     RunConfig: Optional[CanaryRunConfigOutputTypeDef] = None
     SuccessRetentionPeriodInDays: Optional[int] = None
@@ -439,7 +443,7 @@ class CanaryTypeDef(BaseValidatorModel):
     Status: Optional[CanaryStatusTypeDef] = None
     Timeline: Optional[CanaryTimelineTypeDef] = None
     ArtifactS3Location: Optional[str] = None
-    EngineArn: Optional[str] = None
+    EngineArn: Optional[Annotated[str, _aws_pattern("Synthetics", "FunctionArn")]] = None
     RuntimeVersion: Optional[str] = None
     VpcConfig: Optional[VpcConfigOutputTypeDef] = None
     VisualReference: Optional[VisualReferenceOutputTypeDef] = None
@@ -454,12 +458,12 @@ class CanaryTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'start_canary_dry_run' function.
 class StartCanaryDryRunRequestTypeDef(BaseValidatorModel):
-    Name: str
+    Name: Annotated[str, _aws_pattern("Synthetics", "CanaryName")]
     Code: Optional[CanaryCodeInputTypeDef] = None
     RuntimeVersion: Optional[str] = None
     RunConfig: Optional[CanaryRunConfigInputTypeDef] = None
     VpcConfig: Optional[VpcConfigInputTypeDef] = None
-    ExecutionRoleArn: Optional[str] = None
+    ExecutionRoleArn: Optional[Annotated[str, _aws_pattern("Synthetics", "RoleArn")]] = None
     SuccessRetentionPeriodInDays: Optional[int] = None
     FailureRetentionPeriodInDays: Optional[int] = None
     VisualReference: Optional[VisualReferenceInputTypeDef] = None
@@ -471,9 +475,9 @@ class StartCanaryDryRunRequestTypeDef(BaseValidatorModel):
 
 
 class UpdateCanaryRequestTypeDef(BaseValidatorModel):
-    Name: str
+    Name: Annotated[str, _aws_pattern("Synthetics", "CanaryName")]
     Code: Optional[CanaryCodeInputTypeDef] = None
-    ExecutionRoleArn: Optional[str] = None
+    ExecutionRoleArn: Optional[Annotated[str, _aws_pattern("Synthetics", "RoleArn")]] = None
     RuntimeVersion: Optional[str] = None
     Schedule: Optional[CanaryScheduleInputTypeDef] = None
     RunConfig: Optional[CanaryRunConfigInputTypeDef] = None
@@ -484,7 +488,7 @@ class UpdateCanaryRequestTypeDef(BaseValidatorModel):
     ArtifactS3Location: Optional[str] = None
     ArtifactConfig: Optional[ArtifactConfigInputTypeDef] = None
     ProvisionedResourceCleanup: Optional[ProvisionedResourceCleanupSettingType] = None
-    DryRunId: Optional[str] = None
+    DryRunId: Optional[Annotated[str, _aws_pattern("Synthetics", "UUID")]] = None
     VisualReferences: Optional[List[VisualReferenceInputTypeDef]] = None
     BrowserConfigs: Optional[List[BrowserConfigTypeDef]] = None
 

@@ -3,6 +3,7 @@
 from datetime import datetime
 from decimal import Decimal
 from typing import (
+    Annotated,
     Any,
     Callable,
     Dict,
@@ -24,6 +25,7 @@ from botocore.response import StreamingBody
 from pydantic import Field
 
 from aws_resource_validator.core.base_validator_model import BaseValidatorModel, EventStream
+from aws_resource_validator.core.pattern_validation import aws_field_pattern as _aws_pattern
 from aws_resource_validator.pydantic_models.mailmanager.mailmanager_constants import *  # noqa: F401,F403
 
 # Optional boto3 symbols — imported lazily so services that don't need them
@@ -39,20 +41,20 @@ except ImportError:  # pragma: no cover
 
 
 class AddHeaderActionTypeDef(BaseValidatorModel):
-    HeaderName: str
+    HeaderName: Annotated[str, _aws_pattern("Mailmanager", "HeaderName")]
     HeaderValue: str
 
 
 class AddonInstanceTypeDef(BaseValidatorModel):
-    AddonInstanceId: Optional[str] = None
-    AddonSubscriptionId: Optional[str] = None
+    AddonInstanceId: Optional[Annotated[str, _aws_pattern("Mailmanager", "AddonInstanceId")]] = None
+    AddonSubscriptionId: Optional[Annotated[str, _aws_pattern("Mailmanager", "AddonSubscriptionId")]] = None
     AddonName: Optional[str] = None
     AddonInstanceArn: Optional[str] = None
     CreatedTimestamp: Optional[datetime] = None
 
 
 class AddonSubscriptionTypeDef(BaseValidatorModel):
-    AddonSubscriptionId: Optional[str] = None
+    AddonSubscriptionId: Optional[Annotated[str, _aws_pattern("Mailmanager", "AddonSubscriptionId")]] = None
     AddonName: Optional[str] = None
     AddonSubscriptionArn: Optional[str] = None
     CreatedTimestamp: Optional[datetime] = None
@@ -63,20 +65,20 @@ class AddressFilterTypeDef(BaseValidatorModel):
 
 
 class AddressListTypeDef(BaseValidatorModel):
-    AddressListId: str
+    AddressListId: Annotated[str, _aws_pattern("Mailmanager", "AddressListId")]
     AddressListArn: str
-    AddressListName: str
+    AddressListName: Annotated[str, _aws_pattern("Mailmanager", "AddressListName")]
     CreatedTimestamp: datetime
     LastUpdatedTimestamp: datetime
 
 
 class AnalysisTypeDef(BaseValidatorModel):
-    Analyzer: str
-    ResultField: str
+    Analyzer: Annotated[str, _aws_pattern("Mailmanager", "AnalyzerArn")]
+    ResultField: Annotated[str, _aws_pattern("Mailmanager", "ResultField")]
 
 
 class ArchiveActionTypeDef(BaseValidatorModel):
-    TargetArchive: str
+    TargetArchive: Annotated[str, _aws_pattern("Mailmanager", "NameOrArn")]
     ActionFailurePolicy: Optional[ActionFailurePolicyType] = None
 
 
@@ -94,24 +96,24 @@ class ArchiveStringToEvaluateTypeDef(BaseValidatorModel):
 
 class ArchiveTypeDef(BaseValidatorModel):
     ArchiveId: str
-    ArchiveName: Optional[str] = None
+    ArchiveName: Optional[Annotated[str, _aws_pattern("Mailmanager", "ArchiveNameString")]] = None
     ArchiveState: Optional[ArchiveStateType] = None
     LastUpdatedTimestamp: Optional[datetime] = None
 
 
 class BounceActionTypeDef(BaseValidatorModel):
-    RoleArn: str
-    Sender: str
-    StatusCode: str
-    SmtpReplyCode: str
-    DiagnosticMessage: str
+    RoleArn: Annotated[str, _aws_pattern("Mailmanager", "IamRoleArn")]
+    Sender: Annotated[str, _aws_pattern("Mailmanager", "EmailAddress")]
+    StatusCode: Annotated[str, _aws_pattern("Mailmanager", "StatusCode")]
+    SmtpReplyCode: Annotated[str, _aws_pattern("Mailmanager", "SmtpReplyCode")]
+    DiagnosticMessage: Annotated[str, _aws_pattern("Mailmanager", "DiagnosticMessage")]
     ActionFailurePolicy: Optional[ActionFailurePolicyType] = None
-    Message: Optional[str] = None
+    Message: Optional[Annotated[str, _aws_pattern("Mailmanager", "BounceMessage")]] = None
 
 
 class TagTypeDef(BaseValidatorModel):
-    Key: str
-    Value: str
+    Key: Annotated[str, _aws_pattern("Mailmanager", "TagKey")]
+    Value: Annotated[str, _aws_pattern("Mailmanager", "TagValue")]
 
 
 class ResponseMetadataTypeDef(BaseValidatorModel):
@@ -127,15 +129,15 @@ class ImportDataFormatTypeDef(BaseValidatorModel):
 
 
 class DeleteAddonInstanceRequestTypeDef(BaseValidatorModel):
-    AddonInstanceId: str
+    AddonInstanceId: Annotated[str, _aws_pattern("Mailmanager", "AddonInstanceId")]
 
 
 class DeleteAddonSubscriptionRequestTypeDef(BaseValidatorModel):
-    AddonSubscriptionId: str
+    AddonSubscriptionId: Annotated[str, _aws_pattern("Mailmanager", "AddonSubscriptionId")]
 
 
 class DeleteAddressListRequestTypeDef(BaseValidatorModel):
-    AddressListId: str
+    AddressListId: Annotated[str, _aws_pattern("Mailmanager", "AddressListId")]
 
 
 class DeleteArchiveRequestTypeDef(BaseValidatorModel):
@@ -147,7 +149,7 @@ class DeleteIngressPointRequestTypeDef(BaseValidatorModel):
 
 
 class DeleteRelayRequestTypeDef(BaseValidatorModel):
-    RelayId: str
+    RelayId: Annotated[str, _aws_pattern("Mailmanager", "RelayId")]
 
 
 class DeleteRuleSetRequestTypeDef(BaseValidatorModel):
@@ -159,20 +161,20 @@ class DeleteTrafficPolicyRequestTypeDef(BaseValidatorModel):
 
 
 class DeliverToMailboxActionTypeDef(BaseValidatorModel):
-    MailboxArn: str
-    RoleArn: str
+    MailboxArn: Annotated[str, _aws_pattern("Mailmanager", "NameOrArn")]
+    RoleArn: Annotated[str, _aws_pattern("Mailmanager", "IamRoleArn")]
     ActionFailurePolicy: Optional[ActionFailurePolicyType] = None
 
 
 class DeliverToQBusinessActionTypeDef(BaseValidatorModel):
-    ApplicationId: str
-    IndexId: str
-    RoleArn: str
+    ApplicationId: Annotated[str, _aws_pattern("Mailmanager", "QBusinessApplicationId")]
+    IndexId: Annotated[str, _aws_pattern("Mailmanager", "QBusinessIndexId")]
+    RoleArn: Annotated[str, _aws_pattern("Mailmanager", "IamRoleArn")]
     ActionFailurePolicy: Optional[ActionFailurePolicyType] = None
 
 
 class DeregisterMemberFromAddressListRequestTypeDef(BaseValidatorModel):
-    AddressListId: str
+    AddressListId: Annotated[str, _aws_pattern("Mailmanager", "AddressListId")]
     Address: str
 
 
@@ -183,7 +185,7 @@ class EnvelopeTypeDef(BaseValidatorModel):
 
 
 class S3ExportDestinationConfigurationTypeDef(BaseValidatorModel):
-    S3Location: Optional[str] = None
+    S3Location: Optional[Annotated[str, _aws_pattern("Mailmanager", "S3Location")]] = None
 
 
 class ExportStatusTypeDef(BaseValidatorModel):
@@ -195,22 +197,22 @@ class ExportStatusTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'get_addon_instance' function.
 class GetAddonInstanceRequestTypeDef(BaseValidatorModel):
-    AddonInstanceId: str
+    AddonInstanceId: Annotated[str, _aws_pattern("Mailmanager", "AddonInstanceId")]
 
 
 # This class is the input for the 'get_addon_subscription' function.
 class GetAddonSubscriptionRequestTypeDef(BaseValidatorModel):
-    AddonSubscriptionId: str
+    AddonSubscriptionId: Annotated[str, _aws_pattern("Mailmanager", "AddonSubscriptionId")]
 
 
 # This class is the input for the 'get_address_list_import_job' function.
 class GetAddressListImportJobRequestTypeDef(BaseValidatorModel):
-    JobId: str
+    JobId: Annotated[str, _aws_pattern("Mailmanager", "JobId")]
 
 
 # This class is the input for the 'get_address_list' function.
 class GetAddressListRequestTypeDef(BaseValidatorModel):
-    AddressListId: str
+    AddressListId: Annotated[str, _aws_pattern("Mailmanager", "AddressListId")]
 
 
 # This class is the input for the 'get_archive_export' function.
@@ -280,13 +282,13 @@ class GetIngressPointRequestTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'get_member_of_address_list' function.
 class GetMemberOfAddressListRequestTypeDef(BaseValidatorModel):
-    AddressListId: str
+    AddressListId: Annotated[str, _aws_pattern("Mailmanager", "AddressListId")]
     Address: str
 
 
 # This class is the input for the 'get_relay' function.
 class GetRelayRequestTypeDef(BaseValidatorModel):
-    RelayId: str
+    RelayId: Annotated[str, _aws_pattern("Mailmanager", "RelayId")]
 
 
 class RelayAuthenticationOutputTypeDef(BaseValidatorModel):
@@ -305,8 +307,8 @@ class GetTrafficPolicyRequestTypeDef(BaseValidatorModel):
 
 
 class IngressAnalysisTypeDef(BaseValidatorModel):
-    Analyzer: str
-    ResultField: str
+    Analyzer: Annotated[str, _aws_pattern("Mailmanager", "AnalyzerArn")]
+    ResultField: Annotated[str, _aws_pattern("Mailmanager", "ResultField")]
 
 
 class IngressIsInAddressListOutputTypeDef(BaseValidatorModel):
@@ -334,7 +336,7 @@ class IngressPointPasswordConfigurationTypeDef(BaseValidatorModel):
 
 
 class IngressPointTypeDef(BaseValidatorModel):
-    IngressPointName: str
+    IngressPointName: Annotated[str, _aws_pattern("Mailmanager", "IngressPointName")]
     IngressPointId: str
     Status: IngressPointStatusType
     Type: IngressPointTypeType
@@ -346,9 +348,9 @@ class IngressTlsProtocolToEvaluateTypeDef(BaseValidatorModel):
 
 
 class InvokeLambdaActionTypeDef(BaseValidatorModel):
-    FunctionArn: str
+    FunctionArn: Annotated[str, _aws_pattern("Mailmanager", "LambdaFunctionArn")]
     InvocationType: LambdaInvocationTypeType
-    RoleArn: str
+    RoleArn: Annotated[str, _aws_pattern("Mailmanager", "IamRoleArn")]
     ActionFailurePolicy: Optional[ActionFailurePolicyType] = None
     RetryTimeMinutes: Optional[int] = None
 
@@ -373,7 +375,7 @@ class ListAddonSubscriptionsRequestTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'list_address_list_import_jobs' function.
 class ListAddressListImportJobsRequestTypeDef(BaseValidatorModel):
-    AddressListId: str
+    AddressListId: Annotated[str, _aws_pattern("Mailmanager", "AddressListId")]
     NextToken: Optional[str] = None
     PageSize: Optional[int] = None
 
@@ -386,14 +388,14 @@ class ListAddressListsRequestTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'list_archive_exports' function.
 class ListArchiveExportsRequestTypeDef(BaseValidatorModel):
-    ArchiveId: str
+    ArchiveId: Annotated[str, _aws_pattern("Mailmanager", "ArchiveId")]
     NextToken: Optional[str] = None
     PageSize: Optional[int] = None
 
 
 # This class is the input for the 'list_archive_searches' function.
 class ListArchiveSearchesRequestTypeDef(BaseValidatorModel):
-    ArchiveId: str
+    ArchiveId: Annotated[str, _aws_pattern("Mailmanager", "ArchiveId")]
     NextToken: Optional[str] = None
     PageSize: Optional[int] = None
 
@@ -422,8 +424,8 @@ class ListRelaysRequestTypeDef(BaseValidatorModel):
 
 
 class RelayTypeDef(BaseValidatorModel):
-    RelayId: Optional[str] = None
-    RelayName: Optional[str] = None
+    RelayId: Optional[Annotated[str, _aws_pattern("Mailmanager", "RelayId")]] = None
+    RelayName: Optional[Annotated[str, _aws_pattern("Mailmanager", "RelayName")]] = None
     LastModifiedTimestamp: Optional[datetime] = None
 
 
@@ -435,13 +437,13 @@ class ListRuleSetsRequestTypeDef(BaseValidatorModel):
 
 class RuleSetTypeDef(BaseValidatorModel):
     RuleSetId: Optional[str] = None
-    RuleSetName: Optional[str] = None
+    RuleSetName: Optional[Annotated[str, _aws_pattern("Mailmanager", "RuleSetName")]] = None
     LastModificationDate: Optional[datetime] = None
 
 
 # This class is the input for the 'list_tags_for_resource' function.
 class ListTagsForResourceRequestTypeDef(BaseValidatorModel):
-    ResourceArn: str
+    ResourceArn: Annotated[str, _aws_pattern("Mailmanager", "TaggableResourceArn")]
 
 
 # This class is the input for the 'list_traffic_policies' function.
@@ -451,13 +453,13 @@ class ListTrafficPoliciesRequestTypeDef(BaseValidatorModel):
 
 
 class TrafficPolicyTypeDef(BaseValidatorModel):
-    TrafficPolicyName: str
+    TrafficPolicyName: Annotated[str, _aws_pattern("Mailmanager", "TrafficPolicyName")]
     TrafficPolicyId: str
     DefaultAction: AcceptActionType
 
 
 class PrivateNetworkConfigurationTypeDef(BaseValidatorModel):
-    VpcEndpointId: str
+    VpcEndpointId: Annotated[str, _aws_pattern("Mailmanager", "VpcEndpointId")]
 
 
 class PublicNetworkConfigurationTypeDef(BaseValidatorModel):
@@ -465,18 +467,18 @@ class PublicNetworkConfigurationTypeDef(BaseValidatorModel):
 
 
 class RegisterMemberToAddressListRequestTypeDef(BaseValidatorModel):
-    AddressListId: str
+    AddressListId: Annotated[str, _aws_pattern("Mailmanager", "AddressListId")]
     Address: str
 
 
 class RelayActionTypeDef(BaseValidatorModel):
-    Relay: str
+    Relay: Annotated[str, _aws_pattern("Mailmanager", "IdOrArn")]
     ActionFailurePolicy: Optional[ActionFailurePolicyType] = None
     MailFrom: Optional[MailFromType] = None
 
 
 class RelayAuthenticationTypeDef(BaseValidatorModel):
-    SecretArn: Optional[str] = None
+    SecretArn: Optional[Annotated[str, _aws_pattern("Mailmanager", "SecretArn")]] = None
     NoAuthentication: Optional[Dict[str, Any]] = None
 
 
@@ -485,25 +487,25 @@ class ReplaceRecipientActionOutputTypeDef(BaseValidatorModel):
 
 
 class ReplaceRecipientActionTypeDef(BaseValidatorModel):
-    ReplaceWith: Optional[List[str]] = None
+    ReplaceWith: Optional[List[Annotated[str, _aws_pattern("Mailmanager", "EmailAddress")]]] = None
 
 
 class S3ActionTypeDef(BaseValidatorModel):
-    RoleArn: str
-    S3Bucket: str
+    RoleArn: Annotated[str, _aws_pattern("Mailmanager", "IamRoleArn")]
+    S3Bucket: Annotated[str, _aws_pattern("Mailmanager", "S3Bucket")]
     ActionFailurePolicy: Optional[ActionFailurePolicyType] = None
-    S3Prefix: Optional[str] = None
-    S3SseKmsKeyId: Optional[str] = None
+    S3Prefix: Optional[Annotated[str, _aws_pattern("Mailmanager", "S3Prefix")]] = None
+    S3SseKmsKeyId: Optional[Annotated[str, _aws_pattern("Mailmanager", "KmsKeyId")]] = None
 
 
 class SendActionTypeDef(BaseValidatorModel):
-    RoleArn: str
+    RoleArn: Annotated[str, _aws_pattern("Mailmanager", "IamRoleArn")]
     ActionFailurePolicy: Optional[ActionFailurePolicyType] = None
 
 
 class SnsActionTypeDef(BaseValidatorModel):
-    TopicArn: str
-    RoleArn: str
+    TopicArn: Annotated[str, _aws_pattern("Mailmanager", "SnsTopicArn")]
+    RoleArn: Annotated[str, _aws_pattern("Mailmanager", "IamRoleArn")]
     ActionFailurePolicy: Optional[ActionFailurePolicyType] = None
     Encoding: Optional[SnsNotificationEncodingType] = None
     PayloadType: Optional[SnsNotificationPayloadTypeType] = None
@@ -538,14 +540,14 @@ class RuleNumberToEvaluateTypeDef(BaseValidatorModel):
 
 
 class StartAddressListImportJobRequestTypeDef(BaseValidatorModel):
-    JobId: str
+    JobId: Annotated[str, _aws_pattern("Mailmanager", "JobId")]
 
 
 TimestampTypeDef = Union[datetime, str]
 
 
 class StopAddressListImportJobRequestTypeDef(BaseValidatorModel):
-    JobId: str
+    JobId: Annotated[str, _aws_pattern("Mailmanager", "JobId")]
 
 
 class StopArchiveExportRequestTypeDef(BaseValidatorModel):
@@ -557,19 +559,19 @@ class StopArchiveSearchRequestTypeDef(BaseValidatorModel):
 
 
 class TrustStoreTypeDef(BaseValidatorModel):
-    CAContent: str
-    CrlContent: Optional[str] = None
-    KmsKeyArn: Optional[str] = None
+    CAContent: Annotated[str, _aws_pattern("Mailmanager", "CAContent")]
+    CrlContent: Optional[Annotated[str, _aws_pattern("Mailmanager", "CrlContent")]] = None
+    KmsKeyArn: Optional[Annotated[str, _aws_pattern("Mailmanager", "KmsKeyArn")]] = None
 
 
 class UntagResourceRequestTypeDef(BaseValidatorModel):
-    ResourceArn: str
-    TagKeys: List[str]
+    ResourceArn: Annotated[str, _aws_pattern("Mailmanager", "TaggableResourceArn")]
+    TagKeys: List[Annotated[str, _aws_pattern("Mailmanager", "TagKey")]]
 
 
 # This class is the input for the 'list_members_of_address_list' function.
 class ListMembersOfAddressListRequestTypeDef(BaseValidatorModel):
-    AddressListId: str
+    AddressListId: Annotated[str, _aws_pattern("Mailmanager", "AddressListId")]
     Filter: Optional[AddressFilterTypeDef] = None
     NextToken: Optional[str] = None
     PageSize: Optional[int] = None
@@ -577,7 +579,7 @@ class ListMembersOfAddressListRequestTypeDef(BaseValidatorModel):
 
 class RuleStringToEvaluateTypeDef(BaseValidatorModel):
     Attribute: Optional[RuleStringEmailAttributeType] = None
-    MimeHeaderAttribute: Optional[str] = None
+    MimeHeaderAttribute: Optional[Annotated[str, _aws_pattern("Mailmanager", "MimeHeaderAttribute")]] = None
     Analysis: Optional[AnalysisTypeDef] = None
     ClientCertificateAttribute: Optional[RuleClientCertificateAttributeType] = None
 
@@ -594,7 +596,7 @@ class ArchiveBooleanExpressionTypeDef(BaseValidatorModel):
 
 class UpdateArchiveRequestTypeDef(BaseValidatorModel):
     ArchiveId: str
-    ArchiveName: Optional[str] = None
+    ArchiveName: Optional[Annotated[str, _aws_pattern("Mailmanager", "ArchiveNameString")]] = None
     Retention: Optional[ArchiveRetentionTypeDef] = None
 
 
@@ -612,7 +614,7 @@ class ArchiveStringExpressionTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'create_addon_instance' function.
 class CreateAddonInstanceRequestTypeDef(BaseValidatorModel):
-    AddonSubscriptionId: str
+    AddonSubscriptionId: Annotated[str, _aws_pattern("Mailmanager", "AddonSubscriptionId")]
     ClientToken: Optional[str] = None
     Tags: Optional[List[TagTypeDef]] = None
 
@@ -626,47 +628,47 @@ class CreateAddonSubscriptionRequestTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'create_address_list' function.
 class CreateAddressListRequestTypeDef(BaseValidatorModel):
-    AddressListName: str
+    AddressListName: Annotated[str, _aws_pattern("Mailmanager", "AddressListName")]
     ClientToken: Optional[str] = None
     Tags: Optional[List[TagTypeDef]] = None
 
 
 # This class is the input for the 'create_archive' function.
 class CreateArchiveRequestTypeDef(BaseValidatorModel):
-    ArchiveName: str
+    ArchiveName: Annotated[str, _aws_pattern("Mailmanager", "ArchiveNameString")]
     ClientToken: Optional[str] = None
     Retention: Optional[ArchiveRetentionTypeDef] = None
-    KmsKeyArn: Optional[str] = None
+    KmsKeyArn: Optional[Annotated[str, _aws_pattern("Mailmanager", "KmsKeyArn")]] = None
     Tags: Optional[List[TagTypeDef]] = None
 
 
 class TagResourceRequestTypeDef(BaseValidatorModel):
-    ResourceArn: str
+    ResourceArn: Annotated[str, _aws_pattern("Mailmanager", "TaggableResourceArn")]
     Tags: List[TagTypeDef]
 
 
 # This class is the output for the 'create_addon_instance' function.
 class CreateAddonInstanceResponseTypeDef(BaseValidatorModel):
-    AddonInstanceId: str
+    AddonInstanceId: Annotated[str, _aws_pattern("Mailmanager", "AddonInstanceId")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 # This class is the output for the 'create_addon_subscription' function.
 class CreateAddonSubscriptionResponseTypeDef(BaseValidatorModel):
-    AddonSubscriptionId: str
+    AddonSubscriptionId: Annotated[str, _aws_pattern("Mailmanager", "AddonSubscriptionId")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 # This class is the output for the 'create_address_list_import_job' function.
 class CreateAddressListImportJobResponseTypeDef(BaseValidatorModel):
-    JobId: str
+    JobId: Annotated[str, _aws_pattern("Mailmanager", "JobId")]
     PreSignedUrl: str
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 # This class is the output for the 'create_address_list' function.
 class CreateAddressListResponseTypeDef(BaseValidatorModel):
-    AddressListId: str
+    AddressListId: Annotated[str, _aws_pattern("Mailmanager", "AddressListId")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
@@ -684,7 +686,7 @@ class CreateIngressPointResponseTypeDef(BaseValidatorModel):
 
 # This class is the output for the 'create_relay' function.
 class CreateRelayResponseTypeDef(BaseValidatorModel):
-    RelayId: str
+    RelayId: Annotated[str, _aws_pattern("Mailmanager", "RelayId")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
@@ -702,7 +704,7 @@ class CreateTrafficPolicyResponseTypeDef(BaseValidatorModel):
 
 # This class is the output for the 'get_addon_instance' function.
 class GetAddonInstanceResponseTypeDef(BaseValidatorModel):
-    AddonSubscriptionId: str
+    AddonSubscriptionId: Annotated[str, _aws_pattern("Mailmanager", "AddonSubscriptionId")]
     AddonName: str
     AddonInstanceArn: str
     CreatedTimestamp: datetime
@@ -719,9 +721,9 @@ class GetAddonSubscriptionResponseTypeDef(BaseValidatorModel):
 
 # This class is the output for the 'get_address_list' function.
 class GetAddressListResponseTypeDef(BaseValidatorModel):
-    AddressListId: str
+    AddressListId: Annotated[str, _aws_pattern("Mailmanager", "AddressListId")]
     AddressListArn: str
-    AddressListName: str
+    AddressListName: Annotated[str, _aws_pattern("Mailmanager", "AddressListName")]
     CreatedTimestamp: datetime
     LastUpdatedTimestamp: datetime
     ResponseMetadata: ResponseMetadataTypeDef
@@ -730,13 +732,13 @@ class GetAddressListResponseTypeDef(BaseValidatorModel):
 # This class is the output for the 'get_archive' function.
 class GetArchiveResponseTypeDef(BaseValidatorModel):
     ArchiveId: str
-    ArchiveName: str
+    ArchiveName: Annotated[str, _aws_pattern("Mailmanager", "ArchiveNameString")]
     ArchiveArn: str
     ArchiveState: ArchiveStateType
     Retention: ArchiveRetentionTypeDef
     CreatedTimestamp: datetime
     LastUpdatedTimestamp: datetime
-    KmsKeyArn: str
+    KmsKeyArn: Annotated[str, _aws_pattern("Mailmanager", "KmsKeyArn")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
@@ -795,22 +797,22 @@ class StartArchiveSearchResponseTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'create_address_list_import_job' function.
 class CreateAddressListImportJobRequestTypeDef(BaseValidatorModel):
-    AddressListId: str
-    Name: str
+    AddressListId: Annotated[str, _aws_pattern("Mailmanager", "AddressListId")]
+    Name: Annotated[str, _aws_pattern("Mailmanager", "JobName")]
     ImportDataFormat: ImportDataFormatTypeDef
     ClientToken: Optional[str] = None
 
 
 # This class is the output for the 'get_address_list_import_job' function.
 class GetAddressListImportJobResponseTypeDef(BaseValidatorModel):
-    JobId: str
-    Name: str
+    JobId: Annotated[str, _aws_pattern("Mailmanager", "JobId")]
+    Name: Annotated[str, _aws_pattern("Mailmanager", "JobName")]
     Status: ImportJobStatusType
     PreSignedUrl: str
     ImportedItemsCount: int
     FailedItemsCount: int
     ImportDataFormat: ImportDataFormatTypeDef
-    AddressListId: str
+    AddressListId: Annotated[str, _aws_pattern("Mailmanager", "AddressListId")]
     CreatedTimestamp: datetime
     StartTimestamp: datetime
     CompletedTimestamp: datetime
@@ -819,12 +821,12 @@ class GetAddressListImportJobResponseTypeDef(BaseValidatorModel):
 
 
 class ImportJobTypeDef(BaseValidatorModel):
-    JobId: str
-    Name: str
+    JobId: Annotated[str, _aws_pattern("Mailmanager", "JobId")]
+    Name: Annotated[str, _aws_pattern("Mailmanager", "JobName")]
     Status: ImportJobStatusType
     PreSignedUrl: str
     ImportDataFormat: ImportDataFormatTypeDef
-    AddressListId: str
+    AddressListId: Annotated[str, _aws_pattern("Mailmanager", "AddressListId")]
     CreatedTimestamp: datetime
     ImportedItemsCount: Optional[int] = None
     FailedItemsCount: Optional[int] = None
@@ -885,10 +887,10 @@ class SearchSummaryTypeDef(BaseValidatorModel):
 
 # This class is the output for the 'get_relay' function.
 class GetRelayResponseTypeDef(BaseValidatorModel):
-    RelayId: str
+    RelayId: Annotated[str, _aws_pattern("Mailmanager", "RelayId")]
     RelayArn: str
-    RelayName: str
-    ServerName: str
+    RelayName: Annotated[str, _aws_pattern("Mailmanager", "RelayName")]
+    ServerName: Annotated[str, _aws_pattern("Mailmanager", "RelayServerName")]
     ServerPort: int
     Authentication: RelayAuthenticationOutputTypeDef
     CreatedTimestamp: datetime
@@ -915,7 +917,7 @@ class IngressIpv4ExpressionOutputTypeDef(BaseValidatorModel):
 class IngressIpv4ExpressionTypeDef(BaseValidatorModel):
     Evaluate: IngressIpToEvaluateTypeDef
     Operator: IngressIpOperatorType
-    Values: List[str]
+    Values: List[Annotated[str, _aws_pattern("Mailmanager", "Ipv4Cidr")]]
 
 
 class IngressIpv6ExpressionOutputTypeDef(BaseValidatorModel):
@@ -927,7 +929,7 @@ class IngressIpv6ExpressionOutputTypeDef(BaseValidatorModel):
 class IngressIpv6ExpressionTypeDef(BaseValidatorModel):
     Evaluate: IngressIpv6ToEvaluateTypeDef
     Operator: IngressIpOperatorType
-    Values: List[str]
+    Values: List[Annotated[str, _aws_pattern("Mailmanager", "Ipv6Cidr")]]
 
 
 IngressIsInAddressListUnionTypeDef = Union[IngressIsInAddressListOutputTypeDef, IngressIsInAddressListTypeDef]
@@ -1070,7 +1072,7 @@ class RuleIpExpressionOutputTypeDef(BaseValidatorModel):
 class RuleIpExpressionTypeDef(BaseValidatorModel):
     Evaluate: RuleIpToEvaluateTypeDef
     Operator: RuleIpOperatorType
-    Values: List[str]
+    Values: List[Annotated[str, _aws_pattern("Mailmanager", "RuleIpStringValue")]]
 
 
 RuleIsInAddressListUnionTypeDef = Union[RuleIsInAddressListOutputTypeDef, RuleIsInAddressListTypeDef]
@@ -1176,8 +1178,8 @@ class IngressBooleanToEvaluateTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'create_relay' function.
 class CreateRelayRequestTypeDef(BaseValidatorModel):
-    RelayName: str
-    ServerName: str
+    RelayName: Annotated[str, _aws_pattern("Mailmanager", "RelayName")]
+    ServerName: Annotated[str, _aws_pattern("Mailmanager", "RelayServerName")]
     ServerPort: int
     Authentication: RelayAuthenticationUnionTypeDef
     ClientToken: Optional[str] = None
@@ -1185,9 +1187,9 @@ class CreateRelayRequestTypeDef(BaseValidatorModel):
 
 
 class UpdateRelayRequestTypeDef(BaseValidatorModel):
-    RelayId: str
-    RelayName: Optional[str] = None
-    ServerName: Optional[str] = None
+    RelayId: Annotated[str, _aws_pattern("Mailmanager", "RelayId")]
+    RelayName: Optional[Annotated[str, _aws_pattern("Mailmanager", "RelayName")]] = None
+    ServerName: Optional[Annotated[str, _aws_pattern("Mailmanager", "RelayServerName")]] = None
     ServerPort: Optional[int] = None
     Authentication: Optional[RelayAuthenticationUnionTypeDef] = None
 
@@ -1223,13 +1225,13 @@ class RuleBooleanToEvaluateTypeDef(BaseValidatorModel):
 
 class IngressPointAuthConfigurationTypeDef(BaseValidatorModel):
     IngressPointPasswordConfiguration: Optional[IngressPointPasswordConfigurationTypeDef] = None
-    SecretArn: Optional[str] = None
+    SecretArn: Optional[Annotated[str, _aws_pattern("Mailmanager", "SecretArn")]] = None
     TlsAuthConfiguration: Optional[TlsAuthConfigurationTypeDef] = None
 
 
 class IngressPointConfigurationTypeDef(BaseValidatorModel):
-    SmtpPassword: Optional[str] = None
-    SecretArn: Optional[str] = None
+    SmtpPassword: Optional[Annotated[str, _aws_pattern("Mailmanager", "SmtpPassword")]] = None
+    SecretArn: Optional[Annotated[str, _aws_pattern("Mailmanager", "SecretArn")]] = None
     TlsAuthConfiguration: Optional[TlsAuthConfigurationTypeDef] = None
 
 
@@ -1279,7 +1281,7 @@ RuleBooleanToEvaluateUnionTypeDef = Union[RuleBooleanToEvaluateOutputTypeDef, Ru
 # This class is the output for the 'get_ingress_point' function.
 class GetIngressPointResponseTypeDef(BaseValidatorModel):
     IngressPointId: str
-    IngressPointName: str
+    IngressPointName: Annotated[str, _aws_pattern("Mailmanager", "IngressPointName")]
     IngressPointArn: str
     Status: IngressPointStatusType
     Type: IngressPointTypeType
@@ -1296,7 +1298,7 @@ class GetIngressPointResponseTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'create_ingress_point' function.
 class CreateIngressPointRequestTypeDef(BaseValidatorModel):
-    IngressPointName: str
+    IngressPointName: Annotated[str, _aws_pattern("Mailmanager", "IngressPointName")]
     Type: IngressPointTypeType
     RuleSetId: str
     TrafficPolicyId: str
@@ -1309,7 +1311,7 @@ class CreateIngressPointRequestTypeDef(BaseValidatorModel):
 
 class UpdateIngressPointRequestTypeDef(BaseValidatorModel):
     IngressPointId: str
-    IngressPointName: Optional[str] = None
+    IngressPointName: Optional[Annotated[str, _aws_pattern("Mailmanager", "IngressPointName")]] = None
     StatusToUpdate: Optional[IngressPointStatusToUpdateType] = None
     RuleSetId: Optional[str] = None
     TrafficPolicyId: Optional[str] = None
@@ -1319,7 +1321,7 @@ class UpdateIngressPointRequestTypeDef(BaseValidatorModel):
 
 # This class is the output for the 'get_archive_export' function.
 class GetArchiveExportResponseTypeDef(BaseValidatorModel):
-    ArchiveId: str
+    ArchiveId: Annotated[str, _aws_pattern("Mailmanager", "ArchiveId")]
     Filters: ArchiveFiltersOutputTypeDef
     FromTimestamp: datetime
     ToTimestamp: datetime
@@ -1331,7 +1333,7 @@ class GetArchiveExportResponseTypeDef(BaseValidatorModel):
 
 # This class is the output for the 'get_archive_search' function.
 class GetArchiveSearchResponseTypeDef(BaseValidatorModel):
-    ArchiveId: str
+    ArchiveId: Annotated[str, _aws_pattern("Mailmanager", "ArchiveId")]
     Filters: ArchiveFiltersOutputTypeDef
     FromTimestamp: datetime
     ToTimestamp: datetime
@@ -1367,7 +1369,7 @@ class RuleBooleanExpressionTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'start_archive_export' function.
 class StartArchiveExportRequestTypeDef(BaseValidatorModel):
-    ArchiveId: str
+    ArchiveId: Annotated[str, _aws_pattern("Mailmanager", "ArchiveId")]
     FromTimestamp: TimestampTypeDef
     ToTimestamp: TimestampTypeDef
     ExportDestinationConfiguration: ExportDestinationConfigurationTypeDef
@@ -1378,7 +1380,7 @@ class StartArchiveExportRequestTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'start_archive_search' function.
 class StartArchiveSearchRequestTypeDef(BaseValidatorModel):
-    ArchiveId: str
+    ArchiveId: Annotated[str, _aws_pattern("Mailmanager", "ArchiveId")]
     FromTimestamp: TimestampTypeDef
     ToTimestamp: TimestampTypeDef
     MaxResults: int
@@ -1387,7 +1389,7 @@ class StartArchiveSearchRequestTypeDef(BaseValidatorModel):
 
 # This class is the output for the 'get_traffic_policy' function.
 class GetTrafficPolicyResponseTypeDef(BaseValidatorModel):
-    TrafficPolicyName: str
+    TrafficPolicyName: Annotated[str, _aws_pattern("Mailmanager", "TrafficPolicyName")]
     TrafficPolicyId: str
     TrafficPolicyArn: str
     PolicyStatements: List[PolicyStatementOutputTypeDef]
@@ -1405,7 +1407,7 @@ IngressBooleanExpressionUnionTypeDef = Union[IngressBooleanExpressionOutputTypeD
 class GetRuleSetResponseTypeDef(BaseValidatorModel):
     RuleSetId: str
     RuleSetArn: str
-    RuleSetName: str
+    RuleSetName: Annotated[str, _aws_pattern("Mailmanager", "RuleSetName")]
     CreatedDate: datetime
     LastModificationDate: datetime
     Rules: List[RuleOutputTypeDef]
@@ -1444,7 +1446,7 @@ class PolicyStatementTypeDef(BaseValidatorModel):
 
 class RuleTypeDef(BaseValidatorModel):
     Actions: List[RuleActionUnionTypeDef]
-    Name: Optional[str] = None
+    Name: Optional[Annotated[str, _aws_pattern("Mailmanager", "RuleName")]] = None
     Conditions: Optional[List[RuleConditionUnionTypeDef]] = None
     Unless: Optional[List[RuleConditionUnionTypeDef]] = None
 
@@ -1456,7 +1458,7 @@ RuleUnionTypeDef = Union[RuleOutputTypeDef, RuleTypeDef]
 
 # This class is the input for the 'create_traffic_policy' function.
 class CreateTrafficPolicyRequestTypeDef(BaseValidatorModel):
-    TrafficPolicyName: str
+    TrafficPolicyName: Annotated[str, _aws_pattern("Mailmanager", "TrafficPolicyName")]
     PolicyStatements: List[PolicyStatementUnionTypeDef]
     DefaultAction: AcceptActionType
     ClientToken: Optional[str] = None
@@ -1466,7 +1468,7 @@ class CreateTrafficPolicyRequestTypeDef(BaseValidatorModel):
 
 class UpdateTrafficPolicyRequestTypeDef(BaseValidatorModel):
     TrafficPolicyId: str
-    TrafficPolicyName: Optional[str] = None
+    TrafficPolicyName: Optional[Annotated[str, _aws_pattern("Mailmanager", "TrafficPolicyName")]] = None
     PolicyStatements: Optional[List[PolicyStatementUnionTypeDef]] = None
     DefaultAction: Optional[AcceptActionType] = None
     MaxMessageSizeBytes: Optional[int] = None
@@ -1474,7 +1476,7 @@ class UpdateTrafficPolicyRequestTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'create_rule_set' function.
 class CreateRuleSetRequestTypeDef(BaseValidatorModel):
-    RuleSetName: str
+    RuleSetName: Annotated[str, _aws_pattern("Mailmanager", "RuleSetName")]
     Rules: List[RuleUnionTypeDef]
     ClientToken: Optional[str] = None
     Tags: Optional[List[TagTypeDef]] = None
@@ -1482,5 +1484,5 @@ class CreateRuleSetRequestTypeDef(BaseValidatorModel):
 
 class UpdateRuleSetRequestTypeDef(BaseValidatorModel):
     RuleSetId: str
-    RuleSetName: Optional[str] = None
+    RuleSetName: Optional[Annotated[str, _aws_pattern("Mailmanager", "RuleSetName")]] = None
     Rules: Optional[List[RuleUnionTypeDef]] = None

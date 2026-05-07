@@ -3,6 +3,7 @@
 from datetime import datetime
 from decimal import Decimal
 from typing import (
+    Annotated,
     Any,
     Callable,
     Dict,
@@ -24,6 +25,7 @@ from botocore.response import StreamingBody
 from pydantic import Field
 
 from aws_resource_validator.core.base_validator_model import BaseValidatorModel, EventStream
+from aws_resource_validator.core.pattern_validation import aws_field_pattern as _aws_pattern
 from aws_resource_validator.pydantic_models.finspace.finspace_constants import *  # noqa: F401,F403
 
 # Optional boto3 symbols — imported lazily so services that don't need them
@@ -48,26 +50,26 @@ class AutoScalingConfigurationTypeDef(BaseValidatorModel):
 
 
 class CapacityConfigurationTypeDef(BaseValidatorModel):
-    nodeType: Optional[str] = None
+    nodeType: Optional[Annotated[str, _aws_pattern("Finspace", "NodeType")]] = None
     nodeCount: Optional[int] = None
 
 
 class ChangeRequestTypeDef(BaseValidatorModel):
     changeType: ChangeTypeType
-    dbPath: str
-    s3Path: Optional[str] = None
+    dbPath: Annotated[str, _aws_pattern("Finspace", "DbPath")]
+    s3Path: Optional[Annotated[str, _aws_pattern("Finspace", "S3Path")]] = None
 
 
 class CodeConfigurationTypeDef(BaseValidatorModel):
-    s3Bucket: Optional[str] = None
-    s3Key: Optional[str] = None
+    s3Bucket: Optional[Annotated[str, _aws_pattern("Finspace", "S3Bucket")]] = None
+    s3Key: Optional[Annotated[str, _aws_pattern("Finspace", "S3Key")]] = None
     s3ObjectVersion: Optional[str] = None
 
 
 class SuperuserParametersTypeDef(BaseValidatorModel):
-    emailAddress: str
-    firstName: str
-    lastName: str
+    emailAddress: Annotated[str, _aws_pattern("Finspace", "EmailId")]
+    firstName: Annotated[str, _aws_pattern("Finspace", "NameString")]
+    lastName: Annotated[str, _aws_pattern("Finspace", "NameString")]
 
 
 class ResponseMetadataTypeDef(BaseValidatorModel):
@@ -89,18 +91,18 @@ class KxCacheStorageConfigurationTypeDef(BaseValidatorModel):
 
 
 class KxCommandLineArgumentTypeDef(BaseValidatorModel):
-    key: Optional[str] = None
-    value: Optional[str] = None
+    key: Optional[Annotated[str, _aws_pattern("Finspace", "KxCommandLineArgumentKey")]] = None
+    value: Optional[Annotated[str, _aws_pattern("Finspace", "KxCommandLineArgumentValue")]] = None
 
 
 class KxSavedownStorageConfigurationTypeDef(BaseValidatorModel):
     type: Optional[Literal["SDS01"]] = None
     size: Optional[int] = None
-    volumeName: Optional[str] = None
+    volumeName: Optional[Annotated[str, _aws_pattern("Finspace", "KxVolumeName")]] = None
 
 
 class KxScalingGroupConfigurationTypeDef(BaseValidatorModel):
-    scalingGroupName: str
+    scalingGroupName: Annotated[str, _aws_pattern("Finspace", "KxScalingGroupName")]
     memoryReservation: int
     nodeCount: int
     memoryLimit: Optional[int] = None
@@ -112,7 +114,7 @@ class TickerplantLogConfigurationOutputTypeDef(BaseValidatorModel):
 
 
 class VolumeTypeDef(BaseValidatorModel):
-    volumeName: Optional[str] = None
+    volumeName: Optional[Annotated[str, _aws_pattern("Finspace", "VolumeName")]] = None
     volumeType: Optional[Literal["NAS_1"]] = None
 
 
@@ -125,10 +127,10 @@ class VpcConfigurationOutputTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'create_kx_database' function.
 class CreateKxDatabaseRequestTypeDef(BaseValidatorModel):
-    environmentId: str
-    databaseName: str
-    clientToken: str
-    description: Optional[str] = None
+    environmentId: Annotated[str, _aws_pattern("Finspace", "EnvironmentId")]
+    databaseName: Annotated[str, _aws_pattern("Finspace", "DatabaseName")]
+    clientToken: Annotated[str, _aws_pattern("Finspace", "ClientTokenString")]
+    description: Optional[Annotated[str, _aws_pattern("Finspace", "Description")]] = None
     tags: Optional[Dict[str, str]] = None
 
 
@@ -140,30 +142,30 @@ class KxDataviewSegmentConfigurationOutputTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'create_kx_environment' function.
 class CreateKxEnvironmentRequestTypeDef(BaseValidatorModel):
-    name: str
-    kmsKeyId: str
-    description: Optional[str] = None
+    name: Annotated[str, _aws_pattern("Finspace", "KxEnvironmentName")]
+    kmsKeyId: Annotated[str, _aws_pattern("Finspace", "KmsKeyARN")]
+    description: Optional[Annotated[str, _aws_pattern("Finspace", "Description")]] = None
     tags: Optional[Dict[str, str]] = None
-    clientToken: Optional[str] = None
+    clientToken: Optional[Annotated[str, _aws_pattern("Finspace", "ClientToken")]] = None
 
 
 # This class is the input for the 'create_kx_scaling_group' function.
 class CreateKxScalingGroupRequestTypeDef(BaseValidatorModel):
-    clientToken: str
-    environmentId: str
-    scalingGroupName: str
-    hostType: str
-    availabilityZoneId: str
+    clientToken: Annotated[str, _aws_pattern("Finspace", "ClientToken")]
+    environmentId: Annotated[str, _aws_pattern("Finspace", "KxEnvironmentId")]
+    scalingGroupName: Annotated[str, _aws_pattern("Finspace", "KxScalingGroupName")]
+    hostType: Annotated[str, _aws_pattern("Finspace", "KxHostType")]
+    availabilityZoneId: Annotated[str, _aws_pattern("Finspace", "AvailabilityZoneId")]
     tags: Optional[Dict[str, str]] = None
 
 
 # This class is the input for the 'create_kx_user' function.
 class CreateKxUserRequestTypeDef(BaseValidatorModel):
-    environmentId: str
-    userName: str
-    iamRole: str
+    environmentId: Annotated[str, _aws_pattern("Finspace", "IdType")]
+    userName: Annotated[str, _aws_pattern("Finspace", "KxUserNameString")]
+    iamRole: Annotated[str, _aws_pattern("Finspace", "RoleArn")]
     tags: Optional[Dict[str, str]] = None
-    clientToken: Optional[str] = None
+    clientToken: Optional[Annotated[str, _aws_pattern("Finspace", "ClientToken")]] = None
 
 
 class KxNAS1ConfigurationTypeDef(BaseValidatorModel):
@@ -172,60 +174,60 @@ class KxNAS1ConfigurationTypeDef(BaseValidatorModel):
 
 
 class CustomDNSServerTypeDef(BaseValidatorModel):
-    customDNSServerName: str
-    customDNSServerIP: str
+    customDNSServerName: Annotated[str, _aws_pattern("Finspace", "ValidHostname")]
+    customDNSServerIP: Annotated[str, _aws_pattern("Finspace", "ValidIPAddress")]
 
 
 class DeleteEnvironmentRequestTypeDef(BaseValidatorModel):
-    environmentId: str
+    environmentId: Annotated[str, _aws_pattern("Finspace", "IdType")]
 
 
 class DeleteKxClusterNodeRequestTypeDef(BaseValidatorModel):
-    environmentId: str
-    clusterName: str
+    environmentId: Annotated[str, _aws_pattern("Finspace", "KxEnvironmentId")]
+    clusterName: Annotated[str, _aws_pattern("Finspace", "KxClusterName")]
     nodeId: str
 
 
 class DeleteKxClusterRequestTypeDef(BaseValidatorModel):
-    environmentId: str
-    clusterName: str
-    clientToken: Optional[str] = None
+    environmentId: Annotated[str, _aws_pattern("Finspace", "KxEnvironmentId")]
+    clusterName: Annotated[str, _aws_pattern("Finspace", "KxClusterName")]
+    clientToken: Optional[Annotated[str, _aws_pattern("Finspace", "ClientTokenString")]] = None
 
 
 class DeleteKxDatabaseRequestTypeDef(BaseValidatorModel):
-    environmentId: str
-    databaseName: str
-    clientToken: str
+    environmentId: Annotated[str, _aws_pattern("Finspace", "EnvironmentId")]
+    databaseName: Annotated[str, _aws_pattern("Finspace", "DatabaseName")]
+    clientToken: Annotated[str, _aws_pattern("Finspace", "ClientTokenString")]
 
 
 class DeleteKxDataviewRequestTypeDef(BaseValidatorModel):
-    environmentId: str
-    databaseName: str
-    dataviewName: str
-    clientToken: str
+    environmentId: Annotated[str, _aws_pattern("Finspace", "EnvironmentId")]
+    databaseName: Annotated[str, _aws_pattern("Finspace", "DatabaseName")]
+    dataviewName: Annotated[str, _aws_pattern("Finspace", "KxDataviewName")]
+    clientToken: Annotated[str, _aws_pattern("Finspace", "ClientTokenString")]
 
 
 class DeleteKxEnvironmentRequestTypeDef(BaseValidatorModel):
-    environmentId: str
-    clientToken: Optional[str] = None
+    environmentId: Annotated[str, _aws_pattern("Finspace", "IdType")]
+    clientToken: Optional[Annotated[str, _aws_pattern("Finspace", "ClientToken")]] = None
 
 
 class DeleteKxScalingGroupRequestTypeDef(BaseValidatorModel):
-    environmentId: str
-    scalingGroupName: str
-    clientToken: Optional[str] = None
+    environmentId: Annotated[str, _aws_pattern("Finspace", "KxEnvironmentId")]
+    scalingGroupName: Annotated[str, _aws_pattern("Finspace", "KxScalingGroupName")]
+    clientToken: Optional[Annotated[str, _aws_pattern("Finspace", "ClientTokenString")]] = None
 
 
 class DeleteKxUserRequestTypeDef(BaseValidatorModel):
-    userName: str
-    environmentId: str
-    clientToken: Optional[str] = None
+    userName: Annotated[str, _aws_pattern("Finspace", "KxUserNameString")]
+    environmentId: Annotated[str, _aws_pattern("Finspace", "IdType")]
+    clientToken: Optional[Annotated[str, _aws_pattern("Finspace", "ClientToken")]] = None
 
 
 class DeleteKxVolumeRequestTypeDef(BaseValidatorModel):
-    environmentId: str
-    volumeName: str
-    clientToken: Optional[str] = None
+    environmentId: Annotated[str, _aws_pattern("Finspace", "KxEnvironmentId")]
+    volumeName: Annotated[str, _aws_pattern("Finspace", "KxVolumeName")]
+    clientToken: Optional[Annotated[str, _aws_pattern("Finspace", "ClientTokenString")]] = None
 
 
 class FederationParametersOutputTypeDef(BaseValidatorModel):
@@ -238,77 +240,77 @@ class FederationParametersOutputTypeDef(BaseValidatorModel):
 
 
 class FederationParametersTypeDef(BaseValidatorModel):
-    samlMetadataDocument: Optional[str] = None
-    samlMetadataURL: Optional[str] = None
-    applicationCallBackURL: Optional[str] = None
-    federationURN: Optional[str] = None
-    federationProviderName: Optional[str] = None
+    samlMetadataDocument: Optional[Annotated[str, _aws_pattern("Finspace", "SamlMetadataDocument")]] = None
+    samlMetadataURL: Optional[Annotated[str, _aws_pattern("Finspace", "url")]] = None
+    applicationCallBackURL: Optional[Annotated[str, _aws_pattern("Finspace", "url")]] = None
+    federationURN: Optional[Annotated[str, _aws_pattern("Finspace", "urn")]] = None
+    federationProviderName: Optional[Annotated[str, _aws_pattern("Finspace", "FederationProviderName")]] = None
     attributeMap: Optional[Dict[str, str]] = None
 
 
 # This class is the input for the 'get_environment' function.
 class GetEnvironmentRequestTypeDef(BaseValidatorModel):
-    environmentId: str
+    environmentId: Annotated[str, _aws_pattern("Finspace", "IdType")]
 
 
 # This class is the input for the 'get_kx_changeset' function.
 class GetKxChangesetRequestTypeDef(BaseValidatorModel):
-    environmentId: str
-    databaseName: str
-    changesetId: str
+    environmentId: Annotated[str, _aws_pattern("Finspace", "EnvironmentId")]
+    databaseName: Annotated[str, _aws_pattern("Finspace", "DatabaseName")]
+    changesetId: Annotated[str, _aws_pattern("Finspace", "ChangesetId")]
 
 
 # This class is the input for the 'get_kx_cluster' function.
 class GetKxClusterRequestTypeDef(BaseValidatorModel):
-    environmentId: str
-    clusterName: str
+    environmentId: Annotated[str, _aws_pattern("Finspace", "KxEnvironmentId")]
+    clusterName: Annotated[str, _aws_pattern("Finspace", "KxClusterName")]
 
 
 # This class is the input for the 'get_kx_connection_string' function.
 class GetKxConnectionStringRequestTypeDef(BaseValidatorModel):
-    userArn: str
-    environmentId: str
-    clusterName: str
+    userArn: Annotated[str, _aws_pattern("Finspace", "KxUserArn")]
+    environmentId: Annotated[str, _aws_pattern("Finspace", "IdType")]
+    clusterName: Annotated[str, _aws_pattern("Finspace", "KxClusterName")]
 
 
 # This class is the input for the 'get_kx_database' function.
 class GetKxDatabaseRequestTypeDef(BaseValidatorModel):
-    environmentId: str
-    databaseName: str
+    environmentId: Annotated[str, _aws_pattern("Finspace", "EnvironmentId")]
+    databaseName: Annotated[str, _aws_pattern("Finspace", "DatabaseName")]
 
 
 # This class is the input for the 'get_kx_dataview' function.
 class GetKxDataviewRequestTypeDef(BaseValidatorModel):
-    environmentId: str
-    databaseName: str
-    dataviewName: str
+    environmentId: Annotated[str, _aws_pattern("Finspace", "EnvironmentId")]
+    databaseName: Annotated[str, _aws_pattern("Finspace", "DatabaseName")]
+    dataviewName: Annotated[str, _aws_pattern("Finspace", "KxDataviewName")]
 
 
 # This class is the input for the 'get_kx_environment' function.
 class GetKxEnvironmentRequestTypeDef(BaseValidatorModel):
-    environmentId: str
+    environmentId: Annotated[str, _aws_pattern("Finspace", "IdType")]
 
 
 # This class is the input for the 'get_kx_scaling_group' function.
 class GetKxScalingGroupRequestTypeDef(BaseValidatorModel):
-    environmentId: str
-    scalingGroupName: str
+    environmentId: Annotated[str, _aws_pattern("Finspace", "KxEnvironmentId")]
+    scalingGroupName: Annotated[str, _aws_pattern("Finspace", "KxScalingGroupName")]
 
 
 # This class is the input for the 'get_kx_user' function.
 class GetKxUserRequestTypeDef(BaseValidatorModel):
-    userName: str
-    environmentId: str
+    userName: Annotated[str, _aws_pattern("Finspace", "KxUserNameString")]
+    environmentId: Annotated[str, _aws_pattern("Finspace", "IdType")]
 
 
 # This class is the input for the 'get_kx_volume' function.
 class GetKxVolumeRequestTypeDef(BaseValidatorModel):
-    environmentId: str
-    volumeName: str
+    environmentId: Annotated[str, _aws_pattern("Finspace", "KxEnvironmentId")]
+    volumeName: Annotated[str, _aws_pattern("Finspace", "KxVolumeName")]
 
 
 class KxAttachedClusterTypeDef(BaseValidatorModel):
-    clusterName: Optional[str] = None
+    clusterName: Optional[Annotated[str, _aws_pattern("Finspace", "KxClusterName")]] = None
     clusterType: Optional[KxClusterTypeType] = None
     clusterStatus: Optional[KxClusterStatusType] = None
 
@@ -319,7 +321,7 @@ class IcmpTypeCodeTypeDef(BaseValidatorModel):
 
 
 class KxChangesetListEntryTypeDef(BaseValidatorModel):
-    changesetId: Optional[str] = None
+    changesetId: Optional[Annotated[str, _aws_pattern("Finspace", "ChangesetId")]] = None
     createdTimestamp: Optional[datetime] = None
     activeFromTimestamp: Optional[datetime] = None
     lastModifiedTimestamp: Optional[datetime] = None
@@ -338,19 +340,19 @@ class KxDatabaseCacheConfigurationOutputTypeDef(BaseValidatorModel):
 
 class KxDatabaseCacheConfigurationTypeDef(BaseValidatorModel):
     cacheType: str
-    dbPaths: List[str]
-    dataviewName: Optional[str] = None
+    dbPaths: List[Annotated[str, _aws_pattern("Finspace", "DbPath")]]
+    dataviewName: Optional[Annotated[str, _aws_pattern("Finspace", "KxDataviewName")]] = None
 
 
 class KxDatabaseListEntryTypeDef(BaseValidatorModel):
-    databaseName: Optional[str] = None
+    databaseName: Optional[Annotated[str, _aws_pattern("Finspace", "DatabaseName")]] = None
     createdTimestamp: Optional[datetime] = None
     lastModifiedTimestamp: Optional[datetime] = None
 
 
 class KxDataviewSegmentConfigurationTypeDef(BaseValidatorModel):
-    dbPaths: List[str]
-    volumeName: str
+    dbPaths: List[Annotated[str, _aws_pattern("Finspace", "DbPath")]]
+    volumeName: Annotated[str, _aws_pattern("Finspace", "KxVolumeName")]
     onDemand: Optional[bool] = None
 
 
@@ -360,84 +362,84 @@ class KxDeploymentConfigurationTypeDef(BaseValidatorModel):
 
 class KxNodeTypeDef(BaseValidatorModel):
     nodeId: Optional[str] = None
-    availabilityZoneId: Optional[str] = None
+    availabilityZoneId: Optional[Annotated[str, _aws_pattern("Finspace", "AvailabilityZoneId")]] = None
     launchTime: Optional[datetime] = None
     status: Optional[KxNodeStatusType] = None
 
 
 class KxScalingGroupTypeDef(BaseValidatorModel):
-    scalingGroupName: Optional[str] = None
-    hostType: Optional[str] = None
-    clusters: Optional[List[str]] = None
-    availabilityZoneId: Optional[str] = None
+    scalingGroupName: Optional[Annotated[str, _aws_pattern("Finspace", "KxScalingGroupName")]] = None
+    hostType: Optional[Annotated[str, _aws_pattern("Finspace", "KxHostType")]] = None
+    clusters: Optional[List[Annotated[str, _aws_pattern("Finspace", "KxClusterName")]]] = None
+    availabilityZoneId: Optional[Annotated[str, _aws_pattern("Finspace", "AvailabilityZoneId")]] = None
     status: Optional[KxScalingGroupStatusType] = None
-    statusReason: Optional[str] = None
+    statusReason: Optional[Annotated[str, _aws_pattern("Finspace", "KxClusterStatusReason")]] = None
     lastModifiedTimestamp: Optional[datetime] = None
     createdTimestamp: Optional[datetime] = None
 
 
 class KxUserTypeDef(BaseValidatorModel):
-    userArn: Optional[str] = None
-    userName: Optional[str] = None
-    iamRole: Optional[str] = None
+    userArn: Optional[Annotated[str, _aws_pattern("Finspace", "KxUserArn")]] = None
+    userName: Optional[Annotated[str, _aws_pattern("Finspace", "KxUserNameString")]] = None
+    iamRole: Optional[Annotated[str, _aws_pattern("Finspace", "RoleArn")]] = None
     createTimestamp: Optional[datetime] = None
     updateTimestamp: Optional[datetime] = None
 
 
 class KxVolumeTypeDef(BaseValidatorModel):
-    volumeName: Optional[str] = None
+    volumeName: Optional[Annotated[str, _aws_pattern("Finspace", "KxVolumeName")]] = None
     volumeType: Optional[Literal["NAS_1"]] = None
     status: Optional[KxVolumeStatusType] = None
-    description: Optional[str] = None
-    statusReason: Optional[str] = None
+    description: Optional[Annotated[str, _aws_pattern("Finspace", "Description")]] = None
+    statusReason: Optional[Annotated[str, _aws_pattern("Finspace", "KxVolumeStatusReason")]] = None
     azMode: Optional[KxAzModeType] = None
-    availabilityZoneIds: Optional[List[str]] = None
+    availabilityZoneIds: Optional[List[Annotated[str, _aws_pattern("Finspace", "AvailabilityZoneId")]]] = None
     createdTimestamp: Optional[datetime] = None
     lastModifiedTimestamp: Optional[datetime] = None
 
 
 # This class is the input for the 'list_environments' function.
 class ListEnvironmentsRequestTypeDef(BaseValidatorModel):
-    nextToken: Optional[str] = None
+    nextToken: Optional[Annotated[str, _aws_pattern("Finspace", "PaginationToken")]] = None
     maxResults: Optional[int] = None
 
 
 # This class is the input for the 'list_kx_changesets' function.
 class ListKxChangesetsRequestTypeDef(BaseValidatorModel):
-    environmentId: str
-    databaseName: str
-    nextToken: Optional[str] = None
+    environmentId: Annotated[str, _aws_pattern("Finspace", "EnvironmentId")]
+    databaseName: Annotated[str, _aws_pattern("Finspace", "DatabaseName")]
+    nextToken: Optional[Annotated[str, _aws_pattern("Finspace", "PaginationToken")]] = None
     maxResults: Optional[int] = None
 
 
 # This class is the input for the 'list_kx_cluster_nodes' function.
 class ListKxClusterNodesRequestTypeDef(BaseValidatorModel):
-    environmentId: str
-    clusterName: str
-    nextToken: Optional[str] = None
+    environmentId: Annotated[str, _aws_pattern("Finspace", "KxEnvironmentId")]
+    clusterName: Annotated[str, _aws_pattern("Finspace", "KxClusterName")]
+    nextToken: Optional[Annotated[str, _aws_pattern("Finspace", "PaginationToken")]] = None
     maxResults: Optional[int] = None
 
 
 # This class is the input for the 'list_kx_clusters' function.
 class ListKxClustersRequestTypeDef(BaseValidatorModel):
-    environmentId: str
+    environmentId: Annotated[str, _aws_pattern("Finspace", "KxEnvironmentId")]
     clusterType: Optional[KxClusterTypeType] = None
     maxResults: Optional[int] = None
-    nextToken: Optional[str] = None
+    nextToken: Optional[Annotated[str, _aws_pattern("Finspace", "PaginationToken")]] = None
 
 
 # This class is the input for the 'list_kx_databases' function.
 class ListKxDatabasesRequestTypeDef(BaseValidatorModel):
-    environmentId: str
-    nextToken: Optional[str] = None
+    environmentId: Annotated[str, _aws_pattern("Finspace", "EnvironmentId")]
+    nextToken: Optional[Annotated[str, _aws_pattern("Finspace", "PaginationToken")]] = None
     maxResults: Optional[int] = None
 
 
 # This class is the input for the 'list_kx_dataviews' function.
 class ListKxDataviewsRequestTypeDef(BaseValidatorModel):
-    environmentId: str
-    databaseName: str
-    nextToken: Optional[str] = None
+    environmentId: Annotated[str, _aws_pattern("Finspace", "EnvironmentId")]
+    databaseName: Annotated[str, _aws_pattern("Finspace", "DatabaseName")]
+    nextToken: Optional[Annotated[str, _aws_pattern("Finspace", "PaginationToken")]] = None
     maxResults: Optional[int] = None
 
 
@@ -449,35 +451,35 @@ class PaginatorConfigTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'list_kx_environments' function.
 class ListKxEnvironmentsRequestTypeDef(BaseValidatorModel):
-    nextToken: Optional[str] = None
+    nextToken: Optional[Annotated[str, _aws_pattern("Finspace", "PaginationToken")]] = None
     maxResults: Optional[int] = None
 
 
 # This class is the input for the 'list_kx_scaling_groups' function.
 class ListKxScalingGroupsRequestTypeDef(BaseValidatorModel):
-    environmentId: str
+    environmentId: Annotated[str, _aws_pattern("Finspace", "KxEnvironmentId")]
     maxResults: Optional[int] = None
-    nextToken: Optional[str] = None
+    nextToken: Optional[Annotated[str, _aws_pattern("Finspace", "PaginationToken")]] = None
 
 
 # This class is the input for the 'list_kx_users' function.
 class ListKxUsersRequestTypeDef(BaseValidatorModel):
-    environmentId: str
-    nextToken: Optional[str] = None
+    environmentId: Annotated[str, _aws_pattern("Finspace", "IdType")]
+    nextToken: Optional[Annotated[str, _aws_pattern("Finspace", "PaginationToken")]] = None
     maxResults: Optional[int] = None
 
 
 # This class is the input for the 'list_kx_volumes' function.
 class ListKxVolumesRequestTypeDef(BaseValidatorModel):
-    environmentId: str
+    environmentId: Annotated[str, _aws_pattern("Finspace", "KxEnvironmentId")]
     maxResults: Optional[int] = None
-    nextToken: Optional[str] = None
+    nextToken: Optional[Annotated[str, _aws_pattern("Finspace", "PaginationToken")]] = None
     volumeType: Optional[Literal["NAS_1"]] = None
 
 
 # This class is the input for the 'list_tags_for_resource' function.
 class ListTagsForResourceRequestTypeDef(BaseValidatorModel):
-    resourceArn: str
+    resourceArn: Annotated[str, _aws_pattern("Finspace", "FinSpaceTaggableArn")]
 
 
 class PortRangeTypeDef(BaseValidatorModel):
@@ -486,72 +488,72 @@ class PortRangeTypeDef(BaseValidatorModel):
 
 
 class TagResourceRequestTypeDef(BaseValidatorModel):
-    resourceArn: str
+    resourceArn: Annotated[str, _aws_pattern("Finspace", "FinSpaceTaggableArn")]
     tags: Dict[str, str]
 
 
 class TickerplantLogConfigurationTypeDef(BaseValidatorModel):
-    tickerplantLogVolumes: Optional[List[str]] = None
+    tickerplantLogVolumes: Optional[List[Annotated[str, _aws_pattern("Finspace", "VolumeName")]]] = None
 
 
 class UntagResourceRequestTypeDef(BaseValidatorModel):
-    resourceArn: str
-    tagKeys: List[str]
+    resourceArn: Annotated[str, _aws_pattern("Finspace", "FinSpaceTaggableArn")]
+    tagKeys: List[Annotated[str, _aws_pattern("Finspace", "TagKey")]]
 
 
 # This class is the input for the 'update_kx_database' function.
 class UpdateKxDatabaseRequestTypeDef(BaseValidatorModel):
-    environmentId: str
-    databaseName: str
-    clientToken: str
-    description: Optional[str] = None
+    environmentId: Annotated[str, _aws_pattern("Finspace", "EnvironmentId")]
+    databaseName: Annotated[str, _aws_pattern("Finspace", "DatabaseName")]
+    clientToken: Annotated[str, _aws_pattern("Finspace", "ClientTokenString")]
+    description: Optional[Annotated[str, _aws_pattern("Finspace", "Description")]] = None
 
 
 # This class is the input for the 'update_kx_environment' function.
 class UpdateKxEnvironmentRequestTypeDef(BaseValidatorModel):
-    environmentId: str
-    name: Optional[str] = None
-    description: Optional[str] = None
-    clientToken: Optional[str] = None
+    environmentId: Annotated[str, _aws_pattern("Finspace", "IdType")]
+    name: Optional[Annotated[str, _aws_pattern("Finspace", "KxEnvironmentName")]] = None
+    description: Optional[Annotated[str, _aws_pattern("Finspace", "Description")]] = None
+    clientToken: Optional[Annotated[str, _aws_pattern("Finspace", "ClientToken")]] = None
 
 
 # This class is the input for the 'update_kx_user' function.
 class UpdateKxUserRequestTypeDef(BaseValidatorModel):
-    environmentId: str
-    userName: str
-    iamRole: str
-    clientToken: Optional[str] = None
+    environmentId: Annotated[str, _aws_pattern("Finspace", "IdType")]
+    userName: Annotated[str, _aws_pattern("Finspace", "KxUserNameString")]
+    iamRole: Annotated[str, _aws_pattern("Finspace", "RoleArn")]
+    clientToken: Optional[Annotated[str, _aws_pattern("Finspace", "ClientToken")]] = None
 
 
 class VpcConfigurationTypeDef(BaseValidatorModel):
-    vpcId: Optional[str] = None
-    securityGroupIds: Optional[List[str]] = None
-    subnetIds: Optional[List[str]] = None
+    vpcId: Optional[Annotated[str, _aws_pattern("Finspace", "VpcIdString")]] = None
+    securityGroupIds: Optional[List[Annotated[str, _aws_pattern("Finspace", "SecurityGroupIdString")]]] = None
+    subnetIds: Optional[List[Annotated[str, _aws_pattern("Finspace", "SubnetIdString")]]] = None
     ipAddressType: Optional[Literal["IP_V4"]] = None
 
 
 # This class is the input for the 'create_kx_changeset' function.
 class CreateKxChangesetRequestTypeDef(BaseValidatorModel):
-    environmentId: str
-    databaseName: str
+    environmentId: Annotated[str, _aws_pattern("Finspace", "EnvironmentId")]
+    databaseName: Annotated[str, _aws_pattern("Finspace", "DatabaseName")]
     changeRequests: List[ChangeRequestTypeDef]
-    clientToken: str
+    clientToken: Annotated[str, _aws_pattern("Finspace", "ClientTokenString")]
 
 
 # This class is the output for the 'create_environment' function.
 class CreateEnvironmentResponseTypeDef(BaseValidatorModel):
-    environmentId: str
-    environmentArn: str
-    environmentUrl: str
+    environmentId: Annotated[str, _aws_pattern("Finspace", "IdType")]
+    environmentArn: Annotated[str, _aws_pattern("Finspace", "EnvironmentArn")]
+    environmentUrl: Annotated[str, _aws_pattern("Finspace", "url")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 # This class is the output for the 'create_kx_database' function.
 class CreateKxDatabaseResponseTypeDef(BaseValidatorModel):
-    databaseName: str
+    databaseName: Annotated[str, _aws_pattern("Finspace", "DatabaseName")]
     databaseArn: str
-    environmentId: str
-    description: str
+    environmentId: Annotated[str, _aws_pattern("Finspace", "EnvironmentId")]
+    description: Annotated[str, _aws_pattern("Finspace", "Description")]
     createdTimestamp: datetime
     lastModifiedTimestamp: datetime
     ResponseMetadata: ResponseMetadataTypeDef
@@ -559,22 +561,22 @@ class CreateKxDatabaseResponseTypeDef(BaseValidatorModel):
 
 # This class is the output for the 'create_kx_environment' function.
 class CreateKxEnvironmentResponseTypeDef(BaseValidatorModel):
-    name: str
+    name: Annotated[str, _aws_pattern("Finspace", "KxEnvironmentName")]
     status: EnvironmentStatusType
-    environmentId: str
-    description: str
-    environmentArn: str
-    kmsKeyId: str
+    environmentId: Annotated[str, _aws_pattern("Finspace", "IdType")]
+    description: Annotated[str, _aws_pattern("Finspace", "Description")]
+    environmentArn: Annotated[str, _aws_pattern("Finspace", "EnvironmentArn")]
+    kmsKeyId: Annotated[str, _aws_pattern("Finspace", "KmsKeyId")]
     creationTimestamp: datetime
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 # This class is the output for the 'create_kx_scaling_group' function.
 class CreateKxScalingGroupResponseTypeDef(BaseValidatorModel):
-    environmentId: str
-    scalingGroupName: str
-    hostType: str
-    availabilityZoneId: str
+    environmentId: Annotated[str, _aws_pattern("Finspace", "KxEnvironmentId")]
+    scalingGroupName: Annotated[str, _aws_pattern("Finspace", "KxScalingGroupName")]
+    hostType: Annotated[str, _aws_pattern("Finspace", "KxHostType")]
+    availabilityZoneId: Annotated[str, _aws_pattern("Finspace", "AvailabilityZoneId")]
     status: KxScalingGroupStatusType
     lastModifiedTimestamp: datetime
     createdTimestamp: datetime
@@ -583,28 +585,28 @@ class CreateKxScalingGroupResponseTypeDef(BaseValidatorModel):
 
 # This class is the output for the 'create_kx_user' function.
 class CreateKxUserResponseTypeDef(BaseValidatorModel):
-    userName: str
-    userArn: str
-    environmentId: str
-    iamRole: str
+    userName: Annotated[str, _aws_pattern("Finspace", "KxUserNameString")]
+    userArn: Annotated[str, _aws_pattern("Finspace", "KxUserArn")]
+    environmentId: Annotated[str, _aws_pattern("Finspace", "IdType")]
+    iamRole: Annotated[str, _aws_pattern("Finspace", "RoleArn")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 # This class is the output for the 'get_kx_connection_string' function.
 class GetKxConnectionStringResponseTypeDef(BaseValidatorModel):
-    signedConnectionString: str
+    signedConnectionString: Annotated[str, _aws_pattern("Finspace", "SignedKxConnectionString")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 # This class is the output for the 'get_kx_database' function.
 class GetKxDatabaseResponseTypeDef(BaseValidatorModel):
-    databaseName: str
+    databaseName: Annotated[str, _aws_pattern("Finspace", "DatabaseName")]
     databaseArn: str
-    environmentId: str
-    description: str
+    environmentId: Annotated[str, _aws_pattern("Finspace", "EnvironmentId")]
+    description: Annotated[str, _aws_pattern("Finspace", "Description")]
     createdTimestamp: datetime
     lastModifiedTimestamp: datetime
-    lastCompletedChangesetId: str
+    lastCompletedChangesetId: Annotated[str, _aws_pattern("Finspace", "ChangesetId")]
     numBytes: int
     numChangesets: int
     numFiles: int
@@ -613,13 +615,13 @@ class GetKxDatabaseResponseTypeDef(BaseValidatorModel):
 
 # This class is the output for the 'get_kx_scaling_group' function.
 class GetKxScalingGroupResponseTypeDef(BaseValidatorModel):
-    scalingGroupName: str
-    scalingGroupArn: str
-    hostType: str
-    clusters: List[str]
-    availabilityZoneId: str
+    scalingGroupName: Annotated[str, _aws_pattern("Finspace", "KxScalingGroupName")]
+    scalingGroupArn: Annotated[str, _aws_pattern("Finspace", "arn")]
+    hostType: Annotated[str, _aws_pattern("Finspace", "KxHostType")]
+    clusters: List[Annotated[str, _aws_pattern("Finspace", "KxClusterName")]]
+    availabilityZoneId: Annotated[str, _aws_pattern("Finspace", "AvailabilityZoneId")]
     status: KxScalingGroupStatusType
-    statusReason: str
+    statusReason: Annotated[str, _aws_pattern("Finspace", "KxClusterStatusReason")]
     lastModifiedTimestamp: datetime
     createdTimestamp: datetime
     ResponseMetadata: ResponseMetadataTypeDef
@@ -627,10 +629,10 @@ class GetKxScalingGroupResponseTypeDef(BaseValidatorModel):
 
 # This class is the output for the 'get_kx_user' function.
 class GetKxUserResponseTypeDef(BaseValidatorModel):
-    userName: str
-    userArn: str
-    environmentId: str
-    iamRole: str
+    userName: Annotated[str, _aws_pattern("Finspace", "IdType")]
+    userArn: Annotated[str, _aws_pattern("Finspace", "KxUserArn")]
+    environmentId: Annotated[str, _aws_pattern("Finspace", "IdType")]
+    iamRole: Annotated[str, _aws_pattern("Finspace", "RoleArn")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
@@ -642,27 +644,27 @@ class ListTagsForResourceResponseTypeDef(BaseValidatorModel):
 
 # This class is the output for the 'update_kx_database' function.
 class UpdateKxDatabaseResponseTypeDef(BaseValidatorModel):
-    databaseName: str
-    environmentId: str
-    description: str
+    databaseName: Annotated[str, _aws_pattern("Finspace", "DatabaseName")]
+    environmentId: Annotated[str, _aws_pattern("Finspace", "EnvironmentId")]
+    description: Annotated[str, _aws_pattern("Finspace", "Description")]
     lastModifiedTimestamp: datetime
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 # This class is the output for the 'update_kx_user' function.
 class UpdateKxUserResponseTypeDef(BaseValidatorModel):
-    userName: str
-    userArn: str
-    environmentId: str
-    iamRole: str
+    userName: Annotated[str, _aws_pattern("Finspace", "KxUserNameString")]
+    userArn: Annotated[str, _aws_pattern("Finspace", "KxUserArn")]
+    environmentId: Annotated[str, _aws_pattern("Finspace", "IdType")]
+    iamRole: Annotated[str, _aws_pattern("Finspace", "RoleArn")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 # This class is the output for the 'create_kx_changeset' function.
 class CreateKxChangesetResponseTypeDef(BaseValidatorModel):
-    changesetId: str
-    databaseName: str
-    environmentId: str
+    changesetId: Annotated[str, _aws_pattern("Finspace", "ChangesetId")]
+    databaseName: Annotated[str, _aws_pattern("Finspace", "DatabaseName")]
+    environmentId: Annotated[str, _aws_pattern("Finspace", "EnvironmentId")]
     changeRequests: List[ChangeRequestTypeDef]
     createdTimestamp: datetime
     lastModifiedTimestamp: datetime
@@ -673,9 +675,9 @@ class CreateKxChangesetResponseTypeDef(BaseValidatorModel):
 
 # This class is the output for the 'get_kx_changeset' function.
 class GetKxChangesetResponseTypeDef(BaseValidatorModel):
-    changesetId: str
-    databaseName: str
-    environmentId: str
+    changesetId: Annotated[str, _aws_pattern("Finspace", "ChangesetId")]
+    databaseName: Annotated[str, _aws_pattern("Finspace", "DatabaseName")]
+    environmentId: Annotated[str, _aws_pattern("Finspace", "EnvironmentId")]
     changeRequests: List[ChangeRequestTypeDef]
     createdTimestamp: datetime
     activeFromTimestamp: datetime
@@ -687,30 +689,30 @@ class GetKxChangesetResponseTypeDef(BaseValidatorModel):
 
 class KxClusterTypeDef(BaseValidatorModel):
     status: Optional[KxClusterStatusType] = None
-    statusReason: Optional[str] = None
-    clusterName: Optional[str] = None
+    statusReason: Optional[Annotated[str, _aws_pattern("Finspace", "KxClusterStatusReason")]] = None
+    clusterName: Optional[Annotated[str, _aws_pattern("Finspace", "KxClusterName")]] = None
     clusterType: Optional[KxClusterTypeType] = None
-    clusterDescription: Optional[str] = None
-    releaseLabel: Optional[str] = None
+    clusterDescription: Optional[Annotated[str, _aws_pattern("Finspace", "KxClusterDescription")]] = None
+    releaseLabel: Optional[Annotated[str, _aws_pattern("Finspace", "ReleaseLabel")]] = None
     volumes: Optional[List[VolumeTypeDef]] = None
-    initializationScript: Optional[str] = None
-    executionRole: Optional[str] = None
+    initializationScript: Optional[Annotated[str, _aws_pattern("Finspace", "InitializationScriptFilePath")]] = None
+    executionRole: Optional[Annotated[str, _aws_pattern("Finspace", "ExecutionRoleArn")]] = None
     azMode: Optional[KxAzModeType] = None
-    availabilityZoneId: Optional[str] = None
+    availabilityZoneId: Optional[Annotated[str, _aws_pattern("Finspace", "AvailabilityZoneId")]] = None
     lastModifiedTimestamp: Optional[datetime] = None
     createdTimestamp: Optional[datetime] = None
 
 
 # This class is the output for the 'create_kx_dataview' function.
 class CreateKxDataviewResponseTypeDef(BaseValidatorModel):
-    dataviewName: str
-    databaseName: str
-    environmentId: str
+    dataviewName: Annotated[str, _aws_pattern("Finspace", "KxDataviewName")]
+    databaseName: Annotated[str, _aws_pattern("Finspace", "DatabaseName")]
+    environmentId: Annotated[str, _aws_pattern("Finspace", "EnvironmentId")]
     azMode: KxAzModeType
-    availabilityZoneId: str
-    changesetId: str
+    availabilityZoneId: Annotated[str, _aws_pattern("Finspace", "AvailabilityZoneId")]
+    changesetId: Annotated[str, _aws_pattern("Finspace", "ChangesetId")]
     segmentConfigurations: List[KxDataviewSegmentConfigurationOutputTypeDef]
-    description: str
+    description: Annotated[str, _aws_pattern("Finspace", "Description")]
     autoUpdate: bool
     readWrite: bool
     createdTimestamp: datetime
@@ -720,9 +722,9 @@ class CreateKxDataviewResponseTypeDef(BaseValidatorModel):
 
 
 class KxDataviewActiveVersionTypeDef(BaseValidatorModel):
-    changesetId: Optional[str] = None
+    changesetId: Optional[Annotated[str, _aws_pattern("Finspace", "ChangesetId")]] = None
     segmentConfigurations: Optional[List[KxDataviewSegmentConfigurationOutputTypeDef]] = None
-    attachedClusters: Optional[List[str]] = None
+    attachedClusters: Optional[List[Annotated[str, _aws_pattern("Finspace", "KxClusterName")]]] = None
     createdTimestamp: Optional[datetime] = None
     versionId: Optional[str] = None
 
@@ -736,53 +738,53 @@ class KxDataviewConfigurationOutputTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'create_kx_volume' function.
 class CreateKxVolumeRequestTypeDef(BaseValidatorModel):
-    environmentId: str
+    environmentId: Annotated[str, _aws_pattern("Finspace", "KxEnvironmentId")]
     volumeType: Literal["NAS_1"]
-    volumeName: str
+    volumeName: Annotated[str, _aws_pattern("Finspace", "KxVolumeName")]
     azMode: KxAzModeType
-    availabilityZoneIds: List[str]
-    clientToken: Optional[str] = None
-    description: Optional[str] = None
+    availabilityZoneIds: List[Annotated[str, _aws_pattern("Finspace", "AvailabilityZoneId")]]
+    clientToken: Optional[Annotated[str, _aws_pattern("Finspace", "ClientToken")]] = None
+    description: Optional[Annotated[str, _aws_pattern("Finspace", "Description")]] = None
     nas1Configuration: Optional[KxNAS1ConfigurationTypeDef] = None
     tags: Optional[Dict[str, str]] = None
 
 
 # This class is the output for the 'create_kx_volume' function.
 class CreateKxVolumeResponseTypeDef(BaseValidatorModel):
-    environmentId: str
-    volumeName: str
+    environmentId: Annotated[str, _aws_pattern("Finspace", "KxEnvironmentId")]
+    volumeName: Annotated[str, _aws_pattern("Finspace", "KxVolumeName")]
     volumeType: Literal["NAS_1"]
-    volumeArn: str
+    volumeArn: Annotated[str, _aws_pattern("Finspace", "KxVolumeArn")]
     nas1Configuration: KxNAS1ConfigurationTypeDef
     status: KxVolumeStatusType
-    statusReason: str
+    statusReason: Annotated[str, _aws_pattern("Finspace", "KxVolumeStatusReason")]
     azMode: KxAzModeType
-    description: str
-    availabilityZoneIds: List[str]
+    description: Annotated[str, _aws_pattern("Finspace", "Description")]
+    availabilityZoneIds: List[Annotated[str, _aws_pattern("Finspace", "AvailabilityZoneId")]]
     createdTimestamp: datetime
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 # This class is the input for the 'update_kx_volume' function.
 class UpdateKxVolumeRequestTypeDef(BaseValidatorModel):
-    environmentId: str
-    volumeName: str
-    description: Optional[str] = None
-    clientToken: Optional[str] = None
+    environmentId: Annotated[str, _aws_pattern("Finspace", "KxEnvironmentId")]
+    volumeName: Annotated[str, _aws_pattern("Finspace", "KxVolumeName")]
+    description: Optional[Annotated[str, _aws_pattern("Finspace", "Description")]] = None
+    clientToken: Optional[Annotated[str, _aws_pattern("Finspace", "ClientTokenString")]] = None
     nas1Configuration: Optional[KxNAS1ConfigurationTypeDef] = None
 
 
 class EnvironmentTypeDef(BaseValidatorModel):
-    name: Optional[str] = None
-    environmentId: Optional[str] = None
-    awsAccountId: Optional[str] = None
+    name: Optional[Annotated[str, _aws_pattern("Finspace", "EnvironmentName")]] = None
+    environmentId: Optional[Annotated[str, _aws_pattern("Finspace", "IdType")]] = None
+    awsAccountId: Optional[Annotated[str, _aws_pattern("Finspace", "IdType")]] = None
     status: Optional[EnvironmentStatusType] = None
-    environmentUrl: Optional[str] = None
-    description: Optional[str] = None
-    environmentArn: Optional[str] = None
-    sageMakerStudioDomainUrl: Optional[str] = None
-    kmsKeyId: Optional[str] = None
-    dedicatedServiceAccountId: Optional[str] = None
+    environmentUrl: Optional[Annotated[str, _aws_pattern("Finspace", "url")]] = None
+    description: Optional[Annotated[str, _aws_pattern("Finspace", "Description")]] = None
+    environmentArn: Optional[Annotated[str, _aws_pattern("Finspace", "EnvironmentArn")]] = None
+    sageMakerStudioDomainUrl: Optional[Annotated[str, _aws_pattern("Finspace", "SmsDomainUrl")]] = None
+    kmsKeyId: Optional[Annotated[str, _aws_pattern("Finspace", "KmsKeyId")]] = None
+    dedicatedServiceAccountId: Optional[Annotated[str, _aws_pattern("Finspace", "IdType")]] = None
     federationMode: Optional[FederationModeType] = None
     federationParameters: Optional[FederationParametersOutputTypeDef] = None
 
@@ -792,17 +794,17 @@ FederationParametersUnionTypeDef = Union[FederationParametersOutputTypeDef, Fede
 
 # This class is the output for the 'get_kx_volume' function.
 class GetKxVolumeResponseTypeDef(BaseValidatorModel):
-    environmentId: str
-    volumeName: str
+    environmentId: Annotated[str, _aws_pattern("Finspace", "KxEnvironmentId")]
+    volumeName: Annotated[str, _aws_pattern("Finspace", "KxVolumeName")]
     volumeType: Literal["NAS_1"]
-    volumeArn: str
+    volumeArn: Annotated[str, _aws_pattern("Finspace", "KxVolumeArn")]
     nas1Configuration: KxNAS1ConfigurationTypeDef
     status: KxVolumeStatusType
-    statusReason: str
+    statusReason: Annotated[str, _aws_pattern("Finspace", "KxVolumeStatusReason")]
     createdTimestamp: datetime
-    description: str
+    description: Annotated[str, _aws_pattern("Finspace", "Description")]
     azMode: KxAzModeType
-    availabilityZoneIds: List[str]
+    availabilityZoneIds: List[Annotated[str, _aws_pattern("Finspace", "AvailabilityZoneId")]]
     lastModifiedTimestamp: datetime
     attachedClusters: List[KxAttachedClusterTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
@@ -810,17 +812,17 @@ class GetKxVolumeResponseTypeDef(BaseValidatorModel):
 
 # This class is the output for the 'update_kx_volume' function.
 class UpdateKxVolumeResponseTypeDef(BaseValidatorModel):
-    environmentId: str
-    volumeName: str
+    environmentId: Annotated[str, _aws_pattern("Finspace", "KxEnvironmentId")]
+    volumeName: Annotated[str, _aws_pattern("Finspace", "KxVolumeName")]
     volumeType: Literal["NAS_1"]
-    volumeArn: str
+    volumeArn: Annotated[str, _aws_pattern("Finspace", "KxVolumeArn")]
     nas1Configuration: KxNAS1ConfigurationTypeDef
     status: KxVolumeStatusType
-    description: str
-    statusReason: str
+    description: Annotated[str, _aws_pattern("Finspace", "Description")]
+    statusReason: Annotated[str, _aws_pattern("Finspace", "KxVolumeStatusReason")]
     createdTimestamp: datetime
     azMode: KxAzModeType
-    availabilityZoneIds: List[str]
+    availabilityZoneIds: List[Annotated[str, _aws_pattern("Finspace", "AvailabilityZoneId")]]
     lastModifiedTimestamp: datetime
     attachedClusters: List[KxAttachedClusterTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
@@ -830,15 +832,15 @@ class UpdateKxVolumeResponseTypeDef(BaseValidatorModel):
 class ListKxChangesetsResponseTypeDef(BaseValidatorModel):
     kxChangesets: List[KxChangesetListEntryTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
-    nextToken: Optional[str] = None
+    nextToken: Optional[Annotated[str, _aws_pattern("Finspace", "PaginationToken")]] = None
 
 
 class UpdateKxClusterCodeConfigurationRequestTypeDef(BaseValidatorModel):
-    environmentId: str
-    clusterName: str
+    environmentId: Annotated[str, _aws_pattern("Finspace", "KxEnvironmentId")]
+    clusterName: Annotated[str, _aws_pattern("Finspace", "KxClusterName")]
     code: CodeConfigurationTypeDef
-    clientToken: Optional[str] = None
-    initializationScript: Optional[str] = None
+    clientToken: Optional[Annotated[str, _aws_pattern("Finspace", "ClientTokenString")]] = None
+    initializationScript: Optional[Annotated[str, _aws_pattern("Finspace", "InitializationScriptFilePath")]] = None
     commandLineArguments: Optional[List[KxCommandLineArgumentTypeDef]] = None
     deploymentConfiguration: Optional[KxClusterCodeDeploymentConfigurationTypeDef] = None
 
@@ -852,7 +854,7 @@ KxDatabaseCacheConfigurationUnionTypeDef = Union[
 class ListKxDatabasesResponseTypeDef(BaseValidatorModel):
     kxDatabases: List[KxDatabaseListEntryTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
-    nextToken: Optional[str] = None
+    nextToken: Optional[Annotated[str, _aws_pattern("Finspace", "PaginationToken")]] = None
 
 
 KxDataviewSegmentConfigurationUnionTypeDef = Union[
@@ -864,28 +866,28 @@ KxDataviewSegmentConfigurationUnionTypeDef = Union[
 class ListKxClusterNodesResponseTypeDef(BaseValidatorModel):
     nodes: List[KxNodeTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
-    nextToken: Optional[str] = None
+    nextToken: Optional[Annotated[str, _aws_pattern("Finspace", "PaginationToken")]] = None
 
 
 # This class is the output for the 'list_kx_scaling_groups' function.
 class ListKxScalingGroupsResponseTypeDef(BaseValidatorModel):
     scalingGroups: List[KxScalingGroupTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
-    nextToken: Optional[str] = None
+    nextToken: Optional[Annotated[str, _aws_pattern("Finspace", "PaginationToken")]] = None
 
 
 # This class is the output for the 'list_kx_users' function.
 class ListKxUsersResponseTypeDef(BaseValidatorModel):
     users: List[KxUserTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
-    nextToken: Optional[str] = None
+    nextToken: Optional[Annotated[str, _aws_pattern("Finspace", "PaginationToken")]] = None
 
 
 # This class is the output for the 'list_kx_volumes' function.
 class ListKxVolumesResponseTypeDef(BaseValidatorModel):
     kxVolumeSummaries: List[KxVolumeTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
-    nextToken: Optional[str] = None
+    nextToken: Optional[Annotated[str, _aws_pattern("Finspace", "PaginationToken")]] = None
 
 
 class ListKxEnvironmentsRequestPaginateTypeDef(BaseValidatorModel):
@@ -894,9 +896,9 @@ class ListKxEnvironmentsRequestPaginateTypeDef(BaseValidatorModel):
 
 class NetworkACLEntryTypeDef(BaseValidatorModel):
     ruleNumber: int
-    protocol: str
+    protocol: Annotated[str, _aws_pattern("Finspace", "Protocol")]
     ruleAction: RuleActionType
-    cidrBlock: str
+    cidrBlock: Annotated[str, _aws_pattern("Finspace", "ValidCIDRBlock")]
     portRange: Optional[PortRangeTypeDef] = None
     icmpTypeCode: Optional[IcmpTypeCodeTypeDef] = None
 
@@ -912,61 +914,61 @@ VpcConfigurationUnionTypeDef = Union[VpcConfigurationOutputTypeDef, VpcConfigura
 class ListKxClustersResponseTypeDef(BaseValidatorModel):
     kxClusterSummaries: List[KxClusterTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
-    nextToken: Optional[str] = None
+    nextToken: Optional[Annotated[str, _aws_pattern("Finspace", "PaginationToken")]] = None
 
 
 # This class is the output for the 'get_kx_dataview' function.
 class GetKxDataviewResponseTypeDef(BaseValidatorModel):
-    databaseName: str
-    dataviewName: str
+    databaseName: Annotated[str, _aws_pattern("Finspace", "DatabaseName")]
+    dataviewName: Annotated[str, _aws_pattern("Finspace", "KxDataviewName")]
     azMode: KxAzModeType
-    availabilityZoneId: str
-    changesetId: str
+    availabilityZoneId: Annotated[str, _aws_pattern("Finspace", "AvailabilityZoneId")]
+    changesetId: Annotated[str, _aws_pattern("Finspace", "ChangesetId")]
     segmentConfigurations: List[KxDataviewSegmentConfigurationOutputTypeDef]
     activeVersions: List[KxDataviewActiveVersionTypeDef]
-    description: str
+    description: Annotated[str, _aws_pattern("Finspace", "Description")]
     autoUpdate: bool
     readWrite: bool
-    environmentId: str
+    environmentId: Annotated[str, _aws_pattern("Finspace", "EnvironmentId")]
     createdTimestamp: datetime
     lastModifiedTimestamp: datetime
     status: KxDataviewStatusType
-    statusReason: str
+    statusReason: Annotated[str, _aws_pattern("Finspace", "KxDataviewStatusReason")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 class KxDataviewListEntryTypeDef(BaseValidatorModel):
-    environmentId: Optional[str] = None
-    databaseName: Optional[str] = None
-    dataviewName: Optional[str] = None
+    environmentId: Optional[Annotated[str, _aws_pattern("Finspace", "EnvironmentId")]] = None
+    databaseName: Optional[Annotated[str, _aws_pattern("Finspace", "DatabaseName")]] = None
+    dataviewName: Optional[Annotated[str, _aws_pattern("Finspace", "KxDataviewName")]] = None
     azMode: Optional[KxAzModeType] = None
-    availabilityZoneId: Optional[str] = None
-    changesetId: Optional[str] = None
+    availabilityZoneId: Optional[Annotated[str, _aws_pattern("Finspace", "AvailabilityZoneId")]] = None
+    changesetId: Optional[Annotated[str, _aws_pattern("Finspace", "ChangesetId")]] = None
     segmentConfigurations: Optional[List[KxDataviewSegmentConfigurationOutputTypeDef]] = None
     activeVersions: Optional[List[KxDataviewActiveVersionTypeDef]] = None
     status: Optional[KxDataviewStatusType] = None
-    description: Optional[str] = None
+    description: Optional[Annotated[str, _aws_pattern("Finspace", "Description")]] = None
     autoUpdate: Optional[bool] = None
     readWrite: Optional[bool] = None
     createdTimestamp: Optional[datetime] = None
     lastModifiedTimestamp: Optional[datetime] = None
-    statusReason: Optional[str] = None
+    statusReason: Optional[Annotated[str, _aws_pattern("Finspace", "KxDataviewStatusReason")]] = None
 
 
 # This class is the output for the 'update_kx_dataview' function.
 class UpdateKxDataviewResponseTypeDef(BaseValidatorModel):
-    environmentId: str
-    databaseName: str
-    dataviewName: str
+    environmentId: Annotated[str, _aws_pattern("Finspace", "EnvironmentId")]
+    databaseName: Annotated[str, _aws_pattern("Finspace", "DatabaseName")]
+    dataviewName: Annotated[str, _aws_pattern("Finspace", "KxDataviewName")]
     azMode: KxAzModeType
-    availabilityZoneId: str
-    changesetId: str
+    availabilityZoneId: Annotated[str, _aws_pattern("Finspace", "AvailabilityZoneId")]
+    changesetId: Annotated[str, _aws_pattern("Finspace", "ChangesetId")]
     segmentConfigurations: List[KxDataviewSegmentConfigurationOutputTypeDef]
     activeVersions: List[KxDataviewActiveVersionTypeDef]
     status: KxDataviewStatusType
     autoUpdate: bool
     readWrite: bool
-    description: str
+    description: Annotated[str, _aws_pattern("Finspace", "Description")]
     createdTimestamp: datetime
     lastModifiedTimestamp: datetime
     ResponseMetadata: ResponseMetadataTypeDef
@@ -990,7 +992,7 @@ class GetEnvironmentResponseTypeDef(BaseValidatorModel):
 class ListEnvironmentsResponseTypeDef(BaseValidatorModel):
     environments: List[EnvironmentTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
-    nextToken: Optional[str] = None
+    nextToken: Optional[Annotated[str, _aws_pattern("Finspace", "PaginationToken")]] = None
 
 
 # This class is the output for the 'update_environment' function.
@@ -1001,56 +1003,56 @@ class UpdateEnvironmentResponseTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'create_environment' function.
 class CreateEnvironmentRequestTypeDef(BaseValidatorModel):
-    name: str
-    description: Optional[str] = None
-    kmsKeyId: Optional[str] = None
+    name: Annotated[str, _aws_pattern("Finspace", "EnvironmentName")]
+    description: Optional[Annotated[str, _aws_pattern("Finspace", "Description")]] = None
+    kmsKeyId: Optional[Annotated[str, _aws_pattern("Finspace", "KmsKeyId")]] = None
     tags: Optional[Dict[str, str]] = None
     federationMode: Optional[FederationModeType] = None
     federationParameters: Optional[FederationParametersUnionTypeDef] = None
     superuserParameters: Optional[SuperuserParametersTypeDef] = None
-    dataBundles: Optional[List[str]] = None
+    dataBundles: Optional[List[Annotated[str, _aws_pattern("Finspace", "DataBundleArn")]]] = None
 
 
 # This class is the input for the 'update_environment' function.
 class UpdateEnvironmentRequestTypeDef(BaseValidatorModel):
-    environmentId: str
-    name: Optional[str] = None
-    description: Optional[str] = None
+    environmentId: Annotated[str, _aws_pattern("Finspace", "IdType")]
+    name: Optional[Annotated[str, _aws_pattern("Finspace", "EnvironmentName")]] = None
+    description: Optional[Annotated[str, _aws_pattern("Finspace", "Description")]] = None
     federationMode: Optional[FederationModeType] = None
     federationParameters: Optional[FederationParametersUnionTypeDef] = None
 
 
 # This class is the input for the 'create_kx_dataview' function.
 class CreateKxDataviewRequestTypeDef(BaseValidatorModel):
-    environmentId: str
-    databaseName: str
-    dataviewName: str
+    environmentId: Annotated[str, _aws_pattern("Finspace", "EnvironmentId")]
+    databaseName: Annotated[str, _aws_pattern("Finspace", "DatabaseName")]
+    dataviewName: Annotated[str, _aws_pattern("Finspace", "KxDataviewName")]
     azMode: KxAzModeType
-    clientToken: str
-    availabilityZoneId: Optional[str] = None
-    changesetId: Optional[str] = None
+    clientToken: Annotated[str, _aws_pattern("Finspace", "ClientTokenString")]
+    availabilityZoneId: Optional[Annotated[str, _aws_pattern("Finspace", "AvailabilityZoneId")]] = None
+    changesetId: Optional[Annotated[str, _aws_pattern("Finspace", "ChangesetId")]] = None
     segmentConfigurations: Optional[List[KxDataviewSegmentConfigurationUnionTypeDef]] = None
     autoUpdate: Optional[bool] = None
     readWrite: Optional[bool] = None
-    description: Optional[str] = None
+    description: Optional[Annotated[str, _aws_pattern("Finspace", "Description")]] = None
     tags: Optional[Dict[str, str]] = None
 
 
 class KxDataviewConfigurationTypeDef(BaseValidatorModel):
-    dataviewName: Optional[str] = None
+    dataviewName: Optional[Annotated[str, _aws_pattern("Finspace", "KxDataviewName")]] = None
     dataviewVersionId: Optional[str] = None
-    changesetId: Optional[str] = None
+    changesetId: Optional[Annotated[str, _aws_pattern("Finspace", "ChangesetId")]] = None
     segmentConfigurations: Optional[List[KxDataviewSegmentConfigurationUnionTypeDef]] = None
 
 
 # This class is the input for the 'update_kx_dataview' function.
 class UpdateKxDataviewRequestTypeDef(BaseValidatorModel):
-    environmentId: str
-    databaseName: str
-    dataviewName: str
-    clientToken: str
-    description: Optional[str] = None
-    changesetId: Optional[str] = None
+    environmentId: Annotated[str, _aws_pattern("Finspace", "EnvironmentId")]
+    databaseName: Annotated[str, _aws_pattern("Finspace", "DatabaseName")]
+    dataviewName: Annotated[str, _aws_pattern("Finspace", "KxDataviewName")]
+    clientToken: Annotated[str, _aws_pattern("Finspace", "ClientTokenString")]
+    description: Optional[Annotated[str, _aws_pattern("Finspace", "Description")]] = None
+    changesetId: Optional[Annotated[str, _aws_pattern("Finspace", "ChangesetId")]] = None
     segmentConfigurations: Optional[List[KxDataviewSegmentConfigurationUnionTypeDef]] = None
 
 
@@ -1070,33 +1072,33 @@ class TransitGatewayConfigurationTypeDef(BaseValidatorModel):
 class ListKxDataviewsResponseTypeDef(BaseValidatorModel):
     kxDataviews: List[KxDataviewListEntryTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
-    nextToken: Optional[str] = None
+    nextToken: Optional[Annotated[str, _aws_pattern("Finspace", "PaginationToken")]] = None
 
 
 # This class is the output for the 'create_kx_cluster' function.
 class CreateKxClusterResponseTypeDef(BaseValidatorModel):
-    environmentId: str
+    environmentId: Annotated[str, _aws_pattern("Finspace", "KxEnvironmentId")]
     status: KxClusterStatusType
-    statusReason: str
-    clusterName: str
+    statusReason: Annotated[str, _aws_pattern("Finspace", "KxClusterStatusReason")]
+    clusterName: Annotated[str, _aws_pattern("Finspace", "KxClusterName")]
     clusterType: KxClusterTypeType
     tickerplantLogConfiguration: TickerplantLogConfigurationOutputTypeDef
     volumes: List[VolumeTypeDef]
     databases: List[KxDatabaseConfigurationOutputTypeDef]
     cacheStorageConfigurations: List[KxCacheStorageConfigurationTypeDef]
     autoScalingConfiguration: AutoScalingConfigurationTypeDef
-    clusterDescription: str
+    clusterDescription: Annotated[str, _aws_pattern("Finspace", "KxClusterDescription")]
     capacityConfiguration: CapacityConfigurationTypeDef
-    releaseLabel: str
+    releaseLabel: Annotated[str, _aws_pattern("Finspace", "ReleaseLabel")]
     vpcConfiguration: VpcConfigurationOutputTypeDef
-    initializationScript: str
+    initializationScript: Annotated[str, _aws_pattern("Finspace", "InitializationScriptFilePath")]
     commandLineArguments: List[KxCommandLineArgumentTypeDef]
     code: CodeConfigurationTypeDef
-    executionRole: str
+    executionRole: Annotated[str, _aws_pattern("Finspace", "ExecutionRoleArn")]
     lastModifiedTimestamp: datetime
     savedownStorageConfiguration: KxSavedownStorageConfigurationTypeDef
     azMode: KxAzModeType
-    availabilityZoneId: str
+    availabilityZoneId: Annotated[str, _aws_pattern("Finspace", "AvailabilityZoneId")]
     createdTimestamp: datetime
     scalingGroupConfiguration: KxScalingGroupConfigurationTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
@@ -1105,26 +1107,26 @@ class CreateKxClusterResponseTypeDef(BaseValidatorModel):
 # This class is the output for the 'get_kx_cluster' function.
 class GetKxClusterResponseTypeDef(BaseValidatorModel):
     status: KxClusterStatusType
-    statusReason: str
-    clusterName: str
+    statusReason: Annotated[str, _aws_pattern("Finspace", "KxClusterStatusReason")]
+    clusterName: Annotated[str, _aws_pattern("Finspace", "KxClusterName")]
     clusterType: KxClusterTypeType
     tickerplantLogConfiguration: TickerplantLogConfigurationOutputTypeDef
     volumes: List[VolumeTypeDef]
     databases: List[KxDatabaseConfigurationOutputTypeDef]
     cacheStorageConfigurations: List[KxCacheStorageConfigurationTypeDef]
     autoScalingConfiguration: AutoScalingConfigurationTypeDef
-    clusterDescription: str
+    clusterDescription: Annotated[str, _aws_pattern("Finspace", "KxClusterDescription")]
     capacityConfiguration: CapacityConfigurationTypeDef
-    releaseLabel: str
+    releaseLabel: Annotated[str, _aws_pattern("Finspace", "ReleaseLabel")]
     vpcConfiguration: VpcConfigurationOutputTypeDef
-    initializationScript: str
+    initializationScript: Annotated[str, _aws_pattern("Finspace", "InitializationScriptFilePath")]
     commandLineArguments: List[KxCommandLineArgumentTypeDef]
     code: CodeConfigurationTypeDef
-    executionRole: str
+    executionRole: Annotated[str, _aws_pattern("Finspace", "ExecutionRoleArn")]
     lastModifiedTimestamp: datetime
     savedownStorageConfiguration: KxSavedownStorageConfigurationTypeDef
     azMode: KxAzModeType
-    availabilityZoneId: str
+    availabilityZoneId: Annotated[str, _aws_pattern("Finspace", "AvailabilityZoneId")]
     createdTimestamp: datetime
     scalingGroupConfiguration: KxScalingGroupConfigurationTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
@@ -1135,85 +1137,85 @@ KxDataviewConfigurationUnionTypeDef = Union[KxDataviewConfigurationOutputTypeDef
 
 # This class is the output for the 'get_kx_environment' function.
 class GetKxEnvironmentResponseTypeDef(BaseValidatorModel):
-    name: str
-    environmentId: str
-    awsAccountId: str
+    name: Annotated[str, _aws_pattern("Finspace", "KxEnvironmentName")]
+    environmentId: Annotated[str, _aws_pattern("Finspace", "IdType")]
+    awsAccountId: Annotated[str, _aws_pattern("Finspace", "IdType")]
     status: EnvironmentStatusType
     tgwStatus: TgwStatusType
     dnsStatus: DnsStatusType
-    errorMessage: str
-    description: str
-    environmentArn: str
-    kmsKeyId: str
-    dedicatedServiceAccountId: str
+    errorMessage: Annotated[str, _aws_pattern("Finspace", "EnvironmentErrorMessage")]
+    description: Annotated[str, _aws_pattern("Finspace", "Description")]
+    environmentArn: Annotated[str, _aws_pattern("Finspace", "EnvironmentArn")]
+    kmsKeyId: Annotated[str, _aws_pattern("Finspace", "KmsKeyId")]
+    dedicatedServiceAccountId: Annotated[str, _aws_pattern("Finspace", "IdType")]
     transitGatewayConfiguration: TransitGatewayConfigurationOutputTypeDef
     customDNSConfiguration: List[CustomDNSServerTypeDef]
     creationTimestamp: datetime
     updateTimestamp: datetime
-    availabilityZoneIds: List[str]
+    availabilityZoneIds: List[Annotated[str, _aws_pattern("Finspace", "AvailabilityZoneId")]]
     certificateAuthorityArn: str
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 class KxEnvironmentTypeDef(BaseValidatorModel):
-    name: Optional[str] = None
-    environmentId: Optional[str] = None
-    awsAccountId: Optional[str] = None
+    name: Optional[Annotated[str, _aws_pattern("Finspace", "KxEnvironmentName")]] = None
+    environmentId: Optional[Annotated[str, _aws_pattern("Finspace", "IdType")]] = None
+    awsAccountId: Optional[Annotated[str, _aws_pattern("Finspace", "IdType")]] = None
     status: Optional[EnvironmentStatusType] = None
     tgwStatus: Optional[TgwStatusType] = None
     dnsStatus: Optional[DnsStatusType] = None
-    errorMessage: Optional[str] = None
-    description: Optional[str] = None
-    environmentArn: Optional[str] = None
-    kmsKeyId: Optional[str] = None
-    dedicatedServiceAccountId: Optional[str] = None
+    errorMessage: Optional[Annotated[str, _aws_pattern("Finspace", "EnvironmentErrorMessage")]] = None
+    description: Optional[Annotated[str, _aws_pattern("Finspace", "Description")]] = None
+    environmentArn: Optional[Annotated[str, _aws_pattern("Finspace", "EnvironmentArn")]] = None
+    kmsKeyId: Optional[Annotated[str, _aws_pattern("Finspace", "KmsKeyId")]] = None
+    dedicatedServiceAccountId: Optional[Annotated[str, _aws_pattern("Finspace", "IdType")]] = None
     transitGatewayConfiguration: Optional[TransitGatewayConfigurationOutputTypeDef] = None
     customDNSConfiguration: Optional[List[CustomDNSServerTypeDef]] = None
     creationTimestamp: Optional[datetime] = None
     updateTimestamp: Optional[datetime] = None
-    availabilityZoneIds: Optional[List[str]] = None
+    availabilityZoneIds: Optional[List[Annotated[str, _aws_pattern("Finspace", "AvailabilityZoneId")]]] = None
     certificateAuthorityArn: Optional[str] = None
 
 
 # This class is the output for the 'update_kx_environment_network' function.
 class UpdateKxEnvironmentNetworkResponseTypeDef(BaseValidatorModel):
-    name: str
-    environmentId: str
-    awsAccountId: str
+    name: Annotated[str, _aws_pattern("Finspace", "KxEnvironmentName")]
+    environmentId: Annotated[str, _aws_pattern("Finspace", "IdType")]
+    awsAccountId: Annotated[str, _aws_pattern("Finspace", "IdType")]
     status: EnvironmentStatusType
     tgwStatus: TgwStatusType
     dnsStatus: DnsStatusType
-    errorMessage: str
-    description: str
-    environmentArn: str
-    kmsKeyId: str
-    dedicatedServiceAccountId: str
+    errorMessage: Annotated[str, _aws_pattern("Finspace", "EnvironmentErrorMessage")]
+    description: Annotated[str, _aws_pattern("Finspace", "Description")]
+    environmentArn: Annotated[str, _aws_pattern("Finspace", "EnvironmentArn")]
+    kmsKeyId: Annotated[str, _aws_pattern("Finspace", "KmsKeyId")]
+    dedicatedServiceAccountId: Annotated[str, _aws_pattern("Finspace", "IdType")]
     transitGatewayConfiguration: TransitGatewayConfigurationOutputTypeDef
     customDNSConfiguration: List[CustomDNSServerTypeDef]
     creationTimestamp: datetime
     updateTimestamp: datetime
-    availabilityZoneIds: List[str]
+    availabilityZoneIds: List[Annotated[str, _aws_pattern("Finspace", "AvailabilityZoneId")]]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 # This class is the output for the 'update_kx_environment' function.
 class UpdateKxEnvironmentResponseTypeDef(BaseValidatorModel):
-    name: str
-    environmentId: str
-    awsAccountId: str
+    name: Annotated[str, _aws_pattern("Finspace", "KxEnvironmentName")]
+    environmentId: Annotated[str, _aws_pattern("Finspace", "IdType")]
+    awsAccountId: Annotated[str, _aws_pattern("Finspace", "IdType")]
     status: EnvironmentStatusType
     tgwStatus: TgwStatusType
     dnsStatus: DnsStatusType
-    errorMessage: str
-    description: str
-    environmentArn: str
-    kmsKeyId: str
-    dedicatedServiceAccountId: str
+    errorMessage: Annotated[str, _aws_pattern("Finspace", "EnvironmentErrorMessage")]
+    description: Annotated[str, _aws_pattern("Finspace", "Description")]
+    environmentArn: Annotated[str, _aws_pattern("Finspace", "EnvironmentArn")]
+    kmsKeyId: Annotated[str, _aws_pattern("Finspace", "KmsKeyId")]
+    dedicatedServiceAccountId: Annotated[str, _aws_pattern("Finspace", "IdType")]
     transitGatewayConfiguration: TransitGatewayConfigurationOutputTypeDef
     customDNSConfiguration: List[CustomDNSServerTypeDef]
     creationTimestamp: datetime
     updateTimestamp: datetime
-    availabilityZoneIds: List[str]
+    availabilityZoneIds: List[Annotated[str, _aws_pattern("Finspace", "AvailabilityZoneId")]]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
@@ -1223,10 +1225,10 @@ TransitGatewayConfigurationUnionTypeDef = Union[
 
 
 class KxDatabaseConfigurationTypeDef(BaseValidatorModel):
-    databaseName: str
+    databaseName: Annotated[str, _aws_pattern("Finspace", "DatabaseName")]
     cacheConfigurations: Optional[List[KxDatabaseCacheConfigurationUnionTypeDef]] = None
-    changesetId: Optional[str] = None
-    dataviewName: Optional[str] = None
+    changesetId: Optional[Annotated[str, _aws_pattern("Finspace", "ChangesetId")]] = None
+    dataviewName: Optional[Annotated[str, _aws_pattern("Finspace", "KxDataviewName")]] = None
     dataviewConfiguration: Optional[KxDataviewConfigurationUnionTypeDef] = None
 
 
@@ -1234,15 +1236,15 @@ class KxDatabaseConfigurationTypeDef(BaseValidatorModel):
 class ListKxEnvironmentsResponseTypeDef(BaseValidatorModel):
     environments: List[KxEnvironmentTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
-    nextToken: Optional[str] = None
+    nextToken: Optional[Annotated[str, _aws_pattern("Finspace", "PaginationToken")]] = None
 
 
 # This class is the input for the 'update_kx_environment_network' function.
 class UpdateKxEnvironmentNetworkRequestTypeDef(BaseValidatorModel):
-    environmentId: str
+    environmentId: Annotated[str, _aws_pattern("Finspace", "IdType")]
     transitGatewayConfiguration: Optional[TransitGatewayConfigurationUnionTypeDef] = None
     customDNSConfiguration: Optional[List[CustomDNSServerTypeDef]] = None
-    clientToken: Optional[str] = None
+    clientToken: Optional[Annotated[str, _aws_pattern("Finspace", "ClientToken")]] = None
 
 
 KxDatabaseConfigurationUnionTypeDef = Union[KxDatabaseConfigurationOutputTypeDef, KxDatabaseConfigurationTypeDef]
@@ -1250,32 +1252,32 @@ KxDatabaseConfigurationUnionTypeDef = Union[KxDatabaseConfigurationOutputTypeDef
 
 # This class is the input for the 'create_kx_cluster' function.
 class CreateKxClusterRequestTypeDef(BaseValidatorModel):
-    environmentId: str
-    clusterName: str
+    environmentId: Annotated[str, _aws_pattern("Finspace", "KxEnvironmentId")]
+    clusterName: Annotated[str, _aws_pattern("Finspace", "KxClusterName")]
     clusterType: KxClusterTypeType
-    releaseLabel: str
+    releaseLabel: Annotated[str, _aws_pattern("Finspace", "ReleaseLabel")]
     vpcConfiguration: VpcConfigurationUnionTypeDef
     azMode: KxAzModeType
-    clientToken: Optional[str] = None
+    clientToken: Optional[Annotated[str, _aws_pattern("Finspace", "ClientToken")]] = None
     tickerplantLogConfiguration: Optional[TickerplantLogConfigurationUnionTypeDef] = None
     databases: Optional[List[KxDatabaseConfigurationUnionTypeDef]] = None
     cacheStorageConfigurations: Optional[List[KxCacheStorageConfigurationTypeDef]] = None
     autoScalingConfiguration: Optional[AutoScalingConfigurationTypeDef] = None
-    clusterDescription: Optional[str] = None
+    clusterDescription: Optional[Annotated[str, _aws_pattern("Finspace", "KxClusterDescription")]] = None
     capacityConfiguration: Optional[CapacityConfigurationTypeDef] = None
-    initializationScript: Optional[str] = None
+    initializationScript: Optional[Annotated[str, _aws_pattern("Finspace", "InitializationScriptFilePath")]] = None
     commandLineArguments: Optional[List[KxCommandLineArgumentTypeDef]] = None
     code: Optional[CodeConfigurationTypeDef] = None
-    executionRole: Optional[str] = None
+    executionRole: Optional[Annotated[str, _aws_pattern("Finspace", "ExecutionRoleArn")]] = None
     savedownStorageConfiguration: Optional[KxSavedownStorageConfigurationTypeDef] = None
-    availabilityZoneId: Optional[str] = None
+    availabilityZoneId: Optional[Annotated[str, _aws_pattern("Finspace", "AvailabilityZoneId")]] = None
     tags: Optional[Dict[str, str]] = None
     scalingGroupConfiguration: Optional[KxScalingGroupConfigurationTypeDef] = None
 
 
 class UpdateKxClusterDatabasesRequestTypeDef(BaseValidatorModel):
-    environmentId: str
-    clusterName: str
+    environmentId: Annotated[str, _aws_pattern("Finspace", "KxEnvironmentId")]
+    clusterName: Annotated[str, _aws_pattern("Finspace", "KxClusterName")]
     databases: List[KxDatabaseConfigurationUnionTypeDef]
-    clientToken: Optional[str] = None
+    clientToken: Optional[Annotated[str, _aws_pattern("Finspace", "ClientTokenString")]] = None
     deploymentConfiguration: Optional[KxDeploymentConfigurationTypeDef] = None

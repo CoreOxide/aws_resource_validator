@@ -3,6 +3,7 @@
 from datetime import datetime
 from decimal import Decimal
 from typing import (
+    Annotated,
     Any,
     Callable,
     Dict,
@@ -24,6 +25,7 @@ from botocore.response import StreamingBody
 from pydantic import Field
 
 from aws_resource_validator.core.base_validator_model import BaseValidatorModel, EventStream
+from aws_resource_validator.core.pattern_validation import aws_field_pattern as _aws_pattern
 from aws_resource_validator.pydantic_models.autoscaling_plans.autoscaling_plans_constants import *  # noqa: F401,F403
 
 # Optional boto3 symbols — imported lazily so services that don't need them
@@ -62,7 +64,7 @@ class DatapointTypeDef(BaseValidatorModel):
 
 
 class DeleteScalingPlanRequestTypeDef(BaseValidatorModel):
-    ScalingPlanName: str
+    ScalingPlanName: Annotated[str, _aws_pattern("AutoscalingPlans", "ScalingPlanName")]
     ScalingPlanVersion: int
 
 
@@ -74,7 +76,7 @@ class PaginatorConfigTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'describe_scaling_plan_resources' function.
 class DescribeScalingPlanResourcesRequestTypeDef(BaseValidatorModel):
-    ScalingPlanName: str
+    ScalingPlanName: Annotated[str, _aws_pattern("AutoscalingPlans", "ScalingPlanName")]
     ScalingPlanVersion: int
     MaxResults: Optional[int] = None
     NextToken: Optional[str] = None
@@ -94,8 +96,8 @@ class PredefinedScalingMetricSpecificationTypeDef(BaseValidatorModel):
 
 
 class TagFilterTypeDef(BaseValidatorModel):
-    Key: Optional[str] = None
-    Values: Optional[List[str]] = None
+    Key: Optional[Annotated[str, _aws_pattern("AutoscalingPlans", "XmlStringMaxLen128")]] = None
+    Values: Optional[List[Annotated[str, _aws_pattern("AutoscalingPlans", "XmlStringMaxLen256")]]] = None
 
 
 class ApplicationSourceOutputTypeDef(BaseValidatorModel):
@@ -155,10 +157,10 @@ class DescribeScalingPlanResourcesRequestPaginateTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'get_scaling_plan_resource_forecast_data' function.
 class GetScalingPlanResourceForecastDataRequestTypeDef(BaseValidatorModel):
-    ScalingPlanName: str
+    ScalingPlanName: Annotated[str, _aws_pattern("AutoscalingPlans", "ScalingPlanName")]
     ScalingPlanVersion: int
     ServiceNamespace: ServiceNamespaceType
-    ResourceId: str
+    ResourceId: Annotated[str, _aws_pattern("AutoscalingPlans", "XmlString")]
     ScalableDimension: ScalableDimensionType
     ForecastDataType: ForecastDataTypeType
     StartTime: TimestampTypeDef
@@ -188,7 +190,7 @@ CustomizedScalingMetricSpecificationUnionTypeDef = Union[
 
 
 class ApplicationSourceTypeDef(BaseValidatorModel):
-    CloudFormationStackARN: Optional[str] = None
+    CloudFormationStackARN: Optional[Annotated[str, _aws_pattern("AutoscalingPlans", "XmlString")]] = None
     TagFilters: Optional[List[TagFilterUnionTypeDef]] = None
 
 
@@ -210,7 +212,7 @@ class ScalingInstructionOutputTypeDef(BaseValidatorModel):
 
 
 class ScalingPolicyTypeDef(BaseValidatorModel):
-    PolicyName: str
+    PolicyName: Annotated[str, _aws_pattern("AutoscalingPlans", "PolicyName")]
     PolicyType: Literal["TargetTrackingScaling"]
     TargetTrackingConfiguration: Optional[TargetTrackingConfigurationOutputTypeDef] = None
 
@@ -229,25 +231,25 @@ ApplicationSourceUnionTypeDef = Union[ApplicationSourceOutputTypeDef, Applicatio
 
 
 class ScalingPlanTypeDef(BaseValidatorModel):
-    ScalingPlanName: str
+    ScalingPlanName: Annotated[str, _aws_pattern("AutoscalingPlans", "ScalingPlanName")]
     ScalingPlanVersion: int
     ApplicationSource: ApplicationSourceOutputTypeDef
     ScalingInstructions: List[ScalingInstructionOutputTypeDef]
     StatusCode: ScalingPlanStatusCodeType
-    StatusMessage: Optional[str] = None
+    StatusMessage: Optional[Annotated[str, _aws_pattern("AutoscalingPlans", "XmlString")]] = None
     StatusStartTime: Optional[datetime] = None
     CreationTime: Optional[datetime] = None
 
 
 class ScalingPlanResourceTypeDef(BaseValidatorModel):
-    ScalingPlanName: str
+    ScalingPlanName: Annotated[str, _aws_pattern("AutoscalingPlans", "ScalingPlanName")]
     ScalingPlanVersion: int
     ServiceNamespace: ServiceNamespaceType
-    ResourceId: str
+    ResourceId: Annotated[str, _aws_pattern("AutoscalingPlans", "ResourceIdMaxLen1600")]
     ScalableDimension: ScalableDimensionType
     ScalingStatusCode: ScalingStatusCodeType
     ScalingPolicies: Optional[List[ScalingPolicyTypeDef]] = None
-    ScalingStatusMessage: Optional[str] = None
+    ScalingStatusMessage: Optional[Annotated[str, _aws_pattern("AutoscalingPlans", "XmlString")]] = None
 
 
 TargetTrackingConfigurationUnionTypeDef = Union[
@@ -264,7 +266,7 @@ class DescribeScalingPlansRequestPaginateTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'describe_scaling_plans' function.
 class DescribeScalingPlansRequestTypeDef(BaseValidatorModel):
-    ScalingPlanNames: Optional[List[str]] = None
+    ScalingPlanNames: Optional[List[Annotated[str, _aws_pattern("AutoscalingPlans", "ScalingPlanName")]]] = None
     ScalingPlanVersion: Optional[int] = None
     ApplicationSources: Optional[List[ApplicationSourceUnionTypeDef]] = None
     MaxResults: Optional[int] = None
@@ -287,7 +289,7 @@ class DescribeScalingPlanResourcesResponseTypeDef(BaseValidatorModel):
 
 class ScalingInstructionTypeDef(BaseValidatorModel):
     ServiceNamespace: ServiceNamespaceType
-    ResourceId: str
+    ResourceId: Annotated[str, _aws_pattern("AutoscalingPlans", "ResourceIdMaxLen1600")]
     ScalableDimension: ScalableDimensionType
     MinCapacity: int
     MaxCapacity: int
@@ -307,13 +309,13 @@ ScalingInstructionUnionTypeDef = Union[ScalingInstructionOutputTypeDef, ScalingI
 
 # This class is the input for the 'create_scaling_plan' function.
 class CreateScalingPlanRequestTypeDef(BaseValidatorModel):
-    ScalingPlanName: str
+    ScalingPlanName: Annotated[str, _aws_pattern("AutoscalingPlans", "ScalingPlanName")]
     ApplicationSource: ApplicationSourceUnionTypeDef
     ScalingInstructions: List[ScalingInstructionUnionTypeDef]
 
 
 class UpdateScalingPlanRequestTypeDef(BaseValidatorModel):
-    ScalingPlanName: str
+    ScalingPlanName: Annotated[str, _aws_pattern("AutoscalingPlans", "ScalingPlanName")]
     ScalingPlanVersion: int
     ApplicationSource: Optional[ApplicationSourceUnionTypeDef] = None
     ScalingInstructions: Optional[List[ScalingInstructionUnionTypeDef]] = None

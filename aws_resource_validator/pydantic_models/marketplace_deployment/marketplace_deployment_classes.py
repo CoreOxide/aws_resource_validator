@@ -3,6 +3,7 @@
 from datetime import datetime
 from decimal import Decimal
 from typing import (
+    Annotated,
     Any,
     Callable,
     Dict,
@@ -24,6 +25,7 @@ from botocore.response import StreamingBody
 from pydantic import Field
 
 from aws_resource_validator.core.base_validator_model import BaseValidatorModel, EventStream
+from aws_resource_validator.core.pattern_validation import aws_field_pattern as _aws_pattern
 from aws_resource_validator.pydantic_models.marketplace_deployment.marketplace_deployment_constants import *  # noqa: F401,F403
 
 # Optional boto3 symbols — imported lazily so services that don't need them
@@ -39,7 +41,7 @@ except ImportError:  # pragma: no cover
 
 
 class DeploymentParameterInputTypeDef(BaseValidatorModel):
-    name: str
+    name: Annotated[str, _aws_pattern("MarketplaceDeployment", "DeploymentParameterName")]
     secretString: str
 
 
@@ -77,19 +79,21 @@ class ListTagsForResourceResponseTypeDef(BaseValidatorModel):
 
 # This class is the output for the 'put_deployment_parameter' function.
 class PutDeploymentParameterResponseTypeDef(BaseValidatorModel):
-    agreementId: str
-    deploymentParameterId: str
-    resourceArn: str
+    agreementId: Annotated[str, _aws_pattern("MarketplaceDeployment", "ResourceId")]
+    deploymentParameterId: Annotated[
+        str, _aws_pattern("MarketplaceDeployment", "DeploymentParameterResourceIdentifier")
+    ]
+    resourceArn: Annotated[str, _aws_pattern("MarketplaceDeployment", "ResourceArn")]
     tags: Dict[str, str]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 # This class is the input for the 'put_deployment_parameter' function.
 class PutDeploymentParameterRequestTypeDef(BaseValidatorModel):
-    agreementId: str
-    catalog: str
+    agreementId: Annotated[str, _aws_pattern("MarketplaceDeployment", "ResourceId")]
+    catalog: Annotated[str, _aws_pattern("MarketplaceDeployment", "Catalog")]
     deploymentParameter: DeploymentParameterInputTypeDef
-    productId: str
-    clientToken: Optional[str] = None
+    productId: Annotated[str, _aws_pattern("MarketplaceDeployment", "ResourceId")]
+    clientToken: Optional[Annotated[str, _aws_pattern("MarketplaceDeployment", "ClientToken")]] = None
     expirationDate: Optional[TimestampTypeDef] = None
     tags: Optional[Dict[str, str]] = None

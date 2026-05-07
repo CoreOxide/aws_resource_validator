@@ -3,6 +3,7 @@
 from datetime import datetime
 from decimal import Decimal
 from typing import (
+    Annotated,
     Any,
     Callable,
     Dict,
@@ -24,6 +25,7 @@ from botocore.response import StreamingBody
 from pydantic import Field
 
 from aws_resource_validator.core.base_validator_model import BaseValidatorModel, EventStream
+from aws_resource_validator.core.pattern_validation import aws_field_pattern as _aws_pattern
 from aws_resource_validator.pydantic_models.security_ir.security_ir_constants import *  # noqa: F401,F403
 
 # Optional boto3 symbols — imported lazily so services that don't need them
@@ -40,18 +42,18 @@ except ImportError:  # pragma: no cover
 
 # This class is the input for the 'batch_get_member_account_details' function.
 class BatchGetMemberAccountDetailsRequestTypeDef(BaseValidatorModel):
-    membershipId: str
-    accountIds: List[str]
+    membershipId: Annotated[str, _aws_pattern("SecurityIr", "MembershipId")]
+    accountIds: List[Annotated[str, _aws_pattern("SecurityIr", "AWSAccountId")]]
 
 
 class GetMembershipAccountDetailErrorTypeDef(BaseValidatorModel):
-    accountId: str
+    accountId: Annotated[str, _aws_pattern("SecurityIr", "AWSAccountId")]
     error: str
     message: str
 
 
 class GetMembershipAccountDetailItemTypeDef(BaseValidatorModel):
-    accountId: Optional[str] = None
+    accountId: Optional[Annotated[str, _aws_pattern("SecurityIr", "AWSAccountId")]] = None
     relationshipStatus: Optional[MembershipAccountRelationshipStatusType] = None
     relationshipType: Optional[MembershipAccountRelationshipTypeType] = None
 
@@ -66,14 +68,14 @@ class ResponseMetadataTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'cancel_membership' function.
 class CancelMembershipRequestTypeDef(BaseValidatorModel):
-    membershipId: str
+    membershipId: Annotated[str, _aws_pattern("SecurityIr", "MembershipId")]
 
 
 class CaseAttachmentAttributesTypeDef(BaseValidatorModel):
-    attachmentId: str
-    fileName: str
+    attachmentId: Annotated[str, _aws_pattern("SecurityIr", "AttachmentId")]
+    fileName: Annotated[str, _aws_pattern("SecurityIr", "FileName")]
     attachmentStatus: CaseAttachmentStatusType
-    creator: str
+    creator: Annotated[str, _aws_pattern("SecurityIr", "PrincipalId")]
     createdDate: datetime
 
 
@@ -91,12 +93,12 @@ class CaseMetadataEntryTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'close_case' function.
 class CloseCaseRequestTypeDef(BaseValidatorModel):
-    caseId: str
+    caseId: Annotated[str, _aws_pattern("SecurityIr", "CaseId")]
 
 
 # This class is the input for the 'create_case_comment' function.
 class CreateCaseCommentRequestTypeDef(BaseValidatorModel):
-    caseId: str
+    caseId: Annotated[str, _aws_pattern("SecurityIr", "CaseId")]
     body: str
     clientToken: Optional[str] = None
 
@@ -106,7 +108,7 @@ class ImpactedAwsRegionTypeDef(BaseValidatorModel):
 
 
 class ThreatActorIpTypeDef(BaseValidatorModel):
-    ipAddress: str
+    ipAddress: Annotated[str, _aws_pattern("SecurityIr", "IPAddress")]
     userAgent: Optional[str] = None
 
 
@@ -114,7 +116,7 @@ TimestampTypeDef = Union[datetime, str]
 
 
 class WatcherTypeDef(BaseValidatorModel):
-    email: str
+    email: Annotated[str, _aws_pattern("SecurityIr", "EmailAddress")]
     name: Optional[str] = None
     jobTitle: Optional[str] = None
 
@@ -126,26 +128,26 @@ class OptInFeatureTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'get_case_attachment_download_url' function.
 class GetCaseAttachmentDownloadUrlRequestTypeDef(BaseValidatorModel):
-    caseId: str
-    attachmentId: str
+    caseId: Annotated[str, _aws_pattern("SecurityIr", "CaseId")]
+    attachmentId: Annotated[str, _aws_pattern("SecurityIr", "AttachmentId")]
 
 
 # This class is the input for the 'get_case_attachment_upload_url' function.
 class GetCaseAttachmentUploadUrlRequestTypeDef(BaseValidatorModel):
-    caseId: str
-    fileName: str
+    caseId: Annotated[str, _aws_pattern("SecurityIr", "CaseId")]
+    fileName: Annotated[str, _aws_pattern("SecurityIr", "FileName")]
     contentLength: int
     clientToken: Optional[str] = None
 
 
 # This class is the input for the 'get_case' function.
 class GetCaseRequestTypeDef(BaseValidatorModel):
-    caseId: str
+    caseId: Annotated[str, _aws_pattern("SecurityIr", "CaseId")]
 
 
 # This class is the input for the 'get_membership' function.
 class GetMembershipRequestTypeDef(BaseValidatorModel):
-    membershipId: str
+    membershipId: Annotated[str, _aws_pattern("SecurityIr", "MembershipId")]
 
 
 class IncidentResponderOutputTypeDef(BaseValidatorModel):
@@ -157,13 +159,13 @@ class IncidentResponderOutputTypeDef(BaseValidatorModel):
 
 class MembershipAccountsConfigurationsTypeDef(BaseValidatorModel):
     coverEntireOrganization: Optional[bool] = None
-    organizationalUnits: Optional[List[str]] = None
+    organizationalUnits: Optional[List[Annotated[str, _aws_pattern("SecurityIr", "OrganizationalUnitId")]]] = None
 
 
 class IncidentResponderTypeDef(BaseValidatorModel):
     name: str
     jobTitle: str
-    email: str
+    email: Annotated[str, _aws_pattern("SecurityIr", "EmailAddress")]
     communicationPreferences: Optional[List[CommunicationTypeType]] = None
 
 
@@ -181,16 +183,16 @@ class PaginatorConfigTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'list_case_edits' function.
 class ListCaseEditsRequestTypeDef(BaseValidatorModel):
-    caseId: str
+    caseId: Annotated[str, _aws_pattern("SecurityIr", "CaseId")]
     nextToken: Optional[str] = None
     maxResults: Optional[int] = None
 
 
 class ListCasesItemTypeDef(BaseValidatorModel):
-    caseId: str
+    caseId: Annotated[str, _aws_pattern("SecurityIr", "CaseId")]
     lastUpdatedDate: Optional[datetime] = None
     title: Optional[str] = None
-    caseArn: Optional[str] = None
+    caseArn: Optional[Annotated[str, _aws_pattern("SecurityIr", "CaseArn")]] = None
     engagementType: Optional[EngagementTypeType] = None
     caseStatus: Optional[CaseStatusType] = None
     createdDate: Optional[datetime] = None
@@ -206,33 +208,33 @@ class ListCasesRequestTypeDef(BaseValidatorModel):
 
 
 class ListCommentsItemTypeDef(BaseValidatorModel):
-    commentId: str
+    commentId: Annotated[str, _aws_pattern("SecurityIr", "CommentId")]
     createdDate: Optional[datetime] = None
     lastUpdatedDate: Optional[datetime] = None
-    creator: Optional[str] = None
-    lastUpdatedBy: Optional[str] = None
+    creator: Optional[Annotated[str, _aws_pattern("SecurityIr", "PrincipalId")]] = None
+    lastUpdatedBy: Optional[Annotated[str, _aws_pattern("SecurityIr", "PrincipalId")]] = None
     body: Optional[str] = None
 
 
 # This class is the input for the 'list_comments' function.
 class ListCommentsRequestTypeDef(BaseValidatorModel):
-    caseId: str
+    caseId: Annotated[str, _aws_pattern("SecurityIr", "CaseId")]
     nextToken: Optional[str] = None
     maxResults: Optional[int] = None
 
 
 # This class is the input for the 'list_investigations' function.
 class ListInvestigationsRequestTypeDef(BaseValidatorModel):
-    caseId: str
+    caseId: Annotated[str, _aws_pattern("SecurityIr", "CaseId")]
     nextToken: Optional[str] = None
     maxResults: Optional[int] = None
 
 
 class ListMembershipItemTypeDef(BaseValidatorModel):
-    membershipId: str
-    accountId: Optional[str] = None
+    membershipId: Annotated[str, _aws_pattern("SecurityIr", "MembershipId")]
+    accountId: Optional[Annotated[str, _aws_pattern("SecurityIr", "AWSAccountId")]] = None
     region: Optional[AwsRegionType] = None
-    membershipArn: Optional[str] = None
+    membershipArn: Optional[Annotated[str, _aws_pattern("SecurityIr", "MembershipArn")]] = None
     membershipStatus: Optional[MembershipStatusType] = None
 
 
@@ -244,48 +246,50 @@ class ListMembershipsRequestTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'list_tags_for_resource' function.
 class ListTagsForResourceInputTypeDef(BaseValidatorModel):
-    resourceArn: str
+    resourceArn: Annotated[str, _aws_pattern("SecurityIr", "Arn")]
 
 
 class MembershipAccountsConfigurationsUpdateTypeDef(BaseValidatorModel):
     coverEntireOrganization: Optional[bool] = None
-    organizationalUnitsToAdd: Optional[List[str]] = None
-    organizationalUnitsToRemove: Optional[List[str]] = None
+    organizationalUnitsToAdd: Optional[List[Annotated[str, _aws_pattern("SecurityIr", "OrganizationalUnitId")]]] = None
+    organizationalUnitsToRemove: Optional[List[Annotated[str, _aws_pattern("SecurityIr", "OrganizationalUnitId")]]] = (
+        None
+    )
 
 
 class SendFeedbackRequestTypeDef(BaseValidatorModel):
-    caseId: str
-    resultId: str
+    caseId: Annotated[str, _aws_pattern("SecurityIr", "CaseId")]
+    resultId: Annotated[str, _aws_pattern("SecurityIr", "ResultId")]
     usefulness: UsefulnessRatingType
     comment: Optional[str] = None
 
 
 class TagResourceInputTypeDef(BaseValidatorModel):
-    resourceArn: str
+    resourceArn: Annotated[str, _aws_pattern("SecurityIr", "Arn")]
     tags: Dict[str, str]
 
 
 class UntagResourceInputTypeDef(BaseValidatorModel):
-    resourceArn: str
+    resourceArn: Annotated[str, _aws_pattern("SecurityIr", "Arn")]
     tagKeys: List[str]
 
 
 # This class is the input for the 'update_case_comment' function.
 class UpdateCaseCommentRequestTypeDef(BaseValidatorModel):
-    caseId: str
-    commentId: str
+    caseId: Annotated[str, _aws_pattern("SecurityIr", "CaseId")]
+    commentId: Annotated[str, _aws_pattern("SecurityIr", "CommentId")]
     body: str
 
 
 # This class is the input for the 'update_case_status' function.
 class UpdateCaseStatusRequestTypeDef(BaseValidatorModel):
-    caseId: str
+    caseId: Annotated[str, _aws_pattern("SecurityIr", "CaseId")]
     caseStatus: SelfManagedCaseStatusType
 
 
 # This class is the input for the 'update_resolver_type' function.
 class UpdateResolverTypeRequestTypeDef(BaseValidatorModel):
-    caseId: str
+    caseId: Annotated[str, _aws_pattern("SecurityIr", "CaseId")]
     resolverType: ResolverTypeType
 
 
@@ -298,7 +302,7 @@ class BatchGetMemberAccountDetailsResponseTypeDef(BaseValidatorModel):
 
 # This class is the output for the 'cancel_membership' function.
 class CancelMembershipResponseTypeDef(BaseValidatorModel):
-    membershipId: str
+    membershipId: Annotated[str, _aws_pattern("SecurityIr", "MembershipId")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
@@ -311,31 +315,31 @@ class CloseCaseResponseTypeDef(BaseValidatorModel):
 
 # This class is the output for the 'create_case_comment' function.
 class CreateCaseCommentResponseTypeDef(BaseValidatorModel):
-    commentId: str
+    commentId: Annotated[str, _aws_pattern("SecurityIr", "CommentId")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 # This class is the output for the 'create_case' function.
 class CreateCaseResponseTypeDef(BaseValidatorModel):
-    caseId: str
+    caseId: Annotated[str, _aws_pattern("SecurityIr", "CaseId")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 # This class is the output for the 'create_membership' function.
 class CreateMembershipResponseTypeDef(BaseValidatorModel):
-    membershipId: str
+    membershipId: Annotated[str, _aws_pattern("SecurityIr", "MembershipId")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 # This class is the output for the 'get_case_attachment_download_url' function.
 class GetCaseAttachmentDownloadUrlResponseTypeDef(BaseValidatorModel):
-    attachmentPresignedUrl: str
+    attachmentPresignedUrl: Annotated[str, _aws_pattern("SecurityIr", "Url")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 # This class is the output for the 'get_case_attachment_upload_url' function.
 class GetCaseAttachmentUploadUrlResponseTypeDef(BaseValidatorModel):
-    attachmentPresignedUrl: str
+    attachmentPresignedUrl: Annotated[str, _aws_pattern("SecurityIr", "Url")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
@@ -347,7 +351,7 @@ class ListTagsForResourceOutputTypeDef(BaseValidatorModel):
 
 # This class is the output for the 'update_case_comment' function.
 class UpdateCaseCommentResponseTypeDef(BaseValidatorModel):
-    commentId: str
+    commentId: Annotated[str, _aws_pattern("SecurityIr", "CommentId")]
     body: str
     ResponseMetadata: ResponseMetadataTypeDef
 
@@ -360,7 +364,7 @@ class UpdateCaseStatusResponseTypeDef(BaseValidatorModel):
 
 # This class is the output for the 'update_resolver_type' function.
 class UpdateResolverTypeResponseTypeDef(BaseValidatorModel):
-    caseId: str
+    caseId: Annotated[str, _aws_pattern("SecurityIr", "CaseId")]
     caseStatus: CaseStatusType
     resolverType: ResolverTypeType
     ResponseMetadata: ResponseMetadataTypeDef
@@ -381,11 +385,11 @@ class CreateCaseRequestTypeDef(BaseValidatorModel):
     description: str
     engagementType: EngagementTypeType
     reportedIncidentStartDate: TimestampTypeDef
-    impactedAccounts: List[str]
+    impactedAccounts: List[Annotated[str, _aws_pattern("SecurityIr", "AWSAccountId")]]
     watchers: List[WatcherTypeDef]
     clientToken: Optional[str] = None
     threatActorIpAddresses: Optional[List[ThreatActorIpTypeDef]] = None
-    impactedServices: Optional[List[str]] = None
+    impactedServices: Optional[List[Annotated[str, _aws_pattern("SecurityIr", "AwsService")]]] = None
     impactedAwsRegions: Optional[List[ImpactedAwsRegionTypeDef]] = None
     tags: Optional[Dict[str, str]] = None
 
@@ -393,7 +397,7 @@ class CreateCaseRequestTypeDef(BaseValidatorModel):
 # This class is the output for the 'get_case' function.
 class GetCaseResponseTypeDef(BaseValidatorModel):
     title: str
-    caseArn: str
+    caseArn: Annotated[str, _aws_pattern("SecurityIr", "CaseArn")]
     description: str
     caseStatus: CaseStatusType
     engagementType: EngagementTypeType
@@ -402,13 +406,13 @@ class GetCaseResponseTypeDef(BaseValidatorModel):
     impactedAwsRegions: List[ImpactedAwsRegionTypeDef]
     threatActorIpAddresses: List[ThreatActorIpTypeDef]
     pendingAction: PendingActionType
-    impactedAccounts: List[str]
+    impactedAccounts: List[Annotated[str, _aws_pattern("SecurityIr", "AWSAccountId")]]
     watchers: List[WatcherTypeDef]
     createdDate: datetime
     lastUpdatedDate: datetime
     closureCode: ClosureCodeType
     resolverType: ResolverTypeType
-    impactedServices: List[str]
+    impactedServices: List[Annotated[str, _aws_pattern("SecurityIr", "AwsService")]]
     caseAttachments: List[CaseAttachmentAttributesTypeDef]
     closedDate: datetime
     caseMetadata: List[CaseMetadataEntryTypeDef]
@@ -416,7 +420,7 @@ class GetCaseResponseTypeDef(BaseValidatorModel):
 
 
 class UpdateCaseRequestTypeDef(BaseValidatorModel):
-    caseId: str
+    caseId: Annotated[str, _aws_pattern("SecurityIr", "CaseId")]
     title: Optional[str] = None
     description: Optional[str] = None
     reportedIncidentStartDate: Optional[TimestampTypeDef] = None
@@ -426,22 +430,22 @@ class UpdateCaseRequestTypeDef(BaseValidatorModel):
     watchersToDelete: Optional[List[WatcherTypeDef]] = None
     threatActorIpAddressesToAdd: Optional[List[ThreatActorIpTypeDef]] = None
     threatActorIpAddressesToDelete: Optional[List[ThreatActorIpTypeDef]] = None
-    impactedServicesToAdd: Optional[List[str]] = None
-    impactedServicesToDelete: Optional[List[str]] = None
+    impactedServicesToAdd: Optional[List[Annotated[str, _aws_pattern("SecurityIr", "AwsService")]]] = None
+    impactedServicesToDelete: Optional[List[Annotated[str, _aws_pattern("SecurityIr", "AwsService")]]] = None
     impactedAwsRegionsToAdd: Optional[List[ImpactedAwsRegionTypeDef]] = None
     impactedAwsRegionsToDelete: Optional[List[ImpactedAwsRegionTypeDef]] = None
-    impactedAccountsToAdd: Optional[List[str]] = None
-    impactedAccountsToDelete: Optional[List[str]] = None
+    impactedAccountsToAdd: Optional[List[Annotated[str, _aws_pattern("SecurityIr", "AWSAccountId")]]] = None
+    impactedAccountsToDelete: Optional[List[Annotated[str, _aws_pattern("SecurityIr", "AWSAccountId")]]] = None
     caseMetadata: Optional[List[CaseMetadataEntryTypeDef]] = None
 
 
 # This class is the output for the 'get_membership' function.
 class GetMembershipResponseTypeDef(BaseValidatorModel):
-    membershipId: str
-    accountId: str
+    membershipId: Annotated[str, _aws_pattern("SecurityIr", "MembershipId")]
+    accountId: Annotated[str, _aws_pattern("SecurityIr", "AWSAccountId")]
     region: AwsRegionType
     membershipName: str
-    membershipArn: str
+    membershipArn: Annotated[str, _aws_pattern("SecurityIr", "MembershipArn")]
     membershipStatus: MembershipStatusType
     membershipActivationTimestamp: datetime
     membershipDeactivationTimestamp: datetime
@@ -457,7 +461,7 @@ IncidentResponderUnionTypeDef = Union[IncidentResponderOutputTypeDef, IncidentRe
 
 
 class InvestigationActionTypeDef(BaseValidatorModel):
-    investigationId: str
+    investigationId: Annotated[str, _aws_pattern("SecurityIr", "InvestigationId")]
     actionType: ActionTypeType
     title: str
     content: str
@@ -523,7 +527,7 @@ class CreateMembershipRequestTypeDef(BaseValidatorModel):
 
 
 class UpdateMembershipRequestTypeDef(BaseValidatorModel):
-    membershipId: str
+    membershipId: Annotated[str, _aws_pattern("SecurityIr", "MembershipId")]
     membershipName: Optional[str] = None
     incidentResponseTeam: Optional[List[IncidentResponderUnionTypeDef]] = None
     optInFeatures: Optional[List[OptInFeatureTypeDef]] = None

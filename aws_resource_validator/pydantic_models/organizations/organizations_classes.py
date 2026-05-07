@@ -3,6 +3,7 @@
 from datetime import datetime
 from decimal import Decimal
 from typing import (
+    Annotated,
     Any,
     Callable,
     Dict,
@@ -24,6 +25,7 @@ from botocore.response import StreamingBody
 from pydantic import Field
 
 from aws_resource_validator.core.base_validator_model import BaseValidatorModel, EventStream
+from aws_resource_validator.core.pattern_validation import aws_field_pattern as _aws_pattern
 from aws_resource_validator.pydantic_models.organizations.organizations_constants import *  # noqa: F401,F403
 
 # Optional boto3 symbols — imported lazily so services that don't need them
@@ -40,7 +42,7 @@ except ImportError:  # pragma: no cover
 
 # This class is the input for the 'accept_handshake' function.
 class AcceptHandshakeRequestTypeDef(BaseValidatorModel):
-    HandshakeId: str
+    HandshakeId: Annotated[str, _aws_pattern("Organizations", "HandshakeId")]
 
 
 class ResponseMetadataTypeDef(BaseValidatorModel):
@@ -52,51 +54,51 @@ class ResponseMetadataTypeDef(BaseValidatorModel):
 
 
 class AccountTypeDef(BaseValidatorModel):
-    Id: Optional[str] = None
-    Arn: Optional[str] = None
-    Email: Optional[str] = None
-    Name: Optional[str] = None
+    Id: Optional[Annotated[str, _aws_pattern("Organizations", "AccountId")]] = None
+    Arn: Optional[Annotated[str, _aws_pattern("Organizations", "AccountArn")]] = None
+    Email: Optional[Annotated[str, _aws_pattern("Organizations", "Email")]] = None
+    Name: Optional[Annotated[str, _aws_pattern("Organizations", "AccountName")]] = None
     Status: Optional[AccountStatusType] = None
     State: Optional[AccountStateType] = None
-    Paths: Optional[List[str]] = None
+    Paths: Optional[List[Annotated[str, _aws_pattern("Organizations", "Path")]]] = None
     JoinedMethod: Optional[AccountJoinedMethodType] = None
     JoinedTimestamp: Optional[datetime] = None
 
 
 # This class is the input for the 'attach_policy' function.
 class AttachPolicyRequestTypeDef(BaseValidatorModel):
-    PolicyId: str
-    TargetId: str
+    PolicyId: Annotated[str, _aws_pattern("Organizations", "PolicyId")]
+    TargetId: Annotated[str, _aws_pattern("Organizations", "PolicyTargetId")]
 
 
 # This class is the input for the 'cancel_handshake' function.
 class CancelHandshakeRequestTypeDef(BaseValidatorModel):
-    HandshakeId: str
+    HandshakeId: Annotated[str, _aws_pattern("Organizations", "HandshakeId")]
 
 
 class ChildTypeDef(BaseValidatorModel):
-    Id: Optional[str] = None
+    Id: Optional[Annotated[str, _aws_pattern("Organizations", "ChildId")]] = None
     Type: Optional[ChildTypeType] = None
 
 
 # This class is the input for the 'close_account' function.
 class CloseAccountRequestTypeDef(BaseValidatorModel):
-    AccountId: str
+    AccountId: Annotated[str, _aws_pattern("Organizations", "AccountId")]
 
 
 class TagTypeDef(BaseValidatorModel):
-    Key: str
-    Value: str
+    Key: Annotated[str, _aws_pattern("Organizations", "TagKey")]
+    Value: Annotated[str, _aws_pattern("Organizations", "TagValue")]
 
 
 class CreateAccountStatusTypeDef(BaseValidatorModel):
-    Id: Optional[str] = None
-    AccountName: Optional[str] = None
+    Id: Optional[Annotated[str, _aws_pattern("Organizations", "CreateAccountRequestId")]] = None
+    AccountName: Optional[Annotated[str, _aws_pattern("Organizations", "CreateAccountName")]] = None
     State: Optional[CreateAccountStateType] = None
     RequestedTimestamp: Optional[datetime] = None
     CompletedTimestamp: Optional[datetime] = None
-    AccountId: Optional[str] = None
-    GovCloudAccountId: Optional[str] = None
+    AccountId: Optional[Annotated[str, _aws_pattern("Organizations", "AccountId")]] = None
+    GovCloudAccountId: Optional[Annotated[str, _aws_pattern("Organizations", "AccountId")]] = None
     FailureReason: Optional[CreateAccountFailureReasonType] = None
 
 
@@ -106,22 +108,22 @@ class CreateOrganizationRequestTypeDef(BaseValidatorModel):
 
 
 class OrganizationalUnitTypeDef(BaseValidatorModel):
-    Id: Optional[str] = None
-    Arn: Optional[str] = None
-    Name: Optional[str] = None
-    Path: Optional[str] = None
+    Id: Optional[Annotated[str, _aws_pattern("Organizations", "OrganizationalUnitId")]] = None
+    Arn: Optional[Annotated[str, _aws_pattern("Organizations", "OrganizationalUnitArn")]] = None
+    Name: Optional[Annotated[str, _aws_pattern("Organizations", "OrganizationalUnitName")]] = None
+    Path: Optional[Annotated[str, _aws_pattern("Organizations", "Path")]] = None
 
 
 # This class is the input for the 'decline_handshake' function.
 class DeclineHandshakeRequestTypeDef(BaseValidatorModel):
-    HandshakeId: str
+    HandshakeId: Annotated[str, _aws_pattern("Organizations", "HandshakeId")]
 
 
 class DelegatedAdministratorTypeDef(BaseValidatorModel):
-    Id: Optional[str] = None
-    Arn: Optional[str] = None
-    Email: Optional[str] = None
-    Name: Optional[str] = None
+    Id: Optional[Annotated[str, _aws_pattern("Organizations", "AccountId")]] = None
+    Arn: Optional[Annotated[str, _aws_pattern("Organizations", "AccountArn")]] = None
+    Email: Optional[Annotated[str, _aws_pattern("Organizations", "Email")]] = None
+    Name: Optional[Annotated[str, _aws_pattern("Organizations", "AccountName")]] = None
     Status: Optional[AccountStatusType] = None
     State: Optional[AccountStateType] = None
     JoinedMethod: Optional[AccountJoinedMethodType] = None
@@ -130,83 +132,83 @@ class DelegatedAdministratorTypeDef(BaseValidatorModel):
 
 
 class DelegatedServiceTypeDef(BaseValidatorModel):
-    ServicePrincipal: Optional[str] = None
+    ServicePrincipal: Optional[Annotated[str, _aws_pattern("Organizations", "ServicePrincipal")]] = None
     DelegationEnabledDate: Optional[datetime] = None
 
 
 # This class is the input for the 'delete_organizational_unit' function.
 class DeleteOrganizationalUnitRequestTypeDef(BaseValidatorModel):
-    OrganizationalUnitId: str
+    OrganizationalUnitId: Annotated[str, _aws_pattern("Organizations", "OrganizationalUnitId")]
 
 
 # This class is the input for the 'delete_policy' function.
 class DeletePolicyRequestTypeDef(BaseValidatorModel):
-    PolicyId: str
+    PolicyId: Annotated[str, _aws_pattern("Organizations", "PolicyId")]
 
 
 # This class is the input for the 'deregister_delegated_administrator' function.
 class DeregisterDelegatedAdministratorRequestTypeDef(BaseValidatorModel):
-    AccountId: str
-    ServicePrincipal: str
+    AccountId: Annotated[str, _aws_pattern("Organizations", "AccountId")]
+    ServicePrincipal: Annotated[str, _aws_pattern("Organizations", "ServicePrincipal")]
 
 
 # This class is the input for the 'describe_account' function.
 class DescribeAccountRequestTypeDef(BaseValidatorModel):
-    AccountId: str
+    AccountId: Annotated[str, _aws_pattern("Organizations", "AccountId")]
 
 
 # This class is the input for the 'describe_create_account_status' function.
 class DescribeCreateAccountStatusRequestTypeDef(BaseValidatorModel):
-    CreateAccountRequestId: str
+    CreateAccountRequestId: Annotated[str, _aws_pattern("Organizations", "CreateAccountRequestId")]
 
 
 # This class is the input for the 'describe_effective_policy' function.
 class DescribeEffectivePolicyRequestTypeDef(BaseValidatorModel):
     PolicyType: EffectivePolicyTypeType
-    TargetId: Optional[str] = None
+    TargetId: Optional[Annotated[str, _aws_pattern("Organizations", "PolicyTargetId")]] = None
 
 
 class EffectivePolicyTypeDef(BaseValidatorModel):
-    PolicyContent: Optional[str] = None
+    PolicyContent: Optional[Annotated[str, _aws_pattern("Organizations", "PolicyContent")]] = None
     LastUpdatedTimestamp: Optional[datetime] = None
-    TargetId: Optional[str] = None
+    TargetId: Optional[Annotated[str, _aws_pattern("Organizations", "PolicyTargetId")]] = None
     PolicyType: Optional[EffectivePolicyTypeType] = None
 
 
 # This class is the input for the 'describe_handshake' function.
 class DescribeHandshakeRequestTypeDef(BaseValidatorModel):
-    HandshakeId: str
+    HandshakeId: Annotated[str, _aws_pattern("Organizations", "HandshakeId")]
 
 
 # This class is the input for the 'describe_organizational_unit' function.
 class DescribeOrganizationalUnitRequestTypeDef(BaseValidatorModel):
-    OrganizationalUnitId: str
+    OrganizationalUnitId: Annotated[str, _aws_pattern("Organizations", "OrganizationalUnitId")]
 
 
 # This class is the input for the 'describe_policy' function.
 class DescribePolicyRequestTypeDef(BaseValidatorModel):
-    PolicyId: str
+    PolicyId: Annotated[str, _aws_pattern("Organizations", "PolicyId")]
 
 
 # This class is the input for the 'describe_responsibility_transfer' function.
 class DescribeResponsibilityTransferRequestTypeDef(BaseValidatorModel):
-    Id: str
+    Id: Annotated[str, _aws_pattern("Organizations", "ResponsibilityTransferId")]
 
 
 # This class is the input for the 'detach_policy' function.
 class DetachPolicyRequestTypeDef(BaseValidatorModel):
-    PolicyId: str
-    TargetId: str
+    PolicyId: Annotated[str, _aws_pattern("Organizations", "PolicyId")]
+    TargetId: Annotated[str, _aws_pattern("Organizations", "PolicyTargetId")]
 
 
 # This class is the input for the 'disable_aws_service_access' function.
 class DisableAWSServiceAccessRequestTypeDef(BaseValidatorModel):
-    ServicePrincipal: str
+    ServicePrincipal: Annotated[str, _aws_pattern("Organizations", "ServicePrincipal")]
 
 
 # This class is the input for the 'disable_policy_type' function.
 class DisablePolicyTypeRequestTypeDef(BaseValidatorModel):
-    RootId: str
+    RootId: Annotated[str, _aws_pattern("Organizations", "RootId")]
     PolicyType: PolicyTypeType
 
 
@@ -214,32 +216,32 @@ class EffectivePolicyValidationErrorTypeDef(BaseValidatorModel):
     ErrorCode: Optional[str] = None
     ErrorMessage: Optional[str] = None
     PathToError: Optional[str] = None
-    ContributingPolicies: Optional[List[str]] = None
+    ContributingPolicies: Optional[List[Annotated[str, _aws_pattern("Organizations", "PolicyId")]]] = None
 
 
 # This class is the input for the 'enable_aws_service_access' function.
 class EnableAWSServiceAccessRequestTypeDef(BaseValidatorModel):
-    ServicePrincipal: str
+    ServicePrincipal: Annotated[str, _aws_pattern("Organizations", "ServicePrincipal")]
 
 
 # This class is the input for the 'enable_policy_type' function.
 class EnablePolicyTypeRequestTypeDef(BaseValidatorModel):
-    RootId: str
+    RootId: Annotated[str, _aws_pattern("Organizations", "RootId")]
     PolicyType: PolicyTypeType
 
 
 class EnabledServicePrincipalTypeDef(BaseValidatorModel):
-    ServicePrincipal: Optional[str] = None
+    ServicePrincipal: Optional[Annotated[str, _aws_pattern("Organizations", "ServicePrincipal")]] = None
     DateEnabled: Optional[datetime] = None
 
 
 class HandshakeFilterTypeDef(BaseValidatorModel):
     ActionType: Optional[ActionTypeType] = None
-    ParentHandshakeId: Optional[str] = None
+    ParentHandshakeId: Optional[Annotated[str, _aws_pattern("Organizations", "HandshakeId")]] = None
 
 
 class HandshakePartyTypeDef(BaseValidatorModel):
-    Id: str
+    Id: Annotated[str, _aws_pattern("Organizations", "HandshakePartyId")]
     Type: HandshakePartyTypeType
 
 
@@ -266,114 +268,114 @@ class PaginatorConfigTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'list_aws_service_access_for_organization' function.
 class ListAWSServiceAccessForOrganizationRequestTypeDef(BaseValidatorModel):
-    NextToken: Optional[str] = None
+    NextToken: Optional[Annotated[str, _aws_pattern("Organizations", "NextToken")]] = None
     MaxResults: Optional[int] = None
 
 
 # This class is the input for the 'list_accounts_for_parent' function.
 class ListAccountsForParentRequestTypeDef(BaseValidatorModel):
-    ParentId: str
-    NextToken: Optional[str] = None
+    ParentId: Annotated[str, _aws_pattern("Organizations", "ParentId")]
+    NextToken: Optional[Annotated[str, _aws_pattern("Organizations", "NextToken")]] = None
     MaxResults: Optional[int] = None
 
 
 # This class is the input for the 'list_accounts' function.
 class ListAccountsRequestTypeDef(BaseValidatorModel):
-    NextToken: Optional[str] = None
+    NextToken: Optional[Annotated[str, _aws_pattern("Organizations", "NextToken")]] = None
     MaxResults: Optional[int] = None
 
 
 # This class is the input for the 'list_accounts_with_invalid_effective_policy' function.
 class ListAccountsWithInvalidEffectivePolicyRequestTypeDef(BaseValidatorModel):
     PolicyType: EffectivePolicyTypeType
-    NextToken: Optional[str] = None
+    NextToken: Optional[Annotated[str, _aws_pattern("Organizations", "NextToken")]] = None
     MaxResults: Optional[int] = None
 
 
 # This class is the input for the 'list_children' function.
 class ListChildrenRequestTypeDef(BaseValidatorModel):
-    ParentId: str
+    ParentId: Annotated[str, _aws_pattern("Organizations", "ParentId")]
     ChildType: ChildTypeType
-    NextToken: Optional[str] = None
+    NextToken: Optional[Annotated[str, _aws_pattern("Organizations", "NextToken")]] = None
     MaxResults: Optional[int] = None
 
 
 # This class is the input for the 'list_create_account_status' function.
 class ListCreateAccountStatusRequestTypeDef(BaseValidatorModel):
     States: Optional[List[CreateAccountStateType]] = None
-    NextToken: Optional[str] = None
+    NextToken: Optional[Annotated[str, _aws_pattern("Organizations", "NextToken")]] = None
     MaxResults: Optional[int] = None
 
 
 # This class is the input for the 'list_delegated_administrators' function.
 class ListDelegatedAdministratorsRequestTypeDef(BaseValidatorModel):
-    ServicePrincipal: Optional[str] = None
-    NextToken: Optional[str] = None
+    ServicePrincipal: Optional[Annotated[str, _aws_pattern("Organizations", "ServicePrincipal")]] = None
+    NextToken: Optional[Annotated[str, _aws_pattern("Organizations", "NextToken")]] = None
     MaxResults: Optional[int] = None
 
 
 # This class is the input for the 'list_delegated_services_for_account' function.
 class ListDelegatedServicesForAccountRequestTypeDef(BaseValidatorModel):
-    AccountId: str
-    NextToken: Optional[str] = None
+    AccountId: Annotated[str, _aws_pattern("Organizations", "AccountId")]
+    NextToken: Optional[Annotated[str, _aws_pattern("Organizations", "NextToken")]] = None
     MaxResults: Optional[int] = None
 
 
 # This class is the input for the 'list_effective_policy_validation_errors' function.
 class ListEffectivePolicyValidationErrorsRequestTypeDef(BaseValidatorModel):
-    AccountId: str
+    AccountId: Annotated[str, _aws_pattern("Organizations", "AccountId")]
     PolicyType: EffectivePolicyTypeType
-    NextToken: Optional[str] = None
+    NextToken: Optional[Annotated[str, _aws_pattern("Organizations", "NextToken")]] = None
     MaxResults: Optional[int] = None
 
 
 # This class is the input for the 'list_inbound_responsibility_transfers' function.
 class ListInboundResponsibilityTransfersRequestTypeDef(BaseValidatorModel):
     Type: Literal["BILLING"]
-    Id: Optional[str] = None
-    NextToken: Optional[str] = None
+    Id: Optional[Annotated[str, _aws_pattern("Organizations", "ResponsibilityTransferId")]] = None
+    NextToken: Optional[Annotated[str, _aws_pattern("Organizations", "NextToken")]] = None
     MaxResults: Optional[int] = None
 
 
 # This class is the input for the 'list_organizational_units_for_parent' function.
 class ListOrganizationalUnitsForParentRequestTypeDef(BaseValidatorModel):
-    ParentId: str
-    NextToken: Optional[str] = None
+    ParentId: Annotated[str, _aws_pattern("Organizations", "ParentId")]
+    NextToken: Optional[Annotated[str, _aws_pattern("Organizations", "NextToken")]] = None
     MaxResults: Optional[int] = None
 
 
 # This class is the input for the 'list_outbound_responsibility_transfers' function.
 class ListOutboundResponsibilityTransfersRequestTypeDef(BaseValidatorModel):
     Type: Literal["BILLING"]
-    NextToken: Optional[str] = None
+    NextToken: Optional[Annotated[str, _aws_pattern("Organizations", "NextToken")]] = None
     MaxResults: Optional[int] = None
 
 
 # This class is the input for the 'list_parents' function.
 class ListParentsRequestTypeDef(BaseValidatorModel):
-    ChildId: str
-    NextToken: Optional[str] = None
+    ChildId: Annotated[str, _aws_pattern("Organizations", "ChildId")]
+    NextToken: Optional[Annotated[str, _aws_pattern("Organizations", "NextToken")]] = None
     MaxResults: Optional[int] = None
 
 
 class ParentTypeDef(BaseValidatorModel):
-    Id: Optional[str] = None
+    Id: Optional[Annotated[str, _aws_pattern("Organizations", "ParentId")]] = None
     Type: Optional[ParentTypeType] = None
 
 
 # This class is the input for the 'list_policies_for_target' function.
 class ListPoliciesForTargetRequestTypeDef(BaseValidatorModel):
-    TargetId: str
+    TargetId: Annotated[str, _aws_pattern("Organizations", "PolicyTargetId")]
     Filter: PolicyTypeType
-    NextToken: Optional[str] = None
+    NextToken: Optional[Annotated[str, _aws_pattern("Organizations", "NextToken")]] = None
     MaxResults: Optional[int] = None
 
 
 class PolicySummaryTypeDef(BaseValidatorModel):
-    Id: Optional[str] = None
-    Arn: Optional[str] = None
-    Name: Optional[str] = None
-    Description: Optional[str] = None
+    Id: Optional[Annotated[str, _aws_pattern("Organizations", "PolicyId")]] = None
+    Arn: Optional[Annotated[str, _aws_pattern("Organizations", "PolicyArn")]] = None
+    Name: Optional[Annotated[str, _aws_pattern("Organizations", "PolicyName")]] = None
+    Description: Optional[Annotated[str, _aws_pattern("Organizations", "PolicyDescription")]] = None
     Type: Optional[PolicyTypeType] = None
     AwsManaged: Optional[bool] = None
 
@@ -381,41 +383,41 @@ class PolicySummaryTypeDef(BaseValidatorModel):
 # This class is the input for the 'list_policies' function.
 class ListPoliciesRequestTypeDef(BaseValidatorModel):
     Filter: PolicyTypeType
-    NextToken: Optional[str] = None
+    NextToken: Optional[Annotated[str, _aws_pattern("Organizations", "NextToken")]] = None
     MaxResults: Optional[int] = None
 
 
 # This class is the input for the 'list_roots' function.
 class ListRootsRequestTypeDef(BaseValidatorModel):
-    NextToken: Optional[str] = None
+    NextToken: Optional[Annotated[str, _aws_pattern("Organizations", "NextToken")]] = None
     MaxResults: Optional[int] = None
 
 
 # This class is the input for the 'list_tags_for_resource' function.
 class ListTagsForResourceRequestTypeDef(BaseValidatorModel):
-    ResourceId: str
-    NextToken: Optional[str] = None
+    ResourceId: Annotated[str, _aws_pattern("Organizations", "TaggableResourceId")]
+    NextToken: Optional[Annotated[str, _aws_pattern("Organizations", "NextToken")]] = None
 
 
 # This class is the input for the 'list_targets_for_policy' function.
 class ListTargetsForPolicyRequestTypeDef(BaseValidatorModel):
-    PolicyId: str
-    NextToken: Optional[str] = None
+    PolicyId: Annotated[str, _aws_pattern("Organizations", "PolicyId")]
+    NextToken: Optional[Annotated[str, _aws_pattern("Organizations", "NextToken")]] = None
     MaxResults: Optional[int] = None
 
 
 class PolicyTargetSummaryTypeDef(BaseValidatorModel):
-    TargetId: Optional[str] = None
-    Arn: Optional[str] = None
+    TargetId: Optional[Annotated[str, _aws_pattern("Organizations", "PolicyTargetId")]] = None
+    Arn: Optional[Annotated[str, _aws_pattern("Organizations", "GenericArn")]] = None
     Name: Optional[str] = None
     Type: Optional[TargetTypeType] = None
 
 
 # This class is the input for the 'move_account' function.
 class MoveAccountRequestTypeDef(BaseValidatorModel):
-    AccountId: str
-    SourceParentId: str
-    DestinationParentId: str
+    AccountId: Annotated[str, _aws_pattern("Organizations", "AccountId")]
+    SourceParentId: Annotated[str, _aws_pattern("Organizations", "ParentId")]
+    DestinationParentId: Annotated[str, _aws_pattern("Organizations", "ParentId")]
 
 
 class PolicyTypeSummaryTypeDef(BaseValidatorModel):
@@ -425,49 +427,49 @@ class PolicyTypeSummaryTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'register_delegated_administrator' function.
 class RegisterDelegatedAdministratorRequestTypeDef(BaseValidatorModel):
-    AccountId: str
-    ServicePrincipal: str
+    AccountId: Annotated[str, _aws_pattern("Organizations", "AccountId")]
+    ServicePrincipal: Annotated[str, _aws_pattern("Organizations", "ServicePrincipal")]
 
 
 # This class is the input for the 'remove_account_from_organization' function.
 class RemoveAccountFromOrganizationRequestTypeDef(BaseValidatorModel):
-    AccountId: str
+    AccountId: Annotated[str, _aws_pattern("Organizations", "AccountId")]
 
 
 class ResourcePolicySummaryTypeDef(BaseValidatorModel):
-    Id: Optional[str] = None
-    Arn: Optional[str] = None
+    Id: Optional[Annotated[str, _aws_pattern("Organizations", "ResourcePolicyId")]] = None
+    Arn: Optional[Annotated[str, _aws_pattern("Organizations", "ResourcePolicyArn")]] = None
 
 
 class TransferParticipantTypeDef(BaseValidatorModel):
-    ManagementAccountId: Optional[str] = None
-    ManagementAccountEmail: Optional[str] = None
+    ManagementAccountId: Optional[Annotated[str, _aws_pattern("Organizations", "AccountId")]] = None
+    ManagementAccountEmail: Optional[Annotated[str, _aws_pattern("Organizations", "Email")]] = None
 
 
 # This class is the input for the 'untag_resource' function.
 class UntagResourceRequestTypeDef(BaseValidatorModel):
-    ResourceId: str
-    TagKeys: List[str]
+    ResourceId: Annotated[str, _aws_pattern("Organizations", "TaggableResourceId")]
+    TagKeys: List[Annotated[str, _aws_pattern("Organizations", "TagKey")]]
 
 
 # This class is the input for the 'update_organizational_unit' function.
 class UpdateOrganizationalUnitRequestTypeDef(BaseValidatorModel):
-    OrganizationalUnitId: str
-    Name: Optional[str] = None
+    OrganizationalUnitId: Annotated[str, _aws_pattern("Organizations", "OrganizationalUnitId")]
+    Name: Optional[Annotated[str, _aws_pattern("Organizations", "OrganizationalUnitName")]] = None
 
 
 # This class is the input for the 'update_policy' function.
 class UpdatePolicyRequestTypeDef(BaseValidatorModel):
-    PolicyId: str
-    Name: Optional[str] = None
-    Description: Optional[str] = None
-    Content: Optional[str] = None
+    PolicyId: Annotated[str, _aws_pattern("Organizations", "PolicyId")]
+    Name: Optional[Annotated[str, _aws_pattern("Organizations", "PolicyName")]] = None
+    Description: Optional[Annotated[str, _aws_pattern("Organizations", "PolicyDescription")]] = None
+    Content: Optional[Annotated[str, _aws_pattern("Organizations", "PolicyContent")]] = None
 
 
 # This class is the input for the 'update_responsibility_transfer' function.
 class UpdateResponsibilityTransferRequestTypeDef(BaseValidatorModel):
-    Id: str
-    Name: str
+    Id: Annotated[str, _aws_pattern("Organizations", "ResponsibilityTransferId")]
+    Name: Annotated[str, _aws_pattern("Organizations", "ResponsibilityTransferName")]
 
 
 # This class is the output for the 'attach_policy' function.
@@ -485,14 +487,14 @@ class DescribeAccountResponseTypeDef(BaseValidatorModel):
 class ListAccountsForParentResponseTypeDef(BaseValidatorModel):
     Accounts: List[AccountTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
-    NextToken: Optional[str] = None
+    NextToken: Optional[Annotated[str, _aws_pattern("Organizations", "NextToken")]] = None
 
 
 # This class is the output for the 'list_accounts' function.
 class ListAccountsResponseTypeDef(BaseValidatorModel):
     Accounts: List[AccountTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
-    NextToken: Optional[str] = None
+    NextToken: Optional[Annotated[str, _aws_pattern("Organizations", "NextToken")]] = None
 
 
 # This class is the output for the 'list_accounts_with_invalid_effective_policy' function.
@@ -500,46 +502,46 @@ class ListAccountsWithInvalidEffectivePolicyResponseTypeDef(BaseValidatorModel):
     Accounts: List[AccountTypeDef]
     PolicyType: EffectivePolicyTypeType
     ResponseMetadata: ResponseMetadataTypeDef
-    NextToken: Optional[str] = None
+    NextToken: Optional[Annotated[str, _aws_pattern("Organizations", "NextToken")]] = None
 
 
 # This class is the output for the 'list_children' function.
 class ListChildrenResponseTypeDef(BaseValidatorModel):
     Children: List[ChildTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
-    NextToken: Optional[str] = None
+    NextToken: Optional[Annotated[str, _aws_pattern("Organizations", "NextToken")]] = None
 
 
 # This class is the input for the 'create_account' function.
 class CreateAccountRequestTypeDef(BaseValidatorModel):
-    Email: str
-    AccountName: str
-    RoleName: Optional[str] = None
+    Email: Annotated[str, _aws_pattern("Organizations", "Email")]
+    AccountName: Annotated[str, _aws_pattern("Organizations", "CreateAccountName")]
+    RoleName: Optional[Annotated[str, _aws_pattern("Organizations", "RoleName")]] = None
     IamUserAccessToBilling: Optional[IAMUserAccessToBillingType] = None
     Tags: Optional[List[TagTypeDef]] = None
 
 
 # This class is the input for the 'create_gov_cloud_account' function.
 class CreateGovCloudAccountRequestTypeDef(BaseValidatorModel):
-    Email: str
-    AccountName: str
-    RoleName: Optional[str] = None
+    Email: Annotated[str, _aws_pattern("Organizations", "Email")]
+    AccountName: Annotated[str, _aws_pattern("Organizations", "CreateAccountName")]
+    RoleName: Optional[Annotated[str, _aws_pattern("Organizations", "RoleName")]] = None
     IamUserAccessToBilling: Optional[IAMUserAccessToBillingType] = None
     Tags: Optional[List[TagTypeDef]] = None
 
 
 # This class is the input for the 'create_organizational_unit' function.
 class CreateOrganizationalUnitRequestTypeDef(BaseValidatorModel):
-    ParentId: str
-    Name: str
+    ParentId: Annotated[str, _aws_pattern("Organizations", "ParentId")]
+    Name: Annotated[str, _aws_pattern("Organizations", "OrganizationalUnitName")]
     Tags: Optional[List[TagTypeDef]] = None
 
 
 # This class is the input for the 'create_policy' function.
 class CreatePolicyRequestTypeDef(BaseValidatorModel):
-    Content: str
-    Description: str
-    Name: str
+    Content: Annotated[str, _aws_pattern("Organizations", "PolicyContent")]
+    Description: Annotated[str, _aws_pattern("Organizations", "PolicyDescription")]
+    Name: Annotated[str, _aws_pattern("Organizations", "PolicyName")]
     Type: PolicyTypeType
     Tags: Optional[List[TagTypeDef]] = None
 
@@ -548,18 +550,18 @@ class CreatePolicyRequestTypeDef(BaseValidatorModel):
 class ListTagsForResourceResponseTypeDef(BaseValidatorModel):
     Tags: List[TagTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
-    NextToken: Optional[str] = None
+    NextToken: Optional[Annotated[str, _aws_pattern("Organizations", "NextToken")]] = None
 
 
 # This class is the input for the 'put_resource_policy' function.
 class PutResourcePolicyRequestTypeDef(BaseValidatorModel):
-    Content: str
+    Content: Annotated[str, _aws_pattern("Organizations", "ResourcePolicyContent")]
     Tags: Optional[List[TagTypeDef]] = None
 
 
 # This class is the input for the 'tag_resource' function.
 class TagResourceRequestTypeDef(BaseValidatorModel):
-    ResourceId: str
+    ResourceId: Annotated[str, _aws_pattern("Organizations", "TaggableResourceId")]
     Tags: List[TagTypeDef]
 
 
@@ -585,7 +587,7 @@ class DescribeCreateAccountStatusResponseTypeDef(BaseValidatorModel):
 class ListCreateAccountStatusResponseTypeDef(BaseValidatorModel):
     CreateAccountStatuses: List[CreateAccountStatusTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
-    NextToken: Optional[str] = None
+    NextToken: Optional[Annotated[str, _aws_pattern("Organizations", "NextToken")]] = None
 
 
 # This class is the output for the 'create_organizational_unit' function.
@@ -604,7 +606,7 @@ class DescribeOrganizationalUnitResponseTypeDef(BaseValidatorModel):
 class ListOrganizationalUnitsForParentResponseTypeDef(BaseValidatorModel):
     OrganizationalUnits: List[OrganizationalUnitTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
-    NextToken: Optional[str] = None
+    NextToken: Optional[Annotated[str, _aws_pattern("Organizations", "NextToken")]] = None
 
 
 # This class is the output for the 'update_organizational_unit' function.
@@ -617,14 +619,14 @@ class UpdateOrganizationalUnitResponseTypeDef(BaseValidatorModel):
 class ListDelegatedAdministratorsResponseTypeDef(BaseValidatorModel):
     DelegatedAdministrators: List[DelegatedAdministratorTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
-    NextToken: Optional[str] = None
+    NextToken: Optional[Annotated[str, _aws_pattern("Organizations", "NextToken")]] = None
 
 
 # This class is the output for the 'list_delegated_services_for_account' function.
 class ListDelegatedServicesForAccountResponseTypeDef(BaseValidatorModel):
     DelegatedServices: List[DelegatedServiceTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
-    NextToken: Optional[str] = None
+    NextToken: Optional[Annotated[str, _aws_pattern("Organizations", "NextToken")]] = None
 
 
 # This class is the output for the 'describe_effective_policy' function.
@@ -635,40 +637,40 @@ class DescribeEffectivePolicyResponseTypeDef(BaseValidatorModel):
 
 # This class is the output for the 'list_effective_policy_validation_errors' function.
 class ListEffectivePolicyValidationErrorsResponseTypeDef(BaseValidatorModel):
-    AccountId: str
+    AccountId: Annotated[str, _aws_pattern("Organizations", "AccountId")]
     PolicyType: EffectivePolicyTypeType
-    Path: str
+    Path: Annotated[str, _aws_pattern("Organizations", "Path")]
     EvaluationTimestamp: datetime
     EffectivePolicyValidationErrors: List[EffectivePolicyValidationErrorTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
-    NextToken: Optional[str] = None
+    NextToken: Optional[Annotated[str, _aws_pattern("Organizations", "NextToken")]] = None
 
 
 # This class is the output for the 'list_aws_service_access_for_organization' function.
 class ListAWSServiceAccessForOrganizationResponseTypeDef(BaseValidatorModel):
     EnabledServicePrincipals: List[EnabledServicePrincipalTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
-    NextToken: Optional[str] = None
+    NextToken: Optional[Annotated[str, _aws_pattern("Organizations", "NextToken")]] = None
 
 
 # This class is the input for the 'list_handshakes_for_account' function.
 class ListHandshakesForAccountRequestTypeDef(BaseValidatorModel):
     Filter: Optional[HandshakeFilterTypeDef] = None
-    NextToken: Optional[str] = None
+    NextToken: Optional[Annotated[str, _aws_pattern("Organizations", "NextToken")]] = None
     MaxResults: Optional[int] = None
 
 
 # This class is the input for the 'list_handshakes_for_organization' function.
 class ListHandshakesForOrganizationRequestTypeDef(BaseValidatorModel):
     Filter: Optional[HandshakeFilterTypeDef] = None
-    NextToken: Optional[str] = None
+    NextToken: Optional[Annotated[str, _aws_pattern("Organizations", "NextToken")]] = None
     MaxResults: Optional[int] = None
 
 
 # This class is the input for the 'invite_account_to_organization' function.
 class InviteAccountToOrganizationRequestTypeDef(BaseValidatorModel):
     Target: HandshakePartyTypeDef
-    Notes: Optional[str] = None
+    Notes: Optional[Annotated[str, _aws_pattern("Organizations", "HandshakeNotes")]] = None
     Tags: Optional[List[TagTypeDef]] = None
 
 
@@ -684,8 +686,8 @@ class HandshakePaginatorTypeDef(BaseValidatorModel):
 
 
 class HandshakeTypeDef(BaseValidatorModel):
-    Id: Optional[str] = None
-    Arn: Optional[str] = None
+    Id: Optional[Annotated[str, _aws_pattern("Organizations", "HandshakeId")]] = None
+    Arn: Optional[Annotated[str, _aws_pattern("Organizations", "HandshakeArn")]] = None
     Parties: Optional[List[HandshakePartyTypeDef]] = None
     State: Optional[HandshakeStateType] = None
     RequestedTimestamp: Optional[datetime] = None
@@ -699,14 +701,14 @@ class InviteOrganizationToTransferResponsibilityRequestTypeDef(BaseValidatorMode
     Type: Literal["BILLING"]
     Target: HandshakePartyTypeDef
     StartTimestamp: TimestampTypeDef
-    SourceName: str
-    Notes: Optional[str] = None
+    SourceName: Annotated[str, _aws_pattern("Organizations", "ResponsibilityTransferName")]
+    Notes: Optional[Annotated[str, _aws_pattern("Organizations", "HandshakeNotes")]] = None
     Tags: Optional[List[TagTypeDef]] = None
 
 
 # This class is the input for the 'terminate_responsibility_transfer' function.
 class TerminateResponsibilityTransferRequestTypeDef(BaseValidatorModel):
-    Id: str
+    Id: Annotated[str, _aws_pattern("Organizations", "ResponsibilityTransferId")]
     EndTimestamp: Optional[TimestampTypeDef] = None
 
 
@@ -804,68 +806,68 @@ class ListTargetsForPolicyRequestPaginateTypeDef(BaseValidatorModel):
 class ListParentsResponseTypeDef(BaseValidatorModel):
     Parents: List[ParentTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
-    NextToken: Optional[str] = None
+    NextToken: Optional[Annotated[str, _aws_pattern("Organizations", "NextToken")]] = None
 
 
 # This class is the output for the 'list_policies_for_target' function.
 class ListPoliciesForTargetResponseTypeDef(BaseValidatorModel):
     Policies: List[PolicySummaryTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
-    NextToken: Optional[str] = None
+    NextToken: Optional[Annotated[str, _aws_pattern("Organizations", "NextToken")]] = None
 
 
 # This class is the output for the 'list_policies' function.
 class ListPoliciesResponseTypeDef(BaseValidatorModel):
     Policies: List[PolicySummaryTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
-    NextToken: Optional[str] = None
+    NextToken: Optional[Annotated[str, _aws_pattern("Organizations", "NextToken")]] = None
 
 
 class PolicyTypeDef(BaseValidatorModel):
     PolicySummary: Optional[PolicySummaryTypeDef] = None
-    Content: Optional[str] = None
+    Content: Optional[Annotated[str, _aws_pattern("Organizations", "PolicyContent")]] = None
 
 
 # This class is the output for the 'list_targets_for_policy' function.
 class ListTargetsForPolicyResponseTypeDef(BaseValidatorModel):
     Targets: List[PolicyTargetSummaryTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
-    NextToken: Optional[str] = None
+    NextToken: Optional[Annotated[str, _aws_pattern("Organizations", "NextToken")]] = None
 
 
 class OrganizationTypeDef(BaseValidatorModel):
-    Id: Optional[str] = None
-    Arn: Optional[str] = None
+    Id: Optional[Annotated[str, _aws_pattern("Organizations", "OrganizationId")]] = None
+    Arn: Optional[Annotated[str, _aws_pattern("Organizations", "OrganizationArn")]] = None
     FeatureSet: Optional[OrganizationFeatureSetType] = None
-    MasterAccountArn: Optional[str] = None
-    MasterAccountId: Optional[str] = None
-    MasterAccountEmail: Optional[str] = None
+    MasterAccountArn: Optional[Annotated[str, _aws_pattern("Organizations", "AccountArn")]] = None
+    MasterAccountId: Optional[Annotated[str, _aws_pattern("Organizations", "AccountId")]] = None
+    MasterAccountEmail: Optional[Annotated[str, _aws_pattern("Organizations", "Email")]] = None
     AvailablePolicyTypes: Optional[List[PolicyTypeSummaryTypeDef]] = None
 
 
 class RootTypeDef(BaseValidatorModel):
-    Id: Optional[str] = None
-    Arn: Optional[str] = None
+    Id: Optional[Annotated[str, _aws_pattern("Organizations", "RootId")]] = None
+    Arn: Optional[Annotated[str, _aws_pattern("Organizations", "RootArn")]] = None
     Name: Optional[str] = None
     PolicyTypes: Optional[List[PolicyTypeSummaryTypeDef]] = None
 
 
 class ResourcePolicyTypeDef(BaseValidatorModel):
     ResourcePolicySummary: Optional[ResourcePolicySummaryTypeDef] = None
-    Content: Optional[str] = None
+    Content: Optional[Annotated[str, _aws_pattern("Organizations", "ResourcePolicyContent")]] = None
 
 
 class ResponsibilityTransferTypeDef(BaseValidatorModel):
-    Arn: Optional[str] = None
-    Name: Optional[str] = None
-    Id: Optional[str] = None
+    Arn: Optional[Annotated[str, _aws_pattern("Organizations", "ResponsibilityTransferArn")]] = None
+    Name: Optional[Annotated[str, _aws_pattern("Organizations", "ResponsibilityTransferName")]] = None
+    Id: Optional[Annotated[str, _aws_pattern("Organizations", "ResponsibilityTransferId")]] = None
     Type: Optional[Literal["BILLING"]] = None
     Status: Optional[ResponsibilityTransferStatusType] = None
     Source: Optional[TransferParticipantTypeDef] = None
     Target: Optional[TransferParticipantTypeDef] = None
     StartTimestamp: Optional[datetime] = None
     EndTimestamp: Optional[datetime] = None
-    ActiveHandshakeId: Optional[str] = None
+    ActiveHandshakeId: Optional[Annotated[str, _aws_pattern("Organizations", "HandshakeId")]] = None
 
 
 class ListHandshakesForAccountResponsePaginatorTypeDef(BaseValidatorModel):
@@ -925,14 +927,14 @@ class InviteOrganizationToTransferResponsibilityResponseTypeDef(BaseValidatorMod
 class ListHandshakesForAccountResponseTypeDef(BaseValidatorModel):
     Handshakes: List[HandshakeTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
-    NextToken: Optional[str] = None
+    NextToken: Optional[Annotated[str, _aws_pattern("Organizations", "NextToken")]] = None
 
 
 # This class is the output for the 'list_handshakes_for_organization' function.
 class ListHandshakesForOrganizationResponseTypeDef(BaseValidatorModel):
     Handshakes: List[HandshakeTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
-    NextToken: Optional[str] = None
+    NextToken: Optional[Annotated[str, _aws_pattern("Organizations", "NextToken")]] = None
 
 
 # This class is the output for the 'create_policy' function.
@@ -980,7 +982,7 @@ class EnablePolicyTypeResponseTypeDef(BaseValidatorModel):
 class ListRootsResponseTypeDef(BaseValidatorModel):
     Roots: List[RootTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
-    NextToken: Optional[str] = None
+    NextToken: Optional[Annotated[str, _aws_pattern("Organizations", "NextToken")]] = None
 
 
 class DescribeResourcePolicyResponseTypeDef(BaseValidatorModel):
@@ -1004,14 +1006,14 @@ class DescribeResponsibilityTransferResponseTypeDef(BaseValidatorModel):
 class ListInboundResponsibilityTransfersResponseTypeDef(BaseValidatorModel):
     ResponsibilityTransfers: List[ResponsibilityTransferTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
-    NextToken: Optional[str] = None
+    NextToken: Optional[Annotated[str, _aws_pattern("Organizations", "NextToken")]] = None
 
 
 # This class is the output for the 'list_outbound_responsibility_transfers' function.
 class ListOutboundResponsibilityTransfersResponseTypeDef(BaseValidatorModel):
     ResponsibilityTransfers: List[ResponsibilityTransferTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
-    NextToken: Optional[str] = None
+    NextToken: Optional[Annotated[str, _aws_pattern("Organizations", "NextToken")]] = None
 
 
 # This class is the output for the 'terminate_responsibility_transfer' function.

@@ -3,6 +3,7 @@
 from datetime import datetime
 from decimal import Decimal
 from typing import (
+    Annotated,
     Any,
     Callable,
     Dict,
@@ -24,6 +25,7 @@ from botocore.response import StreamingBody
 from pydantic import Field
 
 from aws_resource_validator.core.base_validator_model import BaseValidatorModel, EventStream
+from aws_resource_validator.core.pattern_validation import aws_field_pattern as _aws_pattern
 from aws_resource_validator.pydantic_models.eks.eks_constants import *  # noqa: F401,F403
 
 # Optional boto3 symbols — imported lazily so services that don't need them
@@ -366,7 +368,7 @@ class DeleteAccessEntryRequestTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'delete_addon' function.
 class DeleteAddonRequestTypeDef(BaseValidatorModel):
-    clusterName: str
+    clusterName: Annotated[str, _aws_pattern("Eks", "ClusterName")]
     addonName: str
     preserve: Optional[bool] = None
 
@@ -424,7 +426,7 @@ class DescribeAddonConfigurationRequestTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'describe_addon' function.
 class DescribeAddonRequestTypeDef(BaseValidatorModel):
-    clusterName: str
+    clusterName: Annotated[str, _aws_pattern("Eks", "ClusterName")]
     addonName: str
 
 
@@ -614,7 +616,7 @@ class ListAccessPoliciesRequestTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'list_addons' function.
 class ListAddonsRequestTypeDef(BaseValidatorModel):
-    clusterName: str
+    clusterName: Annotated[str, _aws_pattern("Eks", "ClusterName")]
     maxResults: Optional[int] = None
     nextToken: Optional[str] = None
 
@@ -825,7 +827,7 @@ class AddonHealthTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'create_addon' function.
 class CreateAddonRequestTypeDef(BaseValidatorModel):
-    clusterName: str
+    clusterName: Annotated[str, _aws_pattern("Eks", "ClusterName")]
     addonName: str
     addonVersion: Optional[str] = None
     serviceAccountRoleArn: Optional[str] = None
@@ -839,7 +841,7 @@ class CreateAddonRequestTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'update_addon' function.
 class UpdateAddonRequestTypeDef(BaseValidatorModel):
-    clusterName: str
+    clusterName: Annotated[str, _aws_pattern("Eks", "ClusterName")]
     addonName: str
     addonVersion: Optional[str] = None
     serviceAccountRoleArn: Optional[str] = None
@@ -1019,7 +1021,7 @@ class DescribeClusterVersionsResponseTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'register_cluster' function.
 class RegisterClusterRequestTypeDef(BaseValidatorModel):
-    name: str
+    name: Annotated[str, _aws_pattern("Eks", "ClusterName")]
     connectorConfig: ConnectorConfigRequestTypeDef
     clientRequestToken: Optional[str] = None
     tags: Optional[Dict[str, str]] = None
@@ -1039,7 +1041,7 @@ class OutpostConfigResponseTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'create_eks_anywhere_subscription' function.
 class CreateEksAnywhereSubscriptionRequestTypeDef(BaseValidatorModel):
-    name: str
+    name: Annotated[str, _aws_pattern("Eks", "EksAnywhereSubscriptionName")]
     term: EksAnywhereSubscriptionTermTypeDef
     licenseQuantity: Optional[int] = None
     licenseType: Optional[Literal["Cluster"]] = None
@@ -1410,7 +1412,7 @@ class AssociateAccessPolicyRequestTypeDef(BaseValidatorModel):
 
 class AddonTypeDef(BaseValidatorModel):
     addonName: Optional[str] = None
-    clusterName: Optional[str] = None
+    clusterName: Optional[Annotated[str, _aws_pattern("Eks", "ClusterName")]] = None
     status: Optional[AddonStatusType] = None
     addonVersion: Optional[str] = None
     health: Optional[AddonHealthTypeDef] = None
@@ -1823,7 +1825,7 @@ class RegisterClusterResponseTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'create_cluster' function.
 class CreateClusterRequestTypeDef(BaseValidatorModel):
-    name: str
+    name: Annotated[str, _aws_pattern("Eks", "ClusterName")]
     roleArn: str
     resourcesVpcConfig: VpcConfigRequestTypeDef
     version: Optional[str] = None

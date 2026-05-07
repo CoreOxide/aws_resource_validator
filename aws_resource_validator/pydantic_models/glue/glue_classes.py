@@ -3,6 +3,7 @@
 from datetime import datetime
 from decimal import Decimal
 from typing import (
+    Annotated,
     Any,
     Callable,
     Dict,
@@ -24,6 +25,7 @@ from botocore.response import StreamingBody
 from pydantic import Field
 
 from aws_resource_validator.core.base_validator_model import BaseValidatorModel, EventStream
+from aws_resource_validator.core.pattern_validation import aws_field_pattern as _aws_pattern
 from aws_resource_validator.pydantic_models.glue.glue_constants import *  # noqa: F401,F403
 
 # Optional boto3 symbols — imported lazily so services that don't need them
@@ -48,7 +50,7 @@ class AggregateOperationOutputTypeDef(BaseValidatorModel):
 
 
 class AggregateOperationTypeDef(BaseValidatorModel):
-    Column: List[str]
+    Column: List[Annotated[str, _aws_pattern("Glue", "EnclosedInStringProperty")]]
     AggFunc: AggFunctionType
 
 
@@ -63,15 +65,15 @@ class AmazonRedshiftAdvancedOptionTypeDef(BaseValidatorModel):
 
 
 class OptionTypeDef(BaseValidatorModel):
-    Value: Optional[str] = None
-    Label: Optional[str] = None
-    Description: Optional[str] = None
+    Value: Optional[Annotated[str, _aws_pattern("Glue", "EnclosedInStringProperty")]] = None
+    Label: Optional[Annotated[str, _aws_pattern("Glue", "EnclosedInStringProperty")]] = None
+    Description: Optional[Annotated[str, _aws_pattern("Glue", "EnclosedInStringProperty")]] = None
 
 
 class AnnotationErrorTypeDef(BaseValidatorModel):
-    ProfileId: Optional[str] = None
-    StatisticId: Optional[str] = None
-    FailureReason: Optional[str] = None
+    ProfileId: Optional[Annotated[str, _aws_pattern("Glue", "HashString")]] = None
+    StatisticId: Optional[Annotated[str, _aws_pattern("Glue", "HashString")]] = None
+    FailureReason: Optional[Annotated[str, _aws_pattern("Glue", "DescriptionString")]] = None
 
 
 class MappingOutputTypeDef(BaseValidatorModel):
@@ -94,23 +96,23 @@ class MappingPaginatorTypeDef(BaseValidatorModel):
 
 class AuditContextTypeDef(BaseValidatorModel):
     AdditionalAuditContext: Optional[str] = None
-    RequestedColumns: Optional[List[str]] = None
+    RequestedColumns: Optional[List[Annotated[str, _aws_pattern("Glue", "ColumnNameString")]]] = None
     AllColumnsRequested: Optional[bool] = None
 
 
 class BasicAuthenticationCredentialsTypeDef(BaseValidatorModel):
-    Username: Optional[str] = None
-    Password: Optional[str] = None
+    Username: Optional[Annotated[str, _aws_pattern("Glue", "Username")]] = None
+    Password: Optional[Annotated[str, _aws_pattern("Glue", "Password")]] = None
 
 
 class AuthorizationCodePropertiesTypeDef(BaseValidatorModel):
-    AuthorizationCode: Optional[str] = None
-    RedirectUri: Optional[str] = None
+    AuthorizationCode: Optional[Annotated[str, _aws_pattern("Glue", "AuthorizationCode")]] = None
+    RedirectUri: Optional[Annotated[str, _aws_pattern("Glue", "RedirectUri")]] = None
 
 
 class AutoDataQualityTypeDef(BaseValidatorModel):
     IsEnabled: Optional[bool] = None
-    EvaluationContext: Optional[str] = None
+    EvaluationContext: Optional[Annotated[str, _aws_pattern("Glue", "EnclosedInStringProperty")]] = None
 
 
 class PartitionValueListOutputTypeDef(BaseValidatorModel):
@@ -126,10 +128,10 @@ class BasicCatalogTargetOutputTypeDef(BaseValidatorModel):
 
 
 class BasicCatalogTargetTypeDef(BaseValidatorModel):
-    Name: str
-    Inputs: List[str]
-    Database: str
-    Table: str
+    Name: Annotated[str, _aws_pattern("Glue", "NodeName")]
+    Inputs: List[Annotated[str, _aws_pattern("Glue", "NodeId")]]
+    Database: Annotated[str, _aws_pattern("Glue", "EnclosedInStringProperty")]
+    Table: Annotated[str, _aws_pattern("Glue", "EnclosedInStringProperty")]
     PartitionKeys: Optional[List[List[str]]] = None
 
 
@@ -143,57 +145,57 @@ class ResponseMetadataTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'batch_delete_connection' function.
 class BatchDeleteConnectionRequestTypeDef(BaseValidatorModel):
-    ConnectionNameList: List[str]
-    CatalogId: Optional[str] = None
+    ConnectionNameList: List[Annotated[str, _aws_pattern("Glue", "NameString")]]
+    CatalogId: Optional[Annotated[str, _aws_pattern("Glue", "CatalogIdString")]] = None
 
 
 class ErrorDetailTypeDef(BaseValidatorModel):
-    ErrorCode: Optional[str] = None
-    ErrorMessage: Optional[str] = None
+    ErrorCode: Optional[Annotated[str, _aws_pattern("Glue", "NameString")]] = None
+    ErrorMessage: Optional[Annotated[str, _aws_pattern("Glue", "DescriptionString")]] = None
 
 
 # This class is the input for the 'batch_delete_table' function.
 class BatchDeleteTableRequestTypeDef(BaseValidatorModel):
-    DatabaseName: str
-    TablesToDelete: List[str]
-    CatalogId: Optional[str] = None
-    TransactionId: Optional[str] = None
+    DatabaseName: Annotated[str, _aws_pattern("Glue", "NameString")]
+    TablesToDelete: List[Annotated[str, _aws_pattern("Glue", "NameString")]]
+    CatalogId: Optional[Annotated[str, _aws_pattern("Glue", "CatalogIdString")]] = None
+    TransactionId: Optional[Annotated[str, _aws_pattern("Glue", "TransactionIdString")]] = None
 
 
 # This class is the input for the 'batch_delete_table_version' function.
 class BatchDeleteTableVersionRequestTypeDef(BaseValidatorModel):
-    DatabaseName: str
-    TableName: str
-    VersionIds: List[str]
-    CatalogId: Optional[str] = None
+    DatabaseName: Annotated[str, _aws_pattern("Glue", "NameString")]
+    TableName: Annotated[str, _aws_pattern("Glue", "NameString")]
+    VersionIds: List[Annotated[str, _aws_pattern("Glue", "VersionString")]]
+    CatalogId: Optional[Annotated[str, _aws_pattern("Glue", "CatalogIdString")]] = None
 
 
 # This class is the input for the 'batch_get_blueprints' function.
 class BatchGetBlueprintsRequestTypeDef(BaseValidatorModel):
-    Names: List[str]
+    Names: List[Annotated[str, _aws_pattern("Glue", "OrchestrationNameString")]]
     IncludeBlueprint: Optional[bool] = None
     IncludeParameterSpec: Optional[bool] = None
 
 
 # This class is the input for the 'batch_get_crawlers' function.
 class BatchGetCrawlersRequestTypeDef(BaseValidatorModel):
-    CrawlerNames: List[str]
+    CrawlerNames: List[Annotated[str, _aws_pattern("Glue", "NameString")]]
 
 
 # This class is the input for the 'batch_get_custom_entity_types' function.
 class BatchGetCustomEntityTypesRequestTypeDef(BaseValidatorModel):
-    Names: List[str]
+    Names: List[Annotated[str, _aws_pattern("Glue", "NameString")]]
 
 
 class CustomEntityTypeTypeDef(BaseValidatorModel):
-    Name: str
-    RegexString: str
-    ContextWords: Optional[List[str]] = None
+    Name: Annotated[str, _aws_pattern("Glue", "NameString")]
+    RegexString: Annotated[str, _aws_pattern("Glue", "NameString")]
+    ContextWords: Optional[List[Annotated[str, _aws_pattern("Glue", "NameString")]]] = None
 
 
 # This class is the input for the 'batch_get_data_quality_result' function.
 class BatchGetDataQualityResultRequestTypeDef(BaseValidatorModel):
-    ResultIds: List[str]
+    ResultIds: List[Annotated[str, _aws_pattern("Glue", "HashString")]]
 
 
 # This class is the input for the 'batch_get_dev_endpoints' function.
@@ -203,7 +205,7 @@ class BatchGetDevEndpointsRequestTypeDef(BaseValidatorModel):
 
 class DevEndpointTypeDef(BaseValidatorModel):
     EndpointName: Optional[str] = None
-    RoleArn: Optional[str] = None
+    RoleArn: Optional[Annotated[str, _aws_pattern("Glue", "RoleArn")]] = None
     SecurityGroupIds: Optional[List[str]] = None
     SubnetId: Optional[str] = None
     YarnEndpointAddress: Optional[str] = None
@@ -212,7 +214,7 @@ class DevEndpointTypeDef(BaseValidatorModel):
     PublicAddress: Optional[str] = None
     Status: Optional[str] = None
     WorkerType: Optional[WorkerTypeType] = None
-    GlueVersion: Optional[str] = None
+    GlueVersion: Optional[Annotated[str, _aws_pattern("Glue", "GlueVersionString")]] = None
     NumberOfWorkers: Optional[int] = None
     NumberOfNodes: Optional[int] = None
     AvailabilityZone: Optional[str] = None
@@ -225,17 +227,17 @@ class DevEndpointTypeDef(BaseValidatorModel):
     LastModifiedTimestamp: Optional[datetime] = None
     PublicKey: Optional[str] = None
     PublicKeys: Optional[List[str]] = None
-    SecurityConfiguration: Optional[str] = None
+    SecurityConfiguration: Optional[Annotated[str, _aws_pattern("Glue", "NameString")]] = None
     Arguments: Optional[Dict[str, str]] = None
 
 
 # This class is the input for the 'batch_get_jobs' function.
 class BatchGetJobsRequestTypeDef(BaseValidatorModel):
-    JobNames: List[str]
+    JobNames: List[Annotated[str, _aws_pattern("Glue", "NameString")]]
 
 
 class BatchGetTableOptimizerEntryTypeDef(BaseValidatorModel):
-    catalogId: Optional[str] = None
+    catalogId: Optional[Annotated[str, _aws_pattern("Glue", "CatalogIdString")]] = None
     databaseName: Optional[str] = None
     tableName: Optional[str] = None
     type: Optional[TableOptimizerTypeType] = None
@@ -243,30 +245,30 @@ class BatchGetTableOptimizerEntryTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'batch_get_triggers' function.
 class BatchGetTriggersRequestTypeDef(BaseValidatorModel):
-    TriggerNames: List[str]
+    TriggerNames: List[Annotated[str, _aws_pattern("Glue", "NameString")]]
 
 
 # This class is the input for the 'batch_get_workflows' function.
 class BatchGetWorkflowsRequestTypeDef(BaseValidatorModel):
-    Names: List[str]
+    Names: List[Annotated[str, _aws_pattern("Glue", "NameString")]]
     IncludeGraph: Optional[bool] = None
 
 
 class DatapointInclusionAnnotationTypeDef(BaseValidatorModel):
-    ProfileId: Optional[str] = None
-    StatisticId: Optional[str] = None
+    ProfileId: Optional[Annotated[str, _aws_pattern("Glue", "HashString")]] = None
+    StatisticId: Optional[Annotated[str, _aws_pattern("Glue", "HashString")]] = None
     InclusionAnnotation: Optional[InclusionAnnotationValueType] = None
 
 
 # This class is the input for the 'batch_stop_job_run' function.
 class BatchStopJobRunRequestTypeDef(BaseValidatorModel):
-    JobName: str
-    JobRunIds: List[str]
+    JobName: Annotated[str, _aws_pattern("Glue", "NameString")]
+    JobRunIds: List[Annotated[str, _aws_pattern("Glue", "IdString")]]
 
 
 class BatchStopJobRunSuccessfulSubmissionTypeDef(BaseValidatorModel):
-    JobName: Optional[str] = None
-    JobRunId: Optional[str] = None
+    JobName: Optional[Annotated[str, _aws_pattern("Glue", "NameString")]] = None
+    JobRunId: Optional[Annotated[str, _aws_pattern("Glue", "IdString")]] = None
 
 
 class BinaryColumnStatisticsDataTypeDef(BaseValidatorModel):
@@ -279,21 +281,21 @@ BlobTypeDef = Union[IO[Any], StreamingBody, bytes, str]
 
 
 class BlueprintDetailsTypeDef(BaseValidatorModel):
-    BlueprintName: Optional[str] = None
-    RunId: Optional[str] = None
+    BlueprintName: Optional[Annotated[str, _aws_pattern("Glue", "OrchestrationNameString")]] = None
+    RunId: Optional[Annotated[str, _aws_pattern("Glue", "IdString")]] = None
 
 
 class BlueprintRunTypeDef(BaseValidatorModel):
-    BlueprintName: Optional[str] = None
-    RunId: Optional[str] = None
-    WorkflowName: Optional[str] = None
+    BlueprintName: Optional[Annotated[str, _aws_pattern("Glue", "OrchestrationNameString")]] = None
+    RunId: Optional[Annotated[str, _aws_pattern("Glue", "IdString")]] = None
+    WorkflowName: Optional[Annotated[str, _aws_pattern("Glue", "NameString")]] = None
     State: Optional[BlueprintRunStateType] = None
     StartedOn: Optional[datetime] = None
     CompletedOn: Optional[datetime] = None
     ErrorMessage: Optional[str] = None
     RollbackErrorMessage: Optional[str] = None
     Parameters: Optional[str] = None
-    RoleArn: Optional[str] = None
+    RoleArn: Optional[Annotated[str, _aws_pattern("Glue", "OrchestrationIAMRoleArn")]] = None
 
 
 class LastActiveDefinitionTypeDef(BaseValidatorModel):
@@ -311,23 +313,23 @@ class BooleanColumnStatisticsDataTypeDef(BaseValidatorModel):
 
 
 class CancelDataQualityRuleRecommendationRunRequestTypeDef(BaseValidatorModel):
-    RunId: str
+    RunId: Annotated[str, _aws_pattern("Glue", "HashString")]
 
 
 class CancelDataQualityRulesetEvaluationRunRequestTypeDef(BaseValidatorModel):
-    RunId: str
+    RunId: Annotated[str, _aws_pattern("Glue", "HashString")]
 
 
 # This class is the input for the 'cancel_ml_task_run' function.
 class CancelMLTaskRunRequestTypeDef(BaseValidatorModel):
-    TransformId: str
-    TaskRunId: str
+    TransformId: Annotated[str, _aws_pattern("Glue", "HashString")]
+    TaskRunId: Annotated[str, _aws_pattern("Glue", "HashString")]
 
 
 class CancelStatementRequestTypeDef(BaseValidatorModel):
-    SessionId: str
+    SessionId: Annotated[str, _aws_pattern("Glue", "NameString")]
     Id: int
-    RequestOrigin: Optional[str] = None
+    RequestOrigin: Optional[Annotated[str, _aws_pattern("Glue", "OrchestrationNameString")]] = None
 
 
 class CapabilitiesTypeDef(BaseValidatorModel):
@@ -337,20 +339,20 @@ class CapabilitiesTypeDef(BaseValidatorModel):
 
 
 class CatalogEntryTypeDef(BaseValidatorModel):
-    DatabaseName: str
-    TableName: str
+    DatabaseName: Annotated[str, _aws_pattern("Glue", "NameString")]
+    TableName: Annotated[str, _aws_pattern("Glue", "NameString")]
 
 
 class CatalogImportStatusTypeDef(BaseValidatorModel):
     ImportCompleted: Optional[bool] = None
     ImportTime: Optional[datetime] = None
-    ImportedBy: Optional[str] = None
+    ImportedBy: Optional[Annotated[str, _aws_pattern("Glue", "NameString")]] = None
 
 
 class FederatedCatalogTypeDef(BaseValidatorModel):
-    Identifier: Optional[str] = None
-    ConnectionName: Optional[str] = None
-    ConnectionType: Optional[str] = None
+    Identifier: Optional[Annotated[str, _aws_pattern("Glue", "FederationIdentifier")]] = None
+    ConnectionName: Optional[Annotated[str, _aws_pattern("Glue", "NameString")]] = None
+    ConnectionType: Optional[Annotated[str, _aws_pattern("Glue", "NameString")]] = None
 
 
 class TargetRedshiftCatalogTypeDef(BaseValidatorModel):
@@ -411,17 +413,17 @@ class KinesisStreamingSourceOptionsOutputTypeDef(BaseValidatorModel):
 
 class DataLakeAccessPropertiesOutputTypeDef(BaseValidatorModel):
     DataLakeAccess: Optional[bool] = None
-    DataTransferRole: Optional[str] = None
+    DataTransferRole: Optional[Annotated[str, _aws_pattern("Glue", "IAMRoleArn")]] = None
     KmsKey: Optional[str] = None
-    ManagedWorkgroupName: Optional[str] = None
-    ManagedWorkgroupStatus: Optional[str] = None
-    RedshiftDatabaseName: Optional[str] = None
-    StatusMessage: Optional[str] = None
-    CatalogType: Optional[str] = None
+    ManagedWorkgroupName: Optional[Annotated[str, _aws_pattern("Glue", "NameString")]] = None
+    ManagedWorkgroupStatus: Optional[Annotated[str, _aws_pattern("Glue", "NameString")]] = None
+    RedshiftDatabaseName: Optional[Annotated[str, _aws_pattern("Glue", "NameString")]] = None
+    StatusMessage: Optional[Annotated[str, _aws_pattern("Glue", "NameString")]] = None
+    CatalogType: Optional[Annotated[str, _aws_pattern("Glue", "NameString")]] = None
 
 
 class IcebergOptimizationPropertiesOutputTypeDef(BaseValidatorModel):
-    RoleArn: Optional[str] = None
+    RoleArn: Optional[Annotated[str, _aws_pattern("Glue", "IAMRoleArn")]] = None
     Compaction: Optional[Dict[str, str]] = None
     Retention: Optional[Dict[str, str]] = None
     OrphanFileDeletion: Optional[Dict[str, str]] = None
@@ -430,13 +432,13 @@ class IcebergOptimizationPropertiesOutputTypeDef(BaseValidatorModel):
 
 class DataLakeAccessPropertiesTypeDef(BaseValidatorModel):
     DataLakeAccess: Optional[bool] = None
-    DataTransferRole: Optional[str] = None
+    DataTransferRole: Optional[Annotated[str, _aws_pattern("Glue", "IAMRoleArn")]] = None
     KmsKey: Optional[str] = None
-    CatalogType: Optional[str] = None
+    CatalogType: Optional[Annotated[str, _aws_pattern("Glue", "NameString")]] = None
 
 
 class IcebergOptimizationPropertiesTypeDef(BaseValidatorModel):
-    RoleArn: Optional[str] = None
+    RoleArn: Optional[Annotated[str, _aws_pattern("Glue", "IAMRoleArn")]] = None
     Compaction: Optional[Dict[str, str]] = None
     Retention: Optional[Dict[str, str]] = None
     OrphanFileDeletion: Optional[Dict[str, str]] = None
@@ -456,8 +458,8 @@ class CatalogTargetOutputTypeDef(BaseValidatorModel):
 
 
 class CatalogTargetTypeDef(BaseValidatorModel):
-    DatabaseName: str
-    Tables: List[str]
+    DatabaseName: Annotated[str, _aws_pattern("Glue", "NameString")]
+    Tables: List[Annotated[str, _aws_pattern("Glue", "NameString")]]
     ConnectionName: Optional[str] = None
     EventQueueArn: Optional[str] = None
     DlqEventQueueArn: Optional[str] = None
@@ -466,37 +468,37 @@ class CatalogTargetTypeDef(BaseValidatorModel):
 # This class is the input for the 'check_schema_version_validity' function.
 class CheckSchemaVersionValidityInputTypeDef(BaseValidatorModel):
     DataFormat: DataFormatType
-    SchemaDefinition: str
+    SchemaDefinition: Annotated[str, _aws_pattern("Glue", "SchemaDefinitionString")]
 
 
 class CsvClassifierTypeDef(BaseValidatorModel):
-    Name: str
+    Name: Annotated[str, _aws_pattern("Glue", "NameString")]
     CreationTime: Optional[datetime] = None
     LastUpdated: Optional[datetime] = None
     Version: Optional[int] = None
-    Delimiter: Optional[str] = None
-    QuoteSymbol: Optional[str] = None
+    Delimiter: Optional[Annotated[str, _aws_pattern("Glue", "CsvColumnDelimiter")]] = None
+    QuoteSymbol: Optional[Annotated[str, _aws_pattern("Glue", "CsvQuoteSymbol")]] = None
     ContainsHeader: Optional[CsvHeaderOptionType] = None
-    Header: Optional[List[str]] = None
+    Header: Optional[List[Annotated[str, _aws_pattern("Glue", "NameString")]]] = None
     DisableValueTrimming: Optional[bool] = None
     AllowSingleColumn: Optional[bool] = None
     CustomDatatypeConfigured: Optional[bool] = None
-    CustomDatatypes: Optional[List[str]] = None
+    CustomDatatypes: Optional[List[Annotated[str, _aws_pattern("Glue", "NameString")]]] = None
     Serde: Optional[CsvSerdeOptionType] = None
 
 
 class GrokClassifierTypeDef(BaseValidatorModel):
-    Name: str
+    Name: Annotated[str, _aws_pattern("Glue", "NameString")]
     Classification: str
-    GrokPattern: str
+    GrokPattern: Annotated[str, _aws_pattern("Glue", "GrokPattern")]
     CreationTime: Optional[datetime] = None
     LastUpdated: Optional[datetime] = None
     Version: Optional[int] = None
-    CustomPatterns: Optional[str] = None
+    CustomPatterns: Optional[Annotated[str, _aws_pattern("Glue", "CustomPatterns")]] = None
 
 
 class JsonClassifierTypeDef(BaseValidatorModel):
-    Name: str
+    Name: Annotated[str, _aws_pattern("Glue", "NameString")]
     JsonPath: str
     CreationTime: Optional[datetime] = None
     LastUpdated: Optional[datetime] = None
@@ -504,7 +506,7 @@ class JsonClassifierTypeDef(BaseValidatorModel):
 
 
 class XMLClassifierTypeDef(BaseValidatorModel):
-    Name: str
+    Name: Annotated[str, _aws_pattern("Glue", "NameString")]
     Classification: str
     CreationTime: Optional[datetime] = None
     LastUpdated: Optional[datetime] = None
@@ -516,7 +518,7 @@ class ConnectorPropertyTypeDef(BaseValidatorModel):
     Name: str
     Required: bool
     PropertyType: PropertyTypeType
-    KeyOverride: Optional[str] = None
+    KeyOverride: Optional[Annotated[str, _aws_pattern("Glue", "ConnectorPropertyKey")]] = None
     DefaultValue: Optional[str] = None
     AllowedValues: Optional[List[str]] = None
     PropertyLocation: Optional[PropertyLocationType] = None
@@ -524,7 +526,7 @@ class ConnectorPropertyTypeDef(BaseValidatorModel):
 
 class CloudWatchEncryptionTypeDef(BaseValidatorModel):
     CloudWatchEncryptionMode: Optional[CloudWatchEncryptionModeType] = None
-    KmsKeyArn: Optional[str] = None
+    KmsKeyArn: Optional[Annotated[str, _aws_pattern("Glue", "KmsKeyArn")]] = None
 
 
 class ConnectorDataTargetOutputTypeDef(BaseValidatorModel):
@@ -561,9 +563,9 @@ class MergeOutputTypeDef(BaseValidatorModel):
 
 
 class MicrosoftSQLServerCatalogSourceTypeDef(BaseValidatorModel):
-    Name: str
-    Database: str
-    Table: str
+    Name: Annotated[str, _aws_pattern("Glue", "NodeName")]
+    Database: Annotated[str, _aws_pattern("Glue", "EnclosedInStringProperty")]
+    Table: Annotated[str, _aws_pattern("Glue", "EnclosedInStringProperty")]
 
 
 class MicrosoftSQLServerCatalogTargetOutputTypeDef(BaseValidatorModel):
@@ -574,9 +576,9 @@ class MicrosoftSQLServerCatalogTargetOutputTypeDef(BaseValidatorModel):
 
 
 class MySQLCatalogSourceTypeDef(BaseValidatorModel):
-    Name: str
-    Database: str
-    Table: str
+    Name: Annotated[str, _aws_pattern("Glue", "NodeName")]
+    Database: Annotated[str, _aws_pattern("Glue", "EnclosedInStringProperty")]
+    Table: Annotated[str, _aws_pattern("Glue", "EnclosedInStringProperty")]
 
 
 class MySQLCatalogTargetOutputTypeDef(BaseValidatorModel):
@@ -587,9 +589,9 @@ class MySQLCatalogTargetOutputTypeDef(BaseValidatorModel):
 
 
 class OracleSQLCatalogSourceTypeDef(BaseValidatorModel):
-    Name: str
-    Database: str
-    Table: str
+    Name: Annotated[str, _aws_pattern("Glue", "NodeName")]
+    Database: Annotated[str, _aws_pattern("Glue", "EnclosedInStringProperty")]
+    Table: Annotated[str, _aws_pattern("Glue", "EnclosedInStringProperty")]
 
 
 class OracleSQLCatalogTargetOutputTypeDef(BaseValidatorModel):
@@ -618,9 +620,9 @@ class PIIDetectionOutputTypeDef(BaseValidatorModel):
 
 
 class PostgreSQLCatalogSourceTypeDef(BaseValidatorModel):
-    Name: str
-    Database: str
-    Table: str
+    Name: Annotated[str, _aws_pattern("Glue", "NodeName")]
+    Database: Annotated[str, _aws_pattern("Glue", "EnclosedInStringProperty")]
+    Table: Annotated[str, _aws_pattern("Glue", "EnclosedInStringProperty")]
 
 
 class PostgreSQLCatalogTargetOutputTypeDef(BaseValidatorModel):
@@ -631,17 +633,17 @@ class PostgreSQLCatalogTargetOutputTypeDef(BaseValidatorModel):
 
 
 class RedshiftSourceTypeDef(BaseValidatorModel):
-    Name: str
-    Database: str
-    Table: str
-    RedshiftTmpDir: Optional[str] = None
-    TmpDirIAMRole: Optional[str] = None
+    Name: Annotated[str, _aws_pattern("Glue", "NodeName")]
+    Database: Annotated[str, _aws_pattern("Glue", "EnclosedInStringProperty")]
+    Table: Annotated[str, _aws_pattern("Glue", "EnclosedInStringProperty")]
+    RedshiftTmpDir: Optional[Annotated[str, _aws_pattern("Glue", "EnclosedInStringProperty")]] = None
+    TmpDirIAMRole: Optional[Annotated[str, _aws_pattern("Glue", "EnclosedInStringProperty")]] = None
 
 
 class RelationalCatalogSourceTypeDef(BaseValidatorModel):
-    Name: str
-    Database: str
-    Table: str
+    Name: Annotated[str, _aws_pattern("Glue", "NodeName")]
+    Database: Annotated[str, _aws_pattern("Glue", "EnclosedInStringProperty")]
+    Table: Annotated[str, _aws_pattern("Glue", "EnclosedInStringProperty")]
 
 
 class RenameFieldOutputTypeDef(BaseValidatorModel):
@@ -684,8 +686,8 @@ class UnionOutputTypeDef(BaseValidatorModel):
 
 
 class CodeGenEdgeTypeDef(BaseValidatorModel):
-    Source: str
-    Target: str
+    Source: Annotated[str, _aws_pattern("Glue", "CodeGenIdentifier")]
+    Target: Annotated[str, _aws_pattern("Glue", "CodeGenIdentifier")]
     TargetParameter: Optional[str] = None
 
 
@@ -696,7 +698,7 @@ class CodeGenNodeArgTypeDef(BaseValidatorModel):
 
 
 class ColumnImportanceTypeDef(BaseValidatorModel):
-    ColumnName: Optional[str] = None
+    ColumnName: Optional[Annotated[str, _aws_pattern("Glue", "NameString")]] = None
     Importance: Optional[float] = None
 
 
@@ -708,8 +710,8 @@ class ColumnOutputTypeDef(BaseValidatorModel):
 
 
 class ColumnRowFilterTypeDef(BaseValidatorModel):
-    ColumnName: Optional[str] = None
-    RowFilterExpression: Optional[str] = None
+    ColumnName: Optional[Annotated[str, _aws_pattern("Glue", "NameString")]] = None
+    RowFilterExpression: Optional[Annotated[str, _aws_pattern("Glue", "PredicateString")]] = None
 
 
 class DateColumnStatisticsDataOutputTypeDef(BaseValidatorModel):
@@ -742,31 +744,31 @@ class StringColumnStatisticsDataTypeDef(BaseValidatorModel):
 
 class ColumnStatisticsTaskRunTypeDef(BaseValidatorModel):
     CustomerId: Optional[str] = None
-    ColumnStatisticsTaskRunId: Optional[str] = None
+    ColumnStatisticsTaskRunId: Optional[Annotated[str, _aws_pattern("Glue", "HashString")]] = None
     DatabaseName: Optional[str] = None
     TableName: Optional[str] = None
-    ColumnNameList: Optional[List[str]] = None
-    CatalogID: Optional[str] = None
+    ColumnNameList: Optional[List[Annotated[str, _aws_pattern("Glue", "NameString")]]] = None
+    CatalogID: Optional[Annotated[str, _aws_pattern("Glue", "CatalogIdString")]] = None
     Role: Optional[str] = None
     SampleSize: Optional[float] = None
     SecurityConfiguration: Optional[str] = None
     NumberOfWorkers: Optional[int] = None
-    WorkerType: Optional[str] = None
+    WorkerType: Optional[Annotated[str, _aws_pattern("Glue", "NameString")]] = None
     ComputationType: Optional[ComputationTypeType] = None
     Status: Optional[ColumnStatisticsStateType] = None
     CreationTime: Optional[datetime] = None
     LastUpdated: Optional[datetime] = None
     StartTime: Optional[datetime] = None
     EndTime: Optional[datetime] = None
-    ErrorMessage: Optional[str] = None
+    ErrorMessage: Optional[Annotated[str, _aws_pattern("Glue", "DescriptionString")]] = None
     DPUSeconds: Optional[float] = None
 
 
 class ExecutionAttemptTypeDef(BaseValidatorModel):
     Status: Optional[ExecutionStatusType] = None
-    ColumnStatisticsTaskRunId: Optional[str] = None
+    ColumnStatisticsTaskRunId: Optional[Annotated[str, _aws_pattern("Glue", "HashString")]] = None
     ExecutionTimestamp: Optional[datetime] = None
-    ErrorMessage: Optional[str] = None
+    ErrorMessage: Optional[Annotated[str, _aws_pattern("Glue", "DescriptionString")]] = None
 
 
 class ScheduleTypeDef(BaseValidatorModel):
@@ -778,9 +780,9 @@ TimestampTypeDef = Union[datetime, str]
 
 
 class ColumnTypeDef(BaseValidatorModel):
-    Name: str
-    Type: Optional[str] = None
-    Comment: Optional[str] = None
+    Name: Annotated[str, _aws_pattern("Glue", "NameString")]
+    Type: Optional[Annotated[str, _aws_pattern("Glue", "ColumnTypeString")]] = None
+    Comment: Optional[Annotated[str, _aws_pattern("Glue", "CommentString")]] = None
     Parameters: Optional[Dict[str, str]] = None
 
 
@@ -799,16 +801,16 @@ class IcebergCompactionMetricsTypeDef(BaseValidatorModel):
 
 
 class ConditionExpressionTypeDef(BaseValidatorModel):
-    Condition: str
+    Condition: Annotated[str, _aws_pattern("Glue", "DatabrewCondition")]
     TargetColumn: str
     Value: Optional[str] = None
 
 
 class ConditionTypeDef(BaseValidatorModel):
     LogicalOperator: Optional[Literal["EQUALS"]] = None
-    JobName: Optional[str] = None
+    JobName: Optional[Annotated[str, _aws_pattern("Glue", "NameString")]] = None
     State: Optional[JobRunStateType] = None
-    CrawlerName: Optional[str] = None
+    CrawlerName: Optional[Annotated[str, _aws_pattern("Glue", "NameString")]] = None
     CrawlState: Optional[CrawlStateType] = None
 
 
@@ -820,10 +822,10 @@ class ConfigurationObjectOutputTypeDef(BaseValidatorModel):
 
 
 class ConfigurationObjectTypeDef(BaseValidatorModel):
-    DefaultValue: Optional[str] = None
-    AllowedValues: Optional[List[str]] = None
-    MinValue: Optional[str] = None
-    MaxValue: Optional[str] = None
+    DefaultValue: Optional[Annotated[str, _aws_pattern("Glue", "ConfigValueString")]] = None
+    AllowedValues: Optional[List[Annotated[str, _aws_pattern("Glue", "ConfigValueString")]]] = None
+    MinValue: Optional[Annotated[str, _aws_pattern("Glue", "ConfigValueString")]] = None
+    MaxValue: Optional[Annotated[str, _aws_pattern("Glue", "ConfigValueString")]] = None
 
 
 class ConfusionMatrixTypeDef(BaseValidatorModel):
@@ -835,7 +837,7 @@ class ConfusionMatrixTypeDef(BaseValidatorModel):
 
 class ConnectionPasswordEncryptionTypeDef(BaseValidatorModel):
     ReturnConnectionPasswordEncrypted: bool
-    AwsKmsKeyId: Optional[str] = None
+    AwsKmsKeyId: Optional[Annotated[str, _aws_pattern("Glue", "NameString")]] = None
 
 
 class ConnectionTypeVariantTypeDef(BaseValidatorModel):
@@ -860,10 +862,10 @@ class ConnectionsListTypeDef(BaseValidatorModel):
 
 
 class ConnectorDataTargetTypeDef(BaseValidatorModel):
-    Name: str
-    ConnectionType: str
+    Name: Annotated[str, _aws_pattern("Glue", "NodeName")]
+    ConnectionType: Annotated[str, _aws_pattern("Glue", "EnclosedInStringProperty")]
     Data: Dict[str, str]
-    Inputs: Optional[List[str]] = None
+    Inputs: Optional[List[Annotated[str, _aws_pattern("Glue", "NodeId")]]] = None
 
 
 class ConnectorPropertyOutputTypeDef(BaseValidatorModel):
@@ -880,9 +882,9 @@ class CrawlTypeDef(BaseValidatorModel):
     State: Optional[CrawlStateType] = None
     StartedOn: Optional[datetime] = None
     CompletedOn: Optional[datetime] = None
-    ErrorMessage: Optional[str] = None
-    LogGroup: Optional[str] = None
-    LogStream: Optional[str] = None
+    ErrorMessage: Optional[Annotated[str, _aws_pattern("Glue", "DescriptionString")]] = None
+    LogGroup: Optional[Annotated[str, _aws_pattern("Glue", "LogGroup")]] = None
+    LogStream: Optional[Annotated[str, _aws_pattern("Glue", "LogStream")]] = None
 
 
 class CrawlerHistoryTypeDef(BaseValidatorModel):
@@ -890,16 +892,16 @@ class CrawlerHistoryTypeDef(BaseValidatorModel):
     State: Optional[CrawlerHistoryStateType] = None
     StartTime: Optional[datetime] = None
     EndTime: Optional[datetime] = None
-    Summary: Optional[str] = None
-    ErrorMessage: Optional[str] = None
-    LogGroup: Optional[str] = None
-    LogStream: Optional[str] = None
-    MessagePrefix: Optional[str] = None
+    Summary: Optional[Annotated[str, _aws_pattern("Glue", "NameString")]] = None
+    ErrorMessage: Optional[Annotated[str, _aws_pattern("Glue", "DescriptionString")]] = None
+    LogGroup: Optional[Annotated[str, _aws_pattern("Glue", "LogGroup")]] = None
+    LogStream: Optional[Annotated[str, _aws_pattern("Glue", "LogStream")]] = None
+    MessagePrefix: Optional[Annotated[str, _aws_pattern("Glue", "MessagePrefix")]] = None
     DPUHour: Optional[float] = None
 
 
 class CrawlerMetricsTypeDef(BaseValidatorModel):
-    CrawlerName: Optional[str] = None
+    CrawlerName: Optional[Annotated[str, _aws_pattern("Glue", "NameString")]] = None
     TimeLeftSeconds: Optional[float] = None
     StillEstimating: Optional[bool] = None
     LastRuntimeSeconds: Optional[float] = None
@@ -1002,10 +1004,10 @@ class LakeFormationConfigurationTypeDef(BaseValidatorModel):
 
 class LastCrawlInfoTypeDef(BaseValidatorModel):
     Status: Optional[LastCrawlStatusType] = None
-    ErrorMessage: Optional[str] = None
-    LogGroup: Optional[str] = None
-    LogStream: Optional[str] = None
-    MessagePrefix: Optional[str] = None
+    ErrorMessage: Optional[Annotated[str, _aws_pattern("Glue", "DescriptionString")]] = None
+    LogGroup: Optional[Annotated[str, _aws_pattern("Glue", "LogGroup")]] = None
+    LogStream: Optional[Annotated[str, _aws_pattern("Glue", "LogStream")]] = None
+    MessagePrefix: Optional[Annotated[str, _aws_pattern("Glue", "MessagePrefix")]] = None
     StartTime: Optional[datetime] = None
 
 
@@ -1030,84 +1032,84 @@ class CrawlsFilterTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'create_blueprint' function.
 class CreateBlueprintRequestTypeDef(BaseValidatorModel):
-    Name: str
-    BlueprintLocation: str
+    Name: Annotated[str, _aws_pattern("Glue", "OrchestrationNameString")]
+    BlueprintLocation: Annotated[str, _aws_pattern("Glue", "OrchestrationS3Location")]
     Description: Optional[str] = None
     Tags: Optional[Dict[str, str]] = None
 
 
 class CreateCsvClassifierRequestTypeDef(BaseValidatorModel):
-    Name: str
-    Delimiter: Optional[str] = None
-    QuoteSymbol: Optional[str] = None
+    Name: Annotated[str, _aws_pattern("Glue", "NameString")]
+    Delimiter: Optional[Annotated[str, _aws_pattern("Glue", "CsvColumnDelimiter")]] = None
+    QuoteSymbol: Optional[Annotated[str, _aws_pattern("Glue", "CsvQuoteSymbol")]] = None
     ContainsHeader: Optional[CsvHeaderOptionType] = None
-    Header: Optional[List[str]] = None
+    Header: Optional[List[Annotated[str, _aws_pattern("Glue", "NameString")]]] = None
     DisableValueTrimming: Optional[bool] = None
     AllowSingleColumn: Optional[bool] = None
     CustomDatatypeConfigured: Optional[bool] = None
-    CustomDatatypes: Optional[List[str]] = None
+    CustomDatatypes: Optional[List[Annotated[str, _aws_pattern("Glue", "NameString")]]] = None
     Serde: Optional[CsvSerdeOptionType] = None
 
 
 class CreateGrokClassifierRequestTypeDef(BaseValidatorModel):
     Classification: str
-    Name: str
-    GrokPattern: str
-    CustomPatterns: Optional[str] = None
+    Name: Annotated[str, _aws_pattern("Glue", "NameString")]
+    GrokPattern: Annotated[str, _aws_pattern("Glue", "GrokPattern")]
+    CustomPatterns: Optional[Annotated[str, _aws_pattern("Glue", "CustomPatterns")]] = None
 
 
 class CreateJsonClassifierRequestTypeDef(BaseValidatorModel):
-    Name: str
+    Name: Annotated[str, _aws_pattern("Glue", "NameString")]
     JsonPath: str
 
 
 class CreateXMLClassifierRequestTypeDef(BaseValidatorModel):
     Classification: str
-    Name: str
+    Name: Annotated[str, _aws_pattern("Glue", "NameString")]
     RowTag: Optional[str] = None
 
 
 class CreateColumnStatisticsTaskSettingsRequestTypeDef(BaseValidatorModel):
-    DatabaseName: str
-    TableName: str
-    Role: str
+    DatabaseName: Annotated[str, _aws_pattern("Glue", "NameString")]
+    TableName: Annotated[str, _aws_pattern("Glue", "NameString")]
+    Role: Annotated[str, _aws_pattern("Glue", "NameString")]
     Schedule: Optional[str] = None
-    ColumnNameList: Optional[List[str]] = None
+    ColumnNameList: Optional[List[Annotated[str, _aws_pattern("Glue", "NameString")]]] = None
     SampleSize: Optional[float] = None
-    CatalogID: Optional[str] = None
-    SecurityConfiguration: Optional[str] = None
+    CatalogID: Optional[Annotated[str, _aws_pattern("Glue", "NameString")]] = None
+    SecurityConfiguration: Optional[Annotated[str, _aws_pattern("Glue", "NameString")]] = None
     Tags: Optional[Dict[str, str]] = None
 
 
 # This class is the input for the 'create_custom_entity_type' function.
 class CreateCustomEntityTypeRequestTypeDef(BaseValidatorModel):
-    Name: str
-    RegexString: str
-    ContextWords: Optional[List[str]] = None
+    Name: Annotated[str, _aws_pattern("Glue", "NameString")]
+    RegexString: Annotated[str, _aws_pattern("Glue", "NameString")]
+    ContextWords: Optional[List[Annotated[str, _aws_pattern("Glue", "NameString")]]] = None
     Tags: Optional[Dict[str, str]] = None
 
 
 class DataQualityTargetTableTypeDef(BaseValidatorModel):
-    TableName: str
-    DatabaseName: str
-    CatalogId: Optional[str] = None
+    TableName: Annotated[str, _aws_pattern("Glue", "NameString")]
+    DatabaseName: Annotated[str, _aws_pattern("Glue", "NameString")]
+    CatalogId: Optional[Annotated[str, _aws_pattern("Glue", "NameString")]] = None
 
 
 # This class is the input for the 'create_dev_endpoint' function.
 class CreateDevEndpointRequestTypeDef(BaseValidatorModel):
     EndpointName: str
-    RoleArn: str
+    RoleArn: Annotated[str, _aws_pattern("Glue", "RoleArn")]
     SecurityGroupIds: Optional[List[str]] = None
     SubnetId: Optional[str] = None
     PublicKey: Optional[str] = None
     PublicKeys: Optional[List[str]] = None
     NumberOfNodes: Optional[int] = None
     WorkerType: Optional[WorkerTypeType] = None
-    GlueVersion: Optional[str] = None
+    GlueVersion: Optional[Annotated[str, _aws_pattern("Glue", "GlueVersionString")]] = None
     NumberOfWorkers: Optional[int] = None
     ExtraPythonLibsS3Path: Optional[str] = None
     ExtraJarsS3Path: Optional[str] = None
-    SecurityConfiguration: Optional[str] = None
+    SecurityConfiguration: Optional[Annotated[str, _aws_pattern("Glue", "NameString")]] = None
     Tags: Optional[Dict[str, str]] = None
     Arguments: Optional[Dict[str, str]] = None
 
@@ -1153,8 +1155,8 @@ class ExecutionPropertyTypeDef(BaseValidatorModel):
 class JobCommandTypeDef(BaseValidatorModel):
     Name: Optional[str] = None
     ScriptLocation: Optional[str] = None
-    PythonVersion: Optional[str] = None
-    Runtime: Optional[str] = None
+    PythonVersion: Optional[Annotated[str, _aws_pattern("Glue", "PythonVersionString")]] = None
+    Runtime: Optional[Annotated[str, _aws_pattern("Glue", "RuntimeNameString")]] = None
 
 
 class SourceControlDetailsTypeDef(BaseValidatorModel):
@@ -1169,25 +1171,25 @@ class SourceControlDetailsTypeDef(BaseValidatorModel):
 
 
 class PartitionIndexTypeDef(BaseValidatorModel):
-    Keys: List[str]
-    IndexName: str
+    Keys: List[Annotated[str, _aws_pattern("Glue", "NameString")]]
+    IndexName: Annotated[str, _aws_pattern("Glue", "NameString")]
 
 
 # This class is the input for the 'create_registry' function.
 class CreateRegistryInputTypeDef(BaseValidatorModel):
-    RegistryName: str
-    Description: Optional[str] = None
+    RegistryName: Annotated[str, _aws_pattern("Glue", "SchemaRegistryNameString")]
+    Description: Optional[Annotated[str, _aws_pattern("Glue", "DescriptionString")]] = None
     Tags: Optional[Dict[str, str]] = None
 
 
 class RegistryIdTypeDef(BaseValidatorModel):
-    RegistryName: Optional[str] = None
-    RegistryArn: Optional[str] = None
+    RegistryName: Optional[Annotated[str, _aws_pattern("Glue", "SchemaRegistryNameString")]] = None
+    RegistryArn: Optional[Annotated[str, _aws_pattern("Glue", "GlueResourceArn")]] = None
 
 
 class SessionCommandTypeDef(BaseValidatorModel):
-    Name: Optional[str] = None
-    PythonVersion: Optional[str] = None
+    Name: Optional[Annotated[str, _aws_pattern("Glue", "NameString")]] = None
+    PythonVersion: Optional[Annotated[str, _aws_pattern("Glue", "PythonVersionString")]] = None
 
 
 class EventBatchingConditionTypeDef(BaseValidatorModel):
@@ -1197,7 +1199,7 @@ class EventBatchingConditionTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'create_workflow' function.
 class CreateWorkflowRequestTypeDef(BaseValidatorModel):
-    Name: str
+    Name: Annotated[str, _aws_pattern("Glue", "NameString")]
     Description: Optional[str] = None
     DefaultRunProperties: Optional[Dict[str, str]] = None
     Tags: Optional[Dict[str, str]] = None
@@ -1205,23 +1207,23 @@ class CreateWorkflowRequestTypeDef(BaseValidatorModel):
 
 
 class DDBELTCatalogAdditionalOptionsTypeDef(BaseValidatorModel):
-    DynamodbExport: Optional[str] = None
+    DynamodbExport: Optional[Annotated[str, _aws_pattern("Glue", "EnclosedInStringProperty")]] = None
     DynamodbUnnestDDBJson: Optional[bool] = None
 
 
 class DDBELTConnectionOptionsTypeDef(BaseValidatorModel):
-    DynamodbTableArn: str
+    DynamodbTableArn: Annotated[str, _aws_pattern("Glue", "EnclosedInStringProperty")]
     DynamodbExport: Optional[DdbExportTypeType] = None
     DynamodbUnnestDDBJson: Optional[bool] = None
-    DynamodbS3Bucket: Optional[str] = None
-    DynamodbS3Prefix: Optional[str] = None
-    DynamodbS3BucketOwner: Optional[str] = None
-    DynamodbStsRoleArn: Optional[str] = None
+    DynamodbS3Bucket: Optional[Annotated[str, _aws_pattern("Glue", "EnclosedInStringProperty")]] = None
+    DynamodbS3Prefix: Optional[Annotated[str, _aws_pattern("Glue", "EnclosedInStringProperty")]] = None
+    DynamodbS3BucketOwner: Optional[Annotated[str, _aws_pattern("Glue", "EnclosedInStringProperty")]] = None
+    DynamodbStsRoleArn: Optional[Annotated[str, _aws_pattern("Glue", "EnclosedInStringProperty")]] = None
 
 
 class DQResultsPublishingOptionsTypeDef(BaseValidatorModel):
-    EvaluationContext: Optional[str] = None
-    ResultsS3Prefix: Optional[str] = None
+    EvaluationContext: Optional[Annotated[str, _aws_pattern("Glue", "GenericLimitedString")]] = None
+    ResultsS3Prefix: Optional[Annotated[str, _aws_pattern("Glue", "EnclosedInStringProperty")]] = None
     CloudWatchMetricsEnabled: Optional[bool] = None
     ResultsPublishingEnabled: Optional[bool] = None
 
@@ -1232,8 +1234,8 @@ class DQStopJobOnFailureOptionsTypeDef(BaseValidatorModel):
 
 class EncryptionAtRestTypeDef(BaseValidatorModel):
     CatalogEncryptionMode: CatalogEncryptionModeType
-    SseAwsKmsKeyId: Optional[str] = None
-    CatalogEncryptionServiceRole: Optional[str] = None
+    SseAwsKmsKeyId: Optional[Annotated[str, _aws_pattern("Glue", "NameString")]] = None
+    CatalogEncryptionServiceRole: Optional[Annotated[str, _aws_pattern("Glue", "IAMRoleArn")]] = None
 
 
 class DataLakePrincipalTypeDef(BaseValidatorModel):
@@ -1250,21 +1252,22 @@ class DataQualityAggregatedMetricsTypeDef(BaseValidatorModel):
 
 
 class DataQualityAnalyzerResultTypeDef(BaseValidatorModel):
-    Name: Optional[str] = None
-    Description: Optional[str] = None
-    EvaluationMessage: Optional[str] = None
+    Name: Optional[Annotated[str, _aws_pattern("Glue", "NameString")]] = None
+    Description: Optional[Annotated[str, _aws_pattern("Glue", "DataQualityRuleResultDescription")]] = None
+    EvaluationMessage: Optional[Annotated[str, _aws_pattern("Glue", "DataQualityRuleResultDescription")]] = None
     EvaluatedMetrics: Optional[Dict[str, float]] = None
 
 
 class DataQualityEncryptionTypeDef(BaseValidatorModel):
     DataQualityEncryptionMode: Optional[DataQualityEncryptionModeType] = None
-    KmsKeyArn: Optional[str] = None
+    KmsKeyArn: Optional[Annotated[str, _aws_pattern("Glue", "KmsKeyArn")]] = None
 
 
 class DataQualityEvaluationRunAdditionalRunOptionsTypeDef(BaseValidatorModel):
     CloudWatchMetricsEnabled: Optional[bool] = None
     ResultsS3Prefix: Optional[str] = None
     CompositeRuleEvaluationMethod: Optional[DQCompositeRuleEvaluationMethodType] = None
+    CustomLogGroupPrefix: Optional[str] = None
 
 
 class DataQualityGlueTableOutputTypeDef(BaseValidatorModel):
@@ -1277,12 +1280,12 @@ class DataQualityGlueTableOutputTypeDef(BaseValidatorModel):
 
 
 class DataQualityGlueTableTypeDef(BaseValidatorModel):
-    DatabaseName: str
-    TableName: str
-    CatalogId: Optional[str] = None
-    ConnectionName: Optional[str] = None
+    DatabaseName: Annotated[str, _aws_pattern("Glue", "NameString")]
+    TableName: Annotated[str, _aws_pattern("Glue", "NameString")]
+    CatalogId: Optional[Annotated[str, _aws_pattern("Glue", "NameString")]] = None
+    ConnectionName: Optional[Annotated[str, _aws_pattern("Glue", "NameString")]] = None
     AdditionalOptions: Optional[Dict[str, str]] = None
-    PreProcessingQuery: Optional[str] = None
+    PreProcessingQuery: Optional[Annotated[str, _aws_pattern("Glue", "PreProcessingQueryString")]] = None
 
 
 class DataQualityMetricValuesTypeDef(BaseValidatorModel):
@@ -1293,12 +1296,12 @@ class DataQualityMetricValuesTypeDef(BaseValidatorModel):
 
 
 class DataQualityRuleResultTypeDef(BaseValidatorModel):
-    Name: Optional[str] = None
-    Description: Optional[str] = None
-    EvaluationMessage: Optional[str] = None
+    Name: Optional[Annotated[str, _aws_pattern("Glue", "NameString")]] = None
+    Description: Optional[Annotated[str, _aws_pattern("Glue", "DataQualityRuleResultDescription")]] = None
+    EvaluationMessage: Optional[Annotated[str, _aws_pattern("Glue", "DataQualityRuleResultDescription")]] = None
     Result: Optional[DataQualityRuleResultStatusType] = None
     EvaluatedMetrics: Optional[Dict[str, float]] = None
-    EvaluatedRule: Optional[str] = None
+    EvaluatedRule: Optional[Annotated[str, _aws_pattern("Glue", "DataQualityRuleResultDescription")]] = None
     RuleMetrics: Optional[Dict[str, float]] = None
     Labels: Optional[Dict[str, str]] = None
 
@@ -1312,20 +1315,20 @@ class GlueTableOutputTypeDef(BaseValidatorModel):
 
 
 class DatabaseIdentifierTypeDef(BaseValidatorModel):
-    CatalogId: Optional[str] = None
-    DatabaseName: Optional[str] = None
-    Region: Optional[str] = None
+    CatalogId: Optional[Annotated[str, _aws_pattern("Glue", "CatalogIdString")]] = None
+    DatabaseName: Optional[Annotated[str, _aws_pattern("Glue", "NameString")]] = None
+    Region: Optional[Annotated[str, _aws_pattern("Glue", "NameString")]] = None
 
 
 class FederatedDatabaseTypeDef(BaseValidatorModel):
-    Identifier: Optional[str] = None
-    ConnectionName: Optional[str] = None
-    ConnectionType: Optional[str] = None
+    Identifier: Optional[Annotated[str, _aws_pattern("Glue", "FederationIdentifier")]] = None
+    ConnectionName: Optional[Annotated[str, _aws_pattern("Glue", "NameString")]] = None
+    ConnectionType: Optional[Annotated[str, _aws_pattern("Glue", "NameString")]] = None
 
 
 class DatatypeTypeDef(BaseValidatorModel):
-    Id: str
-    Label: str
+    Id: Annotated[str, _aws_pattern("Glue", "GenericLimitedString")]
+    Label: Annotated[str, _aws_pattern("Glue", "GenericLimitedString")]
 
 
 class DecimalNumberOutputTypeDef(BaseValidatorModel):
@@ -1335,62 +1338,62 @@ class DecimalNumberOutputTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'delete_blueprint' function.
 class DeleteBlueprintRequestTypeDef(BaseValidatorModel):
-    Name: str
+    Name: Annotated[str, _aws_pattern("Glue", "NameString")]
 
 
 class DeleteCatalogRequestTypeDef(BaseValidatorModel):
-    CatalogId: str
+    CatalogId: Annotated[str, _aws_pattern("Glue", "CatalogIdString")]
 
 
 class DeleteClassifierRequestTypeDef(BaseValidatorModel):
-    Name: str
+    Name: Annotated[str, _aws_pattern("Glue", "NameString")]
 
 
 class DeleteColumnStatisticsForPartitionRequestTypeDef(BaseValidatorModel):
-    DatabaseName: str
-    TableName: str
+    DatabaseName: Annotated[str, _aws_pattern("Glue", "NameString")]
+    TableName: Annotated[str, _aws_pattern("Glue", "NameString")]
     PartitionValues: List[str]
-    ColumnName: str
-    CatalogId: Optional[str] = None
+    ColumnName: Annotated[str, _aws_pattern("Glue", "NameString")]
+    CatalogId: Optional[Annotated[str, _aws_pattern("Glue", "CatalogIdString")]] = None
 
 
 class DeleteColumnStatisticsForTableRequestTypeDef(BaseValidatorModel):
-    DatabaseName: str
-    TableName: str
-    ColumnName: str
-    CatalogId: Optional[str] = None
+    DatabaseName: Annotated[str, _aws_pattern("Glue", "NameString")]
+    TableName: Annotated[str, _aws_pattern("Glue", "NameString")]
+    ColumnName: Annotated[str, _aws_pattern("Glue", "NameString")]
+    CatalogId: Optional[Annotated[str, _aws_pattern("Glue", "CatalogIdString")]] = None
 
 
 class DeleteColumnStatisticsTaskSettingsRequestTypeDef(BaseValidatorModel):
-    DatabaseName: str
-    TableName: str
+    DatabaseName: Annotated[str, _aws_pattern("Glue", "NameString")]
+    TableName: Annotated[str, _aws_pattern("Glue", "NameString")]
 
 
 class DeleteConnectionRequestTypeDef(BaseValidatorModel):
-    ConnectionName: str
-    CatalogId: Optional[str] = None
+    ConnectionName: Annotated[str, _aws_pattern("Glue", "NameString")]
+    CatalogId: Optional[Annotated[str, _aws_pattern("Glue", "CatalogIdString")]] = None
 
 
 class DeleteConnectionTypeRequestTypeDef(BaseValidatorModel):
-    ConnectionType: str
+    ConnectionType: Annotated[str, _aws_pattern("Glue", "NameString")]
 
 
 class DeleteCrawlerRequestTypeDef(BaseValidatorModel):
-    Name: str
+    Name: Annotated[str, _aws_pattern("Glue", "NameString")]
 
 
 # This class is the input for the 'delete_custom_entity_type' function.
 class DeleteCustomEntityTypeRequestTypeDef(BaseValidatorModel):
-    Name: str
+    Name: Annotated[str, _aws_pattern("Glue", "NameString")]
 
 
 class DeleteDataQualityRulesetRequestTypeDef(BaseValidatorModel):
-    Name: str
+    Name: Annotated[str, _aws_pattern("Glue", "NameString")]
 
 
 class DeleteDatabaseRequestTypeDef(BaseValidatorModel):
-    Name: str
-    CatalogId: Optional[str] = None
+    Name: Annotated[str, _aws_pattern("Glue", "NameString")]
+    CatalogId: Optional[Annotated[str, _aws_pattern("Glue", "CatalogIdString")]] = None
 
 
 class DeleteDevEndpointRequestTypeDef(BaseValidatorModel):
@@ -1413,93 +1416,93 @@ class DeleteIntegrationTablePropertiesRequestTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'delete_job' function.
 class DeleteJobRequestTypeDef(BaseValidatorModel):
-    JobName: str
+    JobName: Annotated[str, _aws_pattern("Glue", "NameString")]
 
 
 # This class is the input for the 'delete_ml_transform' function.
 class DeleteMLTransformRequestTypeDef(BaseValidatorModel):
-    TransformId: str
+    TransformId: Annotated[str, _aws_pattern("Glue", "HashString")]
 
 
 class DeletePartitionIndexRequestTypeDef(BaseValidatorModel):
-    DatabaseName: str
-    TableName: str
-    IndexName: str
-    CatalogId: Optional[str] = None
+    DatabaseName: Annotated[str, _aws_pattern("Glue", "NameString")]
+    TableName: Annotated[str, _aws_pattern("Glue", "NameString")]
+    IndexName: Annotated[str, _aws_pattern("Glue", "NameString")]
+    CatalogId: Optional[Annotated[str, _aws_pattern("Glue", "CatalogIdString")]] = None
 
 
 class DeletePartitionRequestTypeDef(BaseValidatorModel):
-    DatabaseName: str
-    TableName: str
+    DatabaseName: Annotated[str, _aws_pattern("Glue", "NameString")]
+    TableName: Annotated[str, _aws_pattern("Glue", "NameString")]
     PartitionValues: List[str]
-    CatalogId: Optional[str] = None
+    CatalogId: Optional[Annotated[str, _aws_pattern("Glue", "CatalogIdString")]] = None
 
 
 class DeleteResourcePolicyRequestTypeDef(BaseValidatorModel):
-    PolicyHashCondition: Optional[str] = None
-    ResourceArn: Optional[str] = None
+    PolicyHashCondition: Optional[Annotated[str, _aws_pattern("Glue", "HashString")]] = None
+    ResourceArn: Optional[Annotated[str, _aws_pattern("Glue", "GlueResourceArn")]] = None
 
 
 class SchemaIdTypeDef(BaseValidatorModel):
-    SchemaArn: Optional[str] = None
-    SchemaName: Optional[str] = None
-    RegistryName: Optional[str] = None
+    SchemaArn: Optional[Annotated[str, _aws_pattern("Glue", "GlueResourceArn")]] = None
+    SchemaName: Optional[Annotated[str, _aws_pattern("Glue", "SchemaRegistryNameString")]] = None
+    RegistryName: Optional[Annotated[str, _aws_pattern("Glue", "SchemaRegistryNameString")]] = None
 
 
 class DeleteSecurityConfigurationRequestTypeDef(BaseValidatorModel):
-    Name: str
+    Name: Annotated[str, _aws_pattern("Glue", "NameString")]
 
 
 # This class is the input for the 'delete_session' function.
 class DeleteSessionRequestTypeDef(BaseValidatorModel):
-    Id: str
-    RequestOrigin: Optional[str] = None
+    Id: Annotated[str, _aws_pattern("Glue", "NameString")]
+    RequestOrigin: Optional[Annotated[str, _aws_pattern("Glue", "OrchestrationNameString")]] = None
 
 
 class DeleteTableOptimizerRequestTypeDef(BaseValidatorModel):
-    CatalogId: str
-    DatabaseName: str
-    TableName: str
+    CatalogId: Annotated[str, _aws_pattern("Glue", "CatalogIdString")]
+    DatabaseName: Annotated[str, _aws_pattern("Glue", "NameString")]
+    TableName: Annotated[str, _aws_pattern("Glue", "NameString")]
     Type: TableOptimizerTypeType
 
 
 class DeleteTableRequestTypeDef(BaseValidatorModel):
-    DatabaseName: str
-    Name: str
-    CatalogId: Optional[str] = None
-    TransactionId: Optional[str] = None
+    DatabaseName: Annotated[str, _aws_pattern("Glue", "NameString")]
+    Name: Annotated[str, _aws_pattern("Glue", "NameString")]
+    CatalogId: Optional[Annotated[str, _aws_pattern("Glue", "CatalogIdString")]] = None
+    TransactionId: Optional[Annotated[str, _aws_pattern("Glue", "TransactionIdString")]] = None
 
 
 class DeleteTableVersionRequestTypeDef(BaseValidatorModel):
-    DatabaseName: str
-    TableName: str
-    VersionId: str
-    CatalogId: Optional[str] = None
+    DatabaseName: Annotated[str, _aws_pattern("Glue", "NameString")]
+    TableName: Annotated[str, _aws_pattern("Glue", "NameString")]
+    VersionId: Annotated[str, _aws_pattern("Glue", "VersionString")]
+    CatalogId: Optional[Annotated[str, _aws_pattern("Glue", "CatalogIdString")]] = None
 
 
 # This class is the input for the 'delete_trigger' function.
 class DeleteTriggerRequestTypeDef(BaseValidatorModel):
-    Name: str
+    Name: Annotated[str, _aws_pattern("Glue", "NameString")]
 
 
 class DeleteUsageProfileRequestTypeDef(BaseValidatorModel):
-    Name: str
+    Name: Annotated[str, _aws_pattern("Glue", "NameString")]
 
 
 class DeleteUserDefinedFunctionRequestTypeDef(BaseValidatorModel):
-    DatabaseName: str
-    FunctionName: str
-    CatalogId: Optional[str] = None
+    DatabaseName: Annotated[str, _aws_pattern("Glue", "NameString")]
+    FunctionName: Annotated[str, _aws_pattern("Glue", "NameString")]
+    CatalogId: Optional[Annotated[str, _aws_pattern("Glue", "CatalogIdString")]] = None
 
 
 # This class is the input for the 'delete_workflow' function.
 class DeleteWorkflowRequestTypeDef(BaseValidatorModel):
-    Name: str
+    Name: Annotated[str, _aws_pattern("Glue", "NameString")]
 
 
 # This class is the input for the 'describe_connection_type' function.
 class DescribeConnectionTypeRequestTypeDef(BaseValidatorModel):
-    ConnectionType: str
+    ConnectionType: Annotated[str, _aws_pattern("Glue", "NameString")]
 
 
 class PaginatorConfigTypeDef(BaseValidatorModel):
@@ -1510,11 +1513,11 @@ class PaginatorConfigTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'describe_entity' function.
 class DescribeEntityRequestTypeDef(BaseValidatorModel):
-    ConnectionName: str
+    ConnectionName: Annotated[str, _aws_pattern("Glue", "NameString")]
     EntityName: str
-    CatalogId: Optional[str] = None
-    NextToken: Optional[str] = None
-    DataStoreApiVersion: Optional[str] = None
+    CatalogId: Optional[Annotated[str, _aws_pattern("Glue", "CatalogIdString")]] = None
+    NextToken: Optional[Annotated[str, _aws_pattern("Glue", "NextToken")]] = None
+    DataStoreApiVersion: Optional[Annotated[str, _aws_pattern("Glue", "ApiVersion")]] = None
 
 
 class FieldTypeDef(BaseValidatorModel):
@@ -1559,19 +1562,19 @@ class DevEndpointCustomLibrariesTypeDef(BaseValidatorModel):
 class DirectSchemaChangePolicyTypeDef(BaseValidatorModel):
     EnableUpdateCatalog: Optional[bool] = None
     UpdateBehavior: Optional[UpdateCatalogBehaviorType] = None
-    Table: Optional[str] = None
-    Database: Optional[str] = None
+    Table: Optional[Annotated[str, _aws_pattern("Glue", "EnclosedInStringProperty")]] = None
+    Database: Optional[Annotated[str, _aws_pattern("Glue", "EnclosedInStringProperty")]] = None
 
 
 class DropDuplicatesTypeDef(BaseValidatorModel):
-    Name: str
-    Inputs: List[str]
+    Name: Annotated[str, _aws_pattern("Glue", "NodeName")]
+    Inputs: List[Annotated[str, _aws_pattern("Glue", "NodeId")]]
     Columns: Optional[List[List[str]]] = None
 
 
 class DropFieldsTypeDef(BaseValidatorModel):
-    Name: str
-    Inputs: List[str]
+    Name: Annotated[str, _aws_pattern("Glue", "NodeName")]
+    Inputs: List[Annotated[str, _aws_pattern("Glue", "NodeId")]]
     Paths: List[List[str]]
 
 
@@ -1592,18 +1595,18 @@ class TransformConfigParameterOutputTypeDef(BaseValidatorModel):
 
 
 class EdgeTypeDef(BaseValidatorModel):
-    SourceId: Optional[str] = None
-    DestinationId: Optional[str] = None
+    SourceId: Optional[Annotated[str, _aws_pattern("Glue", "NameString")]] = None
+    DestinationId: Optional[Annotated[str, _aws_pattern("Glue", "NameString")]] = None
 
 
 class JobBookmarksEncryptionTypeDef(BaseValidatorModel):
     JobBookmarksEncryptionMode: Optional[JobBookmarksEncryptionModeType] = None
-    KmsKeyArn: Optional[str] = None
+    KmsKeyArn: Optional[Annotated[str, _aws_pattern("Glue", "KmsKeyArn")]] = None
 
 
 class S3EncryptionTypeDef(BaseValidatorModel):
     S3EncryptionMode: Optional[S3EncryptionModeType] = None
-    KmsKeyArn: Optional[str] = None
+    KmsKeyArn: Optional[Annotated[str, _aws_pattern("Glue", "KmsKeyArn")]] = None
 
 
 class FieldDefinitionTypeDef(BaseValidatorModel):
@@ -1630,22 +1633,22 @@ class ExportLabelsTaskRunPropertiesTypeDef(BaseValidatorModel):
 
 
 class ResponseExtractionMappingTypeDef(BaseValidatorModel):
-    ContentPath: Optional[str] = None
-    HeaderKey: Optional[str] = None
+    ContentPath: Optional[Annotated[str, _aws_pattern("Glue", "JsonPathString")]] = None
+    HeaderKey: Optional[Annotated[str, _aws_pattern("Glue", "ConnectorPropertyKey")]] = None
 
 
 class FederatedTableTypeDef(BaseValidatorModel):
-    Identifier: Optional[str] = None
-    DatabaseIdentifier: Optional[str] = None
-    ConnectionName: Optional[str] = None
-    ConnectionType: Optional[str] = None
+    Identifier: Optional[Annotated[str, _aws_pattern("Glue", "FederationIdentifier")]] = None
+    DatabaseIdentifier: Optional[Annotated[str, _aws_pattern("Glue", "FederationIdentifier")]] = None
+    ConnectionName: Optional[Annotated[str, _aws_pattern("Glue", "NameString")]] = None
+    ConnectionType: Optional[Annotated[str, _aws_pattern("Glue", "NameString")]] = None
 
 
 class FillMissingValuesTypeDef(BaseValidatorModel):
-    Name: str
-    Inputs: List[str]
-    ImputedPath: str
-    FilledPath: Optional[str] = None
+    Name: Annotated[str, _aws_pattern("Glue", "NodeName")]
+    Inputs: List[Annotated[str, _aws_pattern("Glue", "NodeId")]]
+    ImputedPath: Annotated[str, _aws_pattern("Glue", "EnclosedInStringProperty")]
+    FilledPath: Optional[Annotated[str, _aws_pattern("Glue", "EnclosedInStringProperty")]] = None
 
 
 class FilterValueOutputTypeDef(BaseValidatorModel):
@@ -1655,55 +1658,55 @@ class FilterValueOutputTypeDef(BaseValidatorModel):
 
 class FilterValueTypeDef(BaseValidatorModel):
     Type: FilterValueTypeType
-    Value: List[str]
+    Value: List[Annotated[str, _aws_pattern("Glue", "EnclosedInStringProperty")]]
 
 
 class FindMatchesParametersTypeDef(BaseValidatorModel):
-    PrimaryKeyColumnName: Optional[str] = None
+    PrimaryKeyColumnName: Optional[Annotated[str, _aws_pattern("Glue", "ColumnNameString")]] = None
     PrecisionRecallTradeoff: Optional[float] = None
     AccuracyCostTradeoff: Optional[float] = None
     EnforceProvidedLabels: Optional[bool] = None
 
 
 class FindMatchesTaskRunPropertiesTypeDef(BaseValidatorModel):
-    JobId: Optional[str] = None
-    JobName: Optional[str] = None
-    JobRunId: Optional[str] = None
+    JobId: Optional[Annotated[str, _aws_pattern("Glue", "HashString")]] = None
+    JobName: Optional[Annotated[str, _aws_pattern("Glue", "NameString")]] = None
+    JobRunId: Optional[Annotated[str, _aws_pattern("Glue", "HashString")]] = None
 
 
 # This class is the input for the 'get_blueprint' function.
 class GetBlueprintRequestTypeDef(BaseValidatorModel):
-    Name: str
+    Name: Annotated[str, _aws_pattern("Glue", "NameString")]
     IncludeBlueprint: Optional[bool] = None
     IncludeParameterSpec: Optional[bool] = None
 
 
 # This class is the input for the 'get_blueprint_run' function.
 class GetBlueprintRunRequestTypeDef(BaseValidatorModel):
-    BlueprintName: str
-    RunId: str
+    BlueprintName: Annotated[str, _aws_pattern("Glue", "OrchestrationNameString")]
+    RunId: Annotated[str, _aws_pattern("Glue", "IdString")]
 
 
 # This class is the input for the 'get_blueprint_runs' function.
 class GetBlueprintRunsRequestTypeDef(BaseValidatorModel):
-    BlueprintName: str
+    BlueprintName: Annotated[str, _aws_pattern("Glue", "NameString")]
     NextToken: Optional[str] = None
     MaxResults: Optional[int] = None
 
 
 # This class is the input for the 'get_catalog_import_status' function.
 class GetCatalogImportStatusRequestTypeDef(BaseValidatorModel):
-    CatalogId: Optional[str] = None
+    CatalogId: Optional[Annotated[str, _aws_pattern("Glue", "CatalogIdString")]] = None
 
 
 # This class is the input for the 'get_catalog' function.
 class GetCatalogRequestTypeDef(BaseValidatorModel):
-    CatalogId: str
+    CatalogId: Annotated[str, _aws_pattern("Glue", "CatalogIdString")]
 
 
 # This class is the input for the 'get_catalogs' function.
 class GetCatalogsRequestTypeDef(BaseValidatorModel):
-    ParentCatalogId: Optional[str] = None
+    ParentCatalogId: Optional[Annotated[str, _aws_pattern("Glue", "CatalogIdString")]] = None
     NextToken: Optional[str] = None
     MaxResults: Optional[int] = None
     Recursive: Optional[bool] = None
@@ -1712,7 +1715,7 @@ class GetCatalogsRequestTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'get_classifier' function.
 class GetClassifierRequestTypeDef(BaseValidatorModel):
-    Name: str
+    Name: Annotated[str, _aws_pattern("Glue", "NameString")]
 
 
 # This class is the input for the 'get_classifiers' function.
@@ -1723,64 +1726,64 @@ class GetClassifiersRequestTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'get_column_statistics_for_partition' function.
 class GetColumnStatisticsForPartitionRequestTypeDef(BaseValidatorModel):
-    DatabaseName: str
-    TableName: str
+    DatabaseName: Annotated[str, _aws_pattern("Glue", "NameString")]
+    TableName: Annotated[str, _aws_pattern("Glue", "NameString")]
     PartitionValues: List[str]
-    ColumnNames: List[str]
-    CatalogId: Optional[str] = None
+    ColumnNames: List[Annotated[str, _aws_pattern("Glue", "NameString")]]
+    CatalogId: Optional[Annotated[str, _aws_pattern("Glue", "CatalogIdString")]] = None
 
 
 # This class is the input for the 'get_column_statistics_for_table' function.
 class GetColumnStatisticsForTableRequestTypeDef(BaseValidatorModel):
-    DatabaseName: str
-    TableName: str
-    ColumnNames: List[str]
-    CatalogId: Optional[str] = None
+    DatabaseName: Annotated[str, _aws_pattern("Glue", "NameString")]
+    TableName: Annotated[str, _aws_pattern("Glue", "NameString")]
+    ColumnNames: List[Annotated[str, _aws_pattern("Glue", "NameString")]]
+    CatalogId: Optional[Annotated[str, _aws_pattern("Glue", "CatalogIdString")]] = None
 
 
 # This class is the input for the 'get_column_statistics_task_run' function.
 class GetColumnStatisticsTaskRunRequestTypeDef(BaseValidatorModel):
-    ColumnStatisticsTaskRunId: str
+    ColumnStatisticsTaskRunId: Annotated[str, _aws_pattern("Glue", "HashString")]
 
 
 # This class is the input for the 'get_column_statistics_task_runs' function.
 class GetColumnStatisticsTaskRunsRequestTypeDef(BaseValidatorModel):
     DatabaseName: str
-    TableName: str
+    TableName: Annotated[str, _aws_pattern("Glue", "NameString")]
     MaxResults: Optional[int] = None
     NextToken: Optional[str] = None
 
 
 # This class is the input for the 'get_column_statistics_task_settings' function.
 class GetColumnStatisticsTaskSettingsRequestTypeDef(BaseValidatorModel):
-    DatabaseName: str
-    TableName: str
+    DatabaseName: Annotated[str, _aws_pattern("Glue", "NameString")]
+    TableName: Annotated[str, _aws_pattern("Glue", "NameString")]
 
 
 # This class is the input for the 'get_connection' function.
 class GetConnectionRequestTypeDef(BaseValidatorModel):
-    Name: str
-    CatalogId: Optional[str] = None
+    Name: Annotated[str, _aws_pattern("Glue", "NameString")]
+    CatalogId: Optional[Annotated[str, _aws_pattern("Glue", "CatalogIdString")]] = None
     HidePassword: Optional[bool] = None
     ApplyOverrideForComputeEnvironment: Optional[ComputeEnvironmentType] = None
 
 
 class GetConnectionsFilterTypeDef(BaseValidatorModel):
-    MatchCriteria: Optional[List[str]] = None
+    MatchCriteria: Optional[List[Annotated[str, _aws_pattern("Glue", "NameString")]]] = None
     ConnectionType: Optional[ConnectionTypeType] = None
     ConnectionSchemaVersion: Optional[int] = None
 
 
 # This class is the input for the 'get_crawler_metrics' function.
 class GetCrawlerMetricsRequestTypeDef(BaseValidatorModel):
-    CrawlerNameList: Optional[List[str]] = None
+    CrawlerNameList: Optional[List[Annotated[str, _aws_pattern("Glue", "NameString")]]] = None
     MaxResults: Optional[int] = None
     NextToken: Optional[str] = None
 
 
 # This class is the input for the 'get_crawler' function.
 class GetCrawlerRequestTypeDef(BaseValidatorModel):
-    Name: str
+    Name: Annotated[str, _aws_pattern("Glue", "NameString")]
 
 
 # This class is the input for the 'get_crawlers' function.
@@ -1791,24 +1794,24 @@ class GetCrawlersRequestTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'get_custom_entity_type' function.
 class GetCustomEntityTypeRequestTypeDef(BaseValidatorModel):
-    Name: str
+    Name: Annotated[str, _aws_pattern("Glue", "NameString")]
 
 
 # This class is the input for the 'get_data_catalog_encryption_settings' function.
 class GetDataCatalogEncryptionSettingsRequestTypeDef(BaseValidatorModel):
-    CatalogId: Optional[str] = None
+    CatalogId: Optional[Annotated[str, _aws_pattern("Glue", "CatalogIdString")]] = None
 
 
 # This class is the input for the 'get_data_quality_model' function.
 class GetDataQualityModelRequestTypeDef(BaseValidatorModel):
-    ProfileId: str
-    StatisticId: Optional[str] = None
+    ProfileId: Annotated[str, _aws_pattern("Glue", "HashString")]
+    StatisticId: Optional[Annotated[str, _aws_pattern("Glue", "HashString")]] = None
 
 
 # This class is the input for the 'get_data_quality_model_result' function.
 class GetDataQualityModelResultRequestTypeDef(BaseValidatorModel):
-    StatisticId: str
-    ProfileId: str
+    StatisticId: Annotated[str, _aws_pattern("Glue", "HashString")]
+    ProfileId: Annotated[str, _aws_pattern("Glue", "HashString")]
 
 
 class StatisticModelResultTypeDef(BaseValidatorModel):
@@ -1822,33 +1825,33 @@ class StatisticModelResultTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'get_data_quality_result' function.
 class GetDataQualityResultRequestTypeDef(BaseValidatorModel):
-    ResultId: str
+    ResultId: Annotated[str, _aws_pattern("Glue", "HashString")]
 
 
 # This class is the input for the 'get_data_quality_rule_recommendation_run' function.
 class GetDataQualityRuleRecommendationRunRequestTypeDef(BaseValidatorModel):
-    RunId: str
+    RunId: Annotated[str, _aws_pattern("Glue", "HashString")]
 
 
 # This class is the input for the 'get_data_quality_ruleset_evaluation_run' function.
 class GetDataQualityRulesetEvaluationRunRequestTypeDef(BaseValidatorModel):
-    RunId: str
+    RunId: Annotated[str, _aws_pattern("Glue", "HashString")]
 
 
 # This class is the input for the 'get_data_quality_ruleset' function.
 class GetDataQualityRulesetRequestTypeDef(BaseValidatorModel):
-    Name: str
+    Name: Annotated[str, _aws_pattern("Glue", "NameString")]
 
 
 # This class is the input for the 'get_database' function.
 class GetDatabaseRequestTypeDef(BaseValidatorModel):
-    Name: str
-    CatalogId: Optional[str] = None
+    Name: Annotated[str, _aws_pattern("Glue", "NameString")]
+    CatalogId: Optional[Annotated[str, _aws_pattern("Glue", "CatalogIdString")]] = None
 
 
 # This class is the input for the 'get_databases' function.
 class GetDatabasesRequestTypeDef(BaseValidatorModel):
-    CatalogId: Optional[str] = None
+    CatalogId: Optional[Annotated[str, _aws_pattern("Glue", "CatalogIdString")]] = None
     NextToken: Optional[str] = None
     MaxResults: Optional[int] = None
     ResourceShareType: Optional[ResourceShareTypeType] = None
@@ -1875,10 +1878,10 @@ class GetDevEndpointsRequestTypeDef(BaseValidatorModel):
 class GetEntityRecordsRequestTypeDef(BaseValidatorModel):
     EntityName: str
     Limit: int
-    ConnectionName: Optional[str] = None
-    CatalogId: Optional[str] = None
-    NextToken: Optional[str] = None
-    DataStoreApiVersion: Optional[str] = None
+    ConnectionName: Optional[Annotated[str, _aws_pattern("Glue", "NameString")]] = None
+    CatalogId: Optional[Annotated[str, _aws_pattern("Glue", "CatalogIdString")]] = None
+    NextToken: Optional[Annotated[str, _aws_pattern("Glue", "NextToken")]] = None
+    DataStoreApiVersion: Optional[Annotated[str, _aws_pattern("Glue", "ApiVersion")]] = None
     ConnectionOptions: Optional[Dict[str, str]] = None
     FilterPredicate: Optional[str] = None
     OrderBy: Optional[str] = None
@@ -1921,19 +1924,19 @@ class JobBookmarkEntryTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'get_job' function.
 class GetJobRequestTypeDef(BaseValidatorModel):
-    JobName: str
+    JobName: Annotated[str, _aws_pattern("Glue", "NameString")]
 
 
 # This class is the input for the 'get_job_run' function.
 class GetJobRunRequestTypeDef(BaseValidatorModel):
-    JobName: str
-    RunId: str
+    JobName: Annotated[str, _aws_pattern("Glue", "NameString")]
+    RunId: Annotated[str, _aws_pattern("Glue", "IdString")]
     PredecessorsIncluded: Optional[bool] = None
 
 
 # This class is the input for the 'get_job_runs' function.
 class GetJobRunsRequestTypeDef(BaseValidatorModel):
-    JobName: str
+    JobName: Annotated[str, _aws_pattern("Glue", "NameString")]
     NextToken: Optional[str] = None
     MaxResults: Optional[int] = None
 
@@ -1946,8 +1949,8 @@ class GetJobsRequestTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'get_ml_task_run' function.
 class GetMLTaskRunRequestTypeDef(BaseValidatorModel):
-    TransformId: str
-    TaskRunId: str
+    TransformId: Annotated[str, _aws_pattern("Glue", "HashString")]
+    TaskRunId: Annotated[str, _aws_pattern("Glue", "HashString")]
 
 
 class TaskRunSortCriteriaTypeDef(BaseValidatorModel):
@@ -1957,12 +1960,12 @@ class TaskRunSortCriteriaTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'get_ml_transform' function.
 class GetMLTransformRequestTypeDef(BaseValidatorModel):
-    TransformId: str
+    TransformId: Annotated[str, _aws_pattern("Glue", "HashString")]
 
 
 class SchemaColumnTypeDef(BaseValidatorModel):
-    Name: Optional[str] = None
-    DataType: Optional[str] = None
+    Name: Optional[Annotated[str, _aws_pattern("Glue", "ColumnNameString")]] = None
+    DataType: Optional[Annotated[str, _aws_pattern("Glue", "ColumnTypeString")]] = None
 
 
 class TransformSortCriteriaTypeDef(BaseValidatorModel):
@@ -1981,23 +1984,23 @@ class MappingEntryTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'get_materialized_view_refresh_task_run' function.
 class GetMaterializedViewRefreshTaskRunRequestTypeDef(BaseValidatorModel):
-    CatalogId: str
-    MaterializedViewRefreshTaskRunId: str
+    CatalogId: Annotated[str, _aws_pattern("Glue", "NameString")]
+    MaterializedViewRefreshTaskRunId: Annotated[str, _aws_pattern("Glue", "UUIDv4")]
 
 
 class MaterializedViewRefreshTaskRunTypeDef(BaseValidatorModel):
     CustomerId: Optional[str] = None
-    MaterializedViewRefreshTaskRunId: Optional[str] = None
+    MaterializedViewRefreshTaskRunId: Optional[Annotated[str, _aws_pattern("Glue", "UUIDv4")]] = None
     DatabaseName: Optional[str] = None
     TableName: Optional[str] = None
-    CatalogId: Optional[str] = None
+    CatalogId: Optional[Annotated[str, _aws_pattern("Glue", "CatalogIdString")]] = None
     Role: Optional[str] = None
     Status: Optional[MaterializedViewRefreshStateType] = None
     CreationTime: Optional[datetime] = None
     LastUpdated: Optional[datetime] = None
     StartTime: Optional[datetime] = None
     EndTime: Optional[datetime] = None
-    ErrorMessage: Optional[str] = None
+    ErrorMessage: Optional[Annotated[str, _aws_pattern("Glue", "DescriptionString")]] = None
     DPUSeconds: Optional[float] = None
     RefreshType: Optional[MaterializedViewRefreshTypeType] = None
     ProcessedBytes: Optional[int] = None
@@ -2005,18 +2008,10 @@ class MaterializedViewRefreshTaskRunTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'get_partition_indexes' function.
 class GetPartitionIndexesRequestTypeDef(BaseValidatorModel):
-    DatabaseName: str
-    TableName: str
-    CatalogId: Optional[str] = None
+    DatabaseName: Annotated[str, _aws_pattern("Glue", "NameString")]
+    TableName: Annotated[str, _aws_pattern("Glue", "NameString")]
+    CatalogId: Optional[Annotated[str, _aws_pattern("Glue", "CatalogIdString")]] = None
     NextToken: Optional[str] = None
-
-
-# This class is the input for the 'get_partition' function.
-class GetPartitionRequestTypeDef(BaseValidatorModel):
-    DatabaseName: str
-    TableName: str
-    PartitionValues: List[str]
-    CatalogId: Optional[str] = None
 
 
 class SegmentTypeDef(BaseValidatorModel):
@@ -2032,14 +2027,14 @@ class GetResourcePoliciesRequestTypeDef(BaseValidatorModel):
 
 class GluePolicyTypeDef(BaseValidatorModel):
     PolicyInJson: Optional[str] = None
-    PolicyHash: Optional[str] = None
+    PolicyHash: Optional[Annotated[str, _aws_pattern("Glue", "HashString")]] = None
     CreateTime: Optional[datetime] = None
     UpdateTime: Optional[datetime] = None
 
 
 # This class is the input for the 'get_resource_policy' function.
 class GetResourcePolicyRequestTypeDef(BaseValidatorModel):
-    ResourceArn: Optional[str] = None
+    ResourceArn: Optional[Annotated[str, _aws_pattern("Glue", "GlueResourceArn")]] = None
 
 
 class SchemaVersionNumberTypeDef(BaseValidatorModel):
@@ -2049,7 +2044,7 @@ class SchemaVersionNumberTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'get_security_configuration' function.
 class GetSecurityConfigurationRequestTypeDef(BaseValidatorModel):
-    Name: str
+    Name: Annotated[str, _aws_pattern("Glue", "NameString")]
 
 
 # This class is the input for the 'get_security_configurations' function.
@@ -2060,56 +2055,39 @@ class GetSecurityConfigurationsRequestTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'get_session' function.
 class GetSessionRequestTypeDef(BaseValidatorModel):
-    Id: str
-    RequestOrigin: Optional[str] = None
+    Id: Annotated[str, _aws_pattern("Glue", "NameString")]
+    RequestOrigin: Optional[Annotated[str, _aws_pattern("Glue", "OrchestrationNameString")]] = None
 
 
 # This class is the input for the 'get_statement' function.
 class GetStatementRequestTypeDef(BaseValidatorModel):
-    SessionId: str
+    SessionId: Annotated[str, _aws_pattern("Glue", "NameString")]
     Id: int
-    RequestOrigin: Optional[str] = None
+    RequestOrigin: Optional[Annotated[str, _aws_pattern("Glue", "OrchestrationNameString")]] = None
 
 
 # This class is the input for the 'get_table_optimizer' function.
 class GetTableOptimizerRequestTypeDef(BaseValidatorModel):
-    CatalogId: str
-    DatabaseName: str
-    TableName: str
+    CatalogId: Annotated[str, _aws_pattern("Glue", "CatalogIdString")]
+    DatabaseName: Annotated[str, _aws_pattern("Glue", "NameString")]
+    TableName: Annotated[str, _aws_pattern("Glue", "NameString")]
     Type: TableOptimizerTypeType
-
-
-# This class is the input for the 'get_table_version' function.
-class GetTableVersionRequestTypeDef(BaseValidatorModel):
-    DatabaseName: str
-    TableName: str
-    CatalogId: Optional[str] = None
-    VersionId: Optional[str] = None
-
-
-# This class is the input for the 'get_table_versions' function.
-class GetTableVersionsRequestTypeDef(BaseValidatorModel):
-    DatabaseName: str
-    TableName: str
-    CatalogId: Optional[str] = None
-    NextToken: Optional[str] = None
-    MaxResults: Optional[int] = None
 
 
 # This class is the input for the 'get_tags' function.
 class GetTagsRequestTypeDef(BaseValidatorModel):
-    ResourceArn: str
+    ResourceArn: Annotated[str, _aws_pattern("Glue", "GlueResourceArn")]
 
 
 # This class is the input for the 'get_trigger' function.
 class GetTriggerRequestTypeDef(BaseValidatorModel):
-    Name: str
+    Name: Annotated[str, _aws_pattern("Glue", "NameString")]
 
 
 # This class is the input for the 'get_triggers' function.
 class GetTriggersRequestTypeDef(BaseValidatorModel):
     NextToken: Optional[str] = None
-    DependentJobName: Optional[str] = None
+    DependentJobName: Optional[Annotated[str, _aws_pattern("Glue", "NameString")]] = None
     MaxResults: Optional[int] = None
 
 
@@ -2120,21 +2098,21 @@ class SupportedDialectTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'get_usage_profile' function.
 class GetUsageProfileRequestTypeDef(BaseValidatorModel):
-    Name: str
+    Name: Annotated[str, _aws_pattern("Glue", "NameString")]
 
 
 # This class is the input for the 'get_user_defined_function' function.
 class GetUserDefinedFunctionRequestTypeDef(BaseValidatorModel):
-    DatabaseName: str
-    FunctionName: str
-    CatalogId: Optional[str] = None
+    DatabaseName: Annotated[str, _aws_pattern("Glue", "NameString")]
+    FunctionName: Annotated[str, _aws_pattern("Glue", "NameString")]
+    CatalogId: Optional[Annotated[str, _aws_pattern("Glue", "CatalogIdString")]] = None
 
 
 # This class is the input for the 'get_user_defined_functions' function.
 class GetUserDefinedFunctionsRequestTypeDef(BaseValidatorModel):
-    Pattern: str
-    CatalogId: Optional[str] = None
-    DatabaseName: Optional[str] = None
+    Pattern: Annotated[str, _aws_pattern("Glue", "NameString")]
+    CatalogId: Optional[Annotated[str, _aws_pattern("Glue", "CatalogIdString")]] = None
+    DatabaseName: Optional[Annotated[str, _aws_pattern("Glue", "NameString")]] = None
     FunctionType: Optional[FunctionTypeType] = None
     NextToken: Optional[str] = None
     MaxResults: Optional[int] = None
@@ -2142,42 +2120,42 @@ class GetUserDefinedFunctionsRequestTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'get_workflow' function.
 class GetWorkflowRequestTypeDef(BaseValidatorModel):
-    Name: str
+    Name: Annotated[str, _aws_pattern("Glue", "NameString")]
     IncludeGraph: Optional[bool] = None
 
 
 # This class is the input for the 'get_workflow_run_properties' function.
 class GetWorkflowRunPropertiesRequestTypeDef(BaseValidatorModel):
-    Name: str
-    RunId: str
+    Name: Annotated[str, _aws_pattern("Glue", "NameString")]
+    RunId: Annotated[str, _aws_pattern("Glue", "IdString")]
 
 
 # This class is the input for the 'get_workflow_run' function.
 class GetWorkflowRunRequestTypeDef(BaseValidatorModel):
-    Name: str
-    RunId: str
+    Name: Annotated[str, _aws_pattern("Glue", "NameString")]
+    RunId: Annotated[str, _aws_pattern("Glue", "IdString")]
     IncludeGraph: Optional[bool] = None
 
 
 # This class is the input for the 'get_workflow_runs' function.
 class GetWorkflowRunsRequestTypeDef(BaseValidatorModel):
-    Name: str
+    Name: Annotated[str, _aws_pattern("Glue", "NameString")]
     IncludeGraph: Optional[bool] = None
     NextToken: Optional[str] = None
     MaxResults: Optional[int] = None
 
 
 class GlueStudioSchemaColumnTypeDef(BaseValidatorModel):
-    Name: str
-    Type: Optional[str] = None
-    GlueStudioType: Optional[str] = None
+    Name: Annotated[str, _aws_pattern("Glue", "GlueStudioColumnNameString")]
+    Type: Optional[Annotated[str, _aws_pattern("Glue", "ColumnTypeString")]] = None
+    GlueStudioType: Optional[Annotated[str, _aws_pattern("Glue", "ColumnTypeString")]] = None
 
 
 class GlueTableTypeDef(BaseValidatorModel):
-    DatabaseName: str
-    TableName: str
-    CatalogId: Optional[str] = None
-    ConnectionName: Optional[str] = None
+    DatabaseName: Annotated[str, _aws_pattern("Glue", "NameString")]
+    TableName: Annotated[str, _aws_pattern("Glue", "NameString")]
+    CatalogId: Optional[Annotated[str, _aws_pattern("Glue", "NameString")]] = None
+    ConnectionName: Optional[Annotated[str, _aws_pattern("Glue", "NameString")]] = None
     AdditionalOptions: Optional[Dict[str, str]] = None
 
 
@@ -2187,9 +2165,9 @@ class S3SourceAdditionalOptionsTypeDef(BaseValidatorModel):
 
 
 class IcebergEncryptedKeyTypeDef(BaseValidatorModel):
-    KeyId: str
-    EncryptedKeyMetadata: str
-    EncryptedById: Optional[str] = None
+    KeyId: Annotated[str, _aws_pattern("Glue", "EncryptionKeyIdString")]
+    EncryptedKeyMetadata: Annotated[str, _aws_pattern("Glue", "EncryptedKeyMetadataString")]
+    EncryptedById: Optional[Annotated[str, _aws_pattern("Glue", "EncryptionKeyIdString")]] = None
     Properties: Optional[Dict[str, str]] = None
 
 
@@ -2209,7 +2187,7 @@ class IcebergOrphanFileDeletionMetricsTypeDef(BaseValidatorModel):
 class IcebergPartitionFieldTypeDef(BaseValidatorModel):
     SourceId: int
     Transform: str
-    Name: str
+    Name: Annotated[str, _aws_pattern("Glue", "ColumnNameString")]
     FieldId: Optional[int] = None
 
 
@@ -2231,10 +2209,10 @@ class IcebergRetentionMetricsTypeDef(BaseValidatorModel):
 
 class IcebergStructFieldTypeDef(BaseValidatorModel):
     Id: int
-    Name: str
+    Name: Annotated[str, _aws_pattern("Glue", "ColumnNameString")]
     Type: Dict[str, Any]
     Required: bool
-    Doc: Optional[str] = None
+    Doc: Optional[Annotated[str, _aws_pattern("Glue", "CommentString")]] = None
     InitialDefault: Optional[Dict[str, Any]] = None
     WriteDefault: Optional[Dict[str, Any]] = None
 
@@ -2247,7 +2225,7 @@ class IcebergSortFieldTypeDef(BaseValidatorModel):
 
 
 class ImportCatalogToGlueRequestTypeDef(BaseValidatorModel):
-    CatalogId: Optional[str] = None
+    CatalogId: Optional[Annotated[str, _aws_pattern("Glue", "CatalogIdString")]] = None
 
 
 class ImportLabelsTaskRunPropertiesTypeDef(BaseValidatorModel):
@@ -2284,19 +2262,19 @@ class JDBCConnectorOptionsOutputTypeDef(BaseValidatorModel):
 
 
 class JDBCConnectorOptionsTypeDef(BaseValidatorModel):
-    FilterPredicate: Optional[str] = None
-    PartitionColumn: Optional[str] = None
+    FilterPredicate: Optional[Annotated[str, _aws_pattern("Glue", "EnclosedInStringProperty")]] = None
+    PartitionColumn: Optional[Annotated[str, _aws_pattern("Glue", "EnclosedInStringProperty")]] = None
     LowerBound: Optional[int] = None
     UpperBound: Optional[int] = None
     NumPartitions: Optional[int] = None
-    JobBookmarkKeys: Optional[List[str]] = None
-    JobBookmarkKeysSortOrder: Optional[str] = None
+    JobBookmarkKeys: Optional[List[Annotated[str, _aws_pattern("Glue", "EnclosedInStringProperty")]]] = None
+    JobBookmarkKeysSortOrder: Optional[Annotated[str, _aws_pattern("Glue", "EnclosedInStringProperty")]] = None
     DataTypeMapping: Optional[Dict[JDBCDataTypeType, GlueRecordTypeType]] = None
 
 
 class PredecessorTypeDef(BaseValidatorModel):
-    JobName: Optional[str] = None
-    RunId: Optional[str] = None
+    JobName: Optional[Annotated[str, _aws_pattern("Glue", "NameString")]] = None
+    RunId: Optional[Annotated[str, _aws_pattern("Glue", "IdString")]] = None
 
 
 class JoinColumnOutputTypeDef(BaseValidatorModel):
@@ -2305,13 +2283,13 @@ class JoinColumnOutputTypeDef(BaseValidatorModel):
 
 
 class JoinColumnTypeDef(BaseValidatorModel):
-    From: str
+    From: Annotated[str, _aws_pattern("Glue", "EnclosedInStringProperty")]
     Keys: List[List[str]]
 
 
 class KeySchemaElementTypeDef(BaseValidatorModel):
-    Name: str
-    Type: str
+    Name: Annotated[str, _aws_pattern("Glue", "NameString")]
+    Type: Annotated[str, _aws_pattern("Glue", "ColumnTypeString")]
 
 
 class LabelingSetGenerationTaskRunPropertiesTypeDef(BaseValidatorModel):
@@ -2334,7 +2312,7 @@ class ListColumnStatisticsTaskRunsRequestTypeDef(BaseValidatorModel):
 # This class is the input for the 'list_connection_types' function.
 class ListConnectionTypesRequestTypeDef(BaseValidatorModel):
     MaxResults: Optional[int] = None
-    NextToken: Optional[str] = None
+    NextToken: Optional[Annotated[str, _aws_pattern("Glue", "NextToken")]] = None
 
 
 # This class is the input for the 'list_crawlers' function.
@@ -2360,11 +2338,11 @@ class ListDevEndpointsRequestTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'list_entities' function.
 class ListEntitiesRequestTypeDef(BaseValidatorModel):
-    ConnectionName: Optional[str] = None
-    CatalogId: Optional[str] = None
+    ConnectionName: Optional[Annotated[str, _aws_pattern("Glue", "NameString")]] = None
+    CatalogId: Optional[Annotated[str, _aws_pattern("Glue", "CatalogIdString")]] = None
     ParentEntityName: Optional[str] = None
-    NextToken: Optional[str] = None
-    DataStoreApiVersion: Optional[str] = None
+    NextToken: Optional[Annotated[str, _aws_pattern("Glue", "NextToken")]] = None
+    DataStoreApiVersion: Optional[Annotated[str, _aws_pattern("Glue", "ApiVersion")]] = None
 
 
 # This class is the input for the 'list_jobs' function.
@@ -2376,9 +2354,9 @@ class ListJobsRequestTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'list_materialized_view_refresh_task_runs' function.
 class ListMaterializedViewRefreshTaskRunsRequestTypeDef(BaseValidatorModel):
-    CatalogId: str
-    DatabaseName: Optional[str] = None
-    TableName: Optional[str] = None
+    CatalogId: Annotated[str, _aws_pattern("Glue", "NameString")]
+    DatabaseName: Optional[Annotated[str, _aws_pattern("Glue", "NameString")]] = None
+    TableName: Optional[Annotated[str, _aws_pattern("Glue", "NameString")]] = None
     MaxResults: Optional[int] = None
     NextToken: Optional[str] = None
 
@@ -2390,27 +2368,27 @@ class ListRegistriesInputTypeDef(BaseValidatorModel):
 
 
 class RegistryListItemTypeDef(BaseValidatorModel):
-    RegistryName: Optional[str] = None
-    RegistryArn: Optional[str] = None
-    Description: Optional[str] = None
+    RegistryName: Optional[Annotated[str, _aws_pattern("Glue", "SchemaRegistryNameString")]] = None
+    RegistryArn: Optional[Annotated[str, _aws_pattern("Glue", "GlueResourceArn")]] = None
+    Description: Optional[Annotated[str, _aws_pattern("Glue", "DescriptionString")]] = None
     Status: Optional[RegistryStatusType] = None
     CreatedTime: Optional[str] = None
     UpdatedTime: Optional[str] = None
 
 
 class SchemaVersionListItemTypeDef(BaseValidatorModel):
-    SchemaArn: Optional[str] = None
-    SchemaVersionId: Optional[str] = None
+    SchemaArn: Optional[Annotated[str, _aws_pattern("Glue", "GlueResourceArn")]] = None
+    SchemaVersionId: Optional[Annotated[str, _aws_pattern("Glue", "SchemaVersionIdString")]] = None
     VersionNumber: Optional[int] = None
     Status: Optional[SchemaVersionStatusType] = None
     CreatedTime: Optional[str] = None
 
 
 class SchemaListItemTypeDef(BaseValidatorModel):
-    RegistryName: Optional[str] = None
-    SchemaName: Optional[str] = None
-    SchemaArn: Optional[str] = None
-    Description: Optional[str] = None
+    RegistryName: Optional[Annotated[str, _aws_pattern("Glue", "SchemaRegistryNameString")]] = None
+    SchemaName: Optional[Annotated[str, _aws_pattern("Glue", "SchemaRegistryNameString")]] = None
+    SchemaArn: Optional[Annotated[str, _aws_pattern("Glue", "GlueResourceArn")]] = None
+    Description: Optional[Annotated[str, _aws_pattern("Glue", "DescriptionString")]] = None
     SchemaStatus: Optional[SchemaStatusType] = None
     CreatedTime: Optional[str] = None
     UpdatedTime: Optional[str] = None
@@ -2421,21 +2399,21 @@ class ListSessionsRequestTypeDef(BaseValidatorModel):
     NextToken: Optional[str] = None
     MaxResults: Optional[int] = None
     Tags: Optional[Dict[str, str]] = None
-    RequestOrigin: Optional[str] = None
+    RequestOrigin: Optional[Annotated[str, _aws_pattern("Glue", "OrchestrationNameString")]] = None
 
 
 # This class is the input for the 'list_statements' function.
 class ListStatementsRequestTypeDef(BaseValidatorModel):
-    SessionId: str
-    RequestOrigin: Optional[str] = None
+    SessionId: Annotated[str, _aws_pattern("Glue", "NameString")]
+    RequestOrigin: Optional[Annotated[str, _aws_pattern("Glue", "OrchestrationNameString")]] = None
     NextToken: Optional[str] = None
 
 
 # This class is the input for the 'list_table_optimizer_runs' function.
 class ListTableOptimizerRunsRequestTypeDef(BaseValidatorModel):
-    CatalogId: str
-    DatabaseName: str
-    TableName: str
+    CatalogId: Annotated[str, _aws_pattern("Glue", "CatalogIdString")]
+    DatabaseName: Annotated[str, _aws_pattern("Glue", "NameString")]
+    TableName: Annotated[str, _aws_pattern("Glue", "NameString")]
     Type: TableOptimizerTypeType
     MaxResults: Optional[int] = None
     NextToken: Optional[str] = None
@@ -2444,7 +2422,7 @@ class ListTableOptimizerRunsRequestTypeDef(BaseValidatorModel):
 # This class is the input for the 'list_triggers' function.
 class ListTriggersRequestTypeDef(BaseValidatorModel):
     NextToken: Optional[str] = None
-    DependentJobName: Optional[str] = None
+    DependentJobName: Optional[Annotated[str, _aws_pattern("Glue", "NameString")]] = None
     MaxResults: Optional[int] = None
     Tags: Optional[Dict[str, str]] = None
 
@@ -2456,8 +2434,8 @@ class ListUsageProfilesRequestTypeDef(BaseValidatorModel):
 
 
 class UsageProfileDefinitionTypeDef(BaseValidatorModel):
-    Name: Optional[str] = None
-    Description: Optional[str] = None
+    Name: Optional[Annotated[str, _aws_pattern("Glue", "NameString")]] = None
+    Description: Optional[Annotated[str, _aws_pattern("Glue", "DescriptionString")]] = None
     CreatedOn: Optional[datetime] = None
     LastModifiedOn: Optional[datetime] = None
 
@@ -2470,89 +2448,95 @@ class ListWorkflowsRequestTypeDef(BaseValidatorModel):
 
 class MLUserDataEncryptionTypeDef(BaseValidatorModel):
     MlUserDataEncryptionMode: MLUserDataEncryptionModeStringType
-    KmsKeyId: Optional[str] = None
+    KmsKeyId: Optional[Annotated[str, _aws_pattern("Glue", "NameString")]] = None
 
 
 class MappingTypeDef(BaseValidatorModel):
-    ToKey: Optional[str] = None
-    FromPath: Optional[List[str]] = None
-    FromType: Optional[str] = None
-    ToType: Optional[str] = None
+    ToKey: Optional[Annotated[str, _aws_pattern("Glue", "EnclosedInStringProperty")]] = None
+    FromPath: Optional[List[Annotated[str, _aws_pattern("Glue", "EnclosedInStringProperty")]]] = None
+    FromType: Optional[Annotated[str, _aws_pattern("Glue", "EnclosedInStringProperty")]] = None
+    ToType: Optional[Annotated[str, _aws_pattern("Glue", "EnclosedInStringProperty")]] = None
     Dropped: Optional[bool] = None
     Children: Optional[List[Dict[str, Any]]] = None
 
 
 class MergeTypeDef(BaseValidatorModel):
-    Name: str
-    Inputs: List[str]
-    Source: str
+    Name: Annotated[str, _aws_pattern("Glue", "NodeName")]
+    Inputs: List[Annotated[str, _aws_pattern("Glue", "NodeId")]]
+    Source: Annotated[str, _aws_pattern("Glue", "NodeId")]
     PrimaryKeys: List[List[str]]
 
 
 class OtherMetadataValueListItemTypeDef(BaseValidatorModel):
-    MetadataValue: Optional[str] = None
+    MetadataValue: Optional[Annotated[str, _aws_pattern("Glue", "MetadataValueString")]] = None
     CreatedTime: Optional[str] = None
 
 
 class MetadataKeyValuePairTypeDef(BaseValidatorModel):
-    MetadataKey: Optional[str] = None
-    MetadataValue: Optional[str] = None
+    MetadataKey: Optional[Annotated[str, _aws_pattern("Glue", "MetadataKeyString")]] = None
+    MetadataValue: Optional[Annotated[str, _aws_pattern("Glue", "MetadataValueString")]] = None
 
 
 class MicrosoftSQLServerCatalogTargetTypeDef(BaseValidatorModel):
-    Name: str
-    Inputs: List[str]
-    Database: str
-    Table: str
+    Name: Annotated[str, _aws_pattern("Glue", "NodeName")]
+    Inputs: List[Annotated[str, _aws_pattern("Glue", "NodeId")]]
+    Database: Annotated[str, _aws_pattern("Glue", "EnclosedInStringProperty")]
+    Table: Annotated[str, _aws_pattern("Glue", "EnclosedInStringProperty")]
 
 
 class MySQLCatalogTargetTypeDef(BaseValidatorModel):
-    Name: str
-    Inputs: List[str]
-    Database: str
-    Table: str
+    Name: Annotated[str, _aws_pattern("Glue", "NodeName")]
+    Inputs: List[Annotated[str, _aws_pattern("Glue", "NodeId")]]
+    Database: Annotated[str, _aws_pattern("Glue", "EnclosedInStringProperty")]
+    Table: Annotated[str, _aws_pattern("Glue", "EnclosedInStringProperty")]
 
 
 class OAuth2ClientApplicationTypeDef(BaseValidatorModel):
-    UserManagedClientApplicationClientId: Optional[str] = None
-    AWSManagedClientApplicationReference: Optional[str] = None
+    UserManagedClientApplicationClientId: Optional[
+        Annotated[str, _aws_pattern("Glue", "UserManagedClientApplicationClientId")]
+    ] = None
+    AWSManagedClientApplicationReference: Optional[
+        Annotated[str, _aws_pattern("Glue", "AWSManagedClientApplicationReference")]
+    ] = None
 
 
 class OAuth2CredentialsTypeDef(BaseValidatorModel):
-    UserManagedClientApplicationClientSecret: Optional[str] = None
-    AccessToken: Optional[str] = None
-    RefreshToken: Optional[str] = None
-    JwtToken: Optional[str] = None
+    UserManagedClientApplicationClientSecret: Optional[
+        Annotated[str, _aws_pattern("Glue", "UserManagedClientApplicationClientSecret")]
+    ] = None
+    AccessToken: Optional[Annotated[str, _aws_pattern("Glue", "AccessToken")]] = None
+    RefreshToken: Optional[Annotated[str, _aws_pattern("Glue", "RefreshToken")]] = None
+    JwtToken: Optional[Annotated[str, _aws_pattern("Glue", "JwtToken")]] = None
 
 
 class OracleSQLCatalogTargetTypeDef(BaseValidatorModel):
-    Name: str
-    Inputs: List[str]
-    Database: str
-    Table: str
+    Name: Annotated[str, _aws_pattern("Glue", "NodeName")]
+    Inputs: List[Annotated[str, _aws_pattern("Glue", "NodeId")]]
+    Database: Annotated[str, _aws_pattern("Glue", "EnclosedInStringProperty")]
+    Table: Annotated[str, _aws_pattern("Glue", "EnclosedInStringProperty")]
 
 
 class OrderTypeDef(BaseValidatorModel):
-    Column: str
+    Column: Annotated[str, _aws_pattern("Glue", "NameString")]
     SortOrder: int
 
 
 class PIIDetectionTypeDef(BaseValidatorModel):
-    Name: str
-    Inputs: List[str]
+    Name: Annotated[str, _aws_pattern("Glue", "NodeName")]
+    Inputs: List[Annotated[str, _aws_pattern("Glue", "NodeId")]]
     PiiType: PiiTypeType
-    EntityTypesToDetect: List[str]
-    OutputColumnName: Optional[str] = None
+    EntityTypesToDetect: List[Annotated[str, _aws_pattern("Glue", "EnclosedInStringProperty")]]
+    OutputColumnName: Optional[Annotated[str, _aws_pattern("Glue", "EnclosedInStringProperty")]] = None
     SampleFraction: Optional[float] = None
     ThresholdFraction: Optional[float] = None
-    MaskValue: Optional[str] = None
-    RedactText: Optional[str] = None
-    RedactChar: Optional[str] = None
-    MatchPattern: Optional[str] = None
+    MaskValue: Optional[Annotated[str, _aws_pattern("Glue", "MaskValue")]] = None
+    RedactText: Optional[Annotated[str, _aws_pattern("Glue", "EnclosedInStringProperty")]] = None
+    RedactChar: Optional[Annotated[str, _aws_pattern("Glue", "EnclosedInStringProperty")]] = None
+    MatchPattern: Optional[Annotated[str, _aws_pattern("Glue", "EnclosedInStringProperty")]] = None
     NumLeftCharsToExclude: Optional[int] = None
     NumRightCharsToExclude: Optional[int] = None
-    DetectionParameters: Optional[str] = None
-    DetectionSensitivity: Optional[str] = None
+    DetectionParameters: Optional[Annotated[str, _aws_pattern("Glue", "EnclosedInStringProperty")]] = None
+    DetectionSensitivity: Optional[Annotated[str, _aws_pattern("Glue", "EnclosedInStringProperty")]] = None
 
 
 class PartitionValueListTypeDef(BaseValidatorModel):
@@ -2560,16 +2544,16 @@ class PartitionValueListTypeDef(BaseValidatorModel):
 
 
 class PhysicalConnectionRequirementsTypeDef(BaseValidatorModel):
-    SubnetId: Optional[str] = None
-    SecurityGroupIdList: Optional[List[str]] = None
-    AvailabilityZone: Optional[str] = None
+    SubnetId: Optional[Annotated[str, _aws_pattern("Glue", "NameString")]] = None
+    SecurityGroupIdList: Optional[List[Annotated[str, _aws_pattern("Glue", "NameString")]]] = None
+    AvailabilityZone: Optional[Annotated[str, _aws_pattern("Glue", "NameString")]] = None
 
 
 class PostgreSQLCatalogTargetTypeDef(BaseValidatorModel):
-    Name: str
-    Inputs: List[str]
-    Database: str
-    Table: str
+    Name: Annotated[str, _aws_pattern("Glue", "NodeName")]
+    Inputs: List[Annotated[str, _aws_pattern("Glue", "NodeId")]]
+    Database: Annotated[str, _aws_pattern("Glue", "EnclosedInStringProperty")]
+    Table: Annotated[str, _aws_pattern("Glue", "EnclosedInStringProperty")]
 
 
 class PropertyPredicateTypeDef(BaseValidatorModel):
@@ -2579,22 +2563,22 @@ class PropertyPredicateTypeDef(BaseValidatorModel):
 
 
 class PutDataQualityProfileAnnotationRequestTypeDef(BaseValidatorModel):
-    ProfileId: str
+    ProfileId: Annotated[str, _aws_pattern("Glue", "HashString")]
     InclusionAnnotation: InclusionAnnotationValueType
 
 
 # This class is the input for the 'put_resource_policy' function.
 class PutResourcePolicyRequestTypeDef(BaseValidatorModel):
     PolicyInJson: str
-    ResourceArn: Optional[str] = None
-    PolicyHashCondition: Optional[str] = None
+    ResourceArn: Optional[Annotated[str, _aws_pattern("Glue", "GlueResourceArn")]] = None
+    PolicyHashCondition: Optional[Annotated[str, _aws_pattern("Glue", "HashString")]] = None
     PolicyExistsCondition: Optional[ExistConditionType] = None
     EnableHybrid: Optional[EnableHybridValuesType] = None
 
 
 class PutWorkflowRunPropertiesRequestTypeDef(BaseValidatorModel):
-    Name: str
-    RunId: str
+    Name: Annotated[str, _aws_pattern("Glue", "NameString")]
+    RunId: Annotated[str, _aws_pattern("Glue", "IdString")]
     RunProperties: Dict[str, str]
 
 
@@ -2604,12 +2588,12 @@ class RecipeActionOutputTypeDef(BaseValidatorModel):
 
 
 class RecipeActionTypeDef(BaseValidatorModel):
-    Operation: str
+    Operation: Annotated[str, _aws_pattern("Glue", "Operation")]
     Parameters: Optional[Dict[str, str]] = None
 
 
 class RecipeReferenceTypeDef(BaseValidatorModel):
-    RecipeArn: str
+    RecipeArn: Annotated[str, _aws_pattern("Glue", "EnclosedInStringProperty")]
     RecipeVersion: str
 
 
@@ -2620,10 +2604,10 @@ class UpsertRedshiftTargetOptionsOutputTypeDef(BaseValidatorModel):
 
 
 class RenameFieldTypeDef(BaseValidatorModel):
-    Name: str
-    Inputs: List[str]
-    SourcePath: List[str]
-    TargetPath: List[str]
+    Name: Annotated[str, _aws_pattern("Glue", "NodeName")]
+    Inputs: List[Annotated[str, _aws_pattern("Glue", "NodeId")]]
+    SourcePath: List[Annotated[str, _aws_pattern("Glue", "EnclosedInStringProperty")]]
+    TargetPath: List[Annotated[str, _aws_pattern("Glue", "EnclosedInStringProperty")]]
 
 
 # This class is the input for the 'reset_job_bookmark' function.
@@ -2634,24 +2618,24 @@ class ResetJobBookmarkRequestTypeDef(BaseValidatorModel):
 
 class ResourceUriTypeDef(BaseValidatorModel):
     ResourceType: Optional[ResourceTypeType] = None
-    Uri: Optional[str] = None
+    Uri: Optional[Annotated[str, _aws_pattern("Glue", "URI")]] = None
 
 
 class ResponseConfigurationTypeDef(BaseValidatorModel):
-    ResultPath: str
-    ErrorPath: Optional[str] = None
+    ResultPath: Annotated[str, _aws_pattern("Glue", "JsonPathString")]
+    ErrorPath: Optional[Annotated[str, _aws_pattern("Glue", "JsonPathString")]] = None
 
 
 # This class is the input for the 'resume_workflow_run' function.
 class ResumeWorkflowRunRequestTypeDef(BaseValidatorModel):
-    Name: str
-    RunId: str
-    NodeIds: List[str]
+    Name: Annotated[str, _aws_pattern("Glue", "NameString")]
+    RunId: Annotated[str, _aws_pattern("Glue", "IdString")]
+    NodeIds: List[Annotated[str, _aws_pattern("Glue", "NameString")]]
 
 
 class RunIdentifierTypeDef(BaseValidatorModel):
-    RunId: Optional[str] = None
-    JobRunId: Optional[str] = None
+    RunId: Optional[Annotated[str, _aws_pattern("Glue", "HashString")]] = None
+    JobRunId: Optional[Annotated[str, _aws_pattern("Glue", "HashString")]] = None
 
 
 class RunMetricsTypeDef(BaseValidatorModel):
@@ -2663,16 +2647,16 @@ class RunMetricsTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'run_statement' function.
 class RunStatementRequestTypeDef(BaseValidatorModel):
-    SessionId: str
+    SessionId: Annotated[str, _aws_pattern("Glue", "NameString")]
     Code: str
-    RequestOrigin: Optional[str] = None
+    RequestOrigin: Optional[Annotated[str, _aws_pattern("Glue", "OrchestrationNameString")]] = None
 
 
 class S3DirectSourceAdditionalOptionsTypeDef(BaseValidatorModel):
     BoundedSize: Optional[int] = None
     BoundedFiles: Optional[int] = None
     EnableSamplePath: Optional[bool] = None
-    SamplePath: Optional[str] = None
+    SamplePath: Optional[Annotated[str, _aws_pattern("Glue", "EnclosedInStringProperty")]] = None
 
 
 class SortCriterionTypeDef(BaseValidatorModel):
@@ -2681,14 +2665,14 @@ class SortCriterionTypeDef(BaseValidatorModel):
 
 
 class SelectFieldsTypeDef(BaseValidatorModel):
-    Name: str
-    Inputs: List[str]
+    Name: Annotated[str, _aws_pattern("Glue", "NodeName")]
+    Inputs: List[Annotated[str, _aws_pattern("Glue", "NodeId")]]
     Paths: List[List[str]]
 
 
 class SelectFromCollectionTypeDef(BaseValidatorModel):
-    Name: str
-    Inputs: List[str]
+    Name: Annotated[str, _aws_pattern("Glue", "NodeName")]
+    Inputs: List[Annotated[str, _aws_pattern("Glue", "NodeId")]]
     Index: int
 
 
@@ -2699,8 +2683,8 @@ class SerDeInfoOutputTypeDef(BaseValidatorModel):
 
 
 class SerDeInfoTypeDef(BaseValidatorModel):
-    Name: Optional[str] = None
-    SerializationLibrary: Optional[str] = None
+    Name: Optional[Annotated[str, _aws_pattern("Glue", "NameString")]] = None
+    SerializationLibrary: Optional[Annotated[str, _aws_pattern("Glue", "NameString")]] = None
     Parameters: Optional[Dict[str, str]] = None
 
 
@@ -2711,7 +2695,7 @@ class SkewedInfoOutputTypeDef(BaseValidatorModel):
 
 
 class SkewedInfoTypeDef(BaseValidatorModel):
-    SkewedColumnNames: Optional[List[str]] = None
+    SkewedColumnNames: Optional[List[Annotated[str, _aws_pattern("Glue", "NameString")]]] = None
     SkewedColumnValues: Optional[List[str]] = None
     SkewedColumnValueLocationMaps: Optional[Dict[str, str]] = None
 
@@ -2724,95 +2708,95 @@ class SourceTableConfigTypeDef(BaseValidatorModel):
 
 
 class SqlAliasTypeDef(BaseValidatorModel):
-    From: str
-    Alias: str
+    From: Annotated[str, _aws_pattern("Glue", "NodeId")]
+    Alias: Annotated[str, _aws_pattern("Glue", "EnclosedInStringPropertyWithQuote")]
 
 
 class SpigotTypeDef(BaseValidatorModel):
-    Name: str
-    Inputs: List[str]
-    Path: str
+    Name: Annotated[str, _aws_pattern("Glue", "NodeName")]
+    Inputs: List[Annotated[str, _aws_pattern("Glue", "NodeId")]]
+    Path: Annotated[str, _aws_pattern("Glue", "EnclosedInStringProperty")]
     Topk: Optional[int] = None
     Prob: Optional[float] = None
 
 
 class SplitFieldsTypeDef(BaseValidatorModel):
-    Name: str
-    Inputs: List[str]
+    Name: Annotated[str, _aws_pattern("Glue", "NodeName")]
+    Inputs: List[Annotated[str, _aws_pattern("Glue", "NodeId")]]
     Paths: List[List[str]]
 
 
 # This class is the input for the 'start_blueprint_run' function.
 class StartBlueprintRunRequestTypeDef(BaseValidatorModel):
-    BlueprintName: str
-    RoleArn: str
+    BlueprintName: Annotated[str, _aws_pattern("Glue", "OrchestrationNameString")]
+    RoleArn: Annotated[str, _aws_pattern("Glue", "OrchestrationIAMRoleArn")]
     Parameters: Optional[str] = None
 
 
 # This class is the input for the 'start_column_statistics_task_run' function.
 class StartColumnStatisticsTaskRunRequestTypeDef(BaseValidatorModel):
-    DatabaseName: str
-    TableName: str
-    Role: str
-    ColumnNameList: Optional[List[str]] = None
+    DatabaseName: Annotated[str, _aws_pattern("Glue", "NameString")]
+    TableName: Annotated[str, _aws_pattern("Glue", "NameString")]
+    Role: Annotated[str, _aws_pattern("Glue", "NameString")]
+    ColumnNameList: Optional[List[Annotated[str, _aws_pattern("Glue", "NameString")]]] = None
     SampleSize: Optional[float] = None
-    CatalogID: Optional[str] = None
-    SecurityConfiguration: Optional[str] = None
+    CatalogID: Optional[Annotated[str, _aws_pattern("Glue", "NameString")]] = None
+    SecurityConfiguration: Optional[Annotated[str, _aws_pattern("Glue", "NameString")]] = None
 
 
 class StartColumnStatisticsTaskRunScheduleRequestTypeDef(BaseValidatorModel):
-    DatabaseName: str
-    TableName: str
+    DatabaseName: Annotated[str, _aws_pattern("Glue", "NameString")]
+    TableName: Annotated[str, _aws_pattern("Glue", "NameString")]
 
 
 class StartCrawlerRequestTypeDef(BaseValidatorModel):
-    Name: str
+    Name: Annotated[str, _aws_pattern("Glue", "NameString")]
 
 
 class StartCrawlerScheduleRequestTypeDef(BaseValidatorModel):
-    CrawlerName: str
+    CrawlerName: Annotated[str, _aws_pattern("Glue", "NameString")]
 
 
 # This class is the input for the 'start_export_labels_task_run' function.
 class StartExportLabelsTaskRunRequestTypeDef(BaseValidatorModel):
-    TransformId: str
+    TransformId: Annotated[str, _aws_pattern("Glue", "HashString")]
     OutputS3Path: str
 
 
 # This class is the input for the 'start_import_labels_task_run' function.
 class StartImportLabelsTaskRunRequestTypeDef(BaseValidatorModel):
-    TransformId: str
+    TransformId: Annotated[str, _aws_pattern("Glue", "HashString")]
     InputS3Path: str
     ReplaceAllLabels: Optional[bool] = None
 
 
 # This class is the input for the 'start_ml_evaluation_task_run' function.
 class StartMLEvaluationTaskRunRequestTypeDef(BaseValidatorModel):
-    TransformId: str
+    TransformId: Annotated[str, _aws_pattern("Glue", "HashString")]
 
 
 # This class is the input for the 'start_ml_labeling_set_generation_task_run' function.
 class StartMLLabelingSetGenerationTaskRunRequestTypeDef(BaseValidatorModel):
-    TransformId: str
+    TransformId: Annotated[str, _aws_pattern("Glue", "HashString")]
     OutputS3Path: str
 
 
 # This class is the input for the 'start_materialized_view_refresh_task_run' function.
 class StartMaterializedViewRefreshTaskRunRequestTypeDef(BaseValidatorModel):
-    CatalogId: str
-    DatabaseName: str
-    TableName: str
+    CatalogId: Annotated[str, _aws_pattern("Glue", "NameString")]
+    DatabaseName: Annotated[str, _aws_pattern("Glue", "NameString")]
+    TableName: Annotated[str, _aws_pattern("Glue", "NameString")]
     FullRefresh: Optional[bool] = None
 
 
 # This class is the input for the 'start_trigger' function.
 class StartTriggerRequestTypeDef(BaseValidatorModel):
-    Name: str
+    Name: Annotated[str, _aws_pattern("Glue", "NameString")]
 
 
 # This class is the input for the 'start_workflow_run' function.
 class StartWorkflowRunRequestTypeDef(BaseValidatorModel):
-    Name: str
+    Name: Annotated[str, _aws_pattern("Glue", "NameString")]
     RunProperties: Optional[Dict[str, str]] = None
 
 
@@ -2832,49 +2816,49 @@ class TimestampedInclusionAnnotationTypeDef(BaseValidatorModel):
 
 class StopColumnStatisticsTaskRunRequestTypeDef(BaseValidatorModel):
     DatabaseName: str
-    TableName: str
+    TableName: Annotated[str, _aws_pattern("Glue", "NameString")]
 
 
 class StopColumnStatisticsTaskRunScheduleRequestTypeDef(BaseValidatorModel):
-    DatabaseName: str
-    TableName: str
+    DatabaseName: Annotated[str, _aws_pattern("Glue", "NameString")]
+    TableName: Annotated[str, _aws_pattern("Glue", "NameString")]
 
 
 class StopCrawlerRequestTypeDef(BaseValidatorModel):
-    Name: str
+    Name: Annotated[str, _aws_pattern("Glue", "NameString")]
 
 
 class StopCrawlerScheduleRequestTypeDef(BaseValidatorModel):
-    CrawlerName: str
+    CrawlerName: Annotated[str, _aws_pattern("Glue", "NameString")]
 
 
 class StopMaterializedViewRefreshTaskRunRequestTypeDef(BaseValidatorModel):
-    CatalogId: str
-    DatabaseName: str
-    TableName: str
+    CatalogId: Annotated[str, _aws_pattern("Glue", "NameString")]
+    DatabaseName: Annotated[str, _aws_pattern("Glue", "NameString")]
+    TableName: Annotated[str, _aws_pattern("Glue", "NameString")]
 
 
 # This class is the input for the 'stop_session' function.
 class StopSessionRequestTypeDef(BaseValidatorModel):
-    Id: str
-    RequestOrigin: Optional[str] = None
+    Id: Annotated[str, _aws_pattern("Glue", "NameString")]
+    RequestOrigin: Optional[Annotated[str, _aws_pattern("Glue", "OrchestrationNameString")]] = None
 
 
 # This class is the input for the 'stop_trigger' function.
 class StopTriggerRequestTypeDef(BaseValidatorModel):
-    Name: str
+    Name: Annotated[str, _aws_pattern("Glue", "NameString")]
 
 
 class StopWorkflowRunRequestTypeDef(BaseValidatorModel):
-    Name: str
-    RunId: str
+    Name: Annotated[str, _aws_pattern("Glue", "NameString")]
+    RunId: Annotated[str, _aws_pattern("Glue", "IdString")]
 
 
 class TableIdentifierTypeDef(BaseValidatorModel):
-    CatalogId: Optional[str] = None
-    DatabaseName: Optional[str] = None
-    Name: Optional[str] = None
-    Region: Optional[str] = None
+    CatalogId: Optional[Annotated[str, _aws_pattern("Glue", "CatalogIdString")]] = None
+    DatabaseName: Optional[Annotated[str, _aws_pattern("Glue", "NameString")]] = None
+    Name: Optional[Annotated[str, _aws_pattern("Glue", "NameString")]] = None
+    Region: Optional[Annotated[str, _aws_pattern("Glue", "NameString")]] = None
 
 
 class TableOptimizerVpcConfigurationTypeDef(BaseValidatorModel):
@@ -2882,89 +2866,89 @@ class TableOptimizerVpcConfigurationTypeDef(BaseValidatorModel):
 
 
 class TagResourceRequestTypeDef(BaseValidatorModel):
-    ResourceArn: str
+    ResourceArn: Annotated[str, _aws_pattern("Glue", "GlueResourceArn")]
     TagsToAdd: Dict[str, str]
 
 
 class TransformConfigParameterTypeDef(BaseValidatorModel):
-    Name: str
+    Name: Annotated[str, _aws_pattern("Glue", "EnclosedInStringProperty")]
     Type: ParamTypeType
-    ValidationRule: Optional[str] = None
-    ValidationMessage: Optional[str] = None
-    Value: Optional[List[str]] = None
+    ValidationRule: Optional[Annotated[str, _aws_pattern("Glue", "EnclosedInStringProperty")]] = None
+    ValidationMessage: Optional[Annotated[str, _aws_pattern("Glue", "EnclosedInStringProperty")]] = None
+    Value: Optional[List[Annotated[str, _aws_pattern("Glue", "EnclosedInStringProperty")]]] = None
     ListType: Optional[ParamTypeType] = None
     IsOptional: Optional[bool] = None
 
 
 class UnionTypeDef(BaseValidatorModel):
-    Name: str
-    Inputs: List[str]
+    Name: Annotated[str, _aws_pattern("Glue", "NodeName")]
+    Inputs: List[Annotated[str, _aws_pattern("Glue", "NodeId")]]
     UnionType: UnionTypeType
 
 
 class UntagResourceRequestTypeDef(BaseValidatorModel):
-    ResourceArn: str
+    ResourceArn: Annotated[str, _aws_pattern("Glue", "GlueResourceArn")]
     TagsToRemove: List[str]
 
 
 # This class is the input for the 'update_blueprint' function.
 class UpdateBlueprintRequestTypeDef(BaseValidatorModel):
-    Name: str
-    BlueprintLocation: str
+    Name: Annotated[str, _aws_pattern("Glue", "OrchestrationNameString")]
+    BlueprintLocation: Annotated[str, _aws_pattern("Glue", "OrchestrationS3Location")]
     Description: Optional[str] = None
 
 
 class UpdateCsvClassifierRequestTypeDef(BaseValidatorModel):
-    Name: str
-    Delimiter: Optional[str] = None
-    QuoteSymbol: Optional[str] = None
+    Name: Annotated[str, _aws_pattern("Glue", "NameString")]
+    Delimiter: Optional[Annotated[str, _aws_pattern("Glue", "CsvColumnDelimiter")]] = None
+    QuoteSymbol: Optional[Annotated[str, _aws_pattern("Glue", "CsvQuoteSymbol")]] = None
     ContainsHeader: Optional[CsvHeaderOptionType] = None
-    Header: Optional[List[str]] = None
+    Header: Optional[List[Annotated[str, _aws_pattern("Glue", "NameString")]]] = None
     DisableValueTrimming: Optional[bool] = None
     AllowSingleColumn: Optional[bool] = None
     CustomDatatypeConfigured: Optional[bool] = None
-    CustomDatatypes: Optional[List[str]] = None
+    CustomDatatypes: Optional[List[Annotated[str, _aws_pattern("Glue", "NameString")]]] = None
     Serde: Optional[CsvSerdeOptionType] = None
 
 
 class UpdateGrokClassifierRequestTypeDef(BaseValidatorModel):
-    Name: str
+    Name: Annotated[str, _aws_pattern("Glue", "NameString")]
     Classification: Optional[str] = None
-    GrokPattern: Optional[str] = None
-    CustomPatterns: Optional[str] = None
+    GrokPattern: Optional[Annotated[str, _aws_pattern("Glue", "GrokPattern")]] = None
+    CustomPatterns: Optional[Annotated[str, _aws_pattern("Glue", "CustomPatterns")]] = None
 
 
 class UpdateJsonClassifierRequestTypeDef(BaseValidatorModel):
-    Name: str
+    Name: Annotated[str, _aws_pattern("Glue", "NameString")]
     JsonPath: Optional[str] = None
 
 
 class UpdateXMLClassifierRequestTypeDef(BaseValidatorModel):
-    Name: str
+    Name: Annotated[str, _aws_pattern("Glue", "NameString")]
     Classification: Optional[str] = None
     RowTag: Optional[str] = None
 
 
 class UpdateColumnStatisticsTaskSettingsRequestTypeDef(BaseValidatorModel):
-    DatabaseName: str
-    TableName: str
-    Role: Optional[str] = None
+    DatabaseName: Annotated[str, _aws_pattern("Glue", "NameString")]
+    TableName: Annotated[str, _aws_pattern("Glue", "NameString")]
+    Role: Optional[Annotated[str, _aws_pattern("Glue", "NameString")]] = None
     Schedule: Optional[str] = None
-    ColumnNameList: Optional[List[str]] = None
+    ColumnNameList: Optional[List[Annotated[str, _aws_pattern("Glue", "NameString")]]] = None
     SampleSize: Optional[float] = None
-    CatalogID: Optional[str] = None
-    SecurityConfiguration: Optional[str] = None
+    CatalogID: Optional[Annotated[str, _aws_pattern("Glue", "NameString")]] = None
+    SecurityConfiguration: Optional[Annotated[str, _aws_pattern("Glue", "NameString")]] = None
 
 
 class UpdateCrawlerScheduleRequestTypeDef(BaseValidatorModel):
-    CrawlerName: str
+    CrawlerName: Annotated[str, _aws_pattern("Glue", "NameString")]
     Schedule: Optional[str] = None
 
 
 # This class is the input for the 'update_data_quality_ruleset' function.
 class UpdateDataQualityRulesetRequestTypeDef(BaseValidatorModel):
-    Name: str
-    Description: Optional[str] = None
+    Name: Annotated[str, _aws_pattern("Glue", "NameString")]
+    Description: Optional[Annotated[str, _aws_pattern("Glue", "DescriptionString")]] = None
     Ruleset: Optional[str] = None
 
 
@@ -2975,49 +2959,49 @@ class UpdateGlueIdentityCenterConfigurationRequestTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'update_job_from_source_control' function.
 class UpdateJobFromSourceControlRequestTypeDef(BaseValidatorModel):
-    JobName: Optional[str] = None
+    JobName: Optional[Annotated[str, _aws_pattern("Glue", "NameString")]] = None
     Provider: Optional[SourceControlProviderType] = None
-    RepositoryName: Optional[str] = None
-    RepositoryOwner: Optional[str] = None
-    BranchName: Optional[str] = None
-    Folder: Optional[str] = None
-    CommitId: Optional[str] = None
+    RepositoryName: Optional[Annotated[str, _aws_pattern("Glue", "NameString")]] = None
+    RepositoryOwner: Optional[Annotated[str, _aws_pattern("Glue", "NameString")]] = None
+    BranchName: Optional[Annotated[str, _aws_pattern("Glue", "NameString")]] = None
+    Folder: Optional[Annotated[str, _aws_pattern("Glue", "NameString")]] = None
+    CommitId: Optional[Annotated[str, _aws_pattern("Glue", "CommitIdString")]] = None
     AuthStrategy: Optional[SourceControlAuthStrategyType] = None
-    AuthToken: Optional[str] = None
+    AuthToken: Optional[Annotated[str, _aws_pattern("Glue", "AuthTokenString")]] = None
 
 
 # This class is the input for the 'update_source_control_from_job' function.
 class UpdateSourceControlFromJobRequestTypeDef(BaseValidatorModel):
-    JobName: Optional[str] = None
+    JobName: Optional[Annotated[str, _aws_pattern("Glue", "NameString")]] = None
     Provider: Optional[SourceControlProviderType] = None
-    RepositoryName: Optional[str] = None
-    RepositoryOwner: Optional[str] = None
-    BranchName: Optional[str] = None
-    Folder: Optional[str] = None
-    CommitId: Optional[str] = None
+    RepositoryName: Optional[Annotated[str, _aws_pattern("Glue", "NameString")]] = None
+    RepositoryOwner: Optional[Annotated[str, _aws_pattern("Glue", "NameString")]] = None
+    BranchName: Optional[Annotated[str, _aws_pattern("Glue", "NameString")]] = None
+    Folder: Optional[Annotated[str, _aws_pattern("Glue", "NameString")]] = None
+    CommitId: Optional[Annotated[str, _aws_pattern("Glue", "CommitIdString")]] = None
     AuthStrategy: Optional[SourceControlAuthStrategyType] = None
-    AuthToken: Optional[str] = None
+    AuthToken: Optional[Annotated[str, _aws_pattern("Glue", "AuthTokenString")]] = None
 
 
 # This class is the input for the 'update_workflow' function.
 class UpdateWorkflowRequestTypeDef(BaseValidatorModel):
-    Name: str
+    Name: Annotated[str, _aws_pattern("Glue", "NameString")]
     Description: Optional[str] = None
     DefaultRunProperties: Optional[Dict[str, str]] = None
     MaxConcurrentRuns: Optional[int] = None
 
 
 class UpsertRedshiftTargetOptionsTypeDef(BaseValidatorModel):
-    TableLocation: Optional[str] = None
-    ConnectionName: Optional[str] = None
-    UpsertKeys: Optional[List[str]] = None
+    TableLocation: Optional[Annotated[str, _aws_pattern("Glue", "EnclosedInStringProperty")]] = None
+    ConnectionName: Optional[Annotated[str, _aws_pattern("Glue", "EnclosedInStringProperty")]] = None
+    UpsertKeys: Optional[List[Annotated[str, _aws_pattern("Glue", "EnclosedInStringProperty")]]] = None
 
 
 class ViewRepresentationInputTypeDef(BaseValidatorModel):
     Dialect: Optional[ViewDialectType] = None
     DialectVersion: Optional[str] = None
     ViewOriginalText: Optional[str] = None
-    ValidationConnection: Optional[str] = None
+    ValidationConnection: Optional[Annotated[str, _aws_pattern("Glue", "NameString")]] = None
     ViewExpandedText: Optional[str] = None
 
 
@@ -3026,7 +3010,7 @@ class ViewRepresentationTypeDef(BaseValidatorModel):
     DialectVersion: Optional[str] = None
     ViewOriginalText: Optional[str] = None
     ViewExpandedText: Optional[str] = None
-    ValidationConnection: Optional[str] = None
+    ValidationConnection: Optional[Annotated[str, _aws_pattern("Glue", "NameString")]] = None
     IsStale: Optional[bool] = None
 
 
@@ -3051,24 +3035,24 @@ class ActionOutputTypeDef(BaseValidatorModel):
 
 
 class ActionTypeDef(BaseValidatorModel):
-    JobName: Optional[str] = None
+    JobName: Optional[Annotated[str, _aws_pattern("Glue", "NameString")]] = None
     Arguments: Optional[Dict[str, str]] = None
     Timeout: Optional[int] = None
-    SecurityConfiguration: Optional[str] = None
+    SecurityConfiguration: Optional[Annotated[str, _aws_pattern("Glue", "NameString")]] = None
     NotificationProperty: Optional[NotificationPropertyTypeDef] = None
-    CrawlerName: Optional[str] = None
+    CrawlerName: Optional[Annotated[str, _aws_pattern("Glue", "NameString")]] = None
 
 
 # This class is the input for the 'start_job_run' function.
 class StartJobRunRequestTypeDef(BaseValidatorModel):
-    JobName: str
+    JobName: Annotated[str, _aws_pattern("Glue", "NameString")]
     JobRunQueuingEnabled: Optional[bool] = None
-    JobRunId: Optional[str] = None
+    JobRunId: Optional[Annotated[str, _aws_pattern("Glue", "IdString")]] = None
     Arguments: Optional[Dict[str, str]] = None
     AllocatedCapacity: Optional[int] = None
     Timeout: Optional[int] = None
     MaxCapacity: Optional[float] = None
-    SecurityConfiguration: Optional[str] = None
+    SecurityConfiguration: Optional[Annotated[str, _aws_pattern("Glue", "NameString")]] = None
     NotificationProperty: Optional[NotificationPropertyTypeDef] = None
     WorkerType: Optional[WorkerTypeType] = None
     NumberOfWorkers: Optional[int] = None
@@ -3128,8 +3112,8 @@ class AmazonRedshiftNodeDataOutputTypeDef(BaseValidatorModel):
 
 
 class AmazonRedshiftNodeDataTypeDef(BaseValidatorModel):
-    AccessType: Optional[str] = None
-    SourceType: Optional[str] = None
+    AccessType: Optional[Annotated[str, _aws_pattern("Glue", "GenericLimitedString")]] = None
+    SourceType: Optional[Annotated[str, _aws_pattern("Glue", "GenericLimitedString")]] = None
     Connection: Optional[OptionTypeDef] = None
     Schema: Optional[OptionTypeDef] = None
     Table: Optional[OptionTypeDef] = None
@@ -3137,18 +3121,18 @@ class AmazonRedshiftNodeDataTypeDef(BaseValidatorModel):
     CatalogTable: Optional[OptionTypeDef] = None
     CatalogRedshiftSchema: Optional[str] = None
     CatalogRedshiftTable: Optional[str] = None
-    TempDir: Optional[str] = None
+    TempDir: Optional[Annotated[str, _aws_pattern("Glue", "EnclosedInStringProperty")]] = None
     IamRole: Optional[OptionTypeDef] = None
     AdvancedOptions: Optional[List[AmazonRedshiftAdvancedOptionTypeDef]] = None
     SampleQuery: Optional[str] = None
     PreAction: Optional[str] = None
     PostAction: Optional[str] = None
     Action: Optional[str] = None
-    TablePrefix: Optional[str] = None
+    TablePrefix: Optional[Annotated[str, _aws_pattern("Glue", "GenericLimitedString")]] = None
     Upsert: Optional[bool] = None
-    MergeAction: Optional[str] = None
-    MergeWhenMatched: Optional[str] = None
-    MergeWhenNotMatched: Optional[str] = None
+    MergeAction: Optional[Annotated[str, _aws_pattern("Glue", "GenericLimitedString")]] = None
+    MergeWhenMatched: Optional[Annotated[str, _aws_pattern("Glue", "GenericLimitedString")]] = None
+    MergeWhenNotMatched: Optional[Annotated[str, _aws_pattern("Glue", "GenericLimitedString")]] = None
     MergeClause: Optional[str] = None
     CrawlerConnection: Optional[str] = None
     TableSchema: Optional[List[OptionTypeDef]] = None
@@ -3181,12 +3165,12 @@ class SnowflakeNodeDataOutputTypeDef(BaseValidatorModel):
 
 
 class SnowflakeNodeDataTypeDef(BaseValidatorModel):
-    SourceType: Optional[str] = None
+    SourceType: Optional[Annotated[str, _aws_pattern("Glue", "GenericLimitedString")]] = None
     Connection: Optional[OptionTypeDef] = None
     Schema: Optional[str] = None
     Table: Optional[str] = None
     Database: Optional[str] = None
-    TempDir: Optional[str] = None
+    TempDir: Optional[Annotated[str, _aws_pattern("Glue", "EnclosedInStringProperty")]] = None
     IamRole: Optional[OptionTypeDef] = None
     AdditionalOptions: Optional[Dict[str, str]] = None
     SampleQuery: Optional[str] = None
@@ -3194,9 +3178,9 @@ class SnowflakeNodeDataTypeDef(BaseValidatorModel):
     PostAction: Optional[str] = None
     Action: Optional[str] = None
     Upsert: Optional[bool] = None
-    MergeAction: Optional[str] = None
-    MergeWhenMatched: Optional[str] = None
-    MergeWhenNotMatched: Optional[str] = None
+    MergeAction: Optional[Annotated[str, _aws_pattern("Glue", "GenericLimitedString")]] = None
+    MergeWhenMatched: Optional[Annotated[str, _aws_pattern("Glue", "GenericLimitedString")]] = None
+    MergeWhenNotMatched: Optional[Annotated[str, _aws_pattern("Glue", "GenericLimitedString")]] = None
     MergeClause: Optional[str] = None
     StagingTable: Optional[str] = None
     SelectedColumns: Optional[List[OptionTypeDef]] = None
@@ -3216,6 +3200,34 @@ class ApplyMappingPaginatorTypeDef(BaseValidatorModel):
     Mapping: List[MappingPaginatorTypeDef]
 
 
+# This class is the input for the 'get_partition' function.
+class GetPartitionRequestTypeDef(BaseValidatorModel):
+    DatabaseName: Annotated[str, _aws_pattern("Glue", "NameString")]
+    TableName: Annotated[str, _aws_pattern("Glue", "NameString")]
+    PartitionValues: List[str]
+    CatalogId: Optional[Annotated[str, _aws_pattern("Glue", "CatalogIdString")]] = None
+    AuditContext: Optional[AuditContextTypeDef] = None
+
+
+# This class is the input for the 'get_table_version' function.
+class GetTableVersionRequestTypeDef(BaseValidatorModel):
+    DatabaseName: Annotated[str, _aws_pattern("Glue", "NameString")]
+    TableName: Annotated[str, _aws_pattern("Glue", "NameString")]
+    CatalogId: Optional[Annotated[str, _aws_pattern("Glue", "CatalogIdString")]] = None
+    VersionId: Optional[Annotated[str, _aws_pattern("Glue", "VersionString")]] = None
+    AuditContext: Optional[AuditContextTypeDef] = None
+
+
+# This class is the input for the 'get_table_versions' function.
+class GetTableVersionsRequestTypeDef(BaseValidatorModel):
+    DatabaseName: Annotated[str, _aws_pattern("Glue", "NameString")]
+    TableName: Annotated[str, _aws_pattern("Glue", "NameString")]
+    CatalogId: Optional[Annotated[str, _aws_pattern("Glue", "CatalogIdString")]] = None
+    NextToken: Optional[str] = None
+    MaxResults: Optional[int] = None
+    AuditContext: Optional[AuditContextTypeDef] = None
+
+
 class BackfillErrorTypeDef(BaseValidatorModel):
     Code: Optional[BackfillErrorCodeType] = None
     Partitions: Optional[List[PartitionValueListOutputTypeDef]] = None
@@ -3232,8 +3244,8 @@ class BatchPutDataQualityStatisticAnnotationResponseTypeDef(BaseValidatorModel):
 
 # This class is the output for the 'cancel_ml_task_run' function.
 class CancelMLTaskRunResponseTypeDef(BaseValidatorModel):
-    TransformId: str
-    TaskRunId: str
+    TransformId: Annotated[str, _aws_pattern("Glue", "HashString")]
+    TaskRunId: Annotated[str, _aws_pattern("Glue", "HashString")]
     Status: TaskStatusTypeType
     ResponseMetadata: ResponseMetadataTypeDef
 
@@ -3247,7 +3259,7 @@ class CheckSchemaVersionValidityResponseTypeDef(BaseValidatorModel):
 
 # This class is the output for the 'create_blueprint' function.
 class CreateBlueprintResponseTypeDef(BaseValidatorModel):
-    Name: str
+    Name: Annotated[str, _aws_pattern("Glue", "NameString")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
@@ -3259,13 +3271,13 @@ class CreateConnectionResponseTypeDef(BaseValidatorModel):
 
 # This class is the output for the 'create_custom_entity_type' function.
 class CreateCustomEntityTypeResponseTypeDef(BaseValidatorModel):
-    Name: str
+    Name: Annotated[str, _aws_pattern("Glue", "NameString")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 # This class is the output for the 'create_data_quality_ruleset' function.
 class CreateDataQualityRulesetResponseTypeDef(BaseValidatorModel):
-    Name: str
+    Name: Annotated[str, _aws_pattern("Glue", "NameString")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
@@ -3275,19 +3287,19 @@ class CreateDevEndpointResponseTypeDef(BaseValidatorModel):
     Status: str
     SecurityGroupIds: List[str]
     SubnetId: str
-    RoleArn: str
+    RoleArn: Annotated[str, _aws_pattern("Glue", "RoleArn")]
     YarnEndpointAddress: str
     ZeppelinRemoteSparkInterpreterPort: int
     NumberOfNodes: int
     WorkerType: WorkerTypeType
-    GlueVersion: str
+    GlueVersion: Annotated[str, _aws_pattern("Glue", "GlueVersionString")]
     NumberOfWorkers: int
     AvailabilityZone: str
     VpcId: str
     ExtraPythonLibsS3Path: str
     ExtraJarsS3Path: str
     FailureReason: str
-    SecurityConfiguration: str
+    SecurityConfiguration: Annotated[str, _aws_pattern("Glue", "NameString")]
     CreatedTimestamp: datetime
     Arguments: Dict[str, str]
     ResponseMetadata: ResponseMetadataTypeDef
@@ -3301,32 +3313,32 @@ class CreateGlueIdentityCenterConfigurationResponseTypeDef(BaseValidatorModel):
 
 # This class is the output for the 'create_job' function.
 class CreateJobResponseTypeDef(BaseValidatorModel):
-    Name: str
+    Name: Annotated[str, _aws_pattern("Glue", "NameString")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 # This class is the output for the 'create_ml_transform' function.
 class CreateMLTransformResponseTypeDef(BaseValidatorModel):
-    TransformId: str
+    TransformId: Annotated[str, _aws_pattern("Glue", "HashString")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 # This class is the output for the 'create_registry' function.
 class CreateRegistryResponseTypeDef(BaseValidatorModel):
-    RegistryArn: str
-    RegistryName: str
-    Description: str
+    RegistryArn: Annotated[str, _aws_pattern("Glue", "GlueResourceArn")]
+    RegistryName: Annotated[str, _aws_pattern("Glue", "SchemaRegistryNameString")]
+    Description: Annotated[str, _aws_pattern("Glue", "DescriptionString")]
     Tags: Dict[str, str]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 # This class is the output for the 'create_schema' function.
 class CreateSchemaResponseTypeDef(BaseValidatorModel):
-    RegistryName: str
-    RegistryArn: str
-    SchemaName: str
-    SchemaArn: str
-    Description: str
+    RegistryName: Annotated[str, _aws_pattern("Glue", "SchemaRegistryNameString")]
+    RegistryArn: Annotated[str, _aws_pattern("Glue", "GlueResourceArn")]
+    SchemaName: Annotated[str, _aws_pattern("Glue", "SchemaRegistryNameString")]
+    SchemaArn: Annotated[str, _aws_pattern("Glue", "GlueResourceArn")]
+    Description: Annotated[str, _aws_pattern("Glue", "DescriptionString")]
     DataFormat: DataFormatType
     Compatibility: CompatibilityType
     SchemaCheckpoint: int
@@ -3334,7 +3346,7 @@ class CreateSchemaResponseTypeDef(BaseValidatorModel):
     NextSchemaVersion: int
     SchemaStatus: SchemaStatusType
     Tags: Dict[str, str]
-    SchemaVersionId: str
+    SchemaVersionId: Annotated[str, _aws_pattern("Glue", "SchemaVersionIdString")]
     SchemaVersionStatus: SchemaVersionStatusType
     ResponseMetadata: ResponseMetadataTypeDef
 
@@ -3348,92 +3360,92 @@ class CreateScriptResponseTypeDef(BaseValidatorModel):
 
 # This class is the output for the 'create_security_configuration' function.
 class CreateSecurityConfigurationResponseTypeDef(BaseValidatorModel):
-    Name: str
+    Name: Annotated[str, _aws_pattern("Glue", "NameString")]
     CreatedTimestamp: datetime
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 # This class is the output for the 'create_trigger' function.
 class CreateTriggerResponseTypeDef(BaseValidatorModel):
-    Name: str
+    Name: Annotated[str, _aws_pattern("Glue", "NameString")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 # This class is the output for the 'create_usage_profile' function.
 class CreateUsageProfileResponseTypeDef(BaseValidatorModel):
-    Name: str
+    Name: Annotated[str, _aws_pattern("Glue", "NameString")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 # This class is the output for the 'create_workflow' function.
 class CreateWorkflowResponseTypeDef(BaseValidatorModel):
-    Name: str
+    Name: Annotated[str, _aws_pattern("Glue", "NameString")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 # This class is the output for the 'delete_blueprint' function.
 class DeleteBlueprintResponseTypeDef(BaseValidatorModel):
-    Name: str
+    Name: Annotated[str, _aws_pattern("Glue", "NameString")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 # This class is the output for the 'delete_custom_entity_type' function.
 class DeleteCustomEntityTypeResponseTypeDef(BaseValidatorModel):
-    Name: str
+    Name: Annotated[str, _aws_pattern("Glue", "NameString")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 # This class is the output for the 'delete_job' function.
 class DeleteJobResponseTypeDef(BaseValidatorModel):
-    JobName: str
+    JobName: Annotated[str, _aws_pattern("Glue", "NameString")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 # This class is the output for the 'delete_ml_transform' function.
 class DeleteMLTransformResponseTypeDef(BaseValidatorModel):
-    TransformId: str
+    TransformId: Annotated[str, _aws_pattern("Glue", "HashString")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 # This class is the output for the 'delete_registry' function.
 class DeleteRegistryResponseTypeDef(BaseValidatorModel):
-    RegistryName: str
-    RegistryArn: str
+    RegistryName: Annotated[str, _aws_pattern("Glue", "SchemaRegistryNameString")]
+    RegistryArn: Annotated[str, _aws_pattern("Glue", "GlueResourceArn")]
     Status: RegistryStatusType
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 # This class is the output for the 'delete_schema' function.
 class DeleteSchemaResponseTypeDef(BaseValidatorModel):
-    SchemaArn: str
-    SchemaName: str
+    SchemaArn: Annotated[str, _aws_pattern("Glue", "GlueResourceArn")]
+    SchemaName: Annotated[str, _aws_pattern("Glue", "SchemaRegistryNameString")]
     Status: SchemaStatusType
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 # This class is the output for the 'delete_session' function.
 class DeleteSessionResponseTypeDef(BaseValidatorModel):
-    Id: str
+    Id: Annotated[str, _aws_pattern("Glue", "NameString")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 # This class is the output for the 'delete_trigger' function.
 class DeleteTriggerResponseTypeDef(BaseValidatorModel):
-    Name: str
+    Name: Annotated[str, _aws_pattern("Glue", "NameString")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 # This class is the output for the 'delete_workflow' function.
 class DeleteWorkflowResponseTypeDef(BaseValidatorModel):
-    Name: str
+    Name: Annotated[str, _aws_pattern("Glue", "NameString")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 # This class is the output for the 'get_custom_entity_type' function.
 class GetCustomEntityTypeResponseTypeDef(BaseValidatorModel):
-    Name: str
-    RegexString: str
-    ContextWords: List[str]
+    Name: Annotated[str, _aws_pattern("Glue", "NameString")]
+    RegexString: Annotated[str, _aws_pattern("Glue", "NameString")]
+    ContextWords: List[Annotated[str, _aws_pattern("Glue", "NameString")]]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
@@ -3442,7 +3454,7 @@ class GetDataQualityModelResponseTypeDef(BaseValidatorModel):
     Status: DataQualityModelStatusType
     StartedOn: datetime
     CompletedOn: datetime
-    FailureReason: str
+    FailureReason: Annotated[str, _aws_pattern("Glue", "HashString")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
@@ -3450,7 +3462,7 @@ class GetDataQualityModelResponseTypeDef(BaseValidatorModel):
 class GetEntityRecordsResponseTypeDef(BaseValidatorModel):
     Records: List[Dict[str, Any]]
     ResponseMetadata: ResponseMetadataTypeDef
-    NextToken: Optional[str] = None
+    NextToken: Optional[Annotated[str, _aws_pattern("Glue", "NextToken")]] = None
 
 
 class GetGlueIdentityCenterConfigurationResponseTypeDef(BaseValidatorModel):
@@ -3470,9 +3482,9 @@ class GetPlanResponseTypeDef(BaseValidatorModel):
 
 # This class is the output for the 'get_registry' function.
 class GetRegistryResponseTypeDef(BaseValidatorModel):
-    RegistryName: str
-    RegistryArn: str
-    Description: str
+    RegistryName: Annotated[str, _aws_pattern("Glue", "SchemaRegistryNameString")]
+    RegistryArn: Annotated[str, _aws_pattern("Glue", "GlueResourceArn")]
+    Description: Annotated[str, _aws_pattern("Glue", "DescriptionString")]
     Status: RegistryStatusType
     CreatedTime: str
     UpdatedTime: str
@@ -3482,7 +3494,7 @@ class GetRegistryResponseTypeDef(BaseValidatorModel):
 # This class is the output for the 'get_resource_policy' function.
 class GetResourcePolicyResponseTypeDef(BaseValidatorModel):
     PolicyInJson: str
-    PolicyHash: str
+    PolicyHash: Annotated[str, _aws_pattern("Glue", "HashString")]
     CreateTime: datetime
     UpdateTime: datetime
     ResponseMetadata: ResponseMetadataTypeDef
@@ -3490,8 +3502,8 @@ class GetResourcePolicyResponseTypeDef(BaseValidatorModel):
 
 # This class is the output for the 'get_schema_by_definition' function.
 class GetSchemaByDefinitionResponseTypeDef(BaseValidatorModel):
-    SchemaVersionId: str
-    SchemaArn: str
+    SchemaVersionId: Annotated[str, _aws_pattern("Glue", "SchemaVersionIdString")]
+    SchemaArn: Annotated[str, _aws_pattern("Glue", "GlueResourceArn")]
     DataFormat: DataFormatType
     Status: SchemaVersionStatusType
     CreatedTime: str
@@ -3500,11 +3512,11 @@ class GetSchemaByDefinitionResponseTypeDef(BaseValidatorModel):
 
 # This class is the output for the 'get_schema' function.
 class GetSchemaResponseTypeDef(BaseValidatorModel):
-    RegistryName: str
-    RegistryArn: str
-    SchemaName: str
-    SchemaArn: str
-    Description: str
+    RegistryName: Annotated[str, _aws_pattern("Glue", "SchemaRegistryNameString")]
+    RegistryArn: Annotated[str, _aws_pattern("Glue", "GlueResourceArn")]
+    SchemaName: Annotated[str, _aws_pattern("Glue", "SchemaRegistryNameString")]
+    SchemaArn: Annotated[str, _aws_pattern("Glue", "GlueResourceArn")]
+    Description: Annotated[str, _aws_pattern("Glue", "DescriptionString")]
     DataFormat: DataFormatType
     Compatibility: CompatibilityType
     SchemaCheckpoint: int
@@ -3518,10 +3530,10 @@ class GetSchemaResponseTypeDef(BaseValidatorModel):
 
 # This class is the output for the 'get_schema_version' function.
 class GetSchemaVersionResponseTypeDef(BaseValidatorModel):
-    SchemaVersionId: str
-    SchemaDefinition: str
+    SchemaVersionId: Annotated[str, _aws_pattern("Glue", "SchemaVersionIdString")]
+    SchemaDefinition: Annotated[str, _aws_pattern("Glue", "SchemaDefinitionString")]
     DataFormat: DataFormatType
-    SchemaArn: str
+    SchemaArn: Annotated[str, _aws_pattern("Glue", "GlueResourceArn")]
     VersionNumber: int
     Status: SchemaVersionStatusType
     CreatedTime: str
@@ -3530,7 +3542,7 @@ class GetSchemaVersionResponseTypeDef(BaseValidatorModel):
 
 # This class is the output for the 'get_schema_versions_diff' function.
 class GetSchemaVersionsDiffResponseTypeDef(BaseValidatorModel):
-    Diff: str
+    Diff: Annotated[str, _aws_pattern("Glue", "SchemaDefinitionDiff")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
@@ -3548,88 +3560,88 @@ class GetWorkflowRunPropertiesResponseTypeDef(BaseValidatorModel):
 
 # This class is the output for the 'list_blueprints' function.
 class ListBlueprintsResponseTypeDef(BaseValidatorModel):
-    Blueprints: List[str]
+    Blueprints: List[Annotated[str, _aws_pattern("Glue", "OrchestrationNameString")]]
     ResponseMetadata: ResponseMetadataTypeDef
     NextToken: Optional[str] = None
 
 
 # This class is the output for the 'list_column_statistics_task_runs' function.
 class ListColumnStatisticsTaskRunsResponseTypeDef(BaseValidatorModel):
-    ColumnStatisticsTaskRunIds: List[str]
+    ColumnStatisticsTaskRunIds: List[Annotated[str, _aws_pattern("Glue", "HashString")]]
     ResponseMetadata: ResponseMetadataTypeDef
     NextToken: Optional[str] = None
 
 
 # This class is the output for the 'list_crawlers' function.
 class ListCrawlersResponseTypeDef(BaseValidatorModel):
-    CrawlerNames: List[str]
+    CrawlerNames: List[Annotated[str, _aws_pattern("Glue", "NameString")]]
     ResponseMetadata: ResponseMetadataTypeDef
     NextToken: Optional[str] = None
 
 
 # This class is the output for the 'list_dev_endpoints' function.
 class ListDevEndpointsResponseTypeDef(BaseValidatorModel):
-    DevEndpointNames: List[str]
+    DevEndpointNames: List[Annotated[str, _aws_pattern("Glue", "NameString")]]
     ResponseMetadata: ResponseMetadataTypeDef
     NextToken: Optional[str] = None
 
 
 # This class is the output for the 'list_jobs' function.
 class ListJobsResponseTypeDef(BaseValidatorModel):
-    JobNames: List[str]
+    JobNames: List[Annotated[str, _aws_pattern("Glue", "NameString")]]
     ResponseMetadata: ResponseMetadataTypeDef
     NextToken: Optional[str] = None
 
 
 # This class is the output for the 'list_ml_transforms' function.
 class ListMLTransformsResponseTypeDef(BaseValidatorModel):
-    TransformIds: List[str]
+    TransformIds: List[Annotated[str, _aws_pattern("Glue", "HashString")]]
     ResponseMetadata: ResponseMetadataTypeDef
     NextToken: Optional[str] = None
 
 
 # This class is the output for the 'list_triggers' function.
 class ListTriggersResponseTypeDef(BaseValidatorModel):
-    TriggerNames: List[str]
+    TriggerNames: List[Annotated[str, _aws_pattern("Glue", "NameString")]]
     ResponseMetadata: ResponseMetadataTypeDef
     NextToken: Optional[str] = None
 
 
 # This class is the output for the 'list_workflows' function.
 class ListWorkflowsResponseTypeDef(BaseValidatorModel):
-    Workflows: List[str]
+    Workflows: List[Annotated[str, _aws_pattern("Glue", "NameString")]]
     ResponseMetadata: ResponseMetadataTypeDef
     NextToken: Optional[str] = None
 
 
 # This class is the output for the 'put_resource_policy' function.
 class PutResourcePolicyResponseTypeDef(BaseValidatorModel):
-    PolicyHash: str
+    PolicyHash: Annotated[str, _aws_pattern("Glue", "HashString")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 # This class is the output for the 'put_schema_version_metadata' function.
 class PutSchemaVersionMetadataResponseTypeDef(BaseValidatorModel):
-    SchemaArn: str
-    SchemaName: str
-    RegistryName: str
+    SchemaArn: Annotated[str, _aws_pattern("Glue", "GlueResourceArn")]
+    SchemaName: Annotated[str, _aws_pattern("Glue", "SchemaRegistryNameString")]
+    RegistryName: Annotated[str, _aws_pattern("Glue", "SchemaRegistryNameString")]
     LatestVersion: bool
     VersionNumber: int
-    SchemaVersionId: str
-    MetadataKey: str
-    MetadataValue: str
+    SchemaVersionId: Annotated[str, _aws_pattern("Glue", "SchemaVersionIdString")]
+    MetadataKey: Annotated[str, _aws_pattern("Glue", "MetadataKeyString")]
+    MetadataValue: Annotated[str, _aws_pattern("Glue", "MetadataValueString")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 # This class is the output for the 'register_connection_type' function.
 class RegisterConnectionTypeResponseTypeDef(BaseValidatorModel):
-    ConnectionTypeArn: str
+    ConnectionTypeArn: Annotated[str, _aws_pattern("Glue", "GlueResourceArn")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 # This class is the output for the 'register_schema_version' function.
 class RegisterSchemaVersionResponseTypeDef(BaseValidatorModel):
-    SchemaVersionId: str
+    SchemaVersionId: Annotated[str, _aws_pattern("Glue", "SchemaVersionIdString")]
     VersionNumber: int
     Status: SchemaVersionStatusType
     ResponseMetadata: ResponseMetadataTypeDef
@@ -3637,21 +3649,21 @@ class RegisterSchemaVersionResponseTypeDef(BaseValidatorModel):
 
 # This class is the output for the 'remove_schema_version_metadata' function.
 class RemoveSchemaVersionMetadataResponseTypeDef(BaseValidatorModel):
-    SchemaArn: str
-    SchemaName: str
-    RegistryName: str
+    SchemaArn: Annotated[str, _aws_pattern("Glue", "GlueResourceArn")]
+    SchemaName: Annotated[str, _aws_pattern("Glue", "SchemaRegistryNameString")]
+    RegistryName: Annotated[str, _aws_pattern("Glue", "SchemaRegistryNameString")]
     LatestVersion: bool
     VersionNumber: int
-    SchemaVersionId: str
-    MetadataKey: str
-    MetadataValue: str
+    SchemaVersionId: Annotated[str, _aws_pattern("Glue", "SchemaVersionIdString")]
+    MetadataKey: Annotated[str, _aws_pattern("Glue", "MetadataKeyString")]
+    MetadataValue: Annotated[str, _aws_pattern("Glue", "MetadataValueString")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 # This class is the output for the 'resume_workflow_run' function.
 class ResumeWorkflowRunResponseTypeDef(BaseValidatorModel):
-    RunId: str
-    NodeIds: List[str]
+    RunId: Annotated[str, _aws_pattern("Glue", "IdString")]
+    NodeIds: List[Annotated[str, _aws_pattern("Glue", "NameString")]]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
@@ -3663,171 +3675,171 @@ class RunStatementResponseTypeDef(BaseValidatorModel):
 
 # This class is the output for the 'start_blueprint_run' function.
 class StartBlueprintRunResponseTypeDef(BaseValidatorModel):
-    RunId: str
+    RunId: Annotated[str, _aws_pattern("Glue", "IdString")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 # This class is the output for the 'start_column_statistics_task_run' function.
 class StartColumnStatisticsTaskRunResponseTypeDef(BaseValidatorModel):
-    ColumnStatisticsTaskRunId: str
+    ColumnStatisticsTaskRunId: Annotated[str, _aws_pattern("Glue", "HashString")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 # This class is the output for the 'start_data_quality_rule_recommendation_run' function.
 class StartDataQualityRuleRecommendationRunResponseTypeDef(BaseValidatorModel):
-    RunId: str
+    RunId: Annotated[str, _aws_pattern("Glue", "HashString")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 # This class is the output for the 'start_data_quality_ruleset_evaluation_run' function.
 class StartDataQualityRulesetEvaluationRunResponseTypeDef(BaseValidatorModel):
-    RunId: str
+    RunId: Annotated[str, _aws_pattern("Glue", "HashString")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 # This class is the output for the 'start_export_labels_task_run' function.
 class StartExportLabelsTaskRunResponseTypeDef(BaseValidatorModel):
-    TaskRunId: str
+    TaskRunId: Annotated[str, _aws_pattern("Glue", "HashString")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 # This class is the output for the 'start_import_labels_task_run' function.
 class StartImportLabelsTaskRunResponseTypeDef(BaseValidatorModel):
-    TaskRunId: str
+    TaskRunId: Annotated[str, _aws_pattern("Glue", "HashString")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 # This class is the output for the 'start_job_run' function.
 class StartJobRunResponseTypeDef(BaseValidatorModel):
-    JobRunId: str
+    JobRunId: Annotated[str, _aws_pattern("Glue", "IdString")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 # This class is the output for the 'start_ml_evaluation_task_run' function.
 class StartMLEvaluationTaskRunResponseTypeDef(BaseValidatorModel):
-    TaskRunId: str
+    TaskRunId: Annotated[str, _aws_pattern("Glue", "HashString")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 # This class is the output for the 'start_ml_labeling_set_generation_task_run' function.
 class StartMLLabelingSetGenerationTaskRunResponseTypeDef(BaseValidatorModel):
-    TaskRunId: str
+    TaskRunId: Annotated[str, _aws_pattern("Glue", "HashString")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 # This class is the output for the 'start_materialized_view_refresh_task_run' function.
 class StartMaterializedViewRefreshTaskRunResponseTypeDef(BaseValidatorModel):
-    MaterializedViewRefreshTaskRunId: str
+    MaterializedViewRefreshTaskRunId: Annotated[str, _aws_pattern("Glue", "UUIDv4")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 # This class is the output for the 'start_trigger' function.
 class StartTriggerResponseTypeDef(BaseValidatorModel):
-    Name: str
+    Name: Annotated[str, _aws_pattern("Glue", "NameString")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 # This class is the output for the 'start_workflow_run' function.
 class StartWorkflowRunResponseTypeDef(BaseValidatorModel):
-    RunId: str
+    RunId: Annotated[str, _aws_pattern("Glue", "IdString")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 # This class is the output for the 'stop_session' function.
 class StopSessionResponseTypeDef(BaseValidatorModel):
-    Id: str
+    Id: Annotated[str, _aws_pattern("Glue", "NameString")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 # This class is the output for the 'stop_trigger' function.
 class StopTriggerResponseTypeDef(BaseValidatorModel):
-    Name: str
+    Name: Annotated[str, _aws_pattern("Glue", "NameString")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 # This class is the output for the 'update_blueprint' function.
 class UpdateBlueprintResponseTypeDef(BaseValidatorModel):
-    Name: str
+    Name: Annotated[str, _aws_pattern("Glue", "NameString")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 # This class is the output for the 'update_data_quality_ruleset' function.
 class UpdateDataQualityRulesetResponseTypeDef(BaseValidatorModel):
-    Name: str
-    Description: str
+    Name: Annotated[str, _aws_pattern("Glue", "NameString")]
+    Description: Annotated[str, _aws_pattern("Glue", "DescriptionString")]
     Ruleset: str
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 # This class is the output for the 'update_job_from_source_control' function.
 class UpdateJobFromSourceControlResponseTypeDef(BaseValidatorModel):
-    JobName: str
+    JobName: Annotated[str, _aws_pattern("Glue", "NameString")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 # This class is the output for the 'update_job' function.
 class UpdateJobResponseTypeDef(BaseValidatorModel):
-    JobName: str
+    JobName: Annotated[str, _aws_pattern("Glue", "NameString")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 # This class is the output for the 'update_ml_transform' function.
 class UpdateMLTransformResponseTypeDef(BaseValidatorModel):
-    TransformId: str
+    TransformId: Annotated[str, _aws_pattern("Glue", "HashString")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 # This class is the output for the 'update_registry' function.
 class UpdateRegistryResponseTypeDef(BaseValidatorModel):
-    RegistryName: str
-    RegistryArn: str
+    RegistryName: Annotated[str, _aws_pattern("Glue", "SchemaRegistryNameString")]
+    RegistryArn: Annotated[str, _aws_pattern("Glue", "GlueResourceArn")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 # This class is the output for the 'update_schema' function.
 class UpdateSchemaResponseTypeDef(BaseValidatorModel):
-    SchemaArn: str
-    SchemaName: str
-    RegistryName: str
+    SchemaArn: Annotated[str, _aws_pattern("Glue", "GlueResourceArn")]
+    SchemaName: Annotated[str, _aws_pattern("Glue", "SchemaRegistryNameString")]
+    RegistryName: Annotated[str, _aws_pattern("Glue", "SchemaRegistryNameString")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 # This class is the output for the 'update_source_control_from_job' function.
 class UpdateSourceControlFromJobResponseTypeDef(BaseValidatorModel):
-    JobName: str
+    JobName: Annotated[str, _aws_pattern("Glue", "NameString")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 # This class is the output for the 'update_usage_profile' function.
 class UpdateUsageProfileResponseTypeDef(BaseValidatorModel):
-    Name: str
+    Name: Annotated[str, _aws_pattern("Glue", "NameString")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 # This class is the output for the 'update_workflow' function.
 class UpdateWorkflowResponseTypeDef(BaseValidatorModel):
-    Name: str
+    Name: Annotated[str, _aws_pattern("Glue", "NameString")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 # This class is the output for the 'batch_delete_connection' function.
 class BatchDeleteConnectionResponseTypeDef(BaseValidatorModel):
-    Succeeded: List[str]
+    Succeeded: List[Annotated[str, _aws_pattern("Glue", "NameString")]]
     Errors: Dict[str, ErrorDetailTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 class BatchGetTableOptimizerErrorTypeDef(BaseValidatorModel):
     error: Optional[ErrorDetailTypeDef] = None
-    catalogId: Optional[str] = None
+    catalogId: Optional[Annotated[str, _aws_pattern("Glue", "CatalogIdString")]] = None
     databaseName: Optional[str] = None
     tableName: Optional[str] = None
     type: Optional[TableOptimizerTypeType] = None
 
 
 class BatchStopJobRunErrorTypeDef(BaseValidatorModel):
-    JobName: Optional[str] = None
-    JobRunId: Optional[str] = None
+    JobName: Optional[Annotated[str, _aws_pattern("Glue", "NameString")]] = None
+    JobRunId: Optional[Annotated[str, _aws_pattern("Glue", "IdString")]] = None
     ErrorDetail: Optional[ErrorDetailTypeDef] = None
 
 
@@ -3837,7 +3849,7 @@ class BatchUpdatePartitionFailureEntryTypeDef(BaseValidatorModel):
 
 
 class ColumnErrorTypeDef(BaseValidatorModel):
-    ColumnName: Optional[str] = None
+    ColumnName: Optional[Annotated[str, _aws_pattern("Glue", "NameString")]] = None
     Error: Optional[ErrorDetailTypeDef] = None
 
 
@@ -3847,13 +3859,13 @@ class PartitionErrorTypeDef(BaseValidatorModel):
 
 
 class TableErrorTypeDef(BaseValidatorModel):
-    TableName: Optional[str] = None
+    TableName: Optional[Annotated[str, _aws_pattern("Glue", "NameString")]] = None
     ErrorDetail: Optional[ErrorDetailTypeDef] = None
 
 
 class TableVersionErrorTypeDef(BaseValidatorModel):
-    TableName: Optional[str] = None
-    VersionId: Optional[str] = None
+    TableName: Optional[Annotated[str, _aws_pattern("Glue", "NameString")]] = None
+    VersionId: Optional[Annotated[str, _aws_pattern("Glue", "VersionString")]] = None
     ErrorDetail: Optional[ErrorDetailTypeDef] = None
 
 
@@ -3869,7 +3881,7 @@ class ViewValidationTypeDef(BaseValidatorModel):
 # This class is the output for the 'batch_get_custom_entity_types' function.
 class BatchGetCustomEntityTypesResponseTypeDef(BaseValidatorModel):
     CustomEntityTypes: List[CustomEntityTypeTypeDef]
-    CustomEntityTypesNotFound: List[str]
+    CustomEntityTypesNotFound: List[Annotated[str, _aws_pattern("Glue", "NameString")]]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
@@ -3908,7 +3920,7 @@ class BatchGetTableOptimizerRequestTypeDef(BaseValidatorModel):
 # This class is the input for the 'batch_put_data_quality_statistic_annotation' function.
 class BatchPutDataQualityStatisticAnnotationRequestTypeDef(BaseValidatorModel):
     InclusionAnnotations: List[DatapointInclusionAnnotationTypeDef]
-    ClientToken: Optional[str] = None
+    ClientToken: Optional[Annotated[str, _aws_pattern("Glue", "HashString")]] = None
 
 
 class DecimalNumberTypeDef(BaseValidatorModel):
@@ -3930,7 +3942,7 @@ class GetBlueprintRunsResponseTypeDef(BaseValidatorModel):
 
 
 class BlueprintTypeDef(BaseValidatorModel):
-    Name: Optional[str] = None
+    Name: Optional[Annotated[str, _aws_pattern("Glue", "OrchestrationNameString")]] = None
     Description: Optional[str] = None
     CreatedOn: Optional[datetime] = None
     LastModifiedOn: Optional[datetime] = None
@@ -4006,10 +4018,10 @@ class GovernedCatalogTargetOutputTypeDef(BaseValidatorModel):
 
 
 class GovernedCatalogTargetTypeDef(BaseValidatorModel):
-    Name: str
-    Inputs: List[str]
-    Table: str
-    Database: str
+    Name: Annotated[str, _aws_pattern("Glue", "NodeName")]
+    Inputs: List[Annotated[str, _aws_pattern("Glue", "NodeId")]]
+    Table: Annotated[str, _aws_pattern("Glue", "EnclosedInStringProperty")]
+    Database: Annotated[str, _aws_pattern("Glue", "EnclosedInStringProperty")]
     PartitionKeys: Optional[List[List[str]]] = None
     SchemaChangePolicy: Optional[CatalogSchemaChangePolicyTypeDef] = None
 
@@ -4025,10 +4037,10 @@ class S3CatalogTargetOutputTypeDef(BaseValidatorModel):
 
 
 class S3CatalogTargetTypeDef(BaseValidatorModel):
-    Name: str
-    Inputs: List[str]
-    Table: str
-    Database: str
+    Name: Annotated[str, _aws_pattern("Glue", "NodeName")]
+    Inputs: List[Annotated[str, _aws_pattern("Glue", "NodeId")]]
+    Table: Annotated[str, _aws_pattern("Glue", "EnclosedInStringProperty")]
+    Database: Annotated[str, _aws_pattern("Glue", "EnclosedInStringProperty")]
     PartitionKeys: Optional[List[List[str]]] = None
     SchemaChangePolicy: Optional[CatalogSchemaChangePolicyTypeDef] = None
     AutoDataQuality: Optional[AutoDataQualityTypeDef] = None
@@ -4046,10 +4058,10 @@ class S3IcebergCatalogTargetOutputTypeDef(BaseValidatorModel):
 
 
 class S3IcebergCatalogTargetTypeDef(BaseValidatorModel):
-    Name: str
-    Inputs: List[str]
-    Table: str
-    Database: str
+    Name: Annotated[str, _aws_pattern("Glue", "NodeName")]
+    Inputs: List[Annotated[str, _aws_pattern("Glue", "NodeId")]]
+    Table: Annotated[str, _aws_pattern("Glue", "EnclosedInStringProperty")]
+    Database: Annotated[str, _aws_pattern("Glue", "EnclosedInStringProperty")]
     PartitionKeys: Optional[List[List[str]]] = None
     AdditionalOptions: Optional[Dict[str, str]] = None
     SchemaChangePolicy: Optional[CatalogSchemaChangePolicyTypeDef] = None
@@ -4071,7 +4083,7 @@ class CodeGenNodeOutputTypeDef(BaseValidatorModel):
 
 
 class CodeGenNodeTypeDef(BaseValidatorModel):
-    Id: str
+    Id: Annotated[str, _aws_pattern("Glue", "CodeGenIdentifier")]
     NodeType: str
     Args: List[CodeGenNodeArgTypeDef]
     LineNumber: Optional[int] = None
@@ -4100,8 +4112,8 @@ class ColumnStatisticsTaskSettingsTypeDef(BaseValidatorModel):
     DatabaseName: Optional[str] = None
     TableName: Optional[str] = None
     Schedule: Optional[ScheduleTypeDef] = None
-    ColumnNameList: Optional[List[str]] = None
-    CatalogID: Optional[str] = None
+    ColumnNameList: Optional[List[Annotated[str, _aws_pattern("Glue", "NameString")]]] = None
+    CatalogID: Optional[Annotated[str, _aws_pattern("Glue", "CatalogIdString")]] = None
     Role: Optional[str] = None
     SampleSize: Optional[float] = None
     SecurityConfiguration: Optional[str] = None
@@ -4119,10 +4131,10 @@ class DateColumnStatisticsDataTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'get_table' function.
 class GetTableRequestTypeDef(BaseValidatorModel):
-    DatabaseName: str
-    Name: str
-    CatalogId: Optional[str] = None
-    TransactionId: Optional[str] = None
+    DatabaseName: Annotated[str, _aws_pattern("Glue", "NameString")]
+    Name: Annotated[str, _aws_pattern("Glue", "NameString")]
+    CatalogId: Optional[Annotated[str, _aws_pattern("Glue", "CatalogIdString")]] = None
+    TransactionId: Optional[Annotated[str, _aws_pattern("Glue", "TransactionIdString")]] = None
     QueryAsOfTime: Optional[TimestampTypeDef] = None
     AuditContext: Optional[AuditContextTypeDef] = None
     IncludeStatusDetails: Optional[bool] = None
@@ -4130,12 +4142,12 @@ class GetTableRequestTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'get_tables' function.
 class GetTablesRequestTypeDef(BaseValidatorModel):
-    DatabaseName: str
-    CatalogId: Optional[str] = None
-    Expression: Optional[str] = None
+    DatabaseName: Annotated[str, _aws_pattern("Glue", "NameString")]
+    CatalogId: Optional[Annotated[str, _aws_pattern("Glue", "CatalogIdString")]] = None
+    Expression: Optional[Annotated[str, _aws_pattern("Glue", "FilterString")]] = None
     NextToken: Optional[str] = None
     MaxResults: Optional[int] = None
-    TransactionId: Optional[str] = None
+    TransactionId: Optional[Annotated[str, _aws_pattern("Glue", "TransactionIdString")]] = None
     QueryAsOfTime: Optional[TimestampTypeDef] = None
     AuditContext: Optional[AuditContextTypeDef] = None
     IncludeStatusDetails: Optional[bool] = None
@@ -4143,32 +4155,32 @@ class GetTablesRequestTypeDef(BaseValidatorModel):
 
 
 class KafkaStreamingSourceOptionsTypeDef(BaseValidatorModel):
-    BootstrapServers: Optional[str] = None
-    SecurityProtocol: Optional[str] = None
-    ConnectionName: Optional[str] = None
-    TopicName: Optional[str] = None
-    Assign: Optional[str] = None
-    SubscribePattern: Optional[str] = None
-    Classification: Optional[str] = None
-    Delimiter: Optional[str] = None
-    StartingOffsets: Optional[str] = None
-    EndingOffsets: Optional[str] = None
+    BootstrapServers: Optional[Annotated[str, _aws_pattern("Glue", "EnclosedInStringProperty")]] = None
+    SecurityProtocol: Optional[Annotated[str, _aws_pattern("Glue", "EnclosedInStringProperty")]] = None
+    ConnectionName: Optional[Annotated[str, _aws_pattern("Glue", "EnclosedInStringProperty")]] = None
+    TopicName: Optional[Annotated[str, _aws_pattern("Glue", "EnclosedInStringProperty")]] = None
+    Assign: Optional[Annotated[str, _aws_pattern("Glue", "EnclosedInStringProperty")]] = None
+    SubscribePattern: Optional[Annotated[str, _aws_pattern("Glue", "EnclosedInStringProperty")]] = None
+    Classification: Optional[Annotated[str, _aws_pattern("Glue", "EnclosedInStringProperty")]] = None
+    Delimiter: Optional[Annotated[str, _aws_pattern("Glue", "EnclosedInStringProperty")]] = None
+    StartingOffsets: Optional[Annotated[str, _aws_pattern("Glue", "EnclosedInStringProperty")]] = None
+    EndingOffsets: Optional[Annotated[str, _aws_pattern("Glue", "EnclosedInStringProperty")]] = None
     PollTimeoutMs: Optional[int] = None
     NumRetries: Optional[int] = None
     RetryIntervalMs: Optional[int] = None
     MaxOffsetsPerTrigger: Optional[int] = None
     MinPartitions: Optional[int] = None
     IncludeHeaders: Optional[bool] = None
-    AddRecordTimestamp: Optional[str] = None
-    EmitConsumerLagMetrics: Optional[str] = None
+    AddRecordTimestamp: Optional[Annotated[str, _aws_pattern("Glue", "EnclosedInStringProperty")]] = None
+    EmitConsumerLagMetrics: Optional[Annotated[str, _aws_pattern("Glue", "EnclosedInStringProperty")]] = None
     StartingTimestamp: Optional[TimestampTypeDef] = None
 
 
 class KinesisStreamingSourceOptionsTypeDef(BaseValidatorModel):
-    EndpointUrl: Optional[str] = None
-    StreamName: Optional[str] = None
-    Classification: Optional[str] = None
-    Delimiter: Optional[str] = None
+    EndpointUrl: Optional[Annotated[str, _aws_pattern("Glue", "EnclosedInStringProperty")]] = None
+    StreamName: Optional[Annotated[str, _aws_pattern("Glue", "EnclosedInStringProperty")]] = None
+    Classification: Optional[Annotated[str, _aws_pattern("Glue", "EnclosedInStringProperty")]] = None
+    Delimiter: Optional[Annotated[str, _aws_pattern("Glue", "EnclosedInStringProperty")]] = None
     StartingPosition: Optional[StartingPositionType] = None
     MaxFetchTimeInMs: Optional[int] = None
     MaxFetchRecordsPerShard: Optional[int] = None
@@ -4180,20 +4192,20 @@ class KinesisStreamingSourceOptionsTypeDef(BaseValidatorModel):
     RetryIntervalMs: Optional[int] = None
     MaxRetryIntervalMs: Optional[int] = None
     AvoidEmptyBatches: Optional[bool] = None
-    StreamArn: Optional[str] = None
-    RoleArn: Optional[str] = None
-    RoleSessionName: Optional[str] = None
-    AddRecordTimestamp: Optional[str] = None
-    EmitConsumerLagMetrics: Optional[str] = None
+    StreamArn: Optional[Annotated[str, _aws_pattern("Glue", "EnclosedInStringProperty")]] = None
+    RoleArn: Optional[Annotated[str, _aws_pattern("Glue", "EnclosedInStringProperty")]] = None
+    RoleSessionName: Optional[Annotated[str, _aws_pattern("Glue", "EnclosedInStringProperty")]] = None
+    AddRecordTimestamp: Optional[Annotated[str, _aws_pattern("Glue", "EnclosedInStringProperty")]] = None
+    EmitConsumerLagMetrics: Optional[Annotated[str, _aws_pattern("Glue", "EnclosedInStringProperty")]] = None
     StartingTimestamp: Optional[TimestampTypeDef] = None
-    FanoutConsumerARN: Optional[str] = None
+    FanoutConsumerARN: Optional[Annotated[str, _aws_pattern("Glue", "EnclosedInStringProperty")]] = None
 
 
 class QuerySessionContextTypeDef(BaseValidatorModel):
-    QueryId: Optional[str] = None
+    QueryId: Optional[Annotated[str, _aws_pattern("Glue", "HashString")]] = None
     QueryStartTime: Optional[TimestampTypeDef] = None
     ClusterId: Optional[str] = None
-    QueryAuthorizationId: Optional[str] = None
+    QueryAuthorizationId: Optional[Annotated[str, _aws_pattern("Glue", "HashString")]] = None
     AdditionalContext: Optional[Dict[str, str]] = None
 
 
@@ -4309,7 +4321,7 @@ class CrawlerTargetsTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'list_crawls' function.
 class ListCrawlsRequestTypeDef(BaseValidatorModel):
-    CrawlerName: str
+    CrawlerName: Annotated[str, _aws_pattern("Glue", "NameString")]
     MaxResults: Optional[int] = None
     Filters: Optional[List[CrawlsFilterTypeDef]] = None
     NextToken: Optional[str] = None
@@ -4324,18 +4336,18 @@ class CreateClassifierRequestTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'create_data_quality_ruleset' function.
 class CreateDataQualityRulesetRequestTypeDef(BaseValidatorModel):
-    Name: str
+    Name: Annotated[str, _aws_pattern("Glue", "NameString")]
     Ruleset: str
-    Description: Optional[str] = None
+    Description: Optional[Annotated[str, _aws_pattern("Glue", "DescriptionString")]] = None
     Tags: Optional[Dict[str, str]] = None
     TargetTable: Optional[DataQualityTargetTableTypeDef] = None
-    DataQualitySecurityConfiguration: Optional[str] = None
-    ClientToken: Optional[str] = None
+    DataQualitySecurityConfiguration: Optional[Annotated[str, _aws_pattern("Glue", "NameString")]] = None
+    ClientToken: Optional[Annotated[str, _aws_pattern("Glue", "HashString")]] = None
 
 
 class DataQualityRulesetFilterCriteriaTypeDef(BaseValidatorModel):
-    Name: Optional[str] = None
-    Description: Optional[str] = None
+    Name: Optional[Annotated[str, _aws_pattern("Glue", "NameString")]] = None
+    Description: Optional[Annotated[str, _aws_pattern("Glue", "DescriptionString")]] = None
     CreatedBefore: Optional[TimestampTypeDef] = None
     CreatedAfter: Optional[TimestampTypeDef] = None
     LastModifiedBefore: Optional[TimestampTypeDef] = None
@@ -4344,25 +4356,25 @@ class DataQualityRulesetFilterCriteriaTypeDef(BaseValidatorModel):
 
 
 class DataQualityRulesetListDetailsTypeDef(BaseValidatorModel):
-    Name: Optional[str] = None
-    Description: Optional[str] = None
+    Name: Optional[Annotated[str, _aws_pattern("Glue", "NameString")]] = None
+    Description: Optional[Annotated[str, _aws_pattern("Glue", "DescriptionString")]] = None
     CreatedOn: Optional[datetime] = None
     LastModifiedOn: Optional[datetime] = None
     TargetTable: Optional[DataQualityTargetTableTypeDef] = None
-    RecommendationRunId: Optional[str] = None
+    RecommendationRunId: Optional[Annotated[str, _aws_pattern("Glue", "HashString")]] = None
     RuleCount: Optional[int] = None
 
 
 # This class is the output for the 'get_data_quality_ruleset' function.
 class GetDataQualityRulesetResponseTypeDef(BaseValidatorModel):
-    Name: str
-    Description: str
+    Name: Annotated[str, _aws_pattern("Glue", "NameString")]
+    Description: Annotated[str, _aws_pattern("Glue", "DescriptionString")]
     Ruleset: str
     TargetTable: DataQualityTargetTableTypeDef
     CreatedOn: datetime
     LastModifiedOn: datetime
-    RecommendationRunId: str
-    DataQualitySecurityConfiguration: str
+    RecommendationRunId: Annotated[str, _aws_pattern("Glue", "HashString")]
+    DataQualitySecurityConfiguration: Annotated[str, _aws_pattern("Glue", "NameString")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
@@ -4420,7 +4432,7 @@ class CreateIntegrationResponseTypeDef(BaseValidatorModel):
     SourceArn: str
     TargetArn: str
     IntegrationName: str
-    Description: str
+    Description: Annotated[str, _aws_pattern("Glue", "IntegrationDescription")]
     IntegrationArn: str
     KmsKeyId: str
     AdditionalEncryptionContext: Dict[str, str]
@@ -4438,7 +4450,7 @@ class DeleteIntegrationResponseTypeDef(BaseValidatorModel):
     SourceArn: str
     TargetArn: str
     IntegrationName: str
-    Description: str
+    Description: Annotated[str, _aws_pattern("Glue", "IntegrationDescription")]
     IntegrationArn: str
     KmsKeyId: str
     AdditionalEncryptionContext: Dict[str, str]
@@ -4467,7 +4479,7 @@ class IntegrationTypeDef(BaseValidatorModel):
     IntegrationArn: str
     Status: IntegrationStatusType
     CreateTime: datetime
-    Description: Optional[str] = None
+    Description: Optional[Annotated[str, _aws_pattern("Glue", "IntegrationDescription")]] = None
     KmsKeyId: Optional[str] = None
     AdditionalEncryptionContext: Optional[Dict[str, str]] = None
     Tags: Optional[List[TagTypeDef]] = None
@@ -4481,7 +4493,7 @@ class ModifyIntegrationResponseTypeDef(BaseValidatorModel):
     SourceArn: str
     TargetArn: str
     IntegrationName: str
-    Description: str
+    Description: Annotated[str, _aws_pattern("Glue", "IntegrationDescription")]
     IntegrationArn: str
     KmsKeyId: str
     AdditionalEncryptionContext: Dict[str, str]
@@ -4495,21 +4507,21 @@ class ModifyIntegrationResponseTypeDef(BaseValidatorModel):
 
 
 class CreatePartitionIndexRequestTypeDef(BaseValidatorModel):
-    DatabaseName: str
-    TableName: str
+    DatabaseName: Annotated[str, _aws_pattern("Glue", "NameString")]
+    TableName: Annotated[str, _aws_pattern("Glue", "NameString")]
     PartitionIndex: PartitionIndexTypeDef
-    CatalogId: Optional[str] = None
+    CatalogId: Optional[Annotated[str, _aws_pattern("Glue", "CatalogIdString")]] = None
 
 
 # This class is the input for the 'create_schema' function.
 class CreateSchemaInputTypeDef(BaseValidatorModel):
-    SchemaName: str
+    SchemaName: Annotated[str, _aws_pattern("Glue", "SchemaRegistryNameString")]
     DataFormat: DataFormatType
     RegistryId: Optional[RegistryIdTypeDef] = None
     Compatibility: Optional[CompatibilityType] = None
-    Description: Optional[str] = None
+    Description: Optional[Annotated[str, _aws_pattern("Glue", "DescriptionString")]] = None
     Tags: Optional[Dict[str, str]] = None
-    SchemaDefinition: Optional[str] = None
+    SchemaDefinition: Optional[Annotated[str, _aws_pattern("Glue", "SchemaDefinitionString")]] = None
 
 
 # This class is the input for the 'delete_registry' function.
@@ -4532,36 +4544,36 @@ class ListSchemasInputTypeDef(BaseValidatorModel):
 # This class is the input for the 'update_registry' function.
 class UpdateRegistryInputTypeDef(BaseValidatorModel):
     RegistryId: RegistryIdTypeDef
-    Description: str
+    Description: Annotated[str, _aws_pattern("Glue", "DescriptionString")]
 
 
 class SessionTypeDef(BaseValidatorModel):
-    Id: Optional[str] = None
+    Id: Optional[Annotated[str, _aws_pattern("Glue", "NameString")]] = None
     CreatedOn: Optional[datetime] = None
     Status: Optional[SessionStatusType] = None
-    ErrorMessage: Optional[str] = None
-    Description: Optional[str] = None
-    Role: Optional[str] = None
+    ErrorMessage: Optional[Annotated[str, _aws_pattern("Glue", "DescriptionString")]] = None
+    Description: Optional[Annotated[str, _aws_pattern("Glue", "DescriptionString")]] = None
+    Role: Optional[Annotated[str, _aws_pattern("Glue", "OrchestrationRoleArn")]] = None
     Command: Optional[SessionCommandTypeDef] = None
     DefaultArguments: Optional[Dict[str, str]] = None
     Connections: Optional[ConnectionsListOutputTypeDef] = None
     Progress: Optional[float] = None
     MaxCapacity: Optional[float] = None
-    SecurityConfiguration: Optional[str] = None
-    GlueVersion: Optional[str] = None
+    SecurityConfiguration: Optional[Annotated[str, _aws_pattern("Glue", "NameString")]] = None
+    GlueVersion: Optional[Annotated[str, _aws_pattern("Glue", "GlueVersionString")]] = None
     NumberOfWorkers: Optional[int] = None
     WorkerType: Optional[WorkerTypeType] = None
     CompletedOn: Optional[datetime] = None
     ExecutionTime: Optional[float] = None
     DPUSeconds: Optional[float] = None
     IdleTimeout: Optional[int] = None
-    ProfileName: Optional[str] = None
+    ProfileName: Optional[Annotated[str, _aws_pattern("Glue", "NameString")]] = None
 
 
 class DynamoDBCatalogSourceTypeDef(BaseValidatorModel):
-    Name: str
-    Database: str
-    Table: str
+    Name: Annotated[str, _aws_pattern("Glue", "NodeName")]
+    Database: Annotated[str, _aws_pattern("Glue", "EnclosedInStringProperty")]
+    Table: Annotated[str, _aws_pattern("Glue", "EnclosedInStringProperty")]
     PitrEnabled: Optional[bool] = None
     AdditionalOptions: Optional[DDBELTCatalogAdditionalOptionsTypeDef] = None
 
@@ -4577,9 +4589,9 @@ class EvaluateDataQualityMultiFrameOutputTypeDef(BaseValidatorModel):
 
 
 class EvaluateDataQualityMultiFrameTypeDef(BaseValidatorModel):
-    Name: str
-    Inputs: List[str]
-    Ruleset: str
+    Name: Annotated[str, _aws_pattern("Glue", "NodeName")]
+    Inputs: List[Annotated[str, _aws_pattern("Glue", "NodeId")]]
+    Ruleset: Annotated[str, _aws_pattern("Glue", "DQDLString")]
     AdditionalDataSources: Optional[Dict[str, str]] = None
     PublishingOptions: Optional[DQResultsPublishingOptionsTypeDef] = None
     AdditionalOptions: Optional[Dict[AdditionalOptionKeysType, str]] = None
@@ -4596,9 +4608,9 @@ class EvaluateDataQualityOutputTypeDef(BaseValidatorModel):
 
 
 class EvaluateDataQualityTypeDef(BaseValidatorModel):
-    Name: str
-    Inputs: List[str]
-    Ruleset: str
+    Name: Annotated[str, _aws_pattern("Glue", "NodeName")]
+    Inputs: List[Annotated[str, _aws_pattern("Glue", "NodeId")]]
+    Ruleset: Annotated[str, _aws_pattern("Glue", "DQDLString")]
     Output: Optional[DQTransformOutputType] = None
     PublishingOptions: Optional[DQResultsPublishingOptionsTypeDef] = None
     StopJobOnFailureOptions: Optional[DQStopJobOnFailureOptionsTypeDef] = None
@@ -4623,10 +4635,10 @@ DataQualityGlueTableUnionTypeDef = Union[DataQualityGlueTableOutputTypeDef, Data
 
 
 class MetricBasedObservationTypeDef(BaseValidatorModel):
-    MetricName: Optional[str] = None
-    StatisticId: Optional[str] = None
+    MetricName: Optional[Annotated[str, _aws_pattern("Glue", "NameString")]] = None
+    StatisticId: Optional[Annotated[str, _aws_pattern("Glue", "HashString")]] = None
     MetricValues: Optional[DataQualityMetricValuesTypeDef] = None
-    NewRules: Optional[List[str]] = None
+    NewRules: Optional[List[Annotated[str, _aws_pattern("Glue", "NameString")]]] = None
 
 
 class DataSourceOutputTypeDef(BaseValidatorModel):
@@ -4635,7 +4647,7 @@ class DataSourceOutputTypeDef(BaseValidatorModel):
 
 
 class NullValueFieldTypeDef(BaseValidatorModel):
-    Value: str
+    Value: Annotated[str, _aws_pattern("Glue", "EnclosedInStringProperty")]
     Datatype: DatatypeTypeDef
 
 
@@ -4654,13 +4666,13 @@ class DeleteSchemaInputTypeDef(BaseValidatorModel):
 # This class is the input for the 'delete_schema_versions' function.
 class DeleteSchemaVersionsInputTypeDef(BaseValidatorModel):
     SchemaId: SchemaIdTypeDef
-    Versions: str
+    Versions: Annotated[str, _aws_pattern("Glue", "VersionsString")]
 
 
 # This class is the input for the 'get_schema_by_definition' function.
 class GetSchemaByDefinitionInputTypeDef(BaseValidatorModel):
     SchemaId: SchemaIdTypeDef
-    SchemaDefinition: str
+    SchemaDefinition: Annotated[str, _aws_pattern("Glue", "SchemaDefinitionString")]
 
 
 # This class is the input for the 'get_schema' function.
@@ -4678,12 +4690,12 @@ class ListSchemaVersionsInputTypeDef(BaseValidatorModel):
 # This class is the input for the 'register_schema_version' function.
 class RegisterSchemaVersionInputTypeDef(BaseValidatorModel):
     SchemaId: SchemaIdTypeDef
-    SchemaDefinition: str
+    SchemaDefinition: Annotated[str, _aws_pattern("Glue", "SchemaDefinitionString")]
 
 
 class SchemaReferenceTypeDef(BaseValidatorModel):
     SchemaId: Optional[SchemaIdTypeDef] = None
-    SchemaVersionId: Optional[str] = None
+    SchemaVersionId: Optional[Annotated[str, _aws_pattern("Glue", "SchemaVersionIdString")]] = None
     SchemaVersionNumber: Optional[int] = None
 
 
@@ -4747,6 +4759,7 @@ class GetTableVersionsRequestPaginateTypeDef(BaseValidatorModel):
     DatabaseName: str
     TableName: str
     CatalogId: Optional[str] = None
+    AuditContext: Optional[AuditContextTypeDef] = None
     PaginationConfig: Optional[PaginatorConfigTypeDef] = None
 
 
@@ -4850,7 +4863,7 @@ class ListWorkflowsRequestPaginateTypeDef(BaseValidatorModel):
 class DescribeEntityResponseTypeDef(BaseValidatorModel):
     Fields: List[FieldTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
-    NextToken: Optional[str] = None
+    NextToken: Optional[Annotated[str, _aws_pattern("Glue", "NextToken")]] = None
 
 
 # This class is the input for the 'describe_integrations' function.
@@ -4886,9 +4899,9 @@ class S3DeltaDirectTargetOutputTypeDef(BaseValidatorModel):
 
 
 class S3DeltaDirectTargetTypeDef(BaseValidatorModel):
-    Name: str
-    Inputs: List[str]
-    Path: str
+    Name: Annotated[str, _aws_pattern("Glue", "NodeName")]
+    Inputs: List[Annotated[str, _aws_pattern("Glue", "NodeId")]]
+    Path: Annotated[str, _aws_pattern("Glue", "EnclosedInStringProperty")]
     Compression: DeltaTargetCompressionTypeType
     Format: TargetFormatType
     PartitionKeys: Optional[List[List[str]]] = None
@@ -4910,9 +4923,9 @@ class S3GlueParquetTargetOutputTypeDef(BaseValidatorModel):
 
 
 class S3GlueParquetTargetTypeDef(BaseValidatorModel):
-    Name: str
-    Inputs: List[str]
-    Path: str
+    Name: Annotated[str, _aws_pattern("Glue", "NodeName")]
+    Inputs: List[Annotated[str, _aws_pattern("Glue", "NodeId")]]
+    Path: Annotated[str, _aws_pattern("Glue", "EnclosedInStringProperty")]
     PartitionKeys: Optional[List[List[str]]] = None
     Compression: Optional[ParquetCompressionTypeType] = None
     NumberTargetPartitions: Optional[str] = None
@@ -4934,9 +4947,9 @@ class S3HudiDirectTargetOutputTypeDef(BaseValidatorModel):
 
 
 class S3HudiDirectTargetTypeDef(BaseValidatorModel):
-    Name: str
-    Inputs: List[str]
-    Path: str
+    Name: Annotated[str, _aws_pattern("Glue", "NodeName")]
+    Inputs: List[Annotated[str, _aws_pattern("Glue", "NodeId")]]
+    Path: Annotated[str, _aws_pattern("Glue", "EnclosedInStringProperty")]
     Compression: HudiTargetCompressionTypeType
     Format: TargetFormatType
     AdditionalOptions: Dict[str, str]
@@ -4969,7 +4982,7 @@ class EncryptionConfigurationTypeDef(BaseValidatorModel):
 class ListEntitiesResponseTypeDef(BaseValidatorModel):
     Entities: List[EntityTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
-    NextToken: Optional[str] = None
+    NextToken: Optional[Annotated[str, _aws_pattern("Glue", "NextToken")]] = None
 
 
 class SchemaVersionErrorItemTypeDef(BaseValidatorModel):
@@ -4978,8 +4991,8 @@ class SchemaVersionErrorItemTypeDef(BaseValidatorModel):
 
 
 class ExtractedParameterTypeDef(BaseValidatorModel):
-    Key: Optional[str] = None
-    DefaultValue: Optional[str] = None
+    Key: Optional[Annotated[str, _aws_pattern("Glue", "ConnectorPropertyKey")]] = None
+    DefaultValue: Optional[Annotated[str, _aws_pattern("Glue", "DefaultValue")]] = None
     PropertyLocation: Optional[PropertyLocationType] = None
     Value: Optional[ResponseExtractionMappingTypeDef] = None
 
@@ -5010,7 +5023,7 @@ class GetConnectionsRequestPaginateTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'get_connections' function.
 class GetConnectionsRequestTypeDef(BaseValidatorModel):
-    CatalogId: Optional[str] = None
+    CatalogId: Optional[Annotated[str, _aws_pattern("Glue", "CatalogIdString")]] = None
     Filter: Optional[GetConnectionsFilterTypeDef] = None
     HidePassword: Optional[bool] = None
     NextToken: Optional[str] = None
@@ -5037,10 +5050,10 @@ class ResetJobBookmarkResponseTypeDef(BaseValidatorModel):
 
 
 class TransformFilterCriteriaTypeDef(BaseValidatorModel):
-    Name: Optional[str] = None
+    Name: Optional[Annotated[str, _aws_pattern("Glue", "NameString")]] = None
     TransformType: Optional[Literal["FIND_MATCHES"]] = None
     Status: Optional[TransformStatusTypeType] = None
-    GlueVersion: Optional[str] = None
+    GlueVersion: Optional[Annotated[str, _aws_pattern("Glue", "GlueVersionString")]] = None
     CreatedBefore: Optional[TimestampTypeDef] = None
     CreatedAfter: Optional[TimestampTypeDef] = None
     LastModifiedBefore: Optional[TimestampTypeDef] = None
@@ -5076,21 +5089,23 @@ class GetPartitionsRequestPaginateTypeDef(BaseValidatorModel):
     ExcludeColumnSchema: Optional[bool] = None
     TransactionId: Optional[str] = None
     QueryAsOfTime: Optional[TimestampTypeDef] = None
+    AuditContext: Optional[AuditContextTypeDef] = None
     PaginationConfig: Optional[PaginatorConfigTypeDef] = None
 
 
 # This class is the input for the 'get_partitions' function.
 class GetPartitionsRequestTypeDef(BaseValidatorModel):
-    DatabaseName: str
-    TableName: str
-    CatalogId: Optional[str] = None
-    Expression: Optional[str] = None
+    DatabaseName: Annotated[str, _aws_pattern("Glue", "NameString")]
+    TableName: Annotated[str, _aws_pattern("Glue", "NameString")]
+    CatalogId: Optional[Annotated[str, _aws_pattern("Glue", "CatalogIdString")]] = None
+    Expression: Optional[Annotated[str, _aws_pattern("Glue", "PredicateString")]] = None
     NextToken: Optional[str] = None
     Segment: Optional[SegmentTypeDef] = None
     MaxResults: Optional[int] = None
     ExcludeColumnSchema: Optional[bool] = None
-    TransactionId: Optional[str] = None
+    TransactionId: Optional[Annotated[str, _aws_pattern("Glue", "TransactionIdString")]] = None
     QueryAsOfTime: Optional[TimestampTypeDef] = None
+    AuditContext: Optional[AuditContextTypeDef] = None
 
 
 # This class is the output for the 'get_resource_policies' function.
@@ -5103,7 +5118,7 @@ class GetResourcePoliciesResponseTypeDef(BaseValidatorModel):
 # This class is the input for the 'get_schema_version' function.
 class GetSchemaVersionInputTypeDef(BaseValidatorModel):
     SchemaId: Optional[SchemaIdTypeDef] = None
-    SchemaVersionId: Optional[str] = None
+    SchemaVersionId: Optional[Annotated[str, _aws_pattern("Glue", "SchemaVersionIdString")]] = None
     SchemaVersionNumber: Optional[SchemaVersionNumberTypeDef] = None
 
 
@@ -5120,7 +5135,7 @@ class UpdateSchemaInputTypeDef(BaseValidatorModel):
     SchemaId: SchemaIdTypeDef
     SchemaVersionNumber: Optional[SchemaVersionNumberTypeDef] = None
     Compatibility: Optional[CompatibilityType] = None
-    Description: Optional[str] = None
+    Description: Optional[Annotated[str, _aws_pattern("Glue", "DescriptionString")]] = None
 
 
 class GlueSchemaOutputTypeDef(BaseValidatorModel):
@@ -5135,18 +5150,18 @@ GlueTableUnionTypeDef = Union[GlueTableOutputTypeDef, GlueTableTypeDef]
 
 
 class GovernedCatalogSourceTypeDef(BaseValidatorModel):
-    Name: str
-    Database: str
-    Table: str
-    PartitionPredicate: Optional[str] = None
+    Name: Annotated[str, _aws_pattern("Glue", "NodeName")]
+    Database: Annotated[str, _aws_pattern("Glue", "EnclosedInStringProperty")]
+    Table: Annotated[str, _aws_pattern("Glue", "EnclosedInStringProperty")]
+    PartitionPredicate: Optional[Annotated[str, _aws_pattern("Glue", "EnclosedInStringProperty")]] = None
     AdditionalOptions: Optional[S3SourceAdditionalOptionsTypeDef] = None
 
 
 class S3CatalogSourceTypeDef(BaseValidatorModel):
-    Name: str
-    Database: str
-    Table: str
-    PartitionPredicate: Optional[str] = None
+    Name: Annotated[str, _aws_pattern("Glue", "NodeName")]
+    Database: Annotated[str, _aws_pattern("Glue", "EnclosedInStringProperty")]
+    Table: Annotated[str, _aws_pattern("Glue", "EnclosedInStringProperty")]
+    PartitionPredicate: Optional[Annotated[str, _aws_pattern("Glue", "EnclosedInStringProperty")]] = None
     AdditionalOptions: Optional[S3SourceAdditionalOptionsTypeDef] = None
 
 
@@ -5209,11 +5224,11 @@ JDBCConnectorOptionsUnionTypeDef = Union[JDBCConnectorOptionsOutputTypeDef, JDBC
 
 
 class JobRunTypeDef(BaseValidatorModel):
-    Id: Optional[str] = None
+    Id: Optional[Annotated[str, _aws_pattern("Glue", "IdString")]] = None
     Attempt: Optional[int] = None
-    PreviousRunId: Optional[str] = None
-    TriggerName: Optional[str] = None
-    JobName: Optional[str] = None
+    PreviousRunId: Optional[Annotated[str, _aws_pattern("Glue", "IdString")]] = None
+    TriggerName: Optional[Annotated[str, _aws_pattern("Glue", "NameString")]] = None
+    JobName: Optional[Annotated[str, _aws_pattern("Glue", "NameString")]] = None
     JobMode: Optional[JobModeType] = None
     JobRunQueuingEnabled: Optional[bool] = None
     StartedOn: Optional[datetime] = None
@@ -5229,14 +5244,14 @@ class JobRunTypeDef(BaseValidatorModel):
     MaxCapacity: Optional[float] = None
     WorkerType: Optional[WorkerTypeType] = None
     NumberOfWorkers: Optional[int] = None
-    SecurityConfiguration: Optional[str] = None
+    SecurityConfiguration: Optional[Annotated[str, _aws_pattern("Glue", "NameString")]] = None
     LogGroupName: Optional[str] = None
     NotificationProperty: Optional[NotificationPropertyTypeDef] = None
-    GlueVersion: Optional[str] = None
+    GlueVersion: Optional[Annotated[str, _aws_pattern("Glue", "GlueVersionString")]] = None
     DPUSeconds: Optional[float] = None
     ExecutionClass: Optional[ExecutionClassType] = None
-    MaintenanceWindow: Optional[str] = None
-    ProfileName: Optional[str] = None
+    MaintenanceWindow: Optional[Annotated[str, _aws_pattern("Glue", "MaintenanceWindow")]] = None
+    ProfileName: Optional[Annotated[str, _aws_pattern("Glue", "NameString")]] = None
     StateDetail: Optional[str] = None
     ExecutionRoleSessionPolicy: Optional[str] = None
 
@@ -5289,7 +5304,7 @@ class ListUsageProfilesResponseTypeDef(BaseValidatorModel):
 
 class TransformEncryptionTypeDef(BaseValidatorModel):
     MlUserDataEncryption: Optional[MLUserDataEncryptionTypeDef] = None
-    TaskRunSecurityConfigurationName: Optional[str] = None
+    TaskRunSecurityConfigurationName: Optional[Annotated[str, _aws_pattern("Glue", "NameString")]] = None
 
 
 MappingUnionTypeDef = Union[MappingOutputTypeDef, MappingTypeDef]
@@ -5298,7 +5313,7 @@ MergeUnionTypeDef = Union[MergeOutputTypeDef, MergeTypeDef]
 
 
 class MetadataInfoTypeDef(BaseValidatorModel):
-    MetadataValue: Optional[str] = None
+    MetadataValue: Optional[Annotated[str, _aws_pattern("Glue", "MetadataValueString")]] = None
     CreatedTime: Optional[str] = None
     OtherMetadataValueList: Optional[List[OtherMetadataValueListItemTypeDef]] = None
 
@@ -5308,14 +5323,14 @@ class PutSchemaVersionMetadataInputTypeDef(BaseValidatorModel):
     MetadataKeyValue: MetadataKeyValuePairTypeDef
     SchemaId: Optional[SchemaIdTypeDef] = None
     SchemaVersionNumber: Optional[SchemaVersionNumberTypeDef] = None
-    SchemaVersionId: Optional[str] = None
+    SchemaVersionId: Optional[Annotated[str, _aws_pattern("Glue", "SchemaVersionIdString")]] = None
 
 
 # This class is the input for the 'query_schema_version_metadata' function.
 class QuerySchemaVersionMetadataInputTypeDef(BaseValidatorModel):
     SchemaId: Optional[SchemaIdTypeDef] = None
     SchemaVersionNumber: Optional[SchemaVersionNumberTypeDef] = None
-    SchemaVersionId: Optional[str] = None
+    SchemaVersionId: Optional[Annotated[str, _aws_pattern("Glue", "SchemaVersionIdString")]] = None
     MetadataList: Optional[List[MetadataKeyValuePairTypeDef]] = None
     MaxResults: Optional[int] = None
     NextToken: Optional[str] = None
@@ -5326,7 +5341,7 @@ class RemoveSchemaVersionMetadataInputTypeDef(BaseValidatorModel):
     MetadataKeyValue: MetadataKeyValuePairTypeDef
     SchemaId: Optional[SchemaIdTypeDef] = None
     SchemaVersionNumber: Optional[SchemaVersionNumberTypeDef] = None
-    SchemaVersionId: Optional[str] = None
+    SchemaVersionId: Optional[Annotated[str, _aws_pattern("Glue", "SchemaVersionIdString")]] = None
 
 
 MicrosoftSQLServerCatalogTargetUnionTypeDef = Union[
@@ -5339,14 +5354,14 @@ MySQLCatalogTargetUnionTypeDef = Union[MySQLCatalogTargetOutputTypeDef, MySQLCat
 class OAuth2PropertiesTypeDef(BaseValidatorModel):
     OAuth2GrantType: Optional[OAuth2GrantTypeType] = None
     OAuth2ClientApplication: Optional[OAuth2ClientApplicationTypeDef] = None
-    TokenUrl: Optional[str] = None
+    TokenUrl: Optional[Annotated[str, _aws_pattern("Glue", "TokenUrl")]] = None
     TokenUrlParametersMap: Optional[Dict[str, str]] = None
 
 
 class OAuth2PropertiesInputTypeDef(BaseValidatorModel):
     OAuth2GrantType: Optional[OAuth2GrantTypeType] = None
     OAuth2ClientApplication: Optional[OAuth2ClientApplicationTypeDef] = None
-    TokenUrl: Optional[str] = None
+    TokenUrl: Optional[Annotated[str, _aws_pattern("Glue", "TokenUrl")]] = None
     TokenUrlParametersMap: Optional[Dict[str, str]] = None
     AuthorizationCodeProperties: Optional[AuthorizationCodePropertiesTypeDef] = None
     OAuth2Credentials: Optional[OAuth2CredentialsTypeDef] = None
@@ -5387,29 +5402,29 @@ RenameFieldUnionTypeDef = Union[RenameFieldOutputTypeDef, RenameFieldTypeDef]
 
 
 class UserDefinedFunctionInputTypeDef(BaseValidatorModel):
-    FunctionName: Optional[str] = None
-    ClassName: Optional[str] = None
-    OwnerName: Optional[str] = None
+    FunctionName: Optional[Annotated[str, _aws_pattern("Glue", "NameString")]] = None
+    ClassName: Optional[Annotated[str, _aws_pattern("Glue", "NameString")]] = None
+    OwnerName: Optional[Annotated[str, _aws_pattern("Glue", "NameString")]] = None
     FunctionType: Optional[FunctionTypeType] = None
     OwnerType: Optional[PrincipalTypeType] = None
     ResourceUris: Optional[List[ResourceUriTypeDef]] = None
 
 
 class UserDefinedFunctionTypeDef(BaseValidatorModel):
-    FunctionName: Optional[str] = None
-    DatabaseName: Optional[str] = None
-    ClassName: Optional[str] = None
-    OwnerName: Optional[str] = None
+    FunctionName: Optional[Annotated[str, _aws_pattern("Glue", "NameString")]] = None
+    DatabaseName: Optional[Annotated[str, _aws_pattern("Glue", "NameString")]] = None
+    ClassName: Optional[Annotated[str, _aws_pattern("Glue", "NameString")]] = None
+    OwnerName: Optional[Annotated[str, _aws_pattern("Glue", "NameString")]] = None
     FunctionType: Optional[FunctionTypeType] = None
     OwnerType: Optional[PrincipalTypeType] = None
     CreateTime: Optional[datetime] = None
     ResourceUris: Optional[List[ResourceUriTypeDef]] = None
-    CatalogId: Optional[str] = None
+    CatalogId: Optional[Annotated[str, _aws_pattern("Glue", "CatalogIdString")]] = None
 
 
 # This class is the input for the 'search_tables' function.
 class SearchTablesRequestTypeDef(BaseValidatorModel):
-    CatalogId: Optional[str] = None
+    CatalogId: Optional[Annotated[str, _aws_pattern("Glue", "CatalogIdString")]] = None
     NextToken: Optional[str] = None
     Filters: Optional[List[PropertyPredicateTypeDef]] = None
     SearchText: Optional[str] = None
@@ -5444,21 +5459,21 @@ class StatementOutputTypeDef(BaseValidatorModel):
 
 
 class StatisticAnnotationTypeDef(BaseValidatorModel):
-    ProfileId: Optional[str] = None
-    StatisticId: Optional[str] = None
+    ProfileId: Optional[Annotated[str, _aws_pattern("Glue", "HashString")]] = None
+    StatisticId: Optional[Annotated[str, _aws_pattern("Glue", "HashString")]] = None
     StatisticRecordedOn: Optional[datetime] = None
     InclusionAnnotation: Optional[TimestampedInclusionAnnotationTypeDef] = None
 
 
 class StatisticSummaryTypeDef(BaseValidatorModel):
-    StatisticId: Optional[str] = None
-    ProfileId: Optional[str] = None
+    StatisticId: Optional[Annotated[str, _aws_pattern("Glue", "HashString")]] = None
+    ProfileId: Optional[Annotated[str, _aws_pattern("Glue", "HashString")]] = None
     RunIdentifier: Optional[RunIdentifierTypeDef] = None
-    StatisticName: Optional[str] = None
+    StatisticName: Optional[Annotated[str, _aws_pattern("Glue", "StatisticNameString")]] = None
     DoubleValue: Optional[float] = None
     EvaluationLevel: Optional[StatisticEvaluationLevelType] = None
-    ColumnsReferenced: Optional[List[str]] = None
-    ReferencedDatasets: Optional[List[str]] = None
+    ColumnsReferenced: Optional[List[Annotated[str, _aws_pattern("Glue", "NameString")]]] = None
+    ReferencedDatasets: Optional[List[Annotated[str, _aws_pattern("Glue", "NameString")]]] = None
     StatisticProperties: Optional[Dict[str, str]] = None
     RecordedOn: Optional[datetime] = None
     InclusionAnnotation: Optional[TimestampedInclusionAnnotationTypeDef] = None
@@ -5486,7 +5501,7 @@ class ViewDefinitionInputTypeDef(BaseValidatorModel):
     Definer: Optional[str] = None
     Representations: Optional[List[ViewRepresentationInputTypeDef]] = None
     ViewVersionId: Optional[int] = None
-    ViewVersionToken: Optional[str] = None
+    ViewVersionToken: Optional[Annotated[str, _aws_pattern("Glue", "VersionString")]] = None
     RefreshSeconds: Optional[int] = None
     LastRefreshType: Optional[LastRefreshTypeType] = None
     SubObjects: Optional[List[str]] = None
@@ -5497,7 +5512,7 @@ class ViewDefinitionTypeDef(BaseValidatorModel):
     IsProtected: Optional[bool] = None
     Definer: Optional[str] = None
     ViewVersionId: Optional[int] = None
-    ViewVersionToken: Optional[str] = None
+    ViewVersionToken: Optional[Annotated[str, _aws_pattern("Glue", "HashString")]] = None
     RefreshSeconds: Optional[int] = None
     LastRefreshType: Optional[LastRefreshTypeType] = None
     SubObjects: Optional[List[str]] = None
@@ -5509,8 +5524,8 @@ ActionUnionTypeDef = Union[ActionOutputTypeDef, ActionTypeDef]
 
 
 class AggregateTypeDef(BaseValidatorModel):
-    Name: str
-    Inputs: List[str]
+    Name: Annotated[str, _aws_pattern("Glue", "NodeName")]
+    Inputs: List[Annotated[str, _aws_pattern("Glue", "NodeId")]]
     Groups: List[List[str]]
     Aggs: List[AggregateOperationUnionTypeDef]
 
@@ -5559,7 +5574,7 @@ SnowflakeNodeDataUnionTypeDef = Union[SnowflakeNodeDataOutputTypeDef, SnowflakeN
 
 
 class PartitionIndexDescriptorTypeDef(BaseValidatorModel):
-    IndexName: str
+    IndexName: Annotated[str, _aws_pattern("Glue", "NameString")]
     Keys: List[KeySchemaElementTypeDef]
     IndexStatus: PartitionIndexStatusType
     BackfillErrors: Optional[List[BackfillErrorTypeDef]] = None
@@ -5618,7 +5633,7 @@ DecimalNumberUnionTypeDef = Union[DecimalNumberOutputTypeDef, DecimalNumberTypeD
 # This class is the output for the 'batch_get_blueprints' function.
 class BatchGetBlueprintsResponseTypeDef(BaseValidatorModel):
     Blueprints: List[BlueprintTypeDef]
-    MissingBlueprints: List[str]
+    MissingBlueprints: List[Annotated[str, _aws_pattern("Glue", "OrchestrationNameString")]]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
@@ -5694,9 +5709,9 @@ KinesisStreamingSourceOptionsUnionTypeDef = Union[
 
 # This class is the input for the 'get_unfiltered_partition_metadata' function.
 class GetUnfilteredPartitionMetadataRequestTypeDef(BaseValidatorModel):
-    CatalogId: str
-    DatabaseName: str
-    TableName: str
+    CatalogId: Annotated[str, _aws_pattern("Glue", "CatalogIdString")]
+    DatabaseName: Annotated[str, _aws_pattern("Glue", "NameString")]
+    TableName: Annotated[str, _aws_pattern("Glue", "NameString")]
     PartitionValues: List[str]
     SupportedPermissionTypes: List[PermissionTypeType]
     Region: Optional[str] = None
@@ -5706,12 +5721,12 @@ class GetUnfilteredPartitionMetadataRequestTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'get_unfiltered_partitions_metadata' function.
 class GetUnfilteredPartitionsMetadataRequestTypeDef(BaseValidatorModel):
-    CatalogId: str
-    DatabaseName: str
-    TableName: str
+    CatalogId: Annotated[str, _aws_pattern("Glue", "CatalogIdString")]
+    DatabaseName: Annotated[str, _aws_pattern("Glue", "NameString")]
+    TableName: Annotated[str, _aws_pattern("Glue", "NameString")]
     SupportedPermissionTypes: List[PermissionTypeType]
     Region: Optional[str] = None
-    Expression: Optional[str] = None
+    Expression: Optional[Annotated[str, _aws_pattern("Glue", "PredicateString")]] = None
     AuditContext: Optional[AuditContextTypeDef] = None
     NextToken: Optional[str] = None
     Segment: Optional[SegmentTypeDef] = None
@@ -5721,9 +5736,9 @@ class GetUnfilteredPartitionsMetadataRequestTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'get_unfiltered_table_metadata' function.
 class GetUnfilteredTableMetadataRequestTypeDef(BaseValidatorModel):
-    CatalogId: str
-    DatabaseName: str
-    Name: str
+    CatalogId: Annotated[str, _aws_pattern("Glue", "CatalogIdString")]
+    DatabaseName: Annotated[str, _aws_pattern("Glue", "NameString")]
+    Name: Annotated[str, _aws_pattern("Glue", "NameString")]
     SupportedPermissionTypes: List[PermissionTypeType]
     Region: Optional[str] = None
     AuditContext: Optional[AuditContextTypeDef] = None
@@ -5736,7 +5751,7 @@ class GetUnfilteredTableMetadataRequestTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'get_ml_task_runs' function.
 class GetMLTaskRunsRequestTypeDef(BaseValidatorModel):
-    TransformId: str
+    TransformId: Annotated[str, _aws_pattern("Glue", "HashString")]
     NextToken: Optional[str] = None
     MaxResults: Optional[int] = None
     Filter: Optional[TaskRunFilterCriteriaTypeDef] = None
@@ -5745,8 +5760,8 @@ class GetMLTaskRunsRequestTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'list_data_quality_statistic_annotations' function.
 class ListDataQualityStatisticAnnotationsRequestTypeDef(BaseValidatorModel):
-    StatisticId: Optional[str] = None
-    ProfileId: Optional[str] = None
+    StatisticId: Optional[Annotated[str, _aws_pattern("Glue", "HashString")]] = None
+    ProfileId: Optional[Annotated[str, _aws_pattern("Glue", "HashString")]] = None
     TimestampFilter: Optional[TimestampFilterTypeDef] = None
     MaxResults: Optional[int] = None
     NextToken: Optional[str] = None
@@ -5754,20 +5769,20 @@ class ListDataQualityStatisticAnnotationsRequestTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'list_data_quality_statistics' function.
 class ListDataQualityStatisticsRequestTypeDef(BaseValidatorModel):
-    StatisticId: Optional[str] = None
-    ProfileId: Optional[str] = None
+    StatisticId: Optional[Annotated[str, _aws_pattern("Glue", "HashString")]] = None
+    ProfileId: Optional[Annotated[str, _aws_pattern("Glue", "HashString")]] = None
     TimestampFilter: Optional[TimestampFilterTypeDef] = None
     MaxResults: Optional[int] = None
     NextToken: Optional[str] = None
 
 
 class TriggerTypeDef(BaseValidatorModel):
-    Name: Optional[str] = None
-    WorkflowName: Optional[str] = None
-    Id: Optional[str] = None
+    Name: Optional[Annotated[str, _aws_pattern("Glue", "NameString")]] = None
+    WorkflowName: Optional[Annotated[str, _aws_pattern("Glue", "NameString")]] = None
+    Id: Optional[Annotated[str, _aws_pattern("Glue", "IdString")]] = None
     Type: Optional[TriggerTypeType] = None
     State: Optional[TriggerStateType] = None
-    Description: Optional[str] = None
+    Description: Optional[Annotated[str, _aws_pattern("Glue", "DescriptionString")]] = None
     Schedule: Optional[str] = None
     Actions: Optional[List[ActionOutputTypeDef]] = None
     Predicate: Optional[PredicateOutputTypeDef] = None
@@ -5779,8 +5794,8 @@ PredicateUnionTypeDef = Union[PredicateOutputTypeDef, PredicateTypeDef]
 
 # This class is the output for the 'get_usage_profile' function.
 class GetUsageProfileResponseTypeDef(BaseValidatorModel):
-    Name: str
-    Description: str
+    Name: Annotated[str, _aws_pattern("Glue", "NameString")]
+    Description: Annotated[str, _aws_pattern("Glue", "DescriptionString")]
     Configuration: ProfileConfigurationOutputTypeDef
     CreatedOn: datetime
     LastModifiedOn: datetime
@@ -5799,15 +5814,15 @@ class EvaluationMetricsTypeDef(BaseValidatorModel):
 class ListConnectionTypesResponseTypeDef(BaseValidatorModel):
     ConnectionTypes: List[ConnectionTypeBriefTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
-    NextToken: Optional[str] = None
+    NextToken: Optional[Annotated[str, _aws_pattern("Glue", "NextToken")]] = None
 
 
 # This class is the input for the 'create_session' function.
 class CreateSessionRequestTypeDef(BaseValidatorModel):
-    Id: str
-    Role: str
+    Id: Annotated[str, _aws_pattern("Glue", "NameString")]
+    Role: Annotated[str, _aws_pattern("Glue", "OrchestrationRoleArn")]
     Command: SessionCommandTypeDef
-    Description: Optional[str] = None
+    Description: Optional[Annotated[str, _aws_pattern("Glue", "DescriptionString")]] = None
     Timeout: Optional[int] = None
     IdleTimeout: Optional[int] = None
     DefaultArguments: Optional[Dict[str, str]] = None
@@ -5815,10 +5830,10 @@ class CreateSessionRequestTypeDef(BaseValidatorModel):
     MaxCapacity: Optional[float] = None
     NumberOfWorkers: Optional[int] = None
     WorkerType: Optional[WorkerTypeType] = None
-    SecurityConfiguration: Optional[str] = None
-    GlueVersion: Optional[str] = None
+    SecurityConfiguration: Optional[Annotated[str, _aws_pattern("Glue", "NameString")]] = None
+    GlueVersion: Optional[Annotated[str, _aws_pattern("Glue", "GlueVersionString")]] = None
     Tags: Optional[Dict[str, str]] = None
-    RequestOrigin: Optional[str] = None
+    RequestOrigin: Optional[Annotated[str, _aws_pattern("Glue", "OrchestrationNameString")]] = None
 
 
 class BasicAuthenticationPropertiesTypeDef(BaseValidatorModel):
@@ -5868,12 +5883,12 @@ class JWTBearerPropertiesTypeDef(BaseValidatorModel):
 
 
 class CrawlerTypeDef(BaseValidatorModel):
-    Name: Optional[str] = None
+    Name: Optional[Annotated[str, _aws_pattern("Glue", "NameString")]] = None
     Role: Optional[str] = None
     Targets: Optional[CrawlerTargetsOutputTypeDef] = None
     DatabaseName: Optional[str] = None
-    Description: Optional[str] = None
-    Classifiers: Optional[List[str]] = None
+    Description: Optional[Annotated[str, _aws_pattern("Glue", "DescriptionString")]] = None
+    Classifiers: Optional[List[Annotated[str, _aws_pattern("Glue", "NameString")]]] = None
     RecrawlPolicy: Optional[RecrawlPolicyTypeDef] = None
     SchemaChangePolicy: Optional[SchemaChangePolicyTypeDef] = None
     LineageConfiguration: Optional[LineageConfigurationTypeDef] = None
@@ -5943,7 +5958,7 @@ class GetSessionResponseTypeDef(BaseValidatorModel):
 
 # This class is the output for the 'list_sessions' function.
 class ListSessionsResponseTypeDef(BaseValidatorModel):
-    Ids: List[str]
+    Ids: List[Annotated[str, _aws_pattern("Glue", "NameString")]]
     Sessions: List[SessionTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
     NextToken: Optional[str] = None
@@ -5964,14 +5979,14 @@ class GetDataCatalogEncryptionSettingsResponseTypeDef(BaseValidatorModel):
 
 class PutDataCatalogEncryptionSettingsRequestTypeDef(BaseValidatorModel):
     DataCatalogEncryptionSettings: DataCatalogEncryptionSettingsTypeDef
-    CatalogId: Optional[str] = None
+    CatalogId: Optional[Annotated[str, _aws_pattern("Glue", "CatalogIdString")]] = None
 
 
 class CatalogTypeDef(BaseValidatorModel):
-    Name: str
-    CatalogId: Optional[str] = None
+    Name: Annotated[str, _aws_pattern("Glue", "CatalogNameString")]
+    CatalogId: Optional[Annotated[str, _aws_pattern("Glue", "CatalogIdString")]] = None
     ResourceArn: Optional[str] = None
-    Description: Optional[str] = None
+    Description: Optional[Annotated[str, _aws_pattern("Glue", "DescriptionString")]] = None
     Parameters: Optional[Dict[str, str]] = None
     CreateTime: Optional[datetime] = None
     UpdateTime: Optional[datetime] = None
@@ -5984,14 +5999,14 @@ class CatalogTypeDef(BaseValidatorModel):
 
 
 class DatabaseTypeDef(BaseValidatorModel):
-    Name: str
-    Description: Optional[str] = None
-    LocationUri: Optional[str] = None
+    Name: Annotated[str, _aws_pattern("Glue", "NameString")]
+    Description: Optional[Annotated[str, _aws_pattern("Glue", "DescriptionString")]] = None
+    LocationUri: Optional[Annotated[str, _aws_pattern("Glue", "URI")]] = None
     Parameters: Optional[Dict[str, str]] = None
     CreateTime: Optional[datetime] = None
     CreateTableDefaultPermissions: Optional[List[PrincipalPermissionsOutputTypeDef]] = None
     TargetDatabase: Optional[DatabaseIdentifierTypeDef] = None
-    CatalogId: Optional[str] = None
+    CatalogId: Optional[Annotated[str, _aws_pattern("Glue", "CatalogIdString")]] = None
     FederatedDatabase: Optional[FederatedDatabaseTypeDef] = None
 
 
@@ -5999,27 +6014,27 @@ PrincipalPermissionsUnionTypeDef = Union[PrincipalPermissionsOutputTypeDef, Prin
 
 
 class DataQualityObservationTypeDef(BaseValidatorModel):
-    Description: Optional[str] = None
+    Description: Optional[Annotated[str, _aws_pattern("Glue", "DataQualityObservationDescription")]] = None
     MetricBasedObservation: Optional[MetricBasedObservationTypeDef] = None
 
 
 class DataQualityResultDescriptionTypeDef(BaseValidatorModel):
-    ResultId: Optional[str] = None
+    ResultId: Optional[Annotated[str, _aws_pattern("Glue", "HashString")]] = None
     DataSource: Optional[DataSourceOutputTypeDef] = None
-    JobName: Optional[str] = None
-    JobRunId: Optional[str] = None
+    JobName: Optional[Annotated[str, _aws_pattern("Glue", "NameString")]] = None
+    JobRunId: Optional[Annotated[str, _aws_pattern("Glue", "HashString")]] = None
     StartedOn: Optional[datetime] = None
 
 
 class DataQualityRuleRecommendationRunDescriptionTypeDef(BaseValidatorModel):
-    RunId: Optional[str] = None
+    RunId: Optional[Annotated[str, _aws_pattern("Glue", "HashString")]] = None
     Status: Optional[TaskStatusTypeType] = None
     StartedOn: Optional[datetime] = None
     DataSource: Optional[DataSourceOutputTypeDef] = None
 
 
 class DataQualityRulesetEvaluationRunDescriptionTypeDef(BaseValidatorModel):
-    RunId: Optional[str] = None
+    RunId: Optional[Annotated[str, _aws_pattern("Glue", "HashString")]] = None
     Status: Optional[TaskStatusTypeType] = None
     StartedOn: Optional[datetime] = None
     DataSource: Optional[DataSourceOutputTypeDef] = None
@@ -6027,7 +6042,7 @@ class DataQualityRulesetEvaluationRunDescriptionTypeDef(BaseValidatorModel):
 
 # This class is the output for the 'get_data_quality_rule_recommendation_run' function.
 class GetDataQualityRuleRecommendationRunResponseTypeDef(BaseValidatorModel):
-    RunId: str
+    RunId: Annotated[str, _aws_pattern("Glue", "HashString")]
     DataSource: DataSourceOutputTypeDef
     Role: str
     NumberOfWorkers: int
@@ -6039,14 +6054,14 @@ class GetDataQualityRuleRecommendationRunResponseTypeDef(BaseValidatorModel):
     CompletedOn: datetime
     ExecutionTime: int
     RecommendedRuleset: str
-    CreatedRulesetName: str
-    DataQualitySecurityConfiguration: str
+    CreatedRulesetName: Annotated[str, _aws_pattern("Glue", "NameString")]
+    DataQualitySecurityConfiguration: Annotated[str, _aws_pattern("Glue", "NameString")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 # This class is the output for the 'get_data_quality_ruleset_evaluation_run' function.
 class GetDataQualityRulesetEvaluationRunResponseTypeDef(BaseValidatorModel):
-    RunId: str
+    RunId: Annotated[str, _aws_pattern("Glue", "HashString")]
     DataSource: DataSourceOutputTypeDef
     Role: str
     NumberOfWorkers: int
@@ -6058,8 +6073,8 @@ class GetDataQualityRulesetEvaluationRunResponseTypeDef(BaseValidatorModel):
     LastModifiedOn: datetime
     CompletedOn: datetime
     ExecutionTime: int
-    RulesetNames: List[str]
-    ResultIds: List[str]
+    RulesetNames: List[Annotated[str, _aws_pattern("Glue", "NameString")]]
+    ResultIds: List[Annotated[str, _aws_pattern("Glue", "HashString")]]
     AdditionalDataSources: Dict[str, DataSourceOutputTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
 
@@ -6072,8 +6087,8 @@ class DropNullFieldsOutputTypeDef(BaseValidatorModel):
 
 
 class DropNullFieldsTypeDef(BaseValidatorModel):
-    Name: str
-    Inputs: List[str]
+    Name: Annotated[str, _aws_pattern("Glue", "NodeName")]
+    Inputs: List[Annotated[str, _aws_pattern("Glue", "NodeId")]]
     NullCheckBoxList: Optional[NullCheckBoxListTypeDef] = None
     NullTextList: Optional[List[NullValueFieldTypeDef]] = None
 
@@ -6114,7 +6129,7 @@ S3HudiDirectTargetUnionTypeDef = Union[S3HudiDirectTargetOutputTypeDef, S3HudiDi
 
 
 class SecurityConfigurationTypeDef(BaseValidatorModel):
-    Name: Optional[str] = None
+    Name: Optional[Annotated[str, _aws_pattern("Glue", "NameString")]] = None
     CreatedTimeStamp: Optional[datetime] = None
     EncryptionConfiguration: Optional[EncryptionConfigurationOutputTypeDef] = None
 
@@ -6159,12 +6174,12 @@ class FilterExpressionTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'update_ml_transform' function.
 class UpdateMLTransformRequestTypeDef(BaseValidatorModel):
-    TransformId: str
-    Name: Optional[str] = None
-    Description: Optional[str] = None
+    TransformId: Annotated[str, _aws_pattern("Glue", "HashString")]
+    Name: Optional[Annotated[str, _aws_pattern("Glue", "NameString")]] = None
+    Description: Optional[Annotated[str, _aws_pattern("Glue", "DescriptionString")]] = None
     Parameters: Optional[TransformParametersTypeDef] = None
     Role: Optional[str] = None
-    GlueVersion: Optional[str] = None
+    GlueVersion: Optional[Annotated[str, _aws_pattern("Glue", "GlueVersionString")]] = None
     MaxCapacity: Optional[float] = None
     WorkerType: Optional[WorkerTypeType] = None
     NumberOfWorkers: Optional[int] = None
@@ -6500,69 +6515,69 @@ class SparkSQLOutputTypeDef(BaseValidatorModel):
 
 
 class AthenaConnectorSourceTypeDef(BaseValidatorModel):
-    Name: str
-    ConnectionName: str
-    ConnectorName: str
-    ConnectionType: str
-    SchemaName: str
-    ConnectionTable: Optional[str] = None
+    Name: Annotated[str, _aws_pattern("Glue", "NodeName")]
+    ConnectionName: Annotated[str, _aws_pattern("Glue", "EnclosedInStringProperty")]
+    ConnectorName: Annotated[str, _aws_pattern("Glue", "EnclosedInStringProperty")]
+    ConnectionType: Annotated[str, _aws_pattern("Glue", "EnclosedInStringProperty")]
+    SchemaName: Annotated[str, _aws_pattern("Glue", "EnclosedInStringProperty")]
+    ConnectionTable: Optional[Annotated[str, _aws_pattern("Glue", "EnclosedInStringPropertyWithQuote")]] = None
     OutputSchemas: Optional[List[GlueSchemaTypeDef]] = None
 
 
 class CatalogDeltaSourceTypeDef(BaseValidatorModel):
-    Name: str
-    Database: str
-    Table: str
+    Name: Annotated[str, _aws_pattern("Glue", "NodeName")]
+    Database: Annotated[str, _aws_pattern("Glue", "EnclosedInStringProperty")]
+    Table: Annotated[str, _aws_pattern("Glue", "EnclosedInStringProperty")]
     AdditionalDeltaOptions: Optional[Dict[str, str]] = None
     OutputSchemas: Optional[List[GlueSchemaTypeDef]] = None
 
 
 class CatalogHudiSourceTypeDef(BaseValidatorModel):
-    Name: str
-    Database: str
-    Table: str
+    Name: Annotated[str, _aws_pattern("Glue", "NodeName")]
+    Database: Annotated[str, _aws_pattern("Glue", "EnclosedInStringProperty")]
+    Table: Annotated[str, _aws_pattern("Glue", "EnclosedInStringProperty")]
     AdditionalHudiOptions: Optional[Dict[str, str]] = None
     OutputSchemas: Optional[List[GlueSchemaTypeDef]] = None
 
 
 class CatalogIcebergSourceTypeDef(BaseValidatorModel):
-    Name: str
-    Database: str
-    Table: str
+    Name: Annotated[str, _aws_pattern("Glue", "NodeName")]
+    Database: Annotated[str, _aws_pattern("Glue", "EnclosedInStringProperty")]
+    Table: Annotated[str, _aws_pattern("Glue", "EnclosedInStringProperty")]
     AdditionalIcebergOptions: Optional[Dict[str, str]] = None
     OutputSchemas: Optional[List[GlueSchemaTypeDef]] = None
 
 
 class CatalogSourceTypeDef(BaseValidatorModel):
-    Name: str
-    Database: str
-    Table: str
-    PartitionPredicate: Optional[str] = None
+    Name: Annotated[str, _aws_pattern("Glue", "NodeName")]
+    Database: Annotated[str, _aws_pattern("Glue", "EnclosedInStringProperty")]
+    Table: Annotated[str, _aws_pattern("Glue", "EnclosedInStringProperty")]
+    PartitionPredicate: Optional[Annotated[str, _aws_pattern("Glue", "EnclosedInStringProperty")]] = None
     OutputSchemas: Optional[List[GlueSchemaTypeDef]] = None
 
 
 class ConnectorDataSourceTypeDef(BaseValidatorModel):
-    Name: str
-    ConnectionType: str
+    Name: Annotated[str, _aws_pattern("Glue", "NodeName")]
+    ConnectionType: Annotated[str, _aws_pattern("Glue", "EnclosedInStringProperty")]
     Data: Dict[str, str]
     OutputSchemas: Optional[List[GlueSchemaTypeDef]] = None
 
 
 class CustomCodeTypeDef(BaseValidatorModel):
-    Name: str
-    Inputs: List[str]
-    Code: str
-    ClassName: str
+    Name: Annotated[str, _aws_pattern("Glue", "NodeName")]
+    Inputs: List[Annotated[str, _aws_pattern("Glue", "NodeId")]]
+    Code: Annotated[str, _aws_pattern("Glue", "ExtendedString")]
+    ClassName: Annotated[str, _aws_pattern("Glue", "EnclosedInStringProperty")]
     OutputSchemas: Optional[List[GlueSchemaTypeDef]] = None
 
 
 class DirectJDBCSourceTypeDef(BaseValidatorModel):
-    Name: str
-    Database: str
-    Table: str
-    ConnectionName: str
+    Name: Annotated[str, _aws_pattern("Glue", "NodeName")]
+    Database: Annotated[str, _aws_pattern("Glue", "EnclosedInStringProperty")]
+    Table: Annotated[str, _aws_pattern("Glue", "EnclosedInStringProperty")]
+    ConnectionName: Annotated[str, _aws_pattern("Glue", "EnclosedInStringProperty")]
     ConnectionType: JDBCConnectionTypeType
-    RedshiftTmpDir: Optional[str] = None
+    RedshiftTmpDir: Optional[Annotated[str, _aws_pattern("Glue", "EnclosedInStringProperty")]] = None
     OutputSchemas: Optional[List[GlueSchemaTypeDef]] = None
 
 
@@ -6570,54 +6585,54 @@ GlueSchemaUnionTypeDef = Union[GlueSchemaOutputTypeDef, GlueSchemaTypeDef]
 
 
 class JDBCConnectorTargetTypeDef(BaseValidatorModel):
-    Name: str
-    Inputs: List[str]
-    ConnectionName: str
-    ConnectionTable: str
-    ConnectorName: str
-    ConnectionType: str
+    Name: Annotated[str, _aws_pattern("Glue", "NodeName")]
+    Inputs: List[Annotated[str, _aws_pattern("Glue", "NodeId")]]
+    ConnectionName: Annotated[str, _aws_pattern("Glue", "EnclosedInStringProperty")]
+    ConnectionTable: Annotated[str, _aws_pattern("Glue", "EnclosedInStringPropertyWithQuote")]
+    ConnectorName: Annotated[str, _aws_pattern("Glue", "EnclosedInStringProperty")]
+    ConnectionType: Annotated[str, _aws_pattern("Glue", "EnclosedInStringProperty")]
     AdditionalOptions: Optional[Dict[str, str]] = None
     OutputSchemas: Optional[List[GlueSchemaTypeDef]] = None
 
 
 class S3CatalogDeltaSourceTypeDef(BaseValidatorModel):
-    Name: str
-    Database: str
-    Table: str
+    Name: Annotated[str, _aws_pattern("Glue", "NodeName")]
+    Database: Annotated[str, _aws_pattern("Glue", "EnclosedInStringProperty")]
+    Table: Annotated[str, _aws_pattern("Glue", "EnclosedInStringProperty")]
     AdditionalDeltaOptions: Optional[Dict[str, str]] = None
     OutputSchemas: Optional[List[GlueSchemaTypeDef]] = None
 
 
 class S3CatalogHudiSourceTypeDef(BaseValidatorModel):
-    Name: str
-    Database: str
-    Table: str
+    Name: Annotated[str, _aws_pattern("Glue", "NodeName")]
+    Database: Annotated[str, _aws_pattern("Glue", "EnclosedInStringProperty")]
+    Table: Annotated[str, _aws_pattern("Glue", "EnclosedInStringProperty")]
     AdditionalHudiOptions: Optional[Dict[str, str]] = None
     OutputSchemas: Optional[List[GlueSchemaTypeDef]] = None
 
 
 class S3CatalogIcebergSourceTypeDef(BaseValidatorModel):
-    Name: str
-    Database: str
-    Table: str
+    Name: Annotated[str, _aws_pattern("Glue", "NodeName")]
+    Database: Annotated[str, _aws_pattern("Glue", "EnclosedInStringProperty")]
+    Table: Annotated[str, _aws_pattern("Glue", "EnclosedInStringProperty")]
     AdditionalIcebergOptions: Optional[Dict[str, str]] = None
     OutputSchemas: Optional[List[GlueSchemaTypeDef]] = None
 
 
 class S3CsvSourceTypeDef(BaseValidatorModel):
-    Name: str
-    Paths: List[str]
+    Name: Annotated[str, _aws_pattern("Glue", "NodeName")]
+    Paths: List[Annotated[str, _aws_pattern("Glue", "EnclosedInStringProperty")]]
     Separator: SeparatorType
     QuoteChar: QuoteCharType
     CompressionType: Optional[CompressionTypeType] = None
-    Exclusions: Optional[List[str]] = None
-    GroupSize: Optional[str] = None
-    GroupFiles: Optional[str] = None
+    Exclusions: Optional[List[Annotated[str, _aws_pattern("Glue", "EnclosedInStringProperty")]]] = None
+    GroupSize: Optional[Annotated[str, _aws_pattern("Glue", "EnclosedInStringProperty")]] = None
+    GroupFiles: Optional[Annotated[str, _aws_pattern("Glue", "EnclosedInStringProperty")]] = None
     Recurse: Optional[bool] = None
     MaxBand: Optional[int] = None
     MaxFilesInBand: Optional[int] = None
     AdditionalOptions: Optional[S3DirectSourceAdditionalOptionsTypeDef] = None
-    Escaper: Optional[str] = None
+    Escaper: Optional[Annotated[str, _aws_pattern("Glue", "EnclosedInStringPropertyWithQuote")]] = None
     Multiline: Optional[bool] = None
     WithHeader: Optional[bool] = None
     WriteHeader: Optional[bool] = None
@@ -6627,10 +6642,10 @@ class S3CsvSourceTypeDef(BaseValidatorModel):
 
 
 class S3DeltaCatalogTargetTypeDef(BaseValidatorModel):
-    Name: str
-    Inputs: List[str]
-    Table: str
-    Database: str
+    Name: Annotated[str, _aws_pattern("Glue", "NodeName")]
+    Inputs: List[Annotated[str, _aws_pattern("Glue", "NodeId")]]
+    Table: Annotated[str, _aws_pattern("Glue", "EnclosedInStringProperty")]
+    Database: Annotated[str, _aws_pattern("Glue", "EnclosedInStringProperty")]
     PartitionKeys: Optional[List[List[str]]] = None
     AdditionalOptions: Optional[Dict[str, str]] = None
     SchemaChangePolicy: Optional[CatalogSchemaChangePolicyTypeDef] = None
@@ -6639,20 +6654,20 @@ class S3DeltaCatalogTargetTypeDef(BaseValidatorModel):
 
 
 class S3DeltaSourceTypeDef(BaseValidatorModel):
-    Name: str
-    Paths: List[str]
+    Name: Annotated[str, _aws_pattern("Glue", "NodeName")]
+    Paths: List[Annotated[str, _aws_pattern("Glue", "EnclosedInStringProperty")]]
     AdditionalDeltaOptions: Optional[Dict[str, str]] = None
     AdditionalOptions: Optional[S3DirectSourceAdditionalOptionsTypeDef] = None
     OutputSchemas: Optional[List[GlueSchemaTypeDef]] = None
 
 
 class S3DirectTargetTypeDef(BaseValidatorModel):
-    Name: str
-    Inputs: List[str]
-    Path: str
+    Name: Annotated[str, _aws_pattern("Glue", "NodeName")]
+    Inputs: List[Annotated[str, _aws_pattern("Glue", "NodeId")]]
+    Path: Annotated[str, _aws_pattern("Glue", "EnclosedInStringProperty")]
     Format: TargetFormatType
     PartitionKeys: Optional[List[List[str]]] = None
-    Compression: Optional[str] = None
+    Compression: Optional[Annotated[str, _aws_pattern("Glue", "EnclosedInStringProperty")]] = None
     NumberTargetPartitions: Optional[str] = None
     SchemaChangePolicy: Optional[DirectSchemaChangePolicyTypeDef] = None
     AutoDataQuality: Optional[AutoDataQualityTypeDef] = None
@@ -6660,12 +6675,12 @@ class S3DirectTargetTypeDef(BaseValidatorModel):
 
 
 class S3ExcelSourceTypeDef(BaseValidatorModel):
-    Name: str
-    Paths: List[str]
+    Name: Annotated[str, _aws_pattern("Glue", "NodeName")]
+    Paths: List[Annotated[str, _aws_pattern("Glue", "EnclosedInStringProperty")]]
     CompressionType: Optional[ParquetCompressionTypeType] = None
-    Exclusions: Optional[List[str]] = None
-    GroupSize: Optional[str] = None
-    GroupFiles: Optional[str] = None
+    Exclusions: Optional[List[Annotated[str, _aws_pattern("Glue", "EnclosedInStringProperty")]]] = None
+    GroupSize: Optional[Annotated[str, _aws_pattern("Glue", "EnclosedInStringProperty")]] = None
+    GroupFiles: Optional[Annotated[str, _aws_pattern("Glue", "EnclosedInStringProperty")]] = None
     Recurse: Optional[bool] = None
     MaxBand: Optional[int] = None
     MaxFilesInBand: Optional[int] = None
@@ -6676,10 +6691,10 @@ class S3ExcelSourceTypeDef(BaseValidatorModel):
 
 
 class S3HudiCatalogTargetTypeDef(BaseValidatorModel):
-    Name: str
-    Inputs: List[str]
-    Table: str
-    Database: str
+    Name: Annotated[str, _aws_pattern("Glue", "NodeName")]
+    Inputs: List[Annotated[str, _aws_pattern("Glue", "NodeId")]]
+    Table: Annotated[str, _aws_pattern("Glue", "EnclosedInStringProperty")]
+    Database: Annotated[str, _aws_pattern("Glue", "EnclosedInStringProperty")]
     AdditionalOptions: Dict[str, str]
     PartitionKeys: Optional[List[List[str]]] = None
     SchemaChangePolicy: Optional[CatalogSchemaChangePolicyTypeDef] = None
@@ -6688,17 +6703,17 @@ class S3HudiCatalogTargetTypeDef(BaseValidatorModel):
 
 
 class S3HudiSourceTypeDef(BaseValidatorModel):
-    Name: str
-    Paths: List[str]
+    Name: Annotated[str, _aws_pattern("Glue", "NodeName")]
+    Paths: List[Annotated[str, _aws_pattern("Glue", "EnclosedInStringProperty")]]
     AdditionalHudiOptions: Optional[Dict[str, str]] = None
     AdditionalOptions: Optional[S3DirectSourceAdditionalOptionsTypeDef] = None
     OutputSchemas: Optional[List[GlueSchemaTypeDef]] = None
 
 
 class S3IcebergDirectTargetTypeDef(BaseValidatorModel):
-    Name: str
-    Inputs: List[str]
-    Path: str
+    Name: Annotated[str, _aws_pattern("Glue", "NodeName")]
+    Inputs: List[Annotated[str, _aws_pattern("Glue", "NodeId")]]
+    Path: Annotated[str, _aws_pattern("Glue", "EnclosedInStringProperty")]
     Format: TargetFormatType
     Compression: IcebergTargetCompressionTypeType
     PartitionKeys: Optional[List[List[str]]] = None
@@ -6710,28 +6725,28 @@ class S3IcebergDirectTargetTypeDef(BaseValidatorModel):
 
 
 class S3JsonSourceTypeDef(BaseValidatorModel):
-    Name: str
-    Paths: List[str]
+    Name: Annotated[str, _aws_pattern("Glue", "NodeName")]
+    Paths: List[Annotated[str, _aws_pattern("Glue", "EnclosedInStringProperty")]]
     CompressionType: Optional[CompressionTypeType] = None
-    Exclusions: Optional[List[str]] = None
-    GroupSize: Optional[str] = None
-    GroupFiles: Optional[str] = None
+    Exclusions: Optional[List[Annotated[str, _aws_pattern("Glue", "EnclosedInStringProperty")]]] = None
+    GroupSize: Optional[Annotated[str, _aws_pattern("Glue", "EnclosedInStringProperty")]] = None
+    GroupFiles: Optional[Annotated[str, _aws_pattern("Glue", "EnclosedInStringProperty")]] = None
     Recurse: Optional[bool] = None
     MaxBand: Optional[int] = None
     MaxFilesInBand: Optional[int] = None
     AdditionalOptions: Optional[S3DirectSourceAdditionalOptionsTypeDef] = None
-    JsonPath: Optional[str] = None
+    JsonPath: Optional[Annotated[str, _aws_pattern("Glue", "EnclosedInStringProperty")]] = None
     Multiline: Optional[bool] = None
     OutputSchemas: Optional[List[GlueSchemaTypeDef]] = None
 
 
 class S3ParquetSourceTypeDef(BaseValidatorModel):
-    Name: str
-    Paths: List[str]
+    Name: Annotated[str, _aws_pattern("Glue", "NodeName")]
+    Paths: List[Annotated[str, _aws_pattern("Glue", "EnclosedInStringProperty")]]
     CompressionType: Optional[ParquetCompressionTypeType] = None
-    Exclusions: Optional[List[str]] = None
-    GroupSize: Optional[str] = None
-    GroupFiles: Optional[str] = None
+    Exclusions: Optional[List[Annotated[str, _aws_pattern("Glue", "EnclosedInStringProperty")]]] = None
+    GroupSize: Optional[Annotated[str, _aws_pattern("Glue", "EnclosedInStringProperty")]] = None
+    GroupFiles: Optional[Annotated[str, _aws_pattern("Glue", "EnclosedInStringProperty")]] = None
     Recurse: Optional[bool] = None
     MaxBand: Optional[int] = None
     MaxFilesInBand: Optional[int] = None
@@ -6740,28 +6755,28 @@ class S3ParquetSourceTypeDef(BaseValidatorModel):
 
 
 class SparkConnectorSourceTypeDef(BaseValidatorModel):
-    Name: str
-    ConnectionName: str
-    ConnectorName: str
-    ConnectionType: str
+    Name: Annotated[str, _aws_pattern("Glue", "NodeName")]
+    ConnectionName: Annotated[str, _aws_pattern("Glue", "EnclosedInStringProperty")]
+    ConnectorName: Annotated[str, _aws_pattern("Glue", "EnclosedInStringProperty")]
+    ConnectionType: Annotated[str, _aws_pattern("Glue", "EnclosedInStringProperty")]
     AdditionalOptions: Optional[Dict[str, str]] = None
     OutputSchemas: Optional[List[GlueSchemaTypeDef]] = None
 
 
 class SparkConnectorTargetTypeDef(BaseValidatorModel):
-    Name: str
-    Inputs: List[str]
-    ConnectionName: str
-    ConnectorName: str
-    ConnectionType: str
+    Name: Annotated[str, _aws_pattern("Glue", "NodeName")]
+    Inputs: List[Annotated[str, _aws_pattern("Glue", "NodeId")]]
+    ConnectionName: Annotated[str, _aws_pattern("Glue", "EnclosedInStringProperty")]
+    ConnectorName: Annotated[str, _aws_pattern("Glue", "EnclosedInStringProperty")]
+    ConnectionType: Annotated[str, _aws_pattern("Glue", "EnclosedInStringProperty")]
     AdditionalOptions: Optional[Dict[str, str]] = None
     OutputSchemas: Optional[List[GlueSchemaTypeDef]] = None
 
 
 class SparkSQLTypeDef(BaseValidatorModel):
-    Name: str
-    Inputs: List[str]
-    SqlQuery: str
+    Name: Annotated[str, _aws_pattern("Glue", "NodeName")]
+    Inputs: List[Annotated[str, _aws_pattern("Glue", "NodeId")]]
+    SqlQuery: Annotated[str, _aws_pattern("Glue", "SqlQuery")]
     SqlAliases: List[SqlAliasTypeDef]
     OutputSchemas: Optional[List[GlueSchemaTypeDef]] = None
 
@@ -6793,7 +6808,7 @@ class TableOptimizerRunTypeDef(BaseValidatorModel):
 
 
 class CreateIcebergTableInputTypeDef(BaseValidatorModel):
-    Location: str
+    Location: Annotated[str, _aws_pattern("Glue", "LocationString")]
     Schema: IcebergSchemaTypeDef
     PartitionSpec: Optional[IcebergPartitionSpecTypeDef] = None
     WriteOrder: Optional[IcebergSortOrderTypeDef] = None
@@ -6802,13 +6817,13 @@ class CreateIcebergTableInputTypeDef(BaseValidatorModel):
 
 class IcebergTableUpdateTypeDef(BaseValidatorModel):
     Schema: IcebergSchemaTypeDef
-    Location: str
+    Location: Annotated[str, _aws_pattern("Glue", "LocationString")]
     PartitionSpec: Optional[IcebergPartitionSpecTypeDef] = None
     SortOrder: Optional[IcebergSortOrderTypeDef] = None
     Properties: Optional[Dict[str, str]] = None
     Action: Optional[IcebergUpdateActionType] = None
     EncryptionKey: Optional[IcebergEncryptedKeyTypeDef] = None
-    KeyId: Optional[str] = None
+    KeyId: Optional[Annotated[str, _aws_pattern("Glue", "EncryptionKeyIdString")]] = None
 
 
 # This class is the input for the 'create_integration' function.
@@ -6816,7 +6831,7 @@ class CreateIntegrationRequestTypeDef(BaseValidatorModel):
     IntegrationName: str
     SourceArn: str
     TargetArn: str
-    Description: Optional[str] = None
+    Description: Optional[Annotated[str, _aws_pattern("Glue", "IntegrationDescription")]] = None
     DataFilter: Optional[str] = None
     KmsKeyId: Optional[str] = None
     AdditionalEncryptionContext: Optional[Dict[str, str]] = None
@@ -6827,7 +6842,7 @@ class CreateIntegrationRequestTypeDef(BaseValidatorModel):
 # This class is the input for the 'modify_integration' function.
 class ModifyIntegrationRequestTypeDef(BaseValidatorModel):
     IntegrationIdentifier: str
-    Description: Optional[str] = None
+    Description: Optional[Annotated[str, _aws_pattern("Glue", "IntegrationDescription")]] = None
     DataFilter: Optional[str] = None
     IntegrationConfig: Optional[IntegrationConfigUnionTypeDef] = None
     IntegrationName: Optional[str] = None
@@ -6846,13 +6861,13 @@ TargetTableConfigUnionTypeDef = Union[TargetTableConfigOutputTypeDef, TargetTabl
 
 
 class JDBCConnectorSourceTypeDef(BaseValidatorModel):
-    Name: str
-    ConnectionName: str
-    ConnectorName: str
-    ConnectionType: str
+    Name: Annotated[str, _aws_pattern("Glue", "NodeName")]
+    ConnectionName: Annotated[str, _aws_pattern("Glue", "EnclosedInStringProperty")]
+    ConnectorName: Annotated[str, _aws_pattern("Glue", "EnclosedInStringProperty")]
+    ConnectionType: Annotated[str, _aws_pattern("Glue", "EnclosedInStringProperty")]
     AdditionalOptions: Optional[JDBCConnectorOptionsUnionTypeDef] = None
-    ConnectionTable: Optional[str] = None
-    Query: Optional[str] = None
+    ConnectionTable: Optional[Annotated[str, _aws_pattern("Glue", "EnclosedInStringPropertyWithQuote")]] = None
+    Query: Optional[Annotated[str, _aws_pattern("Glue", "SqlQuery")]] = None
     OutputSchemas: Optional[List[GlueSchemaTypeDef]] = None
 
 
@@ -6874,16 +6889,16 @@ class JobNodeDetailsTypeDef(BaseValidatorModel):
 
 
 class JoinTypeDef(BaseValidatorModel):
-    Name: str
-    Inputs: List[str]
+    Name: Annotated[str, _aws_pattern("Glue", "NodeName")]
+    Inputs: List[Annotated[str, _aws_pattern("Glue", "NodeId")]]
     JoinType: JoinTypeType
     Columns: List[JoinColumnUnionTypeDef]
 
 
 # This class is the output for the 'get_ml_task_run' function.
 class GetMLTaskRunResponseTypeDef(BaseValidatorModel):
-    TransformId: str
-    TaskRunId: str
+    TransformId: Annotated[str, _aws_pattern("Glue", "HashString")]
+    TaskRunId: Annotated[str, _aws_pattern("Glue", "HashString")]
     Status: TaskStatusTypeType
     LogGroupName: str
     Properties: TaskRunPropertiesTypeDef
@@ -6896,8 +6911,8 @@ class GetMLTaskRunResponseTypeDef(BaseValidatorModel):
 
 
 class TaskRunTypeDef(BaseValidatorModel):
-    TransformId: Optional[str] = None
-    TaskRunId: Optional[str] = None
+    TransformId: Optional[Annotated[str, _aws_pattern("Glue", "HashString")]] = None
+    TaskRunId: Optional[Annotated[str, _aws_pattern("Glue", "HashString")]] = None
     Status: Optional[TaskStatusTypeType] = None
     LogGroupName: Optional[str] = None
     Properties: Optional[TaskRunPropertiesTypeDef] = None
@@ -6910,12 +6925,12 @@ class TaskRunTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'create_ml_transform' function.
 class CreateMLTransformRequestTypeDef(BaseValidatorModel):
-    Name: str
+    Name: Annotated[str, _aws_pattern("Glue", "NameString")]
     InputRecordTables: List[GlueTableUnionTypeDef]
     Parameters: TransformParametersTypeDef
     Role: str
-    Description: Optional[str] = None
-    GlueVersion: Optional[str] = None
+    Description: Optional[Annotated[str, _aws_pattern("Glue", "DescriptionString")]] = None
+    GlueVersion: Optional[Annotated[str, _aws_pattern("Glue", "GlueVersionString")]] = None
     MaxCapacity: Optional[float] = None
     WorkerType: Optional[WorkerTypeType] = None
     NumberOfWorkers: Optional[int] = None
@@ -6926,49 +6941,49 @@ class CreateMLTransformRequestTypeDef(BaseValidatorModel):
 
 
 class ApplyMappingTypeDef(BaseValidatorModel):
-    Name: str
-    Inputs: List[str]
+    Name: Annotated[str, _aws_pattern("Glue", "NodeName")]
+    Inputs: List[Annotated[str, _aws_pattern("Glue", "NodeId")]]
     Mapping: List[MappingUnionTypeDef]
 
 
 # This class is the output for the 'query_schema_version_metadata' function.
 class QuerySchemaVersionMetadataResponseTypeDef(BaseValidatorModel):
     MetadataInfoMap: Dict[str, MetadataInfoTypeDef]
-    SchemaVersionId: str
+    SchemaVersionId: Annotated[str, _aws_pattern("Glue", "SchemaVersionIdString")]
     ResponseMetadata: ResponseMetadataTypeDef
     NextToken: Optional[str] = None
 
 
 class AuthenticationConfigurationTypeDef(BaseValidatorModel):
     AuthenticationType: Optional[AuthenticationTypeType] = None
-    SecretArn: Optional[str] = None
-    KmsKeyArn: Optional[str] = None
+    SecretArn: Optional[Annotated[str, _aws_pattern("Glue", "SecretArn")]] = None
+    KmsKeyArn: Optional[Annotated[str, _aws_pattern("Glue", "KmsKeyArn")]] = None
     OAuth2Properties: Optional[OAuth2PropertiesTypeDef] = None
 
 
 class AuthenticationConfigurationInputTypeDef(BaseValidatorModel):
     AuthenticationType: Optional[AuthenticationTypeType] = None
     OAuth2Properties: Optional[OAuth2PropertiesInputTypeDef] = None
-    SecretArn: Optional[str] = None
-    KmsKeyArn: Optional[str] = None
+    SecretArn: Optional[Annotated[str, _aws_pattern("Glue", "SecretArn")]] = None
+    KmsKeyArn: Optional[Annotated[str, _aws_pattern("Glue", "KmsKeyArn")]] = None
     BasicAuthenticationCredentials: Optional[BasicAuthenticationCredentialsTypeDef] = None
     CustomAuthenticationCredentials: Optional[Dict[str, str]] = None
 
 
 # This class is the input for the 'batch_delete_partition' function.
 class BatchDeletePartitionRequestTypeDef(BaseValidatorModel):
-    DatabaseName: str
-    TableName: str
+    DatabaseName: Annotated[str, _aws_pattern("Glue", "NameString")]
+    TableName: Annotated[str, _aws_pattern("Glue", "NameString")]
     PartitionsToDelete: List[PartitionValueListUnionTypeDef]
-    CatalogId: Optional[str] = None
+    CatalogId: Optional[Annotated[str, _aws_pattern("Glue", "CatalogIdString")]] = None
 
 
 # This class is the input for the 'batch_get_partition' function.
 class BatchGetPartitionRequestTypeDef(BaseValidatorModel):
-    DatabaseName: str
-    TableName: str
+    DatabaseName: Annotated[str, _aws_pattern("Glue", "NameString")]
+    TableName: Annotated[str, _aws_pattern("Glue", "NameString")]
     PartitionsToGet: List[PartitionValueListUnionTypeDef]
-    CatalogId: Optional[str] = None
+    CatalogId: Optional[Annotated[str, _aws_pattern("Glue", "CatalogIdString")]] = None
     AuditContext: Optional[AuditContextTypeDef] = None
     QuerySessionContext: Optional[QuerySessionContextTypeDef] = None
 
@@ -6986,16 +7001,16 @@ class RecipeStepTypeDef(BaseValidatorModel):
 
 
 class CreateUserDefinedFunctionRequestTypeDef(BaseValidatorModel):
-    DatabaseName: str
+    DatabaseName: Annotated[str, _aws_pattern("Glue", "NameString")]
     FunctionInput: UserDefinedFunctionInputTypeDef
-    CatalogId: Optional[str] = None
+    CatalogId: Optional[Annotated[str, _aws_pattern("Glue", "CatalogIdString")]] = None
 
 
 class UpdateUserDefinedFunctionRequestTypeDef(BaseValidatorModel):
-    DatabaseName: str
-    FunctionName: str
+    DatabaseName: Annotated[str, _aws_pattern("Glue", "NameString")]
+    FunctionName: Annotated[str, _aws_pattern("Glue", "NameString")]
     FunctionInput: UserDefinedFunctionInputTypeDef
-    CatalogId: Optional[str] = None
+    CatalogId: Optional[Annotated[str, _aws_pattern("Glue", "CatalogIdString")]] = None
 
 
 # This class is the output for the 'get_user_defined_function' function.
@@ -7013,14 +7028,14 @@ class GetUserDefinedFunctionsResponseTypeDef(BaseValidatorModel):
 
 class StorageDescriptorTypeDef(BaseValidatorModel):
     Columns: Optional[List[ColumnUnionTypeDef]] = None
-    Location: Optional[str] = None
-    AdditionalLocations: Optional[List[str]] = None
-    InputFormat: Optional[str] = None
-    OutputFormat: Optional[str] = None
+    Location: Optional[Annotated[str, _aws_pattern("Glue", "LocationString")]] = None
+    AdditionalLocations: Optional[List[Annotated[str, _aws_pattern("Glue", "LocationString")]]] = None
+    InputFormat: Optional[Annotated[str, _aws_pattern("Glue", "FormatString")]] = None
+    OutputFormat: Optional[Annotated[str, _aws_pattern("Glue", "FormatString")]] = None
     Compressed: Optional[bool] = None
     NumberOfBuckets: Optional[int] = None
     SerdeInfo: Optional[SerDeInfoUnionTypeDef] = None
-    BucketColumns: Optional[List[str]] = None
+    BucketColumns: Optional[List[Annotated[str, _aws_pattern("Glue", "NameString")]]] = None
     SortColumns: Optional[List[OrderTypeDef]] = None
     Parameters: Optional[Dict[str, str]] = None
     SkewedInfo: Optional[SkewedInfoUnionTypeDef] = None
@@ -7053,23 +7068,23 @@ class ListDataQualityStatisticsResponseTypeDef(BaseValidatorModel):
 
 
 class DynamicTransformTypeDef(BaseValidatorModel):
-    Name: str
-    TransformName: str
-    Inputs: List[str]
-    FunctionName: str
-    Path: str
+    Name: Annotated[str, _aws_pattern("Glue", "EnclosedInStringProperty")]
+    TransformName: Annotated[str, _aws_pattern("Glue", "EnclosedInStringProperty")]
+    Inputs: List[Annotated[str, _aws_pattern("Glue", "NodeId")]]
+    FunctionName: Annotated[str, _aws_pattern("Glue", "EnclosedInStringProperty")]
+    Path: Annotated[str, _aws_pattern("Glue", "EnclosedInStringProperty")]
     Parameters: Optional[List[TransformConfigParameterUnionTypeDef]] = None
-    Version: Optional[str] = None
+    Version: Optional[Annotated[str, _aws_pattern("Glue", "EnclosedInStringProperty")]] = None
     OutputSchemas: Optional[List[GlueSchemaTypeDef]] = None
 
 
 class RedshiftTargetTypeDef(BaseValidatorModel):
-    Name: str
-    Inputs: List[str]
-    Database: str
-    Table: str
-    RedshiftTmpDir: Optional[str] = None
-    TmpDirIAMRole: Optional[str] = None
+    Name: Annotated[str, _aws_pattern("Glue", "NodeName")]
+    Inputs: List[Annotated[str, _aws_pattern("Glue", "NodeId")]]
+    Database: Annotated[str, _aws_pattern("Glue", "EnclosedInStringProperty")]
+    Table: Annotated[str, _aws_pattern("Glue", "EnclosedInStringProperty")]
+    RedshiftTmpDir: Optional[Annotated[str, _aws_pattern("Glue", "EnclosedInStringProperty")]] = None
+    TmpDirIAMRole: Optional[Annotated[str, _aws_pattern("Glue", "EnclosedInStringProperty")]] = None
     UpsertRedshiftOptions: Optional[UpsertRedshiftTargetOptionsUnionTypeDef] = None
 
 
@@ -7077,26 +7092,26 @@ AggregateUnionTypeDef = Union[AggregateOutputTypeDef, AggregateTypeDef]
 
 
 class AmazonRedshiftSourceTypeDef(BaseValidatorModel):
-    Name: Optional[str] = None
+    Name: Optional[Annotated[str, _aws_pattern("Glue", "NodeName")]] = None
     Data: Optional[AmazonRedshiftNodeDataUnionTypeDef] = None
 
 
 class AmazonRedshiftTargetTypeDef(BaseValidatorModel):
-    Name: Optional[str] = None
+    Name: Optional[Annotated[str, _aws_pattern("Glue", "NodeName")]] = None
     Data: Optional[AmazonRedshiftNodeDataUnionTypeDef] = None
-    Inputs: Optional[List[str]] = None
+    Inputs: Optional[List[Annotated[str, _aws_pattern("Glue", "NodeId")]]] = None
 
 
 class SnowflakeSourceTypeDef(BaseValidatorModel):
-    Name: str
+    Name: Annotated[str, _aws_pattern("Glue", "NodeName")]
     Data: SnowflakeNodeDataUnionTypeDef
     OutputSchemas: Optional[List[GlueSchemaTypeDef]] = None
 
 
 class SnowflakeTargetTypeDef(BaseValidatorModel):
-    Name: str
+    Name: Annotated[str, _aws_pattern("Glue", "NodeName")]
     Data: SnowflakeNodeDataUnionTypeDef
-    Inputs: Optional[List[str]] = None
+    Inputs: Optional[List[Annotated[str, _aws_pattern("Glue", "NodeId")]]] = None
 
 
 # This class is the output for the 'get_partition_indexes' function.
@@ -7118,8 +7133,8 @@ class TableStatusPaginatorTypeDef(BaseValidatorModel):
 
 
 class TableStatusTypeDef(BaseValidatorModel):
-    RequestedBy: Optional[str] = None
-    UpdatedBy: Optional[str] = None
+    RequestedBy: Optional[Annotated[str, _aws_pattern("Glue", "NameString")]] = None
+    UpdatedBy: Optional[Annotated[str, _aws_pattern("Glue", "NameString")]] = None
     RequestTime: Optional[datetime] = None
     UpdateTime: Optional[datetime] = None
     Action: Optional[ResourceActionType] = None
@@ -7143,9 +7158,9 @@ class CreateScriptRequestTypeDef(BaseValidatorModel):
 
 
 class CatalogKafkaSourceTypeDef(BaseValidatorModel):
-    Name: str
-    Table: str
-    Database: str
+    Name: Annotated[str, _aws_pattern("Glue", "NodeName")]
+    Table: Annotated[str, _aws_pattern("Glue", "EnclosedInStringProperty")]
+    Database: Annotated[str, _aws_pattern("Glue", "EnclosedInStringProperty")]
     WindowSize: Optional[int] = None
     DetectSchema: Optional[bool] = None
     StreamingOptions: Optional[KafkaStreamingSourceOptionsUnionTypeDef] = None
@@ -7153,7 +7168,7 @@ class CatalogKafkaSourceTypeDef(BaseValidatorModel):
 
 
 class DirectKafkaSourceTypeDef(BaseValidatorModel):
-    Name: str
+    Name: Annotated[str, _aws_pattern("Glue", "NodeName")]
     StreamingOptions: Optional[KafkaStreamingSourceOptionsUnionTypeDef] = None
     WindowSize: Optional[int] = None
     DetectSchema: Optional[bool] = None
@@ -7161,9 +7176,9 @@ class DirectKafkaSourceTypeDef(BaseValidatorModel):
 
 
 class CatalogKinesisSourceTypeDef(BaseValidatorModel):
-    Name: str
-    Table: str
-    Database: str
+    Name: Annotated[str, _aws_pattern("Glue", "NodeName")]
+    Table: Annotated[str, _aws_pattern("Glue", "EnclosedInStringProperty")]
+    Database: Annotated[str, _aws_pattern("Glue", "EnclosedInStringProperty")]
     WindowSize: Optional[int] = None
     DetectSchema: Optional[bool] = None
     StreamingOptions: Optional[KinesisStreamingSourceOptionsUnionTypeDef] = None
@@ -7171,7 +7186,7 @@ class CatalogKinesisSourceTypeDef(BaseValidatorModel):
 
 
 class DirectKinesisSourceTypeDef(BaseValidatorModel):
-    Name: str
+    Name: Annotated[str, _aws_pattern("Glue", "NodeName")]
     WindowSize: Optional[int] = None
     DetectSchema: Optional[bool] = None
     StreamingOptions: Optional[KinesisStreamingSourceOptionsUnionTypeDef] = None
@@ -7181,7 +7196,7 @@ class DirectKinesisSourceTypeDef(BaseValidatorModel):
 # This class is the output for the 'batch_get_triggers' function.
 class BatchGetTriggersResponseTypeDef(BaseValidatorModel):
     Triggers: List[TriggerTypeDef]
-    TriggersNotFound: List[str]
+    TriggersNotFound: List[Annotated[str, _aws_pattern("Glue", "NameString")]]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
@@ -7210,21 +7225,21 @@ class UpdateTriggerResponseTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'create_trigger' function.
 class CreateTriggerRequestTypeDef(BaseValidatorModel):
-    Name: str
+    Name: Annotated[str, _aws_pattern("Glue", "NameString")]
     Type: TriggerTypeType
     Actions: List[ActionUnionTypeDef]
-    WorkflowName: Optional[str] = None
+    WorkflowName: Optional[Annotated[str, _aws_pattern("Glue", "NameString")]] = None
     Schedule: Optional[str] = None
     Predicate: Optional[PredicateUnionTypeDef] = None
-    Description: Optional[str] = None
+    Description: Optional[Annotated[str, _aws_pattern("Glue", "DescriptionString")]] = None
     StartOnCreation: Optional[bool] = None
     Tags: Optional[Dict[str, str]] = None
     EventBatchingCondition: Optional[EventBatchingConditionTypeDef] = None
 
 
 class TriggerUpdateTypeDef(BaseValidatorModel):
-    Name: Optional[str] = None
-    Description: Optional[str] = None
+    Name: Optional[Annotated[str, _aws_pattern("Glue", "NameString")]] = None
+    Description: Optional[Annotated[str, _aws_pattern("Glue", "DescriptionString")]] = None
     Schedule: Optional[str] = None
     Actions: Optional[List[ActionUnionTypeDef]] = None
     Predicate: Optional[PredicateUnionTypeDef] = None
@@ -7233,24 +7248,24 @@ class TriggerUpdateTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'create_usage_profile' function.
 class CreateUsageProfileRequestTypeDef(BaseValidatorModel):
-    Name: str
+    Name: Annotated[str, _aws_pattern("Glue", "NameString")]
     Configuration: ProfileConfigurationUnionTypeDef
-    Description: Optional[str] = None
+    Description: Optional[Annotated[str, _aws_pattern("Glue", "DescriptionString")]] = None
     Tags: Optional[Dict[str, str]] = None
 
 
 # This class is the input for the 'update_usage_profile' function.
 class UpdateUsageProfileRequestTypeDef(BaseValidatorModel):
-    Name: str
+    Name: Annotated[str, _aws_pattern("Glue", "NameString")]
     Configuration: ProfileConfigurationUnionTypeDef
-    Description: Optional[str] = None
+    Description: Optional[Annotated[str, _aws_pattern("Glue", "DescriptionString")]] = None
 
 
 # This class is the output for the 'get_ml_transform' function.
 class GetMLTransformResponseTypeDef(BaseValidatorModel):
-    TransformId: str
-    Name: str
-    Description: str
+    TransformId: Annotated[str, _aws_pattern("Glue", "HashString")]
+    Name: Annotated[str, _aws_pattern("Glue", "NameString")]
+    Description: Annotated[str, _aws_pattern("Glue", "DescriptionString")]
     Status: TransformStatusTypeType
     CreatedOn: datetime
     LastModifiedOn: datetime
@@ -7260,7 +7275,7 @@ class GetMLTransformResponseTypeDef(BaseValidatorModel):
     LabelCount: int
     Schema: List[SchemaColumnTypeDef]
     Role: str
-    GlueVersion: str
+    GlueVersion: Annotated[str, _aws_pattern("Glue", "GlueVersionString")]
     MaxCapacity: float
     WorkerType: WorkerTypeType
     NumberOfWorkers: int
@@ -7271,9 +7286,9 @@ class GetMLTransformResponseTypeDef(BaseValidatorModel):
 
 
 class MLTransformTypeDef(BaseValidatorModel):
-    TransformId: Optional[str] = None
-    Name: Optional[str] = None
-    Description: Optional[str] = None
+    TransformId: Optional[Annotated[str, _aws_pattern("Glue", "HashString")]] = None
+    Name: Optional[Annotated[str, _aws_pattern("Glue", "NameString")]] = None
+    Description: Optional[Annotated[str, _aws_pattern("Glue", "DescriptionString")]] = None
     Status: Optional[TransformStatusTypeType] = None
     CreatedOn: Optional[datetime] = None
     LastModifiedOn: Optional[datetime] = None
@@ -7283,7 +7298,7 @@ class MLTransformTypeDef(BaseValidatorModel):
     LabelCount: Optional[int] = None
     Schema: Optional[List[SchemaColumnTypeDef]] = None
     Role: Optional[str] = None
-    GlueVersion: Optional[str] = None
+    GlueVersion: Optional[Annotated[str, _aws_pattern("Glue", "GlueVersionString")]] = None
     MaxCapacity: Optional[float] = None
     WorkerType: Optional[WorkerTypeType] = None
     NumberOfWorkers: Optional[int] = None
@@ -7302,7 +7317,7 @@ class ConnectorOAuth2PropertiesTypeDef(BaseValidatorModel):
 # This class is the output for the 'batch_get_crawlers' function.
 class BatchGetCrawlersResponseTypeDef(BaseValidatorModel):
     Crawlers: List[CrawlerTypeDef]
-    CrawlersNotFound: List[str]
+    CrawlersNotFound: List[Annotated[str, _aws_pattern("Glue", "NameString")]]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
@@ -7320,13 +7335,13 @@ class GetCrawlersResponseTypeDef(BaseValidatorModel):
 
 
 class CreateCrawlerRequestTypeDef(BaseValidatorModel):
-    Name: str
+    Name: Annotated[str, _aws_pattern("Glue", "NameString")]
     Role: str
     Targets: CrawlerTargetsUnionTypeDef
     DatabaseName: Optional[str] = None
-    Description: Optional[str] = None
+    Description: Optional[Annotated[str, _aws_pattern("Glue", "DescriptionString")]] = None
     Schedule: Optional[str] = None
-    Classifiers: Optional[List[str]] = None
+    Classifiers: Optional[List[Annotated[str, _aws_pattern("Glue", "NameString")]]] = None
     TablePrefix: Optional[str] = None
     SchemaChangePolicy: Optional[SchemaChangePolicyTypeDef] = None
     RecrawlPolicy: Optional[RecrawlPolicyTypeDef] = None
@@ -7338,13 +7353,13 @@ class CreateCrawlerRequestTypeDef(BaseValidatorModel):
 
 
 class UpdateCrawlerRequestTypeDef(BaseValidatorModel):
-    Name: str
+    Name: Annotated[str, _aws_pattern("Glue", "NameString")]
     Role: Optional[str] = None
     DatabaseName: Optional[str] = None
-    Description: Optional[str] = None
+    Description: Optional[Annotated[str, _aws_pattern("Glue", "DescriptionStringRemovable")]] = None
     Targets: Optional[CrawlerTargetsUnionTypeDef] = None
     Schedule: Optional[str] = None
-    Classifiers: Optional[List[str]] = None
+    Classifiers: Optional[List[Annotated[str, _aws_pattern("Glue", "NameString")]]] = None
     TablePrefix: Optional[str] = None
     SchemaChangePolicy: Optional[SchemaChangePolicyTypeDef] = None
     RecrawlPolicy: Optional[RecrawlPolicyTypeDef] = None
@@ -7381,7 +7396,7 @@ class GetDatabasesResponseTypeDef(BaseValidatorModel):
 
 
 class CatalogInputTypeDef(BaseValidatorModel):
-    Description: Optional[str] = None
+    Description: Optional[Annotated[str, _aws_pattern("Glue", "DescriptionString")]] = None
     FederatedCatalog: Optional[FederatedCatalogTypeDef] = None
     Parameters: Optional[Dict[str, str]] = None
     TargetRedshiftCatalog: Optional[TargetRedshiftCatalogTypeDef] = None
@@ -7393,9 +7408,9 @@ class CatalogInputTypeDef(BaseValidatorModel):
 
 
 class DatabaseInputTypeDef(BaseValidatorModel):
-    Name: str
-    Description: Optional[str] = None
-    LocationUri: Optional[str] = None
+    Name: Annotated[str, _aws_pattern("Glue", "NameString")]
+    Description: Optional[Annotated[str, _aws_pattern("Glue", "DescriptionString")]] = None
+    LocationUri: Optional[Annotated[str, _aws_pattern("Glue", "URI")]] = None
     Parameters: Optional[Dict[str, str]] = None
     CreateTableDefaultPermissions: Optional[List[PrincipalPermissionsUnionTypeDef]] = None
     TargetDatabase: Optional[DatabaseIdentifierTypeDef] = None
@@ -7403,17 +7418,17 @@ class DatabaseInputTypeDef(BaseValidatorModel):
 
 
 class DataQualityResultTypeDef(BaseValidatorModel):
-    ResultId: Optional[str] = None
-    ProfileId: Optional[str] = None
+    ResultId: Optional[Annotated[str, _aws_pattern("Glue", "HashString")]] = None
+    ProfileId: Optional[Annotated[str, _aws_pattern("Glue", "HashString")]] = None
     Score: Optional[float] = None
     DataSource: Optional[DataSourceOutputTypeDef] = None
-    RulesetName: Optional[str] = None
+    RulesetName: Optional[Annotated[str, _aws_pattern("Glue", "NameString")]] = None
     EvaluationContext: Optional[str] = None
     StartedOn: Optional[datetime] = None
     CompletedOn: Optional[datetime] = None
-    JobName: Optional[str] = None
-    JobRunId: Optional[str] = None
-    RulesetEvaluationRunId: Optional[str] = None
+    JobName: Optional[Annotated[str, _aws_pattern("Glue", "NameString")]] = None
+    JobRunId: Optional[Annotated[str, _aws_pattern("Glue", "HashString")]] = None
+    RulesetEvaluationRunId: Optional[Annotated[str, _aws_pattern("Glue", "HashString")]] = None
     RuleResults: Optional[List[DataQualityRuleResultTypeDef]] = None
     AnalyzerResults: Optional[List[DataQualityAnalyzerResultTypeDef]] = None
     Observations: Optional[List[DataQualityObservationTypeDef]] = None
@@ -7422,17 +7437,17 @@ class DataQualityResultTypeDef(BaseValidatorModel):
 
 # This class is the output for the 'get_data_quality_result' function.
 class GetDataQualityResultResponseTypeDef(BaseValidatorModel):
-    ResultId: str
-    ProfileId: str
+    ResultId: Annotated[str, _aws_pattern("Glue", "HashString")]
+    ProfileId: Annotated[str, _aws_pattern("Glue", "HashString")]
     Score: float
     DataSource: DataSourceOutputTypeDef
-    RulesetName: str
+    RulesetName: Annotated[str, _aws_pattern("Glue", "NameString")]
     EvaluationContext: str
     StartedOn: datetime
     CompletedOn: datetime
-    JobName: str
-    JobRunId: str
-    RulesetEvaluationRunId: str
+    JobName: Annotated[str, _aws_pattern("Glue", "NameString")]
+    JobRunId: Annotated[str, _aws_pattern("Glue", "HashString")]
+    RulesetEvaluationRunId: Annotated[str, _aws_pattern("Glue", "HashString")]
     RuleResults: List[DataQualityRuleResultTypeDef]
     AnalyzerResults: List[DataQualityAnalyzerResultTypeDef]
     Observations: List[DataQualityObservationTypeDef]
@@ -7473,14 +7488,14 @@ class ColumnStatisticsOutputTypeDef(BaseValidatorModel):
 
 class PartitionTypeDef(BaseValidatorModel):
     Values: Optional[List[str]] = None
-    DatabaseName: Optional[str] = None
-    TableName: Optional[str] = None
+    DatabaseName: Optional[Annotated[str, _aws_pattern("Glue", "NameString")]] = None
+    TableName: Optional[Annotated[str, _aws_pattern("Glue", "NameString")]] = None
     CreationTime: Optional[datetime] = None
     LastAccessTime: Optional[datetime] = None
     StorageDescriptor: Optional[StorageDescriptorOutputTypeDef] = None
     Parameters: Optional[Dict[str, str]] = None
     LastAnalyzedTime: Optional[datetime] = None
-    CatalogId: Optional[str] = None
+    CatalogId: Optional[Annotated[str, _aws_pattern("Glue", "CatalogIdString")]] = None
 
 
 # This class is the output for the 'get_security_configuration' function.
@@ -7498,7 +7513,7 @@ class GetSecurityConfigurationsResponseTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'create_security_configuration' function.
 class CreateSecurityConfigurationRequestTypeDef(BaseValidatorModel):
-    Name: str
+    Name: Annotated[str, _aws_pattern("Glue", "NameString")]
     EncryptionConfiguration: EncryptionConfigurationUnionTypeDef
 
 
@@ -7533,15 +7548,15 @@ DirectJDBCSourceUnionTypeDef = Union[DirectJDBCSourceOutputTypeDef, DirectJDBCSo
 
 
 class DynamoDBELTConnectorSourceTypeDef(BaseValidatorModel):
-    Name: str
+    Name: Annotated[str, _aws_pattern("Glue", "NodeName")]
     ConnectionOptions: Optional[DDBELTConnectionOptionsTypeDef] = None
     OutputSchemas: Optional[List[GlueSchemaUnionTypeDef]] = None
 
 
 class S3HyperDirectTargetTypeDef(BaseValidatorModel):
-    Name: str
-    Inputs: List[str]
-    Path: str
+    Name: Annotated[str, _aws_pattern("Glue", "NodeName")]
+    Inputs: List[Annotated[str, _aws_pattern("Glue", "NodeId")]]
+    Path: Annotated[str, _aws_pattern("Glue", "EnclosedInStringProperty")]
     Format: Optional[TargetFormatType] = None
     PartitionKeys: Optional[List[List[str]]] = None
     Compression: Optional[Literal["uncompressed"]] = None
@@ -7588,26 +7603,26 @@ DataSourceUnionTypeDef = Union[DataSourceOutputTypeDef, DataSourceTypeDef]
 
 
 class CreateTableOptimizerRequestTypeDef(BaseValidatorModel):
-    CatalogId: str
-    DatabaseName: str
-    TableName: str
+    CatalogId: Annotated[str, _aws_pattern("Glue", "CatalogIdString")]
+    DatabaseName: Annotated[str, _aws_pattern("Glue", "NameString")]
+    TableName: Annotated[str, _aws_pattern("Glue", "NameString")]
     Type: TableOptimizerTypeType
     TableOptimizerConfiguration: TableOptimizerConfigurationTypeDef
 
 
 class UpdateTableOptimizerRequestTypeDef(BaseValidatorModel):
-    CatalogId: str
-    DatabaseName: str
-    TableName: str
+    CatalogId: Annotated[str, _aws_pattern("Glue", "CatalogIdString")]
+    DatabaseName: Annotated[str, _aws_pattern("Glue", "NameString")]
+    TableName: Annotated[str, _aws_pattern("Glue", "NameString")]
     Type: TableOptimizerTypeType
     TableOptimizerConfiguration: TableOptimizerConfigurationTypeDef
 
 
 # This class is the output for the 'list_table_optimizer_runs' function.
 class ListTableOptimizerRunsResponseTypeDef(BaseValidatorModel):
-    CatalogId: str
-    DatabaseName: str
-    TableName: str
+    CatalogId: Annotated[str, _aws_pattern("Glue", "CatalogIdString")]
+    DatabaseName: Annotated[str, _aws_pattern("Glue", "NameString")]
+    TableName: Annotated[str, _aws_pattern("Glue", "NameString")]
     TableOptimizerRuns: List[TableOptimizerRunTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
     NextToken: Optional[str] = None
@@ -7622,7 +7637,7 @@ class TableOptimizerTypeDef(BaseValidatorModel):
 
 class IcebergInputTypeDef(BaseValidatorModel):
     MetadataOperation: Literal["CREATE"]
-    Version: Optional[str] = None
+    Version: Optional[Annotated[str, _aws_pattern("Glue", "VersionString")]] = None
     CreateIcebergTableInput: Optional[CreateIcebergTableInputTypeDef] = None
 
 
@@ -7660,10 +7675,10 @@ ApplyMappingUnionTypeDef = Union[ApplyMappingOutputTypeDef, ApplyMappingTypeDef]
 
 
 class ConnectionTypeDef(BaseValidatorModel):
-    Name: Optional[str] = None
-    Description: Optional[str] = None
+    Name: Optional[Annotated[str, _aws_pattern("Glue", "NameString")]] = None
+    Description: Optional[Annotated[str, _aws_pattern("Glue", "DescriptionString")]] = None
     ConnectionType: Optional[ConnectionTypeType] = None
-    MatchCriteria: Optional[List[str]] = None
+    MatchCriteria: Optional[List[Annotated[str, _aws_pattern("Glue", "NameString")]]] = None
     ConnectionProperties: Optional[Dict[ConnectionPropertyKeyType, str]] = None
     SparkProperties: Optional[Dict[str, str]] = None
     AthenaProperties: Optional[Dict[str, str]] = None
@@ -7671,7 +7686,7 @@ class ConnectionTypeDef(BaseValidatorModel):
     PhysicalConnectionRequirements: Optional[PhysicalConnectionRequirementsOutputTypeDef] = None
     CreationTime: Optional[datetime] = None
     LastUpdatedTime: Optional[datetime] = None
-    LastUpdatedBy: Optional[str] = None
+    LastUpdatedBy: Optional[Annotated[str, _aws_pattern("Glue", "NameString")]] = None
     Status: Optional[ConnectionStatusType] = None
     StatusReason: Optional[str] = None
     LastConnectionValidationTime: Optional[datetime] = None
@@ -7681,11 +7696,11 @@ class ConnectionTypeDef(BaseValidatorModel):
 
 
 class ConnectionInputTypeDef(BaseValidatorModel):
-    Name: str
+    Name: Annotated[str, _aws_pattern("Glue", "NameString")]
     ConnectionType: ConnectionTypeType
     ConnectionProperties: Dict[ConnectionPropertyKeyType, str]
-    Description: Optional[str] = None
-    MatchCriteria: Optional[List[str]] = None
+    Description: Optional[Annotated[str, _aws_pattern("Glue", "DescriptionString")]] = None
+    MatchCriteria: Optional[List[Annotated[str, _aws_pattern("Glue", "NameString")]]] = None
     SparkProperties: Optional[Dict[str, str]] = None
     AthenaProperties: Optional[Dict[str, str]] = None
     PythonProperties: Optional[Dict[str, str]] = None
@@ -7761,10 +7776,10 @@ class TablePaginatorTypeDef(BaseValidatorModel):
 
 
 class TableTypeDef(BaseValidatorModel):
-    Name: str
-    DatabaseName: Optional[str] = None
-    Description: Optional[str] = None
-    Owner: Optional[str] = None
+    Name: Annotated[str, _aws_pattern("Glue", "NameString")]
+    DatabaseName: Optional[Annotated[str, _aws_pattern("Glue", "NameString")]] = None
+    Description: Optional[Annotated[str, _aws_pattern("Glue", "DescriptionString")]] = None
+    Owner: Optional[Annotated[str, _aws_pattern("Glue", "NameString")]] = None
     CreateTime: Optional[datetime] = None
     UpdateTime: Optional[datetime] = None
     LastAccessTime: Optional[datetime] = None
@@ -7776,11 +7791,11 @@ class TableTypeDef(BaseValidatorModel):
     ViewExpandedText: Optional[str] = None
     TableType: Optional[str] = None
     Parameters: Optional[Dict[str, str]] = None
-    CreatedBy: Optional[str] = None
+    CreatedBy: Optional[Annotated[str, _aws_pattern("Glue", "NameString")]] = None
     IsRegisteredWithLakeFormation: Optional[bool] = None
     TargetTable: Optional[TableIdentifierTypeDef] = None
-    CatalogId: Optional[str] = None
-    VersionId: Optional[str] = None
+    CatalogId: Optional[Annotated[str, _aws_pattern("Glue", "CatalogIdString")]] = None
+    VersionId: Optional[Annotated[str, _aws_pattern("Glue", "VersionString")]] = None
     FederatedTable: Optional[FederatedTableTypeDef] = None
     ViewDefinition: Optional[ViewDefinitionTypeDef] = None
     IsMultiDialectView: Optional[bool] = None
@@ -7803,8 +7818,8 @@ DirectKinesisSourceUnionTypeDef = Union[DirectKinesisSourceOutputTypeDef, Direct
 
 class NodeTypeDef(BaseValidatorModel):
     Type: Optional[NodeTypeType] = None
-    Name: Optional[str] = None
-    UniqueId: Optional[str] = None
+    Name: Optional[Annotated[str, _aws_pattern("Glue", "NameString")]] = None
+    UniqueId: Optional[Annotated[str, _aws_pattern("Glue", "NameString")]] = None
     TriggerDetails: Optional[TriggerNodeDetailsTypeDef] = None
     JobDetails: Optional[JobNodeDetailsTypeDef] = None
     CrawlerDetails: Optional[CrawlerNodeDetailsTypeDef] = None
@@ -7812,7 +7827,7 @@ class NodeTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'update_trigger' function.
 class UpdateTriggerRequestTypeDef(BaseValidatorModel):
-    Name: str
+    Name: Annotated[str, _aws_pattern("Glue", "NameString")]
     TriggerUpdate: TriggerUpdateTypeDef
 
 
@@ -7831,32 +7846,32 @@ class ConnectorAuthenticationConfigurationTypeDef(BaseValidatorModel):
 
 
 class CreateCatalogRequestTypeDef(BaseValidatorModel):
-    Name: str
+    Name: Annotated[str, _aws_pattern("Glue", "CatalogNameString")]
     CatalogInput: CatalogInputTypeDef
     Tags: Optional[Dict[str, str]] = None
 
 
 class UpdateCatalogRequestTypeDef(BaseValidatorModel):
-    CatalogId: str
+    CatalogId: Annotated[str, _aws_pattern("Glue", "CatalogIdString")]
     CatalogInput: CatalogInputTypeDef
 
 
 class CreateDatabaseRequestTypeDef(BaseValidatorModel):
     DatabaseInput: DatabaseInputTypeDef
-    CatalogId: Optional[str] = None
+    CatalogId: Optional[Annotated[str, _aws_pattern("Glue", "CatalogIdString")]] = None
     Tags: Optional[Dict[str, str]] = None
 
 
 class UpdateDatabaseRequestTypeDef(BaseValidatorModel):
-    Name: str
+    Name: Annotated[str, _aws_pattern("Glue", "NameString")]
     DatabaseInput: DatabaseInputTypeDef
-    CatalogId: Optional[str] = None
+    CatalogId: Optional[Annotated[str, _aws_pattern("Glue", "CatalogIdString")]] = None
 
 
 # This class is the output for the 'batch_get_data_quality_result' function.
 class BatchGetDataQualityResultResponseTypeDef(BaseValidatorModel):
     Results: List[DataQualityResultTypeDef]
-    ResultsNotFound: List[str]
+    ResultsNotFound: List[Annotated[str, _aws_pattern("Glue", "HashString")]]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
@@ -7902,14 +7917,14 @@ class GetPartitionsResponseTypeDef(BaseValidatorModel):
 # This class is the output for the 'get_unfiltered_partition_metadata' function.
 class GetUnfilteredPartitionMetadataResponseTypeDef(BaseValidatorModel):
     Partition: PartitionTypeDef
-    AuthorizedColumns: List[str]
+    AuthorizedColumns: List[Annotated[str, _aws_pattern("Glue", "NameString")]]
     IsRegisteredWithLakeFormation: bool
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 class UnfilteredPartitionTypeDef(BaseValidatorModel):
     Partition: Optional[PartitionTypeDef] = None
-    AuthorizedColumns: Optional[List[str]] = None
+    AuthorizedColumns: Optional[List[Annotated[str, _aws_pattern("Glue", "NameString")]]] = None
     IsRegisteredWithLakeFormation: Optional[bool] = None
 
 
@@ -7923,7 +7938,7 @@ class SourceConfigurationOutputTypeDef(BaseValidatorModel):
 
 class SourceConfigurationTypeDef(BaseValidatorModel):
     RequestMethod: Optional[HTTPMethodType] = None
-    RequestPath: Optional[str] = None
+    RequestPath: Optional[Annotated[str, _aws_pattern("Glue", "PathString")]] = None
     RequestParameters: Optional[List[ConnectorPropertyTypeDef]] = None
     ResponseConfiguration: Optional[ResponseConfigurationTypeDef] = None
     PaginationConfiguration: Optional[PaginationConfigurationTypeDef] = None
@@ -8094,14 +8109,14 @@ class CodeGenConfigurationNodePaginatorTypeDef(BaseValidatorModel):
 
 
 class FilterTypeDef(BaseValidatorModel):
-    Name: str
-    Inputs: List[str]
+    Name: Annotated[str, _aws_pattern("Glue", "NodeName")]
+    Inputs: List[Annotated[str, _aws_pattern("Glue", "NodeId")]]
     LogicalOperator: FilterLogicalOperatorType
     Filters: List[FilterExpressionUnionTypeDef]
 
 
 class GroupFiltersTypeDef(BaseValidatorModel):
-    GroupName: str
+    GroupName: Annotated[str, _aws_pattern("Glue", "GenericLimitedString")]
     Filters: List[FilterExpressionUnionTypeDef]
     LogicalOperator: FilterLogicalOperatorType
 
@@ -8115,8 +8130,8 @@ S3HyperDirectTargetUnionTypeDef = Union[S3HyperDirectTargetOutputTypeDef, S3Hype
 
 class DataQualityResultFilterCriteriaTypeDef(BaseValidatorModel):
     DataSource: Optional[DataSourceUnionTypeDef] = None
-    JobName: Optional[str] = None
-    JobRunId: Optional[str] = None
+    JobName: Optional[Annotated[str, _aws_pattern("Glue", "NameString")]] = None
+    JobRunId: Optional[Annotated[str, _aws_pattern("Glue", "HashString")]] = None
     StartedAfter: Optional[TimestampTypeDef] = None
     StartedBefore: Optional[TimestampTypeDef] = None
 
@@ -8131,6 +8146,7 @@ class DataQualityRulesetEvaluationRunFilterTypeDef(BaseValidatorModel):
     DataSource: DataSourceUnionTypeDef
     StartedBefore: Optional[TimestampTypeDef] = None
     StartedAfter: Optional[TimestampTypeDef] = None
+    RulesetName: Optional[Annotated[str, _aws_pattern("Glue", "NameString")]] = None
 
 
 # This class is the input for the 'start_data_quality_rule_recommendation_run' function.
@@ -8139,25 +8155,25 @@ class StartDataQualityRuleRecommendationRunRequestTypeDef(BaseValidatorModel):
     Role: str
     NumberOfWorkers: Optional[int] = None
     Timeout: Optional[int] = None
-    CreatedRulesetName: Optional[str] = None
-    DataQualitySecurityConfiguration: Optional[str] = None
-    ClientToken: Optional[str] = None
+    CreatedRulesetName: Optional[Annotated[str, _aws_pattern("Glue", "NameString")]] = None
+    DataQualitySecurityConfiguration: Optional[Annotated[str, _aws_pattern("Glue", "NameString")]] = None
+    ClientToken: Optional[Annotated[str, _aws_pattern("Glue", "HashString")]] = None
 
 
 # This class is the input for the 'start_data_quality_ruleset_evaluation_run' function.
 class StartDataQualityRulesetEvaluationRunRequestTypeDef(BaseValidatorModel):
     DataSource: DataSourceUnionTypeDef
     Role: str
-    RulesetNames: List[str]
+    RulesetNames: List[Annotated[str, _aws_pattern("Glue", "NameString")]]
     NumberOfWorkers: Optional[int] = None
     Timeout: Optional[int] = None
-    ClientToken: Optional[str] = None
+    ClientToken: Optional[Annotated[str, _aws_pattern("Glue", "HashString")]] = None
     AdditionalRunOptions: Optional[DataQualityEvaluationRunAdditionalRunOptionsTypeDef] = None
     AdditionalDataSources: Optional[Dict[str, DataSourceUnionTypeDef]] = None
 
 
 class BatchTableOptimizerTypeDef(BaseValidatorModel):
-    catalogId: Optional[str] = None
+    catalogId: Optional[Annotated[str, _aws_pattern("Glue", "CatalogIdString")]] = None
     databaseName: Optional[str] = None
     tableName: Optional[str] = None
     tableOptimizer: Optional[TableOptimizerTypeDef] = None
@@ -8165,9 +8181,9 @@ class BatchTableOptimizerTypeDef(BaseValidatorModel):
 
 # This class is the output for the 'get_table_optimizer' function.
 class GetTableOptimizerResponseTypeDef(BaseValidatorModel):
-    CatalogId: str
-    DatabaseName: str
-    TableName: str
+    CatalogId: Annotated[str, _aws_pattern("Glue", "CatalogIdString")]
+    DatabaseName: Annotated[str, _aws_pattern("Glue", "NameString")]
+    TableName: Annotated[str, _aws_pattern("Glue", "NameString")]
     TableOptimizer: TableOptimizerTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
@@ -8196,25 +8212,25 @@ class GetConnectionsResponseTypeDef(BaseValidatorModel):
 # This class is the input for the 'create_connection' function.
 class CreateConnectionRequestTypeDef(BaseValidatorModel):
     ConnectionInput: ConnectionInputTypeDef
-    CatalogId: Optional[str] = None
+    CatalogId: Optional[Annotated[str, _aws_pattern("Glue", "CatalogIdString")]] = None
     Tags: Optional[Dict[str, str]] = None
 
 
 class UpdateConnectionRequestTypeDef(BaseValidatorModel):
-    Name: str
+    Name: Annotated[str, _aws_pattern("Glue", "NameString")]
     ConnectionInput: ConnectionInputTypeDef
-    CatalogId: Optional[str] = None
+    CatalogId: Optional[Annotated[str, _aws_pattern("Glue", "CatalogIdString")]] = None
 
 
 class TestConnectionRequestTypeDef(BaseValidatorModel):
-    ConnectionName: Optional[str] = None
-    CatalogId: Optional[str] = None
+    ConnectionName: Optional[Annotated[str, _aws_pattern("Glue", "NameString")]] = None
+    CatalogId: Optional[Annotated[str, _aws_pattern("Glue", "CatalogIdString")]] = None
     TestConnectionInput: Optional[TestConnectionInputTypeDef] = None
 
 
 class RecipeTypeDef(BaseValidatorModel):
-    Name: str
-    Inputs: List[str]
+    Name: Annotated[str, _aws_pattern("Glue", "NodeName")]
+    Inputs: List[Annotated[str, _aws_pattern("Glue", "NodeId")]]
     RecipeReference: Optional[RecipeReferenceTypeDef] = None
     RecipeSteps: Optional[List[RecipeStepUnionTypeDef]] = None
 
@@ -8228,9 +8244,9 @@ class PartitionInputTypeDef(BaseValidatorModel):
 
 
 class TableInputTypeDef(BaseValidatorModel):
-    Name: str
-    Description: Optional[str] = None
-    Owner: Optional[str] = None
+    Name: Annotated[str, _aws_pattern("Glue", "NameString")]
+    Description: Optional[Annotated[str, _aws_pattern("Glue", "DescriptionString")]] = None
+    Owner: Optional[Annotated[str, _aws_pattern("Glue", "NameString")]] = None
     LastAccessTime: Optional[TimestampTypeDef] = None
     LastAnalyzedTime: Optional[TimestampTypeDef] = None
     Retention: Optional[int] = None
@@ -8271,16 +8287,16 @@ class GetTablesResponseTypeDef(BaseValidatorModel):
 # This class is the output for the 'get_unfiltered_table_metadata' function.
 class GetUnfilteredTableMetadataResponseTypeDef(BaseValidatorModel):
     Table: TableTypeDef
-    AuthorizedColumns: List[str]
+    AuthorizedColumns: List[Annotated[str, _aws_pattern("Glue", "NameString")]]
     IsRegisteredWithLakeFormation: bool
     CellFilters: List[ColumnRowFilterTypeDef]
-    QueryAuthorizationId: str
+    QueryAuthorizationId: Annotated[str, _aws_pattern("Glue", "HashString")]
     IsMultiDialectView: bool
     IsMaterializedView: bool
     ResourceArn: str
     IsProtected: bool
     Permissions: List[PermissionType]
-    RowFilter: str
+    RowFilter: Annotated[str, _aws_pattern("Glue", "PredicateString")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
@@ -8293,7 +8309,7 @@ class SearchTablesResponseTypeDef(BaseValidatorModel):
 
 class TableVersionTypeDef(BaseValidatorModel):
     Table: Optional[TableTypeDef] = None
-    VersionId: Optional[str] = None
+    VersionId: Optional[Annotated[str, _aws_pattern("Glue", "VersionString")]] = None
 
 
 class ColumnStatisticsDataTypeDef(BaseValidatorModel):
@@ -8342,10 +8358,10 @@ class EntityConfigurationTypeDef(BaseValidatorModel):
 
 
 class JobTypeDef(BaseValidatorModel):
-    Name: Optional[str] = None
+    Name: Optional[Annotated[str, _aws_pattern("Glue", "NameString")]] = None
     JobMode: Optional[JobModeType] = None
     JobRunQueuingEnabled: Optional[bool] = None
-    Description: Optional[str] = None
+    Description: Optional[Annotated[str, _aws_pattern("Glue", "DescriptionString")]] = None
     LogUri: Optional[str] = None
     Role: Optional[str] = None
     CreatedOn: Optional[datetime] = None
@@ -8361,14 +8377,14 @@ class JobTypeDef(BaseValidatorModel):
     MaxCapacity: Optional[float] = None
     WorkerType: Optional[WorkerTypeType] = None
     NumberOfWorkers: Optional[int] = None
-    SecurityConfiguration: Optional[str] = None
+    SecurityConfiguration: Optional[Annotated[str, _aws_pattern("Glue", "NameString")]] = None
     NotificationProperty: Optional[NotificationPropertyTypeDef] = None
-    GlueVersion: Optional[str] = None
+    GlueVersion: Optional[Annotated[str, _aws_pattern("Glue", "GlueVersionString")]] = None
     CodeGenConfigurationNodes: Optional[Dict[str, CodeGenConfigurationNodeOutputTypeDef]] = None
     ExecutionClass: Optional[ExecutionClassType] = None
     SourceControlDetails: Optional[SourceControlDetailsTypeDef] = None
-    MaintenanceWindow: Optional[str] = None
-    ProfileName: Optional[str] = None
+    MaintenanceWindow: Optional[Annotated[str, _aws_pattern("Glue", "MaintenanceWindow")]] = None
+    ProfileName: Optional[Annotated[str, _aws_pattern("Glue", "NameString")]] = None
 
 
 class JobPaginatorTypeDef(BaseValidatorModel):
@@ -8443,10 +8459,10 @@ RecipeUnionTypeDef = Union[RecipeOutputTypeDef, RecipeTypeDef]
 
 # This class is the input for the 'batch_create_partition' function.
 class BatchCreatePartitionRequestTypeDef(BaseValidatorModel):
-    DatabaseName: str
-    TableName: str
+    DatabaseName: Annotated[str, _aws_pattern("Glue", "NameString")]
+    TableName: Annotated[str, _aws_pattern("Glue", "NameString")]
     PartitionInputList: List[PartitionInputTypeDef]
-    CatalogId: Optional[str] = None
+    CatalogId: Optional[Annotated[str, _aws_pattern("Glue", "CatalogIdString")]] = None
 
 
 class BatchUpdatePartitionRequestEntryTypeDef(BaseValidatorModel):
@@ -8455,27 +8471,27 @@ class BatchUpdatePartitionRequestEntryTypeDef(BaseValidatorModel):
 
 
 class CreatePartitionRequestTypeDef(BaseValidatorModel):
-    DatabaseName: str
-    TableName: str
+    DatabaseName: Annotated[str, _aws_pattern("Glue", "NameString")]
+    TableName: Annotated[str, _aws_pattern("Glue", "NameString")]
     PartitionInput: PartitionInputTypeDef
-    CatalogId: Optional[str] = None
+    CatalogId: Optional[Annotated[str, _aws_pattern("Glue", "CatalogIdString")]] = None
 
 
 class UpdatePartitionRequestTypeDef(BaseValidatorModel):
-    DatabaseName: str
-    TableName: str
+    DatabaseName: Annotated[str, _aws_pattern("Glue", "NameString")]
+    TableName: Annotated[str, _aws_pattern("Glue", "NameString")]
     PartitionValueList: List[str]
     PartitionInput: PartitionInputTypeDef
-    CatalogId: Optional[str] = None
+    CatalogId: Optional[Annotated[str, _aws_pattern("Glue", "CatalogIdString")]] = None
 
 
 class CreateTableRequestTypeDef(BaseValidatorModel):
-    DatabaseName: str
-    CatalogId: Optional[str] = None
-    Name: Optional[str] = None
+    DatabaseName: Annotated[str, _aws_pattern("Glue", "NameString")]
+    CatalogId: Optional[Annotated[str, _aws_pattern("Glue", "CatalogIdString")]] = None
+    Name: Optional[Annotated[str, _aws_pattern("Glue", "NameString")]] = None
     TableInput: Optional[TableInputTypeDef] = None
     PartitionIndexes: Optional[List[PartitionIndexTypeDef]] = None
-    TransactionId: Optional[str] = None
+    TransactionId: Optional[Annotated[str, _aws_pattern("Glue", "TransactionIdString")]] = None
     OpenTableFormatInput: Optional[OpenTableFormatInputTypeDef] = None
 
 
@@ -8502,9 +8518,9 @@ ColumnStatisticsDataUnionTypeDef = Union[ColumnStatisticsDataOutputTypeDef, Colu
 
 
 class WorkflowRunTypeDef(BaseValidatorModel):
-    Name: Optional[str] = None
-    WorkflowRunId: Optional[str] = None
-    PreviousRunId: Optional[str] = None
+    Name: Optional[Annotated[str, _aws_pattern("Glue", "NameString")]] = None
+    WorkflowRunId: Optional[Annotated[str, _aws_pattern("Glue", "IdString")]] = None
+    PreviousRunId: Optional[Annotated[str, _aws_pattern("Glue", "IdString")]] = None
     WorkflowRunProperties: Optional[Dict[str, str]] = None
     StartedOn: Optional[datetime] = None
     CompletedOn: Optional[datetime] = None
@@ -8530,7 +8546,7 @@ class RestConfigurationTypeDef(BaseValidatorModel):
 # This class is the output for the 'batch_get_jobs' function.
 class BatchGetJobsResponseTypeDef(BaseValidatorModel):
     Jobs: List[JobTypeDef]
-    JobsNotFound: List[str]
+    JobsNotFound: List[Annotated[str, _aws_pattern("Glue", "NameString")]]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
@@ -8554,19 +8570,19 @@ class GetJobsResponsePaginatorTypeDef(BaseValidatorModel):
 
 
 class RouteTypeDef(BaseValidatorModel):
-    Name: str
-    Inputs: List[str]
+    Name: Annotated[str, _aws_pattern("Glue", "NodeName")]
+    Inputs: List[Annotated[str, _aws_pattern("Glue", "NodeId")]]
     GroupFiltersList: List[GroupFiltersUnionTypeDef]
 
 
 class UpdateTableRequestTypeDef(BaseValidatorModel):
-    DatabaseName: str
-    CatalogId: Optional[str] = None
-    Name: Optional[str] = None
+    DatabaseName: Annotated[str, _aws_pattern("Glue", "NameString")]
+    CatalogId: Optional[Annotated[str, _aws_pattern("Glue", "CatalogIdString")]] = None
+    Name: Optional[Annotated[str, _aws_pattern("Glue", "NameString")]] = None
     TableInput: Optional[TableInputTypeDef] = None
     SkipArchive: Optional[bool] = None
-    TransactionId: Optional[str] = None
-    VersionId: Optional[str] = None
+    TransactionId: Optional[Annotated[str, _aws_pattern("Glue", "TransactionIdString")]] = None
+    VersionId: Optional[Annotated[str, _aws_pattern("Glue", "VersionString")]] = None
     ViewUpdateAction: Optional[ViewUpdateActionType] = None
     Force: Optional[bool] = None
     UpdateOpenTableFormatInput: Optional[UpdateOpenTableFormatInputTypeDef] = None
@@ -8574,15 +8590,15 @@ class UpdateTableRequestTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'batch_update_partition' function.
 class BatchUpdatePartitionRequestTypeDef(BaseValidatorModel):
-    DatabaseName: str
-    TableName: str
+    DatabaseName: Annotated[str, _aws_pattern("Glue", "NameString")]
+    TableName: Annotated[str, _aws_pattern("Glue", "NameString")]
     Entries: List[BatchUpdatePartitionRequestEntryTypeDef]
-    CatalogId: Optional[str] = None
+    CatalogId: Optional[Annotated[str, _aws_pattern("Glue", "CatalogIdString")]] = None
 
 
 class ColumnStatisticsTypeDef(BaseValidatorModel):
-    ColumnName: str
-    ColumnType: str
+    ColumnName: Annotated[str, _aws_pattern("Glue", "NameString")]
+    ColumnType: Annotated[str, _aws_pattern("Glue", "TypeString")]
     AnalyzedTime: TimestampTypeDef
     StatisticsData: ColumnStatisticsDataUnionTypeDef
 
@@ -8601,7 +8617,7 @@ class GetWorkflowRunsResponseTypeDef(BaseValidatorModel):
 
 
 class WorkflowTypeDef(BaseValidatorModel):
-    Name: Optional[str] = None
+    Name: Optional[Annotated[str, _aws_pattern("Glue", "NameString")]] = None
     Description: Optional[str] = None
     DefaultRunProperties: Optional[Dict[str, str]] = None
     CreatedOn: Optional[datetime] = None
@@ -8614,7 +8630,7 @@ class WorkflowTypeDef(BaseValidatorModel):
 
 # This class is the output for the 'describe_connection_type' function.
 class DescribeConnectionTypeResponseTypeDef(BaseValidatorModel):
-    ConnectionType: str
+    ConnectionType: Annotated[str, _aws_pattern("Glue", "NameString")]
     Description: str
     Capabilities: CapabilitiesTypeDef
     ConnectionProperties: Dict[str, PropertyTypeDef]
@@ -8639,7 +8655,7 @@ ColumnStatisticsUnionTypeDef = Union[ColumnStatisticsOutputTypeDef, ColumnStatis
 # This class is the output for the 'batch_get_workflows' function.
 class BatchGetWorkflowsResponseTypeDef(BaseValidatorModel):
     Workflows: List[WorkflowTypeDef]
-    MissingWorkflows: List[str]
+    MissingWorkflows: List[Annotated[str, _aws_pattern("Glue", "NameString")]]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
@@ -8651,7 +8667,7 @@ class GetWorkflowResponseTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'register_connection_type' function.
 class RegisterConnectionTypeRequestTypeDef(BaseValidatorModel):
-    ConnectionType: str
+    ConnectionType: Annotated[str, _aws_pattern("Glue", "NameString")]
     IntegrationType: Literal["REST"]
     ConnectionProperties: ConnectionPropertiesConfigurationTypeDef
     ConnectorAuthenticationConfiguration: ConnectorAuthenticationConfigurationTypeDef
@@ -8744,19 +8760,19 @@ class CodeGenConfigurationNodeTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'update_column_statistics_for_partition' function.
 class UpdateColumnStatisticsForPartitionRequestTypeDef(BaseValidatorModel):
-    DatabaseName: str
-    TableName: str
+    DatabaseName: Annotated[str, _aws_pattern("Glue", "NameString")]
+    TableName: Annotated[str, _aws_pattern("Glue", "NameString")]
     PartitionValues: List[str]
     ColumnStatisticsList: List[ColumnStatisticsUnionTypeDef]
-    CatalogId: Optional[str] = None
+    CatalogId: Optional[Annotated[str, _aws_pattern("Glue", "CatalogIdString")]] = None
 
 
 # This class is the input for the 'update_column_statistics_for_table' function.
 class UpdateColumnStatisticsForTableRequestTypeDef(BaseValidatorModel):
-    DatabaseName: str
-    TableName: str
+    DatabaseName: Annotated[str, _aws_pattern("Glue", "NameString")]
+    TableName: Annotated[str, _aws_pattern("Glue", "NameString")]
     ColumnStatisticsList: List[ColumnStatisticsUnionTypeDef]
-    CatalogId: Optional[str] = None
+    CatalogId: Optional[Annotated[str, _aws_pattern("Glue", "CatalogIdString")]] = None
 
 
 CodeGenConfigurationNodeUnionTypeDef = Union[CodeGenConfigurationNodeOutputTypeDef, CodeGenConfigurationNodeTypeDef]
@@ -8764,12 +8780,12 @@ CodeGenConfigurationNodeUnionTypeDef = Union[CodeGenConfigurationNodeOutputTypeD
 
 # This class is the input for the 'create_job' function.
 class CreateJobRequestTypeDef(BaseValidatorModel):
-    Name: str
+    Name: Annotated[str, _aws_pattern("Glue", "NameString")]
     Role: str
     Command: JobCommandTypeDef
     JobMode: Optional[JobModeType] = None
     JobRunQueuingEnabled: Optional[bool] = None
-    Description: Optional[str] = None
+    Description: Optional[Annotated[str, _aws_pattern("Glue", "DescriptionString")]] = None
     LogUri: Optional[str] = None
     ExecutionProperty: Optional[ExecutionPropertyTypeDef] = None
     DefaultArguments: Optional[Dict[str, str]] = None
@@ -8779,22 +8795,22 @@ class CreateJobRequestTypeDef(BaseValidatorModel):
     AllocatedCapacity: Optional[int] = None
     Timeout: Optional[int] = None
     MaxCapacity: Optional[float] = None
-    SecurityConfiguration: Optional[str] = None
+    SecurityConfiguration: Optional[Annotated[str, _aws_pattern("Glue", "NameString")]] = None
     Tags: Optional[Dict[str, str]] = None
     NotificationProperty: Optional[NotificationPropertyTypeDef] = None
-    GlueVersion: Optional[str] = None
+    GlueVersion: Optional[Annotated[str, _aws_pattern("Glue", "GlueVersionString")]] = None
     NumberOfWorkers: Optional[int] = None
     WorkerType: Optional[WorkerTypeType] = None
     CodeGenConfigurationNodes: Optional[Dict[str, CodeGenConfigurationNodeUnionTypeDef]] = None
     ExecutionClass: Optional[ExecutionClassType] = None
     SourceControlDetails: Optional[SourceControlDetailsTypeDef] = None
-    MaintenanceWindow: Optional[str] = None
+    MaintenanceWindow: Optional[Annotated[str, _aws_pattern("Glue", "MaintenanceWindow")]] = None
 
 
 class JobUpdateTypeDef(BaseValidatorModel):
     JobMode: Optional[JobModeType] = None
     JobRunQueuingEnabled: Optional[bool] = None
-    Description: Optional[str] = None
+    Description: Optional[Annotated[str, _aws_pattern("Glue", "DescriptionString")]] = None
     LogUri: Optional[str] = None
     Role: Optional[str] = None
     ExecutionProperty: Optional[ExecutionPropertyTypeDef] = None
@@ -8808,16 +8824,16 @@ class JobUpdateTypeDef(BaseValidatorModel):
     MaxCapacity: Optional[float] = None
     WorkerType: Optional[WorkerTypeType] = None
     NumberOfWorkers: Optional[int] = None
-    SecurityConfiguration: Optional[str] = None
+    SecurityConfiguration: Optional[Annotated[str, _aws_pattern("Glue", "NameString")]] = None
     NotificationProperty: Optional[NotificationPropertyTypeDef] = None
-    GlueVersion: Optional[str] = None
+    GlueVersion: Optional[Annotated[str, _aws_pattern("Glue", "GlueVersionString")]] = None
     CodeGenConfigurationNodes: Optional[Dict[str, CodeGenConfigurationNodeUnionTypeDef]] = None
     ExecutionClass: Optional[ExecutionClassType] = None
     SourceControlDetails: Optional[SourceControlDetailsTypeDef] = None
-    MaintenanceWindow: Optional[str] = None
+    MaintenanceWindow: Optional[Annotated[str, _aws_pattern("Glue", "MaintenanceWindow")]] = None
 
 
 # This class is the input for the 'update_job' function.
 class UpdateJobRequestTypeDef(BaseValidatorModel):
-    JobName: str
+    JobName: Annotated[str, _aws_pattern("Glue", "NameString")]
     JobUpdate: JobUpdateTypeDef

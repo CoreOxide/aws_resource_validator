@@ -3,6 +3,7 @@
 from datetime import datetime
 from decimal import Decimal
 from typing import (
+    Annotated,
     Any,
     Callable,
     Dict,
@@ -24,6 +25,7 @@ from botocore.response import StreamingBody
 from pydantic import Field
 
 from aws_resource_validator.core.base_validator_model import BaseValidatorModel, EventStream
+from aws_resource_validator.core.pattern_validation import aws_field_pattern as _aws_pattern
 from aws_resource_validator.pydantic_models.qapps.qapps_constants import *  # noqa: F401,F403
 
 # Optional boto3 symbols — imported lazily so services that don't need them
@@ -41,45 +43,45 @@ except ImportError:  # pragma: no cover
 # This class is the input for the 'associate_library_item_review' function.
 class AssociateLibraryItemReviewInputTypeDef(BaseValidatorModel):
     instanceId: str
-    libraryItemId: str
+    libraryItemId: Annotated[str, _aws_pattern("Qapps", "UUID")]
 
 
 # This class is the input for the 'associate_q_app_with_user' function.
 class AssociateQAppWithUserInputTypeDef(BaseValidatorModel):
     instanceId: str
-    appId: str
+    appId: Annotated[str, _aws_pattern("Qapps", "UUID")]
 
 
 class BatchCreateCategoryInputCategoryTypeDef(BaseValidatorModel):
-    title: str
-    id: Optional[str] = None
-    color: Optional[str] = None
+    title: Annotated[str, _aws_pattern("Qapps", "BatchCreateCategoryInputCategoryTitleString")]
+    id: Optional[Annotated[str, _aws_pattern("Qapps", "UUID")]] = None
+    color: Optional[Annotated[str, _aws_pattern("Qapps", "BatchCreateCategoryInputCategoryColorString")]] = None
 
 
 # This class is the input for the 'batch_delete_category' function.
 class BatchDeleteCategoryInputTypeDef(BaseValidatorModel):
     instanceId: str
-    categories: List[str]
+    categories: List[Annotated[str, _aws_pattern("Qapps", "UUID")]]
 
 
 class CategoryInputTypeDef(BaseValidatorModel):
-    id: str
-    title: str
-    color: Optional[str] = None
+    id: Annotated[str, _aws_pattern("Qapps", "UUID")]
+    title: Annotated[str, _aws_pattern("Qapps", "CategoryInputTitleString")]
+    color: Optional[Annotated[str, _aws_pattern("Qapps", "CategoryInputColorString")]] = None
 
 
 class FileUploadCardInputTypeDef(BaseValidatorModel):
-    title: str
-    id: str
+    title: Annotated[str, _aws_pattern("Qapps", "Title")]
+    id: Annotated[str, _aws_pattern("Qapps", "UUID")]
     type: CardTypeType
     filename: Optional[str] = None
-    fileId: Optional[str] = None
+    fileId: Optional[Annotated[str, _aws_pattern("Qapps", "UUID")]] = None
     allowOverride: Optional[bool] = None
 
 
 class QPluginCardInputTypeDef(BaseValidatorModel):
-    title: str
-    id: str
+    title: Annotated[str, _aws_pattern("Qapps", "Title")]
+    id: Annotated[str, _aws_pattern("Qapps", "UUID")]
     type: CardTypeType
     prompt: str
     pluginId: str
@@ -87,8 +89,8 @@ class QPluginCardInputTypeDef(BaseValidatorModel):
 
 
 class TextInputCardInputTypeDef(BaseValidatorModel):
-    title: str
-    id: str
+    title: Annotated[str, _aws_pattern("Qapps", "Title")]
+    id: Annotated[str, _aws_pattern("Qapps", "UUID")]
     type: CardTypeType
     placeholder: Optional[str] = None
     defaultValue: Optional[str] = None
@@ -96,13 +98,13 @@ class TextInputCardInputTypeDef(BaseValidatorModel):
 
 class SubmissionTypeDef(BaseValidatorModel):
     value: Optional[Dict[str, Any]] = None
-    submissionId: Optional[str] = None
+    submissionId: Optional[Annotated[str, _aws_pattern("Qapps", "UUID")]] = None
     timestamp: Optional[datetime] = None
 
 
 class FileUploadCardTypeDef(BaseValidatorModel):
-    id: str
-    title: str
+    id: Annotated[str, _aws_pattern("Qapps", "UUID")]
+    title: Annotated[str, _aws_pattern("Qapps", "Title")]
     dependencies: List[str]
     type: CardTypeType
     filename: Optional[str] = None
@@ -111,8 +113,8 @@ class FileUploadCardTypeDef(BaseValidatorModel):
 
 
 class QPluginCardTypeDef(BaseValidatorModel):
-    id: str
-    title: str
+    id: Annotated[str, _aws_pattern("Qapps", "UUID")]
+    title: Annotated[str, _aws_pattern("Qapps", "Title")]
     dependencies: List[str]
     type: CardTypeType
     prompt: str
@@ -122,8 +124,8 @@ class QPluginCardTypeDef(BaseValidatorModel):
 
 
 class TextInputCardTypeDef(BaseValidatorModel):
-    id: str
-    title: str
+    id: Annotated[str, _aws_pattern("Qapps", "UUID")]
+    title: Annotated[str, _aws_pattern("Qapps", "Title")]
     dependencies: List[str]
     type: CardTypeType
     placeholder: Optional[str] = None
@@ -131,12 +133,12 @@ class TextInputCardTypeDef(BaseValidatorModel):
 
 
 class SubmissionMutationTypeDef(BaseValidatorModel):
-    submissionId: str
+    submissionId: Annotated[str, _aws_pattern("Qapps", "UUID")]
     mutationType: SubmissionMutationKindType
 
 
 class CategoryTypeDef(BaseValidatorModel):
-    id: str
+    id: Annotated[str, _aws_pattern("Qapps", "UUID")]
     title: str
     color: Optional[str] = None
     appCount: Optional[int] = None
@@ -150,9 +152,9 @@ class ConversationMessageTypeDef(BaseValidatorModel):
 # This class is the input for the 'create_library_item' function.
 class CreateLibraryItemInputTypeDef(BaseValidatorModel):
     instanceId: str
-    appId: str
+    appId: Annotated[str, _aws_pattern("Qapps", "UUID")]
     appVersion: int
-    categories: List[str]
+    categories: List[Annotated[str, _aws_pattern("Qapps", "UUID")]]
 
 
 class ResponseMetadataTypeDef(BaseValidatorModel):
@@ -166,42 +168,42 @@ class ResponseMetadataTypeDef(BaseValidatorModel):
 # This class is the input for the 'create_presigned_url' function.
 class CreatePresignedUrlInputTypeDef(BaseValidatorModel):
     instanceId: str
-    cardId: str
-    appId: str
-    fileContentsSha256: str
+    cardId: Annotated[str, _aws_pattern("Qapps", "UUID")]
+    appId: Annotated[str, _aws_pattern("Qapps", "UUID")]
+    fileContentsSha256: Annotated[str, _aws_pattern("Qapps", "CreatePresignedUrlInputFileContentsSha256String")]
     fileName: str
     scope: DocumentScopeType
-    sessionId: Optional[str] = None
+    sessionId: Optional[Annotated[str, _aws_pattern("Qapps", "UUID")]] = None
 
 
 # This class is the input for the 'delete_library_item' function.
 class DeleteLibraryItemInputTypeDef(BaseValidatorModel):
     instanceId: str
-    libraryItemId: str
+    libraryItemId: Annotated[str, _aws_pattern("Qapps", "UUID")]
 
 
 # This class is the input for the 'delete_q_app' function.
 class DeleteQAppInputTypeDef(BaseValidatorModel):
     instanceId: str
-    appId: str
+    appId: Annotated[str, _aws_pattern("Qapps", "UUID")]
 
 
 # This class is the input for the 'describe_q_app_permissions' function.
 class DescribeQAppPermissionsInputTypeDef(BaseValidatorModel):
     instanceId: str
-    appId: str
+    appId: Annotated[str, _aws_pattern("Qapps", "UUID")]
 
 
 # This class is the input for the 'disassociate_library_item_review' function.
 class DisassociateLibraryItemReviewInputTypeDef(BaseValidatorModel):
     instanceId: str
-    libraryItemId: str
+    libraryItemId: Annotated[str, _aws_pattern("Qapps", "UUID")]
 
 
 # This class is the input for the 'disassociate_q_app_from_user' function.
 class DisassociateQAppFromUserInputTypeDef(BaseValidatorModel):
     instanceId: str
-    appId: str
+    appId: Annotated[str, _aws_pattern("Qapps", "UUID")]
 
 
 class DocumentAttributeValueOutputTypeDef(BaseValidatorModel):
@@ -217,7 +219,7 @@ TimestampTypeDef = Union[datetime, str]
 # This class is the input for the 'export_q_app_session_data' function.
 class ExportQAppSessionDataInputTypeDef(BaseValidatorModel):
     instanceId: str
-    sessionId: str
+    sessionId: Annotated[str, _aws_pattern("Qapps", "UUID")]
 
 
 class FormInputCardMetadataOutputTypeDef(BaseValidatorModel):
@@ -231,27 +233,27 @@ class FormInputCardMetadataTypeDef(BaseValidatorModel):
 # This class is the input for the 'get_library_item' function.
 class GetLibraryItemInputTypeDef(BaseValidatorModel):
     instanceId: str
-    libraryItemId: str
-    appId: Optional[str] = None
+    libraryItemId: Annotated[str, _aws_pattern("Qapps", "UUID")]
+    appId: Optional[Annotated[str, _aws_pattern("Qapps", "UUID")]] = None
 
 
 # This class is the input for the 'get_q_app' function.
 class GetQAppInputTypeDef(BaseValidatorModel):
     instanceId: str
-    appId: str
+    appId: Annotated[str, _aws_pattern("Qapps", "UUID")]
     appVersion: Optional[int] = None
 
 
 # This class is the input for the 'get_q_app_session' function.
 class GetQAppSessionInputTypeDef(BaseValidatorModel):
     instanceId: str
-    sessionId: str
+    sessionId: Annotated[str, _aws_pattern("Qapps", "UUID")]
 
 
 # This class is the input for the 'get_q_app_session_metadata' function.
 class GetQAppSessionMetadataInputTypeDef(BaseValidatorModel):
     instanceId: str
-    sessionId: str
+    sessionId: Annotated[str, _aws_pattern("Qapps", "UUID")]
 
 
 class SessionSharingConfigurationTypeDef(BaseValidatorModel):
@@ -263,12 +265,12 @@ class SessionSharingConfigurationTypeDef(BaseValidatorModel):
 # This class is the input for the 'import_document' function.
 class ImportDocumentInputTypeDef(BaseValidatorModel):
     instanceId: str
-    cardId: str
-    appId: str
+    cardId: Annotated[str, _aws_pattern("Qapps", "UUID")]
+    appId: Annotated[str, _aws_pattern("Qapps", "UUID")]
     fileContentsBase64: str
     fileName: str
     scope: DocumentScopeType
-    sessionId: Optional[str] = None
+    sessionId: Optional[Annotated[str, _aws_pattern("Qapps", "UUID")]] = None
 
 
 # This class is the input for the 'list_categories' function.
@@ -287,13 +289,13 @@ class ListLibraryItemsInputTypeDef(BaseValidatorModel):
     instanceId: str
     limit: Optional[int] = None
     nextToken: Optional[str] = None
-    categoryId: Optional[str] = None
+    categoryId: Optional[Annotated[str, _aws_pattern("Qapps", "UUID")]] = None
 
 
 # This class is the input for the 'list_q_app_session_data' function.
 class ListQAppSessionDataInputTypeDef(BaseValidatorModel):
     instanceId: str
-    sessionId: str
+    sessionId: Annotated[str, _aws_pattern("Qapps", "UUID")]
 
 
 # This class is the input for the 'list_q_apps' function.
@@ -304,9 +306,9 @@ class ListQAppsInputTypeDef(BaseValidatorModel):
 
 
 class UserAppItemTypeDef(BaseValidatorModel):
-    appId: str
+    appId: Annotated[str, _aws_pattern("Qapps", "UUID")]
     appArn: str
-    title: str
+    title: Annotated[str, _aws_pattern("Qapps", "Title")]
     createdAt: datetime
     description: Optional[str] = None
     canEdit: Optional[bool] = None
@@ -337,7 +339,7 @@ class UserTypeDef(BaseValidatorModel):
 # This class is the input for the 'stop_q_app_session' function.
 class StopQAppSessionInputTypeDef(BaseValidatorModel):
     instanceId: str
-    sessionId: str
+    sessionId: Annotated[str, _aws_pattern("Qapps", "UUID")]
 
 
 class TagResourceRequestTypeDef(BaseValidatorModel):
@@ -353,15 +355,15 @@ class UntagResourceRequestTypeDef(BaseValidatorModel):
 # This class is the input for the 'update_library_item' function.
 class UpdateLibraryItemInputTypeDef(BaseValidatorModel):
     instanceId: str
-    libraryItemId: str
+    libraryItemId: Annotated[str, _aws_pattern("Qapps", "UUID")]
     status: Optional[LibraryItemStatusType] = None
-    categories: Optional[List[str]] = None
+    categories: Optional[List[Annotated[str, _aws_pattern("Qapps", "UUID")]]] = None
 
 
 # This class is the input for the 'update_library_item_metadata' function.
 class UpdateLibraryItemMetadataInputTypeDef(BaseValidatorModel):
     instanceId: str
-    libraryItemId: str
+    libraryItemId: Annotated[str, _aws_pattern("Qapps", "UUID")]
     isVerified: Optional[bool] = None
 
 
@@ -384,14 +386,14 @@ class CardStatusTypeDef(BaseValidatorModel):
 
 
 class CardValueTypeDef(BaseValidatorModel):
-    cardId: str
+    cardId: Annotated[str, _aws_pattern("Qapps", "UUID")]
     value: str
     submissionMutation: Optional[SubmissionMutationTypeDef] = None
 
 
 class LibraryItemMemberTypeDef(BaseValidatorModel):
-    libraryItemId: str
-    appId: str
+    libraryItemId: Annotated[str, _aws_pattern("Qapps", "UUID")]
+    appId: Annotated[str, _aws_pattern("Qapps", "UUID")]
     appVersion: int
     categories: List[CategoryTypeDef]
     status: str
@@ -412,7 +414,7 @@ class PredictQAppInputOptionsTypeDef(BaseValidatorModel):
 
 # This class is the output for the 'create_library_item' function.
 class CreateLibraryItemOutputTypeDef(BaseValidatorModel):
-    libraryItemId: str
+    libraryItemId: Annotated[str, _aws_pattern("Qapps", "UUID")]
     status: str
     createdAt: datetime
     createdBy: str
@@ -434,9 +436,9 @@ class CreatePresignedUrlOutputTypeDef(BaseValidatorModel):
 
 # This class is the output for the 'create_q_app' function.
 class CreateQAppOutputTypeDef(BaseValidatorModel):
-    appId: str
+    appId: Annotated[str, _aws_pattern("Qapps", "UUID")]
     appArn: str
-    title: str
+    title: Annotated[str, _aws_pattern("Qapps", "Title")]
     description: str
     initialPrompt: str
     appVersion: int
@@ -464,8 +466,8 @@ class ExportQAppSessionDataOutputTypeDef(BaseValidatorModel):
 
 # This class is the output for the 'get_library_item' function.
 class GetLibraryItemOutputTypeDef(BaseValidatorModel):
-    libraryItemId: str
-    appId: str
+    libraryItemId: Annotated[str, _aws_pattern("Qapps", "UUID")]
+    appId: Annotated[str, _aws_pattern("Qapps", "UUID")]
     appVersion: int
     categories: List[CategoryTypeDef]
     status: str
@@ -507,8 +509,8 @@ class StartQAppSessionOutputTypeDef(BaseValidatorModel):
 
 # This class is the output for the 'update_library_item' function.
 class UpdateLibraryItemOutputTypeDef(BaseValidatorModel):
-    libraryItemId: str
-    appId: str
+    libraryItemId: Annotated[str, _aws_pattern("Qapps", "UUID")]
+    appId: Annotated[str, _aws_pattern("Qapps", "UUID")]
     appVersion: int
     categories: List[CategoryTypeDef]
     status: str
@@ -525,9 +527,9 @@ class UpdateLibraryItemOutputTypeDef(BaseValidatorModel):
 
 # This class is the output for the 'update_q_app' function.
 class UpdateQAppOutputTypeDef(BaseValidatorModel):
-    appId: str
+    appId: Annotated[str, _aws_pattern("Qapps", "UUID")]
     appArn: str
-    title: str
+    title: Annotated[str, _aws_pattern("Qapps", "Title")]
     description: str
     initialPrompt: str
     appVersion: int
@@ -568,8 +570,8 @@ class FormInputCardInputOutputTypeDef(BaseValidatorModel):
 
 
 class FormInputCardTypeDef(BaseValidatorModel):
-    id: str
-    title: str
+    id: Annotated[str, _aws_pattern("Qapps", "UUID")]
+    title: Annotated[str, _aws_pattern("Qapps", "Title")]
     dependencies: List[str]
     type: CardTypeType
     metadata: FormInputCardMetadataOutputTypeDef
@@ -577,8 +579,8 @@ class FormInputCardTypeDef(BaseValidatorModel):
 
 
 class FormInputCardInputTypeDef(BaseValidatorModel):
-    title: str
-    id: str
+    title: Annotated[str, _aws_pattern("Qapps", "Title")]
+    id: Annotated[str, _aws_pattern("Qapps", "UUID")]
     type: CardTypeType
     metadata: FormInputCardMetadataTypeDef
     computeMode: Optional[InputCardComputeModeType] = None
@@ -586,7 +588,7 @@ class FormInputCardInputTypeDef(BaseValidatorModel):
 
 # This class is the output for the 'get_q_app_session_metadata' function.
 class GetQAppSessionMetadataOutputTypeDef(BaseValidatorModel):
-    sessionId: str
+    sessionId: Annotated[str, _aws_pattern("Qapps", "UUID")]
     sessionArn: str
     sessionName: str
     sharingConfiguration: SessionSharingConfigurationTypeDef
@@ -597,14 +599,14 @@ class GetQAppSessionMetadataOutputTypeDef(BaseValidatorModel):
 # This class is the input for the 'update_q_app_session_metadata' function.
 class UpdateQAppSessionMetadataInputTypeDef(BaseValidatorModel):
     instanceId: str
-    sessionId: str
+    sessionId: Annotated[str, _aws_pattern("Qapps", "UUID")]
     sharingConfiguration: SessionSharingConfigurationTypeDef
     sessionName: Optional[str] = None
 
 
 # This class is the output for the 'update_q_app_session_metadata' function.
 class UpdateQAppSessionMetadataOutputTypeDef(BaseValidatorModel):
-    sessionId: str
+    sessionId: Annotated[str, _aws_pattern("Qapps", "UUID")]
     sessionArn: str
     sessionName: str
     sharingConfiguration: SessionSharingConfigurationTypeDef
@@ -632,7 +634,7 @@ class ListQAppsOutputTypeDef(BaseValidatorModel):
 # This class is the input for the 'update_q_app_permissions' function.
 class UpdateQAppPermissionsInputTypeDef(BaseValidatorModel):
     instanceId: str
-    appId: str
+    appId: Annotated[str, _aws_pattern("Qapps", "UUID")]
     grantPermissions: Optional[List[PermissionInputTypeDef]] = None
     revokePermissions: Optional[List[PermissionInputTypeDef]] = None
 
@@ -643,10 +645,10 @@ class PermissionOutputTypeDef(BaseValidatorModel):
 
 
 class QAppSessionDataTypeDef(BaseValidatorModel):
-    cardId: str
+    cardId: Annotated[str, _aws_pattern("Qapps", "UUID")]
     user: UserTypeDef
     value: Optional[Dict[str, Any]] = None
-    submissionId: Optional[str] = None
+    submissionId: Optional[Annotated[str, _aws_pattern("Qapps", "UUID")]] = None
     timestamp: Optional[datetime] = None
 
 
@@ -666,7 +668,7 @@ class GetQAppSessionOutputTypeDef(BaseValidatorModel):
 # This class is the input for the 'start_q_app_session' function.
 class StartQAppSessionInputTypeDef(BaseValidatorModel):
     instanceId: str
-    appId: str
+    appId: Annotated[str, _aws_pattern("Qapps", "UUID")]
     appVersion: int
     initialValues: Optional[List[CardValueTypeDef]] = None
     sessionId: Optional[str] = None
@@ -676,7 +678,7 @@ class StartQAppSessionInputTypeDef(BaseValidatorModel):
 # This class is the input for the 'update_q_app_session' function.
 class UpdateQAppSessionInputTypeDef(BaseValidatorModel):
     instanceId: str
-    sessionId: str
+    sessionId: Annotated[str, _aws_pattern("Qapps", "UUID")]
     values: Optional[List[CardValueTypeDef]] = None
 
 
@@ -707,7 +709,7 @@ class AttributeFilterOutputTypeDef(BaseValidatorModel):
 
 
 class DocumentAttributeTypeDef(BaseValidatorModel):
-    name: str
+    name: Annotated[str, _aws_pattern("Qapps", "DocumentAttributeKey")]
     value: DocumentAttributeValueTypeDef
 
 
@@ -729,7 +731,7 @@ class UpdateQAppPermissionsOutputTypeDef(BaseValidatorModel):
 
 # This class is the output for the 'list_q_app_session_data' function.
 class ListQAppSessionDataOutputTypeDef(BaseValidatorModel):
-    sessionId: str
+    sessionId: Annotated[str, _aws_pattern("Qapps", "UUID")]
     sessionArn: str
     sessionData: List[QAppSessionDataTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
@@ -746,8 +748,8 @@ class QQueryCardInputOutputTypeDef(BaseValidatorModel):
 
 
 class QQueryCardTypeDef(BaseValidatorModel):
-    id: str
-    title: str
+    id: Annotated[str, _aws_pattern("Qapps", "UUID")]
+    title: Annotated[str, _aws_pattern("Qapps", "Title")]
     dependencies: List[str]
     type: CardTypeType
     prompt: str
@@ -786,8 +788,8 @@ class CardTypeDef(BaseValidatorModel):
 
 
 class QQueryCardInputTypeDef(BaseValidatorModel):
-    title: str
-    id: str
+    title: Annotated[str, _aws_pattern("Qapps", "Title")]
+    id: Annotated[str, _aws_pattern("Qapps", "UUID")]
     type: CardTypeType
     prompt: str
     outputSource: Optional[CardOutputSourceType] = None
@@ -814,16 +816,16 @@ class CardInputTypeDef(BaseValidatorModel):
 
 
 class PredictAppDefinitionTypeDef(BaseValidatorModel):
-    title: str
+    title: Annotated[str, _aws_pattern("Qapps", "Title")]
     appDefinition: AppDefinitionInputOutputTypeDef
     description: Optional[str] = None
 
 
 # This class is the output for the 'get_q_app' function.
 class GetQAppOutputTypeDef(BaseValidatorModel):
-    appId: str
+    appId: Annotated[str, _aws_pattern("Qapps", "UUID")]
     appArn: str
-    title: str
+    title: Annotated[str, _aws_pattern("Qapps", "Title")]
     description: str
     initialPrompt: str
     appVersion: int
@@ -855,7 +857,7 @@ AppDefinitionInputUnionTypeDef = Union[AppDefinitionInputOutputTypeDef, AppDefin
 # This class is the input for the 'create_q_app' function.
 class CreateQAppInputTypeDef(BaseValidatorModel):
     instanceId: str
-    title: str
+    title: Annotated[str, _aws_pattern("Qapps", "Title")]
     appDefinition: AppDefinitionInputUnionTypeDef
     description: Optional[str] = None
     tags: Optional[Dict[str, str]] = None
@@ -864,7 +866,7 @@ class CreateQAppInputTypeDef(BaseValidatorModel):
 # This class is the input for the 'update_q_app' function.
 class UpdateQAppInputTypeDef(BaseValidatorModel):
     instanceId: str
-    appId: str
-    title: Optional[str] = None
+    appId: Annotated[str, _aws_pattern("Qapps", "UUID")]
+    title: Optional[Annotated[str, _aws_pattern("Qapps", "Title")]] = None
     description: Optional[str] = None
     appDefinition: Optional[AppDefinitionInputUnionTypeDef] = None

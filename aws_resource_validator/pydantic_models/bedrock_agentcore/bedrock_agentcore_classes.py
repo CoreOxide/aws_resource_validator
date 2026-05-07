@@ -3,6 +3,7 @@
 from datetime import datetime
 from decimal import Decimal
 from typing import (
+    Annotated,
     Any,
     Callable,
     Dict,
@@ -24,6 +25,7 @@ from botocore.response import StreamingBody
 from pydantic import Field
 
 from aws_resource_validator.core.base_validator_model import BaseValidatorModel, EventStream
+from aws_resource_validator.core.pattern_validation import aws_field_pattern as _aws_pattern
 from aws_resource_validator.pydantic_models.bedrock_agentcore.bedrock_agentcore_constants import *  # noqa: F401,F403
 
 # Optional boto3 symbols — imported lazily so services that don't need them
@@ -43,12 +45,29 @@ class AgentCardDefinitionTypeDef(BaseValidatorModel):
     inlineContent: Optional[str] = None
 
 
+class PerVariantOnlineEvaluationConfigTypeDef(BaseValidatorModel):
+    name: Annotated[str, _aws_pattern("BedrockAgentcore", "VariantName")]
+    onlineEvaluationConfigArn: Annotated[str, _aws_pattern("BedrockAgentcore", "OnlineEvaluationConfigArn")]
+
+
+class ABTestSummaryTypeDef(BaseValidatorModel):
+    abTestId: Annotated[str, _aws_pattern("BedrockAgentcore", "ABTestId")]
+    abTestArn: Annotated[str, _aws_pattern("BedrockAgentcore", "ABTestArn")]
+    name: Annotated[str, _aws_pattern("BedrockAgentcore", "ABTestName")]
+    status: ABTestStatusType
+    executionStatus: ABTestExecutionStatusType
+    createdAt: datetime
+    updatedAt: datetime
+    description: Optional[str] = None
+    gatewayArn: Optional[Annotated[str, _aws_pattern("BedrockAgentcore", "GatewayArn")]] = None
+
+
 class AccessDeniedExceptionTypeDef(BaseValidatorModel):
-    message: Optional[str] = None
+    message: Optional[Annotated[str, _aws_pattern("BedrockAgentcore", "NonBlankString")]] = None
 
 
 class ActorSummaryTypeDef(BaseValidatorModel):
-    actorId: str
+    actorId: Annotated[str, _aws_pattern("BedrockAgentcore", "ActorId")]
 
 
 class SkillDefinitionTypeDef(BaseValidatorModel):
@@ -70,13 +89,13 @@ class AutomationStreamUpdateTypeDef(BaseValidatorModel):
 
 
 class BasicAuthTypeDef(BaseValidatorModel):
-    secretArn: str
+    secretArn: Annotated[str, _aws_pattern("BedrockAgentcore", "SecretArn")]
 
 
 class MemoryRecordOutputTypeDef(BaseValidatorModel):
-    memoryRecordId: str
+    memoryRecordId: Annotated[str, _aws_pattern("BedrockAgentcore", "MemoryRecordId")]
     status: MemoryRecordStatusType
-    requestIdentifier: Optional[str] = None
+    requestIdentifier: Optional[Annotated[str, _aws_pattern("BedrockAgentcore", "RequestIdentifier")]] = None
     errorCode: Optional[int] = None
     errorMessage: Optional[str] = None
 
@@ -90,20 +109,24 @@ class ResponseMetadataTypeDef(BaseValidatorModel):
 
 
 class MemoryRecordDeleteInputTypeDef(BaseValidatorModel):
-    memoryRecordId: str
+    memoryRecordId: Annotated[str, _aws_pattern("BedrockAgentcore", "MemoryRecordId")]
+
+
+class EvaluatorTypeDef(BaseValidatorModel):
+    evaluatorId: Annotated[str, _aws_pattern("BedrockAgentcore", "EvaluatorId")]
 
 
 BlobTypeDef = Union[IO[Any], StreamingBody, bytes, str]
 
 
 class BranchFilterTypeDef(BaseValidatorModel):
-    name: str
+    name: Annotated[str, _aws_pattern("BedrockAgentcore", "BranchName")]
     includeParentBranches: Optional[bool] = None
 
 
 class BranchTypeDef(BaseValidatorModel):
-    name: str
-    rootEventId: Optional[str] = None
+    name: Annotated[str, _aws_pattern("BedrockAgentcore", "BranchName")]
+    rootEventId: Optional[Annotated[str, _aws_pattern("BedrockAgentcore", "EventId")]] = None
 
 
 class KeyPressResultTypeDef(BaseValidatorModel):
@@ -192,7 +215,7 @@ class ScreenshotArgumentsTypeDef(BaseValidatorModel):
 
 
 class BrowserProfileConfigurationTypeDef(BaseValidatorModel):
-    profileIdentifier: str
+    profileIdentifier: Annotated[str, _aws_pattern("BedrockAgentcore", "BrowserProfileId")]
 
 
 class LiveViewStreamTypeDef(BaseValidatorModel):
@@ -201,7 +224,7 @@ class LiveViewStreamTypeDef(BaseValidatorModel):
 
 class BrowserSessionSummaryTypeDef(BaseValidatorModel):
     browserIdentifier: str
-    sessionId: str
+    sessionId: Annotated[str, _aws_pattern("BedrockAgentcore", "BrowserSessionId")]
     status: BrowserSessionStatusType
     createdAt: datetime
     name: Optional[str] = None
@@ -209,7 +232,26 @@ class BrowserSessionSummaryTypeDef(BaseValidatorModel):
 
 
 class SecretsManagerLocationTypeDef(BaseValidatorModel):
-    secretArn: str
+    secretArn: Annotated[str, _aws_pattern("BedrockAgentcore", "SecretArn")]
+
+
+class SessionFilterConfigOutputTypeDef(BaseValidatorModel):
+    startTime: Optional[datetime] = None
+    endTime: Optional[datetime] = None
+
+
+class FilterValueTypeDef(BaseValidatorModel):
+    stringValue: Optional[str] = None
+    doubleValue: Optional[float] = None
+    booleanValue: Optional[bool] = None
+
+
+TimestampTypeDef = Union[datetime, str]
+
+
+class CloudWatchOutputConfigTypeDef(BaseValidatorModel):
+    logGroupName: str
+    logStreamName: str
 
 
 class ToolResultStructuredContentTypeDef(BaseValidatorModel):
@@ -223,7 +265,7 @@ class ToolResultStructuredContentTypeDef(BaseValidatorModel):
 
 class CodeInterpreterSessionSummaryTypeDef(BaseValidatorModel):
     codeInterpreterIdentifier: str
-    sessionId: str
+    sessionId: Annotated[str, _aws_pattern("BedrockAgentcore", "CodeInterpreterSessionId")]
     status: CodeInterpreterSessionStatusType
     createdAt: datetime
     name: Optional[str] = None
@@ -231,28 +273,43 @@ class CodeInterpreterSessionSummaryTypeDef(BaseValidatorModel):
 
 
 class ConflictExceptionTypeDef(BaseValidatorModel):
-    message: Optional[str] = None
+    message: Optional[Annotated[str, _aws_pattern("BedrockAgentcore", "NonBlankString")]] = None
 
 
 class InternalServerExceptionTypeDef(BaseValidatorModel):
-    message: Optional[str] = None
+    message: Optional[Annotated[str, _aws_pattern("BedrockAgentcore", "NonBlankString")]] = None
 
 
 class ResourceNotFoundExceptionTypeDef(BaseValidatorModel):
-    message: Optional[str] = None
+    message: Optional[Annotated[str, _aws_pattern("BedrockAgentcore", "NonBlankString")]] = None
 
 
 class ServiceQuotaExceededExceptionTypeDef(BaseValidatorModel):
-    message: Optional[str] = None
+    message: Optional[Annotated[str, _aws_pattern("BedrockAgentcore", "NonBlankString")]] = None
 
 
 class ThrottlingExceptionTypeDef(BaseValidatorModel):
-    message: Optional[str] = None
+    message: Optional[Annotated[str, _aws_pattern("BedrockAgentcore", "NonBlankString")]] = None
 
 
 class UserIdentifierTypeDef(BaseValidatorModel):
-    userToken: Optional[str] = None
+    userToken: Optional[Annotated[str, _aws_pattern("BedrockAgentcore", "UserTokenType")]] = None
     userId: Optional[str] = None
+
+
+class ConfidenceIntervalTypeDef(BaseValidatorModel):
+    lower: Optional[float] = None
+    upper: Optional[float] = None
+
+
+class ConfigurationBundleRefTypeDef(BaseValidatorModel):
+    bundleArn: Annotated[str, _aws_pattern("BedrockAgentcore", "ConfigurationBundleArn")]
+    bundleVersion: Annotated[str, _aws_pattern("BedrockAgentcore", "ConfigurationBundleVersion")]
+
+
+class ConfigurationBundleToolEntryTypeDef(BaseValidatorModel):
+    toolName: Annotated[str, _aws_pattern("BedrockAgentcore", "RecommendationToolName")]
+    toolDescriptionJsonPath: str
 
 
 class ResourceContentTypeDef(BaseValidatorModel):
@@ -283,29 +340,47 @@ class SpanContextTypeDef(BaseValidatorModel):
     spanId: Optional[str] = None
 
 
+class ControlStatsTypeDef(BaseValidatorModel):
+    variantName: str
+    sampleSize: int
+    mean: float
+
+
 class MetadataValueTypeDef(BaseValidatorModel):
-    stringValue: Optional[str] = None
-
-
-TimestampTypeDef = Union[datetime, str]
+    stringValue: Optional[Annotated[str, _aws_pattern("BedrockAgentcore", "MetadataValueStringValueString")]] = None
 
 
 class CustomDescriptorTypeDef(BaseValidatorModel):
     inlineContent: Optional[str] = None
 
 
+# This class is the input for the 'delete_ab_test' function.
+class DeleteABTestRequestTypeDef(BaseValidatorModel):
+    abTestId: Annotated[str, _aws_pattern("BedrockAgentcore", "ABTestId")]
+
+
+# This class is the input for the 'delete_batch_evaluation' function.
+class DeleteBatchEvaluationRequestTypeDef(BaseValidatorModel):
+    batchEvaluationId: Annotated[str, _aws_pattern("BedrockAgentcore", "BatchEvaluationId")]
+
+
 # This class is the input for the 'delete_event' function.
 class DeleteEventInputTypeDef(BaseValidatorModel):
-    memoryId: str
-    sessionId: str
-    eventId: str
-    actorId: str
+    memoryId: Annotated[str, _aws_pattern("BedrockAgentcore", "MemoryId")]
+    sessionId: Annotated[str, _aws_pattern("BedrockAgentcore", "SessionId")]
+    eventId: Annotated[str, _aws_pattern("BedrockAgentcore", "EventId")]
+    actorId: Annotated[str, _aws_pattern("BedrockAgentcore", "ActorId")]
 
 
 # This class is the input for the 'delete_memory_record' function.
 class DeleteMemoryRecordInputTypeDef(BaseValidatorModel):
-    memoryId: str
-    memoryRecordId: str
+    memoryId: Annotated[str, _aws_pattern("BedrockAgentcore", "MemoryId")]
+    memoryRecordId: Annotated[str, _aws_pattern("BedrockAgentcore", "MemoryRecordId")]
+
+
+# This class is the input for the 'delete_recommendation' function.
+class DeleteRecommendationRequestTypeDef(BaseValidatorModel):
+    recommendationId: Annotated[str, _aws_pattern("BedrockAgentcore", "RecommendationId")]
 
 
 class EvaluationInputTypeDef(BaseValidatorModel):
@@ -331,8 +406,12 @@ class TokenUsageTypeDef(BaseValidatorModel):
     totalTokens: Optional[int] = None
 
 
+class EvaluatorStatisticsTypeDef(BaseValidatorModel):
+    averageScore: Optional[float] = None
+
+
 class LeftExpressionTypeDef(BaseValidatorModel):
-    metadataKey: Optional[str] = None
+    metadataKey: Optional[Annotated[str, _aws_pattern("BedrockAgentcore", "MetadataKey")]] = None
 
 
 class ExtractionJobFilterInputTypeDef(BaseValidatorModel):
@@ -351,6 +430,19 @@ class ExtractionJobTypeDef(BaseValidatorModel):
     jobId: str
 
 
+class GatewayFilterOutputTypeDef(BaseValidatorModel):
+    targetPaths: Optional[List[str]] = None
+
+
+class GatewayFilterTypeDef(BaseValidatorModel):
+    targetPaths: Optional[List[str]] = None
+
+
+# This class is the input for the 'get_ab_test' function.
+class GetABTestRequestTypeDef(BaseValidatorModel):
+    abTestId: Annotated[str, _aws_pattern("BedrockAgentcore", "ABTestId")]
+
+
 # This class is the input for the 'get_agent_card' function.
 class GetAgentCardRequestTypeDef(BaseValidatorModel):
     agentRuntimeArn: str
@@ -358,10 +450,15 @@ class GetAgentCardRequestTypeDef(BaseValidatorModel):
     qualifier: Optional[str] = None
 
 
+# This class is the input for the 'get_batch_evaluation' function.
+class GetBatchEvaluationRequestTypeDef(BaseValidatorModel):
+    batchEvaluationId: Annotated[str, _aws_pattern("BedrockAgentcore", "BatchEvaluationId")]
+
+
 # This class is the input for the 'get_browser_session' function.
 class GetBrowserSessionRequestTypeDef(BaseValidatorModel):
     browserIdentifier: str
-    sessionId: str
+    sessionId: Annotated[str, _aws_pattern("BedrockAgentcore", "BrowserSessionId")]
 
 
 class ViewPortTypeDef(BaseValidatorModel):
@@ -372,65 +469,78 @@ class ViewPortTypeDef(BaseValidatorModel):
 # This class is the input for the 'get_code_interpreter_session' function.
 class GetCodeInterpreterSessionRequestTypeDef(BaseValidatorModel):
     codeInterpreterIdentifier: str
-    sessionId: str
+    sessionId: Annotated[str, _aws_pattern("BedrockAgentcore", "CodeInterpreterSessionId")]
 
 
 # This class is the input for the 'get_event' function.
 class GetEventInputTypeDef(BaseValidatorModel):
-    memoryId: str
-    sessionId: str
-    actorId: str
-    eventId: str
+    memoryId: Annotated[str, _aws_pattern("BedrockAgentcore", "MemoryId")]
+    sessionId: Annotated[str, _aws_pattern("BedrockAgentcore", "SessionId")]
+    actorId: Annotated[str, _aws_pattern("BedrockAgentcore", "ActorId")]
+    eventId: Annotated[str, _aws_pattern("BedrockAgentcore", "EventId")]
 
 
 # This class is the input for the 'get_memory_record' function.
 class GetMemoryRecordInputTypeDef(BaseValidatorModel):
-    memoryId: str
-    memoryRecordId: str
+    memoryId: Annotated[str, _aws_pattern("BedrockAgentcore", "MemoryId")]
+    memoryRecordId: Annotated[str, _aws_pattern("BedrockAgentcore", "MemoryRecordId")]
+
+
+# This class is the input for the 'get_recommendation' function.
+class GetRecommendationRequestTypeDef(BaseValidatorModel):
+    recommendationId: Annotated[str, _aws_pattern("BedrockAgentcore", "RecommendationId")]
 
 
 # This class is the input for the 'get_resource_api_key' function.
 class GetResourceApiKeyRequestTypeDef(BaseValidatorModel):
     workloadIdentityToken: str
-    resourceCredentialProviderName: str
+    resourceCredentialProviderName: Annotated[str, _aws_pattern("BedrockAgentcore", "CredentialProviderName")]
 
 
 # This class is the input for the 'get_resource_oauth2_token' function.
 class GetResourceOauth2TokenRequestTypeDef(BaseValidatorModel):
     workloadIdentityToken: str
-    resourceCredentialProviderName: str
+    resourceCredentialProviderName: Annotated[str, _aws_pattern("BedrockAgentcore", "CredentialProviderName")]
     scopes: List[str]
     oauth2Flow: Oauth2FlowTypeType
-    sessionUri: Optional[str] = None
-    resourceOauth2ReturnUrl: Optional[str] = None
+    sessionUri: Optional[Annotated[str, _aws_pattern("BedrockAgentcore", "RequestUri")]] = None
+    resourceOauth2ReturnUrl: Optional[
+        Annotated[str, _aws_pattern("BedrockAgentcore", "ResourceOauth2ReturnUrlType")]
+    ] = None
     forceAuthentication: Optional[bool] = None
     customParameters: Optional[Dict[str, str]] = None
     customState: Optional[str] = None
+    resources: Optional[List[str]] = None
+    audiences: Optional[List[str]] = None
 
 
 # This class is the input for the 'get_workload_access_token_for_jwt' function.
 class GetWorkloadAccessTokenForJWTRequestTypeDef(BaseValidatorModel):
-    workloadName: str
-    userToken: str
+    workloadName: Annotated[str, _aws_pattern("BedrockAgentcore", "WorkloadIdentityNameType")]
+    userToken: Annotated[str, _aws_pattern("BedrockAgentcore", "UserTokenType")]
 
 
 # This class is the input for the 'get_workload_access_token_for_user_id' function.
 class GetWorkloadAccessTokenForUserIdRequestTypeDef(BaseValidatorModel):
-    workloadName: str
+    workloadName: Annotated[str, _aws_pattern("BedrockAgentcore", "WorkloadIdentityNameType")]
     userId: str
 
 
 # This class is the input for the 'get_workload_access_token' function.
 class GetWorkloadAccessTokenRequestTypeDef(BaseValidatorModel):
-    workloadName: str
+    workloadName: Annotated[str, _aws_pattern("BedrockAgentcore", "WorkloadIdentityNameType")]
+
+
+class GroundTruthTurnInputTypeDef(BaseValidatorModel):
+    prompt: Optional[str] = None
 
 
 class HarnessAgentCoreBrowserConfigTypeDef(BaseValidatorModel):
-    browserArn: Optional[str] = None
+    browserArn: Optional[Annotated[str, _aws_pattern("BedrockAgentcore", "BrowserArn")]] = None
 
 
 class HarnessAgentCoreCodeInterpreterConfigTypeDef(BaseValidatorModel):
-    codeInterpreterArn: Optional[str] = None
+    codeInterpreterArn: Optional[Annotated[str, _aws_pattern("BedrockAgentcore", "CodeInterpreterArn")]] = None
 
 
 class HarnessBedrockModelConfigTypeDef(BaseValidatorModel):
@@ -456,13 +566,13 @@ class HarnessToolUseBlockDeltaTypeDef(BaseValidatorModel):
 
 
 class HarnessToolResultBlockStartTypeDef(BaseValidatorModel):
-    toolUseId: str
+    toolUseId: Annotated[str, _aws_pattern("BedrockAgentcore", "HarnessToolUseId")]
     status: Optional[HarnessToolUseStatusType] = None
 
 
 class HarnessToolUseBlockStartTypeDef(BaseValidatorModel):
-    toolUseId: str
-    name: str
+    toolUseId: Annotated[str, _aws_pattern("BedrockAgentcore", "HarnessToolUseId")]
+    name: Annotated[str, _aws_pattern("BedrockAgentcore", "HarnessToolName")]
     type: Optional[HarnessToolUseTypeType] = None
     serverName: Optional[str] = None
 
@@ -472,24 +582,24 @@ class HarnessContentBlockStopEventTypeDef(BaseValidatorModel):
 
 
 class HarnessToolUseBlockTypeDef(BaseValidatorModel):
-    name: str
-    toolUseId: str
+    name: Annotated[str, _aws_pattern("BedrockAgentcore", "HarnessToolName")]
+    toolUseId: Annotated[str, _aws_pattern("BedrockAgentcore", "HarnessToolUseId")]
     input: Dict[str, Any]
     type: Optional[HarnessToolUseTypeType] = None
     serverName: Optional[str] = None
 
 
 class OAuthCredentialProviderTypeDef(BaseValidatorModel):
-    providerArn: str
+    providerArn: Annotated[str, _aws_pattern("BedrockAgentcore", "OAuthCredentialProviderArn")]
     scopes: List[str]
     customParameters: Optional[Dict[str, str]] = None
     grantType: Optional[OAuthGrantTypeType] = None
-    defaultReturnUrl: Optional[str] = None
+    defaultReturnUrl: Optional[Annotated[str, _aws_pattern("BedrockAgentcore", "OAuthDefaultReturnUrl")]] = None
 
 
 class HarnessGeminiModelConfigTypeDef(BaseValidatorModel):
     modelId: str
-    apiKeyArn: str
+    apiKeyArn: Annotated[str, _aws_pattern("BedrockAgentcore", "ApiKeyArn")]
     maxTokens: Optional[int] = None
     temperature: Optional[float] = None
     topP: Optional[float] = None
@@ -523,7 +633,7 @@ class HarnessTokenUsageTypeDef(BaseValidatorModel):
 
 class HarnessOpenAiModelConfigTypeDef(BaseValidatorModel):
     modelId: str
-    apiKeyArn: str
+    apiKeyArn: Annotated[str, _aws_pattern("BedrockAgentcore", "ApiKeyArn")]
     maxTokens: Optional[int] = None
     temperature: Optional[float] = None
     topP: Optional[float] = None
@@ -558,7 +668,7 @@ class InvokeAgentRuntimeCommandRequestBodyTypeDef(BaseValidatorModel):
 
 
 class RuntimeClientErrorTypeDef(BaseValidatorModel):
-    message: Optional[str] = None
+    message: Optional[Annotated[str, _aws_pattern("BedrockAgentcore", "NonBlankString")]] = None
 
 
 class PaginatorConfigTypeDef(BaseValidatorModel):
@@ -567,9 +677,21 @@ class PaginatorConfigTypeDef(BaseValidatorModel):
     StartingToken: Optional[str] = None
 
 
+# This class is the input for the 'list_ab_tests' function.
+class ListABTestsRequestTypeDef(BaseValidatorModel):
+    maxResults: Optional[int] = None
+    nextToken: Optional[str] = None
+
+
 # This class is the input for the 'list_actors' function.
 class ListActorsInputTypeDef(BaseValidatorModel):
-    memoryId: str
+    memoryId: Annotated[str, _aws_pattern("BedrockAgentcore", "MemoryId")]
+    maxResults: Optional[int] = None
+    nextToken: Optional[str] = None
+
+
+# This class is the input for the 'list_batch_evaluations' function.
+class ListBatchEvaluationsRequestTypeDef(BaseValidatorModel):
     maxResults: Optional[int] = None
     nextToken: Optional[str] = None
 
@@ -578,7 +700,7 @@ class ListActorsInputTypeDef(BaseValidatorModel):
 class ListBrowserSessionsRequestTypeDef(BaseValidatorModel):
     browserIdentifier: str
     maxResults: Optional[int] = None
-    nextToken: Optional[str] = None
+    nextToken: Optional[Annotated[str, _aws_pattern("BedrockAgentcore", "NextToken")]] = None
     status: Optional[BrowserSessionStatusType] = None
 
 
@@ -586,18 +708,26 @@ class ListBrowserSessionsRequestTypeDef(BaseValidatorModel):
 class ListCodeInterpreterSessionsRequestTypeDef(BaseValidatorModel):
     codeInterpreterIdentifier: str
     maxResults: Optional[int] = None
-    nextToken: Optional[str] = None
+    nextToken: Optional[Annotated[str, _aws_pattern("BedrockAgentcore", "NextToken")]] = None
     status: Optional[CodeInterpreterSessionStatusType] = None
 
 
-# This class is the input for the 'list_memory_records' function.
-class ListMemoryRecordsInputTypeDef(BaseValidatorModel):
-    memoryId: str
-    namespace: Optional[str] = None
-    namespacePath: Optional[str] = None
-    memoryStrategyId: Optional[str] = None
+# This class is the input for the 'list_recommendations' function.
+class ListRecommendationsRequestTypeDef(BaseValidatorModel):
     maxResults: Optional[int] = None
-    nextToken: Optional[str] = None
+    nextToken: Optional[Annotated[str, _aws_pattern("BedrockAgentcore", "NextToken")]] = None
+    statusFilter: Optional[RecommendationStatusType] = None
+
+
+class RecommendationSummaryTypeDef(BaseValidatorModel):
+    recommendationId: Annotated[str, _aws_pattern("BedrockAgentcore", "RecommendationId")]
+    recommendationArn: Annotated[str, _aws_pattern("BedrockAgentcore", "RecommendationArn")]
+    name: Annotated[str, _aws_pattern("BedrockAgentcore", "RecommendationName")]
+    type: RecommendationTypeType
+    status: RecommendationStatusType
+    createdAt: datetime
+    updatedAt: datetime
+    description: Optional[str] = None
 
 
 class SessionFilterTypeDef(BaseValidatorModel):
@@ -605,8 +735,8 @@ class SessionFilterTypeDef(BaseValidatorModel):
 
 
 class SessionSummaryTypeDef(BaseValidatorModel):
-    sessionId: str
-    actorId: str
+    sessionId: Annotated[str, _aws_pattern("BedrockAgentcore", "SessionId")]
+    actorId: Annotated[str, _aws_pattern("BedrockAgentcore", "ActorId")]
     createdAt: datetime
 
 
@@ -624,54 +754,79 @@ class MemoryContentTypeDef(BaseValidatorModel):
     text: Optional[str] = None
 
 
+class MemoryRecordLeftExpressionTypeDef(BaseValidatorModel):
+    metadataKey: Optional[Annotated[str, _aws_pattern("BedrockAgentcore", "MetadataKey")]] = None
+
+
+class MemoryRecordMetadataValueOutputTypeDef(BaseValidatorModel):
+    stringValue: Optional[str] = None
+    stringListValue: Optional[List[str]] = None
+    numberValue: Optional[float] = None
+    dateTimeValue: Optional[datetime] = None
+
+
 class ProxyBypassOutputTypeDef(BaseValidatorModel):
     domainPatterns: Optional[List[str]] = None
 
 
 class ProxyBypassTypeDef(BaseValidatorModel):
-    domainPatterns: Optional[List[str]] = None
+    domainPatterns: Optional[List[Annotated[str, _aws_pattern("BedrockAgentcore", "DomainPattern")]]] = None
+
+
+class RecommendationEvaluatorReferenceTypeDef(BaseValidatorModel):
+    evaluatorArn: Annotated[str, _aws_pattern("BedrockAgentcore", "EvaluatorArn")]
+
+
+class RecommendationResultConfigurationBundleTypeDef(BaseValidatorModel):
+    bundleArn: Annotated[str, _aws_pattern("BedrockAgentcore", "ConfigurationBundleArn")]
+    versionId: str
 
 
 class S3LocationTypeDef(BaseValidatorModel):
-    bucket: str
+    bucket: Annotated[str, _aws_pattern("BedrockAgentcore", "S3LocationBucketString")]
     prefix: str
     versionId: Optional[str] = None
 
 
 # This class is the input for the 'save_browser_session_profile' function.
 class SaveBrowserSessionProfileRequestTypeDef(BaseValidatorModel):
-    profileIdentifier: str
+    profileIdentifier: Annotated[str, _aws_pattern("BedrockAgentcore", "BrowserProfileId")]
     browserIdentifier: str
-    sessionId: str
+    sessionId: Annotated[str, _aws_pattern("BedrockAgentcore", "BrowserSessionId")]
     traceId: Optional[str] = None
     traceParent: Optional[str] = None
-    clientToken: Optional[str] = None
+    clientToken: Optional[Annotated[str, _aws_pattern("BedrockAgentcore", "ClientToken")]] = None
 
 
 # This class is the input for the 'search_registry_records' function.
 class SearchRegistryRecordsRequestTypeDef(BaseValidatorModel):
     searchQuery: str
-    registryIds: List[str]
+    registryIds: List[Annotated[str, _aws_pattern("BedrockAgentcore", "RegistryIdentifier")]]
     maxResults: Optional[int] = None
     filters: Optional[Dict[str, Any]] = None
+
+
+# This class is the input for the 'stop_batch_evaluation' function.
+class StopBatchEvaluationRequestTypeDef(BaseValidatorModel):
+    batchEvaluationId: Annotated[str, _aws_pattern("BedrockAgentcore", "BatchEvaluationId")]
 
 
 # This class is the input for the 'stop_browser_session' function.
 class StopBrowserSessionRequestTypeDef(BaseValidatorModel):
     browserIdentifier: str
-    sessionId: str
+    sessionId: Annotated[str, _aws_pattern("BedrockAgentcore", "BrowserSessionId")]
     traceId: Optional[str] = None
     traceParent: Optional[str] = None
-    clientToken: Optional[str] = None
+    clientToken: Optional[Annotated[str, _aws_pattern("BedrockAgentcore", "ClientToken")]] = None
 
 
 # This class is the input for the 'stop_code_interpreter_session' function.
 class StopCodeInterpreterSessionRequestTypeDef(BaseValidatorModel):
     codeInterpreterIdentifier: str
-    sessionId: str
+    sessionId: Annotated[str, _aws_pattern("BedrockAgentcore", "CodeInterpreterSessionId")]
     traceId: Optional[str] = None
     traceParent: Optional[str] = None
-    clientToken: Optional[str] = None
+    clientToken: Optional[Annotated[str, _aws_pattern("BedrockAgentcore", "ClientToken")]] = None
 
 
 # This class is the input for the 'stop_runtime_session' function.
@@ -679,7 +834,26 @@ class StopRuntimeSessionRequestTypeDef(BaseValidatorModel):
     runtimeSessionId: str
     agentRuntimeArn: str
     qualifier: Optional[str] = None
-    clientToken: Optional[str] = None
+    clientToken: Optional[Annotated[str, _aws_pattern("BedrockAgentcore", "ClientToken")]] = None
+
+
+class SystemPromptConfigurationBundleTypeDef(BaseValidatorModel):
+    bundleArn: Annotated[str, _aws_pattern("BedrockAgentcore", "ConfigurationBundleArn")]
+    versionId: str
+    systemPromptJsonPath: str
+
+
+class TargetRefTypeDef(BaseValidatorModel):
+    name: str
+
+
+class ToolDescriptionConfigTypeDef(BaseValidatorModel):
+    text: Optional[str] = None
+
+
+class ToolDescriptionOutputTypeDef(BaseValidatorModel):
+    toolName: Annotated[str, _aws_pattern("BedrockAgentcore", "RecommendationToolName")]
+    recommendedToolDescription: Optional[str] = None
 
 
 class ValidationExceptionFieldTypeDef(BaseValidatorModel):
@@ -689,6 +863,18 @@ class ValidationExceptionFieldTypeDef(BaseValidatorModel):
 
 class A2aDescriptorTypeDef(BaseValidatorModel):
     agentCard: AgentCardDefinitionTypeDef
+
+
+class ABTestEvaluationConfigOutputTypeDef(BaseValidatorModel):
+    onlineEvaluationConfigArn: Optional[str] = None
+    perVariantOnlineEvaluationConfig: Optional[List[PerVariantOnlineEvaluationConfigTypeDef]] = None
+
+
+class ABTestEvaluationConfigTypeDef(BaseValidatorModel):
+    onlineEvaluationConfigArn: Optional[
+        Annotated[str, _aws_pattern("BedrockAgentcore", "OnlineEvaluationConfigArn")]
+    ] = None
+    perVariantOnlineEvaluationConfig: Optional[List[PerVariantOnlineEvaluationConfigTypeDef]] = None
 
 
 class AgentSkillsDescriptorTypeDef(BaseValidatorModel):
@@ -725,21 +911,55 @@ class BatchUpdateMemoryRecordsOutputTypeDef(BaseValidatorModel):
     ResponseMetadata: ResponseMetadataTypeDef
 
 
+# This class is the output for the 'create_ab_test' function.
+class CreateABTestResponseTypeDef(BaseValidatorModel):
+    abTestId: Annotated[str, _aws_pattern("BedrockAgentcore", "ABTestId")]
+    abTestArn: Annotated[str, _aws_pattern("BedrockAgentcore", "ABTestArn")]
+    name: Annotated[str, _aws_pattern("BedrockAgentcore", "ABTestName")]
+    status: ABTestStatusType
+    executionStatus: ABTestExecutionStatusType
+    createdAt: datetime
+    ResponseMetadata: ResponseMetadataTypeDef
+
+
+# This class is the output for the 'delete_ab_test' function.
+class DeleteABTestResponseTypeDef(BaseValidatorModel):
+    abTestId: Annotated[str, _aws_pattern("BedrockAgentcore", "ABTestId")]
+    abTestArn: Annotated[str, _aws_pattern("BedrockAgentcore", "ABTestArn")]
+    status: ABTestStatusType
+    ResponseMetadata: ResponseMetadataTypeDef
+
+
+# This class is the output for the 'delete_batch_evaluation' function.
+class DeleteBatchEvaluationResponseTypeDef(BaseValidatorModel):
+    batchEvaluationId: Annotated[str, _aws_pattern("BedrockAgentcore", "BatchEvaluationId")]
+    batchEvaluationArn: str
+    status: BatchEvaluationStatusType
+    ResponseMetadata: ResponseMetadataTypeDef
+
+
 # This class is the output for the 'delete_event' function.
 class DeleteEventOutputTypeDef(BaseValidatorModel):
-    eventId: str
+    eventId: Annotated[str, _aws_pattern("BedrockAgentcore", "EventId")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 # This class is the output for the 'delete_memory_record' function.
 class DeleteMemoryRecordOutputTypeDef(BaseValidatorModel):
-    memoryRecordId: str
+    memoryRecordId: Annotated[str, _aws_pattern("BedrockAgentcore", "MemoryRecordId")]
+    ResponseMetadata: ResponseMetadataTypeDef
+
+
+# This class is the output for the 'delete_recommendation' function.
+class DeleteRecommendationResponseTypeDef(BaseValidatorModel):
+    recommendationId: Annotated[str, _aws_pattern("BedrockAgentcore", "RecommendationId")]
+    status: RecommendationStatusType
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 # This class is the output for the 'get_agent_card' function.
 class GetAgentCardResponseTypeDef(BaseValidatorModel):
-    runtimeSessionId: str
+    runtimeSessionId: Annotated[str, _aws_pattern("BedrockAgentcore", "SessionId")]
     agentCard: Dict[str, Any]
     statusCode: int
     ResponseMetadata: ResponseMetadataTypeDef
@@ -755,7 +975,7 @@ class GetResourceApiKeyResponseTypeDef(BaseValidatorModel):
 class GetResourceOauth2TokenResponseTypeDef(BaseValidatorModel):
     authorizationUrl: str
     accessToken: str
-    sessionUri: str
+    sessionUri: Annotated[str, _aws_pattern("BedrockAgentcore", "RequestUri")]
     sessionStatus: SessionStatusType
     ResponseMetadata: ResponseMetadataTypeDef
 
@@ -780,8 +1000,8 @@ class GetWorkloadAccessTokenResponseTypeDef(BaseValidatorModel):
 
 # This class is the output for the 'invoke_agent_runtime' function.
 class InvokeAgentRuntimeResponseTypeDef(BaseValidatorModel):
-    runtimeSessionId: str
-    mcpSessionId: str
+    runtimeSessionId: Annotated[str, _aws_pattern("BedrockAgentcore", "SessionId")]
+    mcpSessionId: Annotated[str, _aws_pattern("BedrockAgentcore", "SessionId")]
     mcpProtocolVersion: str
     traceId: str
     traceParent: str
@@ -793,6 +1013,13 @@ class InvokeAgentRuntimeResponseTypeDef(BaseValidatorModel):
     ResponseMetadata: ResponseMetadataTypeDef
 
 
+# This class is the output for the 'list_ab_tests' function.
+class ListABTestsResponseTypeDef(BaseValidatorModel):
+    abTests: List[ABTestSummaryTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+    nextToken: Optional[str] = None
+
+
 # This class is the output for the 'list_actors' function.
 class ListActorsOutputTypeDef(BaseValidatorModel):
     actorSummaries: List[ActorSummaryTypeDef]
@@ -802,9 +1029,9 @@ class ListActorsOutputTypeDef(BaseValidatorModel):
 
 # This class is the output for the 'save_browser_session_profile' function.
 class SaveBrowserSessionProfileResponseTypeDef(BaseValidatorModel):
-    profileIdentifier: str
+    profileIdentifier: Annotated[str, _aws_pattern("BedrockAgentcore", "BrowserProfileId")]
     browserIdentifier: str
-    sessionId: str
+    sessionId: Annotated[str, _aws_pattern("BedrockAgentcore", "BrowserSessionId")]
     lastUpdatedAt: datetime
     ResponseMetadata: ResponseMetadataTypeDef
 
@@ -812,7 +1039,7 @@ class SaveBrowserSessionProfileResponseTypeDef(BaseValidatorModel):
 # This class is the output for the 'start_code_interpreter_session' function.
 class StartCodeInterpreterSessionResponseTypeDef(BaseValidatorModel):
     codeInterpreterIdentifier: str
-    sessionId: str
+    sessionId: Annotated[str, _aws_pattern("BedrockAgentcore", "CodeInterpreterSessionId")]
     createdAt: datetime
     ResponseMetadata: ResponseMetadataTypeDef
 
@@ -823,10 +1050,19 @@ class StartMemoryExtractionJobOutputTypeDef(BaseValidatorModel):
     ResponseMetadata: ResponseMetadataTypeDef
 
 
+# This class is the output for the 'stop_batch_evaluation' function.
+class StopBatchEvaluationResponseTypeDef(BaseValidatorModel):
+    batchEvaluationId: Annotated[str, _aws_pattern("BedrockAgentcore", "BatchEvaluationId")]
+    batchEvaluationArn: str
+    status: BatchEvaluationStatusType
+    description: str
+    ResponseMetadata: ResponseMetadataTypeDef
+
+
 # This class is the output for the 'stop_browser_session' function.
 class StopBrowserSessionResponseTypeDef(BaseValidatorModel):
     browserIdentifier: str
-    sessionId: str
+    sessionId: Annotated[str, _aws_pattern("BedrockAgentcore", "BrowserSessionId")]
     lastUpdatedAt: datetime
     ResponseMetadata: ResponseMetadataTypeDef
 
@@ -834,21 +1070,31 @@ class StopBrowserSessionResponseTypeDef(BaseValidatorModel):
 # This class is the output for the 'stop_code_interpreter_session' function.
 class StopCodeInterpreterSessionResponseTypeDef(BaseValidatorModel):
     codeInterpreterIdentifier: str
-    sessionId: str
+    sessionId: Annotated[str, _aws_pattern("BedrockAgentcore", "CodeInterpreterSessionId")]
     lastUpdatedAt: datetime
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 # This class is the output for the 'stop_runtime_session' function.
 class StopRuntimeSessionResponseTypeDef(BaseValidatorModel):
-    runtimeSessionId: str
+    runtimeSessionId: Annotated[str, _aws_pattern("BedrockAgentcore", "SessionId")]
     statusCode: int
+    ResponseMetadata: ResponseMetadataTypeDef
+
+
+# This class is the output for the 'update_ab_test' function.
+class UpdateABTestResponseTypeDef(BaseValidatorModel):
+    abTestId: Annotated[str, _aws_pattern("BedrockAgentcore", "ABTestId")]
+    abTestArn: Annotated[str, _aws_pattern("BedrockAgentcore", "ABTestArn")]
+    status: ABTestStatusType
+    executionStatus: ABTestExecutionStatusType
+    updatedAt: datetime
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 # This class is the input for the 'batch_delete_memory_records' function.
 class BatchDeleteMemoryRecordsInputTypeDef(BaseValidatorModel):
-    memoryId: str
+    memoryId: Annotated[str, _aws_pattern("BedrockAgentcore", "MemoryId")]
     records: List[MemoryRecordDeleteInputTypeDef]
 
 
@@ -873,7 +1119,9 @@ class InvokeAgentRuntimeRequestTypeDef(BaseValidatorModel):
     traceState: Optional[str] = None
     baggage: Optional[str] = None
     qualifier: Optional[str] = None
-    accountId: Optional[str] = None
+    accountId: Optional[
+        Annotated[str, _aws_pattern("BedrockAgentcore", "InvokeAgentRuntimeRequestAccountIdString")]
+    ] = None
 
 
 class BrowserActionResultTypeDef(BaseValidatorModel):
@@ -907,23 +1155,73 @@ class BrowserSessionStreamTypeDef(BaseValidatorModel):
 class ListBrowserSessionsResponseTypeDef(BaseValidatorModel):
     items: List[BrowserSessionSummaryTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
-    nextToken: Optional[str] = None
+    nextToken: Optional[Annotated[str, _aws_pattern("BedrockAgentcore", "NextToken")]] = None
 
 
 class CertificateLocationTypeDef(BaseValidatorModel):
     secretsManager: Optional[SecretsManagerLocationTypeDef] = None
 
 
+class CloudWatchFilterConfigOutputTypeDef(BaseValidatorModel):
+    sessionIds: Optional[List[str]] = None
+    timeRange: Optional[SessionFilterConfigOutputTypeDef] = None
+
+
+class CloudWatchLogsFilterTypeDef(BaseValidatorModel):
+    key: Annotated[str, _aws_pattern("BedrockAgentcore", "CloudWatchLogsFilterKeyString")]
+    operator: CloudWatchLogsFilterOperatorType
+    value: FilterValueTypeDef
+
+
+class MemoryRecordMetadataValueTypeDef(BaseValidatorModel):
+    stringValue: Optional[Annotated[str, _aws_pattern("BedrockAgentcore", "StringValue")]] = None
+    stringListValue: Optional[List[Annotated[str, _aws_pattern("BedrockAgentcore", "StringListMemberValue")]]] = None
+    numberValue: Optional[float] = None
+    dateTimeValue: Optional[TimestampTypeDef] = None
+
+
+class SessionFilterConfigTypeDef(BaseValidatorModel):
+    startTime: Optional[TimestampTypeDef] = None
+    endTime: Optional[TimestampTypeDef] = None
+
+
+class OutputConfigTypeDef(BaseValidatorModel):
+    cloudWatchConfig: Optional[CloudWatchOutputConfigTypeDef] = None
+
+
 # This class is the output for the 'list_code_interpreter_sessions' function.
 class ListCodeInterpreterSessionsResponseTypeDef(BaseValidatorModel):
     items: List[CodeInterpreterSessionSummaryTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
-    nextToken: Optional[str] = None
+    nextToken: Optional[Annotated[str, _aws_pattern("BedrockAgentcore", "NextToken")]] = None
 
 
 class CompleteResourceTokenAuthRequestTypeDef(BaseValidatorModel):
     userIdentifier: UserIdentifierTypeDef
-    sessionUri: str
+    sessionUri: Annotated[str, _aws_pattern("BedrockAgentcore", "RequestUri")]
+
+
+class VariantResultTypeDef(BaseValidatorModel):
+    variantName: str
+    sampleSize: int
+    mean: float
+    isSignificant: bool
+    absoluteChange: Optional[float] = None
+    percentChange: Optional[float] = None
+    pValue: Optional[float] = None
+    confidenceInterval: Optional[ConfidenceIntervalTypeDef] = None
+
+
+class ToolDescriptionConfigurationBundleOutputTypeDef(BaseValidatorModel):
+    bundleArn: str
+    versionId: str
+    tools: List[ConfigurationBundleToolEntryTypeDef]
+
+
+class ToolDescriptionConfigurationBundleTypeDef(BaseValidatorModel):
+    bundleArn: Annotated[str, _aws_pattern("BedrockAgentcore", "ConfigurationBundleArn")]
+    versionId: str
+    tools: List[ConfigurationBundleToolEntryTypeDef]
 
 
 class ContentBlockTypeDef(BaseValidatorModel):
@@ -957,9 +1255,16 @@ class RightExpressionTypeDef(BaseValidatorModel):
     metadataValue: Optional[MetadataValueTypeDef] = None
 
 
+class EvaluatorSummaryTypeDef(BaseValidatorModel):
+    evaluatorId: Optional[str] = None
+    statistics: Optional[EvaluatorStatisticsTypeDef] = None
+    totalEvaluated: Optional[int] = None
+    totalFailed: Optional[int] = None
+
+
 # This class is the input for the 'list_memory_extraction_jobs' function.
 class ListMemoryExtractionJobsInputTypeDef(BaseValidatorModel):
-    memoryId: str
+    memoryId: Annotated[str, _aws_pattern("BedrockAgentcore", "MemoryId")]
     maxResults: Optional[int] = None
     filter: Optional[ExtractionJobFilterInputTypeDef] = None
     nextToken: Optional[str] = None
@@ -971,9 +1276,17 @@ class ExtractionJobMessagesTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'start_memory_extraction_job' function.
 class StartMemoryExtractionJobInputTypeDef(BaseValidatorModel):
-    memoryId: str
+    memoryId: Annotated[str, _aws_pattern("BedrockAgentcore", "MemoryId")]
     extractionJob: ExtractionJobTypeDef
     clientToken: Optional[str] = None
+
+
+GatewayFilterUnionTypeDef = Union[GatewayFilterOutputTypeDef, GatewayFilterTypeDef]
+
+
+class GroundTruthTurnTypeDef(BaseValidatorModel):
+    input: Optional[GroundTruthTurnInputTypeDef] = None
+    expectedResponse: Optional[EvaluationContentTypeDef] = None
 
 
 class HarnessContentBlockDeltaTypeDef(BaseValidatorModel):
@@ -1011,7 +1324,7 @@ class HarnessReasoningContentBlockTypeDef(BaseValidatorModel):
 
 
 class HarnessToolResultBlockTypeDef(BaseValidatorModel):
-    toolUseId: str
+    toolUseId: Annotated[str, _aws_pattern("BedrockAgentcore", "HarnessToolUseId")]
     content: List[HarnessToolResultContentBlockTypeDef]
     status: Optional[HarnessToolUseStatusType] = None
     type: Optional[HarnessToolUseTypeType] = None
@@ -1029,11 +1342,21 @@ class InvokeAgentRuntimeCommandRequestTypeDef(BaseValidatorModel):
     traceState: Optional[str] = None
     baggage: Optional[str] = None
     qualifier: Optional[str] = None
-    accountId: Optional[str] = None
+    accountId: Optional[
+        Annotated[str, _aws_pattern("BedrockAgentcore", "InvokeAgentRuntimeCommandRequestAccountIdString")]
+    ] = None
+
+
+class ListABTestsRequestPaginateTypeDef(BaseValidatorModel):
+    PaginationConfig: Optional[PaginatorConfigTypeDef] = None
 
 
 class ListActorsInputPaginateTypeDef(BaseValidatorModel):
     memoryId: str
+    PaginationConfig: Optional[PaginatorConfigTypeDef] = None
+
+
+class ListBatchEvaluationsRequestPaginateTypeDef(BaseValidatorModel):
     PaginationConfig: Optional[PaginatorConfigTypeDef] = None
 
 
@@ -1043,12 +1366,16 @@ class ListMemoryExtractionJobsInputPaginateTypeDef(BaseValidatorModel):
     PaginationConfig: Optional[PaginatorConfigTypeDef] = None
 
 
-class ListMemoryRecordsInputPaginateTypeDef(BaseValidatorModel):
-    memoryId: str
-    namespace: Optional[str] = None
-    namespacePath: Optional[str] = None
-    memoryStrategyId: Optional[str] = None
+class ListRecommendationsRequestPaginateTypeDef(BaseValidatorModel):
+    statusFilter: Optional[RecommendationStatusType] = None
     PaginationConfig: Optional[PaginatorConfigTypeDef] = None
+
+
+# This class is the output for the 'list_recommendations' function.
+class ListRecommendationsResponseTypeDef(BaseValidatorModel):
+    recommendationSummaries: List[RecommendationSummaryTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+    nextToken: Optional[Annotated[str, _aws_pattern("BedrockAgentcore", "NextToken")]] = None
 
 
 class ListSessionsInputPaginateTypeDef(BaseValidatorModel):
@@ -1060,8 +1387,8 @@ class ListSessionsInputPaginateTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'list_sessions' function.
 class ListSessionsInputTypeDef(BaseValidatorModel):
-    memoryId: str
-    actorId: str
+    memoryId: Annotated[str, _aws_pattern("BedrockAgentcore", "MemoryId")]
+    actorId: Annotated[str, _aws_pattern("BedrockAgentcore", "ActorId")]
     maxResults: Optional[int] = None
     nextToken: Optional[str] = None
     filter: Optional[SessionFilterTypeDef] = None
@@ -1079,43 +1406,64 @@ class McpDescriptorTypeDef(BaseValidatorModel):
     tools: ToolsDefinitionTypeDef
 
 
-class MemoryRecordCreateInputTypeDef(BaseValidatorModel):
-    requestIdentifier: str
-    namespaces: List[str]
-    content: MemoryContentTypeDef
-    timestamp: TimestampTypeDef
-    memoryStrategyId: Optional[str] = None
-
-
 class MemoryRecordSummaryTypeDef(BaseValidatorModel):
-    memoryRecordId: str
+    memoryRecordId: Annotated[str, _aws_pattern("BedrockAgentcore", "MemoryRecordId")]
     content: MemoryContentTypeDef
-    memoryStrategyId: str
-    namespaces: List[str]
+    memoryStrategyId: Annotated[str, _aws_pattern("BedrockAgentcore", "MemoryStrategyId")]
+    namespaces: List[Annotated[str, _aws_pattern("BedrockAgentcore", "Namespace")]]
     createdAt: datetime
     score: Optional[float] = None
-    metadata: Optional[Dict[str, MetadataValueTypeDef]] = None
+    metadata: Optional[Dict[str, MemoryRecordMetadataValueOutputTypeDef]] = None
 
 
 class MemoryRecordTypeDef(BaseValidatorModel):
-    memoryRecordId: str
+    memoryRecordId: Annotated[str, _aws_pattern("BedrockAgentcore", "MemoryRecordId")]
     content: MemoryContentTypeDef
-    memoryStrategyId: str
-    namespaces: List[str]
+    memoryStrategyId: Annotated[str, _aws_pattern("BedrockAgentcore", "MemoryStrategyId")]
+    namespaces: List[Annotated[str, _aws_pattern("BedrockAgentcore", "Namespace")]]
     createdAt: datetime
-    metadata: Optional[Dict[str, MetadataValueTypeDef]] = None
+    metadata: Optional[Dict[str, MemoryRecordMetadataValueOutputTypeDef]] = None
 
 
-class MemoryRecordUpdateInputTypeDef(BaseValidatorModel):
-    memoryRecordId: str
-    timestamp: TimestampTypeDef
-    content: Optional[MemoryContentTypeDef] = None
-    namespaces: Optional[List[str]] = None
-    memoryStrategyId: Optional[str] = None
+class RecommendationEvaluationConfigOutputTypeDef(BaseValidatorModel):
+    evaluators: List[RecommendationEvaluatorReferenceTypeDef]
+
+
+class RecommendationEvaluationConfigTypeDef(BaseValidatorModel):
+    evaluators: List[RecommendationEvaluatorReferenceTypeDef]
+
+
+class SystemPromptRecommendationResultTypeDef(BaseValidatorModel):
+    recommendedSystemPrompt: Optional[str] = None
+    configurationBundle: Optional[RecommendationResultConfigurationBundleTypeDef] = None
+    errorCode: Optional[str] = None
+    errorMessage: Optional[str] = None
 
 
 class ResourceLocationTypeDef(BaseValidatorModel):
     s3: Optional[S3LocationTypeDef] = None
+
+
+class SystemPromptConfigTypeDef(BaseValidatorModel):
+    text: Optional[str] = None
+    configurationBundle: Optional[SystemPromptConfigurationBundleTypeDef] = None
+
+
+class VariantConfigurationTypeDef(BaseValidatorModel):
+    configurationBundle: Optional[ConfigurationBundleRefTypeDef] = None
+    target: Optional[TargetRefTypeDef] = None
+
+
+class ToolDescriptionInputTypeDef(BaseValidatorModel):
+    toolName: Annotated[str, _aws_pattern("BedrockAgentcore", "RecommendationToolName")]
+    toolDescription: ToolDescriptionConfigTypeDef
+
+
+class ToolDescriptionRecommendationResultTypeDef(BaseValidatorModel):
+    tools: Optional[List[ToolDescriptionOutputTypeDef]] = None
+    configurationBundle: Optional[RecommendationResultConfigurationBundleTypeDef] = None
+    errorCode: Optional[str] = None
+    errorMessage: Optional[str] = None
 
 
 class ValidationExceptionTypeDef(BaseValidatorModel):
@@ -1124,12 +1472,15 @@ class ValidationExceptionTypeDef(BaseValidatorModel):
     fieldList: Optional[List[ValidationExceptionFieldTypeDef]] = None
 
 
+ABTestEvaluationConfigUnionTypeDef = Union[ABTestEvaluationConfigOutputTypeDef, ABTestEvaluationConfigTypeDef]
+
+
 # This class is the input for the 'update_browser_stream' function.
 class UpdateBrowserStreamRequestTypeDef(BaseValidatorModel):
     browserIdentifier: str
-    sessionId: str
+    sessionId: Annotated[str, _aws_pattern("BedrockAgentcore", "BrowserSessionId")]
     streamUpdate: StreamUpdateTypeDef
-    clientToken: Optional[str] = None
+    clientToken: Optional[Annotated[str, _aws_pattern("BedrockAgentcore", "ClientToken")]] = None
 
 
 class ExternalProxyOutputTypeDef(BaseValidatorModel):
@@ -1140,9 +1491,9 @@ class ExternalProxyOutputTypeDef(BaseValidatorModel):
 
 
 class ExternalProxyTypeDef(BaseValidatorModel):
-    server: str
+    server: Annotated[str, _aws_pattern("BedrockAgentcore", "HostName")]
     port: int
-    domainPatterns: Optional[List[str]] = None
+    domainPatterns: Optional[List[Annotated[str, _aws_pattern("BedrockAgentcore", "DomainPattern")]]] = None
     credentials: Optional[ProxyCredentialsTypeDef] = None
 
 
@@ -1162,21 +1513,21 @@ class ToolArgumentsTypeDef(BaseValidatorModel):
 # This class is the output for the 'invoke_browser' function.
 class InvokeBrowserResponseTypeDef(BaseValidatorModel):
     result: BrowserActionResultTypeDef
-    sessionId: str
+    sessionId: Annotated[str, _aws_pattern("BedrockAgentcore", "BrowserSessionId")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 # This class is the input for the 'invoke_browser' function.
 class InvokeBrowserRequestTypeDef(BaseValidatorModel):
     browserIdentifier: str
-    sessionId: str
+    sessionId: Annotated[str, _aws_pattern("BedrockAgentcore", "BrowserSessionId")]
     action: BrowserActionTypeDef
 
 
 # This class is the output for the 'start_browser_session' function.
 class StartBrowserSessionResponseTypeDef(BaseValidatorModel):
     browserIdentifier: str
-    sessionId: str
+    sessionId: Annotated[str, _aws_pattern("BedrockAgentcore", "BrowserSessionId")]
     createdAt: datetime
     streams: BrowserSessionStreamTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
@@ -1185,7 +1536,7 @@ class StartBrowserSessionResponseTypeDef(BaseValidatorModel):
 # This class is the output for the 'update_browser_stream' function.
 class UpdateBrowserStreamResponseTypeDef(BaseValidatorModel):
     browserIdentifier: str
-    sessionId: str
+    sessionId: Annotated[str, _aws_pattern("BedrockAgentcore", "BrowserSessionId")]
     streams: BrowserSessionStreamTypeDef
     updatedAt: datetime
     ResponseMetadata: ResponseMetadataTypeDef
@@ -1193,6 +1544,47 @@ class UpdateBrowserStreamResponseTypeDef(BaseValidatorModel):
 
 class CertificateTypeDef(BaseValidatorModel):
     location: CertificateLocationTypeDef
+
+
+class CloudWatchLogsSourceOutputTypeDef(BaseValidatorModel):
+    serviceNames: List[str]
+    logGroupNames: List[str]
+    filterConfig: Optional[CloudWatchFilterConfigOutputTypeDef] = None
+
+
+class CloudWatchLogsRuleOutputTypeDef(BaseValidatorModel):
+    filters: Optional[List[CloudWatchLogsFilterTypeDef]] = None
+
+
+class CloudWatchLogsRuleTypeDef(BaseValidatorModel):
+    filters: Optional[List[CloudWatchLogsFilterTypeDef]] = None
+
+
+MemoryRecordMetadataValueUnionTypeDef = Union[MemoryRecordMetadataValueOutputTypeDef, MemoryRecordMetadataValueTypeDef]
+
+
+class CloudWatchFilterConfigTypeDef(BaseValidatorModel):
+    sessionIds: Optional[List[str]] = None
+    timeRange: Optional[SessionFilterConfigTypeDef] = None
+
+
+# This class is the output for the 'start_batch_evaluation' function.
+class StartBatchEvaluationResponseTypeDef(BaseValidatorModel):
+    batchEvaluationId: Annotated[str, _aws_pattern("BedrockAgentcore", "BatchEvaluationId")]
+    batchEvaluationArn: str
+    batchEvaluationName: Annotated[str, _aws_pattern("BedrockAgentcore", "BatchEvaluationName")]
+    evaluators: List[EvaluatorTypeDef]
+    status: BatchEvaluationStatusType
+    createdAt: datetime
+    outputConfig: OutputConfigTypeDef
+    description: str
+    ResponseMetadata: ResponseMetadataTypeDef
+
+
+class EvaluatorMetricTypeDef(BaseValidatorModel):
+    evaluatorArn: str
+    controlStats: ControlStatsTypeDef
+    variantResults: List[VariantResultTypeDef]
 
 
 class CodeInterpreterResultTypeDef(BaseValidatorModel):
@@ -1219,9 +1611,9 @@ class EvaluationReferenceInputTypeDef(BaseValidatorModel):
 
 
 class EvaluationResultContentTypeDef(BaseValidatorModel):
-    evaluatorArn: str
-    evaluatorId: str
-    evaluatorName: str
+    evaluatorArn: Annotated[str, _aws_pattern("BedrockAgentcore", "EvaluatorArn")]
+    evaluatorId: Annotated[str, _aws_pattern("BedrockAgentcore", "EvaluatorId")]
+    evaluatorName: Annotated[str, _aws_pattern("BedrockAgentcore", "EvaluatorName")]
     context: ContextTypeDef
     explanation: Optional[str] = None
     value: Optional[float] = None
@@ -1238,10 +1630,13 @@ class EventMetadataFilterExpressionTypeDef(BaseValidatorModel):
     right: Optional[RightExpressionTypeDef] = None
 
 
-class MemoryMetadataFilterExpressionTypeDef(BaseValidatorModel):
-    left: LeftExpressionTypeDef
-    operator: OperatorTypeType
-    right: Optional[RightExpressionTypeDef] = None
+class EvaluationJobResultsTypeDef(BaseValidatorModel):
+    numberOfSessionsCompleted: Optional[int] = None
+    numberOfSessionsInProgress: Optional[int] = None
+    numberOfSessionsFailed: Optional[int] = None
+    totalNumberOfSessions: Optional[int] = None
+    numberOfSessionsIgnored: Optional[int] = None
+    evaluatorSummaries: Optional[List[EvaluatorSummaryTypeDef]] = None
 
 
 class ExtractionJobMetadataTypeDef(BaseValidatorModel):
@@ -1252,6 +1647,12 @@ class ExtractionJobMetadataTypeDef(BaseValidatorModel):
     strategyId: Optional[str] = None
     sessionId: Optional[str] = None
     actorId: Optional[str] = None
+
+
+class InlineGroundTruthTypeDef(BaseValidatorModel):
+    assertions: Optional[List[EvaluationContentTypeDef]] = None
+    expectedTrajectory: Optional[EvaluationExpectedTrajectoryTypeDef] = None
+    turns: Optional[List[GroundTruthTurnTypeDef]] = None
 
 
 class HarnessContentBlockDeltaEventTypeDef(BaseValidatorModel):
@@ -1265,7 +1666,7 @@ class HarnessContentBlockStartEventTypeDef(BaseValidatorModel):
 
 
 class HarnessAgentCoreGatewayConfigTypeDef(BaseValidatorModel):
-    gatewayArn: str
+    gatewayArn: Annotated[str, _aws_pattern("BedrockAgentcore", "GatewayArn")]
     outboundAuth: Optional[HarnessGatewayOutboundAuthTypeDef] = None
 
 
@@ -1281,13 +1682,6 @@ class DescriptorsTypeDef(BaseValidatorModel):
     a2a: Optional[A2aDescriptorTypeDef] = None
     custom: Optional[CustomDescriptorTypeDef] = None
     agentSkills: Optional[AgentSkillsDescriptorTypeDef] = None
-
-
-# This class is the input for the 'batch_create_memory_records' function.
-class BatchCreateMemoryRecordsInputTypeDef(BaseValidatorModel):
-    memoryId: str
-    records: List[MemoryRecordCreateInputTypeDef]
-    clientToken: Optional[str] = None
 
 
 # This class is the output for the 'list_memory_records' function.
@@ -1310,12 +1704,6 @@ class GetMemoryRecordOutputTypeDef(BaseValidatorModel):
     ResponseMetadata: ResponseMetadataTypeDef
 
 
-# This class is the input for the 'batch_update_memory_records' function.
-class BatchUpdateMemoryRecordsInputTypeDef(BaseValidatorModel):
-    memoryId: str
-    records: List[MemoryRecordUpdateInputTypeDef]
-
-
 class BrowserEnterprisePolicyTypeDef(BaseValidatorModel):
     location: ResourceLocationTypeDef
     type: Optional[BrowserEnterprisePolicyTypeType] = None
@@ -1323,6 +1711,25 @@ class BrowserEnterprisePolicyTypeDef(BaseValidatorModel):
 
 class BrowserExtensionTypeDef(BaseValidatorModel):
     location: ResourceLocationTypeDef
+
+
+class VariantTypeDef(BaseValidatorModel):
+    name: Annotated[str, _aws_pattern("BedrockAgentcore", "VariantName")]
+    weight: int
+    variantConfiguration: VariantConfigurationTypeDef
+
+
+class ToolDescriptionTextInputOutputTypeDef(BaseValidatorModel):
+    tools: List[ToolDescriptionInputTypeDef]
+
+
+class ToolDescriptionTextInputTypeDef(BaseValidatorModel):
+    tools: List[ToolDescriptionInputTypeDef]
+
+
+class RecommendationResultTypeDef(BaseValidatorModel):
+    systemPromptRecommendationResult: Optional[SystemPromptRecommendationResultTypeDef] = None
+    toolDescriptionRecommendationResult: Optional[ToolDescriptionRecommendationResultTypeDef] = None
 
 
 class InvokeAgentRuntimeCommandStreamOutputTypeDef(BaseValidatorModel):
@@ -1348,7 +1755,7 @@ class ProxyTypeDef(BaseValidatorModel):
 class InvokeCodeInterpreterRequestTypeDef(BaseValidatorModel):
     codeInterpreterIdentifier: str
     name: ToolNameType
-    sessionId: Optional[str] = None
+    sessionId: Optional[Annotated[str, _aws_pattern("BedrockAgentcore", "CodeInterpreterSessionId")]] = None
     traceId: Optional[str] = None
     traceParent: Optional[str] = None
     arguments: Optional[ToolArgumentsTypeDef] = None
@@ -1357,7 +1764,7 @@ class InvokeCodeInterpreterRequestTypeDef(BaseValidatorModel):
 # This class is the output for the 'get_code_interpreter_session' function.
 class GetCodeInterpreterSessionResponseTypeDef(BaseValidatorModel):
     codeInterpreterIdentifier: str
-    sessionId: str
+    sessionId: Annotated[str, _aws_pattern("BedrockAgentcore", "CodeInterpreterSessionId")]
     name: str
     createdAt: datetime
     sessionTimeoutSeconds: int
@@ -1374,7 +1781,60 @@ class StartCodeInterpreterSessionRequestTypeDef(BaseValidatorModel):
     name: Optional[str] = None
     sessionTimeoutSeconds: Optional[int] = None
     certificates: Optional[List[CertificateTypeDef]] = None
-    clientToken: Optional[str] = None
+    clientToken: Optional[Annotated[str, _aws_pattern("BedrockAgentcore", "ClientToken")]] = None
+
+
+class DataSourceConfigOutputTypeDef(BaseValidatorModel):
+    cloudWatchLogs: Optional[CloudWatchLogsSourceOutputTypeDef] = None
+
+
+class CloudWatchLogsTraceConfigOutputTypeDef(BaseValidatorModel):
+    logGroupArns: List[str]
+    serviceNames: List[str]
+    startTime: datetime
+    endTime: datetime
+    rule: Optional[CloudWatchLogsRuleOutputTypeDef] = None
+
+
+class CloudWatchLogsTraceConfigTypeDef(BaseValidatorModel):
+    logGroupArns: List[str]
+    serviceNames: List[Annotated[str, _aws_pattern("BedrockAgentcore", "ServiceName")]]
+    startTime: TimestampTypeDef
+    endTime: TimestampTypeDef
+    rule: Optional[CloudWatchLogsRuleTypeDef] = None
+
+
+class MemoryRecordCreateInputTypeDef(BaseValidatorModel):
+    requestIdentifier: Annotated[str, _aws_pattern("BedrockAgentcore", "RequestIdentifier")]
+    namespaces: List[Annotated[str, _aws_pattern("BedrockAgentcore", "Namespace")]]
+    content: MemoryContentTypeDef
+    timestamp: TimestampTypeDef
+    memoryStrategyId: Optional[Annotated[str, _aws_pattern("BedrockAgentcore", "MemoryStrategyId")]] = None
+    metadata: Optional[Dict[str, MemoryRecordMetadataValueUnionTypeDef]] = None
+
+
+class MemoryRecordRightExpressionTypeDef(BaseValidatorModel):
+    metadataValue: Optional[MemoryRecordMetadataValueUnionTypeDef] = None
+
+
+class MemoryRecordUpdateInputTypeDef(BaseValidatorModel):
+    memoryRecordId: Annotated[str, _aws_pattern("BedrockAgentcore", "MemoryRecordId")]
+    timestamp: TimestampTypeDef
+    content: Optional[MemoryContentTypeDef] = None
+    namespaces: Optional[List[Annotated[str, _aws_pattern("BedrockAgentcore", "Namespace")]]] = None
+    memoryStrategyId: Optional[Annotated[str, _aws_pattern("BedrockAgentcore", "MemoryStrategyId")]] = None
+    metadata: Optional[Dict[str, MemoryRecordMetadataValueUnionTypeDef]] = None
+
+
+class CloudWatchLogsSourceTypeDef(BaseValidatorModel):
+    serviceNames: List[str]
+    logGroupNames: List[str]
+    filterConfig: Optional[CloudWatchFilterConfigTypeDef] = None
+
+
+class ABTestResultsTypeDef(BaseValidatorModel):
+    evaluatorMetrics: List[EvaluatorMetricTypeDef]
+    analysisTimestamp: Optional[datetime] = None
 
 
 class CodeInterpreterStreamOutputTypeDef(BaseValidatorModel):
@@ -1389,10 +1849,10 @@ class CodeInterpreterStreamOutputTypeDef(BaseValidatorModel):
 
 
 class EventTypeDef(BaseValidatorModel):
-    memoryId: str
-    actorId: str
-    sessionId: str
-    eventId: str
+    memoryId: Annotated[str, _aws_pattern("BedrockAgentcore", "MemoryId")]
+    actorId: Annotated[str, _aws_pattern("BedrockAgentcore", "ActorId")]
+    sessionId: Annotated[str, _aws_pattern("BedrockAgentcore", "SessionId")]
+    eventId: Annotated[str, _aws_pattern("BedrockAgentcore", "EventId")]
     eventTimestamp: datetime
     payload: List[PayloadTypeOutputTypeDef]
     branch: Optional[BranchTypeDef] = None
@@ -1404,7 +1864,7 @@ PayloadTypeUnionTypeDef = Union[PayloadTypeOutputTypeDef, PayloadTypeTypeDef]
 
 # This class is the input for the 'evaluate' function.
 class EvaluateRequestTypeDef(BaseValidatorModel):
-    evaluatorId: str
+    evaluatorId: Annotated[str, _aws_pattern("BedrockAgentcore", "EvaluatorId")]
     evaluationInput: EvaluationInputTypeDef
     evaluationTarget: Optional[EvaluationTargetTypeDef] = None
     evaluationReferenceInputs: Optional[List[EvaluationReferenceInputTypeDef]] = None
@@ -1421,11 +1881,17 @@ class FilterInputTypeDef(BaseValidatorModel):
     eventMetadata: Optional[List[EventMetadataFilterExpressionTypeDef]] = None
 
 
-class SearchCriteriaTypeDef(BaseValidatorModel):
-    searchQuery: str
-    memoryStrategyId: Optional[str] = None
-    topK: Optional[int] = None
-    metadataFilters: Optional[List[MemoryMetadataFilterExpressionTypeDef]] = None
+class BatchEvaluationSummaryTypeDef(BaseValidatorModel):
+    batchEvaluationId: Annotated[str, _aws_pattern("BedrockAgentcore", "BatchEvaluationId")]
+    batchEvaluationArn: str
+    batchEvaluationName: Annotated[str, _aws_pattern("BedrockAgentcore", "BatchEvaluationName")]
+    status: BatchEvaluationStatusType
+    createdAt: datetime
+    description: Optional[str] = None
+    evaluators: Optional[List[EvaluatorTypeDef]] = None
+    evaluationResults: Optional[EvaluationJobResultsTypeDef] = None
+    errorDetails: Optional[List[str]] = None
+    updatedAt: Optional[datetime] = None
 
 
 # This class is the output for the 'list_memory_extraction_jobs' function.
@@ -1433,6 +1899,10 @@ class ListMemoryExtractionJobsOutputTypeDef(BaseValidatorModel):
     jobs: List[ExtractionJobMetadataTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
     nextToken: Optional[str] = None
+
+
+class GroundTruthSourceTypeDef(BaseValidatorModel):
+    inline: Optional[InlineGroundTruthTypeDef] = None
 
 
 class InvokeHarnessStreamOutputTypeDef(BaseValidatorModel):
@@ -1461,17 +1931,53 @@ class HarnessMessageTypeDef(BaseValidatorModel):
 
 
 class RegistryRecordSummaryTypeDef(BaseValidatorModel):
-    registryArn: str
-    recordArn: str
-    recordId: str
-    name: str
+    registryArn: Annotated[str, _aws_pattern("BedrockAgentcore", "RegistryArn")]
+    recordArn: Annotated[str, _aws_pattern("BedrockAgentcore", "RegistryRecordArn")]
+    recordId: Annotated[str, _aws_pattern("BedrockAgentcore", "RegistryRecordId")]
+    name: Annotated[str, _aws_pattern("BedrockAgentcore", "RegistryRecordName")]
     descriptorType: DescriptorTypeType
     descriptors: DescriptorsTypeDef
-    version: str
+    version: Annotated[str, _aws_pattern("BedrockAgentcore", "RegistryRecordVersion")]
     status: RegistryRecordStatusType
     createdAt: datetime
     updatedAt: datetime
     description: Optional[str] = None
+
+
+# This class is the input for the 'create_ab_test' function.
+class CreateABTestRequestTypeDef(BaseValidatorModel):
+    name: Annotated[str, _aws_pattern("BedrockAgentcore", "ABTestName")]
+    gatewayArn: Annotated[str, _aws_pattern("BedrockAgentcore", "GatewayArn")]
+    variants: List[VariantTypeDef]
+    evaluationConfig: ABTestEvaluationConfigUnionTypeDef
+    roleArn: Annotated[str, _aws_pattern("BedrockAgentcore", "RoleArn")]
+    description: Optional[str] = None
+    gatewayFilter: Optional[GatewayFilterUnionTypeDef] = None
+    enableOnCreate: Optional[bool] = None
+    clientToken: Optional[Annotated[str, _aws_pattern("BedrockAgentcore", "ClientToken")]] = None
+
+
+# This class is the input for the 'update_ab_test' function.
+class UpdateABTestRequestTypeDef(BaseValidatorModel):
+    abTestId: Annotated[str, _aws_pattern("BedrockAgentcore", "ABTestId")]
+    clientToken: Optional[Annotated[str, _aws_pattern("BedrockAgentcore", "ClientToken")]] = None
+    name: Optional[Annotated[str, _aws_pattern("BedrockAgentcore", "ABTestName")]] = None
+    description: Optional[str] = None
+    variants: Optional[List[VariantTypeDef]] = None
+    gatewayFilter: Optional[GatewayFilterUnionTypeDef] = None
+    evaluationConfig: Optional[ABTestEvaluationConfigUnionTypeDef] = None
+    roleArn: Optional[Annotated[str, _aws_pattern("BedrockAgentcore", "RoleArn")]] = None
+    executionStatus: Optional[ABTestExecutionStatusType] = None
+
+
+class ToolDescriptionSourceOutputTypeDef(BaseValidatorModel):
+    toolDescriptionText: Optional[ToolDescriptionTextInputOutputTypeDef] = None
+    configurationBundle: Optional[ToolDescriptionConfigurationBundleOutputTypeDef] = None
+
+
+class ToolDescriptionSourceTypeDef(BaseValidatorModel):
+    toolDescriptionText: Optional[ToolDescriptionTextInputTypeDef] = None
+    configurationBundle: Optional[ToolDescriptionConfigurationBundleTypeDef] = None
 
 
 # This class is the output for the 'invoke_agent_runtime_command' function.
@@ -1487,6 +1993,80 @@ class ProxyConfigurationOutputTypeDef(BaseValidatorModel):
 class ProxyConfigurationTypeDef(BaseValidatorModel):
     proxies: List[ProxyTypeDef]
     bypass: Optional[ProxyBypassTypeDef] = None
+
+
+# This class is the output for the 'get_batch_evaluation' function.
+class GetBatchEvaluationResponseTypeDef(BaseValidatorModel):
+    batchEvaluationId: Annotated[str, _aws_pattern("BedrockAgentcore", "BatchEvaluationId")]
+    batchEvaluationArn: str
+    batchEvaluationName: Annotated[str, _aws_pattern("BedrockAgentcore", "BatchEvaluationName")]
+    status: BatchEvaluationStatusType
+    createdAt: datetime
+    evaluators: List[EvaluatorTypeDef]
+    dataSourceConfig: DataSourceConfigOutputTypeDef
+    outputConfig: OutputConfigTypeDef
+    evaluationResults: EvaluationJobResultsTypeDef
+    errorDetails: List[str]
+    description: str
+    updatedAt: datetime
+    ResponseMetadata: ResponseMetadataTypeDef
+
+
+class AgentTracesConfigOutputTypeDef(BaseValidatorModel):
+    sessionSpans: Optional[List[Dict[str, Any]]] = None
+    cloudwatchLogs: Optional[CloudWatchLogsTraceConfigOutputTypeDef] = None
+
+
+class AgentTracesConfigTypeDef(BaseValidatorModel):
+    sessionSpans: Optional[List[Dict[str, Any]]] = None
+    cloudwatchLogs: Optional[CloudWatchLogsTraceConfigTypeDef] = None
+
+
+# This class is the input for the 'batch_create_memory_records' function.
+class BatchCreateMemoryRecordsInputTypeDef(BaseValidatorModel):
+    memoryId: Annotated[str, _aws_pattern("BedrockAgentcore", "MemoryId")]
+    records: List[MemoryRecordCreateInputTypeDef]
+    clientToken: Optional[str] = None
+
+
+class MemoryMetadataFilterExpressionTypeDef(BaseValidatorModel):
+    left: MemoryRecordLeftExpressionTypeDef
+    operator: MemoryRecordOperatorTypeType
+    right: Optional[MemoryRecordRightExpressionTypeDef] = None
+
+
+# This class is the input for the 'batch_update_memory_records' function.
+class BatchUpdateMemoryRecordsInputTypeDef(BaseValidatorModel):
+    memoryId: Annotated[str, _aws_pattern("BedrockAgentcore", "MemoryId")]
+    records: List[MemoryRecordUpdateInputTypeDef]
+
+
+class DataSourceConfigTypeDef(BaseValidatorModel):
+    cloudWatchLogs: Optional[CloudWatchLogsSourceTypeDef] = None
+
+
+# This class is the output for the 'get_ab_test' function.
+class GetABTestResponseTypeDef(BaseValidatorModel):
+    abTestId: Annotated[str, _aws_pattern("BedrockAgentcore", "ABTestId")]
+    abTestArn: Annotated[str, _aws_pattern("BedrockAgentcore", "ABTestArn")]
+    name: Annotated[str, _aws_pattern("BedrockAgentcore", "ABTestName")]
+    description: str
+    status: ABTestStatusType
+    executionStatus: ABTestExecutionStatusType
+    gatewayArn: Annotated[str, _aws_pattern("BedrockAgentcore", "GatewayArn")]
+    variants: List[VariantTypeDef]
+    gatewayFilter: GatewayFilterOutputTypeDef
+    evaluationConfig: ABTestEvaluationConfigOutputTypeDef
+    roleArn: Annotated[str, _aws_pattern("BedrockAgentcore", "RoleArn")]
+    currentRunId: str
+    errorDetails: List[str]
+    startedAt: datetime
+    stoppedAt: datetime
+    maxDurationExpiresAt: datetime
+    createdAt: datetime
+    updatedAt: datetime
+    results: ABTestResultsTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
 
 
 # This class is the output for the 'invoke_code_interpreter' function.
@@ -1515,11 +2095,11 @@ class ListEventsOutputTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'create_event' function.
 class CreateEventInputTypeDef(BaseValidatorModel):
-    memoryId: str
-    actorId: str
+    memoryId: Annotated[str, _aws_pattern("BedrockAgentcore", "MemoryId")]
+    actorId: Annotated[str, _aws_pattern("BedrockAgentcore", "ActorId")]
     eventTimestamp: TimestampTypeDef
     payload: List[PayloadTypeUnionTypeDef]
-    sessionId: Optional[str] = None
+    sessionId: Optional[Annotated[str, _aws_pattern("BedrockAgentcore", "SessionId")]] = None
     branch: Optional[BranchTypeDef] = None
     clientToken: Optional[str] = None
     metadata: Optional[Dict[str, MetadataValueTypeDef]] = None
@@ -1536,31 +2116,27 @@ class ListEventsInputPaginateTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'list_events' function.
 class ListEventsInputTypeDef(BaseValidatorModel):
-    memoryId: str
-    sessionId: str
-    actorId: str
+    memoryId: Annotated[str, _aws_pattern("BedrockAgentcore", "MemoryId")]
+    sessionId: Annotated[str, _aws_pattern("BedrockAgentcore", "SessionId")]
+    actorId: Annotated[str, _aws_pattern("BedrockAgentcore", "ActorId")]
     includePayloads: Optional[bool] = None
     filter: Optional[FilterInputTypeDef] = None
     maxResults: Optional[int] = None
     nextToken: Optional[str] = None
 
 
-class RetrieveMemoryRecordsInputPaginateTypeDef(BaseValidatorModel):
-    memoryId: str
-    searchCriteria: SearchCriteriaTypeDef
-    namespace: Optional[str] = None
-    namespacePath: Optional[str] = None
-    PaginationConfig: Optional[PaginatorConfigTypeDef] = None
-
-
-# This class is the input for the 'retrieve_memory_records' function.
-class RetrieveMemoryRecordsInputTypeDef(BaseValidatorModel):
-    memoryId: str
-    searchCriteria: SearchCriteriaTypeDef
-    namespace: Optional[str] = None
-    namespacePath: Optional[str] = None
+# This class is the output for the 'list_batch_evaluations' function.
+class ListBatchEvaluationsResponseTypeDef(BaseValidatorModel):
+    batchEvaluations: List[BatchEvaluationSummaryTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
     nextToken: Optional[str] = None
-    maxResults: Optional[int] = None
+
+
+class SessionMetadataShapeTypeDef(BaseValidatorModel):
+    sessionId: str
+    testScenarioId: Optional[str] = None
+    groundTruth: Optional[GroundTruthSourceTypeDef] = None
+    metadata: Optional[Dict[str, str]] = None
 
 
 # This class is the output for the 'invoke_harness' function.
@@ -1570,7 +2146,7 @@ class InvokeHarnessResponseTypeDef(EventStream[InvokeHarnessStreamOutputTypeDef]
 
 class HarnessToolTypeDef(BaseValidatorModel):
     type: HarnessToolTypeType
-    name: Optional[str] = None
+    name: Optional[Annotated[str, _aws_pattern("BedrockAgentcore", "HarnessToolName")]] = None
     config: Optional[HarnessToolConfigurationTypeDef] = None
 
 
@@ -1583,7 +2159,7 @@ class SearchRegistryRecordsResponseTypeDef(BaseValidatorModel):
 # This class is the output for the 'get_browser_session' function.
 class GetBrowserSessionResponseTypeDef(BaseValidatorModel):
     browserIdentifier: str
-    sessionId: str
+    sessionId: Annotated[str, _aws_pattern("BedrockAgentcore", "BrowserSessionId")]
     name: str
     createdAt: datetime
     viewPort: ViewPortTypeDef
@@ -1603,16 +2179,72 @@ class GetBrowserSessionResponseTypeDef(BaseValidatorModel):
 ProxyConfigurationUnionTypeDef = Union[ProxyConfigurationOutputTypeDef, ProxyConfigurationTypeDef]
 
 
+class SystemPromptRecommendationConfigOutputTypeDef(BaseValidatorModel):
+    systemPrompt: SystemPromptConfigTypeDef
+    agentTraces: AgentTracesConfigOutputTypeDef
+    evaluationConfig: RecommendationEvaluationConfigOutputTypeDef
+
+
+class ToolDescriptionRecommendationConfigOutputTypeDef(BaseValidatorModel):
+    toolDescription: ToolDescriptionSourceOutputTypeDef
+    agentTraces: AgentTracesConfigOutputTypeDef
+
+
+class SystemPromptRecommendationConfigTypeDef(BaseValidatorModel):
+    systemPrompt: SystemPromptConfigTypeDef
+    agentTraces: AgentTracesConfigTypeDef
+    evaluationConfig: RecommendationEvaluationConfigTypeDef
+
+
+class ToolDescriptionRecommendationConfigTypeDef(BaseValidatorModel):
+    toolDescription: ToolDescriptionSourceTypeDef
+    agentTraces: AgentTracesConfigTypeDef
+
+
+class ListMemoryRecordsInputPaginateTypeDef(BaseValidatorModel):
+    memoryId: str
+    namespace: Optional[str] = None
+    namespacePath: Optional[str] = None
+    memoryStrategyId: Optional[str] = None
+    metadataFilters: Optional[List[MemoryMetadataFilterExpressionTypeDef]] = None
+    PaginationConfig: Optional[PaginatorConfigTypeDef] = None
+
+
+# This class is the input for the 'list_memory_records' function.
+class ListMemoryRecordsInputTypeDef(BaseValidatorModel):
+    memoryId: Annotated[str, _aws_pattern("BedrockAgentcore", "MemoryId")]
+    namespace: Optional[Annotated[str, _aws_pattern("BedrockAgentcore", "Namespace")]] = None
+    namespacePath: Optional[Annotated[str, _aws_pattern("BedrockAgentcore", "Namespace")]] = None
+    memoryStrategyId: Optional[Annotated[str, _aws_pattern("BedrockAgentcore", "MemoryStrategyId")]] = None
+    maxResults: Optional[int] = None
+    nextToken: Optional[str] = None
+    metadataFilters: Optional[List[MemoryMetadataFilterExpressionTypeDef]] = None
+
+
+class SearchCriteriaTypeDef(BaseValidatorModel):
+    searchQuery: str
+    memoryStrategyId: Optional[Annotated[str, _aws_pattern("BedrockAgentcore", "MemoryStrategyId")]] = None
+    topK: Optional[int] = None
+    metadataFilters: Optional[List[MemoryMetadataFilterExpressionTypeDef]] = None
+
+
+DataSourceConfigUnionTypeDef = Union[DataSourceConfigOutputTypeDef, DataSourceConfigTypeDef]
+
+
+class EvaluationMetadataTypeDef(BaseValidatorModel):
+    sessionMetadata: Optional[List[SessionMetadataShapeTypeDef]] = None
+
+
 # This class is the input for the 'invoke_harness' function.
 class InvokeHarnessRequestTypeDef(BaseValidatorModel):
-    harnessArn: str
-    runtimeSessionId: str
+    harnessArn: Annotated[str, _aws_pattern("BedrockAgentcore", "HarnessArn")]
+    runtimeSessionId: Annotated[str, _aws_pattern("BedrockAgentcore", "SessionId")]
     messages: List[HarnessMessageTypeDef]
     model: Optional[HarnessModelConfigurationTypeDef] = None
     systemPrompt: Optional[List[HarnessSystemContentBlockTypeDef]] = None
     tools: Optional[List[HarnessToolTypeDef]] = None
     skills: Optional[List[HarnessSkillTypeDef]] = None
-    allowedTools: Optional[List[str]] = None
+    allowedTools: Optional[List[Annotated[str, _aws_pattern("BedrockAgentcore", "HarnessAllowedTool")]]] = None
     maxIterations: Optional[int] = None
     maxTokens: Optional[int] = None
     timeoutSeconds: Optional[int] = None
@@ -1632,4 +2264,83 @@ class StartBrowserSessionRequestTypeDef(BaseValidatorModel):
     proxyConfiguration: Optional[ProxyConfigurationUnionTypeDef] = None
     enterprisePolicies: Optional[List[BrowserEnterprisePolicyTypeDef]] = None
     certificates: Optional[List[CertificateTypeDef]] = None
-    clientToken: Optional[str] = None
+    clientToken: Optional[Annotated[str, _aws_pattern("BedrockAgentcore", "ClientToken")]] = None
+
+
+class RecommendationConfigOutputTypeDef(BaseValidatorModel):
+    systemPromptRecommendationConfig: Optional[SystemPromptRecommendationConfigOutputTypeDef] = None
+    toolDescriptionRecommendationConfig: Optional[ToolDescriptionRecommendationConfigOutputTypeDef] = None
+
+
+class RecommendationConfigTypeDef(BaseValidatorModel):
+    systemPromptRecommendationConfig: Optional[SystemPromptRecommendationConfigTypeDef] = None
+    toolDescriptionRecommendationConfig: Optional[ToolDescriptionRecommendationConfigTypeDef] = None
+
+
+class RetrieveMemoryRecordsInputPaginateTypeDef(BaseValidatorModel):
+    memoryId: str
+    searchCriteria: SearchCriteriaTypeDef
+    namespace: Optional[str] = None
+    namespacePath: Optional[str] = None
+    PaginationConfig: Optional[PaginatorConfigTypeDef] = None
+
+
+# This class is the input for the 'retrieve_memory_records' function.
+class RetrieveMemoryRecordsInputTypeDef(BaseValidatorModel):
+    memoryId: Annotated[str, _aws_pattern("BedrockAgentcore", "MemoryId")]
+    searchCriteria: SearchCriteriaTypeDef
+    namespace: Optional[Annotated[str, _aws_pattern("BedrockAgentcore", "Namespace")]] = None
+    namespacePath: Optional[Annotated[str, _aws_pattern("BedrockAgentcore", "Namespace")]] = None
+    nextToken: Optional[str] = None
+    maxResults: Optional[int] = None
+
+
+# This class is the input for the 'start_batch_evaluation' function.
+class StartBatchEvaluationRequestTypeDef(BaseValidatorModel):
+    batchEvaluationName: Annotated[str, _aws_pattern("BedrockAgentcore", "BatchEvaluationName")]
+    dataSourceConfig: DataSourceConfigUnionTypeDef
+    evaluators: Optional[List[EvaluatorTypeDef]] = None
+    clientToken: Optional[Annotated[str, _aws_pattern("BedrockAgentcore", "ClientToken")]] = None
+    evaluationMetadata: Optional[EvaluationMetadataTypeDef] = None
+    description: Optional[str] = None
+
+
+# This class is the output for the 'get_recommendation' function.
+class GetRecommendationResponseTypeDef(BaseValidatorModel):
+    recommendationId: Annotated[str, _aws_pattern("BedrockAgentcore", "RecommendationId")]
+    recommendationArn: Annotated[str, _aws_pattern("BedrockAgentcore", "RecommendationArn")]
+    name: Annotated[str, _aws_pattern("BedrockAgentcore", "RecommendationName")]
+    description: str
+    type: RecommendationTypeType
+    recommendationConfig: RecommendationConfigOutputTypeDef
+    status: RecommendationStatusType
+    createdAt: datetime
+    updatedAt: datetime
+    recommendationResult: RecommendationResultTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+
+# This class is the output for the 'start_recommendation' function.
+class StartRecommendationResponseTypeDef(BaseValidatorModel):
+    recommendationId: Annotated[str, _aws_pattern("BedrockAgentcore", "RecommendationId")]
+    recommendationArn: Annotated[str, _aws_pattern("BedrockAgentcore", "RecommendationArn")]
+    name: Annotated[str, _aws_pattern("BedrockAgentcore", "RecommendationName")]
+    description: str
+    type: RecommendationTypeType
+    recommendationConfig: RecommendationConfigOutputTypeDef
+    status: RecommendationStatusType
+    createdAt: datetime
+    updatedAt: datetime
+    ResponseMetadata: ResponseMetadataTypeDef
+
+
+RecommendationConfigUnionTypeDef = Union[RecommendationConfigOutputTypeDef, RecommendationConfigTypeDef]
+
+
+# This class is the input for the 'start_recommendation' function.
+class StartRecommendationRequestTypeDef(BaseValidatorModel):
+    name: Annotated[str, _aws_pattern("BedrockAgentcore", "RecommendationName")]
+    type: RecommendationTypeType
+    recommendationConfig: RecommendationConfigUnionTypeDef
+    description: Optional[str] = None
+    clientToken: Optional[Annotated[str, _aws_pattern("BedrockAgentcore", "ClientToken")]] = None

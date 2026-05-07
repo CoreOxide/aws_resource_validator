@@ -3,6 +3,7 @@
 from datetime import datetime
 from decimal import Decimal
 from typing import (
+    Annotated,
     Any,
     Callable,
     Dict,
@@ -24,6 +25,7 @@ from botocore.response import StreamingBody
 from pydantic import Field
 
 from aws_resource_validator.core.base_validator_model import BaseValidatorModel, EventStream
+from aws_resource_validator.core.pattern_validation import aws_field_pattern as _aws_pattern
 from aws_resource_validator.pydantic_models.kinesis_video_archived_media.kinesis_video_archived_media_constants import *  # noqa: F401,F403
 
 # Optional boto3 symbols — imported lazily so services that don't need them
@@ -41,7 +43,7 @@ TimestampTypeDef = Union[datetime, str]
 
 
 class FragmentTypeDef(BaseValidatorModel):
-    FragmentNumber: Optional[str] = None
+    FragmentNumber: Optional[Annotated[str, _aws_pattern("KinesisVideoArchivedMedia", "FragmentNumberString")]] = None
     FragmentSizeInBytes: Optional[int] = None
     ProducerTimestamp: Optional[datetime] = None
     ServerTimestamp: Optional[datetime] = None
@@ -70,9 +72,9 @@ class ImageTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'get_media_for_fragment_list' function.
 class GetMediaForFragmentListInputTypeDef(BaseValidatorModel):
-    Fragments: List[str]
-    StreamName: Optional[str] = None
-    StreamARN: Optional[str] = None
+    Fragments: List[Annotated[str, _aws_pattern("KinesisVideoArchivedMedia", "FragmentNumberString")]]
+    StreamName: Optional[Annotated[str, _aws_pattern("KinesisVideoArchivedMedia", "StreamName")]] = None
+    StreamARN: Optional[Annotated[str, _aws_pattern("KinesisVideoArchivedMedia", "ResourceARN")]] = None
 
 
 class ClipTimestampRangeTypeDef(BaseValidatorModel):
@@ -91,14 +93,14 @@ class GetImagesInputTypeDef(BaseValidatorModel):
     StartTimestamp: TimestampTypeDef
     EndTimestamp: TimestampTypeDef
     Format: FormatType
-    StreamName: Optional[str] = None
-    StreamARN: Optional[str] = None
+    StreamName: Optional[Annotated[str, _aws_pattern("KinesisVideoArchivedMedia", "StreamName")]] = None
+    StreamARN: Optional[Annotated[str, _aws_pattern("KinesisVideoArchivedMedia", "ResourceARN")]] = None
     SamplingInterval: Optional[int] = None
     FormatConfig: Optional[Dict[Literal["JPEGQuality"], str]] = None
     WidthPixels: Optional[int] = None
     HeightPixels: Optional[int] = None
     MaxResults: Optional[int] = None
-    NextToken: Optional[str] = None
+    NextToken: Optional[Annotated[str, _aws_pattern("KinesisVideoArchivedMedia", "NextToken")]] = None
 
 
 class HLSTimestampRangeTypeDef(BaseValidatorModel):
@@ -113,7 +115,7 @@ class TimestampRangeTypeDef(BaseValidatorModel):
 
 # This class is the output for the 'get_clip' function.
 class GetClipOutputTypeDef(BaseValidatorModel):
-    ContentType: str
+    ContentType: Annotated[str, _aws_pattern("KinesisVideoArchivedMedia", "ContentType")]
     Payload: StreamingBody
     ResponseMetadata: ResponseMetadataTypeDef
 
@@ -132,7 +134,7 @@ class GetHLSStreamingSessionURLOutputTypeDef(BaseValidatorModel):
 
 # This class is the output for the 'get_media_for_fragment_list' function.
 class GetMediaForFragmentListOutputTypeDef(BaseValidatorModel):
-    ContentType: str
+    ContentType: Annotated[str, _aws_pattern("KinesisVideoArchivedMedia", "ContentType")]
     Payload: StreamingBody
     ResponseMetadata: ResponseMetadataTypeDef
 
@@ -141,7 +143,7 @@ class GetMediaForFragmentListOutputTypeDef(BaseValidatorModel):
 class ListFragmentsOutputTypeDef(BaseValidatorModel):
     Fragments: List[FragmentTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
-    NextToken: Optional[str] = None
+    NextToken: Optional[Annotated[str, _aws_pattern("KinesisVideoArchivedMedia", "NextToken")]] = None
 
 
 class GetImagesInputPaginateTypeDef(BaseValidatorModel):
@@ -162,7 +164,7 @@ class GetImagesInputPaginateTypeDef(BaseValidatorModel):
 class GetImagesOutputTypeDef(BaseValidatorModel):
     Images: List[ImageTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
-    NextToken: Optional[str] = None
+    NextToken: Optional[Annotated[str, _aws_pattern("KinesisVideoArchivedMedia", "NextToken")]] = None
 
 
 class ClipFragmentSelectorTypeDef(BaseValidatorModel):
@@ -188,14 +190,14 @@ class FragmentSelectorTypeDef(BaseValidatorModel):
 # This class is the input for the 'get_clip' function.
 class GetClipInputTypeDef(BaseValidatorModel):
     ClipFragmentSelector: ClipFragmentSelectorTypeDef
-    StreamName: Optional[str] = None
-    StreamARN: Optional[str] = None
+    StreamName: Optional[Annotated[str, _aws_pattern("KinesisVideoArchivedMedia", "StreamName")]] = None
+    StreamARN: Optional[Annotated[str, _aws_pattern("KinesisVideoArchivedMedia", "ResourceARN")]] = None
 
 
 # This class is the input for the 'get_dash_streaming_session_url' function.
 class GetDASHStreamingSessionURLInputTypeDef(BaseValidatorModel):
-    StreamName: Optional[str] = None
-    StreamARN: Optional[str] = None
+    StreamName: Optional[Annotated[str, _aws_pattern("KinesisVideoArchivedMedia", "StreamName")]] = None
+    StreamARN: Optional[Annotated[str, _aws_pattern("KinesisVideoArchivedMedia", "ResourceARN")]] = None
     PlaybackMode: Optional[DASHPlaybackModeType] = None
     DisplayFragmentTimestamp: Optional[DASHDisplayFragmentTimestampType] = None
     DisplayFragmentNumber: Optional[DASHDisplayFragmentNumberType] = None
@@ -206,8 +208,8 @@ class GetDASHStreamingSessionURLInputTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'get_hls_streaming_session_url' function.
 class GetHLSStreamingSessionURLInputTypeDef(BaseValidatorModel):
-    StreamName: Optional[str] = None
-    StreamARN: Optional[str] = None
+    StreamName: Optional[Annotated[str, _aws_pattern("KinesisVideoArchivedMedia", "StreamName")]] = None
+    StreamARN: Optional[Annotated[str, _aws_pattern("KinesisVideoArchivedMedia", "ResourceARN")]] = None
     PlaybackMode: Optional[HLSPlaybackModeType] = None
     HLSFragmentSelector: Optional[HLSFragmentSelectorTypeDef] = None
     ContainerFormat: Optional[ContainerFormatType] = None
@@ -226,8 +228,8 @@ class ListFragmentsInputPaginateTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'list_fragments' function.
 class ListFragmentsInputTypeDef(BaseValidatorModel):
-    StreamName: Optional[str] = None
-    StreamARN: Optional[str] = None
+    StreamName: Optional[Annotated[str, _aws_pattern("KinesisVideoArchivedMedia", "StreamName")]] = None
+    StreamARN: Optional[Annotated[str, _aws_pattern("KinesisVideoArchivedMedia", "ResourceARN")]] = None
     MaxResults: Optional[int] = None
-    NextToken: Optional[str] = None
+    NextToken: Optional[Annotated[str, _aws_pattern("KinesisVideoArchivedMedia", "NextToken")]] = None
     FragmentSelector: Optional[FragmentSelectorTypeDef] = None

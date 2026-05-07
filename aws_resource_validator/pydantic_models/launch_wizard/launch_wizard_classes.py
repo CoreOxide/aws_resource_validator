@@ -3,6 +3,7 @@
 from datetime import datetime
 from decimal import Decimal
 from typing import (
+    Annotated,
     Any,
     Callable,
     Dict,
@@ -24,6 +25,7 @@ from botocore.response import StreamingBody
 from pydantic import Field
 
 from aws_resource_validator.core.base_validator_model import BaseValidatorModel, EventStream
+from aws_resource_validator.core.pattern_validation import aws_field_pattern as _aws_pattern
 from aws_resource_validator.pydantic_models.launch_wizard.launch_wizard_constants import *  # noqa: F401,F403
 
 # Optional boto3 symbols — imported lazily so services that don't need them
@@ -40,9 +42,9 @@ except ImportError:  # pragma: no cover
 
 # This class is the input for the 'create_deployment' function.
 class CreateDeploymentInputTypeDef(BaseValidatorModel):
-    workloadName: str
-    deploymentPatternName: str
-    name: str
+    workloadName: Annotated[str, _aws_pattern("LaunchWizard", "WorkloadName")]
+    deploymentPatternName: Annotated[str, _aws_pattern("LaunchWizard", "DeploymentPatternName")]
+    name: Annotated[str, _aws_pattern("LaunchWizard", "DeploymentName")]
     specifications: Dict[str, str]
     dryRun: Optional[bool] = None
     tags: Optional[Dict[str, str]] = None
@@ -58,7 +60,7 @@ class ResponseMetadataTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'delete_deployment' function.
 class DeleteDeploymentInputTypeDef(BaseValidatorModel):
-    deploymentId: str
+    deploymentId: Annotated[str, _aws_pattern("LaunchWizard", "DeploymentId")]
 
 
 class DeploymentConditionalFieldTypeDef(BaseValidatorModel):
@@ -69,9 +71,9 @@ class DeploymentConditionalFieldTypeDef(BaseValidatorModel):
 
 class DeploymentDataSummaryTypeDef(BaseValidatorModel):
     name: Optional[str] = None
-    id: Optional[str] = None
-    workloadName: Optional[str] = None
-    patternName: Optional[str] = None
+    id: Optional[Annotated[str, _aws_pattern("LaunchWizard", "DeploymentId")]] = None
+    workloadName: Optional[Annotated[str, _aws_pattern("LaunchWizard", "WorkloadName")]] = None
+    patternName: Optional[Annotated[str, _aws_pattern("LaunchWizard", "DeploymentPatternName")]] = None
     status: Optional[DeploymentStatusType] = None
     createdAt: Optional[datetime] = None
     modifiedAt: Optional[datetime] = None
@@ -79,9 +81,9 @@ class DeploymentDataSummaryTypeDef(BaseValidatorModel):
 
 class DeploymentDataTypeDef(BaseValidatorModel):
     name: Optional[str] = None
-    id: Optional[str] = None
-    workloadName: Optional[str] = None
-    patternName: Optional[str] = None
+    id: Optional[Annotated[str, _aws_pattern("LaunchWizard", "DeploymentId")]] = None
+    workloadName: Optional[Annotated[str, _aws_pattern("LaunchWizard", "WorkloadName")]] = None
+    patternName: Optional[Annotated[str, _aws_pattern("LaunchWizard", "DeploymentPatternName")]] = None
     status: Optional[DeploymentStatusType] = None
     createdAt: Optional[datetime] = None
     modifiedAt: Optional[datetime] = None
@@ -102,7 +104,7 @@ class DeploymentEventDataSummaryTypeDef(BaseValidatorModel):
 
 class DeploymentFilterTypeDef(BaseValidatorModel):
     name: Optional[DeploymentFilterKeyType] = None
-    values: Optional[List[str]] = None
+    values: Optional[List[Annotated[str, _aws_pattern("LaunchWizard", "DeploymentFilterValuesMemberString")]]] = None
 
 
 class DeploymentPatternVersionDataSummaryTypeDef(BaseValidatorModel):
@@ -115,34 +117,34 @@ class DeploymentPatternVersionDataSummaryTypeDef(BaseValidatorModel):
 
 class DeploymentPatternVersionFilterTypeDef(BaseValidatorModel):
     name: Literal["updateFromVersion"]
-    values: List[str]
+    values: List[Annotated[str, _aws_pattern("LaunchWizard", "DeploymentPatternVersionFilterValuesMemberString")]]
 
 
 # This class is the input for the 'get_deployment' function.
 class GetDeploymentInputTypeDef(BaseValidatorModel):
-    deploymentId: str
+    deploymentId: Annotated[str, _aws_pattern("LaunchWizard", "DeploymentId")]
 
 
 # This class is the input for the 'get_deployment_pattern_version' function.
 class GetDeploymentPatternVersionInputTypeDef(BaseValidatorModel):
-    workloadName: str
-    deploymentPatternName: str
-    deploymentPatternVersionName: str
+    workloadName: Annotated[str, _aws_pattern("LaunchWizard", "WorkloadName")]
+    deploymentPatternName: Annotated[str, _aws_pattern("LaunchWizard", "DeploymentPatternName")]
+    deploymentPatternVersionName: Annotated[str, _aws_pattern("LaunchWizard", "DeploymentPatternVersionName")]
 
 
 # This class is the input for the 'get_workload_deployment_pattern' function.
 class GetWorkloadDeploymentPatternInputTypeDef(BaseValidatorModel):
-    workloadName: str
-    deploymentPatternName: str
+    workloadName: Annotated[str, _aws_pattern("LaunchWizard", "WorkloadName")]
+    deploymentPatternName: Annotated[str, _aws_pattern("LaunchWizard", "DeploymentPatternName")]
 
 
 # This class is the input for the 'get_workload' function.
 class GetWorkloadInputTypeDef(BaseValidatorModel):
-    workloadName: str
+    workloadName: Annotated[str, _aws_pattern("LaunchWizard", "WorkloadName")]
 
 
 class WorkloadDataTypeDef(BaseValidatorModel):
-    workloadName: Optional[str] = None
+    workloadName: Optional[Annotated[str, _aws_pattern("LaunchWizard", "WorkloadName")]] = None
     displayName: Optional[str] = None
     status: Optional[WorkloadStatusType] = None
     description: Optional[str] = None
@@ -159,7 +161,7 @@ class PaginatorConfigTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'list_deployment_events' function.
 class ListDeploymentEventsInputTypeDef(BaseValidatorModel):
-    deploymentId: str
+    deploymentId: Annotated[str, _aws_pattern("LaunchWizard", "DeploymentId")]
     maxResults: Optional[int] = None
     nextToken: Optional[str] = None
 
@@ -171,16 +173,18 @@ class ListTagsForResourceInputTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'list_workload_deployment_patterns' function.
 class ListWorkloadDeploymentPatternsInputTypeDef(BaseValidatorModel):
-    workloadName: str
+    workloadName: Annotated[str, _aws_pattern("LaunchWizard", "WorkloadName")]
     maxResults: Optional[int] = None
     nextToken: Optional[str] = None
 
 
 class WorkloadDeploymentPatternDataSummaryTypeDef(BaseValidatorModel):
-    workloadName: Optional[str] = None
-    deploymentPatternName: Optional[str] = None
-    workloadVersionName: Optional[str] = None
-    deploymentPatternVersionName: Optional[str] = None
+    workloadName: Optional[Annotated[str, _aws_pattern("LaunchWizard", "WorkloadName")]] = None
+    deploymentPatternName: Optional[Annotated[str, _aws_pattern("LaunchWizard", "DeploymentPatternName")]] = None
+    workloadVersionName: Optional[Annotated[str, _aws_pattern("LaunchWizard", "WorkloadVersionName")]] = None
+    deploymentPatternVersionName: Optional[
+        Annotated[str, _aws_pattern("LaunchWizard", "DeploymentPatternVersionName")]
+    ] = None
     displayName: Optional[str] = None
     description: Optional[str] = None
     status: Optional[WorkloadDeploymentPatternStatusType] = None
@@ -194,7 +198,7 @@ class ListWorkloadsInputTypeDef(BaseValidatorModel):
 
 
 class WorkloadDataSummaryTypeDef(BaseValidatorModel):
-    workloadName: Optional[str] = None
+    workloadName: Optional[Annotated[str, _aws_pattern("LaunchWizard", "WorkloadName")]] = None
     displayName: Optional[str] = None
     status: Optional[WorkloadStatusType] = None
 
@@ -206,22 +210,24 @@ class TagResourceInputTypeDef(BaseValidatorModel):
 
 class UntagResourceInputTypeDef(BaseValidatorModel):
     resourceArn: str
-    tagKeys: List[str]
+    tagKeys: List[Annotated[str, _aws_pattern("LaunchWizard", "TagKey")]]
 
 
 # This class is the input for the 'update_deployment' function.
 class UpdateDeploymentInputTypeDef(BaseValidatorModel):
-    deploymentId: str
+    deploymentId: Annotated[str, _aws_pattern("LaunchWizard", "DeploymentId")]
     specifications: Dict[str, str]
-    workloadVersionName: Optional[str] = None
-    deploymentPatternVersionName: Optional[str] = None
+    workloadVersionName: Optional[Annotated[str, _aws_pattern("LaunchWizard", "WorkloadVersionName")]] = None
+    deploymentPatternVersionName: Optional[
+        Annotated[str, _aws_pattern("LaunchWizard", "DeploymentPatternVersionName")]
+    ] = None
     dryRun: Optional[bool] = None
     force: Optional[bool] = None
 
 
 # This class is the output for the 'create_deployment' function.
 class CreateDeploymentOutputTypeDef(BaseValidatorModel):
-    deploymentId: str
+    deploymentId: Annotated[str, _aws_pattern("LaunchWizard", "DeploymentId")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
@@ -294,8 +300,8 @@ class ListDeploymentPatternVersionsOutputTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'list_deployment_pattern_versions' function.
 class ListDeploymentPatternVersionsInputTypeDef(BaseValidatorModel):
-    workloadName: str
-    deploymentPatternName: str
+    workloadName: Annotated[str, _aws_pattern("LaunchWizard", "WorkloadName")]
+    deploymentPatternName: Annotated[str, _aws_pattern("LaunchWizard", "DeploymentPatternName")]
     maxResults: Optional[int] = None
     nextToken: Optional[str] = None
     filters: Optional[List[DeploymentPatternVersionFilterTypeDef]] = None
@@ -348,10 +354,12 @@ class ListWorkloadsOutputTypeDef(BaseValidatorModel):
 
 
 class WorkloadDeploymentPatternDataTypeDef(BaseValidatorModel):
-    workloadName: Optional[str] = None
-    deploymentPatternName: Optional[str] = None
-    workloadVersionName: Optional[str] = None
-    deploymentPatternVersionName: Optional[str] = None
+    workloadName: Optional[Annotated[str, _aws_pattern("LaunchWizard", "WorkloadName")]] = None
+    deploymentPatternName: Optional[Annotated[str, _aws_pattern("LaunchWizard", "DeploymentPatternName")]] = None
+    workloadVersionName: Optional[Annotated[str, _aws_pattern("LaunchWizard", "WorkloadVersionName")]] = None
+    deploymentPatternVersionName: Optional[
+        Annotated[str, _aws_pattern("LaunchWizard", "DeploymentPatternVersionName")]
+    ] = None
     displayName: Optional[str] = None
     description: Optional[str] = None
     status: Optional[WorkloadDeploymentPatternStatusType] = None

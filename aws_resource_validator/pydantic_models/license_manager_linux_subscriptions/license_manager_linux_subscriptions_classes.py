@@ -3,6 +3,7 @@
 from datetime import datetime
 from decimal import Decimal
 from typing import (
+    Annotated,
     Any,
     Callable,
     Dict,
@@ -24,6 +25,7 @@ from botocore.response import StreamingBody
 from pydantic import Field
 
 from aws_resource_validator.core.base_validator_model import BaseValidatorModel, EventStream
+from aws_resource_validator.core.pattern_validation import aws_field_pattern as _aws_pattern
 from aws_resource_validator.pydantic_models.license_manager_linux_subscriptions.license_manager_linux_subscriptions_constants import *  # noqa: F401,F403
 
 # Optional boto3 symbols — imported lazily so services that don't need them
@@ -39,7 +41,7 @@ except ImportError:  # pragma: no cover
 
 
 class DeregisterSubscriptionProviderRequestTypeDef(BaseValidatorModel):
-    SubscriptionProviderArn: str
+    SubscriptionProviderArn: Annotated[str, _aws_pattern("LicenseManagerLinuxSubscriptions", "SubscriptionProviderArn")]
 
 
 class FilterTypeDef(BaseValidatorModel):
@@ -50,7 +52,7 @@ class FilterTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'get_registered_subscription_provider' function.
 class GetRegisteredSubscriptionProviderRequestTypeDef(BaseValidatorModel):
-    SubscriptionProviderArn: str
+    SubscriptionProviderArn: Annotated[str, _aws_pattern("LicenseManagerLinuxSubscriptions", "SubscriptionProviderArn")]
 
 
 class ResponseMetadataTypeDef(BaseValidatorModel):
@@ -110,8 +112,10 @@ class ListRegisteredSubscriptionProvidersRequestTypeDef(BaseValidatorModel):
 
 class RegisteredSubscriptionProviderTypeDef(BaseValidatorModel):
     LastSuccessfulDataRetrievalTime: Optional[str] = None
-    SecretArn: Optional[str] = None
-    SubscriptionProviderArn: Optional[str] = None
+    SecretArn: Optional[Annotated[str, _aws_pattern("LicenseManagerLinuxSubscriptions", "SecretArn")]] = None
+    SubscriptionProviderArn: Optional[
+        Annotated[str, _aws_pattern("LicenseManagerLinuxSubscriptions", "SubscriptionProviderArn")]
+    ] = None
     SubscriptionProviderSource: Optional[Literal["RedHat"]] = None
     SubscriptionProviderStatus: Optional[SubscriptionProviderStatusType] = None
     SubscriptionProviderStatusMessage: Optional[str] = None
@@ -119,23 +123,23 @@ class RegisteredSubscriptionProviderTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'list_tags_for_resource' function.
 class ListTagsForResourceRequestTypeDef(BaseValidatorModel):
-    resourceArn: str
+    resourceArn: Annotated[str, _aws_pattern("LicenseManagerLinuxSubscriptions", "SubscriptionProviderArn")]
 
 
 # This class is the input for the 'register_subscription_provider' function.
 class RegisterSubscriptionProviderRequestTypeDef(BaseValidatorModel):
-    SecretArn: str
+    SecretArn: Annotated[str, _aws_pattern("LicenseManagerLinuxSubscriptions", "SecretArn")]
     SubscriptionProviderSource: Literal["RedHat"]
     Tags: Optional[Dict[str, str]] = None
 
 
 class TagResourceRequestTypeDef(BaseValidatorModel):
-    resourceArn: str
+    resourceArn: Annotated[str, _aws_pattern("LicenseManagerLinuxSubscriptions", "SubscriptionProviderArn")]
     tags: Dict[str, str]
 
 
 class UntagResourceRequestTypeDef(BaseValidatorModel):
-    resourceArn: str
+    resourceArn: Annotated[str, _aws_pattern("LicenseManagerLinuxSubscriptions", "SubscriptionProviderArn")]
     tagKeys: List[str]
 
 
@@ -156,8 +160,8 @@ class ListLinuxSubscriptionsRequestTypeDef(BaseValidatorModel):
 # This class is the output for the 'get_registered_subscription_provider' function.
 class GetRegisteredSubscriptionProviderResponseTypeDef(BaseValidatorModel):
     LastSuccessfulDataRetrievalTime: str
-    SecretArn: str
-    SubscriptionProviderArn: str
+    SecretArn: Annotated[str, _aws_pattern("LicenseManagerLinuxSubscriptions", "SecretArn")]
+    SubscriptionProviderArn: Annotated[str, _aws_pattern("LicenseManagerLinuxSubscriptions", "SubscriptionProviderArn")]
     SubscriptionProviderSource: Literal["RedHat"]
     SubscriptionProviderStatus: SubscriptionProviderStatusType
     SubscriptionProviderStatusMessage: str

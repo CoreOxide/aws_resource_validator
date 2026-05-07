@@ -3,6 +3,7 @@
 from datetime import datetime
 from decimal import Decimal
 from typing import (
+    Annotated,
     Any,
     Callable,
     Dict,
@@ -24,6 +25,7 @@ from botocore.response import StreamingBody
 from pydantic import Field
 
 from aws_resource_validator.core.base_validator_model import BaseValidatorModel, EventStream
+from aws_resource_validator.core.pattern_validation import aws_field_pattern as _aws_pattern
 from aws_resource_validator.pydantic_models.greengrassv2.greengrassv2_constants import *  # noqa: F401,F403
 
 # Optional boto3 symbols — imported lazily so services that don't need them
@@ -152,7 +154,7 @@ class CoreDeviceTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'delete_component' function.
 class DeleteComponentRequestTypeDef(BaseValidatorModel):
-    arn: str
+    arn: Annotated[str, _aws_pattern("Greengrassv2", "ComponentVersionARN")]
 
 
 # This class is the input for the 'delete_core_device' function.
@@ -179,19 +181,19 @@ class IoTJobTimeoutConfigTypeDef(BaseValidatorModel):
 
 
 class DeploymentTypeDef(BaseValidatorModel):
-    targetArn: Optional[str] = None
+    targetArn: Optional[Annotated[str, _aws_pattern("Greengrassv2", "TargetARN")]] = None
     revisionId: Optional[str] = None
     deploymentId: Optional[str] = None
     deploymentName: Optional[str] = None
     creationTimestamp: Optional[datetime] = None
     deploymentStatus: Optional[DeploymentStatusType] = None
     isLatestForTarget: Optional[bool] = None
-    parentTargetArn: Optional[str] = None
+    parentTargetArn: Optional[Annotated[str, _aws_pattern("Greengrassv2", "ThingGroupARN")]] = None
 
 
 # This class is the input for the 'describe_component' function.
 class DescribeComponentRequestTypeDef(BaseValidatorModel):
-    arn: str
+    arn: Annotated[str, _aws_pattern("Greengrassv2", "ComponentVersionARN")]
 
 
 class EffectiveDeploymentStatusDetailsTypeDef(BaseValidatorModel):
@@ -201,13 +203,13 @@ class EffectiveDeploymentStatusDetailsTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'get_component' function.
 class GetComponentRequestTypeDef(BaseValidatorModel):
-    arn: str
+    arn: Annotated[str, _aws_pattern("Greengrassv2", "ComponentVersionARN")]
     recipeOutputFormat: Optional[RecipeOutputFormatType] = None
 
 
 # This class is the input for the 'get_component_version_artifact' function.
 class GetComponentVersionArtifactRequestTypeDef(BaseValidatorModel):
-    arn: str
+    arn: Annotated[str, _aws_pattern("Greengrassv2", "ComponentVersionARN")]
     artifactName: str
     s3EndpointType: Optional[S3EndpointTypeType] = None
     iotEndpointType: Optional[IotEndpointTypeType] = None
@@ -285,7 +287,7 @@ class ListClientDevicesAssociatedWithCoreDeviceRequestTypeDef(BaseValidatorModel
 
 # This class is the input for the 'list_component_versions' function.
 class ListComponentVersionsRequestTypeDef(BaseValidatorModel):
-    arn: str
+    arn: Annotated[str, _aws_pattern("Greengrassv2", "ComponentARN")]
     maxResults: Optional[int] = None
     nextToken: Optional[str] = None
 
@@ -299,7 +301,7 @@ class ListComponentsRequestTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'list_core_devices' function.
 class ListCoreDevicesRequestTypeDef(BaseValidatorModel):
-    thingGroupArn: Optional[str] = None
+    thingGroupArn: Optional[Annotated[str, _aws_pattern("Greengrassv2", "ThingGroupARN")]] = None
     status: Optional[CoreDeviceStatusType] = None
     maxResults: Optional[int] = None
     nextToken: Optional[str] = None
@@ -308,9 +310,9 @@ class ListCoreDevicesRequestTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'list_deployments' function.
 class ListDeploymentsRequestTypeDef(BaseValidatorModel):
-    targetArn: Optional[str] = None
+    targetArn: Optional[Annotated[str, _aws_pattern("Greengrassv2", "TargetARN")]] = None
     historyFilter: Optional[DeploymentHistoryFilterType] = None
-    parentTargetArn: Optional[str] = None
+    parentTargetArn: Optional[Annotated[str, _aws_pattern("Greengrassv2", "ThingGroupARN")]] = None
     maxResults: Optional[int] = None
     nextToken: Optional[str] = None
 
@@ -332,11 +334,11 @@ class ListInstalledComponentsRequestTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'list_tags_for_resource' function.
 class ListTagsForResourceRequestTypeDef(BaseValidatorModel):
-    resourceArn: str
+    resourceArn: Annotated[str, _aws_pattern("Greengrassv2", "GenericV2ARN")]
 
 
 class ResolvedComponentVersionTypeDef(BaseValidatorModel):
-    arn: Optional[str] = None
+    arn: Optional[Annotated[str, _aws_pattern("Greengrassv2", "ComponentVersionARN")]] = None
     componentName: Optional[str] = None
     componentVersion: Optional[str] = None
     recipe: Optional[bytes] = None
@@ -345,12 +347,12 @@ class ResolvedComponentVersionTypeDef(BaseValidatorModel):
 
 
 class TagResourceRequestTypeDef(BaseValidatorModel):
-    resourceArn: str
+    resourceArn: Annotated[str, _aws_pattern("Greengrassv2", "GenericV2ARN")]
     tags: Dict[str, str]
 
 
 class UntagResourceRequestTypeDef(BaseValidatorModel):
-    resourceArn: str
+    resourceArn: Annotated[str, _aws_pattern("Greengrassv2", "GenericV2ARN")]
     tagKeys: List[str]
 
 
@@ -382,7 +384,7 @@ class CancelDeploymentResponseTypeDef(BaseValidatorModel):
 class CreateDeploymentResponseTypeDef(BaseValidatorModel):
     deploymentId: str
     iotJobId: str
-    iotJobArn: str
+    iotJobArn: Annotated[str, _aws_pattern("Greengrassv2", "IoTJobARN")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
@@ -463,7 +465,7 @@ class BatchDisassociateClientDeviceFromCoreDeviceResponseTypeDef(BaseValidatorMo
 
 # This class is the output for the 'create_component_version' function.
 class CreateComponentVersionResponseTypeDef(BaseValidatorModel):
-    arn: str
+    arn: Annotated[str, _aws_pattern("Greengrassv2", "ComponentVersionARN")]
     componentName: str
     componentVersion: str
     creationTimestamp: datetime
@@ -477,7 +479,7 @@ ComponentConfigurationUpdateUnionTypeDef = Union[
 
 
 class ComponentLatestVersionTypeDef(BaseValidatorModel):
-    arn: Optional[str] = None
+    arn: Optional[Annotated[str, _aws_pattern("Greengrassv2", "ComponentVersionARN")]] = None
     componentVersion: Optional[str] = None
     creationTimestamp: Optional[datetime] = None
     description: Optional[str] = None
@@ -487,7 +489,7 @@ class ComponentLatestVersionTypeDef(BaseValidatorModel):
 
 # This class is the output for the 'describe_component' function.
 class DescribeComponentResponseTypeDef(BaseValidatorModel):
-    arn: str
+    arn: Annotated[str, _aws_pattern("Greengrassv2", "ComponentVersionARN")]
     componentName: str
     componentVersion: str
     creationTimestamp: datetime
@@ -551,12 +553,12 @@ class ListDeploymentsResponseTypeDef(BaseValidatorModel):
 class EffectiveDeploymentTypeDef(BaseValidatorModel):
     deploymentId: str
     deploymentName: str
-    targetArn: str
+    targetArn: Annotated[str, _aws_pattern("Greengrassv2", "TargetARN")]
     coreDeviceExecutionStatus: EffectiveDeploymentExecutionStatusType
     creationTimestamp: datetime
     modifiedTimestamp: datetime
     iotJobId: Optional[str] = None
-    iotJobArn: Optional[str] = None
+    iotJobArn: Optional[Annotated[str, _aws_pattern("Greengrassv2", "IoTJobARN")]] = None
     description: Optional[str] = None
     reason: Optional[str] = None
     statusDetails: Optional[EffectiveDeploymentStatusDetailsTypeDef] = None
@@ -637,7 +639,7 @@ class ResolveComponentCandidatesResponseTypeDef(BaseValidatorModel):
 
 
 class ComponentTypeDef(BaseValidatorModel):
-    arn: Optional[str] = None
+    arn: Optional[Annotated[str, _aws_pattern("Greengrassv2", "ComponentARN")]] = None
     componentName: Optional[str] = None
     latestVersion: Optional[ComponentLatestVersionTypeDef] = None
 
@@ -717,19 +719,19 @@ class LambdaExecutionParametersTypeDef(BaseValidatorModel):
 
 # This class is the output for the 'get_deployment' function.
 class GetDeploymentResponseTypeDef(BaseValidatorModel):
-    targetArn: str
+    targetArn: Annotated[str, _aws_pattern("Greengrassv2", "TargetARN")]
     revisionId: str
     deploymentId: str
     deploymentName: str
     deploymentStatus: DeploymentStatusType
     iotJobId: str
-    iotJobArn: str
+    iotJobArn: Annotated[str, _aws_pattern("Greengrassv2", "IoTJobARN")]
     components: Dict[str, ComponentDeploymentSpecificationOutputTypeDef]
     deploymentPolicies: DeploymentPoliciesTypeDef
     iotJobConfiguration: DeploymentIoTJobConfigurationOutputTypeDef
     creationTimestamp: datetime
     isLatestForTarget: bool
-    parentTargetArn: str
+    parentTargetArn: Annotated[str, _aws_pattern("Greengrassv2", "ThingGroupARN")]
     tags: Dict[str, str]
     ResponseMetadata: ResponseMetadataTypeDef
 
@@ -750,14 +752,14 @@ class LambdaFunctionRecipeSourceTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'create_deployment' function.
 class CreateDeploymentRequestTypeDef(BaseValidatorModel):
-    targetArn: str
+    targetArn: Annotated[str, _aws_pattern("Greengrassv2", "TargetARN")]
     deploymentName: Optional[str] = None
     components: Optional[Dict[str, ComponentDeploymentSpecificationUnionTypeDef]] = None
     iotJobConfiguration: Optional[DeploymentIoTJobConfigurationUnionTypeDef] = None
     deploymentPolicies: Optional[DeploymentPoliciesTypeDef] = None
-    parentTargetArn: Optional[str] = None
+    parentTargetArn: Optional[Annotated[str, _aws_pattern("Greengrassv2", "ThingGroupARN")]] = None
     tags: Optional[Dict[str, str]] = None
-    clientToken: Optional[str] = None
+    clientToken: Optional[Annotated[str, _aws_pattern("Greengrassv2", "ClientTokenString")]] = None
 
 
 # This class is the input for the 'create_component_version' function.
@@ -765,4 +767,4 @@ class CreateComponentVersionRequestTypeDef(BaseValidatorModel):
     inlineRecipe: Optional[BlobTypeDef] = None
     lambdaFunction: Optional[LambdaFunctionRecipeSourceTypeDef] = None
     tags: Optional[Dict[str, str]] = None
-    clientToken: Optional[str] = None
+    clientToken: Optional[Annotated[str, _aws_pattern("Greengrassv2", "ClientTokenString")]] = None

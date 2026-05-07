@@ -3,6 +3,7 @@
 from datetime import datetime
 from decimal import Decimal
 from typing import (
+    Annotated,
     Any,
     Callable,
     Dict,
@@ -24,6 +25,7 @@ from botocore.response import StreamingBody
 from pydantic import Field
 
 from aws_resource_validator.core.base_validator_model import BaseValidatorModel, EventStream
+from aws_resource_validator.core.pattern_validation import aws_field_pattern as _aws_pattern
 from aws_resource_validator.pydantic_models.networkmanager.networkmanager_constants import *  # noqa: F401,F403
 
 # Optional boto3 symbols — imported lazily so services that don't need them
@@ -39,13 +41,13 @@ except ImportError:  # pragma: no cover
 
 
 class AWSLocationTypeDef(BaseValidatorModel):
-    Zone: Optional[str] = None
-    SubnetArn: Optional[str] = None
+    Zone: Optional[Annotated[str, _aws_pattern("Networkmanager", "ConstrainedString")]] = None
+    SubnetArn: Optional[Annotated[str, _aws_pattern("Networkmanager", "SubnetArn")]] = None
 
 
 # This class is the input for the 'accept_attachment' function.
 class AcceptAttachmentRequestTypeDef(BaseValidatorModel):
-    AttachmentId: str
+    AttachmentId: Annotated[str, _aws_pattern("Networkmanager", "AttachmentId")]
 
 
 class ResponseMetadataTypeDef(BaseValidatorModel):
@@ -63,83 +65,87 @@ class AccountStatusTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'associate_connect_peer' function.
 class AssociateConnectPeerRequestTypeDef(BaseValidatorModel):
-    GlobalNetworkId: str
-    ConnectPeerId: str
-    DeviceId: str
-    LinkId: Optional[str] = None
+    GlobalNetworkId: Annotated[str, _aws_pattern("Networkmanager", "GlobalNetworkId")]
+    ConnectPeerId: Annotated[str, _aws_pattern("Networkmanager", "ConnectPeerId")]
+    DeviceId: Annotated[str, _aws_pattern("Networkmanager", "DeviceId")]
+    LinkId: Optional[Annotated[str, _aws_pattern("Networkmanager", "LinkId")]] = None
 
 
 class ConnectPeerAssociationTypeDef(BaseValidatorModel):
-    ConnectPeerId: Optional[str] = None
-    GlobalNetworkId: Optional[str] = None
-    DeviceId: Optional[str] = None
-    LinkId: Optional[str] = None
+    ConnectPeerId: Optional[Annotated[str, _aws_pattern("Networkmanager", "ConnectPeerId")]] = None
+    GlobalNetworkId: Optional[Annotated[str, _aws_pattern("Networkmanager", "GlobalNetworkId")]] = None
+    DeviceId: Optional[Annotated[str, _aws_pattern("Networkmanager", "DeviceId")]] = None
+    LinkId: Optional[Annotated[str, _aws_pattern("Networkmanager", "LinkId")]] = None
     State: Optional[ConnectPeerAssociationStateType] = None
 
 
 # This class is the input for the 'associate_customer_gateway' function.
 class AssociateCustomerGatewayRequestTypeDef(BaseValidatorModel):
-    CustomerGatewayArn: str
-    GlobalNetworkId: str
-    DeviceId: str
-    LinkId: Optional[str] = None
+    CustomerGatewayArn: Annotated[str, _aws_pattern("Networkmanager", "CustomerGatewayArn")]
+    GlobalNetworkId: Annotated[str, _aws_pattern("Networkmanager", "GlobalNetworkId")]
+    DeviceId: Annotated[str, _aws_pattern("Networkmanager", "DeviceId")]
+    LinkId: Optional[Annotated[str, _aws_pattern("Networkmanager", "LinkId")]] = None
 
 
 class CustomerGatewayAssociationTypeDef(BaseValidatorModel):
-    CustomerGatewayArn: Optional[str] = None
-    GlobalNetworkId: Optional[str] = None
-    DeviceId: Optional[str] = None
-    LinkId: Optional[str] = None
+    CustomerGatewayArn: Optional[Annotated[str, _aws_pattern("Networkmanager", "CustomerGatewayArn")]] = None
+    GlobalNetworkId: Optional[Annotated[str, _aws_pattern("Networkmanager", "GlobalNetworkId")]] = None
+    DeviceId: Optional[Annotated[str, _aws_pattern("Networkmanager", "DeviceId")]] = None
+    LinkId: Optional[Annotated[str, _aws_pattern("Networkmanager", "LinkId")]] = None
     State: Optional[CustomerGatewayAssociationStateType] = None
 
 
 # This class is the input for the 'associate_link' function.
 class AssociateLinkRequestTypeDef(BaseValidatorModel):
-    GlobalNetworkId: str
-    DeviceId: str
-    LinkId: str
+    GlobalNetworkId: Annotated[str, _aws_pattern("Networkmanager", "GlobalNetworkId")]
+    DeviceId: Annotated[str, _aws_pattern("Networkmanager", "DeviceId")]
+    LinkId: Annotated[str, _aws_pattern("Networkmanager", "LinkId")]
 
 
 class LinkAssociationTypeDef(BaseValidatorModel):
-    GlobalNetworkId: Optional[str] = None
-    DeviceId: Optional[str] = None
-    LinkId: Optional[str] = None
+    GlobalNetworkId: Optional[Annotated[str, _aws_pattern("Networkmanager", "GlobalNetworkId")]] = None
+    DeviceId: Optional[Annotated[str, _aws_pattern("Networkmanager", "DeviceId")]] = None
+    LinkId: Optional[Annotated[str, _aws_pattern("Networkmanager", "LinkId")]] = None
     LinkAssociationState: Optional[LinkAssociationStateType] = None
 
 
 # This class is the input for the 'associate_transit_gateway_connect_peer' function.
 class AssociateTransitGatewayConnectPeerRequestTypeDef(BaseValidatorModel):
-    GlobalNetworkId: str
-    TransitGatewayConnectPeerArn: str
-    DeviceId: str
-    LinkId: Optional[str] = None
+    GlobalNetworkId: Annotated[str, _aws_pattern("Networkmanager", "GlobalNetworkId")]
+    TransitGatewayConnectPeerArn: Annotated[str, _aws_pattern("Networkmanager", "TransitGatewayConnectPeerArn")]
+    DeviceId: Annotated[str, _aws_pattern("Networkmanager", "DeviceId")]
+    LinkId: Optional[Annotated[str, _aws_pattern("Networkmanager", "LinkId")]] = None
 
 
 class TransitGatewayConnectPeerAssociationTypeDef(BaseValidatorModel):
-    TransitGatewayConnectPeerArn: Optional[str] = None
-    GlobalNetworkId: Optional[str] = None
-    DeviceId: Optional[str] = None
-    LinkId: Optional[str] = None
+    TransitGatewayConnectPeerArn: Optional[
+        Annotated[str, _aws_pattern("Networkmanager", "TransitGatewayConnectPeerArn")]
+    ] = None
+    GlobalNetworkId: Optional[Annotated[str, _aws_pattern("Networkmanager", "GlobalNetworkId")]] = None
+    DeviceId: Optional[Annotated[str, _aws_pattern("Networkmanager", "DeviceId")]] = None
+    LinkId: Optional[Annotated[str, _aws_pattern("Networkmanager", "LinkId")]] = None
     State: Optional[TransitGatewayConnectPeerAssociationStateType] = None
 
 
 class AttachmentErrorTypeDef(BaseValidatorModel):
     Code: Optional[AttachmentErrorCodeType] = None
-    Message: Optional[str] = None
-    ResourceArn: Optional[str] = None
-    RequestId: Optional[str] = None
+    Message: Optional[Annotated[str, _aws_pattern("Networkmanager", "ServerSideString")]] = None
+    ResourceArn: Optional[Annotated[str, _aws_pattern("Networkmanager", "ResourceArn")]] = None
+    RequestId: Optional[Annotated[str, _aws_pattern("Networkmanager", "ServerSideString")]] = None
 
 
 class AttachmentRoutingPolicyAssociationSummaryTypeDef(BaseValidatorModel):
-    AttachmentId: Optional[str] = None
-    PendingRoutingPolicies: Optional[List[str]] = None
-    AssociatedRoutingPolicies: Optional[List[str]] = None
-    RoutingPolicyLabel: Optional[str] = None
+    AttachmentId: Optional[Annotated[str, _aws_pattern("Networkmanager", "AttachmentId")]] = None
+    PendingRoutingPolicies: Optional[List[Annotated[str, _aws_pattern("Networkmanager", "ConstrainedString")]]] = None
+    AssociatedRoutingPolicies: Optional[List[Annotated[str, _aws_pattern("Networkmanager", "ConstrainedString")]]] = (
+        None
+    )
+    RoutingPolicyLabel: Optional[Annotated[str, _aws_pattern("Networkmanager", "ConstrainedString")]] = None
 
 
 class TagTypeDef(BaseValidatorModel):
-    Key: Optional[str] = None
-    Value: Optional[str] = None
+    Key: Optional[Annotated[str, _aws_pattern("Networkmanager", "TagKey")]] = None
+    Value: Optional[Annotated[str, _aws_pattern("Networkmanager", "TagValue")]] = None
 
 
 class BandwidthTypeDef(BaseValidatorModel):
@@ -158,15 +164,15 @@ class ConnectAttachmentOptionsTypeDef(BaseValidatorModel):
 class ConnectPeerBgpConfigurationTypeDef(BaseValidatorModel):
     CoreNetworkAsn: Optional[int] = None
     PeerAsn: Optional[int] = None
-    CoreNetworkAddress: Optional[str] = None
-    PeerAddress: Optional[str] = None
+    CoreNetworkAddress: Optional[Annotated[str, _aws_pattern("Networkmanager", "IPAddress")]] = None
+    PeerAddress: Optional[Annotated[str, _aws_pattern("Networkmanager", "IPAddress")]] = None
 
 
 class ConnectPeerErrorTypeDef(BaseValidatorModel):
     Code: Optional[ConnectPeerErrorCodeType] = None
-    Message: Optional[str] = None
-    ResourceArn: Optional[str] = None
-    RequestId: Optional[str] = None
+    Message: Optional[Annotated[str, _aws_pattern("Networkmanager", "ServerSideString")]] = None
+    ResourceArn: Optional[Annotated[str, _aws_pattern("Networkmanager", "ResourceArn")]] = None
+    RequestId: Optional[Annotated[str, _aws_pattern("Networkmanager", "ServerSideString")]] = None
 
 
 class ConnectionHealthTypeDef(BaseValidatorModel):
@@ -176,75 +182,75 @@ class ConnectionHealthTypeDef(BaseValidatorModel):
 
 
 class RoutingPolicyAssociationDetailTypeDef(BaseValidatorModel):
-    RoutingPolicyNames: Optional[List[str]] = None
-    SharedSegments: Optional[List[str]] = None
+    RoutingPolicyNames: Optional[List[Annotated[str, _aws_pattern("Networkmanager", "ConstrainedString")]]] = None
+    SharedSegments: Optional[List[Annotated[str, _aws_pattern("Networkmanager", "ConstrainedString")]]] = None
 
 
 class CoreNetworkEdgeTypeDef(BaseValidatorModel):
-    EdgeLocation: Optional[str] = None
+    EdgeLocation: Optional[Annotated[str, _aws_pattern("Networkmanager", "ExternalRegionCode")]] = None
     Asn: Optional[int] = None
-    InsideCidrBlocks: Optional[List[str]] = None
+    InsideCidrBlocks: Optional[List[Annotated[str, _aws_pattern("Networkmanager", "ConstrainedString")]]] = None
 
 
 class CoreNetworkNetworkFunctionGroupIdentifierTypeDef(BaseValidatorModel):
-    CoreNetworkId: Optional[str] = None
-    NetworkFunctionGroupName: Optional[str] = None
-    EdgeLocation: Optional[str] = None
+    CoreNetworkId: Optional[Annotated[str, _aws_pattern("Networkmanager", "CoreNetworkId")]] = None
+    NetworkFunctionGroupName: Optional[Annotated[str, _aws_pattern("Networkmanager", "ConstrainedString")]] = None
+    EdgeLocation: Optional[Annotated[str, _aws_pattern("Networkmanager", "ExternalRegionCode")]] = None
 
 
 class ServiceInsertionSegmentsTypeDef(BaseValidatorModel):
-    SendVia: Optional[List[str]] = None
-    SendTo: Optional[List[str]] = None
+    SendVia: Optional[List[Annotated[str, _aws_pattern("Networkmanager", "ConstrainedString")]]] = None
+    SendTo: Optional[List[Annotated[str, _aws_pattern("Networkmanager", "ConstrainedString")]]] = None
 
 
 class CoreNetworkPolicyErrorTypeDef(BaseValidatorModel):
-    ErrorCode: str
-    Message: str
-    Path: Optional[str] = None
+    ErrorCode: Annotated[str, _aws_pattern("Networkmanager", "ServerSideString")]
+    Message: Annotated[str, _aws_pattern("Networkmanager", "ServerSideString")]
+    Path: Optional[Annotated[str, _aws_pattern("Networkmanager", "ServerSideString")]] = None
 
 
 class CoreNetworkPolicyVersionTypeDef(BaseValidatorModel):
-    CoreNetworkId: Optional[str] = None
+    CoreNetworkId: Optional[Annotated[str, _aws_pattern("Networkmanager", "CoreNetworkId")]] = None
     PolicyVersionId: Optional[int] = None
     Alias: Optional[CoreNetworkPolicyAliasType] = None
-    Description: Optional[str] = None
+    Description: Optional[Annotated[str, _aws_pattern("Networkmanager", "ConstrainedString")]] = None
     CreatedAt: Optional[datetime] = None
     ChangeSetState: Optional[ChangeSetStateType] = None
 
 
 class RoutingInformationNextHopTypeDef(BaseValidatorModel):
-    IpAddress: Optional[str] = None
-    CoreNetworkAttachmentId: Optional[str] = None
-    ResourceId: Optional[str] = None
-    ResourceType: Optional[str] = None
-    SegmentName: Optional[str] = None
-    EdgeLocation: Optional[str] = None
+    IpAddress: Optional[Annotated[str, _aws_pattern("Networkmanager", "IPAddress")]] = None
+    CoreNetworkAttachmentId: Optional[Annotated[str, _aws_pattern("Networkmanager", "ConstrainedString")]] = None
+    ResourceId: Optional[Annotated[str, _aws_pattern("Networkmanager", "ConstrainedString")]] = None
+    ResourceType: Optional[Annotated[str, _aws_pattern("Networkmanager", "ConstrainedString")]] = None
+    SegmentName: Optional[Annotated[str, _aws_pattern("Networkmanager", "ConstrainedString")]] = None
+    EdgeLocation: Optional[Annotated[str, _aws_pattern("Networkmanager", "ExternalRegionCode")]] = None
 
 
 class CoreNetworkSegmentEdgeIdentifierTypeDef(BaseValidatorModel):
-    CoreNetworkId: Optional[str] = None
-    SegmentName: Optional[str] = None
-    EdgeLocation: Optional[str] = None
+    CoreNetworkId: Optional[Annotated[str, _aws_pattern("Networkmanager", "CoreNetworkId")]] = None
+    SegmentName: Optional[Annotated[str, _aws_pattern("Networkmanager", "ConstrainedString")]] = None
+    EdgeLocation: Optional[Annotated[str, _aws_pattern("Networkmanager", "ExternalRegionCode")]] = None
 
 
 class CoreNetworkSegmentTypeDef(BaseValidatorModel):
-    Name: Optional[str] = None
-    EdgeLocations: Optional[List[str]] = None
-    SharedSegments: Optional[List[str]] = None
+    Name: Optional[Annotated[str, _aws_pattern("Networkmanager", "ConstrainedString")]] = None
+    EdgeLocations: Optional[List[Annotated[str, _aws_pattern("Networkmanager", "ExternalRegionCode")]]] = None
+    SharedSegments: Optional[List[Annotated[str, _aws_pattern("Networkmanager", "ConstrainedString")]]] = None
 
 
 # This class is the input for the 'create_core_network_prefix_list_association' function.
 class CreateCoreNetworkPrefixListAssociationRequestTypeDef(BaseValidatorModel):
-    CoreNetworkId: str
-    PrefixListArn: str
-    PrefixListAlias: str
-    ClientToken: Optional[str] = None
+    CoreNetworkId: Annotated[str, _aws_pattern("Networkmanager", "CoreNetworkId")]
+    PrefixListArn: Annotated[str, _aws_pattern("Networkmanager", "PrefixListArn")]
+    PrefixListAlias: Annotated[str, _aws_pattern("Networkmanager", "ConstrainedString")]
+    ClientToken: Optional[Annotated[str, _aws_pattern("Networkmanager", "ClientToken")]] = None
 
 
 class LocationTypeDef(BaseValidatorModel):
-    Address: Optional[str] = None
-    Latitude: Optional[str] = None
-    Longitude: Optional[str] = None
+    Address: Optional[Annotated[str, _aws_pattern("Networkmanager", "ConstrainedString")]] = None
+    Latitude: Optional[Annotated[str, _aws_pattern("Networkmanager", "ConstrainedString")]] = None
+    Longitude: Optional[Annotated[str, _aws_pattern("Networkmanager", "ConstrainedString")]] = None
 
 
 class VpcOptionsTypeDef(BaseValidatorModel):
@@ -256,73 +262,73 @@ class VpcOptionsTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'delete_attachment' function.
 class DeleteAttachmentRequestTypeDef(BaseValidatorModel):
-    AttachmentId: str
+    AttachmentId: Annotated[str, _aws_pattern("Networkmanager", "AttachmentId")]
 
 
 # This class is the input for the 'delete_connect_peer' function.
 class DeleteConnectPeerRequestTypeDef(BaseValidatorModel):
-    ConnectPeerId: str
+    ConnectPeerId: Annotated[str, _aws_pattern("Networkmanager", "ConnectPeerId")]
 
 
 # This class is the input for the 'delete_connection' function.
 class DeleteConnectionRequestTypeDef(BaseValidatorModel):
-    GlobalNetworkId: str
-    ConnectionId: str
+    GlobalNetworkId: Annotated[str, _aws_pattern("Networkmanager", "GlobalNetworkId")]
+    ConnectionId: Annotated[str, _aws_pattern("Networkmanager", "ConnectionId")]
 
 
 # This class is the input for the 'delete_core_network_policy_version' function.
 class DeleteCoreNetworkPolicyVersionRequestTypeDef(BaseValidatorModel):
-    CoreNetworkId: str
+    CoreNetworkId: Annotated[str, _aws_pattern("Networkmanager", "CoreNetworkId")]
     PolicyVersionId: int
 
 
 # This class is the input for the 'delete_core_network_prefix_list_association' function.
 class DeleteCoreNetworkPrefixListAssociationRequestTypeDef(BaseValidatorModel):
-    CoreNetworkId: str
-    PrefixListArn: str
+    CoreNetworkId: Annotated[str, _aws_pattern("Networkmanager", "CoreNetworkId")]
+    PrefixListArn: Annotated[str, _aws_pattern("Networkmanager", "PrefixListArn")]
 
 
 # This class is the input for the 'delete_core_network' function.
 class DeleteCoreNetworkRequestTypeDef(BaseValidatorModel):
-    CoreNetworkId: str
+    CoreNetworkId: Annotated[str, _aws_pattern("Networkmanager", "CoreNetworkId")]
 
 
 # This class is the input for the 'delete_device' function.
 class DeleteDeviceRequestTypeDef(BaseValidatorModel):
-    GlobalNetworkId: str
-    DeviceId: str
+    GlobalNetworkId: Annotated[str, _aws_pattern("Networkmanager", "GlobalNetworkId")]
+    DeviceId: Annotated[str, _aws_pattern("Networkmanager", "DeviceId")]
 
 
 # This class is the input for the 'delete_global_network' function.
 class DeleteGlobalNetworkRequestTypeDef(BaseValidatorModel):
-    GlobalNetworkId: str
+    GlobalNetworkId: Annotated[str, _aws_pattern("Networkmanager", "GlobalNetworkId")]
 
 
 # This class is the input for the 'delete_link' function.
 class DeleteLinkRequestTypeDef(BaseValidatorModel):
-    GlobalNetworkId: str
-    LinkId: str
+    GlobalNetworkId: Annotated[str, _aws_pattern("Networkmanager", "GlobalNetworkId")]
+    LinkId: Annotated[str, _aws_pattern("Networkmanager", "LinkId")]
 
 
 # This class is the input for the 'delete_peering' function.
 class DeletePeeringRequestTypeDef(BaseValidatorModel):
-    PeeringId: str
+    PeeringId: Annotated[str, _aws_pattern("Networkmanager", "PeeringId")]
 
 
 class DeleteResourcePolicyRequestTypeDef(BaseValidatorModel):
-    ResourceArn: str
+    ResourceArn: Annotated[str, _aws_pattern("Networkmanager", "ResourceArn")]
 
 
 # This class is the input for the 'delete_site' function.
 class DeleteSiteRequestTypeDef(BaseValidatorModel):
-    GlobalNetworkId: str
-    SiteId: str
+    GlobalNetworkId: Annotated[str, _aws_pattern("Networkmanager", "GlobalNetworkId")]
+    SiteId: Annotated[str, _aws_pattern("Networkmanager", "SiteId")]
 
 
 # This class is the input for the 'deregister_transit_gateway' function.
 class DeregisterTransitGatewayRequestTypeDef(BaseValidatorModel):
-    GlobalNetworkId: str
-    TransitGatewayArn: str
+    GlobalNetworkId: Annotated[str, _aws_pattern("Networkmanager", "GlobalNetworkId")]
+    TransitGatewayArn: Annotated[str, _aws_pattern("Networkmanager", "TransitGatewayArn")]
 
 
 class PaginatorConfigTypeDef(BaseValidatorModel):
@@ -333,412 +339,416 @@ class PaginatorConfigTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'describe_global_networks' function.
 class DescribeGlobalNetworksRequestTypeDef(BaseValidatorModel):
-    GlobalNetworkIds: Optional[List[str]] = None
+    GlobalNetworkIds: Optional[List[Annotated[str, _aws_pattern("Networkmanager", "GlobalNetworkId")]]] = None
     MaxResults: Optional[int] = None
-    NextToken: Optional[str] = None
+    NextToken: Optional[Annotated[str, _aws_pattern("Networkmanager", "NextToken")]] = None
 
 
 # This class is the input for the 'disassociate_connect_peer' function.
 class DisassociateConnectPeerRequestTypeDef(BaseValidatorModel):
-    GlobalNetworkId: str
-    ConnectPeerId: str
+    GlobalNetworkId: Annotated[str, _aws_pattern("Networkmanager", "GlobalNetworkId")]
+    ConnectPeerId: Annotated[str, _aws_pattern("Networkmanager", "ConnectPeerId")]
 
 
 # This class is the input for the 'disassociate_customer_gateway' function.
 class DisassociateCustomerGatewayRequestTypeDef(BaseValidatorModel):
-    GlobalNetworkId: str
-    CustomerGatewayArn: str
+    GlobalNetworkId: Annotated[str, _aws_pattern("Networkmanager", "GlobalNetworkId")]
+    CustomerGatewayArn: Annotated[str, _aws_pattern("Networkmanager", "CustomerGatewayArn")]
 
 
 # This class is the input for the 'disassociate_link' function.
 class DisassociateLinkRequestTypeDef(BaseValidatorModel):
-    GlobalNetworkId: str
-    DeviceId: str
-    LinkId: str
+    GlobalNetworkId: Annotated[str, _aws_pattern("Networkmanager", "GlobalNetworkId")]
+    DeviceId: Annotated[str, _aws_pattern("Networkmanager", "DeviceId")]
+    LinkId: Annotated[str, _aws_pattern("Networkmanager", "LinkId")]
 
 
 # This class is the input for the 'disassociate_transit_gateway_connect_peer' function.
 class DisassociateTransitGatewayConnectPeerRequestTypeDef(BaseValidatorModel):
-    GlobalNetworkId: str
-    TransitGatewayConnectPeerArn: str
+    GlobalNetworkId: Annotated[str, _aws_pattern("Networkmanager", "GlobalNetworkId")]
+    TransitGatewayConnectPeerArn: Annotated[str, _aws_pattern("Networkmanager", "TransitGatewayConnectPeerArn")]
 
 
 class EdgeOverrideTypeDef(BaseValidatorModel):
     EdgeSets: Optional[List[List[str]]] = None
-    UseEdge: Optional[str] = None
+    UseEdge: Optional[Annotated[str, _aws_pattern("Networkmanager", "ConstrainedString")]] = None
 
 
 class ExecuteCoreNetworkChangeSetRequestTypeDef(BaseValidatorModel):
-    CoreNetworkId: str
+    CoreNetworkId: Annotated[str, _aws_pattern("Networkmanager", "CoreNetworkId")]
     PolicyVersionId: int
 
 
 # This class is the input for the 'get_connect_attachment' function.
 class GetConnectAttachmentRequestTypeDef(BaseValidatorModel):
-    AttachmentId: str
+    AttachmentId: Annotated[str, _aws_pattern("Networkmanager", "AttachmentId")]
 
 
 # This class is the input for the 'get_connect_peer_associations' function.
 class GetConnectPeerAssociationsRequestTypeDef(BaseValidatorModel):
-    GlobalNetworkId: str
-    ConnectPeerIds: Optional[List[str]] = None
+    GlobalNetworkId: Annotated[str, _aws_pattern("Networkmanager", "GlobalNetworkId")]
+    ConnectPeerIds: Optional[List[Annotated[str, _aws_pattern("Networkmanager", "ConnectPeerId")]]] = None
     MaxResults: Optional[int] = None
-    NextToken: Optional[str] = None
+    NextToken: Optional[Annotated[str, _aws_pattern("Networkmanager", "NextToken")]] = None
 
 
 # This class is the input for the 'get_connect_peer' function.
 class GetConnectPeerRequestTypeDef(BaseValidatorModel):
-    ConnectPeerId: str
+    ConnectPeerId: Annotated[str, _aws_pattern("Networkmanager", "ConnectPeerId")]
 
 
 # This class is the input for the 'get_connections' function.
 class GetConnectionsRequestTypeDef(BaseValidatorModel):
-    GlobalNetworkId: str
-    ConnectionIds: Optional[List[str]] = None
-    DeviceId: Optional[str] = None
+    GlobalNetworkId: Annotated[str, _aws_pattern("Networkmanager", "GlobalNetworkId")]
+    ConnectionIds: Optional[List[Annotated[str, _aws_pattern("Networkmanager", "ConnectionId")]]] = None
+    DeviceId: Optional[Annotated[str, _aws_pattern("Networkmanager", "DeviceId")]] = None
     MaxResults: Optional[int] = None
-    NextToken: Optional[str] = None
+    NextToken: Optional[Annotated[str, _aws_pattern("Networkmanager", "NextToken")]] = None
 
 
 # This class is the input for the 'get_core_network_change_events' function.
 class GetCoreNetworkChangeEventsRequestTypeDef(BaseValidatorModel):
-    CoreNetworkId: str
+    CoreNetworkId: Annotated[str, _aws_pattern("Networkmanager", "CoreNetworkId")]
     PolicyVersionId: int
     MaxResults: Optional[int] = None
-    NextToken: Optional[str] = None
+    NextToken: Optional[Annotated[str, _aws_pattern("Networkmanager", "NextToken")]] = None
 
 
 # This class is the input for the 'get_core_network_change_set' function.
 class GetCoreNetworkChangeSetRequestTypeDef(BaseValidatorModel):
-    CoreNetworkId: str
+    CoreNetworkId: Annotated[str, _aws_pattern("Networkmanager", "CoreNetworkId")]
     PolicyVersionId: int
     MaxResults: Optional[int] = None
-    NextToken: Optional[str] = None
+    NextToken: Optional[Annotated[str, _aws_pattern("Networkmanager", "NextToken")]] = None
 
 
 # This class is the input for the 'get_core_network_policy' function.
 class GetCoreNetworkPolicyRequestTypeDef(BaseValidatorModel):
-    CoreNetworkId: str
+    CoreNetworkId: Annotated[str, _aws_pattern("Networkmanager", "CoreNetworkId")]
     PolicyVersionId: Optional[int] = None
     Alias: Optional[CoreNetworkPolicyAliasType] = None
 
 
 # This class is the input for the 'get_core_network' function.
 class GetCoreNetworkRequestTypeDef(BaseValidatorModel):
-    CoreNetworkId: str
+    CoreNetworkId: Annotated[str, _aws_pattern("Networkmanager", "CoreNetworkId")]
 
 
 # This class is the input for the 'get_customer_gateway_associations' function.
 class GetCustomerGatewayAssociationsRequestTypeDef(BaseValidatorModel):
-    GlobalNetworkId: str
-    CustomerGatewayArns: Optional[List[str]] = None
+    GlobalNetworkId: Annotated[str, _aws_pattern("Networkmanager", "GlobalNetworkId")]
+    CustomerGatewayArns: Optional[List[Annotated[str, _aws_pattern("Networkmanager", "CustomerGatewayArn")]]] = None
     MaxResults: Optional[int] = None
-    NextToken: Optional[str] = None
+    NextToken: Optional[Annotated[str, _aws_pattern("Networkmanager", "NextToken")]] = None
 
 
 # This class is the input for the 'get_devices' function.
 class GetDevicesRequestTypeDef(BaseValidatorModel):
-    GlobalNetworkId: str
-    DeviceIds: Optional[List[str]] = None
-    SiteId: Optional[str] = None
+    GlobalNetworkId: Annotated[str, _aws_pattern("Networkmanager", "GlobalNetworkId")]
+    DeviceIds: Optional[List[Annotated[str, _aws_pattern("Networkmanager", "DeviceId")]]] = None
+    SiteId: Optional[Annotated[str, _aws_pattern("Networkmanager", "SiteId")]] = None
     MaxResults: Optional[int] = None
-    NextToken: Optional[str] = None
+    NextToken: Optional[Annotated[str, _aws_pattern("Networkmanager", "NextToken")]] = None
 
 
 # This class is the input for the 'get_direct_connect_gateway_attachment' function.
 class GetDirectConnectGatewayAttachmentRequestTypeDef(BaseValidatorModel):
-    AttachmentId: str
+    AttachmentId: Annotated[str, _aws_pattern("Networkmanager", "AttachmentId")]
 
 
 # This class is the input for the 'get_link_associations' function.
 class GetLinkAssociationsRequestTypeDef(BaseValidatorModel):
-    GlobalNetworkId: str
-    DeviceId: Optional[str] = None
-    LinkId: Optional[str] = None
+    GlobalNetworkId: Annotated[str, _aws_pattern("Networkmanager", "GlobalNetworkId")]
+    DeviceId: Optional[Annotated[str, _aws_pattern("Networkmanager", "DeviceId")]] = None
+    LinkId: Optional[Annotated[str, _aws_pattern("Networkmanager", "LinkId")]] = None
     MaxResults: Optional[int] = None
-    NextToken: Optional[str] = None
+    NextToken: Optional[Annotated[str, _aws_pattern("Networkmanager", "NextToken")]] = None
 
 
 # This class is the input for the 'get_links' function.
 class GetLinksRequestTypeDef(BaseValidatorModel):
-    GlobalNetworkId: str
-    LinkIds: Optional[List[str]] = None
-    SiteId: Optional[str] = None
-    Type: Optional[str] = None
-    Provider: Optional[str] = None
+    GlobalNetworkId: Annotated[str, _aws_pattern("Networkmanager", "GlobalNetworkId")]
+    LinkIds: Optional[List[Annotated[str, _aws_pattern("Networkmanager", "LinkId")]]] = None
+    SiteId: Optional[Annotated[str, _aws_pattern("Networkmanager", "SiteId")]] = None
+    Type: Optional[Annotated[str, _aws_pattern("Networkmanager", "ConstrainedString")]] = None
+    Provider: Optional[Annotated[str, _aws_pattern("Networkmanager", "ConstrainedString")]] = None
     MaxResults: Optional[int] = None
-    NextToken: Optional[str] = None
+    NextToken: Optional[Annotated[str, _aws_pattern("Networkmanager", "NextToken")]] = None
 
 
 # This class is the input for the 'get_network_resource_counts' function.
 class GetNetworkResourceCountsRequestTypeDef(BaseValidatorModel):
-    GlobalNetworkId: str
-    ResourceType: Optional[str] = None
+    GlobalNetworkId: Annotated[str, _aws_pattern("Networkmanager", "GlobalNetworkId")]
+    ResourceType: Optional[Annotated[str, _aws_pattern("Networkmanager", "ConstrainedString")]] = None
     MaxResults: Optional[int] = None
-    NextToken: Optional[str] = None
+    NextToken: Optional[Annotated[str, _aws_pattern("Networkmanager", "NextToken")]] = None
 
 
 class NetworkResourceCountTypeDef(BaseValidatorModel):
-    ResourceType: Optional[str] = None
+    ResourceType: Optional[Annotated[str, _aws_pattern("Networkmanager", "ConstrainedString")]] = None
     Count: Optional[int] = None
 
 
 # This class is the input for the 'get_network_resource_relationships' function.
 class GetNetworkResourceRelationshipsRequestTypeDef(BaseValidatorModel):
-    GlobalNetworkId: str
-    CoreNetworkId: Optional[str] = None
-    RegisteredGatewayArn: Optional[str] = None
-    AwsRegion: Optional[str] = None
-    AccountId: Optional[str] = None
-    ResourceType: Optional[str] = None
-    ResourceArn: Optional[str] = None
+    GlobalNetworkId: Annotated[str, _aws_pattern("Networkmanager", "GlobalNetworkId")]
+    CoreNetworkId: Optional[Annotated[str, _aws_pattern("Networkmanager", "CoreNetworkId")]] = None
+    RegisteredGatewayArn: Optional[Annotated[str, _aws_pattern("Networkmanager", "ResourceArn")]] = None
+    AwsRegion: Optional[Annotated[str, _aws_pattern("Networkmanager", "ExternalRegionCode")]] = None
+    AccountId: Optional[Annotated[str, _aws_pattern("Networkmanager", "AWSAccountId")]] = None
+    ResourceType: Optional[Annotated[str, _aws_pattern("Networkmanager", "ConstrainedString")]] = None
+    ResourceArn: Optional[Annotated[str, _aws_pattern("Networkmanager", "ResourceArn")]] = None
     MaxResults: Optional[int] = None
-    NextToken: Optional[str] = None
+    NextToken: Optional[Annotated[str, _aws_pattern("Networkmanager", "NextToken")]] = None
 
 
 class RelationshipTypeDef(BaseValidatorModel):
-    From: Optional[str] = None
-    To: Optional[str] = None
+    From: Optional[Annotated[str, _aws_pattern("Networkmanager", "ConstrainedString")]] = None
+    To: Optional[Annotated[str, _aws_pattern("Networkmanager", "ConstrainedString")]] = None
 
 
 # This class is the input for the 'get_network_resources' function.
 class GetNetworkResourcesRequestTypeDef(BaseValidatorModel):
-    GlobalNetworkId: str
-    CoreNetworkId: Optional[str] = None
-    RegisteredGatewayArn: Optional[str] = None
-    AwsRegion: Optional[str] = None
-    AccountId: Optional[str] = None
-    ResourceType: Optional[str] = None
-    ResourceArn: Optional[str] = None
+    GlobalNetworkId: Annotated[str, _aws_pattern("Networkmanager", "GlobalNetworkId")]
+    CoreNetworkId: Optional[Annotated[str, _aws_pattern("Networkmanager", "CoreNetworkId")]] = None
+    RegisteredGatewayArn: Optional[Annotated[str, _aws_pattern("Networkmanager", "ResourceArn")]] = None
+    AwsRegion: Optional[Annotated[str, _aws_pattern("Networkmanager", "ExternalRegionCode")]] = None
+    AccountId: Optional[Annotated[str, _aws_pattern("Networkmanager", "AWSAccountId")]] = None
+    ResourceType: Optional[Annotated[str, _aws_pattern("Networkmanager", "ConstrainedString")]] = None
+    ResourceArn: Optional[Annotated[str, _aws_pattern("Networkmanager", "ResourceArn")]] = None
     MaxResults: Optional[int] = None
-    NextToken: Optional[str] = None
+    NextToken: Optional[Annotated[str, _aws_pattern("Networkmanager", "NextToken")]] = None
 
 
 # This class is the input for the 'get_network_telemetry' function.
 class GetNetworkTelemetryRequestTypeDef(BaseValidatorModel):
-    GlobalNetworkId: str
-    CoreNetworkId: Optional[str] = None
-    RegisteredGatewayArn: Optional[str] = None
-    AwsRegion: Optional[str] = None
-    AccountId: Optional[str] = None
-    ResourceType: Optional[str] = None
-    ResourceArn: Optional[str] = None
+    GlobalNetworkId: Annotated[str, _aws_pattern("Networkmanager", "GlobalNetworkId")]
+    CoreNetworkId: Optional[Annotated[str, _aws_pattern("Networkmanager", "CoreNetworkId")]] = None
+    RegisteredGatewayArn: Optional[Annotated[str, _aws_pattern("Networkmanager", "ResourceArn")]] = None
+    AwsRegion: Optional[Annotated[str, _aws_pattern("Networkmanager", "ExternalRegionCode")]] = None
+    AccountId: Optional[Annotated[str, _aws_pattern("Networkmanager", "AWSAccountId")]] = None
+    ResourceType: Optional[Annotated[str, _aws_pattern("Networkmanager", "ConstrainedString")]] = None
+    ResourceArn: Optional[Annotated[str, _aws_pattern("Networkmanager", "ResourceArn")]] = None
     MaxResults: Optional[int] = None
-    NextToken: Optional[str] = None
+    NextToken: Optional[Annotated[str, _aws_pattern("Networkmanager", "NextToken")]] = None
 
 
 # This class is the input for the 'get_resource_policy' function.
 class GetResourcePolicyRequestTypeDef(BaseValidatorModel):
-    ResourceArn: str
+    ResourceArn: Annotated[str, _aws_pattern("Networkmanager", "ResourceArn")]
 
 
 # This class is the input for the 'get_route_analysis' function.
 class GetRouteAnalysisRequestTypeDef(BaseValidatorModel):
-    GlobalNetworkId: str
-    RouteAnalysisId: str
+    GlobalNetworkId: Annotated[str, _aws_pattern("Networkmanager", "GlobalNetworkId")]
+    RouteAnalysisId: Annotated[str, _aws_pattern("Networkmanager", "ConstrainedString")]
 
 
 # This class is the input for the 'get_site_to_site_vpn_attachment' function.
 class GetSiteToSiteVpnAttachmentRequestTypeDef(BaseValidatorModel):
-    AttachmentId: str
+    AttachmentId: Annotated[str, _aws_pattern("Networkmanager", "AttachmentId")]
 
 
 # This class is the input for the 'get_sites' function.
 class GetSitesRequestTypeDef(BaseValidatorModel):
-    GlobalNetworkId: str
-    SiteIds: Optional[List[str]] = None
+    GlobalNetworkId: Annotated[str, _aws_pattern("Networkmanager", "GlobalNetworkId")]
+    SiteIds: Optional[List[Annotated[str, _aws_pattern("Networkmanager", "SiteId")]]] = None
     MaxResults: Optional[int] = None
-    NextToken: Optional[str] = None
+    NextToken: Optional[Annotated[str, _aws_pattern("Networkmanager", "NextToken")]] = None
 
 
 # This class is the input for the 'get_transit_gateway_connect_peer_associations' function.
 class GetTransitGatewayConnectPeerAssociationsRequestTypeDef(BaseValidatorModel):
-    GlobalNetworkId: str
-    TransitGatewayConnectPeerArns: Optional[List[str]] = None
+    GlobalNetworkId: Annotated[str, _aws_pattern("Networkmanager", "GlobalNetworkId")]
+    TransitGatewayConnectPeerArns: Optional[
+        List[Annotated[str, _aws_pattern("Networkmanager", "TransitGatewayConnectPeerArn")]]
+    ] = None
     MaxResults: Optional[int] = None
-    NextToken: Optional[str] = None
+    NextToken: Optional[Annotated[str, _aws_pattern("Networkmanager", "NextToken")]] = None
 
 
 # This class is the input for the 'get_transit_gateway_peering' function.
 class GetTransitGatewayPeeringRequestTypeDef(BaseValidatorModel):
-    PeeringId: str
+    PeeringId: Annotated[str, _aws_pattern("Networkmanager", "PeeringId")]
 
 
 # This class is the input for the 'get_transit_gateway_registrations' function.
 class GetTransitGatewayRegistrationsRequestTypeDef(BaseValidatorModel):
-    GlobalNetworkId: str
-    TransitGatewayArns: Optional[List[str]] = None
+    GlobalNetworkId: Annotated[str, _aws_pattern("Networkmanager", "GlobalNetworkId")]
+    TransitGatewayArns: Optional[List[Annotated[str, _aws_pattern("Networkmanager", "TransitGatewayArn")]]] = None
     MaxResults: Optional[int] = None
-    NextToken: Optional[str] = None
+    NextToken: Optional[Annotated[str, _aws_pattern("Networkmanager", "NextToken")]] = None
 
 
 # This class is the input for the 'get_transit_gateway_route_table_attachment' function.
 class GetTransitGatewayRouteTableAttachmentRequestTypeDef(BaseValidatorModel):
-    AttachmentId: str
+    AttachmentId: Annotated[str, _aws_pattern("Networkmanager", "AttachmentId")]
 
 
 # This class is the input for the 'get_vpc_attachment' function.
 class GetVpcAttachmentRequestTypeDef(BaseValidatorModel):
-    AttachmentId: str
+    AttachmentId: Annotated[str, _aws_pattern("Networkmanager", "AttachmentId")]
 
 
 # This class is the input for the 'list_attachment_routing_policy_associations' function.
 class ListAttachmentRoutingPolicyAssociationsRequestTypeDef(BaseValidatorModel):
-    CoreNetworkId: str
-    AttachmentId: Optional[str] = None
+    CoreNetworkId: Annotated[str, _aws_pattern("Networkmanager", "CoreNetworkId")]
+    AttachmentId: Optional[Annotated[str, _aws_pattern("Networkmanager", "AttachmentId")]] = None
     MaxResults: Optional[int] = None
-    NextToken: Optional[str] = None
+    NextToken: Optional[Annotated[str, _aws_pattern("Networkmanager", "NextToken")]] = None
 
 
 # This class is the input for the 'list_attachments' function.
 class ListAttachmentsRequestTypeDef(BaseValidatorModel):
-    CoreNetworkId: Optional[str] = None
+    CoreNetworkId: Optional[Annotated[str, _aws_pattern("Networkmanager", "CoreNetworkId")]] = None
     AttachmentType: Optional[AttachmentTypeType] = None
-    EdgeLocation: Optional[str] = None
+    EdgeLocation: Optional[Annotated[str, _aws_pattern("Networkmanager", "ExternalRegionCode")]] = None
     State: Optional[AttachmentStateType] = None
     MaxResults: Optional[int] = None
-    NextToken: Optional[str] = None
+    NextToken: Optional[Annotated[str, _aws_pattern("Networkmanager", "NextToken")]] = None
 
 
 # This class is the input for the 'list_connect_peers' function.
 class ListConnectPeersRequestTypeDef(BaseValidatorModel):
-    CoreNetworkId: Optional[str] = None
-    ConnectAttachmentId: Optional[str] = None
+    CoreNetworkId: Optional[Annotated[str, _aws_pattern("Networkmanager", "CoreNetworkId")]] = None
+    ConnectAttachmentId: Optional[Annotated[str, _aws_pattern("Networkmanager", "AttachmentId")]] = None
     MaxResults: Optional[int] = None
-    NextToken: Optional[str] = None
+    NextToken: Optional[Annotated[str, _aws_pattern("Networkmanager", "NextToken")]] = None
 
 
 # This class is the input for the 'list_core_network_policy_versions' function.
 class ListCoreNetworkPolicyVersionsRequestTypeDef(BaseValidatorModel):
-    CoreNetworkId: str
+    CoreNetworkId: Annotated[str, _aws_pattern("Networkmanager", "CoreNetworkId")]
     MaxResults: Optional[int] = None
-    NextToken: Optional[str] = None
+    NextToken: Optional[Annotated[str, _aws_pattern("Networkmanager", "NextToken")]] = None
 
 
 # This class is the input for the 'list_core_network_prefix_list_associations' function.
 class ListCoreNetworkPrefixListAssociationsRequestTypeDef(BaseValidatorModel):
-    CoreNetworkId: str
-    PrefixListArn: Optional[str] = None
+    CoreNetworkId: Annotated[str, _aws_pattern("Networkmanager", "CoreNetworkId")]
+    PrefixListArn: Optional[Annotated[str, _aws_pattern("Networkmanager", "PrefixListArn")]] = None
     MaxResults: Optional[int] = None
-    NextToken: Optional[str] = None
+    NextToken: Optional[Annotated[str, _aws_pattern("Networkmanager", "NextToken")]] = None
 
 
 class PrefixListAssociationTypeDef(BaseValidatorModel):
-    CoreNetworkId: Optional[str] = None
-    PrefixListArn: Optional[str] = None
-    PrefixListAlias: Optional[str] = None
+    CoreNetworkId: Optional[Annotated[str, _aws_pattern("Networkmanager", "CoreNetworkId")]] = None
+    PrefixListArn: Optional[Annotated[str, _aws_pattern("Networkmanager", "PrefixListArn")]] = None
+    PrefixListAlias: Optional[Annotated[str, _aws_pattern("Networkmanager", "ConstrainedString")]] = None
 
 
 # This class is the input for the 'list_core_network_routing_information' function.
 class ListCoreNetworkRoutingInformationRequestTypeDef(BaseValidatorModel):
-    CoreNetworkId: str
-    SegmentName: str
-    EdgeLocation: str
+    CoreNetworkId: Annotated[str, _aws_pattern("Networkmanager", "CoreNetworkId")]
+    SegmentName: Annotated[str, _aws_pattern("Networkmanager", "ConstrainedString")]
+    EdgeLocation: Annotated[str, _aws_pattern("Networkmanager", "ExternalRegionCode")]
     NextHopFilters: Optional[Dict[str, List[str]]] = None
-    LocalPreferenceMatches: Optional[List[str]] = None
-    ExactAsPathMatches: Optional[List[str]] = None
-    MedMatches: Optional[List[str]] = None
-    CommunityMatches: Optional[List[str]] = None
+    LocalPreferenceMatches: Optional[List[Annotated[str, _aws_pattern("Networkmanager", "ConstrainedString")]]] = None
+    ExactAsPathMatches: Optional[List[Annotated[str, _aws_pattern("Networkmanager", "ConstrainedString")]]] = None
+    MedMatches: Optional[List[Annotated[str, _aws_pattern("Networkmanager", "ConstrainedString")]]] = None
+    CommunityMatches: Optional[List[Annotated[str, _aws_pattern("Networkmanager", "ConstrainedString")]]] = None
     MaxResults: Optional[int] = None
-    NextToken: Optional[str] = None
+    NextToken: Optional[Annotated[str, _aws_pattern("Networkmanager", "NextToken")]] = None
 
 
 # This class is the input for the 'list_core_networks' function.
 class ListCoreNetworksRequestTypeDef(BaseValidatorModel):
     MaxResults: Optional[int] = None
-    NextToken: Optional[str] = None
+    NextToken: Optional[Annotated[str, _aws_pattern("Networkmanager", "NextToken")]] = None
 
 
 # This class is the input for the 'list_organization_service_access_status' function.
 class ListOrganizationServiceAccessStatusRequestTypeDef(BaseValidatorModel):
     MaxResults: Optional[int] = None
-    NextToken: Optional[str] = None
+    NextToken: Optional[Annotated[str, _aws_pattern("Networkmanager", "NextToken")]] = None
 
 
 # This class is the input for the 'list_peerings' function.
 class ListPeeringsRequestTypeDef(BaseValidatorModel):
-    CoreNetworkId: Optional[str] = None
+    CoreNetworkId: Optional[Annotated[str, _aws_pattern("Networkmanager", "CoreNetworkId")]] = None
     PeeringType: Optional[Literal["TRANSIT_GATEWAY"]] = None
-    EdgeLocation: Optional[str] = None
+    EdgeLocation: Optional[Annotated[str, _aws_pattern("Networkmanager", "ExternalRegionCode")]] = None
     State: Optional[PeeringStateType] = None
     MaxResults: Optional[int] = None
-    NextToken: Optional[str] = None
+    NextToken: Optional[Annotated[str, _aws_pattern("Networkmanager", "NextToken")]] = None
 
 
 # This class is the input for the 'list_tags_for_resource' function.
 class ListTagsForResourceRequestTypeDef(BaseValidatorModel):
-    ResourceArn: str
+    ResourceArn: Annotated[str, _aws_pattern("Networkmanager", "ResourceArn")]
 
 
 class NetworkFunctionGroupTypeDef(BaseValidatorModel):
-    Name: Optional[str] = None
+    Name: Optional[Annotated[str, _aws_pattern("Networkmanager", "ConstrainedString")]] = None
 
 
 class NetworkResourceSummaryTypeDef(BaseValidatorModel):
-    RegisteredGatewayArn: Optional[str] = None
-    ResourceArn: Optional[str] = None
-    ResourceType: Optional[str] = None
-    Definition: Optional[str] = None
-    NameTag: Optional[str] = None
+    RegisteredGatewayArn: Optional[Annotated[str, _aws_pattern("Networkmanager", "ResourceArn")]] = None
+    ResourceArn: Optional[Annotated[str, _aws_pattern("Networkmanager", "ResourceArn")]] = None
+    ResourceType: Optional[Annotated[str, _aws_pattern("Networkmanager", "ConstrainedString")]] = None
+    Definition: Optional[Annotated[str, _aws_pattern("Networkmanager", "ConstrainedString")]] = None
+    NameTag: Optional[Annotated[str, _aws_pattern("Networkmanager", "ConstrainedString")]] = None
     IsMiddlebox: Optional[bool] = None
 
 
 class NetworkRouteDestinationTypeDef(BaseValidatorModel):
-    CoreNetworkAttachmentId: Optional[str] = None
-    TransitGatewayAttachmentId: Optional[str] = None
-    SegmentName: Optional[str] = None
-    NetworkFunctionGroupName: Optional[str] = None
-    EdgeLocation: Optional[str] = None
-    ResourceType: Optional[str] = None
-    ResourceId: Optional[str] = None
+    CoreNetworkAttachmentId: Optional[Annotated[str, _aws_pattern("Networkmanager", "AttachmentId")]] = None
+    TransitGatewayAttachmentId: Optional[
+        Annotated[str, _aws_pattern("Networkmanager", "TransitGatewayAttachmentId")]
+    ] = None
+    SegmentName: Optional[Annotated[str, _aws_pattern("Networkmanager", "ConstrainedString")]] = None
+    NetworkFunctionGroupName: Optional[Annotated[str, _aws_pattern("Networkmanager", "ConstrainedString")]] = None
+    EdgeLocation: Optional[Annotated[str, _aws_pattern("Networkmanager", "ExternalRegionCode")]] = None
+    ResourceType: Optional[Annotated[str, _aws_pattern("Networkmanager", "ConstrainedString")]] = None
+    ResourceId: Optional[Annotated[str, _aws_pattern("Networkmanager", "ConstrainedString")]] = None
 
 
 class PermissionsErrorContextTypeDef(BaseValidatorModel):
-    MissingPermission: Optional[str] = None
+    MissingPermission: Optional[Annotated[str, _aws_pattern("Networkmanager", "ServerSideString")]] = None
 
 
 # This class is the input for the 'put_attachment_routing_policy_label' function.
 class PutAttachmentRoutingPolicyLabelRequestTypeDef(BaseValidatorModel):
-    CoreNetworkId: str
-    AttachmentId: str
-    RoutingPolicyLabel: str
-    ClientToken: Optional[str] = None
+    CoreNetworkId: Annotated[str, _aws_pattern("Networkmanager", "CoreNetworkId")]
+    AttachmentId: Annotated[str, _aws_pattern("Networkmanager", "AttachmentId")]
+    RoutingPolicyLabel: Annotated[str, _aws_pattern("Networkmanager", "ConstrainedString")]
+    ClientToken: Optional[Annotated[str, _aws_pattern("Networkmanager", "ClientToken")]] = None
 
 
 # This class is the input for the 'put_core_network_policy' function.
 class PutCoreNetworkPolicyRequestTypeDef(BaseValidatorModel):
-    CoreNetworkId: str
-    PolicyDocument: str
-    Description: Optional[str] = None
+    CoreNetworkId: Annotated[str, _aws_pattern("Networkmanager", "CoreNetworkId")]
+    PolicyDocument: Annotated[str, _aws_pattern("Networkmanager", "CoreNetworkPolicyDocument")]
+    Description: Optional[Annotated[str, _aws_pattern("Networkmanager", "ConstrainedString")]] = None
     LatestVersionId: Optional[int] = None
-    ClientToken: Optional[str] = None
+    ClientToken: Optional[Annotated[str, _aws_pattern("Networkmanager", "ClientToken")]] = None
 
 
 class PutResourcePolicyRequestTypeDef(BaseValidatorModel):
-    PolicyDocument: str
-    ResourceArn: str
+    PolicyDocument: Annotated[str, _aws_pattern("Networkmanager", "ResourcePolicyDocument")]
+    ResourceArn: Annotated[str, _aws_pattern("Networkmanager", "ResourceArn")]
 
 
 # This class is the input for the 'register_transit_gateway' function.
 class RegisterTransitGatewayRequestTypeDef(BaseValidatorModel):
-    GlobalNetworkId: str
-    TransitGatewayArn: str
+    GlobalNetworkId: Annotated[str, _aws_pattern("Networkmanager", "GlobalNetworkId")]
+    TransitGatewayArn: Annotated[str, _aws_pattern("Networkmanager", "TransitGatewayArn")]
 
 
 # This class is the input for the 'reject_attachment' function.
 class RejectAttachmentRequestTypeDef(BaseValidatorModel):
-    AttachmentId: str
+    AttachmentId: Annotated[str, _aws_pattern("Networkmanager", "AttachmentId")]
 
 
 # This class is the input for the 'remove_attachment_routing_policy_label' function.
 class RemoveAttachmentRoutingPolicyLabelRequestTypeDef(BaseValidatorModel):
-    CoreNetworkId: str
-    AttachmentId: str
+    CoreNetworkId: Annotated[str, _aws_pattern("Networkmanager", "CoreNetworkId")]
+    AttachmentId: Annotated[str, _aws_pattern("Networkmanager", "AttachmentId")]
 
 
 # This class is the input for the 'restore_core_network_policy_version' function.
 class RestoreCoreNetworkPolicyVersionRequestTypeDef(BaseValidatorModel):
-    CoreNetworkId: str
+    CoreNetworkId: Annotated[str, _aws_pattern("Networkmanager", "CoreNetworkId")]
     PolicyVersionId: int
 
 
@@ -749,18 +759,22 @@ class RouteAnalysisCompletionTypeDef(BaseValidatorModel):
 
 
 class RouteAnalysisEndpointOptionsSpecificationTypeDef(BaseValidatorModel):
-    TransitGatewayAttachmentArn: Optional[str] = None
-    IpAddress: Optional[str] = None
+    TransitGatewayAttachmentArn: Optional[
+        Annotated[str, _aws_pattern("Networkmanager", "TransitGatewayAttachmentArn")]
+    ] = None
+    IpAddress: Optional[Annotated[str, _aws_pattern("Networkmanager", "IPAddress")]] = None
 
 
 class RouteAnalysisEndpointOptionsTypeDef(BaseValidatorModel):
-    TransitGatewayAttachmentArn: Optional[str] = None
-    TransitGatewayArn: Optional[str] = None
-    IpAddress: Optional[str] = None
+    TransitGatewayAttachmentArn: Optional[
+        Annotated[str, _aws_pattern("Networkmanager", "TransitGatewayAttachmentArn")]
+    ] = None
+    TransitGatewayArn: Optional[Annotated[str, _aws_pattern("Networkmanager", "TransitGatewayArn")]] = None
+    IpAddress: Optional[Annotated[str, _aws_pattern("Networkmanager", "IPAddress")]] = None
 
 
 class WhenSentToTypeDef(BaseValidatorModel):
-    WhenSentToSegmentsList: Optional[List[str]] = None
+    WhenSentToSegmentsList: Optional[List[Annotated[str, _aws_pattern("Networkmanager", "ConstrainedString")]]] = None
 
 
 # This class is the input for the 'start_organization_service_access_update' function.
@@ -770,94 +784,94 @@ class StartOrganizationServiceAccessUpdateRequestTypeDef(BaseValidatorModel):
 
 class TransitGatewayRegistrationStateReasonTypeDef(BaseValidatorModel):
     Code: Optional[TransitGatewayRegistrationStateType] = None
-    Message: Optional[str] = None
+    Message: Optional[Annotated[str, _aws_pattern("Networkmanager", "ConstrainedString")]] = None
 
 
 class UntagResourceRequestTypeDef(BaseValidatorModel):
-    ResourceArn: str
-    TagKeys: List[str]
+    ResourceArn: Annotated[str, _aws_pattern("Networkmanager", "ResourceArn")]
+    TagKeys: List[Annotated[str, _aws_pattern("Networkmanager", "TagKey")]]
 
 
 # This class is the input for the 'update_connection' function.
 class UpdateConnectionRequestTypeDef(BaseValidatorModel):
-    GlobalNetworkId: str
-    ConnectionId: str
-    LinkId: Optional[str] = None
-    ConnectedLinkId: Optional[str] = None
-    Description: Optional[str] = None
+    GlobalNetworkId: Annotated[str, _aws_pattern("Networkmanager", "GlobalNetworkId")]
+    ConnectionId: Annotated[str, _aws_pattern("Networkmanager", "ConnectionId")]
+    LinkId: Optional[Annotated[str, _aws_pattern("Networkmanager", "LinkId")]] = None
+    ConnectedLinkId: Optional[Annotated[str, _aws_pattern("Networkmanager", "LinkId")]] = None
+    Description: Optional[Annotated[str, _aws_pattern("Networkmanager", "ConstrainedString")]] = None
 
 
 # This class is the input for the 'update_core_network' function.
 class UpdateCoreNetworkRequestTypeDef(BaseValidatorModel):
-    CoreNetworkId: str
-    Description: Optional[str] = None
+    CoreNetworkId: Annotated[str, _aws_pattern("Networkmanager", "CoreNetworkId")]
+    Description: Optional[Annotated[str, _aws_pattern("Networkmanager", "ConstrainedString")]] = None
 
 
 # This class is the input for the 'update_direct_connect_gateway_attachment' function.
 class UpdateDirectConnectGatewayAttachmentRequestTypeDef(BaseValidatorModel):
-    AttachmentId: str
-    EdgeLocations: Optional[List[str]] = None
+    AttachmentId: Annotated[str, _aws_pattern("Networkmanager", "AttachmentId")]
+    EdgeLocations: Optional[List[Annotated[str, _aws_pattern("Networkmanager", "ExternalRegionCode")]]] = None
 
 
 # This class is the input for the 'update_global_network' function.
 class UpdateGlobalNetworkRequestTypeDef(BaseValidatorModel):
-    GlobalNetworkId: str
-    Description: Optional[str] = None
+    GlobalNetworkId: Annotated[str, _aws_pattern("Networkmanager", "GlobalNetworkId")]
+    Description: Optional[Annotated[str, _aws_pattern("Networkmanager", "ConstrainedString")]] = None
 
 
 # This class is the input for the 'update_network_resource_metadata' function.
 class UpdateNetworkResourceMetadataRequestTypeDef(BaseValidatorModel):
-    GlobalNetworkId: str
-    ResourceArn: str
+    GlobalNetworkId: Annotated[str, _aws_pattern("Networkmanager", "GlobalNetworkId")]
+    ResourceArn: Annotated[str, _aws_pattern("Networkmanager", "ResourceArn")]
     Metadata: Dict[str, str]
 
 
 # This class is the output for the 'create_core_network_prefix_list_association' function.
 class CreateCoreNetworkPrefixListAssociationResponseTypeDef(BaseValidatorModel):
-    CoreNetworkId: str
-    PrefixListArn: str
-    PrefixListAlias: str
+    CoreNetworkId: Annotated[str, _aws_pattern("Networkmanager", "CoreNetworkId")]
+    PrefixListArn: Annotated[str, _aws_pattern("Networkmanager", "PrefixListArn")]
+    PrefixListAlias: Annotated[str, _aws_pattern("Networkmanager", "ConstrainedString")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 # This class is the output for the 'delete_core_network_prefix_list_association' function.
 class DeleteCoreNetworkPrefixListAssociationResponseTypeDef(BaseValidatorModel):
-    CoreNetworkId: str
-    PrefixListArn: str
+    CoreNetworkId: Annotated[str, _aws_pattern("Networkmanager", "CoreNetworkId")]
+    PrefixListArn: Annotated[str, _aws_pattern("Networkmanager", "PrefixListArn")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 # This class is the output for the 'get_resource_policy' function.
 class GetResourcePolicyResponseTypeDef(BaseValidatorModel):
-    PolicyDocument: str
+    PolicyDocument: Annotated[str, _aws_pattern("Networkmanager", "ResourcePolicyDocument")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 # This class is the output for the 'put_attachment_routing_policy_label' function.
 class PutAttachmentRoutingPolicyLabelResponseTypeDef(BaseValidatorModel):
-    CoreNetworkId: str
-    AttachmentId: str
-    RoutingPolicyLabel: str
+    CoreNetworkId: Annotated[str, _aws_pattern("Networkmanager", "CoreNetworkId")]
+    AttachmentId: Annotated[str, _aws_pattern("Networkmanager", "AttachmentId")]
+    RoutingPolicyLabel: Annotated[str, _aws_pattern("Networkmanager", "ConstrainedString")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 # This class is the output for the 'remove_attachment_routing_policy_label' function.
 class RemoveAttachmentRoutingPolicyLabelResponseTypeDef(BaseValidatorModel):
-    CoreNetworkId: str
-    AttachmentId: str
-    RoutingPolicyLabel: str
+    CoreNetworkId: Annotated[str, _aws_pattern("Networkmanager", "CoreNetworkId")]
+    AttachmentId: Annotated[str, _aws_pattern("Networkmanager", "AttachmentId")]
+    RoutingPolicyLabel: Annotated[str, _aws_pattern("Networkmanager", "ConstrainedString")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 # This class is the output for the 'update_network_resource_metadata' function.
 class UpdateNetworkResourceMetadataResponseTypeDef(BaseValidatorModel):
-    ResourceArn: str
+    ResourceArn: Annotated[str, _aws_pattern("Networkmanager", "ResourceArn")]
     Metadata: Dict[str, str]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 class OrganizationStatusTypeDef(BaseValidatorModel):
-    OrganizationId: Optional[str] = None
+    OrganizationId: Optional[Annotated[str, _aws_pattern("Networkmanager", "OrganizationId")]] = None
     OrganizationAwsServiceAccessStatus: Optional[str] = None
     SLRDeploymentStatus: Optional[str] = None
     AccountStatusList: Optional[List[AccountStatusTypeDef]] = None
@@ -879,7 +893,7 @@ class DisassociateConnectPeerResponseTypeDef(BaseValidatorModel):
 class GetConnectPeerAssociationsResponseTypeDef(BaseValidatorModel):
     ConnectPeerAssociations: List[ConnectPeerAssociationTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
-    NextToken: Optional[str] = None
+    NextToken: Optional[Annotated[str, _aws_pattern("Networkmanager", "NextToken")]] = None
 
 
 # This class is the output for the 'associate_customer_gateway' function.
@@ -898,7 +912,7 @@ class DisassociateCustomerGatewayResponseTypeDef(BaseValidatorModel):
 class GetCustomerGatewayAssociationsResponseTypeDef(BaseValidatorModel):
     CustomerGatewayAssociations: List[CustomerGatewayAssociationTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
-    NextToken: Optional[str] = None
+    NextToken: Optional[Annotated[str, _aws_pattern("Networkmanager", "NextToken")]] = None
 
 
 # This class is the output for the 'associate_link' function.
@@ -917,7 +931,7 @@ class DisassociateLinkResponseTypeDef(BaseValidatorModel):
 class GetLinkAssociationsResponseTypeDef(BaseValidatorModel):
     LinkAssociations: List[LinkAssociationTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
-    NextToken: Optional[str] = None
+    NextToken: Optional[Annotated[str, _aws_pattern("Networkmanager", "NextToken")]] = None
 
 
 # This class is the output for the 'associate_transit_gateway_connect_peer' function.
@@ -936,117 +950,117 @@ class DisassociateTransitGatewayConnectPeerResponseTypeDef(BaseValidatorModel):
 class GetTransitGatewayConnectPeerAssociationsResponseTypeDef(BaseValidatorModel):
     TransitGatewayConnectPeerAssociations: List[TransitGatewayConnectPeerAssociationTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
-    NextToken: Optional[str] = None
+    NextToken: Optional[Annotated[str, _aws_pattern("Networkmanager", "NextToken")]] = None
 
 
 # This class is the output for the 'list_attachment_routing_policy_associations' function.
 class ListAttachmentRoutingPolicyAssociationsResponseTypeDef(BaseValidatorModel):
     AttachmentRoutingPolicyAssociations: List[AttachmentRoutingPolicyAssociationSummaryTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
-    NextToken: Optional[str] = None
+    NextToken: Optional[Annotated[str, _aws_pattern("Networkmanager", "NextToken")]] = None
 
 
 class ConnectPeerSummaryTypeDef(BaseValidatorModel):
-    CoreNetworkId: Optional[str] = None
-    ConnectAttachmentId: Optional[str] = None
-    ConnectPeerId: Optional[str] = None
-    EdgeLocation: Optional[str] = None
+    CoreNetworkId: Optional[Annotated[str, _aws_pattern("Networkmanager", "CoreNetworkId")]] = None
+    ConnectAttachmentId: Optional[Annotated[str, _aws_pattern("Networkmanager", "AttachmentId")]] = None
+    ConnectPeerId: Optional[Annotated[str, _aws_pattern("Networkmanager", "ConnectPeerId")]] = None
+    EdgeLocation: Optional[Annotated[str, _aws_pattern("Networkmanager", "ExternalRegionCode")]] = None
     ConnectPeerState: Optional[ConnectPeerStateType] = None
     CreatedAt: Optional[datetime] = None
     Tags: Optional[List[TagTypeDef]] = None
-    SubnetArn: Optional[str] = None
+    SubnetArn: Optional[Annotated[str, _aws_pattern("Networkmanager", "SubnetArn")]] = None
 
 
 class ConnectionTypeDef(BaseValidatorModel):
-    ConnectionId: Optional[str] = None
-    ConnectionArn: Optional[str] = None
-    GlobalNetworkId: Optional[str] = None
-    DeviceId: Optional[str] = None
-    ConnectedDeviceId: Optional[str] = None
-    LinkId: Optional[str] = None
-    ConnectedLinkId: Optional[str] = None
-    Description: Optional[str] = None
+    ConnectionId: Optional[Annotated[str, _aws_pattern("Networkmanager", "ConnectionId")]] = None
+    ConnectionArn: Optional[Annotated[str, _aws_pattern("Networkmanager", "ConnectionArn")]] = None
+    GlobalNetworkId: Optional[Annotated[str, _aws_pattern("Networkmanager", "GlobalNetworkId")]] = None
+    DeviceId: Optional[Annotated[str, _aws_pattern("Networkmanager", "DeviceId")]] = None
+    ConnectedDeviceId: Optional[Annotated[str, _aws_pattern("Networkmanager", "DeviceId")]] = None
+    LinkId: Optional[Annotated[str, _aws_pattern("Networkmanager", "LinkId")]] = None
+    ConnectedLinkId: Optional[Annotated[str, _aws_pattern("Networkmanager", "LinkId")]] = None
+    Description: Optional[Annotated[str, _aws_pattern("Networkmanager", "ConstrainedString")]] = None
     CreatedAt: Optional[datetime] = None
     State: Optional[ConnectionStateType] = None
     Tags: Optional[List[TagTypeDef]] = None
 
 
 class CoreNetworkSummaryTypeDef(BaseValidatorModel):
-    CoreNetworkId: Optional[str] = None
-    CoreNetworkArn: Optional[str] = None
-    GlobalNetworkId: Optional[str] = None
-    OwnerAccountId: Optional[str] = None
+    CoreNetworkId: Optional[Annotated[str, _aws_pattern("Networkmanager", "CoreNetworkId")]] = None
+    CoreNetworkArn: Optional[Annotated[str, _aws_pattern("Networkmanager", "CoreNetworkArn")]] = None
+    GlobalNetworkId: Optional[Annotated[str, _aws_pattern("Networkmanager", "GlobalNetworkId")]] = None
+    OwnerAccountId: Optional[Annotated[str, _aws_pattern("Networkmanager", "AWSAccountId")]] = None
     State: Optional[CoreNetworkStateType] = None
-    Description: Optional[str] = None
+    Description: Optional[Annotated[str, _aws_pattern("Networkmanager", "ConstrainedString")]] = None
     Tags: Optional[List[TagTypeDef]] = None
 
 
 # This class is the input for the 'create_connection' function.
 class CreateConnectionRequestTypeDef(BaseValidatorModel):
-    GlobalNetworkId: str
-    DeviceId: str
-    ConnectedDeviceId: str
-    LinkId: Optional[str] = None
-    ConnectedLinkId: Optional[str] = None
-    Description: Optional[str] = None
+    GlobalNetworkId: Annotated[str, _aws_pattern("Networkmanager", "GlobalNetworkId")]
+    DeviceId: Annotated[str, _aws_pattern("Networkmanager", "DeviceId")]
+    ConnectedDeviceId: Annotated[str, _aws_pattern("Networkmanager", "DeviceId")]
+    LinkId: Optional[Annotated[str, _aws_pattern("Networkmanager", "LinkId")]] = None
+    ConnectedLinkId: Optional[Annotated[str, _aws_pattern("Networkmanager", "LinkId")]] = None
+    Description: Optional[Annotated[str, _aws_pattern("Networkmanager", "ConstrainedString")]] = None
     Tags: Optional[List[TagTypeDef]] = None
 
 
 # This class is the input for the 'create_core_network' function.
 class CreateCoreNetworkRequestTypeDef(BaseValidatorModel):
-    GlobalNetworkId: str
-    Description: Optional[str] = None
+    GlobalNetworkId: Annotated[str, _aws_pattern("Networkmanager", "GlobalNetworkId")]
+    Description: Optional[Annotated[str, _aws_pattern("Networkmanager", "ConstrainedString")]] = None
     Tags: Optional[List[TagTypeDef]] = None
-    PolicyDocument: Optional[str] = None
-    ClientToken: Optional[str] = None
+    PolicyDocument: Optional[Annotated[str, _aws_pattern("Networkmanager", "CoreNetworkPolicyDocument")]] = None
+    ClientToken: Optional[Annotated[str, _aws_pattern("Networkmanager", "ClientToken")]] = None
 
 
 # This class is the input for the 'create_direct_connect_gateway_attachment' function.
 class CreateDirectConnectGatewayAttachmentRequestTypeDef(BaseValidatorModel):
-    CoreNetworkId: str
-    DirectConnectGatewayArn: str
-    EdgeLocations: List[str]
-    RoutingPolicyLabel: Optional[str] = None
+    CoreNetworkId: Annotated[str, _aws_pattern("Networkmanager", "CoreNetworkId")]
+    DirectConnectGatewayArn: Annotated[str, _aws_pattern("Networkmanager", "DirectConnectGatewayArn")]
+    EdgeLocations: List[Annotated[str, _aws_pattern("Networkmanager", "ExternalRegionCode")]]
+    RoutingPolicyLabel: Optional[Annotated[str, _aws_pattern("Networkmanager", "ConstrainedString")]] = None
     Tags: Optional[List[TagTypeDef]] = None
-    ClientToken: Optional[str] = None
+    ClientToken: Optional[Annotated[str, _aws_pattern("Networkmanager", "ClientToken")]] = None
 
 
 # This class is the input for the 'create_global_network' function.
 class CreateGlobalNetworkRequestTypeDef(BaseValidatorModel):
-    Description: Optional[str] = None
+    Description: Optional[Annotated[str, _aws_pattern("Networkmanager", "ConstrainedString")]] = None
     Tags: Optional[List[TagTypeDef]] = None
 
 
 # This class is the input for the 'create_site_to_site_vpn_attachment' function.
 class CreateSiteToSiteVpnAttachmentRequestTypeDef(BaseValidatorModel):
-    CoreNetworkId: str
-    VpnConnectionArn: str
-    RoutingPolicyLabel: Optional[str] = None
+    CoreNetworkId: Annotated[str, _aws_pattern("Networkmanager", "CoreNetworkId")]
+    VpnConnectionArn: Annotated[str, _aws_pattern("Networkmanager", "VpnConnectionArn")]
+    RoutingPolicyLabel: Optional[Annotated[str, _aws_pattern("Networkmanager", "ConstrainedString")]] = None
     Tags: Optional[List[TagTypeDef]] = None
-    ClientToken: Optional[str] = None
+    ClientToken: Optional[Annotated[str, _aws_pattern("Networkmanager", "ClientToken")]] = None
 
 
 # This class is the input for the 'create_transit_gateway_peering' function.
 class CreateTransitGatewayPeeringRequestTypeDef(BaseValidatorModel):
-    CoreNetworkId: str
-    TransitGatewayArn: str
+    CoreNetworkId: Annotated[str, _aws_pattern("Networkmanager", "CoreNetworkId")]
+    TransitGatewayArn: Annotated[str, _aws_pattern("Networkmanager", "TransitGatewayArn")]
     Tags: Optional[List[TagTypeDef]] = None
-    ClientToken: Optional[str] = None
+    ClientToken: Optional[Annotated[str, _aws_pattern("Networkmanager", "ClientToken")]] = None
 
 
 # This class is the input for the 'create_transit_gateway_route_table_attachment' function.
 class CreateTransitGatewayRouteTableAttachmentRequestTypeDef(BaseValidatorModel):
-    PeeringId: str
-    TransitGatewayRouteTableArn: str
-    RoutingPolicyLabel: Optional[str] = None
+    PeeringId: Annotated[str, _aws_pattern("Networkmanager", "PeeringId")]
+    TransitGatewayRouteTableArn: Annotated[str, _aws_pattern("Networkmanager", "TransitGatewayRouteTableArn")]
+    RoutingPolicyLabel: Optional[Annotated[str, _aws_pattern("Networkmanager", "ConstrainedString")]] = None
     Tags: Optional[List[TagTypeDef]] = None
-    ClientToken: Optional[str] = None
+    ClientToken: Optional[Annotated[str, _aws_pattern("Networkmanager", "ClientToken")]] = None
 
 
 class GlobalNetworkTypeDef(BaseValidatorModel):
-    GlobalNetworkId: Optional[str] = None
-    GlobalNetworkArn: Optional[str] = None
-    Description: Optional[str] = None
+    GlobalNetworkId: Optional[Annotated[str, _aws_pattern("Networkmanager", "GlobalNetworkId")]] = None
+    GlobalNetworkArn: Optional[Annotated[str, _aws_pattern("Networkmanager", "GlobalNetworkArn")]] = None
+    Description: Optional[Annotated[str, _aws_pattern("Networkmanager", "ConstrainedString")]] = None
     CreatedAt: Optional[datetime] = None
     State: Optional[GlobalNetworkStateType] = None
     Tags: Optional[List[TagTypeDef]] = None
@@ -1059,14 +1073,14 @@ class ListTagsForResourceResponseTypeDef(BaseValidatorModel):
 
 
 class NetworkResourceTypeDef(BaseValidatorModel):
-    RegisteredGatewayArn: Optional[str] = None
-    CoreNetworkId: Optional[str] = None
-    AwsRegion: Optional[str] = None
-    AccountId: Optional[str] = None
-    ResourceType: Optional[str] = None
-    ResourceId: Optional[str] = None
-    ResourceArn: Optional[str] = None
-    Definition: Optional[str] = None
+    RegisteredGatewayArn: Optional[Annotated[str, _aws_pattern("Networkmanager", "ResourceArn")]] = None
+    CoreNetworkId: Optional[Annotated[str, _aws_pattern("Networkmanager", "CoreNetworkId")]] = None
+    AwsRegion: Optional[Annotated[str, _aws_pattern("Networkmanager", "ExternalRegionCode")]] = None
+    AccountId: Optional[Annotated[str, _aws_pattern("Networkmanager", "AWSAccountId")]] = None
+    ResourceType: Optional[Annotated[str, _aws_pattern("Networkmanager", "ConstrainedString")]] = None
+    ResourceId: Optional[Annotated[str, _aws_pattern("Networkmanager", "ConstrainedString")]] = None
+    ResourceArn: Optional[Annotated[str, _aws_pattern("Networkmanager", "ResourceArn")]] = None
+    Definition: Optional[Annotated[str, _aws_pattern("Networkmanager", "ConstrainedString")]] = None
     DefinitionTimestamp: Optional[datetime] = None
     Tags: Optional[List[TagTypeDef]] = None
     Metadata: Optional[Dict[str, str]] = None
@@ -1075,40 +1089,40 @@ class NetworkResourceTypeDef(BaseValidatorModel):
 class ProposedNetworkFunctionGroupChangeTypeDef(BaseValidatorModel):
     Tags: Optional[List[TagTypeDef]] = None
     AttachmentPolicyRuleNumber: Optional[int] = None
-    NetworkFunctionGroupName: Optional[str] = None
+    NetworkFunctionGroupName: Optional[Annotated[str, _aws_pattern("Networkmanager", "ConstrainedString")]] = None
 
 
 class ProposedSegmentChangeTypeDef(BaseValidatorModel):
     Tags: Optional[List[TagTypeDef]] = None
     AttachmentPolicyRuleNumber: Optional[int] = None
-    SegmentName: Optional[str] = None
+    SegmentName: Optional[Annotated[str, _aws_pattern("Networkmanager", "ConstrainedString")]] = None
 
 
 class TagResourceRequestTypeDef(BaseValidatorModel):
-    ResourceArn: str
+    ResourceArn: Annotated[str, _aws_pattern("Networkmanager", "ResourceArn")]
     Tags: List[TagTypeDef]
 
 
 # This class is the input for the 'create_link' function.
 class CreateLinkRequestTypeDef(BaseValidatorModel):
-    GlobalNetworkId: str
+    GlobalNetworkId: Annotated[str, _aws_pattern("Networkmanager", "GlobalNetworkId")]
     Bandwidth: BandwidthTypeDef
-    SiteId: str
-    Description: Optional[str] = None
-    Type: Optional[str] = None
-    Provider: Optional[str] = None
+    SiteId: Annotated[str, _aws_pattern("Networkmanager", "SiteId")]
+    Description: Optional[Annotated[str, _aws_pattern("Networkmanager", "ConstrainedString")]] = None
+    Type: Optional[Annotated[str, _aws_pattern("Networkmanager", "ConstrainedString")]] = None
+    Provider: Optional[Annotated[str, _aws_pattern("Networkmanager", "ConstrainedString")]] = None
     Tags: Optional[List[TagTypeDef]] = None
 
 
 class LinkTypeDef(BaseValidatorModel):
-    LinkId: Optional[str] = None
-    LinkArn: Optional[str] = None
-    GlobalNetworkId: Optional[str] = None
-    SiteId: Optional[str] = None
-    Description: Optional[str] = None
-    Type: Optional[str] = None
+    LinkId: Optional[Annotated[str, _aws_pattern("Networkmanager", "LinkId")]] = None
+    LinkArn: Optional[Annotated[str, _aws_pattern("Networkmanager", "LinkArn")]] = None
+    GlobalNetworkId: Optional[Annotated[str, _aws_pattern("Networkmanager", "GlobalNetworkId")]] = None
+    SiteId: Optional[Annotated[str, _aws_pattern("Networkmanager", "SiteId")]] = None
+    Description: Optional[Annotated[str, _aws_pattern("Networkmanager", "ConstrainedString")]] = None
+    Type: Optional[Annotated[str, _aws_pattern("Networkmanager", "ConstrainedString")]] = None
     Bandwidth: Optional[BandwidthTypeDef] = None
-    Provider: Optional[str] = None
+    Provider: Optional[Annotated[str, _aws_pattern("Networkmanager", "ConstrainedString")]] = None
     CreatedAt: Optional[datetime] = None
     State: Optional[LinkStateType] = None
     Tags: Optional[List[TagTypeDef]] = None
@@ -1116,151 +1130,153 @@ class LinkTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'update_link' function.
 class UpdateLinkRequestTypeDef(BaseValidatorModel):
-    GlobalNetworkId: str
-    LinkId: str
-    Description: Optional[str] = None
-    Type: Optional[str] = None
+    GlobalNetworkId: Annotated[str, _aws_pattern("Networkmanager", "GlobalNetworkId")]
+    LinkId: Annotated[str, _aws_pattern("Networkmanager", "LinkId")]
+    Description: Optional[Annotated[str, _aws_pattern("Networkmanager", "ConstrainedString")]] = None
+    Type: Optional[Annotated[str, _aws_pattern("Networkmanager", "ConstrainedString")]] = None
     Bandwidth: Optional[BandwidthTypeDef] = None
-    Provider: Optional[str] = None
+    Provider: Optional[Annotated[str, _aws_pattern("Networkmanager", "ConstrainedString")]] = None
 
 
 # This class is the input for the 'create_connect_peer' function.
 class CreateConnectPeerRequestTypeDef(BaseValidatorModel):
-    ConnectAttachmentId: str
-    PeerAddress: str
-    CoreNetworkAddress: Optional[str] = None
+    ConnectAttachmentId: Annotated[str, _aws_pattern("Networkmanager", "AttachmentId")]
+    PeerAddress: Annotated[str, _aws_pattern("Networkmanager", "IPAddress")]
+    CoreNetworkAddress: Optional[Annotated[str, _aws_pattern("Networkmanager", "IPAddress")]] = None
     BgpOptions: Optional[BgpOptionsTypeDef] = None
-    InsideCidrBlocks: Optional[List[str]] = None
+    InsideCidrBlocks: Optional[List[Annotated[str, _aws_pattern("Networkmanager", "ConstrainedString")]]] = None
     Tags: Optional[List[TagTypeDef]] = None
-    ClientToken: Optional[str] = None
-    SubnetArn: Optional[str] = None
+    ClientToken: Optional[Annotated[str, _aws_pattern("Networkmanager", "ClientToken")]] = None
+    SubnetArn: Optional[Annotated[str, _aws_pattern("Networkmanager", "SubnetArn")]] = None
 
 
 # This class is the input for the 'create_connect_attachment' function.
 class CreateConnectAttachmentRequestTypeDef(BaseValidatorModel):
-    CoreNetworkId: str
-    EdgeLocation: str
-    TransportAttachmentId: str
+    CoreNetworkId: Annotated[str, _aws_pattern("Networkmanager", "CoreNetworkId")]
+    EdgeLocation: Annotated[str, _aws_pattern("Networkmanager", "ExternalRegionCode")]
+    TransportAttachmentId: Annotated[str, _aws_pattern("Networkmanager", "AttachmentId")]
     Options: ConnectAttachmentOptionsTypeDef
-    RoutingPolicyLabel: Optional[str] = None
+    RoutingPolicyLabel: Optional[Annotated[str, _aws_pattern("Networkmanager", "ConstrainedString")]] = None
     Tags: Optional[List[TagTypeDef]] = None
-    ClientToken: Optional[str] = None
+    ClientToken: Optional[Annotated[str, _aws_pattern("Networkmanager", "ClientToken")]] = None
 
 
 class ConnectPeerConfigurationTypeDef(BaseValidatorModel):
-    CoreNetworkAddress: Optional[str] = None
-    PeerAddress: Optional[str] = None
-    InsideCidrBlocks: Optional[List[str]] = None
+    CoreNetworkAddress: Optional[Annotated[str, _aws_pattern("Networkmanager", "IPAddress")]] = None
+    PeerAddress: Optional[Annotated[str, _aws_pattern("Networkmanager", "IPAddress")]] = None
+    InsideCidrBlocks: Optional[List[Annotated[str, _aws_pattern("Networkmanager", "ConstrainedString")]]] = None
     Protocol: Optional[TunnelProtocolType] = None
     BgpConfigurations: Optional[List[ConnectPeerBgpConfigurationTypeDef]] = None
 
 
 class NetworkTelemetryTypeDef(BaseValidatorModel):
-    RegisteredGatewayArn: Optional[str] = None
-    CoreNetworkId: Optional[str] = None
-    AwsRegion: Optional[str] = None
-    AccountId: Optional[str] = None
-    ResourceType: Optional[str] = None
-    ResourceId: Optional[str] = None
-    ResourceArn: Optional[str] = None
-    Address: Optional[str] = None
+    RegisteredGatewayArn: Optional[Annotated[str, _aws_pattern("Networkmanager", "ResourceArn")]] = None
+    CoreNetworkId: Optional[Annotated[str, _aws_pattern("Networkmanager", "CoreNetworkId")]] = None
+    AwsRegion: Optional[Annotated[str, _aws_pattern("Networkmanager", "ExternalRegionCode")]] = None
+    AccountId: Optional[Annotated[str, _aws_pattern("Networkmanager", "AWSAccountId")]] = None
+    ResourceType: Optional[Annotated[str, _aws_pattern("Networkmanager", "ConstrainedString")]] = None
+    ResourceId: Optional[Annotated[str, _aws_pattern("Networkmanager", "ConstrainedString")]] = None
+    ResourceArn: Optional[Annotated[str, _aws_pattern("Networkmanager", "ResourceArn")]] = None
+    Address: Optional[Annotated[str, _aws_pattern("Networkmanager", "ConstrainedString")]] = None
     Health: Optional[ConnectionHealthTypeDef] = None
 
 
 class CoreNetworkChangeEventValuesTypeDef(BaseValidatorModel):
-    EdgeLocation: Optional[str] = None
-    PeerEdgeLocation: Optional[str] = None
+    EdgeLocation: Optional[Annotated[str, _aws_pattern("Networkmanager", "ExternalRegionCode")]] = None
+    PeerEdgeLocation: Optional[Annotated[str, _aws_pattern("Networkmanager", "ExternalRegionCode")]] = None
     RoutingPolicyDirection: Optional[RoutingPolicyDirectionType] = None
-    SegmentName: Optional[str] = None
-    NetworkFunctionGroupName: Optional[str] = None
-    AttachmentId: Optional[str] = None
-    Cidr: Optional[str] = None
+    SegmentName: Optional[Annotated[str, _aws_pattern("Networkmanager", "ConstrainedString")]] = None
+    NetworkFunctionGroupName: Optional[Annotated[str, _aws_pattern("Networkmanager", "ConstrainedString")]] = None
+    AttachmentId: Optional[Annotated[str, _aws_pattern("Networkmanager", "AttachmentId")]] = None
+    Cidr: Optional[Annotated[str, _aws_pattern("Networkmanager", "ConstrainedString")]] = None
     RoutingPolicyAssociationDetails: Optional[List[RoutingPolicyAssociationDetailTypeDef]] = None
 
 
 class CoreNetworkNetworkFunctionGroupTypeDef(BaseValidatorModel):
-    Name: Optional[str] = None
-    EdgeLocations: Optional[List[str]] = None
+    Name: Optional[Annotated[str, _aws_pattern("Networkmanager", "ConstrainedString")]] = None
+    EdgeLocations: Optional[List[Annotated[str, _aws_pattern("Networkmanager", "ExternalRegionCode")]]] = None
     Segments: Optional[ServiceInsertionSegmentsTypeDef] = None
 
 
 class CoreNetworkPolicyTypeDef(BaseValidatorModel):
-    CoreNetworkId: Optional[str] = None
+    CoreNetworkId: Optional[Annotated[str, _aws_pattern("Networkmanager", "CoreNetworkId")]] = None
     PolicyVersionId: Optional[int] = None
     Alias: Optional[CoreNetworkPolicyAliasType] = None
-    Description: Optional[str] = None
+    Description: Optional[Annotated[str, _aws_pattern("Networkmanager", "ConstrainedString")]] = None
     CreatedAt: Optional[datetime] = None
     ChangeSetState: Optional[ChangeSetStateType] = None
     PolicyErrors: Optional[List[CoreNetworkPolicyErrorTypeDef]] = None
-    PolicyDocument: Optional[str] = None
+    PolicyDocument: Optional[Annotated[str, _aws_pattern("Networkmanager", "CoreNetworkPolicyDocument")]] = None
 
 
 # This class is the output for the 'list_core_network_policy_versions' function.
 class ListCoreNetworkPolicyVersionsResponseTypeDef(BaseValidatorModel):
     CoreNetworkPolicyVersions: List[CoreNetworkPolicyVersionTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
-    NextToken: Optional[str] = None
+    NextToken: Optional[Annotated[str, _aws_pattern("Networkmanager", "NextToken")]] = None
 
 
 class CoreNetworkRoutingInformationTypeDef(BaseValidatorModel):
-    Prefix: Optional[str] = None
+    Prefix: Optional[Annotated[str, _aws_pattern("Networkmanager", "ConstrainedString")]] = None
     NextHop: Optional[RoutingInformationNextHopTypeDef] = None
-    LocalPreference: Optional[str] = None
-    Med: Optional[str] = None
-    AsPath: Optional[List[str]] = None
-    Communities: Optional[List[str]] = None
+    LocalPreference: Optional[Annotated[str, _aws_pattern("Networkmanager", "ConstrainedString")]] = None
+    Med: Optional[Annotated[str, _aws_pattern("Networkmanager", "ConstrainedString")]] = None
+    AsPath: Optional[List[Annotated[str, _aws_pattern("Networkmanager", "ConstrainedString")]]] = None
+    Communities: Optional[List[Annotated[str, _aws_pattern("Networkmanager", "ConstrainedString")]]] = None
 
 
 class RouteTableIdentifierTypeDef(BaseValidatorModel):
-    TransitGatewayRouteTableArn: Optional[str] = None
+    TransitGatewayRouteTableArn: Optional[
+        Annotated[str, _aws_pattern("Networkmanager", "TransitGatewayRouteTableArn")]
+    ] = None
     CoreNetworkSegmentEdge: Optional[CoreNetworkSegmentEdgeIdentifierTypeDef] = None
     CoreNetworkNetworkFunctionGroup: Optional[CoreNetworkNetworkFunctionGroupIdentifierTypeDef] = None
 
 
 # This class is the input for the 'create_device' function.
 class CreateDeviceRequestTypeDef(BaseValidatorModel):
-    GlobalNetworkId: str
+    GlobalNetworkId: Annotated[str, _aws_pattern("Networkmanager", "GlobalNetworkId")]
     AWSLocation: Optional[AWSLocationTypeDef] = None
-    Description: Optional[str] = None
-    Type: Optional[str] = None
-    Vendor: Optional[str] = None
-    Model: Optional[str] = None
-    SerialNumber: Optional[str] = None
+    Description: Optional[Annotated[str, _aws_pattern("Networkmanager", "ConstrainedString")]] = None
+    Type: Optional[Annotated[str, _aws_pattern("Networkmanager", "ConstrainedString")]] = None
+    Vendor: Optional[Annotated[str, _aws_pattern("Networkmanager", "ConstrainedString")]] = None
+    Model: Optional[Annotated[str, _aws_pattern("Networkmanager", "ConstrainedString")]] = None
+    SerialNumber: Optional[Annotated[str, _aws_pattern("Networkmanager", "ConstrainedString")]] = None
     Location: Optional[LocationTypeDef] = None
-    SiteId: Optional[str] = None
+    SiteId: Optional[Annotated[str, _aws_pattern("Networkmanager", "SiteId")]] = None
     Tags: Optional[List[TagTypeDef]] = None
 
 
 # This class is the input for the 'create_site' function.
 class CreateSiteRequestTypeDef(BaseValidatorModel):
-    GlobalNetworkId: str
-    Description: Optional[str] = None
+    GlobalNetworkId: Annotated[str, _aws_pattern("Networkmanager", "GlobalNetworkId")]
+    Description: Optional[Annotated[str, _aws_pattern("Networkmanager", "ConstrainedString")]] = None
     Location: Optional[LocationTypeDef] = None
     Tags: Optional[List[TagTypeDef]] = None
 
 
 class DeviceTypeDef(BaseValidatorModel):
-    DeviceId: Optional[str] = None
-    DeviceArn: Optional[str] = None
-    GlobalNetworkId: Optional[str] = None
+    DeviceId: Optional[Annotated[str, _aws_pattern("Networkmanager", "DeviceId")]] = None
+    DeviceArn: Optional[Annotated[str, _aws_pattern("Networkmanager", "DeviceArn")]] = None
+    GlobalNetworkId: Optional[Annotated[str, _aws_pattern("Networkmanager", "GlobalNetworkId")]] = None
     AWSLocation: Optional[AWSLocationTypeDef] = None
-    Description: Optional[str] = None
-    Type: Optional[str] = None
-    Vendor: Optional[str] = None
-    Model: Optional[str] = None
-    SerialNumber: Optional[str] = None
+    Description: Optional[Annotated[str, _aws_pattern("Networkmanager", "ConstrainedString")]] = None
+    Type: Optional[Annotated[str, _aws_pattern("Networkmanager", "ConstrainedString")]] = None
+    Vendor: Optional[Annotated[str, _aws_pattern("Networkmanager", "ConstrainedString")]] = None
+    Model: Optional[Annotated[str, _aws_pattern("Networkmanager", "ConstrainedString")]] = None
+    SerialNumber: Optional[Annotated[str, _aws_pattern("Networkmanager", "ConstrainedString")]] = None
     Location: Optional[LocationTypeDef] = None
-    SiteId: Optional[str] = None
+    SiteId: Optional[Annotated[str, _aws_pattern("Networkmanager", "SiteId")]] = None
     CreatedAt: Optional[datetime] = None
     State: Optional[DeviceStateType] = None
     Tags: Optional[List[TagTypeDef]] = None
 
 
 class SiteTypeDef(BaseValidatorModel):
-    SiteId: Optional[str] = None
-    SiteArn: Optional[str] = None
-    GlobalNetworkId: Optional[str] = None
-    Description: Optional[str] = None
+    SiteId: Optional[Annotated[str, _aws_pattern("Networkmanager", "SiteId")]] = None
+    SiteArn: Optional[Annotated[str, _aws_pattern("Networkmanager", "SiteArn")]] = None
+    GlobalNetworkId: Optional[Annotated[str, _aws_pattern("Networkmanager", "GlobalNetworkId")]] = None
+    Description: Optional[Annotated[str, _aws_pattern("Networkmanager", "ConstrainedString")]] = None
     Location: Optional[LocationTypeDef] = None
     CreatedAt: Optional[datetime] = None
     State: Optional[SiteStateType] = None
@@ -1269,42 +1285,42 @@ class SiteTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'update_device' function.
 class UpdateDeviceRequestTypeDef(BaseValidatorModel):
-    GlobalNetworkId: str
-    DeviceId: str
+    GlobalNetworkId: Annotated[str, _aws_pattern("Networkmanager", "GlobalNetworkId")]
+    DeviceId: Annotated[str, _aws_pattern("Networkmanager", "DeviceId")]
     AWSLocation: Optional[AWSLocationTypeDef] = None
-    Description: Optional[str] = None
-    Type: Optional[str] = None
-    Vendor: Optional[str] = None
-    Model: Optional[str] = None
-    SerialNumber: Optional[str] = None
+    Description: Optional[Annotated[str, _aws_pattern("Networkmanager", "ConstrainedString")]] = None
+    Type: Optional[Annotated[str, _aws_pattern("Networkmanager", "ConstrainedString")]] = None
+    Vendor: Optional[Annotated[str, _aws_pattern("Networkmanager", "ConstrainedString")]] = None
+    Model: Optional[Annotated[str, _aws_pattern("Networkmanager", "ConstrainedString")]] = None
+    SerialNumber: Optional[Annotated[str, _aws_pattern("Networkmanager", "ConstrainedString")]] = None
     Location: Optional[LocationTypeDef] = None
-    SiteId: Optional[str] = None
+    SiteId: Optional[Annotated[str, _aws_pattern("Networkmanager", "SiteId")]] = None
 
 
 # This class is the input for the 'update_site' function.
 class UpdateSiteRequestTypeDef(BaseValidatorModel):
-    GlobalNetworkId: str
-    SiteId: str
-    Description: Optional[str] = None
+    GlobalNetworkId: Annotated[str, _aws_pattern("Networkmanager", "GlobalNetworkId")]
+    SiteId: Annotated[str, _aws_pattern("Networkmanager", "SiteId")]
+    Description: Optional[Annotated[str, _aws_pattern("Networkmanager", "ConstrainedString")]] = None
     Location: Optional[LocationTypeDef] = None
 
 
 # This class is the input for the 'create_vpc_attachment' function.
 class CreateVpcAttachmentRequestTypeDef(BaseValidatorModel):
-    CoreNetworkId: str
-    VpcArn: str
-    SubnetArns: List[str]
+    CoreNetworkId: Annotated[str, _aws_pattern("Networkmanager", "CoreNetworkId")]
+    VpcArn: Annotated[str, _aws_pattern("Networkmanager", "VpcArn")]
+    SubnetArns: List[Annotated[str, _aws_pattern("Networkmanager", "SubnetArn")]]
     Options: Optional[VpcOptionsTypeDef] = None
-    RoutingPolicyLabel: Optional[str] = None
+    RoutingPolicyLabel: Optional[Annotated[str, _aws_pattern("Networkmanager", "ConstrainedString")]] = None
     Tags: Optional[List[TagTypeDef]] = None
-    ClientToken: Optional[str] = None
+    ClientToken: Optional[Annotated[str, _aws_pattern("Networkmanager", "ClientToken")]] = None
 
 
 # This class is the input for the 'update_vpc_attachment' function.
 class UpdateVpcAttachmentRequestTypeDef(BaseValidatorModel):
-    AttachmentId: str
-    AddSubnetArns: Optional[List[str]] = None
-    RemoveSubnetArns: Optional[List[str]] = None
+    AttachmentId: Annotated[str, _aws_pattern("Networkmanager", "AttachmentId")]
+    AddSubnetArns: Optional[List[Annotated[str, _aws_pattern("Networkmanager", "SubnetArn")]]] = None
+    RemoveSubnetArns: Optional[List[Annotated[str, _aws_pattern("Networkmanager", "SubnetArn")]]] = None
     Options: Optional[VpcOptionsTypeDef] = None
 
 
@@ -1483,21 +1499,21 @@ class ListPeeringsRequestPaginateTypeDef(BaseValidatorModel):
 class GetNetworkResourceCountsResponseTypeDef(BaseValidatorModel):
     NetworkResourceCounts: List[NetworkResourceCountTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
-    NextToken: Optional[str] = None
+    NextToken: Optional[Annotated[str, _aws_pattern("Networkmanager", "NextToken")]] = None
 
 
 # This class is the output for the 'get_network_resource_relationships' function.
 class GetNetworkResourceRelationshipsResponseTypeDef(BaseValidatorModel):
     Relationships: List[RelationshipTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
-    NextToken: Optional[str] = None
+    NextToken: Optional[Annotated[str, _aws_pattern("Networkmanager", "NextToken")]] = None
 
 
 # This class is the output for the 'list_core_network_prefix_list_associations' function.
 class ListCoreNetworkPrefixListAssociationsResponseTypeDef(BaseValidatorModel):
     PrefixListAssociations: List[PrefixListAssociationTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
-    NextToken: Optional[str] = None
+    NextToken: Optional[Annotated[str, _aws_pattern("Networkmanager", "NextToken")]] = None
 
 
 class ViaTypeDef(BaseValidatorModel):
@@ -1508,28 +1524,28 @@ class ViaTypeDef(BaseValidatorModel):
 class PathComponentTypeDef(BaseValidatorModel):
     Sequence: Optional[int] = None
     Resource: Optional[NetworkResourceSummaryTypeDef] = None
-    DestinationCidrBlock: Optional[str] = None
+    DestinationCidrBlock: Optional[Annotated[str, _aws_pattern("Networkmanager", "ConstrainedString")]] = None
 
 
 class NetworkRouteTypeDef(BaseValidatorModel):
-    DestinationCidrBlock: Optional[str] = None
+    DestinationCidrBlock: Optional[Annotated[str, _aws_pattern("Networkmanager", "ConstrainedString")]] = None
     Destinations: Optional[List[NetworkRouteDestinationTypeDef]] = None
-    PrefixListId: Optional[str] = None
+    PrefixListId: Optional[Annotated[str, _aws_pattern("Networkmanager", "ConstrainedString")]] = None
     State: Optional[RouteStateType] = None
     Type: Optional[RouteTypeType] = None
 
 
 class PeeringErrorTypeDef(BaseValidatorModel):
     Code: Optional[PeeringErrorCodeType] = None
-    Message: Optional[str] = None
-    ResourceArn: Optional[str] = None
-    RequestId: Optional[str] = None
+    Message: Optional[Annotated[str, _aws_pattern("Networkmanager", "ServerSideString")]] = None
+    ResourceArn: Optional[Annotated[str, _aws_pattern("Networkmanager", "ResourceArn")]] = None
+    RequestId: Optional[Annotated[str, _aws_pattern("Networkmanager", "ServerSideString")]] = None
     MissingPermissionsContext: Optional[PermissionsErrorContextTypeDef] = None
 
 
 # This class is the input for the 'start_route_analysis' function.
 class StartRouteAnalysisRequestTypeDef(BaseValidatorModel):
-    GlobalNetworkId: str
+    GlobalNetworkId: Annotated[str, _aws_pattern("Networkmanager", "GlobalNetworkId")]
     Source: RouteAnalysisEndpointOptionsSpecificationTypeDef
     Destination: RouteAnalysisEndpointOptionsSpecificationTypeDef
     IncludeReturnPath: Optional[bool] = None
@@ -1537,8 +1553,8 @@ class StartRouteAnalysisRequestTypeDef(BaseValidatorModel):
 
 
 class TransitGatewayRegistrationTypeDef(BaseValidatorModel):
-    GlobalNetworkId: Optional[str] = None
-    TransitGatewayArn: Optional[str] = None
+    GlobalNetworkId: Optional[Annotated[str, _aws_pattern("Networkmanager", "GlobalNetworkId")]] = None
+    TransitGatewayArn: Optional[Annotated[str, _aws_pattern("Networkmanager", "TransitGatewayArn")]] = None
     State: Optional[TransitGatewayRegistrationStateReasonTypeDef] = None
 
 
@@ -1546,7 +1562,7 @@ class TransitGatewayRegistrationTypeDef(BaseValidatorModel):
 class ListOrganizationServiceAccessStatusResponseTypeDef(BaseValidatorModel):
     OrganizationStatus: OrganizationStatusTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
-    NextToken: Optional[str] = None
+    NextToken: Optional[Annotated[str, _aws_pattern("Networkmanager", "NextToken")]] = None
 
 
 # This class is the output for the 'start_organization_service_access_update' function.
@@ -1559,7 +1575,7 @@ class StartOrganizationServiceAccessUpdateResponseTypeDef(BaseValidatorModel):
 class ListConnectPeersResponseTypeDef(BaseValidatorModel):
     ConnectPeers: List[ConnectPeerSummaryTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
-    NextToken: Optional[str] = None
+    NextToken: Optional[Annotated[str, _aws_pattern("Networkmanager", "NextToken")]] = None
 
 
 # This class is the output for the 'create_connection' function.
@@ -1578,7 +1594,7 @@ class DeleteConnectionResponseTypeDef(BaseValidatorModel):
 class GetConnectionsResponseTypeDef(BaseValidatorModel):
     Connections: List[ConnectionTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
-    NextToken: Optional[str] = None
+    NextToken: Optional[Annotated[str, _aws_pattern("Networkmanager", "NextToken")]] = None
 
 
 # This class is the output for the 'update_connection' function.
@@ -1591,7 +1607,7 @@ class UpdateConnectionResponseTypeDef(BaseValidatorModel):
 class ListCoreNetworksResponseTypeDef(BaseValidatorModel):
     CoreNetworks: List[CoreNetworkSummaryTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
-    NextToken: Optional[str] = None
+    NextToken: Optional[Annotated[str, _aws_pattern("Networkmanager", "NextToken")]] = None
 
 
 # This class is the output for the 'create_global_network' function.
@@ -1610,7 +1626,7 @@ class DeleteGlobalNetworkResponseTypeDef(BaseValidatorModel):
 class DescribeGlobalNetworksResponseTypeDef(BaseValidatorModel):
     GlobalNetworks: List[GlobalNetworkTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
-    NextToken: Optional[str] = None
+    NextToken: Optional[Annotated[str, _aws_pattern("Networkmanager", "NextToken")]] = None
 
 
 # This class is the output for the 'update_global_network' function.
@@ -1623,22 +1639,24 @@ class UpdateGlobalNetworkResponseTypeDef(BaseValidatorModel):
 class GetNetworkResourcesResponseTypeDef(BaseValidatorModel):
     NetworkResources: List[NetworkResourceTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
-    NextToken: Optional[str] = None
+    NextToken: Optional[Annotated[str, _aws_pattern("Networkmanager", "NextToken")]] = None
 
 
 class AttachmentTypeDef(BaseValidatorModel):
-    CoreNetworkId: Optional[str] = None
-    CoreNetworkArn: Optional[str] = None
-    AttachmentId: Optional[str] = None
-    OwnerAccountId: Optional[str] = None
+    CoreNetworkId: Optional[Annotated[str, _aws_pattern("Networkmanager", "CoreNetworkId")]] = None
+    CoreNetworkArn: Optional[Annotated[str, _aws_pattern("Networkmanager", "CoreNetworkArn")]] = None
+    AttachmentId: Optional[Annotated[str, _aws_pattern("Networkmanager", "AttachmentId")]] = None
+    OwnerAccountId: Optional[Annotated[str, _aws_pattern("Networkmanager", "AWSAccountId")]] = None
     AttachmentType: Optional[AttachmentTypeType] = None
     State: Optional[AttachmentStateType] = None
-    EdgeLocation: Optional[str] = None
-    EdgeLocations: Optional[List[str]] = None
-    ResourceArn: Optional[str] = None
+    EdgeLocation: Optional[Annotated[str, _aws_pattern("Networkmanager", "ExternalRegionCode")]] = None
+    EdgeLocations: Optional[List[Annotated[str, _aws_pattern("Networkmanager", "ExternalRegionCode")]]] = None
+    ResourceArn: Optional[Annotated[str, _aws_pattern("Networkmanager", "ResourceArn")]] = None
     AttachmentPolicyRuleNumber: Optional[int] = None
-    SegmentName: Optional[str] = None
-    NetworkFunctionGroupName: Optional[str] = None
+    SegmentName: Optional[Annotated[str, _aws_pattern("Networkmanager", "ConstrainedString")]] = None
+    NetworkFunctionGroupName: Optional[Annotated[str, _aws_pattern("Networkmanager", "NetworkFunctionGroupName")]] = (
+        None
+    )
     Tags: Optional[List[TagTypeDef]] = None
     ProposedSegmentChange: Optional[ProposedSegmentChangeTypeDef] = None
     ProposedNetworkFunctionGroupChange: Optional[ProposedNetworkFunctionGroupChangeTypeDef] = None
@@ -1663,7 +1681,7 @@ class DeleteLinkResponseTypeDef(BaseValidatorModel):
 class GetLinksResponseTypeDef(BaseValidatorModel):
     Links: List[LinkTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
-    NextToken: Optional[str] = None
+    NextToken: Optional[Annotated[str, _aws_pattern("Networkmanager", "NextToken")]] = None
 
 
 # This class is the output for the 'update_link' function.
@@ -1673,15 +1691,15 @@ class UpdateLinkResponseTypeDef(BaseValidatorModel):
 
 
 class ConnectPeerTypeDef(BaseValidatorModel):
-    CoreNetworkId: Optional[str] = None
-    ConnectAttachmentId: Optional[str] = None
-    ConnectPeerId: Optional[str] = None
-    EdgeLocation: Optional[str] = None
+    CoreNetworkId: Optional[Annotated[str, _aws_pattern("Networkmanager", "CoreNetworkId")]] = None
+    ConnectAttachmentId: Optional[Annotated[str, _aws_pattern("Networkmanager", "AttachmentId")]] = None
+    ConnectPeerId: Optional[Annotated[str, _aws_pattern("Networkmanager", "ConnectPeerId")]] = None
+    EdgeLocation: Optional[Annotated[str, _aws_pattern("Networkmanager", "ExternalRegionCode")]] = None
     State: Optional[ConnectPeerStateType] = None
     CreatedAt: Optional[datetime] = None
     Configuration: Optional[ConnectPeerConfigurationTypeDef] = None
     Tags: Optional[List[TagTypeDef]] = None
-    SubnetArn: Optional[str] = None
+    SubnetArn: Optional[Annotated[str, _aws_pattern("Networkmanager", "SubnetArn")]] = None
     LastModificationErrors: Optional[List[ConnectPeerErrorTypeDef]] = None
 
 
@@ -1689,23 +1707,23 @@ class ConnectPeerTypeDef(BaseValidatorModel):
 class GetNetworkTelemetryResponseTypeDef(BaseValidatorModel):
     NetworkTelemetry: List[NetworkTelemetryTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
-    NextToken: Optional[str] = None
+    NextToken: Optional[Annotated[str, _aws_pattern("Networkmanager", "NextToken")]] = None
 
 
 class CoreNetworkChangeEventTypeDef(BaseValidatorModel):
     Type: Optional[ChangeTypeType] = None
     Action: Optional[ChangeActionType] = None
-    IdentifierPath: Optional[str] = None
+    IdentifierPath: Optional[Annotated[str, _aws_pattern("Networkmanager", "ConstrainedString")]] = None
     EventTime: Optional[datetime] = None
     Status: Optional[ChangeStatusType] = None
     Values: Optional[CoreNetworkChangeEventValuesTypeDef] = None
 
 
 class CoreNetworkTypeDef(BaseValidatorModel):
-    GlobalNetworkId: Optional[str] = None
-    CoreNetworkId: Optional[str] = None
-    CoreNetworkArn: Optional[str] = None
-    Description: Optional[str] = None
+    GlobalNetworkId: Optional[Annotated[str, _aws_pattern("Networkmanager", "GlobalNetworkId")]] = None
+    CoreNetworkId: Optional[Annotated[str, _aws_pattern("Networkmanager", "CoreNetworkId")]] = None
+    CoreNetworkArn: Optional[Annotated[str, _aws_pattern("Networkmanager", "CoreNetworkArn")]] = None
+    Description: Optional[Annotated[str, _aws_pattern("Networkmanager", "ConstrainedString")]] = None
     CreatedAt: Optional[datetime] = None
     State: Optional[CoreNetworkStateType] = None
     Segments: Optional[List[CoreNetworkSegmentTypeDef]] = None
@@ -1742,18 +1760,18 @@ class RestoreCoreNetworkPolicyVersionResponseTypeDef(BaseValidatorModel):
 class ListCoreNetworkRoutingInformationResponseTypeDef(BaseValidatorModel):
     CoreNetworkRoutingInformation: List[CoreNetworkRoutingInformationTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
-    NextToken: Optional[str] = None
+    NextToken: Optional[Annotated[str, _aws_pattern("Networkmanager", "NextToken")]] = None
 
 
 # This class is the input for the 'get_network_routes' function.
 class GetNetworkRoutesRequestTypeDef(BaseValidatorModel):
-    GlobalNetworkId: str
+    GlobalNetworkId: Annotated[str, _aws_pattern("Networkmanager", "GlobalNetworkId")]
     RouteTableIdentifier: RouteTableIdentifierTypeDef
-    ExactCidrMatches: Optional[List[str]] = None
-    LongestPrefixMatches: Optional[List[str]] = None
-    SubnetOfMatches: Optional[List[str]] = None
-    SupernetOfMatches: Optional[List[str]] = None
-    PrefixListIds: Optional[List[str]] = None
+    ExactCidrMatches: Optional[List[Annotated[str, _aws_pattern("Networkmanager", "ConstrainedString")]]] = None
+    LongestPrefixMatches: Optional[List[Annotated[str, _aws_pattern("Networkmanager", "ConstrainedString")]]] = None
+    SubnetOfMatches: Optional[List[Annotated[str, _aws_pattern("Networkmanager", "ConstrainedString")]]] = None
+    SupernetOfMatches: Optional[List[Annotated[str, _aws_pattern("Networkmanager", "ConstrainedString")]]] = None
+    PrefixListIds: Optional[List[Annotated[str, _aws_pattern("Networkmanager", "ConstrainedString")]]] = None
     States: Optional[List[RouteStateType]] = None
     Types: Optional[List[RouteTypeType]] = None
     DestinationFilters: Optional[Dict[str, List[str]]] = None
@@ -1775,7 +1793,7 @@ class DeleteDeviceResponseTypeDef(BaseValidatorModel):
 class GetDevicesResponseTypeDef(BaseValidatorModel):
     Devices: List[DeviceTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
-    NextToken: Optional[str] = None
+    NextToken: Optional[Annotated[str, _aws_pattern("Networkmanager", "NextToken")]] = None
 
 
 # This class is the output for the 'update_device' function.
@@ -1800,7 +1818,7 @@ class DeleteSiteResponseTypeDef(BaseValidatorModel):
 class GetSitesResponseTypeDef(BaseValidatorModel):
     Sites: List[SiteTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
-    NextToken: Optional[str] = None
+    NextToken: Optional[Annotated[str, _aws_pattern("Networkmanager", "NextToken")]] = None
 
 
 # This class is the output for the 'update_site' function.
@@ -1823,7 +1841,7 @@ class RouteAnalysisPathTypeDef(BaseValidatorModel):
 
 # This class is the output for the 'get_network_routes' function.
 class GetNetworkRoutesResponseTypeDef(BaseValidatorModel):
-    RouteTableArn: str
+    RouteTableArn: Annotated[str, _aws_pattern("Networkmanager", "ResourceArn")]
     CoreNetworkSegmentEdge: CoreNetworkSegmentEdgeIdentifierTypeDef
     RouteTableType: RouteTableTypeType
     RouteTableTimestamp: datetime
@@ -1832,14 +1850,14 @@ class GetNetworkRoutesResponseTypeDef(BaseValidatorModel):
 
 
 class PeeringTypeDef(BaseValidatorModel):
-    CoreNetworkId: Optional[str] = None
-    CoreNetworkArn: Optional[str] = None
-    PeeringId: Optional[str] = None
-    OwnerAccountId: Optional[str] = None
+    CoreNetworkId: Optional[Annotated[str, _aws_pattern("Networkmanager", "CoreNetworkId")]] = None
+    CoreNetworkArn: Optional[Annotated[str, _aws_pattern("Networkmanager", "CoreNetworkArn")]] = None
+    PeeringId: Optional[Annotated[str, _aws_pattern("Networkmanager", "PeeringId")]] = None
+    OwnerAccountId: Optional[Annotated[str, _aws_pattern("Networkmanager", "AWSAccountId")]] = None
     PeeringType: Optional[Literal["TRANSIT_GATEWAY"]] = None
     State: Optional[PeeringStateType] = None
-    EdgeLocation: Optional[str] = None
-    ResourceArn: Optional[str] = None
+    EdgeLocation: Optional[Annotated[str, _aws_pattern("Networkmanager", "ExternalRegionCode")]] = None
+    ResourceArn: Optional[Annotated[str, _aws_pattern("Networkmanager", "ResourceArn")]] = None
     Tags: Optional[List[TagTypeDef]] = None
     CreatedAt: Optional[datetime] = None
     LastModificationErrors: Optional[List[PeeringErrorTypeDef]] = None
@@ -1855,7 +1873,7 @@ class DeregisterTransitGatewayResponseTypeDef(BaseValidatorModel):
 class GetTransitGatewayRegistrationsResponseTypeDef(BaseValidatorModel):
     TransitGatewayRegistrations: List[TransitGatewayRegistrationTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
-    NextToken: Optional[str] = None
+    NextToken: Optional[Annotated[str, _aws_pattern("Networkmanager", "NextToken")]] = None
 
 
 # This class is the output for the 'register_transit_gateway' function.
@@ -1872,7 +1890,7 @@ class AcceptAttachmentResponseTypeDef(BaseValidatorModel):
 
 class ConnectAttachmentTypeDef(BaseValidatorModel):
     Attachment: Optional[AttachmentTypeDef] = None
-    TransportAttachmentId: Optional[str] = None
+    TransportAttachmentId: Optional[Annotated[str, _aws_pattern("Networkmanager", "AttachmentId")]] = None
     Options: Optional[ConnectAttachmentOptionsTypeDef] = None
 
 
@@ -1884,14 +1902,14 @@ class DeleteAttachmentResponseTypeDef(BaseValidatorModel):
 
 class DirectConnectGatewayAttachmentTypeDef(BaseValidatorModel):
     Attachment: Optional[AttachmentTypeDef] = None
-    DirectConnectGatewayArn: Optional[str] = None
+    DirectConnectGatewayArn: Optional[Annotated[str, _aws_pattern("Networkmanager", "DirectConnectGatewayArn")]] = None
 
 
 # This class is the output for the 'list_attachments' function.
 class ListAttachmentsResponseTypeDef(BaseValidatorModel):
     Attachments: List[AttachmentTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
-    NextToken: Optional[str] = None
+    NextToken: Optional[Annotated[str, _aws_pattern("Networkmanager", "NextToken")]] = None
 
 
 # This class is the output for the 'reject_attachment' function.
@@ -1902,18 +1920,20 @@ class RejectAttachmentResponseTypeDef(BaseValidatorModel):
 
 class SiteToSiteVpnAttachmentTypeDef(BaseValidatorModel):
     Attachment: Optional[AttachmentTypeDef] = None
-    VpnConnectionArn: Optional[str] = None
+    VpnConnectionArn: Optional[Annotated[str, _aws_pattern("Networkmanager", "VpnConnectionArn")]] = None
 
 
 class TransitGatewayRouteTableAttachmentTypeDef(BaseValidatorModel):
     Attachment: Optional[AttachmentTypeDef] = None
-    PeeringId: Optional[str] = None
-    TransitGatewayRouteTableArn: Optional[str] = None
+    PeeringId: Optional[Annotated[str, _aws_pattern("Networkmanager", "PeeringId")]] = None
+    TransitGatewayRouteTableArn: Optional[
+        Annotated[str, _aws_pattern("Networkmanager", "TransitGatewayRouteTableArn")]
+    ] = None
 
 
 class VpcAttachmentTypeDef(BaseValidatorModel):
     Attachment: Optional[AttachmentTypeDef] = None
-    SubnetArns: Optional[List[str]] = None
+    SubnetArns: Optional[List[Annotated[str, _aws_pattern("Networkmanager", "SubnetArn")]]] = None
     Options: Optional[VpcOptionsTypeDef] = None
 
 
@@ -1939,7 +1959,7 @@ class GetConnectPeerResponseTypeDef(BaseValidatorModel):
 class GetCoreNetworkChangeEventsResponseTypeDef(BaseValidatorModel):
     CoreNetworkChangeEvents: List[CoreNetworkChangeEventTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
-    NextToken: Optional[str] = None
+    NextToken: Optional[Annotated[str, _aws_pattern("Networkmanager", "NextToken")]] = None
 
 
 # This class is the output for the 'create_core_network' function.
@@ -1967,29 +1987,29 @@ class UpdateCoreNetworkResponseTypeDef(BaseValidatorModel):
 
 
 class CoreNetworkChangeValuesTypeDef(BaseValidatorModel):
-    SegmentName: Optional[str] = None
-    NetworkFunctionGroupName: Optional[str] = None
-    EdgeLocations: Optional[List[str]] = None
+    SegmentName: Optional[Annotated[str, _aws_pattern("Networkmanager", "ConstrainedString")]] = None
+    NetworkFunctionGroupName: Optional[Annotated[str, _aws_pattern("Networkmanager", "ConstrainedString")]] = None
+    EdgeLocations: Optional[List[Annotated[str, _aws_pattern("Networkmanager", "ExternalRegionCode")]]] = None
     Asn: Optional[int] = None
-    Cidr: Optional[str] = None
-    DestinationIdentifier: Optional[str] = None
-    InsideCidrBlocks: Optional[List[str]] = None
-    SharedSegments: Optional[List[str]] = None
+    Cidr: Optional[Annotated[str, _aws_pattern("Networkmanager", "ConstrainedString")]] = None
+    DestinationIdentifier: Optional[Annotated[str, _aws_pattern("Networkmanager", "ConstrainedString")]] = None
+    InsideCidrBlocks: Optional[List[Annotated[str, _aws_pattern("Networkmanager", "ConstrainedString")]]] = None
+    SharedSegments: Optional[List[Annotated[str, _aws_pattern("Networkmanager", "ConstrainedString")]]] = None
     ServiceInsertionActions: Optional[List[ServiceInsertionActionTypeDef]] = None
     VpnEcmpSupport: Optional[bool] = None
     DnsSupport: Optional[bool] = None
     SecurityGroupReferencingSupport: Optional[bool] = None
     RoutingPolicyDirection: Optional[RoutingPolicyDirectionType] = None
-    RoutingPolicy: Optional[str] = None
-    PeerEdgeLocations: Optional[List[str]] = None
-    AttachmentId: Optional[str] = None
+    RoutingPolicy: Optional[Annotated[str, _aws_pattern("Networkmanager", "CoreNetworkPolicyDocument")]] = None
+    PeerEdgeLocations: Optional[List[Annotated[str, _aws_pattern("Networkmanager", "ExternalRegionCode")]]] = None
+    AttachmentId: Optional[Annotated[str, _aws_pattern("Networkmanager", "ConstrainedString")]] = None
     RoutingPolicyAssociationDetails: Optional[List[RoutingPolicyAssociationDetailTypeDef]] = None
 
 
 class RouteAnalysisTypeDef(BaseValidatorModel):
-    GlobalNetworkId: Optional[str] = None
-    OwnerAccountId: Optional[str] = None
-    RouteAnalysisId: Optional[str] = None
+    GlobalNetworkId: Optional[Annotated[str, _aws_pattern("Networkmanager", "GlobalNetworkId")]] = None
+    OwnerAccountId: Optional[Annotated[str, _aws_pattern("Networkmanager", "AWSAccountId")]] = None
+    RouteAnalysisId: Optional[Annotated[str, _aws_pattern("Networkmanager", "ConstrainedString")]] = None
     StartTimestamp: Optional[datetime] = None
     Status: Optional[RouteAnalysisStatusType] = None
     Source: Optional[RouteAnalysisEndpointOptionsTypeDef] = None
@@ -2010,13 +2030,15 @@ class DeletePeeringResponseTypeDef(BaseValidatorModel):
 class ListPeeringsResponseTypeDef(BaseValidatorModel):
     Peerings: List[PeeringTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
-    NextToken: Optional[str] = None
+    NextToken: Optional[Annotated[str, _aws_pattern("Networkmanager", "NextToken")]] = None
 
 
 class TransitGatewayPeeringTypeDef(BaseValidatorModel):
     Peering: Optional[PeeringTypeDef] = None
-    TransitGatewayArn: Optional[str] = None
-    TransitGatewayPeeringAttachmentId: Optional[str] = None
+    TransitGatewayArn: Optional[Annotated[str, _aws_pattern("Networkmanager", "TransitGatewayArn")]] = None
+    TransitGatewayPeeringAttachmentId: Optional[
+        Annotated[str, _aws_pattern("Networkmanager", "TransitGatewayPeeringAttachmentId")]
+    ] = None
 
 
 # This class is the output for the 'create_connect_attachment' function.
@@ -2094,10 +2116,10 @@ class UpdateVpcAttachmentResponseTypeDef(BaseValidatorModel):
 class CoreNetworkChangeTypeDef(BaseValidatorModel):
     Type: Optional[ChangeTypeType] = None
     Action: Optional[ChangeActionType] = None
-    Identifier: Optional[str] = None
+    Identifier: Optional[Annotated[str, _aws_pattern("Networkmanager", "ConstrainedString")]] = None
     PreviousValues: Optional[CoreNetworkChangeValuesTypeDef] = None
     NewValues: Optional[CoreNetworkChangeValuesTypeDef] = None
-    IdentifierPath: Optional[str] = None
+    IdentifierPath: Optional[Annotated[str, _aws_pattern("Networkmanager", "ConstrainedString")]] = None
 
 
 # This class is the output for the 'get_route_analysis' function.
@@ -2128,4 +2150,4 @@ class GetTransitGatewayPeeringResponseTypeDef(BaseValidatorModel):
 class GetCoreNetworkChangeSetResponseTypeDef(BaseValidatorModel):
     CoreNetworkChanges: List[CoreNetworkChangeTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
-    NextToken: Optional[str] = None
+    NextToken: Optional[Annotated[str, _aws_pattern("Networkmanager", "NextToken")]] = None

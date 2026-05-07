@@ -3,6 +3,7 @@
 from datetime import datetime
 from decimal import Decimal
 from typing import (
+    Annotated,
     Any,
     Callable,
     Dict,
@@ -24,6 +25,7 @@ from botocore.response import StreamingBody
 from pydantic import Field
 
 from aws_resource_validator.core.base_validator_model import BaseValidatorModel, EventStream
+from aws_resource_validator.core.pattern_validation import aws_field_pattern as _aws_pattern
 from aws_resource_validator.pydantic_models.route53_recovery_readiness.route53_recovery_readiness_constants import *  # noqa: F401,F403
 
 # Optional boto3 symbols — imported lazily so services that don't need them
@@ -40,7 +42,7 @@ except ImportError:  # pragma: no cover
 
 class CellOutputTypeDef(BaseValidatorModel):
     CellArn: str
-    CellName: str
+    CellName: Annotated[str, _aws_pattern("Route53RecoveryReadiness", "__stringMax64PatternAAZAZ09Z")]
     Cells: List[str]
     ParentReadinessScopes: List[str]
     Tags: Optional[Dict[str, str]] = None
@@ -206,8 +208,10 @@ class ListReadinessChecksRequestTypeDef(BaseValidatorModel):
 
 class ReadinessCheckOutputTypeDef(BaseValidatorModel):
     ReadinessCheckArn: str
-    ResourceSet: str
-    ReadinessCheckName: Optional[str] = None
+    ResourceSet: Annotated[str, _aws_pattern("Route53RecoveryReadiness", "__stringMax64PatternAAZAZ09Z")]
+    ReadinessCheckName: Optional[
+        Annotated[str, _aws_pattern("Route53RecoveryReadiness", "__stringMax64PatternAAZAZ09Z")]
+    ] = None
     Tags: Optional[Dict[str, str]] = None
 
 
@@ -220,7 +224,7 @@ class ListRecoveryGroupsRequestTypeDef(BaseValidatorModel):
 class RecoveryGroupOutputTypeDef(BaseValidatorModel):
     Cells: List[str]
     RecoveryGroupArn: str
-    RecoveryGroupName: str
+    RecoveryGroupName: Annotated[str, _aws_pattern("Route53RecoveryReadiness", "__stringMax64PatternAAZAZ09Z")]
     Tags: Optional[Dict[str, str]] = None
 
 
@@ -289,7 +293,7 @@ class UpdateRecoveryGroupRequestTypeDef(BaseValidatorModel):
 # This class is the output for the 'create_cell' function.
 class CreateCellResponseTypeDef(BaseValidatorModel):
     CellArn: str
-    CellName: str
+    CellName: Annotated[str, _aws_pattern("Route53RecoveryReadiness", "__stringMax64PatternAAZAZ09Z")]
     Cells: List[str]
     ParentReadinessScopes: List[str]
     Tags: Dict[str, str]
@@ -305,8 +309,8 @@ class CreateCrossAccountAuthorizationResponseTypeDef(BaseValidatorModel):
 # This class is the output for the 'create_readiness_check' function.
 class CreateReadinessCheckResponseTypeDef(BaseValidatorModel):
     ReadinessCheckArn: str
-    ReadinessCheckName: str
-    ResourceSet: str
+    ReadinessCheckName: Annotated[str, _aws_pattern("Route53RecoveryReadiness", "__stringMax64PatternAAZAZ09Z")]
+    ResourceSet: Annotated[str, _aws_pattern("Route53RecoveryReadiness", "__stringMax64PatternAAZAZ09Z")]
     Tags: Dict[str, str]
     ResponseMetadata: ResponseMetadataTypeDef
 
@@ -315,7 +319,7 @@ class CreateReadinessCheckResponseTypeDef(BaseValidatorModel):
 class CreateRecoveryGroupResponseTypeDef(BaseValidatorModel):
     Cells: List[str]
     RecoveryGroupArn: str
-    RecoveryGroupName: str
+    RecoveryGroupName: Annotated[str, _aws_pattern("Route53RecoveryReadiness", "__stringMax64PatternAAZAZ09Z")]
     Tags: Dict[str, str]
     ResponseMetadata: ResponseMetadataTypeDef
 
@@ -328,7 +332,7 @@ class EmptyResponseMetadataTypeDef(BaseValidatorModel):
 # This class is the output for the 'get_cell' function.
 class GetCellResponseTypeDef(BaseValidatorModel):
     CellArn: str
-    CellName: str
+    CellName: Annotated[str, _aws_pattern("Route53RecoveryReadiness", "__stringMax64PatternAAZAZ09Z")]
     Cells: List[str]
     ParentReadinessScopes: List[str]
     Tags: Dict[str, str]
@@ -338,8 +342,8 @@ class GetCellResponseTypeDef(BaseValidatorModel):
 # This class is the output for the 'get_readiness_check' function.
 class GetReadinessCheckResponseTypeDef(BaseValidatorModel):
     ReadinessCheckArn: str
-    ReadinessCheckName: str
-    ResourceSet: str
+    ReadinessCheckName: Annotated[str, _aws_pattern("Route53RecoveryReadiness", "__stringMax64PatternAAZAZ09Z")]
+    ResourceSet: Annotated[str, _aws_pattern("Route53RecoveryReadiness", "__stringMax64PatternAAZAZ09Z")]
     Tags: Dict[str, str]
     ResponseMetadata: ResponseMetadataTypeDef
 
@@ -348,7 +352,7 @@ class GetReadinessCheckResponseTypeDef(BaseValidatorModel):
 class GetRecoveryGroupResponseTypeDef(BaseValidatorModel):
     Cells: List[str]
     RecoveryGroupArn: str
-    RecoveryGroupName: str
+    RecoveryGroupName: Annotated[str, _aws_pattern("Route53RecoveryReadiness", "__stringMax64PatternAAZAZ09Z")]
     Tags: Dict[str, str]
     ResponseMetadata: ResponseMetadataTypeDef
 
@@ -376,7 +380,7 @@ class ListTagsForResourcesResponseTypeDef(BaseValidatorModel):
 # This class is the output for the 'update_cell' function.
 class UpdateCellResponseTypeDef(BaseValidatorModel):
     CellArn: str
-    CellName: str
+    CellName: Annotated[str, _aws_pattern("Route53RecoveryReadiness", "__stringMax64PatternAAZAZ09Z")]
     Cells: List[str]
     ParentReadinessScopes: List[str]
     Tags: Dict[str, str]
@@ -386,8 +390,8 @@ class UpdateCellResponseTypeDef(BaseValidatorModel):
 # This class is the output for the 'update_readiness_check' function.
 class UpdateReadinessCheckResponseTypeDef(BaseValidatorModel):
     ReadinessCheckArn: str
-    ReadinessCheckName: str
-    ResourceSet: str
+    ReadinessCheckName: Annotated[str, _aws_pattern("Route53RecoveryReadiness", "__stringMax64PatternAAZAZ09Z")]
+    ResourceSet: Annotated[str, _aws_pattern("Route53RecoveryReadiness", "__stringMax64PatternAAZAZ09Z")]
     Tags: Dict[str, str]
     ResponseMetadata: ResponseMetadataTypeDef
 
@@ -396,7 +400,7 @@ class UpdateReadinessCheckResponseTypeDef(BaseValidatorModel):
 class UpdateRecoveryGroupResponseTypeDef(BaseValidatorModel):
     Cells: List[str]
     RecoveryGroupArn: str
-    RecoveryGroupName: str
+    RecoveryGroupName: Annotated[str, _aws_pattern("Route53RecoveryReadiness", "__stringMax64PatternAAZAZ09Z")]
     Tags: Dict[str, str]
     ResponseMetadata: ResponseMetadataTypeDef
 
@@ -546,8 +550,8 @@ class ResourceTypeDef(BaseValidatorModel):
 # This class is the output for the 'create_resource_set' function.
 class CreateResourceSetResponseTypeDef(BaseValidatorModel):
     ResourceSetArn: str
-    ResourceSetName: str
-    ResourceSetType: str
+    ResourceSetName: Annotated[str, _aws_pattern("Route53RecoveryReadiness", "__stringMax64PatternAAZAZ09Z")]
+    ResourceSetType: Annotated[str, _aws_pattern("Route53RecoveryReadiness", "__stringPatternAWSAZaZ09AZaZ09")]
     Resources: List[ResourceOutputTypeDef]
     Tags: Dict[str, str]
     ResponseMetadata: ResponseMetadataTypeDef
@@ -556,8 +560,8 @@ class CreateResourceSetResponseTypeDef(BaseValidatorModel):
 # This class is the output for the 'get_resource_set' function.
 class GetResourceSetResponseTypeDef(BaseValidatorModel):
     ResourceSetArn: str
-    ResourceSetName: str
-    ResourceSetType: str
+    ResourceSetName: Annotated[str, _aws_pattern("Route53RecoveryReadiness", "__stringMax64PatternAAZAZ09Z")]
+    ResourceSetType: Annotated[str, _aws_pattern("Route53RecoveryReadiness", "__stringPatternAWSAZaZ09AZaZ09")]
     Resources: List[ResourceOutputTypeDef]
     Tags: Dict[str, str]
     ResponseMetadata: ResponseMetadataTypeDef
@@ -565,8 +569,8 @@ class GetResourceSetResponseTypeDef(BaseValidatorModel):
 
 class ResourceSetOutputTypeDef(BaseValidatorModel):
     ResourceSetArn: str
-    ResourceSetName: str
-    ResourceSetType: str
+    ResourceSetName: Annotated[str, _aws_pattern("Route53RecoveryReadiness", "__stringMax64PatternAAZAZ09Z")]
+    ResourceSetType: Annotated[str, _aws_pattern("Route53RecoveryReadiness", "__stringPatternAWSAZaZ09AZaZ09")]
     Resources: List[ResourceOutputTypeDef]
     Tags: Optional[Dict[str, str]] = None
 
@@ -574,8 +578,8 @@ class ResourceSetOutputTypeDef(BaseValidatorModel):
 # This class is the output for the 'update_resource_set' function.
 class UpdateResourceSetResponseTypeDef(BaseValidatorModel):
     ResourceSetArn: str
-    ResourceSetName: str
-    ResourceSetType: str
+    ResourceSetName: Annotated[str, _aws_pattern("Route53RecoveryReadiness", "__stringMax64PatternAAZAZ09Z")]
+    ResourceSetType: Annotated[str, _aws_pattern("Route53RecoveryReadiness", "__stringPatternAWSAZaZ09AZaZ09")]
     Resources: List[ResourceOutputTypeDef]
     Tags: Dict[str, str]
     ResponseMetadata: ResponseMetadataTypeDef
@@ -594,7 +598,7 @@ class ListResourceSetsResponseTypeDef(BaseValidatorModel):
 # This class is the input for the 'create_resource_set' function.
 class CreateResourceSetRequestTypeDef(BaseValidatorModel):
     ResourceSetName: str
-    ResourceSetType: str
+    ResourceSetType: Annotated[str, _aws_pattern("Route53RecoveryReadiness", "__stringPatternAWSAZaZ09AZaZ09")]
     Resources: List[ResourceUnionTypeDef]
     Tags: Optional[Dict[str, str]] = None
 
@@ -602,5 +606,5 @@ class CreateResourceSetRequestTypeDef(BaseValidatorModel):
 # This class is the input for the 'update_resource_set' function.
 class UpdateResourceSetRequestTypeDef(BaseValidatorModel):
     ResourceSetName: str
-    ResourceSetType: str
+    ResourceSetType: Annotated[str, _aws_pattern("Route53RecoveryReadiness", "__stringPatternAWSAZaZ09AZaZ09")]
     Resources: List[ResourceUnionTypeDef]

@@ -3,6 +3,7 @@
 from datetime import datetime
 from decimal import Decimal
 from typing import (
+    Annotated,
     Any,
     Callable,
     Dict,
@@ -24,6 +25,7 @@ from botocore.response import StreamingBody
 from pydantic import Field
 
 from aws_resource_validator.core.base_validator_model import BaseValidatorModel, EventStream
+from aws_resource_validator.core.pattern_validation import aws_field_pattern as _aws_pattern
 from aws_resource_validator.pydantic_models.imagebuilder.imagebuilder_constants import *  # noqa: F401,F403
 
 # Optional boto3 symbols — imported lazily so services that don't need them
@@ -67,7 +69,7 @@ class AutoDisablePolicyTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'cancel_image_creation' function.
 class CancelImageCreationRequestTypeDef(BaseValidatorModel):
-    imageBuildVersionArn: str
+    imageBuildVersionArn: Annotated[str, _aws_pattern("Imagebuilder", "ImageBuildVersionArn")]
     clientToken: str
 
 
@@ -81,7 +83,7 @@ class ResponseMetadataTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'cancel_lifecycle_execution' function.
 class CancelLifecycleExecutionRequestTypeDef(BaseValidatorModel):
-    lifecycleExecutionId: str
+    lifecycleExecutionId: Annotated[str, _aws_pattern("Imagebuilder", "LifecycleExecutionId")]
     clientToken: str
 
 
@@ -91,15 +93,15 @@ class ComponentParameterOutputTypeDef(BaseValidatorModel):
 
 
 class ComponentParameterDetailTypeDef(BaseValidatorModel):
-    name: str
-    type: str
-    defaultValue: Optional[List[str]] = None
-    description: Optional[str] = None
+    name: Annotated[str, _aws_pattern("Imagebuilder", "ComponentParameterName")]
+    type: Annotated[str, _aws_pattern("Imagebuilder", "ComponentParameterType")]
+    defaultValue: Optional[List[Annotated[str, _aws_pattern("Imagebuilder", "ComponentParameterValue")]]] = None
+    description: Optional[Annotated[str, _aws_pattern("Imagebuilder", "ComponentParameterDescription")]] = None
 
 
 class ComponentParameterTypeDef(BaseValidatorModel):
-    name: str
-    value: List[str]
+    name: Annotated[str, _aws_pattern("Imagebuilder", "ComponentParameterName")]
+    value: List[Annotated[str, _aws_pattern("Imagebuilder", "ComponentParameterValue")]]
 
 
 class ComponentStateTypeDef(BaseValidatorModel):
@@ -108,7 +110,7 @@ class ComponentStateTypeDef(BaseValidatorModel):
 
 
 class ProductCodeListItemTypeDef(BaseValidatorModel):
-    productCodeId: str
+    productCodeId: Annotated[str, _aws_pattern("Imagebuilder", "ProductCodeId")]
     productCodeType: Literal["marketplace"]
 
 
@@ -118,9 +120,9 @@ class TargetContainerRepositoryTypeDef(BaseValidatorModel):
 
 
 class ContainerRecipeSummaryTypeDef(BaseValidatorModel):
-    arn: Optional[str] = None
+    arn: Optional[Annotated[str, _aws_pattern("Imagebuilder", "ImageBuilderArn")]] = None
     containerType: Optional[Literal["DOCKER"]] = None
-    name: Optional[str] = None
+    name: Optional[Annotated[str, _aws_pattern("Imagebuilder", "ResourceName")]] = None
     platform: Optional[PlatformType] = None
     owner: Optional[str] = None
     parentImage: Optional[str] = None
@@ -136,14 +138,14 @@ class ContainerTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'create_component' function.
 class CreateComponentRequestTypeDef(BaseValidatorModel):
-    name: str
-    semanticVersion: str
+    name: Annotated[str, _aws_pattern("Imagebuilder", "ResourceName")]
+    semanticVersion: Annotated[str, _aws_pattern("Imagebuilder", "VersionNumber")]
     platform: PlatformType
     clientToken: str
     description: Optional[str] = None
     changeDescription: Optional[str] = None
     supportedOsVersions: Optional[List[str]] = None
-    data: Optional[str] = None
+    data: Optional[Annotated[str, _aws_pattern("Imagebuilder", "InlineComponentData")]] = None
     uri: Optional[str] = None
     kmsKeyId: Optional[str] = None
     tags: Optional[Dict[str, str]] = None
@@ -151,10 +153,10 @@ class CreateComponentRequestTypeDef(BaseValidatorModel):
 
 
 class LatestVersionReferencesTypeDef(BaseValidatorModel):
-    latestVersionArn: Optional[str] = None
-    latestMajorVersionArn: Optional[str] = None
-    latestMinorVersionArn: Optional[str] = None
-    latestPatchVersionArn: Optional[str] = None
+    latestVersionArn: Optional[Annotated[str, _aws_pattern("Imagebuilder", "ImageBuilderArn")]] = None
+    latestMajorVersionArn: Optional[Annotated[str, _aws_pattern("Imagebuilder", "ImageBuilderArn")]] = None
+    latestMinorVersionArn: Optional[Annotated[str, _aws_pattern("Imagebuilder", "ImageBuilderArn")]] = None
+    latestPatchVersionArn: Optional[Annotated[str, _aws_pattern("Imagebuilder", "ImageBuilderArn")]] = None
 
 
 class ImageTestsConfigurationTypeDef(BaseValidatorModel):
@@ -163,16 +165,16 @@ class ImageTestsConfigurationTypeDef(BaseValidatorModel):
 
 
 class PipelineLoggingConfigurationTypeDef(BaseValidatorModel):
-    imageLogGroupName: Optional[str] = None
-    pipelineLogGroupName: Optional[str] = None
+    imageLogGroupName: Optional[Annotated[str, _aws_pattern("Imagebuilder", "LogGroupName")]] = None
+    pipelineLogGroupName: Optional[Annotated[str, _aws_pattern("Imagebuilder", "LogGroupName")]] = None
 
 
 class ImageLoggingConfigurationTypeDef(BaseValidatorModel):
-    logGroupName: Optional[str] = None
+    logGroupName: Optional[Annotated[str, _aws_pattern("Imagebuilder", "LogGroupName")]] = None
 
 
 class InstanceMetadataOptionsTypeDef(BaseValidatorModel):
-    httpTokens: Optional[str] = None
+    httpTokens: Optional[Annotated[str, _aws_pattern("Imagebuilder", "HttpTokens")]] = None
     httpPutResponseHopLimit: Optional[int] = None
 
 
@@ -185,13 +187,13 @@ class PlacementTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'create_workflow' function.
 class CreateWorkflowRequestTypeDef(BaseValidatorModel):
-    name: str
-    semanticVersion: str
+    name: Annotated[str, _aws_pattern("Imagebuilder", "ResourceName")]
+    semanticVersion: Annotated[str, _aws_pattern("Imagebuilder", "VersionNumber")]
     clientToken: str
     type: WorkflowTypeType
     description: Optional[str] = None
     changeDescription: Optional[str] = None
-    data: Optional[str] = None
+    data: Optional[Annotated[str, _aws_pattern("Imagebuilder", "InlineWorkflowData")]] = None
     uri: Optional[str] = None
     kmsKeyId: Optional[str] = None
     tags: Optional[Dict[str, str]] = None
@@ -212,52 +214,52 @@ class CvssScoreTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'delete_component' function.
 class DeleteComponentRequestTypeDef(BaseValidatorModel):
-    componentBuildVersionArn: str
+    componentBuildVersionArn: Annotated[str, _aws_pattern("Imagebuilder", "ComponentBuildVersionArn")]
 
 
 # This class is the input for the 'delete_container_recipe' function.
 class DeleteContainerRecipeRequestTypeDef(BaseValidatorModel):
-    containerRecipeArn: str
+    containerRecipeArn: Annotated[str, _aws_pattern("Imagebuilder", "ContainerRecipeArn")]
 
 
 # This class is the input for the 'delete_distribution_configuration' function.
 class DeleteDistributionConfigurationRequestTypeDef(BaseValidatorModel):
-    distributionConfigurationArn: str
+    distributionConfigurationArn: Annotated[str, _aws_pattern("Imagebuilder", "DistributionConfigurationArn")]
 
 
 # This class is the input for the 'delete_image_pipeline' function.
 class DeleteImagePipelineRequestTypeDef(BaseValidatorModel):
-    imagePipelineArn: str
+    imagePipelineArn: Annotated[str, _aws_pattern("Imagebuilder", "ImagePipelineArn")]
 
 
 # This class is the input for the 'delete_image_recipe' function.
 class DeleteImageRecipeRequestTypeDef(BaseValidatorModel):
-    imageRecipeArn: str
+    imageRecipeArn: Annotated[str, _aws_pattern("Imagebuilder", "ImageRecipeArn")]
 
 
 # This class is the input for the 'delete_image' function.
 class DeleteImageRequestTypeDef(BaseValidatorModel):
-    imageBuildVersionArn: str
+    imageBuildVersionArn: Annotated[str, _aws_pattern("Imagebuilder", "ImageBuildVersionArn")]
 
 
 # This class is the input for the 'delete_infrastructure_configuration' function.
 class DeleteInfrastructureConfigurationRequestTypeDef(BaseValidatorModel):
-    infrastructureConfigurationArn: str
+    infrastructureConfigurationArn: Annotated[str, _aws_pattern("Imagebuilder", "InfrastructureConfigurationArn")]
 
 
 # This class is the input for the 'delete_lifecycle_policy' function.
 class DeleteLifecyclePolicyRequestTypeDef(BaseValidatorModel):
-    lifecyclePolicyArn: str
+    lifecyclePolicyArn: Annotated[str, _aws_pattern("Imagebuilder", "LifecyclePolicyArn")]
 
 
 # This class is the input for the 'delete_workflow' function.
 class DeleteWorkflowRequestTypeDef(BaseValidatorModel):
-    workflowBuildVersionArn: str
+    workflowBuildVersionArn: Annotated[str, _aws_pattern("Imagebuilder", "WorkflowBuildVersionArn")]
 
 
 class DistributionConfigurationSummaryTypeDef(BaseValidatorModel):
-    arn: Optional[str] = None
-    name: Optional[str] = None
+    arn: Optional[Annotated[str, _aws_pattern("Imagebuilder", "ImageBuilderArn")]] = None
+    name: Optional[Annotated[str, _aws_pattern("Imagebuilder", "ResourceName")]] = None
     description: Optional[str] = None
     dateCreated: Optional[str] = None
     dateUpdated: Optional[str] = None
@@ -266,8 +268,8 @@ class DistributionConfigurationSummaryTypeDef(BaseValidatorModel):
 
 
 class LaunchTemplateConfigurationTypeDef(BaseValidatorModel):
-    launchTemplateId: str
-    accountId: Optional[str] = None
+    launchTemplateId: Annotated[str, _aws_pattern("Imagebuilder", "LaunchTemplateId")]
+    accountId: Optional[Annotated[str, _aws_pattern("Imagebuilder", "AccountId")]] = None
     setDefaultVersion: Optional[bool] = None
 
 
@@ -279,8 +281,8 @@ class S3ExportConfigurationTypeDef(BaseValidatorModel):
 
 
 class SsmParameterConfigurationTypeDef(BaseValidatorModel):
-    parameterName: str
-    amiAccountId: Optional[str] = None
+    parameterName: Annotated[str, _aws_pattern("Imagebuilder", "SsmParameterName")]
+    amiAccountId: Optional[Annotated[str, _aws_pattern("Imagebuilder", "AccountId")]] = None
     dataType: Optional[SsmParameterDataTypeType] = None
 
 
@@ -306,7 +308,7 @@ class EcrConfigurationTypeDef(BaseValidatorModel):
 
 
 class FastLaunchLaunchTemplateSpecificationTypeDef(BaseValidatorModel):
-    launchTemplateId: Optional[str] = None
+    launchTemplateId: Optional[Annotated[str, _aws_pattern("Imagebuilder", "LaunchTemplateId")]] = None
     launchTemplateName: Optional[str] = None
     launchTemplateVersion: Optional[str] = None
 
@@ -316,95 +318,95 @@ class FastLaunchSnapshotConfigurationTypeDef(BaseValidatorModel):
 
 
 class FilterTypeDef(BaseValidatorModel):
-    name: Optional[str] = None
-    values: Optional[List[str]] = None
+    name: Optional[Annotated[str, _aws_pattern("Imagebuilder", "FilterName")]] = None
+    values: Optional[List[Annotated[str, _aws_pattern("Imagebuilder", "FilterValue")]]] = None
 
 
 # This class is the input for the 'get_component_policy' function.
 class GetComponentPolicyRequestTypeDef(BaseValidatorModel):
-    componentArn: str
+    componentArn: Annotated[str, _aws_pattern("Imagebuilder", "ComponentBuildVersionArn")]
 
 
 # This class is the input for the 'get_component' function.
 class GetComponentRequestTypeDef(BaseValidatorModel):
-    componentBuildVersionArn: str
+    componentBuildVersionArn: Annotated[str, _aws_pattern("Imagebuilder", "ComponentVersionArnOrBuildVersionArn")]
 
 
 # This class is the input for the 'get_container_recipe_policy' function.
 class GetContainerRecipePolicyRequestTypeDef(BaseValidatorModel):
-    containerRecipeArn: str
+    containerRecipeArn: Annotated[str, _aws_pattern("Imagebuilder", "ContainerRecipeArn")]
 
 
 # This class is the input for the 'get_container_recipe' function.
 class GetContainerRecipeRequestTypeDef(BaseValidatorModel):
-    containerRecipeArn: str
+    containerRecipeArn: Annotated[str, _aws_pattern("Imagebuilder", "ContainerRecipeArn")]
 
 
 # This class is the input for the 'get_distribution_configuration' function.
 class GetDistributionConfigurationRequestTypeDef(BaseValidatorModel):
-    distributionConfigurationArn: str
+    distributionConfigurationArn: Annotated[str, _aws_pattern("Imagebuilder", "DistributionConfigurationArn")]
 
 
 # This class is the input for the 'get_image_pipeline' function.
 class GetImagePipelineRequestTypeDef(BaseValidatorModel):
-    imagePipelineArn: str
+    imagePipelineArn: Annotated[str, _aws_pattern("Imagebuilder", "ImagePipelineArn")]
 
 
 # This class is the input for the 'get_image_policy' function.
 class GetImagePolicyRequestTypeDef(BaseValidatorModel):
-    imageArn: str
+    imageArn: Annotated[str, _aws_pattern("Imagebuilder", "ImageBuildVersionArn")]
 
 
 # This class is the input for the 'get_image_recipe_policy' function.
 class GetImageRecipePolicyRequestTypeDef(BaseValidatorModel):
-    imageRecipeArn: str
+    imageRecipeArn: Annotated[str, _aws_pattern("Imagebuilder", "ImageRecipeArn")]
 
 
 # This class is the input for the 'get_image_recipe' function.
 class GetImageRecipeRequestTypeDef(BaseValidatorModel):
-    imageRecipeArn: str
+    imageRecipeArn: Annotated[str, _aws_pattern("Imagebuilder", "ImageRecipeArn")]
 
 
 # This class is the input for the 'get_image' function.
 class GetImageRequestTypeDef(BaseValidatorModel):
-    imageBuildVersionArn: str
+    imageBuildVersionArn: Annotated[str, _aws_pattern("Imagebuilder", "ImageVersionArnOrBuildVersionArn")]
 
 
 # This class is the input for the 'get_infrastructure_configuration' function.
 class GetInfrastructureConfigurationRequestTypeDef(BaseValidatorModel):
-    infrastructureConfigurationArn: str
+    infrastructureConfigurationArn: Annotated[str, _aws_pattern("Imagebuilder", "InfrastructureConfigurationArn")]
 
 
 # This class is the input for the 'get_lifecycle_execution' function.
 class GetLifecycleExecutionRequestTypeDef(BaseValidatorModel):
-    lifecycleExecutionId: str
+    lifecycleExecutionId: Annotated[str, _aws_pattern("Imagebuilder", "LifecycleExecutionId")]
 
 
 # This class is the input for the 'get_lifecycle_policy' function.
 class GetLifecyclePolicyRequestTypeDef(BaseValidatorModel):
-    lifecyclePolicyArn: str
+    lifecyclePolicyArn: Annotated[str, _aws_pattern("Imagebuilder", "LifecyclePolicyArn")]
 
 
 # This class is the input for the 'get_marketplace_resource' function.
 class GetMarketplaceResourceRequestTypeDef(BaseValidatorModel):
     resourceType: MarketplaceResourceTypeType
-    resourceArn: str
-    resourceLocation: Optional[str] = None
+    resourceArn: Annotated[str, _aws_pattern("Imagebuilder", "ImageBuilderArn")]
+    resourceLocation: Optional[Annotated[str, _aws_pattern("Imagebuilder", "MarketplaceResourceLocation")]] = None
 
 
 # This class is the input for the 'get_workflow_execution' function.
 class GetWorkflowExecutionRequestTypeDef(BaseValidatorModel):
-    workflowExecutionId: str
+    workflowExecutionId: Annotated[str, _aws_pattern("Imagebuilder", "WorkflowExecutionId")]
 
 
 # This class is the input for the 'get_workflow' function.
 class GetWorkflowRequestTypeDef(BaseValidatorModel):
-    workflowBuildVersionArn: str
+    workflowBuildVersionArn: Annotated[str, _aws_pattern("Imagebuilder", "WorkflowVersionArnOrBuildVersionArn")]
 
 
 # This class is the input for the 'get_workflow_step_execution' function.
 class GetWorkflowStepExecutionRequestTypeDef(BaseValidatorModel):
-    stepExecutionId: str
+    stepExecutionId: Annotated[str, _aws_pattern("Imagebuilder", "WorkflowStepExecutionId")]
 
 
 class ImagePackageTypeDef(BaseValidatorModel):
@@ -413,8 +415,8 @@ class ImagePackageTypeDef(BaseValidatorModel):
 
 
 class ImageRecipeSummaryTypeDef(BaseValidatorModel):
-    arn: Optional[str] = None
-    name: Optional[str] = None
+    arn: Optional[Annotated[str, _aws_pattern("Imagebuilder", "ImageBuilderArn")]] = None
+    name: Optional[Annotated[str, _aws_pattern("Imagebuilder", "ResourceName")]] = None
     platform: Optional[PlatformType] = None
     owner: Optional[str] = None
     parentImage: Optional[str] = None
@@ -423,8 +425,8 @@ class ImageRecipeSummaryTypeDef(BaseValidatorModel):
 
 
 class ImageScanFindingsFilterTypeDef(BaseValidatorModel):
-    name: Optional[str] = None
-    values: Optional[List[str]] = None
+    name: Optional[Annotated[str, _aws_pattern("Imagebuilder", "FilterName")]] = None
+    values: Optional[List[Annotated[str, _aws_pattern("Imagebuilder", "FilterValue")]]] = None
 
 
 class ImageScanStateTypeDef(BaseValidatorModel):
@@ -433,10 +435,10 @@ class ImageScanStateTypeDef(BaseValidatorModel):
 
 
 class ImageVersionTypeDef(BaseValidatorModel):
-    arn: Optional[str] = None
-    name: Optional[str] = None
+    arn: Optional[Annotated[str, _aws_pattern("Imagebuilder", "ImageBuilderArn")]] = None
+    name: Optional[Annotated[str, _aws_pattern("Imagebuilder", "ResourceName")]] = None
     type: Optional[ImageTypeType] = None
-    version: Optional[str] = None
+    version: Optional[Annotated[str, _aws_pattern("Imagebuilder", "VersionNumber")]] = None
     platform: Optional[PlatformType] = None
     osVersion: Optional[str] = None
     owner: Optional[str] = None
@@ -447,8 +449,8 @@ class ImageVersionTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'import_component' function.
 class ImportComponentRequestTypeDef(BaseValidatorModel):
-    name: str
-    semanticVersion: str
+    name: Annotated[str, _aws_pattern("Imagebuilder", "ResourceName")]
+    semanticVersion: Annotated[str, _aws_pattern("Imagebuilder", "VersionNumber")]
     type: ComponentTypeType
     format: Literal["SHELL"]
     platform: PlatformType
@@ -471,10 +473,10 @@ class WindowsConfigurationTypeDef(BaseValidatorModel):
 
 
 class LaunchPermissionConfigurationTypeDef(BaseValidatorModel):
-    userIds: Optional[List[str]] = None
+    userIds: Optional[List[Annotated[str, _aws_pattern("Imagebuilder", "AccountId")]]] = None
     userGroups: Optional[List[str]] = None
-    organizationArns: Optional[List[str]] = None
-    organizationalUnitArns: Optional[List[str]] = None
+    organizationArns: Optional[List[Annotated[str, _aws_pattern("Imagebuilder", "OrganizationArn")]]] = None
+    organizationalUnitArns: Optional[List[Annotated[str, _aws_pattern("Imagebuilder", "OrganizationalUnitArn")]]] = None
 
 
 class LifecycleExecutionResourceActionTypeDef(BaseValidatorModel):
@@ -515,16 +517,16 @@ class LifecyclePolicyDetailFilterTypeDef(BaseValidatorModel):
 
 
 class LifecyclePolicyResourceSelectionRecipeTypeDef(BaseValidatorModel):
-    name: str
-    semanticVersion: str
+    name: Annotated[str, _aws_pattern("Imagebuilder", "ResourceName")]
+    semanticVersion: Annotated[str, _aws_pattern("Imagebuilder", "WildcardVersionNumber")]
 
 
 class LifecyclePolicySummaryTypeDef(BaseValidatorModel):
-    arn: Optional[str] = None
-    name: Optional[str] = None
+    arn: Optional[Annotated[str, _aws_pattern("Imagebuilder", "LifecyclePolicyArn")]] = None
+    name: Optional[Annotated[str, _aws_pattern("Imagebuilder", "ResourceName")]] = None
     description: Optional[str] = None
     status: Optional[LifecyclePolicyStatusType] = None
-    executionRole: Optional[str] = None
+    executionRole: Optional[Annotated[str, _aws_pattern("Imagebuilder", "RoleNameOrArn")]] = None
     resourceType: Optional[LifecyclePolicyResourceTypeType] = None
     dateCreated: Optional[datetime] = None
     dateUpdated: Optional[datetime] = None
@@ -540,21 +542,21 @@ class PaginatorConfigTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'list_component_build_versions' function.
 class ListComponentBuildVersionsRequestTypeDef(BaseValidatorModel):
-    componentVersionArn: Optional[str] = None
+    componentVersionArn: Optional[Annotated[str, _aws_pattern("Imagebuilder", "ComponentVersionArn")]] = None
     maxResults: Optional[int] = None
     nextToken: Optional[str] = None
 
 
 # This class is the input for the 'list_image_packages' function.
 class ListImagePackagesRequestTypeDef(BaseValidatorModel):
-    imageBuildVersionArn: str
+    imageBuildVersionArn: Annotated[str, _aws_pattern("Imagebuilder", "ImageBuildVersionArn")]
     maxResults: Optional[int] = None
     nextToken: Optional[str] = None
 
 
 # This class is the input for the 'list_lifecycle_execution_resources' function.
 class ListLifecycleExecutionResourcesRequestTypeDef(BaseValidatorModel):
-    lifecycleExecutionId: str
+    lifecycleExecutionId: Annotated[str, _aws_pattern("Imagebuilder", "LifecycleExecutionId")]
     parentResourceId: Optional[str] = None
     maxResults: Optional[int] = None
     nextToken: Optional[str] = None
@@ -562,14 +564,14 @@ class ListLifecycleExecutionResourcesRequestTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'list_lifecycle_executions' function.
 class ListLifecycleExecutionsRequestTypeDef(BaseValidatorModel):
-    resourceArn: str
+    resourceArn: Annotated[str, _aws_pattern("Imagebuilder", "ImageBuilderArn")]
     maxResults: Optional[int] = None
     nextToken: Optional[str] = None
 
 
 # This class is the input for the 'list_tags_for_resource' function.
 class ListTagsForResourceRequestTypeDef(BaseValidatorModel):
-    resourceArn: str
+    resourceArn: Annotated[str, _aws_pattern("Imagebuilder", "ImageBuilderArn")]
 
 
 # This class is the input for the 'list_waiting_workflow_steps' function.
@@ -579,32 +581,32 @@ class ListWaitingWorkflowStepsRequestTypeDef(BaseValidatorModel):
 
 
 class WorkflowStepExecutionTypeDef(BaseValidatorModel):
-    stepExecutionId: Optional[str] = None
-    imageBuildVersionArn: Optional[str] = None
-    workflowExecutionId: Optional[str] = None
-    workflowBuildVersionArn: Optional[str] = None
-    name: Optional[str] = None
-    action: Optional[str] = None
+    stepExecutionId: Optional[Annotated[str, _aws_pattern("Imagebuilder", "WorkflowStepExecutionId")]] = None
+    imageBuildVersionArn: Optional[Annotated[str, _aws_pattern("Imagebuilder", "ImageBuildVersionArn")]] = None
+    workflowExecutionId: Optional[Annotated[str, _aws_pattern("Imagebuilder", "WorkflowExecutionId")]] = None
+    workflowBuildVersionArn: Optional[Annotated[str, _aws_pattern("Imagebuilder", "WorkflowBuildVersionArn")]] = None
+    name: Optional[Annotated[str, _aws_pattern("Imagebuilder", "WorkflowStepName")]] = None
+    action: Optional[Annotated[str, _aws_pattern("Imagebuilder", "WorkflowStepAction")]] = None
     startTime: Optional[str] = None
 
 
 # This class is the input for the 'list_workflow_build_versions' function.
 class ListWorkflowBuildVersionsRequestTypeDef(BaseValidatorModel):
-    workflowVersionArn: Optional[str] = None
+    workflowVersionArn: Optional[Annotated[str, _aws_pattern("Imagebuilder", "WorkflowWildcardVersionArn")]] = None
     maxResults: Optional[int] = None
     nextToken: Optional[str] = None
 
 
 # This class is the input for the 'list_workflow_executions' function.
 class ListWorkflowExecutionsRequestTypeDef(BaseValidatorModel):
-    imageBuildVersionArn: str
+    imageBuildVersionArn: Annotated[str, _aws_pattern("Imagebuilder", "ImageBuildVersionArn")]
     maxResults: Optional[int] = None
     nextToken: Optional[str] = None
 
 
 class WorkflowExecutionMetadataTypeDef(BaseValidatorModel):
-    workflowBuildVersionArn: Optional[str] = None
-    workflowExecutionId: Optional[str] = None
+    workflowBuildVersionArn: Optional[Annotated[str, _aws_pattern("Imagebuilder", "WorkflowBuildVersionArn")]] = None
+    workflowExecutionId: Optional[Annotated[str, _aws_pattern("Imagebuilder", "WorkflowExecutionId")]] = None
     type: Optional[WorkflowTypeType] = None
     status: Optional[WorkflowExecutionStatusType] = None
     message: Optional[str] = None
@@ -614,22 +616,22 @@ class WorkflowExecutionMetadataTypeDef(BaseValidatorModel):
     totalStepsSkipped: Optional[int] = None
     startTime: Optional[str] = None
     endTime: Optional[str] = None
-    parallelGroup: Optional[str] = None
+    parallelGroup: Optional[Annotated[str, _aws_pattern("Imagebuilder", "ParallelGroup")]] = None
     retried: Optional[bool] = None
 
 
 # This class is the input for the 'list_workflow_step_executions' function.
 class ListWorkflowStepExecutionsRequestTypeDef(BaseValidatorModel):
-    workflowExecutionId: str
+    workflowExecutionId: Annotated[str, _aws_pattern("Imagebuilder", "WorkflowExecutionId")]
     maxResults: Optional[int] = None
     nextToken: Optional[str] = None
 
 
 class WorkflowStepMetadataTypeDef(BaseValidatorModel):
-    stepExecutionId: Optional[str] = None
-    name: Optional[str] = None
+    stepExecutionId: Optional[Annotated[str, _aws_pattern("Imagebuilder", "WorkflowStepExecutionId")]] = None
+    name: Optional[Annotated[str, _aws_pattern("Imagebuilder", "WorkflowStepName")]] = None
     description: Optional[str] = None
-    action: Optional[str] = None
+    action: Optional[Annotated[str, _aws_pattern("Imagebuilder", "WorkflowStepAction")]] = None
     status: Optional[WorkflowStepExecutionStatusType] = None
     rollbackStatus: Optional[WorkflowStepExecutionRollbackStatusType] = None
     message: Optional[str] = None
@@ -640,9 +642,9 @@ class WorkflowStepMetadataTypeDef(BaseValidatorModel):
 
 
 class WorkflowVersionTypeDef(BaseValidatorModel):
-    arn: Optional[str] = None
-    name: Optional[str] = None
-    version: Optional[str] = None
+    arn: Optional[Annotated[str, _aws_pattern("Imagebuilder", "WorkflowVersionArn")]] = None
+    name: Optional[Annotated[str, _aws_pattern("Imagebuilder", "ResourceName")]] = None
+    version: Optional[Annotated[str, _aws_pattern("Imagebuilder", "VersionNumber")]] = None
     description: Optional[str] = None
     type: Optional[WorkflowTypeType] = None
     owner: Optional[str] = None
@@ -669,25 +671,25 @@ class VulnerablePackageTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'put_component_policy' function.
 class PutComponentPolicyRequestTypeDef(BaseValidatorModel):
-    componentArn: str
+    componentArn: Annotated[str, _aws_pattern("Imagebuilder", "ComponentBuildVersionArn")]
     policy: str
 
 
 # This class is the input for the 'put_container_recipe_policy' function.
 class PutContainerRecipePolicyRequestTypeDef(BaseValidatorModel):
-    containerRecipeArn: str
+    containerRecipeArn: Annotated[str, _aws_pattern("Imagebuilder", "ContainerRecipeArn")]
     policy: str
 
 
 # This class is the input for the 'put_image_policy' function.
 class PutImagePolicyRequestTypeDef(BaseValidatorModel):
-    imageArn: str
+    imageArn: Annotated[str, _aws_pattern("Imagebuilder", "ImageBuildVersionArn")]
     policy: str
 
 
 # This class is the input for the 'put_image_recipe_policy' function.
 class PutImageRecipePolicyRequestTypeDef(BaseValidatorModel):
-    imageRecipeArn: str
+    imageRecipeArn: Annotated[str, _aws_pattern("Imagebuilder", "ImageRecipeArn")]
     policy: str
 
 
@@ -708,14 +710,14 @@ class ResourceStateUpdateIncludeResourcesTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'retry_image' function.
 class RetryImageRequestTypeDef(BaseValidatorModel):
-    imageBuildVersionArn: str
+    imageBuildVersionArn: Annotated[str, _aws_pattern("Imagebuilder", "ImageBuildVersionArn")]
     clientToken: str
 
 
 # This class is the input for the 'send_workflow_step_action' function.
 class SendWorkflowStepActionRequestTypeDef(BaseValidatorModel):
-    stepExecutionId: str
-    imageBuildVersionArn: str
+    stepExecutionId: Annotated[str, _aws_pattern("Imagebuilder", "WorkflowStepExecutionId")]
+    imageBuildVersionArn: Annotated[str, _aws_pattern("Imagebuilder", "ImageBuildVersionArn")]
     action: WorkflowStepActionTypeType
     clientToken: str
     reason: Optional[str] = None
@@ -723,7 +725,7 @@ class SendWorkflowStepActionRequestTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'start_image_pipeline_execution' function.
 class StartImagePipelineExecutionRequestTypeDef(BaseValidatorModel):
-    imagePipelineArn: str
+    imagePipelineArn: Annotated[str, _aws_pattern("Imagebuilder", "ImagePipelineArn")]
     clientToken: str
     tags: Optional[Dict[str, str]] = None
 
@@ -732,13 +734,13 @@ TimestampTypeDef = Union[datetime, str]
 
 
 class TagResourceRequestTypeDef(BaseValidatorModel):
-    resourceArn: str
+    resourceArn: Annotated[str, _aws_pattern("Imagebuilder", "ImageBuilderArn")]
     tags: Dict[str, str]
 
 
 class UntagResourceRequestTypeDef(BaseValidatorModel):
-    resourceArn: str
-    tagKeys: List[str]
+    resourceArn: Annotated[str, _aws_pattern("Imagebuilder", "ImageBuilderArn")]
+    tagKeys: List[Annotated[str, _aws_pattern("Imagebuilder", "TagKey")]]
 
 
 class WorkflowParameterOutputTypeDef(BaseValidatorModel):
@@ -747,15 +749,15 @@ class WorkflowParameterOutputTypeDef(BaseValidatorModel):
 
 
 class WorkflowParameterDetailTypeDef(BaseValidatorModel):
-    name: str
-    type: str
-    defaultValue: Optional[List[str]] = None
-    description: Optional[str] = None
+    name: Annotated[str, _aws_pattern("Imagebuilder", "WorkflowParameterName")]
+    type: Annotated[str, _aws_pattern("Imagebuilder", "WorkflowParameterType")]
+    defaultValue: Optional[List[Annotated[str, _aws_pattern("Imagebuilder", "WorkflowParameterValue")]]] = None
+    description: Optional[Annotated[str, _aws_pattern("Imagebuilder", "WorkflowParameterDescription")]] = None
 
 
 class WorkflowParameterTypeDef(BaseValidatorModel):
-    name: str
-    value: List[str]
+    name: Annotated[str, _aws_pattern("Imagebuilder", "WorkflowParameterName")]
+    value: List[Annotated[str, _aws_pattern("Imagebuilder", "WorkflowParameterValue")]]
 
 
 class WorkflowStateTypeDef(BaseValidatorModel):
@@ -769,12 +771,12 @@ class AccountAggregationTypeDef(BaseValidatorModel):
 
 
 class ImageAggregationTypeDef(BaseValidatorModel):
-    imageBuildVersionArn: Optional[str] = None
+    imageBuildVersionArn: Optional[Annotated[str, _aws_pattern("Imagebuilder", "ImageBuildVersionArn")]] = None
     severityCounts: Optional[SeverityCountsTypeDef] = None
 
 
 class ImagePipelineAggregationTypeDef(BaseValidatorModel):
-    imagePipelineArn: Optional[str] = None
+    imagePipelineArn: Optional[Annotated[str, _aws_pattern("Imagebuilder", "ImagePipelineArn")]] = None
     severityCounts: Optional[SeverityCountsTypeDef] = None
 
 
@@ -785,7 +787,7 @@ class VulnerabilityIdAggregationTypeDef(BaseValidatorModel):
 
 class AdditionalInstanceConfigurationTypeDef(BaseValidatorModel):
     systemsManagerAgent: Optional[SystemsManagerAgentTypeDef] = None
-    userDataOverride: Optional[str] = None
+    userDataOverride: Optional[Annotated[str, _aws_pattern("Imagebuilder", "UserDataOverride")]] = None
 
 
 class AmiDistributionConfigurationOutputTypeDef(BaseValidatorModel):
@@ -808,7 +810,7 @@ class AmiTypeDef(BaseValidatorModel):
 
 class ScheduleTypeDef(BaseValidatorModel):
     scheduleExpression: Optional[str] = None
-    timezone: Optional[str] = None
+    timezone: Optional[Annotated[str, _aws_pattern("Imagebuilder", "Timezone")]] = None
     pipelineExecutionStartCondition: Optional[PipelineExecutionStartConditionType] = None
     autoDisablePolicy: Optional[AutoDisablePolicyTypeDef] = None
 
@@ -817,13 +819,13 @@ class ScheduleTypeDef(BaseValidatorModel):
 class CancelImageCreationResponseTypeDef(BaseValidatorModel):
     requestId: str
     clientToken: str
-    imageBuildVersionArn: str
+    imageBuildVersionArn: Annotated[str, _aws_pattern("Imagebuilder", "ImageBuildVersionArn")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 # This class is the output for the 'cancel_lifecycle_execution' function.
 class CancelLifecycleExecutionResponseTypeDef(BaseValidatorModel):
-    lifecycleExecutionId: str
+    lifecycleExecutionId: Annotated[str, _aws_pattern("Imagebuilder", "LifecycleExecutionId")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
@@ -831,7 +833,7 @@ class CancelLifecycleExecutionResponseTypeDef(BaseValidatorModel):
 class CreateDistributionConfigurationResponseTypeDef(BaseValidatorModel):
     requestId: str
     clientToken: str
-    distributionConfigurationArn: str
+    distributionConfigurationArn: Annotated[str, _aws_pattern("Imagebuilder", "DistributionConfigurationArn")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
@@ -839,7 +841,7 @@ class CreateDistributionConfigurationResponseTypeDef(BaseValidatorModel):
 class CreateImagePipelineResponseTypeDef(BaseValidatorModel):
     requestId: str
     clientToken: str
-    imagePipelineArn: str
+    imagePipelineArn: Annotated[str, _aws_pattern("Imagebuilder", "ImagePipelineArn")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
@@ -847,82 +849,82 @@ class CreateImagePipelineResponseTypeDef(BaseValidatorModel):
 class CreateInfrastructureConfigurationResponseTypeDef(BaseValidatorModel):
     requestId: str
     clientToken: str
-    infrastructureConfigurationArn: str
+    infrastructureConfigurationArn: Annotated[str, _aws_pattern("Imagebuilder", "InfrastructureConfigurationArn")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 # This class is the output for the 'create_lifecycle_policy' function.
 class CreateLifecyclePolicyResponseTypeDef(BaseValidatorModel):
     clientToken: str
-    lifecyclePolicyArn: str
+    lifecyclePolicyArn: Annotated[str, _aws_pattern("Imagebuilder", "LifecyclePolicyArn")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 # This class is the output for the 'delete_component' function.
 class DeleteComponentResponseTypeDef(BaseValidatorModel):
     requestId: str
-    componentBuildVersionArn: str
+    componentBuildVersionArn: Annotated[str, _aws_pattern("Imagebuilder", "ComponentBuildVersionArn")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 # This class is the output for the 'delete_container_recipe' function.
 class DeleteContainerRecipeResponseTypeDef(BaseValidatorModel):
     requestId: str
-    containerRecipeArn: str
+    containerRecipeArn: Annotated[str, _aws_pattern("Imagebuilder", "ContainerRecipeArn")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 # This class is the output for the 'delete_distribution_configuration' function.
 class DeleteDistributionConfigurationResponseTypeDef(BaseValidatorModel):
     requestId: str
-    distributionConfigurationArn: str
+    distributionConfigurationArn: Annotated[str, _aws_pattern("Imagebuilder", "DistributionConfigurationArn")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 # This class is the output for the 'delete_image_pipeline' function.
 class DeleteImagePipelineResponseTypeDef(BaseValidatorModel):
     requestId: str
-    imagePipelineArn: str
+    imagePipelineArn: Annotated[str, _aws_pattern("Imagebuilder", "ImagePipelineArn")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 # This class is the output for the 'delete_image_recipe' function.
 class DeleteImageRecipeResponseTypeDef(BaseValidatorModel):
     requestId: str
-    imageRecipeArn: str
+    imageRecipeArn: Annotated[str, _aws_pattern("Imagebuilder", "ImageRecipeArn")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 # This class is the output for the 'delete_image' function.
 class DeleteImageResponseTypeDef(BaseValidatorModel):
     requestId: str
-    imageBuildVersionArn: str
+    imageBuildVersionArn: Annotated[str, _aws_pattern("Imagebuilder", "ImageBuildVersionArn")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 # This class is the output for the 'delete_infrastructure_configuration' function.
 class DeleteInfrastructureConfigurationResponseTypeDef(BaseValidatorModel):
     requestId: str
-    infrastructureConfigurationArn: str
+    infrastructureConfigurationArn: Annotated[str, _aws_pattern("Imagebuilder", "InfrastructureConfigurationArn")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 # This class is the output for the 'delete_lifecycle_policy' function.
 class DeleteLifecyclePolicyResponseTypeDef(BaseValidatorModel):
-    lifecyclePolicyArn: str
+    lifecyclePolicyArn: Annotated[str, _aws_pattern("Imagebuilder", "LifecyclePolicyArn")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 # This class is the output for the 'delete_workflow' function.
 class DeleteWorkflowResponseTypeDef(BaseValidatorModel):
-    workflowBuildVersionArn: str
+    workflowBuildVersionArn: Annotated[str, _aws_pattern("Imagebuilder", "WorkflowBuildVersionArn")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 # This class is the output for the 'distribute_image' function.
 class DistributeImageResponseTypeDef(BaseValidatorModel):
     clientToken: str
-    imageBuildVersionArn: str
+    imageBuildVersionArn: Annotated[str, _aws_pattern("Imagebuilder", "ImageBuildVersionArn")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
@@ -956,7 +958,7 @@ class GetImageRecipePolicyResponseTypeDef(BaseValidatorModel):
 
 # This class is the output for the 'get_marketplace_resource' function.
 class GetMarketplaceResourceResponseTypeDef(BaseValidatorModel):
-    resourceArn: str
+    resourceArn: Annotated[str, _aws_pattern("Imagebuilder", "ImageBuilderArn")]
     url: str
     data: str
     ResponseMetadata: ResponseMetadataTypeDef
@@ -965,9 +967,9 @@ class GetMarketplaceResourceResponseTypeDef(BaseValidatorModel):
 # This class is the output for the 'get_workflow_execution' function.
 class GetWorkflowExecutionResponseTypeDef(BaseValidatorModel):
     requestId: str
-    workflowBuildVersionArn: str
-    workflowExecutionId: str
-    imageBuildVersionArn: str
+    workflowBuildVersionArn: Annotated[str, _aws_pattern("Imagebuilder", "WorkflowBuildVersionArn")]
+    workflowExecutionId: Annotated[str, _aws_pattern("Imagebuilder", "WorkflowExecutionId")]
+    imageBuildVersionArn: Annotated[str, _aws_pattern("Imagebuilder", "ImageBuildVersionArn")]
     type: WorkflowTypeType
     status: WorkflowExecutionStatusType
     message: str
@@ -977,20 +979,20 @@ class GetWorkflowExecutionResponseTypeDef(BaseValidatorModel):
     totalStepsSkipped: int
     startTime: str
     endTime: str
-    parallelGroup: str
+    parallelGroup: Annotated[str, _aws_pattern("Imagebuilder", "ParallelGroup")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 # This class is the output for the 'get_workflow_step_execution' function.
 class GetWorkflowStepExecutionResponseTypeDef(BaseValidatorModel):
     requestId: str
-    stepExecutionId: str
-    workflowBuildVersionArn: str
-    workflowExecutionId: str
-    imageBuildVersionArn: str
-    name: str
+    stepExecutionId: Annotated[str, _aws_pattern("Imagebuilder", "WorkflowStepExecutionId")]
+    workflowBuildVersionArn: Annotated[str, _aws_pattern("Imagebuilder", "WorkflowBuildVersionArn")]
+    workflowExecutionId: Annotated[str, _aws_pattern("Imagebuilder", "WorkflowExecutionId")]
+    imageBuildVersionArn: Annotated[str, _aws_pattern("Imagebuilder", "ImageBuildVersionArn")]
+    name: Annotated[str, _aws_pattern("Imagebuilder", "WorkflowStepName")]
     description: str
-    action: str
+    action: Annotated[str, _aws_pattern("Imagebuilder", "WorkflowStepAction")]
     status: WorkflowStepExecutionStatusType
     rollbackStatus: WorkflowStepExecutionRollbackStatusType
     message: str
@@ -1007,14 +1009,14 @@ class GetWorkflowStepExecutionResponseTypeDef(BaseValidatorModel):
 class ImportComponentResponseTypeDef(BaseValidatorModel):
     requestId: str
     clientToken: str
-    componentBuildVersionArn: str
+    componentBuildVersionArn: Annotated[str, _aws_pattern("Imagebuilder", "ComponentBuildVersionArn")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 # This class is the output for the 'import_disk_image' function.
 class ImportDiskImageResponseTypeDef(BaseValidatorModel):
     clientToken: str
-    imageBuildVersionArn: str
+    imageBuildVersionArn: Annotated[str, _aws_pattern("Imagebuilder", "ImageBuildVersionArn")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
@@ -1035,42 +1037,42 @@ class ListTagsForResourceResponseTypeDef(BaseValidatorModel):
 # This class is the output for the 'put_component_policy' function.
 class PutComponentPolicyResponseTypeDef(BaseValidatorModel):
     requestId: str
-    componentArn: str
+    componentArn: Annotated[str, _aws_pattern("Imagebuilder", "ComponentBuildVersionArn")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 # This class is the output for the 'put_container_recipe_policy' function.
 class PutContainerRecipePolicyResponseTypeDef(BaseValidatorModel):
     requestId: str
-    containerRecipeArn: str
+    containerRecipeArn: Annotated[str, _aws_pattern("Imagebuilder", "ContainerRecipeArn")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 # This class is the output for the 'put_image_policy' function.
 class PutImagePolicyResponseTypeDef(BaseValidatorModel):
     requestId: str
-    imageArn: str
+    imageArn: Annotated[str, _aws_pattern("Imagebuilder", "ImageBuildVersionArn")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 # This class is the output for the 'put_image_recipe_policy' function.
 class PutImageRecipePolicyResponseTypeDef(BaseValidatorModel):
     requestId: str
-    imageRecipeArn: str
+    imageRecipeArn: Annotated[str, _aws_pattern("Imagebuilder", "ImageRecipeArn")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 # This class is the output for the 'retry_image' function.
 class RetryImageResponseTypeDef(BaseValidatorModel):
     clientToken: str
-    imageBuildVersionArn: str
+    imageBuildVersionArn: Annotated[str, _aws_pattern("Imagebuilder", "ImageBuildVersionArn")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 # This class is the output for the 'send_workflow_step_action' function.
 class SendWorkflowStepActionResponseTypeDef(BaseValidatorModel):
-    stepExecutionId: str
-    imageBuildVersionArn: str
+    stepExecutionId: Annotated[str, _aws_pattern("Imagebuilder", "WorkflowStepExecutionId")]
+    imageBuildVersionArn: Annotated[str, _aws_pattern("Imagebuilder", "ImageBuildVersionArn")]
     clientToken: str
     ResponseMetadata: ResponseMetadataTypeDef
 
@@ -1079,14 +1081,14 @@ class SendWorkflowStepActionResponseTypeDef(BaseValidatorModel):
 class StartImagePipelineExecutionResponseTypeDef(BaseValidatorModel):
     requestId: str
     clientToken: str
-    imageBuildVersionArn: str
+    imageBuildVersionArn: Annotated[str, _aws_pattern("Imagebuilder", "ImageBuildVersionArn")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 # This class is the output for the 'start_resource_state_update' function.
 class StartResourceStateUpdateResponseTypeDef(BaseValidatorModel):
-    lifecycleExecutionId: str
-    resourceArn: str
+    lifecycleExecutionId: Annotated[str, _aws_pattern("Imagebuilder", "LifecycleExecutionId")]
+    resourceArn: Annotated[str, _aws_pattern("Imagebuilder", "ImageBuildVersionArn")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
@@ -1094,7 +1096,7 @@ class StartResourceStateUpdateResponseTypeDef(BaseValidatorModel):
 class UpdateDistributionConfigurationResponseTypeDef(BaseValidatorModel):
     requestId: str
     clientToken: str
-    distributionConfigurationArn: str
+    distributionConfigurationArn: Annotated[str, _aws_pattern("Imagebuilder", "DistributionConfigurationArn")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
@@ -1102,7 +1104,7 @@ class UpdateDistributionConfigurationResponseTypeDef(BaseValidatorModel):
 class UpdateImagePipelineResponseTypeDef(BaseValidatorModel):
     requestId: str
     clientToken: str
-    imagePipelineArn: str
+    imagePipelineArn: Annotated[str, _aws_pattern("Imagebuilder", "ImagePipelineArn")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
@@ -1110,13 +1112,13 @@ class UpdateImagePipelineResponseTypeDef(BaseValidatorModel):
 class UpdateInfrastructureConfigurationResponseTypeDef(BaseValidatorModel):
     requestId: str
     clientToken: str
-    infrastructureConfigurationArn: str
+    infrastructureConfigurationArn: Annotated[str, _aws_pattern("Imagebuilder", "InfrastructureConfigurationArn")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 # This class is the output for the 'update_lifecycle_policy' function.
 class UpdateLifecyclePolicyResponseTypeDef(BaseValidatorModel):
-    lifecyclePolicyArn: str
+    lifecyclePolicyArn: Annotated[str, _aws_pattern("Imagebuilder", "LifecyclePolicyArn")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
@@ -1129,9 +1131,9 @@ ComponentParameterUnionTypeDef = Union[ComponentParameterOutputTypeDef, Componen
 
 
 class ComponentSummaryTypeDef(BaseValidatorModel):
-    arn: Optional[str] = None
-    name: Optional[str] = None
-    version: Optional[str] = None
+    arn: Optional[Annotated[str, _aws_pattern("Imagebuilder", "ImageBuilderArn")]] = None
+    name: Optional[Annotated[str, _aws_pattern("Imagebuilder", "ResourceName")]] = None
+    version: Optional[Annotated[str, _aws_pattern("Imagebuilder", "VersionNumber")]] = None
     platform: Optional[PlatformType] = None
     supportedOsVersions: Optional[List[str]] = None
     state: Optional[ComponentStateTypeDef] = None
@@ -1146,9 +1148,9 @@ class ComponentSummaryTypeDef(BaseValidatorModel):
 
 
 class ComponentTypeDef(BaseValidatorModel):
-    arn: Optional[str] = None
-    name: Optional[str] = None
-    version: Optional[str] = None
+    arn: Optional[Annotated[str, _aws_pattern("Imagebuilder", "ImageBuilderArn")]] = None
+    name: Optional[Annotated[str, _aws_pattern("Imagebuilder", "ResourceName")]] = None
+    version: Optional[Annotated[str, _aws_pattern("Imagebuilder", "VersionNumber")]] = None
     description: Optional[str] = None
     changeDescription: Optional[str] = None
     type: Optional[ComponentTypeType] = None
@@ -1168,9 +1170,9 @@ class ComponentTypeDef(BaseValidatorModel):
 
 
 class ComponentVersionTypeDef(BaseValidatorModel):
-    arn: Optional[str] = None
-    name: Optional[str] = None
-    version: Optional[str] = None
+    arn: Optional[Annotated[str, _aws_pattern("Imagebuilder", "ImageBuilderArn")]] = None
+    name: Optional[Annotated[str, _aws_pattern("Imagebuilder", "ResourceName")]] = None
+    version: Optional[Annotated[str, _aws_pattern("Imagebuilder", "VersionNumber")]] = None
     description: Optional[str] = None
     platform: Optional[PlatformType] = None
     supportedOsVersions: Optional[List[str]] = None
@@ -1205,7 +1207,7 @@ class ListContainerRecipesResponseTypeDef(BaseValidatorModel):
 class CreateComponentResponseTypeDef(BaseValidatorModel):
     requestId: str
     clientToken: str
-    componentBuildVersionArn: str
+    componentBuildVersionArn: Annotated[str, _aws_pattern("Imagebuilder", "ComponentBuildVersionArn")]
     latestVersionReferences: LatestVersionReferencesTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
@@ -1214,7 +1216,7 @@ class CreateComponentResponseTypeDef(BaseValidatorModel):
 class CreateContainerRecipeResponseTypeDef(BaseValidatorModel):
     requestId: str
     clientToken: str
-    containerRecipeArn: str
+    containerRecipeArn: Annotated[str, _aws_pattern("Imagebuilder", "ContainerRecipeArn")]
     latestVersionReferences: LatestVersionReferencesTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
@@ -1223,7 +1225,7 @@ class CreateContainerRecipeResponseTypeDef(BaseValidatorModel):
 class CreateImageRecipeResponseTypeDef(BaseValidatorModel):
     requestId: str
     clientToken: str
-    imageRecipeArn: str
+    imageRecipeArn: Annotated[str, _aws_pattern("Imagebuilder", "ImageRecipeArn")]
     latestVersionReferences: LatestVersionReferencesTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
@@ -1232,7 +1234,7 @@ class CreateImageRecipeResponseTypeDef(BaseValidatorModel):
 class CreateImageResponseTypeDef(BaseValidatorModel):
     requestId: str
     clientToken: str
-    imageBuildVersionArn: str
+    imageBuildVersionArn: Annotated[str, _aws_pattern("Imagebuilder", "ImageBuildVersionArn")]
     latestVersionReferences: LatestVersionReferencesTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
@@ -1240,7 +1242,7 @@ class CreateImageResponseTypeDef(BaseValidatorModel):
 # This class is the output for the 'create_workflow' function.
 class CreateWorkflowResponseTypeDef(BaseValidatorModel):
     clientToken: str
-    workflowBuildVersionArn: str
+    workflowBuildVersionArn: Annotated[str, _aws_pattern("Imagebuilder", "WorkflowBuildVersionArn")]
     latestVersionReferences: LatestVersionReferencesTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
@@ -1248,8 +1250,8 @@ class CreateWorkflowResponseTypeDef(BaseValidatorModel):
 # This class is the input for the 'distribute_image' function.
 class DistributeImageRequestTypeDef(BaseValidatorModel):
     sourceImage: str
-    distributionConfigurationArn: str
-    executionRole: str
+    distributionConfigurationArn: Annotated[str, _aws_pattern("Imagebuilder", "DistributionConfigurationArn")]
+    executionRole: Annotated[str, _aws_pattern("Imagebuilder", "RoleNameOrArn")]
     clientToken: str
     tags: Optional[Dict[str, str]] = None
     loggingConfiguration: Optional[ImageLoggingConfigurationTypeDef] = None
@@ -1258,7 +1260,7 @@ class DistributeImageRequestTypeDef(BaseValidatorModel):
 # This class is the input for the 'import_vm_image' function.
 class ImportVmImageRequestTypeDef(BaseValidatorModel):
     name: str
-    semanticVersion: str
+    semanticVersion: Annotated[str, _aws_pattern("Imagebuilder", "VersionNumber")]
     platform: PlatformType
     vmImportTaskId: str
     clientToken: str
@@ -1269,15 +1271,15 @@ class ImportVmImageRequestTypeDef(BaseValidatorModel):
 
 
 class InfrastructureConfigurationSummaryTypeDef(BaseValidatorModel):
-    arn: Optional[str] = None
-    name: Optional[str] = None
+    arn: Optional[Annotated[str, _aws_pattern("Imagebuilder", "ImageBuilderArn")]] = None
+    name: Optional[Annotated[str, _aws_pattern("Imagebuilder", "ResourceName")]] = None
     description: Optional[str] = None
     dateCreated: Optional[str] = None
     dateUpdated: Optional[str] = None
     resourceTags: Optional[Dict[str, str]] = None
     tags: Optional[Dict[str, str]] = None
     instanceTypes: Optional[List[str]] = None
-    instanceProfileName: Optional[str] = None
+    instanceProfileName: Optional[Annotated[str, _aws_pattern("Imagebuilder", "InstanceProfileNameType")]] = None
     placement: Optional[PlacementTypeDef] = None
 
 
@@ -1320,7 +1322,7 @@ class FastLaunchConfigurationTypeDef(BaseValidatorModel):
     snapshotConfiguration: Optional[FastLaunchSnapshotConfigurationTypeDef] = None
     maxParallelLaunches: Optional[int] = None
     launchTemplate: Optional[FastLaunchLaunchTemplateSpecificationTypeDef] = None
-    accountId: Optional[str] = None
+    accountId: Optional[Annotated[str, _aws_pattern("Imagebuilder", "AccountId")]] = None
 
 
 # This class is the input for the 'list_components' function.
@@ -1349,7 +1351,7 @@ class ListDistributionConfigurationsRequestTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'list_image_build_versions' function.
 class ListImageBuildVersionsRequestTypeDef(BaseValidatorModel):
-    imageVersionArn: Optional[str] = None
+    imageVersionArn: Optional[Annotated[str, _aws_pattern("Imagebuilder", "ImageVersionArn")]] = None
     filters: Optional[List[FilterTypeDef]] = None
     maxResults: Optional[int] = None
     nextToken: Optional[str] = None
@@ -1357,7 +1359,7 @@ class ListImageBuildVersionsRequestTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'list_image_pipeline_images' function.
 class ListImagePipelineImagesRequestTypeDef(BaseValidatorModel):
-    imagePipelineArn: str
+    imagePipelineArn: Annotated[str, _aws_pattern("Imagebuilder", "ImagePipelineArn")]
     filters: Optional[List[FilterTypeDef]] = None
     maxResults: Optional[int] = None
     nextToken: Optional[str] = None
@@ -1450,15 +1452,15 @@ class ListImagesResponseTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'import_disk_image' function.
 class ImportDiskImageRequestTypeDef(BaseValidatorModel):
-    name: str
-    semanticVersion: str
+    name: Annotated[str, _aws_pattern("Imagebuilder", "ResourceName")]
+    semanticVersion: Annotated[str, _aws_pattern("Imagebuilder", "VersionNumber")]
     platform: str
     osVersion: str
-    infrastructureConfigurationArn: str
+    infrastructureConfigurationArn: Annotated[str, _aws_pattern("Imagebuilder", "InfrastructureConfigurationArn")]
     uri: str
     clientToken: str
     description: Optional[str] = None
-    executionRole: Optional[str] = None
+    executionRole: Optional[Annotated[str, _aws_pattern("Imagebuilder", "RoleNameOrArn")]] = None
     loggingConfiguration: Optional[ImageLoggingConfigurationTypeDef] = None
     tags: Optional[Dict[str, str]] = None
     registerImageOptions: Optional[RegisterImageOptionsTypeDef] = None
@@ -1476,8 +1478,8 @@ class LifecycleExecutionSnapshotResourceTypeDef(BaseValidatorModel):
 
 
 class LifecycleExecutionTypeDef(BaseValidatorModel):
-    lifecycleExecutionId: Optional[str] = None
-    lifecyclePolicyArn: Optional[str] = None
+    lifecycleExecutionId: Optional[Annotated[str, _aws_pattern("Imagebuilder", "LifecycleExecutionId")]] = None
+    lifecyclePolicyArn: Optional[Annotated[str, _aws_pattern("Imagebuilder", "LifecyclePolicyArn")]] = None
     resourcesImpactedSummary: Optional[LifecycleExecutionResourcesImpactedSummaryTypeDef] = None
     state: Optional[LifecycleExecutionStateTypeDef] = None
     startTime: Optional[datetime] = None
@@ -1500,7 +1502,7 @@ class LifecyclePolicyDetailExclusionRulesAmisOutputTypeDef(BaseValidatorModel):
 class LifecyclePolicyDetailExclusionRulesAmisTypeDef(BaseValidatorModel):
     isPublic: Optional[bool] = None
     regions: Optional[List[str]] = None
-    sharedAccounts: Optional[List[str]] = None
+    sharedAccounts: Optional[List[Annotated[str, _aws_pattern("Imagebuilder", "AccountId")]]] = None
     lastLaunched: Optional[LifecyclePolicyDetailExclusionRulesAmisLastLaunchedTypeDef] = None
     tagMap: Optional[Dict[str, str]] = None
 
@@ -1649,7 +1651,7 @@ class ListWaitingWorkflowStepsResponseTypeDef(BaseValidatorModel):
 class ListWorkflowExecutionsResponseTypeDef(BaseValidatorModel):
     requestId: str
     workflowExecutions: List[WorkflowExecutionMetadataTypeDef]
-    imageBuildVersionArn: str
+    imageBuildVersionArn: Annotated[str, _aws_pattern("Imagebuilder", "ImageBuildVersionArn")]
     message: str
     ResponseMetadata: ResponseMetadataTypeDef
     nextToken: Optional[str] = None
@@ -1659,9 +1661,9 @@ class ListWorkflowExecutionsResponseTypeDef(BaseValidatorModel):
 class ListWorkflowStepExecutionsResponseTypeDef(BaseValidatorModel):
     requestId: str
     steps: List[WorkflowStepMetadataTypeDef]
-    workflowBuildVersionArn: str
-    workflowExecutionId: str
-    imageBuildVersionArn: str
+    workflowBuildVersionArn: Annotated[str, _aws_pattern("Imagebuilder", "WorkflowBuildVersionArn")]
+    workflowExecutionId: Annotated[str, _aws_pattern("Imagebuilder", "WorkflowExecutionId")]
+    imageBuildVersionArn: Annotated[str, _aws_pattern("Imagebuilder", "ImageBuildVersionArn")]
     message: str
     ResponseMetadata: ResponseMetadataTypeDef
     nextToken: Optional[str] = None
@@ -1706,9 +1708,9 @@ WorkflowParameterUnionTypeDef = Union[WorkflowParameterOutputTypeDef, WorkflowPa
 
 
 class WorkflowSummaryTypeDef(BaseValidatorModel):
-    arn: Optional[str] = None
-    name: Optional[str] = None
-    version: Optional[str] = None
+    arn: Optional[Annotated[str, _aws_pattern("Imagebuilder", "WorkflowNameArn")]] = None
+    name: Optional[Annotated[str, _aws_pattern("Imagebuilder", "ResourceName")]] = None
+    version: Optional[Annotated[str, _aws_pattern("Imagebuilder", "VersionNumber")]] = None
     description: Optional[str] = None
     changeDescription: Optional[str] = None
     type: Optional[WorkflowTypeType] = None
@@ -1719,9 +1721,9 @@ class WorkflowSummaryTypeDef(BaseValidatorModel):
 
 
 class WorkflowTypeDef(BaseValidatorModel):
-    arn: Optional[str] = None
-    name: Optional[str] = None
-    version: Optional[str] = None
+    arn: Optional[Annotated[str, _aws_pattern("Imagebuilder", "WorkflowBuildVersionArn")]] = None
+    name: Optional[Annotated[str, _aws_pattern("Imagebuilder", "ResourceName")]] = None
+    version: Optional[Annotated[str, _aws_pattern("Imagebuilder", "VersionNumber")]] = None
     description: Optional[str] = None
     changeDescription: Optional[str] = None
     type: Optional[WorkflowTypeType] = None
@@ -1747,7 +1749,7 @@ class OutputResourcesTypeDef(BaseValidatorModel):
 
 
 class ComponentConfigurationTypeDef(BaseValidatorModel):
-    componentArn: str
+    componentArn: Annotated[str, _aws_pattern("Imagebuilder", "ComponentVersionArnOrBuildVersionArn")]
     parameters: Optional[List[ComponentParameterUnionTypeDef]] = None
 
 
@@ -1793,13 +1795,13 @@ class InspectorScoreDetailsTypeDef(BaseValidatorModel):
 
 
 class ImageRecipeTypeDef(BaseValidatorModel):
-    arn: Optional[str] = None
+    arn: Optional[Annotated[str, _aws_pattern("Imagebuilder", "ImageBuilderArn")]] = None
     type: Optional[ImageTypeType] = None
-    name: Optional[str] = None
+    name: Optional[Annotated[str, _aws_pattern("Imagebuilder", "ResourceName")]] = None
     description: Optional[str] = None
     platform: Optional[PlatformType] = None
     owner: Optional[str] = None
-    version: Optional[str] = None
+    version: Optional[Annotated[str, _aws_pattern("Imagebuilder", "VersionNumber")]] = None
     components: Optional[List[ComponentConfigurationOutputTypeDef]] = None
     parentImage: Optional[str] = None
     blockDeviceMappings: Optional[List[InstanceBlockDeviceMappingTypeDef]] = None
@@ -1837,9 +1839,9 @@ class DistributionOutputTypeDef(BaseValidatorModel):
 
 
 class AmiDistributionConfigurationTypeDef(BaseValidatorModel):
-    name: Optional[str] = None
+    name: Optional[Annotated[str, _aws_pattern("Imagebuilder", "AmiNameString")]] = None
     description: Optional[str] = None
-    targetAccountIds: Optional[List[str]] = None
+    targetAccountIds: Optional[List[Annotated[str, _aws_pattern("Imagebuilder", "AccountId")]]] = None
     amiTags: Optional[Dict[str, str]] = None
     kmsKeyId: Optional[str] = None
     launchPermission: Optional[LaunchPermissionConfigurationUnionTypeDef] = None
@@ -1886,8 +1888,8 @@ LifecyclePolicyResourceSelectionUnionTypeDef = Union[
 
 # This class is the input for the 'create_infrastructure_configuration' function.
 class CreateInfrastructureConfigurationRequestTypeDef(BaseValidatorModel):
-    name: str
-    instanceProfileName: str
+    name: Annotated[str, _aws_pattern("Imagebuilder", "ResourceName")]
+    instanceProfileName: Annotated[str, _aws_pattern("Imagebuilder", "InstanceProfileNameType")]
     clientToken: str
     description: Optional[str] = None
     instanceTypes: Optional[List[str]] = None
@@ -1896,7 +1898,7 @@ class CreateInfrastructureConfigurationRequestTypeDef(BaseValidatorModel):
     logging: Optional[LoggingTypeDef] = None
     keyPair: Optional[str] = None
     terminateInstanceOnFailure: Optional[bool] = None
-    snsTopicArn: Optional[str] = None
+    snsTopicArn: Optional[Annotated[str, _aws_pattern("Imagebuilder", "SnsTopicArn")]] = None
     resourceTags: Optional[Dict[str, str]] = None
     instanceMetadataOptions: Optional[InstanceMetadataOptionsTypeDef] = None
     tags: Optional[Dict[str, str]] = None
@@ -1904,11 +1906,11 @@ class CreateInfrastructureConfigurationRequestTypeDef(BaseValidatorModel):
 
 
 class InfrastructureConfigurationTypeDef(BaseValidatorModel):
-    arn: Optional[str] = None
-    name: Optional[str] = None
+    arn: Optional[Annotated[str, _aws_pattern("Imagebuilder", "ImageBuilderArn")]] = None
+    name: Optional[Annotated[str, _aws_pattern("Imagebuilder", "ResourceName")]] = None
     description: Optional[str] = None
     instanceTypes: Optional[List[str]] = None
-    instanceProfileName: Optional[str] = None
+    instanceProfileName: Optional[Annotated[str, _aws_pattern("Imagebuilder", "InstanceProfileNameType")]] = None
     securityGroupIds: Optional[List[str]] = None
     subnetId: Optional[str] = None
     logging: Optional[LoggingTypeDef] = None
@@ -1925,8 +1927,8 @@ class InfrastructureConfigurationTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'update_infrastructure_configuration' function.
 class UpdateInfrastructureConfigurationRequestTypeDef(BaseValidatorModel):
-    infrastructureConfigurationArn: str
-    instanceProfileName: str
+    infrastructureConfigurationArn: Annotated[str, _aws_pattern("Imagebuilder", "InfrastructureConfigurationArn")]
+    instanceProfileName: Annotated[str, _aws_pattern("Imagebuilder", "InstanceProfileNameType")]
     clientToken: str
     description: Optional[str] = None
     instanceTypes: Optional[List[str]] = None
@@ -1935,15 +1937,15 @@ class UpdateInfrastructureConfigurationRequestTypeDef(BaseValidatorModel):
     logging: Optional[LoggingTypeDef] = None
     keyPair: Optional[str] = None
     terminateInstanceOnFailure: Optional[bool] = None
-    snsTopicArn: Optional[str] = None
+    snsTopicArn: Optional[Annotated[str, _aws_pattern("Imagebuilder", "SnsTopicArn")]] = None
     resourceTags: Optional[Dict[str, str]] = None
     instanceMetadataOptions: Optional[InstanceMetadataOptionsTypeDef] = None
     placement: Optional[PlacementTypeDef] = None
 
 
 class ImagePipelineTypeDef(BaseValidatorModel):
-    arn: Optional[str] = None
-    name: Optional[str] = None
+    arn: Optional[Annotated[str, _aws_pattern("Imagebuilder", "ImageBuilderArn")]] = None
+    name: Optional[Annotated[str, _aws_pattern("Imagebuilder", "ResourceName")]] = None
     description: Optional[str] = None
     platform: Optional[PlatformType] = None
     enhancedImageMetadataEnabled: Optional[bool] = None
@@ -1962,16 +1964,16 @@ class ImagePipelineTypeDef(BaseValidatorModel):
     tags: Optional[Dict[str, str]] = None
     imageScanningConfiguration: Optional[ImageScanningConfigurationOutputTypeDef] = None
     imageTags: Optional[Dict[str, str]] = None
-    executionRole: Optional[str] = None
+    executionRole: Optional[Annotated[str, _aws_pattern("Imagebuilder", "RoleNameOrArn")]] = None
     workflows: Optional[List[WorkflowConfigurationOutputTypeDef]] = None
     loggingConfiguration: Optional[PipelineLoggingConfigurationTypeDef] = None
     consecutiveFailures: Optional[int] = None
 
 
 class WorkflowConfigurationTypeDef(BaseValidatorModel):
-    workflowArn: str
+    workflowArn: Annotated[str, _aws_pattern("Imagebuilder", "WorkflowVersionArnOrBuildVersionArn")]
     parameters: Optional[List[WorkflowParameterUnionTypeDef]] = None
-    parallelGroup: Optional[str] = None
+    parallelGroup: Optional[Annotated[str, _aws_pattern("Imagebuilder", "ParallelGroup")]] = None
     onFailure: Optional[OnWorkflowFailureType] = None
 
 
@@ -1999,10 +2001,10 @@ class ListImageScanFindingAggregationsResponseTypeDef(BaseValidatorModel):
 
 
 class ImageSummaryTypeDef(BaseValidatorModel):
-    arn: Optional[str] = None
-    name: Optional[str] = None
+    arn: Optional[Annotated[str, _aws_pattern("Imagebuilder", "ImageBuilderArn")]] = None
+    name: Optional[Annotated[str, _aws_pattern("Imagebuilder", "ResourceName")]] = None
     type: Optional[ImageTypeType] = None
-    version: Optional[str] = None
+    version: Optional[Annotated[str, _aws_pattern("Imagebuilder", "VersionNumber")]] = None
     platform: Optional[PlatformType] = None
     osVersion: Optional[str] = None
     state: Optional[ImageStateTypeDef] = None
@@ -2013,7 +2015,7 @@ class ImageSummaryTypeDef(BaseValidatorModel):
     buildType: Optional[BuildTypeType] = None
     imageSource: Optional[ImageSourceType] = None
     deprecationTime: Optional[datetime] = None
-    lifecycleExecutionId: Optional[str] = None
+    lifecycleExecutionId: Optional[Annotated[str, _aws_pattern("Imagebuilder", "LifecycleExecutionId")]] = None
     loggingConfiguration: Optional[ImageLoggingConfigurationTypeDef] = None
 
 
@@ -2022,8 +2024,8 @@ ComponentConfigurationUnionTypeDef = Union[ComponentConfigurationOutputTypeDef, 
 
 class ImageScanFindingTypeDef(BaseValidatorModel):
     awsAccountId: Optional[str] = None
-    imageBuildVersionArn: Optional[str] = None
-    imagePipelineArn: Optional[str] = None
+    imageBuildVersionArn: Optional[Annotated[str, _aws_pattern("Imagebuilder", "ImageBuildVersionArn")]] = None
+    imagePipelineArn: Optional[Annotated[str, _aws_pattern("Imagebuilder", "ImagePipelineArn")]] = None
     type: Optional[str] = None
     description: Optional[str] = None
     title: Optional[str] = None
@@ -2046,13 +2048,13 @@ class GetImageRecipeResponseTypeDef(BaseValidatorModel):
 
 
 class ContainerRecipeTypeDef(BaseValidatorModel):
-    arn: Optional[str] = None
+    arn: Optional[Annotated[str, _aws_pattern("Imagebuilder", "ImageBuilderArn")]] = None
     containerType: Optional[Literal["DOCKER"]] = None
-    name: Optional[str] = None
+    name: Optional[Annotated[str, _aws_pattern("Imagebuilder", "ResourceName")]] = None
     description: Optional[str] = None
     platform: Optional[PlatformType] = None
     owner: Optional[str] = None
-    version: Optional[str] = None
+    version: Optional[Annotated[str, _aws_pattern("Imagebuilder", "VersionNumber")]] = None
     components: Optional[List[ComponentConfigurationOutputTypeDef]] = None
     instanceConfiguration: Optional[InstanceConfigurationOutputTypeDef] = None
     dockerfileTemplateData: Optional[str] = None
@@ -2070,8 +2072,8 @@ InstanceConfigurationUnionTypeDef = Union[InstanceConfigurationOutputTypeDef, In
 
 class DistributionConfigurationTypeDef(BaseValidatorModel):
     timeoutMinutes: int
-    arn: Optional[str] = None
-    name: Optional[str] = None
+    arn: Optional[Annotated[str, _aws_pattern("Imagebuilder", "ImageBuilderArn")]] = None
+    name: Optional[Annotated[str, _aws_pattern("Imagebuilder", "ResourceName")]] = None
     description: Optional[str] = None
     distributions: Optional[List[DistributionOutputTypeDef]] = None
     dateCreated: Optional[str] = None
@@ -2086,7 +2088,7 @@ AmiDistributionConfigurationUnionTypeDef = Union[
 
 # This class is the output for the 'list_lifecycle_execution_resources' function.
 class ListLifecycleExecutionResourcesResponseTypeDef(BaseValidatorModel):
-    lifecycleExecutionId: str
+    lifecycleExecutionId: Annotated[str, _aws_pattern("Imagebuilder", "LifecycleExecutionId")]
     lifecycleExecutionState: LifecycleExecutionStateTypeDef
     resources: List[LifecycleExecutionResourceTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
@@ -2151,8 +2153,8 @@ class ListImagePipelineImagesResponseTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'create_image_recipe' function.
 class CreateImageRecipeRequestTypeDef(BaseValidatorModel):
-    name: str
-    semanticVersion: str
+    name: Annotated[str, _aws_pattern("Imagebuilder", "ResourceName")]
+    semanticVersion: Annotated[str, _aws_pattern("Imagebuilder", "WildcardVersionNumber")]
     parentImage: str
     clientToken: str
     description: Optional[str] = None
@@ -2183,15 +2185,15 @@ class GetContainerRecipeResponseTypeDef(BaseValidatorModel):
 # This class is the input for the 'create_container_recipe' function.
 class CreateContainerRecipeRequestTypeDef(BaseValidatorModel):
     containerType: Literal["DOCKER"]
-    name: str
-    semanticVersion: str
+    name: Annotated[str, _aws_pattern("Imagebuilder", "ResourceName")]
+    semanticVersion: Annotated[str, _aws_pattern("Imagebuilder", "WildcardVersionNumber")]
     parentImage: str
     targetRepository: TargetContainerRepositoryTypeDef
     clientToken: str
     description: Optional[str] = None
     components: Optional[List[ComponentConfigurationUnionTypeDef]] = None
     instanceConfiguration: Optional[InstanceConfigurationUnionTypeDef] = None
-    dockerfileTemplateData: Optional[str] = None
+    dockerfileTemplateData: Optional[Annotated[str, _aws_pattern("Imagebuilder", "InlineDockerFileTemplate")]] = None
     dockerfileTemplateUri: Optional[str] = None
     platformOverride: Optional[PlatformType] = None
     imageOsVersionOverride: Optional[str] = None
@@ -2208,17 +2210,17 @@ class GetDistributionConfigurationResponseTypeDef(BaseValidatorModel):
 
 
 class ImageTypeDef(BaseValidatorModel):
-    arn: Optional[str] = None
+    arn: Optional[Annotated[str, _aws_pattern("Imagebuilder", "ImageBuilderArn")]] = None
     type: Optional[ImageTypeType] = None
-    name: Optional[str] = None
-    version: Optional[str] = None
+    name: Optional[Annotated[str, _aws_pattern("Imagebuilder", "ResourceName")]] = None
+    version: Optional[Annotated[str, _aws_pattern("Imagebuilder", "VersionNumber")]] = None
     platform: Optional[PlatformType] = None
     enhancedImageMetadataEnabled: Optional[bool] = None
     osVersion: Optional[str] = None
     state: Optional[ImageStateTypeDef] = None
     imageRecipe: Optional[ImageRecipeTypeDef] = None
     containerRecipe: Optional[ContainerRecipeTypeDef] = None
-    sourcePipelineName: Optional[str] = None
+    sourcePipelineName: Optional[Annotated[str, _aws_pattern("Imagebuilder", "ResourceName")]] = None
     sourcePipelineArn: Optional[str] = None
     infrastructureConfiguration: Optional[InfrastructureConfigurationTypeDef] = None
     distributionConfiguration: Optional[DistributionConfigurationTypeDef] = None
@@ -2231,8 +2233,8 @@ class ImageTypeDef(BaseValidatorModel):
     scanState: Optional[ImageScanStateTypeDef] = None
     imageScanningConfiguration: Optional[ImageScanningConfigurationOutputTypeDef] = None
     deprecationTime: Optional[datetime] = None
-    lifecycleExecutionId: Optional[str] = None
-    executionRole: Optional[str] = None
+    lifecycleExecutionId: Optional[Annotated[str, _aws_pattern("Imagebuilder", "LifecycleExecutionId")]] = None
+    executionRole: Optional[Annotated[str, _aws_pattern("Imagebuilder", "RoleNameOrArn")]] = None
     workflows: Optional[List[WorkflowConfigurationOutputTypeDef]] = None
     loggingConfiguration: Optional[ImageLoggingConfigurationTypeDef] = None
 
@@ -2241,7 +2243,9 @@ class DistributionTypeDef(BaseValidatorModel):
     region: str
     amiDistributionConfiguration: Optional[AmiDistributionConfigurationUnionTypeDef] = None
     containerDistributionConfiguration: Optional[ContainerDistributionConfigurationUnionTypeDef] = None
-    licenseConfigurationArns: Optional[List[str]] = None
+    licenseConfigurationArns: Optional[
+        List[Annotated[str, _aws_pattern("Imagebuilder", "LicenseConfigurationArn")]]
+    ] = None
     launchTemplateConfigurations: Optional[List[LaunchTemplateConfigurationTypeDef]] = None
     s3ExportConfiguration: Optional[S3ExportConfigurationTypeDef] = None
     fastLaunchConfigurations: Optional[List[FastLaunchConfigurationTypeDef]] = None
@@ -2249,11 +2253,11 @@ class DistributionTypeDef(BaseValidatorModel):
 
 
 class LifecyclePolicyTypeDef(BaseValidatorModel):
-    arn: Optional[str] = None
-    name: Optional[str] = None
+    arn: Optional[Annotated[str, _aws_pattern("Imagebuilder", "LifecyclePolicyArn")]] = None
+    name: Optional[Annotated[str, _aws_pattern("Imagebuilder", "ResourceName")]] = None
     description: Optional[str] = None
     status: Optional[LifecyclePolicyStatusType] = None
-    executionRole: Optional[str] = None
+    executionRole: Optional[Annotated[str, _aws_pattern("Imagebuilder", "RoleNameOrArn")]] = None
     resourceType: Optional[LifecyclePolicyResourceTypeType] = None
     policyDetails: Optional[List[LifecyclePolicyDetailOutputTypeDef]] = None
     resourceSelection: Optional[LifecyclePolicyResourceSelectionOutputTypeDef] = None
@@ -2270,10 +2274,10 @@ LifecyclePolicyDetailExclusionRulesUnionTypeDef = Union[
 
 # This class is the input for the 'start_resource_state_update' function.
 class StartResourceStateUpdateRequestTypeDef(BaseValidatorModel):
-    resourceArn: str
+    resourceArn: Annotated[str, _aws_pattern("Imagebuilder", "ImageBuildVersionArn")]
     state: ResourceStateTypeDef
     clientToken: str
-    executionRole: Optional[str] = None
+    executionRole: Optional[Annotated[str, _aws_pattern("Imagebuilder", "RoleNameOrArn")]] = None
     includeResources: Optional[ResourceStateUpdateIncludeResourcesTypeDef] = None
     exclusionRules: Optional[ResourceStateUpdateExclusionRulesTypeDef] = None
     updateAt: Optional[TimestampTypeDef] = None
@@ -2281,13 +2285,15 @@ class StartResourceStateUpdateRequestTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'create_image_pipeline' function.
 class CreateImagePipelineRequestTypeDef(BaseValidatorModel):
-    name: str
-    infrastructureConfigurationArn: str
+    name: Annotated[str, _aws_pattern("Imagebuilder", "ResourceName")]
+    infrastructureConfigurationArn: Annotated[str, _aws_pattern("Imagebuilder", "InfrastructureConfigurationArn")]
     clientToken: str
     description: Optional[str] = None
-    imageRecipeArn: Optional[str] = None
-    containerRecipeArn: Optional[str] = None
-    distributionConfigurationArn: Optional[str] = None
+    imageRecipeArn: Optional[Annotated[str, _aws_pattern("Imagebuilder", "ImageRecipeArn")]] = None
+    containerRecipeArn: Optional[Annotated[str, _aws_pattern("Imagebuilder", "ContainerRecipeArn")]] = None
+    distributionConfigurationArn: Optional[
+        Annotated[str, _aws_pattern("Imagebuilder", "DistributionConfigurationArn")]
+    ] = None
     imageTestsConfiguration: Optional[ImageTestsConfigurationTypeDef] = None
     enhancedImageMetadataEnabled: Optional[bool] = None
     schedule: Optional[ScheduleTypeDef] = None
@@ -2296,35 +2302,39 @@ class CreateImagePipelineRequestTypeDef(BaseValidatorModel):
     imageTags: Optional[Dict[str, str]] = None
     imageScanningConfiguration: Optional[ImageScanningConfigurationUnionTypeDef] = None
     workflows: Optional[List[WorkflowConfigurationUnionTypeDef]] = None
-    executionRole: Optional[str] = None
+    executionRole: Optional[Annotated[str, _aws_pattern("Imagebuilder", "RoleNameOrArn")]] = None
     loggingConfiguration: Optional[PipelineLoggingConfigurationTypeDef] = None
 
 
 # This class is the input for the 'create_image' function.
 class CreateImageRequestTypeDef(BaseValidatorModel):
-    infrastructureConfigurationArn: str
+    infrastructureConfigurationArn: Annotated[str, _aws_pattern("Imagebuilder", "InfrastructureConfigurationArn")]
     clientToken: str
-    imageRecipeArn: Optional[str] = None
-    containerRecipeArn: Optional[str] = None
-    distributionConfigurationArn: Optional[str] = None
+    imageRecipeArn: Optional[Annotated[str, _aws_pattern("Imagebuilder", "ImageRecipeArn")]] = None
+    containerRecipeArn: Optional[Annotated[str, _aws_pattern("Imagebuilder", "ContainerRecipeArn")]] = None
+    distributionConfigurationArn: Optional[
+        Annotated[str, _aws_pattern("Imagebuilder", "DistributionConfigurationArn")]
+    ] = None
     imageTestsConfiguration: Optional[ImageTestsConfigurationTypeDef] = None
     enhancedImageMetadataEnabled: Optional[bool] = None
     tags: Optional[Dict[str, str]] = None
     imageScanningConfiguration: Optional[ImageScanningConfigurationUnionTypeDef] = None
     workflows: Optional[List[WorkflowConfigurationUnionTypeDef]] = None
-    executionRole: Optional[str] = None
+    executionRole: Optional[Annotated[str, _aws_pattern("Imagebuilder", "RoleNameOrArn")]] = None
     loggingConfiguration: Optional[ImageLoggingConfigurationTypeDef] = None
 
 
 # This class is the input for the 'update_image_pipeline' function.
 class UpdateImagePipelineRequestTypeDef(BaseValidatorModel):
-    imagePipelineArn: str
-    infrastructureConfigurationArn: str
+    imagePipelineArn: Annotated[str, _aws_pattern("Imagebuilder", "ImagePipelineArn")]
+    infrastructureConfigurationArn: Annotated[str, _aws_pattern("Imagebuilder", "InfrastructureConfigurationArn")]
     clientToken: str
     description: Optional[str] = None
-    imageRecipeArn: Optional[str] = None
-    containerRecipeArn: Optional[str] = None
-    distributionConfigurationArn: Optional[str] = None
+    imageRecipeArn: Optional[Annotated[str, _aws_pattern("Imagebuilder", "ImageRecipeArn")]] = None
+    containerRecipeArn: Optional[Annotated[str, _aws_pattern("Imagebuilder", "ContainerRecipeArn")]] = None
+    distributionConfigurationArn: Optional[
+        Annotated[str, _aws_pattern("Imagebuilder", "DistributionConfigurationArn")]
+    ] = None
     imageTestsConfiguration: Optional[ImageTestsConfigurationTypeDef] = None
     enhancedImageMetadataEnabled: Optional[bool] = None
     schedule: Optional[ScheduleTypeDef] = None
@@ -2332,7 +2342,7 @@ class UpdateImagePipelineRequestTypeDef(BaseValidatorModel):
     imageScanningConfiguration: Optional[ImageScanningConfigurationUnionTypeDef] = None
     workflows: Optional[List[WorkflowConfigurationUnionTypeDef]] = None
     loggingConfiguration: Optional[PipelineLoggingConfigurationTypeDef] = None
-    executionRole: Optional[str] = None
+    executionRole: Optional[Annotated[str, _aws_pattern("Imagebuilder", "RoleNameOrArn")]] = None
     imageTags: Optional[Dict[str, str]] = None
 
 
@@ -2361,7 +2371,7 @@ class LifecyclePolicyDetailTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'create_distribution_configuration' function.
 class CreateDistributionConfigurationRequestTypeDef(BaseValidatorModel):
-    name: str
+    name: Annotated[str, _aws_pattern("Imagebuilder", "ResourceName")]
     distributions: List[DistributionUnionTypeDef]
     clientToken: str
     description: Optional[str] = None
@@ -2370,7 +2380,7 @@ class CreateDistributionConfigurationRequestTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'update_distribution_configuration' function.
 class UpdateDistributionConfigurationRequestTypeDef(BaseValidatorModel):
-    distributionConfigurationArn: str
+    distributionConfigurationArn: Annotated[str, _aws_pattern("Imagebuilder", "DistributionConfigurationArn")]
     distributions: List[DistributionUnionTypeDef]
     clientToken: str
     description: Optional[str] = None
@@ -2381,8 +2391,8 @@ LifecyclePolicyDetailUnionTypeDef = Union[LifecyclePolicyDetailOutputTypeDef, Li
 
 # This class is the input for the 'create_lifecycle_policy' function.
 class CreateLifecyclePolicyRequestTypeDef(BaseValidatorModel):
-    name: str
-    executionRole: str
+    name: Annotated[str, _aws_pattern("Imagebuilder", "ResourceName")]
+    executionRole: Annotated[str, _aws_pattern("Imagebuilder", "RoleNameOrArn")]
     resourceType: LifecyclePolicyResourceTypeType
     policyDetails: List[LifecyclePolicyDetailUnionTypeDef]
     resourceSelection: LifecyclePolicyResourceSelectionUnionTypeDef
@@ -2394,8 +2404,8 @@ class CreateLifecyclePolicyRequestTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'update_lifecycle_policy' function.
 class UpdateLifecyclePolicyRequestTypeDef(BaseValidatorModel):
-    lifecyclePolicyArn: str
-    executionRole: str
+    lifecyclePolicyArn: Annotated[str, _aws_pattern("Imagebuilder", "LifecyclePolicyArn")]
+    executionRole: Annotated[str, _aws_pattern("Imagebuilder", "RoleNameOrArn")]
     resourceType: LifecyclePolicyResourceTypeType
     policyDetails: List[LifecyclePolicyDetailUnionTypeDef]
     resourceSelection: LifecyclePolicyResourceSelectionUnionTypeDef

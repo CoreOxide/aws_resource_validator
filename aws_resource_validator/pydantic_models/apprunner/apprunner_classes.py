@@ -3,6 +3,7 @@
 from datetime import datetime
 from decimal import Decimal
 from typing import (
+    Annotated,
     Any,
     Callable,
     Dict,
@@ -24,6 +25,7 @@ from botocore.response import StreamingBody
 from pydantic import Field
 
 from aws_resource_validator.core.base_validator_model import BaseValidatorModel, EventStream
+from aws_resource_validator.core.pattern_validation import aws_field_pattern as _aws_pattern
 from aws_resource_validator.pydantic_models.apprunner.apprunner_constants import *  # noqa: F401,F403
 
 # Optional boto3 symbols — imported lazily so services that don't need them
@@ -40,8 +42,8 @@ except ImportError:  # pragma: no cover
 
 # This class is the input for the 'associate_custom_domain' function.
 class AssociateCustomDomainRequestTypeDef(BaseValidatorModel):
-    ServiceArn: str
-    DomainName: str
+    ServiceArn: Annotated[str, _aws_pattern("Apprunner", "AppRunnerResourceArn")]
+    DomainName: Annotated[str, _aws_pattern("Apprunner", "DomainName")]
     EnableWWWSubdomain: Optional[bool] = None
 
 
@@ -54,19 +56,21 @@ class ResponseMetadataTypeDef(BaseValidatorModel):
 
 
 class VpcDNSTargetTypeDef(BaseValidatorModel):
-    VpcIngressConnectionArn: Optional[str] = None
-    VpcId: Optional[str] = None
-    DomainName: Optional[str] = None
+    VpcIngressConnectionArn: Optional[Annotated[str, _aws_pattern("Apprunner", "AppRunnerResourceArn")]] = None
+    VpcId: Optional[Annotated[str, _aws_pattern("Apprunner", "String")]] = None
+    DomainName: Optional[Annotated[str, _aws_pattern("Apprunner", "DomainName")]] = None
 
 
 class AuthenticationConfigurationTypeDef(BaseValidatorModel):
-    ConnectionArn: Optional[str] = None
-    AccessRoleArn: Optional[str] = None
+    ConnectionArn: Optional[Annotated[str, _aws_pattern("Apprunner", "AppRunnerResourceArn")]] = None
+    AccessRoleArn: Optional[Annotated[str, _aws_pattern("Apprunner", "RoleArn")]] = None
 
 
 class AutoScalingConfigurationSummaryTypeDef(BaseValidatorModel):
-    AutoScalingConfigurationArn: Optional[str] = None
-    AutoScalingConfigurationName: Optional[str] = None
+    AutoScalingConfigurationArn: Optional[Annotated[str, _aws_pattern("Apprunner", "AppRunnerResourceArn")]] = None
+    AutoScalingConfigurationName: Optional[
+        Annotated[str, _aws_pattern("Apprunner", "AutoScalingConfigurationName")]
+    ] = None
     AutoScalingConfigurationRevision: Optional[int] = None
     Status: Optional[AutoScalingConfigurationStatusType] = None
     CreatedAt: Optional[datetime] = None
@@ -75,8 +79,10 @@ class AutoScalingConfigurationSummaryTypeDef(BaseValidatorModel):
 
 
 class AutoScalingConfigurationTypeDef(BaseValidatorModel):
-    AutoScalingConfigurationArn: Optional[str] = None
-    AutoScalingConfigurationName: Optional[str] = None
+    AutoScalingConfigurationArn: Optional[Annotated[str, _aws_pattern("Apprunner", "AppRunnerResourceArn")]] = None
+    AutoScalingConfigurationName: Optional[
+        Annotated[str, _aws_pattern("Apprunner", "AutoScalingConfigurationName")]
+    ] = None
     AutoScalingConfigurationRevision: Optional[int] = None
     Latest: Optional[bool] = None
     Status: Optional[AutoScalingConfigurationStatusType] = None
@@ -90,9 +96,9 @@ class AutoScalingConfigurationTypeDef(BaseValidatorModel):
 
 
 class CertificateValidationRecordTypeDef(BaseValidatorModel):
-    Name: Optional[str] = None
-    Type: Optional[str] = None
-    Value: Optional[str] = None
+    Name: Optional[Annotated[str, _aws_pattern("Apprunner", "String")]] = None
+    Type: Optional[Annotated[str, _aws_pattern("Apprunner", "String")]] = None
+    Value: Optional[Annotated[str, _aws_pattern("Apprunner", "String")]] = None
     Status: Optional[CertificateValidationRecordStatusType] = None
 
 
@@ -107,37 +113,37 @@ class CodeConfigurationValuesOutputTypeDef(BaseValidatorModel):
 
 class CodeConfigurationValuesTypeDef(BaseValidatorModel):
     Runtime: RuntimeType
-    BuildCommand: Optional[str] = None
-    StartCommand: Optional[str] = None
-    Port: Optional[str] = None
+    BuildCommand: Optional[Annotated[str, _aws_pattern("Apprunner", "BuildCommand")]] = None
+    StartCommand: Optional[Annotated[str, _aws_pattern("Apprunner", "StartCommand")]] = None
+    Port: Optional[Annotated[str, _aws_pattern("Apprunner", "String")]] = None
     RuntimeEnvironmentVariables: Optional[Dict[str, str]] = None
     RuntimeEnvironmentSecrets: Optional[Dict[str, str]] = None
 
 
 class SourceCodeVersionTypeDef(BaseValidatorModel):
     Type: Literal["BRANCH"]
-    Value: str
+    Value: Annotated[str, _aws_pattern("Apprunner", "String")]
 
 
 class ConnectionSummaryTypeDef(BaseValidatorModel):
-    ConnectionName: Optional[str] = None
-    ConnectionArn: Optional[str] = None
+    ConnectionName: Optional[Annotated[str, _aws_pattern("Apprunner", "ConnectionName")]] = None
+    ConnectionArn: Optional[Annotated[str, _aws_pattern("Apprunner", "AppRunnerResourceArn")]] = None
     ProviderType: Optional[ProviderTypeType] = None
     Status: Optional[ConnectionStatusType] = None
     CreatedAt: Optional[datetime] = None
 
 
 class ConnectionTypeDef(BaseValidatorModel):
-    ConnectionName: Optional[str] = None
-    ConnectionArn: Optional[str] = None
+    ConnectionName: Optional[Annotated[str, _aws_pattern("Apprunner", "ConnectionName")]] = None
+    ConnectionArn: Optional[Annotated[str, _aws_pattern("Apprunner", "AppRunnerResourceArn")]] = None
     ProviderType: Optional[ProviderTypeType] = None
     Status: Optional[ConnectionStatusType] = None
     CreatedAt: Optional[datetime] = None
 
 
 class TagTypeDef(BaseValidatorModel):
-    Key: Optional[str] = None
-    Value: Optional[str] = None
+    Key: Optional[Annotated[str, _aws_pattern("Apprunner", "TagKey")]] = None
+    Value: Optional[Annotated[str, _aws_pattern("Apprunner", "TagValue")]] = None
 
 
 class TraceConfigurationTypeDef(BaseValidatorModel):
@@ -145,7 +151,7 @@ class TraceConfigurationTypeDef(BaseValidatorModel):
 
 
 class EncryptionConfigurationTypeDef(BaseValidatorModel):
-    KmsKey: str
+    KmsKey: Annotated[str, _aws_pattern("Apprunner", "KmsKeyArn")]
 
 
 class HealthCheckConfigurationTypeDef(BaseValidatorModel):
@@ -158,104 +164,104 @@ class HealthCheckConfigurationTypeDef(BaseValidatorModel):
 
 
 class InstanceConfigurationTypeDef(BaseValidatorModel):
-    Cpu: Optional[str] = None
-    Memory: Optional[str] = None
-    InstanceRoleArn: Optional[str] = None
+    Cpu: Optional[Annotated[str, _aws_pattern("Apprunner", "Cpu")]] = None
+    Memory: Optional[Annotated[str, _aws_pattern("Apprunner", "Memory")]] = None
+    InstanceRoleArn: Optional[Annotated[str, _aws_pattern("Apprunner", "RoleArn")]] = None
 
 
 class ServiceObservabilityConfigurationTypeDef(BaseValidatorModel):
     ObservabilityEnabled: bool
-    ObservabilityConfigurationArn: Optional[str] = None
+    ObservabilityConfigurationArn: Optional[Annotated[str, _aws_pattern("Apprunner", "AppRunnerResourceArn")]] = None
 
 
 class VpcConnectorTypeDef(BaseValidatorModel):
-    VpcConnectorName: Optional[str] = None
-    VpcConnectorArn: Optional[str] = None
+    VpcConnectorName: Optional[Annotated[str, _aws_pattern("Apprunner", "VpcConnectorName")]] = None
+    VpcConnectorArn: Optional[Annotated[str, _aws_pattern("Apprunner", "AppRunnerResourceArn")]] = None
     VpcConnectorRevision: Optional[int] = None
-    Subnets: Optional[List[str]] = None
-    SecurityGroups: Optional[List[str]] = None
+    Subnets: Optional[List[Annotated[str, _aws_pattern("Apprunner", "String")]]] = None
+    SecurityGroups: Optional[List[Annotated[str, _aws_pattern("Apprunner", "String")]]] = None
     Status: Optional[VpcConnectorStatusType] = None
     CreatedAt: Optional[datetime] = None
     DeletedAt: Optional[datetime] = None
 
 
 class IngressVpcConfigurationTypeDef(BaseValidatorModel):
-    VpcId: Optional[str] = None
-    VpcEndpointId: Optional[str] = None
+    VpcId: Optional[Annotated[str, _aws_pattern("Apprunner", "String")]] = None
+    VpcEndpointId: Optional[Annotated[str, _aws_pattern("Apprunner", "String")]] = None
 
 
 # This class is the input for the 'delete_auto_scaling_configuration' function.
 class DeleteAutoScalingConfigurationRequestTypeDef(BaseValidatorModel):
-    AutoScalingConfigurationArn: str
+    AutoScalingConfigurationArn: Annotated[str, _aws_pattern("Apprunner", "AppRunnerResourceArn")]
     DeleteAllRevisions: Optional[bool] = None
 
 
 # This class is the input for the 'delete_connection' function.
 class DeleteConnectionRequestTypeDef(BaseValidatorModel):
-    ConnectionArn: str
+    ConnectionArn: Annotated[str, _aws_pattern("Apprunner", "AppRunnerResourceArn")]
 
 
 # This class is the input for the 'delete_observability_configuration' function.
 class DeleteObservabilityConfigurationRequestTypeDef(BaseValidatorModel):
-    ObservabilityConfigurationArn: str
+    ObservabilityConfigurationArn: Annotated[str, _aws_pattern("Apprunner", "AppRunnerResourceArn")]
 
 
 # This class is the input for the 'delete_service' function.
 class DeleteServiceRequestTypeDef(BaseValidatorModel):
-    ServiceArn: str
+    ServiceArn: Annotated[str, _aws_pattern("Apprunner", "AppRunnerResourceArn")]
 
 
 # This class is the input for the 'delete_vpc_connector' function.
 class DeleteVpcConnectorRequestTypeDef(BaseValidatorModel):
-    VpcConnectorArn: str
+    VpcConnectorArn: Annotated[str, _aws_pattern("Apprunner", "AppRunnerResourceArn")]
 
 
 # This class is the input for the 'delete_vpc_ingress_connection' function.
 class DeleteVpcIngressConnectionRequestTypeDef(BaseValidatorModel):
-    VpcIngressConnectionArn: str
+    VpcIngressConnectionArn: Annotated[str, _aws_pattern("Apprunner", "AppRunnerResourceArn")]
 
 
 # This class is the input for the 'describe_auto_scaling_configuration' function.
 class DescribeAutoScalingConfigurationRequestTypeDef(BaseValidatorModel):
-    AutoScalingConfigurationArn: str
+    AutoScalingConfigurationArn: Annotated[str, _aws_pattern("Apprunner", "AppRunnerResourceArn")]
 
 
 # This class is the input for the 'describe_custom_domains' function.
 class DescribeCustomDomainsRequestTypeDef(BaseValidatorModel):
-    ServiceArn: str
-    NextToken: Optional[str] = None
+    ServiceArn: Annotated[str, _aws_pattern("Apprunner", "AppRunnerResourceArn")]
+    NextToken: Optional[Annotated[str, _aws_pattern("Apprunner", "String")]] = None
     MaxResults: Optional[int] = None
 
 
 # This class is the input for the 'describe_observability_configuration' function.
 class DescribeObservabilityConfigurationRequestTypeDef(BaseValidatorModel):
-    ObservabilityConfigurationArn: str
+    ObservabilityConfigurationArn: Annotated[str, _aws_pattern("Apprunner", "AppRunnerResourceArn")]
 
 
 # This class is the input for the 'describe_service' function.
 class DescribeServiceRequestTypeDef(BaseValidatorModel):
-    ServiceArn: str
+    ServiceArn: Annotated[str, _aws_pattern("Apprunner", "AppRunnerResourceArn")]
 
 
 # This class is the input for the 'describe_vpc_connector' function.
 class DescribeVpcConnectorRequestTypeDef(BaseValidatorModel):
-    VpcConnectorArn: str
+    VpcConnectorArn: Annotated[str, _aws_pattern("Apprunner", "AppRunnerResourceArn")]
 
 
 # This class is the input for the 'describe_vpc_ingress_connection' function.
 class DescribeVpcIngressConnectionRequestTypeDef(BaseValidatorModel):
-    VpcIngressConnectionArn: str
+    VpcIngressConnectionArn: Annotated[str, _aws_pattern("Apprunner", "AppRunnerResourceArn")]
 
 
 # This class is the input for the 'disassociate_custom_domain' function.
 class DisassociateCustomDomainRequestTypeDef(BaseValidatorModel):
-    ServiceArn: str
-    DomainName: str
+    ServiceArn: Annotated[str, _aws_pattern("Apprunner", "AppRunnerResourceArn")]
+    DomainName: Annotated[str, _aws_pattern("Apprunner", "DomainName")]
 
 
 class EgressConfigurationTypeDef(BaseValidatorModel):
     EgressType: Optional[EgressTypeType] = None
-    VpcConnectorArn: Optional[str] = None
+    VpcConnectorArn: Optional[Annotated[str, _aws_pattern("Apprunner", "AppRunnerResourceArn")]] = None
 
 
 class ImageConfigurationOutputTypeDef(BaseValidatorModel):
@@ -267,8 +273,8 @@ class ImageConfigurationOutputTypeDef(BaseValidatorModel):
 
 class ImageConfigurationTypeDef(BaseValidatorModel):
     RuntimeEnvironmentVariables: Optional[Dict[str, str]] = None
-    StartCommand: Optional[str] = None
-    Port: Optional[str] = None
+    StartCommand: Optional[Annotated[str, _aws_pattern("Apprunner", "StartCommand")]] = None
+    Port: Optional[Annotated[str, _aws_pattern("Apprunner", "String")]] = None
     RuntimeEnvironmentSecrets: Optional[Dict[str, str]] = None
 
 
@@ -278,45 +284,51 @@ class IngressConfigurationTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'list_auto_scaling_configurations' function.
 class ListAutoScalingConfigurationsRequestTypeDef(BaseValidatorModel):
-    AutoScalingConfigurationName: Optional[str] = None
+    AutoScalingConfigurationName: Optional[
+        Annotated[str, _aws_pattern("Apprunner", "AutoScalingConfigurationName")]
+    ] = None
     LatestOnly: Optional[bool] = None
     MaxResults: Optional[int] = None
-    NextToken: Optional[str] = None
+    NextToken: Optional[Annotated[str, _aws_pattern("Apprunner", "NextToken")]] = None
 
 
 # This class is the input for the 'list_connections' function.
 class ListConnectionsRequestTypeDef(BaseValidatorModel):
-    ConnectionName: Optional[str] = None
+    ConnectionName: Optional[Annotated[str, _aws_pattern("Apprunner", "ConnectionName")]] = None
     MaxResults: Optional[int] = None
-    NextToken: Optional[str] = None
+    NextToken: Optional[Annotated[str, _aws_pattern("Apprunner", "NextToken")]] = None
 
 
 # This class is the input for the 'list_observability_configurations' function.
 class ListObservabilityConfigurationsRequestTypeDef(BaseValidatorModel):
-    ObservabilityConfigurationName: Optional[str] = None
+    ObservabilityConfigurationName: Optional[
+        Annotated[str, _aws_pattern("Apprunner", "ObservabilityConfigurationName")]
+    ] = None
     LatestOnly: Optional[bool] = None
     MaxResults: Optional[int] = None
-    NextToken: Optional[str] = None
+    NextToken: Optional[Annotated[str, _aws_pattern("Apprunner", "NextToken")]] = None
 
 
 class ObservabilityConfigurationSummaryTypeDef(BaseValidatorModel):
-    ObservabilityConfigurationArn: Optional[str] = None
-    ObservabilityConfigurationName: Optional[str] = None
+    ObservabilityConfigurationArn: Optional[Annotated[str, _aws_pattern("Apprunner", "AppRunnerResourceArn")]] = None
+    ObservabilityConfigurationName: Optional[
+        Annotated[str, _aws_pattern("Apprunner", "ObservabilityConfigurationName")]
+    ] = None
     ObservabilityConfigurationRevision: Optional[int] = None
 
 
 # This class is the input for the 'list_operations' function.
 class ListOperationsRequestTypeDef(BaseValidatorModel):
-    ServiceArn: str
-    NextToken: Optional[str] = None
+    ServiceArn: Annotated[str, _aws_pattern("Apprunner", "AppRunnerResourceArn")]
+    NextToken: Optional[Annotated[str, _aws_pattern("Apprunner", "String")]] = None
     MaxResults: Optional[int] = None
 
 
 class OperationSummaryTypeDef(BaseValidatorModel):
-    Id: Optional[str] = None
+    Id: Optional[Annotated[str, _aws_pattern("Apprunner", "UUID")]] = None
     Type: Optional[OperationTypeType] = None
     Status: Optional[OperationStatusType] = None
-    TargetArn: Optional[str] = None
+    TargetArn: Optional[Annotated[str, _aws_pattern("Apprunner", "AppRunnerResourceArn")]] = None
     StartedAt: Optional[datetime] = None
     EndedAt: Optional[datetime] = None
     UpdatedAt: Optional[datetime] = None
@@ -324,22 +336,22 @@ class OperationSummaryTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'list_services_for_auto_scaling_configuration' function.
 class ListServicesForAutoScalingConfigurationRequestTypeDef(BaseValidatorModel):
-    AutoScalingConfigurationArn: str
+    AutoScalingConfigurationArn: Annotated[str, _aws_pattern("Apprunner", "AppRunnerResourceArn")]
     MaxResults: Optional[int] = None
-    NextToken: Optional[str] = None
+    NextToken: Optional[Annotated[str, _aws_pattern("Apprunner", "NextToken")]] = None
 
 
 # This class is the input for the 'list_services' function.
 class ListServicesRequestTypeDef(BaseValidatorModel):
-    NextToken: Optional[str] = None
+    NextToken: Optional[Annotated[str, _aws_pattern("Apprunner", "String")]] = None
     MaxResults: Optional[int] = None
 
 
 class ServiceSummaryTypeDef(BaseValidatorModel):
-    ServiceName: Optional[str] = None
-    ServiceId: Optional[str] = None
-    ServiceArn: Optional[str] = None
-    ServiceUrl: Optional[str] = None
+    ServiceName: Optional[Annotated[str, _aws_pattern("Apprunner", "ServiceName")]] = None
+    ServiceId: Optional[Annotated[str, _aws_pattern("Apprunner", "ServiceId")]] = None
+    ServiceArn: Optional[Annotated[str, _aws_pattern("Apprunner", "AppRunnerResourceArn")]] = None
+    ServiceUrl: Optional[Annotated[str, _aws_pattern("Apprunner", "String")]] = None
     CreatedAt: Optional[datetime] = None
     UpdatedAt: Optional[datetime] = None
     Status: Optional[ServiceStatusType] = None
@@ -347,60 +359,60 @@ class ServiceSummaryTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'list_tags_for_resource' function.
 class ListTagsForResourceRequestTypeDef(BaseValidatorModel):
-    ResourceArn: str
+    ResourceArn: Annotated[str, _aws_pattern("Apprunner", "AppRunnerResourceArn")]
 
 
 # This class is the input for the 'list_vpc_connectors' function.
 class ListVpcConnectorsRequestTypeDef(BaseValidatorModel):
     MaxResults: Optional[int] = None
-    NextToken: Optional[str] = None
+    NextToken: Optional[Annotated[str, _aws_pattern("Apprunner", "NextToken")]] = None
 
 
 class ListVpcIngressConnectionsFilterTypeDef(BaseValidatorModel):
-    ServiceArn: Optional[str] = None
-    VpcEndpointId: Optional[str] = None
+    ServiceArn: Optional[Annotated[str, _aws_pattern("Apprunner", "AppRunnerResourceArn")]] = None
+    VpcEndpointId: Optional[Annotated[str, _aws_pattern("Apprunner", "String")]] = None
 
 
 class VpcIngressConnectionSummaryTypeDef(BaseValidatorModel):
-    VpcIngressConnectionArn: Optional[str] = None
-    ServiceArn: Optional[str] = None
+    VpcIngressConnectionArn: Optional[Annotated[str, _aws_pattern("Apprunner", "AppRunnerResourceArn")]] = None
+    ServiceArn: Optional[Annotated[str, _aws_pattern("Apprunner", "AppRunnerResourceArn")]] = None
 
 
 # This class is the input for the 'pause_service' function.
 class PauseServiceRequestTypeDef(BaseValidatorModel):
-    ServiceArn: str
+    ServiceArn: Annotated[str, _aws_pattern("Apprunner", "AppRunnerResourceArn")]
 
 
 # This class is the input for the 'resume_service' function.
 class ResumeServiceRequestTypeDef(BaseValidatorModel):
-    ServiceArn: str
+    ServiceArn: Annotated[str, _aws_pattern("Apprunner", "AppRunnerResourceArn")]
 
 
 # This class is the input for the 'start_deployment' function.
 class StartDeploymentRequestTypeDef(BaseValidatorModel):
-    ServiceArn: str
+    ServiceArn: Annotated[str, _aws_pattern("Apprunner", "AppRunnerResourceArn")]
 
 
 class UntagResourceRequestTypeDef(BaseValidatorModel):
-    ResourceArn: str
-    TagKeys: List[str]
+    ResourceArn: Annotated[str, _aws_pattern("Apprunner", "AppRunnerResourceArn")]
+    TagKeys: List[Annotated[str, _aws_pattern("Apprunner", "TagKey")]]
 
 
 # This class is the input for the 'update_default_auto_scaling_configuration' function.
 class UpdateDefaultAutoScalingConfigurationRequestTypeDef(BaseValidatorModel):
-    AutoScalingConfigurationArn: str
+    AutoScalingConfigurationArn: Annotated[str, _aws_pattern("Apprunner", "AppRunnerResourceArn")]
 
 
 # This class is the output for the 'list_services_for_auto_scaling_configuration' function.
 class ListServicesForAutoScalingConfigurationResponseTypeDef(BaseValidatorModel):
-    ServiceArnList: List[str]
+    ServiceArnList: List[Annotated[str, _aws_pattern("Apprunner", "AppRunnerResourceArn")]]
     ResponseMetadata: ResponseMetadataTypeDef
-    NextToken: Optional[str] = None
+    NextToken: Optional[Annotated[str, _aws_pattern("Apprunner", "NextToken")]] = None
 
 
 # This class is the output for the 'start_deployment' function.
 class StartDeploymentResponseTypeDef(BaseValidatorModel):
-    OperationId: str
+    OperationId: Annotated[str, _aws_pattern("Apprunner", "UUID")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
@@ -408,7 +420,7 @@ class StartDeploymentResponseTypeDef(BaseValidatorModel):
 class ListAutoScalingConfigurationsResponseTypeDef(BaseValidatorModel):
     AutoScalingConfigurationSummaryList: List[AutoScalingConfigurationSummaryTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
-    NextToken: Optional[str] = None
+    NextToken: Optional[Annotated[str, _aws_pattern("Apprunner", "NextToken")]] = None
 
 
 # This class is the output for the 'create_auto_scaling_configuration' function.
@@ -436,7 +448,7 @@ class UpdateDefaultAutoScalingConfigurationResponseTypeDef(BaseValidatorModel):
 
 
 class CustomDomainTypeDef(BaseValidatorModel):
-    DomainName: str
+    DomainName: Annotated[str, _aws_pattern("Apprunner", "DomainName")]
     EnableWWWSubdomain: bool
     Status: CustomDomainAssociationStatusType
     CertificateValidationRecords: Optional[List[CertificateValidationRecordTypeDef]] = None
@@ -456,7 +468,7 @@ class CodeConfigurationTypeDef(BaseValidatorModel):
 class ListConnectionsResponseTypeDef(BaseValidatorModel):
     ConnectionSummaryList: List[ConnectionSummaryTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
-    NextToken: Optional[str] = None
+    NextToken: Optional[Annotated[str, _aws_pattern("Apprunner", "NextToken")]] = None
 
 
 # This class is the output for the 'create_connection' function.
@@ -473,7 +485,7 @@ class DeleteConnectionResponseTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'create_auto_scaling_configuration' function.
 class CreateAutoScalingConfigurationRequestTypeDef(BaseValidatorModel):
-    AutoScalingConfigurationName: str
+    AutoScalingConfigurationName: Annotated[str, _aws_pattern("Apprunner", "AutoScalingConfigurationName")]
     MaxConcurrency: Optional[int] = None
     MinSize: Optional[int] = None
     MaxSize: Optional[int] = None
@@ -482,16 +494,16 @@ class CreateAutoScalingConfigurationRequestTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'create_connection' function.
 class CreateConnectionRequestTypeDef(BaseValidatorModel):
-    ConnectionName: str
+    ConnectionName: Annotated[str, _aws_pattern("Apprunner", "ConnectionName")]
     ProviderType: ProviderTypeType
     Tags: Optional[List[TagTypeDef]] = None
 
 
 # This class is the input for the 'create_vpc_connector' function.
 class CreateVpcConnectorRequestTypeDef(BaseValidatorModel):
-    VpcConnectorName: str
-    Subnets: List[str]
-    SecurityGroups: Optional[List[str]] = None
+    VpcConnectorName: Annotated[str, _aws_pattern("Apprunner", "VpcConnectorName")]
+    Subnets: List[Annotated[str, _aws_pattern("Apprunner", "String")]]
+    SecurityGroups: Optional[List[Annotated[str, _aws_pattern("Apprunner", "String")]]] = None
     Tags: Optional[List[TagTypeDef]] = None
 
 
@@ -502,20 +514,22 @@ class ListTagsForResourceResponseTypeDef(BaseValidatorModel):
 
 
 class TagResourceRequestTypeDef(BaseValidatorModel):
-    ResourceArn: str
+    ResourceArn: Annotated[str, _aws_pattern("Apprunner", "AppRunnerResourceArn")]
     Tags: List[TagTypeDef]
 
 
 # This class is the input for the 'create_observability_configuration' function.
 class CreateObservabilityConfigurationRequestTypeDef(BaseValidatorModel):
-    ObservabilityConfigurationName: str
+    ObservabilityConfigurationName: Annotated[str, _aws_pattern("Apprunner", "ObservabilityConfigurationName")]
     TraceConfiguration: Optional[TraceConfigurationTypeDef] = None
     Tags: Optional[List[TagTypeDef]] = None
 
 
 class ObservabilityConfigurationTypeDef(BaseValidatorModel):
-    ObservabilityConfigurationArn: Optional[str] = None
-    ObservabilityConfigurationName: Optional[str] = None
+    ObservabilityConfigurationArn: Optional[Annotated[str, _aws_pattern("Apprunner", "AppRunnerResourceArn")]] = None
+    ObservabilityConfigurationName: Optional[
+        Annotated[str, _aws_pattern("Apprunner", "ObservabilityConfigurationName")]
+    ] = None
     TraceConfiguration: Optional[TraceConfigurationTypeDef] = None
     ObservabilityConfigurationRevision: Optional[int] = None
     Latest: Optional[bool] = None
@@ -546,30 +560,30 @@ class DescribeVpcConnectorResponseTypeDef(BaseValidatorModel):
 class ListVpcConnectorsResponseTypeDef(BaseValidatorModel):
     VpcConnectors: List[VpcConnectorTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
-    NextToken: Optional[str] = None
+    NextToken: Optional[Annotated[str, _aws_pattern("Apprunner", "NextToken")]] = None
 
 
 # This class is the input for the 'create_vpc_ingress_connection' function.
 class CreateVpcIngressConnectionRequestTypeDef(BaseValidatorModel):
-    ServiceArn: str
-    VpcIngressConnectionName: str
+    ServiceArn: Annotated[str, _aws_pattern("Apprunner", "AppRunnerResourceArn")]
+    VpcIngressConnectionName: Annotated[str, _aws_pattern("Apprunner", "VpcIngressConnectionName")]
     IngressVpcConfiguration: IngressVpcConfigurationTypeDef
     Tags: Optional[List[TagTypeDef]] = None
 
 
 # This class is the input for the 'update_vpc_ingress_connection' function.
 class UpdateVpcIngressConnectionRequestTypeDef(BaseValidatorModel):
-    VpcIngressConnectionArn: str
+    VpcIngressConnectionArn: Annotated[str, _aws_pattern("Apprunner", "AppRunnerResourceArn")]
     IngressVpcConfiguration: IngressVpcConfigurationTypeDef
 
 
 class VpcIngressConnectionTypeDef(BaseValidatorModel):
-    VpcIngressConnectionArn: Optional[str] = None
-    VpcIngressConnectionName: Optional[str] = None
-    ServiceArn: Optional[str] = None
+    VpcIngressConnectionArn: Optional[Annotated[str, _aws_pattern("Apprunner", "AppRunnerResourceArn")]] = None
+    VpcIngressConnectionName: Optional[Annotated[str, _aws_pattern("Apprunner", "VpcIngressConnectionName")]] = None
+    ServiceArn: Optional[Annotated[str, _aws_pattern("Apprunner", "AppRunnerResourceArn")]] = None
     Status: Optional[VpcIngressConnectionStatusType] = None
-    AccountId: Optional[str] = None
-    DomainName: Optional[str] = None
+    AccountId: Optional[Annotated[str, _aws_pattern("Apprunner", "CustomerAccountId")]] = None
+    DomainName: Optional[Annotated[str, _aws_pattern("Apprunner", "DomainName")]] = None
     IngressVpcConfiguration: Optional[IngressVpcConfigurationTypeDef] = None
     CreatedAt: Optional[datetime] = None
     DeletedAt: Optional[datetime] = None
@@ -582,7 +596,7 @@ class ImageRepositoryOutputTypeDef(BaseValidatorModel):
 
 
 class ImageRepositoryTypeDef(BaseValidatorModel):
-    ImageIdentifier: str
+    ImageIdentifier: Annotated[str, _aws_pattern("Apprunner", "ImageIdentifier")]
     ImageRepositoryType: ImageRepositoryTypeType
     ImageConfiguration: Optional[ImageConfigurationTypeDef] = None
 
@@ -597,41 +611,41 @@ class NetworkConfigurationTypeDef(BaseValidatorModel):
 class ListObservabilityConfigurationsResponseTypeDef(BaseValidatorModel):
     ObservabilityConfigurationSummaryList: List[ObservabilityConfigurationSummaryTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
-    NextToken: Optional[str] = None
+    NextToken: Optional[Annotated[str, _aws_pattern("Apprunner", "NextToken")]] = None
 
 
 # This class is the output for the 'list_operations' function.
 class ListOperationsResponseTypeDef(BaseValidatorModel):
     OperationSummaryList: List[OperationSummaryTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
-    NextToken: Optional[str] = None
+    NextToken: Optional[Annotated[str, _aws_pattern("Apprunner", "String")]] = None
 
 
 # This class is the output for the 'list_services' function.
 class ListServicesResponseTypeDef(BaseValidatorModel):
     ServiceSummaryList: List[ServiceSummaryTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
-    NextToken: Optional[str] = None
+    NextToken: Optional[Annotated[str, _aws_pattern("Apprunner", "String")]] = None
 
 
 # This class is the input for the 'list_vpc_ingress_connections' function.
 class ListVpcIngressConnectionsRequestTypeDef(BaseValidatorModel):
     Filter: Optional[ListVpcIngressConnectionsFilterTypeDef] = None
     MaxResults: Optional[int] = None
-    NextToken: Optional[str] = None
+    NextToken: Optional[Annotated[str, _aws_pattern("Apprunner", "NextToken")]] = None
 
 
 # This class is the output for the 'list_vpc_ingress_connections' function.
 class ListVpcIngressConnectionsResponseTypeDef(BaseValidatorModel):
     VpcIngressConnectionSummaryList: List[VpcIngressConnectionSummaryTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
-    NextToken: Optional[str] = None
+    NextToken: Optional[Annotated[str, _aws_pattern("Apprunner", "NextToken")]] = None
 
 
 # This class is the output for the 'associate_custom_domain' function.
 class AssociateCustomDomainResponseTypeDef(BaseValidatorModel):
-    DNSTarget: str
-    ServiceArn: str
+    DNSTarget: Annotated[str, _aws_pattern("Apprunner", "String")]
+    ServiceArn: Annotated[str, _aws_pattern("Apprunner", "AppRunnerResourceArn")]
     CustomDomain: CustomDomainTypeDef
     VpcDNSTargets: List[VpcDNSTargetTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
@@ -639,18 +653,18 @@ class AssociateCustomDomainResponseTypeDef(BaseValidatorModel):
 
 # This class is the output for the 'describe_custom_domains' function.
 class DescribeCustomDomainsResponseTypeDef(BaseValidatorModel):
-    DNSTarget: str
-    ServiceArn: str
+    DNSTarget: Annotated[str, _aws_pattern("Apprunner", "String")]
+    ServiceArn: Annotated[str, _aws_pattern("Apprunner", "AppRunnerResourceArn")]
     CustomDomains: List[CustomDomainTypeDef]
     VpcDNSTargets: List[VpcDNSTargetTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
-    NextToken: Optional[str] = None
+    NextToken: Optional[Annotated[str, _aws_pattern("Apprunner", "String")]] = None
 
 
 # This class is the output for the 'disassociate_custom_domain' function.
 class DisassociateCustomDomainResponseTypeDef(BaseValidatorModel):
-    DNSTarget: str
-    ServiceArn: str
+    DNSTarget: Annotated[str, _aws_pattern("Apprunner", "String")]
+    ServiceArn: Annotated[str, _aws_pattern("Apprunner", "AppRunnerResourceArn")]
     CustomDomain: CustomDomainTypeDef
     VpcDNSTargets: List[VpcDNSTargetTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
@@ -664,10 +678,10 @@ class CodeRepositoryOutputTypeDef(BaseValidatorModel):
 
 
 class CodeRepositoryTypeDef(BaseValidatorModel):
-    RepositoryUrl: str
+    RepositoryUrl: Annotated[str, _aws_pattern("Apprunner", "String")]
     SourceCodeVersion: SourceCodeVersionTypeDef
     CodeConfiguration: Optional[CodeConfigurationTypeDef] = None
-    SourceDirectory: Optional[str] = None
+    SourceDirectory: Optional[Annotated[str, _aws_pattern("Apprunner", "SourceDirectory")]] = None
 
 
 # This class is the output for the 'create_observability_configuration' function.
@@ -727,9 +741,9 @@ class SourceConfigurationTypeDef(BaseValidatorModel):
 
 
 class ServiceTypeDef(BaseValidatorModel):
-    ServiceName: str
-    ServiceId: str
-    ServiceArn: str
+    ServiceName: Annotated[str, _aws_pattern("Apprunner", "ServiceName")]
+    ServiceId: Annotated[str, _aws_pattern("Apprunner", "ServiceId")]
+    ServiceArn: Annotated[str, _aws_pattern("Apprunner", "AppRunnerResourceArn")]
     CreatedAt: datetime
     UpdatedAt: datetime
     Status: ServiceStatusType
@@ -737,7 +751,7 @@ class ServiceTypeDef(BaseValidatorModel):
     InstanceConfiguration: InstanceConfigurationTypeDef
     AutoScalingConfigurationSummary: AutoScalingConfigurationSummaryTypeDef
     NetworkConfiguration: NetworkConfigurationTypeDef
-    ServiceUrl: Optional[str] = None
+    ServiceUrl: Optional[Annotated[str, _aws_pattern("Apprunner", "String")]] = None
     DeletedAt: Optional[datetime] = None
     EncryptionConfiguration: Optional[EncryptionConfigurationTypeDef] = None
     HealthCheckConfiguration: Optional[HealthCheckConfigurationTypeDef] = None
@@ -750,14 +764,14 @@ SourceConfigurationUnionTypeDef = Union[SourceConfigurationOutputTypeDef, Source
 # This class is the output for the 'create_service' function.
 class CreateServiceResponseTypeDef(BaseValidatorModel):
     Service: ServiceTypeDef
-    OperationId: str
+    OperationId: Annotated[str, _aws_pattern("Apprunner", "UUID")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 # This class is the output for the 'delete_service' function.
 class DeleteServiceResponseTypeDef(BaseValidatorModel):
     Service: ServiceTypeDef
-    OperationId: str
+    OperationId: Annotated[str, _aws_pattern("Apprunner", "UUID")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
@@ -770,43 +784,43 @@ class DescribeServiceResponseTypeDef(BaseValidatorModel):
 # This class is the output for the 'pause_service' function.
 class PauseServiceResponseTypeDef(BaseValidatorModel):
     Service: ServiceTypeDef
-    OperationId: str
+    OperationId: Annotated[str, _aws_pattern("Apprunner", "UUID")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 # This class is the output for the 'resume_service' function.
 class ResumeServiceResponseTypeDef(BaseValidatorModel):
     Service: ServiceTypeDef
-    OperationId: str
+    OperationId: Annotated[str, _aws_pattern("Apprunner", "UUID")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 # This class is the output for the 'update_service' function.
 class UpdateServiceResponseTypeDef(BaseValidatorModel):
     Service: ServiceTypeDef
-    OperationId: str
+    OperationId: Annotated[str, _aws_pattern("Apprunner", "UUID")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 # This class is the input for the 'create_service' function.
 class CreateServiceRequestTypeDef(BaseValidatorModel):
-    ServiceName: str
+    ServiceName: Annotated[str, _aws_pattern("Apprunner", "ServiceName")]
     SourceConfiguration: SourceConfigurationUnionTypeDef
     InstanceConfiguration: Optional[InstanceConfigurationTypeDef] = None
     Tags: Optional[List[TagTypeDef]] = None
     EncryptionConfiguration: Optional[EncryptionConfigurationTypeDef] = None
     HealthCheckConfiguration: Optional[HealthCheckConfigurationTypeDef] = None
-    AutoScalingConfigurationArn: Optional[str] = None
+    AutoScalingConfigurationArn: Optional[Annotated[str, _aws_pattern("Apprunner", "AppRunnerResourceArn")]] = None
     NetworkConfiguration: Optional[NetworkConfigurationTypeDef] = None
     ObservabilityConfiguration: Optional[ServiceObservabilityConfigurationTypeDef] = None
 
 
 # This class is the input for the 'update_service' function.
 class UpdateServiceRequestTypeDef(BaseValidatorModel):
-    ServiceArn: str
+    ServiceArn: Annotated[str, _aws_pattern("Apprunner", "AppRunnerResourceArn")]
     SourceConfiguration: Optional[SourceConfigurationUnionTypeDef] = None
     InstanceConfiguration: Optional[InstanceConfigurationTypeDef] = None
-    AutoScalingConfigurationArn: Optional[str] = None
+    AutoScalingConfigurationArn: Optional[Annotated[str, _aws_pattern("Apprunner", "AppRunnerResourceArn")]] = None
     HealthCheckConfiguration: Optional[HealthCheckConfigurationTypeDef] = None
     NetworkConfiguration: Optional[NetworkConfigurationTypeDef] = None
     ObservabilityConfiguration: Optional[ServiceObservabilityConfigurationTypeDef] = None

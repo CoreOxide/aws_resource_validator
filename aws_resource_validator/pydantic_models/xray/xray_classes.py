@@ -3,6 +3,7 @@
 from datetime import datetime
 from decimal import Decimal
 from typing import (
+    Annotated,
     Any,
     Callable,
     Dict,
@@ -24,6 +25,7 @@ from botocore.response import StreamingBody
 from pydantic import Field
 
 from aws_resource_validator.core.base_validator_model import BaseValidatorModel, EventStream
+from aws_resource_validator.core.pattern_validation import aws_field_pattern as _aws_pattern
 from aws_resource_validator.pydantic_models.xray.xray_constants import *  # noqa: F401,F403
 
 # Optional boto3 symbols — imported lazily so services that don't need them
@@ -110,7 +112,7 @@ class DeleteGroupRequestTypeDef(BaseValidatorModel):
 
 
 class DeleteResourcePolicyRequestTypeDef(BaseValidatorModel):
-    PolicyName: str
+    PolicyName: Annotated[str, _aws_pattern("Xray", "PolicyName")]
     PolicyRevisionId: Optional[str] = None
 
 
@@ -170,7 +172,7 @@ class GetIndexingRulesRequestTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'get_insight_events' function.
 class GetInsightEventsRequestTypeDef(BaseValidatorModel):
-    InsightId: str
+    InsightId: Annotated[str, _aws_pattern("Xray", "InsightId")]
     MaxResults: Optional[int] = None
     NextToken: Optional[str] = None
 
@@ -180,7 +182,7 @@ TimestampTypeDef = Union[datetime, str]
 
 # This class is the input for the 'get_insight' function.
 class GetInsightRequestTypeDef(BaseValidatorModel):
-    InsightId: str
+    InsightId: Annotated[str, _aws_pattern("Xray", "InsightId")]
 
 
 # This class is the input for the 'get_retrieved_traces_graph' function.
@@ -267,7 +269,7 @@ class ListResourcePoliciesRequestTypeDef(BaseValidatorModel):
 
 
 class ResourcePolicyTypeDef(BaseValidatorModel):
-    PolicyName: Optional[str] = None
+    PolicyName: Optional[Annotated[str, _aws_pattern("Xray", "PolicyName")]] = None
     PolicyDocument: Optional[str] = None
     PolicyRevisionId: Optional[str] = None
     LastUpdatedTime: Optional[datetime] = None
@@ -294,7 +296,7 @@ class PutEncryptionConfigRequestTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'put_resource_policy' function.
 class PutResourcePolicyRequestTypeDef(BaseValidatorModel):
-    PolicyName: str
+    PolicyName: Annotated[str, _aws_pattern("Xray", "PolicyName")]
     PolicyDocument: str
     PolicyRevisionId: Optional[str] = None
     BypassPolicyLockoutCheck: Optional[bool] = None
@@ -498,7 +500,7 @@ class FaultRootCauseEntityTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'get_insight_impact_graph' function.
 class GetInsightImpactGraphRequestTypeDef(BaseValidatorModel):
-    InsightId: str
+    InsightId: Annotated[str, _aws_pattern("Xray", "InsightId")]
     StartTime: TimestampTypeDef
     EndTime: TimestampTypeDef
     NextToken: Optional[str] = None
@@ -743,7 +745,7 @@ class InsightEventTypeDef(BaseValidatorModel):
 
 
 class InsightSummaryTypeDef(BaseValidatorModel):
-    InsightId: Optional[str] = None
+    InsightId: Optional[Annotated[str, _aws_pattern("Xray", "InsightId")]] = None
     GroupARN: Optional[str] = None
     GroupName: Optional[str] = None
     RootCauseServiceId: Optional[ServiceIdTypeDef] = None
@@ -759,7 +761,7 @@ class InsightSummaryTypeDef(BaseValidatorModel):
 
 
 class InsightTypeDef(BaseValidatorModel):
-    InsightId: Optional[str] = None
+    InsightId: Optional[Annotated[str, _aws_pattern("Xray", "InsightId")]] = None
     GroupARN: Optional[str] = None
     GroupName: Optional[str] = None
     RootCauseServiceId: Optional[ServiceIdTypeDef] = None
@@ -862,7 +864,7 @@ class UpdateIndexingRuleRequestTypeDef(BaseValidatorModel):
 
 # This class is the output for the 'get_insight_impact_graph' function.
 class GetInsightImpactGraphResultTypeDef(BaseValidatorModel):
-    InsightId: str
+    InsightId: Annotated[str, _aws_pattern("Xray", "InsightId")]
     StartTime: datetime
     EndTime: datetime
     ServiceGraphStartTime: datetime

@@ -3,6 +3,7 @@
 from datetime import datetime
 from decimal import Decimal
 from typing import (
+    Annotated,
     Any,
     Callable,
     Dict,
@@ -24,6 +25,7 @@ from botocore.response import StreamingBody
 from pydantic import Field
 
 from aws_resource_validator.core.base_validator_model import BaseValidatorModel, EventStream
+from aws_resource_validator.core.pattern_validation import aws_field_pattern as _aws_pattern
 from aws_resource_validator.pydantic_models.machinelearning.machinelearning_constants import *  # noqa: F401,F403
 
 # Optional boto3 symbols — imported lazily so services that don't need them
@@ -39,8 +41,8 @@ except ImportError:  # pragma: no cover
 
 
 class TagTypeDef(BaseValidatorModel):
-    Key: Optional[str] = None
-    Value: Optional[str] = None
+    Key: Optional[Annotated[str, _aws_pattern("Machinelearning", "TagKey")]] = None
+    Value: Optional[Annotated[str, _aws_pattern("Machinelearning", "TagValue")]] = None
 
 
 class ResponseMetadataTypeDef(BaseValidatorModel):
@@ -52,16 +54,16 @@ class ResponseMetadataTypeDef(BaseValidatorModel):
 
 
 class BatchPredictionTypeDef(BaseValidatorModel):
-    BatchPredictionId: Optional[str] = None
-    MLModelId: Optional[str] = None
-    BatchPredictionDataSourceId: Optional[str] = None
-    InputDataLocationS3: Optional[str] = None
-    CreatedByIamUser: Optional[str] = None
+    BatchPredictionId: Optional[Annotated[str, _aws_pattern("Machinelearning", "EntityId")]] = None
+    MLModelId: Optional[Annotated[str, _aws_pattern("Machinelearning", "EntityId")]] = None
+    BatchPredictionDataSourceId: Optional[Annotated[str, _aws_pattern("Machinelearning", "EntityId")]] = None
+    InputDataLocationS3: Optional[Annotated[str, _aws_pattern("Machinelearning", "S3Url")]] = None
+    CreatedByIamUser: Optional[Annotated[str, _aws_pattern("Machinelearning", "AwsUserArn")]] = None
     CreatedAt: Optional[datetime] = None
     LastUpdatedAt: Optional[datetime] = None
-    Name: Optional[str] = None
+    Name: Optional[Annotated[str, _aws_pattern("Machinelearning", "EntityName")]] = None
     Status: Optional[EntityStatusType] = None
-    OutputUri: Optional[str] = None
+    OutputUri: Optional[Annotated[str, _aws_pattern("Machinelearning", "S3Url")]] = None
     Message: Optional[str] = None
     ComputeTime: Optional[int] = None
     FinishedAt: Optional[datetime] = None
@@ -72,80 +74,80 @@ class BatchPredictionTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'create_batch_prediction' function.
 class CreateBatchPredictionInputTypeDef(BaseValidatorModel):
-    BatchPredictionId: str
-    MLModelId: str
-    BatchPredictionDataSourceId: str
-    OutputUri: str
-    BatchPredictionName: Optional[str] = None
+    BatchPredictionId: Annotated[str, _aws_pattern("Machinelearning", "EntityId")]
+    MLModelId: Annotated[str, _aws_pattern("Machinelearning", "EntityId")]
+    BatchPredictionDataSourceId: Annotated[str, _aws_pattern("Machinelearning", "EntityId")]
+    OutputUri: Annotated[str, _aws_pattern("Machinelearning", "S3Url")]
+    BatchPredictionName: Optional[Annotated[str, _aws_pattern("Machinelearning", "EntityName")]] = None
 
 
 class S3DataSpecTypeDef(BaseValidatorModel):
-    DataLocationS3: str
+    DataLocationS3: Annotated[str, _aws_pattern("Machinelearning", "S3Url")]
     DataRearrangement: Optional[str] = None
     DataSchema: Optional[str] = None
-    DataSchemaLocationS3: Optional[str] = None
+    DataSchemaLocationS3: Optional[Annotated[str, _aws_pattern("Machinelearning", "S3Url")]] = None
 
 
 # This class is the input for the 'create_evaluation' function.
 class CreateEvaluationInputTypeDef(BaseValidatorModel):
-    EvaluationId: str
-    MLModelId: str
-    EvaluationDataSourceId: str
-    EvaluationName: Optional[str] = None
+    EvaluationId: Annotated[str, _aws_pattern("Machinelearning", "EntityId")]
+    MLModelId: Annotated[str, _aws_pattern("Machinelearning", "EntityId")]
+    EvaluationDataSourceId: Annotated[str, _aws_pattern("Machinelearning", "EntityId")]
+    EvaluationName: Optional[Annotated[str, _aws_pattern("Machinelearning", "EntityName")]] = None
 
 
 # This class is the input for the 'create_ml_model' function.
 class CreateMLModelInputTypeDef(BaseValidatorModel):
-    MLModelId: str
+    MLModelId: Annotated[str, _aws_pattern("Machinelearning", "EntityId")]
     MLModelType: MLModelTypeType
-    TrainingDataSourceId: str
-    MLModelName: Optional[str] = None
+    TrainingDataSourceId: Annotated[str, _aws_pattern("Machinelearning", "EntityId")]
+    MLModelName: Optional[Annotated[str, _aws_pattern("Machinelearning", "EntityName")]] = None
     Parameters: Optional[Dict[str, str]] = None
     Recipe: Optional[str] = None
-    RecipeUri: Optional[str] = None
+    RecipeUri: Optional[Annotated[str, _aws_pattern("Machinelearning", "S3Url")]] = None
 
 
 # This class is the input for the 'create_realtime_endpoint' function.
 class CreateRealtimeEndpointInputTypeDef(BaseValidatorModel):
-    MLModelId: str
+    MLModelId: Annotated[str, _aws_pattern("Machinelearning", "EntityId")]
 
 
 class RealtimeEndpointInfoTypeDef(BaseValidatorModel):
     PeakRequestsPerSecond: Optional[int] = None
     CreatedAt: Optional[datetime] = None
-    EndpointUrl: Optional[str] = None
+    EndpointUrl: Optional[Annotated[str, _aws_pattern("Machinelearning", "VipURL")]] = None
     EndpointStatus: Optional[RealtimeEndpointStatusType] = None
 
 
 # This class is the input for the 'delete_batch_prediction' function.
 class DeleteBatchPredictionInputTypeDef(BaseValidatorModel):
-    BatchPredictionId: str
+    BatchPredictionId: Annotated[str, _aws_pattern("Machinelearning", "EntityId")]
 
 
 # This class is the input for the 'delete_data_source' function.
 class DeleteDataSourceInputTypeDef(BaseValidatorModel):
-    DataSourceId: str
+    DataSourceId: Annotated[str, _aws_pattern("Machinelearning", "EntityId")]
 
 
 # This class is the input for the 'delete_evaluation' function.
 class DeleteEvaluationInputTypeDef(BaseValidatorModel):
-    EvaluationId: str
+    EvaluationId: Annotated[str, _aws_pattern("Machinelearning", "EntityId")]
 
 
 # This class is the input for the 'delete_ml_model' function.
 class DeleteMLModelInputTypeDef(BaseValidatorModel):
-    MLModelId: str
+    MLModelId: Annotated[str, _aws_pattern("Machinelearning", "EntityId")]
 
 
 # This class is the input for the 'delete_realtime_endpoint' function.
 class DeleteRealtimeEndpointInputTypeDef(BaseValidatorModel):
-    MLModelId: str
+    MLModelId: Annotated[str, _aws_pattern("Machinelearning", "EntityId")]
 
 
 # This class is the input for the 'delete_tags' function.
 class DeleteTagsInputTypeDef(BaseValidatorModel):
-    TagKeys: List[str]
-    ResourceId: str
+    TagKeys: List[Annotated[str, _aws_pattern("Machinelearning", "TagKey")]]
+    ResourceId: Annotated[str, _aws_pattern("Machinelearning", "EntityId")]
     ResourceType: TaggableResourceTypeType
 
 
@@ -158,13 +160,13 @@ class PaginatorConfigTypeDef(BaseValidatorModel):
 # This class is the input for the 'describe_batch_predictions' function.
 class DescribeBatchPredictionsInputTypeDef(BaseValidatorModel):
     FilterVariable: Optional[BatchPredictionFilterVariableType] = None
-    EQ: Optional[str] = None
-    GT: Optional[str] = None
-    LT: Optional[str] = None
-    GE: Optional[str] = None
-    LE: Optional[str] = None
-    NE: Optional[str] = None
-    Prefix: Optional[str] = None
+    EQ: Optional[Annotated[str, _aws_pattern("Machinelearning", "ComparatorValue")]] = None
+    GT: Optional[Annotated[str, _aws_pattern("Machinelearning", "ComparatorValue")]] = None
+    LT: Optional[Annotated[str, _aws_pattern("Machinelearning", "ComparatorValue")]] = None
+    GE: Optional[Annotated[str, _aws_pattern("Machinelearning", "ComparatorValue")]] = None
+    LE: Optional[Annotated[str, _aws_pattern("Machinelearning", "ComparatorValue")]] = None
+    NE: Optional[Annotated[str, _aws_pattern("Machinelearning", "ComparatorValue")]] = None
+    Prefix: Optional[Annotated[str, _aws_pattern("Machinelearning", "ComparatorValue")]] = None
     SortOrder: Optional[SortOrderType] = None
     NextToken: Optional[str] = None
     Limit: Optional[int] = None
@@ -178,13 +180,13 @@ class WaiterConfigTypeDef(BaseValidatorModel):
 # This class is the input for the 'describe_data_sources' function.
 class DescribeDataSourcesInputTypeDef(BaseValidatorModel):
     FilterVariable: Optional[DataSourceFilterVariableType] = None
-    EQ: Optional[str] = None
-    GT: Optional[str] = None
-    LT: Optional[str] = None
-    GE: Optional[str] = None
-    LE: Optional[str] = None
-    NE: Optional[str] = None
-    Prefix: Optional[str] = None
+    EQ: Optional[Annotated[str, _aws_pattern("Machinelearning", "ComparatorValue")]] = None
+    GT: Optional[Annotated[str, _aws_pattern("Machinelearning", "ComparatorValue")]] = None
+    LT: Optional[Annotated[str, _aws_pattern("Machinelearning", "ComparatorValue")]] = None
+    GE: Optional[Annotated[str, _aws_pattern("Machinelearning", "ComparatorValue")]] = None
+    LE: Optional[Annotated[str, _aws_pattern("Machinelearning", "ComparatorValue")]] = None
+    NE: Optional[Annotated[str, _aws_pattern("Machinelearning", "ComparatorValue")]] = None
+    Prefix: Optional[Annotated[str, _aws_pattern("Machinelearning", "ComparatorValue")]] = None
     SortOrder: Optional[SortOrderType] = None
     NextToken: Optional[str] = None
     Limit: Optional[int] = None
@@ -193,13 +195,13 @@ class DescribeDataSourcesInputTypeDef(BaseValidatorModel):
 # This class is the input for the 'describe_evaluations' function.
 class DescribeEvaluationsInputTypeDef(BaseValidatorModel):
     FilterVariable: Optional[EvaluationFilterVariableType] = None
-    EQ: Optional[str] = None
-    GT: Optional[str] = None
-    LT: Optional[str] = None
-    GE: Optional[str] = None
-    LE: Optional[str] = None
-    NE: Optional[str] = None
-    Prefix: Optional[str] = None
+    EQ: Optional[Annotated[str, _aws_pattern("Machinelearning", "ComparatorValue")]] = None
+    GT: Optional[Annotated[str, _aws_pattern("Machinelearning", "ComparatorValue")]] = None
+    LT: Optional[Annotated[str, _aws_pattern("Machinelearning", "ComparatorValue")]] = None
+    GE: Optional[Annotated[str, _aws_pattern("Machinelearning", "ComparatorValue")]] = None
+    LE: Optional[Annotated[str, _aws_pattern("Machinelearning", "ComparatorValue")]] = None
+    NE: Optional[Annotated[str, _aws_pattern("Machinelearning", "ComparatorValue")]] = None
+    Prefix: Optional[Annotated[str, _aws_pattern("Machinelearning", "ComparatorValue")]] = None
     SortOrder: Optional[SortOrderType] = None
     NextToken: Optional[str] = None
     Limit: Optional[int] = None
@@ -208,13 +210,13 @@ class DescribeEvaluationsInputTypeDef(BaseValidatorModel):
 # This class is the input for the 'describe_ml_models' function.
 class DescribeMLModelsInputTypeDef(BaseValidatorModel):
     FilterVariable: Optional[MLModelFilterVariableType] = None
-    EQ: Optional[str] = None
-    GT: Optional[str] = None
-    LT: Optional[str] = None
-    GE: Optional[str] = None
-    LE: Optional[str] = None
-    NE: Optional[str] = None
-    Prefix: Optional[str] = None
+    EQ: Optional[Annotated[str, _aws_pattern("Machinelearning", "ComparatorValue")]] = None
+    GT: Optional[Annotated[str, _aws_pattern("Machinelearning", "ComparatorValue")]] = None
+    LT: Optional[Annotated[str, _aws_pattern("Machinelearning", "ComparatorValue")]] = None
+    GE: Optional[Annotated[str, _aws_pattern("Machinelearning", "ComparatorValue")]] = None
+    LE: Optional[Annotated[str, _aws_pattern("Machinelearning", "ComparatorValue")]] = None
+    NE: Optional[Annotated[str, _aws_pattern("Machinelearning", "ComparatorValue")]] = None
+    Prefix: Optional[Annotated[str, _aws_pattern("Machinelearning", "ComparatorValue")]] = None
     SortOrder: Optional[SortOrderType] = None
     NextToken: Optional[str] = None
     Limit: Optional[int] = None
@@ -222,7 +224,7 @@ class DescribeMLModelsInputTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'describe_tags' function.
 class DescribeTagsInputTypeDef(BaseValidatorModel):
-    ResourceId: str
+    ResourceId: Annotated[str, _aws_pattern("Machinelearning", "EntityId")]
     ResourceType: TaggableResourceTypeType
 
 
@@ -232,31 +234,31 @@ class PerformanceMetricsTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'get_batch_prediction' function.
 class GetBatchPredictionInputTypeDef(BaseValidatorModel):
-    BatchPredictionId: str
+    BatchPredictionId: Annotated[str, _aws_pattern("Machinelearning", "EntityId")]
 
 
 # This class is the input for the 'get_data_source' function.
 class GetDataSourceInputTypeDef(BaseValidatorModel):
-    DataSourceId: str
+    DataSourceId: Annotated[str, _aws_pattern("Machinelearning", "EntityId")]
     Verbose: Optional[bool] = None
 
 
 # This class is the input for the 'get_evaluation' function.
 class GetEvaluationInputTypeDef(BaseValidatorModel):
-    EvaluationId: str
+    EvaluationId: Annotated[str, _aws_pattern("Machinelearning", "EntityId")]
 
 
 # This class is the input for the 'get_ml_model' function.
 class GetMLModelInputTypeDef(BaseValidatorModel):
-    MLModelId: str
+    MLModelId: Annotated[str, _aws_pattern("Machinelearning", "EntityId")]
     Verbose: Optional[bool] = None
 
 
 # This class is the input for the 'predict' function.
 class PredictInputTypeDef(BaseValidatorModel):
-    MLModelId: str
+    MLModelId: Annotated[str, _aws_pattern("Machinelearning", "EntityId")]
     Record: Dict[str, str]
-    PredictEndpoint: str
+    PredictEndpoint: Annotated[str, _aws_pattern("Machinelearning", "VipURL")]
 
 
 class PredictionTypeDef(BaseValidatorModel):
@@ -272,7 +274,7 @@ class RDSDatabaseCredentialsTypeDef(BaseValidatorModel):
 
 
 class RDSDatabaseTypeDef(BaseValidatorModel):
-    InstanceIdentifier: str
+    InstanceIdentifier: Annotated[str, _aws_pattern("Machinelearning", "RDSInstanceIdentifier")]
     DatabaseName: str
 
 
@@ -282,119 +284,119 @@ class RedshiftDatabaseCredentialsTypeDef(BaseValidatorModel):
 
 
 class RedshiftDatabaseTypeDef(BaseValidatorModel):
-    DatabaseName: str
-    ClusterIdentifier: str
+    DatabaseName: Annotated[str, _aws_pattern("Machinelearning", "RedshiftDatabaseName")]
+    ClusterIdentifier: Annotated[str, _aws_pattern("Machinelearning", "RedshiftClusterIdentifier")]
 
 
 # This class is the input for the 'update_batch_prediction' function.
 class UpdateBatchPredictionInputTypeDef(BaseValidatorModel):
-    BatchPredictionId: str
-    BatchPredictionName: str
+    BatchPredictionId: Annotated[str, _aws_pattern("Machinelearning", "EntityId")]
+    BatchPredictionName: Annotated[str, _aws_pattern("Machinelearning", "EntityName")]
 
 
 # This class is the input for the 'update_data_source' function.
 class UpdateDataSourceInputTypeDef(BaseValidatorModel):
-    DataSourceId: str
-    DataSourceName: str
+    DataSourceId: Annotated[str, _aws_pattern("Machinelearning", "EntityId")]
+    DataSourceName: Annotated[str, _aws_pattern("Machinelearning", "EntityName")]
 
 
 # This class is the input for the 'update_evaluation' function.
 class UpdateEvaluationInputTypeDef(BaseValidatorModel):
-    EvaluationId: str
-    EvaluationName: str
+    EvaluationId: Annotated[str, _aws_pattern("Machinelearning", "EntityId")]
+    EvaluationName: Annotated[str, _aws_pattern("Machinelearning", "EntityName")]
 
 
 # This class is the input for the 'update_ml_model' function.
 class UpdateMLModelInputTypeDef(BaseValidatorModel):
-    MLModelId: str
-    MLModelName: Optional[str] = None
+    MLModelId: Annotated[str, _aws_pattern("Machinelearning", "EntityId")]
+    MLModelName: Optional[Annotated[str, _aws_pattern("Machinelearning", "EntityName")]] = None
     ScoreThreshold: Optional[float] = None
 
 
 # This class is the input for the 'add_tags' function.
 class AddTagsInputTypeDef(BaseValidatorModel):
     Tags: List[TagTypeDef]
-    ResourceId: str
+    ResourceId: Annotated[str, _aws_pattern("Machinelearning", "EntityId")]
     ResourceType: TaggableResourceTypeType
 
 
 # This class is the output for the 'add_tags' function.
 class AddTagsOutputTypeDef(BaseValidatorModel):
-    ResourceId: str
+    ResourceId: Annotated[str, _aws_pattern("Machinelearning", "EntityId")]
     ResourceType: TaggableResourceTypeType
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 # This class is the output for the 'create_batch_prediction' function.
 class CreateBatchPredictionOutputTypeDef(BaseValidatorModel):
-    BatchPredictionId: str
+    BatchPredictionId: Annotated[str, _aws_pattern("Machinelearning", "EntityId")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 # This class is the output for the 'create_data_source_from_rds' function.
 class CreateDataSourceFromRDSOutputTypeDef(BaseValidatorModel):
-    DataSourceId: str
+    DataSourceId: Annotated[str, _aws_pattern("Machinelearning", "EntityId")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 # This class is the output for the 'create_data_source_from_redshift' function.
 class CreateDataSourceFromRedshiftOutputTypeDef(BaseValidatorModel):
-    DataSourceId: str
+    DataSourceId: Annotated[str, _aws_pattern("Machinelearning", "EntityId")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 # This class is the output for the 'create_data_source_from_s3' function.
 class CreateDataSourceFromS3OutputTypeDef(BaseValidatorModel):
-    DataSourceId: str
+    DataSourceId: Annotated[str, _aws_pattern("Machinelearning", "EntityId")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 # This class is the output for the 'create_evaluation' function.
 class CreateEvaluationOutputTypeDef(BaseValidatorModel):
-    EvaluationId: str
+    EvaluationId: Annotated[str, _aws_pattern("Machinelearning", "EntityId")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 # This class is the output for the 'create_ml_model' function.
 class CreateMLModelOutputTypeDef(BaseValidatorModel):
-    MLModelId: str
+    MLModelId: Annotated[str, _aws_pattern("Machinelearning", "EntityId")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 # This class is the output for the 'delete_batch_prediction' function.
 class DeleteBatchPredictionOutputTypeDef(BaseValidatorModel):
-    BatchPredictionId: str
+    BatchPredictionId: Annotated[str, _aws_pattern("Machinelearning", "EntityId")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 # This class is the output for the 'delete_data_source' function.
 class DeleteDataSourceOutputTypeDef(BaseValidatorModel):
-    DataSourceId: str
+    DataSourceId: Annotated[str, _aws_pattern("Machinelearning", "EntityId")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 # This class is the output for the 'delete_evaluation' function.
 class DeleteEvaluationOutputTypeDef(BaseValidatorModel):
-    EvaluationId: str
+    EvaluationId: Annotated[str, _aws_pattern("Machinelearning", "EntityId")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 # This class is the output for the 'delete_ml_model' function.
 class DeleteMLModelOutputTypeDef(BaseValidatorModel):
-    MLModelId: str
+    MLModelId: Annotated[str, _aws_pattern("Machinelearning", "EntityId")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 # This class is the output for the 'delete_tags' function.
 class DeleteTagsOutputTypeDef(BaseValidatorModel):
-    ResourceId: str
+    ResourceId: Annotated[str, _aws_pattern("Machinelearning", "EntityId")]
     ResourceType: TaggableResourceTypeType
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 # This class is the output for the 'describe_tags' function.
 class DescribeTagsOutputTypeDef(BaseValidatorModel):
-    ResourceId: str
+    ResourceId: Annotated[str, _aws_pattern("Machinelearning", "EntityId")]
     ResourceType: TaggableResourceTypeType
     Tags: List[TagTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
@@ -402,16 +404,16 @@ class DescribeTagsOutputTypeDef(BaseValidatorModel):
 
 # This class is the output for the 'get_batch_prediction' function.
 class GetBatchPredictionOutputTypeDef(BaseValidatorModel):
-    BatchPredictionId: str
-    MLModelId: str
-    BatchPredictionDataSourceId: str
-    InputDataLocationS3: str
-    CreatedByIamUser: str
+    BatchPredictionId: Annotated[str, _aws_pattern("Machinelearning", "EntityId")]
+    MLModelId: Annotated[str, _aws_pattern("Machinelearning", "EntityId")]
+    BatchPredictionDataSourceId: Annotated[str, _aws_pattern("Machinelearning", "EntityId")]
+    InputDataLocationS3: Annotated[str, _aws_pattern("Machinelearning", "S3Url")]
+    CreatedByIamUser: Annotated[str, _aws_pattern("Machinelearning", "AwsUserArn")]
     CreatedAt: datetime
     LastUpdatedAt: datetime
-    Name: str
+    Name: Annotated[str, _aws_pattern("Machinelearning", "EntityName")]
     Status: EntityStatusType
-    OutputUri: str
+    OutputUri: Annotated[str, _aws_pattern("Machinelearning", "S3Url")]
     LogUri: str
     Message: str
     ComputeTime: int
@@ -424,25 +426,25 @@ class GetBatchPredictionOutputTypeDef(BaseValidatorModel):
 
 # This class is the output for the 'update_batch_prediction' function.
 class UpdateBatchPredictionOutputTypeDef(BaseValidatorModel):
-    BatchPredictionId: str
+    BatchPredictionId: Annotated[str, _aws_pattern("Machinelearning", "EntityId")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 # This class is the output for the 'update_data_source' function.
 class UpdateDataSourceOutputTypeDef(BaseValidatorModel):
-    DataSourceId: str
+    DataSourceId: Annotated[str, _aws_pattern("Machinelearning", "EntityId")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 # This class is the output for the 'update_evaluation' function.
 class UpdateEvaluationOutputTypeDef(BaseValidatorModel):
-    EvaluationId: str
+    EvaluationId: Annotated[str, _aws_pattern("Machinelearning", "EntityId")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 # This class is the output for the 'update_ml_model' function.
 class UpdateMLModelOutputTypeDef(BaseValidatorModel):
-    MLModelId: str
+    MLModelId: Annotated[str, _aws_pattern("Machinelearning", "EntityId")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
@@ -455,31 +457,31 @@ class DescribeBatchPredictionsOutputTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'create_data_source_from_s3' function.
 class CreateDataSourceFromS3InputTypeDef(BaseValidatorModel):
-    DataSourceId: str
+    DataSourceId: Annotated[str, _aws_pattern("Machinelearning", "EntityId")]
     DataSpec: S3DataSpecTypeDef
-    DataSourceName: Optional[str] = None
+    DataSourceName: Optional[Annotated[str, _aws_pattern("Machinelearning", "EntityName")]] = None
     ComputeStatistics: Optional[bool] = None
 
 
 # This class is the output for the 'create_realtime_endpoint' function.
 class CreateRealtimeEndpointOutputTypeDef(BaseValidatorModel):
-    MLModelId: str
+    MLModelId: Annotated[str, _aws_pattern("Machinelearning", "EntityId")]
     RealtimeEndpointInfo: RealtimeEndpointInfoTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 # This class is the output for the 'delete_realtime_endpoint' function.
 class DeleteRealtimeEndpointOutputTypeDef(BaseValidatorModel):
-    MLModelId: str
+    MLModelId: Annotated[str, _aws_pattern("Machinelearning", "EntityId")]
     RealtimeEndpointInfo: RealtimeEndpointInfoTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 # This class is the output for the 'get_ml_model' function.
 class GetMLModelOutputTypeDef(BaseValidatorModel):
-    MLModelId: str
-    TrainingDataSourceId: str
-    CreatedByIamUser: str
+    MLModelId: Annotated[str, _aws_pattern("Machinelearning", "EntityId")]
+    TrainingDataSourceId: Annotated[str, _aws_pattern("Machinelearning", "EntityId")]
+    CreatedByIamUser: Annotated[str, _aws_pattern("Machinelearning", "AwsUserArn")]
     CreatedAt: datetime
     LastUpdatedAt: datetime
     Name: str
@@ -487,7 +489,7 @@ class GetMLModelOutputTypeDef(BaseValidatorModel):
     SizeInBytes: int
     EndpointInfo: RealtimeEndpointInfoTypeDef
     TrainingParameters: Dict[str, str]
-    InputDataLocationS3: str
+    InputDataLocationS3: Annotated[str, _aws_pattern("Machinelearning", "S3Url")]
     MLModelType: MLModelTypeType
     ScoreThreshold: float
     ScoreThresholdLastUpdatedAt: datetime
@@ -502,9 +504,9 @@ class GetMLModelOutputTypeDef(BaseValidatorModel):
 
 
 class MLModelTypeDef(BaseValidatorModel):
-    MLModelId: Optional[str] = None
-    TrainingDataSourceId: Optional[str] = None
-    CreatedByIamUser: Optional[str] = None
+    MLModelId: Optional[Annotated[str, _aws_pattern("Machinelearning", "EntityId")]] = None
+    TrainingDataSourceId: Optional[Annotated[str, _aws_pattern("Machinelearning", "EntityId")]] = None
+    CreatedByIamUser: Optional[Annotated[str, _aws_pattern("Machinelearning", "AwsUserArn")]] = None
     CreatedAt: Optional[datetime] = None
     LastUpdatedAt: Optional[datetime] = None
     Name: Optional[str] = None
@@ -512,7 +514,7 @@ class MLModelTypeDef(BaseValidatorModel):
     SizeInBytes: Optional[int] = None
     EndpointInfo: Optional[RealtimeEndpointInfoTypeDef] = None
     TrainingParameters: Optional[Dict[str, str]] = None
-    InputDataLocationS3: Optional[str] = None
+    InputDataLocationS3: Optional[Annotated[str, _aws_pattern("Machinelearning", "S3Url")]] = None
     Algorithm: Optional[Literal["sgd"]] = None
     MLModelType: Optional[MLModelTypeType] = None
     ScoreThreshold: Optional[float] = None
@@ -636,14 +638,14 @@ class DescribeMLModelsInputWaitTypeDef(BaseValidatorModel):
 
 
 class EvaluationTypeDef(BaseValidatorModel):
-    EvaluationId: Optional[str] = None
-    MLModelId: Optional[str] = None
-    EvaluationDataSourceId: Optional[str] = None
-    InputDataLocationS3: Optional[str] = None
-    CreatedByIamUser: Optional[str] = None
+    EvaluationId: Optional[Annotated[str, _aws_pattern("Machinelearning", "EntityId")]] = None
+    MLModelId: Optional[Annotated[str, _aws_pattern("Machinelearning", "EntityId")]] = None
+    EvaluationDataSourceId: Optional[Annotated[str, _aws_pattern("Machinelearning", "EntityId")]] = None
+    InputDataLocationS3: Optional[Annotated[str, _aws_pattern("Machinelearning", "S3Url")]] = None
+    CreatedByIamUser: Optional[Annotated[str, _aws_pattern("Machinelearning", "AwsUserArn")]] = None
     CreatedAt: Optional[datetime] = None
     LastUpdatedAt: Optional[datetime] = None
-    Name: Optional[str] = None
+    Name: Optional[Annotated[str, _aws_pattern("Machinelearning", "EntityName")]] = None
     Status: Optional[EntityStatusType] = None
     PerformanceMetrics: Optional[PerformanceMetricsTypeDef] = None
     Message: Optional[str] = None
@@ -654,14 +656,14 @@ class EvaluationTypeDef(BaseValidatorModel):
 
 # This class is the output for the 'get_evaluation' function.
 class GetEvaluationOutputTypeDef(BaseValidatorModel):
-    EvaluationId: str
-    MLModelId: str
-    EvaluationDataSourceId: str
-    InputDataLocationS3: str
-    CreatedByIamUser: str
+    EvaluationId: Annotated[str, _aws_pattern("Machinelearning", "EntityId")]
+    MLModelId: Annotated[str, _aws_pattern("Machinelearning", "EntityId")]
+    EvaluationDataSourceId: Annotated[str, _aws_pattern("Machinelearning", "EntityId")]
+    InputDataLocationS3: Annotated[str, _aws_pattern("Machinelearning", "S3Url")]
+    CreatedByIamUser: Annotated[str, _aws_pattern("Machinelearning", "AwsUserArn")]
     CreatedAt: datetime
     LastUpdatedAt: datetime
-    Name: str
+    Name: Annotated[str, _aws_pattern("Machinelearning", "EntityName")]
     Status: EntityStatusType
     PerformanceMetrics: PerformanceMetricsTypeDef
     LogUri: str
@@ -682,14 +684,14 @@ class RDSDataSpecTypeDef(BaseValidatorModel):
     DatabaseInformation: RDSDatabaseTypeDef
     SelectSqlQuery: str
     DatabaseCredentials: RDSDatabaseCredentialsTypeDef
-    S3StagingLocation: str
+    S3StagingLocation: Annotated[str, _aws_pattern("Machinelearning", "S3Url")]
     ResourceRole: str
     ServiceRole: str
     SubnetId: str
     SecurityGroupIds: List[str]
     DataRearrangement: Optional[str] = None
     DataSchema: Optional[str] = None
-    DataSchemaUri: Optional[str] = None
+    DataSchemaUri: Optional[Annotated[str, _aws_pattern("Machinelearning", "S3Url")]] = None
 
 
 class RDSMetadataTypeDef(BaseValidatorModel):
@@ -705,10 +707,10 @@ class RedshiftDataSpecTypeDef(BaseValidatorModel):
     DatabaseInformation: RedshiftDatabaseTypeDef
     SelectSqlQuery: str
     DatabaseCredentials: RedshiftDatabaseCredentialsTypeDef
-    S3StagingLocation: str
+    S3StagingLocation: Annotated[str, _aws_pattern("Machinelearning", "S3Url")]
     DataRearrangement: Optional[str] = None
     DataSchema: Optional[str] = None
-    DataSchemaUri: Optional[str] = None
+    DataSchemaUri: Optional[Annotated[str, _aws_pattern("Machinelearning", "S3Url")]] = None
 
 
 class RedshiftMetadataTypeDef(BaseValidatorModel):
@@ -733,32 +735,32 @@ class DescribeEvaluationsOutputTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'create_data_source_from_rds' function.
 class CreateDataSourceFromRDSInputTypeDef(BaseValidatorModel):
-    DataSourceId: str
+    DataSourceId: Annotated[str, _aws_pattern("Machinelearning", "EntityId")]
     RDSData: RDSDataSpecTypeDef
     RoleARN: str
-    DataSourceName: Optional[str] = None
+    DataSourceName: Optional[Annotated[str, _aws_pattern("Machinelearning", "EntityName")]] = None
     ComputeStatistics: Optional[bool] = None
 
 
 # This class is the input for the 'create_data_source_from_redshift' function.
 class CreateDataSourceFromRedshiftInputTypeDef(BaseValidatorModel):
-    DataSourceId: str
+    DataSourceId: Annotated[str, _aws_pattern("Machinelearning", "EntityId")]
     DataSpec: RedshiftDataSpecTypeDef
     RoleARN: str
-    DataSourceName: Optional[str] = None
+    DataSourceName: Optional[Annotated[str, _aws_pattern("Machinelearning", "EntityName")]] = None
     ComputeStatistics: Optional[bool] = None
 
 
 class DataSourceTypeDef(BaseValidatorModel):
-    DataSourceId: Optional[str] = None
-    DataLocationS3: Optional[str] = None
+    DataSourceId: Optional[Annotated[str, _aws_pattern("Machinelearning", "EntityId")]] = None
+    DataLocationS3: Optional[Annotated[str, _aws_pattern("Machinelearning", "S3Url")]] = None
     DataRearrangement: Optional[str] = None
-    CreatedByIamUser: Optional[str] = None
+    CreatedByIamUser: Optional[Annotated[str, _aws_pattern("Machinelearning", "AwsUserArn")]] = None
     CreatedAt: Optional[datetime] = None
     LastUpdatedAt: Optional[datetime] = None
     DataSizeInBytes: Optional[int] = None
     NumberOfFiles: Optional[int] = None
-    Name: Optional[str] = None
+    Name: Optional[Annotated[str, _aws_pattern("Machinelearning", "EntityName")]] = None
     Status: Optional[EntityStatusType] = None
     Message: Optional[str] = None
     RedshiftMetadata: Optional[RedshiftMetadataTypeDef] = None
@@ -772,15 +774,15 @@ class DataSourceTypeDef(BaseValidatorModel):
 
 # This class is the output for the 'get_data_source' function.
 class GetDataSourceOutputTypeDef(BaseValidatorModel):
-    DataSourceId: str
-    DataLocationS3: str
+    DataSourceId: Annotated[str, _aws_pattern("Machinelearning", "EntityId")]
+    DataLocationS3: Annotated[str, _aws_pattern("Machinelearning", "S3Url")]
     DataRearrangement: str
-    CreatedByIamUser: str
+    CreatedByIamUser: Annotated[str, _aws_pattern("Machinelearning", "AwsUserArn")]
     CreatedAt: datetime
     LastUpdatedAt: datetime
     DataSizeInBytes: int
     NumberOfFiles: int
-    Name: str
+    Name: Annotated[str, _aws_pattern("Machinelearning", "EntityName")]
     Status: EntityStatusType
     LogUri: str
     Message: str

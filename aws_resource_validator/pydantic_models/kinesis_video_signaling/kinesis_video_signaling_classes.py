@@ -3,6 +3,7 @@
 from datetime import datetime
 from decimal import Decimal
 from typing import (
+    Annotated,
     Any,
     Callable,
     Dict,
@@ -24,6 +25,7 @@ from botocore.response import StreamingBody
 from pydantic import Field
 
 from aws_resource_validator.core.base_validator_model import BaseValidatorModel, EventStream
+from aws_resource_validator.core.pattern_validation import aws_field_pattern as _aws_pattern
 from aws_resource_validator.pydantic_models.kinesis_video_signaling.kinesis_video_signaling_constants import *  # noqa: F401,F403
 
 # Optional boto3 symbols — imported lazily so services that don't need them
@@ -40,16 +42,16 @@ except ImportError:  # pragma: no cover
 
 # This class is the input for the 'get_ice_server_config' function.
 class GetIceServerConfigRequestTypeDef(BaseValidatorModel):
-    ChannelARN: str
-    ClientId: Optional[str] = None
+    ChannelARN: Annotated[str, _aws_pattern("KinesisVideoSignaling", "ResourceARN")]
+    ClientId: Optional[Annotated[str, _aws_pattern("KinesisVideoSignaling", "ClientId")]] = None
     Service: Optional[Literal["TURN"]] = None
-    Username: Optional[str] = None
+    Username: Optional[Annotated[str, _aws_pattern("KinesisVideoSignaling", "Username")]] = None
 
 
 class IceServerTypeDef(BaseValidatorModel):
     Uris: Optional[List[str]] = None
-    Username: Optional[str] = None
-    Password: Optional[str] = None
+    Username: Optional[Annotated[str, _aws_pattern("KinesisVideoSignaling", "Username")]] = None
+    Password: Optional[Annotated[str, _aws_pattern("KinesisVideoSignaling", "Password")]] = None
     Ttl: Optional[int] = None
 
 
@@ -63,9 +65,9 @@ class ResponseMetadataTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'send_alexa_offer_to_master' function.
 class SendAlexaOfferToMasterRequestTypeDef(BaseValidatorModel):
-    ChannelARN: str
-    SenderClientId: str
-    MessagePayload: str
+    ChannelARN: Annotated[str, _aws_pattern("KinesisVideoSignaling", "ResourceARN")]
+    SenderClientId: Annotated[str, _aws_pattern("KinesisVideoSignaling", "ClientId")]
+    MessagePayload: Annotated[str, _aws_pattern("KinesisVideoSignaling", "MessagePayload")]
 
 
 # This class is the output for the 'get_ice_server_config' function.

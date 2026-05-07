@@ -3,6 +3,7 @@
 from datetime import datetime
 from decimal import Decimal
 from typing import (
+    Annotated,
     Any,
     Callable,
     Dict,
@@ -24,6 +25,7 @@ from botocore.response import StreamingBody
 from pydantic import Field
 
 from aws_resource_validator.core.base_validator_model import BaseValidatorModel, EventStream
+from aws_resource_validator.core.pattern_validation import aws_field_pattern as _aws_pattern
 from aws_resource_validator.pydantic_models.oam.oam_constants import *  # noqa: F401,F403
 
 # Optional boto3 symbols — imported lazily so services that don't need them
@@ -48,33 +50,33 @@ class ResponseMetadataTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'create_sink' function.
 class CreateSinkInputTypeDef(BaseValidatorModel):
-    Name: str
+    Name: Annotated[str, _aws_pattern("Oam", "SinkName")]
     Tags: Optional[Dict[str, str]] = None
 
 
 class DeleteLinkInputTypeDef(BaseValidatorModel):
-    Identifier: str
+    Identifier: Annotated[str, _aws_pattern("Oam", "ResourceIdentifier")]
 
 
 class DeleteSinkInputTypeDef(BaseValidatorModel):
-    Identifier: str
+    Identifier: Annotated[str, _aws_pattern("Oam", "ResourceIdentifier")]
 
 
 # This class is the input for the 'get_link' function.
 class GetLinkInputTypeDef(BaseValidatorModel):
-    Identifier: str
+    Identifier: Annotated[str, _aws_pattern("Oam", "ResourceIdentifier")]
     IncludeTags: Optional[bool] = None
 
 
 # This class is the input for the 'get_sink' function.
 class GetSinkInputTypeDef(BaseValidatorModel):
-    Identifier: str
+    Identifier: Annotated[str, _aws_pattern("Oam", "ResourceIdentifier")]
     IncludeTags: Optional[bool] = None
 
 
 # This class is the input for the 'get_sink_policy' function.
 class GetSinkPolicyInputTypeDef(BaseValidatorModel):
-    SinkIdentifier: str
+    SinkIdentifier: Annotated[str, _aws_pattern("Oam", "ResourceIdentifier")]
 
 
 class LogGroupConfigurationTypeDef(BaseValidatorModel):
@@ -93,7 +95,7 @@ class PaginatorConfigTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'list_attached_links' function.
 class ListAttachedLinksInputTypeDef(BaseValidatorModel):
-    SinkIdentifier: str
+    SinkIdentifier: Annotated[str, _aws_pattern("Oam", "ResourceIdentifier")]
     MaxResults: Optional[int] = None
     NextToken: Optional[str] = None
 
@@ -132,22 +134,22 @@ class ListSinksItemTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'list_tags_for_resource' function.
 class ListTagsForResourceInputTypeDef(BaseValidatorModel):
-    ResourceArn: str
+    ResourceArn: Annotated[str, _aws_pattern("Oam", "Arn")]
 
 
 # This class is the input for the 'put_sink_policy' function.
 class PutSinkPolicyInputTypeDef(BaseValidatorModel):
     Policy: str
-    SinkIdentifier: str
+    SinkIdentifier: Annotated[str, _aws_pattern("Oam", "ResourceIdentifier")]
 
 
 class TagResourceInputTypeDef(BaseValidatorModel):
-    ResourceArn: str
+    ResourceArn: Annotated[str, _aws_pattern("Oam", "Arn")]
     Tags: Dict[str, str]
 
 
 class UntagResourceInputTypeDef(BaseValidatorModel):
-    ResourceArn: str
+    ResourceArn: Annotated[str, _aws_pattern("Oam", "Arn")]
     TagKeys: List[str]
 
 
@@ -234,7 +236,7 @@ class ListSinksOutputTypeDef(BaseValidatorModel):
 class CreateLinkInputTypeDef(BaseValidatorModel):
     LabelTemplate: str
     ResourceTypes: List[ResourceTypeType]
-    SinkIdentifier: str
+    SinkIdentifier: Annotated[str, _aws_pattern("Oam", "ResourceIdentifier")]
     LinkConfiguration: Optional[LinkConfigurationTypeDef] = None
     Tags: Optional[Dict[str, str]] = None
 
@@ -267,7 +269,7 @@ class GetLinkOutputTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'update_link' function.
 class UpdateLinkInputTypeDef(BaseValidatorModel):
-    Identifier: str
+    Identifier: Annotated[str, _aws_pattern("Oam", "ResourceIdentifier")]
     ResourceTypes: List[ResourceTypeType]
     IncludeTags: Optional[bool] = None
     LinkConfiguration: Optional[LinkConfigurationTypeDef] = None

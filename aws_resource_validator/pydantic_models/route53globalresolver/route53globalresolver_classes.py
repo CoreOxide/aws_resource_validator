@@ -3,6 +3,7 @@
 from datetime import datetime
 from decimal import Decimal
 from typing import (
+    Annotated,
     Any,
     Callable,
     Dict,
@@ -24,6 +25,7 @@ from botocore.response import StreamingBody
 from pydantic import Field
 
 from aws_resource_validator.core.base_validator_model import BaseValidatorModel, EventStream
+from aws_resource_validator.core.pattern_validation import aws_field_pattern as _aws_pattern
 from aws_resource_validator.pydantic_models.route53globalresolver.route53globalresolver_constants import *  # noqa: F401,F403
 
 # Optional boto3 symbols — imported lazily so services that don't need them
@@ -39,35 +41,35 @@ except ImportError:  # pragma: no cover
 
 
 class AccessSourcesItemTypeDef(BaseValidatorModel):
-    arn: str
+    arn: Annotated[str, _aws_pattern("Route53globalresolver", "ResourceArn")]
     cidr: str
     createdAt: datetime
-    id: str
+    id: Annotated[str, _aws_pattern("Route53globalresolver", "ResourceId")]
     ipAddressType: IpAddressTypeType
-    dnsViewId: str
+    dnsViewId: Annotated[str, _aws_pattern("Route53globalresolver", "ResourceId")]
     protocol: DnsProtocolType
     status: CRResourceStatusType
     updatedAt: datetime
-    name: Optional[str] = None
+    name: Optional[Annotated[str, _aws_pattern("Route53globalresolver", "ResourceNameShort")]] = None
 
 
 class AccessTokenItemTypeDef(BaseValidatorModel):
-    id: str
-    arn: str
+    id: Annotated[str, _aws_pattern("Route53globalresolver", "ResourceId")]
+    arn: Annotated[str, _aws_pattern("Route53globalresolver", "ResourceArn")]
     createdAt: datetime
-    dnsViewId: str
+    dnsViewId: Annotated[str, _aws_pattern("Route53globalresolver", "ResourceId")]
     expiresAt: datetime
-    globalResolverId: str
+    globalResolverId: Annotated[str, _aws_pattern("Route53globalresolver", "ResourceId")]
     status: TokenStatusType
     updatedAt: datetime
-    name: Optional[str] = None
+    name: Optional[Annotated[str, _aws_pattern("Route53globalresolver", "ResourceNameShort")]] = None
 
 
 # This class is the input for the 'associate_hosted_zone' function.
 class AssociateHostedZoneInputTypeDef(BaseValidatorModel):
     hostedZoneId: str
-    resourceArn: str
-    name: str
+    resourceArn: Annotated[str, _aws_pattern("Route53globalresolver", "ResourceArn")]
+    name: Annotated[str, _aws_pattern("Route53globalresolver", "ResourceName")]
 
 
 class ResponseMetadataTypeDef(BaseValidatorModel):
@@ -81,16 +83,16 @@ class ResponseMetadataTypeDef(BaseValidatorModel):
 class BatchCreateFirewallRuleInputItemTypeDef(BaseValidatorModel):
     action: FirewallRuleActionType
     clientToken: str
-    name: str
-    dnsViewId: str
+    name: Annotated[str, _aws_pattern("Route53globalresolver", "ResourceName")]
+    dnsViewId: Annotated[str, _aws_pattern("Route53globalresolver", "ResourceId")]
     blockOverrideDnsType: Optional[Literal["CNAME"]] = None
-    blockOverrideDomain: Optional[str] = None
+    blockOverrideDomain: Optional[Annotated[str, _aws_pattern("Route53globalresolver", "Domain")]] = None
     blockOverrideTtl: Optional[int] = None
     blockResponse: Optional[FirewallBlockResponseType] = None
     confidenceThreshold: Optional[ConfidenceThresholdType] = None
     description: Optional[str] = None
     dnsAdvancedProtection: Optional[DnsAdvancedProtectionType] = None
-    firewallDomainListId: Optional[str] = None
+    firewallDomainListId: Optional[Annotated[str, _aws_pattern("Route53globalresolver", "ResourceId")]] = None
     priority: Optional[int] = None
     qType: Optional[str] = None
 
@@ -98,19 +100,19 @@ class BatchCreateFirewallRuleInputItemTypeDef(BaseValidatorModel):
 class BatchCreateFirewallRuleResultTypeDef(BaseValidatorModel):
     action: FirewallRuleActionType
     clientToken: str
-    name: str
-    dnsViewId: str
+    name: Annotated[str, _aws_pattern("Route53globalresolver", "ResourceName")]
+    dnsViewId: Annotated[str, _aws_pattern("Route53globalresolver", "ResourceId")]
     blockOverrideDnsType: Optional[Literal["CNAME"]] = None
-    blockOverrideDomain: Optional[str] = None
+    blockOverrideDomain: Optional[Annotated[str, _aws_pattern("Route53globalresolver", "Domain")]] = None
     blockOverrideTtl: Optional[int] = None
     blockResponse: Optional[FirewallBlockResponseType] = None
     confidenceThreshold: Optional[ConfidenceThresholdType] = None
     createdAt: Optional[datetime] = None
     description: Optional[str] = None
     dnsAdvancedProtection: Optional[DnsAdvancedProtectionType] = None
-    firewallDomainListId: Optional[str] = None
-    id: Optional[str] = None
-    managedDomainListName: Optional[str] = None
+    firewallDomainListId: Optional[Annotated[str, _aws_pattern("Route53globalresolver", "ResourceId")]] = None
+    id: Optional[Annotated[str, _aws_pattern("Route53globalresolver", "ResourceId")]] = None
+    managedDomainListName: Optional[Annotated[str, _aws_pattern("Route53globalresolver", "ResourceName")]] = None
     priority: Optional[int] = None
     queryType: Optional[str] = None
     status: Optional[CRResourceStatusType] = None
@@ -118,35 +120,35 @@ class BatchCreateFirewallRuleResultTypeDef(BaseValidatorModel):
 
 
 class BatchDeleteFirewallRuleInputItemTypeDef(BaseValidatorModel):
-    firewallRuleId: str
+    firewallRuleId: Annotated[str, _aws_pattern("Route53globalresolver", "ResourceId")]
 
 
 class BatchDeleteFirewallRuleResultTypeDef(BaseValidatorModel):
-    id: str
+    id: Annotated[str, _aws_pattern("Route53globalresolver", "ResourceId")]
     clientToken: Optional[str] = None
-    name: Optional[str] = None
+    name: Optional[Annotated[str, _aws_pattern("Route53globalresolver", "ResourceName")]] = None
     status: Optional[CRResourceStatusType] = None
 
 
 class BatchUpdateFirewallRuleInputItemTypeDef(BaseValidatorModel):
-    firewallRuleId: str
+    firewallRuleId: Annotated[str, _aws_pattern("Route53globalresolver", "ResourceId")]
     action: Optional[FirewallRuleActionType] = None
     blockOverrideDnsType: Optional[Literal["CNAME"]] = None
-    blockOverrideDomain: Optional[str] = None
+    blockOverrideDomain: Optional[Annotated[str, _aws_pattern("Route53globalresolver", "Domain")]] = None
     blockOverrideTtl: Optional[int] = None
     blockResponse: Optional[FirewallBlockResponseType] = None
     confidenceThreshold: Optional[ConfidenceThresholdType] = None
     description: Optional[str] = None
     dnsAdvancedProtection: Optional[DnsAdvancedProtectionType] = None
-    name: Optional[str] = None
+    name: Optional[Annotated[str, _aws_pattern("Route53globalresolver", "ResourceName")]] = None
     priority: Optional[int] = None
 
 
 class BatchUpdateFirewallRuleResultTypeDef(BaseValidatorModel):
-    id: str
+    id: Annotated[str, _aws_pattern("Route53globalresolver", "ResourceId")]
     action: Optional[FirewallRuleActionType] = None
     blockOverrideDnsType: Optional[Literal["CNAME"]] = None
-    blockOverrideDomain: Optional[str] = None
+    blockOverrideDomain: Optional[Annotated[str, _aws_pattern("Route53globalresolver", "Domain")]] = None
     blockOverrideTtl: Optional[int] = None
     blockResponse: Optional[FirewallBlockResponseType] = None
     clientToken: Optional[str] = None
@@ -154,10 +156,10 @@ class BatchUpdateFirewallRuleResultTypeDef(BaseValidatorModel):
     createdAt: Optional[datetime] = None
     description: Optional[str] = None
     dnsAdvancedProtection: Optional[DnsAdvancedProtectionType] = None
-    firewallDomainListId: Optional[str] = None
-    name: Optional[str] = None
+    firewallDomainListId: Optional[Annotated[str, _aws_pattern("Route53globalresolver", "ResourceId")]] = None
+    name: Optional[Annotated[str, _aws_pattern("Route53globalresolver", "ResourceName")]] = None
     priority: Optional[int] = None
-    dnsViewId: Optional[str] = None
+    dnsViewId: Optional[Annotated[str, _aws_pattern("Route53globalresolver", "ResourceId")]] = None
     queryType: Optional[str] = None
     status: Optional[CRResourceStatusType] = None
     updatedAt: Optional[datetime] = None
@@ -166,11 +168,11 @@ class BatchUpdateFirewallRuleResultTypeDef(BaseValidatorModel):
 # This class is the input for the 'create_access_source' function.
 class CreateAccessSourceInputTypeDef(BaseValidatorModel):
     cidr: str
-    dnsViewId: str
+    dnsViewId: Annotated[str, _aws_pattern("Route53globalresolver", "ResourceId")]
     protocol: DnsProtocolType
     clientToken: Optional[str] = None
     ipAddressType: Optional[IpAddressTypeType] = None
-    name: Optional[str] = None
+    name: Optional[Annotated[str, _aws_pattern("Route53globalresolver", "ResourceNameShort")]] = None
     tags: Optional[Dict[str, str]] = None
 
 
@@ -179,8 +181,8 @@ TimestampTypeDef = Union[datetime, str]
 
 # This class is the input for the 'create_dns_view' function.
 class CreateDNSViewInputTypeDef(BaseValidatorModel):
-    globalResolverId: str
-    name: str
+    globalResolverId: Annotated[str, _aws_pattern("Route53globalresolver", "ResourceId")]
+    name: Annotated[str, _aws_pattern("Route53globalresolver", "ResourceName")]
     clientToken: Optional[str] = None
     dnssecValidation: Optional[DnsSecValidationTypeType] = None
     ednsClientSubnet: Optional[EdnsClientSubnetTypeType] = None
@@ -191,8 +193,8 @@ class CreateDNSViewInputTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'create_firewall_domain_list' function.
 class CreateFirewallDomainListInputTypeDef(BaseValidatorModel):
-    globalResolverId: str
-    name: str
+    globalResolverId: Annotated[str, _aws_pattern("Route53globalresolver", "ResourceId")]
+    name: Annotated[str, _aws_pattern("Route53globalresolver", "ResourceName")]
     clientToken: Optional[str] = None
     description: Optional[str] = None
     tags: Optional[Dict[str, str]] = None
@@ -201,24 +203,24 @@ class CreateFirewallDomainListInputTypeDef(BaseValidatorModel):
 # This class is the input for the 'create_firewall_rule' function.
 class CreateFirewallRuleInputTypeDef(BaseValidatorModel):
     action: FirewallRuleActionType
-    name: str
-    dnsViewId: str
+    name: Annotated[str, _aws_pattern("Route53globalresolver", "ResourceName")]
+    dnsViewId: Annotated[str, _aws_pattern("Route53globalresolver", "ResourceId")]
     blockOverrideDnsType: Optional[Literal["CNAME"]] = None
-    blockOverrideDomain: Optional[str] = None
+    blockOverrideDomain: Optional[Annotated[str, _aws_pattern("Route53globalresolver", "Domain")]] = None
     blockOverrideTtl: Optional[int] = None
     blockResponse: Optional[FirewallBlockResponseType] = None
     clientToken: Optional[str] = None
     confidenceThreshold: Optional[ConfidenceThresholdType] = None
     description: Optional[str] = None
     dnsAdvancedProtection: Optional[DnsAdvancedProtectionType] = None
-    firewallDomainListId: Optional[str] = None
+    firewallDomainListId: Optional[Annotated[str, _aws_pattern("Route53globalresolver", "ResourceId")]] = None
     priority: Optional[int] = None
     qType: Optional[str] = None
 
 
 # This class is the input for the 'create_global_resolver' function.
 class CreateGlobalResolverInputTypeDef(BaseValidatorModel):
-    name: str
+    name: Annotated[str, _aws_pattern("Route53globalresolver", "ResourceName")]
     regions: List[str]
     clientToken: Optional[str] = None
     description: Optional[str] = None
@@ -228,14 +230,14 @@ class CreateGlobalResolverInputTypeDef(BaseValidatorModel):
 
 
 class DNSViewSummaryTypeDef(BaseValidatorModel):
-    id: str
-    arn: str
+    id: Annotated[str, _aws_pattern("Route53globalresolver", "ResourceId")]
+    arn: Annotated[str, _aws_pattern("Route53globalresolver", "ResourceArn")]
     clientToken: str
     dnssecValidation: DnsSecValidationTypeType
     ednsClientSubnet: EdnsClientSubnetTypeType
     firewallRulesFailOpen: FirewallRulesFailOpenTypeType
-    name: str
-    globalResolverId: str
+    name: Annotated[str, _aws_pattern("Route53globalresolver", "ResourceName")]
+    globalResolverId: Annotated[str, _aws_pattern("Route53globalresolver", "ResourceId")]
     createdAt: datetime
     updatedAt: datetime
     status: ProfileResourceStatusType
@@ -244,56 +246,56 @@ class DNSViewSummaryTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'delete_access_source' function.
 class DeleteAccessSourceInputTypeDef(BaseValidatorModel):
-    accessSourceId: str
+    accessSourceId: Annotated[str, _aws_pattern("Route53globalresolver", "ResourceId")]
 
 
 # This class is the input for the 'delete_access_token' function.
 class DeleteAccessTokenInputTypeDef(BaseValidatorModel):
-    accessTokenId: str
+    accessTokenId: Annotated[str, _aws_pattern("Route53globalresolver", "ResourceId")]
 
 
 # This class is the input for the 'delete_dns_view' function.
 class DeleteDNSViewInputTypeDef(BaseValidatorModel):
-    dnsViewId: str
+    dnsViewId: Annotated[str, _aws_pattern("Route53globalresolver", "ResourceId")]
 
 
 # This class is the input for the 'delete_firewall_domain_list' function.
 class DeleteFirewallDomainListInputTypeDef(BaseValidatorModel):
-    firewallDomainListId: str
+    firewallDomainListId: Annotated[str, _aws_pattern("Route53globalresolver", "ResourceId")]
 
 
 # This class is the input for the 'delete_firewall_rule' function.
 class DeleteFirewallRuleInputTypeDef(BaseValidatorModel):
-    firewallRuleId: str
+    firewallRuleId: Annotated[str, _aws_pattern("Route53globalresolver", "ResourceId")]
 
 
 # This class is the input for the 'delete_global_resolver' function.
 class DeleteGlobalResolverInputTypeDef(BaseValidatorModel):
-    globalResolverId: str
+    globalResolverId: Annotated[str, _aws_pattern("Route53globalresolver", "ResourceId")]
 
 
 # This class is the input for the 'disable_dns_view' function.
 class DisableDNSViewInputTypeDef(BaseValidatorModel):
-    dnsViewId: str
+    dnsViewId: Annotated[str, _aws_pattern("Route53globalresolver", "ResourceId")]
 
 
 # This class is the input for the 'disassociate_hosted_zone' function.
 class DisassociateHostedZoneInputTypeDef(BaseValidatorModel):
     hostedZoneId: str
-    resourceArn: str
+    resourceArn: Annotated[str, _aws_pattern("Route53globalresolver", "ResourceArn")]
 
 
 # This class is the input for the 'enable_dns_view' function.
 class EnableDNSViewInputTypeDef(BaseValidatorModel):
-    dnsViewId: str
+    dnsViewId: Annotated[str, _aws_pattern("Route53globalresolver", "ResourceId")]
 
 
 class FirewallDomainListsItemTypeDef(BaseValidatorModel):
-    arn: str
-    globalResolverId: str
+    arn: Annotated[str, _aws_pattern("Route53globalresolver", "ResourceArn")]
+    globalResolverId: Annotated[str, _aws_pattern("Route53globalresolver", "ResourceId")]
     createdAt: datetime
-    id: str
-    name: str
+    id: Annotated[str, _aws_pattern("Route53globalresolver", "ResourceId")]
+    name: Annotated[str, _aws_pattern("Route53globalresolver", "ResourceName")]
     status: CRResourceStatusType
     updatedAt: datetime
     description: Optional[str] = None
@@ -302,86 +304,86 @@ class FirewallDomainListsItemTypeDef(BaseValidatorModel):
 class FirewallRulesItemTypeDef(BaseValidatorModel):
     action: FirewallRuleActionType
     createdAt: datetime
-    id: str
-    name: str
+    id: Annotated[str, _aws_pattern("Route53globalresolver", "ResourceId")]
+    name: Annotated[str, _aws_pattern("Route53globalresolver", "ResourceName")]
     priority: int
-    dnsViewId: str
+    dnsViewId: Annotated[str, _aws_pattern("Route53globalresolver", "ResourceId")]
     status: CRResourceStatusType
     updatedAt: datetime
     blockOverrideDnsType: Optional[Literal["CNAME"]] = None
-    blockOverrideDomain: Optional[str] = None
+    blockOverrideDomain: Optional[Annotated[str, _aws_pattern("Route53globalresolver", "Domain")]] = None
     blockOverrideTtl: Optional[int] = None
     blockResponse: Optional[FirewallBlockResponseType] = None
     confidenceThreshold: Optional[ConfidenceThresholdType] = None
     description: Optional[str] = None
     dnsAdvancedProtection: Optional[DnsAdvancedProtectionType] = None
-    firewallDomainListId: Optional[str] = None
+    firewallDomainListId: Optional[Annotated[str, _aws_pattern("Route53globalresolver", "ResourceId")]] = None
     queryType: Optional[str] = None
 
 
 # This class is the input for the 'get_access_source' function.
 class GetAccessSourceInputTypeDef(BaseValidatorModel):
-    accessSourceId: str
+    accessSourceId: Annotated[str, _aws_pattern("Route53globalresolver", "ResourceId")]
 
 
 # This class is the input for the 'get_access_token' function.
 class GetAccessTokenInputTypeDef(BaseValidatorModel):
-    accessTokenId: str
+    accessTokenId: Annotated[str, _aws_pattern("Route53globalresolver", "ResourceId")]
 
 
 # This class is the input for the 'get_dns_view' function.
 class GetDNSViewInputTypeDef(BaseValidatorModel):
-    dnsViewId: str
+    dnsViewId: Annotated[str, _aws_pattern("Route53globalresolver", "ResourceId")]
 
 
 # This class is the input for the 'get_firewall_domain_list' function.
 class GetFirewallDomainListInputTypeDef(BaseValidatorModel):
-    firewallDomainListId: str
+    firewallDomainListId: Annotated[str, _aws_pattern("Route53globalresolver", "ResourceId")]
 
 
 # This class is the input for the 'get_firewall_rule' function.
 class GetFirewallRuleInputTypeDef(BaseValidatorModel):
-    firewallRuleId: str
+    firewallRuleId: Annotated[str, _aws_pattern("Route53globalresolver", "ResourceId")]
 
 
 # This class is the input for the 'get_global_resolver' function.
 class GetGlobalResolverInputTypeDef(BaseValidatorModel):
-    globalResolverId: str
+    globalResolverId: Annotated[str, _aws_pattern("Route53globalresolver", "ResourceId")]
 
 
 # This class is the input for the 'get_hosted_zone_association' function.
 class GetHostedZoneAssociationInputTypeDef(BaseValidatorModel):
-    hostedZoneAssociationId: str
+    hostedZoneAssociationId: Annotated[str, _aws_pattern("Route53globalresolver", "ResourceId")]
 
 
 # This class is the input for the 'get_managed_firewall_domain_list' function.
 class GetManagedFirewallDomainListInputTypeDef(BaseValidatorModel):
-    managedFirewallDomainListId: str
+    managedFirewallDomainListId: Annotated[str, _aws_pattern("Route53globalresolver", "ResourceId")]
 
 
 class GlobalResolversItemTypeDef(BaseValidatorModel):
-    id: str
-    arn: str
+    id: Annotated[str, _aws_pattern("Route53globalresolver", "ResourceId")]
+    arn: Annotated[str, _aws_pattern("Route53globalresolver", "ResourceArn")]
     clientToken: str
     dnsName: str
-    name: str
+    name: Annotated[str, _aws_pattern("Route53globalresolver", "ResourceName")]
     regions: List[str]
     createdAt: datetime
     updatedAt: datetime
     status: CRResourceStatusType
-    ipv4Addresses: List[str]
+    ipv4Addresses: List[Annotated[str, _aws_pattern("Route53globalresolver", "IPv4Address")]]
     observabilityRegion: Optional[str] = None
     description: Optional[str] = None
-    ipv6Addresses: Optional[List[str]] = None
+    ipv6Addresses: Optional[List[Annotated[str, _aws_pattern("Route53globalresolver", "IPv6Address")]]] = None
     ipAddressType: Optional[GlobalResolverIpAddressTypeType] = None
 
 
 class HostedZoneAssociationSummaryTypeDef(BaseValidatorModel):
-    id: str
-    resourceArn: str
+    id: Annotated[str, _aws_pattern("Route53globalresolver", "ResourceId")]
+    resourceArn: Annotated[str, _aws_pattern("Route53globalresolver", "ResourceArn")]
     hostedZoneId: str
     hostedZoneName: str
-    name: str
+    name: Annotated[str, _aws_pattern("Route53globalresolver", "ResourceName")]
     createdAt: datetime
     updatedAt: datetime
     status: HostedZoneAssociationStatusType
@@ -390,7 +392,7 @@ class HostedZoneAssociationSummaryTypeDef(BaseValidatorModel):
 # This class is the input for the 'import_firewall_domains' function.
 class ImportFirewallDomainsInputTypeDef(BaseValidatorModel):
     domainFileUrl: str
-    firewallDomainListId: str
+    firewallDomainListId: Annotated[str, _aws_pattern("Route53globalresolver", "ResourceId")]
     operation: str
 
 
@@ -409,7 +411,7 @@ class ListAccessSourcesInputTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'list_access_tokens' function.
 class ListAccessTokensInputTypeDef(BaseValidatorModel):
-    dnsViewId: str
+    dnsViewId: Annotated[str, _aws_pattern("Route53globalresolver", "ResourceId")]
     maxResults: Optional[int] = None
     nextToken: Optional[str] = None
     filters: Optional[Dict[str, List[str]]] = None
@@ -417,7 +419,7 @@ class ListAccessTokensInputTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'list_dns_views' function.
 class ListDNSViewsInputTypeDef(BaseValidatorModel):
-    globalResolverId: str
+    globalResolverId: Annotated[str, _aws_pattern("Route53globalresolver", "ResourceId")]
     maxResults: Optional[int] = None
     nextToken: Optional[str] = None
 
@@ -426,19 +428,19 @@ class ListDNSViewsInputTypeDef(BaseValidatorModel):
 class ListFirewallDomainListsInputTypeDef(BaseValidatorModel):
     maxResults: Optional[int] = None
     nextToken: Optional[str] = None
-    globalResolverId: Optional[str] = None
+    globalResolverId: Optional[Annotated[str, _aws_pattern("Route53globalresolver", "ResourceId")]] = None
 
 
 # This class is the input for the 'list_firewall_domains' function.
 class ListFirewallDomainsInputTypeDef(BaseValidatorModel):
-    firewallDomainListId: str
+    firewallDomainListId: Annotated[str, _aws_pattern("Route53globalresolver", "ResourceId")]
     maxResults: Optional[int] = None
     nextToken: Optional[str] = None
 
 
 # This class is the input for the 'list_firewall_rules' function.
 class ListFirewallRulesInputTypeDef(BaseValidatorModel):
-    dnsViewId: str
+    dnsViewId: Annotated[str, _aws_pattern("Route53globalresolver", "ResourceId")]
     maxResults: Optional[int] = None
     nextToken: Optional[str] = None
     filters: Optional[Dict[str, List[str]]] = None
@@ -452,7 +454,7 @@ class ListGlobalResolversInputTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'list_hosted_zone_associations' function.
 class ListHostedZoneAssociationsInputTypeDef(BaseValidatorModel):
-    resourceArn: str
+    resourceArn: Annotated[str, _aws_pattern("Route53globalresolver", "ResourceArn")]
     maxResults: Optional[int] = None
     nextToken: Optional[str] = None
 
@@ -465,46 +467,46 @@ class ListManagedFirewallDomainListsInputTypeDef(BaseValidatorModel):
 
 
 class ManagedFirewallDomainListsItemTypeDef(BaseValidatorModel):
-    id: str
-    name: str
+    id: Annotated[str, _aws_pattern("Route53globalresolver", "ResourceId")]
+    name: Annotated[str, _aws_pattern("Route53globalresolver", "ResourceName")]
     managedListType: str
     description: Optional[str] = None
 
 
 # This class is the input for the 'list_tags_for_resource' function.
 class ListTagsForResourceRequestTypeDef(BaseValidatorModel):
-    resourceArn: str
+    resourceArn: Annotated[str, _aws_pattern("Route53globalresolver", "ResourceArn")]
 
 
 class TagResourceRequestTypeDef(BaseValidatorModel):
-    resourceArn: str
+    resourceArn: Annotated[str, _aws_pattern("Route53globalresolver", "ResourceArn")]
     tags: Dict[str, str]
 
 
 class UntagResourceRequestTypeDef(BaseValidatorModel):
-    resourceArn: str
-    tagKeys: List[str]
+    resourceArn: Annotated[str, _aws_pattern("Route53globalresolver", "ResourceArn")]
+    tagKeys: List[Annotated[str, _aws_pattern("Route53globalresolver", "TagKey")]]
 
 
 # This class is the input for the 'update_access_source' function.
 class UpdateAccessSourceInputTypeDef(BaseValidatorModel):
-    accessSourceId: str
+    accessSourceId: Annotated[str, _aws_pattern("Route53globalresolver", "ResourceId")]
     cidr: Optional[str] = None
     ipAddressType: Optional[IpAddressTypeType] = None
-    name: Optional[str] = None
+    name: Optional[Annotated[str, _aws_pattern("Route53globalresolver", "ResourceNameShort")]] = None
     protocol: Optional[DnsProtocolType] = None
 
 
 # This class is the input for the 'update_access_token' function.
 class UpdateAccessTokenInputTypeDef(BaseValidatorModel):
-    accessTokenId: str
-    name: str
+    accessTokenId: Annotated[str, _aws_pattern("Route53globalresolver", "ResourceId")]
+    name: Annotated[str, _aws_pattern("Route53globalresolver", "ResourceNameShort")]
 
 
 # This class is the input for the 'update_dns_view' function.
 class UpdateDNSViewInputTypeDef(BaseValidatorModel):
-    dnsViewId: str
-    name: Optional[str] = None
+    dnsViewId: Annotated[str, _aws_pattern("Route53globalresolver", "ResourceId")]
+    name: Optional[Annotated[str, _aws_pattern("Route53globalresolver", "ResourceName")]] = None
     description: Optional[str] = None
     dnssecValidation: Optional[DnsSecValidationTypeType] = None
     ednsClientSubnet: Optional[EdnsClientSubnetTypeType] = None
@@ -513,49 +515,50 @@ class UpdateDNSViewInputTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'update_firewall_domains' function.
 class UpdateFirewallDomainsInputTypeDef(BaseValidatorModel):
-    domains: List[str]
-    firewallDomainListId: str
+    domains: List[Annotated[str, _aws_pattern("Route53globalresolver", "Domain")]]
+    firewallDomainListId: Annotated[str, _aws_pattern("Route53globalresolver", "ResourceId")]
     operation: str
 
 
 # This class is the input for the 'update_firewall_rule' function.
 class UpdateFirewallRuleInputTypeDef(BaseValidatorModel):
     clientToken: str
-    firewallRuleId: str
+    firewallRuleId: Annotated[str, _aws_pattern("Route53globalresolver", "ResourceId")]
     action: Optional[FirewallRuleActionType] = None
     blockOverrideDnsType: Optional[Literal["CNAME"]] = None
-    blockOverrideDomain: Optional[str] = None
+    blockOverrideDomain: Optional[Annotated[str, _aws_pattern("Route53globalresolver", "Domain")]] = None
     blockOverrideTtl: Optional[int] = None
     blockResponse: Optional[FirewallBlockResponseType] = None
     confidenceThreshold: Optional[ConfidenceThresholdType] = None
     description: Optional[str] = None
     dnsAdvancedProtection: Optional[DnsAdvancedProtectionType] = None
-    name: Optional[str] = None
+    name: Optional[Annotated[str, _aws_pattern("Route53globalresolver", "ResourceName")]] = None
     priority: Optional[int] = None
 
 
 # This class is the input for the 'update_global_resolver' function.
 class UpdateGlobalResolverInputTypeDef(BaseValidatorModel):
-    globalResolverId: str
-    name: Optional[str] = None
+    globalResolverId: Annotated[str, _aws_pattern("Route53globalresolver", "ResourceId")]
+    name: Optional[Annotated[str, _aws_pattern("Route53globalresolver", "ResourceName")]] = None
     observabilityRegion: Optional[str] = None
     description: Optional[str] = None
     ipAddressType: Optional[GlobalResolverIpAddressTypeType] = None
+    regions: Optional[List[str]] = None
 
 
 # This class is the input for the 'update_hosted_zone_association' function.
 class UpdateHostedZoneAssociationInputTypeDef(BaseValidatorModel):
-    hostedZoneAssociationId: str
-    name: Optional[str] = None
+    hostedZoneAssociationId: Annotated[str, _aws_pattern("Route53globalresolver", "ResourceId")]
+    name: Optional[Annotated[str, _aws_pattern("Route53globalresolver", "ResourceName")]] = None
 
 
 # This class is the output for the 'associate_hosted_zone' function.
 class AssociateHostedZoneOutputTypeDef(BaseValidatorModel):
-    id: str
-    resourceArn: str
+    id: Annotated[str, _aws_pattern("Route53globalresolver", "ResourceId")]
+    resourceArn: Annotated[str, _aws_pattern("Route53globalresolver", "ResourceArn")]
     hostedZoneId: str
     hostedZoneName: str
-    name: str
+    name: Annotated[str, _aws_pattern("Route53globalresolver", "ResourceName")]
     createdAt: datetime
     updatedAt: datetime
     status: HostedZoneAssociationStatusType
@@ -564,13 +567,13 @@ class AssociateHostedZoneOutputTypeDef(BaseValidatorModel):
 
 # This class is the output for the 'create_access_source' function.
 class CreateAccessSourceOutputTypeDef(BaseValidatorModel):
-    arn: str
+    arn: Annotated[str, _aws_pattern("Route53globalresolver", "ResourceArn")]
     cidr: str
     createdAt: datetime
-    id: str
+    id: Annotated[str, _aws_pattern("Route53globalresolver", "ResourceId")]
     ipAddressType: IpAddressTypeType
-    name: str
-    dnsViewId: str
+    name: Annotated[str, _aws_pattern("Route53globalresolver", "ResourceNameShort")]
+    dnsViewId: Annotated[str, _aws_pattern("Route53globalresolver", "ResourceId")]
     protocol: DnsProtocolType
     status: CRResourceStatusType
     updatedAt: datetime
@@ -579,13 +582,13 @@ class CreateAccessSourceOutputTypeDef(BaseValidatorModel):
 
 # This class is the output for the 'create_access_token' function.
 class CreateAccessTokenOutputTypeDef(BaseValidatorModel):
-    id: str
-    arn: str
+    id: Annotated[str, _aws_pattern("Route53globalresolver", "ResourceId")]
+    arn: Annotated[str, _aws_pattern("Route53globalresolver", "ResourceArn")]
     clientToken: str
     createdAt: datetime
-    dnsViewId: str
+    dnsViewId: Annotated[str, _aws_pattern("Route53globalresolver", "ResourceId")]
     expiresAt: datetime
-    name: str
+    name: Annotated[str, _aws_pattern("Route53globalresolver", "ResourceNameShort")]
     status: TokenStatusType
     value: str
     ResponseMetadata: ResponseMetadataTypeDef
@@ -593,15 +596,15 @@ class CreateAccessTokenOutputTypeDef(BaseValidatorModel):
 
 # This class is the output for the 'create_dns_view' function.
 class CreateDNSViewOutputTypeDef(BaseValidatorModel):
-    id: str
-    arn: str
+    id: Annotated[str, _aws_pattern("Route53globalresolver", "ResourceId")]
+    arn: Annotated[str, _aws_pattern("Route53globalresolver", "ResourceArn")]
     clientToken: str
     dnssecValidation: DnsSecValidationTypeType
     ednsClientSubnet: EdnsClientSubnetTypeType
     firewallRulesFailOpen: FirewallRulesFailOpenTypeType
-    name: str
+    name: Annotated[str, _aws_pattern("Route53globalresolver", "ResourceName")]
     description: str
-    globalResolverId: str
+    globalResolverId: Annotated[str, _aws_pattern("Route53globalresolver", "ResourceId")]
     createdAt: datetime
     updatedAt: datetime
     status: ProfileResourceStatusType
@@ -610,13 +613,13 @@ class CreateDNSViewOutputTypeDef(BaseValidatorModel):
 
 # This class is the output for the 'create_firewall_domain_list' function.
 class CreateFirewallDomainListOutputTypeDef(BaseValidatorModel):
-    arn: str
-    globalResolverId: str
+    arn: Annotated[str, _aws_pattern("Route53globalresolver", "ResourceArn")]
+    globalResolverId: Annotated[str, _aws_pattern("Route53globalresolver", "ResourceId")]
     createdAt: datetime
     description: str
     domainCount: int
-    id: str
-    name: str
+    id: Annotated[str, _aws_pattern("Route53globalresolver", "ResourceId")]
+    name: Annotated[str, _aws_pattern("Route53globalresolver", "ResourceName")]
     status: CRResourceStatusType
     updatedAt: datetime
     ResponseMetadata: ResponseMetadataTypeDef
@@ -626,18 +629,18 @@ class CreateFirewallDomainListOutputTypeDef(BaseValidatorModel):
 class CreateFirewallRuleOutputTypeDef(BaseValidatorModel):
     action: FirewallRuleActionType
     blockOverrideDnsType: Literal["CNAME"]
-    blockOverrideDomain: str
+    blockOverrideDomain: Annotated[str, _aws_pattern("Route53globalresolver", "Domain")]
     blockOverrideTtl: int
     blockResponse: FirewallBlockResponseType
     confidenceThreshold: ConfidenceThresholdType
     createdAt: datetime
     description: str
     dnsAdvancedProtection: DnsAdvancedProtectionType
-    firewallDomainListId: str
-    id: str
-    name: str
+    firewallDomainListId: Annotated[str, _aws_pattern("Route53globalresolver", "ResourceId")]
+    id: Annotated[str, _aws_pattern("Route53globalresolver", "ResourceId")]
+    name: Annotated[str, _aws_pattern("Route53globalresolver", "ResourceName")]
     priority: int
-    dnsViewId: str
+    dnsViewId: Annotated[str, _aws_pattern("Route53globalresolver", "ResourceId")]
     queryType: str
     status: CRResourceStatusType
     updatedAt: datetime
@@ -646,16 +649,16 @@ class CreateFirewallRuleOutputTypeDef(BaseValidatorModel):
 
 # This class is the output for the 'create_global_resolver' function.
 class CreateGlobalResolverOutputTypeDef(BaseValidatorModel):
-    id: str
-    arn: str
+    id: Annotated[str, _aws_pattern("Route53globalresolver", "ResourceId")]
+    arn: Annotated[str, _aws_pattern("Route53globalresolver", "ResourceArn")]
     clientToken: str
     createdAt: datetime
     description: str
     dnsName: str
     ipAddressType: GlobalResolverIpAddressTypeType
-    ipv4Addresses: List[str]
-    ipv6Addresses: List[str]
-    name: str
+    ipv4Addresses: List[Annotated[str, _aws_pattern("Route53globalresolver", "IPv4Address")]]
+    ipv6Addresses: List[Annotated[str, _aws_pattern("Route53globalresolver", "IPv6Address")]]
+    name: Annotated[str, _aws_pattern("Route53globalresolver", "ResourceName")]
     observabilityRegion: str
     regions: List[str]
     status: CRResourceStatusType
@@ -665,13 +668,13 @@ class CreateGlobalResolverOutputTypeDef(BaseValidatorModel):
 
 # This class is the output for the 'delete_access_source' function.
 class DeleteAccessSourceOutputTypeDef(BaseValidatorModel):
-    arn: str
+    arn: Annotated[str, _aws_pattern("Route53globalresolver", "ResourceArn")]
     cidr: str
     createdAt: datetime
-    id: str
+    id: Annotated[str, _aws_pattern("Route53globalresolver", "ResourceId")]
     ipAddressType: IpAddressTypeType
-    name: str
-    dnsViewId: str
+    name: Annotated[str, _aws_pattern("Route53globalresolver", "ResourceNameShort")]
+    dnsViewId: Annotated[str, _aws_pattern("Route53globalresolver", "ResourceId")]
     protocol: DnsProtocolType
     status: CRResourceStatusType
     updatedAt: datetime
@@ -680,7 +683,7 @@ class DeleteAccessSourceOutputTypeDef(BaseValidatorModel):
 
 # This class is the output for the 'delete_access_token' function.
 class DeleteAccessTokenOutputTypeDef(BaseValidatorModel):
-    id: str
+    id: Annotated[str, _aws_pattern("Route53globalresolver", "ResourceId")]
     status: TokenStatusType
     deletedAt: datetime
     ResponseMetadata: ResponseMetadataTypeDef
@@ -688,15 +691,15 @@ class DeleteAccessTokenOutputTypeDef(BaseValidatorModel):
 
 # This class is the output for the 'delete_dns_view' function.
 class DeleteDNSViewOutputTypeDef(BaseValidatorModel):
-    id: str
-    arn: str
+    id: Annotated[str, _aws_pattern("Route53globalresolver", "ResourceId")]
+    arn: Annotated[str, _aws_pattern("Route53globalresolver", "ResourceArn")]
     clientToken: str
     dnssecValidation: DnsSecValidationTypeType
     ednsClientSubnet: EdnsClientSubnetTypeType
     firewallRulesFailOpen: FirewallRulesFailOpenTypeType
-    name: str
+    name: Annotated[str, _aws_pattern("Route53globalresolver", "ResourceName")]
     description: str
-    globalResolverId: str
+    globalResolverId: Annotated[str, _aws_pattern("Route53globalresolver", "ResourceId")]
     createdAt: datetime
     updatedAt: datetime
     status: ProfileResourceStatusType
@@ -705,9 +708,9 @@ class DeleteDNSViewOutputTypeDef(BaseValidatorModel):
 
 # This class is the output for the 'delete_firewall_domain_list' function.
 class DeleteFirewallDomainListOutputTypeDef(BaseValidatorModel):
-    arn: str
-    id: str
-    name: str
+    arn: Annotated[str, _aws_pattern("Route53globalresolver", "ResourceArn")]
+    id: Annotated[str, _aws_pattern("Route53globalresolver", "ResourceId")]
+    name: Annotated[str, _aws_pattern("Route53globalresolver", "ResourceName")]
     status: CRResourceStatusType
     ResponseMetadata: ResponseMetadataTypeDef
 
@@ -716,18 +719,18 @@ class DeleteFirewallDomainListOutputTypeDef(BaseValidatorModel):
 class DeleteFirewallRuleOutputTypeDef(BaseValidatorModel):
     action: FirewallRuleActionType
     blockOverrideDnsType: Literal["CNAME"]
-    blockOverrideDomain: str
+    blockOverrideDomain: Annotated[str, _aws_pattern("Route53globalresolver", "Domain")]
     blockOverrideTtl: int
     blockResponse: FirewallBlockResponseType
     confidenceThreshold: ConfidenceThresholdType
     createdAt: datetime
     description: str
     dnsAdvancedProtection: DnsAdvancedProtectionType
-    firewallDomainListId: str
-    id: str
-    name: str
+    firewallDomainListId: Annotated[str, _aws_pattern("Route53globalresolver", "ResourceId")]
+    id: Annotated[str, _aws_pattern("Route53globalresolver", "ResourceId")]
+    name: Annotated[str, _aws_pattern("Route53globalresolver", "ResourceName")]
     priority: int
-    dnsViewId: str
+    dnsViewId: Annotated[str, _aws_pattern("Route53globalresolver", "ResourceId")]
     queryType: str
     status: CRResourceStatusType
     updatedAt: datetime
@@ -736,34 +739,34 @@ class DeleteFirewallRuleOutputTypeDef(BaseValidatorModel):
 
 # This class is the output for the 'delete_global_resolver' function.
 class DeleteGlobalResolverOutputTypeDef(BaseValidatorModel):
-    id: str
-    arn: str
+    id: Annotated[str, _aws_pattern("Route53globalresolver", "ResourceId")]
+    arn: Annotated[str, _aws_pattern("Route53globalresolver", "ResourceArn")]
     clientToken: str
     dnsName: str
     observabilityRegion: str
-    name: str
+    name: Annotated[str, _aws_pattern("Route53globalresolver", "ResourceName")]
     description: str
     regions: List[str]
     createdAt: datetime
     updatedAt: datetime
     status: CRResourceStatusType
-    ipv4Addresses: List[str]
-    ipv6Addresses: List[str]
+    ipv4Addresses: List[Annotated[str, _aws_pattern("Route53globalresolver", "IPv4Address")]]
+    ipv6Addresses: List[Annotated[str, _aws_pattern("Route53globalresolver", "IPv6Address")]]
     ipAddressType: GlobalResolverIpAddressTypeType
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 # This class is the output for the 'disable_dns_view' function.
 class DisableDNSViewOutputTypeDef(BaseValidatorModel):
-    id: str
-    arn: str
+    id: Annotated[str, _aws_pattern("Route53globalresolver", "ResourceId")]
+    arn: Annotated[str, _aws_pattern("Route53globalresolver", "ResourceArn")]
     clientToken: str
     dnssecValidation: DnsSecValidationTypeType
     ednsClientSubnet: EdnsClientSubnetTypeType
     firewallRulesFailOpen: FirewallRulesFailOpenTypeType
-    name: str
+    name: Annotated[str, _aws_pattern("Route53globalresolver", "ResourceName")]
     description: str
-    globalResolverId: str
+    globalResolverId: Annotated[str, _aws_pattern("Route53globalresolver", "ResourceId")]
     createdAt: datetime
     updatedAt: datetime
     status: ProfileResourceStatusType
@@ -772,11 +775,11 @@ class DisableDNSViewOutputTypeDef(BaseValidatorModel):
 
 # This class is the output for the 'disassociate_hosted_zone' function.
 class DisassociateHostedZoneOutputTypeDef(BaseValidatorModel):
-    id: str
-    resourceArn: str
+    id: Annotated[str, _aws_pattern("Route53globalresolver", "ResourceId")]
+    resourceArn: Annotated[str, _aws_pattern("Route53globalresolver", "ResourceArn")]
     hostedZoneId: str
     hostedZoneName: str
-    name: str
+    name: Annotated[str, _aws_pattern("Route53globalresolver", "ResourceName")]
     createdAt: datetime
     updatedAt: datetime
     status: HostedZoneAssociationStatusType
@@ -785,15 +788,15 @@ class DisassociateHostedZoneOutputTypeDef(BaseValidatorModel):
 
 # This class is the output for the 'enable_dns_view' function.
 class EnableDNSViewOutputTypeDef(BaseValidatorModel):
-    id: str
-    arn: str
+    id: Annotated[str, _aws_pattern("Route53globalresolver", "ResourceId")]
+    arn: Annotated[str, _aws_pattern("Route53globalresolver", "ResourceArn")]
     clientToken: str
     dnssecValidation: DnsSecValidationTypeType
     ednsClientSubnet: EdnsClientSubnetTypeType
     firewallRulesFailOpen: FirewallRulesFailOpenTypeType
-    name: str
+    name: Annotated[str, _aws_pattern("Route53globalresolver", "ResourceName")]
     description: str
-    globalResolverId: str
+    globalResolverId: Annotated[str, _aws_pattern("Route53globalresolver", "ResourceId")]
     createdAt: datetime
     updatedAt: datetime
     status: ProfileResourceStatusType
@@ -802,13 +805,13 @@ class EnableDNSViewOutputTypeDef(BaseValidatorModel):
 
 # This class is the output for the 'get_access_source' function.
 class GetAccessSourceOutputTypeDef(BaseValidatorModel):
-    arn: str
+    arn: Annotated[str, _aws_pattern("Route53globalresolver", "ResourceArn")]
     cidr: str
     createdAt: datetime
-    id: str
+    id: Annotated[str, _aws_pattern("Route53globalresolver", "ResourceId")]
     ipAddressType: IpAddressTypeType
-    name: str
-    dnsViewId: str
+    name: Annotated[str, _aws_pattern("Route53globalresolver", "ResourceNameShort")]
+    dnsViewId: Annotated[str, _aws_pattern("Route53globalresolver", "ResourceId")]
     protocol: DnsProtocolType
     status: CRResourceStatusType
     updatedAt: datetime
@@ -817,14 +820,14 @@ class GetAccessSourceOutputTypeDef(BaseValidatorModel):
 
 # This class is the output for the 'get_access_token' function.
 class GetAccessTokenOutputTypeDef(BaseValidatorModel):
-    id: str
-    arn: str
+    id: Annotated[str, _aws_pattern("Route53globalresolver", "ResourceId")]
+    arn: Annotated[str, _aws_pattern("Route53globalresolver", "ResourceArn")]
     clientToken: str
     createdAt: datetime
-    dnsViewId: str
+    dnsViewId: Annotated[str, _aws_pattern("Route53globalresolver", "ResourceId")]
     expiresAt: datetime
-    globalResolverId: str
-    name: str
+    globalResolverId: Annotated[str, _aws_pattern("Route53globalresolver", "ResourceId")]
+    name: Annotated[str, _aws_pattern("Route53globalresolver", "ResourceNameShort")]
     status: TokenStatusType
     updatedAt: datetime
     value: str
@@ -833,15 +836,15 @@ class GetAccessTokenOutputTypeDef(BaseValidatorModel):
 
 # This class is the output for the 'get_dns_view' function.
 class GetDNSViewOutputTypeDef(BaseValidatorModel):
-    id: str
-    arn: str
+    id: Annotated[str, _aws_pattern("Route53globalresolver", "ResourceId")]
+    arn: Annotated[str, _aws_pattern("Route53globalresolver", "ResourceArn")]
     clientToken: str
     dnssecValidation: DnsSecValidationTypeType
     ednsClientSubnet: EdnsClientSubnetTypeType
     firewallRulesFailOpen: FirewallRulesFailOpenTypeType
-    name: str
+    name: Annotated[str, _aws_pattern("Route53globalresolver", "ResourceName")]
     description: str
-    globalResolverId: str
+    globalResolverId: Annotated[str, _aws_pattern("Route53globalresolver", "ResourceId")]
     createdAt: datetime
     updatedAt: datetime
     status: ProfileResourceStatusType
@@ -850,14 +853,14 @@ class GetDNSViewOutputTypeDef(BaseValidatorModel):
 
 # This class is the output for the 'get_firewall_domain_list' function.
 class GetFirewallDomainListOutputTypeDef(BaseValidatorModel):
-    arn: str
-    globalResolverId: str
+    arn: Annotated[str, _aws_pattern("Route53globalresolver", "ResourceArn")]
+    globalResolverId: Annotated[str, _aws_pattern("Route53globalresolver", "ResourceId")]
     clientToken: str
     createdAt: datetime
     description: str
     domainCount: int
-    id: str
-    name: str
+    id: Annotated[str, _aws_pattern("Route53globalresolver", "ResourceId")]
+    name: Annotated[str, _aws_pattern("Route53globalresolver", "ResourceName")]
     status: CRResourceStatusType
     statusMessage: str
     updatedAt: datetime
@@ -868,18 +871,18 @@ class GetFirewallDomainListOutputTypeDef(BaseValidatorModel):
 class GetFirewallRuleOutputTypeDef(BaseValidatorModel):
     action: FirewallRuleActionType
     blockOverrideDnsType: Literal["CNAME"]
-    blockOverrideDomain: str
+    blockOverrideDomain: Annotated[str, _aws_pattern("Route53globalresolver", "Domain")]
     blockOverrideTtl: int
     blockResponse: FirewallBlockResponseType
     confidenceThreshold: ConfidenceThresholdType
     createdAt: datetime
     description: str
     dnsAdvancedProtection: DnsAdvancedProtectionType
-    firewallDomainListId: str
-    id: str
-    name: str
+    firewallDomainListId: Annotated[str, _aws_pattern("Route53globalresolver", "ResourceId")]
+    id: Annotated[str, _aws_pattern("Route53globalresolver", "ResourceId")]
+    name: Annotated[str, _aws_pattern("Route53globalresolver", "ResourceName")]
     priority: int
-    dnsViewId: str
+    dnsViewId: Annotated[str, _aws_pattern("Route53globalresolver", "ResourceId")]
     queryType: str
     status: CRResourceStatusType
     updatedAt: datetime
@@ -888,30 +891,30 @@ class GetFirewallRuleOutputTypeDef(BaseValidatorModel):
 
 # This class is the output for the 'get_global_resolver' function.
 class GetGlobalResolverOutputTypeDef(BaseValidatorModel):
-    id: str
-    arn: str
+    id: Annotated[str, _aws_pattern("Route53globalresolver", "ResourceId")]
+    arn: Annotated[str, _aws_pattern("Route53globalresolver", "ResourceArn")]
     clientToken: str
     dnsName: str
     observabilityRegion: str
-    name: str
+    name: Annotated[str, _aws_pattern("Route53globalresolver", "ResourceName")]
     description: str
     regions: List[str]
     createdAt: datetime
     updatedAt: datetime
     status: CRResourceStatusType
-    ipv4Addresses: List[str]
-    ipv6Addresses: List[str]
+    ipv4Addresses: List[Annotated[str, _aws_pattern("Route53globalresolver", "IPv4Address")]]
+    ipv6Addresses: List[Annotated[str, _aws_pattern("Route53globalresolver", "IPv6Address")]]
     ipAddressType: GlobalResolverIpAddressTypeType
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 # This class is the output for the 'get_hosted_zone_association' function.
 class GetHostedZoneAssociationOutputTypeDef(BaseValidatorModel):
-    id: str
-    resourceArn: str
+    id: Annotated[str, _aws_pattern("Route53globalresolver", "ResourceId")]
+    resourceArn: Annotated[str, _aws_pattern("Route53globalresolver", "ResourceArn")]
     hostedZoneId: str
     hostedZoneName: str
-    name: str
+    name: Annotated[str, _aws_pattern("Route53globalresolver", "ResourceName")]
     createdAt: datetime
     updatedAt: datetime
     status: HostedZoneAssociationStatusType
@@ -921,16 +924,16 @@ class GetHostedZoneAssociationOutputTypeDef(BaseValidatorModel):
 # This class is the output for the 'get_managed_firewall_domain_list' function.
 class GetManagedFirewallDomainListOutputTypeDef(BaseValidatorModel):
     description: str
-    id: str
-    name: str
+    id: Annotated[str, _aws_pattern("Route53globalresolver", "ResourceId")]
+    name: Annotated[str, _aws_pattern("Route53globalresolver", "ResourceName")]
     managedListType: str
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 # This class is the output for the 'import_firewall_domains' function.
 class ImportFirewallDomainsOutputTypeDef(BaseValidatorModel):
-    id: str
-    name: str
+    id: Annotated[str, _aws_pattern("Route53globalresolver", "ResourceId")]
+    name: Annotated[str, _aws_pattern("Route53globalresolver", "ResourceName")]
     status: CRResourceStatusType
     ResponseMetadata: ResponseMetadataTypeDef
 
@@ -951,7 +954,7 @@ class ListAccessTokensOutputTypeDef(BaseValidatorModel):
 
 # This class is the output for the 'list_firewall_domains' function.
 class ListFirewallDomainsOutputTypeDef(BaseValidatorModel):
-    domains: List[str]
+    domains: List[Annotated[str, _aws_pattern("Route53globalresolver", "Domain")]]
     ResponseMetadata: ResponseMetadataTypeDef
     nextToken: Optional[str] = None
 
@@ -964,13 +967,13 @@ class ListTagsForResourceResponseTypeDef(BaseValidatorModel):
 
 # This class is the output for the 'update_access_source' function.
 class UpdateAccessSourceOutputTypeDef(BaseValidatorModel):
-    arn: str
+    arn: Annotated[str, _aws_pattern("Route53globalresolver", "ResourceArn")]
     cidr: str
     createdAt: datetime
-    id: str
+    id: Annotated[str, _aws_pattern("Route53globalresolver", "ResourceId")]
     ipAddressType: IpAddressTypeType
-    name: str
-    dnsViewId: str
+    name: Annotated[str, _aws_pattern("Route53globalresolver", "ResourceNameShort")]
+    dnsViewId: Annotated[str, _aws_pattern("Route53globalresolver", "ResourceId")]
     protocol: DnsProtocolType
     status: CRResourceStatusType
     updatedAt: datetime
@@ -979,22 +982,22 @@ class UpdateAccessSourceOutputTypeDef(BaseValidatorModel):
 
 # This class is the output for the 'update_access_token' function.
 class UpdateAccessTokenOutputTypeDef(BaseValidatorModel):
-    id: str
-    name: str
+    id: Annotated[str, _aws_pattern("Route53globalresolver", "ResourceId")]
+    name: Annotated[str, _aws_pattern("Route53globalresolver", "ResourceNameShort")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 # This class is the output for the 'update_dns_view' function.
 class UpdateDNSViewOutputTypeDef(BaseValidatorModel):
-    id: str
-    arn: str
+    id: Annotated[str, _aws_pattern("Route53globalresolver", "ResourceId")]
+    arn: Annotated[str, _aws_pattern("Route53globalresolver", "ResourceArn")]
     clientToken: str
     dnssecValidation: DnsSecValidationTypeType
     ednsClientSubnet: EdnsClientSubnetTypeType
     firewallRulesFailOpen: FirewallRulesFailOpenTypeType
-    name: str
+    name: Annotated[str, _aws_pattern("Route53globalresolver", "ResourceName")]
     description: str
-    globalResolverId: str
+    globalResolverId: Annotated[str, _aws_pattern("Route53globalresolver", "ResourceId")]
     createdAt: datetime
     updatedAt: datetime
     status: ProfileResourceStatusType
@@ -1003,8 +1006,8 @@ class UpdateDNSViewOutputTypeDef(BaseValidatorModel):
 
 # This class is the output for the 'update_firewall_domains' function.
 class UpdateFirewallDomainsOutputTypeDef(BaseValidatorModel):
-    id: str
-    name: str
+    id: Annotated[str, _aws_pattern("Route53globalresolver", "ResourceId")]
+    name: Annotated[str, _aws_pattern("Route53globalresolver", "ResourceName")]
     status: CRResourceStatusType
     ResponseMetadata: ResponseMetadataTypeDef
 
@@ -1013,18 +1016,18 @@ class UpdateFirewallDomainsOutputTypeDef(BaseValidatorModel):
 class UpdateFirewallRuleOutputTypeDef(BaseValidatorModel):
     action: FirewallRuleActionType
     blockOverrideDnsType: Literal["CNAME"]
-    blockOverrideDomain: str
+    blockOverrideDomain: Annotated[str, _aws_pattern("Route53globalresolver", "Domain")]
     blockOverrideTtl: int
     blockResponse: FirewallBlockResponseType
     confidenceThreshold: ConfidenceThresholdType
     createdAt: datetime
     description: str
     dnsAdvancedProtection: DnsAdvancedProtectionType
-    firewallDomainListId: str
-    id: str
-    name: str
+    firewallDomainListId: Annotated[str, _aws_pattern("Route53globalresolver", "ResourceId")]
+    id: Annotated[str, _aws_pattern("Route53globalresolver", "ResourceId")]
+    name: Annotated[str, _aws_pattern("Route53globalresolver", "ResourceName")]
     priority: int
-    dnsViewId: str
+    dnsViewId: Annotated[str, _aws_pattern("Route53globalresolver", "ResourceId")]
     queryType: str
     status: CRResourceStatusType
     updatedAt: datetime
@@ -1033,30 +1036,30 @@ class UpdateFirewallRuleOutputTypeDef(BaseValidatorModel):
 
 # This class is the output for the 'update_global_resolver' function.
 class UpdateGlobalResolverOutputTypeDef(BaseValidatorModel):
-    id: str
-    arn: str
+    id: Annotated[str, _aws_pattern("Route53globalresolver", "ResourceId")]
+    arn: Annotated[str, _aws_pattern("Route53globalresolver", "ResourceArn")]
     clientToken: str
     dnsName: str
     observabilityRegion: str
-    name: str
+    name: Annotated[str, _aws_pattern("Route53globalresolver", "ResourceName")]
     description: str
     regions: List[str]
     createdAt: datetime
     updatedAt: datetime
     status: CRResourceStatusType
-    ipv4Addresses: List[str]
-    ipv6Addresses: List[str]
+    ipv4Addresses: List[Annotated[str, _aws_pattern("Route53globalresolver", "IPv4Address")]]
+    ipv6Addresses: List[Annotated[str, _aws_pattern("Route53globalresolver", "IPv6Address")]]
     ipAddressType: GlobalResolverIpAddressTypeType
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 # This class is the output for the 'update_hosted_zone_association' function.
 class UpdateHostedZoneAssociationOutputTypeDef(BaseValidatorModel):
-    id: str
-    resourceArn: str
+    id: Annotated[str, _aws_pattern("Route53globalresolver", "ResourceId")]
+    resourceArn: Annotated[str, _aws_pattern("Route53globalresolver", "ResourceArn")]
     hostedZoneId: str
     hostedZoneName: str
-    name: str
+    name: Annotated[str, _aws_pattern("Route53globalresolver", "ResourceName")]
     createdAt: datetime
     updatedAt: datetime
     status: HostedZoneAssociationStatusType
@@ -1098,10 +1101,10 @@ class BatchUpdateFirewallRuleOutputItemTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'create_access_token' function.
 class CreateAccessTokenInputTypeDef(BaseValidatorModel):
-    dnsViewId: str
+    dnsViewId: Annotated[str, _aws_pattern("Route53globalresolver", "ResourceId")]
     clientToken: Optional[str] = None
     expiresAt: Optional[TimestampTypeDef] = None
-    name: Optional[str] = None
+    name: Optional[Annotated[str, _aws_pattern("Route53globalresolver", "ResourceNameShort")]] = None
     tags: Optional[Dict[str, str]] = None
 
 

@@ -3,6 +3,7 @@
 from datetime import datetime
 from decimal import Decimal
 from typing import (
+    Annotated,
     Any,
     Callable,
     Dict,
@@ -24,6 +25,7 @@ from botocore.response import StreamingBody
 from pydantic import Field
 
 from aws_resource_validator.core.base_validator_model import BaseValidatorModel, EventStream
+from aws_resource_validator.core.pattern_validation import aws_field_pattern as _aws_pattern
 from aws_resource_validator.pydantic_models.elementalinference.elementalinference_constants import *  # noqa: F401,F403
 
 # Optional boto3 symbols — imported lazily so services that don't need them
@@ -47,28 +49,28 @@ class ResponseMetadataTypeDef(BaseValidatorModel):
 
 
 class ClippingConfigTypeDef(BaseValidatorModel):
-    callbackMetadata: Optional[str] = None
+    callbackMetadata: Optional[Annotated[str, _aws_pattern("Elementalinference", "ResourceDescription")]] = None
 
 
 class FeedAssociationTypeDef(BaseValidatorModel):
-    associatedResourceName: str
+    associatedResourceName: Annotated[str, _aws_pattern("Elementalinference", "AssociatedResourceName")]
 
 
 # This class is the input for the 'delete_feed' function.
 class DeleteFeedRequestTypeDef(BaseValidatorModel):
-    id: str
+    id: Annotated[str, _aws_pattern("Elementalinference", "FeedId")]
 
 
 # This class is the input for the 'disassociate_feed' function.
 class DisassociateFeedRequestTypeDef(BaseValidatorModel):
-    id: str
-    associatedResourceName: str
+    id: Annotated[str, _aws_pattern("Elementalinference", "FeedId")]
+    associatedResourceName: Annotated[str, _aws_pattern("Elementalinference", "AssociatedResourceName")]
     dryRun: Optional[bool] = None
 
 
 # This class is the input for the 'get_feed' function.
 class GetFeedRequestTypeDef(BaseValidatorModel):
-    id: str
+    id: Annotated[str, _aws_pattern("Elementalinference", "FeedId")]
 
 
 class WaiterConfigTypeDef(BaseValidatorModel):
@@ -108,14 +110,14 @@ class UntagResourceRequestTypeDef(BaseValidatorModel):
 # This class is the output for the 'associate_feed' function.
 class AssociateFeedResponseTypeDef(BaseValidatorModel):
     arn: str
-    id: str
+    id: Annotated[str, _aws_pattern("Elementalinference", "FeedId")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 # This class is the output for the 'delete_feed' function.
 class DeleteFeedResponseTypeDef(BaseValidatorModel):
     arn: str
-    id: str
+    id: Annotated[str, _aws_pattern("Elementalinference", "FeedId")]
     status: FeedStatusType
     ResponseMetadata: ResponseMetadataTypeDef
 
@@ -123,7 +125,7 @@ class DeleteFeedResponseTypeDef(BaseValidatorModel):
 # This class is the output for the 'disassociate_feed' function.
 class DisassociateFeedResponseTypeDef(BaseValidatorModel):
     arn: str
-    id: str
+    id: Annotated[str, _aws_pattern("Elementalinference", "FeedId")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
@@ -150,8 +152,8 @@ class OutputConfigTypeDef(BaseValidatorModel):
 
 class FeedSummaryTypeDef(BaseValidatorModel):
     arn: str
-    id: str
-    name: str
+    id: Annotated[str, _aws_pattern("Elementalinference", "FeedId")]
+    name: Annotated[str, _aws_pattern("Elementalinference", "ResourceName")]
     status: FeedStatusType
     association: Optional[FeedAssociationTypeDef] = None
 
@@ -166,10 +168,10 @@ class ListFeedsRequestPaginateTypeDef(BaseValidatorModel):
 
 
 class GetOutputTypeDef(BaseValidatorModel):
-    name: str
+    name: Annotated[str, _aws_pattern("Elementalinference", "ResourceName")]
     outputConfig: OutputConfigOutputTypeDef
     status: OutputStatusType
-    description: Optional[str] = None
+    description: Optional[Annotated[str, _aws_pattern("Elementalinference", "ResourceDescription")]] = None
     fromAssociation: Optional[bool] = None
 
 
@@ -186,8 +188,8 @@ class ListFeedsResponseTypeDef(BaseValidatorModel):
 # This class is the output for the 'create_feed' function.
 class CreateFeedResponseTypeDef(BaseValidatorModel):
     arn: str
-    name: str
-    id: str
+    name: Annotated[str, _aws_pattern("Elementalinference", "ResourceName")]
+    id: Annotated[str, _aws_pattern("Elementalinference", "FeedId")]
     dataEndpoints: List[str]
     outputs: List[GetOutputTypeDef]
     status: FeedStatusType
@@ -199,8 +201,8 @@ class CreateFeedResponseTypeDef(BaseValidatorModel):
 # This class is the output for the 'get_feed' function.
 class GetFeedResponseTypeDef(BaseValidatorModel):
     arn: str
-    name: str
-    id: str
+    name: Annotated[str, _aws_pattern("Elementalinference", "ResourceName")]
+    id: Annotated[str, _aws_pattern("Elementalinference", "FeedId")]
     dataEndpoints: List[str]
     outputs: List[GetOutputTypeDef]
     status: FeedStatusType
@@ -212,8 +214,8 @@ class GetFeedResponseTypeDef(BaseValidatorModel):
 # This class is the output for the 'update_feed' function.
 class UpdateFeedResponseTypeDef(BaseValidatorModel):
     arn: str
-    name: str
-    id: str
+    name: Annotated[str, _aws_pattern("Elementalinference", "ResourceName")]
+    id: Annotated[str, _aws_pattern("Elementalinference", "FeedId")]
     dataEndpoints: List[str]
     outputs: List[GetOutputTypeDef]
     status: FeedStatusType
@@ -223,37 +225,37 @@ class UpdateFeedResponseTypeDef(BaseValidatorModel):
 
 
 class CreateOutputTypeDef(BaseValidatorModel):
-    name: str
+    name: Annotated[str, _aws_pattern("Elementalinference", "ResourceName")]
     outputConfig: OutputConfigUnionTypeDef
     status: OutputStatusType
-    description: Optional[str] = None
+    description: Optional[Annotated[str, _aws_pattern("Elementalinference", "ResourceDescription")]] = None
 
 
 class UpdateOutputTypeDef(BaseValidatorModel):
-    name: str
+    name: Annotated[str, _aws_pattern("Elementalinference", "ResourceName")]
     outputConfig: OutputConfigUnionTypeDef
     status: OutputStatusType
-    description: Optional[str] = None
+    description: Optional[Annotated[str, _aws_pattern("Elementalinference", "ResourceDescription")]] = None
     fromAssociation: Optional[bool] = None
 
 
 # This class is the input for the 'associate_feed' function.
 class AssociateFeedRequestTypeDef(BaseValidatorModel):
-    id: str
-    associatedResourceName: str
+    id: Annotated[str, _aws_pattern("Elementalinference", "FeedId")]
+    associatedResourceName: Annotated[str, _aws_pattern("Elementalinference", "AssociatedResourceName")]
     outputs: List[CreateOutputTypeDef]
     dryRun: Optional[bool] = None
 
 
 # This class is the input for the 'create_feed' function.
 class CreateFeedRequestTypeDef(BaseValidatorModel):
-    name: str
+    name: Annotated[str, _aws_pattern("Elementalinference", "ResourceName")]
     outputs: List[CreateOutputTypeDef]
     tags: Optional[Dict[str, str]] = None
 
 
 # This class is the input for the 'update_feed' function.
 class UpdateFeedRequestTypeDef(BaseValidatorModel):
-    name: str
-    id: str
+    name: Annotated[str, _aws_pattern("Elementalinference", "ResourceName")]
+    id: Annotated[str, _aws_pattern("Elementalinference", "FeedId")]
     outputs: List[UpdateOutputTypeDef]

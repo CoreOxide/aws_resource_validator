@@ -3,6 +3,7 @@
 from datetime import datetime
 from decimal import Decimal
 from typing import (
+    Annotated,
     Any,
     Callable,
     Dict,
@@ -24,6 +25,7 @@ from botocore.response import StreamingBody
 from pydantic import Field
 
 from aws_resource_validator.core.base_validator_model import BaseValidatorModel, EventStream
+from aws_resource_validator.core.pattern_validation import aws_field_pattern as _aws_pattern
 from aws_resource_validator.pydantic_models.marketplace_discovery.marketplace_discovery_constants import *  # noqa: F401,F403
 
 # Optional boto3 symbols — imported lazily so services that don't need them
@@ -55,13 +57,13 @@ class AwsSupportedServiceTypeDef(BaseValidatorModel):
 
 
 class ByolPricingTermTypeDef(BaseValidatorModel):
-    id: str
+    id: Annotated[str, _aws_pattern("MarketplaceDiscovery", "TermId")]
     type: TermTypeType
 
 
 class CategoryTypeDef(BaseValidatorModel):
-    categoryId: str
-    displayName: str
+    categoryId: Annotated[str, _aws_pattern("MarketplaceDiscovery", "NonEmptyString")]
+    displayName: Annotated[str, _aws_pattern("MarketplaceDiscovery", "NonEmptyString")]
 
 
 class CloudFormationFulfillmentOptionTypeDef(BaseValidatorModel):
@@ -81,7 +83,7 @@ class ConstraintsTypeDef(BaseValidatorModel):
 
 class SelectorTypeDef(BaseValidatorModel):
     type: Literal["Duration"]
-    value: str
+    value: Annotated[str, _aws_pattern("MarketplaceDiscovery", "BoundedString")]
 
 
 class ContainerOperatingSystemTypeDef(BaseValidatorModel):
@@ -98,13 +100,13 @@ class DataArtifactTypeDef(BaseValidatorModel):
 
 class DimensionLabelTypeDef(BaseValidatorModel):
     labelType: DimensionLabelTypeType
-    labelValue: str
-    displayName: Optional[str] = None
+    labelValue: Annotated[str, _aws_pattern("MarketplaceDiscovery", "BoundedString")]
+    displayName: Optional[Annotated[str, _aws_pattern("MarketplaceDiscovery", "BoundedString")]] = None
 
 
 class DocumentItemTypeDef(BaseValidatorModel):
     type: LegalDocumentTypeType
-    url: str
+    url: Annotated[str, _aws_pattern("MarketplaceDiscovery", "URL")]
     version: Optional[str] = None
 
 
@@ -115,7 +117,7 @@ class EksAddOnOperatingSystemTypeDef(BaseValidatorModel):
 
 class FulfillmentOptionSummaryTypeDef(BaseValidatorModel):
     fulfillmentOptionType: FulfillmentOptionTypeType
-    displayName: str
+    displayName: Annotated[str, _aws_pattern("MarketplaceDiscovery", "NonEmptyString")]
 
 
 class ProfessionalServicesFulfillmentOptionTypeDef(BaseValidatorModel):
@@ -134,28 +136,28 @@ class SaasFulfillmentOptionTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'get_listing' function.
 class GetListingInputTypeDef(BaseValidatorModel):
-    listingId: str
+    listingId: Annotated[str, _aws_pattern("MarketplaceDiscovery", "ListingId")]
 
 
 class ListingBadgeTypeDef(BaseValidatorModel):
-    displayName: str
+    displayName: Annotated[str, _aws_pattern("MarketplaceDiscovery", "NonEmptyString")]
     badgeType: ListingBadgeTypeType
 
 
 class PricingModelTypeDef(BaseValidatorModel):
     pricingModelType: PricingModelTypeType
-    displayName: str
+    displayName: Annotated[str, _aws_pattern("MarketplaceDiscovery", "NonEmptyString")]
 
 
 class PricingUnitTypeDef(BaseValidatorModel):
     pricingUnitType: PricingUnitTypeType
-    displayName: str
+    displayName: Annotated[str, _aws_pattern("MarketplaceDiscovery", "NonEmptyString")]
 
 
 class ResourceTypeDef(BaseValidatorModel):
     resourceType: ResourceTypeType
     contentType: ResourceContentTypeType
-    value: str
+    value: Annotated[str, _aws_pattern("MarketplaceDiscovery", "NonEmptyString")]
     displayName: Optional[str] = None
 
 
@@ -170,27 +172,27 @@ class ResponseMetadataTypeDef(BaseValidatorModel):
 class SellerEngagementTypeDef(BaseValidatorModel):
     engagementType: SellerEngagementTypeType
     contentType: Literal["LINK"]
-    value: str
+    value: Annotated[str, _aws_pattern("MarketplaceDiscovery", "NonEmptyString")]
 
 
 class SellerInformationTypeDef(BaseValidatorModel):
-    sellerProfileId: str
-    displayName: str
+    sellerProfileId: Annotated[str, _aws_pattern("MarketplaceDiscovery", "SellerProfileId")]
+    displayName: Annotated[str, _aws_pattern("MarketplaceDiscovery", "NonEmptyString")]
 
 
 # This class is the input for the 'get_offer' function.
 class GetOfferInputTypeDef(BaseValidatorModel):
-    offerId: str
+    offerId: Annotated[str, _aws_pattern("MarketplaceDiscovery", "OfferId")]
 
 
 class PurchaseOptionBadgeTypeDef(BaseValidatorModel):
-    displayName: str
+    displayName: Annotated[str, _aws_pattern("MarketplaceDiscovery", "NonEmptyString")]
     badgeType: PurchaseOptionBadgeTypeType
 
 
 # This class is the input for the 'get_offer_set' function.
 class GetOfferSetInputTypeDef(BaseValidatorModel):
-    offerSetId: str
+    offerSetId: Annotated[str, _aws_pattern("MarketplaceDiscovery", "OfferSetId")]
 
 
 class PaginatorConfigTypeDef(BaseValidatorModel):
@@ -201,14 +203,14 @@ class PaginatorConfigTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'get_offer_terms' function.
 class GetOfferTermsInputTypeDef(BaseValidatorModel):
-    offerId: str
+    offerId: Annotated[str, _aws_pattern("MarketplaceDiscovery", "OfferId")]
     maxResults: Optional[int] = None
-    nextToken: Optional[str] = None
+    nextToken: Optional[Annotated[str, _aws_pattern("MarketplaceDiscovery", "NextToken")]] = None
 
 
 # This class is the input for the 'get_product' function.
 class GetProductInputTypeDef(BaseValidatorModel):
-    productId: str
+    productId: Annotated[str, _aws_pattern("MarketplaceDiscovery", "ProductId")]
 
 
 class HelmOperatingSystemTypeDef(BaseValidatorModel):
@@ -218,82 +220,82 @@ class HelmOperatingSystemTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'list_fulfillment_options' function.
 class ListFulfillmentOptionsInputTypeDef(BaseValidatorModel):
-    productId: str
+    productId: Annotated[str, _aws_pattern("MarketplaceDiscovery", "ProductId")]
     maxResults: Optional[int] = None
-    nextToken: Optional[str] = None
+    nextToken: Optional[Annotated[str, _aws_pattern("MarketplaceDiscovery", "NextToken")]] = None
 
 
 class PurchaseOptionFilterTypeDef(BaseValidatorModel):
     filterType: PurchaseOptionFilterTypeType
-    filterValues: List[str]
+    filterValues: List[Annotated[str, _aws_pattern("MarketplaceDiscovery", "PurchaseOptionFilterValue")]]
 
 
 class ListingFacetTypeDef(BaseValidatorModel):
-    value: str
-    displayName: str
+    value: Annotated[str, _aws_pattern("MarketplaceDiscovery", "NonEmptyString")]
+    displayName: Annotated[str, _aws_pattern("MarketplaceDiscovery", "NonEmptyString")]
     count: int
     parent: Optional[str] = None
 
 
 class RecurringPaymentTermTypeDef(BaseValidatorModel):
-    id: str
+    id: Annotated[str, _aws_pattern("MarketplaceDiscovery", "TermId")]
     type: TermTypeType
-    currencyCode: str
+    currencyCode: Annotated[str, _aws_pattern("MarketplaceDiscovery", "CurrencyCode")]
     billingPeriod: Literal["Monthly"]
-    price: str
+    price: Annotated[str, _aws_pattern("MarketplaceDiscovery", "BoundedString")]
 
 
 class RenewalTermTypeDef(BaseValidatorModel):
-    id: str
+    id: Annotated[str, _aws_pattern("MarketplaceDiscovery", "TermId")]
     type: TermTypeType
 
 
 class SupportTermTypeDef(BaseValidatorModel):
-    id: str
+    id: Annotated[str, _aws_pattern("MarketplaceDiscovery", "TermId")]
     type: TermTypeType
-    refundPolicy: str
+    refundPolicy: Annotated[str, _aws_pattern("MarketplaceDiscovery", "BoundedString")]
 
 
 class ValidityTermTypeDef(BaseValidatorModel):
-    id: str
+    id: Annotated[str, _aws_pattern("MarketplaceDiscovery", "TermId")]
     type: TermTypeType
-    agreementDuration: Optional[str] = None
+    agreementDuration: Optional[Annotated[str, _aws_pattern("MarketplaceDiscovery", "BoundedString")]] = None
     agreementEndDate: Optional[datetime] = None
     agreementStartDate: Optional[datetime] = None
 
 
 class VariablePaymentTermTypeDef(BaseValidatorModel):
-    id: str
+    id: Annotated[str, _aws_pattern("MarketplaceDiscovery", "TermId")]
     type: TermTypeType
-    currencyCode: str
-    maxTotalChargeAmount: str
+    currencyCode: Annotated[str, _aws_pattern("MarketplaceDiscovery", "CurrencyCode")]
+    maxTotalChargeAmount: Annotated[str, _aws_pattern("MarketplaceDiscovery", "BoundedString")]
 
 
 class ScheduleItemTypeDef(BaseValidatorModel):
     chargeDate: datetime
-    chargeAmount: str
+    chargeAmount: Annotated[str, _aws_pattern("MarketplaceDiscovery", "BoundedString")]
 
 
 class PromotionalEmbeddedImageTypeDef(BaseValidatorModel):
-    title: str
-    url: str
+    title: Annotated[str, _aws_pattern("MarketplaceDiscovery", "NonEmptyString")]
+    url: Annotated[str, _aws_pattern("MarketplaceDiscovery", "URL")]
     description: Optional[str] = None
 
 
 class PromotionalEmbeddedVideoTypeDef(BaseValidatorModel):
-    title: str
-    url: str
-    preview: str
-    thumbnail: str
+    title: Annotated[str, _aws_pattern("MarketplaceDiscovery", "NonEmptyString")]
+    url: Annotated[str, _aws_pattern("MarketplaceDiscovery", "URL")]
+    preview: Annotated[str, _aws_pattern("MarketplaceDiscovery", "URL")]
+    thumbnail: Annotated[str, _aws_pattern("MarketplaceDiscovery", "URL")]
     description: Optional[str] = None
 
 
 class ReviewSourceSummaryTypeDef(BaseValidatorModel):
-    sourceName: str
+    sourceName: Annotated[str, _aws_pattern("MarketplaceDiscovery", "NonEmptyString")]
     sourceId: Literal["AWS_MARKETPLACE"]
-    averageRating: str
+    averageRating: Annotated[str, _aws_pattern("MarketplaceDiscovery", "NonEmptyString")]
     totalReviews: int
-    sourceUrl: Optional[str] = None
+    sourceUrl: Optional[Annotated[str, _aws_pattern("MarketplaceDiscovery", "URL")]] = None
 
 
 class SageMakerAlgorithmRecommendationTypeDef(BaseValidatorModel):
@@ -309,13 +311,13 @@ class SageMakerModelRecommendationTypeDef(BaseValidatorModel):
 
 class SearchFilterTypeDef(BaseValidatorModel):
     filterType: SearchFilterTypeType
-    filterValues: List[str]
+    filterValues: List[Annotated[str, _aws_pattern("MarketplaceDiscovery", "SearchFilterValue")]]
 
 
 class UseCaseTypeDef(BaseValidatorModel):
-    description: str
-    displayName: str
-    value: str
+    description: Annotated[str, _aws_pattern("MarketplaceDiscovery", "NonEmptyString")]
+    displayName: Annotated[str, _aws_pattern("MarketplaceDiscovery", "NonEmptyString")]
+    value: Annotated[str, _aws_pattern("MarketplaceDiscovery", "NonEmptyString")]
 
 
 class AmazonMachineImageFulfillmentOptionTypeDef(BaseValidatorModel):
@@ -370,25 +372,25 @@ class DataExchangeFulfillmentOptionTypeDef(BaseValidatorModel):
 
 
 class GrantItemTypeDef(BaseValidatorModel):
-    dimensionKey: str
-    displayName: str
-    unit: str
-    description: Optional[str] = None
+    dimensionKey: Annotated[str, _aws_pattern("MarketplaceDiscovery", "BoundedString")]
+    displayName: Annotated[str, _aws_pattern("MarketplaceDiscovery", "BoundedString")]
+    unit: Annotated[str, _aws_pattern("MarketplaceDiscovery", "BoundedString")]
+    description: Optional[Annotated[str, _aws_pattern("MarketplaceDiscovery", "BoundedString")]] = None
     dimensionLabels: Optional[List[DimensionLabelTypeDef]] = None
     maxQuantity: Optional[int] = None
 
 
 class RateCardItemTypeDef(BaseValidatorModel):
-    dimensionKey: str
-    displayName: str
-    unit: str
-    price: str
-    description: Optional[str] = None
+    dimensionKey: Annotated[str, _aws_pattern("MarketplaceDiscovery", "BoundedString")]
+    displayName: Annotated[str, _aws_pattern("MarketplaceDiscovery", "BoundedString")]
+    unit: Annotated[str, _aws_pattern("MarketplaceDiscovery", "BoundedString")]
+    price: Annotated[str, _aws_pattern("MarketplaceDiscovery", "BoundedString")]
+    description: Optional[Annotated[str, _aws_pattern("MarketplaceDiscovery", "BoundedString")]] = None
     dimensionLabels: Optional[List[DimensionLabelTypeDef]] = None
 
 
 class LegalTermTypeDef(BaseValidatorModel):
-    id: str
+    id: Annotated[str, _aws_pattern("MarketplaceDiscovery", "TermId")]
     type: TermTypeType
     documents: List[DocumentItemTypeDef]
 
@@ -406,19 +408,19 @@ class EksAddOnFulfillmentOptionTypeDef(BaseValidatorModel):
 
 
 class OfferInformationTypeDef(BaseValidatorModel):
-    offerId: str
+    offerId: Annotated[str, _aws_pattern("MarketplaceDiscovery", "OfferId")]
     sellerOfRecord: SellerInformationTypeDef
     offerName: Optional[str] = None
 
 
 class OfferSetInformationTypeDef(BaseValidatorModel):
-    offerSetId: str
+    offerSetId: Annotated[str, _aws_pattern("MarketplaceDiscovery", "OfferSetId")]
     sellerOfRecord: SellerInformationTypeDef
 
 
 class ProductInformationTypeDef(BaseValidatorModel):
-    productId: str
-    productName: str
+    productId: Annotated[str, _aws_pattern("MarketplaceDiscovery", "ProductId")]
+    productName: Annotated[str, _aws_pattern("MarketplaceDiscovery", "NonEmptyString")]
     manufacturer: SellerInformationTypeDef
 
 
@@ -453,7 +455,7 @@ class ListPurchaseOptionsInputPaginateTypeDef(BaseValidatorModel):
 class ListPurchaseOptionsInputTypeDef(BaseValidatorModel):
     filters: Optional[List[PurchaseOptionFilterTypeDef]] = None
     maxResults: Optional[int] = None
-    nextToken: Optional[str] = None
+    nextToken: Optional[Annotated[str, _aws_pattern("MarketplaceDiscovery", "NextToken")]] = None
 
 
 # This class is the output for the 'search_facets' function.
@@ -461,13 +463,13 @@ class SearchFacetsOutputTypeDef(BaseValidatorModel):
     totalResults: int
     listingFacets: Dict[SearchFacetTypeType, List[ListingFacetTypeDef]]
     ResponseMetadata: ResponseMetadataTypeDef
-    nextToken: Optional[str] = None
+    nextToken: Optional[Annotated[str, _aws_pattern("MarketplaceDiscovery", "NextToken")]] = None
 
 
 class PaymentScheduleTermTypeDef(BaseValidatorModel):
-    id: str
+    id: Annotated[str, _aws_pattern("MarketplaceDiscovery", "TermId")]
     type: TermTypeType
-    currencyCode: str
+    currencyCode: Annotated[str, _aws_pattern("MarketplaceDiscovery", "CurrencyCode")]
     schedule: List[ScheduleItemTypeDef]
 
 
@@ -509,10 +511,10 @@ class SearchFacetsInputPaginateTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'search_facets' function.
 class SearchFacetsInputTypeDef(BaseValidatorModel):
-    searchText: Optional[str] = None
+    searchText: Optional[Annotated[str, _aws_pattern("MarketplaceDiscovery", "SearchText")]] = None
     filters: Optional[List[SearchFilterTypeDef]] = None
     facetTypes: Optional[List[SearchFacetTypeType]] = None
-    nextToken: Optional[str] = None
+    nextToken: Optional[Annotated[str, _aws_pattern("MarketplaceDiscovery", "NextToken")]] = None
 
 
 class SearchListingsInputPaginateTypeDef(BaseValidatorModel):
@@ -525,12 +527,12 @@ class SearchListingsInputPaginateTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'search_listings' function.
 class SearchListingsInputTypeDef(BaseValidatorModel):
-    searchText: Optional[str] = None
+    searchText: Optional[Annotated[str, _aws_pattern("MarketplaceDiscovery", "SearchText")]] = None
     filters: Optional[List[SearchFilterTypeDef]] = None
     maxResults: Optional[int] = None
     sortBy: Optional[SearchListingsSortByType] = None
     sortOrder: Optional[SearchListingsSortOrderType] = None
-    nextToken: Optional[str] = None
+    nextToken: Optional[Annotated[str, _aws_pattern("MarketplaceDiscovery", "NextToken")]] = None
 
 
 class UseCaseEntryTypeDef(BaseValidatorModel):
@@ -538,19 +540,19 @@ class UseCaseEntryTypeDef(BaseValidatorModel):
 
 
 class FixedUpfrontPricingTermTypeDef(BaseValidatorModel):
-    id: str
+    id: Annotated[str, _aws_pattern("MarketplaceDiscovery", "TermId")]
     type: TermTypeType
-    currencyCode: str
-    price: str
+    currencyCode: Annotated[str, _aws_pattern("MarketplaceDiscovery", "CurrencyCode")]
+    price: Annotated[str, _aws_pattern("MarketplaceDiscovery", "BoundedString")]
     grants: List[GrantItemTypeDef]
-    duration: Optional[str] = None
+    duration: Optional[Annotated[str, _aws_pattern("MarketplaceDiscovery", "BoundedString")]] = None
 
 
 class FreeTrialPricingTermTypeDef(BaseValidatorModel):
-    id: str
+    id: Annotated[str, _aws_pattern("MarketplaceDiscovery", "TermId")]
     type: TermTypeType
     grants: List[GrantItemTypeDef]
-    duration: Optional[str] = None
+    duration: Optional[Annotated[str, _aws_pattern("MarketplaceDiscovery", "BoundedString")]] = None
 
 
 class ConfigurableUpfrontRateCardItemTypeDef(BaseValidatorModel):
@@ -590,17 +592,17 @@ class PurchaseOptionAssociatedEntityTypeDef(BaseValidatorModel):
 
 # This class is the output for the 'get_product' function.
 class GetProductOutputTypeDef(BaseValidatorModel):
-    productId: str
-    catalog: str
-    productName: str
+    productId: Annotated[str, _aws_pattern("MarketplaceDiscovery", "ProductId")]
+    catalog: Annotated[str, _aws_pattern("MarketplaceDiscovery", "Catalog")]
+    productName: Annotated[str, _aws_pattern("MarketplaceDiscovery", "NonEmptyString")]
     deployedOnAws: DeployedOnAwsStatusType
-    shortDescription: str
-    longDescription: str
+    shortDescription: Annotated[str, _aws_pattern("MarketplaceDiscovery", "NonEmptyString")]
+    longDescription: Annotated[str, _aws_pattern("MarketplaceDiscovery", "GetProductOutputLongDescriptionString")]
     manufacturer: SellerInformationTypeDef
-    logoThumbnailUrl: str
+    logoThumbnailUrl: Annotated[str, _aws_pattern("MarketplaceDiscovery", "URL")]
     fulfillmentOptionSummaries: List[FulfillmentOptionSummaryTypeDef]
     categories: List[CategoryTypeDef]
-    highlights: List[str]
+    highlights: List[Annotated[str, _aws_pattern("MarketplaceDiscovery", "NonEmptyString")]]
     promotionalMedia: List[PromotionalMediaTypeDef]
     resources: List[ResourceTypeDef]
     sellerEngagements: List[SellerEngagementTypeDef]
@@ -623,16 +625,16 @@ class FulfillmentOptionTypeDef(BaseValidatorModel):
 
 
 class ConfigurableUpfrontPricingTermTypeDef(BaseValidatorModel):
-    id: str
+    id: Annotated[str, _aws_pattern("MarketplaceDiscovery", "TermId")]
     type: TermTypeType
-    currencyCode: str
+    currencyCode: Annotated[str, _aws_pattern("MarketplaceDiscovery", "CurrencyCode")]
     rateCards: Optional[List[ConfigurableUpfrontRateCardItemTypeDef]] = None
 
 
 class UsageBasedPricingTermTypeDef(BaseValidatorModel):
-    id: str
+    id: Annotated[str, _aws_pattern("MarketplaceDiscovery", "TermId")]
     type: TermTypeType
-    currencyCode: str
+    currencyCode: Annotated[str, _aws_pattern("MarketplaceDiscovery", "CurrencyCode")]
     rateCards: List[UsageBasedRateCardItemTypeDef]
 
 
@@ -640,15 +642,15 @@ class UsageBasedPricingTermTypeDef(BaseValidatorModel):
 class GetListingOutputTypeDef(BaseValidatorModel):
     associatedEntities: List[ListingAssociatedEntityTypeDef]
     badges: List[ListingBadgeTypeDef]
-    catalog: str
+    catalog: Annotated[str, _aws_pattern("MarketplaceDiscovery", "Catalog")]
     categories: List[CategoryTypeDef]
     fulfillmentOptionSummaries: List[FulfillmentOptionSummaryTypeDef]
-    highlights: List[str]
+    highlights: List[Annotated[str, _aws_pattern("MarketplaceDiscovery", "NonEmptyString")]]
     integrationGuide: str
-    listingId: str
-    listingName: str
-    logoThumbnailUrl: str
-    longDescription: str
+    listingId: Annotated[str, _aws_pattern("MarketplaceDiscovery", "ListingId")]
+    listingName: Annotated[str, _aws_pattern("MarketplaceDiscovery", "NonEmptyString")]
+    logoThumbnailUrl: Annotated[str, _aws_pattern("MarketplaceDiscovery", "URL")]
+    longDescription: Annotated[str, _aws_pattern("MarketplaceDiscovery", "GetListingOutputLongDescriptionString")]
     pricingModels: List[PricingModelTypeDef]
     pricingUnits: List[PricingUnitTypeDef]
     promotionalMedia: List[PromotionalMediaTypeDef]
@@ -656,18 +658,18 @@ class GetListingOutputTypeDef(BaseValidatorModel):
     resources: List[ResourceTypeDef]
     reviewSummary: ReviewSummaryTypeDef
     sellerEngagements: List[SellerEngagementTypeDef]
-    shortDescription: str
+    shortDescription: Annotated[str, _aws_pattern("MarketplaceDiscovery", "NonEmptyString")]
     useCases: List[UseCaseEntryTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 class ListingSummaryTypeDef(BaseValidatorModel):
-    listingId: str
-    listingName: str
+    listingId: Annotated[str, _aws_pattern("MarketplaceDiscovery", "ListingId")]
+    listingName: Annotated[str, _aws_pattern("MarketplaceDiscovery", "NonEmptyString")]
     publisher: SellerInformationTypeDef
-    catalog: str
-    shortDescription: str
-    logoThumbnailUrl: str
+    catalog: Annotated[str, _aws_pattern("MarketplaceDiscovery", "Catalog")]
+    shortDescription: Annotated[str, _aws_pattern("MarketplaceDiscovery", "NonEmptyString")]
+    logoThumbnailUrl: Annotated[str, _aws_pattern("MarketplaceDiscovery", "URL")]
     categories: List[CategoryTypeDef]
     fulfillmentOptionSummaries: List[FulfillmentOptionSummaryTypeDef]
     badges: List[ListingBadgeTypeDef]
@@ -679,14 +681,14 @@ class ListingSummaryTypeDef(BaseValidatorModel):
 
 # This class is the output for the 'get_offer' function.
 class GetOfferOutputTypeDef(BaseValidatorModel):
-    offerId: str
-    catalog: str
+    offerId: Annotated[str, _aws_pattern("MarketplaceDiscovery", "OfferId")]
+    catalog: Annotated[str, _aws_pattern("MarketplaceDiscovery", "Catalog")]
     offerName: str
-    agreementProposalId: str
+    agreementProposalId: Annotated[str, _aws_pattern("MarketplaceDiscovery", "AgreementResourceId")]
     expirationTime: datetime
     availableFromTime: datetime
     sellerOfRecord: SellerInformationTypeDef
-    replacementAgreementId: str
+    replacementAgreementId: Annotated[str, _aws_pattern("MarketplaceDiscovery", "AgreementResourceId")]
     pricingModel: PricingModelTypeDef
     badges: List[PurchaseOptionBadgeTypeDef]
     associatedEntities: List[OfferAssociatedEntityTypeDef]
@@ -695,9 +697,9 @@ class GetOfferOutputTypeDef(BaseValidatorModel):
 
 # This class is the output for the 'get_offer_set' function.
 class GetOfferSetOutputTypeDef(BaseValidatorModel):
-    offerSetId: str
-    catalog: str
-    offerSetName: str
+    offerSetId: Annotated[str, _aws_pattern("MarketplaceDiscovery", "OfferSetId")]
+    catalog: Annotated[str, _aws_pattern("MarketplaceDiscovery", "Catalog")]
+    offerSetName: Annotated[str, _aws_pattern("MarketplaceDiscovery", "NonEmptyString")]
     availableFromTime: datetime
     expirationTime: datetime
     buyerNotes: str
@@ -708,12 +710,12 @@ class GetOfferSetOutputTypeDef(BaseValidatorModel):
 
 
 class PurchaseOptionSummaryTypeDef(BaseValidatorModel):
-    purchaseOptionId: str
-    catalog: str
+    purchaseOptionId: Annotated[str, _aws_pattern("MarketplaceDiscovery", "NonEmptyString")]
+    catalog: Annotated[str, _aws_pattern("MarketplaceDiscovery", "Catalog")]
     purchaseOptionType: PurchaseOptionTypeType
     sellerOfRecord: SellerInformationTypeDef
     associatedEntities: List[PurchaseOptionAssociatedEntityTypeDef]
-    purchaseOptionName: Optional[str] = None
+    purchaseOptionName: Optional[Annotated[str, _aws_pattern("MarketplaceDiscovery", "NonEmptyString")]] = None
     availableFromTime: Optional[datetime] = None
     expirationTime: Optional[datetime] = None
     badges: Optional[List[PurchaseOptionBadgeTypeDef]] = None
@@ -723,7 +725,7 @@ class PurchaseOptionSummaryTypeDef(BaseValidatorModel):
 class ListFulfillmentOptionsOutputTypeDef(BaseValidatorModel):
     fulfillmentOptions: List[FulfillmentOptionTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
-    nextToken: Optional[str] = None
+    nextToken: Optional[Annotated[str, _aws_pattern("MarketplaceDiscovery", "NextToken")]] = None
 
 
 class OfferTermTypeDef(BaseValidatorModel):
@@ -746,18 +748,18 @@ class SearchListingsOutputTypeDef(BaseValidatorModel):
     totalResults: int
     listingSummaries: List[ListingSummaryTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
-    nextToken: Optional[str] = None
+    nextToken: Optional[Annotated[str, _aws_pattern("MarketplaceDiscovery", "NextToken")]] = None
 
 
 # This class is the output for the 'list_purchase_options' function.
 class ListPurchaseOptionsOutputTypeDef(BaseValidatorModel):
     purchaseOptions: List[PurchaseOptionSummaryTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
-    nextToken: Optional[str] = None
+    nextToken: Optional[Annotated[str, _aws_pattern("MarketplaceDiscovery", "NextToken")]] = None
 
 
 # This class is the output for the 'get_offer_terms' function.
 class GetOfferTermsOutputTypeDef(BaseValidatorModel):
     offerTerms: List[OfferTermTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
-    nextToken: Optional[str] = None
+    nextToken: Optional[Annotated[str, _aws_pattern("MarketplaceDiscovery", "NextToken")]] = None

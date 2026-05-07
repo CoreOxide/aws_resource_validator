@@ -15,6 +15,18 @@ AgreementCancellationRequestReasonCodeType = Literal[
 AgreementCancellationRequestStatusType = Literal[
     "APPROVED", "CANCELLED", "PENDING_APPROVAL", "REJECTED", "VALIDATION_FAILED"
 ]
+AgreementEntitlementStatusReasonCodeType = Literal[
+    "ACCOUNT_SUSPENDED",
+    "AGREEMENT_ACTIVE",
+    "AGREEMENT_INACTIVE",
+    "FUTURE_START_DATE",
+    "INCOMPATIBLE_CURRENCY",
+    "INVALID_PAYMENT_INSTRUMENT",
+    "PRODUCT_RESTRICTED",
+    "PROVISIONING_IN_PROGRESS",
+    "UNSUPPORTED_OPERATION",
+]
+AgreementEntitlementStatusType = Literal["DEPROVISIONED", "FAILED", "PENDING", "PROVISIONED", "SCHEDULED"]
 AgreementStatusType = Literal[
     "ACTIVE", "ARCHIVED", "CANCELLED", "EXPIRED", "RENEWED", "REPLACED", "ROLLED_BACK", "SUPERSEDED", "TERMINATED"
 ]
@@ -31,9 +43,13 @@ BillingAdjustmentReasonCodeType = Literal[
     "UNINTENDED_RENEWAL",
 ]
 BillingAdjustmentStatusType = Literal["COMPLETED", "PENDING", "VALIDATION_FAILED"]
+GetAgreementEntitlementsPaginatorName = Literal["get_agreement_entitlements"]
+GetAgreementTermsPaginatorName = Literal["get_agreement_terms"]
+IntentType = Literal["AMEND", "NEW", "REPLACE"]
 InvoiceTypeType = Literal["CREDIT_MEMO", "INVOICE"]
 LineItemGroupByType = Literal["INVOICE_ID"]
 ListAgreementCancellationRequestsPaginatorName = Literal["list_agreement_cancellation_requests"]
+ListAgreementChargesPaginatorName = Literal["list_agreement_charges"]
 ListAgreementInvoiceLineItemsPaginatorName = Literal["list_agreement_invoice_line_items"]
 ListAgreementPaymentRequestsPaginatorName = Literal["list_agreement_payment_requests"]
 ListBillingAdjustmentRequestsPaginatorName = Literal["list_billing_adjustment_requests"]
@@ -41,7 +57,10 @@ PaymentRequestApprovalStrategyType = Literal["AUTO_APPROVE_ON_EXPIRATION", "WAIT
 PaymentRequestStatusType = Literal[
     "APPROVED", "CANCELLED", "PENDING_APPROVAL", "REJECTED", "VALIDATING", "VALIDATION_FAILED"
 ]
+SearchAgreementsPaginatorName = Literal["search_agreements"]
 SortOrderType = Literal["ASCENDING", "DESCENDING"]
+TaxEstimationType = Literal["DISABLED", "ENABLED"]
+TimingType = Literal["BILLING_PERIOD", "ON_ACCEPTANCE", "SCHEDULED"]
 AgreementServiceServiceName = Literal["marketplace-agreement"]
 ServiceName = Literal[
     "accessanalyzer",
@@ -228,6 +247,7 @@ ServiceName = Literal[
     "inspector",
     "inspector-scan",
     "inspector2",
+    "interconnect",
     "internetmonitor",
     "invoicing",
     "iot",
@@ -284,6 +304,7 @@ ServiceName = Literal[
     "marketplace-agreement",
     "marketplace-catalog",
     "marketplace-deployment",
+    "marketplace-discovery",
     "marketplace-entitlement",
     "marketplace-reporting",
     "marketplacecommerceanalytics",
@@ -381,6 +402,7 @@ ServiceName = Literal[
     "rum",
     "s3",
     "s3control",
+    "s3files",
     "s3outposts",
     "s3tables",
     "s3vectors",
@@ -467,9 +489,13 @@ ServiceName = Literal[
 ]
 ResourceServiceName = Literal["cloudformation", "cloudwatch", "dynamodb", "ec2", "glacier", "iam", "s3", "sns", "sqs"]
 PaginatorName = Literal[
+    "get_agreement_entitlements",
+    "get_agreement_terms",
     "list_agreement_cancellation_requests",
+    "list_agreement_charges",
     "list_agreement_invoice_line_items",
     "list_agreement_payment_requests",
     "list_billing_adjustment_requests",
+    "search_agreements",
 ]
 RegionName = Literal["us-east-1"]

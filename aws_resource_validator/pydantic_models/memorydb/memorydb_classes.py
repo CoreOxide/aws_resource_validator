@@ -3,6 +3,7 @@
 from datetime import datetime
 from decimal import Decimal
 from typing import (
+    Annotated,
     Any,
     Callable,
     Dict,
@@ -24,6 +25,7 @@ from botocore.response import StreamingBody
 from pydantic import Field
 
 from aws_resource_validator.core.base_validator_model import BaseValidatorModel, EventStream
+from aws_resource_validator.core.pattern_validation import aws_field_pattern as _aws_pattern
 from aws_resource_validator.pydantic_models.memorydb.memorydb_constants import *  # noqa: F401,F403
 
 # Optional boto3 symbols — imported lazily so services that don't need them
@@ -39,12 +41,12 @@ except ImportError:  # pragma: no cover
 
 
 class ACLPendingChangesTypeDef(BaseValidatorModel):
-    UserNamesToRemove: Optional[List[str]] = None
-    UserNamesToAdd: Optional[List[str]] = None
+    UserNamesToRemove: Optional[List[Annotated[str, _aws_pattern("Memorydb", "UserName")]]] = None
+    UserNamesToAdd: Optional[List[Annotated[str, _aws_pattern("Memorydb", "UserName")]]] = None
 
 
 class ACLsUpdateStatusTypeDef(BaseValidatorModel):
-    ACLToApply: Optional[str] = None
+    ACLToApply: Optional[Annotated[str, _aws_pattern("Memorydb", "ACLName")]] = None
 
 
 class AuthenticationModeTypeDef(BaseValidatorModel):
@@ -140,7 +142,7 @@ class DeleteSubnetGroupRequestTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'delete_user' function.
 class DeleteUserRequestTypeDef(BaseValidatorModel):
-    UserName: str
+    UserName: Annotated[str, _aws_pattern("Memorydb", "UserName")]
 
 
 class PaginatorConfigTypeDef(BaseValidatorModel):
@@ -314,8 +316,8 @@ class DescribeSubnetGroupsRequestTypeDef(BaseValidatorModel):
 
 
 class FilterTypeDef(BaseValidatorModel):
-    Name: str
-    Values: List[str]
+    Name: Annotated[str, _aws_pattern("Memorydb", "FilterName")]
+    Values: List[Annotated[str, _aws_pattern("Memorydb", "FilterValue")]]
 
 
 # This class is the input for the 'failover_shard' function.
@@ -389,8 +391,8 @@ class UntagResourceRequestTypeDef(BaseValidatorModel):
 # This class is the input for the 'update_acl' function.
 class UpdateACLRequestTypeDef(BaseValidatorModel):
     ACLName: str
-    UserNamesToAdd: Optional[List[str]] = None
-    UserNamesToRemove: Optional[List[str]] = None
+    UserNamesToAdd: Optional[List[Annotated[str, _aws_pattern("Memorydb", "UserName")]]] = None
+    UserNamesToRemove: Optional[List[Annotated[str, _aws_pattern("Memorydb", "UserName")]]] = None
 
 
 # This class is the input for the 'update_subnet_group' function.
@@ -403,7 +405,7 @@ class UpdateSubnetGroupRequestTypeDef(BaseValidatorModel):
 class ACLTypeDef(BaseValidatorModel):
     Name: Optional[str] = None
     Status: Optional[str] = None
-    UserNames: Optional[List[str]] = None
+    UserNames: Optional[List[Annotated[str, _aws_pattern("Memorydb", "UserName")]]] = None
     MinimumEngineVersion: Optional[str] = None
     PendingChanges: Optional[ACLPendingChangesTypeDef] = None
     Clusters: Optional[List[str]] = None
@@ -412,16 +414,16 @@ class ACLTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'update_user' function.
 class UpdateUserRequestTypeDef(BaseValidatorModel):
-    UserName: str
+    UserName: Annotated[str, _aws_pattern("Memorydb", "UserName")]
     AuthenticationMode: Optional[AuthenticationModeTypeDef] = None
-    AccessString: Optional[str] = None
+    AccessString: Optional[Annotated[str, _aws_pattern("Memorydb", "AccessString")]] = None
 
 
 class UserTypeDef(BaseValidatorModel):
     Name: Optional[str] = None
     Status: Optional[str] = None
     AccessString: Optional[str] = None
-    ACLNames: Optional[List[str]] = None
+    ACLNames: Optional[List[Annotated[str, _aws_pattern("Memorydb", "ACLName")]]] = None
     MinimumEngineVersion: Optional[str] = None
     Authentication: Optional[AuthenticationTypeDef] = None
     ARN: Optional[str] = None
@@ -465,7 +467,7 @@ class NodeTypeDef(BaseValidatorModel):
 class CopySnapshotRequestTypeDef(BaseValidatorModel):
     SourceSnapshotName: str
     TargetSnapshotName: str
-    TargetBucket: Optional[str] = None
+    TargetBucket: Optional[Annotated[str, _aws_pattern("Memorydb", "TargetBucket")]] = None
     KmsKeyId: Optional[str] = None
     Tags: Optional[List[TagTypeDef]] = None
 
@@ -473,7 +475,7 @@ class CopySnapshotRequestTypeDef(BaseValidatorModel):
 # This class is the input for the 'create_acl' function.
 class CreateACLRequestTypeDef(BaseValidatorModel):
     ACLName: str
-    UserNames: Optional[List[str]] = None
+    UserNames: Optional[List[Annotated[str, _aws_pattern("Memorydb", "UserName")]]] = None
     Tags: Optional[List[TagTypeDef]] = None
 
 
@@ -481,7 +483,7 @@ class CreateACLRequestTypeDef(BaseValidatorModel):
 class CreateClusterRequestTypeDef(BaseValidatorModel):
     ClusterName: str
     NodeType: str
-    ACLName: str
+    ACLName: Annotated[str, _aws_pattern("Memorydb", "ACLName")]
     MultiRegionClusterName: Optional[str] = None
     ParameterGroupName: Optional[str] = None
     Description: Optional[str] = None
@@ -546,9 +548,9 @@ class CreateSubnetGroupRequestTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'create_user' function.
 class CreateUserRequestTypeDef(BaseValidatorModel):
-    UserName: str
+    UserName: Annotated[str, _aws_pattern("Memorydb", "UserName")]
     AuthenticationMode: AuthenticationModeTypeDef
-    AccessString: str
+    AccessString: Annotated[str, _aws_pattern("Memorydb", "AccessString")]
     Tags: Optional[List[TagTypeDef]] = None
 
 
@@ -757,7 +759,7 @@ class DescribeUsersRequestPaginateTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'describe_users' function.
 class DescribeUsersRequestTypeDef(BaseValidatorModel):
-    UserName: Optional[str] = None
+    UserName: Optional[Annotated[str, _aws_pattern("Memorydb", "UserName")]] = None
     Filters: Optional[List[FilterTypeDef]] = None
     MaxResults: Optional[int] = None
     NextToken: Optional[str] = None
@@ -826,7 +828,7 @@ class UpdateClusterRequestTypeDef(BaseValidatorModel):
     EngineVersion: Optional[str] = None
     ReplicaConfiguration: Optional[ReplicaConfigurationRequestTypeDef] = None
     ShardConfiguration: Optional[ShardConfigurationRequestTypeDef] = None
-    ACLName: Optional[str] = None
+    ACLName: Optional[Annotated[str, _aws_pattern("Memorydb", "ACLName")]] = None
     IpDiscovery: Optional[IpDiscoveryType] = None
 
 
@@ -1037,7 +1039,7 @@ class ClusterTypeDef(BaseValidatorModel):
     SnapshotRetentionLimit: Optional[int] = None
     MaintenanceWindow: Optional[str] = None
     SnapshotWindow: Optional[str] = None
-    ACLName: Optional[str] = None
+    ACLName: Optional[Annotated[str, _aws_pattern("Memorydb", "ACLName")]] = None
     AutoMinorVersionUpgrade: Optional[bool] = None
     DataTiering: Optional[DataTieringStatusType] = None
     NetworkType: Optional[NetworkTypeType] = None

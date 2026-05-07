@@ -3,6 +3,7 @@
 from datetime import datetime
 from decimal import Decimal
 from typing import (
+    Annotated,
     Any,
     Callable,
     Dict,
@@ -24,6 +25,7 @@ from botocore.response import StreamingBody
 from pydantic import Field
 
 from aws_resource_validator.core.base_validator_model import BaseValidatorModel, EventStream
+from aws_resource_validator.core.pattern_validation import aws_field_pattern as _aws_pattern
 from aws_resource_validator.pydantic_models.s3control.s3control_constants import *  # noqa: F401,F403
 
 # Optional boto3 symbols — imported lazily so services that don't need them
@@ -47,7 +49,7 @@ class AccessControlTranslationTypeDef(BaseValidatorModel):
 
 
 class AccessGrantsLocationConfigurationTypeDef(BaseValidatorModel):
-    S3SubPrefix: Optional[str] = None
+    S3SubPrefix: Optional[Annotated[str, _aws_pattern("S3control", "S3Prefix")]] = None
 
 
 class VpcConfigurationTypeDef(BaseValidatorModel):
@@ -76,8 +78,8 @@ class DetailedStatusCodesMetricsTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'associate_access_grants_identity_center' function.
 class AssociateAccessGrantsIdentityCenterRequestTypeDef(BaseValidatorModel):
-    AccountId: str
-    IdentityCenterArn: str
+    AccountId: Annotated[str, _aws_pattern("S3control", "AccountId")]
+    IdentityCenterArn: Annotated[str, _aws_pattern("S3control", "IdentityCenterArn")]
 
 
 class AsyncErrorDetailsTypeDef(BaseValidatorModel):
@@ -88,16 +90,16 @@ class AsyncErrorDetailsTypeDef(BaseValidatorModel):
 
 
 class DeleteMultiRegionAccessPointInputTypeDef(BaseValidatorModel):
-    Name: str
+    Name: Annotated[str, _aws_pattern("S3control", "MultiRegionAccessPointName")]
 
 
 class PutMultiRegionAccessPointPolicyInputTypeDef(BaseValidatorModel):
-    Name: str
+    Name: Annotated[str, _aws_pattern("S3control", "MultiRegionAccessPointName")]
     Policy: str
 
 
 class AwsLambdaTransformationTypeDef(BaseValidatorModel):
-    FunctionArn: str
+    FunctionArn: Annotated[str, _aws_pattern("S3control", "FunctionArnString")]
     FunctionPayload: Optional[str] = None
 
 
@@ -111,8 +113,8 @@ class GranteeTypeDef(BaseValidatorModel):
 
 
 class TagTypeDef(BaseValidatorModel):
-    Key: str
-    Value: str
+    Key: Annotated[str, _aws_pattern("S3control", "TagKeyString")]
+    Value: Annotated[str, _aws_pattern("S3control", "TagValueString")]
 
 
 class ResponseMetadataTypeDef(BaseValidatorModel):
@@ -124,7 +126,7 @@ class ResponseMetadataTypeDef(BaseValidatorModel):
 
 
 class ObjectLambdaAccessPointAliasTypeDef(BaseValidatorModel):
-    Value: Optional[str] = None
+    Value: Optional[Annotated[str, _aws_pattern("S3control", "ObjectLambdaAccessPointAliasValue")]] = None
     Status: Optional[ObjectLambdaAccessPointAliasStatusType] = None
 
 
@@ -141,21 +143,21 @@ class CreateBucketConfigurationTypeDef(BaseValidatorModel):
 
 class JobReportTypeDef(BaseValidatorModel):
     Enabled: bool
-    Bucket: Optional[str] = None
+    Bucket: Optional[Annotated[str, _aws_pattern("S3control", "S3BucketArnString")]] = None
     Format: Optional[Literal["Report_CSV_20180820"]] = None
     Prefix: Optional[str] = None
     ReportScope: Optional[JobReportScopeType] = None
-    ExpectedBucketOwner: Optional[str] = None
+    ExpectedBucketOwner: Optional[Annotated[str, _aws_pattern("S3control", "AccountId")]] = None
 
 
 class S3TagTypeDef(BaseValidatorModel):
-    Key: str
-    Value: str
+    Key: Annotated[str, _aws_pattern("S3control", "TagKeyString")]
+    Value: Annotated[str, _aws_pattern("S3control", "TagValueString")]
 
 
 class RegionTypeDef(BaseValidatorModel):
     Bucket: str
-    BucketAccountId: Optional[str] = None
+    BucketAccountId: Optional[Annotated[str, _aws_pattern("S3control", "AccountId")]] = None
 
 
 class CredentialsTypeDef(BaseValidatorModel):
@@ -166,94 +168,94 @@ class CredentialsTypeDef(BaseValidatorModel):
 
 
 class DSSEKMSFilterTypeDef(BaseValidatorModel):
-    KmsKeyArn: Optional[str] = None
+    KmsKeyArn: Optional[Annotated[str, _aws_pattern("S3control", "NonEmptyKmsKeyArnString")]] = None
 
 
 # This class is the input for the 'delete_access_grant' function.
 class DeleteAccessGrantRequestTypeDef(BaseValidatorModel):
-    AccountId: str
-    AccessGrantId: str
+    AccountId: Annotated[str, _aws_pattern("S3control", "AccountId")]
+    AccessGrantId: Annotated[str, _aws_pattern("S3control", "AccessGrantId")]
 
 
 # This class is the input for the 'delete_access_grants_instance' function.
 class DeleteAccessGrantsInstanceRequestTypeDef(BaseValidatorModel):
-    AccountId: str
+    AccountId: Annotated[str, _aws_pattern("S3control", "AccountId")]
 
 
 # This class is the input for the 'delete_access_grants_instance_resource_policy' function.
 class DeleteAccessGrantsInstanceResourcePolicyRequestTypeDef(BaseValidatorModel):
-    AccountId: str
+    AccountId: Annotated[str, _aws_pattern("S3control", "AccountId")]
 
 
 # This class is the input for the 'delete_access_grants_location' function.
 class DeleteAccessGrantsLocationRequestTypeDef(BaseValidatorModel):
-    AccountId: str
-    AccessGrantsLocationId: str
+    AccountId: Annotated[str, _aws_pattern("S3control", "AccountId")]
+    AccessGrantsLocationId: Annotated[str, _aws_pattern("S3control", "AccessGrantsLocationId")]
 
 
 # This class is the input for the 'delete_access_point_for_object_lambda' function.
 class DeleteAccessPointForObjectLambdaRequestTypeDef(BaseValidatorModel):
-    AccountId: str
-    Name: str
+    AccountId: Annotated[str, _aws_pattern("S3control", "AccountId")]
+    Name: Annotated[str, _aws_pattern("S3control", "ObjectLambdaAccessPointName")]
 
 
 # This class is the input for the 'delete_access_point_policy_for_object_lambda' function.
 class DeleteAccessPointPolicyForObjectLambdaRequestTypeDef(BaseValidatorModel):
-    AccountId: str
-    Name: str
+    AccountId: Annotated[str, _aws_pattern("S3control", "AccountId")]
+    Name: Annotated[str, _aws_pattern("S3control", "ObjectLambdaAccessPointName")]
 
 
 # This class is the input for the 'delete_access_point_policy' function.
 class DeleteAccessPointPolicyRequestTypeDef(BaseValidatorModel):
-    AccountId: str
+    AccountId: Annotated[str, _aws_pattern("S3control", "AccountId")]
     Name: str
 
 
 # This class is the input for the 'delete_access_point' function.
 class DeleteAccessPointRequestTypeDef(BaseValidatorModel):
-    AccountId: str
+    AccountId: Annotated[str, _aws_pattern("S3control", "AccountId")]
     Name: str
 
 
 # This class is the input for the 'delete_access_point_scope' function.
 class DeleteAccessPointScopeRequestTypeDef(BaseValidatorModel):
-    AccountId: str
+    AccountId: Annotated[str, _aws_pattern("S3control", "AccountId")]
     Name: str
 
 
 # This class is the input for the 'delete_bucket_lifecycle_configuration' function.
 class DeleteBucketLifecycleConfigurationRequestTypeDef(BaseValidatorModel):
-    AccountId: str
+    AccountId: Annotated[str, _aws_pattern("S3control", "AccountId")]
     Bucket: str
 
 
 # This class is the input for the 'delete_bucket_policy' function.
 class DeleteBucketPolicyRequestTypeDef(BaseValidatorModel):
-    AccountId: str
+    AccountId: Annotated[str, _aws_pattern("S3control", "AccountId")]
     Bucket: str
 
 
 # This class is the input for the 'delete_bucket_replication' function.
 class DeleteBucketReplicationRequestTypeDef(BaseValidatorModel):
-    AccountId: str
+    AccountId: Annotated[str, _aws_pattern("S3control", "AccountId")]
     Bucket: str
 
 
 # This class is the input for the 'delete_bucket' function.
 class DeleteBucketRequestTypeDef(BaseValidatorModel):
-    AccountId: str
+    AccountId: Annotated[str, _aws_pattern("S3control", "AccountId")]
     Bucket: str
 
 
 # This class is the input for the 'delete_bucket_tagging' function.
 class DeleteBucketTaggingRequestTypeDef(BaseValidatorModel):
-    AccountId: str
+    AccountId: Annotated[str, _aws_pattern("S3control", "AccountId")]
     Bucket: str
 
 
 class DeleteJobTaggingRequestTypeDef(BaseValidatorModel):
-    AccountId: str
-    JobId: str
+    AccountId: Annotated[str, _aws_pattern("S3control", "AccountId")]
+    JobId: Annotated[str, _aws_pattern("S3control", "JobId")]
 
 
 class DeleteMarkerReplicationTypeDef(BaseValidatorModel):
@@ -262,36 +264,36 @@ class DeleteMarkerReplicationTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'delete_public_access_block' function.
 class DeletePublicAccessBlockRequestTypeDef(BaseValidatorModel):
-    AccountId: str
+    AccountId: Annotated[str, _aws_pattern("S3control", "AccountId")]
 
 
 # This class is the input for the 'delete_storage_lens_configuration' function.
 class DeleteStorageLensConfigurationRequestTypeDef(BaseValidatorModel):
-    ConfigId: str
-    AccountId: str
+    ConfigId: Annotated[str, _aws_pattern("S3control", "ConfigId")]
+    AccountId: Annotated[str, _aws_pattern("S3control", "AccountId")]
 
 
 class DeleteStorageLensConfigurationTaggingRequestTypeDef(BaseValidatorModel):
-    ConfigId: str
-    AccountId: str
+    ConfigId: Annotated[str, _aws_pattern("S3control", "ConfigId")]
+    AccountId: Annotated[str, _aws_pattern("S3control", "AccountId")]
 
 
 # This class is the input for the 'delete_storage_lens_group' function.
 class DeleteStorageLensGroupRequestTypeDef(BaseValidatorModel):
-    Name: str
-    AccountId: str
+    Name: Annotated[str, _aws_pattern("S3control", "StorageLensGroupName")]
+    AccountId: Annotated[str, _aws_pattern("S3control", "AccountId")]
 
 
 # This class is the input for the 'describe_job' function.
 class DescribeJobRequestTypeDef(BaseValidatorModel):
-    AccountId: str
-    JobId: str
+    AccountId: Annotated[str, _aws_pattern("S3control", "AccountId")]
+    JobId: Annotated[str, _aws_pattern("S3control", "JobId")]
 
 
 # This class is the input for the 'describe_multi_region_access_point_operation' function.
 class DescribeMultiRegionAccessPointOperationRequestTypeDef(BaseValidatorModel):
-    AccountId: str
-    RequestTokenARN: str
+    AccountId: Annotated[str, _aws_pattern("S3control", "AccountId")]
+    RequestTokenARN: Annotated[str, _aws_pattern("S3control", "AsyncRequestTokenARN")]
 
 
 class EncryptionConfigurationTypeDef(BaseValidatorModel):
@@ -300,7 +302,7 @@ class EncryptionConfigurationTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'dissociate_access_grants_identity_center' function.
 class DissociateAccessGrantsIdentityCenterRequestTypeDef(BaseValidatorModel):
-    AccountId: str
+    AccountId: Annotated[str, _aws_pattern("S3control", "AccountId")]
 
 
 class EstablishedMultiRegionAccessPointPolicyTypeDef(BaseValidatorModel):
@@ -313,8 +315,8 @@ class ExcludeOutputTypeDef(BaseValidatorModel):
 
 
 class ExcludeTypeDef(BaseValidatorModel):
-    Buckets: Optional[List[str]] = None
-    Regions: Optional[List[str]] = None
+    Buckets: Optional[List[Annotated[str, _aws_pattern("S3control", "S3BucketArnString")]]] = None
+    Regions: Optional[List[Annotated[str, _aws_pattern("S3control", "S3AWSRegion")]]] = None
 
 
 class ExistingObjectReplicationTypeDef(BaseValidatorModel):
@@ -327,60 +329,60 @@ class SSEKMSEncryptionTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'get_access_grant' function.
 class GetAccessGrantRequestTypeDef(BaseValidatorModel):
-    AccountId: str
-    AccessGrantId: str
+    AccountId: Annotated[str, _aws_pattern("S3control", "AccountId")]
+    AccessGrantId: Annotated[str, _aws_pattern("S3control", "AccessGrantId")]
 
 
 # This class is the input for the 'get_access_grants_instance_for_prefix' function.
 class GetAccessGrantsInstanceForPrefixRequestTypeDef(BaseValidatorModel):
-    AccountId: str
-    S3Prefix: str
+    AccountId: Annotated[str, _aws_pattern("S3control", "AccountId")]
+    S3Prefix: Annotated[str, _aws_pattern("S3control", "S3Prefix")]
 
 
 # This class is the input for the 'get_access_grants_instance' function.
 class GetAccessGrantsInstanceRequestTypeDef(BaseValidatorModel):
-    AccountId: str
+    AccountId: Annotated[str, _aws_pattern("S3control", "AccountId")]
 
 
 # This class is the input for the 'get_access_grants_instance_resource_policy' function.
 class GetAccessGrantsInstanceResourcePolicyRequestTypeDef(BaseValidatorModel):
-    AccountId: str
+    AccountId: Annotated[str, _aws_pattern("S3control", "AccountId")]
 
 
 # This class is the input for the 'get_access_grants_location' function.
 class GetAccessGrantsLocationRequestTypeDef(BaseValidatorModel):
-    AccountId: str
-    AccessGrantsLocationId: str
+    AccountId: Annotated[str, _aws_pattern("S3control", "AccountId")]
+    AccessGrantsLocationId: Annotated[str, _aws_pattern("S3control", "AccessGrantsLocationId")]
 
 
 # This class is the input for the 'get_access_point_configuration_for_object_lambda' function.
 class GetAccessPointConfigurationForObjectLambdaRequestTypeDef(BaseValidatorModel):
-    AccountId: str
-    Name: str
+    AccountId: Annotated[str, _aws_pattern("S3control", "AccountId")]
+    Name: Annotated[str, _aws_pattern("S3control", "ObjectLambdaAccessPointName")]
 
 
 # This class is the input for the 'get_access_point_for_object_lambda' function.
 class GetAccessPointForObjectLambdaRequestTypeDef(BaseValidatorModel):
-    AccountId: str
-    Name: str
+    AccountId: Annotated[str, _aws_pattern("S3control", "AccountId")]
+    Name: Annotated[str, _aws_pattern("S3control", "ObjectLambdaAccessPointName")]
 
 
 # This class is the input for the 'get_access_point_policy_for_object_lambda' function.
 class GetAccessPointPolicyForObjectLambdaRequestTypeDef(BaseValidatorModel):
-    AccountId: str
-    Name: str
+    AccountId: Annotated[str, _aws_pattern("S3control", "AccountId")]
+    Name: Annotated[str, _aws_pattern("S3control", "ObjectLambdaAccessPointName")]
 
 
 # This class is the input for the 'get_access_point_policy' function.
 class GetAccessPointPolicyRequestTypeDef(BaseValidatorModel):
-    AccountId: str
+    AccountId: Annotated[str, _aws_pattern("S3control", "AccountId")]
     Name: str
 
 
 # This class is the input for the 'get_access_point_policy_status_for_object_lambda' function.
 class GetAccessPointPolicyStatusForObjectLambdaRequestTypeDef(BaseValidatorModel):
-    AccountId: str
-    Name: str
+    AccountId: Annotated[str, _aws_pattern("S3control", "AccountId")]
+    Name: Annotated[str, _aws_pattern("S3control", "ObjectLambdaAccessPointName")]
 
 
 class PolicyStatusTypeDef(BaseValidatorModel):
@@ -389,19 +391,19 @@ class PolicyStatusTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'get_access_point_policy_status' function.
 class GetAccessPointPolicyStatusRequestTypeDef(BaseValidatorModel):
-    AccountId: str
+    AccountId: Annotated[str, _aws_pattern("S3control", "AccountId")]
     Name: str
 
 
 # This class is the input for the 'get_access_point' function.
 class GetAccessPointRequestTypeDef(BaseValidatorModel):
-    AccountId: str
+    AccountId: Annotated[str, _aws_pattern("S3control", "AccountId")]
     Name: str
 
 
 # This class is the input for the 'get_access_point_scope' function.
 class GetAccessPointScopeRequestTypeDef(BaseValidatorModel):
-    AccountId: str
+    AccountId: Annotated[str, _aws_pattern("S3control", "AccountId")]
     Name: str
 
 
@@ -412,79 +414,79 @@ class ScopeOutputTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'get_bucket_lifecycle_configuration' function.
 class GetBucketLifecycleConfigurationRequestTypeDef(BaseValidatorModel):
-    AccountId: str
+    AccountId: Annotated[str, _aws_pattern("S3control", "AccountId")]
     Bucket: str
 
 
 # This class is the input for the 'get_bucket_policy' function.
 class GetBucketPolicyRequestTypeDef(BaseValidatorModel):
-    AccountId: str
+    AccountId: Annotated[str, _aws_pattern("S3control", "AccountId")]
     Bucket: str
 
 
 # This class is the input for the 'get_bucket_replication' function.
 class GetBucketReplicationRequestTypeDef(BaseValidatorModel):
-    AccountId: str
+    AccountId: Annotated[str, _aws_pattern("S3control", "AccountId")]
     Bucket: str
 
 
 # This class is the input for the 'get_bucket' function.
 class GetBucketRequestTypeDef(BaseValidatorModel):
-    AccountId: str
+    AccountId: Annotated[str, _aws_pattern("S3control", "AccountId")]
     Bucket: str
 
 
 # This class is the input for the 'get_bucket_tagging' function.
 class GetBucketTaggingRequestTypeDef(BaseValidatorModel):
-    AccountId: str
+    AccountId: Annotated[str, _aws_pattern("S3control", "AccountId")]
     Bucket: str
 
 
 # This class is the input for the 'get_bucket_versioning' function.
 class GetBucketVersioningRequestTypeDef(BaseValidatorModel):
-    AccountId: str
+    AccountId: Annotated[str, _aws_pattern("S3control", "AccountId")]
     Bucket: str
 
 
 # This class is the input for the 'get_data_access' function.
 class GetDataAccessRequestTypeDef(BaseValidatorModel):
-    AccountId: str
-    Target: str
+    AccountId: Annotated[str, _aws_pattern("S3control", "AccountId")]
+    Target: Annotated[str, _aws_pattern("S3control", "S3Prefix")]
     Permission: PermissionType
     DurationSeconds: Optional[int] = None
     Privilege: Optional[PrivilegeType] = None
     TargetType: Optional[Literal["Object"]] = None
-    AuditContext: Optional[str] = None
+    AuditContext: Optional[Annotated[str, _aws_pattern("S3control", "AuditContext")]] = None
 
 
 # This class is the input for the 'get_job_tagging' function.
 class GetJobTaggingRequestTypeDef(BaseValidatorModel):
-    AccountId: str
-    JobId: str
+    AccountId: Annotated[str, _aws_pattern("S3control", "AccountId")]
+    JobId: Annotated[str, _aws_pattern("S3control", "JobId")]
 
 
 # This class is the input for the 'get_multi_region_access_point_policy' function.
 class GetMultiRegionAccessPointPolicyRequestTypeDef(BaseValidatorModel):
-    AccountId: str
-    Name: str
+    AccountId: Annotated[str, _aws_pattern("S3control", "AccountId")]
+    Name: Annotated[str, _aws_pattern("S3control", "MultiRegionAccessPointName")]
 
 
 # This class is the input for the 'get_multi_region_access_point_policy_status' function.
 class GetMultiRegionAccessPointPolicyStatusRequestTypeDef(BaseValidatorModel):
-    AccountId: str
-    Name: str
+    AccountId: Annotated[str, _aws_pattern("S3control", "AccountId")]
+    Name: Annotated[str, _aws_pattern("S3control", "MultiRegionAccessPointName")]
 
 
 # This class is the input for the 'get_multi_region_access_point' function.
 class GetMultiRegionAccessPointRequestTypeDef(BaseValidatorModel):
-    AccountId: str
-    Name: str
+    AccountId: Annotated[str, _aws_pattern("S3control", "AccountId")]
+    Name: Annotated[str, _aws_pattern("S3control", "MultiRegionAccessPointName")]
 
 
 # This class is the input for the 'get_multi_region_access_point_routes' function.
 class GetMultiRegionAccessPointRoutesRequestTypeDef(BaseValidatorModel):
-    AccountId: str
-    Mrap: str
+    AccountId: Annotated[str, _aws_pattern("S3control", "AccountId")]
+    Mrap: Annotated[str, _aws_pattern("S3control", "MultiRegionAccessPointId")]
 
 
 class MultiRegionAccessPointRouteTypeDef(BaseValidatorModel):
@@ -495,30 +497,30 @@ class MultiRegionAccessPointRouteTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'get_public_access_block' function.
 class GetPublicAccessBlockRequestTypeDef(BaseValidatorModel):
-    AccountId: str
+    AccountId: Annotated[str, _aws_pattern("S3control", "AccountId")]
 
 
 # This class is the input for the 'get_storage_lens_configuration' function.
 class GetStorageLensConfigurationRequestTypeDef(BaseValidatorModel):
-    ConfigId: str
-    AccountId: str
+    ConfigId: Annotated[str, _aws_pattern("S3control", "ConfigId")]
+    AccountId: Annotated[str, _aws_pattern("S3control", "AccountId")]
 
 
 # This class is the input for the 'get_storage_lens_configuration_tagging' function.
 class GetStorageLensConfigurationTaggingRequestTypeDef(BaseValidatorModel):
-    ConfigId: str
-    AccountId: str
+    ConfigId: Annotated[str, _aws_pattern("S3control", "ConfigId")]
+    AccountId: Annotated[str, _aws_pattern("S3control", "AccountId")]
 
 
 class StorageLensTagTypeDef(BaseValidatorModel):
-    Key: str
-    Value: str
+    Key: Annotated[str, _aws_pattern("S3control", "TagKeyString")]
+    Value: Annotated[str, _aws_pattern("S3control", "TagValueString")]
 
 
 # This class is the input for the 'get_storage_lens_group' function.
 class GetStorageLensGroupRequestTypeDef(BaseValidatorModel):
-    Name: str
-    AccountId: str
+    Name: Annotated[str, _aws_pattern("S3control", "StorageLensGroupName")]
+    AccountId: Annotated[str, _aws_pattern("S3control", "AccountId")]
 
 
 class IncludeOutputTypeDef(BaseValidatorModel):
@@ -527,8 +529,8 @@ class IncludeOutputTypeDef(BaseValidatorModel):
 
 
 class IncludeTypeDef(BaseValidatorModel):
-    Buckets: Optional[List[str]] = None
-    Regions: Optional[List[str]] = None
+    Buckets: Optional[List[Annotated[str, _aws_pattern("S3control", "S3BucketArnString")]]] = None
+    Regions: Optional[List[Annotated[str, _aws_pattern("S3control", "S3AWSRegion")]]] = None
 
 
 class JobFailureTypeDef(BaseValidatorModel):
@@ -552,7 +554,7 @@ TimestampTypeDef = Union[datetime, str]
 
 
 class JobManifestLocationTypeDef(BaseValidatorModel):
-    ObjectArn: str
+    ObjectArn: Annotated[str, _aws_pattern("S3control", "S3KeyArnString")]
     ETag: str
     ObjectVersionId: Optional[str] = None
 
@@ -584,7 +586,7 @@ class S3InitiateRestoreObjectOperationTypeDef(BaseValidatorModel):
 
 
 class LambdaInvokeOperationTypeDef(BaseValidatorModel):
-    FunctionArn: Optional[str] = None
+    FunctionArn: Optional[Annotated[str, _aws_pattern("S3control", "FunctionArnString")]] = None
     InvocationSchemaVersion: Optional[str] = None
     UserArguments: Optional[Dict[str, str]] = None
 
@@ -616,47 +618,49 @@ class TransitionOutputTypeDef(BaseValidatorModel):
 
 
 class ListAccessGrantsInstanceEntryTypeDef(BaseValidatorModel):
-    AccessGrantsInstanceId: Optional[str] = None
-    AccessGrantsInstanceArn: Optional[str] = None
+    AccessGrantsInstanceId: Optional[Annotated[str, _aws_pattern("S3control", "AccessGrantsInstanceId")]] = None
+    AccessGrantsInstanceArn: Optional[Annotated[str, _aws_pattern("S3control", "AccessGrantsInstanceArn")]] = None
     CreatedAt: Optional[datetime] = None
-    IdentityCenterArn: Optional[str] = None
-    IdentityCenterInstanceArn: Optional[str] = None
-    IdentityCenterApplicationArn: Optional[str] = None
+    IdentityCenterArn: Optional[Annotated[str, _aws_pattern("S3control", "IdentityCenterArn")]] = None
+    IdentityCenterInstanceArn: Optional[Annotated[str, _aws_pattern("S3control", "IdentityCenterArn")]] = None
+    IdentityCenterApplicationArn: Optional[
+        Annotated[str, _aws_pattern("S3control", "IdentityCenterApplicationArn")]
+    ] = None
 
 
 # This class is the input for the 'list_access_grants_instances' function.
 class ListAccessGrantsInstancesRequestTypeDef(BaseValidatorModel):
-    AccountId: str
+    AccountId: Annotated[str, _aws_pattern("S3control", "AccountId")]
     NextToken: Optional[str] = None
     MaxResults: Optional[int] = None
 
 
 class ListAccessGrantsLocationsEntryTypeDef(BaseValidatorModel):
     CreatedAt: Optional[datetime] = None
-    AccessGrantsLocationId: Optional[str] = None
-    AccessGrantsLocationArn: Optional[str] = None
-    LocationScope: Optional[str] = None
-    IAMRoleArn: Optional[str] = None
+    AccessGrantsLocationId: Optional[Annotated[str, _aws_pattern("S3control", "AccessGrantsLocationId")]] = None
+    AccessGrantsLocationArn: Optional[Annotated[str, _aws_pattern("S3control", "AccessGrantsLocationArn")]] = None
+    LocationScope: Optional[Annotated[str, _aws_pattern("S3control", "S3Prefix")]] = None
+    IAMRoleArn: Optional[Annotated[str, _aws_pattern("S3control", "IAMRoleArn")]] = None
 
 
 # This class is the input for the 'list_access_grants_locations' function.
 class ListAccessGrantsLocationsRequestTypeDef(BaseValidatorModel):
-    AccountId: str
+    AccountId: Annotated[str, _aws_pattern("S3control", "AccountId")]
     NextToken: Optional[str] = None
     MaxResults: Optional[int] = None
-    LocationScope: Optional[str] = None
+    LocationScope: Optional[Annotated[str, _aws_pattern("S3control", "S3Prefix")]] = None
 
 
 # This class is the input for the 'list_access_grants' function.
 class ListAccessGrantsRequestTypeDef(BaseValidatorModel):
-    AccountId: str
+    AccountId: Annotated[str, _aws_pattern("S3control", "AccountId")]
     NextToken: Optional[str] = None
     MaxResults: Optional[int] = None
     GranteeType: Optional[GranteeTypeType] = None
     GranteeIdentifier: Optional[str] = None
     Permission: Optional[PermissionType] = None
-    GrantScope: Optional[str] = None
-    ApplicationArn: Optional[str] = None
+    GrantScope: Optional[Annotated[str, _aws_pattern("S3control", "S3Prefix")]] = None
+    ApplicationArn: Optional[Annotated[str, _aws_pattern("S3control", "IdentityCenterApplicationArn")]] = None
 
 
 class PaginatorConfigTypeDef(BaseValidatorModel):
@@ -667,7 +671,7 @@ class PaginatorConfigTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'list_access_points_for_directory_buckets' function.
 class ListAccessPointsForDirectoryBucketsRequestTypeDef(BaseValidatorModel):
-    AccountId: str
+    AccountId: Annotated[str, _aws_pattern("S3control", "AccountId")]
     DirectoryBucket: Optional[str] = None
     NextToken: Optional[str] = None
     MaxResults: Optional[int] = None
@@ -675,14 +679,14 @@ class ListAccessPointsForDirectoryBucketsRequestTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'list_access_points_for_object_lambda' function.
 class ListAccessPointsForObjectLambdaRequestTypeDef(BaseValidatorModel):
-    AccountId: str
+    AccountId: Annotated[str, _aws_pattern("S3control", "AccountId")]
     NextToken: Optional[str] = None
     MaxResults: Optional[int] = None
 
 
 # This class is the input for the 'list_access_points' function.
 class ListAccessPointsRequestTypeDef(BaseValidatorModel):
-    AccountId: str
+    AccountId: Annotated[str, _aws_pattern("S3control", "AccountId")]
     Bucket: Optional[str] = None
     NextToken: Optional[str] = None
     MaxResults: Optional[int] = None
@@ -692,14 +696,14 @@ class ListAccessPointsRequestTypeDef(BaseValidatorModel):
 
 class ListCallerAccessGrantsEntryTypeDef(BaseValidatorModel):
     Permission: Optional[PermissionType] = None
-    GrantScope: Optional[str] = None
-    ApplicationArn: Optional[str] = None
+    GrantScope: Optional[Annotated[str, _aws_pattern("S3control", "S3Prefix")]] = None
+    ApplicationArn: Optional[Annotated[str, _aws_pattern("S3control", "IdentityCenterApplicationArn")]] = None
 
 
 # This class is the input for the 'list_caller_access_grants' function.
 class ListCallerAccessGrantsRequestTypeDef(BaseValidatorModel):
-    AccountId: str
-    GrantScope: Optional[str] = None
+    AccountId: Annotated[str, _aws_pattern("S3control", "AccountId")]
+    GrantScope: Optional[Annotated[str, _aws_pattern("S3control", "S3Prefix")]] = None
     NextToken: Optional[str] = None
     MaxResults: Optional[int] = None
     AllowedByApplication: Optional[bool] = None
@@ -707,22 +711,22 @@ class ListCallerAccessGrantsRequestTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'list_jobs' function.
 class ListJobsRequestTypeDef(BaseValidatorModel):
-    AccountId: str
+    AccountId: Annotated[str, _aws_pattern("S3control", "AccountId")]
     JobStatuses: Optional[List[JobStatusType]] = None
-    NextToken: Optional[str] = None
+    NextToken: Optional[Annotated[str, _aws_pattern("S3control", "StringForNextToken")]] = None
     MaxResults: Optional[int] = None
 
 
 # This class is the input for the 'list_multi_region_access_points' function.
 class ListMultiRegionAccessPointsRequestTypeDef(BaseValidatorModel):
-    AccountId: str
+    AccountId: Annotated[str, _aws_pattern("S3control", "AccountId")]
     NextToken: Optional[str] = None
     MaxResults: Optional[int] = None
 
 
 # This class is the input for the 'list_regional_buckets' function.
 class ListRegionalBucketsRequestTypeDef(BaseValidatorModel):
-    AccountId: str
+    AccountId: Annotated[str, _aws_pattern("S3control", "AccountId")]
     NextToken: Optional[str] = None
     MaxResults: Optional[int] = None
     OutpostId: Optional[str] = None
@@ -737,34 +741,34 @@ class RegionalBucketTypeDef(BaseValidatorModel):
 
 
 class ListStorageLensConfigurationEntryTypeDef(BaseValidatorModel):
-    Id: str
-    StorageLensArn: str
-    HomeRegion: str
+    Id: Annotated[str, _aws_pattern("S3control", "ConfigId")]
+    StorageLensArn: Annotated[str, _aws_pattern("S3control", "StorageLensArn")]
+    HomeRegion: Annotated[str, _aws_pattern("S3control", "S3AWSRegion")]
     IsEnabled: Optional[bool] = None
 
 
 # This class is the input for the 'list_storage_lens_configurations' function.
 class ListStorageLensConfigurationsRequestTypeDef(BaseValidatorModel):
-    AccountId: str
+    AccountId: Annotated[str, _aws_pattern("S3control", "AccountId")]
     NextToken: Optional[str] = None
 
 
 class ListStorageLensGroupEntryTypeDef(BaseValidatorModel):
-    Name: str
-    StorageLensGroupArn: str
-    HomeRegion: str
+    Name: Annotated[str, _aws_pattern("S3control", "StorageLensGroupName")]
+    StorageLensGroupArn: Annotated[str, _aws_pattern("S3control", "StorageLensGroupArn")]
+    HomeRegion: Annotated[str, _aws_pattern("S3control", "S3AWSRegion")]
 
 
 # This class is the input for the 'list_storage_lens_groups' function.
 class ListStorageLensGroupsRequestTypeDef(BaseValidatorModel):
-    AccountId: str
+    AccountId: Annotated[str, _aws_pattern("S3control", "AccountId")]
     NextToken: Optional[str] = None
 
 
 # This class is the input for the 'list_tags_for_resource' function.
 class ListTagsForResourceRequestTypeDef(BaseValidatorModel):
-    AccountId: str
-    ResourceArn: str
+    AccountId: Annotated[str, _aws_pattern("S3control", "AccountId")]
+    ResourceArn: Annotated[str, _aws_pattern("S3control", "S3ResourceArn")]
 
 
 class MatchObjectAgeTypeDef(BaseValidatorModel):
@@ -793,16 +797,16 @@ class MultiRegionAccessPointRegionalResponseTypeDef(BaseValidatorModel):
 class RegionReportTypeDef(BaseValidatorModel):
     Bucket: Optional[str] = None
     Region: Optional[str] = None
-    BucketAccountId: Optional[str] = None
+    BucketAccountId: Optional[Annotated[str, _aws_pattern("S3control", "AccountId")]] = None
 
 
 class SSEKMSFilterTypeDef(BaseValidatorModel):
-    KmsKeyArn: Optional[str] = None
+    KmsKeyArn: Optional[Annotated[str, _aws_pattern("S3control", "NonEmptyKmsKeyArnString")]] = None
     BucketKeyEnabled: Optional[bool] = None
 
 
 class S3UpdateObjectEncryptionSSEKMSTypeDef(BaseValidatorModel):
-    KMSKeyArn: str
+    KMSKeyArn: Annotated[str, _aws_pattern("S3control", "NonEmptyKmsKeyArnString")]
     BucketKeyEnabled: Optional[bool] = None
 
 
@@ -814,28 +818,28 @@ class SelectionCriteriaTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'put_access_grants_instance_resource_policy' function.
 class PutAccessGrantsInstanceResourcePolicyRequestTypeDef(BaseValidatorModel):
-    AccountId: str
+    AccountId: Annotated[str, _aws_pattern("S3control", "AccountId")]
     Policy: str
-    Organization: Optional[str] = None
+    Organization: Optional[Annotated[str, _aws_pattern("S3control", "Organization")]] = None
 
 
 # This class is the input for the 'put_access_point_policy_for_object_lambda' function.
 class PutAccessPointPolicyForObjectLambdaRequestTypeDef(BaseValidatorModel):
-    AccountId: str
-    Name: str
+    AccountId: Annotated[str, _aws_pattern("S3control", "AccountId")]
+    Name: Annotated[str, _aws_pattern("S3control", "ObjectLambdaAccessPointName")]
     Policy: str
 
 
 # This class is the input for the 'put_access_point_policy' function.
 class PutAccessPointPolicyRequestTypeDef(BaseValidatorModel):
-    AccountId: str
+    AccountId: Annotated[str, _aws_pattern("S3control", "AccountId")]
     Name: str
     Policy: str
 
 
 # This class is the input for the 'put_bucket_policy' function.
 class PutBucketPolicyRequestTypeDef(BaseValidatorModel):
-    AccountId: str
+    AccountId: Annotated[str, _aws_pattern("S3control", "AccountId")]
     Bucket: str
     Policy: str
     ConfirmRemoveSelfBucketAccess: Optional[bool] = None
@@ -898,7 +902,7 @@ class SseKmsEncryptedObjectsTypeDef(BaseValidatorModel):
 
 
 class StorageLensAwsOrgTypeDef(BaseValidatorModel):
-    Arn: str
+    Arn: Annotated[str, _aws_pattern("S3control", "AwsOrgArn")]
 
 
 class StorageLensGroupLevelSelectionCriteriaOutputTypeDef(BaseValidatorModel):
@@ -907,34 +911,34 @@ class StorageLensGroupLevelSelectionCriteriaOutputTypeDef(BaseValidatorModel):
 
 
 class StorageLensGroupLevelSelectionCriteriaTypeDef(BaseValidatorModel):
-    Include: Optional[List[str]] = None
-    Exclude: Optional[List[str]] = None
+    Include: Optional[List[Annotated[str, _aws_pattern("S3control", "StorageLensGroupArn")]]] = None
+    Exclude: Optional[List[Annotated[str, _aws_pattern("S3control", "StorageLensGroupArn")]]] = None
 
 
 class UntagResourceRequestTypeDef(BaseValidatorModel):
-    AccountId: str
-    ResourceArn: str
-    TagKeys: List[str]
+    AccountId: Annotated[str, _aws_pattern("S3control", "AccountId")]
+    ResourceArn: Annotated[str, _aws_pattern("S3control", "S3ResourceArn")]
+    TagKeys: List[Annotated[str, _aws_pattern("S3control", "TagKeyString")]]
 
 
 # This class is the input for the 'update_access_grants_location' function.
 class UpdateAccessGrantsLocationRequestTypeDef(BaseValidatorModel):
-    AccountId: str
-    AccessGrantsLocationId: str
-    IAMRoleArn: str
+    AccountId: Annotated[str, _aws_pattern("S3control", "AccountId")]
+    AccessGrantsLocationId: Annotated[str, _aws_pattern("S3control", "AccessGrantsLocationId")]
+    IAMRoleArn: Annotated[str, _aws_pattern("S3control", "IAMRoleArn")]
 
 
 # This class is the input for the 'update_job_priority' function.
 class UpdateJobPriorityRequestTypeDef(BaseValidatorModel):
-    AccountId: str
-    JobId: str
+    AccountId: Annotated[str, _aws_pattern("S3control", "AccountId")]
+    JobId: Annotated[str, _aws_pattern("S3control", "JobId")]
     Priority: int
 
 
 # This class is the input for the 'update_job_status' function.
 class UpdateJobStatusRequestTypeDef(BaseValidatorModel):
-    AccountId: str
-    JobId: str
+    AccountId: Annotated[str, _aws_pattern("S3control", "AccountId")]
+    JobId: Annotated[str, _aws_pattern("S3control", "JobId")]
     RequestedJobStatus: RequestedJobStatusType
     StatusUpdateReason: Optional[str] = None
 
@@ -945,23 +949,23 @@ class AccessPointTypeDef(BaseValidatorModel):
     Bucket: str
     VpcConfiguration: Optional[VpcConfigurationTypeDef] = None
     AccessPointArn: Optional[str] = None
-    Alias: Optional[str] = None
-    BucketAccountId: Optional[str] = None
+    Alias: Optional[Annotated[str, _aws_pattern("S3control", "Alias")]] = None
+    BucketAccountId: Optional[Annotated[str, _aws_pattern("S3control", "AccountId")]] = None
     DataSourceId: Optional[str] = None
     DataSourceType: Optional[str] = None
 
 
 # This class is the input for the 'delete_multi_region_access_point' function.
 class DeleteMultiRegionAccessPointRequestTypeDef(BaseValidatorModel):
-    AccountId: str
-    ClientToken: str
+    AccountId: Annotated[str, _aws_pattern("S3control", "AccountId")]
+    ClientToken: Annotated[str, _aws_pattern("S3control", "MultiRegionAccessPointClientToken")]
     Details: DeleteMultiRegionAccessPointInputTypeDef
 
 
 # This class is the input for the 'put_multi_region_access_point_policy' function.
 class PutMultiRegionAccessPointPolicyRequestTypeDef(BaseValidatorModel):
-    AccountId: str
-    ClientToken: str
+    AccountId: Annotated[str, _aws_pattern("S3control", "AccountId")]
+    ClientToken: Annotated[str, _aws_pattern("S3control", "MultiRegionAccessPointClientToken")]
     Details: PutMultiRegionAccessPointPolicyInputTypeDef
 
 
@@ -971,88 +975,88 @@ class ObjectLambdaContentTransformationTypeDef(BaseValidatorModel):
 
 class ListAccessGrantEntryTypeDef(BaseValidatorModel):
     CreatedAt: Optional[datetime] = None
-    AccessGrantId: Optional[str] = None
-    AccessGrantArn: Optional[str] = None
+    AccessGrantId: Optional[Annotated[str, _aws_pattern("S3control", "AccessGrantId")]] = None
+    AccessGrantArn: Optional[Annotated[str, _aws_pattern("S3control", "AccessGrantArn")]] = None
     Grantee: Optional[GranteeTypeDef] = None
     Permission: Optional[PermissionType] = None
-    AccessGrantsLocationId: Optional[str] = None
+    AccessGrantsLocationId: Optional[Annotated[str, _aws_pattern("S3control", "AccessGrantsLocationId")]] = None
     AccessGrantsLocationConfiguration: Optional[AccessGrantsLocationConfigurationTypeDef] = None
-    GrantScope: Optional[str] = None
-    ApplicationArn: Optional[str] = None
+    GrantScope: Optional[Annotated[str, _aws_pattern("S3control", "S3Prefix")]] = None
+    ApplicationArn: Optional[Annotated[str, _aws_pattern("S3control", "IdentityCenterApplicationArn")]] = None
 
 
 # This class is the input for the 'create_access_grant' function.
 class CreateAccessGrantRequestTypeDef(BaseValidatorModel):
-    AccountId: str
-    AccessGrantsLocationId: str
+    AccountId: Annotated[str, _aws_pattern("S3control", "AccountId")]
+    AccessGrantsLocationId: Annotated[str, _aws_pattern("S3control", "AccessGrantsLocationId")]
     Grantee: GranteeTypeDef
     Permission: PermissionType
     AccessGrantsLocationConfiguration: Optional[AccessGrantsLocationConfigurationTypeDef] = None
-    ApplicationArn: Optional[str] = None
+    ApplicationArn: Optional[Annotated[str, _aws_pattern("S3control", "IdentityCenterApplicationArn")]] = None
     S3PrefixType: Optional[Literal["Object"]] = None
     Tags: Optional[List[TagTypeDef]] = None
 
 
 # This class is the input for the 'create_access_grants_instance' function.
 class CreateAccessGrantsInstanceRequestTypeDef(BaseValidatorModel):
-    AccountId: str
-    IdentityCenterArn: Optional[str] = None
+    AccountId: Annotated[str, _aws_pattern("S3control", "AccountId")]
+    IdentityCenterArn: Optional[Annotated[str, _aws_pattern("S3control", "IdentityCenterArn")]] = None
     Tags: Optional[List[TagTypeDef]] = None
 
 
 # This class is the input for the 'create_access_grants_location' function.
 class CreateAccessGrantsLocationRequestTypeDef(BaseValidatorModel):
-    AccountId: str
-    LocationScope: str
-    IAMRoleArn: str
+    AccountId: Annotated[str, _aws_pattern("S3control", "AccountId")]
+    LocationScope: Annotated[str, _aws_pattern("S3control", "S3Prefix")]
+    IAMRoleArn: Annotated[str, _aws_pattern("S3control", "IAMRoleArn")]
     Tags: Optional[List[TagTypeDef]] = None
 
 
 class TagResourceRequestTypeDef(BaseValidatorModel):
-    AccountId: str
-    ResourceArn: str
+    AccountId: Annotated[str, _aws_pattern("S3control", "AccountId")]
+    ResourceArn: Annotated[str, _aws_pattern("S3control", "S3ResourceArn")]
     Tags: List[TagTypeDef]
 
 
 # This class is the output for the 'create_access_grant' function.
 class CreateAccessGrantResultTypeDef(BaseValidatorModel):
     CreatedAt: datetime
-    AccessGrantId: str
-    AccessGrantArn: str
+    AccessGrantId: Annotated[str, _aws_pattern("S3control", "AccessGrantId")]
+    AccessGrantArn: Annotated[str, _aws_pattern("S3control", "AccessGrantArn")]
     Grantee: GranteeTypeDef
-    AccessGrantsLocationId: str
+    AccessGrantsLocationId: Annotated[str, _aws_pattern("S3control", "AccessGrantsLocationId")]
     AccessGrantsLocationConfiguration: AccessGrantsLocationConfigurationTypeDef
     Permission: PermissionType
-    ApplicationArn: str
-    GrantScope: str
+    ApplicationArn: Annotated[str, _aws_pattern("S3control", "IdentityCenterApplicationArn")]
+    GrantScope: Annotated[str, _aws_pattern("S3control", "S3Prefix")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 # This class is the output for the 'create_access_grants_instance' function.
 class CreateAccessGrantsInstanceResultTypeDef(BaseValidatorModel):
     CreatedAt: datetime
-    AccessGrantsInstanceId: str
-    AccessGrantsInstanceArn: str
-    IdentityCenterArn: str
-    IdentityCenterInstanceArn: str
-    IdentityCenterApplicationArn: str
+    AccessGrantsInstanceId: Annotated[str, _aws_pattern("S3control", "AccessGrantsInstanceId")]
+    AccessGrantsInstanceArn: Annotated[str, _aws_pattern("S3control", "AccessGrantsInstanceArn")]
+    IdentityCenterArn: Annotated[str, _aws_pattern("S3control", "IdentityCenterArn")]
+    IdentityCenterInstanceArn: Annotated[str, _aws_pattern("S3control", "IdentityCenterArn")]
+    IdentityCenterApplicationArn: Annotated[str, _aws_pattern("S3control", "IdentityCenterApplicationArn")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 # This class is the output for the 'create_access_grants_location' function.
 class CreateAccessGrantsLocationResultTypeDef(BaseValidatorModel):
     CreatedAt: datetime
-    AccessGrantsLocationId: str
-    AccessGrantsLocationArn: str
-    LocationScope: str
-    IAMRoleArn: str
+    AccessGrantsLocationId: Annotated[str, _aws_pattern("S3control", "AccessGrantsLocationId")]
+    AccessGrantsLocationArn: Annotated[str, _aws_pattern("S3control", "AccessGrantsLocationArn")]
+    LocationScope: Annotated[str, _aws_pattern("S3control", "S3Prefix")]
+    IAMRoleArn: Annotated[str, _aws_pattern("S3control", "IAMRoleArn")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 # This class is the output for the 'create_access_point' function.
 class CreateAccessPointResultTypeDef(BaseValidatorModel):
     AccessPointArn: str
-    Alias: str
+    Alias: Annotated[str, _aws_pattern("S3control", "Alias")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
@@ -1065,19 +1069,19 @@ class CreateBucketResultTypeDef(BaseValidatorModel):
 
 # This class is the output for the 'create_job' function.
 class CreateJobResultTypeDef(BaseValidatorModel):
-    JobId: str
+    JobId: Annotated[str, _aws_pattern("S3control", "JobId")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 # This class is the output for the 'create_multi_region_access_point' function.
 class CreateMultiRegionAccessPointResultTypeDef(BaseValidatorModel):
-    RequestTokenARN: str
+    RequestTokenARN: Annotated[str, _aws_pattern("S3control", "AsyncRequestTokenARN")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 # This class is the output for the 'delete_multi_region_access_point' function.
 class DeleteMultiRegionAccessPointResultTypeDef(BaseValidatorModel):
-    RequestTokenARN: str
+    RequestTokenARN: Annotated[str, _aws_pattern("S3control", "AsyncRequestTokenARN")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
@@ -1089,39 +1093,39 @@ class EmptyResponseMetadataTypeDef(BaseValidatorModel):
 # This class is the output for the 'get_access_grant' function.
 class GetAccessGrantResultTypeDef(BaseValidatorModel):
     CreatedAt: datetime
-    AccessGrantId: str
-    AccessGrantArn: str
+    AccessGrantId: Annotated[str, _aws_pattern("S3control", "AccessGrantId")]
+    AccessGrantArn: Annotated[str, _aws_pattern("S3control", "AccessGrantArn")]
     Grantee: GranteeTypeDef
     Permission: PermissionType
-    AccessGrantsLocationId: str
+    AccessGrantsLocationId: Annotated[str, _aws_pattern("S3control", "AccessGrantsLocationId")]
     AccessGrantsLocationConfiguration: AccessGrantsLocationConfigurationTypeDef
-    GrantScope: str
-    ApplicationArn: str
+    GrantScope: Annotated[str, _aws_pattern("S3control", "S3Prefix")]
+    ApplicationArn: Annotated[str, _aws_pattern("S3control", "IdentityCenterApplicationArn")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 # This class is the output for the 'get_access_grants_instance_for_prefix' function.
 class GetAccessGrantsInstanceForPrefixResultTypeDef(BaseValidatorModel):
-    AccessGrantsInstanceArn: str
-    AccessGrantsInstanceId: str
+    AccessGrantsInstanceArn: Annotated[str, _aws_pattern("S3control", "AccessGrantsInstanceArn")]
+    AccessGrantsInstanceId: Annotated[str, _aws_pattern("S3control", "AccessGrantsInstanceId")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 # This class is the output for the 'get_access_grants_instance_resource_policy' function.
 class GetAccessGrantsInstanceResourcePolicyResultTypeDef(BaseValidatorModel):
     Policy: str
-    Organization: str
+    Organization: Annotated[str, _aws_pattern("S3control", "Organization")]
     CreatedAt: datetime
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 # This class is the output for the 'get_access_grants_instance' function.
 class GetAccessGrantsInstanceResultTypeDef(BaseValidatorModel):
-    AccessGrantsInstanceArn: str
-    AccessGrantsInstanceId: str
-    IdentityCenterArn: str
-    IdentityCenterInstanceArn: str
-    IdentityCenterApplicationArn: str
+    AccessGrantsInstanceArn: Annotated[str, _aws_pattern("S3control", "AccessGrantsInstanceArn")]
+    AccessGrantsInstanceId: Annotated[str, _aws_pattern("S3control", "AccessGrantsInstanceId")]
+    IdentityCenterArn: Annotated[str, _aws_pattern("S3control", "IdentityCenterArn")]
+    IdentityCenterInstanceArn: Annotated[str, _aws_pattern("S3control", "IdentityCenterArn")]
+    IdentityCenterApplicationArn: Annotated[str, _aws_pattern("S3control", "IdentityCenterApplicationArn")]
     CreatedAt: datetime
     ResponseMetadata: ResponseMetadataTypeDef
 
@@ -1129,10 +1133,10 @@ class GetAccessGrantsInstanceResultTypeDef(BaseValidatorModel):
 # This class is the output for the 'get_access_grants_location' function.
 class GetAccessGrantsLocationResultTypeDef(BaseValidatorModel):
     CreatedAt: datetime
-    AccessGrantsLocationId: str
-    AccessGrantsLocationArn: str
-    LocationScope: str
-    IAMRoleArn: str
+    AccessGrantsLocationId: Annotated[str, _aws_pattern("S3control", "AccessGrantsLocationId")]
+    AccessGrantsLocationArn: Annotated[str, _aws_pattern("S3control", "AccessGrantsLocationArn")]
+    LocationScope: Annotated[str, _aws_pattern("S3control", "S3Prefix")]
+    IAMRoleArn: Annotated[str, _aws_pattern("S3control", "IAMRoleArn")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
@@ -1178,37 +1182,37 @@ class ListTagsForResourceResultTypeDef(BaseValidatorModel):
 # This class is the output for the 'put_access_grants_instance_resource_policy' function.
 class PutAccessGrantsInstanceResourcePolicyResultTypeDef(BaseValidatorModel):
     Policy: str
-    Organization: str
+    Organization: Annotated[str, _aws_pattern("S3control", "Organization")]
     CreatedAt: datetime
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 # This class is the output for the 'put_multi_region_access_point_policy' function.
 class PutMultiRegionAccessPointPolicyResultTypeDef(BaseValidatorModel):
-    RequestTokenARN: str
+    RequestTokenARN: Annotated[str, _aws_pattern("S3control", "AsyncRequestTokenARN")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 # This class is the output for the 'update_access_grants_location' function.
 class UpdateAccessGrantsLocationResultTypeDef(BaseValidatorModel):
     CreatedAt: datetime
-    AccessGrantsLocationId: str
-    AccessGrantsLocationArn: str
-    LocationScope: str
-    IAMRoleArn: str
+    AccessGrantsLocationId: Annotated[str, _aws_pattern("S3control", "AccessGrantsLocationId")]
+    AccessGrantsLocationArn: Annotated[str, _aws_pattern("S3control", "AccessGrantsLocationArn")]
+    LocationScope: Annotated[str, _aws_pattern("S3control", "S3Prefix")]
+    IAMRoleArn: Annotated[str, _aws_pattern("S3control", "IAMRoleArn")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 # This class is the output for the 'update_job_priority' function.
 class UpdateJobPriorityResultTypeDef(BaseValidatorModel):
-    JobId: str
+    JobId: Annotated[str, _aws_pattern("S3control", "JobId")]
     Priority: int
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 # This class is the output for the 'update_job_status' function.
 class UpdateJobStatusResultTypeDef(BaseValidatorModel):
-    JobId: str
+    JobId: Annotated[str, _aws_pattern("S3control", "JobId")]
     Status: JobStatusType
     StatusUpdateReason: str
     ResponseMetadata: ResponseMetadataTypeDef
@@ -1216,20 +1220,20 @@ class UpdateJobStatusResultTypeDef(BaseValidatorModel):
 
 # This class is the output for the 'create_access_point_for_object_lambda' function.
 class CreateAccessPointForObjectLambdaResultTypeDef(BaseValidatorModel):
-    ObjectLambdaAccessPointArn: str
+    ObjectLambdaAccessPointArn: Annotated[str, _aws_pattern("S3control", "ObjectLambdaAccessPointArn")]
     Alias: ObjectLambdaAccessPointAliasTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 class ObjectLambdaAccessPointTypeDef(BaseValidatorModel):
-    Name: str
-    ObjectLambdaAccessPointArn: Optional[str] = None
+    Name: Annotated[str, _aws_pattern("S3control", "ObjectLambdaAccessPointName")]
+    ObjectLambdaAccessPointArn: Optional[Annotated[str, _aws_pattern("S3control", "ObjectLambdaAccessPointArn")]] = None
     Alias: Optional[ObjectLambdaAccessPointAliasTypeDef] = None
 
 
 # This class is the output for the 'get_access_point_for_object_lambda' function.
 class GetAccessPointForObjectLambdaResultTypeDef(BaseValidatorModel):
-    Name: str
+    Name: Annotated[str, _aws_pattern("S3control", "ObjectLambdaAccessPointName")]
     PublicAccessBlockConfiguration: PublicAccessBlockConfigurationTypeDef
     CreationDate: datetime
     Alias: ObjectLambdaAccessPointAliasTypeDef
@@ -1244,10 +1248,10 @@ class GetAccessPointResultTypeDef(BaseValidatorModel):
     VpcConfiguration: VpcConfigurationTypeDef
     PublicAccessBlockConfiguration: PublicAccessBlockConfigurationTypeDef
     CreationDate: datetime
-    Alias: str
+    Alias: Annotated[str, _aws_pattern("S3control", "Alias")]
     AccessPointArn: str
     Endpoints: Dict[str, str]
-    BucketAccountId: str
+    BucketAccountId: Annotated[str, _aws_pattern("S3control", "AccountId")]
     DataSourceId: str
     DataSourceType: str
     ResponseMetadata: ResponseMetadataTypeDef
@@ -1262,7 +1266,7 @@ class GetPublicAccessBlockOutputTypeDef(BaseValidatorModel):
 # This class is the input for the 'put_public_access_block' function.
 class PutPublicAccessBlockRequestTypeDef(BaseValidatorModel):
     PublicAccessBlockConfiguration: PublicAccessBlockConfigurationTypeDef
-    AccountId: str
+    AccountId: Annotated[str, _aws_pattern("S3control", "AccountId")]
 
 
 # This class is the input for the 'create_bucket' function.
@@ -1306,8 +1310,8 @@ class LifecycleRuleAndOperatorTypeDef(BaseValidatorModel):
 
 
 class PutJobTaggingRequestTypeDef(BaseValidatorModel):
-    AccountId: str
-    JobId: str
+    AccountId: Annotated[str, _aws_pattern("S3control", "AccountId")]
+    JobId: Annotated[str, _aws_pattern("S3control", "JobId")]
     Tags: List[S3TagTypeDef]
 
 
@@ -1340,7 +1344,7 @@ class CreateMultiRegionAccessPointInputOutputTypeDef(BaseValidatorModel):
 
 
 class CreateMultiRegionAccessPointInputTypeDef(BaseValidatorModel):
-    Name: str
+    Name: Annotated[str, _aws_pattern("S3control", "MultiRegionAccessPointName")]
     Regions: List[RegionTypeDef]
     PublicAccessBlock: Optional[PublicAccessBlockConfigurationTypeDef] = None
 
@@ -1348,7 +1352,7 @@ class CreateMultiRegionAccessPointInputTypeDef(BaseValidatorModel):
 # This class is the output for the 'get_data_access' function.
 class GetDataAccessResultTypeDef(BaseValidatorModel):
     Credentials: CredentialsTypeDef
-    MatchedGrantTarget: str
+    MatchedGrantTarget: Annotated[str, _aws_pattern("S3control", "S3Prefix")]
     Grantee: GranteeTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
@@ -1389,14 +1393,14 @@ class GetAccessPointScopeResultTypeDef(BaseValidatorModel):
 
 # This class is the output for the 'get_multi_region_access_point_routes' function.
 class GetMultiRegionAccessPointRoutesResultTypeDef(BaseValidatorModel):
-    Mrap: str
+    Mrap: Annotated[str, _aws_pattern("S3control", "MultiRegionAccessPointId")]
     Routes: List[MultiRegionAccessPointRouteTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 class SubmitMultiRegionAccessPointRoutesRequestTypeDef(BaseValidatorModel):
-    AccountId: str
-    Mrap: str
+    AccountId: Annotated[str, _aws_pattern("S3control", "AccountId")]
+    Mrap: Annotated[str, _aws_pattern("S3control", "MultiRegionAccessPointId")]
     RouteUpdates: List[MultiRegionAccessPointRouteTypeDef]
 
 
@@ -1407,8 +1411,8 @@ class GetStorageLensConfigurationTaggingResultTypeDef(BaseValidatorModel):
 
 
 class PutStorageLensConfigurationTaggingRequestTypeDef(BaseValidatorModel):
-    ConfigId: str
-    AccountId: str
+    ConfigId: Annotated[str, _aws_pattern("S3control", "ConfigId")]
+    AccountId: Annotated[str, _aws_pattern("S3control", "AccountId")]
     Tags: List[StorageLensTagTypeDef]
 
 
@@ -1577,8 +1581,8 @@ class MultiRegionAccessPointsAsyncResponseTypeDef(BaseValidatorModel):
 
 
 class MultiRegionAccessPointReportTypeDef(BaseValidatorModel):
-    Name: Optional[str] = None
-    Alias: Optional[str] = None
+    Name: Optional[Annotated[str, _aws_pattern("S3control", "MultiRegionAccessPointName")]] = None
+    Alias: Optional[Annotated[str, _aws_pattern("S3control", "MultiRegionAccessPointAlias")]] = None
     CreatedAt: Optional[datetime] = None
     PublicAccessBlock: Optional[PublicAccessBlockConfigurationTypeDef] = None
     Status: Optional[MultiRegionAccessPointStatusType] = None
@@ -1612,7 +1616,7 @@ class PrefixLevelStorageMetricsTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'put_bucket_versioning' function.
 class PutBucketVersioningRequestTypeDef(BaseValidatorModel):
-    AccountId: str
+    AccountId: Annotated[str, _aws_pattern("S3control", "AccountId")]
     Bucket: str
     VersioningConfiguration: VersioningConfigurationTypeDef
     MFA: Optional[str] = None
@@ -1721,7 +1725,7 @@ class ReplicationRuleFilterTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'put_bucket_tagging' function.
 class PutBucketTaggingRequestTypeDef(BaseValidatorModel):
-    AccountId: str
+    AccountId: Annotated[str, _aws_pattern("S3control", "AccountId")]
     Bucket: str
     Tagging: TaggingTypeDef
 
@@ -1746,9 +1750,9 @@ class S3ManifestOutputLocationOutputTypeDef(BaseValidatorModel):
 
 
 class S3ManifestOutputLocationTypeDef(BaseValidatorModel):
-    Bucket: str
+    Bucket: Annotated[str, _aws_pattern("S3control", "S3BucketArnString")]
     ManifestFormat: Literal["S3InventoryReport_CSV_20211130"]
-    ExpectedManifestBucketOwner: Optional[str] = None
+    ExpectedManifestBucketOwner: Optional[Annotated[str, _aws_pattern("S3control", "AccountId")]] = None
     ManifestPrefix: Optional[str] = None
     ManifestEncryption: Optional[GeneratedManifestEncryptionTypeDef] = None
 
@@ -1767,7 +1771,7 @@ JobManifestUnionTypeDef = Union[JobManifestOutputTypeDef, JobManifestTypeDef]
 
 
 class JobListDescriptorTypeDef(BaseValidatorModel):
-    JobId: Optional[str] = None
+    JobId: Optional[Annotated[str, _aws_pattern("S3control", "JobId")]] = None
     Description: Optional[str] = None
     Operation: Optional[OperationNameType] = None
     Priority: Optional[int] = None
@@ -1799,7 +1803,7 @@ class StorageLensGroupFilterTypeDef(BaseValidatorModel):
 
 class DestinationTypeDef(BaseValidatorModel):
     Bucket: str
-    Account: Optional[str] = None
+    Account: Optional[Annotated[str, _aws_pattern("S3control", "AccountId")]] = None
     ReplicationTime: Optional[ReplicationTimeTypeDef] = None
     AccessControlTranslation: Optional[AccessControlTranslationTypeDef] = None
     EncryptionConfiguration: Optional[EncryptionConfigurationTypeDef] = None
@@ -1895,7 +1899,7 @@ class S3CopyObjectOperationOutputTypeDef(BaseValidatorModel):
 
 
 class S3CopyObjectOperationTypeDef(BaseValidatorModel):
-    TargetResource: Optional[str] = None
+    TargetResource: Optional[Annotated[str, _aws_pattern("S3control", "S3RegionalOrS3ExpressBucketArnString")]] = None
     CannedAccessControlList: Optional[S3CannedAccessControlListType] = None
     AccessControlGrants: Optional[List[S3GrantTypeDef]] = None
     MetadataDirective: Optional[S3MetadataDirectiveType] = None
@@ -1932,8 +1936,8 @@ class StorageLensTableDestinationOutputTypeDef(BaseValidatorModel):
 class S3BucketDestinationTypeDef(BaseValidatorModel):
     Format: FormatType
     OutputSchemaVersion: Literal["V_1"]
-    AccountId: str
-    Arn: str
+    AccountId: Annotated[str, _aws_pattern("S3control", "AccountId")]
+    Arn: Annotated[str, _aws_pattern("S3control", "S3BucketArnString")]
     Prefix: Optional[str] = None
     Encryption: Optional[StorageLensDataExportEncryptionTypeDef] = None
 
@@ -1945,19 +1949,19 @@ class StorageLensTableDestinationTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'create_access_point' function.
 class CreateAccessPointRequestTypeDef(BaseValidatorModel):
-    AccountId: str
+    AccountId: Annotated[str, _aws_pattern("S3control", "AccountId")]
     Name: str
     Bucket: str
     VpcConfiguration: Optional[VpcConfigurationTypeDef] = None
     PublicAccessBlockConfiguration: Optional[PublicAccessBlockConfigurationTypeDef] = None
-    BucketAccountId: Optional[str] = None
+    BucketAccountId: Optional[Annotated[str, _aws_pattern("S3control", "AccountId")]] = None
     Scope: Optional[ScopeUnionTypeDef] = None
     Tags: Optional[List[TagTypeDef]] = None
 
 
 # This class is the input for the 'put_access_point_scope' function.
 class PutAccessPointScopeRequestTypeDef(BaseValidatorModel):
-    AccountId: str
+    AccountId: Annotated[str, _aws_pattern("S3control", "AccountId")]
     Name: str
     Scope: ScopeUnionTypeDef
 
@@ -1970,7 +1974,7 @@ class ObjectLambdaConfigurationOutputTypeDef(BaseValidatorModel):
 
 
 class ObjectLambdaConfigurationTypeDef(BaseValidatorModel):
-    SupportingAccessPoint: str
+    SupportingAccessPoint: Annotated[str, _aws_pattern("S3control", "ObjectLambdaSupportingAccessPointArn")]
     TransformationConfigurations: List[ObjectLambdaTransformationConfigurationTypeDef]
     CloudWatchMetricsEnabled: Optional[bool] = None
     AllowedFeatures: Optional[List[ObjectLambdaAllowedFeatureType]] = None
@@ -1997,8 +2001,8 @@ class LifecycleRuleFilterTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'create_multi_region_access_point' function.
 class CreateMultiRegionAccessPointRequestTypeDef(BaseValidatorModel):
-    AccountId: str
-    ClientToken: str
+    AccountId: Annotated[str, _aws_pattern("S3control", "AccountId")]
+    ClientToken: Annotated[str, _aws_pattern("S3control", "MultiRegionAccessPointClientToken")]
     Details: CreateMultiRegionAccessPointInputUnionTypeDef
 
 
@@ -2006,7 +2010,7 @@ class CreateMultiRegionAccessPointRequestTypeDef(BaseValidatorModel):
 class ListJobsResultTypeDef(BaseValidatorModel):
     Jobs: List[JobListDescriptorTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
-    NextToken: Optional[str] = None
+    NextToken: Optional[Annotated[str, _aws_pattern("S3control", "StringForNextToken")]] = None
 
 
 class StorageLensGroupOutputTypeDef(BaseValidatorModel):
@@ -2016,9 +2020,9 @@ class StorageLensGroupOutputTypeDef(BaseValidatorModel):
 
 
 class StorageLensGroupTypeDef(BaseValidatorModel):
-    Name: str
+    Name: Annotated[str, _aws_pattern("S3control", "StorageLensGroupName")]
     Filter: StorageLensGroupFilterTypeDef
-    StorageLensGroupArn: Optional[str] = None
+    StorageLensGroupArn: Optional[Annotated[str, _aws_pattern("S3control", "StorageLensGroupArn")]] = None
 
 
 class ReplicationRuleOutputTypeDef(BaseValidatorModel):
@@ -2050,7 +2054,7 @@ class ReplicationRuleTypeDef(BaseValidatorModel):
 class AsyncOperationTypeDef(BaseValidatorModel):
     CreationTime: Optional[datetime] = None
     Operation: Optional[AsyncOperationNameType] = None
-    RequestTokenARN: Optional[str] = None
+    RequestTokenARN: Optional[Annotated[str, _aws_pattern("S3control", "AsyncRequestTokenARN")]] = None
     RequestParameters: Optional[AsyncRequestParametersTypeDef] = None
     RequestStatus: Optional[str] = None
     ResponseDetails: Optional[AsyncResponseDetailsTypeDef] = None
@@ -2065,9 +2069,9 @@ class S3JobManifestGeneratorOutputTypeDef(BaseValidatorModel):
 
 
 class S3JobManifestGeneratorTypeDef(BaseValidatorModel):
-    SourceBucket: str
+    SourceBucket: Annotated[str, _aws_pattern("S3control", "S3BucketArnString")]
     EnableManifestOutput: bool
-    ExpectedBucketOwner: Optional[str] = None
+    ExpectedBucketOwner: Optional[Annotated[str, _aws_pattern("S3control", "AccountId")]] = None
     ManifestOutputLocation: Optional[S3ManifestOutputLocationTypeDef] = None
     Filter: Optional[JobManifestGeneratorFilterTypeDef] = None
 
@@ -2194,15 +2198,15 @@ class S3SetObjectAclOperationTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'create_access_point_for_object_lambda' function.
 class CreateAccessPointForObjectLambdaRequestTypeDef(BaseValidatorModel):
-    AccountId: str
-    Name: str
+    AccountId: Annotated[str, _aws_pattern("S3control", "AccountId")]
+    Name: Annotated[str, _aws_pattern("S3control", "ObjectLambdaAccessPointName")]
     Configuration: ObjectLambdaConfigurationUnionTypeDef
 
 
 # This class is the input for the 'put_access_point_configuration_for_object_lambda' function.
 class PutAccessPointConfigurationForObjectLambdaRequestTypeDef(BaseValidatorModel):
-    AccountId: str
-    Name: str
+    AccountId: Annotated[str, _aws_pattern("S3control", "AccountId")]
+    Name: Annotated[str, _aws_pattern("S3control", "ObjectLambdaAccessPointName")]
     Configuration: ObjectLambdaConfigurationUnionTypeDef
 
 
@@ -2219,15 +2223,15 @@ class LifecycleRuleTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'create_storage_lens_group' function.
 class CreateStorageLensGroupRequestTypeDef(BaseValidatorModel):
-    AccountId: str
+    AccountId: Annotated[str, _aws_pattern("S3control", "AccountId")]
     StorageLensGroup: StorageLensGroupUnionTypeDef
     Tags: Optional[List[TagTypeDef]] = None
 
 
 # This class is the input for the 'update_storage_lens_group' function.
 class UpdateStorageLensGroupRequestTypeDef(BaseValidatorModel):
-    Name: str
-    AccountId: str
+    Name: Annotated[str, _aws_pattern("S3control", "StorageLensGroupName")]
+    AccountId: Annotated[str, _aws_pattern("S3control", "AccountId")]
     StorageLensGroup: StorageLensGroupUnionTypeDef
 
 
@@ -2256,7 +2260,7 @@ class StorageLensConfigurationOutputTypeDef(BaseValidatorModel):
 
 
 class StorageLensConfigurationTypeDef(BaseValidatorModel):
-    Id: str
+    Id: Annotated[str, _aws_pattern("S3control", "ConfigId")]
     AccountLevel: AccountLevelTypeDef
     IsEnabled: bool
     Include: Optional[IncludeTypeDef] = None
@@ -2264,7 +2268,7 @@ class StorageLensConfigurationTypeDef(BaseValidatorModel):
     DataExport: Optional[StorageLensDataExportTypeDef] = None
     ExpandedPrefixesDataExport: Optional[StorageLensExpandedPrefixesDataExportTypeDef] = None
     AwsOrg: Optional[StorageLensAwsOrgTypeDef] = None
-    StorageLensArn: Optional[str] = None
+    StorageLensArn: Optional[Annotated[str, _aws_pattern("S3control", "StorageLensArn")]] = None
     PrefixDelimiter: Optional[str] = None
 
 
@@ -2301,7 +2305,7 @@ LifecycleRuleUnionTypeDef = Union[LifecycleRuleOutputTypeDef, LifecycleRuleTypeD
 
 # This class is the input for the 'put_bucket_replication' function.
 class PutBucketReplicationRequestTypeDef(BaseValidatorModel):
-    AccountId: str
+    AccountId: Annotated[str, _aws_pattern("S3control", "AccountId")]
     Bucket: str
     ReplicationConfiguration: ReplicationConfigurationUnionTypeDef
 
@@ -2316,10 +2320,10 @@ StorageLensConfigurationUnionTypeDef = Union[StorageLensConfigurationOutputTypeD
 
 
 class JobDescriptorTypeDef(BaseValidatorModel):
-    JobId: Optional[str] = None
+    JobId: Optional[Annotated[str, _aws_pattern("S3control", "JobId")]] = None
     ConfirmationRequired: Optional[bool] = None
     Description: Optional[str] = None
-    JobArn: Optional[str] = None
+    JobArn: Optional[Annotated[str, _aws_pattern("S3control", "JobArn")]] = None
     Status: Optional[JobStatusType] = None
     Manifest: Optional[JobManifestOutputTypeDef] = None
     Operation: Optional[JobOperationOutputTypeDef] = None
@@ -2330,7 +2334,7 @@ class JobDescriptorTypeDef(BaseValidatorModel):
     Report: Optional[JobReportTypeDef] = None
     CreationTime: Optional[datetime] = None
     TerminationDate: Optional[datetime] = None
-    RoleArn: Optional[str] = None
+    RoleArn: Optional[Annotated[str, _aws_pattern("S3control", "IAMRoleArn")]] = None
     SuspendedDate: Optional[datetime] = None
     SuspendedCause: Optional[str] = None
     ManifestGenerator: Optional[JobManifestGeneratorOutputTypeDef] = None
@@ -2346,8 +2350,8 @@ class LifecycleConfigurationTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'put_storage_lens_configuration' function.
 class PutStorageLensConfigurationRequestTypeDef(BaseValidatorModel):
-    ConfigId: str
-    AccountId: str
+    ConfigId: Annotated[str, _aws_pattern("S3control", "ConfigId")]
+    AccountId: Annotated[str, _aws_pattern("S3control", "AccountId")]
     StorageLensConfiguration: StorageLensConfigurationUnionTypeDef
     Tags: Optional[List[StorageLensTagTypeDef]] = None
 
@@ -2360,12 +2364,12 @@ class DescribeJobResultTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'create_job' function.
 class CreateJobRequestTypeDef(BaseValidatorModel):
-    AccountId: str
+    AccountId: Annotated[str, _aws_pattern("S3control", "AccountId")]
     Operation: JobOperationUnionTypeDef
     Report: JobReportTypeDef
     ClientRequestToken: str
     Priority: int
-    RoleArn: str
+    RoleArn: Annotated[str, _aws_pattern("S3control", "IAMRoleArn")]
     ConfirmationRequired: Optional[bool] = None
     Manifest: Optional[JobManifestUnionTypeDef] = None
     Description: Optional[str] = None
@@ -2375,6 +2379,6 @@ class CreateJobRequestTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'put_bucket_lifecycle_configuration' function.
 class PutBucketLifecycleConfigurationRequestTypeDef(BaseValidatorModel):
-    AccountId: str
+    AccountId: Annotated[str, _aws_pattern("S3control", "AccountId")]
     Bucket: str
     LifecycleConfiguration: Optional[LifecycleConfigurationTypeDef] = None

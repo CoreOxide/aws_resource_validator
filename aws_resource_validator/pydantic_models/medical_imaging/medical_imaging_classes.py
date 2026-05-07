@@ -3,6 +3,7 @@
 from datetime import datetime
 from decimal import Decimal
 from typing import (
+    Annotated,
     Any,
     Callable,
     Dict,
@@ -24,6 +25,7 @@ from botocore.response import StreamingBody
 from pydantic import Field
 
 from aws_resource_validator.core.base_validator_model import BaseValidatorModel, EventStream
+from aws_resource_validator.core.pattern_validation import aws_field_pattern as _aws_pattern
 from aws_resource_validator.pydantic_models.medical_imaging.medical_imaging_constants import *  # noqa: F401,F403
 
 # Optional boto3 symbols — imported lazily so services that don't need them
@@ -41,28 +43,28 @@ BlobTypeDef = Union[IO[Any], StreamingBody, bytes, str]
 
 
 class CopyDestinationImageSetPropertiesTypeDef(BaseValidatorModel):
-    imageSetId: str
-    latestVersionId: str
+    imageSetId: Annotated[str, _aws_pattern("MedicalImaging", "ImageSetId")]
+    latestVersionId: Annotated[str, _aws_pattern("MedicalImaging", "ImageSetExternalVersionId")]
     imageSetState: Optional[ImageSetStateType] = None
     imageSetWorkflowStatus: Optional[ImageSetWorkflowStatusType] = None
     createdAt: Optional[datetime] = None
     updatedAt: Optional[datetime] = None
-    imageSetArn: Optional[str] = None
+    imageSetArn: Optional[Annotated[str, _aws_pattern("MedicalImaging", "Arn")]] = None
 
 
 class CopyDestinationImageSetTypeDef(BaseValidatorModel):
-    imageSetId: str
-    latestVersionId: str
+    imageSetId: Annotated[str, _aws_pattern("MedicalImaging", "ImageSetId")]
+    latestVersionId: Annotated[str, _aws_pattern("MedicalImaging", "ImageSetExternalVersionId")]
 
 
 class CopySourceImageSetPropertiesTypeDef(BaseValidatorModel):
-    imageSetId: str
-    latestVersionId: str
+    imageSetId: Annotated[str, _aws_pattern("MedicalImaging", "ImageSetId")]
+    latestVersionId: Annotated[str, _aws_pattern("MedicalImaging", "ImageSetExternalVersionId")]
     imageSetState: Optional[ImageSetStateType] = None
     imageSetWorkflowStatus: Optional[ImageSetWorkflowStatusType] = None
     createdAt: Optional[datetime] = None
     updatedAt: Optional[datetime] = None
-    imageSetArn: Optional[str] = None
+    imageSetArn: Optional[Annotated[str, _aws_pattern("MedicalImaging", "Arn")]] = None
 
 
 class ResponseMetadataTypeDef(BaseValidatorModel):
@@ -79,36 +81,23 @@ class MetadataCopiesTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'create_datastore' function.
 class CreateDatastoreRequestTypeDef(BaseValidatorModel):
-    clientToken: str
-    datastoreName: Optional[str] = None
+    clientToken: Annotated[str, _aws_pattern("MedicalImaging", "ClientToken")]
+    datastoreName: Optional[Annotated[str, _aws_pattern("MedicalImaging", "DatastoreName")]] = None
     tags: Optional[Dict[str, str]] = None
-    kmsKeyArn: Optional[str] = None
-    lambdaAuthorizerArn: Optional[str] = None
+    kmsKeyArn: Optional[Annotated[str, _aws_pattern("MedicalImaging", "KmsKeyArn")]] = None
+    lambdaAuthorizerArn: Optional[Annotated[str, _aws_pattern("MedicalImaging", "LambdaArn")]] = None
     losslessStorageFormat: Optional[LosslessStorageFormatType] = None
 
 
-class DICOMImportJobPropertiesTypeDef(BaseValidatorModel):
-    jobId: str
-    jobName: str
-    jobStatus: JobStatusType
-    datastoreId: str
-    dataAccessRoleArn: str
-    inputS3Uri: str
-    outputS3Uri: str
-    endedAt: Optional[datetime] = None
-    submittedAt: Optional[datetime] = None
-    message: Optional[str] = None
-
-
 class DICOMImportJobSummaryTypeDef(BaseValidatorModel):
-    jobId: str
-    jobName: str
+    jobId: Annotated[str, _aws_pattern("MedicalImaging", "JobId")]
+    jobName: Annotated[str, _aws_pattern("MedicalImaging", "JobName")]
     jobStatus: JobStatusType
-    datastoreId: str
-    dataAccessRoleArn: Optional[str] = None
+    datastoreId: Annotated[str, _aws_pattern("MedicalImaging", "DatastoreId")]
+    dataAccessRoleArn: Optional[Annotated[str, _aws_pattern("MedicalImaging", "RoleArn")]] = None
     endedAt: Optional[datetime] = None
     submittedAt: Optional[datetime] = None
-    message: Optional[str] = None
+    message: Optional[Annotated[str, _aws_pattern("MedicalImaging", "Message")]] = None
 
 
 class DICOMStudyDateAndTimeTypeDef(BaseValidatorModel):
@@ -121,13 +110,13 @@ class DICOMTagsTypeDef(BaseValidatorModel):
     DICOMPatientName: Optional[str] = None
     DICOMPatientBirthDate: Optional[str] = None
     DICOMPatientSex: Optional[str] = None
-    DICOMStudyInstanceUID: Optional[str] = None
+    DICOMStudyInstanceUID: Optional[Annotated[str, _aws_pattern("MedicalImaging", "DICOMStudyInstanceUID")]] = None
     DICOMStudyId: Optional[str] = None
     DICOMStudyDescription: Optional[str] = None
     DICOMNumberOfStudyRelatedSeries: Optional[int] = None
     DICOMNumberOfStudyRelatedInstances: Optional[int] = None
     DICOMAccessionNumber: Optional[str] = None
-    DICOMSeriesInstanceUID: Optional[str] = None
+    DICOMSeriesInstanceUID: Optional[Annotated[str, _aws_pattern("MedicalImaging", "DICOMSeriesInstanceUID")]] = None
     DICOMSeriesModality: Optional[str] = None
     DICOMSeriesBodyPart: Optional[str] = None
     DICOMSeriesNumber: Optional[int] = None
@@ -136,64 +125,70 @@ class DICOMTagsTypeDef(BaseValidatorModel):
 
 
 class DatastorePropertiesTypeDef(BaseValidatorModel):
-    datastoreId: str
-    datastoreName: str
+    datastoreId: Annotated[str, _aws_pattern("MedicalImaging", "DatastoreId")]
+    datastoreName: Annotated[str, _aws_pattern("MedicalImaging", "DatastoreName")]
     datastoreStatus: DatastoreStatusType
-    kmsKeyArn: Optional[str] = None
-    lambdaAuthorizerArn: Optional[str] = None
+    kmsKeyArn: Optional[Annotated[str, _aws_pattern("MedicalImaging", "KmsKeyArn")]] = None
+    lambdaAuthorizerArn: Optional[Annotated[str, _aws_pattern("MedicalImaging", "LambdaArn")]] = None
     losslessStorageFormat: Optional[LosslessStorageFormatType] = None
-    datastoreArn: Optional[str] = None
+    datastoreArn: Optional[Annotated[str, _aws_pattern("MedicalImaging", "Arn")]] = None
     createdAt: Optional[datetime] = None
     updatedAt: Optional[datetime] = None
 
 
 class DatastoreSummaryTypeDef(BaseValidatorModel):
-    datastoreId: str
-    datastoreName: str
+    datastoreId: Annotated[str, _aws_pattern("MedicalImaging", "DatastoreId")]
+    datastoreName: Annotated[str, _aws_pattern("MedicalImaging", "DatastoreName")]
     datastoreStatus: DatastoreStatusType
-    datastoreArn: Optional[str] = None
+    datastoreArn: Optional[Annotated[str, _aws_pattern("MedicalImaging", "Arn")]] = None
     createdAt: Optional[datetime] = None
     updatedAt: Optional[datetime] = None
 
 
 # This class is the input for the 'delete_datastore' function.
 class DeleteDatastoreRequestTypeDef(BaseValidatorModel):
-    datastoreId: str
+    datastoreId: Annotated[str, _aws_pattern("MedicalImaging", "DatastoreId")]
 
 
 # This class is the input for the 'delete_image_set' function.
 class DeleteImageSetRequestTypeDef(BaseValidatorModel):
-    datastoreId: str
-    imageSetId: str
+    datastoreId: Annotated[str, _aws_pattern("MedicalImaging", "DatastoreId")]
+    imageSetId: Annotated[str, _aws_pattern("MedicalImaging", "ImageSetId")]
+
+
+class DicomMetadataMappingTypeDef(BaseValidatorModel):
+    studyInstanceUID: Annotated[str, _aws_pattern("MedicalImaging", "DICOMStudyInstanceUID")]
+    metadataFilePath: Annotated[str, _aws_pattern("MedicalImaging", "MetadataFilePath")]
+    seriesInstanceUID: Optional[Annotated[str, _aws_pattern("MedicalImaging", "DICOMSeriesInstanceUID")]] = None
 
 
 # This class is the input for the 'get_dicom_import_job' function.
 class GetDICOMImportJobRequestTypeDef(BaseValidatorModel):
-    datastoreId: str
-    jobId: str
+    datastoreId: Annotated[str, _aws_pattern("MedicalImaging", "DatastoreId")]
+    jobId: Annotated[str, _aws_pattern("MedicalImaging", "JobId")]
 
 
 # This class is the input for the 'get_datastore' function.
 class GetDatastoreRequestTypeDef(BaseValidatorModel):
-    datastoreId: str
+    datastoreId: Annotated[str, _aws_pattern("MedicalImaging", "DatastoreId")]
 
 
 class ImageFrameInformationTypeDef(BaseValidatorModel):
-    imageFrameId: str
+    imageFrameId: Annotated[str, _aws_pattern("MedicalImaging", "ImageFrameId")]
 
 
 # This class is the input for the 'get_image_set_metadata' function.
 class GetImageSetMetadataRequestTypeDef(BaseValidatorModel):
-    datastoreId: str
-    imageSetId: str
-    versionId: Optional[str] = None
+    datastoreId: Annotated[str, _aws_pattern("MedicalImaging", "DatastoreId")]
+    imageSetId: Annotated[str, _aws_pattern("MedicalImaging", "ImageSetId")]
+    versionId: Optional[Annotated[str, _aws_pattern("MedicalImaging", "ImageSetExternalVersionId")]] = None
 
 
 # This class is the input for the 'get_image_set' function.
 class GetImageSetRequestTypeDef(BaseValidatorModel):
-    datastoreId: str
-    imageSetId: str
-    versionId: Optional[str] = None
+    datastoreId: Annotated[str, _aws_pattern("MedicalImaging", "DatastoreId")]
+    imageSetId: Annotated[str, _aws_pattern("MedicalImaging", "ImageSetId")]
+    versionId: Optional[Annotated[str, _aws_pattern("MedicalImaging", "ImageSetExternalVersionId")]] = None
 
 
 class OverridesTypeDef(BaseValidatorModel):
@@ -208,30 +203,30 @@ class PaginatorConfigTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'list_dicom_import_jobs' function.
 class ListDICOMImportJobsRequestTypeDef(BaseValidatorModel):
-    datastoreId: str
+    datastoreId: Annotated[str, _aws_pattern("MedicalImaging", "DatastoreId")]
     jobStatus: Optional[JobStatusType] = None
-    nextToken: Optional[str] = None
+    nextToken: Optional[Annotated[str, _aws_pattern("MedicalImaging", "NextToken")]] = None
     maxResults: Optional[int] = None
 
 
 # This class is the input for the 'list_datastores' function.
 class ListDatastoresRequestTypeDef(BaseValidatorModel):
     datastoreStatus: Optional[DatastoreStatusType] = None
-    nextToken: Optional[str] = None
+    nextToken: Optional[Annotated[str, _aws_pattern("MedicalImaging", "NextToken")]] = None
     maxResults: Optional[int] = None
 
 
 # This class is the input for the 'list_image_set_versions' function.
 class ListImageSetVersionsRequestTypeDef(BaseValidatorModel):
-    datastoreId: str
-    imageSetId: str
-    nextToken: Optional[str] = None
+    datastoreId: Annotated[str, _aws_pattern("MedicalImaging", "DatastoreId")]
+    imageSetId: Annotated[str, _aws_pattern("MedicalImaging", "ImageSetId")]
+    nextToken: Optional[Annotated[str, _aws_pattern("MedicalImaging", "NextToken")]] = None
     maxResults: Optional[int] = None
 
 
 # This class is the input for the 'list_tags_for_resource' function.
 class ListTagsForResourceRequestTypeDef(BaseValidatorModel):
-    resourceArn: str
+    resourceArn: Annotated[str, _aws_pattern("MedicalImaging", "Arn")]
 
 
 TimestampTypeDef = Union[datetime, str]
@@ -242,25 +237,14 @@ class SortTypeDef(BaseValidatorModel):
     sortField: SortFieldType
 
 
-# This class is the input for the 'start_dicom_import_job' function.
-class StartDICOMImportJobRequestTypeDef(BaseValidatorModel):
-    dataAccessRoleArn: str
-    clientToken: str
-    datastoreId: str
-    inputS3Uri: str
-    outputS3Uri: str
-    jobName: Optional[str] = None
-    inputOwnerAccountId: Optional[str] = None
-
-
 class TagResourceRequestTypeDef(BaseValidatorModel):
-    resourceArn: str
+    resourceArn: Annotated[str, _aws_pattern("MedicalImaging", "Arn")]
     tags: Dict[str, str]
 
 
 class UntagResourceRequestTypeDef(BaseValidatorModel):
-    resourceArn: str
-    tagKeys: List[str]
+    resourceArn: Annotated[str, _aws_pattern("MedicalImaging", "Arn")]
+    tagKeys: List[Annotated[str, _aws_pattern("MedicalImaging", "TagKey")]]
 
 
 class DICOMUpdatesTypeDef(BaseValidatorModel):
@@ -270,7 +254,7 @@ class DICOMUpdatesTypeDef(BaseValidatorModel):
 
 # This class is the output for the 'copy_image_set' function.
 class CopyImageSetResponseTypeDef(BaseValidatorModel):
-    datastoreId: str
+    datastoreId: Annotated[str, _aws_pattern("MedicalImaging", "DatastoreId")]
     sourceImageSetProperties: CopySourceImageSetPropertiesTypeDef
     destinationImageSetProperties: CopyDestinationImageSetPropertiesTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
@@ -278,22 +262,22 @@ class CopyImageSetResponseTypeDef(BaseValidatorModel):
 
 # This class is the output for the 'create_datastore' function.
 class CreateDatastoreResponseTypeDef(BaseValidatorModel):
-    datastoreId: str
+    datastoreId: Annotated[str, _aws_pattern("MedicalImaging", "DatastoreId")]
     datastoreStatus: DatastoreStatusType
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 # This class is the output for the 'delete_datastore' function.
 class DeleteDatastoreResponseTypeDef(BaseValidatorModel):
-    datastoreId: str
+    datastoreId: Annotated[str, _aws_pattern("MedicalImaging", "DatastoreId")]
     datastoreStatus: DatastoreStatusType
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 # This class is the output for the 'delete_image_set' function.
 class DeleteImageSetResponseTypeDef(BaseValidatorModel):
-    datastoreId: str
-    imageSetId: str
+    datastoreId: Annotated[str, _aws_pattern("MedicalImaging", "DatastoreId")]
+    imageSetId: Annotated[str, _aws_pattern("MedicalImaging", "ImageSetId")]
     imageSetState: ImageSetStateType
     imageSetWorkflowStatus: ImageSetWorkflowStatusType
     ResponseMetadata: ResponseMetadataTypeDef
@@ -322,8 +306,8 @@ class ListTagsForResourceResponseTypeDef(BaseValidatorModel):
 
 # This class is the output for the 'start_dicom_import_job' function.
 class StartDICOMImportJobResponseTypeDef(BaseValidatorModel):
-    datastoreId: str
-    jobId: str
+    datastoreId: Annotated[str, _aws_pattern("MedicalImaging", "DatastoreId")]
+    jobId: Annotated[str, _aws_pattern("MedicalImaging", "JobId")]
     jobStatus: JobStatusType
     submittedAt: datetime
     ResponseMetadata: ResponseMetadataTypeDef
@@ -331,37 +315,31 @@ class StartDICOMImportJobResponseTypeDef(BaseValidatorModel):
 
 # This class is the output for the 'update_image_set_metadata' function.
 class UpdateImageSetMetadataResponseTypeDef(BaseValidatorModel):
-    datastoreId: str
-    imageSetId: str
-    latestVersionId: str
+    datastoreId: Annotated[str, _aws_pattern("MedicalImaging", "DatastoreId")]
+    imageSetId: Annotated[str, _aws_pattern("MedicalImaging", "ImageSetId")]
+    latestVersionId: Annotated[str, _aws_pattern("MedicalImaging", "ImageSetExternalVersionId")]
     imageSetState: ImageSetStateType
     imageSetWorkflowStatus: ImageSetWorkflowStatusType
     createdAt: datetime
     updatedAt: datetime
-    message: str
+    message: Annotated[str, _aws_pattern("MedicalImaging", "Message")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 class CopySourceImageSetInformationTypeDef(BaseValidatorModel):
-    latestVersionId: str
+    latestVersionId: Annotated[str, _aws_pattern("MedicalImaging", "ImageSetExternalVersionId")]
     DICOMCopies: Optional[MetadataCopiesTypeDef] = None
-
-
-# This class is the output for the 'get_dicom_import_job' function.
-class GetDICOMImportJobResponseTypeDef(BaseValidatorModel):
-    jobProperties: DICOMImportJobPropertiesTypeDef
-    ResponseMetadata: ResponseMetadataTypeDef
 
 
 # This class is the output for the 'list_dicom_import_jobs' function.
 class ListDICOMImportJobsResponseTypeDef(BaseValidatorModel):
     jobSummaries: List[DICOMImportJobSummaryTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
-    nextToken: Optional[str] = None
+    nextToken: Optional[Annotated[str, _aws_pattern("MedicalImaging", "NextToken")]] = None
 
 
 class ImageSetsMetadataSummaryTypeDef(BaseValidatorModel):
-    imageSetId: str
+    imageSetId: Annotated[str, _aws_pattern("MedicalImaging", "ImageSetId")]
     version: Optional[int] = None
     createdAt: Optional[datetime] = None
     updatedAt: Optional[datetime] = None
@@ -381,28 +359,36 @@ class GetDatastoreResponseTypeDef(BaseValidatorModel):
 class ListDatastoresResponseTypeDef(BaseValidatorModel):
     datastoreSummaries: List[DatastoreSummaryTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
-    nextToken: Optional[str] = None
+    nextToken: Optional[Annotated[str, _aws_pattern("MedicalImaging", "NextToken")]] = None
+
+
+class DicomJsonMetadataImportConfigurationOutputTypeDef(BaseValidatorModel):
+    dicomMetadataMappings: List[DicomMetadataMappingTypeDef]
+
+
+class DicomJsonMetadataImportConfigurationTypeDef(BaseValidatorModel):
+    dicomMetadataMappings: List[DicomMetadataMappingTypeDef]
 
 
 # This class is the input for the 'get_image_frame' function.
 class GetImageFrameRequestTypeDef(BaseValidatorModel):
-    datastoreId: str
-    imageSetId: str
+    datastoreId: Annotated[str, _aws_pattern("MedicalImaging", "DatastoreId")]
+    imageSetId: Annotated[str, _aws_pattern("MedicalImaging", "ImageSetId")]
     imageFrameInformation: ImageFrameInformationTypeDef
 
 
 # This class is the output for the 'get_image_set' function.
 class GetImageSetResponseTypeDef(BaseValidatorModel):
-    datastoreId: str
-    imageSetId: str
-    versionId: str
+    datastoreId: Annotated[str, _aws_pattern("MedicalImaging", "DatastoreId")]
+    imageSetId: Annotated[str, _aws_pattern("MedicalImaging", "ImageSetId")]
+    versionId: Annotated[str, _aws_pattern("MedicalImaging", "ImageSetExternalVersionId")]
     imageSetState: ImageSetStateType
     imageSetWorkflowStatus: ImageSetWorkflowStatusType
     createdAt: datetime
     updatedAt: datetime
     deletedAt: datetime
-    message: str
-    imageSetArn: str
+    message: Annotated[str, _aws_pattern("MedicalImaging", "Message")]
+    imageSetArn: Annotated[str, _aws_pattern("MedicalImaging", "Arn")]
     overrides: OverridesTypeDef
     isPrimary: bool
     lastAccessedAt: datetime
@@ -411,14 +397,14 @@ class GetImageSetResponseTypeDef(BaseValidatorModel):
 
 
 class ImageSetPropertiesTypeDef(BaseValidatorModel):
-    imageSetId: str
-    versionId: str
+    imageSetId: Annotated[str, _aws_pattern("MedicalImaging", "ImageSetId")]
+    versionId: Annotated[str, _aws_pattern("MedicalImaging", "ImageSetExternalVersionId")]
     imageSetState: ImageSetStateType
     ImageSetWorkflowStatus: Optional[ImageSetWorkflowStatusType] = None
     createdAt: Optional[datetime] = None
     updatedAt: Optional[datetime] = None
     deletedAt: Optional[datetime] = None
-    message: Optional[str] = None
+    message: Optional[Annotated[str, _aws_pattern("MedicalImaging", "Message")]] = None
     overrides: Optional[OverridesTypeDef] = None
     isPrimary: Optional[bool] = None
 
@@ -444,8 +430,8 @@ class SearchByAttributeValueTypeDef(BaseValidatorModel):
     DICOMPatientId: Optional[str] = None
     DICOMAccessionNumber: Optional[str] = None
     DICOMStudyId: Optional[str] = None
-    DICOMStudyInstanceUID: Optional[str] = None
-    DICOMSeriesInstanceUID: Optional[str] = None
+    DICOMStudyInstanceUID: Optional[Annotated[str, _aws_pattern("MedicalImaging", "DICOMStudyInstanceUID")]] = None
+    DICOMSeriesInstanceUID: Optional[Annotated[str, _aws_pattern("MedicalImaging", "DICOMSeriesInstanceUID")]] = None
     createdAt: Optional[TimestampTypeDef] = None
     updatedAt: Optional[TimestampTypeDef] = None
     DICOMStudyDateAndTime: Optional[DICOMStudyDateAndTimeTypeDef] = None
@@ -454,7 +440,7 @@ class SearchByAttributeValueTypeDef(BaseValidatorModel):
 
 class MetadataUpdatesTypeDef(BaseValidatorModel):
     DICOMUpdates: Optional[DICOMUpdatesTypeDef] = None
-    revertToVersionId: Optional[str] = None
+    revertToVersionId: Optional[Annotated[str, _aws_pattern("MedicalImaging", "ImageSetExternalVersionId")]] = None
 
 
 class CopyImageSetInformationTypeDef(BaseValidatorModel):
@@ -467,14 +453,22 @@ class SearchImageSetsResponseTypeDef(BaseValidatorModel):
     imageSetsMetadataSummaries: List[ImageSetsMetadataSummaryTypeDef]
     sort: SortTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
-    nextToken: Optional[str] = None
+    nextToken: Optional[Annotated[str, _aws_pattern("MedicalImaging", "NextToken")]] = None
+
+
+class ImportConfigurationOutputTypeDef(BaseValidatorModel):
+    dicomJsonMetadataImportConfiguration: Optional[DicomJsonMetadataImportConfigurationOutputTypeDef] = None
+
+
+class ImportConfigurationTypeDef(BaseValidatorModel):
+    dicomJsonMetadataImportConfiguration: Optional[DicomJsonMetadataImportConfigurationTypeDef] = None
 
 
 # This class is the output for the 'list_image_set_versions' function.
 class ListImageSetVersionsResponseTypeDef(BaseValidatorModel):
     imageSetPropertiesList: List[ImageSetPropertiesTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
-    nextToken: Optional[str] = None
+    nextToken: Optional[Annotated[str, _aws_pattern("MedicalImaging", "NextToken")]] = None
 
 
 class SearchFilterTypeDef(BaseValidatorModel):
@@ -484,9 +478,9 @@ class SearchFilterTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'update_image_set_metadata' function.
 class UpdateImageSetMetadataRequestTypeDef(BaseValidatorModel):
-    datastoreId: str
-    imageSetId: str
-    latestVersionId: str
+    datastoreId: Annotated[str, _aws_pattern("MedicalImaging", "DatastoreId")]
+    imageSetId: Annotated[str, _aws_pattern("MedicalImaging", "ImageSetId")]
+    latestVersionId: Annotated[str, _aws_pattern("MedicalImaging", "ImageSetExternalVersionId")]
     updateImageSetMetadataUpdates: MetadataUpdatesTypeDef
     force: Optional[bool] = None
     includeStudyImageSets: Optional[bool] = None
@@ -494,16 +488,51 @@ class UpdateImageSetMetadataRequestTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'copy_image_set' function.
 class CopyImageSetRequestTypeDef(BaseValidatorModel):
-    datastoreId: str
-    sourceImageSetId: str
+    datastoreId: Annotated[str, _aws_pattern("MedicalImaging", "DatastoreId")]
+    sourceImageSetId: Annotated[str, _aws_pattern("MedicalImaging", "ImageSetId")]
     copyImageSetInformation: CopyImageSetInformationTypeDef
     force: Optional[bool] = None
     promoteToPrimary: Optional[bool] = None
 
 
+class DICOMImportJobPropertiesTypeDef(BaseValidatorModel):
+    jobId: Annotated[str, _aws_pattern("MedicalImaging", "JobId")]
+    jobName: Annotated[str, _aws_pattern("MedicalImaging", "JobName")]
+    jobStatus: JobStatusType
+    datastoreId: Annotated[str, _aws_pattern("MedicalImaging", "DatastoreId")]
+    dataAccessRoleArn: Annotated[str, _aws_pattern("MedicalImaging", "RoleArn")]
+    inputS3Uri: Annotated[str, _aws_pattern("MedicalImaging", "S3Uri")]
+    outputS3Uri: Annotated[str, _aws_pattern("MedicalImaging", "S3Uri")]
+    endedAt: Optional[datetime] = None
+    submittedAt: Optional[datetime] = None
+    message: Optional[Annotated[str, _aws_pattern("MedicalImaging", "Message")]] = None
+    importConfiguration: Optional[ImportConfigurationOutputTypeDef] = None
+
+
+ImportConfigurationUnionTypeDef = Union[ImportConfigurationOutputTypeDef, ImportConfigurationTypeDef]
+
+
 class SearchCriteriaTypeDef(BaseValidatorModel):
     filters: Optional[List[SearchFilterTypeDef]] = None
     sort: Optional[SortTypeDef] = None
+
+
+# This class is the output for the 'get_dicom_import_job' function.
+class GetDICOMImportJobResponseTypeDef(BaseValidatorModel):
+    jobProperties: DICOMImportJobPropertiesTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+
+# This class is the input for the 'start_dicom_import_job' function.
+class StartDICOMImportJobRequestTypeDef(BaseValidatorModel):
+    dataAccessRoleArn: Annotated[str, _aws_pattern("MedicalImaging", "RoleArn")]
+    clientToken: Annotated[str, _aws_pattern("MedicalImaging", "ClientToken")]
+    datastoreId: Annotated[str, _aws_pattern("MedicalImaging", "DatastoreId")]
+    inputS3Uri: Annotated[str, _aws_pattern("MedicalImaging", "S3Uri")]
+    outputS3Uri: Annotated[str, _aws_pattern("MedicalImaging", "S3Uri")]
+    jobName: Optional[Annotated[str, _aws_pattern("MedicalImaging", "JobName")]] = None
+    inputOwnerAccountId: Optional[Annotated[str, _aws_pattern("MedicalImaging", "AwsAccountId")]] = None
+    importConfiguration: Optional[ImportConfigurationUnionTypeDef] = None
 
 
 class SearchImageSetsRequestPaginateTypeDef(BaseValidatorModel):
@@ -514,7 +543,7 @@ class SearchImageSetsRequestPaginateTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'search_image_sets' function.
 class SearchImageSetsRequestTypeDef(BaseValidatorModel):
-    datastoreId: str
+    datastoreId: Annotated[str, _aws_pattern("MedicalImaging", "DatastoreId")]
     searchCriteria: Optional[SearchCriteriaTypeDef] = None
     maxResults: Optional[int] = None
-    nextToken: Optional[str] = None
+    nextToken: Optional[Annotated[str, _aws_pattern("MedicalImaging", "NextToken")]] = None

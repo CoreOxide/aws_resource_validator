@@ -3,6 +3,7 @@
 from datetime import datetime
 from decimal import Decimal
 from typing import (
+    Annotated,
     Any,
     Callable,
     Dict,
@@ -24,6 +25,7 @@ from botocore.response import StreamingBody
 from pydantic import Field
 
 from aws_resource_validator.core.base_validator_model import BaseValidatorModel, EventStream
+from aws_resource_validator.core.pattern_validation import aws_field_pattern as _aws_pattern
 from aws_resource_validator.pydantic_models.bcm_pricing_calculator.bcm_pricing_calculator_constants import *  # noqa: F401,F403
 
 # Optional boto3 symbols — imported lazily so services that don't need them
@@ -39,17 +41,17 @@ except ImportError:  # pragma: no cover
 
 
 class AddReservedInstanceActionTypeDef(BaseValidatorModel):
-    reservedInstancesOfferingId: Optional[str] = None
+    reservedInstancesOfferingId: Optional[Annotated[str, _aws_pattern("BcmPricingCalculator", "Uuid")]] = None
     instanceCount: Optional[int] = None
 
 
 class AddSavingsPlanActionTypeDef(BaseValidatorModel):
-    savingsPlanOfferingId: Optional[str] = None
+    savingsPlanOfferingId: Optional[Annotated[str, _aws_pattern("BcmPricingCalculator", "Uuid")]] = None
     commitment: Optional[float] = None
 
 
 class BatchCreateBillScenarioCommitmentModificationErrorTypeDef(BaseValidatorModel):
-    key: Optional[str] = None
+    key: Optional[Annotated[str, _aws_pattern("BcmPricingCalculator", "Key")]] = None
     errorMessage: Optional[str] = None
     errorCode: Optional[BatchCreateBillScenarioCommitmentModificationErrorCodeType] = None
 
@@ -63,7 +65,7 @@ class ResponseMetadataTypeDef(BaseValidatorModel):
 
 
 class BatchCreateBillScenarioUsageModificationErrorTypeDef(BaseValidatorModel):
-    key: Optional[str] = None
+    key: Optional[Annotated[str, _aws_pattern("BcmPricingCalculator", "Key")]] = None
     errorMessage: Optional[str] = None
     errorCode: Optional[BatchCreateBillScenarioUsageModificationErrorCodeType] = None
 
@@ -75,7 +77,7 @@ class UsageQuantityTypeDef(BaseValidatorModel):
 
 
 class BatchCreateWorkloadEstimateUsageErrorTypeDef(BaseValidatorModel):
-    key: Optional[str] = None
+    key: Optional[Annotated[str, _aws_pattern("BcmPricingCalculator", "Key")]] = None
     errorCode: Optional[BatchCreateWorkloadEstimateUsageCodeType] = None
     errorMessage: Optional[str] = None
 
@@ -86,66 +88,66 @@ class WorkloadEstimateUsageQuantityTypeDef(BaseValidatorModel):
 
 
 class BatchDeleteBillScenarioCommitmentModificationErrorTypeDef(BaseValidatorModel):
-    id: Optional[str] = None
+    id: Optional[Annotated[str, _aws_pattern("BcmPricingCalculator", "ResourceId")]] = None
     errorCode: Optional[BatchDeleteBillScenarioCommitmentModificationErrorCodeType] = None
     errorMessage: Optional[str] = None
 
 
 # This class is the input for the 'batch_delete_bill_scenario_commitment_modification' function.
 class BatchDeleteBillScenarioCommitmentModificationRequestTypeDef(BaseValidatorModel):
-    billScenarioId: str
-    ids: List[str]
+    billScenarioId: Annotated[str, _aws_pattern("BcmPricingCalculator", "ResourceId")]
+    ids: List[Annotated[str, _aws_pattern("BcmPricingCalculator", "ResourceId")]]
 
 
 class BatchDeleteBillScenarioUsageModificationErrorTypeDef(BaseValidatorModel):
-    id: Optional[str] = None
+    id: Optional[Annotated[str, _aws_pattern("BcmPricingCalculator", "ResourceId")]] = None
     errorMessage: Optional[str] = None
     errorCode: Optional[BatchDeleteBillScenarioUsageModificationErrorCodeType] = None
 
 
 # This class is the input for the 'batch_delete_bill_scenario_usage_modification' function.
 class BatchDeleteBillScenarioUsageModificationRequestTypeDef(BaseValidatorModel):
-    billScenarioId: str
-    ids: List[str]
+    billScenarioId: Annotated[str, _aws_pattern("BcmPricingCalculator", "ResourceId")]
+    ids: List[Annotated[str, _aws_pattern("BcmPricingCalculator", "ResourceId")]]
 
 
 class BatchDeleteWorkloadEstimateUsageErrorTypeDef(BaseValidatorModel):
-    id: Optional[str] = None
+    id: Optional[Annotated[str, _aws_pattern("BcmPricingCalculator", "ResourceId")]] = None
     errorMessage: Optional[str] = None
     errorCode: Optional[WorkloadEstimateUpdateUsageErrorCodeType] = None
 
 
 # This class is the input for the 'batch_delete_workload_estimate_usage' function.
 class BatchDeleteWorkloadEstimateUsageRequestTypeDef(BaseValidatorModel):
-    workloadEstimateId: str
-    ids: List[str]
+    workloadEstimateId: Annotated[str, _aws_pattern("BcmPricingCalculator", "ResourceId")]
+    ids: List[Annotated[str, _aws_pattern("BcmPricingCalculator", "ResourceId")]]
 
 
 class BatchUpdateBillScenarioCommitmentModificationEntryTypeDef(BaseValidatorModel):
-    id: str
-    group: Optional[str] = None
+    id: Annotated[str, _aws_pattern("BcmPricingCalculator", "ResourceId")]
+    group: Optional[Annotated[str, _aws_pattern("BcmPricingCalculator", "UsageGroup")]] = None
 
 
 class BatchUpdateBillScenarioCommitmentModificationErrorTypeDef(BaseValidatorModel):
-    id: Optional[str] = None
+    id: Optional[Annotated[str, _aws_pattern("BcmPricingCalculator", "ResourceId")]] = None
     errorCode: Optional[BatchUpdateBillScenarioCommitmentModificationErrorCodeType] = None
     errorMessage: Optional[str] = None
 
 
 class BatchUpdateBillScenarioUsageModificationErrorTypeDef(BaseValidatorModel):
-    id: Optional[str] = None
+    id: Optional[Annotated[str, _aws_pattern("BcmPricingCalculator", "ResourceId")]] = None
     errorMessage: Optional[str] = None
     errorCode: Optional[BatchUpdateBillScenarioUsageModificationErrorCodeType] = None
 
 
 class BatchUpdateWorkloadEstimateUsageEntryTypeDef(BaseValidatorModel):
-    id: str
-    group: Optional[str] = None
+    id: Annotated[str, _aws_pattern("BcmPricingCalculator", "ResourceId")]
+    group: Optional[Annotated[str, _aws_pattern("BcmPricingCalculator", "UsageGroup")]] = None
     amount: Optional[float] = None
 
 
 class BatchUpdateWorkloadEstimateUsageErrorTypeDef(BaseValidatorModel):
-    id: Optional[str] = None
+    id: Optional[Annotated[str, _aws_pattern("BcmPricingCalculator", "ResourceId")]] = None
     errorMessage: Optional[str] = None
     errorCode: Optional[WorkloadEstimateUpdateUsageErrorCodeType] = None
 
@@ -169,48 +171,50 @@ TimestampTypeDef = Union[datetime, str]
 
 
 class NegateReservedInstanceActionTypeDef(BaseValidatorModel):
-    reservedInstancesId: Optional[str] = None
+    reservedInstancesId: Optional[Annotated[str, _aws_pattern("BcmPricingCalculator", "Uuid")]] = None
 
 
 class NegateSavingsPlanActionTypeDef(BaseValidatorModel):
-    savingsPlanId: Optional[str] = None
+    savingsPlanId: Optional[Annotated[str, _aws_pattern("BcmPricingCalculator", "Uuid")]] = None
 
 
 # This class is the input for the 'create_bill_estimate' function.
 class CreateBillEstimateRequestTypeDef(BaseValidatorModel):
-    billScenarioId: str
-    name: str
-    clientToken: Optional[str] = None
+    billScenarioId: Annotated[str, _aws_pattern("BcmPricingCalculator", "ResourceId")]
+    name: Annotated[str, _aws_pattern("BcmPricingCalculator", "BillEstimateName")]
+    clientToken: Optional[Annotated[str, _aws_pattern("BcmPricingCalculator", "ClientToken")]] = None
     tags: Optional[Dict[str, str]] = None
 
 
 # This class is the input for the 'create_bill_scenario' function.
 class CreateBillScenarioRequestTypeDef(BaseValidatorModel):
-    name: str
-    clientToken: Optional[str] = None
+    name: Annotated[str, _aws_pattern("BcmPricingCalculator", "BillScenarioName")]
+    clientToken: Optional[Annotated[str, _aws_pattern("BcmPricingCalculator", "ClientToken")]] = None
     tags: Optional[Dict[str, str]] = None
     groupSharingPreference: Optional[GroupSharingPreferenceEnumType] = None
-    costCategoryGroupSharingPreferenceArn: Optional[str] = None
+    costCategoryGroupSharingPreferenceArn: Optional[
+        Annotated[str, _aws_pattern("BcmPricingCalculator", "CostCategoryArn")]
+    ] = None
 
 
 # This class is the input for the 'create_workload_estimate' function.
 class CreateWorkloadEstimateRequestTypeDef(BaseValidatorModel):
-    name: str
-    clientToken: Optional[str] = None
+    name: Annotated[str, _aws_pattern("BcmPricingCalculator", "WorkloadEstimateName")]
+    clientToken: Optional[Annotated[str, _aws_pattern("BcmPricingCalculator", "ClientToken")]] = None
     rateType: Optional[WorkloadEstimateRateTypeType] = None
     tags: Optional[Dict[str, str]] = None
 
 
 class DeleteBillEstimateRequestTypeDef(BaseValidatorModel):
-    identifier: str
+    identifier: Annotated[str, _aws_pattern("BcmPricingCalculator", "ResourceId")]
 
 
 class DeleteBillScenarioRequestTypeDef(BaseValidatorModel):
-    identifier: str
+    identifier: Annotated[str, _aws_pattern("BcmPricingCalculator", "ResourceId")]
 
 
 class DeleteWorkloadEstimateRequestTypeDef(BaseValidatorModel):
-    identifier: str
+    identifier: Annotated[str, _aws_pattern("BcmPricingCalculator", "ResourceId")]
 
 
 class ExpressionFilterOutputTypeDef(BaseValidatorModel):
@@ -227,17 +231,17 @@ class ExpressionFilterTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'get_bill_estimate' function.
 class GetBillEstimateRequestTypeDef(BaseValidatorModel):
-    identifier: str
+    identifier: Annotated[str, _aws_pattern("BcmPricingCalculator", "ResourceId")]
 
 
 # This class is the input for the 'get_bill_scenario' function.
 class GetBillScenarioRequestTypeDef(BaseValidatorModel):
-    identifier: str
+    identifier: Annotated[str, _aws_pattern("BcmPricingCalculator", "ResourceId")]
 
 
 # This class is the input for the 'get_workload_estimate' function.
 class GetWorkloadEstimateRequestTypeDef(BaseValidatorModel):
-    identifier: str
+    identifier: Annotated[str, _aws_pattern("BcmPricingCalculator", "ResourceId")]
 
 
 class PaginatorConfigTypeDef(BaseValidatorModel):
@@ -248,15 +252,15 @@ class PaginatorConfigTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'list_bill_estimate_commitments' function.
 class ListBillEstimateCommitmentsRequestTypeDef(BaseValidatorModel):
-    billEstimateId: str
-    nextToken: Optional[str] = None
+    billEstimateId: Annotated[str, _aws_pattern("BcmPricingCalculator", "ResourceId")]
+    nextToken: Optional[Annotated[str, _aws_pattern("BcmPricingCalculator", "NextPageToken")]] = None
     maxResults: Optional[int] = None
 
 
 # This class is the input for the 'list_bill_estimate_input_commitment_modifications' function.
 class ListBillEstimateInputCommitmentModificationsRequestTypeDef(BaseValidatorModel):
-    billEstimateId: str
-    nextToken: Optional[str] = None
+    billEstimateId: Annotated[str, _aws_pattern("BcmPricingCalculator", "ResourceId")]
+    nextToken: Optional[Annotated[str, _aws_pattern("BcmPricingCalculator", "NextPageToken")]] = None
     maxResults: Optional[int] = None
 
 
@@ -280,8 +284,8 @@ class ListBillEstimatesFilterTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'list_bill_scenario_commitment_modifications' function.
 class ListBillScenarioCommitmentModificationsRequestTypeDef(BaseValidatorModel):
-    billScenarioId: str
-    nextToken: Optional[str] = None
+    billScenarioId: Annotated[str, _aws_pattern("BcmPricingCalculator", "ResourceId")]
+    nextToken: Optional[Annotated[str, _aws_pattern("BcmPricingCalculator", "NextPageToken")]] = None
     maxResults: Optional[int] = None
 
 
@@ -293,7 +297,7 @@ class ListBillScenariosFilterTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'list_tags_for_resource' function.
 class ListTagsForResourceRequestTypeDef(BaseValidatorModel):
-    arn: str
+    arn: Annotated[str, _aws_pattern("BcmPricingCalculator", "Arn")]
 
 
 class ListWorkloadEstimatesFilterTypeDef(BaseValidatorModel):
@@ -303,8 +307,8 @@ class ListWorkloadEstimatesFilterTypeDef(BaseValidatorModel):
 
 
 class WorkloadEstimateSummaryTypeDef(BaseValidatorModel):
-    id: str
-    name: Optional[str] = None
+    id: Annotated[str, _aws_pattern("BcmPricingCalculator", "ResourceId")]
+    name: Optional[Annotated[str, _aws_pattern("BcmPricingCalculator", "WorkloadEstimateName")]] = None
     createdAt: Optional[datetime] = None
     expiresAt: Optional[datetime] = None
     rateType: Optional[WorkloadEstimateRateTypeType] = None
@@ -316,13 +320,13 @@ class WorkloadEstimateSummaryTypeDef(BaseValidatorModel):
 
 
 class TagResourceRequestTypeDef(BaseValidatorModel):
-    arn: str
+    arn: Annotated[str, _aws_pattern("BcmPricingCalculator", "Arn")]
     tags: Dict[str, str]
 
 
 class UntagResourceRequestTypeDef(BaseValidatorModel):
-    arn: str
-    tagKeys: List[str]
+    arn: Annotated[str, _aws_pattern("BcmPricingCalculator", "Arn")]
+    tagKeys: List[Annotated[str, _aws_pattern("BcmPricingCalculator", "ResourceTagKey")]]
 
 
 # This class is the input for the 'update_preferences' function.
@@ -334,8 +338,8 @@ class UpdatePreferencesRequestTypeDef(BaseValidatorModel):
 
 # This class is the output for the 'create_workload_estimate' function.
 class CreateWorkloadEstimateResponseTypeDef(BaseValidatorModel):
-    id: str
-    name: str
+    id: Annotated[str, _aws_pattern("BcmPricingCalculator", "ResourceId")]
+    name: Annotated[str, _aws_pattern("BcmPricingCalculator", "WorkloadEstimateName")]
     createdAt: datetime
     expiresAt: datetime
     rateType: WorkloadEstimateRateTypeType
@@ -356,8 +360,8 @@ class GetPreferencesResponseTypeDef(BaseValidatorModel):
 
 # This class is the output for the 'get_workload_estimate' function.
 class GetWorkloadEstimateResponseTypeDef(BaseValidatorModel):
-    id: str
-    name: str
+    id: Annotated[str, _aws_pattern("BcmPricingCalculator", "ResourceId")]
+    name: Annotated[str, _aws_pattern("BcmPricingCalculator", "WorkloadEstimateName")]
     createdAt: datetime
     expiresAt: datetime
     rateType: WorkloadEstimateRateTypeType
@@ -385,8 +389,8 @@ class UpdatePreferencesResponseTypeDef(BaseValidatorModel):
 
 # This class is the output for the 'update_workload_estimate' function.
 class UpdateWorkloadEstimateResponseTypeDef(BaseValidatorModel):
-    id: str
-    name: str
+    id: Annotated[str, _aws_pattern("BcmPricingCalculator", "ResourceId")]
+    name: Annotated[str, _aws_pattern("BcmPricingCalculator", "WorkloadEstimateName")]
     createdAt: datetime
     expiresAt: datetime
     rateType: WorkloadEstimateRateTypeType
@@ -418,21 +422,21 @@ class BatchDeleteWorkloadEstimateUsageResponseTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'batch_update_bill_scenario_commitment_modification' function.
 class BatchUpdateBillScenarioCommitmentModificationRequestTypeDef(BaseValidatorModel):
-    billScenarioId: str
+    billScenarioId: Annotated[str, _aws_pattern("BcmPricingCalculator", "ResourceId")]
     commitmentModifications: List[BatchUpdateBillScenarioCommitmentModificationEntryTypeDef]
 
 
 # This class is the input for the 'batch_update_workload_estimate_usage' function.
 class BatchUpdateWorkloadEstimateUsageRequestTypeDef(BaseValidatorModel):
-    workloadEstimateId: str
+    workloadEstimateId: Annotated[str, _aws_pattern("BcmPricingCalculator", "ResourceId")]
     usage: List[BatchUpdateWorkloadEstimateUsageEntryTypeDef]
 
 
 class BillEstimateCommitmentSummaryTypeDef(BaseValidatorModel):
-    id: Optional[str] = None
+    id: Optional[Annotated[str, _aws_pattern("BcmPricingCalculator", "ResourceId")]] = None
     purchaseAgreementType: Optional[PurchaseAgreementTypeType] = None
-    offeringId: Optional[str] = None
-    usageAccountId: Optional[str] = None
+    offeringId: Optional[Annotated[str, _aws_pattern("BcmPricingCalculator", "Uuid")]] = None
+    usageAccountId: Optional[Annotated[str, _aws_pattern("BcmPricingCalculator", "AccountId")]] = None
     region: Optional[str] = None
     termLength: Optional[str] = None
     paymentOption: Optional[str] = None
@@ -446,16 +450,16 @@ class CostDifferenceTypeDef(BaseValidatorModel):
 
 
 class BillEstimateLineItemSummaryTypeDef(BaseValidatorModel):
-    serviceCode: str
-    usageType: str
-    operation: str
+    serviceCode: Annotated[str, _aws_pattern("BcmPricingCalculator", "ServiceCode")]
+    usageType: Annotated[str, _aws_pattern("BcmPricingCalculator", "UsageType")]
+    operation: Annotated[str, _aws_pattern("BcmPricingCalculator", "Operation")]
     location: Optional[str] = None
-    availabilityZone: Optional[str] = None
-    id: Optional[str] = None
+    availabilityZone: Optional[Annotated[str, _aws_pattern("BcmPricingCalculator", "AvailabilityZone")]] = None
+    id: Optional[Annotated[str, _aws_pattern("BcmPricingCalculator", "ResourceId")]] = None
     lineItemId: Optional[str] = None
     lineItemType: Optional[str] = None
-    payerAccountId: Optional[str] = None
-    usageAccountId: Optional[str] = None
+    payerAccountId: Optional[Annotated[str, _aws_pattern("BcmPricingCalculator", "AccountId")]] = None
+    usageAccountId: Optional[Annotated[str, _aws_pattern("BcmPricingCalculator", "AccountId")]] = None
     estimatedUsageQuantity: Optional[UsageQuantityResultTypeDef] = None
     estimatedCost: Optional[CostAmountTypeDef] = None
     historicalUsageQuantity: Optional[UsageQuantityResultTypeDef] = None
@@ -464,8 +468,8 @@ class BillEstimateLineItemSummaryTypeDef(BaseValidatorModel):
 
 
 class BillEstimateSummaryTypeDef(BaseValidatorModel):
-    id: str
-    name: Optional[str] = None
+    id: Annotated[str, _aws_pattern("BcmPricingCalculator", "ResourceId")]
+    name: Optional[Annotated[str, _aws_pattern("BcmPricingCalculator", "BillEstimateName")]] = None
     status: Optional[BillEstimateStatusType] = None
     billInterval: Optional[BillIntervalOutputTypeDef] = None
     createdAt: Optional[datetime] = None
@@ -473,56 +477,58 @@ class BillEstimateSummaryTypeDef(BaseValidatorModel):
 
 
 class BillScenarioSummaryTypeDef(BaseValidatorModel):
-    id: str
-    name: Optional[str] = None
+    id: Annotated[str, _aws_pattern("BcmPricingCalculator", "ResourceId")]
+    name: Optional[Annotated[str, _aws_pattern("BcmPricingCalculator", "BillScenarioName")]] = None
     billInterval: Optional[BillIntervalOutputTypeDef] = None
     status: Optional[BillScenarioStatusType] = None
     createdAt: Optional[datetime] = None
     expiresAt: Optional[datetime] = None
     failureMessage: Optional[str] = None
     groupSharingPreference: Optional[GroupSharingPreferenceEnumType] = None
-    costCategoryGroupSharingPreferenceArn: Optional[str] = None
+    costCategoryGroupSharingPreferenceArn: Optional[
+        Annotated[str, _aws_pattern("BcmPricingCalculator", "CostCategoryArn")]
+    ] = None
 
 
 # This class is the output for the 'create_bill_scenario' function.
 class CreateBillScenarioResponseTypeDef(BaseValidatorModel):
-    id: str
-    name: str
+    id: Annotated[str, _aws_pattern("BcmPricingCalculator", "ResourceId")]
+    name: Annotated[str, _aws_pattern("BcmPricingCalculator", "BillScenarioName")]
     billInterval: BillIntervalOutputTypeDef
     status: BillScenarioStatusType
     createdAt: datetime
     expiresAt: datetime
     failureMessage: str
     groupSharingPreference: GroupSharingPreferenceEnumType
-    costCategoryGroupSharingPreferenceArn: str
+    costCategoryGroupSharingPreferenceArn: Annotated[str, _aws_pattern("BcmPricingCalculator", "CostCategoryArn")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 # This class is the output for the 'get_bill_scenario' function.
 class GetBillScenarioResponseTypeDef(BaseValidatorModel):
-    id: str
-    name: str
+    id: Annotated[str, _aws_pattern("BcmPricingCalculator", "ResourceId")]
+    name: Annotated[str, _aws_pattern("BcmPricingCalculator", "BillScenarioName")]
     billInterval: BillIntervalOutputTypeDef
     status: BillScenarioStatusType
     createdAt: datetime
     expiresAt: datetime
     failureMessage: str
     groupSharingPreference: GroupSharingPreferenceEnumType
-    costCategoryGroupSharingPreferenceArn: str
+    costCategoryGroupSharingPreferenceArn: Annotated[str, _aws_pattern("BcmPricingCalculator", "CostCategoryArn")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 # This class is the output for the 'update_bill_scenario' function.
 class UpdateBillScenarioResponseTypeDef(BaseValidatorModel):
-    id: str
-    name: str
+    id: Annotated[str, _aws_pattern("BcmPricingCalculator", "ResourceId")]
+    name: Annotated[str, _aws_pattern("BcmPricingCalculator", "BillScenarioName")]
     billInterval: BillIntervalOutputTypeDef
     status: BillScenarioStatusType
     createdAt: datetime
     expiresAt: datetime
     failureMessage: str
     groupSharingPreference: GroupSharingPreferenceEnumType
-    costCategoryGroupSharingPreferenceArn: str
+    costCategoryGroupSharingPreferenceArn: Annotated[str, _aws_pattern("BcmPricingCalculator", "CostCategoryArn")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
@@ -538,24 +544,26 @@ class FilterTimestampTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'update_bill_estimate' function.
 class UpdateBillEstimateRequestTypeDef(BaseValidatorModel):
-    identifier: str
-    name: Optional[str] = None
+    identifier: Annotated[str, _aws_pattern("BcmPricingCalculator", "ResourceId")]
+    name: Optional[Annotated[str, _aws_pattern("BcmPricingCalculator", "BillEstimateName")]] = None
     expiresAt: Optional[TimestampTypeDef] = None
 
 
 # This class is the input for the 'update_bill_scenario' function.
 class UpdateBillScenarioRequestTypeDef(BaseValidatorModel):
-    identifier: str
-    name: Optional[str] = None
+    identifier: Annotated[str, _aws_pattern("BcmPricingCalculator", "ResourceId")]
+    name: Optional[Annotated[str, _aws_pattern("BcmPricingCalculator", "BillScenarioName")]] = None
     expiresAt: Optional[TimestampTypeDef] = None
     groupSharingPreference: Optional[GroupSharingPreferenceEnumType] = None
-    costCategoryGroupSharingPreferenceArn: Optional[str] = None
+    costCategoryGroupSharingPreferenceArn: Optional[
+        Annotated[str, _aws_pattern("BcmPricingCalculator", "CostCategoryArn")]
+    ] = None
 
 
 # This class is the input for the 'update_workload_estimate' function.
 class UpdateWorkloadEstimateRequestTypeDef(BaseValidatorModel):
-    identifier: str
-    name: Optional[str] = None
+    identifier: Annotated[str, _aws_pattern("BcmPricingCalculator", "ResourceId")]
+    name: Optional[Annotated[str, _aws_pattern("BcmPricingCalculator", "WorkloadEstimateName")]] = None
     expiresAt: Optional[TimestampTypeDef] = None
 
 
@@ -615,9 +623,9 @@ class ListBillEstimateInputUsageModificationsRequestPaginateTypeDef(BaseValidato
 
 # This class is the input for the 'list_bill_estimate_input_usage_modifications' function.
 class ListBillEstimateInputUsageModificationsRequestTypeDef(BaseValidatorModel):
-    billEstimateId: str
+    billEstimateId: Annotated[str, _aws_pattern("BcmPricingCalculator", "ResourceId")]
     filters: Optional[List[ListUsageFilterTypeDef]] = None
-    nextToken: Optional[str] = None
+    nextToken: Optional[Annotated[str, _aws_pattern("BcmPricingCalculator", "NextPageToken")]] = None
     maxResults: Optional[int] = None
 
 
@@ -629,9 +637,9 @@ class ListBillScenarioUsageModificationsRequestPaginateTypeDef(BaseValidatorMode
 
 # This class is the input for the 'list_bill_scenario_usage_modifications' function.
 class ListBillScenarioUsageModificationsRequestTypeDef(BaseValidatorModel):
-    billScenarioId: str
+    billScenarioId: Annotated[str, _aws_pattern("BcmPricingCalculator", "ResourceId")]
     filters: Optional[List[ListUsageFilterTypeDef]] = None
-    nextToken: Optional[str] = None
+    nextToken: Optional[Annotated[str, _aws_pattern("BcmPricingCalculator", "NextPageToken")]] = None
     maxResults: Optional[int] = None
 
 
@@ -643,9 +651,9 @@ class ListWorkloadEstimateUsageRequestPaginateTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'list_workload_estimate_usage' function.
 class ListWorkloadEstimateUsageRequestTypeDef(BaseValidatorModel):
-    workloadEstimateId: str
+    workloadEstimateId: Annotated[str, _aws_pattern("BcmPricingCalculator", "ResourceId")]
     filters: Optional[List[ListUsageFilterTypeDef]] = None
-    nextToken: Optional[str] = None
+    nextToken: Optional[Annotated[str, _aws_pattern("BcmPricingCalculator", "NextPageToken")]] = None
     maxResults: Optional[int] = None
 
 
@@ -657,9 +665,9 @@ class ListBillEstimateLineItemsRequestPaginateTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'list_bill_estimate_line_items' function.
 class ListBillEstimateLineItemsRequestTypeDef(BaseValidatorModel):
-    billEstimateId: str
+    billEstimateId: Annotated[str, _aws_pattern("BcmPricingCalculator", "ResourceId")]
     filters: Optional[List[ListBillEstimateLineItemsFilterTypeDef]] = None
-    nextToken: Optional[str] = None
+    nextToken: Optional[Annotated[str, _aws_pattern("BcmPricingCalculator", "NextPageToken")]] = None
     maxResults: Optional[int] = None
 
 
@@ -667,14 +675,14 @@ class ListBillEstimateLineItemsRequestTypeDef(BaseValidatorModel):
 class ListWorkloadEstimatesResponseTypeDef(BaseValidatorModel):
     items: List[WorkloadEstimateSummaryTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
-    nextToken: Optional[str] = None
+    nextToken: Optional[Annotated[str, _aws_pattern("BcmPricingCalculator", "NextPageToken")]] = None
 
 
 # This class is the output for the 'list_bill_estimate_commitments' function.
 class ListBillEstimateCommitmentsResponseTypeDef(BaseValidatorModel):
     items: List[BillEstimateCommitmentSummaryTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
-    nextToken: Optional[str] = None
+    nextToken: Optional[Annotated[str, _aws_pattern("BcmPricingCalculator", "NextPageToken")]] = None
 
 
 class BillEstimateCostSummaryTypeDef(BaseValidatorModel):
@@ -686,21 +694,21 @@ class BillEstimateCostSummaryTypeDef(BaseValidatorModel):
 class ListBillEstimateLineItemsResponseTypeDef(BaseValidatorModel):
     items: List[BillEstimateLineItemSummaryTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
-    nextToken: Optional[str] = None
+    nextToken: Optional[Annotated[str, _aws_pattern("BcmPricingCalculator", "NextPageToken")]] = None
 
 
 # This class is the output for the 'list_bill_estimates' function.
 class ListBillEstimatesResponseTypeDef(BaseValidatorModel):
     items: List[BillEstimateSummaryTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
-    nextToken: Optional[str] = None
+    nextToken: Optional[Annotated[str, _aws_pattern("BcmPricingCalculator", "NextPageToken")]] = None
 
 
 # This class is the output for the 'list_bill_scenarios' function.
 class ListBillScenariosResponseTypeDef(BaseValidatorModel):
     items: List[BillScenarioSummaryTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
-    nextToken: Optional[str] = None
+    nextToken: Optional[Annotated[str, _aws_pattern("BcmPricingCalculator", "NextPageToken")]] = None
 
 
 BillIntervalUnionTypeDef = Union[BillIntervalOutputTypeDef, BillIntervalTypeDef]
@@ -718,7 +726,7 @@ class ListBillEstimatesRequestTypeDef(BaseValidatorModel):
     filters: Optional[List[ListBillEstimatesFilterTypeDef]] = None
     createdAtFilter: Optional[FilterTimestampTypeDef] = None
     expiresAtFilter: Optional[FilterTimestampTypeDef] = None
-    nextToken: Optional[str] = None
+    nextToken: Optional[Annotated[str, _aws_pattern("BcmPricingCalculator", "NextPageToken")]] = None
     maxResults: Optional[int] = None
 
 
@@ -734,7 +742,7 @@ class ListBillScenariosRequestTypeDef(BaseValidatorModel):
     filters: Optional[List[ListBillScenariosFilterTypeDef]] = None
     createdAtFilter: Optional[FilterTimestampTypeDef] = None
     expiresAtFilter: Optional[FilterTimestampTypeDef] = None
-    nextToken: Optional[str] = None
+    nextToken: Optional[Annotated[str, _aws_pattern("BcmPricingCalculator", "NextPageToken")]] = None
     maxResults: Optional[int] = None
 
 
@@ -750,42 +758,42 @@ class ListWorkloadEstimatesRequestTypeDef(BaseValidatorModel):
     createdAtFilter: Optional[FilterTimestampTypeDef] = None
     expiresAtFilter: Optional[FilterTimestampTypeDef] = None
     filters: Optional[List[ListWorkloadEstimatesFilterTypeDef]] = None
-    nextToken: Optional[str] = None
+    nextToken: Optional[Annotated[str, _aws_pattern("BcmPricingCalculator", "NextPageToken")]] = None
     maxResults: Optional[int] = None
 
 
 class BatchUpdateBillScenarioUsageModificationEntryTypeDef(BaseValidatorModel):
-    id: str
-    group: Optional[str] = None
+    id: Annotated[str, _aws_pattern("BcmPricingCalculator", "ResourceId")]
+    group: Optional[Annotated[str, _aws_pattern("BcmPricingCalculator", "UsageGroup")]] = None
     amounts: Optional[List[UsageAmountTypeDef]] = None
 
 
 class BatchCreateBillScenarioCommitmentModificationEntryTypeDef(BaseValidatorModel):
-    key: str
-    usageAccountId: str
+    key: Annotated[str, _aws_pattern("BcmPricingCalculator", "Key")]
+    usageAccountId: Annotated[str, _aws_pattern("BcmPricingCalculator", "AccountId")]
     commitmentAction: BillScenarioCommitmentModificationActionTypeDef
-    group: Optional[str] = None
+    group: Optional[Annotated[str, _aws_pattern("BcmPricingCalculator", "UsageGroup")]] = None
 
 
 class BatchCreateBillScenarioCommitmentModificationItemTypeDef(BaseValidatorModel):
-    key: Optional[str] = None
-    id: Optional[str] = None
-    group: Optional[str] = None
-    usageAccountId: Optional[str] = None
+    key: Optional[Annotated[str, _aws_pattern("BcmPricingCalculator", "Key")]] = None
+    id: Optional[Annotated[str, _aws_pattern("BcmPricingCalculator", "ResourceId")]] = None
+    group: Optional[Annotated[str, _aws_pattern("BcmPricingCalculator", "UsageGroup")]] = None
+    usageAccountId: Optional[Annotated[str, _aws_pattern("BcmPricingCalculator", "AccountId")]] = None
     commitmentAction: Optional[BillScenarioCommitmentModificationActionTypeDef] = None
 
 
 class BillEstimateInputCommitmentModificationSummaryTypeDef(BaseValidatorModel):
-    id: Optional[str] = None
-    group: Optional[str] = None
-    usageAccountId: Optional[str] = None
+    id: Optional[Annotated[str, _aws_pattern("BcmPricingCalculator", "ResourceId")]] = None
+    group: Optional[Annotated[str, _aws_pattern("BcmPricingCalculator", "UsageGroup")]] = None
+    usageAccountId: Optional[Annotated[str, _aws_pattern("BcmPricingCalculator", "AccountId")]] = None
     commitmentAction: Optional[BillScenarioCommitmentModificationActionTypeDef] = None
 
 
 class BillScenarioCommitmentModificationItemTypeDef(BaseValidatorModel):
-    id: Optional[str] = None
-    usageAccountId: Optional[str] = None
-    group: Optional[str] = None
+    id: Optional[Annotated[str, _aws_pattern("BcmPricingCalculator", "ResourceId")]] = None
+    usageAccountId: Optional[Annotated[str, _aws_pattern("BcmPricingCalculator", "AccountId")]] = None
+    group: Optional[Annotated[str, _aws_pattern("BcmPricingCalculator", "UsageGroup")]] = None
     commitmentAction: Optional[BillScenarioCommitmentModificationActionTypeDef] = None
 
 
@@ -820,8 +828,8 @@ class ExpressionTypeDef(BaseValidatorModel):
 
 # This class is the output for the 'create_bill_estimate' function.
 class CreateBillEstimateResponseTypeDef(BaseValidatorModel):
-    id: str
-    name: str
+    id: Annotated[str, _aws_pattern("BcmPricingCalculator", "ResourceId")]
+    name: Annotated[str, _aws_pattern("BcmPricingCalculator", "BillEstimateName")]
     status: BillEstimateStatusType
     failureMessage: str
     billInterval: BillIntervalOutputTypeDef
@@ -829,15 +837,15 @@ class CreateBillEstimateResponseTypeDef(BaseValidatorModel):
     createdAt: datetime
     expiresAt: datetime
     groupSharingPreference: GroupSharingPreferenceEnumType
-    costCategoryGroupSharingPreferenceArn: str
+    costCategoryGroupSharingPreferenceArn: Annotated[str, _aws_pattern("BcmPricingCalculator", "CostCategoryArn")]
     costCategoryGroupSharingPreferenceEffectiveDate: datetime
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 # This class is the output for the 'get_bill_estimate' function.
 class GetBillEstimateResponseTypeDef(BaseValidatorModel):
-    id: str
-    name: str
+    id: Annotated[str, _aws_pattern("BcmPricingCalculator", "ResourceId")]
+    name: Annotated[str, _aws_pattern("BcmPricingCalculator", "BillEstimateName")]
     status: BillEstimateStatusType
     failureMessage: str
     billInterval: BillIntervalOutputTypeDef
@@ -845,15 +853,15 @@ class GetBillEstimateResponseTypeDef(BaseValidatorModel):
     createdAt: datetime
     expiresAt: datetime
     groupSharingPreference: GroupSharingPreferenceEnumType
-    costCategoryGroupSharingPreferenceArn: str
+    costCategoryGroupSharingPreferenceArn: Annotated[str, _aws_pattern("BcmPricingCalculator", "CostCategoryArn")]
     costCategoryGroupSharingPreferenceEffectiveDate: datetime
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 # This class is the output for the 'update_bill_estimate' function.
 class UpdateBillEstimateResponseTypeDef(BaseValidatorModel):
-    id: str
-    name: str
+    id: Annotated[str, _aws_pattern("BcmPricingCalculator", "ResourceId")]
+    name: Annotated[str, _aws_pattern("BcmPricingCalculator", "BillEstimateName")]
     status: BillEstimateStatusType
     failureMessage: str
     billInterval: BillIntervalOutputTypeDef
@@ -861,22 +869,22 @@ class UpdateBillEstimateResponseTypeDef(BaseValidatorModel):
     createdAt: datetime
     expiresAt: datetime
     groupSharingPreference: GroupSharingPreferenceEnumType
-    costCategoryGroupSharingPreferenceArn: str
+    costCategoryGroupSharingPreferenceArn: Annotated[str, _aws_pattern("BcmPricingCalculator", "CostCategoryArn")]
     costCategoryGroupSharingPreferenceEffectiveDate: datetime
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 # This class is the input for the 'batch_update_bill_scenario_usage_modification' function.
 class BatchUpdateBillScenarioUsageModificationRequestTypeDef(BaseValidatorModel):
-    billScenarioId: str
+    billScenarioId: Annotated[str, _aws_pattern("BcmPricingCalculator", "ResourceId")]
     usageModifications: List[BatchUpdateBillScenarioUsageModificationEntryTypeDef]
 
 
 # This class is the input for the 'batch_create_bill_scenario_commitment_modification' function.
 class BatchCreateBillScenarioCommitmentModificationRequestTypeDef(BaseValidatorModel):
-    billScenarioId: str
+    billScenarioId: Annotated[str, _aws_pattern("BcmPricingCalculator", "ResourceId")]
     commitmentModifications: List[BatchCreateBillScenarioCommitmentModificationEntryTypeDef]
-    clientToken: Optional[str] = None
+    clientToken: Optional[Annotated[str, _aws_pattern("BcmPricingCalculator", "ClientToken")]] = None
 
 
 # This class is the output for the 'batch_create_bill_scenario_commitment_modification' function.
@@ -890,7 +898,7 @@ class BatchCreateBillScenarioCommitmentModificationResponseTypeDef(BaseValidator
 class ListBillEstimateInputCommitmentModificationsResponseTypeDef(BaseValidatorModel):
     items: List[BillEstimateInputCommitmentModificationSummaryTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
-    nextToken: Optional[str] = None
+    nextToken: Optional[Annotated[str, _aws_pattern("BcmPricingCalculator", "NextPageToken")]] = None
 
 
 # This class is the output for the 'batch_update_bill_scenario_commitment_modification' function.
@@ -904,73 +912,73 @@ class BatchUpdateBillScenarioCommitmentModificationResponseTypeDef(BaseValidator
 class ListBillScenarioCommitmentModificationsResponseTypeDef(BaseValidatorModel):
     items: List[BillScenarioCommitmentModificationItemTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
-    nextToken: Optional[str] = None
+    nextToken: Optional[Annotated[str, _aws_pattern("BcmPricingCalculator", "NextPageToken")]] = None
 
 
 class BatchCreateBillScenarioUsageModificationItemTypeDef(BaseValidatorModel):
-    serviceCode: str
-    usageType: str
-    operation: str
+    serviceCode: Annotated[str, _aws_pattern("BcmPricingCalculator", "ServiceCode")]
+    usageType: Annotated[str, _aws_pattern("BcmPricingCalculator", "UsageType")]
+    operation: Annotated[str, _aws_pattern("BcmPricingCalculator", "Operation")]
     location: Optional[str] = None
-    availabilityZone: Optional[str] = None
-    id: Optional[str] = None
-    group: Optional[str] = None
-    usageAccountId: Optional[str] = None
+    availabilityZone: Optional[Annotated[str, _aws_pattern("BcmPricingCalculator", "AvailabilityZone")]] = None
+    id: Optional[Annotated[str, _aws_pattern("BcmPricingCalculator", "ResourceId")]] = None
+    group: Optional[Annotated[str, _aws_pattern("BcmPricingCalculator", "UsageGroup")]] = None
+    usageAccountId: Optional[Annotated[str, _aws_pattern("BcmPricingCalculator", "AccountId")]] = None
     quantities: Optional[List[UsageQuantityTypeDef]] = None
     historicalUsage: Optional[HistoricalUsageEntityOutputTypeDef] = None
-    key: Optional[str] = None
+    key: Optional[Annotated[str, _aws_pattern("BcmPricingCalculator", "Key")]] = None
 
 
 class BatchCreateWorkloadEstimateUsageItemTypeDef(BaseValidatorModel):
-    serviceCode: str
-    usageType: str
-    operation: str
+    serviceCode: Annotated[str, _aws_pattern("BcmPricingCalculator", "ServiceCode")]
+    usageType: Annotated[str, _aws_pattern("BcmPricingCalculator", "UsageType")]
+    operation: Annotated[str, _aws_pattern("BcmPricingCalculator", "Operation")]
     location: Optional[str] = None
-    id: Optional[str] = None
-    usageAccountId: Optional[str] = None
-    group: Optional[str] = None
+    id: Optional[Annotated[str, _aws_pattern("BcmPricingCalculator", "ResourceId")]] = None
+    usageAccountId: Optional[Annotated[str, _aws_pattern("BcmPricingCalculator", "AccountId")]] = None
+    group: Optional[Annotated[str, _aws_pattern("BcmPricingCalculator", "UsageGroup")]] = None
     quantity: Optional[WorkloadEstimateUsageQuantityTypeDef] = None
     cost: Optional[float] = None
     currency: Optional[Literal["USD"]] = None
     status: Optional[WorkloadEstimateCostStatusType] = None
     historicalUsage: Optional[HistoricalUsageEntityOutputTypeDef] = None
-    key: Optional[str] = None
+    key: Optional[Annotated[str, _aws_pattern("BcmPricingCalculator", "Key")]] = None
 
 
 class BillEstimateInputUsageModificationSummaryTypeDef(BaseValidatorModel):
-    serviceCode: str
-    usageType: str
-    operation: str
+    serviceCode: Annotated[str, _aws_pattern("BcmPricingCalculator", "ServiceCode")]
+    usageType: Annotated[str, _aws_pattern("BcmPricingCalculator", "UsageType")]
+    operation: Annotated[str, _aws_pattern("BcmPricingCalculator", "Operation")]
     location: Optional[str] = None
-    availabilityZone: Optional[str] = None
-    id: Optional[str] = None
-    group: Optional[str] = None
-    usageAccountId: Optional[str] = None
+    availabilityZone: Optional[Annotated[str, _aws_pattern("BcmPricingCalculator", "AvailabilityZone")]] = None
+    id: Optional[Annotated[str, _aws_pattern("BcmPricingCalculator", "ResourceId")]] = None
+    group: Optional[Annotated[str, _aws_pattern("BcmPricingCalculator", "UsageGroup")]] = None
+    usageAccountId: Optional[Annotated[str, _aws_pattern("BcmPricingCalculator", "AccountId")]] = None
     quantities: Optional[List[UsageQuantityTypeDef]] = None
     historicalUsage: Optional[HistoricalUsageEntityOutputTypeDef] = None
 
 
 class BillScenarioUsageModificationItemTypeDef(BaseValidatorModel):
-    serviceCode: str
-    usageType: str
-    operation: str
+    serviceCode: Annotated[str, _aws_pattern("BcmPricingCalculator", "ServiceCode")]
+    usageType: Annotated[str, _aws_pattern("BcmPricingCalculator", "UsageType")]
+    operation: Annotated[str, _aws_pattern("BcmPricingCalculator", "Operation")]
     location: Optional[str] = None
-    availabilityZone: Optional[str] = None
-    id: Optional[str] = None
-    group: Optional[str] = None
-    usageAccountId: Optional[str] = None
+    availabilityZone: Optional[Annotated[str, _aws_pattern("BcmPricingCalculator", "AvailabilityZone")]] = None
+    id: Optional[Annotated[str, _aws_pattern("BcmPricingCalculator", "ResourceId")]] = None
+    group: Optional[Annotated[str, _aws_pattern("BcmPricingCalculator", "UsageGroup")]] = None
+    usageAccountId: Optional[Annotated[str, _aws_pattern("BcmPricingCalculator", "AccountId")]] = None
     quantities: Optional[List[UsageQuantityTypeDef]] = None
     historicalUsage: Optional[HistoricalUsageEntityOutputTypeDef] = None
 
 
 class WorkloadEstimateUsageItemTypeDef(BaseValidatorModel):
-    serviceCode: str
-    usageType: str
-    operation: str
+    serviceCode: Annotated[str, _aws_pattern("BcmPricingCalculator", "ServiceCode")]
+    usageType: Annotated[str, _aws_pattern("BcmPricingCalculator", "UsageType")]
+    operation: Annotated[str, _aws_pattern("BcmPricingCalculator", "Operation")]
     location: Optional[str] = None
-    id: Optional[str] = None
-    usageAccountId: Optional[str] = None
-    group: Optional[str] = None
+    id: Optional[Annotated[str, _aws_pattern("BcmPricingCalculator", "ResourceId")]] = None
+    usageAccountId: Optional[Annotated[str, _aws_pattern("BcmPricingCalculator", "AccountId")]] = None
+    group: Optional[Annotated[str, _aws_pattern("BcmPricingCalculator", "UsageGroup")]] = None
     quantity: Optional[WorkloadEstimateUsageQuantityTypeDef] = None
     cost: Optional[float] = None
     currency: Optional[Literal["USD"]] = None
@@ -1040,7 +1048,7 @@ class BatchCreateWorkloadEstimateUsageResponseTypeDef(BaseValidatorModel):
 class ListBillEstimateInputUsageModificationsResponseTypeDef(BaseValidatorModel):
     items: List[BillEstimateInputUsageModificationSummaryTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
-    nextToken: Optional[str] = None
+    nextToken: Optional[Annotated[str, _aws_pattern("BcmPricingCalculator", "NextPageToken")]] = None
 
 
 # This class is the output for the 'batch_update_bill_scenario_usage_modification' function.
@@ -1054,7 +1062,7 @@ class BatchUpdateBillScenarioUsageModificationResponseTypeDef(BaseValidatorModel
 class ListBillScenarioUsageModificationsResponseTypeDef(BaseValidatorModel):
     items: List[BillScenarioUsageModificationItemTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
-    nextToken: Optional[str] = None
+    nextToken: Optional[Annotated[str, _aws_pattern("BcmPricingCalculator", "NextPageToken")]] = None
 
 
 # This class is the output for the 'batch_update_workload_estimate_usage' function.
@@ -1068,7 +1076,7 @@ class BatchUpdateWorkloadEstimateUsageResponseTypeDef(BaseValidatorModel):
 class ListWorkloadEstimateUsageResponseTypeDef(BaseValidatorModel):
     items: List[WorkloadEstimateUsageItemTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
-    nextToken: Optional[str] = None
+    nextToken: Optional[Annotated[str, _aws_pattern("BcmPricingCalculator", "NextPageToken")]] = None
 
 
 class ListBillEstimateInputUsageModificationsResponsePaginatorTypeDef(BaseValidatorModel):
@@ -1090,10 +1098,10 @@ class ListWorkloadEstimateUsageResponsePaginatorTypeDef(BaseValidatorModel):
 
 
 class HistoricalUsageEntityTypeDef(BaseValidatorModel):
-    serviceCode: str
-    usageType: str
-    operation: str
-    usageAccountId: str
+    serviceCode: Annotated[str, _aws_pattern("BcmPricingCalculator", "ServiceCode")]
+    usageType: Annotated[str, _aws_pattern("BcmPricingCalculator", "UsageType")]
+    operation: Annotated[str, _aws_pattern("BcmPricingCalculator", "Operation")]
+    usageAccountId: Annotated[str, _aws_pattern("BcmPricingCalculator", "AccountId")]
     billInterval: BillIntervalUnionTypeDef
     filterExpression: ExpressionUnionTypeDef
     location: Optional[str] = None
@@ -1103,37 +1111,37 @@ HistoricalUsageEntityUnionTypeDef = Union[HistoricalUsageEntityOutputTypeDef, Hi
 
 
 class BatchCreateBillScenarioUsageModificationEntryTypeDef(BaseValidatorModel):
-    serviceCode: str
-    usageType: str
-    operation: str
-    key: str
-    usageAccountId: str
-    availabilityZone: Optional[str] = None
-    group: Optional[str] = None
+    serviceCode: Annotated[str, _aws_pattern("BcmPricingCalculator", "ServiceCode")]
+    usageType: Annotated[str, _aws_pattern("BcmPricingCalculator", "UsageType")]
+    operation: Annotated[str, _aws_pattern("BcmPricingCalculator", "Operation")]
+    key: Annotated[str, _aws_pattern("BcmPricingCalculator", "Key")]
+    usageAccountId: Annotated[str, _aws_pattern("BcmPricingCalculator", "AccountId")]
+    availabilityZone: Optional[Annotated[str, _aws_pattern("BcmPricingCalculator", "AvailabilityZone")]] = None
+    group: Optional[Annotated[str, _aws_pattern("BcmPricingCalculator", "UsageGroup")]] = None
     amounts: Optional[List[UsageAmountTypeDef]] = None
     historicalUsage: Optional[HistoricalUsageEntityUnionTypeDef] = None
 
 
 class BatchCreateWorkloadEstimateUsageEntryTypeDef(BaseValidatorModel):
-    serviceCode: str
-    usageType: str
-    operation: str
-    key: str
-    usageAccountId: str
+    serviceCode: Annotated[str, _aws_pattern("BcmPricingCalculator", "ServiceCode")]
+    usageType: Annotated[str, _aws_pattern("BcmPricingCalculator", "UsageType")]
+    operation: Annotated[str, _aws_pattern("BcmPricingCalculator", "Operation")]
+    key: Annotated[str, _aws_pattern("BcmPricingCalculator", "Key")]
+    usageAccountId: Annotated[str, _aws_pattern("BcmPricingCalculator", "AccountId")]
     amount: float
-    group: Optional[str] = None
+    group: Optional[Annotated[str, _aws_pattern("BcmPricingCalculator", "UsageGroup")]] = None
     historicalUsage: Optional[HistoricalUsageEntityUnionTypeDef] = None
 
 
 # This class is the input for the 'batch_create_bill_scenario_usage_modification' function.
 class BatchCreateBillScenarioUsageModificationRequestTypeDef(BaseValidatorModel):
-    billScenarioId: str
+    billScenarioId: Annotated[str, _aws_pattern("BcmPricingCalculator", "ResourceId")]
     usageModifications: List[BatchCreateBillScenarioUsageModificationEntryTypeDef]
-    clientToken: Optional[str] = None
+    clientToken: Optional[Annotated[str, _aws_pattern("BcmPricingCalculator", "ClientToken")]] = None
 
 
 # This class is the input for the 'batch_create_workload_estimate_usage' function.
 class BatchCreateWorkloadEstimateUsageRequestTypeDef(BaseValidatorModel):
-    workloadEstimateId: str
+    workloadEstimateId: Annotated[str, _aws_pattern("BcmPricingCalculator", "ResourceId")]
     usage: List[BatchCreateWorkloadEstimateUsageEntryTypeDef]
-    clientToken: Optional[str] = None
+    clientToken: Optional[Annotated[str, _aws_pattern("BcmPricingCalculator", "ClientToken")]] = None

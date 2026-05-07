@@ -3,6 +3,7 @@
 from datetime import datetime
 from decimal import Decimal
 from typing import (
+    Annotated,
     Any,
     Callable,
     Dict,
@@ -24,6 +25,7 @@ from botocore.response import StreamingBody
 from pydantic import Field
 
 from aws_resource_validator.core.base_validator_model import BaseValidatorModel, EventStream
+from aws_resource_validator.core.pattern_validation import aws_field_pattern as _aws_pattern
 from aws_resource_validator.pydantic_models.internetmonitor.internetmonitor_constants import *  # noqa: F401,F403
 
 # Optional boto3 symbols — imported lazily so services that don't need them
@@ -64,7 +66,7 @@ class ResponseMetadataTypeDef(BaseValidatorModel):
 
 
 class DeleteMonitorInputTypeDef(BaseValidatorModel):
-    MonitorName: str
+    MonitorName: Annotated[str, _aws_pattern("Internetmonitor", "ResourceName")]
 
 
 class FilterParameterTypeDef(BaseValidatorModel):
@@ -75,25 +77,25 @@ class FilterParameterTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'get_health_event' function.
 class GetHealthEventInputTypeDef(BaseValidatorModel):
-    MonitorName: str
-    EventId: str
+    MonitorName: Annotated[str, _aws_pattern("Internetmonitor", "ResourceName")]
+    EventId: Annotated[str, _aws_pattern("Internetmonitor", "HealthEventName")]
     LinkedAccountId: Optional[str] = None
 
 
 # This class is the input for the 'get_internet_event' function.
 class GetInternetEventInputTypeDef(BaseValidatorModel):
-    EventId: str
+    EventId: Annotated[str, _aws_pattern("Internetmonitor", "InternetEventId")]
 
 
 # This class is the input for the 'get_monitor' function.
 class GetMonitorInputTypeDef(BaseValidatorModel):
-    MonitorName: str
+    MonitorName: Annotated[str, _aws_pattern("Internetmonitor", "ResourceName")]
     LinkedAccountId: Optional[str] = None
 
 
 # This class is the input for the 'get_query_results' function.
 class GetQueryResultsInputTypeDef(BaseValidatorModel):
-    MonitorName: str
+    MonitorName: Annotated[str, _aws_pattern("Internetmonitor", "ResourceName")]
     QueryId: str
     NextToken: Optional[str] = None
     MaxResults: Optional[int] = None
@@ -106,7 +108,7 @@ class QueryFieldTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'get_query_status' function.
 class GetQueryStatusInputTypeDef(BaseValidatorModel):
-    MonitorName: str
+    MonitorName: Annotated[str, _aws_pattern("Internetmonitor", "ResourceName")]
     QueryId: str
 
 
@@ -140,15 +142,15 @@ class ListMonitorsInputTypeDef(BaseValidatorModel):
 
 
 class MonitorTypeDef(BaseValidatorModel):
-    MonitorName: str
-    MonitorArn: str
+    MonitorName: Annotated[str, _aws_pattern("Internetmonitor", "ResourceName")]
+    MonitorArn: Annotated[str, _aws_pattern("Internetmonitor", "MonitorArn")]
     Status: MonitorConfigStateType
     ProcessingStatus: Optional[MonitorProcessingStatusCodeType] = None
 
 
 # This class is the input for the 'list_tags_for_resource' function.
 class ListTagsForResourceInputTypeDef(BaseValidatorModel):
-    ResourceArn: str
+    ResourceArn: Annotated[str, _aws_pattern("Internetmonitor", "MonitorArn")]
 
 
 class NetworkTypeDef(BaseValidatorModel):
@@ -163,23 +165,23 @@ class RoundTripTimeTypeDef(BaseValidatorModel):
 
 
 class StopQueryInputTypeDef(BaseValidatorModel):
-    MonitorName: str
+    MonitorName: Annotated[str, _aws_pattern("Internetmonitor", "ResourceName")]
     QueryId: str
 
 
 class TagResourceInputTypeDef(BaseValidatorModel):
-    ResourceArn: str
+    ResourceArn: Annotated[str, _aws_pattern("Internetmonitor", "MonitorArn")]
     Tags: Dict[str, str]
 
 
 class UntagResourceInputTypeDef(BaseValidatorModel):
-    ResourceArn: str
+    ResourceArn: Annotated[str, _aws_pattern("Internetmonitor", "MonitorArn")]
     TagKeys: List[str]
 
 
 class InternetEventSummaryTypeDef(BaseValidatorModel):
-    EventId: str
-    EventArn: str
+    EventId: Annotated[str, _aws_pattern("Internetmonitor", "InternetEventId")]
+    EventArn: Annotated[str, _aws_pattern("Internetmonitor", "Arn")]
     StartedAt: datetime
     ClientLocation: ClientLocationTypeDef
     EventType: InternetEventTypeType
@@ -189,15 +191,15 @@ class InternetEventSummaryTypeDef(BaseValidatorModel):
 
 # This class is the output for the 'create_monitor' function.
 class CreateMonitorOutputTypeDef(BaseValidatorModel):
-    Arn: str
+    Arn: Annotated[str, _aws_pattern("Internetmonitor", "MonitorArn")]
     Status: MonitorConfigStateType
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 # This class is the output for the 'get_internet_event' function.
 class GetInternetEventOutputTypeDef(BaseValidatorModel):
-    EventId: str
-    EventArn: str
+    EventId: Annotated[str, _aws_pattern("Internetmonitor", "InternetEventId")]
+    EventArn: Annotated[str, _aws_pattern("Internetmonitor", "Arn")]
     StartedAt: datetime
     EndedAt: datetime
     ClientLocation: ClientLocationTypeDef
@@ -226,7 +228,7 @@ class StartQueryOutputTypeDef(BaseValidatorModel):
 
 # This class is the output for the 'update_monitor' function.
 class UpdateMonitorOutputTypeDef(BaseValidatorModel):
-    MonitorArn: str
+    MonitorArn: Annotated[str, _aws_pattern("Internetmonitor", "MonitorArn")]
     Status: MonitorConfigStateType
     ResponseMetadata: ResponseMetadataTypeDef
 
@@ -267,7 +269,7 @@ class ListHealthEventsInputPaginateTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'list_health_events' function.
 class ListHealthEventsInputTypeDef(BaseValidatorModel):
-    MonitorName: str
+    MonitorName: Annotated[str, _aws_pattern("Internetmonitor", "ResourceName")]
     StartTime: Optional[TimestampTypeDef] = None
     EndTime: Optional[TimestampTypeDef] = None
     NextToken: Optional[str] = None
@@ -296,7 +298,7 @@ class ListInternetEventsInputTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'start_query' function.
 class StartQueryInputTypeDef(BaseValidatorModel):
-    MonitorName: str
+    MonitorName: Annotated[str, _aws_pattern("Internetmonitor", "ResourceName")]
     StartTime: TimestampTypeDef
     EndTime: TimestampTypeDef
     QueryType: QueryTypeType
@@ -333,8 +335,8 @@ class ListInternetEventsOutputTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'create_monitor' function.
 class CreateMonitorInputTypeDef(BaseValidatorModel):
-    MonitorName: str
-    Resources: Optional[List[str]] = None
+    MonitorName: Annotated[str, _aws_pattern("Internetmonitor", "ResourceName")]
+    Resources: Optional[List[Annotated[str, _aws_pattern("Internetmonitor", "Arn")]]] = None
     ClientToken: Optional[str] = None
     Tags: Optional[Dict[str, str]] = None
     MaxCityNetworksToMonitor: Optional[int] = None
@@ -345,9 +347,9 @@ class CreateMonitorInputTypeDef(BaseValidatorModel):
 
 # This class is the output for the 'get_monitor' function.
 class GetMonitorOutputTypeDef(BaseValidatorModel):
-    MonitorName: str
-    MonitorArn: str
-    Resources: List[str]
+    MonitorName: Annotated[str, _aws_pattern("Internetmonitor", "ResourceName")]
+    MonitorArn: Annotated[str, _aws_pattern("Internetmonitor", "MonitorArn")]
+    Resources: List[Annotated[str, _aws_pattern("Internetmonitor", "Arn")]]
     Status: MonitorConfigStateType
     CreatedAt: datetime
     ModifiedAt: datetime
@@ -363,9 +365,9 @@ class GetMonitorOutputTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'update_monitor' function.
 class UpdateMonitorInputTypeDef(BaseValidatorModel):
-    MonitorName: str
-    ResourcesToAdd: Optional[List[str]] = None
-    ResourcesToRemove: Optional[List[str]] = None
+    MonitorName: Annotated[str, _aws_pattern("Internetmonitor", "ResourceName")]
+    ResourcesToAdd: Optional[List[Annotated[str, _aws_pattern("Internetmonitor", "Arn")]]] = None
+    ResourcesToRemove: Optional[List[Annotated[str, _aws_pattern("Internetmonitor", "Arn")]]] = None
     Status: Optional[MonitorConfigStateType] = None
     ClientToken: Optional[str] = None
     MaxCityNetworksToMonitor: Optional[int] = None
@@ -399,8 +401,8 @@ class ImpactedLocationTypeDef(BaseValidatorModel):
 
 # This class is the output for the 'get_health_event' function.
 class GetHealthEventOutputTypeDef(BaseValidatorModel):
-    EventArn: str
-    EventId: str
+    EventArn: Annotated[str, _aws_pattern("Internetmonitor", "Arn")]
+    EventId: Annotated[str, _aws_pattern("Internetmonitor", "HealthEventName")]
     StartedAt: datetime
     EndedAt: datetime
     CreatedAt: datetime
@@ -414,8 +416,8 @@ class GetHealthEventOutputTypeDef(BaseValidatorModel):
 
 
 class HealthEventTypeDef(BaseValidatorModel):
-    EventArn: str
-    EventId: str
+    EventArn: Annotated[str, _aws_pattern("Internetmonitor", "Arn")]
+    EventId: Annotated[str, _aws_pattern("Internetmonitor", "HealthEventName")]
     StartedAt: datetime
     LastUpdatedAt: datetime
     ImpactedLocations: List[ImpactedLocationTypeDef]

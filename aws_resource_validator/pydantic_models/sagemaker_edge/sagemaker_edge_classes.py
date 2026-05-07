@@ -3,6 +3,7 @@
 from datetime import datetime
 from decimal import Decimal
 from typing import (
+    Annotated,
     Any,
     Callable,
     Dict,
@@ -24,6 +25,7 @@ from botocore.response import StreamingBody
 from pydantic import Field
 
 from aws_resource_validator.core.base_validator_model import BaseValidatorModel, EventStream
+from aws_resource_validator.core.pattern_validation import aws_field_pattern as _aws_pattern
 from aws_resource_validator.pydantic_models.sagemaker_edge.sagemaker_edge_constants import *  # noqa: F401,F403
 
 # Optional boto3 symbols — imported lazily so services that don't need them
@@ -40,13 +42,13 @@ except ImportError:  # pragma: no cover
 
 class ChecksumTypeDef(BaseValidatorModel):
     Type: Optional[Literal["SHA1"]] = None
-    Sum: Optional[str] = None
+    Sum: Optional[Annotated[str, _aws_pattern("SagemakerEdge", "ChecksumString")]] = None
 
 
 class DeploymentModelTypeDef(BaseValidatorModel):
-    ModelHandle: Optional[str] = None
-    ModelName: Optional[str] = None
-    ModelVersion: Optional[str] = None
+    ModelHandle: Optional[Annotated[str, _aws_pattern("SagemakerEdge", "EntityName")]] = None
+    ModelName: Optional[Annotated[str, _aws_pattern("SagemakerEdge", "ModelName")]] = None
+    ModelVersion: Optional[Annotated[str, _aws_pattern("SagemakerEdge", "Version")]] = None
     DesiredState: Optional[ModelStateType] = None
     State: Optional[ModelStateType] = None
     Status: Optional[DeploymentStatusType] = None
@@ -67,26 +69,26 @@ class ResponseMetadataTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'get_deployments' function.
 class GetDeploymentsRequestTypeDef(BaseValidatorModel):
-    DeviceName: str
-    DeviceFleetName: str
+    DeviceName: Annotated[str, _aws_pattern("SagemakerEdge", "DeviceName")]
+    DeviceFleetName: Annotated[str, _aws_pattern("SagemakerEdge", "DeviceFleetName")]
 
 
 # This class is the input for the 'get_device_registration' function.
 class GetDeviceRegistrationRequestTypeDef(BaseValidatorModel):
-    DeviceName: str
-    DeviceFleetName: str
+    DeviceName: Annotated[str, _aws_pattern("SagemakerEdge", "DeviceName")]
+    DeviceFleetName: Annotated[str, _aws_pattern("SagemakerEdge", "DeviceFleetName")]
 
 
 class DefinitionTypeDef(BaseValidatorModel):
-    ModelHandle: Optional[str] = None
-    S3Url: Optional[str] = None
+    ModelHandle: Optional[Annotated[str, _aws_pattern("SagemakerEdge", "EntityName")]] = None
+    S3Url: Optional[Annotated[str, _aws_pattern("SagemakerEdge", "S3Uri")]] = None
     Checksum: Optional[ChecksumTypeDef] = None
     State: Optional[ModelStateType] = None
 
 
 class DeploymentResultTypeDef(BaseValidatorModel):
-    DeploymentName: Optional[str] = None
-    DeploymentStatus: Optional[str] = None
+    DeploymentName: Optional[Annotated[str, _aws_pattern("SagemakerEdge", "EntityName")]] = None
+    DeploymentStatus: Optional[Annotated[str, _aws_pattern("SagemakerEdge", "EntityName")]] = None
     DeploymentStatusMessage: Optional[str] = None
     DeploymentStartTime: Optional[TimestampTypeDef] = None
     DeploymentEndTime: Optional[TimestampTypeDef] = None
@@ -94,8 +96,8 @@ class DeploymentResultTypeDef(BaseValidatorModel):
 
 
 class EdgeMetricTypeDef(BaseValidatorModel):
-    Dimension: Optional[str] = None
-    MetricName: Optional[str] = None
+    Dimension: Optional[Annotated[str, _aws_pattern("SagemakerEdge", "Dimension")]] = None
+    MetricName: Optional[Annotated[str, _aws_pattern("SagemakerEdge", "Metric")]] = None
     Value: Optional[float] = None
     Timestamp: Optional[TimestampTypeDef] = None
 
@@ -113,15 +115,15 @@ class GetDeviceRegistrationResultTypeDef(BaseValidatorModel):
 
 
 class EdgeDeploymentTypeDef(BaseValidatorModel):
-    DeploymentName: Optional[str] = None
+    DeploymentName: Optional[Annotated[str, _aws_pattern("SagemakerEdge", "EntityName")]] = None
     Type: Optional[Literal["Model"]] = None
     FailureHandlingPolicy: Optional[FailureHandlingPolicyType] = None
     Definitions: Optional[List[DefinitionTypeDef]] = None
 
 
 class ModelTypeDef(BaseValidatorModel):
-    ModelName: Optional[str] = None
-    ModelVersion: Optional[str] = None
+    ModelName: Optional[Annotated[str, _aws_pattern("SagemakerEdge", "ModelName")]] = None
+    ModelVersion: Optional[Annotated[str, _aws_pattern("SagemakerEdge", "Version")]] = None
     LatestSampleTime: Optional[TimestampTypeDef] = None
     LatestInference: Optional[TimestampTypeDef] = None
     ModelMetrics: Optional[List[EdgeMetricTypeDef]] = None
@@ -135,9 +137,9 @@ class GetDeploymentsResultTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'send_heartbeat' function.
 class SendHeartbeatRequestTypeDef(BaseValidatorModel):
-    AgentVersion: str
-    DeviceName: str
-    DeviceFleetName: str
+    AgentVersion: Annotated[str, _aws_pattern("SagemakerEdge", "Version")]
+    DeviceName: Annotated[str, _aws_pattern("SagemakerEdge", "DeviceName")]
+    DeviceFleetName: Annotated[str, _aws_pattern("SagemakerEdge", "DeviceFleetName")]
     AgentMetrics: Optional[List[EdgeMetricTypeDef]] = None
     Models: Optional[List[ModelTypeDef]] = None
     DeploymentResult: Optional[DeploymentResultTypeDef] = None

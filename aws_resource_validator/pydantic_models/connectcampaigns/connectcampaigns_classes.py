@@ -3,6 +3,7 @@
 from datetime import datetime
 from decimal import Decimal
 from typing import (
+    Annotated,
     Any,
     Callable,
     Dict,
@@ -24,6 +25,7 @@ from botocore.response import StreamingBody
 from pydantic import Field
 
 from aws_resource_validator.core.base_validator_model import BaseValidatorModel, EventStream
+from aws_resource_validator.core.pattern_validation import aws_field_pattern as _aws_pattern
 from aws_resource_validator.pydantic_models.connectcampaigns.connectcampaigns_constants import *  # noqa: F401,F403
 
 # Optional boto3 symbols — imported lazily so services that don't need them
@@ -48,15 +50,15 @@ class AnswerMachineDetectionConfigTypeDef(BaseValidatorModel):
 
 
 class InstanceIdFilterTypeDef(BaseValidatorModel):
-    value: str
+    value: Annotated[str, _aws_pattern("Connectcampaigns", "InstanceId")]
     operator: Literal["Eq"]
 
 
 class CampaignSummaryTypeDef(BaseValidatorModel):
-    id: str
+    id: Annotated[str, _aws_pattern("Connectcampaigns", "CampaignId")]
     arn: str
     name: str
-    connectInstanceId: str
+    connectInstanceId: Annotated[str, _aws_pattern("Connectcampaigns", "InstanceId")]
 
 
 class ResponseMetadataTypeDef(BaseValidatorModel):
@@ -69,22 +71,22 @@ class ResponseMetadataTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'delete_campaign' function.
 class DeleteCampaignRequestTypeDef(BaseValidatorModel):
-    id: str
+    id: Annotated[str, _aws_pattern("Connectcampaigns", "CampaignId")]
 
 
 # This class is the input for the 'delete_connect_instance_config' function.
 class DeleteConnectInstanceConfigRequestTypeDef(BaseValidatorModel):
-    connectInstanceId: str
+    connectInstanceId: Annotated[str, _aws_pattern("Connectcampaigns", "InstanceId")]
 
 
 # This class is the input for the 'delete_instance_onboarding_job' function.
 class DeleteInstanceOnboardingJobRequestTypeDef(BaseValidatorModel):
-    connectInstanceId: str
+    connectInstanceId: Annotated[str, _aws_pattern("Connectcampaigns", "InstanceId")]
 
 
 # This class is the input for the 'describe_campaign' function.
 class DescribeCampaignRequestTypeDef(BaseValidatorModel):
-    id: str
+    id: Annotated[str, _aws_pattern("Connectcampaigns", "CampaignId")]
 
 
 TimestampTypeDef = Union[datetime, str]
@@ -107,43 +109,43 @@ class EncryptionConfigTypeDef(BaseValidatorModel):
 
 
 class FailedCampaignStateResponseTypeDef(BaseValidatorModel):
-    campaignId: Optional[str] = None
+    campaignId: Optional[Annotated[str, _aws_pattern("Connectcampaigns", "CampaignId")]] = None
     failureCode: Optional[GetCampaignStateBatchFailureCodeType] = None
 
 
 class FailedRequestTypeDef(BaseValidatorModel):
-    clientToken: Optional[str] = None
-    id: Optional[str] = None
+    clientToken: Optional[Annotated[str, _aws_pattern("Connectcampaigns", "ClientToken")]] = None
+    id: Optional[Annotated[str, _aws_pattern("Connectcampaigns", "DialRequestId")]] = None
     failureCode: Optional[FailureCodeType] = None
 
 
 # This class is the input for the 'get_campaign_state_batch' function.
 class GetCampaignStateBatchRequestTypeDef(BaseValidatorModel):
-    campaignIds: List[str]
+    campaignIds: List[Annotated[str, _aws_pattern("Connectcampaigns", "CampaignId")]]
 
 
 class SuccessfulCampaignStateResponseTypeDef(BaseValidatorModel):
-    campaignId: Optional[str] = None
+    campaignId: Optional[Annotated[str, _aws_pattern("Connectcampaigns", "CampaignId")]] = None
     state: Optional[CampaignStateType] = None
 
 
 # This class is the input for the 'get_campaign_state' function.
 class GetCampaignStateRequestTypeDef(BaseValidatorModel):
-    id: str
+    id: Annotated[str, _aws_pattern("Connectcampaigns", "CampaignId")]
 
 
 # This class is the input for the 'get_connect_instance_config' function.
 class GetConnectInstanceConfigRequestTypeDef(BaseValidatorModel):
-    connectInstanceId: str
+    connectInstanceId: Annotated[str, _aws_pattern("Connectcampaigns", "InstanceId")]
 
 
 # This class is the input for the 'get_instance_onboarding_job_status' function.
 class GetInstanceOnboardingJobStatusRequestTypeDef(BaseValidatorModel):
-    connectInstanceId: str
+    connectInstanceId: Annotated[str, _aws_pattern("Connectcampaigns", "InstanceId")]
 
 
 class InstanceOnboardingJobStatusTypeDef(BaseValidatorModel):
-    connectInstanceId: str
+    connectInstanceId: Annotated[str, _aws_pattern("Connectcampaigns", "InstanceId")]
     status: InstanceOnboardingJobStatusCodeType
     failureCode: Optional[InstanceOnboardingJobFailureCodeType] = None
 
@@ -156,49 +158,49 @@ class PaginatorConfigTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'list_tags_for_resource' function.
 class ListTagsForResourceRequestTypeDef(BaseValidatorModel):
-    arn: str
+    arn: Annotated[str, _aws_pattern("Connectcampaigns", "Arn")]
 
 
 # This class is the input for the 'pause_campaign' function.
 class PauseCampaignRequestTypeDef(BaseValidatorModel):
-    id: str
+    id: Annotated[str, _aws_pattern("Connectcampaigns", "CampaignId")]
 
 
 class SuccessfulRequestTypeDef(BaseValidatorModel):
-    clientToken: Optional[str] = None
-    id: Optional[str] = None
+    clientToken: Optional[Annotated[str, _aws_pattern("Connectcampaigns", "ClientToken")]] = None
+    id: Optional[Annotated[str, _aws_pattern("Connectcampaigns", "DialRequestId")]] = None
 
 
 # This class is the input for the 'resume_campaign' function.
 class ResumeCampaignRequestTypeDef(BaseValidatorModel):
-    id: str
+    id: Annotated[str, _aws_pattern("Connectcampaigns", "CampaignId")]
 
 
 # This class is the input for the 'start_campaign' function.
 class StartCampaignRequestTypeDef(BaseValidatorModel):
-    id: str
+    id: Annotated[str, _aws_pattern("Connectcampaigns", "CampaignId")]
 
 
 # This class is the input for the 'stop_campaign' function.
 class StopCampaignRequestTypeDef(BaseValidatorModel):
-    id: str
+    id: Annotated[str, _aws_pattern("Connectcampaigns", "CampaignId")]
 
 
 # This class is the input for the 'tag_resource' function.
 class TagResourceRequestTypeDef(BaseValidatorModel):
-    arn: str
+    arn: Annotated[str, _aws_pattern("Connectcampaigns", "Arn")]
     tags: Dict[str, str]
 
 
 # This class is the input for the 'untag_resource' function.
 class UntagResourceRequestTypeDef(BaseValidatorModel):
-    arn: str
-    tagKeys: List[str]
+    arn: Annotated[str, _aws_pattern("Connectcampaigns", "Arn")]
+    tagKeys: List[Annotated[str, _aws_pattern("Connectcampaigns", "TagKey")]]
 
 
 # This class is the input for the 'update_campaign_name' function.
 class UpdateCampaignNameRequestTypeDef(BaseValidatorModel):
-    id: str
+    id: Annotated[str, _aws_pattern("Connectcampaigns", "CampaignId")]
     name: str
 
 
@@ -211,7 +213,7 @@ class OutboundCallConfigTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'update_campaign_outbound_call_config' function.
 class UpdateCampaignOutboundCallConfigRequestTypeDef(BaseValidatorModel):
-    id: str
+    id: Annotated[str, _aws_pattern("Connectcampaigns", "CampaignId")]
     connectContactFlowId: Optional[str] = None
     connectSourcePhoneNumber: Optional[str] = None
     answerMachineDetectionConfig: Optional[AnswerMachineDetectionConfigTypeDef] = None
@@ -223,7 +225,7 @@ class CampaignFiltersTypeDef(BaseValidatorModel):
 
 # This class is the output for the 'create_campaign' function.
 class CreateCampaignResponseTypeDef(BaseValidatorModel):
-    id: str
+    id: Annotated[str, _aws_pattern("Connectcampaigns", "CampaignId")]
     arn: str
     tags: Dict[str, str]
     ResponseMetadata: ResponseMetadataTypeDef
@@ -254,8 +256,8 @@ class ListTagsForResourceResponseTypeDef(BaseValidatorModel):
 
 
 class DialRequestTypeDef(BaseValidatorModel):
-    clientToken: str
-    phoneNumber: str
+    clientToken: Annotated[str, _aws_pattern("Connectcampaigns", "ClientToken")]
+    phoneNumber: Annotated[str, _aws_pattern("Connectcampaigns", "DestinationPhoneNumber")]
     expirationTime: TimestampTypeDef
     attributes: Dict[str, str]
 
@@ -267,14 +269,14 @@ class DialerConfigTypeDef(BaseValidatorModel):
 
 
 class InstanceConfigTypeDef(BaseValidatorModel):
-    connectInstanceId: str
+    connectInstanceId: Annotated[str, _aws_pattern("Connectcampaigns", "InstanceId")]
     serviceLinkedRoleArn: str
     encryptionConfig: EncryptionConfigTypeDef
 
 
 # This class is the input for the 'start_instance_onboarding_job' function.
 class StartInstanceOnboardingJobRequestTypeDef(BaseValidatorModel):
-    connectInstanceId: str
+    connectInstanceId: Annotated[str, _aws_pattern("Connectcampaigns", "InstanceId")]
     encryptionConfig: EncryptionConfigTypeDef
 
 
@@ -318,15 +320,15 @@ class ListCampaignsRequestTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'put_dial_request_batch' function.
 class PutDialRequestBatchRequestTypeDef(BaseValidatorModel):
-    id: str
+    id: Annotated[str, _aws_pattern("Connectcampaigns", "CampaignId")]
     dialRequests: List[DialRequestTypeDef]
 
 
 class CampaignTypeDef(BaseValidatorModel):
-    id: str
+    id: Annotated[str, _aws_pattern("Connectcampaigns", "CampaignId")]
     arn: str
     name: str
-    connectInstanceId: str
+    connectInstanceId: Annotated[str, _aws_pattern("Connectcampaigns", "InstanceId")]
     dialerConfig: DialerConfigTypeDef
     outboundCallConfig: OutboundCallConfigTypeDef
     tags: Optional[Dict[str, str]] = None
@@ -335,7 +337,7 @@ class CampaignTypeDef(BaseValidatorModel):
 # This class is the input for the 'create_campaign' function.
 class CreateCampaignRequestTypeDef(BaseValidatorModel):
     name: str
-    connectInstanceId: str
+    connectInstanceId: Annotated[str, _aws_pattern("Connectcampaigns", "InstanceId")]
     dialerConfig: DialerConfigTypeDef
     outboundCallConfig: OutboundCallConfigTypeDef
     tags: Optional[Dict[str, str]] = None
@@ -343,7 +345,7 @@ class CreateCampaignRequestTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'update_campaign_dialer_config' function.
 class UpdateCampaignDialerConfigRequestTypeDef(BaseValidatorModel):
-    id: str
+    id: Annotated[str, _aws_pattern("Connectcampaigns", "CampaignId")]
     dialerConfig: DialerConfigTypeDef
 
 

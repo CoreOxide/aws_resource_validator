@@ -3,6 +3,7 @@
 from datetime import datetime
 from decimal import Decimal
 from typing import (
+    Annotated,
     Any,
     Callable,
     Dict,
@@ -24,6 +25,7 @@ from botocore.response import StreamingBody
 from pydantic import Field
 
 from aws_resource_validator.core.base_validator_model import BaseValidatorModel, EventStream
+from aws_resource_validator.core.pattern_validation import aws_field_pattern as _aws_pattern
 from aws_resource_validator.pydantic_models.iotfleetwise.iotfleetwise_constants import *  # noqa: F401,F403
 
 # Optional boto3 symbols — imported lazily so services that don't need them
@@ -53,22 +55,22 @@ class ActuatorOutputTypeDef(BaseValidatorModel):
 
 
 class ActuatorTypeDef(BaseValidatorModel):
-    fullyQualifiedName: str
+    fullyQualifiedName: Annotated[str, _aws_pattern("Iotfleetwise", "ActuatorFullyQualifiedNameString")]
     dataType: NodeDataTypeType
-    description: Optional[str] = None
+    description: Optional[Annotated[str, _aws_pattern("Iotfleetwise", "description")]] = None
     unit: Optional[str] = None
     allowedValues: Optional[List[str]] = None
     min: Optional[float] = None
     max: Optional[float] = None
     assignedValue: Optional[str] = None
-    deprecationMessage: Optional[str] = None
-    comment: Optional[str] = None
-    structFullyQualifiedName: Optional[str] = None
+    deprecationMessage: Optional[Annotated[str, _aws_pattern("Iotfleetwise", "message")]] = None
+    comment: Optional[Annotated[str, _aws_pattern("Iotfleetwise", "message")]] = None
+    structFullyQualifiedName: Optional[Annotated[str, _aws_pattern("Iotfleetwise", "NodePath")]] = None
 
 
 class AssociateVehicleFleetRequestTypeDef(BaseValidatorModel):
-    vehicleName: str
-    fleetId: str
+    vehicleName: Annotated[str, _aws_pattern("Iotfleetwise", "vehicleName")]
+    fleetId: Annotated[str, _aws_pattern("Iotfleetwise", "fleetId")]
 
 
 class AttributeOutputTypeDef(BaseValidatorModel):
@@ -86,27 +88,27 @@ class AttributeOutputTypeDef(BaseValidatorModel):
 
 
 class AttributeTypeDef(BaseValidatorModel):
-    fullyQualifiedName: str
+    fullyQualifiedName: Annotated[str, _aws_pattern("Iotfleetwise", "AttributeFullyQualifiedNameString")]
     dataType: NodeDataTypeType
-    description: Optional[str] = None
+    description: Optional[Annotated[str, _aws_pattern("Iotfleetwise", "description")]] = None
     unit: Optional[str] = None
     allowedValues: Optional[List[str]] = None
     min: Optional[float] = None
     max: Optional[float] = None
     assignedValue: Optional[str] = None
     defaultValue: Optional[str] = None
-    deprecationMessage: Optional[str] = None
-    comment: Optional[str] = None
+    deprecationMessage: Optional[Annotated[str, _aws_pattern("Iotfleetwise", "message")]] = None
+    comment: Optional[Annotated[str, _aws_pattern("Iotfleetwise", "message")]] = None
 
 
 class CreateVehicleErrorTypeDef(BaseValidatorModel):
-    vehicleName: Optional[str] = None
+    vehicleName: Optional[Annotated[str, _aws_pattern("Iotfleetwise", "vehicleName")]] = None
     code: Optional[str] = None
     message: Optional[str] = None
 
 
 class CreateVehicleResponseItemTypeDef(BaseValidatorModel):
-    vehicleName: Optional[str] = None
+    vehicleName: Optional[Annotated[str, _aws_pattern("Iotfleetwise", "vehicleName")]] = None
     arn: Optional[str] = None
     thingArn: Optional[str] = None
 
@@ -120,13 +122,13 @@ class ResponseMetadataTypeDef(BaseValidatorModel):
 
 
 class UpdateVehicleErrorTypeDef(BaseValidatorModel):
-    vehicleName: Optional[str] = None
+    vehicleName: Optional[Annotated[str, _aws_pattern("Iotfleetwise", "vehicleName")]] = None
     code: Optional[int] = None
     message: Optional[str] = None
 
 
 class UpdateVehicleResponseItemTypeDef(BaseValidatorModel):
-    vehicleName: Optional[str] = None
+    vehicleName: Optional[Annotated[str, _aws_pattern("Iotfleetwise", "vehicleName")]] = None
     arn: Optional[str] = None
 
 
@@ -134,27 +136,27 @@ BlobTypeDef = Union[IO[Any], StreamingBody, bytes, str]
 
 
 class BranchTypeDef(BaseValidatorModel):
-    fullyQualifiedName: str
-    description: Optional[str] = None
-    deprecationMessage: Optional[str] = None
-    comment: Optional[str] = None
+    fullyQualifiedName: Annotated[str, _aws_pattern("Iotfleetwise", "BranchFullyQualifiedNameString")]
+    description: Optional[Annotated[str, _aws_pattern("Iotfleetwise", "description")]] = None
+    deprecationMessage: Optional[Annotated[str, _aws_pattern("Iotfleetwise", "message")]] = None
+    comment: Optional[Annotated[str, _aws_pattern("Iotfleetwise", "message")]] = None
 
 
 class CampaignSummaryTypeDef(BaseValidatorModel):
     creationTime: datetime
     lastModificationTime: datetime
-    arn: Optional[str] = None
-    name: Optional[str] = None
-    description: Optional[str] = None
+    arn: Optional[Annotated[str, _aws_pattern("Iotfleetwise", "campaignArn")]] = None
+    name: Optional[Annotated[str, _aws_pattern("Iotfleetwise", "campaignName")]] = None
+    description: Optional[Annotated[str, _aws_pattern("Iotfleetwise", "description")]] = None
     signalCatalogArn: Optional[str] = None
     targetArn: Optional[str] = None
     status: Optional[CampaignStatusType] = None
 
 
 class CanInterfaceTypeDef(BaseValidatorModel):
-    name: str
-    protocolName: Optional[str] = None
-    protocolVersion: Optional[str] = None
+    name: Annotated[str, _aws_pattern("Iotfleetwise", "CanInterfaceName")]
+    protocolName: Optional[Annotated[str, _aws_pattern("Iotfleetwise", "ProtocolName")]] = None
+    protocolVersion: Optional[Annotated[str, _aws_pattern("Iotfleetwise", "ProtocolVersion")]] = None
 
 
 class CanSignalTypeDef(BaseValidatorModel):
@@ -165,13 +167,13 @@ class CanSignalTypeDef(BaseValidatorModel):
     offset: float
     factor: float
     length: int
-    name: Optional[str] = None
+    name: Optional[Annotated[str, _aws_pattern("Iotfleetwise", "CanSignalName")]] = None
     signalValueType: Optional[SignalValueTypeType] = None
 
 
 class CloudWatchLogDeliveryOptionsTypeDef(BaseValidatorModel):
     logType: LogTypeType
-    logGroupName: Optional[str] = None
+    logGroupName: Optional[Annotated[str, _aws_pattern("Iotfleetwise", "CloudWatchLogGroupName")]] = None
 
 
 class ConditionBasedCollectionSchemeTypeDef(BaseValidatorModel):
@@ -191,10 +193,10 @@ class ConditionBasedSignalFetchConfigTypeDef(BaseValidatorModel):
 
 
 class SignalInformationTypeDef(BaseValidatorModel):
-    name: str
+    name: Annotated[str, _aws_pattern("Iotfleetwise", "wildcardSignalName")]
     maxSampleCount: Optional[int] = None
     minimumSamplingIntervalMs: Optional[int] = None
-    dataPartitionId: Optional[str] = None
+    dataPartitionId: Optional[Annotated[str, _aws_pattern("Iotfleetwise", "DataPartitionId")]] = None
 
 
 class TagTypeDef(BaseValidatorModel):
@@ -206,45 +208,45 @@ TimestampTypeDef = Union[datetime, str]
 
 
 class CustomDecodingInterfaceTypeDef(BaseValidatorModel):
-    name: str
+    name: Annotated[str, _aws_pattern("Iotfleetwise", "CustomDecodingSignalInterfaceName")]
 
 
 class CustomDecodingSignalTypeDef(BaseValidatorModel):
-    id: str
+    id: Annotated[str, _aws_pattern("Iotfleetwise", "CustomDecodingId")]
 
 
 class CustomPropertyTypeDef(BaseValidatorModel):
-    fullyQualifiedName: str
+    fullyQualifiedName: Annotated[str, _aws_pattern("Iotfleetwise", "CustomPropertyFullyQualifiedNameString")]
     dataType: NodeDataTypeType
     dataEncoding: Optional[NodeDataEncodingType] = None
-    description: Optional[str] = None
-    deprecationMessage: Optional[str] = None
-    comment: Optional[str] = None
-    structFullyQualifiedName: Optional[str] = None
+    description: Optional[Annotated[str, _aws_pattern("Iotfleetwise", "description")]] = None
+    deprecationMessage: Optional[Annotated[str, _aws_pattern("Iotfleetwise", "message")]] = None
+    comment: Optional[Annotated[str, _aws_pattern("Iotfleetwise", "message")]] = None
+    structFullyQualifiedName: Optional[Annotated[str, _aws_pattern("Iotfleetwise", "NodePath")]] = None
 
 
 class CustomStructTypeDef(BaseValidatorModel):
-    fullyQualifiedName: str
-    description: Optional[str] = None
-    deprecationMessage: Optional[str] = None
-    comment: Optional[str] = None
+    fullyQualifiedName: Annotated[str, _aws_pattern("Iotfleetwise", "CustomStructFullyQualifiedNameString")]
+    description: Optional[Annotated[str, _aws_pattern("Iotfleetwise", "description")]] = None
+    deprecationMessage: Optional[Annotated[str, _aws_pattern("Iotfleetwise", "message")]] = None
+    comment: Optional[Annotated[str, _aws_pattern("Iotfleetwise", "message")]] = None
 
 
 class MqttTopicConfigTypeDef(BaseValidatorModel):
-    mqttTopicArn: str
-    executionRoleArn: str
+    mqttTopicArn: Annotated[str, _aws_pattern("Iotfleetwise", "MqttTopicArn")]
+    executionRoleArn: Annotated[str, _aws_pattern("Iotfleetwise", "IAMRoleArn")]
 
 
 class S3ConfigTypeDef(BaseValidatorModel):
-    bucketArn: str
+    bucketArn: Annotated[str, _aws_pattern("Iotfleetwise", "S3BucketArn")]
     dataFormat: Optional[DataFormatType] = None
     storageCompressionFormat: Optional[StorageCompressionFormatType] = None
-    prefix: Optional[str] = None
+    prefix: Optional[Annotated[str, _aws_pattern("Iotfleetwise", "Prefix")]] = None
 
 
 class TimestreamConfigTypeDef(BaseValidatorModel):
-    timestreamTableArn: str
-    executionRoleArn: str
+    timestreamTableArn: Annotated[str, _aws_pattern("Iotfleetwise", "TimestreamTableArn")]
+    executionRoleArn: Annotated[str, _aws_pattern("Iotfleetwise", "IAMRoleArn")]
 
 
 class StorageMaximumSizeTypeDef(BaseValidatorModel):
@@ -268,57 +270,57 @@ class DecoderManifestSummaryTypeDef(BaseValidatorModel):
     name: Optional[str] = None
     arn: Optional[str] = None
     modelManifestArn: Optional[str] = None
-    description: Optional[str] = None
+    description: Optional[Annotated[str, _aws_pattern("Iotfleetwise", "description")]] = None
     status: Optional[ManifestStatusType] = None
-    message: Optional[str] = None
+    message: Optional[Annotated[str, _aws_pattern("Iotfleetwise", "message")]] = None
 
 
 # This class is the input for the 'delete_campaign' function.
 class DeleteCampaignRequestTypeDef(BaseValidatorModel):
-    name: str
+    name: Annotated[str, _aws_pattern("Iotfleetwise", "campaignName")]
 
 
 # This class is the input for the 'delete_decoder_manifest' function.
 class DeleteDecoderManifestRequestTypeDef(BaseValidatorModel):
-    name: str
+    name: Annotated[str, _aws_pattern("Iotfleetwise", "resourceName")]
 
 
 # This class is the input for the 'delete_fleet' function.
 class DeleteFleetRequestTypeDef(BaseValidatorModel):
-    fleetId: str
+    fleetId: Annotated[str, _aws_pattern("Iotfleetwise", "fleetId")]
 
 
 # This class is the input for the 'delete_model_manifest' function.
 class DeleteModelManifestRequestTypeDef(BaseValidatorModel):
-    name: str
+    name: Annotated[str, _aws_pattern("Iotfleetwise", "resourceName")]
 
 
 # This class is the input for the 'delete_signal_catalog' function.
 class DeleteSignalCatalogRequestTypeDef(BaseValidatorModel):
-    name: str
+    name: Annotated[str, _aws_pattern("Iotfleetwise", "resourceName")]
 
 
 # This class is the input for the 'delete_state_template' function.
 class DeleteStateTemplateRequestTypeDef(BaseValidatorModel):
-    identifier: str
+    identifier: Annotated[str, _aws_pattern("Iotfleetwise", "ResourceIdentifier")]
 
 
 # This class is the input for the 'delete_vehicle' function.
 class DeleteVehicleRequestTypeDef(BaseValidatorModel):
-    vehicleName: str
+    vehicleName: Annotated[str, _aws_pattern("Iotfleetwise", "vehicleName")]
 
 
 class DisassociateVehicleFleetRequestTypeDef(BaseValidatorModel):
-    vehicleName: str
-    fleetId: str
+    vehicleName: Annotated[str, _aws_pattern("Iotfleetwise", "vehicleName")]
+    fleetId: Annotated[str, _aws_pattern("Iotfleetwise", "fleetId")]
 
 
 class FleetSummaryTypeDef(BaseValidatorModel):
-    id: str
+    id: Annotated[str, _aws_pattern("Iotfleetwise", "fleetId")]
     arn: str
     signalCatalogArn: str
     creationTime: datetime
-    description: Optional[str] = None
+    description: Optional[Annotated[str, _aws_pattern("Iotfleetwise", "description")]] = None
     lastModificationTime: Optional[datetime] = None
 
 
@@ -328,22 +330,22 @@ class FormattedVssTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'get_campaign' function.
 class GetCampaignRequestTypeDef(BaseValidatorModel):
-    name: str
+    name: Annotated[str, _aws_pattern("Iotfleetwise", "campaignName")]
 
 
 # This class is the input for the 'get_decoder_manifest' function.
 class GetDecoderManifestRequestTypeDef(BaseValidatorModel):
-    name: str
+    name: Annotated[str, _aws_pattern("Iotfleetwise", "resourceName")]
 
 
 # This class is the input for the 'get_fleet' function.
 class GetFleetRequestTypeDef(BaseValidatorModel):
-    fleetId: str
+    fleetId: Annotated[str, _aws_pattern("Iotfleetwise", "fleetId")]
 
 
 # This class is the input for the 'get_model_manifest' function.
 class GetModelManifestRequestTypeDef(BaseValidatorModel):
-    name: str
+    name: Annotated[str, _aws_pattern("Iotfleetwise", "resourceName")]
 
 
 class IamRegistrationResponseTypeDef(BaseValidatorModel):
@@ -353,8 +355,8 @@ class IamRegistrationResponseTypeDef(BaseValidatorModel):
 
 
 class TimestreamRegistrationResponseTypeDef(BaseValidatorModel):
-    timestreamDatabaseName: str
-    timestreamTableName: str
+    timestreamDatabaseName: Annotated[str, _aws_pattern("Iotfleetwise", "TimestreamDatabaseName")]
+    timestreamTableName: Annotated[str, _aws_pattern("Iotfleetwise", "TimestreamTableName")]
     registrationStatus: RegistrationStatusType
     timestreamDatabaseArn: Optional[str] = None
     timestreamTableArn: Optional[str] = None
@@ -363,7 +365,7 @@ class TimestreamRegistrationResponseTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'get_signal_catalog' function.
 class GetSignalCatalogRequestTypeDef(BaseValidatorModel):
-    name: str
+    name: Annotated[str, _aws_pattern("Iotfleetwise", "resourceName")]
 
 
 class NodeCountsTypeDef(BaseValidatorModel):
@@ -378,12 +380,12 @@ class NodeCountsTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'get_state_template' function.
 class GetStateTemplateRequestTypeDef(BaseValidatorModel):
-    identifier: str
+    identifier: Annotated[str, _aws_pattern("Iotfleetwise", "ResourceIdentifier")]
 
 
 # This class is the input for the 'get_vehicle' function.
 class GetVehicleRequestTypeDef(BaseValidatorModel):
-    vehicleName: str
+    vehicleName: Annotated[str, _aws_pattern("Iotfleetwise", "vehicleName")]
 
 
 class PaginatorConfigTypeDef(BaseValidatorModel):
@@ -394,39 +396,39 @@ class PaginatorConfigTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'get_vehicle_status' function.
 class GetVehicleStatusRequestTypeDef(BaseValidatorModel):
-    vehicleName: str
+    vehicleName: Annotated[str, _aws_pattern("Iotfleetwise", "vehicleName")]
     nextToken: Optional[str] = None
     maxResults: Optional[int] = None
 
 
 class VehicleStatusTypeDef(BaseValidatorModel):
-    campaignName: Optional[str] = None
-    vehicleName: Optional[str] = None
+    campaignName: Optional[Annotated[str, _aws_pattern("Iotfleetwise", "campaignName")]] = None
+    vehicleName: Optional[Annotated[str, _aws_pattern("Iotfleetwise", "vehicleName")]] = None
     status: Optional[VehicleStateType] = None
 
 
 class IamResourcesTypeDef(BaseValidatorModel):
-    roleArn: str
+    roleArn: Annotated[str, _aws_pattern("Iotfleetwise", "IAMRoleArn")]
 
 
 # This class is the input for the 'list_campaigns' function.
 class ListCampaignsRequestTypeDef(BaseValidatorModel):
     nextToken: Optional[str] = None
     maxResults: Optional[int] = None
-    status: Optional[str] = None
+    status: Optional[Annotated[str, _aws_pattern("Iotfleetwise", "statusStr")]] = None
     listResponseScope: Optional[Literal["METADATA_ONLY"]] = None
 
 
 # This class is the input for the 'list_decoder_manifest_network_interfaces' function.
 class ListDecoderManifestNetworkInterfacesRequestTypeDef(BaseValidatorModel):
-    name: str
+    name: Annotated[str, _aws_pattern("Iotfleetwise", "resourceName")]
     nextToken: Optional[str] = None
     maxResults: Optional[int] = None
 
 
 # This class is the input for the 'list_decoder_manifest_signals' function.
 class ListDecoderManifestSignalsRequestTypeDef(BaseValidatorModel):
-    name: str
+    name: Annotated[str, _aws_pattern("Iotfleetwise", "resourceName")]
     nextToken: Optional[str] = None
     maxResults: Optional[int] = None
 
@@ -441,7 +443,7 @@ class ListDecoderManifestsRequestTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'list_fleets_for_vehicle' function.
 class ListFleetsForVehicleRequestTypeDef(BaseValidatorModel):
-    vehicleName: str
+    vehicleName: Annotated[str, _aws_pattern("Iotfleetwise", "vehicleName")]
     nextToken: Optional[str] = None
     maxResults: Optional[int] = None
 
@@ -455,7 +457,7 @@ class ListFleetsRequestTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'list_model_manifest_nodes' function.
 class ListModelManifestNodesRequestTypeDef(BaseValidatorModel):
-    name: str
+    name: Annotated[str, _aws_pattern("Iotfleetwise", "resourceName")]
     nextToken: Optional[str] = None
     maxResults: Optional[int] = None
 
@@ -474,13 +476,13 @@ class ModelManifestSummaryTypeDef(BaseValidatorModel):
     name: Optional[str] = None
     arn: Optional[str] = None
     signalCatalogArn: Optional[str] = None
-    description: Optional[str] = None
+    description: Optional[Annotated[str, _aws_pattern("Iotfleetwise", "description")]] = None
     status: Optional[ManifestStatusType] = None
 
 
 # This class is the input for the 'list_signal_catalog_nodes' function.
 class ListSignalCatalogNodesRequestTypeDef(BaseValidatorModel):
-    name: str
+    name: Annotated[str, _aws_pattern("Iotfleetwise", "resourceName")]
     nextToken: Optional[str] = None
     maxResults: Optional[int] = None
     signalNodeType: Optional[SignalNodeTypeType] = None
@@ -507,23 +509,23 @@ class ListStateTemplatesRequestTypeDef(BaseValidatorModel):
 
 
 class StateTemplateSummaryTypeDef(BaseValidatorModel):
-    name: Optional[str] = None
+    name: Optional[Annotated[str, _aws_pattern("Iotfleetwise", "resourceName")]] = None
     arn: Optional[str] = None
     signalCatalogArn: Optional[str] = None
-    description: Optional[str] = None
+    description: Optional[Annotated[str, _aws_pattern("Iotfleetwise", "description")]] = None
     creationTime: Optional[datetime] = None
     lastModificationTime: Optional[datetime] = None
-    id: Optional[str] = None
+    id: Optional[Annotated[str, _aws_pattern("Iotfleetwise", "ResourceUniqueId")]] = None
 
 
 # This class is the input for the 'list_tags_for_resource' function.
 class ListTagsForResourceRequestTypeDef(BaseValidatorModel):
-    ResourceARN: str
+    ResourceARN: Annotated[str, _aws_pattern("Iotfleetwise", "AmazonResourceName")]
 
 
 # This class is the input for the 'list_vehicles_in_fleet' function.
 class ListVehiclesInFleetRequestTypeDef(BaseValidatorModel):
-    fleetId: str
+    fleetId: Annotated[str, _aws_pattern("Iotfleetwise", "fleetId")]
     nextToken: Optional[str] = None
     maxResults: Optional[int] = None
 
@@ -531,7 +533,7 @@ class ListVehiclesInFleetRequestTypeDef(BaseValidatorModel):
 # This class is the input for the 'list_vehicles' function.
 class ListVehiclesRequestTypeDef(BaseValidatorModel):
     modelManifestArn: Optional[str] = None
-    attributeNames: Optional[List[str]] = None
+    attributeNames: Optional[List[Annotated[str, _aws_pattern("Iotfleetwise", "attributeName")]]] = None
     attributeValues: Optional[List[str]] = None
     nextToken: Optional[str] = None
     maxResults: Optional[int] = None
@@ -539,7 +541,7 @@ class ListVehiclesRequestTypeDef(BaseValidatorModel):
 
 
 class VehicleSummaryTypeDef(BaseValidatorModel):
-    vehicleName: str
+    vehicleName: Annotated[str, _aws_pattern("Iotfleetwise", "vehicleName")]
     arn: str
     modelManifestArn: str
     decoderManifestArn: str
@@ -549,7 +551,7 @@ class VehicleSummaryTypeDef(BaseValidatorModel):
 
 
 class ObdInterfaceTypeDef(BaseValidatorModel):
-    name: str
+    name: Annotated[str, _aws_pattern("Iotfleetwise", "ObdInterfaceName")]
     requestMessageId: int
     obdStandard: Optional[str] = None
     pidRequestIntervalSeconds: Optional[int] = None
@@ -609,21 +611,21 @@ class PutEncryptionConfigurationRequestTypeDef(BaseValidatorModel):
 
 
 class TimestreamResourcesTypeDef(BaseValidatorModel):
-    timestreamDatabaseName: str
-    timestreamTableName: str
+    timestreamDatabaseName: Annotated[str, _aws_pattern("Iotfleetwise", "TimestreamDatabaseName")]
+    timestreamTableName: Annotated[str, _aws_pattern("Iotfleetwise", "TimestreamTableName")]
 
 
 class SensorTypeDef(BaseValidatorModel):
-    fullyQualifiedName: str
+    fullyQualifiedName: Annotated[str, _aws_pattern("Iotfleetwise", "SensorFullyQualifiedNameString")]
     dataType: NodeDataTypeType
-    description: Optional[str] = None
+    description: Optional[Annotated[str, _aws_pattern("Iotfleetwise", "description")]] = None
     unit: Optional[str] = None
     allowedValues: Optional[List[str]] = None
     min: Optional[float] = None
     max: Optional[float] = None
-    deprecationMessage: Optional[str] = None
-    comment: Optional[str] = None
-    structFullyQualifiedName: Optional[str] = None
+    deprecationMessage: Optional[Annotated[str, _aws_pattern("Iotfleetwise", "message")]] = None
+    comment: Optional[Annotated[str, _aws_pattern("Iotfleetwise", "message")]] = None
+    structFullyQualifiedName: Optional[Annotated[str, _aws_pattern("Iotfleetwise", "NodePath")]] = None
 
 
 class TimeBasedSignalFetchConfigTypeDef(BaseValidatorModel):
@@ -667,41 +669,41 @@ class StructuredMessageListDefinitionTypeDef(BaseValidatorModel):
 
 
 class UntagResourceRequestTypeDef(BaseValidatorModel):
-    ResourceARN: str
+    ResourceARN: Annotated[str, _aws_pattern("Iotfleetwise", "AmazonResourceName")]
     TagKeys: List[str]
 
 
 # This class is the input for the 'update_campaign' function.
 class UpdateCampaignRequestTypeDef(BaseValidatorModel):
-    name: str
+    name: Annotated[str, _aws_pattern("Iotfleetwise", "campaignName")]
     action: UpdateCampaignActionType
-    description: Optional[str] = None
-    dataExtraDimensions: Optional[List[str]] = None
+    description: Optional[Annotated[str, _aws_pattern("Iotfleetwise", "description")]] = None
+    dataExtraDimensions: Optional[List[Annotated[str, _aws_pattern("Iotfleetwise", "NodePath")]]] = None
 
 
 # This class is the input for the 'update_fleet' function.
 class UpdateFleetRequestTypeDef(BaseValidatorModel):
-    fleetId: str
-    description: Optional[str] = None
+    fleetId: Annotated[str, _aws_pattern("Iotfleetwise", "fleetId")]
+    description: Optional[Annotated[str, _aws_pattern("Iotfleetwise", "description")]] = None
 
 
 # This class is the input for the 'update_model_manifest' function.
 class UpdateModelManifestRequestTypeDef(BaseValidatorModel):
-    name: str
-    description: Optional[str] = None
-    nodesToAdd: Optional[List[str]] = None
-    nodesToRemove: Optional[List[str]] = None
+    name: Annotated[str, _aws_pattern("Iotfleetwise", "resourceName")]
+    description: Optional[Annotated[str, _aws_pattern("Iotfleetwise", "description")]] = None
+    nodesToAdd: Optional[List[Annotated[str, _aws_pattern("Iotfleetwise", "NodePath")]]] = None
+    nodesToRemove: Optional[List[Annotated[str, _aws_pattern("Iotfleetwise", "NodePath")]]] = None
     status: Optional[ManifestStatusType] = None
 
 
 # This class is the input for the 'update_state_template' function.
 class UpdateStateTemplateRequestTypeDef(BaseValidatorModel):
-    identifier: str
-    description: Optional[str] = None
-    stateTemplatePropertiesToAdd: Optional[List[str]] = None
-    stateTemplatePropertiesToRemove: Optional[List[str]] = None
-    dataExtraDimensions: Optional[List[str]] = None
-    metadataExtraDimensions: Optional[List[str]] = None
+    identifier: Annotated[str, _aws_pattern("Iotfleetwise", "ResourceIdentifier")]
+    description: Optional[Annotated[str, _aws_pattern("Iotfleetwise", "description")]] = None
+    stateTemplatePropertiesToAdd: Optional[List[Annotated[str, _aws_pattern("Iotfleetwise", "NodePath")]]] = None
+    stateTemplatePropertiesToRemove: Optional[List[Annotated[str, _aws_pattern("Iotfleetwise", "NodePath")]]] = None
+    dataExtraDimensions: Optional[List[Annotated[str, _aws_pattern("Iotfleetwise", "NodePath")]]] = None
+    metadataExtraDimensions: Optional[List[Annotated[str, _aws_pattern("Iotfleetwise", "NodePath")]]] = None
 
 
 ActuatorUnionTypeDef = Union[ActuatorOutputTypeDef, ActuatorTypeDef]
@@ -718,50 +720,50 @@ class BatchCreateVehicleResponseTypeDef(BaseValidatorModel):
 
 # This class is the output for the 'create_campaign' function.
 class CreateCampaignResponseTypeDef(BaseValidatorModel):
-    name: str
-    arn: str
+    name: Annotated[str, _aws_pattern("Iotfleetwise", "campaignName")]
+    arn: Annotated[str, _aws_pattern("Iotfleetwise", "campaignArn")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 # This class is the output for the 'create_decoder_manifest' function.
 class CreateDecoderManifestResponseTypeDef(BaseValidatorModel):
-    name: str
+    name: Annotated[str, _aws_pattern("Iotfleetwise", "resourceName")]
     arn: str
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 # This class is the output for the 'create_fleet' function.
 class CreateFleetResponseTypeDef(BaseValidatorModel):
-    id: str
+    id: Annotated[str, _aws_pattern("Iotfleetwise", "fleetId")]
     arn: str
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 # This class is the output for the 'create_model_manifest' function.
 class CreateModelManifestResponseTypeDef(BaseValidatorModel):
-    name: str
+    name: Annotated[str, _aws_pattern("Iotfleetwise", "resourceName")]
     arn: str
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 # This class is the output for the 'create_signal_catalog' function.
 class CreateSignalCatalogResponseTypeDef(BaseValidatorModel):
-    name: str
+    name: Annotated[str, _aws_pattern("Iotfleetwise", "resourceName")]
     arn: str
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 # This class is the output for the 'create_state_template' function.
 class CreateStateTemplateResponseTypeDef(BaseValidatorModel):
-    name: str
+    name: Annotated[str, _aws_pattern("Iotfleetwise", "resourceName")]
     arn: str
-    id: str
+    id: Annotated[str, _aws_pattern("Iotfleetwise", "ResourceUniqueId")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 # This class is the output for the 'create_vehicle' function.
 class CreateVehicleResponseTypeDef(BaseValidatorModel):
-    vehicleName: str
+    vehicleName: Annotated[str, _aws_pattern("Iotfleetwise", "vehicleName")]
     arn: str
     thingArn: str
     ResponseMetadata: ResponseMetadataTypeDef
@@ -769,50 +771,50 @@ class CreateVehicleResponseTypeDef(BaseValidatorModel):
 
 # This class is the output for the 'delete_campaign' function.
 class DeleteCampaignResponseTypeDef(BaseValidatorModel):
-    name: str
-    arn: str
+    name: Annotated[str, _aws_pattern("Iotfleetwise", "campaignName")]
+    arn: Annotated[str, _aws_pattern("Iotfleetwise", "campaignArn")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 # This class is the output for the 'delete_decoder_manifest' function.
 class DeleteDecoderManifestResponseTypeDef(BaseValidatorModel):
-    name: str
+    name: Annotated[str, _aws_pattern("Iotfleetwise", "resourceName")]
     arn: str
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 # This class is the output for the 'delete_fleet' function.
 class DeleteFleetResponseTypeDef(BaseValidatorModel):
-    id: str
+    id: Annotated[str, _aws_pattern("Iotfleetwise", "fleetId")]
     arn: str
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 # This class is the output for the 'delete_model_manifest' function.
 class DeleteModelManifestResponseTypeDef(BaseValidatorModel):
-    name: str
+    name: Annotated[str, _aws_pattern("Iotfleetwise", "resourceName")]
     arn: str
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 # This class is the output for the 'delete_signal_catalog' function.
 class DeleteSignalCatalogResponseTypeDef(BaseValidatorModel):
-    name: str
+    name: Annotated[str, _aws_pattern("Iotfleetwise", "resourceName")]
     arn: str
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 # This class is the output for the 'delete_state_template' function.
 class DeleteStateTemplateResponseTypeDef(BaseValidatorModel):
-    name: str
+    name: Annotated[str, _aws_pattern("Iotfleetwise", "resourceName")]
     arn: str
-    id: str
+    id: Annotated[str, _aws_pattern("Iotfleetwise", "ResourceUniqueId")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 # This class is the output for the 'delete_vehicle' function.
 class DeleteVehicleResponseTypeDef(BaseValidatorModel):
-    vehicleName: str
+    vehicleName: Annotated[str, _aws_pattern("Iotfleetwise", "vehicleName")]
     arn: str
     ResponseMetadata: ResponseMetadataTypeDef
 
@@ -821,12 +823,12 @@ class DeleteVehicleResponseTypeDef(BaseValidatorModel):
 class GetDecoderManifestResponseTypeDef(BaseValidatorModel):
     name: str
     arn: str
-    description: str
+    description: Annotated[str, _aws_pattern("Iotfleetwise", "description")]
     modelManifestArn: str
     status: ManifestStatusType
     creationTime: datetime
     lastModificationTime: datetime
-    message: str
+    message: Annotated[str, _aws_pattern("Iotfleetwise", "message")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
@@ -842,9 +844,9 @@ class GetEncryptionConfigurationResponseTypeDef(BaseValidatorModel):
 
 # This class is the output for the 'get_fleet' function.
 class GetFleetResponseTypeDef(BaseValidatorModel):
-    id: str
+    id: Annotated[str, _aws_pattern("Iotfleetwise", "fleetId")]
     arn: str
-    description: str
+    description: Annotated[str, _aws_pattern("Iotfleetwise", "description")]
     signalCatalogArn: str
     creationTime: datetime
     lastModificationTime: datetime
@@ -853,9 +855,9 @@ class GetFleetResponseTypeDef(BaseValidatorModel):
 
 # This class is the output for the 'get_model_manifest' function.
 class GetModelManifestResponseTypeDef(BaseValidatorModel):
-    name: str
+    name: Annotated[str, _aws_pattern("Iotfleetwise", "resourceName")]
     arn: str
-    description: str
+    description: Annotated[str, _aws_pattern("Iotfleetwise", "description")]
     signalCatalogArn: str
     status: ManifestStatusType
     creationTime: datetime
@@ -865,43 +867,43 @@ class GetModelManifestResponseTypeDef(BaseValidatorModel):
 
 # This class is the output for the 'get_state_template' function.
 class GetStateTemplateResponseTypeDef(BaseValidatorModel):
-    name: str
+    name: Annotated[str, _aws_pattern("Iotfleetwise", "resourceName")]
     arn: str
-    description: str
+    description: Annotated[str, _aws_pattern("Iotfleetwise", "description")]
     signalCatalogArn: str
-    stateTemplateProperties: List[str]
-    dataExtraDimensions: List[str]
-    metadataExtraDimensions: List[str]
+    stateTemplateProperties: List[Annotated[str, _aws_pattern("Iotfleetwise", "NodePath")]]
+    dataExtraDimensions: List[Annotated[str, _aws_pattern("Iotfleetwise", "NodePath")]]
+    metadataExtraDimensions: List[Annotated[str, _aws_pattern("Iotfleetwise", "NodePath")]]
     creationTime: datetime
     lastModificationTime: datetime
-    id: str
+    id: Annotated[str, _aws_pattern("Iotfleetwise", "ResourceUniqueId")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 # This class is the output for the 'import_decoder_manifest' function.
 class ImportDecoderManifestResponseTypeDef(BaseValidatorModel):
-    name: str
+    name: Annotated[str, _aws_pattern("Iotfleetwise", "resourceName")]
     arn: str
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 # This class is the output for the 'import_signal_catalog' function.
 class ImportSignalCatalogResponseTypeDef(BaseValidatorModel):
-    name: str
+    name: Annotated[str, _aws_pattern("Iotfleetwise", "resourceName")]
     arn: str
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 # This class is the output for the 'list_fleets_for_vehicle' function.
 class ListFleetsForVehicleResponseTypeDef(BaseValidatorModel):
-    fleets: List[str]
+    fleets: List[Annotated[str, _aws_pattern("Iotfleetwise", "fleetId")]]
     ResponseMetadata: ResponseMetadataTypeDef
     nextToken: Optional[str] = None
 
 
 # This class is the output for the 'list_vehicles_in_fleet' function.
 class ListVehiclesInFleetResponseTypeDef(BaseValidatorModel):
-    vehicles: List[str]
+    vehicles: List[Annotated[str, _aws_pattern("Iotfleetwise", "vehicleName")]]
     ResponseMetadata: ResponseMetadataTypeDef
     nextToken: Optional[str] = None
 
@@ -916,51 +918,51 @@ class PutEncryptionConfigurationResponseTypeDef(BaseValidatorModel):
 
 # This class is the output for the 'update_campaign' function.
 class UpdateCampaignResponseTypeDef(BaseValidatorModel):
-    arn: str
-    name: str
+    arn: Annotated[str, _aws_pattern("Iotfleetwise", "campaignArn")]
+    name: Annotated[str, _aws_pattern("Iotfleetwise", "campaignName")]
     status: CampaignStatusType
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 # This class is the output for the 'update_decoder_manifest' function.
 class UpdateDecoderManifestResponseTypeDef(BaseValidatorModel):
-    name: str
+    name: Annotated[str, _aws_pattern("Iotfleetwise", "resourceName")]
     arn: str
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 # This class is the output for the 'update_fleet' function.
 class UpdateFleetResponseTypeDef(BaseValidatorModel):
-    id: str
+    id: Annotated[str, _aws_pattern("Iotfleetwise", "fleetId")]
     arn: str
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 # This class is the output for the 'update_model_manifest' function.
 class UpdateModelManifestResponseTypeDef(BaseValidatorModel):
-    name: str
+    name: Annotated[str, _aws_pattern("Iotfleetwise", "resourceName")]
     arn: str
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 # This class is the output for the 'update_signal_catalog' function.
 class UpdateSignalCatalogResponseTypeDef(BaseValidatorModel):
-    name: str
+    name: Annotated[str, _aws_pattern("Iotfleetwise", "resourceName")]
     arn: str
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 # This class is the output for the 'update_state_template' function.
 class UpdateStateTemplateResponseTypeDef(BaseValidatorModel):
-    name: str
+    name: Annotated[str, _aws_pattern("Iotfleetwise", "resourceName")]
     arn: str
-    id: str
+    id: Annotated[str, _aws_pattern("Iotfleetwise", "ResourceUniqueId")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 # This class is the output for the 'update_vehicle' function.
 class UpdateVehicleResponseTypeDef(BaseValidatorModel):
-    vehicleName: str
+    vehicleName: Annotated[str, _aws_pattern("Iotfleetwise", "vehicleName")]
     arn: str
     ResponseMetadata: ResponseMetadataTypeDef
 
@@ -973,7 +975,7 @@ class BatchUpdateVehicleResponseTypeDef(BaseValidatorModel):
 
 
 class CanDbcDefinitionTypeDef(BaseValidatorModel):
-    networkInterface: str
+    networkInterface: Annotated[str, _aws_pattern("Iotfleetwise", "InterfaceId")]
     canDbcFiles: List[BlobTypeDef]
     signalsMap: Optional[Dict[str, str]] = None
 
@@ -1001,29 +1003,29 @@ class CollectionSchemeTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'create_fleet' function.
 class CreateFleetRequestTypeDef(BaseValidatorModel):
-    fleetId: str
+    fleetId: Annotated[str, _aws_pattern("Iotfleetwise", "fleetId")]
     signalCatalogArn: str
-    description: Optional[str] = None
+    description: Optional[Annotated[str, _aws_pattern("Iotfleetwise", "description")]] = None
     tags: Optional[List[TagTypeDef]] = None
 
 
 # This class is the input for the 'create_model_manifest' function.
 class CreateModelManifestRequestTypeDef(BaseValidatorModel):
-    name: str
+    name: Annotated[str, _aws_pattern("Iotfleetwise", "resourceName")]
     nodes: List[str]
     signalCatalogArn: str
-    description: Optional[str] = None
+    description: Optional[Annotated[str, _aws_pattern("Iotfleetwise", "description")]] = None
     tags: Optional[List[TagTypeDef]] = None
 
 
 # This class is the input for the 'create_state_template' function.
 class CreateStateTemplateRequestTypeDef(BaseValidatorModel):
-    name: str
+    name: Annotated[str, _aws_pattern("Iotfleetwise", "resourceName")]
     signalCatalogArn: str
-    stateTemplateProperties: List[str]
-    description: Optional[str] = None
-    dataExtraDimensions: Optional[List[str]] = None
-    metadataExtraDimensions: Optional[List[str]] = None
+    stateTemplateProperties: List[Annotated[str, _aws_pattern("Iotfleetwise", "NodePath")]]
+    description: Optional[Annotated[str, _aws_pattern("Iotfleetwise", "description")]] = None
+    dataExtraDimensions: Optional[List[Annotated[str, _aws_pattern("Iotfleetwise", "NodePath")]]] = None
+    metadataExtraDimensions: Optional[List[Annotated[str, _aws_pattern("Iotfleetwise", "NodePath")]]] = None
     tags: Optional[List[TagTypeDef]] = None
 
 
@@ -1034,7 +1036,7 @@ class ListTagsForResourceResponseTypeDef(BaseValidatorModel):
 
 
 class TagResourceRequestTypeDef(BaseValidatorModel):
-    ResourceARN: str
+    ResourceARN: Annotated[str, _aws_pattern("Iotfleetwise", "AmazonResourceName")]
     Tags: List[TagTypeDef]
 
 
@@ -1066,8 +1068,8 @@ class ListFleetsResponseTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'import_signal_catalog' function.
 class ImportSignalCatalogRequestTypeDef(BaseValidatorModel):
-    name: str
-    description: Optional[str] = None
+    name: Annotated[str, _aws_pattern("Iotfleetwise", "resourceName")]
+    description: Optional[Annotated[str, _aws_pattern("Iotfleetwise", "description")]] = None
     vss: Optional[FormattedVssTypeDef] = None
     tags: Optional[List[TagTypeDef]] = None
 
@@ -1084,9 +1086,9 @@ class GetRegisterAccountStatusResponseTypeDef(BaseValidatorModel):
 
 # This class is the output for the 'get_signal_catalog' function.
 class GetSignalCatalogResponseTypeDef(BaseValidatorModel):
-    name: str
+    name: Annotated[str, _aws_pattern("Iotfleetwise", "resourceName")]
     arn: str
-    description: str
+    description: Annotated[str, _aws_pattern("Iotfleetwise", "description")]
     nodeCounts: NodeCountsTypeDef
     creationTime: datetime
     lastModificationTime: datetime
@@ -1205,7 +1207,7 @@ class ListVehiclesResponseTypeDef(BaseValidatorModel):
 
 
 class NetworkInterfaceTypeDef(BaseValidatorModel):
-    interfaceId: str
+    interfaceId: Annotated[str, _aws_pattern("Iotfleetwise", "InterfaceId")]
     type: NetworkInterfaceTypeType
     canInterface: Optional[CanInterfaceTypeDef] = None
     obdInterface: Optional[ObdInterfaceTypeDef] = None
@@ -1268,7 +1270,7 @@ class NetworkFileDefinitionTypeDef(BaseValidatorModel):
 
 
 class DataPartitionTypeDef(BaseValidatorModel):
-    id: str
+    id: Annotated[str, _aws_pattern("Iotfleetwise", "DataPartitionId")]
     storageOptions: DataPartitionStorageOptionsTypeDef
     uploadOptions: Optional[DataPartitionUploadOptionsTypeDef] = None
 
@@ -1333,7 +1335,7 @@ class SignalFetchInformationOutputTypeDef(BaseValidatorModel):
 
 
 class SignalFetchInformationTypeDef(BaseValidatorModel):
-    fullyQualifiedName: str
+    fullyQualifiedName: Annotated[str, _aws_pattern("Iotfleetwise", "NodePath")]
     signalFetchConfig: SignalFetchConfigTypeDef
     actions: List[str]
     conditionLanguageVersion: Optional[int] = None
@@ -1347,7 +1349,7 @@ class StructuredMessageTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'import_decoder_manifest' function.
 class ImportDecoderManifestRequestTypeDef(BaseValidatorModel):
-    name: str
+    name: Annotated[str, _aws_pattern("Iotfleetwise", "resourceName")]
     networkFileDefinitions: List[NetworkFileDefinitionTypeDef]
 
 
@@ -1376,9 +1378,9 @@ NodeUnionTypeDef = Union[NodeOutputTypeDef, NodeTypeDef]
 
 # This class is the output for the 'get_campaign' function.
 class GetCampaignResponseTypeDef(BaseValidatorModel):
-    name: str
-    arn: str
-    description: str
+    name: Annotated[str, _aws_pattern("Iotfleetwise", "campaignName")]
+    arn: Annotated[str, _aws_pattern("Iotfleetwise", "campaignArn")]
+    description: Annotated[str, _aws_pattern("Iotfleetwise", "description")]
     signalCatalogArn: str
     targetArn: str
     status: CampaignStatusType
@@ -1391,7 +1393,7 @@ class GetCampaignResponseTypeDef(BaseValidatorModel):
     priority: int
     signalsToCollect: List[SignalInformationTypeDef]
     collectionScheme: CollectionSchemeTypeDef
-    dataExtraDimensions: List[str]
+    dataExtraDimensions: List[Annotated[str, _aws_pattern("Iotfleetwise", "NodePath")]]
     creationTime: datetime
     lastModificationTime: datetime
     dataDestinationConfigs: List[DataDestinationConfigTypeDef]
@@ -1407,7 +1409,7 @@ StructuredMessageUnionTypeDef = Union[StructuredMessageOutputTypeDef, Structured
 
 # This class is the output for the 'get_vehicle' function.
 class GetVehicleResponseTypeDef(BaseValidatorModel):
-    vehicleName: str
+    vehicleName: Annotated[str, _aws_pattern("Iotfleetwise", "vehicleName")]
     arn: str
     modelManifestArn: str
     decoderManifestArn: str
@@ -1419,7 +1421,7 @@ class GetVehicleResponseTypeDef(BaseValidatorModel):
 
 
 class StateTemplateAssociationTypeDef(BaseValidatorModel):
-    identifier: str
+    identifier: Annotated[str, _aws_pattern("Iotfleetwise", "ResourceIdentifier")]
     stateTemplateUpdateStrategy: StateTemplateUpdateStrategyUnionTypeDef
 
 
@@ -1445,28 +1447,28 @@ class SignalDecoderPaginatorTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'create_signal_catalog' function.
 class CreateSignalCatalogRequestTypeDef(BaseValidatorModel):
-    name: str
-    description: Optional[str] = None
+    name: Annotated[str, _aws_pattern("Iotfleetwise", "resourceName")]
+    description: Optional[Annotated[str, _aws_pattern("Iotfleetwise", "description")]] = None
     nodes: Optional[List[NodeUnionTypeDef]] = None
     tags: Optional[List[TagTypeDef]] = None
 
 
 # This class is the input for the 'update_signal_catalog' function.
 class UpdateSignalCatalogRequestTypeDef(BaseValidatorModel):
-    name: str
-    description: Optional[str] = None
+    name: Annotated[str, _aws_pattern("Iotfleetwise", "resourceName")]
+    description: Optional[Annotated[str, _aws_pattern("Iotfleetwise", "description")]] = None
     nodesToAdd: Optional[List[NodeUnionTypeDef]] = None
     nodesToUpdate: Optional[List[NodeUnionTypeDef]] = None
-    nodesToRemove: Optional[List[str]] = None
+    nodesToRemove: Optional[List[Annotated[str, _aws_pattern("Iotfleetwise", "NodePath")]]] = None
 
 
 # This class is the input for the 'create_campaign' function.
 class CreateCampaignRequestTypeDef(BaseValidatorModel):
-    name: str
+    name: Annotated[str, _aws_pattern("Iotfleetwise", "campaignName")]
     signalCatalogArn: str
     targetArn: str
     collectionScheme: CollectionSchemeTypeDef
-    description: Optional[str] = None
+    description: Optional[Annotated[str, _aws_pattern("Iotfleetwise", "description")]] = None
     startTime: Optional[TimestampTypeDef] = None
     expiryTime: Optional[TimestampTypeDef] = None
     postTriggerCollectionDuration: Optional[int] = None
@@ -1475,7 +1477,7 @@ class CreateCampaignRequestTypeDef(BaseValidatorModel):
     compression: Optional[CompressionType] = None
     priority: Optional[int] = None
     signalsToCollect: Optional[List[SignalInformationTypeDef]] = None
-    dataExtraDimensions: Optional[List[str]] = None
+    dataExtraDimensions: Optional[List[Annotated[str, _aws_pattern("Iotfleetwise", "NodePath")]]] = None
     tags: Optional[List[TagTypeDef]] = None
     dataDestinationConfigs: Optional[List[DataDestinationConfigTypeDef]] = None
     dataPartitions: Optional[List[DataPartitionTypeDef]] = None
@@ -1483,7 +1485,7 @@ class CreateCampaignRequestTypeDef(BaseValidatorModel):
 
 
 class MessageSignalTypeDef(BaseValidatorModel):
-    topicName: str
+    topicName: Annotated[str, _aws_pattern("Iotfleetwise", "TopicName")]
     structuredMessage: StructuredMessageUnionTypeDef
 
 
@@ -1507,7 +1509,7 @@ MessageSignalUnionTypeDef = Union[MessageSignalOutputTypeDef, MessageSignalTypeD
 
 
 class CreateVehicleRequestItemTypeDef(BaseValidatorModel):
-    vehicleName: str
+    vehicleName: Annotated[str, _aws_pattern("Iotfleetwise", "vehicleName")]
     modelManifestArn: str
     decoderManifestArn: str
     attributes: Optional[Dict[str, str]] = None
@@ -1518,7 +1520,7 @@ class CreateVehicleRequestItemTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'create_vehicle' function.
 class CreateVehicleRequestTypeDef(BaseValidatorModel):
-    vehicleName: str
+    vehicleName: Annotated[str, _aws_pattern("Iotfleetwise", "vehicleName")]
     modelManifestArn: str
     decoderManifestArn: str
     attributes: Optional[Dict[str, str]] = None
@@ -1528,32 +1530,32 @@ class CreateVehicleRequestTypeDef(BaseValidatorModel):
 
 
 class UpdateVehicleRequestItemTypeDef(BaseValidatorModel):
-    vehicleName: str
+    vehicleName: Annotated[str, _aws_pattern("Iotfleetwise", "vehicleName")]
     modelManifestArn: Optional[str] = None
     decoderManifestArn: Optional[str] = None
     attributes: Optional[Dict[str, str]] = None
     attributeUpdateMode: Optional[UpdateModeType] = None
     stateTemplatesToAdd: Optional[List[StateTemplateAssociationUnionTypeDef]] = None
-    stateTemplatesToRemove: Optional[List[str]] = None
+    stateTemplatesToRemove: Optional[List[Annotated[str, _aws_pattern("Iotfleetwise", "ResourceIdentifier")]]] = None
     stateTemplatesToUpdate: Optional[List[StateTemplateAssociationTypeDef]] = None
 
 
 # This class is the input for the 'update_vehicle' function.
 class UpdateVehicleRequestTypeDef(BaseValidatorModel):
-    vehicleName: str
+    vehicleName: Annotated[str, _aws_pattern("Iotfleetwise", "vehicleName")]
     modelManifestArn: Optional[str] = None
     decoderManifestArn: Optional[str] = None
     attributes: Optional[Dict[str, str]] = None
     attributeUpdateMode: Optional[UpdateModeType] = None
     stateTemplatesToAdd: Optional[List[StateTemplateAssociationUnionTypeDef]] = None
-    stateTemplatesToRemove: Optional[List[str]] = None
+    stateTemplatesToRemove: Optional[List[Annotated[str, _aws_pattern("Iotfleetwise", "ResourceIdentifier")]]] = None
     stateTemplatesToUpdate: Optional[List[StateTemplateAssociationUnionTypeDef]] = None
 
 
 class SignalDecoderTypeDef(BaseValidatorModel):
-    fullyQualifiedName: str
+    fullyQualifiedName: Annotated[str, _aws_pattern("Iotfleetwise", "FullyQualifiedName")]
     type: SignalDecoderTypeType
-    interfaceId: str
+    interfaceId: Annotated[str, _aws_pattern("Iotfleetwise", "InterfaceId")]
     canSignal: Optional[CanSignalTypeDef] = None
     obdSignal: Optional[ObdSignalTypeDef] = None
     messageSignal: Optional[MessageSignalUnionTypeDef] = None
@@ -1575,9 +1577,9 @@ SignalDecoderUnionTypeDef = Union[SignalDecoderOutputTypeDef, SignalDecoderTypeD
 
 # This class is the input for the 'create_decoder_manifest' function.
 class CreateDecoderManifestRequestTypeDef(BaseValidatorModel):
-    name: str
-    modelManifestArn: str
-    description: Optional[str] = None
+    name: Annotated[str, _aws_pattern("Iotfleetwise", "resourceName")]
+    modelManifestArn: Annotated[str, _aws_pattern("Iotfleetwise", "CreateDecoderManifestRequestModelManifestArnString")]
+    description: Optional[Annotated[str, _aws_pattern("Iotfleetwise", "description")]] = None
     signalDecoders: Optional[List[SignalDecoderUnionTypeDef]] = None
     networkInterfaces: Optional[List[NetworkInterfaceTypeDef]] = None
     defaultForUnmappedSignals: Optional[Literal["CUSTOM_DECODING"]] = None
@@ -1586,13 +1588,13 @@ class CreateDecoderManifestRequestTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'update_decoder_manifest' function.
 class UpdateDecoderManifestRequestTypeDef(BaseValidatorModel):
-    name: str
-    description: Optional[str] = None
+    name: Annotated[str, _aws_pattern("Iotfleetwise", "resourceName")]
+    description: Optional[Annotated[str, _aws_pattern("Iotfleetwise", "description")]] = None
     signalDecodersToAdd: Optional[List[SignalDecoderUnionTypeDef]] = None
     signalDecodersToUpdate: Optional[List[SignalDecoderUnionTypeDef]] = None
-    signalDecodersToRemove: Optional[List[str]] = None
+    signalDecodersToRemove: Optional[List[Annotated[str, _aws_pattern("Iotfleetwise", "FullyQualifiedName")]]] = None
     networkInterfacesToAdd: Optional[List[NetworkInterfaceTypeDef]] = None
     networkInterfacesToUpdate: Optional[List[NetworkInterfaceTypeDef]] = None
-    networkInterfacesToRemove: Optional[List[str]] = None
+    networkInterfacesToRemove: Optional[List[Annotated[str, _aws_pattern("Iotfleetwise", "InterfaceId")]]] = None
     status: Optional[ManifestStatusType] = None
     defaultForUnmappedSignals: Optional[Literal["CUSTOM_DECODING"]] = None

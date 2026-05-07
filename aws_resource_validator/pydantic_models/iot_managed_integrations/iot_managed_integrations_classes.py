@@ -3,6 +3,7 @@
 from datetime import datetime
 from decimal import Decimal
 from typing import (
+    Annotated,
     Any,
     Callable,
     Dict,
@@ -24,6 +25,7 @@ from botocore.response import StreamingBody
 from pydantic import Field
 
 from aws_resource_validator.core.base_validator_model import BaseValidatorModel, EventStream
+from aws_resource_validator.core.pattern_validation import aws_field_pattern as _aws_pattern
 from aws_resource_validator.pydantic_models.iot_managed_integrations.iot_managed_integrations_constants import *  # noqa: F401,F403
 
 # Optional boto3 symbols — imported lazily so services that don't need them
@@ -46,24 +48,30 @@ class AbortConfigCriteriaTypeDef(BaseValidatorModel):
 
 
 class AccountAssociationItemTypeDef(BaseValidatorModel):
-    AccountAssociationId: str
+    AccountAssociationId: Annotated[str, _aws_pattern("IotManagedIntegrations", "AccountAssociationId")]
     AssociationState: AssociationStateType
-    ErrorMessage: Optional[str] = None
-    ConnectorDestinationId: Optional[str] = None
-    Name: Optional[str] = None
-    Description: Optional[str] = None
-    Arn: Optional[str] = None
+    ErrorMessage: Optional[Annotated[str, _aws_pattern("IotManagedIntegrations", "AccountAssociationErrorMessage")]] = (
+        None
+    )
+    ConnectorDestinationId: Optional[
+        Annotated[str, _aws_pattern("IotManagedIntegrations", "ConnectorDestinationId")]
+    ] = None
+    Name: Optional[Annotated[str, _aws_pattern("IotManagedIntegrations", "AccountAssociationName")]] = None
+    Description: Optional[Annotated[str, _aws_pattern("IotManagedIntegrations", "AccountAssociationDescription")]] = (
+        None
+    )
+    Arn: Optional[Annotated[str, _aws_pattern("IotManagedIntegrations", "AccountAssociationArn")]] = None
 
 
 class SecretsManagerTypeDef(BaseValidatorModel):
-    arn: str
-    versionId: str
+    arn: Annotated[str, _aws_pattern("IotManagedIntegrations", "SecretsManagerArn")]
+    versionId: Annotated[str, _aws_pattern("IotManagedIntegrations", "SecretsManagerVersionId")]
 
 
 class CapabilityActionTypeDef(BaseValidatorModel):
-    name: str
-    ref: Optional[str] = None
-    actionTraceId: Optional[str] = None
+    name: Annotated[str, _aws_pattern("IotManagedIntegrations", "CapabilityActionName")]
+    ref: Optional[Annotated[str, _aws_pattern("IotManagedIntegrations", "ActionReference")]] = None
+    actionTraceId: Optional[Annotated[str, _aws_pattern("IotManagedIntegrations", "ActionTraceId")]] = None
     parameters: Optional[Dict[str, Any]] = None
 
 
@@ -77,36 +85,38 @@ class CapabilityReportCapabilityOutputTypeDef(BaseValidatorModel):
 
 
 class CapabilityReportCapabilityTypeDef(BaseValidatorModel):
-    id: str
-    name: str
-    version: str
-    properties: List[str]
-    actions: List[str]
-    events: List[str]
+    id: Annotated[str, _aws_pattern("IotManagedIntegrations", "SchemaVersionedId")]
+    name: Annotated[str, _aws_pattern("IotManagedIntegrations", "CapabilityName")]
+    version: Annotated[str, _aws_pattern("IotManagedIntegrations", "CapabilityVersion")]
+    properties: List[Annotated[str, _aws_pattern("IotManagedIntegrations", "PropertyName")]]
+    actions: List[Annotated[str, _aws_pattern("IotManagedIntegrations", "ActionName")]]
+    events: List[Annotated[str, _aws_pattern("IotManagedIntegrations", "EventName")]]
 
 
 class CapabilitySchemaItemTypeDef(BaseValidatorModel):
     Format: SchemaVersionFormatType
-    CapabilityId: str
-    ExtrinsicId: str
+    CapabilityId: Annotated[str, _aws_pattern("IotManagedIntegrations", "SchemaVersionedId")]
+    ExtrinsicId: Annotated[str, _aws_pattern("IotManagedIntegrations", "ExtrinsicSchemaId")]
     ExtrinsicVersion: int
     Schema: Dict[str, Any]
 
 
 class ConfigurationErrorTypeDef(BaseValidatorModel):
-    code: Optional[str] = None
-    message: Optional[str] = None
+    code: Optional[Annotated[str, _aws_pattern("IotManagedIntegrations", "ConfigurationErrorCode")]] = None
+    message: Optional[Annotated[str, _aws_pattern("IotManagedIntegrations", "ConfigurationErrorMessage")]] = None
 
 
 class ConnectorDestinationSummaryTypeDef(BaseValidatorModel):
-    Name: Optional[str] = None
-    Description: Optional[str] = None
-    CloudConnectorId: Optional[str] = None
-    Id: Optional[str] = None
+    Name: Optional[Annotated[str, _aws_pattern("IotManagedIntegrations", "ConnectorDestinationName")]] = None
+    Description: Optional[Annotated[str, _aws_pattern("IotManagedIntegrations", "ConnectorDestinationDescription")]] = (
+        None
+    )
+    CloudConnectorId: Optional[Annotated[str, _aws_pattern("IotManagedIntegrations", "CloudConnectorId")]] = None
+    Id: Optional[Annotated[str, _aws_pattern("IotManagedIntegrations", "ConnectorDestinationId")]] = None
 
 
 class GeneralAuthorizationNameTypeDef(BaseValidatorModel):
-    AuthMaterialName: Optional[str] = None
+    AuthMaterialName: Optional[Annotated[str, _aws_pattern("IotManagedIntegrations", "AuthMaterialName")]] = None
 
 
 class ResponseMetadataTypeDef(BaseValidatorModel):
@@ -119,28 +129,28 @@ class ResponseMetadataTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'create_credential_locker' function.
 class CreateCredentialLockerRequestTypeDef(BaseValidatorModel):
-    Name: Optional[str] = None
-    ClientToken: Optional[str] = None
+    Name: Optional[Annotated[str, _aws_pattern("IotManagedIntegrations", "CredentialLockerName")]] = None
+    ClientToken: Optional[Annotated[str, _aws_pattern("IotManagedIntegrations", "ClientToken")]] = None
     Tags: Optional[Dict[str, str]] = None
 
 
 # This class is the input for the 'create_destination' function.
 class CreateDestinationRequestTypeDef(BaseValidatorModel):
-    DeliveryDestinationArn: str
+    DeliveryDestinationArn: Annotated[str, _aws_pattern("IotManagedIntegrations", "DeliveryDestinationArn")]
     DeliveryDestinationType: Literal["KINESIS"]
-    Name: str
+    Name: Annotated[str, _aws_pattern("IotManagedIntegrations", "DestinationName")]
     RoleArn: str
-    ClientToken: Optional[str] = None
-    Description: Optional[str] = None
+    ClientToken: Optional[Annotated[str, _aws_pattern("IotManagedIntegrations", "ClientToken")]] = None
+    Description: Optional[Annotated[str, _aws_pattern("IotManagedIntegrations", "DestinationDescription")]] = None
     Tags: Optional[Dict[str, str]] = None
 
 
 # This class is the input for the 'create_event_log_configuration' function.
 class CreateEventLogConfigurationRequestTypeDef(BaseValidatorModel):
-    ResourceType: str
+    ResourceType: Annotated[str, _aws_pattern("IotManagedIntegrations", "SmartHomeResourceType")]
     EventLogLevel: LogLevelType
-    ResourceId: Optional[str] = None
-    ClientToken: Optional[str] = None
+    ResourceId: Optional[Annotated[str, _aws_pattern("IotManagedIntegrations", "SmartHomeResourceId")]] = None
+    ClientToken: Optional[Annotated[str, _aws_pattern("IotManagedIntegrations", "ClientToken")]] = None
 
 
 class WiFiSimpleSetupConfigurationTypeDef(BaseValidatorModel):
@@ -152,61 +162,61 @@ class WiFiSimpleSetupConfigurationTypeDef(BaseValidatorModel):
 # This class is the input for the 'create_notification_configuration' function.
 class CreateNotificationConfigurationRequestTypeDef(BaseValidatorModel):
     EventType: EventTypeType
-    DestinationName: str
-    ClientToken: Optional[str] = None
+    DestinationName: Annotated[str, _aws_pattern("IotManagedIntegrations", "DestinationName")]
+    ClientToken: Optional[Annotated[str, _aws_pattern("IotManagedIntegrations", "ClientToken")]] = None
     Tags: Optional[Dict[str, str]] = None
 
 
 # This class is the input for the 'create_provisioning_profile' function.
 class CreateProvisioningProfileRequestTypeDef(BaseValidatorModel):
     ProvisioningType: ProvisioningTypeType
-    CaCertificate: Optional[str] = None
+    CaCertificate: Optional[Annotated[str, _aws_pattern("IotManagedIntegrations", "CaCertificate")]] = None
     ClaimCertificate: Optional[str] = None
-    Name: Optional[str] = None
-    ClientToken: Optional[str] = None
+    Name: Optional[Annotated[str, _aws_pattern("IotManagedIntegrations", "ProvisioningProfileName")]] = None
+    ClientToken: Optional[Annotated[str, _aws_pattern("IotManagedIntegrations", "ClientToken")]] = None
     Tags: Optional[Dict[str, str]] = None
 
 
 class CredentialLockerSummaryTypeDef(BaseValidatorModel):
-    Id: Optional[str] = None
-    Arn: Optional[str] = None
-    Name: Optional[str] = None
+    Id: Optional[Annotated[str, _aws_pattern("IotManagedIntegrations", "CredentialLockerId")]] = None
+    Arn: Optional[Annotated[str, _aws_pattern("IotManagedIntegrations", "CredentialLockerArn")]] = None
+    Name: Optional[Annotated[str, _aws_pattern("IotManagedIntegrations", "CredentialLockerName")]] = None
     CreatedAt: Optional[datetime] = None
 
 
 # This class is the input for the 'delete_account_association' function.
 class DeleteAccountAssociationRequestTypeDef(BaseValidatorModel):
-    AccountAssociationId: str
+    AccountAssociationId: Annotated[str, _aws_pattern("IotManagedIntegrations", "AccountAssociationId")]
 
 
 # This class is the input for the 'delete_cloud_connector' function.
 class DeleteCloudConnectorRequestTypeDef(BaseValidatorModel):
-    Identifier: str
+    Identifier: Annotated[str, _aws_pattern("IotManagedIntegrations", "CloudConnectorId")]
 
 
 # This class is the input for the 'delete_connector_destination' function.
 class DeleteConnectorDestinationRequestTypeDef(BaseValidatorModel):
-    Identifier: str
+    Identifier: Annotated[str, _aws_pattern("IotManagedIntegrations", "ConnectorDestinationId")]
 
 
 # This class is the input for the 'delete_credential_locker' function.
 class DeleteCredentialLockerRequestTypeDef(BaseValidatorModel):
-    Identifier: str
+    Identifier: Annotated[str, _aws_pattern("IotManagedIntegrations", "CredentialLockerId")]
 
 
 # This class is the input for the 'delete_destination' function.
 class DeleteDestinationRequestTypeDef(BaseValidatorModel):
-    Name: str
+    Name: Annotated[str, _aws_pattern("IotManagedIntegrations", "DestinationName")]
 
 
 # This class is the input for the 'delete_event_log_configuration' function.
 class DeleteEventLogConfigurationRequestTypeDef(BaseValidatorModel):
-    Id: str
+    Id: Annotated[str, _aws_pattern("IotManagedIntegrations", "LogConfigurationId")]
 
 
 # This class is the input for the 'delete_managed_thing' function.
 class DeleteManagedThingRequestTypeDef(BaseValidatorModel):
-    Identifier: str
+    Identifier: Annotated[str, _aws_pattern("IotManagedIntegrations", "ManagedThingId")]
     Force: Optional[bool] = None
 
 
@@ -217,59 +227,63 @@ class DeleteNotificationConfigurationRequestTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'delete_ota_task_configuration' function.
 class DeleteOtaTaskConfigurationRequestTypeDef(BaseValidatorModel):
-    Identifier: str
+    Identifier: Annotated[str, _aws_pattern("IotManagedIntegrations", "OtaTaskConfigurationId")]
 
 
 # This class is the input for the 'delete_ota_task' function.
 class DeleteOtaTaskRequestTypeDef(BaseValidatorModel):
-    Identifier: str
+    Identifier: Annotated[str, _aws_pattern("IotManagedIntegrations", "OtaTaskId")]
 
 
 # This class is the input for the 'delete_provisioning_profile' function.
 class DeleteProvisioningProfileRequestTypeDef(BaseValidatorModel):
-    Identifier: str
+    Identifier: Annotated[str, _aws_pattern("IotManagedIntegrations", "ProvisioningProfileId")]
 
 
 # This class is the input for the 'deregister_account_association' function.
 class DeregisterAccountAssociationRequestTypeDef(BaseValidatorModel):
-    ManagedThingId: str
-    AccountAssociationId: str
+    ManagedThingId: Annotated[str, _aws_pattern("IotManagedIntegrations", "ManagedThingId")]
+    AccountAssociationId: Annotated[str, _aws_pattern("IotManagedIntegrations", "AccountAssociationId")]
 
 
 class DestinationSummaryTypeDef(BaseValidatorModel):
-    Description: Optional[str] = None
-    DeliveryDestinationArn: Optional[str] = None
+    Description: Optional[Annotated[str, _aws_pattern("IotManagedIntegrations", "DestinationDescription")]] = None
+    DeliveryDestinationArn: Optional[
+        Annotated[str, _aws_pattern("IotManagedIntegrations", "DeliveryDestinationArn")]
+    ] = None
     DeliveryDestinationType: Optional[Literal["KINESIS"]] = None
-    Name: Optional[str] = None
+    Name: Optional[Annotated[str, _aws_pattern("IotManagedIntegrations", "DestinationName")]] = None
     RoleArn: Optional[str] = None
 
 
 class DeviceDiscoverySummaryTypeDef(BaseValidatorModel):
-    Id: Optional[str] = None
+    Id: Optional[Annotated[str, _aws_pattern("IotManagedIntegrations", "DeviceDiscoveryId")]] = None
     DiscoveryType: Optional[DiscoveryTypeType] = None
     Status: Optional[DeviceDiscoveryStatusType] = None
 
 
 class DiscoveredDeviceSummaryTypeDef(BaseValidatorModel):
-    ConnectorDeviceId: Optional[str] = None
-    ConnectorDeviceName: Optional[str] = None
-    DeviceTypes: Optional[List[str]] = None
-    ManagedThingId: Optional[str] = None
+    ConnectorDeviceId: Optional[Annotated[str, _aws_pattern("IotManagedIntegrations", "ConnectorDeviceId")]] = None
+    ConnectorDeviceName: Optional[Annotated[str, _aws_pattern("IotManagedIntegrations", "ConnectorDeviceName")]] = None
+    DeviceTypes: Optional[List[Annotated[str, _aws_pattern("IotManagedIntegrations", "DeviceType")]]] = None
+    ManagedThingId: Optional[Annotated[str, _aws_pattern("IotManagedIntegrations", "ManagedThingId")]] = None
     Modification: Optional[DiscoveryModificationType] = None
     DiscoveredAt: Optional[datetime] = None
-    Brand: Optional[str] = None
-    Model: Optional[str] = None
-    AuthenticationMaterial: Optional[str] = None
+    Brand: Optional[Annotated[str, _aws_pattern("IotManagedIntegrations", "Brand")]] = None
+    Model: Optional[Annotated[str, _aws_pattern("IotManagedIntegrations", "Model")]] = None
+    AuthenticationMaterial: Optional[Annotated[str, _aws_pattern("IotManagedIntegrations", "AuthMaterialString")]] = (
+        None
+    )
 
 
 class LambdaConfigTypeDef(BaseValidatorModel):
-    arn: str
+    arn: Annotated[str, _aws_pattern("IotManagedIntegrations", "LambdaArn")]
 
 
 class EventLogConfigurationSummaryTypeDef(BaseValidatorModel):
-    Id: Optional[str] = None
-    ResourceType: Optional[str] = None
-    ResourceId: Optional[str] = None
+    Id: Optional[Annotated[str, _aws_pattern("IotManagedIntegrations", "LogConfigurationId")]] = None
+    ResourceType: Optional[Annotated[str, _aws_pattern("IotManagedIntegrations", "SmartHomeResourceType")]] = None
+    ResourceId: Optional[Annotated[str, _aws_pattern("IotManagedIntegrations", "SmartHomeResourceId")]] = None
     EventLogLevel: Optional[LogLevelType] = None
 
 
@@ -280,67 +294,67 @@ class RolloutRateIncreaseCriteriaTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'get_account_association' function.
 class GetAccountAssociationRequestTypeDef(BaseValidatorModel):
-    AccountAssociationId: str
+    AccountAssociationId: Annotated[str, _aws_pattern("IotManagedIntegrations", "AccountAssociationId")]
 
 
 # This class is the input for the 'get_cloud_connector' function.
 class GetCloudConnectorRequestTypeDef(BaseValidatorModel):
-    Identifier: str
+    Identifier: Annotated[str, _aws_pattern("IotManagedIntegrations", "CloudConnectorId")]
 
 
 # This class is the input for the 'get_connector_destination' function.
 class GetConnectorDestinationRequestTypeDef(BaseValidatorModel):
-    Identifier: str
+    Identifier: Annotated[str, _aws_pattern("IotManagedIntegrations", "ConnectorDestinationId")]
 
 
 # This class is the input for the 'get_credential_locker' function.
 class GetCredentialLockerRequestTypeDef(BaseValidatorModel):
-    Identifier: str
+    Identifier: Annotated[str, _aws_pattern("IotManagedIntegrations", "CredentialLockerId")]
 
 
 # This class is the input for the 'get_destination' function.
 class GetDestinationRequestTypeDef(BaseValidatorModel):
-    Name: str
+    Name: Annotated[str, _aws_pattern("IotManagedIntegrations", "DestinationName")]
 
 
 # This class is the input for the 'get_device_discovery' function.
 class GetDeviceDiscoveryRequestTypeDef(BaseValidatorModel):
-    Identifier: str
+    Identifier: Annotated[str, _aws_pattern("IotManagedIntegrations", "DeviceDiscoveryId")]
 
 
 # This class is the input for the 'get_event_log_configuration' function.
 class GetEventLogConfigurationRequestTypeDef(BaseValidatorModel):
-    Id: str
+    Id: Annotated[str, _aws_pattern("IotManagedIntegrations", "LogConfigurationId")]
 
 
 # This class is the input for the 'get_managed_thing_capabilities' function.
 class GetManagedThingCapabilitiesRequestTypeDef(BaseValidatorModel):
-    Identifier: str
+    Identifier: Annotated[str, _aws_pattern("IotManagedIntegrations", "ManagedThingId")]
 
 
 # This class is the input for the 'get_managed_thing_certificate' function.
 class GetManagedThingCertificateRequestTypeDef(BaseValidatorModel):
-    Identifier: str
+    Identifier: Annotated[str, _aws_pattern("IotManagedIntegrations", "ManagedThingId")]
 
 
 # This class is the input for the 'get_managed_thing_connectivity_data' function.
 class GetManagedThingConnectivityDataRequestTypeDef(BaseValidatorModel):
-    Identifier: str
+    Identifier: Annotated[str, _aws_pattern("IotManagedIntegrations", "ManagedThingId")]
 
 
 # This class is the input for the 'get_managed_thing_meta_data' function.
 class GetManagedThingMetaDataRequestTypeDef(BaseValidatorModel):
-    Identifier: str
+    Identifier: Annotated[str, _aws_pattern("IotManagedIntegrations", "ManagedThingId")]
 
 
 # This class is the input for the 'get_managed_thing' function.
 class GetManagedThingRequestTypeDef(BaseValidatorModel):
-    Identifier: str
+    Identifier: Annotated[str, _aws_pattern("IotManagedIntegrations", "ManagedThingId")]
 
 
 # This class is the input for the 'get_managed_thing_state' function.
 class GetManagedThingStateRequestTypeDef(BaseValidatorModel):
-    ManagedThingId: str
+    ManagedThingId: Annotated[str, _aws_pattern("IotManagedIntegrations", "ManagedThingId")]
 
 
 # This class is the input for the 'get_notification_configuration' function.
@@ -350,12 +364,12 @@ class GetNotificationConfigurationRequestTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'get_ota_task_configuration' function.
 class GetOtaTaskConfigurationRequestTypeDef(BaseValidatorModel):
-    Identifier: str
+    Identifier: Annotated[str, _aws_pattern("IotManagedIntegrations", "OtaTaskConfigurationId")]
 
 
 # This class is the input for the 'get_ota_task' function.
 class GetOtaTaskRequestTypeDef(BaseValidatorModel):
-    Identifier: str
+    Identifier: Annotated[str, _aws_pattern("IotManagedIntegrations", "OtaTaskId")]
 
 
 class TaskProcessingDetailsTypeDef(BaseValidatorModel):
@@ -372,12 +386,12 @@ class TaskProcessingDetailsTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'get_provisioning_profile' function.
 class GetProvisioningProfileRequestTypeDef(BaseValidatorModel):
-    Identifier: str
+    Identifier: Annotated[str, _aws_pattern("IotManagedIntegrations", "ProvisioningProfileId")]
 
 
 # This class is the input for the 'get_runtime_log_configuration' function.
 class GetRuntimeLogConfigurationRequestTypeDef(BaseValidatorModel):
-    ManagedThingId: str
+    ManagedThingId: Annotated[str, _aws_pattern("IotManagedIntegrations", "ManagedThingId")]
 
 
 class RuntimeLogConfigurationsTypeDef(BaseValidatorModel):
@@ -394,7 +408,7 @@ class RuntimeLogConfigurationsTypeDef(BaseValidatorModel):
 # This class is the input for the 'get_schema_version' function.
 class GetSchemaVersionRequestTypeDef(BaseValidatorModel):
     Type: SchemaVersionTypeType
-    SchemaVersionedId: str
+    SchemaVersionedId: Annotated[str, _aws_pattern("IotManagedIntegrations", "SchemaVersionedId")]
     Format: Optional[SchemaVersionFormatType] = None
 
 
@@ -406,41 +420,43 @@ class PaginatorConfigTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'list_account_associations' function.
 class ListAccountAssociationsRequestTypeDef(BaseValidatorModel):
-    ConnectorDestinationId: Optional[str] = None
+    ConnectorDestinationId: Optional[
+        Annotated[str, _aws_pattern("IotManagedIntegrations", "ConnectorDestinationId")]
+    ] = None
     MaxResults: Optional[int] = None
-    NextToken: Optional[str] = None
+    NextToken: Optional[Annotated[str, _aws_pattern("IotManagedIntegrations", "NextToken")]] = None
 
 
 # This class is the input for the 'list_cloud_connectors' function.
 class ListCloudConnectorsRequestTypeDef(BaseValidatorModel):
     Type: Optional[CloudConnectorTypeType] = None
-    LambdaArn: Optional[str] = None
+    LambdaArn: Optional[Annotated[str, _aws_pattern("IotManagedIntegrations", "LambdaArn")]] = None
     MaxResults: Optional[int] = None
-    NextToken: Optional[str] = None
+    NextToken: Optional[Annotated[str, _aws_pattern("IotManagedIntegrations", "NextToken")]] = None
 
 
 # This class is the input for the 'list_connector_destinations' function.
 class ListConnectorDestinationsRequestTypeDef(BaseValidatorModel):
-    CloudConnectorId: Optional[str] = None
-    NextToken: Optional[str] = None
+    CloudConnectorId: Optional[Annotated[str, _aws_pattern("IotManagedIntegrations", "CloudConnectorId")]] = None
+    NextToken: Optional[Annotated[str, _aws_pattern("IotManagedIntegrations", "NextToken")]] = None
     MaxResults: Optional[int] = None
 
 
 # This class is the input for the 'list_credential_lockers' function.
 class ListCredentialLockersRequestTypeDef(BaseValidatorModel):
-    NextToken: Optional[str] = None
+    NextToken: Optional[Annotated[str, _aws_pattern("IotManagedIntegrations", "NextToken")]] = None
     MaxResults: Optional[int] = None
 
 
 # This class is the input for the 'list_destinations' function.
 class ListDestinationsRequestTypeDef(BaseValidatorModel):
-    NextToken: Optional[str] = None
+    NextToken: Optional[Annotated[str, _aws_pattern("IotManagedIntegrations", "NextToken")]] = None
     MaxResults: Optional[int] = None
 
 
 # This class is the input for the 'list_device_discoveries' function.
 class ListDeviceDiscoveriesRequestTypeDef(BaseValidatorModel):
-    NextToken: Optional[str] = None
+    NextToken: Optional[Annotated[str, _aws_pattern("IotManagedIntegrations", "NextToken")]] = None
     MaxResults: Optional[int] = None
     TypeFilter: Optional[DiscoveryTypeType] = None
     StatusFilter: Optional[DeviceDiscoveryStatusType] = None
@@ -448,78 +464,94 @@ class ListDeviceDiscoveriesRequestTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'list_discovered_devices' function.
 class ListDiscoveredDevicesRequestTypeDef(BaseValidatorModel):
-    Identifier: str
-    NextToken: Optional[str] = None
+    Identifier: Annotated[str, _aws_pattern("IotManagedIntegrations", "DeviceDiscoveryId")]
+    NextToken: Optional[Annotated[str, _aws_pattern("IotManagedIntegrations", "NextToken")]] = None
     MaxResults: Optional[int] = None
 
 
 # This class is the input for the 'list_event_log_configurations' function.
 class ListEventLogConfigurationsRequestTypeDef(BaseValidatorModel):
-    NextToken: Optional[str] = None
+    NextToken: Optional[Annotated[str, _aws_pattern("IotManagedIntegrations", "NextToken")]] = None
     MaxResults: Optional[int] = None
 
 
 # This class is the input for the 'list_managed_thing_account_associations' function.
 class ListManagedThingAccountAssociationsRequestTypeDef(BaseValidatorModel):
-    ManagedThingId: Optional[str] = None
-    AccountAssociationId: Optional[str] = None
+    ManagedThingId: Optional[Annotated[str, _aws_pattern("IotManagedIntegrations", "ManagedThingId")]] = None
+    AccountAssociationId: Optional[Annotated[str, _aws_pattern("IotManagedIntegrations", "AccountAssociationId")]] = (
+        None
+    )
     MaxResults: Optional[int] = None
-    NextToken: Optional[str] = None
+    NextToken: Optional[Annotated[str, _aws_pattern("IotManagedIntegrations", "NextToken")]] = None
 
 
 class ManagedThingAssociationTypeDef(BaseValidatorModel):
-    ManagedThingId: Optional[str] = None
-    AccountAssociationId: Optional[str] = None
+    ManagedThingId: Optional[Annotated[str, _aws_pattern("IotManagedIntegrations", "ManagedThingId")]] = None
+    AccountAssociationId: Optional[Annotated[str, _aws_pattern("IotManagedIntegrations", "AccountAssociationId")]] = (
+        None
+    )
     ManagedThingAssociationStatus: Optional[ManagedThingAssociationStatusType] = None
 
 
 # This class is the input for the 'list_managed_thing_schemas' function.
 class ListManagedThingSchemasRequestTypeDef(BaseValidatorModel):
-    Identifier: str
-    EndpointIdFilter: Optional[str] = None
-    CapabilityIdFilter: Optional[str] = None
-    NextToken: Optional[str] = None
+    Identifier: Annotated[str, _aws_pattern("IotManagedIntegrations", "ManagedThingId")]
+    EndpointIdFilter: Optional[Annotated[str, _aws_pattern("IotManagedIntegrations", "EndpointId")]] = None
+    CapabilityIdFilter: Optional[Annotated[str, _aws_pattern("IotManagedIntegrations", "CapabilityId")]] = None
+    NextToken: Optional[Annotated[str, _aws_pattern("IotManagedIntegrations", "NextToken")]] = None
     MaxResults: Optional[int] = None
 
 
 class ManagedThingSchemaListItemTypeDef(BaseValidatorModel):
-    EndpointId: Optional[str] = None
-    CapabilityId: Optional[str] = None
+    EndpointId: Optional[Annotated[str, _aws_pattern("IotManagedIntegrations", "EndpointId")]] = None
+    CapabilityId: Optional[Annotated[str, _aws_pattern("IotManagedIntegrations", "CapabilityId")]] = None
     Schema: Optional[Dict[str, Any]] = None
 
 
 # This class is the input for the 'list_managed_things' function.
 class ListManagedThingsRequestTypeDef(BaseValidatorModel):
-    OwnerFilter: Optional[str] = None
-    CredentialLockerFilter: Optional[str] = None
+    OwnerFilter: Optional[Annotated[str, _aws_pattern("IotManagedIntegrations", "Owner")]] = None
+    CredentialLockerFilter: Optional[Annotated[str, _aws_pattern("IotManagedIntegrations", "CredentialLockerId")]] = (
+        None
+    )
     RoleFilter: Optional[RoleType] = None
-    ParentControllerIdentifierFilter: Optional[str] = None
-    ConnectorPolicyIdFilter: Optional[str] = None
-    ConnectorDestinationIdFilter: Optional[str] = None
-    ConnectorDeviceIdFilter: Optional[str] = None
-    SerialNumberFilter: Optional[str] = None
+    ParentControllerIdentifierFilter: Optional[
+        Annotated[str, _aws_pattern("IotManagedIntegrations", "ParentControllerId")]
+    ] = None
+    ConnectorPolicyIdFilter: Optional[Annotated[str, _aws_pattern("IotManagedIntegrations", "ConnectorPolicyId")]] = (
+        None
+    )
+    ConnectorDestinationIdFilter: Optional[
+        Annotated[str, _aws_pattern("IotManagedIntegrations", "ConnectorDestinationId")]
+    ] = None
+    ConnectorDeviceIdFilter: Optional[Annotated[str, _aws_pattern("IotManagedIntegrations", "ConnectorDeviceId")]] = (
+        None
+    )
+    SerialNumberFilter: Optional[Annotated[str, _aws_pattern("IotManagedIntegrations", "SerialNumber")]] = None
     ProvisioningStatusFilter: Optional[ProvisioningStatusType] = None
-    NextToken: Optional[str] = None
+    NextToken: Optional[Annotated[str, _aws_pattern("IotManagedIntegrations", "NextToken")]] = None
     MaxResults: Optional[int] = None
 
 
 class ManagedThingSummaryTypeDef(BaseValidatorModel):
-    Id: Optional[str] = None
-    Arn: Optional[str] = None
-    AdvertisedProductId: Optional[str] = None
-    Brand: Optional[str] = None
+    Id: Optional[Annotated[str, _aws_pattern("IotManagedIntegrations", "ManagedThingId")]] = None
+    Arn: Optional[Annotated[str, _aws_pattern("IotManagedIntegrations", "ManagedThingArn")]] = None
+    AdvertisedProductId: Optional[Annotated[str, _aws_pattern("IotManagedIntegrations", "AdvertisedProductId")]] = None
+    Brand: Optional[Annotated[str, _aws_pattern("IotManagedIntegrations", "Brand")]] = None
     Classification: Optional[str] = None
-    ConnectorDeviceId: Optional[str] = None
-    ConnectorPolicyId: Optional[str] = None
-    ConnectorDestinationId: Optional[str] = None
-    Model: Optional[str] = None
-    Name: Optional[str] = None
-    Owner: Optional[str] = None
-    CredentialLockerId: Optional[str] = None
-    ParentControllerId: Optional[str] = None
+    ConnectorDeviceId: Optional[Annotated[str, _aws_pattern("IotManagedIntegrations", "ConnectorDeviceId")]] = None
+    ConnectorPolicyId: Optional[Annotated[str, _aws_pattern("IotManagedIntegrations", "ConnectorPolicyId")]] = None
+    ConnectorDestinationId: Optional[
+        Annotated[str, _aws_pattern("IotManagedIntegrations", "ConnectorDestinationId")]
+    ] = None
+    Model: Optional[Annotated[str, _aws_pattern("IotManagedIntegrations", "Model")]] = None
+    Name: Optional[Annotated[str, _aws_pattern("IotManagedIntegrations", "Name")]] = None
+    Owner: Optional[Annotated[str, _aws_pattern("IotManagedIntegrations", "Owner")]] = None
+    CredentialLockerId: Optional[Annotated[str, _aws_pattern("IotManagedIntegrations", "CredentialLockerId")]] = None
+    ParentControllerId: Optional[Annotated[str, _aws_pattern("IotManagedIntegrations", "ParentControllerId")]] = None
     ProvisioningStatus: Optional[ProvisioningStatusType] = None
     Role: Optional[RoleType] = None
-    SerialNumber: Optional[str] = None
+    SerialNumber: Optional[Annotated[str, _aws_pattern("IotManagedIntegrations", "SerialNumber")]] = None
     CreatedAt: Optional[datetime] = None
     UpdatedAt: Optional[datetime] = None
     ActivatedAt: Optional[datetime] = None
@@ -528,58 +560,62 @@ class ManagedThingSummaryTypeDef(BaseValidatorModel):
 # This class is the input for the 'list_notification_configurations' function.
 class ListNotificationConfigurationsRequestTypeDef(BaseValidatorModel):
     MaxResults: Optional[int] = None
-    NextToken: Optional[str] = None
+    NextToken: Optional[Annotated[str, _aws_pattern("IotManagedIntegrations", "NextToken")]] = None
 
 
 class NotificationConfigurationSummaryTypeDef(BaseValidatorModel):
     EventType: Optional[EventTypeType] = None
-    DestinationName: Optional[str] = None
+    DestinationName: Optional[Annotated[str, _aws_pattern("IotManagedIntegrations", "DestinationName")]] = None
 
 
 # This class is the input for the 'list_ota_task_configurations' function.
 class ListOtaTaskConfigurationsRequestTypeDef(BaseValidatorModel):
-    NextToken: Optional[str] = None
+    NextToken: Optional[Annotated[str, _aws_pattern("IotManagedIntegrations", "NextToken")]] = None
     MaxResults: Optional[int] = None
 
 
 class OtaTaskConfigurationSummaryTypeDef(BaseValidatorModel):
-    TaskConfigurationId: Optional[str] = None
-    Name: Optional[str] = None
+    TaskConfigurationId: Optional[Annotated[str, _aws_pattern("IotManagedIntegrations", "OtaTaskConfigurationId")]] = (
+        None
+    )
+    Name: Optional[Annotated[str, _aws_pattern("IotManagedIntegrations", "OtaTaskConfigurationName")]] = None
     CreatedAt: Optional[datetime] = None
 
 
 # This class is the input for the 'list_ota_task_executions' function.
 class ListOtaTaskExecutionsRequestTypeDef(BaseValidatorModel):
-    Identifier: str
-    NextToken: Optional[str] = None
+    Identifier: Annotated[str, _aws_pattern("IotManagedIntegrations", "OtaTaskId")]
+    NextToken: Optional[Annotated[str, _aws_pattern("IotManagedIntegrations", "OtaNextToken")]] = None
     MaxResults: Optional[int] = None
 
 
 # This class is the input for the 'list_ota_tasks' function.
 class ListOtaTasksRequestTypeDef(BaseValidatorModel):
-    NextToken: Optional[str] = None
+    NextToken: Optional[Annotated[str, _aws_pattern("IotManagedIntegrations", "OtaNextToken")]] = None
     MaxResults: Optional[int] = None
 
 
 class OtaTaskSummaryTypeDef(BaseValidatorModel):
-    TaskId: Optional[str] = None
-    TaskArn: Optional[str] = None
+    TaskId: Optional[Annotated[str, _aws_pattern("IotManagedIntegrations", "OtaTaskId")]] = None
+    TaskArn: Optional[Annotated[str, _aws_pattern("IotManagedIntegrations", "OtaTaskArn")]] = None
     CreatedAt: Optional[datetime] = None
     LastUpdatedAt: Optional[datetime] = None
-    TaskConfigurationId: Optional[str] = None
+    TaskConfigurationId: Optional[Annotated[str, _aws_pattern("IotManagedIntegrations", "OtaTaskConfigurationId")]] = (
+        None
+    )
     Status: Optional[OtaStatusType] = None
 
 
 # This class is the input for the 'list_provisioning_profiles' function.
 class ListProvisioningProfilesRequestTypeDef(BaseValidatorModel):
-    NextToken: Optional[str] = None
+    NextToken: Optional[Annotated[str, _aws_pattern("IotManagedIntegrations", "NextToken")]] = None
     MaxResults: Optional[int] = None
 
 
 class ProvisioningProfileSummaryTypeDef(BaseValidatorModel):
-    Name: Optional[str] = None
-    Id: Optional[str] = None
-    Arn: Optional[str] = None
+    Name: Optional[Annotated[str, _aws_pattern("IotManagedIntegrations", "ProvisioningProfileName")]] = None
+    Id: Optional[Annotated[str, _aws_pattern("IotManagedIntegrations", "ProvisioningProfileId")]] = None
+    Arn: Optional[Annotated[str, _aws_pattern("IotManagedIntegrations", "ProvisioningProfileArn")]] = None
     ProvisioningType: Optional[ProvisioningTypeType] = None
     Status: Optional[ProvisioningProfileStatusType] = None
 
@@ -588,35 +624,35 @@ class ProvisioningProfileSummaryTypeDef(BaseValidatorModel):
 class ListSchemaVersionsRequestTypeDef(BaseValidatorModel):
     Type: SchemaVersionTypeType
     MaxResults: Optional[int] = None
-    NextToken: Optional[str] = None
-    SchemaId: Optional[str] = None
-    Namespace: Optional[str] = None
+    NextToken: Optional[Annotated[str, _aws_pattern("IotManagedIntegrations", "NextToken")]] = None
+    SchemaId: Optional[Annotated[str, _aws_pattern("IotManagedIntegrations", "SchemaId")]] = None
+    Namespace: Optional[Annotated[str, _aws_pattern("IotManagedIntegrations", "SchemaVersionNamespaceName")]] = None
     Visibility: Optional[SchemaVersionVisibilityType] = None
-    SemanticVersion: Optional[str] = None
+    SemanticVersion: Optional[Annotated[str, _aws_pattern("IotManagedIntegrations", "SchemaVersionVersion")]] = None
 
 
 class SchemaVersionListItemTypeDef(BaseValidatorModel):
-    SchemaId: Optional[str] = None
+    SchemaId: Optional[Annotated[str, _aws_pattern("IotManagedIntegrations", "SchemaId")]] = None
     Type: Optional[SchemaVersionTypeType] = None
-    Description: Optional[str] = None
-    Namespace: Optional[str] = None
-    SemanticVersion: Optional[str] = None
+    Description: Optional[Annotated[str, _aws_pattern("IotManagedIntegrations", "SchemaVersionDescription")]] = None
+    Namespace: Optional[Annotated[str, _aws_pattern("IotManagedIntegrations", "SchemaVersionNamespaceName")]] = None
+    SemanticVersion: Optional[Annotated[str, _aws_pattern("IotManagedIntegrations", "SchemaVersionVersion")]] = None
     Visibility: Optional[SchemaVersionVisibilityType] = None
 
 
 # This class is the input for the 'list_tags_for_resource' function.
 class ListTagsForResourceRequestTypeDef(BaseValidatorModel):
-    ResourceArn: str
+    ResourceArn: Annotated[str, _aws_pattern("IotManagedIntegrations", "IoTManagedIntegrationsResourceARN")]
 
 
 class MatterCapabilityReportAttributeTypeDef(BaseValidatorModel):
-    id: Optional[str] = None
-    name: Optional[str] = None
+    id: Optional[Annotated[str, _aws_pattern("IotManagedIntegrations", "MatterAttributeId")]] = None
+    name: Optional[Annotated[str, _aws_pattern("IotManagedIntegrations", "ActionName")]] = None
     value: Optional[Dict[str, Any]] = None
 
 
 class MatterClusterTypeDef(BaseValidatorModel):
-    id: Optional[str] = None
+    id: Optional[Annotated[str, _aws_pattern("IotManagedIntegrations", "ClusterId")]] = None
     attributes: Optional[Dict[str, Any]] = None
     commands: Optional[Dict[str, Dict[str, Any]]] = None
     events: Optional[Dict[str, Dict[str, Any]]] = None
@@ -653,7 +689,7 @@ class OtaTaskTimeoutConfigTypeDef(BaseValidatorModel):
 # This class is the input for the 'put_default_encryption_configuration' function.
 class PutDefaultEncryptionConfigurationRequestTypeDef(BaseValidatorModel):
     encryptionType: EncryptionTypeType
-    kmsKeyArn: Optional[str] = None
+    kmsKeyArn: Optional[Annotated[str, _aws_pattern("IotManagedIntegrations", "KmsKeyArn")]] = None
 
 
 # This class is the input for the 'put_hub_configuration' function.
@@ -663,94 +699,108 @@ class PutHubConfigurationRequestTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'register_account_association' function.
 class RegisterAccountAssociationRequestTypeDef(BaseValidatorModel):
-    ManagedThingId: str
-    AccountAssociationId: str
-    DeviceDiscoveryId: str
+    ManagedThingId: Annotated[str, _aws_pattern("IotManagedIntegrations", "ManagedThingId")]
+    AccountAssociationId: Annotated[str, _aws_pattern("IotManagedIntegrations", "AccountAssociationId")]
+    DeviceDiscoveryId: Annotated[str, _aws_pattern("IotManagedIntegrations", "DeviceDiscoveryId")]
 
 
 # This class is the input for the 'reset_runtime_log_configuration' function.
 class ResetRuntimeLogConfigurationRequestTypeDef(BaseValidatorModel):
-    ManagedThingId: str
+    ManagedThingId: Annotated[str, _aws_pattern("IotManagedIntegrations", "ManagedThingId")]
 
 
 # This class is the input for the 'start_account_association_refresh' function.
 class StartAccountAssociationRefreshRequestTypeDef(BaseValidatorModel):
-    AccountAssociationId: str
+    AccountAssociationId: Annotated[str, _aws_pattern("IotManagedIntegrations", "AccountAssociationId")]
 
 
 # This class is the input for the 'start_device_discovery' function.
 class StartDeviceDiscoveryRequestTypeDef(BaseValidatorModel):
     DiscoveryType: DiscoveryTypeType
     CustomProtocolDetail: Optional[Dict[str, str]] = None
-    ControllerIdentifier: Optional[str] = None
-    ConnectorAssociationIdentifier: Optional[str] = None
-    AccountAssociationId: Optional[str] = None
-    AuthenticationMaterial: Optional[str] = None
+    ControllerIdentifier: Optional[Annotated[str, _aws_pattern("IotManagedIntegrations", "ManagedThingId")]] = None
+    ConnectorAssociationIdentifier: Optional[
+        Annotated[str, _aws_pattern("IotManagedIntegrations", "ConnectorAssociationId")]
+    ] = None
+    AccountAssociationId: Optional[Annotated[str, _aws_pattern("IotManagedIntegrations", "AccountAssociationId")]] = (
+        None
+    )
+    AuthenticationMaterial: Optional[
+        Annotated[str, _aws_pattern("IotManagedIntegrations", "DiscoveryAuthMaterialString")]
+    ] = None
     AuthenticationMaterialType: Optional[Literal["ZWAVE_INSTALL_CODE"]] = None
-    ClientToken: Optional[str] = None
+    ClientToken: Optional[Annotated[str, _aws_pattern("IotManagedIntegrations", "ClientToken")]] = None
     Tags: Optional[Dict[str, str]] = None
-    ConnectorDeviceIdList: Optional[List[str]] = None
+    ConnectorDeviceIdList: Optional[
+        List[Annotated[str, _aws_pattern("IotManagedIntegrations", "ConnectorDeviceId")]]
+    ] = None
     Protocol: Optional[ProtocolTypeType] = None
-    EndDeviceIdentifier: Optional[str] = None
+    EndDeviceIdentifier: Optional[Annotated[str, _aws_pattern("IotManagedIntegrations", "ManagedThingId")]] = None
 
 
 class StateCapabilityTypeDef(BaseValidatorModel):
-    id: str
-    name: str
-    version: str
+    id: Annotated[str, _aws_pattern("IotManagedIntegrations", "SchemaVersionedId")]
+    name: Annotated[str, _aws_pattern("IotManagedIntegrations", "CapabilityName")]
+    version: Annotated[str, _aws_pattern("IotManagedIntegrations", "CapabilityVersion")]
     properties: Optional[Dict[str, Any]] = None
 
 
 class TagResourceRequestTypeDef(BaseValidatorModel):
-    ResourceArn: str
+    ResourceArn: Annotated[str, _aws_pattern("IotManagedIntegrations", "IoTManagedIntegrationsResourceARN")]
     Tags: Dict[str, str]
 
 
 class UntagResourceRequestTypeDef(BaseValidatorModel):
-    ResourceArn: str
+    ResourceArn: Annotated[str, _aws_pattern("IotManagedIntegrations", "IoTManagedIntegrationsResourceARN")]
     TagKeys: List[str]
 
 
 # This class is the input for the 'update_account_association' function.
 class UpdateAccountAssociationRequestTypeDef(BaseValidatorModel):
-    AccountAssociationId: str
-    Name: Optional[str] = None
-    Description: Optional[str] = None
+    AccountAssociationId: Annotated[str, _aws_pattern("IotManagedIntegrations", "AccountAssociationId")]
+    Name: Optional[Annotated[str, _aws_pattern("IotManagedIntegrations", "AccountAssociationName")]] = None
+    Description: Optional[Annotated[str, _aws_pattern("IotManagedIntegrations", "AccountAssociationDescription")]] = (
+        None
+    )
 
 
 # This class is the input for the 'update_cloud_connector' function.
 class UpdateCloudConnectorRequestTypeDef(BaseValidatorModel):
-    Identifier: str
-    Name: Optional[str] = None
-    Description: Optional[str] = None
+    Identifier: Annotated[str, _aws_pattern("IotManagedIntegrations", "CloudConnectorId")]
+    Name: Optional[Annotated[str, _aws_pattern("IotManagedIntegrations", "DisplayName")]] = None
+    Description: Optional[Annotated[str, _aws_pattern("IotManagedIntegrations", "CloudConnectorDescription")]] = None
 
 
 # This class is the input for the 'update_destination' function.
 class UpdateDestinationRequestTypeDef(BaseValidatorModel):
-    Name: str
-    DeliveryDestinationArn: Optional[str] = None
+    Name: Annotated[str, _aws_pattern("IotManagedIntegrations", "DestinationName")]
+    DeliveryDestinationArn: Optional[
+        Annotated[str, _aws_pattern("IotManagedIntegrations", "DeliveryDestinationArn")]
+    ] = None
     DeliveryDestinationType: Optional[Literal["KINESIS"]] = None
     RoleArn: Optional[str] = None
-    Description: Optional[str] = None
+    Description: Optional[Annotated[str, _aws_pattern("IotManagedIntegrations", "DestinationDescription")]] = None
 
 
 # This class is the input for the 'update_event_log_configuration' function.
 class UpdateEventLogConfigurationRequestTypeDef(BaseValidatorModel):
-    Id: str
+    Id: Annotated[str, _aws_pattern("IotManagedIntegrations", "LogConfigurationId")]
     EventLogLevel: LogLevelType
 
 
 # This class is the input for the 'update_notification_configuration' function.
 class UpdateNotificationConfigurationRequestTypeDef(BaseValidatorModel):
     EventType: EventTypeType
-    DestinationName: str
+    DestinationName: Annotated[str, _aws_pattern("IotManagedIntegrations", "DestinationName")]
 
 
 # This class is the input for the 'update_ota_task' function.
 class UpdateOtaTaskRequestTypeDef(BaseValidatorModel):
-    Identifier: str
-    Description: Optional[str] = None
-    TaskConfigurationId: Optional[str] = None
+    Identifier: Annotated[str, _aws_pattern("IotManagedIntegrations", "OtaTaskId")]
+    Description: Optional[Annotated[str, _aws_pattern("IotManagedIntegrations", "OtaDescription")]] = None
+    TaskConfigurationId: Optional[Annotated[str, _aws_pattern("IotManagedIntegrations", "OtaTaskConfigurationId")]] = (
+        None
+    )
 
 
 class OtaTaskAbortConfigOutputTypeDef(BaseValidatorModel):
@@ -763,13 +813,13 @@ class OtaTaskAbortConfigTypeDef(BaseValidatorModel):
 
 class AuthMaterialTypeDef(BaseValidatorModel):
     SecretsManager: SecretsManagerTypeDef
-    AuthMaterialName: str
+    AuthMaterialName: Annotated[str, _aws_pattern("IotManagedIntegrations", "AuthMaterialName")]
 
 
 class CommandCapabilityTypeDef(BaseValidatorModel):
-    id: str
-    name: str
-    version: str
+    id: Annotated[str, _aws_pattern("IotManagedIntegrations", "SchemaVersionedId")]
+    name: Annotated[str, _aws_pattern("IotManagedIntegrations", "CapabilityName")]
+    version: Annotated[str, _aws_pattern("IotManagedIntegrations", "CapabilityVersion")]
     actions: List[CapabilityActionTypeDef]
 
 
@@ -780,8 +830,8 @@ class CapabilityReportEndpointOutputTypeDef(BaseValidatorModel):
 
 
 class CapabilityReportEndpointTypeDef(BaseValidatorModel):
-    id: str
-    deviceTypes: List[str]
+    id: Annotated[str, _aws_pattern("IotManagedIntegrations", "EndpointId")]
+    deviceTypes: List[Annotated[str, _aws_pattern("IotManagedIntegrations", "DeviceType")]]
     capabilities: List[CapabilityReportCapabilityTypeDef]
 
 
@@ -792,59 +842,61 @@ class ConfigurationStatusTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'create_account_association' function.
 class CreateAccountAssociationRequestTypeDef(BaseValidatorModel):
-    ConnectorDestinationId: str
-    ClientToken: Optional[str] = None
-    Name: Optional[str] = None
-    Description: Optional[str] = None
+    ConnectorDestinationId: Annotated[str, _aws_pattern("IotManagedIntegrations", "ConnectorDestinationId")]
+    ClientToken: Optional[Annotated[str, _aws_pattern("IotManagedIntegrations", "ClientToken")]] = None
+    Name: Optional[Annotated[str, _aws_pattern("IotManagedIntegrations", "AccountAssociationName")]] = None
+    Description: Optional[Annotated[str, _aws_pattern("IotManagedIntegrations", "AccountAssociationDescription")]] = (
+        None
+    )
     Tags: Optional[Dict[str, str]] = None
     GeneralAuthorization: Optional[GeneralAuthorizationNameTypeDef] = None
 
 
 # This class is the output for the 'create_account_association' function.
 class CreateAccountAssociationResponseTypeDef(BaseValidatorModel):
-    OAuthAuthorizationUrl: str
-    AccountAssociationId: str
+    OAuthAuthorizationUrl: Annotated[str, _aws_pattern("IotManagedIntegrations", "OAuthAuthorizationUrlOutput")]
+    AccountAssociationId: Annotated[str, _aws_pattern("IotManagedIntegrations", "AccountAssociationId")]
     AssociationState: AssociationStateType
-    Arn: str
+    Arn: Annotated[str, _aws_pattern("IotManagedIntegrations", "AccountAssociationArn")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 # This class is the output for the 'create_cloud_connector' function.
 class CreateCloudConnectorResponseTypeDef(BaseValidatorModel):
-    Id: str
+    Id: Annotated[str, _aws_pattern("IotManagedIntegrations", "CloudConnectorId")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 # This class is the output for the 'create_connector_destination' function.
 class CreateConnectorDestinationResponseTypeDef(BaseValidatorModel):
-    Id: str
+    Id: Annotated[str, _aws_pattern("IotManagedIntegrations", "ConnectorDestinationId")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 # This class is the output for the 'create_credential_locker' function.
 class CreateCredentialLockerResponseTypeDef(BaseValidatorModel):
-    Id: str
-    Arn: str
+    Id: Annotated[str, _aws_pattern("IotManagedIntegrations", "CredentialLockerId")]
+    Arn: Annotated[str, _aws_pattern("IotManagedIntegrations", "CredentialLockerArn")]
     CreatedAt: datetime
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 # This class is the output for the 'create_destination' function.
 class CreateDestinationResponseTypeDef(BaseValidatorModel):
-    Name: str
+    Name: Annotated[str, _aws_pattern("IotManagedIntegrations", "DestinationName")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 # This class is the output for the 'create_event_log_configuration' function.
 class CreateEventLogConfigurationResponseTypeDef(BaseValidatorModel):
-    Id: str
+    Id: Annotated[str, _aws_pattern("IotManagedIntegrations", "LogConfigurationId")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 # This class is the output for the 'create_managed_thing' function.
 class CreateManagedThingResponseTypeDef(BaseValidatorModel):
-    Id: str
-    Arn: str
+    Id: Annotated[str, _aws_pattern("IotManagedIntegrations", "ManagedThingId")]
+    Arn: Annotated[str, _aws_pattern("IotManagedIntegrations", "ManagedThingArn")]
     CreatedAt: datetime
     ResponseMetadata: ResponseMetadataTypeDef
 
@@ -857,24 +909,24 @@ class CreateNotificationConfigurationResponseTypeDef(BaseValidatorModel):
 
 # This class is the output for the 'create_ota_task_configuration' function.
 class CreateOtaTaskConfigurationResponseTypeDef(BaseValidatorModel):
-    TaskConfigurationId: str
+    TaskConfigurationId: Annotated[str, _aws_pattern("IotManagedIntegrations", "OtaTaskConfigurationId")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 # This class is the output for the 'create_ota_task' function.
 class CreateOtaTaskResponseTypeDef(BaseValidatorModel):
-    TaskId: str
-    TaskArn: str
-    Description: str
+    TaskId: Annotated[str, _aws_pattern("IotManagedIntegrations", "OtaTaskId")]
+    TaskArn: Annotated[str, _aws_pattern("IotManagedIntegrations", "OtaTaskArn")]
+    Description: Annotated[str, _aws_pattern("IotManagedIntegrations", "OtaDescription")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 # This class is the output for the 'create_provisioning_profile' function.
 class CreateProvisioningProfileResponseTypeDef(BaseValidatorModel):
-    Arn: str
-    Name: str
+    Arn: Annotated[str, _aws_pattern("IotManagedIntegrations", "ProvisioningProfileArn")]
+    Name: Annotated[str, _aws_pattern("IotManagedIntegrations", "ProvisioningProfileName")]
     ProvisioningType: ProvisioningTypeType
-    Id: str
+    Id: Annotated[str, _aws_pattern("IotManagedIntegrations", "ProvisioningProfileId")]
     Status: ProvisioningProfileStatusType
     ClaimCertificate: str
     ClaimCertificatePrivateKey: str
@@ -888,14 +940,14 @@ class EmptyResponseMetadataTypeDef(BaseValidatorModel):
 
 # This class is the output for the 'get_account_association' function.
 class GetAccountAssociationResponseTypeDef(BaseValidatorModel):
-    AccountAssociationId: str
+    AccountAssociationId: Annotated[str, _aws_pattern("IotManagedIntegrations", "AccountAssociationId")]
     AssociationState: AssociationStateType
-    ErrorMessage: str
-    ConnectorDestinationId: str
-    Name: str
-    Description: str
-    Arn: str
-    OAuthAuthorizationUrl: str
+    ErrorMessage: Annotated[str, _aws_pattern("IotManagedIntegrations", "AccountAssociationErrorMessage")]
+    ConnectorDestinationId: Annotated[str, _aws_pattern("IotManagedIntegrations", "ConnectorDestinationId")]
+    Name: Annotated[str, _aws_pattern("IotManagedIntegrations", "AccountAssociationName")]
+    Description: Annotated[str, _aws_pattern("IotManagedIntegrations", "AccountAssociationDescription")]
+    Arn: Annotated[str, _aws_pattern("IotManagedIntegrations", "AccountAssociationArn")]
+    OAuthAuthorizationUrl: Annotated[str, _aws_pattern("IotManagedIntegrations", "OAuthAuthorizationUrlOutput")]
     Tags: Dict[str, str]
     GeneralAuthorization: GeneralAuthorizationNameTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
@@ -903,25 +955,25 @@ class GetAccountAssociationResponseTypeDef(BaseValidatorModel):
 
 # This class is the output for the 'get_credential_locker' function.
 class GetCredentialLockerResponseTypeDef(BaseValidatorModel):
-    Id: str
-    Arn: str
-    Name: str
+    Id: Annotated[str, _aws_pattern("IotManagedIntegrations", "CredentialLockerId")]
+    Arn: Annotated[str, _aws_pattern("IotManagedIntegrations", "CredentialLockerArn")]
+    Name: Annotated[str, _aws_pattern("IotManagedIntegrations", "CredentialLockerName")]
     CreatedAt: datetime
     Tags: Dict[str, str]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 class GetCustomEndpointResponseTypeDef(BaseValidatorModel):
-    EndpointAddress: str
+    EndpointAddress: Annotated[str, _aws_pattern("IotManagedIntegrations", "EndpointAddress")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 # This class is the output for the 'get_destination' function.
 class GetDestinationResponseTypeDef(BaseValidatorModel):
-    Description: str
-    DeliveryDestinationArn: str
+    Description: Annotated[str, _aws_pattern("IotManagedIntegrations", "DestinationDescription")]
+    DeliveryDestinationArn: Annotated[str, _aws_pattern("IotManagedIntegrations", "DeliveryDestinationArn")]
     DeliveryDestinationType: Literal["KINESIS"]
-    Name: str
+    Name: Annotated[str, _aws_pattern("IotManagedIntegrations", "DestinationName")]
     RoleArn: str
     CreatedAt: datetime
     UpdatedAt: datetime
@@ -931,14 +983,14 @@ class GetDestinationResponseTypeDef(BaseValidatorModel):
 
 # This class is the output for the 'get_device_discovery' function.
 class GetDeviceDiscoveryResponseTypeDef(BaseValidatorModel):
-    Id: str
-    Arn: str
+    Id: Annotated[str, _aws_pattern("IotManagedIntegrations", "DeviceDiscoveryId")]
+    Arn: Annotated[str, _aws_pattern("IotManagedIntegrations", "DeviceDiscoveryArn")]
     DiscoveryType: DiscoveryTypeType
     Status: DeviceDiscoveryStatusType
     StartedAt: datetime
-    ControllerId: str
-    ConnectorAssociationId: str
-    AccountAssociationId: str
+    ControllerId: Annotated[str, _aws_pattern("IotManagedIntegrations", "ManagedThingId")]
+    ConnectorAssociationId: Annotated[str, _aws_pattern("IotManagedIntegrations", "ConnectorAssociationId")]
+    AccountAssociationId: Annotated[str, _aws_pattern("IotManagedIntegrations", "AccountAssociationId")]
     FinishedAt: datetime
     Tags: Dict[str, str]
     ResponseMetadata: ResponseMetadataTypeDef
@@ -946,9 +998,9 @@ class GetDeviceDiscoveryResponseTypeDef(BaseValidatorModel):
 
 # This class is the output for the 'get_event_log_configuration' function.
 class GetEventLogConfigurationResponseTypeDef(BaseValidatorModel):
-    Id: str
-    ResourceType: str
-    ResourceId: str
+    Id: Annotated[str, _aws_pattern("IotManagedIntegrations", "LogConfigurationId")]
+    ResourceType: Annotated[str, _aws_pattern("IotManagedIntegrations", "SmartHomeResourceType")]
+    ResourceId: Annotated[str, _aws_pattern("IotManagedIntegrations", "SmartHomeResourceId")]
     EventLogLevel: LogLevelType
     ResponseMetadata: ResponseMetadataTypeDef
 
@@ -961,14 +1013,14 @@ class GetHubConfigurationResponseTypeDef(BaseValidatorModel):
 
 # This class is the output for the 'get_managed_thing_certificate' function.
 class GetManagedThingCertificateResponseTypeDef(BaseValidatorModel):
-    ManagedThingId: str
-    CertificatePem: str
+    ManagedThingId: Annotated[str, _aws_pattern("IotManagedIntegrations", "ManagedThingId")]
+    CertificatePem: Annotated[str, _aws_pattern("IotManagedIntegrations", "CertificatePem")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 # This class is the output for the 'get_managed_thing_connectivity_data' function.
 class GetManagedThingConnectivityDataResponseTypeDef(BaseValidatorModel):
-    ManagedThingId: str
+    ManagedThingId: Annotated[str, _aws_pattern("IotManagedIntegrations", "ManagedThingId")]
     Connected: bool
     Timestamp: datetime
     DisconnectReason: DisconnectReasonValueType
@@ -977,7 +1029,7 @@ class GetManagedThingConnectivityDataResponseTypeDef(BaseValidatorModel):
 
 # This class is the output for the 'get_managed_thing_meta_data' function.
 class GetManagedThingMetaDataResponseTypeDef(BaseValidatorModel):
-    ManagedThingId: str
+    ManagedThingId: Annotated[str, _aws_pattern("IotManagedIntegrations", "ManagedThingId")]
     MetaData: Dict[str, str]
     ResponseMetadata: ResponseMetadataTypeDef
 
@@ -985,7 +1037,7 @@ class GetManagedThingMetaDataResponseTypeDef(BaseValidatorModel):
 # This class is the output for the 'get_notification_configuration' function.
 class GetNotificationConfigurationResponseTypeDef(BaseValidatorModel):
     EventType: EventTypeType
-    DestinationName: str
+    DestinationName: Annotated[str, _aws_pattern("IotManagedIntegrations", "DestinationName")]
     CreatedAt: datetime
     UpdatedAt: datetime
     Tags: Dict[str, str]
@@ -994,10 +1046,10 @@ class GetNotificationConfigurationResponseTypeDef(BaseValidatorModel):
 
 # This class is the output for the 'get_provisioning_profile' function.
 class GetProvisioningProfileResponseTypeDef(BaseValidatorModel):
-    Arn: str
-    Name: str
+    Arn: Annotated[str, _aws_pattern("IotManagedIntegrations", "ProvisioningProfileArn")]
+    Name: Annotated[str, _aws_pattern("IotManagedIntegrations", "ProvisioningProfileName")]
     ProvisioningType: ProvisioningTypeType
-    Id: str
+    Id: Annotated[str, _aws_pattern("IotManagedIntegrations", "ProvisioningProfileId")]
     Status: ProvisioningProfileStatusType
     ClaimCertificate: str
     Tags: Dict[str, str]
@@ -1006,11 +1058,11 @@ class GetProvisioningProfileResponseTypeDef(BaseValidatorModel):
 
 # This class is the output for the 'get_schema_version' function.
 class GetSchemaVersionResponseTypeDef(BaseValidatorModel):
-    SchemaId: str
+    SchemaId: Annotated[str, _aws_pattern("IotManagedIntegrations", "SchemaId")]
     Type: SchemaVersionTypeType
-    Description: str
-    Namespace: str
-    SemanticVersion: str
+    Description: Annotated[str, _aws_pattern("IotManagedIntegrations", "SchemaVersionDescription")]
+    Namespace: Annotated[str, _aws_pattern("IotManagedIntegrations", "SchemaVersionNamespaceName")]
+    SemanticVersion: Annotated[str, _aws_pattern("IotManagedIntegrations", "SchemaVersionVersion")]
     Visibility: SchemaVersionVisibilityType
     Schema: Dict[str, Any]
     ResponseMetadata: ResponseMetadataTypeDef
@@ -1020,14 +1072,14 @@ class GetSchemaVersionResponseTypeDef(BaseValidatorModel):
 class ListAccountAssociationsResponseTypeDef(BaseValidatorModel):
     Items: List[AccountAssociationItemTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
-    NextToken: Optional[str] = None
+    NextToken: Optional[Annotated[str, _aws_pattern("IotManagedIntegrations", "NextToken")]] = None
 
 
 # This class is the output for the 'list_connector_destinations' function.
 class ListConnectorDestinationsResponseTypeDef(BaseValidatorModel):
     ConnectorDestinationList: List[ConnectorDestinationSummaryTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
-    NextToken: Optional[str] = None
+    NextToken: Optional[Annotated[str, _aws_pattern("IotManagedIntegrations", "NextToken")]] = None
 
 
 # This class is the output for the 'list_tags_for_resource' function.
@@ -1044,63 +1096,63 @@ class PutHubConfigurationResponseTypeDef(BaseValidatorModel):
 
 # This class is the output for the 'register_account_association' function.
 class RegisterAccountAssociationResponseTypeDef(BaseValidatorModel):
-    AccountAssociationId: str
-    DeviceDiscoveryId: str
-    ManagedThingId: str
+    AccountAssociationId: Annotated[str, _aws_pattern("IotManagedIntegrations", "AccountAssociationId")]
+    DeviceDiscoveryId: Annotated[str, _aws_pattern("IotManagedIntegrations", "DeviceDiscoveryId")]
+    ManagedThingId: Annotated[str, _aws_pattern("IotManagedIntegrations", "ManagedThingId")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 class RegisterCustomEndpointResponseTypeDef(BaseValidatorModel):
-    EndpointAddress: str
+    EndpointAddress: Annotated[str, _aws_pattern("IotManagedIntegrations", "EndpointAddress")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 # This class is the output for the 'send_connector_event' function.
 class SendConnectorEventResponseTypeDef(BaseValidatorModel):
-    ConnectorId: str
+    ConnectorId: Annotated[str, _aws_pattern("IotManagedIntegrations", "ConnectorId")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 # This class is the output for the 'send_managed_thing_command' function.
 class SendManagedThingCommandResponseTypeDef(BaseValidatorModel):
-    TraceId: str
+    TraceId: Annotated[str, _aws_pattern("IotManagedIntegrations", "TraceId")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 # This class is the output for the 'start_account_association_refresh' function.
 class StartAccountAssociationRefreshResponseTypeDef(BaseValidatorModel):
-    OAuthAuthorizationUrl: str
+    OAuthAuthorizationUrl: Annotated[str, _aws_pattern("IotManagedIntegrations", "OAuthAuthorizationUrlOutput")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 # This class is the output for the 'start_device_discovery' function.
 class StartDeviceDiscoveryResponseTypeDef(BaseValidatorModel):
-    Id: str
+    Id: Annotated[str, _aws_pattern("IotManagedIntegrations", "DeviceDiscoveryId")]
     StartedAt: datetime
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 # This class is the output for the 'get_managed_thing' function.
 class GetManagedThingResponseTypeDef(BaseValidatorModel):
-    Id: str
-    Arn: str
-    Owner: str
-    CredentialLockerId: str
-    AdvertisedProductId: str
+    Id: Annotated[str, _aws_pattern("IotManagedIntegrations", "ManagedThingId")]
+    Arn: Annotated[str, _aws_pattern("IotManagedIntegrations", "ManagedThingArn")]
+    Owner: Annotated[str, _aws_pattern("IotManagedIntegrations", "Owner")]
+    CredentialLockerId: Annotated[str, _aws_pattern("IotManagedIntegrations", "CredentialLockerId")]
+    AdvertisedProductId: Annotated[str, _aws_pattern("IotManagedIntegrations", "AdvertisedProductId")]
     Role: RoleType
     ProvisioningStatus: ProvisioningStatusType
-    Name: str
-    Model: str
-    Brand: str
-    SerialNumber: str
-    UniversalProductCode: str
-    InternationalArticleNumber: str
-    ConnectorPolicyId: str
-    ConnectorDestinationId: str
-    ConnectorDeviceId: str
-    DeviceSpecificKey: str
+    Name: Annotated[str, _aws_pattern("IotManagedIntegrations", "Name")]
+    Model: Annotated[str, _aws_pattern("IotManagedIntegrations", "Model")]
+    Brand: Annotated[str, _aws_pattern("IotManagedIntegrations", "Brand")]
+    SerialNumber: Annotated[str, _aws_pattern("IotManagedIntegrations", "SerialNumber")]
+    UniversalProductCode: Annotated[str, _aws_pattern("IotManagedIntegrations", "UniversalProductCode")]
+    InternationalArticleNumber: Annotated[str, _aws_pattern("IotManagedIntegrations", "InternationalArticleNumber")]
+    ConnectorPolicyId: Annotated[str, _aws_pattern("IotManagedIntegrations", "ConnectorPolicyId")]
+    ConnectorDestinationId: Annotated[str, _aws_pattern("IotManagedIntegrations", "ConnectorDestinationId")]
+    ConnectorDeviceId: Annotated[str, _aws_pattern("IotManagedIntegrations", "ConnectorDeviceId")]
+    DeviceSpecificKey: Annotated[str, _aws_pattern("IotManagedIntegrations", "DeviceSpecificKey")]
     MacAddress: str
-    ParentControllerId: str
+    ParentControllerId: Annotated[str, _aws_pattern("IotManagedIntegrations", "ParentControllerId")]
     Classification: str
     CreatedAt: datetime
     UpdatedAt: datetime
@@ -1116,28 +1168,28 @@ class GetManagedThingResponseTypeDef(BaseValidatorModel):
 class ListCredentialLockersResponseTypeDef(BaseValidatorModel):
     Items: List[CredentialLockerSummaryTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
-    NextToken: Optional[str] = None
+    NextToken: Optional[Annotated[str, _aws_pattern("IotManagedIntegrations", "NextToken")]] = None
 
 
 # This class is the output for the 'list_destinations' function.
 class ListDestinationsResponseTypeDef(BaseValidatorModel):
     DestinationList: List[DestinationSummaryTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
-    NextToken: Optional[str] = None
+    NextToken: Optional[Annotated[str, _aws_pattern("IotManagedIntegrations", "NextToken")]] = None
 
 
 # This class is the output for the 'list_device_discoveries' function.
 class ListDeviceDiscoveriesResponseTypeDef(BaseValidatorModel):
     Items: List[DeviceDiscoverySummaryTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
-    NextToken: Optional[str] = None
+    NextToken: Optional[Annotated[str, _aws_pattern("IotManagedIntegrations", "NextToken")]] = None
 
 
 # This class is the output for the 'list_discovered_devices' function.
 class ListDiscoveredDevicesResponseTypeDef(BaseValidatorModel):
     Items: List[DiscoveredDeviceSummaryTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
-    NextToken: Optional[str] = None
+    NextToken: Optional[Annotated[str, _aws_pattern("IotManagedIntegrations", "NextToken")]] = None
 
 
 class EndpointConfigTypeDef(BaseValidatorModel):
@@ -1148,7 +1200,7 @@ class EndpointConfigTypeDef(BaseValidatorModel):
 class ListEventLogConfigurationsResponseTypeDef(BaseValidatorModel):
     EventLogConfigurationList: List[EventLogConfigurationSummaryTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
-    NextToken: Optional[str] = None
+    NextToken: Optional[Annotated[str, _aws_pattern("IotManagedIntegrations", "NextToken")]] = None
 
 
 class ExponentialRolloutRateTypeDef(BaseValidatorModel):
@@ -1159,14 +1211,14 @@ class ExponentialRolloutRateTypeDef(BaseValidatorModel):
 
 # This class is the output for the 'get_runtime_log_configuration' function.
 class GetRuntimeLogConfigurationResponseTypeDef(BaseValidatorModel):
-    ManagedThingId: str
+    ManagedThingId: Annotated[str, _aws_pattern("IotManagedIntegrations", "ManagedThingId")]
     RuntimeLogConfigurations: RuntimeLogConfigurationsTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 # This class is the input for the 'put_runtime_log_configuration' function.
 class PutRuntimeLogConfigurationRequestTypeDef(BaseValidatorModel):
-    ManagedThingId: str
+    ManagedThingId: Annotated[str, _aws_pattern("IotManagedIntegrations", "ManagedThingId")]
     RuntimeLogConfigurations: RuntimeLogConfigurationsTypeDef
 
 
@@ -1276,73 +1328,73 @@ class ListManagedThingAccountAssociationsResponseTypeDef(BaseValidatorModel):
 class ListManagedThingSchemasResponseTypeDef(BaseValidatorModel):
     Items: List[ManagedThingSchemaListItemTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
-    NextToken: Optional[str] = None
+    NextToken: Optional[Annotated[str, _aws_pattern("IotManagedIntegrations", "NextToken")]] = None
 
 
 # This class is the output for the 'list_managed_things' function.
 class ListManagedThingsResponseTypeDef(BaseValidatorModel):
     Items: List[ManagedThingSummaryTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
-    NextToken: Optional[str] = None
+    NextToken: Optional[Annotated[str, _aws_pattern("IotManagedIntegrations", "NextToken")]] = None
 
 
 # This class is the output for the 'list_notification_configurations' function.
 class ListNotificationConfigurationsResponseTypeDef(BaseValidatorModel):
     NotificationConfigurationList: List[NotificationConfigurationSummaryTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
-    NextToken: Optional[str] = None
+    NextToken: Optional[Annotated[str, _aws_pattern("IotManagedIntegrations", "NextToken")]] = None
 
 
 # This class is the output for the 'list_ota_task_configurations' function.
 class ListOtaTaskConfigurationsResponseTypeDef(BaseValidatorModel):
     Items: List[OtaTaskConfigurationSummaryTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
-    NextToken: Optional[str] = None
+    NextToken: Optional[Annotated[str, _aws_pattern("IotManagedIntegrations", "NextToken")]] = None
 
 
 # This class is the output for the 'list_ota_tasks' function.
 class ListOtaTasksResponseTypeDef(BaseValidatorModel):
     Tasks: List[OtaTaskSummaryTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
-    NextToken: Optional[str] = None
+    NextToken: Optional[Annotated[str, _aws_pattern("IotManagedIntegrations", "OtaNextToken")]] = None
 
 
 # This class is the output for the 'list_provisioning_profiles' function.
 class ListProvisioningProfilesResponseTypeDef(BaseValidatorModel):
     Items: List[ProvisioningProfileSummaryTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
-    NextToken: Optional[str] = None
+    NextToken: Optional[Annotated[str, _aws_pattern("IotManagedIntegrations", "NextToken")]] = None
 
 
 # This class is the output for the 'list_schema_versions' function.
 class ListSchemaVersionsResponseTypeDef(BaseValidatorModel):
     Items: List[SchemaVersionListItemTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
-    NextToken: Optional[str] = None
+    NextToken: Optional[Annotated[str, _aws_pattern("IotManagedIntegrations", "NextToken")]] = None
 
 
 class MatterCapabilityReportClusterTypeDef(BaseValidatorModel):
-    id: str
+    id: Annotated[str, _aws_pattern("IotManagedIntegrations", "ClusterId")]
     revision: int
-    publicId: Optional[str] = None
-    name: Optional[str] = None
-    specVersion: Optional[str] = None
+    publicId: Optional[Annotated[str, _aws_pattern("IotManagedIntegrations", "SchemaVersionedId")]] = None
+    name: Optional[Annotated[str, _aws_pattern("IotManagedIntegrations", "CapabilityName")]] = None
+    specVersion: Optional[Annotated[str, _aws_pattern("IotManagedIntegrations", "SpecVersion")]] = None
     attributes: Optional[List[MatterCapabilityReportAttributeTypeDef]] = None
-    commands: Optional[List[str]] = None
-    events: Optional[List[str]] = None
+    commands: Optional[List[Annotated[str, _aws_pattern("IotManagedIntegrations", "MatterCommandId")]]] = None
+    events: Optional[List[Annotated[str, _aws_pattern("IotManagedIntegrations", "MatterEventId")]]] = None
     featureMap: Optional[int] = None
-    generatedCommands: Optional[List[str]] = None
+    generatedCommands: Optional[List[Annotated[str, _aws_pattern("IotManagedIntegrations", "MatterCommandId")]]] = None
     fabricIndex: Optional[int] = None
 
 
 class MatterEndpointTypeDef(BaseValidatorModel):
-    id: Optional[str] = None
+    id: Optional[Annotated[str, _aws_pattern("IotManagedIntegrations", "EndpointId")]] = None
     clusters: Optional[List[MatterClusterTypeDef]] = None
 
 
 class OAuthConfigTypeDef(BaseValidatorModel):
-    authUrl: str
-    tokenUrl: str
+    authUrl: Annotated[str, _aws_pattern("IotManagedIntegrations", "AuthUrl")]
+    tokenUrl: Annotated[str, _aws_pattern("IotManagedIntegrations", "TokenUrl")]
     tokenEndpointAuthenticationScheme: TokenEndpointAuthenticationSchemeType
     scope: Optional[str] = None
     oAuthCompleteRedirectUrl: Optional[str] = None
@@ -1364,7 +1416,7 @@ class OtaTaskExecutionRetryConfigTypeDef(BaseValidatorModel):
 
 class OtaTaskExecutionSummariesTypeDef(BaseValidatorModel):
     TaskExecutionSummary: Optional[OtaTaskExecutionSummaryTypeDef] = None
-    ManagedThingId: Optional[str] = None
+    ManagedThingId: Optional[Annotated[str, _aws_pattern("IotManagedIntegrations", "ManagedThingId")]] = None
 
 
 class OtaTaskSchedulingConfigOutputTypeDef(BaseValidatorModel):
@@ -1382,7 +1434,7 @@ class OtaTaskSchedulingConfigTypeDef(BaseValidatorModel):
 
 
 class StateEndpointTypeDef(BaseValidatorModel):
-    endpointId: str
+    endpointId: Annotated[str, _aws_pattern("IotManagedIntegrations", "EndpointId")]
     capabilities: List[StateCapabilityTypeDef]
 
 
@@ -1392,7 +1444,7 @@ class GeneralAuthorizationUpdateTypeDef(BaseValidatorModel):
 
 
 class CommandEndpointTypeDef(BaseValidatorModel):
-    endpointId: str
+    endpointId: Annotated[str, _aws_pattern("IotManagedIntegrations", "EndpointId")]
     capabilities: List[CommandCapabilityTypeDef]
 
 
@@ -1403,15 +1455,15 @@ class CapabilityReportOutputTypeDef(BaseValidatorModel):
 
 
 class CapabilityReportTypeDef(BaseValidatorModel):
-    version: str
+    version: Annotated[str, _aws_pattern("IotManagedIntegrations", "CapabilityReportVersion")]
     endpoints: List[CapabilityReportEndpointTypeDef]
-    nodeId: Optional[str] = None
+    nodeId: Optional[Annotated[str, _aws_pattern("IotManagedIntegrations", "NodeId")]] = None
 
 
 class GetDefaultEncryptionConfigurationResponseTypeDef(BaseValidatorModel):
     configurationStatus: ConfigurationStatusTypeDef
     encryptionType: EncryptionTypeType
-    kmsKeyArn: str
+    kmsKeyArn: Annotated[str, _aws_pattern("IotManagedIntegrations", "KmsKeyArn")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
@@ -1419,35 +1471,35 @@ class GetDefaultEncryptionConfigurationResponseTypeDef(BaseValidatorModel):
 class PutDefaultEncryptionConfigurationResponseTypeDef(BaseValidatorModel):
     configurationStatus: ConfigurationStatusTypeDef
     encryptionType: EncryptionTypeType
-    kmsKeyArn: str
+    kmsKeyArn: Annotated[str, _aws_pattern("IotManagedIntegrations", "KmsKeyArn")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 class ConnectorItemTypeDef(BaseValidatorModel):
-    Name: str
+    Name: Annotated[str, _aws_pattern("IotManagedIntegrations", "DisplayName")]
     EndpointConfig: EndpointConfigTypeDef
-    Description: Optional[str] = None
+    Description: Optional[Annotated[str, _aws_pattern("IotManagedIntegrations", "CloudConnectorDescription")]] = None
     EndpointType: Optional[Literal["LAMBDA"]] = None
-    Id: Optional[str] = None
+    Id: Optional[Annotated[str, _aws_pattern("IotManagedIntegrations", "CloudConnectorId")]] = None
     Type: Optional[CloudConnectorTypeType] = None
 
 
 # This class is the input for the 'create_cloud_connector' function.
 class CreateCloudConnectorRequestTypeDef(BaseValidatorModel):
-    Name: str
+    Name: Annotated[str, _aws_pattern("IotManagedIntegrations", "DisplayName")]
     EndpointConfig: EndpointConfigTypeDef
-    Description: Optional[str] = None
+    Description: Optional[Annotated[str, _aws_pattern("IotManagedIntegrations", "CloudConnectorDescription")]] = None
     EndpointType: Optional[Literal["LAMBDA"]] = None
-    ClientToken: Optional[str] = None
+    ClientToken: Optional[Annotated[str, _aws_pattern("IotManagedIntegrations", "ClientToken")]] = None
 
 
 # This class is the output for the 'get_cloud_connector' function.
 class GetCloudConnectorResponseTypeDef(BaseValidatorModel):
-    Name: str
+    Name: Annotated[str, _aws_pattern("IotManagedIntegrations", "DisplayName")]
     EndpointConfig: EndpointConfigTypeDef
-    Description: str
+    Description: Annotated[str, _aws_pattern("IotManagedIntegrations", "CloudConnectorDescription")]
     EndpointType: Literal["LAMBDA"]
-    Id: str
+    Id: Annotated[str, _aws_pattern("IotManagedIntegrations", "CloudConnectorId")]
     Type: CloudConnectorTypeType
     ResponseMetadata: ResponseMetadataTypeDef
 
@@ -1458,12 +1510,12 @@ class OtaTaskExecutionRolloutConfigTypeDef(BaseValidatorModel):
 
 
 class MatterCapabilityReportEndpointTypeDef(BaseValidatorModel):
-    id: str
-    deviceTypes: List[str]
+    id: Annotated[str, _aws_pattern("IotManagedIntegrations", "EndpointId")]
+    deviceTypes: List[Annotated[str, _aws_pattern("IotManagedIntegrations", "DeviceType")]]
     clusters: List[MatterCapabilityReportClusterTypeDef]
-    parts: Optional[List[str]] = None
-    semanticTags: Optional[List[str]] = None
-    clientClusters: Optional[List[str]] = None
+    parts: Optional[List[Annotated[str, _aws_pattern("IotManagedIntegrations", "EndpointId")]]] = None
+    semanticTags: Optional[List[Annotated[str, _aws_pattern("IotManagedIntegrations", "EndpointSemanticTag")]]] = None
+    clientClusters: Optional[List[Annotated[str, _aws_pattern("IotManagedIntegrations", "ClusterId")]]] = None
 
 
 class AuthConfigOutputTypeDef(BaseValidatorModel):
@@ -1485,14 +1537,14 @@ OtaTaskExecutionRetryConfigUnionTypeDef = Union[
 class ListOtaTaskExecutionsResponseTypeDef(BaseValidatorModel):
     ExecutionSummaries: List[OtaTaskExecutionSummariesTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
-    NextToken: Optional[str] = None
+    NextToken: Optional[Annotated[str, _aws_pattern("IotManagedIntegrations", "OtaNextToken")]] = None
 
 
 # This class is the output for the 'get_ota_task' function.
 class GetOtaTaskResponseTypeDef(BaseValidatorModel):
-    TaskId: str
-    TaskArn: str
-    Description: str
+    TaskId: Annotated[str, _aws_pattern("IotManagedIntegrations", "OtaTaskId")]
+    TaskArn: Annotated[str, _aws_pattern("IotManagedIntegrations", "OtaTaskArn")]
+    Description: Annotated[str, _aws_pattern("IotManagedIntegrations", "OtaDescription")]
     S3Url: str
     Protocol: Literal["HTTP"]
     OtaType: OtaTypeType
@@ -1501,7 +1553,7 @@ class GetOtaTaskResponseTypeDef(BaseValidatorModel):
     Target: List[str]
     CreatedAt: datetime
     LastUpdatedAt: datetime
-    TaskConfigurationId: str
+    TaskConfigurationId: Annotated[str, _aws_pattern("IotManagedIntegrations", "OtaTaskConfigurationId")]
     TaskProcessingDetails: TaskProcessingDetailsTypeDef
     OtaSchedulingConfig: OtaTaskSchedulingConfigOutputTypeDef
     OtaTaskExecutionRetryConfig: OtaTaskExecutionRetryConfigOutputTypeDef
@@ -1526,16 +1578,20 @@ class AuthConfigUpdateTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'send_managed_thing_command' function.
 class SendManagedThingCommandRequestTypeDef(BaseValidatorModel):
-    ManagedThingId: str
+    ManagedThingId: Annotated[str, _aws_pattern("IotManagedIntegrations", "ManagedThingId")]
     Endpoints: List[CommandEndpointTypeDef]
-    ConnectorAssociationId: Optional[str] = None
-    AccountAssociationId: Optional[str] = None
+    ConnectorAssociationId: Optional[
+        Annotated[str, _aws_pattern("IotManagedIntegrations", "ConnectorAssociationId")]
+    ] = None
+    AccountAssociationId: Optional[Annotated[str, _aws_pattern("IotManagedIntegrations", "AccountAssociationId")]] = (
+        None
+    )
 
 
 # This class is the output for the 'get_managed_thing_capabilities' function.
 class GetManagedThingCapabilitiesResponseTypeDef(BaseValidatorModel):
-    ManagedThingId: str
-    Capabilities: str
+    ManagedThingId: Annotated[str, _aws_pattern("IotManagedIntegrations", "ManagedThingId")]
+    Capabilities: Annotated[str, _aws_pattern("IotManagedIntegrations", "Capabilities")]
     CapabilityReport: CapabilityReportOutputTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
@@ -1547,7 +1603,7 @@ CapabilityReportUnionTypeDef = Union[CapabilityReportOutputTypeDef, CapabilityRe
 class ListCloudConnectorsResponseTypeDef(BaseValidatorModel):
     Items: List[ConnectorItemTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
-    NextToken: Optional[str] = None
+    NextToken: Optional[Annotated[str, _aws_pattern("IotManagedIntegrations", "NextToken")]] = None
 
 
 class PushConfigOutputTypeDef(BaseValidatorModel):
@@ -1563,21 +1619,21 @@ class PushConfigTypeDef(BaseValidatorModel):
 
 
 class MatterCapabilityReportTypeDef(BaseValidatorModel):
-    version: str
+    version: Annotated[str, _aws_pattern("IotManagedIntegrations", "CapabilityReportVersion")]
     endpoints: List[MatterCapabilityReportEndpointTypeDef]
-    nodeId: Optional[str] = None
+    nodeId: Optional[Annotated[str, _aws_pattern("IotManagedIntegrations", "NodeId")]] = None
 
 
 # This class is the output for the 'get_connector_destination' function.
 class GetConnectorDestinationResponseTypeDef(BaseValidatorModel):
-    Name: str
-    Description: str
-    CloudConnectorId: str
-    Id: str
+    Name: Annotated[str, _aws_pattern("IotManagedIntegrations", "ConnectorDestinationName")]
+    Description: Annotated[str, _aws_pattern("IotManagedIntegrations", "ConnectorDestinationDescription")]
+    CloudConnectorId: Annotated[str, _aws_pattern("IotManagedIntegrations", "CloudConnectorId")]
+    Id: Annotated[str, _aws_pattern("IotManagedIntegrations", "ConnectorDestinationId")]
     AuthType: Literal["OAUTH"]
     AuthConfig: AuthConfigOutputTypeDef
     SecretsManager: SecretsManagerTypeDef
-    OAuthCompleteRedirectUrl: str
+    OAuthCompleteRedirectUrl: Annotated[str, _aws_pattern("IotManagedIntegrations", "OAuthCompleteRedirectUrl")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
@@ -1588,13 +1644,15 @@ AuthConfigUnionTypeDef = Union[AuthConfigOutputTypeDef, AuthConfigTypeDef]
 class CreateOtaTaskRequestTypeDef(BaseValidatorModel):
     S3Url: str
     OtaType: OtaTypeType
-    Description: Optional[str] = None
+    Description: Optional[Annotated[str, _aws_pattern("IotManagedIntegrations", "OtaDescription")]] = None
     Protocol: Optional[Literal["HTTP"]] = None
     Target: Optional[List[str]] = None
-    TaskConfigurationId: Optional[str] = None
+    TaskConfigurationId: Optional[Annotated[str, _aws_pattern("IotManagedIntegrations", "OtaTaskConfigurationId")]] = (
+        None
+    )
     OtaMechanism: Optional[Literal["PUSH"]] = None
     OtaTargetQueryString: Optional[str] = None
-    ClientToken: Optional[str] = None
+    ClientToken: Optional[Annotated[str, _aws_pattern("IotManagedIntegrations", "ClientToken")]] = None
     OtaSchedulingConfig: Optional[OtaTaskSchedulingConfigUnionTypeDef] = None
     OtaTaskExecutionRetryConfig: Optional[OtaTaskExecutionRetryConfigUnionTypeDef] = None
     Tags: Optional[Dict[str, str]] = None
@@ -1602,9 +1660,11 @@ class CreateOtaTaskRequestTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'update_connector_destination' function.
 class UpdateConnectorDestinationRequestTypeDef(BaseValidatorModel):
-    Identifier: str
-    Description: Optional[str] = None
-    Name: Optional[str] = None
+    Identifier: Annotated[str, _aws_pattern("IotManagedIntegrations", "ConnectorDestinationId")]
+    Description: Optional[Annotated[str, _aws_pattern("IotManagedIntegrations", "ConnectorDestinationDescription")]] = (
+        None
+    )
+    Name: Optional[Annotated[str, _aws_pattern("IotManagedIntegrations", "ConnectorDestinationName")]] = None
     AuthType: Optional[Literal["OAUTH"]] = None
     AuthConfig: Optional[AuthConfigUpdateTypeDef] = None
     SecretsManager: Optional[SecretsManagerTypeDef] = None
@@ -1613,19 +1673,19 @@ class UpdateConnectorDestinationRequestTypeDef(BaseValidatorModel):
 # This class is the input for the 'create_managed_thing' function.
 class CreateManagedThingRequestTypeDef(BaseValidatorModel):
     Role: RoleType
-    AuthenticationMaterial: str
+    AuthenticationMaterial: Annotated[str, _aws_pattern("IotManagedIntegrations", "AuthMaterialString")]
     AuthenticationMaterialType: AuthMaterialTypeType
-    Owner: Optional[str] = None
-    CredentialLockerId: Optional[str] = None
+    Owner: Optional[Annotated[str, _aws_pattern("IotManagedIntegrations", "Owner")]] = None
+    CredentialLockerId: Optional[Annotated[str, _aws_pattern("IotManagedIntegrations", "CredentialLockerId")]] = None
     WiFiSimpleSetupConfiguration: Optional[WiFiSimpleSetupConfigurationTypeDef] = None
-    SerialNumber: Optional[str] = None
-    Brand: Optional[str] = None
-    Model: Optional[str] = None
-    Name: Optional[str] = None
+    SerialNumber: Optional[Annotated[str, _aws_pattern("IotManagedIntegrations", "SerialNumber")]] = None
+    Brand: Optional[Annotated[str, _aws_pattern("IotManagedIntegrations", "Brand")]] = None
+    Model: Optional[Annotated[str, _aws_pattern("IotManagedIntegrations", "Model")]] = None
+    Name: Optional[Annotated[str, _aws_pattern("IotManagedIntegrations", "Name")]] = None
     CapabilityReport: Optional[CapabilityReportUnionTypeDef] = None
     CapabilitySchemas: Optional[List[CapabilitySchemaItemTypeDef]] = None
-    Capabilities: Optional[str] = None
-    ClientToken: Optional[str] = None
+    Capabilities: Optional[Annotated[str, _aws_pattern("IotManagedIntegrations", "Capabilities")]] = None
+    ClientToken: Optional[Annotated[str, _aws_pattern("IotManagedIntegrations", "ClientToken")]] = None
     Classification: Optional[str] = None
     Tags: Optional[Dict[str, str]] = None
     MetaData: Optional[Dict[str, str]] = None
@@ -1633,17 +1693,17 @@ class CreateManagedThingRequestTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'update_managed_thing' function.
 class UpdateManagedThingRequestTypeDef(BaseValidatorModel):
-    Identifier: str
-    Owner: Optional[str] = None
-    CredentialLockerId: Optional[str] = None
-    SerialNumber: Optional[str] = None
+    Identifier: Annotated[str, _aws_pattern("IotManagedIntegrations", "ManagedThingId")]
+    Owner: Optional[Annotated[str, _aws_pattern("IotManagedIntegrations", "Owner")]] = None
+    CredentialLockerId: Optional[Annotated[str, _aws_pattern("IotManagedIntegrations", "CredentialLockerId")]] = None
+    SerialNumber: Optional[Annotated[str, _aws_pattern("IotManagedIntegrations", "SerialNumber")]] = None
     WiFiSimpleSetupConfiguration: Optional[WiFiSimpleSetupConfigurationTypeDef] = None
-    Brand: Optional[str] = None
-    Model: Optional[str] = None
-    Name: Optional[str] = None
+    Brand: Optional[Annotated[str, _aws_pattern("IotManagedIntegrations", "Brand")]] = None
+    Model: Optional[Annotated[str, _aws_pattern("IotManagedIntegrations", "Model")]] = None
+    Name: Optional[Annotated[str, _aws_pattern("IotManagedIntegrations", "Name")]] = None
     CapabilityReport: Optional[CapabilityReportUnionTypeDef] = None
     CapabilitySchemas: Optional[List[CapabilitySchemaItemTypeDef]] = None
-    Capabilities: Optional[str] = None
+    Capabilities: Optional[Annotated[str, _aws_pattern("IotManagedIntegrations", "Capabilities")]] = None
     Classification: Optional[str] = None
     HubNetworkMode: Optional[HubNetworkModeType] = None
     MetaData: Optional[Dict[str, str]] = None
@@ -1651,10 +1711,10 @@ class UpdateManagedThingRequestTypeDef(BaseValidatorModel):
 
 # This class is the output for the 'get_ota_task_configuration' function.
 class GetOtaTaskConfigurationResponseTypeDef(BaseValidatorModel):
-    TaskConfigurationId: str
-    Name: str
+    TaskConfigurationId: Annotated[str, _aws_pattern("IotManagedIntegrations", "OtaTaskConfigurationId")]
+    Name: Annotated[str, _aws_pattern("IotManagedIntegrations", "OtaTaskConfigurationName")]
     PushConfig: PushConfigOutputTypeDef
-    Description: str
+    Description: Annotated[str, _aws_pattern("IotManagedIntegrations", "OtaDescription")]
     CreatedAt: datetime
     ResponseMetadata: ResponseMetadataTypeDef
 
@@ -1663,42 +1723,46 @@ PushConfigUnionTypeDef = Union[PushConfigOutputTypeDef, PushConfigTypeDef]
 
 
 class DeviceTypeDef(BaseValidatorModel):
-    ConnectorDeviceId: str
+    ConnectorDeviceId: Annotated[str, _aws_pattern("IotManagedIntegrations", "ConnectorDeviceId")]
     CapabilityReport: MatterCapabilityReportTypeDef
-    ConnectorDeviceName: Optional[str] = None
+    ConnectorDeviceName: Optional[Annotated[str, _aws_pattern("IotManagedIntegrations", "ConnectorDeviceName")]] = None
     CapabilitySchemas: Optional[List[CapabilitySchemaItemTypeDef]] = None
     DeviceMetadata: Optional[Dict[str, Any]] = None
 
 
 # This class is the input for the 'create_connector_destination' function.
 class CreateConnectorDestinationRequestTypeDef(BaseValidatorModel):
-    CloudConnectorId: str
+    CloudConnectorId: Annotated[str, _aws_pattern("IotManagedIntegrations", "CloudConnectorId")]
     AuthConfig: AuthConfigUnionTypeDef
-    Name: Optional[str] = None
-    Description: Optional[str] = None
+    Name: Optional[Annotated[str, _aws_pattern("IotManagedIntegrations", "ConnectorDestinationName")]] = None
+    Description: Optional[Annotated[str, _aws_pattern("IotManagedIntegrations", "ConnectorDestinationDescription")]] = (
+        None
+    )
     AuthType: Optional[Literal["OAUTH"]] = None
     SecretsManager: Optional[SecretsManagerTypeDef] = None
-    ClientToken: Optional[str] = None
+    ClientToken: Optional[Annotated[str, _aws_pattern("IotManagedIntegrations", "ClientToken")]] = None
 
 
 # This class is the input for the 'create_ota_task_configuration' function.
 class CreateOtaTaskConfigurationRequestTypeDef(BaseValidatorModel):
-    Description: Optional[str] = None
-    Name: Optional[str] = None
+    Description: Optional[Annotated[str, _aws_pattern("IotManagedIntegrations", "OtaDescription")]] = None
+    Name: Optional[Annotated[str, _aws_pattern("IotManagedIntegrations", "OtaTaskConfigurationName")]] = None
     PushConfig: Optional[PushConfigUnionTypeDef] = None
-    ClientToken: Optional[str] = None
+    ClientToken: Optional[Annotated[str, _aws_pattern("IotManagedIntegrations", "ClientToken")]] = None
 
 
 # This class is the input for the 'send_connector_event' function.
 class SendConnectorEventRequestTypeDef(BaseValidatorModel):
-    ConnectorId: str
+    ConnectorId: Annotated[str, _aws_pattern("IotManagedIntegrations", "ConnectorId")]
     Operation: ConnectorEventOperationType
-    UserId: Optional[str] = None
-    OperationVersion: Optional[str] = None
+    UserId: Optional[Annotated[str, _aws_pattern("IotManagedIntegrations", "ThirdPartyUserId")]] = None
+    OperationVersion: Optional[
+        Annotated[str, _aws_pattern("IotManagedIntegrations", "ConnectorEventOperationVersion")]
+    ] = None
     StatusCode: Optional[int] = None
-    Message: Optional[str] = None
-    DeviceDiscoveryId: Optional[str] = None
-    ConnectorDeviceId: Optional[str] = None
-    TraceId: Optional[str] = None
+    Message: Optional[Annotated[str, _aws_pattern("IotManagedIntegrations", "ConnectorEventMessage")]] = None
+    DeviceDiscoveryId: Optional[Annotated[str, _aws_pattern("IotManagedIntegrations", "DeviceDiscoveryId")]] = None
+    ConnectorDeviceId: Optional[Annotated[str, _aws_pattern("IotManagedIntegrations", "ConnectorDeviceId")]] = None
+    TraceId: Optional[Annotated[str, _aws_pattern("IotManagedIntegrations", "TraceId")]] = None
     Devices: Optional[List[DeviceTypeDef]] = None
     MatterEndpoint: Optional[MatterEndpointTypeDef] = None

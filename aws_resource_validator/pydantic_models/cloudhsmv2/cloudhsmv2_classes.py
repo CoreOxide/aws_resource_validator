@@ -3,6 +3,7 @@
 from datetime import datetime
 from decimal import Decimal
 from typing import (
+    Annotated,
     Any,
     Callable,
     Dict,
@@ -24,6 +25,7 @@ from botocore.response import StreamingBody
 from pydantic import Field
 
 from aws_resource_validator.core.base_validator_model import BaseValidatorModel, EventStream
+from aws_resource_validator.core.pattern_validation import aws_field_pattern as _aws_pattern
 from aws_resource_validator.pydantic_models.cloudhsmv2.cloudhsmv2_constants import *  # noqa: F401,F403
 
 # Optional boto3 symbols — imported lazily so services that don't need them
@@ -40,40 +42,40 @@ except ImportError:  # pragma: no cover
 
 class BackupRetentionPolicyTypeDef(BaseValidatorModel):
     Type: Optional[Literal["DAYS"]] = None
-    Value: Optional[str] = None
+    Value: Optional[Annotated[str, _aws_pattern("Cloudhsmv2", "BackupRetentionValue")]] = None
 
 
 class TagTypeDef(BaseValidatorModel):
-    Key: str
-    Value: str
+    Key: Annotated[str, _aws_pattern("Cloudhsmv2", "TagKey")]
+    Value: Annotated[str, _aws_pattern("Cloudhsmv2", "TagValue")]
 
 
 class CertificatesTypeDef(BaseValidatorModel):
-    ClusterCsr: Optional[str] = None
-    HsmCertificate: Optional[str] = None
-    AwsHardwareCertificate: Optional[str] = None
-    ManufacturerHardwareCertificate: Optional[str] = None
-    ClusterCertificate: Optional[str] = None
+    ClusterCsr: Optional[Annotated[str, _aws_pattern("Cloudhsmv2", "Cert")]] = None
+    HsmCertificate: Optional[Annotated[str, _aws_pattern("Cloudhsmv2", "Cert")]] = None
+    AwsHardwareCertificate: Optional[Annotated[str, _aws_pattern("Cloudhsmv2", "Cert")]] = None
+    ManufacturerHardwareCertificate: Optional[Annotated[str, _aws_pattern("Cloudhsmv2", "Cert")]] = None
+    ClusterCertificate: Optional[Annotated[str, _aws_pattern("Cloudhsmv2", "Cert")]] = None
 
 
 class HsmTypeDef(BaseValidatorModel):
-    HsmId: str
-    AvailabilityZone: Optional[str] = None
-    ClusterId: Optional[str] = None
-    SubnetId: Optional[str] = None
-    EniId: Optional[str] = None
-    EniIp: Optional[str] = None
+    HsmId: Annotated[str, _aws_pattern("Cloudhsmv2", "HsmId")]
+    AvailabilityZone: Optional[Annotated[str, _aws_pattern("Cloudhsmv2", "ExternalAz")]] = None
+    ClusterId: Optional[Annotated[str, _aws_pattern("Cloudhsmv2", "ClusterId")]] = None
+    SubnetId: Optional[Annotated[str, _aws_pattern("Cloudhsmv2", "SubnetId")]] = None
+    EniId: Optional[Annotated[str, _aws_pattern("Cloudhsmv2", "EniId")]] = None
+    EniIp: Optional[Annotated[str, _aws_pattern("Cloudhsmv2", "IpAddress")]] = None
     EniIpV6: Optional[str] = None
-    HsmType: Optional[str] = None
+    HsmType: Optional[Annotated[str, _aws_pattern("Cloudhsmv2", "HsmType")]] = None
     State: Optional[HsmStateType] = None
     StateMessage: Optional[str] = None
 
 
 class DestinationBackupTypeDef(BaseValidatorModel):
     CreateTimestamp: Optional[datetime] = None
-    SourceRegion: Optional[str] = None
-    SourceBackup: Optional[str] = None
-    SourceCluster: Optional[str] = None
+    SourceRegion: Optional[Annotated[str, _aws_pattern("Cloudhsmv2", "Region")]] = None
+    SourceBackup: Optional[Annotated[str, _aws_pattern("Cloudhsmv2", "BackupId")]] = None
+    SourceCluster: Optional[Annotated[str, _aws_pattern("Cloudhsmv2", "ClusterId")]] = None
 
 
 class ResponseMetadataTypeDef(BaseValidatorModel):
@@ -86,32 +88,32 @@ class ResponseMetadataTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'create_hsm' function.
 class CreateHsmRequestTypeDef(BaseValidatorModel):
-    ClusterId: str
-    AvailabilityZone: str
-    IpAddress: Optional[str] = None
+    ClusterId: Annotated[str, _aws_pattern("Cloudhsmv2", "ClusterId")]
+    AvailabilityZone: Annotated[str, _aws_pattern("Cloudhsmv2", "ExternalAz")]
+    IpAddress: Optional[Annotated[str, _aws_pattern("Cloudhsmv2", "IpAddress")]] = None
 
 
 # This class is the input for the 'delete_backup' function.
 class DeleteBackupRequestTypeDef(BaseValidatorModel):
-    BackupId: str
+    BackupId: Annotated[str, _aws_pattern("Cloudhsmv2", "BackupId")]
 
 
 # This class is the input for the 'delete_cluster' function.
 class DeleteClusterRequestTypeDef(BaseValidatorModel):
-    ClusterId: str
+    ClusterId: Annotated[str, _aws_pattern("Cloudhsmv2", "ClusterId")]
 
 
 # This class is the input for the 'delete_hsm' function.
 class DeleteHsmRequestTypeDef(BaseValidatorModel):
-    ClusterId: str
-    HsmId: Optional[str] = None
-    EniId: Optional[str] = None
-    EniIp: Optional[str] = None
+    ClusterId: Annotated[str, _aws_pattern("Cloudhsmv2", "ClusterId")]
+    HsmId: Optional[Annotated[str, _aws_pattern("Cloudhsmv2", "HsmId")]] = None
+    EniId: Optional[Annotated[str, _aws_pattern("Cloudhsmv2", "EniId")]] = None
+    EniIp: Optional[Annotated[str, _aws_pattern("Cloudhsmv2", "IpAddress")]] = None
 
 
 # This class is the input for the 'delete_resource_policy' function.
 class DeleteResourcePolicyRequestTypeDef(BaseValidatorModel):
-    ResourceArn: Optional[str] = None
+    ResourceArn: Optional[Annotated[str, _aws_pattern("Cloudhsmv2", "CloudHsmArn")]] = None
 
 
 class PaginatorConfigTypeDef(BaseValidatorModel):
@@ -122,7 +124,7 @@ class PaginatorConfigTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'describe_backups' function.
 class DescribeBackupsRequestTypeDef(BaseValidatorModel):
-    NextToken: Optional[str] = None
+    NextToken: Optional[Annotated[str, _aws_pattern("Cloudhsmv2", "NextToken")]] = None
     MaxResults: Optional[int] = None
     Filters: Optional[Dict[str, List[str]]] = None
     Shared: Optional[bool] = None
@@ -132,113 +134,113 @@ class DescribeBackupsRequestTypeDef(BaseValidatorModel):
 # This class is the input for the 'describe_clusters' function.
 class DescribeClustersRequestTypeDef(BaseValidatorModel):
     Filters: Optional[Dict[str, List[str]]] = None
-    NextToken: Optional[str] = None
+    NextToken: Optional[Annotated[str, _aws_pattern("Cloudhsmv2", "NextToken")]] = None
     MaxResults: Optional[int] = None
 
 
 # This class is the input for the 'get_resource_policy' function.
 class GetResourcePolicyRequestTypeDef(BaseValidatorModel):
-    ResourceArn: Optional[str] = None
+    ResourceArn: Optional[Annotated[str, _aws_pattern("Cloudhsmv2", "CloudHsmArn")]] = None
 
 
 # This class is the input for the 'initialize_cluster' function.
 class InitializeClusterRequestTypeDef(BaseValidatorModel):
-    ClusterId: str
-    SignedCert: str
-    TrustAnchor: str
+    ClusterId: Annotated[str, _aws_pattern("Cloudhsmv2", "ClusterId")]
+    SignedCert: Annotated[str, _aws_pattern("Cloudhsmv2", "Cert")]
+    TrustAnchor: Annotated[str, _aws_pattern("Cloudhsmv2", "Cert")]
 
 
 # This class is the input for the 'list_tags' function.
 class ListTagsRequestTypeDef(BaseValidatorModel):
-    ResourceId: str
-    NextToken: Optional[str] = None
+    ResourceId: Annotated[str, _aws_pattern("Cloudhsmv2", "ResourceId")]
+    NextToken: Optional[Annotated[str, _aws_pattern("Cloudhsmv2", "NextToken")]] = None
     MaxResults: Optional[int] = None
 
 
 # This class is the input for the 'modify_backup_attributes' function.
 class ModifyBackupAttributesRequestTypeDef(BaseValidatorModel):
-    BackupId: str
+    BackupId: Annotated[str, _aws_pattern("Cloudhsmv2", "BackupId")]
     NeverExpires: bool
 
 
 # This class is the input for the 'put_resource_policy' function.
 class PutResourcePolicyRequestTypeDef(BaseValidatorModel):
-    ResourceArn: Optional[str] = None
+    ResourceArn: Optional[Annotated[str, _aws_pattern("Cloudhsmv2", "CloudHsmArn")]] = None
     Policy: Optional[str] = None
 
 
 # This class is the input for the 'restore_backup' function.
 class RestoreBackupRequestTypeDef(BaseValidatorModel):
-    BackupId: str
+    BackupId: Annotated[str, _aws_pattern("Cloudhsmv2", "BackupId")]
 
 
 class UntagResourceRequestTypeDef(BaseValidatorModel):
-    ResourceId: str
-    TagKeyList: List[str]
+    ResourceId: Annotated[str, _aws_pattern("Cloudhsmv2", "ResourceId")]
+    TagKeyList: List[Annotated[str, _aws_pattern("Cloudhsmv2", "TagKey")]]
 
 
 # This class is the input for the 'modify_cluster' function.
 class ModifyClusterRequestTypeDef(BaseValidatorModel):
-    ClusterId: str
-    HsmType: Optional[str] = None
+    ClusterId: Annotated[str, _aws_pattern("Cloudhsmv2", "ClusterId")]
+    HsmType: Optional[Annotated[str, _aws_pattern("Cloudhsmv2", "HsmType")]] = None
     BackupRetentionPolicy: Optional[BackupRetentionPolicyTypeDef] = None
 
 
 class BackupTypeDef(BaseValidatorModel):
-    BackupId: str
-    BackupArn: Optional[str] = None
+    BackupId: Annotated[str, _aws_pattern("Cloudhsmv2", "BackupId")]
+    BackupArn: Optional[Annotated[str, _aws_pattern("Cloudhsmv2", "BackupArn")]] = None
     BackupState: Optional[BackupStateType] = None
-    ClusterId: Optional[str] = None
+    ClusterId: Optional[Annotated[str, _aws_pattern("Cloudhsmv2", "ClusterId")]] = None
     CreateTimestamp: Optional[datetime] = None
     CopyTimestamp: Optional[datetime] = None
     NeverExpires: Optional[bool] = None
-    SourceRegion: Optional[str] = None
-    SourceBackup: Optional[str] = None
-    SourceCluster: Optional[str] = None
+    SourceRegion: Optional[Annotated[str, _aws_pattern("Cloudhsmv2", "Region")]] = None
+    SourceBackup: Optional[Annotated[str, _aws_pattern("Cloudhsmv2", "BackupId")]] = None
+    SourceCluster: Optional[Annotated[str, _aws_pattern("Cloudhsmv2", "ClusterId")]] = None
     DeleteTimestamp: Optional[datetime] = None
     TagList: Optional[List[TagTypeDef]] = None
-    HsmType: Optional[str] = None
+    HsmType: Optional[Annotated[str, _aws_pattern("Cloudhsmv2", "HsmType")]] = None
     Mode: Optional[ClusterModeType] = None
 
 
 # This class is the input for the 'copy_backup_to_region' function.
 class CopyBackupToRegionRequestTypeDef(BaseValidatorModel):
-    DestinationRegion: str
-    BackupId: str
+    DestinationRegion: Annotated[str, _aws_pattern("Cloudhsmv2", "Region")]
+    BackupId: Annotated[str, _aws_pattern("Cloudhsmv2", "BackupId")]
     TagList: Optional[List[TagTypeDef]] = None
 
 
 # This class is the input for the 'create_cluster' function.
 class CreateClusterRequestTypeDef(BaseValidatorModel):
-    HsmType: str
-    SubnetIds: List[str]
+    HsmType: Annotated[str, _aws_pattern("Cloudhsmv2", "HsmType")]
+    SubnetIds: List[Annotated[str, _aws_pattern("Cloudhsmv2", "SubnetId")]]
     BackupRetentionPolicy: Optional[BackupRetentionPolicyTypeDef] = None
-    SourceBackupId: Optional[str] = None
+    SourceBackupId: Optional[Annotated[str, _aws_pattern("Cloudhsmv2", "BackupArn")]] = None
     NetworkType: Optional[NetworkTypeType] = None
     TagList: Optional[List[TagTypeDef]] = None
     Mode: Optional[ClusterModeType] = None
 
 
 class TagResourceRequestTypeDef(BaseValidatorModel):
-    ResourceId: str
+    ResourceId: Annotated[str, _aws_pattern("Cloudhsmv2", "ResourceId")]
     TagList: List[TagTypeDef]
 
 
 class ClusterTypeDef(BaseValidatorModel):
     BackupPolicy: Optional[Literal["DEFAULT"]] = None
     BackupRetentionPolicy: Optional[BackupRetentionPolicyTypeDef] = None
-    ClusterId: Optional[str] = None
+    ClusterId: Optional[Annotated[str, _aws_pattern("Cloudhsmv2", "ClusterId")]] = None
     CreateTimestamp: Optional[datetime] = None
     Hsms: Optional[List[HsmTypeDef]] = None
-    HsmType: Optional[str] = None
+    HsmType: Optional[Annotated[str, _aws_pattern("Cloudhsmv2", "HsmType")]] = None
     HsmTypeRollbackExpiration: Optional[datetime] = None
     PreCoPassword: Optional[str] = None
-    SecurityGroup: Optional[str] = None
-    SourceBackupId: Optional[str] = None
+    SecurityGroup: Optional[Annotated[str, _aws_pattern("Cloudhsmv2", "SecurityGroup")]] = None
+    SourceBackupId: Optional[Annotated[str, _aws_pattern("Cloudhsmv2", "BackupId")]] = None
     State: Optional[ClusterStateType] = None
-    StateMessage: Optional[str] = None
+    StateMessage: Optional[Annotated[str, _aws_pattern("Cloudhsmv2", "StateMessage")]] = None
     SubnetMapping: Optional[Dict[str, str]] = None
-    VpcId: Optional[str] = None
+    VpcId: Optional[Annotated[str, _aws_pattern("Cloudhsmv2", "VpcId")]] = None
     NetworkType: Optional[NetworkTypeType] = None
     Certificates: Optional[CertificatesTypeDef] = None
     TagList: Optional[List[TagTypeDef]] = None
@@ -259,13 +261,13 @@ class CreateHsmResponseTypeDef(BaseValidatorModel):
 
 # This class is the output for the 'delete_hsm' function.
 class DeleteHsmResponseTypeDef(BaseValidatorModel):
-    HsmId: str
+    HsmId: Annotated[str, _aws_pattern("Cloudhsmv2", "HsmId")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 # This class is the output for the 'delete_resource_policy' function.
 class DeleteResourcePolicyResponseTypeDef(BaseValidatorModel):
-    ResourceArn: str
+    ResourceArn: Annotated[str, _aws_pattern("Cloudhsmv2", "CloudHsmArn")]
     Policy: str
     ResponseMetadata: ResponseMetadataTypeDef
 
@@ -279,7 +281,7 @@ class GetResourcePolicyResponseTypeDef(BaseValidatorModel):
 # This class is the output for the 'initialize_cluster' function.
 class InitializeClusterResponseTypeDef(BaseValidatorModel):
     State: ClusterStateType
-    StateMessage: str
+    StateMessage: Annotated[str, _aws_pattern("Cloudhsmv2", "StateMessage")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
@@ -287,12 +289,12 @@ class InitializeClusterResponseTypeDef(BaseValidatorModel):
 class ListTagsResponseTypeDef(BaseValidatorModel):
     TagList: List[TagTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
-    NextToken: Optional[str] = None
+    NextToken: Optional[Annotated[str, _aws_pattern("Cloudhsmv2", "NextToken")]] = None
 
 
 # This class is the output for the 'put_resource_policy' function.
 class PutResourcePolicyResponseTypeDef(BaseValidatorModel):
-    ResourceArn: str
+    ResourceArn: Annotated[str, _aws_pattern("Cloudhsmv2", "CloudHsmArn")]
     Policy: str
     ResponseMetadata: ResponseMetadataTypeDef
 
@@ -324,7 +326,7 @@ class DeleteBackupResponseTypeDef(BaseValidatorModel):
 class DescribeBackupsResponseTypeDef(BaseValidatorModel):
     Backups: List[BackupTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
-    NextToken: Optional[str] = None
+    NextToken: Optional[Annotated[str, _aws_pattern("Cloudhsmv2", "NextToken")]] = None
 
 
 # This class is the output for the 'modify_backup_attributes' function.
@@ -355,7 +357,7 @@ class DeleteClusterResponseTypeDef(BaseValidatorModel):
 class DescribeClustersResponseTypeDef(BaseValidatorModel):
     Clusters: List[ClusterTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
-    NextToken: Optional[str] = None
+    NextToken: Optional[Annotated[str, _aws_pattern("Cloudhsmv2", "NextToken")]] = None
 
 
 # This class is the output for the 'modify_cluster' function.

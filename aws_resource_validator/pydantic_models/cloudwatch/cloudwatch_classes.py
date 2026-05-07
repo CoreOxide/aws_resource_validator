@@ -3,6 +3,7 @@
 from datetime import datetime
 from decimal import Decimal
 from typing import (
+    Annotated,
     Any,
     Callable,
     Dict,
@@ -24,6 +25,7 @@ from botocore.response import StreamingBody
 from pydantic import Field
 
 from aws_resource_validator.core.base_validator_model import BaseValidatorModel, EventStream
+from aws_resource_validator.core.pattern_validation import aws_field_pattern as _aws_pattern
 from aws_resource_validator.pydantic_models.cloudwatch.cloudwatch_constants import *  # noqa: F401,F403
 
 # Optional boto3 symbols — imported lazily so services that don't need them
@@ -160,7 +162,7 @@ class DeleteDashboardsInputTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'delete_insight_rules' function.
 class DeleteInsightRulesInputTypeDef(BaseValidatorModel):
-    RuleNames: List[str]
+    RuleNames: List[Annotated[str, _aws_pattern("Cloudwatch", "InsightRuleName")]]
 
 
 class PartialFailureTypeDef(BaseValidatorModel):
@@ -222,10 +224,10 @@ class DescribeInsightRulesInputTypeDef(BaseValidatorModel):
 
 
 class InsightRuleTypeDef(BaseValidatorModel):
-    Name: str
-    State: str
+    Name: Annotated[str, _aws_pattern("Cloudwatch", "InsightRuleName")]
+    State: Annotated[str, _aws_pattern("Cloudwatch", "InsightRuleState")]
     Schema: str
-    Definition: str
+    Definition: Annotated[str, _aws_pattern("Cloudwatch", "InsightRuleDefinition")]
     ManagedRule: Optional[bool] = None
     ApplyOnTransformedLogs: Optional[bool] = None
 
@@ -242,7 +244,7 @@ class DisableAlarmActionsInputTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'disable_insight_rules' function.
 class DisableInsightRulesInputTypeDef(BaseValidatorModel):
-    RuleNames: List[str]
+    RuleNames: List[Annotated[str, _aws_pattern("Cloudwatch", "InsightRuleName")]]
 
 
 # This class is the input for the 'enable_alarm_actions' function.
@@ -252,7 +254,7 @@ class EnableAlarmActionsInputTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'enable_insight_rules' function.
 class EnableInsightRulesInputTypeDef(BaseValidatorModel):
-    RuleNames: List[str]
+    RuleNames: List[Annotated[str, _aws_pattern("Cloudwatch", "InsightRuleName")]]
 
 
 class EntityTypeDef(BaseValidatorModel):
@@ -363,8 +365,8 @@ class TagTypeDef(BaseValidatorModel):
 
 
 class ManagedRuleStateTypeDef(BaseValidatorModel):
-    RuleName: str
-    State: str
+    RuleName: Annotated[str, _aws_pattern("Cloudwatch", "InsightRuleName")]
+    State: Annotated[str, _aws_pattern("Cloudwatch", "InsightRuleState")]
 
 
 class StatisticSetTypeDef(BaseValidatorModel):
@@ -375,23 +377,17 @@ class StatisticSetTypeDef(BaseValidatorModel):
 
 
 class MetricStreamFilterTypeDef(BaseValidatorModel):
-    Namespace: Optional[str] = None
+    Namespace: Optional[Annotated[str, _aws_pattern("Cloudwatch", "Namespace")]] = None
     MetricNames: Optional[List[str]] = None
 
 
 class MetricStreamStatisticsMetricTypeDef(BaseValidatorModel):
-    Namespace: str
+    Namespace: Annotated[str, _aws_pattern("Cloudwatch", "Namespace")]
     MetricName: str
 
 
 class MuteTargetsTypeDef(BaseValidatorModel):
     AlarmNames: List[str]
-
-
-# This class is the input for the 'put_dashboard' function.
-class PutDashboardInputTypeDef(BaseValidatorModel):
-    DashboardName: str
-    DashboardBody: str
 
 
 class ScheduleTypeDef(BaseValidatorModel):
@@ -439,7 +435,7 @@ class AnomalyDetectorConfigurationOutputTypeDef(BaseValidatorModel):
 # This class is the input for the 'describe_alarms_for_metric' function.
 class DescribeAlarmsForMetricInputTypeDef(BaseValidatorModel):
     MetricName: str
-    Namespace: str
+    Namespace: Annotated[str, _aws_pattern("Cloudwatch", "Namespace")]
     Statistic: Optional[StatisticType] = None
     ExtendedStatistic: Optional[str] = None
     Dimensions: Optional[List[DimensionTypeDef]] = None
@@ -451,7 +447,7 @@ class DescribeAlarmsForMetricInputTypeDef(BaseValidatorModel):
 class DescribeAnomalyDetectorsInputTypeDef(BaseValidatorModel):
     NextToken: Optional[str] = None
     MaxResults: Optional[int] = None
-    Namespace: Optional[str] = None
+    Namespace: Optional[Annotated[str, _aws_pattern("Cloudwatch", "Namespace")]] = None
     MetricName: Optional[str] = None
     Dimensions: Optional[List[DimensionTypeDef]] = None
     AnomalyDetectorTypes: Optional[List[AnomalyDetectorTypeType]] = None
@@ -464,7 +460,7 @@ class MetricOutputTypeDef(BaseValidatorModel):
 
 
 class MetricTypeDef(BaseValidatorModel):
-    Namespace: Optional[str] = None
+    Namespace: Optional[Annotated[str, _aws_pattern("Cloudwatch", "Namespace")]] = None
     MetricName: Optional[str] = None
     Dimensions: Optional[List[DimensionTypeDef]] = None
 
@@ -479,10 +475,10 @@ class SingleMetricAnomalyDetectorOutputTypeDef(BaseValidatorModel):
 
 class SingleMetricAnomalyDetectorTypeDef(BaseValidatorModel):
     AccountId: Optional[str] = None
-    Namespace: Optional[str] = None
+    Namespace: Optional[Annotated[str, _aws_pattern("Cloudwatch", "Namespace")]] = None
     MetricName: Optional[str] = None
     Dimensions: Optional[List[DimensionTypeDef]] = None
-    Stat: Optional[str] = None
+    Stat: Optional[Annotated[str, _aws_pattern("Cloudwatch", "AnomalyDetectorMetricStat")]] = None
 
 
 class CloudwatchEventMetricStatsTypeDef(BaseValidatorModel):
@@ -612,13 +608,13 @@ class DescribeAlarmHistoryInputTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'get_insight_rule_report' function.
 class GetInsightRuleReportInputTypeDef(BaseValidatorModel):
-    RuleName: str
+    RuleName: Annotated[str, _aws_pattern("Cloudwatch", "InsightRuleName")]
     StartTime: TimestampTypeDef
     EndTime: TimestampTypeDef
     Period: int
     MaxContributorCount: Optional[int] = None
-    Metrics: Optional[List[str]] = None
-    OrderBy: Optional[str] = None
+    Metrics: Optional[List[Annotated[str, _aws_pattern("Cloudwatch", "InsightRuleMetricName")]]] = None
+    OrderBy: Optional[Annotated[str, _aws_pattern("Cloudwatch", "InsightRuleOrderBy")]] = None
 
 
 class GetMetricStatisticsInputMetricGetStatisticsTypeDef(BaseValidatorModel):
@@ -633,7 +629,7 @@ class GetMetricStatisticsInputMetricGetStatisticsTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'get_metric_statistics' function.
 class GetMetricStatisticsInputTypeDef(BaseValidatorModel):
-    Namespace: str
+    Namespace: Annotated[str, _aws_pattern("Cloudwatch", "Namespace")]
     MetricName: str
     StartTime: TimestampTypeDef
     EndTime: TimestampTypeDef
@@ -740,7 +736,7 @@ class ListMetricsInputPaginateTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'list_metrics' function.
 class ListMetricsInputTypeDef(BaseValidatorModel):
-    Namespace: Optional[str] = None
+    Namespace: Optional[Annotated[str, _aws_pattern("Cloudwatch", "Namespace")]] = None
     MetricName: Optional[str] = None
     Dimensions: Optional[List[DimensionFilterTypeDef]] = None
     NextToken: Optional[str] = None
@@ -778,7 +774,7 @@ class ListTagsForResourceOutputTypeDef(BaseValidatorModel):
 
 
 class ManagedRuleTypeDef(BaseValidatorModel):
-    TemplateName: str
+    TemplateName: Annotated[str, _aws_pattern("Cloudwatch", "TemplateName")]
     ResourceARN: str
     Tags: Optional[List[TagTypeDef]] = None
 
@@ -798,10 +794,17 @@ class PutCompositeAlarmInputTypeDef(BaseValidatorModel):
     ActionsSuppressorExtensionPeriod: Optional[int] = None
 
 
+# This class is the input for the 'put_dashboard' function.
+class PutDashboardInputTypeDef(BaseValidatorModel):
+    DashboardName: str
+    DashboardBody: str
+    Tags: Optional[List[TagTypeDef]] = None
+
+
 class PutInsightRuleInputTypeDef(BaseValidatorModel):
-    RuleName: str
-    RuleDefinition: str
-    RuleState: Optional[str] = None
+    RuleName: Annotated[str, _aws_pattern("Cloudwatch", "InsightRuleName")]
+    RuleDefinition: Annotated[str, _aws_pattern("Cloudwatch", "InsightRuleDefinition")]
+    RuleState: Optional[Annotated[str, _aws_pattern("Cloudwatch", "InsightRuleState")]] = None
     Tags: Optional[List[TagTypeDef]] = None
     ApplyOnTransformedLogs: Optional[bool] = None
 
@@ -812,7 +815,7 @@ class TagResourceInputTypeDef(BaseValidatorModel):
 
 
 class ManagedRuleDescriptionTypeDef(BaseValidatorModel):
-    TemplateName: Optional[str] = None
+    TemplateName: Optional[Annotated[str, _aws_pattern("Cloudwatch", "TemplateName")]] = None
     ResourceARN: Optional[str] = None
     RuleState: Optional[ManagedRuleStateTypeDef] = None
 
@@ -882,7 +885,7 @@ class CloudwatchEventMetricTypeDef(BaseValidatorModel):
 
 class AnomalyDetectorConfigurationTypeDef(BaseValidatorModel):
     ExcludedTimeRanges: Optional[List[RangeTypeDef]] = None
-    MetricTimezone: Optional[str] = None
+    MetricTimezone: Optional[Annotated[str, _aws_pattern("Cloudwatch", "AnomalyDetectorMetricTimezone")]] = None
 
 
 # This class is the output for the 'get_metric_data' function.
@@ -1018,7 +1021,7 @@ class PutMetricDataInputMetricPutDataTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'put_metric_data' function.
 class PutMetricDataInputTypeDef(BaseValidatorModel):
-    Namespace: str
+    Namespace: Annotated[str, _aws_pattern("Cloudwatch", "Namespace")]
     MetricData: Optional[List[MetricDatumTypeDef]] = None
     EntityMetricData: Optional[List[EntityMetricDataTypeDef]] = None
     StrictEntityValidation: Optional[bool] = None
@@ -1051,7 +1054,7 @@ class MetricAlarmTypeDef(BaseValidatorModel):
     StateReasonData: Optional[str] = None
     StateUpdatedTimestamp: Optional[datetime] = None
     MetricName: Optional[str] = None
-    Namespace: Optional[str] = None
+    Namespace: Optional[Annotated[str, _aws_pattern("Cloudwatch", "Namespace")]] = None
     Statistic: Optional[StatisticType] = None
     ExtendedStatistic: Optional[str] = None
     Dimensions: Optional[List[DimensionTypeDef]] = None
@@ -1109,10 +1112,10 @@ class MetricStatAlarmTypeDef(BaseValidatorModel):
 
 
 class AnomalyDetectorTypeDef(BaseValidatorModel):
-    Namespace: Optional[str] = None
+    Namespace: Optional[Annotated[str, _aws_pattern("Cloudwatch", "Namespace")]] = None
     MetricName: Optional[str] = None
     Dimensions: Optional[List[DimensionTypeDef]] = None
-    Stat: Optional[str] = None
+    Stat: Optional[Annotated[str, _aws_pattern("Cloudwatch", "AnomalyDetectorMetricStat")]] = None
     Configuration: Optional[AnomalyDetectorConfigurationOutputTypeDef] = None
     StateValue: Optional[AnomalyDetectorStateValueType] = None
     MetricCharacteristics: Optional[MetricCharacteristicsTypeDef] = None
@@ -1220,7 +1223,7 @@ class PutMetricAlarmInputTypeDef(BaseValidatorModel):
     AlarmActions: Optional[List[str]] = None
     InsufficientDataActions: Optional[List[str]] = None
     MetricName: Optional[str] = None
-    Namespace: Optional[str] = None
+    Namespace: Optional[Annotated[str, _aws_pattern("Cloudwatch", "Namespace")]] = None
     Statistic: Optional[StatisticType] = None
     ExtendedStatistic: Optional[str] = None
     Dimensions: Optional[List[DimensionTypeDef]] = None
@@ -1243,19 +1246,19 @@ MetricMathAnomalyDetectorUnionTypeDef = Union[MetricMathAnomalyDetectorOutputTyp
 
 
 class DeleteAnomalyDetectorInputTypeDef(BaseValidatorModel):
-    Namespace: Optional[str] = None
+    Namespace: Optional[Annotated[str, _aws_pattern("Cloudwatch", "Namespace")]] = None
     MetricName: Optional[str] = None
     Dimensions: Optional[List[DimensionTypeDef]] = None
-    Stat: Optional[str] = None
+    Stat: Optional[Annotated[str, _aws_pattern("Cloudwatch", "AnomalyDetectorMetricStat")]] = None
     SingleMetricAnomalyDetector: Optional[SingleMetricAnomalyDetectorUnionTypeDef] = None
     MetricMathAnomalyDetector: Optional[MetricMathAnomalyDetectorUnionTypeDef] = None
 
 
 class PutAnomalyDetectorInputTypeDef(BaseValidatorModel):
-    Namespace: Optional[str] = None
+    Namespace: Optional[Annotated[str, _aws_pattern("Cloudwatch", "Namespace")]] = None
     MetricName: Optional[str] = None
     Dimensions: Optional[List[DimensionTypeDef]] = None
-    Stat: Optional[str] = None
+    Stat: Optional[Annotated[str, _aws_pattern("Cloudwatch", "AnomalyDetectorMetricStat")]] = None
     Configuration: Optional[AnomalyDetectorConfigurationUnionTypeDef] = None
     MetricCharacteristics: Optional[MetricCharacteristicsTypeDef] = None
     SingleMetricAnomalyDetector: Optional[SingleMetricAnomalyDetectorUnionTypeDef] = None

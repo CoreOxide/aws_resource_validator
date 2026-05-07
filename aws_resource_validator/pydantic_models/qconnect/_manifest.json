@@ -152,6 +152,7 @@
     "SeedUrlTypeDef",
     "SessionIntegrationConfigurationTypeDef",
     "SpanCitationTypeDef",
+    "SpanReasoningValueTypeDef",
     "SpanToolResultValuePaginatorTypeDef",
     "SpanToolUseValueTypeDef",
     "SpanToolResultValueTypeDef",

@@ -3,6 +3,7 @@
 from datetime import datetime
 from decimal import Decimal
 from typing import (
+    Annotated,
     Any,
     Callable,
     Dict,
@@ -24,6 +25,7 @@ from botocore.response import StreamingBody
 from pydantic import Field
 
 from aws_resource_validator.core.base_validator_model import BaseValidatorModel, EventStream
+from aws_resource_validator.core.pattern_validation import aws_field_pattern as _aws_pattern
 from aws_resource_validator.pydantic_models.devops_guru.devops_guru_constants import *  # noqa: F401,F403
 
 # Optional boto3 symbols — imported lazily so services that don't need them
@@ -62,13 +64,13 @@ class AnomalyReportedTimeRangeTypeDef(BaseValidatorModel):
 
 class AnomalyResourceTypeDef(BaseValidatorModel):
     Name: Optional[str] = None
-    Type: Optional[str] = None
+    Type: Optional[Annotated[str, _aws_pattern("DevopsGuru", "ResourceType")]] = None
 
 
 class AnomalySourceMetadataTypeDef(BaseValidatorModel):
     Source: Optional[str] = None
     SourceResourceName: Optional[str] = None
-    SourceResourceType: Optional[str] = None
+    SourceResourceType: Optional[Annotated[str, _aws_pattern("DevopsGuru", "ResourceType")]] = None
 
 
 class AnomalyTimeRangeTypeDef(BaseValidatorModel):
@@ -77,7 +79,7 @@ class AnomalyTimeRangeTypeDef(BaseValidatorModel):
 
 
 class CloudFormationCollectionFilterTypeDef(BaseValidatorModel):
-    StackNames: Optional[List[str]] = None
+    StackNames: Optional[List[Annotated[str, _aws_pattern("DevopsGuru", "StackName")]]] = None
 
 
 class CloudFormationCollectionOutputTypeDef(BaseValidatorModel):
@@ -85,7 +87,7 @@ class CloudFormationCollectionOutputTypeDef(BaseValidatorModel):
 
 
 class CloudFormationCollectionTypeDef(BaseValidatorModel):
-    StackNames: Optional[List[str]] = None
+    StackNames: Optional[List[Annotated[str, _aws_pattern("DevopsGuru", "StackName")]]] = None
 
 
 class CloudFormationCostEstimationResourceCollectionFilterOutputTypeDef(BaseValidatorModel):
@@ -93,7 +95,7 @@ class CloudFormationCostEstimationResourceCollectionFilterOutputTypeDef(BaseVali
 
 
 class CloudFormationCostEstimationResourceCollectionFilterTypeDef(BaseValidatorModel):
-    StackNames: Optional[List[str]] = None
+    StackNames: Optional[List[Annotated[str, _aws_pattern("DevopsGuru", "StackName")]]] = None
 
 
 class InsightHealthTypeDef(BaseValidatorModel):
@@ -118,8 +120,8 @@ class TagCostEstimationResourceCollectionFilterOutputTypeDef(BaseValidatorModel)
 
 
 class TagCostEstimationResourceCollectionFilterTypeDef(BaseValidatorModel):
-    AppBoundaryKey: str
-    TagValues: List[str]
+    AppBoundaryKey: Annotated[str, _aws_pattern("DevopsGuru", "AppBoundaryKey")]
+    TagValues: List[Annotated[str, _aws_pattern("DevopsGuru", "TagValue")]]
 
 
 class CostEstimationTimeRangeTypeDef(BaseValidatorModel):
@@ -128,7 +130,7 @@ class CostEstimationTimeRangeTypeDef(BaseValidatorModel):
 
 
 class DeleteInsightRequestTypeDef(BaseValidatorModel):
-    Id: str
+    Id: Annotated[str, _aws_pattern("DevopsGuru", "InsightId")]
 
 
 TimestampTypeDef = Union[datetime, str]
@@ -136,30 +138,30 @@ TimestampTypeDef = Union[datetime, str]
 
 # This class is the input for the 'describe_anomaly' function.
 class DescribeAnomalyRequestTypeDef(BaseValidatorModel):
-    Id: str
-    AccountId: Optional[str] = None
+    Id: Annotated[str, _aws_pattern("DevopsGuru", "AnomalyId")]
+    AccountId: Optional[Annotated[str, _aws_pattern("DevopsGuru", "AwsAccountId")]] = None
 
 
 # This class is the input for the 'describe_feedback' function.
 class DescribeFeedbackRequestTypeDef(BaseValidatorModel):
-    InsightId: Optional[str] = None
+    InsightId: Optional[Annotated[str, _aws_pattern("DevopsGuru", "InsightId")]] = None
 
 
 class InsightFeedbackTypeDef(BaseValidatorModel):
-    Id: Optional[str] = None
+    Id: Optional[Annotated[str, _aws_pattern("DevopsGuru", "InsightId")]] = None
     Feedback: Optional[InsightFeedbackOptionType] = None
 
 
 # This class is the input for the 'describe_insight' function.
 class DescribeInsightRequestTypeDef(BaseValidatorModel):
-    Id: str
-    AccountId: Optional[str] = None
+    Id: Annotated[str, _aws_pattern("DevopsGuru", "InsightId")]
+    AccountId: Optional[Annotated[str, _aws_pattern("DevopsGuru", "AwsAccountId")]] = None
 
 
 # This class is the input for the 'describe_organization_health' function.
 class DescribeOrganizationHealthRequestTypeDef(BaseValidatorModel):
-    AccountIds: Optional[List[str]] = None
-    OrganizationalUnitIds: Optional[List[str]] = None
+    AccountIds: Optional[List[Annotated[str, _aws_pattern("DevopsGuru", "AwsAccountId")]]] = None
+    OrganizationalUnitIds: Optional[List[Annotated[str, _aws_pattern("DevopsGuru", "OrganizationalUnitId")]]] = None
 
 
 class PaginatorConfigTypeDef(BaseValidatorModel):
@@ -171,31 +173,31 @@ class PaginatorConfigTypeDef(BaseValidatorModel):
 # This class is the input for the 'describe_organization_resource_collection_health' function.
 class DescribeOrganizationResourceCollectionHealthRequestTypeDef(BaseValidatorModel):
     OrganizationResourceCollectionType: OrganizationResourceCollectionTypeType
-    AccountIds: Optional[List[str]] = None
-    OrganizationalUnitIds: Optional[List[str]] = None
-    NextToken: Optional[str] = None
+    AccountIds: Optional[List[Annotated[str, _aws_pattern("DevopsGuru", "AwsAccountId")]]] = None
+    OrganizationalUnitIds: Optional[List[Annotated[str, _aws_pattern("DevopsGuru", "OrganizationalUnitId")]]] = None
+    NextToken: Optional[Annotated[str, _aws_pattern("DevopsGuru", "UuidNextToken")]] = None
     MaxResults: Optional[int] = None
 
 
 # This class is the input for the 'describe_resource_collection_health' function.
 class DescribeResourceCollectionHealthRequestTypeDef(BaseValidatorModel):
     ResourceCollectionType: ResourceCollectionTypeType
-    NextToken: Optional[str] = None
+    NextToken: Optional[Annotated[str, _aws_pattern("DevopsGuru", "UuidNextToken")]] = None
 
 
 class EventResourceTypeDef(BaseValidatorModel):
-    Type: Optional[str] = None
-    Name: Optional[str] = None
-    Arn: Optional[str] = None
+    Type: Optional[Annotated[str, _aws_pattern("DevopsGuru", "EventResourceType")]] = None
+    Name: Optional[Annotated[str, _aws_pattern("DevopsGuru", "EventResourceName")]] = None
+    Arn: Optional[Annotated[str, _aws_pattern("DevopsGuru", "EventResourceArn")]] = None
 
 
 # This class is the input for the 'get_cost_estimation' function.
 class GetCostEstimationRequestTypeDef(BaseValidatorModel):
-    NextToken: Optional[str] = None
+    NextToken: Optional[Annotated[str, _aws_pattern("DevopsGuru", "UuidNextToken")]] = None
 
 
 class ServiceResourceCostTypeDef(BaseValidatorModel):
-    Type: Optional[str] = None
+    Type: Optional[Annotated[str, _aws_pattern("DevopsGuru", "ResourceType")]] = None
     State: Optional[CostEstimationServiceResourceStateType] = None
     Count: Optional[int] = None
     UnitCost: Optional[float] = None
@@ -205,7 +207,7 @@ class ServiceResourceCostTypeDef(BaseValidatorModel):
 # This class is the input for the 'get_resource_collection' function.
 class GetResourceCollectionRequestTypeDef(BaseValidatorModel):
     ResourceCollectionType: ResourceCollectionTypeType
-    NextToken: Optional[str] = None
+    NextToken: Optional[Annotated[str, _aws_pattern("DevopsGuru", "UuidNextToken")]] = None
 
 
 class InsightTimeRangeTypeDef(BaseValidatorModel):
@@ -214,22 +216,22 @@ class InsightTimeRangeTypeDef(BaseValidatorModel):
 
 
 class KMSServerSideEncryptionIntegrationConfigTypeDef(BaseValidatorModel):
-    KMSKeyId: Optional[str] = None
+    KMSKeyId: Optional[Annotated[str, _aws_pattern("DevopsGuru", "KMSKeyId")]] = None
     OptInStatus: Optional[OptInStatusType] = None
     Type: Optional[ServerSideEncryptionTypeType] = None
 
 
 class KMSServerSideEncryptionIntegrationTypeDef(BaseValidatorModel):
-    KMSKeyId: Optional[str] = None
+    KMSKeyId: Optional[Annotated[str, _aws_pattern("DevopsGuru", "KMSKeyId")]] = None
     OptInStatus: Optional[OptInStatusType] = None
     Type: Optional[ServerSideEncryptionTypeType] = None
 
 
 # This class is the input for the 'list_anomalous_log_groups' function.
 class ListAnomalousLogGroupsRequestTypeDef(BaseValidatorModel):
-    InsightId: str
+    InsightId: Annotated[str, _aws_pattern("DevopsGuru", "InsightId")]
     MaxResults: Optional[int] = None
-    NextToken: Optional[str] = None
+    NextToken: Optional[Annotated[str, _aws_pattern("DevopsGuru", "UuidNextToken")]] = None
 
 
 class ListInsightsOngoingStatusFilterTypeDef(BaseValidatorModel):
@@ -243,15 +245,15 @@ class ListMonitoredResourcesFiltersTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'list_notification_channels' function.
 class ListNotificationChannelsRequestTypeDef(BaseValidatorModel):
-    NextToken: Optional[str] = None
+    NextToken: Optional[Annotated[str, _aws_pattern("DevopsGuru", "UuidNextToken")]] = None
 
 
 # This class is the input for the 'list_recommendations' function.
 class ListRecommendationsRequestTypeDef(BaseValidatorModel):
-    InsightId: str
-    NextToken: Optional[str] = None
+    InsightId: Annotated[str, _aws_pattern("DevopsGuru", "InsightId")]
+    NextToken: Optional[Annotated[str, _aws_pattern("DevopsGuru", "UuidNextToken")]] = None
     Locale: Optional[LocaleType] = None
-    AccountId: Optional[str] = None
+    AccountId: Optional[Annotated[str, _aws_pattern("DevopsGuru", "AwsAccountId")]] = None
 
 
 class LogAnomalyClassTypeDef(BaseValidatorModel):
@@ -278,7 +280,7 @@ class NotificationFilterConfigOutputTypeDef(BaseValidatorModel):
 
 
 class SnsChannelConfigTypeDef(BaseValidatorModel):
-    TopicArn: Optional[str] = None
+    TopicArn: Optional[Annotated[str, _aws_pattern("DevopsGuru", "TopicArn")]] = None
 
 
 class NotificationFilterConfigTypeDef(BaseValidatorModel):
@@ -334,12 +336,12 @@ class RecommendationRelatedEventResourceTypeDef(BaseValidatorModel):
 
 
 class RemoveNotificationChannelRequestTypeDef(BaseValidatorModel):
-    Id: str
+    Id: Annotated[str, _aws_pattern("DevopsGuru", "NotificationChannelId")]
 
 
 class TagCollectionFilterTypeDef(BaseValidatorModel):
-    AppBoundaryKey: str
-    TagValues: List[str]
+    AppBoundaryKey: Annotated[str, _aws_pattern("DevopsGuru", "AppBoundaryKey")]
+    TagValues: List[Annotated[str, _aws_pattern("DevopsGuru", "TagValue")]]
 
 
 class TagCollectionOutputTypeDef(BaseValidatorModel):
@@ -357,27 +359,27 @@ class ServiceInsightHealthTypeDef(BaseValidatorModel):
 
 
 class TagCollectionTypeDef(BaseValidatorModel):
-    AppBoundaryKey: str
-    TagValues: List[str]
+    AppBoundaryKey: Annotated[str, _aws_pattern("DevopsGuru", "AppBoundaryKey")]
+    TagValues: List[Annotated[str, _aws_pattern("DevopsGuru", "TagValue")]]
 
 
 class UpdateCloudFormationCollectionFilterTypeDef(BaseValidatorModel):
-    StackNames: Optional[List[str]] = None
+    StackNames: Optional[List[Annotated[str, _aws_pattern("DevopsGuru", "StackName")]]] = None
 
 
 class UpdateTagCollectionFilterTypeDef(BaseValidatorModel):
-    AppBoundaryKey: str
-    TagValues: List[str]
+    AppBoundaryKey: Annotated[str, _aws_pattern("DevopsGuru", "AppBoundaryKey")]
+    TagValues: List[Annotated[str, _aws_pattern("DevopsGuru", "TagValue")]]
 
 
 class AccountHealthTypeDef(BaseValidatorModel):
-    AccountId: Optional[str] = None
+    AccountId: Optional[Annotated[str, _aws_pattern("DevopsGuru", "AwsAccountId")]] = None
     Insight: Optional[AccountInsightHealthTypeDef] = None
 
 
 # This class is the output for the 'add_notification_channel' function.
 class AddNotificationChannelResponseTypeDef(BaseValidatorModel):
-    Id: str
+    Id: Annotated[str, _aws_pattern("DevopsGuru", "NotificationChannelId")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
@@ -422,14 +424,14 @@ CloudFormationCollectionUnionTypeDef = Union[CloudFormationCollectionOutputTypeD
 
 
 class CloudFormationHealthTypeDef(BaseValidatorModel):
-    StackName: Optional[str] = None
+    StackName: Optional[Annotated[str, _aws_pattern("DevopsGuru", "StackName")]] = None
     Insight: Optional[InsightHealthTypeDef] = None
     AnalyzedResourceCount: Optional[int] = None
 
 
 class TagHealthTypeDef(BaseValidatorModel):
-    AppBoundaryKey: Optional[str] = None
-    TagValue: Optional[str] = None
+    AppBoundaryKey: Optional[Annotated[str, _aws_pattern("DevopsGuru", "AppBoundaryKey")]] = None
+    TagValue: Optional[Annotated[str, _aws_pattern("DevopsGuru", "TagValue")]] = None
     Insight: Optional[InsightHealthTypeDef] = None
     AnalyzedResourceCount: Optional[int] = None
 
@@ -459,8 +461,8 @@ class DescribeAccountOverviewRequestTypeDef(BaseValidatorModel):
 class DescribeOrganizationOverviewRequestTypeDef(BaseValidatorModel):
     FromTime: TimestampTypeDef
     ToTime: Optional[TimestampTypeDef] = None
-    AccountIds: Optional[List[str]] = None
-    OrganizationalUnitIds: Optional[List[str]] = None
+    AccountIds: Optional[List[Annotated[str, _aws_pattern("DevopsGuru", "AwsAccountId")]]] = None
+    OrganizationalUnitIds: Optional[List[Annotated[str, _aws_pattern("DevopsGuru", "OrganizationalUnitId")]]] = None
 
 
 class EndTimeRangeTypeDef(BaseValidatorModel):
@@ -535,7 +537,7 @@ class ListMonitoredResourcesRequestPaginateTypeDef(BaseValidatorModel):
 class ListMonitoredResourcesRequestTypeDef(BaseValidatorModel):
     Filters: Optional[ListMonitoredResourcesFiltersTypeDef] = None
     MaxResults: Optional[int] = None
-    NextToken: Optional[str] = None
+    NextToken: Optional[Annotated[str, _aws_pattern("DevopsGuru", "UuidNextToken")]] = None
 
 
 class LogAnomalyShowcaseTypeDef(BaseValidatorModel):
@@ -633,7 +635,7 @@ class GetCostEstimationResponseTypeDef(BaseValidatorModel):
     TimeRange: CostEstimationTimeRangeTypeDef
     TotalCost: float
     ResponseMetadata: ResponseMetadataTypeDef
-    NextToken: Optional[str] = None
+    NextToken: Optional[Annotated[str, _aws_pattern("DevopsGuru", "UuidNextToken")]] = None
 
 
 CostEstimationResourceCollectionFilterUnionTypeDef = Union[
@@ -660,7 +662,7 @@ class AnomalousLogGroupTypeDef(BaseValidatorModel):
 
 
 class NotificationChannelTypeDef(BaseValidatorModel):
-    Id: Optional[str] = None
+    Id: Optional[Annotated[str, _aws_pattern("DevopsGuru", "NotificationChannelId")]] = None
     Config: Optional[NotificationChannelConfigOutputTypeDef] = None
 
 
@@ -683,21 +685,21 @@ class PerformanceInsightsReferenceMetricTypeDef(BaseValidatorModel):
 class RecommendationRelatedAnomalyTypeDef(BaseValidatorModel):
     Resources: Optional[List[RecommendationRelatedAnomalyResourceTypeDef]] = None
     SourceDetails: Optional[List[RecommendationRelatedAnomalySourceDetailTypeDef]] = None
-    AnomalyId: Optional[str] = None
+    AnomalyId: Optional[Annotated[str, _aws_pattern("DevopsGuru", "AnomalyId")]] = None
 
 
 # This class is the output for the 'get_resource_collection' function.
 class GetResourceCollectionResponseTypeDef(BaseValidatorModel):
     ResourceCollection: ResourceCollectionFilterTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
-    NextToken: Optional[str] = None
+    NextToken: Optional[Annotated[str, _aws_pattern("DevopsGuru", "UuidNextToken")]] = None
 
 
 class EventTypeDef(BaseValidatorModel):
     ResourceCollection: Optional[ResourceCollectionOutputTypeDef] = None
     Id: Optional[str] = None
     Time: Optional[datetime] = None
-    EventSource: Optional[str] = None
+    EventSource: Optional[Annotated[str, _aws_pattern("DevopsGuru", "EventSource")]] = None
     Name: Optional[str] = None
     DataSource: Optional[EventDataSourceType] = None
     EventClass: Optional[EventClassType] = None
@@ -705,16 +707,16 @@ class EventTypeDef(BaseValidatorModel):
 
 
 class MonitoredResourceIdentifierTypeDef(BaseValidatorModel):
-    MonitoredResourceName: Optional[str] = None
-    Type: Optional[str] = None
+    MonitoredResourceName: Optional[Annotated[str, _aws_pattern("DevopsGuru", "MonitoredResourceName")]] = None
+    Type: Optional[Annotated[str, _aws_pattern("DevopsGuru", "ResourceType")]] = None
     ResourcePermission: Optional[ResourcePermissionType] = None
     LastUpdated: Optional[datetime] = None
     ResourceCollection: Optional[ResourceCollectionOutputTypeDef] = None
 
 
 class ProactiveInsightSummaryTypeDef(BaseValidatorModel):
-    Id: Optional[str] = None
-    Name: Optional[str] = None
+    Id: Optional[Annotated[str, _aws_pattern("DevopsGuru", "InsightId")]] = None
+    Name: Optional[Annotated[str, _aws_pattern("DevopsGuru", "InsightName")]] = None
     Severity: Optional[InsightSeverityType] = None
     Status: Optional[InsightStatusType] = None
     InsightTimeRange: Optional[InsightTimeRangeTypeDef] = None
@@ -725,22 +727,22 @@ class ProactiveInsightSummaryTypeDef(BaseValidatorModel):
 
 
 class ProactiveInsightTypeDef(BaseValidatorModel):
-    Id: Optional[str] = None
-    Name: Optional[str] = None
+    Id: Optional[Annotated[str, _aws_pattern("DevopsGuru", "InsightId")]] = None
+    Name: Optional[Annotated[str, _aws_pattern("DevopsGuru", "InsightName")]] = None
     Severity: Optional[InsightSeverityType] = None
     Status: Optional[InsightStatusType] = None
     InsightTimeRange: Optional[InsightTimeRangeTypeDef] = None
     PredictionTimeRange: Optional[PredictionTimeRangeTypeDef] = None
     ResourceCollection: Optional[ResourceCollectionOutputTypeDef] = None
-    SsmOpsItemId: Optional[str] = None
+    SsmOpsItemId: Optional[Annotated[str, _aws_pattern("DevopsGuru", "SsmOpsItemId")]] = None
     Description: Optional[str] = None
 
 
 class ProactiveOrganizationInsightSummaryTypeDef(BaseValidatorModel):
-    Id: Optional[str] = None
-    AccountId: Optional[str] = None
-    OrganizationalUnitId: Optional[str] = None
-    Name: Optional[str] = None
+    Id: Optional[Annotated[str, _aws_pattern("DevopsGuru", "InsightId")]] = None
+    AccountId: Optional[Annotated[str, _aws_pattern("DevopsGuru", "AwsAccountId")]] = None
+    OrganizationalUnitId: Optional[Annotated[str, _aws_pattern("DevopsGuru", "OrganizationalUnitId")]] = None
+    Name: Optional[Annotated[str, _aws_pattern("DevopsGuru", "InsightName")]] = None
     Severity: Optional[InsightSeverityType] = None
     Status: Optional[InsightStatusType] = None
     InsightTimeRange: Optional[InsightTimeRangeTypeDef] = None
@@ -750,8 +752,8 @@ class ProactiveOrganizationInsightSummaryTypeDef(BaseValidatorModel):
 
 
 class ReactiveInsightSummaryTypeDef(BaseValidatorModel):
-    Id: Optional[str] = None
-    Name: Optional[str] = None
+    Id: Optional[Annotated[str, _aws_pattern("DevopsGuru", "InsightId")]] = None
+    Name: Optional[Annotated[str, _aws_pattern("DevopsGuru", "InsightName")]] = None
     Severity: Optional[InsightSeverityType] = None
     Status: Optional[InsightStatusType] = None
     InsightTimeRange: Optional[InsightTimeRangeTypeDef] = None
@@ -761,21 +763,21 @@ class ReactiveInsightSummaryTypeDef(BaseValidatorModel):
 
 
 class ReactiveInsightTypeDef(BaseValidatorModel):
-    Id: Optional[str] = None
-    Name: Optional[str] = None
+    Id: Optional[Annotated[str, _aws_pattern("DevopsGuru", "InsightId")]] = None
+    Name: Optional[Annotated[str, _aws_pattern("DevopsGuru", "InsightName")]] = None
     Severity: Optional[InsightSeverityType] = None
     Status: Optional[InsightStatusType] = None
     InsightTimeRange: Optional[InsightTimeRangeTypeDef] = None
     ResourceCollection: Optional[ResourceCollectionOutputTypeDef] = None
-    SsmOpsItemId: Optional[str] = None
+    SsmOpsItemId: Optional[Annotated[str, _aws_pattern("DevopsGuru", "SsmOpsItemId")]] = None
     Description: Optional[str] = None
 
 
 class ReactiveOrganizationInsightSummaryTypeDef(BaseValidatorModel):
-    Id: Optional[str] = None
-    AccountId: Optional[str] = None
-    OrganizationalUnitId: Optional[str] = None
-    Name: Optional[str] = None
+    Id: Optional[Annotated[str, _aws_pattern("DevopsGuru", "InsightId")]] = None
+    AccountId: Optional[Annotated[str, _aws_pattern("DevopsGuru", "AwsAccountId")]] = None
+    OrganizationalUnitId: Optional[Annotated[str, _aws_pattern("DevopsGuru", "OrganizationalUnitId")]] = None
+    Name: Optional[Annotated[str, _aws_pattern("DevopsGuru", "InsightName")]] = None
     Severity: Optional[InsightSeverityType] = None
     Status: Optional[InsightStatusType] = None
     InsightTimeRange: Optional[InsightTimeRangeTypeDef] = None
@@ -794,7 +796,7 @@ class DescribeOrganizationResourceCollectionHealthResponseTypeDef(BaseValidatorM
     Account: List[AccountHealthTypeDef]
     Tags: List[TagHealthTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
-    NextToken: Optional[str] = None
+    NextToken: Optional[Annotated[str, _aws_pattern("DevopsGuru", "UuidNextToken")]] = None
 
 
 # This class is the output for the 'describe_resource_collection_health' function.
@@ -803,7 +805,7 @@ class DescribeResourceCollectionHealthResponseTypeDef(BaseValidatorModel):
     Service: List[ServiceHealthTypeDef]
     Tags: List[TagHealthTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
-    NextToken: Optional[str] = None
+    NextToken: Optional[Annotated[str, _aws_pattern("DevopsGuru", "UuidNextToken")]] = None
 
 
 class ResourceCollectionTypeDef(BaseValidatorModel):
@@ -818,7 +820,7 @@ class UpdateResourceCollectionRequestTypeDef(BaseValidatorModel):
 
 class StartCostEstimationRequestTypeDef(BaseValidatorModel):
     ResourceCollection: CostEstimationResourceCollectionFilterUnionTypeDef
-    ClientToken: Optional[str] = None
+    ClientToken: Optional[Annotated[str, _aws_pattern("DevopsGuru", "ClientToken")]] = None
 
 
 class ListInsightsStatusFilterTypeDef(BaseValidatorModel):
@@ -829,17 +831,17 @@ class ListInsightsStatusFilterTypeDef(BaseValidatorModel):
 
 # This class is the output for the 'list_anomalous_log_groups' function.
 class ListAnomalousLogGroupsResponseTypeDef(BaseValidatorModel):
-    InsightId: str
+    InsightId: Annotated[str, _aws_pattern("DevopsGuru", "InsightId")]
     AnomalousLogGroups: List[AnomalousLogGroupTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
-    NextToken: Optional[str] = None
+    NextToken: Optional[Annotated[str, _aws_pattern("DevopsGuru", "UuidNextToken")]] = None
 
 
 # This class is the output for the 'list_notification_channels' function.
 class ListNotificationChannelsResponseTypeDef(BaseValidatorModel):
     Channels: List[NotificationChannelTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
-    NextToken: Optional[str] = None
+    NextToken: Optional[Annotated[str, _aws_pattern("DevopsGuru", "UuidNextToken")]] = None
 
 
 # This class is the input for the 'add_notification_channel' function.
@@ -866,14 +868,14 @@ class RecommendationTypeDef(BaseValidatorModel):
 class ListEventsResponseTypeDef(BaseValidatorModel):
     Events: List[EventTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
-    NextToken: Optional[str] = None
+    NextToken: Optional[Annotated[str, _aws_pattern("DevopsGuru", "UuidNextToken")]] = None
 
 
 # This class is the output for the 'list_monitored_resources' function.
 class ListMonitoredResourcesResponseTypeDef(BaseValidatorModel):
     MonitoredResourceIdentifiers: List[MonitoredResourceIdentifierTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
-    NextToken: Optional[str] = None
+    NextToken: Optional[Annotated[str, _aws_pattern("DevopsGuru", "UuidNextToken")]] = None
 
 
 # This class is the output for the 'list_insights' function.
@@ -881,7 +883,7 @@ class ListInsightsResponseTypeDef(BaseValidatorModel):
     ProactiveInsights: List[ProactiveInsightSummaryTypeDef]
     ReactiveInsights: List[ReactiveInsightSummaryTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
-    NextToken: Optional[str] = None
+    NextToken: Optional[Annotated[str, _aws_pattern("DevopsGuru", "UuidNextToken")]] = None
 
 
 # This class is the output for the 'search_insights' function.
@@ -889,7 +891,7 @@ class SearchInsightsResponseTypeDef(BaseValidatorModel):
     ProactiveInsights: List[ProactiveInsightSummaryTypeDef]
     ReactiveInsights: List[ReactiveInsightSummaryTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
-    NextToken: Optional[str] = None
+    NextToken: Optional[Annotated[str, _aws_pattern("DevopsGuru", "UuidNextToken")]] = None
 
 
 # This class is the output for the 'search_organization_insights' function.
@@ -897,7 +899,7 @@ class SearchOrganizationInsightsResponseTypeDef(BaseValidatorModel):
     ProactiveInsights: List[ProactiveInsightSummaryTypeDef]
     ReactiveInsights: List[ReactiveInsightSummaryTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
-    NextToken: Optional[str] = None
+    NextToken: Optional[Annotated[str, _aws_pattern("DevopsGuru", "UuidNextToken")]] = None
 
 
 # This class is the output for the 'describe_insight' function.
@@ -912,7 +914,7 @@ class ListOrganizationInsightsResponseTypeDef(BaseValidatorModel):
     ProactiveInsights: List[ProactiveOrganizationInsightSummaryTypeDef]
     ReactiveInsights: List[ReactiveOrganizationInsightSummaryTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
-    NextToken: Optional[str] = None
+    NextToken: Optional[Annotated[str, _aws_pattern("DevopsGuru", "UuidNextToken")]] = None
 
 
 class ListAnomaliesForInsightRequestPaginateTypeDef(BaseValidatorModel):
@@ -925,11 +927,11 @@ class ListAnomaliesForInsightRequestPaginateTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'list_anomalies_for_insight' function.
 class ListAnomaliesForInsightRequestTypeDef(BaseValidatorModel):
-    InsightId: str
+    InsightId: Annotated[str, _aws_pattern("DevopsGuru", "InsightId")]
     StartTimeRange: Optional[StartTimeRangeTypeDef] = None
     MaxResults: Optional[int] = None
-    NextToken: Optional[str] = None
-    AccountId: Optional[str] = None
+    NextToken: Optional[Annotated[str, _aws_pattern("DevopsGuru", "UuidNextToken")]] = None
+    AccountId: Optional[Annotated[str, _aws_pattern("DevopsGuru", "AwsAccountId")]] = None
     Filters: Optional[ListAnomaliesForInsightFiltersTypeDef] = None
 
 
@@ -945,7 +947,7 @@ class ListInsightsRequestPaginateTypeDef(BaseValidatorModel):
 class ListInsightsRequestTypeDef(BaseValidatorModel):
     StatusFilter: ListInsightsStatusFilterTypeDef
     MaxResults: Optional[int] = None
-    NextToken: Optional[str] = None
+    NextToken: Optional[Annotated[str, _aws_pattern("DevopsGuru", "UuidNextToken")]] = None
 
 
 class ListOrganizationInsightsRequestPaginateTypeDef(BaseValidatorModel):
@@ -959,9 +961,9 @@ class ListOrganizationInsightsRequestPaginateTypeDef(BaseValidatorModel):
 class ListOrganizationInsightsRequestTypeDef(BaseValidatorModel):
     StatusFilter: ListInsightsStatusFilterTypeDef
     MaxResults: Optional[int] = None
-    AccountIds: Optional[List[str]] = None
-    OrganizationalUnitIds: Optional[List[str]] = None
-    NextToken: Optional[str] = None
+    AccountIds: Optional[List[Annotated[str, _aws_pattern("DevopsGuru", "AwsAccountId")]]] = None
+    OrganizationalUnitIds: Optional[List[Annotated[str, _aws_pattern("DevopsGuru", "OrganizationalUnitId")]]] = None
+    NextToken: Optional[Annotated[str, _aws_pattern("DevopsGuru", "UuidNextToken")]] = None
 
 
 class PerformanceInsightsReferenceDataTypeDef(BaseValidatorModel):
@@ -973,14 +975,14 @@ class PerformanceInsightsReferenceDataTypeDef(BaseValidatorModel):
 class ListRecommendationsResponseTypeDef(BaseValidatorModel):
     Recommendations: List[RecommendationTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
-    NextToken: Optional[str] = None
+    NextToken: Optional[Annotated[str, _aws_pattern("DevopsGuru", "UuidNextToken")]] = None
 
 
 class ListEventsFiltersTypeDef(BaseValidatorModel):
-    InsightId: Optional[str] = None
+    InsightId: Optional[Annotated[str, _aws_pattern("DevopsGuru", "InsightId")]] = None
     EventTimeRange: Optional[EventTimeRangeTypeDef] = None
     EventClass: Optional[EventClassType] = None
-    EventSource: Optional[str] = None
+    EventSource: Optional[Annotated[str, _aws_pattern("DevopsGuru", "EventSource")]] = None
     DataSource: Optional[EventDataSourceType] = None
     ResourceCollection: Optional[ResourceCollectionUnionTypeDef] = None
 
@@ -1018,8 +1020,8 @@ class ListEventsRequestPaginateTypeDef(BaseValidatorModel):
 class ListEventsRequestTypeDef(BaseValidatorModel):
     Filters: ListEventsFiltersTypeDef
     MaxResults: Optional[int] = None
-    NextToken: Optional[str] = None
-    AccountId: Optional[str] = None
+    NextToken: Optional[Annotated[str, _aws_pattern("DevopsGuru", "UuidNextToken")]] = None
+    AccountId: Optional[Annotated[str, _aws_pattern("DevopsGuru", "AwsAccountId")]] = None
 
 
 class SearchInsightsRequestPaginateTypeDef(BaseValidatorModel):
@@ -1035,7 +1037,7 @@ class SearchInsightsRequestTypeDef(BaseValidatorModel):
     Type: InsightTypeType
     Filters: Optional[SearchInsightsFiltersTypeDef] = None
     MaxResults: Optional[int] = None
-    NextToken: Optional[str] = None
+    NextToken: Optional[Annotated[str, _aws_pattern("DevopsGuru", "UuidNextToken")]] = None
 
 
 class SearchOrganizationInsightsRequestPaginateTypeDef(BaseValidatorModel):
@@ -1048,12 +1050,12 @@ class SearchOrganizationInsightsRequestPaginateTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'search_organization_insights' function.
 class SearchOrganizationInsightsRequestTypeDef(BaseValidatorModel):
-    AccountIds: List[str]
+    AccountIds: List[Annotated[str, _aws_pattern("DevopsGuru", "AwsAccountId")]]
     StartTimeRange: StartTimeRangeTypeDef
     Type: InsightTypeType
     Filters: Optional[SearchOrganizationInsightsFiltersTypeDef] = None
     MaxResults: Optional[int] = None
-    NextToken: Optional[str] = None
+    NextToken: Optional[Annotated[str, _aws_pattern("DevopsGuru", "UuidNextToken")]] = None
 
 
 class AnomalySourceDetailsTypeDef(BaseValidatorModel):
@@ -1062,7 +1064,7 @@ class AnomalySourceDetailsTypeDef(BaseValidatorModel):
 
 
 class ProactiveAnomalySummaryTypeDef(BaseValidatorModel):
-    Id: Optional[str] = None
+    Id: Optional[Annotated[str, _aws_pattern("DevopsGuru", "AnomalyId")]] = None
     Severity: Optional[AnomalySeverityType] = None
     Status: Optional[AnomalyStatusType] = None
     UpdateTime: Optional[datetime] = None
@@ -1070,7 +1072,7 @@ class ProactiveAnomalySummaryTypeDef(BaseValidatorModel):
     AnomalyReportedTimeRange: Optional[AnomalyReportedTimeRangeTypeDef] = None
     PredictionTimeRange: Optional[PredictionTimeRangeTypeDef] = None
     SourceDetails: Optional[AnomalySourceDetailsTypeDef] = None
-    AssociatedInsightId: Optional[str] = None
+    AssociatedInsightId: Optional[Annotated[str, _aws_pattern("DevopsGuru", "InsightId")]] = None
     ResourceCollection: Optional[ResourceCollectionOutputTypeDef] = None
     Limit: Optional[float] = None
     SourceMetadata: Optional[AnomalySourceMetadataTypeDef] = None
@@ -1079,7 +1081,7 @@ class ProactiveAnomalySummaryTypeDef(BaseValidatorModel):
 
 
 class ProactiveAnomalyTypeDef(BaseValidatorModel):
-    Id: Optional[str] = None
+    Id: Optional[Annotated[str, _aws_pattern("DevopsGuru", "AnomalyId")]] = None
     Severity: Optional[AnomalySeverityType] = None
     Status: Optional[AnomalyStatusType] = None
     UpdateTime: Optional[datetime] = None
@@ -1087,7 +1089,7 @@ class ProactiveAnomalyTypeDef(BaseValidatorModel):
     AnomalyReportedTimeRange: Optional[AnomalyReportedTimeRangeTypeDef] = None
     PredictionTimeRange: Optional[PredictionTimeRangeTypeDef] = None
     SourceDetails: Optional[AnomalySourceDetailsTypeDef] = None
-    AssociatedInsightId: Optional[str] = None
+    AssociatedInsightId: Optional[Annotated[str, _aws_pattern("DevopsGuru", "InsightId")]] = None
     ResourceCollection: Optional[ResourceCollectionOutputTypeDef] = None
     Limit: Optional[float] = None
     SourceMetadata: Optional[AnomalySourceMetadataTypeDef] = None
@@ -1096,34 +1098,34 @@ class ProactiveAnomalyTypeDef(BaseValidatorModel):
 
 
 class ReactiveAnomalySummaryTypeDef(BaseValidatorModel):
-    Id: Optional[str] = None
+    Id: Optional[Annotated[str, _aws_pattern("DevopsGuru", "AnomalyId")]] = None
     Severity: Optional[AnomalySeverityType] = None
     Status: Optional[AnomalyStatusType] = None
     AnomalyTimeRange: Optional[AnomalyTimeRangeTypeDef] = None
     AnomalyReportedTimeRange: Optional[AnomalyReportedTimeRangeTypeDef] = None
     SourceDetails: Optional[AnomalySourceDetailsTypeDef] = None
-    AssociatedInsightId: Optional[str] = None
+    AssociatedInsightId: Optional[Annotated[str, _aws_pattern("DevopsGuru", "InsightId")]] = None
     ResourceCollection: Optional[ResourceCollectionOutputTypeDef] = None
     Type: Optional[AnomalyTypeType] = None
     Name: Optional[str] = None
     Description: Optional[str] = None
-    CausalAnomalyId: Optional[str] = None
+    CausalAnomalyId: Optional[Annotated[str, _aws_pattern("DevopsGuru", "AnomalyId")]] = None
     AnomalyResources: Optional[List[AnomalyResourceTypeDef]] = None
 
 
 class ReactiveAnomalyTypeDef(BaseValidatorModel):
-    Id: Optional[str] = None
+    Id: Optional[Annotated[str, _aws_pattern("DevopsGuru", "AnomalyId")]] = None
     Severity: Optional[AnomalySeverityType] = None
     Status: Optional[AnomalyStatusType] = None
     AnomalyTimeRange: Optional[AnomalyTimeRangeTypeDef] = None
     AnomalyReportedTimeRange: Optional[AnomalyReportedTimeRangeTypeDef] = None
     SourceDetails: Optional[AnomalySourceDetailsTypeDef] = None
-    AssociatedInsightId: Optional[str] = None
+    AssociatedInsightId: Optional[Annotated[str, _aws_pattern("DevopsGuru", "InsightId")]] = None
     ResourceCollection: Optional[ResourceCollectionOutputTypeDef] = None
     Type: Optional[AnomalyTypeType] = None
     Name: Optional[str] = None
     Description: Optional[str] = None
-    CausalAnomalyId: Optional[str] = None
+    CausalAnomalyId: Optional[Annotated[str, _aws_pattern("DevopsGuru", "AnomalyId")]] = None
     AnomalyResources: Optional[List[AnomalyResourceTypeDef]] = None
 
 
@@ -1132,7 +1134,7 @@ class ListAnomaliesForInsightResponseTypeDef(BaseValidatorModel):
     ProactiveAnomalies: List[ProactiveAnomalySummaryTypeDef]
     ReactiveAnomalies: List[ReactiveAnomalySummaryTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
-    NextToken: Optional[str] = None
+    NextToken: Optional[Annotated[str, _aws_pattern("DevopsGuru", "UuidNextToken")]] = None
 
 
 # This class is the output for the 'describe_anomaly' function.

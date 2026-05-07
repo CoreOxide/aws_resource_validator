@@ -3,6 +3,7 @@
 from datetime import datetime
 from decimal import Decimal
 from typing import (
+    Annotated,
     Any,
     Callable,
     Dict,
@@ -24,6 +25,7 @@ from botocore.response import StreamingBody
 from pydantic import Field
 
 from aws_resource_validator.core.base_validator_model import BaseValidatorModel, EventStream
+from aws_resource_validator.core.pattern_validation import aws_field_pattern as _aws_pattern
 from aws_resource_validator.pydantic_models.migrationhubstrategy.migrationhubstrategy_constants import *  # noqa: F401,F403
 
 # Optional boto3 symbols — imported lazily so services that don't need them
@@ -44,10 +46,10 @@ class AnalysisStatusUnionTypeDef(BaseValidatorModel):
 
 
 class AnalyzableServerSummaryTypeDef(BaseValidatorModel):
-    hostname: Optional[str] = None
-    ipAddress: Optional[str] = None
-    source: Optional[str] = None
-    vmId: Optional[str] = None
+    hostname: Optional[Annotated[str, _aws_pattern("Migrationhubstrategy", "String")]] = None
+    ipAddress: Optional[Annotated[str, _aws_pattern("Migrationhubstrategy", "String")]] = None
+    source: Optional[Annotated[str, _aws_pattern("Migrationhubstrategy", "String")]] = None
+    vmId: Optional[Annotated[str, _aws_pattern("Migrationhubstrategy", "String")]] = None
 
 
 class AnalyzerNameUnionTypeDef(BaseValidatorModel):
@@ -57,8 +59,8 @@ class AnalyzerNameUnionTypeDef(BaseValidatorModel):
 
 
 class S3ObjectTypeDef(BaseValidatorModel):
-    s3Bucket: Optional[str] = None
-    s3key: Optional[str] = None
+    s3Bucket: Optional[Annotated[str, _aws_pattern("Migrationhubstrategy", "S3Bucket")]] = None
+    s3key: Optional[Annotated[str, _aws_pattern("Migrationhubstrategy", "S3Key")]] = None
 
 
 class AntipatternSeveritySummaryTypeDef(BaseValidatorModel):
@@ -71,14 +73,14 @@ class AppUnitErrorTypeDef(BaseValidatorModel):
 
 
 class DatabaseConfigDetailTypeDef(BaseValidatorModel):
-    secretName: Optional[str] = None
+    secretName: Optional[Annotated[str, _aws_pattern("Migrationhubstrategy", "String")]] = None
 
 
 class SourceCodeRepositoryTypeDef(BaseValidatorModel):
-    branch: Optional[str] = None
-    projectName: Optional[str] = None
-    repository: Optional[str] = None
-    versionControlType: Optional[str] = None
+    branch: Optional[Annotated[str, _aws_pattern("Migrationhubstrategy", "String")]] = None
+    projectName: Optional[Annotated[str, _aws_pattern("Migrationhubstrategy", "String")]] = None
+    repository: Optional[Annotated[str, _aws_pattern("Migrationhubstrategy", "String")]] = None
+    versionControlType: Optional[Annotated[str, _aws_pattern("Migrationhubstrategy", "String")]] = None
 
 
 class ApplicationComponentStatusSummaryTypeDef(BaseValidatorModel):
@@ -114,13 +116,13 @@ class AssessmentTargetOutputTypeDef(BaseValidatorModel):
 
 class AssessmentTargetTypeDef(BaseValidatorModel):
     condition: ConditionType
-    name: str
-    values: List[str]
+    name: Annotated[str, _aws_pattern("Migrationhubstrategy", "String")]
+    values: List[Annotated[str, _aws_pattern("Migrationhubstrategy", "String")]]
 
 
 class AssociatedApplicationTypeDef(BaseValidatorModel):
-    id: Optional[str] = None
-    name: Optional[str] = None
+    id: Optional[Annotated[str, _aws_pattern("Migrationhubstrategy", "String")]] = None
+    name: Optional[Annotated[str, _aws_pattern("Migrationhubstrategy", "String")]] = None
 
 
 class AwsManagedResourcesOutputTypeDef(BaseValidatorModel):
@@ -140,26 +142,30 @@ class BusinessGoalsTypeDef(BaseValidatorModel):
 
 class IPAddressBasedRemoteInfoTypeDef(BaseValidatorModel):
     authType: Optional[AuthTypeType] = None
-    ipAddressConfigurationTimeStamp: Optional[str] = None
+    ipAddressConfigurationTimeStamp: Optional[Annotated[str, _aws_pattern("Migrationhubstrategy", "String")]] = None
     osType: Optional[OSTypeType] = None
 
 
 class PipelineInfoTypeDef(BaseValidatorModel):
-    pipelineConfigurationTimeStamp: Optional[str] = None
+    pipelineConfigurationTimeStamp: Optional[Annotated[str, _aws_pattern("Migrationhubstrategy", "String")]] = None
     pipelineType: Optional[Literal["AZURE_DEVOPS"]] = None
 
 
 class RemoteSourceCodeAnalysisServerInfoTypeDef(BaseValidatorModel):
-    remoteSourceCodeAnalysisServerConfigurationTimestamp: Optional[str] = None
+    remoteSourceCodeAnalysisServerConfigurationTimestamp: Optional[
+        Annotated[str, _aws_pattern("Migrationhubstrategy", "String")]
+    ] = None
 
 
 class VcenterBasedRemoteInfoTypeDef(BaseValidatorModel):
     osType: Optional[OSTypeType] = None
-    vcenterConfigurationTimeStamp: Optional[str] = None
+    vcenterConfigurationTimeStamp: Optional[Annotated[str, _aws_pattern("Migrationhubstrategy", "String")]] = None
 
 
 class VersionControlInfoTypeDef(BaseValidatorModel):
-    versionControlConfigurationTimeStamp: Optional[str] = None
+    versionControlConfigurationTimeStamp: Optional[Annotated[str, _aws_pattern("Migrationhubstrategy", "String")]] = (
+        None
+    )
     versionControlType: Optional[VersionControlTypeType] = None
 
 
@@ -170,7 +176,7 @@ class DataCollectionDetailsTypeDef(BaseValidatorModel):
     servers: Optional[int] = None
     startTime: Optional[datetime] = None
     status: Optional[AssessmentStatusType] = None
-    statusMessage: Optional[str] = None
+    statusMessage: Optional[Annotated[str, _aws_pattern("Migrationhubstrategy", "AssessmentStatusMessage")]] = None
     success: Optional[int] = None
 
 
@@ -200,7 +206,7 @@ class NoDatabaseMigrationPreferenceTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'get_application_component_details' function.
 class GetApplicationComponentDetailsRequestTypeDef(BaseValidatorModel):
-    applicationComponentId: str
+    applicationComponentId: Annotated[str, _aws_pattern("Migrationhubstrategy", "ApplicationComponentId")]
 
 
 class ResponseMetadataTypeDef(BaseValidatorModel):
@@ -213,31 +219,33 @@ class ResponseMetadataTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'get_application_component_strategies' function.
 class GetApplicationComponentStrategiesRequestTypeDef(BaseValidatorModel):
-    applicationComponentId: str
+    applicationComponentId: Annotated[str, _aws_pattern("Migrationhubstrategy", "ApplicationComponentId")]
 
 
 # This class is the input for the 'get_assessment' function.
 class GetAssessmentRequestTypeDef(BaseValidatorModel):
-    id: str
+    id: Annotated[str, _aws_pattern("Migrationhubstrategy", "AsyncTaskId")]
 
 
 # This class is the input for the 'get_import_file_task' function.
 class GetImportFileTaskRequestTypeDef(BaseValidatorModel):
-    id: str
+    id: Annotated[str, _aws_pattern("Migrationhubstrategy", "String")]
 
 
 # This class is the input for the 'get_recommendation_report_details' function.
 class GetRecommendationReportDetailsRequestTypeDef(BaseValidatorModel):
-    id: str
+    id: Annotated[str, _aws_pattern("Migrationhubstrategy", "RecommendationTaskId")]
 
 
 class RecommendationReportDetailsTypeDef(BaseValidatorModel):
     completionTime: Optional[datetime] = None
-    s3Bucket: Optional[str] = None
-    s3Keys: Optional[List[str]] = None
+    s3Bucket: Optional[Annotated[str, _aws_pattern("Migrationhubstrategy", "String")]] = None
+    s3Keys: Optional[List[Annotated[str, _aws_pattern("Migrationhubstrategy", "String")]]] = None
     startTime: Optional[datetime] = None
     status: Optional[RecommendationReportStatusType] = None
-    statusMessage: Optional[str] = None
+    statusMessage: Optional[
+        Annotated[str, _aws_pattern("Migrationhubstrategy", "RecommendationReportStatusMessage")]
+    ] = None
 
 
 class PaginatorConfigTypeDef(BaseValidatorModel):
@@ -248,52 +256,52 @@ class PaginatorConfigTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'get_server_details' function.
 class GetServerDetailsRequestTypeDef(BaseValidatorModel):
-    serverId: str
+    serverId: Annotated[str, _aws_pattern("Migrationhubstrategy", "ServerId")]
     maxResults: Optional[int] = None
-    nextToken: Optional[str] = None
+    nextToken: Optional[Annotated[str, _aws_pattern("Migrationhubstrategy", "NextToken")]] = None
 
 
 # This class is the input for the 'get_server_strategies' function.
 class GetServerStrategiesRequestTypeDef(BaseValidatorModel):
-    serverId: str
+    serverId: Annotated[str, _aws_pattern("Migrationhubstrategy", "ServerId")]
 
 
 class GroupTypeDef(BaseValidatorModel):
     name: Optional[GroupNameType] = None
-    value: Optional[str] = None
+    value: Optional[Annotated[str, _aws_pattern("Migrationhubstrategy", "String")]] = None
 
 
 class ImportFileTaskInformationTypeDef(BaseValidatorModel):
     completionTime: Optional[datetime] = None
-    id: Optional[str] = None
-    importName: Optional[str] = None
-    inputS3Bucket: Optional[str] = None
-    inputS3Key: Optional[str] = None
+    id: Optional[Annotated[str, _aws_pattern("Migrationhubstrategy", "String")]] = None
+    importName: Optional[Annotated[str, _aws_pattern("Migrationhubstrategy", "String")]] = None
+    inputS3Bucket: Optional[Annotated[str, _aws_pattern("Migrationhubstrategy", "importS3Bucket")]] = None
+    inputS3Key: Optional[Annotated[str, _aws_pattern("Migrationhubstrategy", "importS3Key")]] = None
     numberOfRecordsFailed: Optional[int] = None
     numberOfRecordsSuccess: Optional[int] = None
     startTime: Optional[datetime] = None
     status: Optional[ImportFileTaskStatusType] = None
-    statusReportS3Bucket: Optional[str] = None
-    statusReportS3Key: Optional[str] = None
+    statusReportS3Bucket: Optional[Annotated[str, _aws_pattern("Migrationhubstrategy", "importS3Bucket")]] = None
+    statusReportS3Key: Optional[Annotated[str, _aws_pattern("Migrationhubstrategy", "importS3Key")]] = None
 
 
 # This class is the input for the 'list_analyzable_servers' function.
 class ListAnalyzableServersRequestTypeDef(BaseValidatorModel):
     maxResults: Optional[int] = None
-    nextToken: Optional[str] = None
+    nextToken: Optional[Annotated[str, _aws_pattern("Migrationhubstrategy", "NextToken")]] = None
     sort: Optional[SortOrderType] = None
 
 
 # This class is the input for the 'list_collectors' function.
 class ListCollectorsRequestTypeDef(BaseValidatorModel):
     maxResults: Optional[int] = None
-    nextToken: Optional[str] = None
+    nextToken: Optional[Annotated[str, _aws_pattern("Migrationhubstrategy", "NextToken")]] = None
 
 
 # This class is the input for the 'list_import_file_task' function.
 class ListImportFileTaskRequestTypeDef(BaseValidatorModel):
     maxResults: Optional[int] = None
-    nextToken: Optional[str] = None
+    nextToken: Optional[Annotated[str, _aws_pattern("Migrationhubstrategy", "String")]] = None
 
 
 class NoManagementPreferenceOutputTypeDef(BaseValidatorModel):
@@ -313,21 +321,23 @@ class SelfManageResourcesTypeDef(BaseValidatorModel):
 
 
 class NetworkInfoTypeDef(BaseValidatorModel):
-    interfaceName: str
-    ipAddress: str
-    macAddress: str
-    netMask: str
+    interfaceName: Annotated[str, _aws_pattern("Migrationhubstrategy", "InterfaceName")]
+    ipAddress: Annotated[str, _aws_pattern("Migrationhubstrategy", "IPAddress")]
+    macAddress: Annotated[str, _aws_pattern("Migrationhubstrategy", "MacAddress")]
+    netMask: Annotated[str, _aws_pattern("Migrationhubstrategy", "NetMask")]
 
 
 class OSInfoTypeDef(BaseValidatorModel):
     type: Optional[OSTypeType] = None
-    version: Optional[str] = None
+    version: Optional[Annotated[str, _aws_pattern("Migrationhubstrategy", "OSVersion")]] = None
 
 
 class TransformationToolTypeDef(BaseValidatorModel):
-    description: Optional[str] = None
+    description: Optional[Annotated[str, _aws_pattern("Migrationhubstrategy", "TranformationToolDescription")]] = None
     name: Optional[TransformationToolNameType] = None
-    tranformationToolInstallationLink: Optional[str] = None
+    tranformationToolInstallationLink: Optional[
+        Annotated[str, _aws_pattern("Migrationhubstrategy", "TranformationToolInstallationLink")]
+    ] = None
 
 
 class ServerErrorTypeDef(BaseValidatorModel):
@@ -335,14 +345,14 @@ class ServerErrorTypeDef(BaseValidatorModel):
 
 
 class SourceCodeTypeDef(BaseValidatorModel):
-    location: Optional[str] = None
-    projectName: Optional[str] = None
-    sourceVersion: Optional[str] = None
+    location: Optional[Annotated[str, _aws_pattern("Migrationhubstrategy", "Location")]] = None
+    projectName: Optional[Annotated[str, _aws_pattern("Migrationhubstrategy", "ProjectName")]] = None
+    sourceVersion: Optional[Annotated[str, _aws_pattern("Migrationhubstrategy", "SourceVersion")]] = None
     versionControl: Optional[VersionControlType] = None
 
 
 class StopAssessmentRequestTypeDef(BaseValidatorModel):
-    assessmentId: str
+    assessmentId: Annotated[str, _aws_pattern("Migrationhubstrategy", "AsyncTaskId")]
 
 
 class StrategyOptionTypeDef(BaseValidatorModel):
@@ -356,13 +366,17 @@ class AntipatternReportResultTypeDef(BaseValidatorModel):
     analyzerName: Optional[AnalyzerNameUnionTypeDef] = None
     antiPatternReportS3Object: Optional[S3ObjectTypeDef] = None
     antipatternReportStatus: Optional[AntipatternReportStatusType] = None
-    antipatternReportStatusMessage: Optional[str] = None
+    antipatternReportStatusMessage: Optional[Annotated[str, _aws_pattern("Migrationhubstrategy", "StatusMessage")]] = (
+        None
+    )
 
 
 class AssessmentSummaryTypeDef(BaseValidatorModel):
     antipatternReportS3Object: Optional[S3ObjectTypeDef] = None
     antipatternReportStatus: Optional[AntipatternReportStatusType] = None
-    antipatternReportStatusMessage: Optional[str] = None
+    antipatternReportStatusMessage: Optional[Annotated[str, _aws_pattern("Migrationhubstrategy", "StatusMessage")]] = (
+        None
+    )
     lastAnalyzedTimestamp: Optional[datetime] = None
     listAntipatternSeveritySummary: Optional[List[AntipatternSeveritySummaryTypeDef]] = None
     listApplicationComponentStatusSummary: Optional[List[ApplicationComponentStatusSummaryTypeDef]] = None
@@ -404,28 +418,28 @@ class DatabaseMigrationPreferenceTypeDef(BaseValidatorModel):
 class GetAssessmentResponseTypeDef(BaseValidatorModel):
     assessmentTargets: List[AssessmentTargetOutputTypeDef]
     dataCollectionDetails: DataCollectionDetailsTypeDef
-    id: str
+    id: Annotated[str, _aws_pattern("Migrationhubstrategy", "AsyncTaskId")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 # This class is the output for the 'get_import_file_task' function.
 class GetImportFileTaskResponseTypeDef(BaseValidatorModel):
     completionTime: datetime
-    id: str
-    importName: str
-    inputS3Bucket: str
-    inputS3Key: str
+    id: Annotated[str, _aws_pattern("Migrationhubstrategy", "String")]
+    importName: Annotated[str, _aws_pattern("Migrationhubstrategy", "String")]
+    inputS3Bucket: Annotated[str, _aws_pattern("Migrationhubstrategy", "importS3Bucket")]
+    inputS3Key: Annotated[str, _aws_pattern("Migrationhubstrategy", "importS3Key")]
     numberOfRecordsFailed: int
     numberOfRecordsSuccess: int
     startTime: datetime
     status: ImportFileTaskStatusType
-    statusReportS3Bucket: str
-    statusReportS3Key: str
+    statusReportS3Bucket: Annotated[str, _aws_pattern("Migrationhubstrategy", "importS3Bucket")]
+    statusReportS3Key: Annotated[str, _aws_pattern("Migrationhubstrategy", "importS3Key")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 class GetLatestAssessmentIdResponseTypeDef(BaseValidatorModel):
-    id: str
+    id: Annotated[str, _aws_pattern("Migrationhubstrategy", "AsyncTaskId")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
@@ -433,30 +447,30 @@ class GetLatestAssessmentIdResponseTypeDef(BaseValidatorModel):
 class ListAnalyzableServersResponseTypeDef(BaseValidatorModel):
     analyzableServers: List[AnalyzableServerSummaryTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
-    nextToken: Optional[str] = None
+    nextToken: Optional[Annotated[str, _aws_pattern("Migrationhubstrategy", "NextToken")]] = None
 
 
 # This class is the output for the 'start_assessment' function.
 class StartAssessmentResponseTypeDef(BaseValidatorModel):
-    assessmentId: str
+    assessmentId: Annotated[str, _aws_pattern("Migrationhubstrategy", "AsyncTaskId")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 # This class is the output for the 'start_import_file_task' function.
 class StartImportFileTaskResponseTypeDef(BaseValidatorModel):
-    id: str
+    id: Annotated[str, _aws_pattern("Migrationhubstrategy", "String")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 # This class is the output for the 'start_recommendation_report_generation' function.
 class StartRecommendationReportGenerationResponseTypeDef(BaseValidatorModel):
-    id: str
+    id: Annotated[str, _aws_pattern("Migrationhubstrategy", "RecommendationTaskId")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 # This class is the output for the 'get_recommendation_report_details' function.
 class GetRecommendationReportDetailsResponseTypeDef(BaseValidatorModel):
-    id: str
+    id: Annotated[str, _aws_pattern("Migrationhubstrategy", "RecommendationTaskId")]
     recommendationReportDetails: RecommendationReportDetailsTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
@@ -490,10 +504,12 @@ class ListApplicationComponentsRequestPaginateTypeDef(BaseValidatorModel):
 # This class is the input for the 'list_application_components' function.
 class ListApplicationComponentsRequestTypeDef(BaseValidatorModel):
     applicationComponentCriteria: Optional[ApplicationComponentCriteriaType] = None
-    filterValue: Optional[str] = None
+    filterValue: Optional[
+        Annotated[str, _aws_pattern("Migrationhubstrategy", "ListApplicationComponentsRequestFilterValueString")]
+    ] = None
     groupIdFilter: Optional[List[GroupTypeDef]] = None
     maxResults: Optional[int] = None
-    nextToken: Optional[str] = None
+    nextToken: Optional[Annotated[str, _aws_pattern("Migrationhubstrategy", "NextToken")]] = None
     sort: Optional[SortOrderType] = None
 
 
@@ -507,22 +523,24 @@ class ListServersRequestPaginateTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'list_servers' function.
 class ListServersRequestTypeDef(BaseValidatorModel):
-    filterValue: Optional[str] = None
+    filterValue: Optional[Annotated[str, _aws_pattern("Migrationhubstrategy", "String")]] = None
     groupIdFilter: Optional[List[GroupTypeDef]] = None
     maxResults: Optional[int] = None
-    nextToken: Optional[str] = None
+    nextToken: Optional[Annotated[str, _aws_pattern("Migrationhubstrategy", "NextToken")]] = None
     serverCriteria: Optional[ServerCriteriaType] = None
     sort: Optional[SortOrderType] = None
 
 
 # This class is the input for the 'start_import_file_task' function.
 class StartImportFileTaskRequestTypeDef(BaseValidatorModel):
-    S3Bucket: str
-    name: str
-    s3key: str
+    S3Bucket: Annotated[str, _aws_pattern("Migrationhubstrategy", "importS3Bucket")]
+    name: Annotated[str, _aws_pattern("Migrationhubstrategy", "StartImportFileTaskRequestNameString")]
+    s3key: Annotated[str, _aws_pattern("Migrationhubstrategy", "String")]
     dataSourceType: Optional[DataSourceTypeType] = None
     groupId: Optional[List[GroupTypeDef]] = None
-    s3bucketForReportData: Optional[str] = None
+    s3bucketForReportData: Optional[
+        Annotated[str, _aws_pattern("Migrationhubstrategy", "StartImportFileTaskRequestS3bucketForReportDataString")]
+    ] = None
 
 
 # This class is the input for the 'start_recommendation_report_generation' function.
@@ -535,7 +553,7 @@ class StartRecommendationReportGenerationRequestTypeDef(BaseValidatorModel):
 class ListImportFileTaskResponseTypeDef(BaseValidatorModel):
     taskInfos: List[ImportFileTaskInformationTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
-    nextToken: Optional[str] = None
+    nextToken: Optional[Annotated[str, _aws_pattern("Migrationhubstrategy", "String")]] = None
 
 
 class ManagementPreferenceOutputTypeDef(BaseValidatorModel):
@@ -551,8 +569,8 @@ class ManagementPreferenceTypeDef(BaseValidatorModel):
 
 
 class SystemInfoTypeDef(BaseValidatorModel):
-    cpuArchitecture: Optional[str] = None
-    fileSystemType: Optional[str] = None
+    cpuArchitecture: Optional[Annotated[str, _aws_pattern("Migrationhubstrategy", "String")]] = None
+    fileSystemType: Optional[Annotated[str, _aws_pattern("Migrationhubstrategy", "String")]] = None
     networkInfoList: Optional[List[NetworkInfoTypeDef]] = None
     osInfo: Optional[OSInfoTypeDef] = None
 
@@ -564,17 +582,17 @@ class RecommendationSetTypeDef(BaseValidatorModel):
 
 
 class UpdateApplicationComponentConfigRequestTypeDef(BaseValidatorModel):
-    applicationComponentId: str
+    applicationComponentId: Annotated[str, _aws_pattern("Migrationhubstrategy", "ApplicationComponentId")]
     appType: Optional[AppTypeType] = None
     configureOnly: Optional[bool] = None
     inclusionStatus: Optional[InclusionStatusType] = None
-    secretsManagerKey: Optional[str] = None
+    secretsManagerKey: Optional[Annotated[str, _aws_pattern("Migrationhubstrategy", "SecretsManagerKey")]] = None
     sourceCodeList: Optional[List[SourceCodeTypeDef]] = None
     strategyOption: Optional[StrategyOptionTypeDef] = None
 
 
 class UpdateServerConfigRequestTypeDef(BaseValidatorModel):
-    serverId: str
+    serverId: Annotated[str, _aws_pattern("Migrationhubstrategy", "ServerId")]
     strategyOption: Optional[StrategyOptionTypeDef] = None
 
 
@@ -582,7 +600,7 @@ class ResultTypeDef(BaseValidatorModel):
     analysisStatus: Optional[AnalysisStatusUnionTypeDef] = None
     analysisType: Optional[AnalysisTypeType] = None
     antipatternReportResultList: Optional[List[AntipatternReportResultTypeDef]] = None
-    statusMessage: Optional[str] = None
+    statusMessage: Optional[Annotated[str, _aws_pattern("Migrationhubstrategy", "StatusMessage")]] = None
 
 
 class GetPortfolioSummaryResponseTypeDef(BaseValidatorModel):
@@ -594,19 +612,23 @@ class GetPortfolioSummaryResponseTypeDef(BaseValidatorModel):
 class StartAssessmentRequestTypeDef(BaseValidatorModel):
     assessmentDataSourceType: Optional[AssessmentDataSourceTypeType] = None
     assessmentTargets: Optional[List[AssessmentTargetUnionTypeDef]] = None
-    s3bucketForAnalysisData: Optional[str] = None
-    s3bucketForReportData: Optional[str] = None
+    s3bucketForAnalysisData: Optional[
+        Annotated[str, _aws_pattern("Migrationhubstrategy", "StartAssessmentRequestS3bucketForAnalysisDataString")]
+    ] = None
+    s3bucketForReportData: Optional[
+        Annotated[str, _aws_pattern("Migrationhubstrategy", "StartAssessmentRequestS3bucketForReportDataString")]
+    ] = None
 
 
 class CollectorTypeDef(BaseValidatorModel):
     collectorHealth: Optional[CollectorHealthType] = None
-    collectorId: Optional[str] = None
-    collectorVersion: Optional[str] = None
+    collectorId: Optional[Annotated[str, _aws_pattern("Migrationhubstrategy", "String")]] = None
+    collectorVersion: Optional[Annotated[str, _aws_pattern("Migrationhubstrategy", "String")]] = None
     configurationSummary: Optional[ConfigurationSummaryTypeDef] = None
-    hostName: Optional[str] = None
-    ipAddress: Optional[str] = None
-    lastActivityTimeStamp: Optional[str] = None
-    registeredTimeStamp: Optional[str] = None
+    hostName: Optional[Annotated[str, _aws_pattern("Migrationhubstrategy", "String")]] = None
+    ipAddress: Optional[Annotated[str, _aws_pattern("Migrationhubstrategy", "String")]] = None
+    lastActivityTimeStamp: Optional[Annotated[str, _aws_pattern("Migrationhubstrategy", "String")]] = None
+    registeredTimeStamp: Optional[Annotated[str, _aws_pattern("Migrationhubstrategy", "String")]] = None
 
 
 class DatabasePreferencesOutputTypeDef(BaseValidatorModel):
@@ -636,17 +658,19 @@ class ApplicationComponentStrategyTypeDef(BaseValidatorModel):
 class ServerDetailTypeDef(BaseValidatorModel):
     antipatternReportS3Object: Optional[S3ObjectTypeDef] = None
     antipatternReportStatus: Optional[AntipatternReportStatusType] = None
-    antipatternReportStatusMessage: Optional[str] = None
+    antipatternReportStatusMessage: Optional[Annotated[str, _aws_pattern("Migrationhubstrategy", "StatusMessage")]] = (
+        None
+    )
     applicationComponentStrategySummary: Optional[List[StrategySummaryTypeDef]] = None
     dataCollectionStatus: Optional[RunTimeAssessmentStatusType] = None
-    id: Optional[str] = None
+    id: Optional[Annotated[str, _aws_pattern("Migrationhubstrategy", "ResourceId")]] = None
     lastAnalyzedTimestamp: Optional[datetime] = None
     listAntipatternSeveritySummary: Optional[List[AntipatternSeveritySummaryTypeDef]] = None
     name: Optional[str] = None
     recommendationSet: Optional[RecommendationSetTypeDef] = None
     serverError: Optional[ServerErrorTypeDef] = None
-    serverType: Optional[str] = None
-    statusMessage: Optional[str] = None
+    serverType: Optional[Annotated[str, _aws_pattern("Migrationhubstrategy", "String")]] = None
+    statusMessage: Optional[Annotated[str, _aws_pattern("Migrationhubstrategy", "StatusMessage")]] = None
     systemInfo: Optional[SystemInfoTypeDef] = None
 
 
@@ -661,33 +685,35 @@ class ApplicationComponentDetailTypeDef(BaseValidatorModel):
     analysisStatus: Optional[SrcCodeOrDbAnalysisStatusType] = None
     antipatternReportS3Object: Optional[S3ObjectTypeDef] = None
     antipatternReportStatus: Optional[AntipatternReportStatusType] = None
-    antipatternReportStatusMessage: Optional[str] = None
+    antipatternReportStatusMessage: Optional[Annotated[str, _aws_pattern("Migrationhubstrategy", "StatusMessage")]] = (
+        None
+    )
     appType: Optional[AppTypeType] = None
     appUnitError: Optional[AppUnitErrorTypeDef] = None
-    associatedServerId: Optional[str] = None
+    associatedServerId: Optional[Annotated[str, _aws_pattern("Migrationhubstrategy", "ServerId")]] = None
     databaseConfigDetail: Optional[DatabaseConfigDetailTypeDef] = None
-    id: Optional[str] = None
+    id: Optional[Annotated[str, _aws_pattern("Migrationhubstrategy", "ResourceId")]] = None
     inclusionStatus: Optional[InclusionStatusType] = None
     lastAnalyzedTimestamp: Optional[datetime] = None
     listAntipatternSeveritySummary: Optional[List[AntipatternSeveritySummaryTypeDef]] = None
     moreServerAssociationExists: Optional[bool] = None
     name: Optional[str] = None
-    osDriver: Optional[str] = None
-    osVersion: Optional[str] = None
+    osDriver: Optional[Annotated[str, _aws_pattern("Migrationhubstrategy", "String")]] = None
+    osVersion: Optional[Annotated[str, _aws_pattern("Migrationhubstrategy", "String")]] = None
     recommendationSet: Optional[RecommendationSetTypeDef] = None
     resourceSubType: Optional[ResourceSubTypeType] = None
     resultList: Optional[List[ResultTypeDef]] = None
     runtimeStatus: Optional[RuntimeAnalysisStatusType] = None
-    runtimeStatusMessage: Optional[str] = None
+    runtimeStatusMessage: Optional[Annotated[str, _aws_pattern("Migrationhubstrategy", "StatusMessage")]] = None
     sourceCodeRepositories: Optional[List[SourceCodeRepositoryTypeDef]] = None
-    statusMessage: Optional[str] = None
+    statusMessage: Optional[Annotated[str, _aws_pattern("Migrationhubstrategy", "StatusMessage")]] = None
 
 
 # This class is the output for the 'list_collectors' function.
 class ListCollectorsResponseTypeDef(BaseValidatorModel):
     Collectors: List[CollectorTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
-    nextToken: Optional[str] = None
+    nextToken: Optional[Annotated[str, _aws_pattern("Migrationhubstrategy", "NextToken")]] = None
 
 
 DatabasePreferencesUnionTypeDef = Union[DatabasePreferencesOutputTypeDef, DatabasePreferencesTypeDef]
@@ -715,14 +741,14 @@ class GetServerDetailsResponseTypeDef(BaseValidatorModel):
     associatedApplications: List[AssociatedApplicationTypeDef]
     serverDetail: ServerDetailTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
-    nextToken: Optional[str] = None
+    nextToken: Optional[Annotated[str, _aws_pattern("Migrationhubstrategy", "String")]] = None
 
 
 # This class is the output for the 'list_servers' function.
 class ListServersResponseTypeDef(BaseValidatorModel):
     serverInfos: List[ServerDetailTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
-    nextToken: Optional[str] = None
+    nextToken: Optional[Annotated[str, _aws_pattern("Migrationhubstrategy", "NextToken")]] = None
 
 
 # This class is the output for the 'get_server_strategies' function.
@@ -735,7 +761,7 @@ class GetServerStrategiesResponseTypeDef(BaseValidatorModel):
 class GetApplicationComponentDetailsResponseTypeDef(BaseValidatorModel):
     applicationComponentDetail: ApplicationComponentDetailTypeDef
     associatedApplications: List[AssociatedApplicationTypeDef]
-    associatedServerIds: List[str]
+    associatedServerIds: List[Annotated[str, _aws_pattern("Migrationhubstrategy", "String")]]
     moreApplicationResource: bool
     ResponseMetadata: ResponseMetadataTypeDef
 
@@ -744,7 +770,7 @@ class GetApplicationComponentDetailsResponseTypeDef(BaseValidatorModel):
 class ListApplicationComponentsResponseTypeDef(BaseValidatorModel):
     applicationComponentInfos: List[ApplicationComponentDetailTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
-    nextToken: Optional[str] = None
+    nextToken: Optional[Annotated[str, _aws_pattern("Migrationhubstrategy", "NextToken")]] = None
 
 
 class PutPortfolioPreferencesRequestTypeDef(BaseValidatorModel):

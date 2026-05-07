@@ -3,6 +3,7 @@
 from datetime import datetime
 from decimal import Decimal
 from typing import (
+    Annotated,
     Any,
     Callable,
     Dict,
@@ -24,6 +25,7 @@ from botocore.response import StreamingBody
 from pydantic import Field
 
 from aws_resource_validator.core.base_validator_model import BaseValidatorModel, EventStream
+from aws_resource_validator.core.pattern_validation import aws_field_pattern as _aws_pattern
 from aws_resource_validator.pydantic_models.service_quotas.service_quotas_constants import *  # noqa: F401,F403
 
 # Optional boto3 symbols — imported lazily so services that don't need them
@@ -39,13 +41,13 @@ except ImportError:  # pragma: no cover
 
 
 class CreateSupportCaseRequestTypeDef(BaseValidatorModel):
-    RequestId: str
+    RequestId: Annotated[str, _aws_pattern("ServiceQuotas", "RequestId")]
 
 
 class DeleteServiceQuotaIncreaseRequestFromTemplateRequestTypeDef(BaseValidatorModel):
-    ServiceCode: str
-    QuotaCode: str
-    AwsRegion: str
+    ServiceCode: Annotated[str, _aws_pattern("ServiceQuotas", "ServiceCode")]
+    QuotaCode: Annotated[str, _aws_pattern("ServiceQuotas", "QuotaCode")]
+    AwsRegion: Annotated[str, _aws_pattern("ServiceQuotas", "AwsRegion")]
 
 
 class ErrorReasonTypeDef(BaseValidatorModel):
@@ -55,8 +57,8 @@ class ErrorReasonTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'get_aws_default_service_quota' function.
 class GetAWSDefaultServiceQuotaRequestTypeDef(BaseValidatorModel):
-    ServiceCode: str
-    QuotaCode: str
+    ServiceCode: Annotated[str, _aws_pattern("ServiceQuotas", "ServiceCode")]
+    QuotaCode: Annotated[str, _aws_pattern("ServiceQuotas", "QuotaCode")]
 
 
 class ResponseMetadataTypeDef(BaseValidatorModel):
@@ -68,20 +70,20 @@ class ResponseMetadataTypeDef(BaseValidatorModel):
 
 
 class QuotaInfoTypeDef(BaseValidatorModel):
-    QuotaCode: Optional[str] = None
+    QuotaCode: Optional[Annotated[str, _aws_pattern("ServiceQuotas", "QuotaCode")]] = None
     QuotaName: Optional[str] = None
 
 
 # This class is the input for the 'get_quota_utilization_report' function.
 class GetQuotaUtilizationReportRequestTypeDef(BaseValidatorModel):
-    ReportId: str
-    NextToken: Optional[str] = None
+    ReportId: Annotated[str, _aws_pattern("ServiceQuotas", "ReportId")]
+    NextToken: Optional[Annotated[str, _aws_pattern("ServiceQuotas", "NextToken")]] = None
     MaxResults: Optional[int] = None
 
 
 class QuotaUtilizationInfoTypeDef(BaseValidatorModel):
-    QuotaCode: Optional[str] = None
-    ServiceCode: Optional[str] = None
+    QuotaCode: Optional[Annotated[str, _aws_pattern("ServiceQuotas", "QuotaCode")]] = None
+    ServiceCode: Optional[Annotated[str, _aws_pattern("ServiceQuotas", "ServiceCode")]] = None
     QuotaName: Optional[str] = None
     Namespace: Optional[str] = None
     Utilization: Optional[float] = None
@@ -93,31 +95,31 @@ class QuotaUtilizationInfoTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'get_requested_service_quota_change' function.
 class GetRequestedServiceQuotaChangeRequestTypeDef(BaseValidatorModel):
-    RequestId: str
+    RequestId: Annotated[str, _aws_pattern("ServiceQuotas", "RequestId")]
 
 
 # This class is the input for the 'get_service_quota_increase_request_from_template' function.
 class GetServiceQuotaIncreaseRequestFromTemplateRequestTypeDef(BaseValidatorModel):
-    ServiceCode: str
-    QuotaCode: str
-    AwsRegion: str
+    ServiceCode: Annotated[str, _aws_pattern("ServiceQuotas", "ServiceCode")]
+    QuotaCode: Annotated[str, _aws_pattern("ServiceQuotas", "QuotaCode")]
+    AwsRegion: Annotated[str, _aws_pattern("ServiceQuotas", "AwsRegion")]
 
 
 class ServiceQuotaIncreaseRequestInTemplateTypeDef(BaseValidatorModel):
-    ServiceCode: Optional[str] = None
+    ServiceCode: Optional[Annotated[str, _aws_pattern("ServiceQuotas", "ServiceCode")]] = None
     ServiceName: Optional[str] = None
-    QuotaCode: Optional[str] = None
+    QuotaCode: Optional[Annotated[str, _aws_pattern("ServiceQuotas", "QuotaCode")]] = None
     QuotaName: Optional[str] = None
     DesiredValue: Optional[float] = None
-    AwsRegion: Optional[str] = None
+    AwsRegion: Optional[Annotated[str, _aws_pattern("ServiceQuotas", "AwsRegion")]] = None
     Unit: Optional[str] = None
     GlobalQuota: Optional[bool] = None
 
 
 # This class is the input for the 'get_service_quota' function.
 class GetServiceQuotaRequestTypeDef(BaseValidatorModel):
-    ServiceCode: str
-    QuotaCode: str
+    ServiceCode: Annotated[str, _aws_pattern("ServiceQuotas", "ServiceCode")]
+    QuotaCode: Annotated[str, _aws_pattern("ServiceQuotas", "QuotaCode")]
     ContextId: Optional[str] = None
 
 
@@ -129,80 +131,80 @@ class PaginatorConfigTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'list_aws_default_service_quotas' function.
 class ListAWSDefaultServiceQuotasRequestTypeDef(BaseValidatorModel):
-    ServiceCode: str
-    NextToken: Optional[str] = None
+    ServiceCode: Annotated[str, _aws_pattern("ServiceQuotas", "ServiceCode")]
+    NextToken: Optional[Annotated[str, _aws_pattern("ServiceQuotas", "NextToken")]] = None
     MaxResults: Optional[int] = None
 
 
 # This class is the input for the 'list_requested_service_quota_change_history_by_quota' function.
 class ListRequestedServiceQuotaChangeHistoryByQuotaRequestTypeDef(BaseValidatorModel):
-    ServiceCode: str
-    QuotaCode: str
+    ServiceCode: Annotated[str, _aws_pattern("ServiceQuotas", "ServiceCode")]
+    QuotaCode: Annotated[str, _aws_pattern("ServiceQuotas", "QuotaCode")]
     Status: Optional[RequestStatusType] = None
-    NextToken: Optional[str] = None
+    NextToken: Optional[Annotated[str, _aws_pattern("ServiceQuotas", "NextToken")]] = None
     MaxResults: Optional[int] = None
     QuotaRequestedAtLevel: Optional[AppliedLevelEnumType] = None
 
 
 # This class is the input for the 'list_requested_service_quota_change_history' function.
 class ListRequestedServiceQuotaChangeHistoryRequestTypeDef(BaseValidatorModel):
-    ServiceCode: Optional[str] = None
+    ServiceCode: Optional[Annotated[str, _aws_pattern("ServiceQuotas", "ServiceCode")]] = None
     Status: Optional[RequestStatusType] = None
-    NextToken: Optional[str] = None
+    NextToken: Optional[Annotated[str, _aws_pattern("ServiceQuotas", "NextToken")]] = None
     MaxResults: Optional[int] = None
     QuotaRequestedAtLevel: Optional[AppliedLevelEnumType] = None
 
 
 # This class is the input for the 'list_service_quota_increase_requests_in_template' function.
 class ListServiceQuotaIncreaseRequestsInTemplateRequestTypeDef(BaseValidatorModel):
-    ServiceCode: Optional[str] = None
-    AwsRegion: Optional[str] = None
-    NextToken: Optional[str] = None
+    ServiceCode: Optional[Annotated[str, _aws_pattern("ServiceQuotas", "ServiceCode")]] = None
+    AwsRegion: Optional[Annotated[str, _aws_pattern("ServiceQuotas", "AwsRegion")]] = None
+    NextToken: Optional[Annotated[str, _aws_pattern("ServiceQuotas", "NextToken")]] = None
     MaxResults: Optional[int] = None
 
 
 # This class is the input for the 'list_service_quotas' function.
 class ListServiceQuotasRequestTypeDef(BaseValidatorModel):
-    ServiceCode: str
-    NextToken: Optional[str] = None
+    ServiceCode: Annotated[str, _aws_pattern("ServiceQuotas", "ServiceCode")]
+    NextToken: Optional[Annotated[str, _aws_pattern("ServiceQuotas", "NextToken")]] = None
     MaxResults: Optional[int] = None
-    QuotaCode: Optional[str] = None
+    QuotaCode: Optional[Annotated[str, _aws_pattern("ServiceQuotas", "QuotaCode")]] = None
     QuotaAppliedAtLevel: Optional[AppliedLevelEnumType] = None
 
 
 # This class is the input for the 'list_services' function.
 class ListServicesRequestTypeDef(BaseValidatorModel):
-    NextToken: Optional[str] = None
+    NextToken: Optional[Annotated[str, _aws_pattern("ServiceQuotas", "NextToken")]] = None
     MaxResults: Optional[int] = None
 
 
 class ServiceInfoTypeDef(BaseValidatorModel):
-    ServiceCode: Optional[str] = None
+    ServiceCode: Optional[Annotated[str, _aws_pattern("ServiceQuotas", "ServiceCode")]] = None
     ServiceName: Optional[str] = None
 
 
 # This class is the input for the 'list_tags_for_resource' function.
 class ListTagsForResourceRequestTypeDef(BaseValidatorModel):
-    ResourceARN: str
+    ResourceARN: Annotated[str, _aws_pattern("ServiceQuotas", "AmazonResourceName")]
 
 
 class TagTypeDef(BaseValidatorModel):
-    Key: str
-    Value: str
+    Key: Annotated[str, _aws_pattern("ServiceQuotas", "TagKey")]
+    Value: Annotated[str, _aws_pattern("ServiceQuotas", "TagValue")]
 
 
 class MetricInfoTypeDef(BaseValidatorModel):
     MetricNamespace: Optional[str] = None
     MetricName: Optional[str] = None
     MetricDimensions: Optional[Dict[str, str]] = None
-    MetricStatisticRecommendation: Optional[str] = None
+    MetricStatisticRecommendation: Optional[Annotated[str, _aws_pattern("ServiceQuotas", "Statistic")]] = None
 
 
 # This class is the input for the 'put_service_quota_increase_request_into_template' function.
 class PutServiceQuotaIncreaseRequestIntoTemplateRequestTypeDef(BaseValidatorModel):
-    QuotaCode: str
-    ServiceCode: str
-    AwsRegion: str
+    QuotaCode: Annotated[str, _aws_pattern("ServiceQuotas", "QuotaCode")]
+    ServiceCode: Annotated[str, _aws_pattern("ServiceQuotas", "ServiceCode")]
+    AwsRegion: Annotated[str, _aws_pattern("ServiceQuotas", "AwsRegion")]
     DesiredValue: float
 
 
@@ -219,8 +221,8 @@ class QuotaPeriodTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'request_service_quota_increase' function.
 class RequestServiceQuotaIncreaseRequestTypeDef(BaseValidatorModel):
-    ServiceCode: str
-    QuotaCode: str
+    ServiceCode: Annotated[str, _aws_pattern("ServiceQuotas", "ServiceCode")]
+    QuotaCode: Annotated[str, _aws_pattern("ServiceQuotas", "QuotaCode")]
     DesiredValue: float
     ContextId: Optional[str] = None
     SupportCaseAllowed: Optional[bool] = None
@@ -229,18 +231,18 @@ class RequestServiceQuotaIncreaseRequestTypeDef(BaseValidatorModel):
 class StartAutoManagementRequestTypeDef(BaseValidatorModel):
     OptInLevel: Literal["ACCOUNT"]
     OptInType: OptInTypeType
-    NotificationArn: Optional[str] = None
+    NotificationArn: Optional[Annotated[str, _aws_pattern("ServiceQuotas", "AmazonResourceName")]] = None
     ExclusionList: Optional[Dict[str, List[str]]] = None
 
 
 class UntagResourceRequestTypeDef(BaseValidatorModel):
-    ResourceARN: str
-    TagKeys: List[str]
+    ResourceARN: Annotated[str, _aws_pattern("ServiceQuotas", "AmazonResourceName")]
+    TagKeys: List[Annotated[str, _aws_pattern("ServiceQuotas", "TagKey")]]
 
 
 class UpdateAutoManagementRequestTypeDef(BaseValidatorModel):
     OptInType: Optional[OptInTypeType] = None
-    NotificationArn: Optional[str] = None
+    NotificationArn: Optional[Annotated[str, _aws_pattern("ServiceQuotas", "AmazonResourceName")]] = None
     ExclusionList: Optional[Dict[str, List[str]]] = None
 
 
@@ -250,16 +252,16 @@ class GetAssociationForServiceQuotaTemplateResponseTypeDef(BaseValidatorModel):
 
 
 class StartQuotaUtilizationReportResponseTypeDef(BaseValidatorModel):
-    ReportId: str
+    ReportId: Annotated[str, _aws_pattern("ServiceQuotas", "ReportId")]
     Status: ReportStatusType
-    Message: str
+    Message: Annotated[str, _aws_pattern("ServiceQuotas", "ReportMessage")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 class GetAutoManagementConfigurationResponseTypeDef(BaseValidatorModel):
     OptInLevel: Literal["ACCOUNT"]
     OptInType: OptInTypeType
-    NotificationArn: str
+    NotificationArn: Annotated[str, _aws_pattern("ServiceQuotas", "AmazonResourceName")]
     OptInStatus: OptInStatusType
     ExclusionList: Dict[str, List[QuotaInfoTypeDef]]
     ResponseMetadata: ResponseMetadataTypeDef
@@ -267,15 +269,15 @@ class GetAutoManagementConfigurationResponseTypeDef(BaseValidatorModel):
 
 # This class is the output for the 'get_quota_utilization_report' function.
 class GetQuotaUtilizationReportResponseTypeDef(BaseValidatorModel):
-    ReportId: str
+    ReportId: Annotated[str, _aws_pattern("ServiceQuotas", "ReportId")]
     Status: ReportStatusType
     GeneratedAt: datetime
     TotalCount: int
     Quotas: List[QuotaUtilizationInfoTypeDef]
-    ErrorCode: str
-    ErrorMessage: str
+    ErrorCode: Annotated[str, _aws_pattern("ServiceQuotas", "ReportErrorCode")]
+    ErrorMessage: Annotated[str, _aws_pattern("ServiceQuotas", "ReportErrorMessage")]
     ResponseMetadata: ResponseMetadataTypeDef
-    NextToken: Optional[str] = None
+    NextToken: Optional[Annotated[str, _aws_pattern("ServiceQuotas", "NextToken")]] = None
 
 
 # This class is the output for the 'get_service_quota_increase_request_from_template' function.
@@ -288,7 +290,7 @@ class GetServiceQuotaIncreaseRequestFromTemplateResponseTypeDef(BaseValidatorMod
 class ListServiceQuotaIncreaseRequestsInTemplateResponseTypeDef(BaseValidatorModel):
     ServiceQuotaIncreaseRequestInTemplateList: List[ServiceQuotaIncreaseRequestInTemplateTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
-    NextToken: Optional[str] = None
+    NextToken: Optional[Annotated[str, _aws_pattern("ServiceQuotas", "NextToken")]] = None
 
 
 # This class is the output for the 'put_service_quota_increase_request_into_template' function.
@@ -338,7 +340,7 @@ class ListServicesRequestPaginateTypeDef(BaseValidatorModel):
 class ListServicesResponseTypeDef(BaseValidatorModel):
     Services: List[ServiceInfoTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
-    NextToken: Optional[str] = None
+    NextToken: Optional[Annotated[str, _aws_pattern("ServiceQuotas", "NextToken")]] = None
 
 
 # This class is the output for the 'list_tags_for_resource' function.
@@ -348,17 +350,17 @@ class ListTagsForResourceResponseTypeDef(BaseValidatorModel):
 
 
 class TagResourceRequestTypeDef(BaseValidatorModel):
-    ResourceARN: str
+    ResourceARN: Annotated[str, _aws_pattern("ServiceQuotas", "AmazonResourceName")]
     Tags: List[TagTypeDef]
 
 
 class RequestedServiceQuotaChangeTypeDef(BaseValidatorModel):
-    Id: Optional[str] = None
+    Id: Optional[Annotated[str, _aws_pattern("ServiceQuotas", "RequestId")]] = None
     RequestType: Optional[Literal["AutomaticManagement"]] = None
     CaseId: Optional[str] = None
-    ServiceCode: Optional[str] = None
+    ServiceCode: Optional[Annotated[str, _aws_pattern("ServiceQuotas", "ServiceCode")]] = None
     ServiceName: Optional[str] = None
-    QuotaCode: Optional[str] = None
+    QuotaCode: Optional[Annotated[str, _aws_pattern("ServiceQuotas", "QuotaCode")]] = None
     QuotaName: Optional[str] = None
     DesiredValue: Optional[float] = None
     Status: Optional[RequestStatusType] = None
@@ -373,10 +375,10 @@ class RequestedServiceQuotaChangeTypeDef(BaseValidatorModel):
 
 
 class ServiceQuotaTypeDef(BaseValidatorModel):
-    ServiceCode: Optional[str] = None
+    ServiceCode: Optional[Annotated[str, _aws_pattern("ServiceQuotas", "ServiceCode")]] = None
     ServiceName: Optional[str] = None
     QuotaArn: Optional[str] = None
-    QuotaCode: Optional[str] = None
+    QuotaCode: Optional[Annotated[str, _aws_pattern("ServiceQuotas", "QuotaCode")]] = None
     QuotaName: Optional[str] = None
     Value: Optional[float] = None
     Unit: Optional[str] = None
@@ -387,7 +389,7 @@ class ServiceQuotaTypeDef(BaseValidatorModel):
     ErrorReason: Optional[ErrorReasonTypeDef] = None
     QuotaAppliedAtLevel: Optional[AppliedLevelEnumType] = None
     QuotaContext: Optional[QuotaContextInfoTypeDef] = None
-    Description: Optional[str] = None
+    Description: Optional[Annotated[str, _aws_pattern("ServiceQuotas", "QuotaDescription")]] = None
 
 
 # This class is the output for the 'get_requested_service_quota_change' function.
@@ -400,14 +402,14 @@ class GetRequestedServiceQuotaChangeResponseTypeDef(BaseValidatorModel):
 class ListRequestedServiceQuotaChangeHistoryByQuotaResponseTypeDef(BaseValidatorModel):
     RequestedQuotas: List[RequestedServiceQuotaChangeTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
-    NextToken: Optional[str] = None
+    NextToken: Optional[Annotated[str, _aws_pattern("ServiceQuotas", "NextToken")]] = None
 
 
 # This class is the output for the 'list_requested_service_quota_change_history' function.
 class ListRequestedServiceQuotaChangeHistoryResponseTypeDef(BaseValidatorModel):
     RequestedQuotas: List[RequestedServiceQuotaChangeTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
-    NextToken: Optional[str] = None
+    NextToken: Optional[Annotated[str, _aws_pattern("ServiceQuotas", "NextToken")]] = None
 
 
 # This class is the output for the 'request_service_quota_increase' function.
@@ -432,11 +434,11 @@ class GetServiceQuotaResponseTypeDef(BaseValidatorModel):
 class ListAWSDefaultServiceQuotasResponseTypeDef(BaseValidatorModel):
     Quotas: List[ServiceQuotaTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
-    NextToken: Optional[str] = None
+    NextToken: Optional[Annotated[str, _aws_pattern("ServiceQuotas", "NextToken")]] = None
 
 
 # This class is the output for the 'list_service_quotas' function.
 class ListServiceQuotasResponseTypeDef(BaseValidatorModel):
     Quotas: List[ServiceQuotaTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
-    NextToken: Optional[str] = None
+    NextToken: Optional[Annotated[str, _aws_pattern("ServiceQuotas", "NextToken")]] = None

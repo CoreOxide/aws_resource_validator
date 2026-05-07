@@ -3,6 +3,7 @@
 from datetime import datetime
 from decimal import Decimal
 from typing import (
+    Annotated,
     Any,
     Callable,
     Dict,
@@ -24,6 +25,7 @@ from botocore.response import StreamingBody
 from pydantic import Field
 
 from aws_resource_validator.core.base_validator_model import BaseValidatorModel, EventStream
+from aws_resource_validator.core.pattern_validation import aws_field_pattern as _aws_pattern
 from aws_resource_validator.pydantic_models.codeguruprofiler.codeguruprofiler_constants import *  # noqa: F401,F403
 
 # Optional boto3 symbols — imported lazily so services that don't need them
@@ -90,27 +92,27 @@ class ChannelOutputTypeDef(BaseValidatorModel):
 class ChannelTypeDef(BaseValidatorModel):
     eventPublishers: List[Literal["AnomalyDetection"]]
     uri: str
-    id: Optional[str] = None
+    id: Optional[Annotated[str, _aws_pattern("Codeguruprofiler", "ChannelId")]] = None
 
 
 # This class is the input for the 'configure_agent' function.
 class ConfigureAgentRequestTypeDef(BaseValidatorModel):
-    profilingGroupName: str
+    profilingGroupName: Annotated[str, _aws_pattern("Codeguruprofiler", "ProfilingGroupName")]
     fleetInstanceId: Optional[str] = None
     metadata: Optional[Dict[MetadataFieldType, str]] = None
 
 
 class DeleteProfilingGroupRequestTypeDef(BaseValidatorModel):
-    profilingGroupName: str
+    profilingGroupName: Annotated[str, _aws_pattern("Codeguruprofiler", "ProfilingGroupName")]
 
 
 # This class is the input for the 'describe_profiling_group' function.
 class DescribeProfilingGroupRequestTypeDef(BaseValidatorModel):
-    profilingGroupName: str
+    profilingGroupName: Annotated[str, _aws_pattern("Codeguruprofiler", "ProfilingGroupName")]
 
 
 class FindingsReportSummaryTypeDef(BaseValidatorModel):
-    id: Optional[str] = None
+    id: Optional[Annotated[str, _aws_pattern("Codeguruprofiler", "FindingsReportId")]] = None
     profileEndTime: Optional[datetime] = None
     profileStartTime: Optional[datetime] = None
     profilingGroupName: Optional[str] = None
@@ -133,17 +135,17 @@ class FrameMetricTypeDef(BaseValidatorModel):
 class GetFindingsReportAccountSummaryRequestTypeDef(BaseValidatorModel):
     dailyReportsOnly: Optional[bool] = None
     maxResults: Optional[int] = None
-    nextToken: Optional[str] = None
+    nextToken: Optional[Annotated[str, _aws_pattern("Codeguruprofiler", "PaginationToken")]] = None
 
 
 # This class is the input for the 'get_notification_configuration' function.
 class GetNotificationConfigurationRequestTypeDef(BaseValidatorModel):
-    profilingGroupName: str
+    profilingGroupName: Annotated[str, _aws_pattern("Codeguruprofiler", "ProfilingGroupName")]
 
 
 # This class is the input for the 'get_policy' function.
 class GetPolicyRequestTypeDef(BaseValidatorModel):
-    profilingGroupName: str
+    profilingGroupName: Annotated[str, _aws_pattern("Codeguruprofiler", "ProfilingGroupName")]
 
 
 class PaginatorConfigTypeDef(BaseValidatorModel):
@@ -160,7 +162,7 @@ class ProfileTimeTypeDef(BaseValidatorModel):
 class ListProfilingGroupsRequestTypeDef(BaseValidatorModel):
     includeDescription: Optional[bool] = None
     maxResults: Optional[int] = None
-    nextToken: Optional[str] = None
+    nextToken: Optional[Annotated[str, _aws_pattern("Codeguruprofiler", "PaginationToken")]] = None
 
 
 # This class is the input for the 'list_tags_for_resource' function.
@@ -188,26 +190,26 @@ class PatternTypeDef(BaseValidatorModel):
 class PutPermissionRequestTypeDef(BaseValidatorModel):
     actionGroup: Literal["agentPermissions"]
     principals: List[str]
-    profilingGroupName: str
-    revisionId: Optional[str] = None
+    profilingGroupName: Annotated[str, _aws_pattern("Codeguruprofiler", "ProfilingGroupName")]
+    revisionId: Optional[Annotated[str, _aws_pattern("Codeguruprofiler", "RevisionId")]] = None
 
 
 # This class is the input for the 'remove_notification_channel' function.
 class RemoveNotificationChannelRequestTypeDef(BaseValidatorModel):
-    channelId: str
-    profilingGroupName: str
+    channelId: Annotated[str, _aws_pattern("Codeguruprofiler", "ChannelId")]
+    profilingGroupName: Annotated[str, _aws_pattern("Codeguruprofiler", "ProfilingGroupName")]
 
 
 # This class is the input for the 'remove_permission' function.
 class RemovePermissionRequestTypeDef(BaseValidatorModel):
     actionGroup: Literal["agentPermissions"]
-    profilingGroupName: str
-    revisionId: str
+    profilingGroupName: Annotated[str, _aws_pattern("Codeguruprofiler", "ProfilingGroupName")]
+    revisionId: Annotated[str, _aws_pattern("Codeguruprofiler", "RevisionId")]
 
 
 class SubmitFeedbackRequestTypeDef(BaseValidatorModel):
-    anomalyInstanceId: str
-    profilingGroupName: str
+    anomalyInstanceId: Annotated[str, _aws_pattern("Codeguruprofiler", "AnomalyInstanceId")]
+    profilingGroupName: Annotated[str, _aws_pattern("Codeguruprofiler", "ProfilingGroupName")]
     type: FeedbackTypeType
     comment: Optional[str] = None
 
@@ -225,7 +227,7 @@ class UntagResourceRequestTypeDef(BaseValidatorModel):
 # This class is the output for the 'get_policy' function.
 class GetPolicyResponseTypeDef(BaseValidatorModel):
     policy: str
-    revisionId: str
+    revisionId: Annotated[str, _aws_pattern("Codeguruprofiler", "RevisionId")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
@@ -246,14 +248,14 @@ class ListTagsForResourceResponseTypeDef(BaseValidatorModel):
 # This class is the output for the 'put_permission' function.
 class PutPermissionResponseTypeDef(BaseValidatorModel):
     policy: str
-    revisionId: str
+    revisionId: Annotated[str, _aws_pattern("Codeguruprofiler", "RevisionId")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 # This class is the output for the 'remove_permission' function.
 class RemovePermissionResponseTypeDef(BaseValidatorModel):
     policy: str
-    revisionId: str
+    revisionId: Annotated[str, _aws_pattern("Codeguruprofiler", "RevisionId")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
@@ -265,8 +267,8 @@ class ConfigureAgentResponseTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'create_profiling_group' function.
 class CreateProfilingGroupRequestTypeDef(BaseValidatorModel):
-    clientToken: str
-    profilingGroupName: str
+    clientToken: Annotated[str, _aws_pattern("Codeguruprofiler", "ClientToken")]
+    profilingGroupName: Annotated[str, _aws_pattern("Codeguruprofiler", "ProfilingGroupName")]
     agentOrchestrationConfig: Optional[AgentOrchestrationConfigTypeDef] = None
     computePlatform: Optional[ComputePlatformType] = None
     tags: Optional[Dict[str, str]] = None
@@ -275,7 +277,7 @@ class CreateProfilingGroupRequestTypeDef(BaseValidatorModel):
 # This class is the input for the 'update_profiling_group' function.
 class UpdateProfilingGroupRequestTypeDef(BaseValidatorModel):
     agentOrchestrationConfig: AgentOrchestrationConfigTypeDef
-    profilingGroupName: str
+    profilingGroupName: Annotated[str, _aws_pattern("Codeguruprofiler", "ProfilingGroupName")]
 
 
 class ProfilingStatusTypeDef(BaseValidatorModel):
@@ -293,7 +295,7 @@ class AnomalyInstanceTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'get_profile' function.
 class GetProfileRequestTypeDef(BaseValidatorModel):
-    profilingGroupName: str
+    profilingGroupName: Annotated[str, _aws_pattern("Codeguruprofiler", "ProfilingGroupName")]
     accept: Optional[str] = None
     endTime: Optional[TimestampTypeDef] = None
     maxDepth: Optional[int] = None
@@ -304,7 +306,7 @@ class GetProfileRequestTypeDef(BaseValidatorModel):
 # This class is the input for the 'get_recommendations' function.
 class GetRecommendationsRequestTypeDef(BaseValidatorModel):
     endTime: TimestampTypeDef
-    profilingGroupName: str
+    profilingGroupName: Annotated[str, _aws_pattern("Codeguruprofiler", "ProfilingGroupName")]
     startTime: TimestampTypeDef
     locale: Optional[str] = None
 
@@ -312,29 +314,29 @@ class GetRecommendationsRequestTypeDef(BaseValidatorModel):
 # This class is the input for the 'list_findings_reports' function.
 class ListFindingsReportsRequestTypeDef(BaseValidatorModel):
     endTime: TimestampTypeDef
-    profilingGroupName: str
+    profilingGroupName: Annotated[str, _aws_pattern("Codeguruprofiler", "ProfilingGroupName")]
     startTime: TimestampTypeDef
     dailyReportsOnly: Optional[bool] = None
     maxResults: Optional[int] = None
-    nextToken: Optional[str] = None
+    nextToken: Optional[Annotated[str, _aws_pattern("Codeguruprofiler", "PaginationToken")]] = None
 
 
 # This class is the input for the 'list_profile_times' function.
 class ListProfileTimesRequestTypeDef(BaseValidatorModel):
     endTime: TimestampTypeDef
     period: AggregationPeriodType
-    profilingGroupName: str
+    profilingGroupName: Annotated[str, _aws_pattern("Codeguruprofiler", "ProfilingGroupName")]
     startTime: TimestampTypeDef
     maxResults: Optional[int] = None
-    nextToken: Optional[str] = None
+    nextToken: Optional[Annotated[str, _aws_pattern("Codeguruprofiler", "PaginationToken")]] = None
     orderBy: Optional[OrderByType] = None
 
 
 class PostAgentProfileRequestTypeDef(BaseValidatorModel):
     agentProfile: BlobTypeDef
     contentType: str
-    profilingGroupName: str
-    profileToken: Optional[str] = None
+    profilingGroupName: Annotated[str, _aws_pattern("Codeguruprofiler", "ProfilingGroupName")]
+    profileToken: Optional[Annotated[str, _aws_pattern("Codeguruprofiler", "ClientToken")]] = None
 
 
 class NotificationConfigurationTypeDef(BaseValidatorModel):
@@ -348,14 +350,14 @@ ChannelUnionTypeDef = Union[ChannelOutputTypeDef, ChannelTypeDef]
 class GetFindingsReportAccountSummaryResponseTypeDef(BaseValidatorModel):
     reportSummaries: List[FindingsReportSummaryTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
-    nextToken: Optional[str] = None
+    nextToken: Optional[Annotated[str, _aws_pattern("Codeguruprofiler", "PaginationToken")]] = None
 
 
 # This class is the output for the 'list_findings_reports' function.
 class ListFindingsReportsResponseTypeDef(BaseValidatorModel):
     findingsReportSummaries: List[FindingsReportSummaryTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
-    nextToken: Optional[str] = None
+    nextToken: Optional[Annotated[str, _aws_pattern("Codeguruprofiler", "PaginationToken")]] = None
 
 
 class FrameMetricDatumTypeDef(BaseValidatorModel):
@@ -379,7 +381,7 @@ class ListProfileTimesRequestPaginateTypeDef(BaseValidatorModel):
 class ListProfileTimesResponseTypeDef(BaseValidatorModel):
     profileTimes: List[ProfileTimeTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
-    nextToken: Optional[str] = None
+    nextToken: Optional[Annotated[str, _aws_pattern("Codeguruprofiler", "PaginationToken")]] = None
 
 
 class RecommendationTypeDef(BaseValidatorModel):
@@ -396,7 +398,7 @@ class ProfilingGroupDescriptionTypeDef(BaseValidatorModel):
     arn: Optional[str] = None
     computePlatform: Optional[ComputePlatformType] = None
     createdAt: Optional[datetime] = None
-    name: Optional[str] = None
+    name: Optional[Annotated[str, _aws_pattern("Codeguruprofiler", "ProfilingGroupName")]] = None
     profilingStatus: Optional[ProfilingStatusTypeDef] = None
     tags: Optional[Dict[str, str]] = None
     updatedAt: Optional[datetime] = None
@@ -429,7 +431,7 @@ class RemoveNotificationChannelResponseTypeDef(BaseValidatorModel):
 # This class is the input for the 'add_notification_channels' function.
 class AddNotificationChannelsRequestTypeDef(BaseValidatorModel):
     channels: List[ChannelUnionTypeDef]
-    profilingGroupName: str
+    profilingGroupName: Annotated[str, _aws_pattern("Codeguruprofiler", "ProfilingGroupName")]
 
 
 # This class is the output for the 'batch_get_frame_metric_data' function.
@@ -445,7 +447,7 @@ class BatchGetFrameMetricDataResponseTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'batch_get_frame_metric_data' function.
 class BatchGetFrameMetricDataRequestTypeDef(BaseValidatorModel):
-    profilingGroupName: str
+    profilingGroupName: Annotated[str, _aws_pattern("Codeguruprofiler", "ProfilingGroupName")]
     endTime: Optional[TimestampTypeDef] = None
     frameMetrics: Optional[List[FrameMetricUnionTypeDef]] = None
     period: Optional[str] = None
@@ -467,10 +469,10 @@ class DescribeProfilingGroupResponseTypeDef(BaseValidatorModel):
 
 # This class is the output for the 'list_profiling_groups' function.
 class ListProfilingGroupsResponseTypeDef(BaseValidatorModel):
-    profilingGroupNames: List[str]
+    profilingGroupNames: List[Annotated[str, _aws_pattern("Codeguruprofiler", "ProfilingGroupName")]]
     profilingGroups: List[ProfilingGroupDescriptionTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
-    nextToken: Optional[str] = None
+    nextToken: Optional[Annotated[str, _aws_pattern("Codeguruprofiler", "PaginationToken")]] = None
 
 
 # This class is the output for the 'update_profiling_group' function.
@@ -484,6 +486,6 @@ class GetRecommendationsResponseTypeDef(BaseValidatorModel):
     anomalies: List[AnomalyTypeDef]
     profileEndTime: datetime
     profileStartTime: datetime
-    profilingGroupName: str
+    profilingGroupName: Annotated[str, _aws_pattern("Codeguruprofiler", "ProfilingGroupName")]
     recommendations: List[RecommendationTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef

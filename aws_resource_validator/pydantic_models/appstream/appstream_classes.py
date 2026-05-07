@@ -3,6 +3,7 @@
 from datetime import datetime
 from decimal import Decimal
 from typing import (
+    Annotated,
     Any,
     Callable,
     Dict,
@@ -24,6 +25,7 @@ from botocore.response import StreamingBody
 from pydantic import Field
 
 from aws_resource_validator.core.base_validator_model import BaseValidatorModel, EventStream
+from aws_resource_validator.core.pattern_validation import aws_field_pattern as _aws_pattern
 from aws_resource_validator.pydantic_models.appstream.appstream_constants import *  # noqa: F401,F403
 
 # Optional boto3 symbols — imported lazily so services that don't need them
@@ -46,16 +48,21 @@ class AccessEndpointTypeDef(BaseValidatorModel):
 class AdminAppLicenseUsageRecordTypeDef(BaseValidatorModel):
     UserArn: str
     BillingPeriod: str
-    OwnerAWSAccountId: str
+    OwnerAWSAccountId: Annotated[str, _aws_pattern("Appstream", "AwsAccountId")]
     SubscriptionFirstUsedDate: datetime
     SubscriptionLastUsedDate: datetime
     LicenseType: str
     UserId: str
 
 
+class AgentAccessSettingTypeDef(BaseValidatorModel):
+    AgentAction: AgentActionType
+    Permission: PermissionType
+
+
 class AppBlockBuilderAppBlockAssociationTypeDef(BaseValidatorModel):
-    AppBlockArn: str
-    AppBlockBuilderName: str
+    AppBlockArn: Annotated[str, _aws_pattern("Appstream", "Arn")]
+    AppBlockBuilderName: Annotated[str, _aws_pattern("Appstream", "Name")]
 
 
 class AppBlockBuilderStateChangeReasonTypeDef(BaseValidatorModel):
@@ -80,23 +87,23 @@ class ErrorDetailsTypeDef(BaseValidatorModel):
 
 
 class S3LocationTypeDef(BaseValidatorModel):
-    S3Bucket: str
+    S3Bucket: Annotated[str, _aws_pattern("Appstream", "S3Bucket")]
     S3Key: Optional[str] = None
 
 
 class ApplicationConfigTypeDef(BaseValidatorModel):
-    Name: str
+    Name: Annotated[str, _aws_pattern("Appstream", "AppName")]
     AbsoluteAppPath: str
-    DisplayName: Optional[str] = None
+    DisplayName: Optional[Annotated[str, _aws_pattern("Appstream", "AppDisplayName")]] = None
     AbsoluteIconPath: Optional[str] = None
     AbsoluteManifestPath: Optional[str] = None
     WorkingDirectory: Optional[str] = None
-    LaunchParameters: Optional[str] = None
+    LaunchParameters: Optional[Annotated[str, _aws_pattern("Appstream", "LaunchParameters")]] = None
 
 
 class ApplicationFleetAssociationTypeDef(BaseValidatorModel):
     FleetName: str
-    ApplicationArn: str
+    ApplicationArn: Annotated[str, _aws_pattern("Appstream", "Arn")]
 
 
 class ApplicationSettingsResponseTypeDef(BaseValidatorModel):
@@ -112,8 +119,8 @@ class ApplicationSettingsTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'associate_app_block_builder_app_block' function.
 class AssociateAppBlockBuilderAppBlockRequestTypeDef(BaseValidatorModel):
-    AppBlockArn: str
-    AppBlockBuilderName: str
+    AppBlockArn: Annotated[str, _aws_pattern("Appstream", "Arn")]
+    AppBlockBuilderName: Annotated[str, _aws_pattern("Appstream", "Name")]
 
 
 class ResponseMetadataTypeDef(BaseValidatorModel):
@@ -126,13 +133,13 @@ class ResponseMetadataTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'associate_application_fleet' function.
 class AssociateApplicationFleetRequestTypeDef(BaseValidatorModel):
-    FleetName: str
-    ApplicationArn: str
+    FleetName: Annotated[str, _aws_pattern("Appstream", "Name")]
+    ApplicationArn: Annotated[str, _aws_pattern("Appstream", "Arn")]
 
 
 class AssociateApplicationToEntitlementRequestTypeDef(BaseValidatorModel):
-    StackName: str
-    EntitlementName: str
+    StackName: Annotated[str, _aws_pattern("Appstream", "Name")]
+    EntitlementName: Annotated[str, _aws_pattern("Appstream", "Name")]
     ApplicationIdentifier: str
 
 
@@ -142,20 +149,20 @@ class AssociateFleetRequestTypeDef(BaseValidatorModel):
 
 
 class AssociateSoftwareToImageBuilderRequestTypeDef(BaseValidatorModel):
-    ImageBuilderName: str
+    ImageBuilderName: Annotated[str, _aws_pattern("Appstream", "Name")]
     SoftwareNames: List[str]
 
 
 class UserStackAssociationTypeDef(BaseValidatorModel):
     StackName: str
-    UserName: str
+    UserName: Annotated[str, _aws_pattern("Appstream", "Username")]
     AuthenticationType: AuthenticationTypeType
     SendEmailNotification: Optional[bool] = None
 
 
 class CertificateBasedAuthPropertiesTypeDef(BaseValidatorModel):
     Status: Optional[CertificateBasedAuthStatusType] = None
-    CertificateAuthorityArn: Optional[str] = None
+    CertificateAuthorityArn: Optional[Annotated[str, _aws_pattern("Appstream", "Arn")]] = None
 
 
 class ComputeCapacityStatusTypeDef(BaseValidatorModel):
@@ -185,21 +192,21 @@ class UrlRedirectionConfigOutputTypeDef(BaseValidatorModel):
 
 class UrlRedirectionConfigTypeDef(BaseValidatorModel):
     Enabled: bool
-    AllowedUrls: Optional[List[str]] = None
-    DeniedUrls: Optional[List[str]] = None
+    AllowedUrls: Optional[List[Annotated[str, _aws_pattern("Appstream", "UrlPattern")]]] = None
+    DeniedUrls: Optional[List[Annotated[str, _aws_pattern("Appstream", "UrlPattern")]]] = None
 
 
 # This class is the input for the 'copy_image' function.
 class CopyImageRequestTypeDef(BaseValidatorModel):
-    SourceImageName: str
-    DestinationImageName: str
+    SourceImageName: Annotated[str, _aws_pattern("Appstream", "Name")]
+    DestinationImageName: Annotated[str, _aws_pattern("Appstream", "Name")]
     DestinationRegion: str
     DestinationImageDescription: Optional[str] = None
 
 
 # This class is the input for the 'create_app_block_builder_streaming_url' function.
 class CreateAppBlockBuilderStreamingURLRequestTypeDef(BaseValidatorModel):
-    AppBlockBuilderName: str
+    AppBlockBuilderName: Annotated[str, _aws_pattern("Appstream", "Name")]
     Validity: Optional[int] = None
 
 
@@ -215,9 +222,9 @@ class EntitlementAttributeTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'create_export_image_task' function.
 class CreateExportImageTaskRequestTypeDef(BaseValidatorModel):
-    ImageName: str
-    AmiName: str
-    IamRoleArn: str
+    ImageName: Annotated[str, _aws_pattern("Appstream", "Name")]
+    AmiName: Annotated[str, _aws_pattern("Appstream", "AmiName")]
+    IamRoleArn: Annotated[str, _aws_pattern("Appstream", "Arn")]
     TagSpecifications: Optional[Dict[str, str]] = None
     AmiDescription: Optional[str] = None
 
@@ -238,7 +245,7 @@ class CreateImageBuilderStreamingURLRequestTypeDef(BaseValidatorModel):
 
 
 class RuntimeValidationConfigTypeDef(BaseValidatorModel):
-    IntendedInstanceType: Optional[str] = None
+    IntendedInstanceType: Optional[Annotated[str, _aws_pattern("Appstream", "InstanceType")]] = None
 
 
 class StreamingExperienceSettingsTypeDef(BaseValidatorModel):
@@ -255,21 +262,21 @@ class UserSettingTypeDef(BaseValidatorModel):
 class CreateStreamingURLRequestTypeDef(BaseValidatorModel):
     StackName: str
     FleetName: str
-    UserId: str
+    UserId: Annotated[str, _aws_pattern("Appstream", "StreamingUrlUserId")]
     ApplicationId: Optional[str] = None
     Validity: Optional[int] = None
     SessionContext: Optional[str] = None
 
 
 class ThemeFooterLinkTypeDef(BaseValidatorModel):
-    DisplayName: Optional[str] = None
+    DisplayName: Optional[Annotated[str, _aws_pattern("Appstream", "ThemeFooterLinkDisplayName")]] = None
     FooterLinkURL: Optional[str] = None
 
 
 # This class is the input for the 'create_updated_image' function.
 class CreateUpdatedImageRequestTypeDef(BaseValidatorModel):
-    existingImageName: str
-    newImageName: str
+    existingImageName: Annotated[str, _aws_pattern("Appstream", "Name")]
+    newImageName: Annotated[str, _aws_pattern("Appstream", "Name")]
     newImageDescription: Optional[str] = None
     newImageDisplayName: Optional[str] = None
     newImageTags: Optional[Dict[str, str]] = None
@@ -277,23 +284,23 @@ class CreateUpdatedImageRequestTypeDef(BaseValidatorModel):
 
 
 class CreateUserRequestTypeDef(BaseValidatorModel):
-    UserName: str
+    UserName: Annotated[str, _aws_pattern("Appstream", "Username")]
     AuthenticationType: AuthenticationTypeType
     MessageAction: Optional[MessageActionType] = None
-    FirstName: Optional[str] = None
-    LastName: Optional[str] = None
+    FirstName: Optional[Annotated[str, _aws_pattern("Appstream", "UserAttributeValue")]] = None
+    LastName: Optional[Annotated[str, _aws_pattern("Appstream", "UserAttributeValue")]] = None
 
 
 class DeleteAppBlockBuilderRequestTypeDef(BaseValidatorModel):
-    Name: str
+    Name: Annotated[str, _aws_pattern("Appstream", "Name")]
 
 
 class DeleteAppBlockRequestTypeDef(BaseValidatorModel):
-    Name: str
+    Name: Annotated[str, _aws_pattern("Appstream", "Name")]
 
 
 class DeleteApplicationRequestTypeDef(BaseValidatorModel):
-    Name: str
+    Name: Annotated[str, _aws_pattern("Appstream", "Name")]
 
 
 class DeleteDirectoryConfigRequestTypeDef(BaseValidatorModel):
@@ -301,8 +308,8 @@ class DeleteDirectoryConfigRequestTypeDef(BaseValidatorModel):
 
 
 class DeleteEntitlementRequestTypeDef(BaseValidatorModel):
-    Name: str
-    StackName: str
+    Name: Annotated[str, _aws_pattern("Appstream", "Name")]
+    StackName: Annotated[str, _aws_pattern("Appstream", "Name")]
 
 
 class DeleteFleetRequestTypeDef(BaseValidatorModel):
@@ -311,17 +318,17 @@ class DeleteFleetRequestTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'delete_image_builder' function.
 class DeleteImageBuilderRequestTypeDef(BaseValidatorModel):
-    Name: str
+    Name: Annotated[str, _aws_pattern("Appstream", "Name")]
 
 
 class DeleteImagePermissionsRequestTypeDef(BaseValidatorModel):
-    Name: str
-    SharedAccountId: str
+    Name: Annotated[str, _aws_pattern("Appstream", "Name")]
+    SharedAccountId: Annotated[str, _aws_pattern("Appstream", "AwsAccountId")]
 
 
 # This class is the input for the 'delete_image' function.
 class DeleteImageRequestTypeDef(BaseValidatorModel):
-    Name: str
+    Name: Annotated[str, _aws_pattern("Appstream", "Name")]
 
 
 class DeleteStackRequestTypeDef(BaseValidatorModel):
@@ -329,18 +336,18 @@ class DeleteStackRequestTypeDef(BaseValidatorModel):
 
 
 class DeleteThemeForStackRequestTypeDef(BaseValidatorModel):
-    StackName: str
+    StackName: Annotated[str, _aws_pattern("Appstream", "Name")]
 
 
 class DeleteUserRequestTypeDef(BaseValidatorModel):
-    UserName: str
+    UserName: Annotated[str, _aws_pattern("Appstream", "Username")]
     AuthenticationType: AuthenticationTypeType
 
 
 # This class is the input for the 'describe_app_block_builder_app_block_associations' function.
 class DescribeAppBlockBuilderAppBlockAssociationsRequestTypeDef(BaseValidatorModel):
-    AppBlockArn: Optional[str] = None
-    AppBlockBuilderName: Optional[str] = None
+    AppBlockArn: Optional[Annotated[str, _aws_pattern("Appstream", "Arn")]] = None
+    AppBlockBuilderName: Optional[Annotated[str, _aws_pattern("Appstream", "Name")]] = None
     MaxResults: Optional[int] = None
     NextToken: Optional[str] = None
 
@@ -354,7 +361,7 @@ class DescribeAppBlockBuildersRequestTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'describe_app_blocks' function.
 class DescribeAppBlocksRequestTypeDef(BaseValidatorModel):
-    Arns: Optional[List[str]] = None
+    Arns: Optional[List[Annotated[str, _aws_pattern("Appstream", "Arn")]]] = None
     NextToken: Optional[str] = None
     MaxResults: Optional[int] = None
 
@@ -368,15 +375,15 @@ class DescribeAppLicenseUsageRequestTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'describe_application_fleet_associations' function.
 class DescribeApplicationFleetAssociationsRequestTypeDef(BaseValidatorModel):
-    FleetName: Optional[str] = None
-    ApplicationArn: Optional[str] = None
+    FleetName: Optional[Annotated[str, _aws_pattern("Appstream", "Name")]] = None
+    ApplicationArn: Optional[Annotated[str, _aws_pattern("Appstream", "Arn")]] = None
     MaxResults: Optional[int] = None
     NextToken: Optional[str] = None
 
 
 # This class is the input for the 'describe_applications' function.
 class DescribeApplicationsRequestTypeDef(BaseValidatorModel):
-    Arns: Optional[List[str]] = None
+    Arns: Optional[List[Annotated[str, _aws_pattern("Appstream", "Arn")]]] = None
     NextToken: Optional[str] = None
     MaxResults: Optional[int] = None
 
@@ -396,8 +403,8 @@ class DescribeDirectoryConfigsRequestTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'describe_entitlements' function.
 class DescribeEntitlementsRequestTypeDef(BaseValidatorModel):
-    StackName: str
-    Name: Optional[str] = None
+    StackName: Annotated[str, _aws_pattern("Appstream", "Name")]
+    Name: Optional[Annotated[str, _aws_pattern("Appstream", "Name")]] = None
     NextToken: Optional[str] = None
     MaxResults: Optional[int] = None
 
@@ -422,16 +429,16 @@ class DescribeImageBuildersRequestTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'describe_image_permissions' function.
 class DescribeImagePermissionsRequestTypeDef(BaseValidatorModel):
-    Name: str
+    Name: Annotated[str, _aws_pattern("Appstream", "Name")]
     MaxResults: Optional[int] = None
-    SharedAwsAccountIds: Optional[List[str]] = None
+    SharedAwsAccountIds: Optional[List[Annotated[str, _aws_pattern("Appstream", "AwsAccountId")]]] = None
     NextToken: Optional[str] = None
 
 
 # This class is the input for the 'describe_images' function.
 class DescribeImagesRequestTypeDef(BaseValidatorModel):
     Names: Optional[List[str]] = None
-    Arns: Optional[List[str]] = None
+    Arns: Optional[List[Annotated[str, _aws_pattern("Appstream", "Arn")]]] = None
     Type: Optional[VisibilityTypeType] = None
     NextToken: Optional[str] = None
     MaxResults: Optional[int] = None
@@ -439,8 +446,8 @@ class DescribeImagesRequestTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'describe_sessions' function.
 class DescribeSessionsRequestTypeDef(BaseValidatorModel):
-    StackName: str
-    FleetName: str
+    StackName: Annotated[str, _aws_pattern("Appstream", "Name")]
+    FleetName: Annotated[str, _aws_pattern("Appstream", "Name")]
     UserId: Optional[str] = None
     NextToken: Optional[str] = None
     Limit: Optional[int] = None
@@ -450,7 +457,7 @@ class DescribeSessionsRequestTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'describe_software_associations' function.
 class DescribeSoftwareAssociationsRequestTypeDef(BaseValidatorModel):
-    AssociatedResource: str
+    AssociatedResource: Annotated[str, _aws_pattern("Appstream", "Arn")]
     MaxResults: Optional[int] = None
     NextToken: Optional[str] = None
 
@@ -463,7 +470,7 @@ class DescribeStacksRequestTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'describe_theme_for_stack' function.
 class DescribeThemeForStackRequestTypeDef(BaseValidatorModel):
-    StackName: str
+    StackName: Annotated[str, _aws_pattern("Appstream", "Name")]
 
 
 # This class is the input for the 'describe_usage_report_subscriptions' function.
@@ -475,7 +482,7 @@ class DescribeUsageReportSubscriptionsRequestTypeDef(BaseValidatorModel):
 # This class is the input for the 'describe_user_stack_associations' function.
 class DescribeUserStackAssociationsRequestTypeDef(BaseValidatorModel):
     StackName: Optional[str] = None
-    UserName: Optional[str] = None
+    UserName: Optional[Annotated[str, _aws_pattern("Appstream", "Username")]] = None
     AuthenticationType: Optional[AuthenticationTypeType] = None
     MaxResults: Optional[int] = None
     NextToken: Optional[str] = None
@@ -490,33 +497,33 @@ class DescribeUsersRequestTypeDef(BaseValidatorModel):
 
 class UserTypeDef(BaseValidatorModel):
     AuthenticationType: AuthenticationTypeType
-    Arn: Optional[str] = None
-    UserName: Optional[str] = None
+    Arn: Optional[Annotated[str, _aws_pattern("Appstream", "Arn")]] = None
+    UserName: Optional[Annotated[str, _aws_pattern("Appstream", "Username")]] = None
     Enabled: Optional[bool] = None
     Status: Optional[str] = None
-    FirstName: Optional[str] = None
-    LastName: Optional[str] = None
+    FirstName: Optional[Annotated[str, _aws_pattern("Appstream", "UserAttributeValue")]] = None
+    LastName: Optional[Annotated[str, _aws_pattern("Appstream", "UserAttributeValue")]] = None
     CreatedTime: Optional[datetime] = None
 
 
 class DisableUserRequestTypeDef(BaseValidatorModel):
-    UserName: str
+    UserName: Annotated[str, _aws_pattern("Appstream", "Username")]
     AuthenticationType: AuthenticationTypeType
 
 
 class DisassociateAppBlockBuilderAppBlockRequestTypeDef(BaseValidatorModel):
-    AppBlockArn: str
-    AppBlockBuilderName: str
+    AppBlockArn: Annotated[str, _aws_pattern("Appstream", "Arn")]
+    AppBlockBuilderName: Annotated[str, _aws_pattern("Appstream", "Name")]
 
 
 class DisassociateApplicationFleetRequestTypeDef(BaseValidatorModel):
-    FleetName: str
-    ApplicationArn: str
+    FleetName: Annotated[str, _aws_pattern("Appstream", "Name")]
+    ApplicationArn: Annotated[str, _aws_pattern("Appstream", "Arn")]
 
 
 class DisassociateApplicationFromEntitlementRequestTypeDef(BaseValidatorModel):
-    StackName: str
-    EntitlementName: str
+    StackName: Annotated[str, _aws_pattern("Appstream", "Name")]
+    EntitlementName: Annotated[str, _aws_pattern("Appstream", "Name")]
     ApplicationIdentifier: str
 
 
@@ -526,7 +533,7 @@ class DisassociateFleetRequestTypeDef(BaseValidatorModel):
 
 
 class DisassociateSoftwareFromImageBuilderRequestTypeDef(BaseValidatorModel):
-    ImageBuilderName: str
+    ImageBuilderName: Annotated[str, _aws_pattern("Appstream", "Name")]
     SoftwareNames: List[str]
 
 
@@ -535,7 +542,7 @@ class DrainSessionInstanceRequestTypeDef(BaseValidatorModel):
 
 
 class EnableUserRequestTypeDef(BaseValidatorModel):
-    UserName: str
+    UserName: Annotated[str, _aws_pattern("Appstream", "Username")]
     AuthenticationType: AuthenticationTypeType
 
 
@@ -548,8 +555,8 @@ class ExpireSessionRequestTypeDef(BaseValidatorModel):
 
 
 class FilterTypeDef(BaseValidatorModel):
-    Name: str
-    Values: List[str]
+    Name: Annotated[str, _aws_pattern("Appstream", "FilterName")]
+    Values: List[Annotated[str, _aws_pattern("Appstream", "FilterValue")]]
 
 
 class FleetErrorTypeDef(BaseValidatorModel):
@@ -559,7 +566,7 @@ class FleetErrorTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'get_export_image_task' function.
 class GetExportImageTaskRequestTypeDef(BaseValidatorModel):
-    TaskId: Optional[str] = None
+    TaskId: Optional[Annotated[str, _aws_pattern("Appstream", "UUID")]] = None
 
 
 class ImageBuilderStateChangeReasonTypeDef(BaseValidatorModel):
@@ -602,15 +609,15 @@ class ListAssociatedStacksRequestTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'list_entitled_applications' function.
 class ListEntitledApplicationsRequestTypeDef(BaseValidatorModel):
-    StackName: str
-    EntitlementName: str
+    StackName: Annotated[str, _aws_pattern("Appstream", "Name")]
+    EntitlementName: Annotated[str, _aws_pattern("Appstream", "Name")]
     NextToken: Optional[str] = None
     MaxResults: Optional[int] = None
 
 
 # This class is the input for the 'list_tags_for_resource' function.
 class ListTagsForResourceRequestTypeDef(BaseValidatorModel):
-    ResourceArn: str
+    ResourceArn: Annotated[str, _aws_pattern("Appstream", "Arn")]
 
 
 class StackErrorTypeDef(BaseValidatorModel):
@@ -627,7 +634,7 @@ class StorageConnectorOutputTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'start_app_block_builder' function.
 class StartAppBlockBuilderRequestTypeDef(BaseValidatorModel):
-    Name: str
+    Name: Annotated[str, _aws_pattern("Appstream", "Name")]
 
 
 class StartFleetRequestTypeDef(BaseValidatorModel):
@@ -641,13 +648,13 @@ class StartImageBuilderRequestTypeDef(BaseValidatorModel):
 
 
 class StartSoftwareDeploymentToImageBuilderRequestTypeDef(BaseValidatorModel):
-    ImageBuilderName: str
+    ImageBuilderName: Annotated[str, _aws_pattern("Appstream", "Name")]
     RetryFailedDeployments: Optional[bool] = None
 
 
 # This class is the input for the 'stop_app_block_builder' function.
 class StopAppBlockBuilderRequestTypeDef(BaseValidatorModel):
-    Name: str
+    Name: Annotated[str, _aws_pattern("Appstream", "Name")]
 
 
 class StopFleetRequestTypeDef(BaseValidatorModel):
@@ -667,13 +674,13 @@ class StorageConnectorTypeDef(BaseValidatorModel):
 
 
 class TagResourceRequestTypeDef(BaseValidatorModel):
-    ResourceArn: str
+    ResourceArn: Annotated[str, _aws_pattern("Appstream", "Arn")]
     Tags: Dict[str, str]
 
 
 class UntagResourceRequestTypeDef(BaseValidatorModel):
-    ResourceArn: str
-    TagKeys: List[str]
+    ResourceArn: Annotated[str, _aws_pattern("Appstream", "Arn")]
+    TagKeys: List[Annotated[str, _aws_pattern("Appstream", "TagKey")]]
 
 
 class VpcConfigTypeDef(BaseValidatorModel):
@@ -681,8 +688,32 @@ class VpcConfigTypeDef(BaseValidatorModel):
     SecurityGroupIds: Optional[List[str]] = None
 
 
+class AgentAccessConfigForUpdateTypeDef(BaseValidatorModel):
+    Settings: Optional[List[AgentAccessSettingTypeDef]] = None
+    S3BucketArn: Optional[Annotated[str, _aws_pattern("Appstream", "S3BucketArn")]] = None
+    ScreenshotsUploadEnabled: Optional[bool] = None
+    ScreenResolution: Optional[Literal["W_1280xH_720"]] = None
+    ScreenImageFormat: Optional[ScreenImageFormatType] = None
+
+
+class AgentAccessConfigOutputTypeDef(BaseValidatorModel):
+    Settings: List[AgentAccessSettingTypeDef]
+    ScreenResolution: Literal["W_1280xH_720"]
+    ScreenImageFormat: ScreenImageFormatType
+    S3BucketArn: Optional[str] = None
+    ScreenshotsUploadEnabled: Optional[bool] = None
+
+
+class AgentAccessConfigTypeDef(BaseValidatorModel):
+    Settings: List[AgentAccessSettingTypeDef]
+    ScreenResolution: Literal["W_1280xH_720"]
+    ScreenImageFormat: ScreenImageFormatType
+    S3BucketArn: Optional[Annotated[str, _aws_pattern("Appstream", "S3BucketArn")]] = None
+    ScreenshotsUploadEnabled: Optional[bool] = None
+
+
 class AppBlockBuilderTypeDef(BaseValidatorModel):
-    Arn: str
+    Arn: Annotated[str, _aws_pattern("Appstream", "Arn")]
     Name: str
     Platform: Literal["WINDOWS_SERVER_2019"]
     InstanceType: str
@@ -691,7 +722,7 @@ class AppBlockBuilderTypeDef(BaseValidatorModel):
     DisplayName: Optional[str] = None
     Description: Optional[str] = None
     EnableDefaultInternetAccess: Optional[bool] = None
-    IamRoleArn: Optional[str] = None
+    IamRoleArn: Optional[Annotated[str, _aws_pattern("Appstream", "Arn")]] = None
     CreatedTime: Optional[datetime] = None
     AppBlockBuilderErrors: Optional[List[ResourceErrorTypeDef]] = None
     StateChangeReason: Optional[AppBlockBuilderStateChangeReasonTypeDef] = None
@@ -700,13 +731,13 @@ class AppBlockBuilderTypeDef(BaseValidatorModel):
 
 
 class ExportImageTaskTypeDef(BaseValidatorModel):
-    TaskId: str
-    ImageArn: str
-    AmiName: str
+    TaskId: Annotated[str, _aws_pattern("Appstream", "UUID")]
+    ImageArn: Annotated[str, _aws_pattern("Appstream", "Arn")]
+    AmiName: Annotated[str, _aws_pattern("Appstream", "AmiName")]
     CreatedDate: datetime
     AmiDescription: Optional[str] = None
     State: Optional[ExportImageTaskStateType] = None
-    AmiId: Optional[str] = None
+    AmiId: Optional[Annotated[str, _aws_pattern("Appstream", "PhotonAmiId")]] = None
     TagSpecifications: Optional[Dict[str, str]] = None
     ErrorDetails: Optional[List[ErrorDetailsTypeDef]] = None
 
@@ -727,8 +758,8 @@ class ApplicationTypeDef(BaseValidatorModel):
     Metadata: Optional[Dict[str, str]] = None
     WorkingDirectory: Optional[str] = None
     Description: Optional[str] = None
-    Arn: Optional[str] = None
-    AppBlockArn: Optional[str] = None
+    Arn: Optional[Annotated[str, _aws_pattern("Appstream", "Arn")]] = None
+    AppBlockArn: Optional[Annotated[str, _aws_pattern("Appstream", "Arn")]] = None
     IconS3Location: Optional[S3LocationTypeDef] = None
     Platforms: Optional[List[PlatformTypeType]] = None
     InstanceFamilies: Optional[List[str]] = None
@@ -737,12 +768,12 @@ class ApplicationTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'create_application' function.
 class CreateApplicationRequestTypeDef(BaseValidatorModel):
-    Name: str
+    Name: Annotated[str, _aws_pattern("Appstream", "Name")]
     IconS3Location: S3LocationTypeDef
     LaunchPath: str
     Platforms: List[PlatformTypeType]
     InstanceFamilies: List[str]
-    AppBlockArn: str
+    AppBlockArn: Annotated[str, _aws_pattern("Appstream", "Arn")]
     DisplayName: Optional[str] = None
     Description: Optional[str] = None
     WorkingDirectory: Optional[str] = None
@@ -759,14 +790,14 @@ class ScriptDetailsTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'update_application' function.
 class UpdateApplicationRequestTypeDef(BaseValidatorModel):
-    Name: str
+    Name: Annotated[str, _aws_pattern("Appstream", "Name")]
     DisplayName: Optional[str] = None
     Description: Optional[str] = None
     IconS3Location: Optional[S3LocationTypeDef] = None
     LaunchPath: Optional[str] = None
     WorkingDirectory: Optional[str] = None
     LaunchParameters: Optional[str] = None
-    AppBlockArn: Optional[str] = None
+    AppBlockArn: Optional[Annotated[str, _aws_pattern("Appstream", "Arn")]] = None
     AttributesToDelete: Optional[List[ApplicationAttributeType]] = None
 
 
@@ -784,7 +815,7 @@ class AssociateApplicationFleetResultTypeDef(BaseValidatorModel):
 
 # This class is the output for the 'copy_image' function.
 class CopyImageResponseTypeDef(BaseValidatorModel):
-    DestinationImageName: str
+    DestinationImageName: Annotated[str, _aws_pattern("Appstream", "Name")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
@@ -913,16 +944,16 @@ class UpdateDirectoryConfigRequestTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'create_entitlement' function.
 class CreateEntitlementRequestTypeDef(BaseValidatorModel):
-    Name: str
-    StackName: str
+    Name: Annotated[str, _aws_pattern("Appstream", "Name")]
+    StackName: Annotated[str, _aws_pattern("Appstream", "Name")]
     AppVisibility: AppVisibilityType
     Attributes: List[EntitlementAttributeTypeDef]
     Description: Optional[str] = None
 
 
 class EntitlementTypeDef(BaseValidatorModel):
-    Name: str
-    StackName: str
+    Name: Annotated[str, _aws_pattern("Appstream", "Name")]
+    StackName: Annotated[str, _aws_pattern("Appstream", "Name")]
     AppVisibility: AppVisibilityType
     Attributes: List[EntitlementAttributeTypeDef]
     Description: Optional[str] = None
@@ -932,8 +963,8 @@ class EntitlementTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'update_entitlement' function.
 class UpdateEntitlementRequestTypeDef(BaseValidatorModel):
-    Name: str
-    StackName: str
+    Name: Annotated[str, _aws_pattern("Appstream", "Name")]
+    StackName: Annotated[str, _aws_pattern("Appstream", "Name")]
     Description: Optional[str] = None
     AppVisibility: Optional[AppVisibilityType] = None
     Attributes: Optional[List[EntitlementAttributeTypeDef]] = None
@@ -941,11 +972,11 @@ class UpdateEntitlementRequestTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'create_imported_image' function.
 class CreateImportedImageRequestTypeDef(BaseValidatorModel):
-    Name: str
-    SourceAmiId: str
-    IamRoleArn: str
-    Description: Optional[str] = None
-    DisplayName: Optional[str] = None
+    Name: Annotated[str, _aws_pattern("Appstream", "Name")]
+    SourceAmiId: Annotated[str, _aws_pattern("Appstream", "PhotonAmiId")]
+    IamRoleArn: Annotated[str, _aws_pattern("Appstream", "Arn")]
+    Description: Optional[Annotated[str, _aws_pattern("Appstream", "ImageImportDescription")]] = None
+    DisplayName: Optional[Annotated[str, _aws_pattern("Appstream", "ImageImportDisplayName")]] = None
     Tags: Optional[Dict[str, str]] = None
     RuntimeValidationConfig: Optional[RuntimeValidationConfigTypeDef] = None
     AgentSoftwareVersion: Optional[AgentSoftwareVersionType] = None
@@ -955,8 +986,8 @@ class CreateImportedImageRequestTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'create_theme_for_stack' function.
 class CreateThemeForStackRequestTypeDef(BaseValidatorModel):
-    StackName: str
-    TitleText: str
+    StackName: Annotated[str, _aws_pattern("Appstream", "Name")]
+    TitleText: Annotated[str, _aws_pattern("Appstream", "ThemeTitleText")]
     ThemeStyling: ThemeStylingType
     OrganizationLogoS3Location: S3LocationTypeDef
     FaviconS3Location: S3LocationTypeDef
@@ -964,9 +995,9 @@ class CreateThemeForStackRequestTypeDef(BaseValidatorModel):
 
 
 class ThemeTypeDef(BaseValidatorModel):
-    StackName: Optional[str] = None
+    StackName: Optional[Annotated[str, _aws_pattern("Appstream", "Name")]] = None
     State: Optional[ThemeStateType] = None
-    ThemeTitleText: Optional[str] = None
+    ThemeTitleText: Optional[Annotated[str, _aws_pattern("Appstream", "ThemeTitleText")]] = None
     ThemeStyling: Optional[ThemeStylingType] = None
     ThemeFooterLinks: Optional[List[ThemeFooterLinkTypeDef]] = None
     ThemeOrganizationLogoURL: Optional[str] = None
@@ -976,9 +1007,9 @@ class ThemeTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'update_theme_for_stack' function.
 class UpdateThemeForStackRequestTypeDef(BaseValidatorModel):
-    StackName: str
+    StackName: Annotated[str, _aws_pattern("Appstream", "Name")]
     FooterLinks: Optional[List[ThemeFooterLinkTypeDef]] = None
-    TitleText: Optional[str] = None
+    TitleText: Optional[Annotated[str, _aws_pattern("Appstream", "ThemeTitleText")]] = None
     ThemeStyling: Optional[ThemeStylingType] = None
     OrganizationLogoS3Location: Optional[S3LocationTypeDef] = None
     FaviconS3Location: Optional[S3LocationTypeDef] = None
@@ -1078,7 +1109,7 @@ class ListExportImageTasksRequestTypeDef(BaseValidatorModel):
 
 
 class FleetTypeDef(BaseValidatorModel):
-    Arn: str
+    Arn: Annotated[str, _aws_pattern("Appstream", "Arn")]
     Name: str
     InstanceType: str
     ComputeCapacityStatus: ComputeCapacityStatusTypeDef
@@ -1086,7 +1117,7 @@ class FleetTypeDef(BaseValidatorModel):
     DisplayName: Optional[str] = None
     Description: Optional[str] = None
     ImageName: Optional[str] = None
-    ImageArn: Optional[str] = None
+    ImageArn: Optional[Annotated[str, _aws_pattern("Appstream", "Arn")]] = None
     FleetType: Optional[FleetTypeType] = None
     MaxUserDurationInSeconds: Optional[int] = None
     DisconnectTimeoutInSeconds: Optional[int] = None
@@ -1096,11 +1127,11 @@ class FleetTypeDef(BaseValidatorModel):
     EnableDefaultInternetAccess: Optional[bool] = None
     DomainJoinInfo: Optional[DomainJoinInfoTypeDef] = None
     IdleDisconnectTimeoutInSeconds: Optional[int] = None
-    IamRoleArn: Optional[str] = None
+    IamRoleArn: Optional[Annotated[str, _aws_pattern("Appstream", "Arn")]] = None
     StreamView: Optional[StreamViewType] = None
     Platform: Optional[PlatformTypeType] = None
     MaxConcurrentSessions: Optional[int] = None
-    UsbDeviceFilterStrings: Optional[List[str]] = None
+    UsbDeviceFilterStrings: Optional[List[Annotated[str, _aws_pattern("Appstream", "UsbDeviceFilterString")]]] = None
     SessionScriptS3Location: Optional[S3LocationTypeDef] = None
     MaxSessionsPerInstance: Optional[int] = None
     RootVolumeConfig: Optional[VolumeConfigTypeDef] = None
@@ -1109,14 +1140,14 @@ class FleetTypeDef(BaseValidatorModel):
 
 class ImageBuilderTypeDef(BaseValidatorModel):
     Name: str
-    Arn: Optional[str] = None
-    ImageArn: Optional[str] = None
+    Arn: Optional[Annotated[str, _aws_pattern("Appstream", "Arn")]] = None
+    ImageArn: Optional[Annotated[str, _aws_pattern("Appstream", "Arn")]] = None
     Description: Optional[str] = None
     DisplayName: Optional[str] = None
     VpcConfig: Optional[VpcConfigOutputTypeDef] = None
     InstanceType: Optional[str] = None
     Platform: Optional[PlatformTypeType] = None
-    IamRoleArn: Optional[str] = None
+    IamRoleArn: Optional[Annotated[str, _aws_pattern("Appstream", "Arn")]] = None
     State: Optional[ImageBuilderStateType] = None
     StateChangeReason: Optional[ImageBuilderStateChangeReasonTypeDef] = None
     CreatedTime: Optional[datetime] = None
@@ -1147,13 +1178,13 @@ class SessionTypeDef(BaseValidatorModel):
 
 
 class SharedImagePermissionsTypeDef(BaseValidatorModel):
-    sharedAccountId: str
+    sharedAccountId: Annotated[str, _aws_pattern("Appstream", "AwsAccountId")]
     imagePermissions: ImagePermissionsTypeDef
 
 
 class UpdateImagePermissionsRequestTypeDef(BaseValidatorModel):
-    Name: str
-    SharedAccountId: str
+    Name: Annotated[str, _aws_pattern("Appstream", "Name")]
+    SharedAccountId: Annotated[str, _aws_pattern("Appstream", "AwsAccountId")]
     ImagePermissions: ImagePermissionsTypeDef
 
 
@@ -1167,6 +1198,8 @@ class UsageReportSubscriptionTypeDef(BaseValidatorModel):
 StorageConnectorUnionTypeDef = Union[StorageConnectorOutputTypeDef, StorageConnectorTypeDef]
 
 VpcConfigUnionTypeDef = Union[VpcConfigOutputTypeDef, VpcConfigTypeDef]
+
+AgentAccessConfigUnionTypeDef = Union[AgentAccessConfigOutputTypeDef, AgentAccessConfigTypeDef]
 
 
 # This class is the output for the 'create_app_block_builder' function.
@@ -1221,7 +1254,7 @@ class ListExportImageTasksResultTypeDef(BaseValidatorModel):
 
 # This class is the output for the 'describe_software_associations' function.
 class DescribeSoftwareAssociationsResultTypeDef(BaseValidatorModel):
-    AssociatedResource: str
+    AssociatedResource: Annotated[str, _aws_pattern("Appstream", "Arn")]
     SoftwareAssociations: List[SoftwareAssociationsTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
     NextToken: Optional[str] = None
@@ -1242,8 +1275,8 @@ class DescribeApplicationsResultTypeDef(BaseValidatorModel):
 
 class ImageTypeDef(BaseValidatorModel):
     Name: str
-    Arn: Optional[str] = None
-    BaseImageArn: Optional[str] = None
+    Arn: Optional[Annotated[str, _aws_pattern("Appstream", "Arn")]] = None
+    BaseImageArn: Optional[Annotated[str, _aws_pattern("Appstream", "Arn")]] = None
     DisplayName: Optional[str] = None
     State: Optional[ImageStateType] = None
     Visibility: Optional[VisibilityTypeType] = None
@@ -1274,7 +1307,7 @@ class UpdateApplicationResultTypeDef(BaseValidatorModel):
 
 class AppBlockTypeDef(BaseValidatorModel):
     Name: str
-    Arn: str
+    Arn: Annotated[str, _aws_pattern("Appstream", "Arn")]
     Description: Optional[str] = None
     DisplayName: Optional[str] = None
     SourceS3Location: Optional[S3LocationTypeDef] = None
@@ -1288,7 +1321,7 @@ class AppBlockTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'create_app_block' function.
 class CreateAppBlockRequestTypeDef(BaseValidatorModel):
-    Name: str
+    Name: Annotated[str, _aws_pattern("Appstream", "Name")]
     SourceS3Location: S3LocationTypeDef
     Description: Optional[str] = None
     DisplayName: Optional[str] = None
@@ -1312,7 +1345,7 @@ class BatchDisassociateUserStackResultTypeDef(BaseValidatorModel):
 
 class StackTypeDef(BaseValidatorModel):
     Name: str
-    Arn: Optional[str] = None
+    Arn: Optional[Annotated[str, _aws_pattern("Appstream", "Arn")]] = None
     Description: Optional[str] = None
     DisplayName: Optional[str] = None
     CreatedTime: Optional[datetime] = None
@@ -1323,9 +1356,10 @@ class StackTypeDef(BaseValidatorModel):
     UserSettings: Optional[List[UserSettingTypeDef]] = None
     ApplicationSettings: Optional[ApplicationSettingsResponseTypeDef] = None
     AccessEndpoints: Optional[List[AccessEndpointTypeDef]] = None
-    EmbedHostDomains: Optional[List[str]] = None
+    EmbedHostDomains: Optional[List[Annotated[str, _aws_pattern("Appstream", "EmbedHostDomain")]]] = None
     StreamingExperienceSettings: Optional[StreamingExperienceSettingsTypeDef] = None
     ContentRedirection: Optional[ContentRedirectionOutputTypeDef] = None
+    AgentAccessConfig: Optional[AgentAccessConfigOutputTypeDef] = None
 
 
 ContentRedirectionUnionTypeDef = Union[ContentRedirectionOutputTypeDef, ContentRedirectionTypeDef]
@@ -1446,7 +1480,7 @@ class DescribeSessionsResultTypeDef(BaseValidatorModel):
 
 # This class is the output for the 'describe_image_permissions' function.
 class DescribeImagePermissionsResultTypeDef(BaseValidatorModel):
-    Name: str
+    Name: Annotated[str, _aws_pattern("Appstream", "Name")]
     SharedImagePermissionsList: List[SharedImagePermissionsTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
     NextToken: Optional[str] = None
@@ -1461,7 +1495,7 @@ class DescribeUsageReportSubscriptionsResultTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'create_app_block_builder' function.
 class CreateAppBlockBuilderRequestTypeDef(BaseValidatorModel):
-    Name: str
+    Name: Annotated[str, _aws_pattern("Appstream", "Name")]
     Platform: Literal["WINDOWS_SERVER_2019"]
     InstanceType: str
     VpcConfig: VpcConfigUnionTypeDef
@@ -1469,17 +1503,17 @@ class CreateAppBlockBuilderRequestTypeDef(BaseValidatorModel):
     DisplayName: Optional[str] = None
     Tags: Optional[Dict[str, str]] = None
     EnableDefaultInternetAccess: Optional[bool] = None
-    IamRoleArn: Optional[str] = None
+    IamRoleArn: Optional[Annotated[str, _aws_pattern("Appstream", "Arn")]] = None
     AccessEndpoints: Optional[List[AccessEndpointTypeDef]] = None
     DisableIMDSV1: Optional[bool] = None
 
 
 # This class is the input for the 'create_fleet' function.
 class CreateFleetRequestTypeDef(BaseValidatorModel):
-    Name: str
+    Name: Annotated[str, _aws_pattern("Appstream", "Name")]
     InstanceType: str
-    ImageName: Optional[str] = None
-    ImageArn: Optional[str] = None
+    ImageName: Optional[Annotated[str, _aws_pattern("Appstream", "Name")]] = None
+    ImageArn: Optional[Annotated[str, _aws_pattern("Appstream", "Arn")]] = None
     FleetType: Optional[FleetTypeType] = None
     ComputeCapacity: Optional[ComputeCapacityTypeDef] = None
     VpcConfig: Optional[VpcConfigUnionTypeDef] = None
@@ -1491,11 +1525,11 @@ class CreateFleetRequestTypeDef(BaseValidatorModel):
     DomainJoinInfo: Optional[DomainJoinInfoTypeDef] = None
     Tags: Optional[Dict[str, str]] = None
     IdleDisconnectTimeoutInSeconds: Optional[int] = None
-    IamRoleArn: Optional[str] = None
+    IamRoleArn: Optional[Annotated[str, _aws_pattern("Appstream", "Arn")]] = None
     StreamView: Optional[StreamViewType] = None
     Platform: Optional[PlatformTypeType] = None
     MaxConcurrentSessions: Optional[int] = None
-    UsbDeviceFilterStrings: Optional[List[str]] = None
+    UsbDeviceFilterStrings: Optional[List[Annotated[str, _aws_pattern("Appstream", "UsbDeviceFilterString")]]] = None
     SessionScriptS3Location: Optional[S3LocationTypeDef] = None
     MaxSessionsPerInstance: Optional[int] = None
     RootVolumeConfig: Optional[VolumeConfigTypeDef] = None
@@ -1504,14 +1538,14 @@ class CreateFleetRequestTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'create_image_builder' function.
 class CreateImageBuilderRequestTypeDef(BaseValidatorModel):
-    Name: str
+    Name: Annotated[str, _aws_pattern("Appstream", "Name")]
     InstanceType: str
     ImageName: Optional[str] = None
-    ImageArn: Optional[str] = None
+    ImageArn: Optional[Annotated[str, _aws_pattern("Appstream", "Arn")]] = None
     Description: Optional[str] = None
     DisplayName: Optional[str] = None
     VpcConfig: Optional[VpcConfigUnionTypeDef] = None
-    IamRoleArn: Optional[str] = None
+    IamRoleArn: Optional[Annotated[str, _aws_pattern("Appstream", "Arn")]] = None
     EnableDefaultInternetAccess: Optional[bool] = None
     DomainJoinInfo: Optional[DomainJoinInfoTypeDef] = None
     AppstreamAgentVersion: Optional[str] = None
@@ -1525,14 +1559,14 @@ class CreateImageBuilderRequestTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'update_app_block_builder' function.
 class UpdateAppBlockBuilderRequestTypeDef(BaseValidatorModel):
-    Name: str
+    Name: Annotated[str, _aws_pattern("Appstream", "Name")]
     Description: Optional[str] = None
     DisplayName: Optional[str] = None
     Platform: Optional[PlatformTypeType] = None
     InstanceType: Optional[str] = None
     VpcConfig: Optional[VpcConfigUnionTypeDef] = None
     EnableDefaultInternetAccess: Optional[bool] = None
-    IamRoleArn: Optional[str] = None
+    IamRoleArn: Optional[Annotated[str, _aws_pattern("Appstream", "Arn")]] = None
     AccessEndpoints: Optional[List[AccessEndpointTypeDef]] = None
     AttributesToDelete: Optional[List[AppBlockBuilderAttributeType]] = None
     DisableIMDSV1: Optional[bool] = None
@@ -1541,8 +1575,8 @@ class UpdateAppBlockBuilderRequestTypeDef(BaseValidatorModel):
 # This class is the input for the 'update_fleet' function.
 class UpdateFleetRequestTypeDef(BaseValidatorModel):
     ImageName: Optional[str] = None
-    ImageArn: Optional[str] = None
-    Name: Optional[str] = None
+    ImageArn: Optional[Annotated[str, _aws_pattern("Appstream", "Arn")]] = None
+    Name: Optional[Annotated[str, _aws_pattern("Appstream", "Name")]] = None
     InstanceType: Optional[str] = None
     ComputeCapacity: Optional[ComputeCapacityTypeDef] = None
     VpcConfig: Optional[VpcConfigUnionTypeDef] = None
@@ -1555,11 +1589,11 @@ class UpdateFleetRequestTypeDef(BaseValidatorModel):
     DomainJoinInfo: Optional[DomainJoinInfoTypeDef] = None
     IdleDisconnectTimeoutInSeconds: Optional[int] = None
     AttributesToDelete: Optional[List[FleetAttributeType]] = None
-    IamRoleArn: Optional[str] = None
+    IamRoleArn: Optional[Annotated[str, _aws_pattern("Appstream", "Arn")]] = None
     StreamView: Optional[StreamViewType] = None
     Platform: Optional[PlatformTypeType] = None
     MaxConcurrentSessions: Optional[int] = None
-    UsbDeviceFilterStrings: Optional[List[str]] = None
+    UsbDeviceFilterStrings: Optional[List[Annotated[str, _aws_pattern("Appstream", "UsbDeviceFilterString")]]] = None
     SessionScriptS3Location: Optional[S3LocationTypeDef] = None
     MaxSessionsPerInstance: Optional[int] = None
     RootVolumeConfig: Optional[VolumeConfigTypeDef] = None
@@ -1626,7 +1660,7 @@ class UpdateStackResultTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'create_stack' function.
 class CreateStackRequestTypeDef(BaseValidatorModel):
-    Name: str
+    Name: Annotated[str, _aws_pattern("Appstream", "Name")]
     Description: Optional[str] = None
     DisplayName: Optional[str] = None
     StorageConnectors: Optional[List[StorageConnectorUnionTypeDef]] = None
@@ -1636,9 +1670,10 @@ class CreateStackRequestTypeDef(BaseValidatorModel):
     ApplicationSettings: Optional[ApplicationSettingsTypeDef] = None
     Tags: Optional[Dict[str, str]] = None
     AccessEndpoints: Optional[List[AccessEndpointTypeDef]] = None
-    EmbedHostDomains: Optional[List[str]] = None
+    EmbedHostDomains: Optional[List[Annotated[str, _aws_pattern("Appstream", "EmbedHostDomain")]]] = None
     StreamingExperienceSettings: Optional[StreamingExperienceSettingsTypeDef] = None
     ContentRedirection: Optional[ContentRedirectionUnionTypeDef] = None
+    AgentAccessConfig: Optional[AgentAccessConfigUnionTypeDef] = None
 
 
 # This class is the input for the 'update_stack' function.
@@ -1654,6 +1689,7 @@ class UpdateStackRequestTypeDef(BaseValidatorModel):
     UserSettings: Optional[List[UserSettingTypeDef]] = None
     ApplicationSettings: Optional[ApplicationSettingsTypeDef] = None
     AccessEndpoints: Optional[List[AccessEndpointTypeDef]] = None
-    EmbedHostDomains: Optional[List[str]] = None
+    EmbedHostDomains: Optional[List[Annotated[str, _aws_pattern("Appstream", "EmbedHostDomain")]]] = None
     StreamingExperienceSettings: Optional[StreamingExperienceSettingsTypeDef] = None
     ContentRedirection: Optional[ContentRedirectionUnionTypeDef] = None
+    AgentAccessConfig: Optional[AgentAccessConfigForUpdateTypeDef] = None

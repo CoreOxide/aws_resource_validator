@@ -38,6 +38,7 @@
     "AssociatedTranscriptTypeDef",
     "AudioSpecificationTypeDef",
     "DTMFSpecificationTypeDef",
+    "AudioFillerSettingsTypeDef",
     "S3BucketLogDestinationTypeDef",
     "NewCustomVocabularyItemTypeDef",
     "CustomVocabularyItemTypeDef",

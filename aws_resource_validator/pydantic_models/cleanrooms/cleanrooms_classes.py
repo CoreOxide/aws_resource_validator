@@ -3,6 +3,7 @@
 from datetime import datetime
 from decimal import Decimal
 from typing import (
+    Annotated,
     Any,
     Callable,
     Dict,
@@ -24,6 +25,7 @@ from botocore.response import StreamingBody
 from pydantic import Field
 
 from aws_resource_validator.core.base_validator_model import BaseValidatorModel, EventStream
+from aws_resource_validator.core.pattern_validation import aws_field_pattern as _aws_pattern
 from aws_resource_validator.pydantic_models.cleanrooms.cleanrooms_constants import *  # noqa: F401,F403
 
 # Optional boto3 symbols — imported lazily so services that don't need them
@@ -59,18 +61,18 @@ class AggregateColumnOutputTypeDef(BaseValidatorModel):
 
 
 class AggregateColumnTypeDef(BaseValidatorModel):
-    columnNames: List[str]
+    columnNames: List[Annotated[str, _aws_pattern("Cleanrooms", "AnalysisRuleColumnName")]]
     function: AggregateFunctionNameType
 
 
 class AggregationConstraintTypeDef(BaseValidatorModel):
-    columnName: str
+    columnName: Annotated[str, _aws_pattern("Cleanrooms", "AnalysisRuleColumnName")]
     minimum: int
     type: Literal["COUNT_DISTINCT"]
 
 
 class AnalysisParameterTypeDef(BaseValidatorModel):
-    name: str
+    name: Annotated[str, _aws_pattern("Cleanrooms", "ParameterName")]
     type: ParameterTypeType
     defaultValue: Optional[str] = None
 
@@ -83,8 +85,8 @@ class AnalysisRuleListOutputTypeDef(BaseValidatorModel):
 
 
 class AnalysisRuleListTypeDef(BaseValidatorModel):
-    joinColumns: List[str]
-    listColumns: List[str]
+    joinColumns: List[Annotated[str, _aws_pattern("Cleanrooms", "AnalysisRuleColumnName")]]
+    listColumns: List[Annotated[str, _aws_pattern("Cleanrooms", "AnalysisRuleColumnName")]]
     allowedJoinOperators: Optional[List[JoinOperatorType]] = None
     additionalAnalyses: Optional[AdditionalAnalysesType] = None
 
@@ -94,7 +96,7 @@ class AnalysisSchemaOutputTypeDef(BaseValidatorModel):
 
 
 class AnalysisSchemaTypeDef(BaseValidatorModel):
-    referencedTables: Optional[List[str]] = None
+    referencedTables: Optional[List[Annotated[str, _aws_pattern("Cleanrooms", "TableAlias")]]] = None
 
 
 class HashTypeDef(BaseValidatorModel):
@@ -102,21 +104,21 @@ class HashTypeDef(BaseValidatorModel):
 
 
 class S3LocationTypeDef(BaseValidatorModel):
-    bucket: str
-    key: str
+    bucket: Annotated[str, _aws_pattern("Cleanrooms", "S3LocationBucketString")]
+    key: Annotated[str, _aws_pattern("Cleanrooms", "S3LocationKeyString")]
 
 
 class AnalysisTemplateSummaryTypeDef(BaseValidatorModel):
-    arn: str
+    arn: Annotated[str, _aws_pattern("Cleanrooms", "AnalysisTemplateArn")]
     createTime: datetime
-    id: str
-    name: str
+    id: Annotated[str, _aws_pattern("Cleanrooms", "AnalysisTemplateIdentifier")]
+    name: Annotated[str, _aws_pattern("Cleanrooms", "ResourceAlias")]
     updateTime: datetime
-    membershipArn: str
-    membershipId: str
-    collaborationArn: str
-    collaborationId: str
-    description: Optional[str] = None
+    membershipArn: Annotated[str, _aws_pattern("Cleanrooms", "MembershipArn")]
+    membershipId: Annotated[str, _aws_pattern("Cleanrooms", "UUID")]
+    collaborationArn: Annotated[str, _aws_pattern("Cleanrooms", "CollaborationArn")]
+    collaborationId: Annotated[str, _aws_pattern("Cleanrooms", "UUID")]
+    description: Optional[Annotated[str, _aws_pattern("Cleanrooms", "ResourceDescription")]] = None
     isSyntheticData: Optional[bool] = None
 
 
@@ -133,24 +135,24 @@ class ApprovalStatusDetailsTypeDef(BaseValidatorModel):
 
 
 class AthenaTableReferenceTypeDef(BaseValidatorModel):
-    workGroup: str
-    databaseName: str
-    tableName: str
+    workGroup: Annotated[str, _aws_pattern("Cleanrooms", "AthenaWorkGroup")]
+    databaseName: Annotated[str, _aws_pattern("Cleanrooms", "AthenaDatabaseName")]
+    tableName: Annotated[str, _aws_pattern("Cleanrooms", "AthenaTableName")]
     region: Optional[CommercialRegionType] = None
-    outputLocation: Optional[str] = None
-    catalogName: Optional[str] = None
+    outputLocation: Optional[Annotated[str, _aws_pattern("Cleanrooms", "AthenaOutputLocation")]] = None
+    catalogName: Optional[Annotated[str, _aws_pattern("Cleanrooms", "AthenaCatalogName")]] = None
 
 
 class BatchGetCollaborationAnalysisTemplateErrorTypeDef(BaseValidatorModel):
-    arn: str
+    arn: Annotated[str, _aws_pattern("Cleanrooms", "AnalysisTemplateArn")]
     code: str
     message: str
 
 
 # This class is the input for the 'batch_get_collaboration_analysis_template' function.
 class BatchGetCollaborationAnalysisTemplateInputTypeDef(BaseValidatorModel):
-    collaborationIdentifier: str
-    analysisTemplateArns: List[str]
+    collaborationIdentifier: Annotated[str, _aws_pattern("Cleanrooms", "CollaborationIdentifier")]
+    analysisTemplateArns: List[Annotated[str, _aws_pattern("Cleanrooms", "AnalysisTemplateArn")]]
 
 
 class ResponseMetadataTypeDef(BaseValidatorModel):
@@ -162,27 +164,27 @@ class ResponseMetadataTypeDef(BaseValidatorModel):
 
 
 class BatchGetSchemaAnalysisRuleErrorTypeDef(BaseValidatorModel):
-    name: str
+    name: Annotated[str, _aws_pattern("Cleanrooms", "TableAlias")]
     type: AnalysisRuleTypeType
     code: str
     message: str
 
 
 class SchemaAnalysisRuleRequestTypeDef(BaseValidatorModel):
-    name: str
+    name: Annotated[str, _aws_pattern("Cleanrooms", "TableAlias")]
     type: AnalysisRuleTypeType
 
 
 class BatchGetSchemaErrorTypeDef(BaseValidatorModel):
-    name: str
+    name: Annotated[str, _aws_pattern("Cleanrooms", "TableAlias")]
     code: str
     message: str
 
 
 # This class is the input for the 'batch_get_schema' function.
 class BatchGetSchemaInputTypeDef(BaseValidatorModel):
-    collaborationIdentifier: str
-    names: List[str]
+    collaborationIdentifier: Annotated[str, _aws_pattern("Cleanrooms", "CollaborationIdentifier")]
+    names: List[Annotated[str, _aws_pattern("Cleanrooms", "TableAlias")]]
 
 
 class BilledJobResourceUtilizationTypeDef(BaseValidatorModel):
@@ -204,15 +206,15 @@ class MemberChangeSpecificationOutputTypeDef(BaseValidatorModel):
 
 
 class CollaborationAnalysisTemplateSummaryTypeDef(BaseValidatorModel):
-    arn: str
+    arn: Annotated[str, _aws_pattern("Cleanrooms", "AnalysisTemplateArn")]
     createTime: datetime
-    id: str
-    name: str
+    id: Annotated[str, _aws_pattern("Cleanrooms", "AnalysisTemplateIdentifier")]
+    name: Annotated[str, _aws_pattern("Cleanrooms", "ResourceAlias")]
     updateTime: datetime
-    collaborationArn: str
-    collaborationId: str
-    creatorAccountId: str
-    description: Optional[str] = None
+    collaborationArn: Annotated[str, _aws_pattern("Cleanrooms", "CollaborationArn")]
+    collaborationId: Annotated[str, _aws_pattern("Cleanrooms", "UUID")]
+    creatorAccountId: Annotated[str, _aws_pattern("Cleanrooms", "AccountId")]
+    description: Optional[Annotated[str, _aws_pattern("Cleanrooms", "ResourceDescription")]] = None
     isSyntheticData: Optional[bool] = None
 
 
@@ -221,32 +223,32 @@ class CollaborationChangeSpecificationTypeDef(BaseValidatorModel):
 
 
 class CollaborationConfiguredAudienceModelAssociationSummaryTypeDef(BaseValidatorModel):
-    arn: str
+    arn: Annotated[str, _aws_pattern("Cleanrooms", "ConfiguredAudienceModelAssociationArn")]
     createTime: datetime
-    id: str
-    name: str
+    id: Annotated[str, _aws_pattern("Cleanrooms", "ConfiguredAudienceModelAssociationIdentifier")]
+    name: Annotated[str, _aws_pattern("Cleanrooms", "ConfiguredAudienceModelAssociationName")]
     updateTime: datetime
-    collaborationArn: str
-    collaborationId: str
-    creatorAccountId: str
-    description: Optional[str] = None
+    collaborationArn: Annotated[str, _aws_pattern("Cleanrooms", "CollaborationArn")]
+    collaborationId: Annotated[str, _aws_pattern("Cleanrooms", "UUID")]
+    creatorAccountId: Annotated[str, _aws_pattern("Cleanrooms", "AccountId")]
+    description: Optional[Annotated[str, _aws_pattern("Cleanrooms", "ResourceDescription")]] = None
 
 
 class CollaborationConfiguredAudienceModelAssociationTypeDef(BaseValidatorModel):
-    id: str
-    arn: str
-    collaborationId: str
-    collaborationArn: str
-    configuredAudienceModelArn: str
-    name: str
-    creatorAccountId: str
+    id: Annotated[str, _aws_pattern("Cleanrooms", "ConfiguredAudienceModelAssociationIdentifier")]
+    arn: Annotated[str, _aws_pattern("Cleanrooms", "ConfiguredAudienceModelAssociationArn")]
+    collaborationId: Annotated[str, _aws_pattern("Cleanrooms", "UUID")]
+    collaborationArn: Annotated[str, _aws_pattern("Cleanrooms", "CollaborationArn")]
+    configuredAudienceModelArn: Annotated[str, _aws_pattern("Cleanrooms", "ConfiguredAudienceModelArn")]
+    name: Annotated[str, _aws_pattern("Cleanrooms", "ConfiguredAudienceModelAssociationName")]
+    creatorAccountId: Annotated[str, _aws_pattern("Cleanrooms", "AccountId")]
     createTime: datetime
     updateTime: datetime
-    description: Optional[str] = None
+    description: Optional[Annotated[str, _aws_pattern("Cleanrooms", "ResourceDescription")]] = None
 
 
 class IdNamespaceAssociationInputReferenceConfigTypeDef(BaseValidatorModel):
-    inputReferenceArn: str
+    inputReferenceArn: Annotated[str, _aws_pattern("Cleanrooms", "IdNamespaceAssociationInputReferenceArn")]
     manageResourcePolicies: bool
 
 
@@ -264,27 +266,27 @@ class IdNamespaceAssociationInputReferencePropertiesTypeDef(BaseValidatorModel):
 
 
 class CollaborationPrivacyBudgetTemplateSummaryTypeDef(BaseValidatorModel):
-    id: str
-    arn: str
-    collaborationId: str
-    collaborationArn: str
-    creatorAccountId: str
+    id: Annotated[str, _aws_pattern("Cleanrooms", "PrivacyBudgetTemplateIdentifier")]
+    arn: Annotated[str, _aws_pattern("Cleanrooms", "PrivacyBudgetTemplateArn")]
+    collaborationId: Annotated[str, _aws_pattern("Cleanrooms", "UUID")]
+    collaborationArn: Annotated[str, _aws_pattern("Cleanrooms", "CollaborationArn")]
+    creatorAccountId: Annotated[str, _aws_pattern("Cleanrooms", "AccountId")]
     privacyBudgetType: PrivacyBudgetTypeType
     createTime: datetime
     updateTime: datetime
 
 
 class CollaborationSummaryTypeDef(BaseValidatorModel):
-    id: str
-    arn: str
-    name: str
-    creatorAccountId: str
-    creatorDisplayName: str
+    id: Annotated[str, _aws_pattern("Cleanrooms", "UUID")]
+    arn: Annotated[str, _aws_pattern("Cleanrooms", "CollaborationArn")]
+    name: Annotated[str, _aws_pattern("Cleanrooms", "CollaborationName")]
+    creatorAccountId: Annotated[str, _aws_pattern("Cleanrooms", "AccountId")]
+    creatorDisplayName: Annotated[str, _aws_pattern("Cleanrooms", "DisplayName")]
     createTime: datetime
     updateTime: datetime
     memberStatus: MemberStatusType
-    membershipId: Optional[str] = None
-    membershipArn: Optional[str] = None
+    membershipId: Optional[Annotated[str, _aws_pattern("Cleanrooms", "UUID")]] = None
+    membershipArn: Optional[Annotated[str, _aws_pattern("Cleanrooms", "MembershipArn")]] = None
     analyticsEngine: Optional[AnalyticsEngineType] = None
 
 
@@ -296,47 +298,47 @@ class DataEncryptionMetadataTypeDef(BaseValidatorModel):
 
 
 class SyntheticDataColumnPropertiesTypeDef(BaseValidatorModel):
-    columnName: str
+    columnName: Annotated[str, _aws_pattern("Cleanrooms", "SyntheticDataColumnName")]
     columnType: SyntheticDataColumnTypeType
     isPredictiveValue: bool
 
 
 class ColumnTypeDef(BaseValidatorModel):
-    name: str
-    type: str
+    name: Annotated[str, _aws_pattern("Cleanrooms", "ColumnName")]
+    type: Annotated[str, _aws_pattern("Cleanrooms", "ColumnTypeString")]
 
 
 class DirectAnalysisConfigurationDetailsTypeDef(BaseValidatorModel):
-    receiverAccountIds: Optional[List[str]] = None
+    receiverAccountIds: Optional[List[Annotated[str, _aws_pattern("Cleanrooms", "AccountId")]]] = None
 
 
 class ConfiguredAudienceModelAssociationSummaryTypeDef(BaseValidatorModel):
-    membershipId: str
-    membershipArn: str
-    collaborationArn: str
-    collaborationId: str
+    membershipId: Annotated[str, _aws_pattern("Cleanrooms", "MembershipIdentifier")]
+    membershipArn: Annotated[str, _aws_pattern("Cleanrooms", "MembershipArn")]
+    collaborationArn: Annotated[str, _aws_pattern("Cleanrooms", "CollaborationArn")]
+    collaborationId: Annotated[str, _aws_pattern("Cleanrooms", "UUID")]
     createTime: datetime
     updateTime: datetime
-    id: str
-    arn: str
-    name: str
-    configuredAudienceModelArn: str
-    description: Optional[str] = None
+    id: Annotated[str, _aws_pattern("Cleanrooms", "UUID")]
+    arn: Annotated[str, _aws_pattern("Cleanrooms", "ConfiguredAudienceModelAssociationArn")]
+    name: Annotated[str, _aws_pattern("Cleanrooms", "ConfiguredAudienceModelAssociationName")]
+    configuredAudienceModelArn: Annotated[str, _aws_pattern("Cleanrooms", "ConfiguredAudienceModelArn")]
+    description: Optional[Annotated[str, _aws_pattern("Cleanrooms", "ResourceDescription")]] = None
 
 
 class ConfiguredAudienceModelAssociationTypeDef(BaseValidatorModel):
-    id: str
-    arn: str
-    configuredAudienceModelArn: str
-    membershipId: str
-    membershipArn: str
-    collaborationId: str
-    collaborationArn: str
-    name: str
+    id: Annotated[str, _aws_pattern("Cleanrooms", "ConfiguredAudienceModelAssociationIdentifier")]
+    arn: Annotated[str, _aws_pattern("Cleanrooms", "ConfiguredAudienceModelAssociationArn")]
+    configuredAudienceModelArn: Annotated[str, _aws_pattern("Cleanrooms", "ConfiguredAudienceModelArn")]
+    membershipId: Annotated[str, _aws_pattern("Cleanrooms", "UUID")]
+    membershipArn: Annotated[str, _aws_pattern("Cleanrooms", "MembershipArn")]
+    collaborationId: Annotated[str, _aws_pattern("Cleanrooms", "UUID")]
+    collaborationArn: Annotated[str, _aws_pattern("Cleanrooms", "CollaborationArn")]
+    name: Annotated[str, _aws_pattern("Cleanrooms", "ConfiguredAudienceModelAssociationName")]
     manageResourcePolicies: bool
     createTime: datetime
     updateTime: datetime
-    description: Optional[str] = None
+    description: Optional[Annotated[str, _aws_pattern("Cleanrooms", "ResourceDescription")]] = None
 
 
 class ConfiguredTableAssociationAnalysisRuleAggregationOutputTypeDef(BaseValidatorModel):
@@ -345,8 +347,10 @@ class ConfiguredTableAssociationAnalysisRuleAggregationOutputTypeDef(BaseValidat
 
 
 class ConfiguredTableAssociationAnalysisRuleAggregationTypeDef(BaseValidatorModel):
-    allowedResultReceivers: Optional[List[str]] = None
-    allowedAdditionalAnalyses: Optional[List[str]] = None
+    allowedResultReceivers: Optional[List[Annotated[str, _aws_pattern("Cleanrooms", "AccountId")]]] = None
+    allowedAdditionalAnalyses: Optional[
+        List[Annotated[str, _aws_pattern("Cleanrooms", "AdditionalAnalysesResourceArn")]]
+    ] = None
 
 
 class ConfiguredTableAssociationAnalysisRuleCustomOutputTypeDef(BaseValidatorModel):
@@ -355,8 +359,10 @@ class ConfiguredTableAssociationAnalysisRuleCustomOutputTypeDef(BaseValidatorMod
 
 
 class ConfiguredTableAssociationAnalysisRuleCustomTypeDef(BaseValidatorModel):
-    allowedResultReceivers: Optional[List[str]] = None
-    allowedAdditionalAnalyses: Optional[List[str]] = None
+    allowedResultReceivers: Optional[List[Annotated[str, _aws_pattern("Cleanrooms", "AccountId")]]] = None
+    allowedAdditionalAnalyses: Optional[
+        List[Annotated[str, _aws_pattern("Cleanrooms", "AdditionalAnalysesResourceArn")]]
+    ] = None
 
 
 class ConfiguredTableAssociationAnalysisRuleListOutputTypeDef(BaseValidatorModel):
@@ -365,41 +371,43 @@ class ConfiguredTableAssociationAnalysisRuleListOutputTypeDef(BaseValidatorModel
 
 
 class ConfiguredTableAssociationAnalysisRuleListTypeDef(BaseValidatorModel):
-    allowedResultReceivers: Optional[List[str]] = None
-    allowedAdditionalAnalyses: Optional[List[str]] = None
+    allowedResultReceivers: Optional[List[Annotated[str, _aws_pattern("Cleanrooms", "AccountId")]]] = None
+    allowedAdditionalAnalyses: Optional[
+        List[Annotated[str, _aws_pattern("Cleanrooms", "AdditionalAnalysesResourceArn")]]
+    ] = None
 
 
 class ConfiguredTableAssociationSummaryTypeDef(BaseValidatorModel):
-    configuredTableId: str
-    membershipId: str
-    membershipArn: str
-    name: str
+    configuredTableId: Annotated[str, _aws_pattern("Cleanrooms", "UUID")]
+    membershipId: Annotated[str, _aws_pattern("Cleanrooms", "MembershipIdentifier")]
+    membershipArn: Annotated[str, _aws_pattern("Cleanrooms", "MembershipArn")]
+    name: Annotated[str, _aws_pattern("Cleanrooms", "TableAlias")]
     createTime: datetime
     updateTime: datetime
-    id: str
-    arn: str
+    id: Annotated[str, _aws_pattern("Cleanrooms", "UUID")]
+    arn: Annotated[str, _aws_pattern("Cleanrooms", "ConfiguredTableAssociationArn")]
     analysisRuleTypes: Optional[List[ConfiguredTableAssociationAnalysisRuleTypeType]] = None
 
 
 class ConfiguredTableAssociationTypeDef(BaseValidatorModel):
-    arn: str
-    id: str
-    configuredTableId: str
-    configuredTableArn: str
-    membershipId: str
-    membershipArn: str
-    roleArn: str
-    name: str
+    arn: Annotated[str, _aws_pattern("Cleanrooms", "ConfiguredTableAssociationArn")]
+    id: Annotated[str, _aws_pattern("Cleanrooms", "UUID")]
+    configuredTableId: Annotated[str, _aws_pattern("Cleanrooms", "UUID")]
+    configuredTableArn: Annotated[str, _aws_pattern("Cleanrooms", "ConfiguredTableArn")]
+    membershipId: Annotated[str, _aws_pattern("Cleanrooms", "UUID")]
+    membershipArn: Annotated[str, _aws_pattern("Cleanrooms", "MembershipArn")]
+    roleArn: Annotated[str, _aws_pattern("Cleanrooms", "RoleArn")]
+    name: Annotated[str, _aws_pattern("Cleanrooms", "TableAlias")]
     createTime: datetime
     updateTime: datetime
-    description: Optional[str] = None
+    description: Optional[Annotated[str, _aws_pattern("Cleanrooms", "TableDescription")]] = None
     analysisRuleTypes: Optional[List[ConfiguredTableAssociationAnalysisRuleTypeType]] = None
 
 
 class ConfiguredTableSummaryTypeDef(BaseValidatorModel):
-    id: str
-    arn: str
-    name: str
+    id: Annotated[str, _aws_pattern("Cleanrooms", "ConfiguredTableIdentifier")]
+    arn: Annotated[str, _aws_pattern("Cleanrooms", "ConfiguredTableArn")]
+    name: Annotated[str, _aws_pattern("Cleanrooms", "DisplayName")]
     createTime: datetime
     updateTime: datetime
     analysisRuleTypes: List[ConfiguredTableAnalysisRuleTypeType]
@@ -408,99 +416,109 @@ class ConfiguredTableSummaryTypeDef(BaseValidatorModel):
 
 
 class ConsolidatedPolicyListTypeDef(BaseValidatorModel):
-    joinColumns: List[str]
-    listColumns: List[str]
+    joinColumns: List[Annotated[str, _aws_pattern("Cleanrooms", "AnalysisRuleColumnName")]]
+    listColumns: List[Annotated[str, _aws_pattern("Cleanrooms", "AnalysisRuleColumnName")]]
     allowedJoinOperators: Optional[List[JoinOperatorType]] = None
     additionalAnalyses: Optional[AdditionalAnalysesType] = None
-    allowedResultReceivers: Optional[List[str]] = None
-    allowedAdditionalAnalyses: Optional[List[str]] = None
+    allowedResultReceivers: Optional[List[Annotated[str, _aws_pattern("Cleanrooms", "AccountId")]]] = None
+    allowedAdditionalAnalyses: Optional[
+        List[Annotated[str, _aws_pattern("Cleanrooms", "AdditionalAnalysesResourceArn")]]
+    ] = None
 
 
 # This class is the input for the 'create_configured_audience_model_association' function.
 class CreateConfiguredAudienceModelAssociationInputTypeDef(BaseValidatorModel):
-    membershipIdentifier: str
-    configuredAudienceModelArn: str
-    configuredAudienceModelAssociationName: str
+    membershipIdentifier: Annotated[str, _aws_pattern("Cleanrooms", "MembershipIdentifier")]
+    configuredAudienceModelArn: Annotated[str, _aws_pattern("Cleanrooms", "ConfiguredAudienceModelArn")]
+    configuredAudienceModelAssociationName: Annotated[
+        str, _aws_pattern("Cleanrooms", "ConfiguredAudienceModelAssociationName")
+    ]
     manageResourcePolicies: bool
     tags: Optional[Dict[str, str]] = None
-    description: Optional[str] = None
+    description: Optional[Annotated[str, _aws_pattern("Cleanrooms", "ResourceDescription")]] = None
 
 
 # This class is the input for the 'create_configured_table_association' function.
 class CreateConfiguredTableAssociationInputTypeDef(BaseValidatorModel):
-    name: str
-    membershipIdentifier: str
-    configuredTableIdentifier: str
-    roleArn: str
-    description: Optional[str] = None
+    name: Annotated[str, _aws_pattern("Cleanrooms", "TableAlias")]
+    membershipIdentifier: Annotated[str, _aws_pattern("Cleanrooms", "MembershipIdentifier")]
+    configuredTableIdentifier: Annotated[str, _aws_pattern("Cleanrooms", "ConfiguredTableIdentifier")]
+    roleArn: Annotated[str, _aws_pattern("Cleanrooms", "RoleArn")]
+    description: Optional[Annotated[str, _aws_pattern("Cleanrooms", "TableDescription")]] = None
     tags: Optional[Dict[str, str]] = None
 
 
 class IdMappingTableInputReferenceConfigTypeDef(BaseValidatorModel):
-    inputReferenceArn: str
+    inputReferenceArn: Annotated[str, _aws_pattern("Cleanrooms", "IdMappingTableInputReferenceArn")]
     manageResourcePolicies: bool
 
 
 class DeleteAnalysisTemplateInputTypeDef(BaseValidatorModel):
-    membershipIdentifier: str
-    analysisTemplateIdentifier: str
+    membershipIdentifier: Annotated[str, _aws_pattern("Cleanrooms", "MembershipIdentifier")]
+    analysisTemplateIdentifier: Annotated[str, _aws_pattern("Cleanrooms", "AnalysisTemplateIdentifier")]
 
 
 class DeleteCollaborationInputTypeDef(BaseValidatorModel):
-    collaborationIdentifier: str
+    collaborationIdentifier: Annotated[str, _aws_pattern("Cleanrooms", "CollaborationIdentifier")]
 
 
 class DeleteConfiguredAudienceModelAssociationInputTypeDef(BaseValidatorModel):
-    configuredAudienceModelAssociationIdentifier: str
-    membershipIdentifier: str
+    configuredAudienceModelAssociationIdentifier: Annotated[
+        str, _aws_pattern("Cleanrooms", "ConfiguredAudienceModelAssociationIdentifier")
+    ]
+    membershipIdentifier: Annotated[str, _aws_pattern("Cleanrooms", "MembershipIdentifier")]
 
 
 class DeleteConfiguredTableAnalysisRuleInputTypeDef(BaseValidatorModel):
-    configuredTableIdentifier: str
+    configuredTableIdentifier: Annotated[str, _aws_pattern("Cleanrooms", "ConfiguredTableIdentifier")]
     analysisRuleType: ConfiguredTableAnalysisRuleTypeType
 
 
 class DeleteConfiguredTableAssociationAnalysisRuleInputTypeDef(BaseValidatorModel):
-    membershipIdentifier: str
-    configuredTableAssociationIdentifier: str
+    membershipIdentifier: Annotated[str, _aws_pattern("Cleanrooms", "MembershipIdentifier")]
+    configuredTableAssociationIdentifier: Annotated[
+        str, _aws_pattern("Cleanrooms", "ConfiguredTableAssociationIdentifier")
+    ]
     analysisRuleType: ConfiguredTableAssociationAnalysisRuleTypeType
 
 
 class DeleteConfiguredTableAssociationInputTypeDef(BaseValidatorModel):
-    configuredTableAssociationIdentifier: str
-    membershipIdentifier: str
+    configuredTableAssociationIdentifier: Annotated[
+        str, _aws_pattern("Cleanrooms", "ConfiguredTableAssociationIdentifier")
+    ]
+    membershipIdentifier: Annotated[str, _aws_pattern("Cleanrooms", "MembershipIdentifier")]
 
 
 class DeleteConfiguredTableInputTypeDef(BaseValidatorModel):
-    configuredTableIdentifier: str
+    configuredTableIdentifier: Annotated[str, _aws_pattern("Cleanrooms", "ConfiguredTableIdentifier")]
 
 
 class DeleteIdMappingTableInputTypeDef(BaseValidatorModel):
-    idMappingTableIdentifier: str
-    membershipIdentifier: str
+    idMappingTableIdentifier: Annotated[str, _aws_pattern("Cleanrooms", "UUID")]
+    membershipIdentifier: Annotated[str, _aws_pattern("Cleanrooms", "MembershipIdentifier")]
 
 
 class DeleteIdNamespaceAssociationInputTypeDef(BaseValidatorModel):
-    idNamespaceAssociationIdentifier: str
-    membershipIdentifier: str
+    idNamespaceAssociationIdentifier: Annotated[str, _aws_pattern("Cleanrooms", "IdNamespaceAssociationIdentifier")]
+    membershipIdentifier: Annotated[str, _aws_pattern("Cleanrooms", "MembershipIdentifier")]
 
 
 class DeleteMemberInputTypeDef(BaseValidatorModel):
-    collaborationIdentifier: str
-    accountId: str
+    collaborationIdentifier: Annotated[str, _aws_pattern("Cleanrooms", "CollaborationIdentifier")]
+    accountId: Annotated[str, _aws_pattern("Cleanrooms", "AccountId")]
 
 
 class DeleteMembershipInputTypeDef(BaseValidatorModel):
-    membershipIdentifier: str
+    membershipIdentifier: Annotated[str, _aws_pattern("Cleanrooms", "MembershipIdentifier")]
 
 
 class DeletePrivacyBudgetTemplateInputTypeDef(BaseValidatorModel):
-    membershipIdentifier: str
-    privacyBudgetTemplateIdentifier: str
+    membershipIdentifier: Annotated[str, _aws_pattern("Cleanrooms", "MembershipIdentifier")]
+    privacyBudgetTemplateIdentifier: Annotated[str, _aws_pattern("Cleanrooms", "PrivacyBudgetTemplateIdentifier")]
 
 
 class DifferentialPrivacyColumnTypeDef(BaseValidatorModel):
-    name: str
+    name: Annotated[str, _aws_pattern("Cleanrooms", "ColumnName")]
 
 
 class DifferentialPrivacySensitivityParametersTypeDef(BaseValidatorModel):
@@ -544,126 +562,134 @@ class DifferentialPrivacyTemplateUpdateParametersTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'get_analysis_template' function.
 class GetAnalysisTemplateInputTypeDef(BaseValidatorModel):
-    membershipIdentifier: str
-    analysisTemplateIdentifier: str
+    membershipIdentifier: Annotated[str, _aws_pattern("Cleanrooms", "MembershipIdentifier")]
+    analysisTemplateIdentifier: Annotated[str, _aws_pattern("Cleanrooms", "AnalysisTemplateIdentifier")]
 
 
 # This class is the input for the 'get_collaboration_analysis_template' function.
 class GetCollaborationAnalysisTemplateInputTypeDef(BaseValidatorModel):
-    collaborationIdentifier: str
-    analysisTemplateArn: str
+    collaborationIdentifier: Annotated[str, _aws_pattern("Cleanrooms", "CollaborationIdentifier")]
+    analysisTemplateArn: Annotated[str, _aws_pattern("Cleanrooms", "AnalysisTemplateArn")]
 
 
 # This class is the input for the 'get_collaboration_change_request' function.
 class GetCollaborationChangeRequestInputTypeDef(BaseValidatorModel):
-    collaborationIdentifier: str
-    changeRequestIdentifier: str
+    collaborationIdentifier: Annotated[str, _aws_pattern("Cleanrooms", "CollaborationIdentifier")]
+    changeRequestIdentifier: Annotated[str, _aws_pattern("Cleanrooms", "CollaborationChangeRequestIdentifier")]
 
 
 # This class is the input for the 'get_collaboration_configured_audience_model_association' function.
 class GetCollaborationConfiguredAudienceModelAssociationInputTypeDef(BaseValidatorModel):
-    collaborationIdentifier: str
-    configuredAudienceModelAssociationIdentifier: str
+    collaborationIdentifier: Annotated[str, _aws_pattern("Cleanrooms", "CollaborationIdentifier")]
+    configuredAudienceModelAssociationIdentifier: Annotated[
+        str, _aws_pattern("Cleanrooms", "ConfiguredAudienceModelAssociationIdentifier")
+    ]
 
 
 # This class is the input for the 'get_collaboration_id_namespace_association' function.
 class GetCollaborationIdNamespaceAssociationInputTypeDef(BaseValidatorModel):
-    collaborationIdentifier: str
-    idNamespaceAssociationIdentifier: str
+    collaborationIdentifier: Annotated[str, _aws_pattern("Cleanrooms", "CollaborationIdentifier")]
+    idNamespaceAssociationIdentifier: Annotated[str, _aws_pattern("Cleanrooms", "IdNamespaceAssociationIdentifier")]
 
 
 # This class is the input for the 'get_collaboration' function.
 class GetCollaborationInputTypeDef(BaseValidatorModel):
-    collaborationIdentifier: str
+    collaborationIdentifier: Annotated[str, _aws_pattern("Cleanrooms", "CollaborationIdentifier")]
 
 
 # This class is the input for the 'get_collaboration_privacy_budget_template' function.
 class GetCollaborationPrivacyBudgetTemplateInputTypeDef(BaseValidatorModel):
-    collaborationIdentifier: str
-    privacyBudgetTemplateIdentifier: str
+    collaborationIdentifier: Annotated[str, _aws_pattern("Cleanrooms", "CollaborationIdentifier")]
+    privacyBudgetTemplateIdentifier: Annotated[str, _aws_pattern("Cleanrooms", "PrivacyBudgetTemplateIdentifier")]
 
 
 # This class is the input for the 'get_configured_audience_model_association' function.
 class GetConfiguredAudienceModelAssociationInputTypeDef(BaseValidatorModel):
-    configuredAudienceModelAssociationIdentifier: str
-    membershipIdentifier: str
+    configuredAudienceModelAssociationIdentifier: Annotated[
+        str, _aws_pattern("Cleanrooms", "ConfiguredAudienceModelAssociationIdentifier")
+    ]
+    membershipIdentifier: Annotated[str, _aws_pattern("Cleanrooms", "MembershipIdentifier")]
 
 
 # This class is the input for the 'get_configured_table_analysis_rule' function.
 class GetConfiguredTableAnalysisRuleInputTypeDef(BaseValidatorModel):
-    configuredTableIdentifier: str
+    configuredTableIdentifier: Annotated[str, _aws_pattern("Cleanrooms", "ConfiguredTableIdentifier")]
     analysisRuleType: ConfiguredTableAnalysisRuleTypeType
 
 
 # This class is the input for the 'get_configured_table_association_analysis_rule' function.
 class GetConfiguredTableAssociationAnalysisRuleInputTypeDef(BaseValidatorModel):
-    membershipIdentifier: str
-    configuredTableAssociationIdentifier: str
+    membershipIdentifier: Annotated[str, _aws_pattern("Cleanrooms", "MembershipIdentifier")]
+    configuredTableAssociationIdentifier: Annotated[
+        str, _aws_pattern("Cleanrooms", "ConfiguredTableAssociationIdentifier")
+    ]
     analysisRuleType: ConfiguredTableAssociationAnalysisRuleTypeType
 
 
 # This class is the input for the 'get_configured_table_association' function.
 class GetConfiguredTableAssociationInputTypeDef(BaseValidatorModel):
-    configuredTableAssociationIdentifier: str
-    membershipIdentifier: str
+    configuredTableAssociationIdentifier: Annotated[
+        str, _aws_pattern("Cleanrooms", "ConfiguredTableAssociationIdentifier")
+    ]
+    membershipIdentifier: Annotated[str, _aws_pattern("Cleanrooms", "MembershipIdentifier")]
 
 
 # This class is the input for the 'get_configured_table' function.
 class GetConfiguredTableInputTypeDef(BaseValidatorModel):
-    configuredTableIdentifier: str
+    configuredTableIdentifier: Annotated[str, _aws_pattern("Cleanrooms", "ConfiguredTableIdentifier")]
 
 
 # This class is the input for the 'get_id_mapping_table' function.
 class GetIdMappingTableInputTypeDef(BaseValidatorModel):
-    idMappingTableIdentifier: str
-    membershipIdentifier: str
+    idMappingTableIdentifier: Annotated[str, _aws_pattern("Cleanrooms", "UUID")]
+    membershipIdentifier: Annotated[str, _aws_pattern("Cleanrooms", "MembershipIdentifier")]
 
 
 # This class is the input for the 'get_id_namespace_association' function.
 class GetIdNamespaceAssociationInputTypeDef(BaseValidatorModel):
-    idNamespaceAssociationIdentifier: str
-    membershipIdentifier: str
+    idNamespaceAssociationIdentifier: Annotated[str, _aws_pattern("Cleanrooms", "IdNamespaceAssociationIdentifier")]
+    membershipIdentifier: Annotated[str, _aws_pattern("Cleanrooms", "MembershipIdentifier")]
 
 
 # This class is the input for the 'get_membership' function.
 class GetMembershipInputTypeDef(BaseValidatorModel):
-    membershipIdentifier: str
+    membershipIdentifier: Annotated[str, _aws_pattern("Cleanrooms", "MembershipIdentifier")]
 
 
 # This class is the input for the 'get_privacy_budget_template' function.
 class GetPrivacyBudgetTemplateInputTypeDef(BaseValidatorModel):
-    membershipIdentifier: str
-    privacyBudgetTemplateIdentifier: str
+    membershipIdentifier: Annotated[str, _aws_pattern("Cleanrooms", "MembershipIdentifier")]
+    privacyBudgetTemplateIdentifier: Annotated[str, _aws_pattern("Cleanrooms", "PrivacyBudgetTemplateIdentifier")]
 
 
 # This class is the input for the 'get_protected_job' function.
 class GetProtectedJobInputTypeDef(BaseValidatorModel):
-    membershipIdentifier: str
-    protectedJobIdentifier: str
+    membershipIdentifier: Annotated[str, _aws_pattern("Cleanrooms", "MembershipIdentifier")]
+    protectedJobIdentifier: Annotated[str, _aws_pattern("Cleanrooms", "ProtectedJobIdentifier")]
 
 
 # This class is the input for the 'get_protected_query' function.
 class GetProtectedQueryInputTypeDef(BaseValidatorModel):
-    membershipIdentifier: str
-    protectedQueryIdentifier: str
+    membershipIdentifier: Annotated[str, _aws_pattern("Cleanrooms", "MembershipIdentifier")]
+    protectedQueryIdentifier: Annotated[str, _aws_pattern("Cleanrooms", "ProtectedQueryIdentifier")]
 
 
 # This class is the input for the 'get_schema_analysis_rule' function.
 class GetSchemaAnalysisRuleInputTypeDef(BaseValidatorModel):
-    collaborationIdentifier: str
-    name: str
+    collaborationIdentifier: Annotated[str, _aws_pattern("Cleanrooms", "CollaborationIdentifier")]
+    name: Annotated[str, _aws_pattern("Cleanrooms", "TableAlias")]
     type: AnalysisRuleTypeType
 
 
 # This class is the input for the 'get_schema' function.
 class GetSchemaInputTypeDef(BaseValidatorModel):
-    collaborationIdentifier: str
-    name: str
+    collaborationIdentifier: Annotated[str, _aws_pattern("Cleanrooms", "CollaborationIdentifier")]
+    name: Annotated[str, _aws_pattern("Cleanrooms", "TableAlias")]
 
 
 class GlueTableReferenceTypeDef(BaseValidatorModel):
-    tableName: str
-    databaseName: str
+    tableName: Annotated[str, _aws_pattern("Cleanrooms", "GlueTableName")]
+    databaseName: Annotated[str, _aws_pattern("Cleanrooms", "GlueDatabaseName")]
     region: Optional[CommercialRegionType] = None
 
 
@@ -684,21 +710,21 @@ class PaginatorConfigTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'list_analysis_templates' function.
 class ListAnalysisTemplatesInputTypeDef(BaseValidatorModel):
-    membershipIdentifier: str
+    membershipIdentifier: Annotated[str, _aws_pattern("Cleanrooms", "MembershipIdentifier")]
     nextToken: Optional[str] = None
     maxResults: Optional[int] = None
 
 
 # This class is the input for the 'list_collaboration_analysis_templates' function.
 class ListCollaborationAnalysisTemplatesInputTypeDef(BaseValidatorModel):
-    collaborationIdentifier: str
+    collaborationIdentifier: Annotated[str, _aws_pattern("Cleanrooms", "CollaborationIdentifier")]
     nextToken: Optional[str] = None
     maxResults: Optional[int] = None
 
 
 # This class is the input for the 'list_collaboration_change_requests' function.
 class ListCollaborationChangeRequestsInputTypeDef(BaseValidatorModel):
-    collaborationIdentifier: str
+    collaborationIdentifier: Annotated[str, _aws_pattern("Cleanrooms", "CollaborationIdentifier")]
     status: Optional[ChangeRequestStatusType] = None
     nextToken: Optional[str] = None
     maxResults: Optional[int] = None
@@ -706,32 +732,32 @@ class ListCollaborationChangeRequestsInputTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'list_collaboration_configured_audience_model_associations' function.
 class ListCollaborationConfiguredAudienceModelAssociationsInputTypeDef(BaseValidatorModel):
-    collaborationIdentifier: str
+    collaborationIdentifier: Annotated[str, _aws_pattern("Cleanrooms", "CollaborationIdentifier")]
     nextToken: Optional[str] = None
     maxResults: Optional[int] = None
 
 
 # This class is the input for the 'list_collaboration_id_namespace_associations' function.
 class ListCollaborationIdNamespaceAssociationsInputTypeDef(BaseValidatorModel):
-    collaborationIdentifier: str
+    collaborationIdentifier: Annotated[str, _aws_pattern("Cleanrooms", "CollaborationIdentifier")]
     nextToken: Optional[str] = None
     maxResults: Optional[int] = None
 
 
 # This class is the input for the 'list_collaboration_privacy_budget_templates' function.
 class ListCollaborationPrivacyBudgetTemplatesInputTypeDef(BaseValidatorModel):
-    collaborationIdentifier: str
+    collaborationIdentifier: Annotated[str, _aws_pattern("Cleanrooms", "CollaborationIdentifier")]
     nextToken: Optional[str] = None
     maxResults: Optional[int] = None
 
 
 # This class is the input for the 'list_collaboration_privacy_budgets' function.
 class ListCollaborationPrivacyBudgetsInputTypeDef(BaseValidatorModel):
-    collaborationIdentifier: str
+    collaborationIdentifier: Annotated[str, _aws_pattern("Cleanrooms", "CollaborationIdentifier")]
     privacyBudgetType: PrivacyBudgetTypeType
     maxResults: Optional[int] = None
     nextToken: Optional[str] = None
-    accessBudgetResourceArn: Optional[str] = None
+    accessBudgetResourceArn: Optional[Annotated[str, _aws_pattern("Cleanrooms", "BudgetedResourceArn")]] = None
 
 
 # This class is the input for the 'list_collaborations' function.
@@ -743,14 +769,14 @@ class ListCollaborationsInputTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'list_configured_audience_model_associations' function.
 class ListConfiguredAudienceModelAssociationsInputTypeDef(BaseValidatorModel):
-    membershipIdentifier: str
+    membershipIdentifier: Annotated[str, _aws_pattern("Cleanrooms", "MembershipIdentifier")]
     nextToken: Optional[str] = None
     maxResults: Optional[int] = None
 
 
 # This class is the input for the 'list_configured_table_associations' function.
 class ListConfiguredTableAssociationsInputTypeDef(BaseValidatorModel):
-    membershipIdentifier: str
+    membershipIdentifier: Annotated[str, _aws_pattern("Cleanrooms", "MembershipIdentifier")]
     nextToken: Optional[str] = None
     maxResults: Optional[int] = None
 
@@ -763,21 +789,21 @@ class ListConfiguredTablesInputTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'list_id_mapping_tables' function.
 class ListIdMappingTablesInputTypeDef(BaseValidatorModel):
-    membershipIdentifier: str
+    membershipIdentifier: Annotated[str, _aws_pattern("Cleanrooms", "MembershipIdentifier")]
     nextToken: Optional[str] = None
     maxResults: Optional[int] = None
 
 
 # This class is the input for the 'list_id_namespace_associations' function.
 class ListIdNamespaceAssociationsInputTypeDef(BaseValidatorModel):
-    membershipIdentifier: str
+    membershipIdentifier: Annotated[str, _aws_pattern("Cleanrooms", "MembershipIdentifier")]
     nextToken: Optional[str] = None
     maxResults: Optional[int] = None
 
 
 # This class is the input for the 'list_members' function.
 class ListMembersInputTypeDef(BaseValidatorModel):
-    collaborationIdentifier: str
+    collaborationIdentifier: Annotated[str, _aws_pattern("Cleanrooms", "CollaborationIdentifier")]
     nextToken: Optional[str] = None
     maxResults: Optional[int] = None
 
@@ -791,18 +817,18 @@ class ListMembershipsInputTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'list_privacy_budget_templates' function.
 class ListPrivacyBudgetTemplatesInputTypeDef(BaseValidatorModel):
-    membershipIdentifier: str
+    membershipIdentifier: Annotated[str, _aws_pattern("Cleanrooms", "MembershipIdentifier")]
     nextToken: Optional[str] = None
     maxResults: Optional[int] = None
 
 
 class PrivacyBudgetTemplateSummaryTypeDef(BaseValidatorModel):
-    id: str
-    arn: str
-    membershipId: str
-    membershipArn: str
-    collaborationId: str
-    collaborationArn: str
+    id: Annotated[str, _aws_pattern("Cleanrooms", "PrivacyBudgetTemplateIdentifier")]
+    arn: Annotated[str, _aws_pattern("Cleanrooms", "PrivacyBudgetTemplateArn")]
+    membershipId: Annotated[str, _aws_pattern("Cleanrooms", "UUID")]
+    membershipArn: Annotated[str, _aws_pattern("Cleanrooms", "MembershipArn")]
+    collaborationId: Annotated[str, _aws_pattern("Cleanrooms", "UUID")]
+    collaborationArn: Annotated[str, _aws_pattern("Cleanrooms", "CollaborationArn")]
     privacyBudgetType: PrivacyBudgetTypeType
     createTime: datetime
     updateTime: datetime
@@ -810,16 +836,16 @@ class PrivacyBudgetTemplateSummaryTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'list_privacy_budgets' function.
 class ListPrivacyBudgetsInputTypeDef(BaseValidatorModel):
-    membershipIdentifier: str
+    membershipIdentifier: Annotated[str, _aws_pattern("Cleanrooms", "MembershipIdentifier")]
     privacyBudgetType: PrivacyBudgetTypeType
     nextToken: Optional[str] = None
     maxResults: Optional[int] = None
-    accessBudgetResourceArn: Optional[str] = None
+    accessBudgetResourceArn: Optional[Annotated[str, _aws_pattern("Cleanrooms", "BudgetedResourceArn")]] = None
 
 
 # This class is the input for the 'list_protected_jobs' function.
 class ListProtectedJobsInputTypeDef(BaseValidatorModel):
-    membershipIdentifier: str
+    membershipIdentifier: Annotated[str, _aws_pattern("Cleanrooms", "MembershipIdentifier")]
     status: Optional[ProtectedJobStatusType] = None
     nextToken: Optional[str] = None
     maxResults: Optional[int] = None
@@ -827,7 +853,7 @@ class ListProtectedJobsInputTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'list_protected_queries' function.
 class ListProtectedQueriesInputTypeDef(BaseValidatorModel):
-    membershipIdentifier: str
+    membershipIdentifier: Annotated[str, _aws_pattern("Cleanrooms", "MembershipIdentifier")]
     status: Optional[ProtectedQueryStatusType] = None
     nextToken: Optional[str] = None
     maxResults: Optional[int] = None
@@ -835,29 +861,29 @@ class ListProtectedQueriesInputTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'list_schemas' function.
 class ListSchemasInputTypeDef(BaseValidatorModel):
-    collaborationIdentifier: str
+    collaborationIdentifier: Annotated[str, _aws_pattern("Cleanrooms", "CollaborationIdentifier")]
     schemaType: Optional[SchemaTypeType] = None
     nextToken: Optional[str] = None
     maxResults: Optional[int] = None
 
 
 class SchemaSummaryTypeDef(BaseValidatorModel):
-    name: str
+    name: Annotated[str, _aws_pattern("Cleanrooms", "TableAlias")]
     type: SchemaTypeType
-    creatorAccountId: str
+    creatorAccountId: Annotated[str, _aws_pattern("Cleanrooms", "AccountId")]
     createTime: datetime
     updateTime: datetime
-    collaborationId: str
-    collaborationArn: str
+    collaborationId: Annotated[str, _aws_pattern("Cleanrooms", "UUID")]
+    collaborationArn: Annotated[str, _aws_pattern("Cleanrooms", "CollaborationArn")]
     analysisRuleTypes: List[AnalysisRuleTypeType]
     analysisMethod: Optional[AnalysisMethodType] = None
-    resourceArn: Optional[str] = None
+    resourceArn: Optional[Annotated[str, _aws_pattern("Cleanrooms", "SchemaResourceArn")]] = None
     selectedAnalysisMethods: Optional[List[SelectedAnalysisMethodType]] = None
 
 
 # This class is the input for the 'list_tags_for_resource' function.
 class ListTagsForResourceInputTypeDef(BaseValidatorModel):
-    resourceArn: str
+    resourceArn: Annotated[str, _aws_pattern("Cleanrooms", "CleanroomsArn")]
 
 
 class MLMemberAbilitiesOutputTypeDef(BaseValidatorModel):
@@ -881,9 +907,9 @@ class SyntheticDataGenerationPaymentConfigTypeDef(BaseValidatorModel):
 
 
 class MemberChangeSpecificationTypeDef(BaseValidatorModel):
-    accountId: str
+    accountId: Annotated[str, _aws_pattern("Cleanrooms", "AccountId")]
     memberAbilities: List[MemberAbilityType]
-    displayName: Optional[str] = None
+    displayName: Optional[Annotated[str, _aws_pattern("Cleanrooms", "DisplayName")]] = None
 
 
 class MembershipJobComputePaymentConfigTypeDef(BaseValidatorModel):
@@ -907,14 +933,14 @@ class MembershipQueryComputePaymentConfigTypeDef(BaseValidatorModel):
 
 
 class ProtectedJobS3OutputConfigurationInputTypeDef(BaseValidatorModel):
-    bucket: str
-    keyPrefix: Optional[str] = None
+    bucket: Annotated[str, _aws_pattern("Cleanrooms", "ProtectedJobS3OutputConfigurationInputBucketString")]
+    keyPrefix: Optional[Annotated[str, _aws_pattern("Cleanrooms", "KeyPrefix")]] = None
 
 
 class ProtectedQueryS3OutputConfigurationTypeDef(BaseValidatorModel):
     resultFormat: ResultFormatType
-    bucket: str
-    keyPrefix: Optional[str] = None
+    bucket: Annotated[str, _aws_pattern("Cleanrooms", "ProtectedQueryS3OutputConfigurationBucketString")]
+    keyPrefix: Optional[Annotated[str, _aws_pattern("Cleanrooms", "KeyPrefix")]] = None
     singleFileOutput: Optional[bool] = None
 
 
@@ -924,13 +950,13 @@ class QueryComputePaymentConfigTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'populate_id_mapping_table' function.
 class PopulateIdMappingTableInputTypeDef(BaseValidatorModel):
-    idMappingTableIdentifier: str
-    membershipIdentifier: str
+    idMappingTableIdentifier: Annotated[str, _aws_pattern("Cleanrooms", "UUID")]
+    membershipIdentifier: Annotated[str, _aws_pattern("Cleanrooms", "MembershipIdentifier")]
     jobType: Optional[JobTypeType] = None
 
 
 class ProtectedJobDirectAnalysisConfigurationDetailsTypeDef(BaseValidatorModel):
-    receiverAccountIds: Optional[List[str]] = None
+    receiverAccountIds: Optional[List[Annotated[str, _aws_pattern("Cleanrooms", "AccountId")]]] = None
 
 
 class ProtectedJobErrorTypeDef(BaseValidatorModel):
@@ -939,16 +965,16 @@ class ProtectedJobErrorTypeDef(BaseValidatorModel):
 
 
 class ProtectedJobMemberOutputConfigurationInputTypeDef(BaseValidatorModel):
-    accountId: str
+    accountId: Annotated[str, _aws_pattern("Cleanrooms", "AccountId")]
 
 
 class ProtectedJobMemberOutputConfigurationOutputTypeDef(BaseValidatorModel):
-    accountId: str
+    accountId: Annotated[str, _aws_pattern("Cleanrooms", "AccountId")]
 
 
 class ProtectedJobS3OutputConfigurationOutputTypeDef(BaseValidatorModel):
-    bucket: str
-    keyPrefix: Optional[str] = None
+    bucket: Annotated[str, _aws_pattern("Cleanrooms", "ProtectedJobS3OutputConfigurationOutputBucketString")]
+    keyPrefix: Optional[Annotated[str, _aws_pattern("Cleanrooms", "KeyPrefix")]] = None
 
 
 class ProtectedJobS3OutputTypeDef(BaseValidatorModel):
@@ -956,7 +982,7 @@ class ProtectedJobS3OutputTypeDef(BaseValidatorModel):
 
 
 class ProtectedJobSingleMemberOutputTypeDef(BaseValidatorModel):
-    accountId: str
+    accountId: Annotated[str, _aws_pattern("Cleanrooms", "AccountId")]
 
 
 class ProtectedJobParametersOutputTypeDef(BaseValidatorModel):
@@ -965,7 +991,7 @@ class ProtectedJobParametersOutputTypeDef(BaseValidatorModel):
 
 
 class ProtectedJobParametersTypeDef(BaseValidatorModel):
-    analysisTemplateArn: str
+    analysisTemplateArn: Annotated[str, _aws_pattern("Cleanrooms", "AnalysisTemplateArn")]
     parameters: Optional[Dict[str, str]] = None
 
 
@@ -978,7 +1004,7 @@ class WorkerComputeConfigurationPropertiesTypeDef(BaseValidatorModel):
 
 
 class ProtectedQueryMemberOutputConfigurationTypeDef(BaseValidatorModel):
-    accountId: str
+    accountId: Annotated[str, _aws_pattern("Cleanrooms", "AccountId")]
 
 
 class ProtectedQueryS3OutputTypeDef(BaseValidatorModel):
@@ -986,7 +1012,7 @@ class ProtectedQueryS3OutputTypeDef(BaseValidatorModel):
 
 
 class ProtectedQuerySingleMemberOutputTypeDef(BaseValidatorModel):
-    accountId: str
+    accountId: Annotated[str, _aws_pattern("Cleanrooms", "AccountId")]
 
 
 class ProtectedQueryErrorTypeDef(BaseValidatorModel):
@@ -1002,12 +1028,12 @@ class ProtectedQuerySQLParametersOutputTypeDef(BaseValidatorModel):
 
 class ProtectedQuerySQLParametersTypeDef(BaseValidatorModel):
     queryString: Optional[str] = None
-    analysisTemplateArn: Optional[str] = None
+    analysisTemplateArn: Optional[Annotated[str, _aws_pattern("Cleanrooms", "AnalysisTemplateArn")]] = None
     parameters: Optional[Dict[str, str]] = None
 
 
 class QueryConstraintRequireOverlapTypeDef(BaseValidatorModel):
-    columns: Optional[List[str]] = None
+    columns: Optional[List[Annotated[str, _aws_pattern("Cleanrooms", "AnalysisRuleColumnName")]]] = None
 
 
 class SchemaStatusReasonTypeDef(BaseValidatorModel):
@@ -1016,94 +1042,98 @@ class SchemaStatusReasonTypeDef(BaseValidatorModel):
 
 
 class SnowflakeTableSchemaV1TypeDef(BaseValidatorModel):
-    columnName: str
-    columnType: str
+    columnName: Annotated[str, _aws_pattern("Cleanrooms", "ColumnName")]
+    columnType: Annotated[str, _aws_pattern("Cleanrooms", "ColumnTypeString")]
 
 
 class TagResourceInputTypeDef(BaseValidatorModel):
-    resourceArn: str
+    resourceArn: Annotated[str, _aws_pattern("Cleanrooms", "CleanroomsArn")]
     tags: Dict[str, str]
 
 
 class UntagResourceInputTypeDef(BaseValidatorModel):
-    resourceArn: str
+    resourceArn: Annotated[str, _aws_pattern("Cleanrooms", "CleanroomsArn")]
     tagKeys: List[str]
 
 
 # This class is the input for the 'update_analysis_template' function.
 class UpdateAnalysisTemplateInputTypeDef(BaseValidatorModel):
-    membershipIdentifier: str
-    analysisTemplateIdentifier: str
-    description: Optional[str] = None
+    membershipIdentifier: Annotated[str, _aws_pattern("Cleanrooms", "MembershipIdentifier")]
+    analysisTemplateIdentifier: Annotated[str, _aws_pattern("Cleanrooms", "AnalysisTemplateIdentifier")]
+    description: Optional[Annotated[str, _aws_pattern("Cleanrooms", "ResourceDescription")]] = None
 
 
 # This class is the input for the 'update_collaboration_change_request' function.
 class UpdateCollaborationChangeRequestInputTypeDef(BaseValidatorModel):
-    collaborationIdentifier: str
-    changeRequestIdentifier: str
+    collaborationIdentifier: Annotated[str, _aws_pattern("Cleanrooms", "CollaborationIdentifier")]
+    changeRequestIdentifier: Annotated[str, _aws_pattern("Cleanrooms", "CollaborationChangeRequestIdentifier")]
     action: ChangeRequestActionType
 
 
 # This class is the input for the 'update_collaboration' function.
 class UpdateCollaborationInputTypeDef(BaseValidatorModel):
-    collaborationIdentifier: str
-    name: Optional[str] = None
-    description: Optional[str] = None
+    collaborationIdentifier: Annotated[str, _aws_pattern("Cleanrooms", "CollaborationIdentifier")]
+    name: Optional[Annotated[str, _aws_pattern("Cleanrooms", "CollaborationName")]] = None
+    description: Optional[Annotated[str, _aws_pattern("Cleanrooms", "CollaborationDescription")]] = None
     analyticsEngine: Optional[AnalyticsEngineType] = None
 
 
 # This class is the input for the 'update_configured_audience_model_association' function.
 class UpdateConfiguredAudienceModelAssociationInputTypeDef(BaseValidatorModel):
-    configuredAudienceModelAssociationIdentifier: str
-    membershipIdentifier: str
-    description: Optional[str] = None
-    name: Optional[str] = None
+    configuredAudienceModelAssociationIdentifier: Annotated[
+        str, _aws_pattern("Cleanrooms", "ConfiguredAudienceModelAssociationIdentifier")
+    ]
+    membershipIdentifier: Annotated[str, _aws_pattern("Cleanrooms", "MembershipIdentifier")]
+    description: Optional[Annotated[str, _aws_pattern("Cleanrooms", "ResourceDescription")]] = None
+    name: Optional[Annotated[str, _aws_pattern("Cleanrooms", "ConfiguredAudienceModelAssociationName")]] = None
 
 
 # This class is the input for the 'update_configured_table_association' function.
 class UpdateConfiguredTableAssociationInputTypeDef(BaseValidatorModel):
-    configuredTableAssociationIdentifier: str
-    membershipIdentifier: str
-    description: Optional[str] = None
-    roleArn: Optional[str] = None
+    configuredTableAssociationIdentifier: Annotated[
+        str, _aws_pattern("Cleanrooms", "ConfiguredTableAssociationIdentifier")
+    ]
+    membershipIdentifier: Annotated[str, _aws_pattern("Cleanrooms", "MembershipIdentifier")]
+    description: Optional[Annotated[str, _aws_pattern("Cleanrooms", "TableDescription")]] = None
+    roleArn: Optional[Annotated[str, _aws_pattern("Cleanrooms", "RoleArn")]] = None
 
 
 # This class is the input for the 'update_id_mapping_table' function.
 class UpdateIdMappingTableInputTypeDef(BaseValidatorModel):
-    idMappingTableIdentifier: str
-    membershipIdentifier: str
-    description: Optional[str] = None
-    kmsKeyArn: Optional[str] = None
+    idMappingTableIdentifier: Annotated[str, _aws_pattern("Cleanrooms", "UUID")]
+    membershipIdentifier: Annotated[str, _aws_pattern("Cleanrooms", "MembershipIdentifier")]
+    description: Optional[Annotated[str, _aws_pattern("Cleanrooms", "ResourceDescription")]] = None
+    kmsKeyArn: Optional[Annotated[str, _aws_pattern("Cleanrooms", "KMSKeyArn")]] = None
 
 
 # This class is the input for the 'update_protected_job' function.
 class UpdateProtectedJobInputTypeDef(BaseValidatorModel):
-    membershipIdentifier: str
-    protectedJobIdentifier: str
+    membershipIdentifier: Annotated[str, _aws_pattern("Cleanrooms", "MembershipIdentifier")]
+    protectedJobIdentifier: Annotated[str, _aws_pattern("Cleanrooms", "ProtectedJobIdentifier")]
     targetStatus: Literal["CANCELLED"]
 
 
 # This class is the input for the 'update_protected_query' function.
 class UpdateProtectedQueryInputTypeDef(BaseValidatorModel):
-    membershipIdentifier: str
-    protectedQueryIdentifier: str
+    membershipIdentifier: Annotated[str, _aws_pattern("Cleanrooms", "MembershipIdentifier")]
+    protectedQueryIdentifier: Annotated[str, _aws_pattern("Cleanrooms", "ProtectedQueryIdentifier")]
     targetStatus: Literal["CANCELLED"]
 
 
 class AccessBudgetTypeDef(BaseValidatorModel):
-    resourceArn: str
+    resourceArn: Annotated[str, _aws_pattern("Cleanrooms", "BudgetedResourceArn")]
     details: List[AccessBudgetDetailsTypeDef]
     aggregateRemainingBudget: int
 
 
 class AccessBudgetsPrivacyTemplateParametersInputTypeDef(BaseValidatorModel):
     budgetParameters: List[BudgetParameterTypeDef]
-    resourceArn: str
+    resourceArn: Annotated[str, _aws_pattern("Cleanrooms", "BudgetedResourceArn")]
 
 
 class AccessBudgetsPrivacyTemplateParametersOutputTypeDef(BaseValidatorModel):
     budgetParameters: List[BudgetParameterTypeDef]
-    resourceArn: str
+    resourceArn: Annotated[str, _aws_pattern("Cleanrooms", "BudgetedResourceArn")]
 
 
 class AccessBudgetsPrivacyTemplateUpdateParametersTypeDef(BaseValidatorModel):
@@ -1123,8 +1153,8 @@ class AnalysisRuleAggregationOutputTypeDef(BaseValidatorModel):
 
 class AnalysisRuleAggregationTypeDef(BaseValidatorModel):
     aggregateColumns: List[AggregateColumnTypeDef]
-    joinColumns: List[str]
-    dimensionColumns: List[str]
+    joinColumns: List[Annotated[str, _aws_pattern("Cleanrooms", "AnalysisRuleColumnName")]]
+    dimensionColumns: List[Annotated[str, _aws_pattern("Cleanrooms", "AnalysisRuleColumnName")]]
     scalarFunctions: List[ScalarFunctionsType]
     outputConstraints: List[AggregationConstraintTypeDef]
     joinRequired: Optional[Literal["QUERY_RUNNER"]] = None
@@ -1134,15 +1164,17 @@ class AnalysisRuleAggregationTypeDef(BaseValidatorModel):
 
 class ConsolidatedPolicyAggregationTypeDef(BaseValidatorModel):
     aggregateColumns: List[AggregateColumnOutputTypeDef]
-    joinColumns: List[str]
-    dimensionColumns: List[str]
+    joinColumns: List[Annotated[str, _aws_pattern("Cleanrooms", "AnalysisRuleColumnName")]]
+    dimensionColumns: List[Annotated[str, _aws_pattern("Cleanrooms", "AnalysisRuleColumnName")]]
     scalarFunctions: List[ScalarFunctionsType]
     outputConstraints: List[AggregationConstraintTypeDef]
     joinRequired: Optional[Literal["QUERY_RUNNER"]] = None
     allowedJoinOperators: Optional[List[JoinOperatorType]] = None
     additionalAnalyses: Optional[AdditionalAnalysesType] = None
-    allowedResultReceivers: Optional[List[str]] = None
-    allowedAdditionalAnalyses: Optional[List[str]] = None
+    allowedResultReceivers: Optional[List[Annotated[str, _aws_pattern("Cleanrooms", "AccountId")]]] = None
+    allowedAdditionalAnalyses: Optional[
+        List[Annotated[str, _aws_pattern("Cleanrooms", "AdditionalAnalysesResourceArn")]]
+    ] = None
 
 
 AnalysisSchemaUnionTypeDef = Union[AnalysisSchemaOutputTypeDef, AnalysisSchemaTypeDef]
@@ -1178,13 +1210,13 @@ class ListTagsForResourceOutputTypeDef(BaseValidatorModel):
 
 # This class is the output for the 'populate_id_mapping_table' function.
 class PopulateIdMappingTableOutputTypeDef(BaseValidatorModel):
-    idMappingJobId: str
+    idMappingJobId: Annotated[str, _aws_pattern("Cleanrooms", "UUID")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 # This class is the input for the 'batch_get_schema_analysis_rule' function.
 class BatchGetSchemaAnalysisRuleInputTypeDef(BaseValidatorModel):
-    collaborationIdentifier: str
+    collaborationIdentifier: Annotated[str, _aws_pattern("Cleanrooms", "CollaborationIdentifier")]
     schemaAnalysisRuleRequests: List[SchemaAnalysisRuleRequestTypeDef]
 
 
@@ -1231,81 +1263,81 @@ class GetCollaborationConfiguredAudienceModelAssociationOutputTypeDef(BaseValida
 
 
 class CollaborationIdNamespaceAssociationSummaryTypeDef(BaseValidatorModel):
-    arn: str
+    arn: Annotated[str, _aws_pattern("Cleanrooms", "IdNamespaceAssociationArn")]
     createTime: datetime
-    id: str
+    id: Annotated[str, _aws_pattern("Cleanrooms", "IdNamespaceAssociationIdentifier")]
     updateTime: datetime
-    collaborationArn: str
-    collaborationId: str
-    creatorAccountId: str
+    collaborationArn: Annotated[str, _aws_pattern("Cleanrooms", "CollaborationArn")]
+    collaborationId: Annotated[str, _aws_pattern("Cleanrooms", "UUID")]
+    creatorAccountId: Annotated[str, _aws_pattern("Cleanrooms", "AccountId")]
     inputReferenceConfig: IdNamespaceAssociationInputReferenceConfigTypeDef
-    name: str
+    name: Annotated[str, _aws_pattern("Cleanrooms", "GenericResourceName")]
     inputReferenceProperties: IdNamespaceAssociationInputReferencePropertiesSummaryTypeDef
-    description: Optional[str] = None
+    description: Optional[Annotated[str, _aws_pattern("Cleanrooms", "ResourceDescription")]] = None
 
 
 class IdNamespaceAssociationSummaryTypeDef(BaseValidatorModel):
-    membershipId: str
-    membershipArn: str
-    collaborationArn: str
-    collaborationId: str
+    membershipId: Annotated[str, _aws_pattern("Cleanrooms", "MembershipIdentifier")]
+    membershipArn: Annotated[str, _aws_pattern("Cleanrooms", "MembershipArn")]
+    collaborationArn: Annotated[str, _aws_pattern("Cleanrooms", "CollaborationArn")]
+    collaborationId: Annotated[str, _aws_pattern("Cleanrooms", "UUID")]
     createTime: datetime
     updateTime: datetime
-    id: str
-    arn: str
+    id: Annotated[str, _aws_pattern("Cleanrooms", "UUID")]
+    arn: Annotated[str, _aws_pattern("Cleanrooms", "IdNamespaceAssociationArn")]
     inputReferenceConfig: IdNamespaceAssociationInputReferenceConfigTypeDef
-    name: str
+    name: Annotated[str, _aws_pattern("Cleanrooms", "GenericResourceName")]
     inputReferenceProperties: IdNamespaceAssociationInputReferencePropertiesSummaryTypeDef
-    description: Optional[str] = None
+    description: Optional[Annotated[str, _aws_pattern("Cleanrooms", "ResourceDescription")]] = None
 
 
 # This class is the input for the 'create_id_namespace_association' function.
 class CreateIdNamespaceAssociationInputTypeDef(BaseValidatorModel):
-    membershipIdentifier: str
+    membershipIdentifier: Annotated[str, _aws_pattern("Cleanrooms", "MembershipIdentifier")]
     inputReferenceConfig: IdNamespaceAssociationInputReferenceConfigTypeDef
-    name: str
+    name: Annotated[str, _aws_pattern("Cleanrooms", "GenericResourceName")]
     tags: Optional[Dict[str, str]] = None
-    description: Optional[str] = None
+    description: Optional[Annotated[str, _aws_pattern("Cleanrooms", "ResourceDescription")]] = None
     idMappingConfig: Optional[IdMappingConfigTypeDef] = None
 
 
 # This class is the input for the 'update_id_namespace_association' function.
 class UpdateIdNamespaceAssociationInputTypeDef(BaseValidatorModel):
-    idNamespaceAssociationIdentifier: str
-    membershipIdentifier: str
-    name: Optional[str] = None
-    description: Optional[str] = None
+    idNamespaceAssociationIdentifier: Annotated[str, _aws_pattern("Cleanrooms", "IdNamespaceAssociationIdentifier")]
+    membershipIdentifier: Annotated[str, _aws_pattern("Cleanrooms", "MembershipIdentifier")]
+    name: Optional[Annotated[str, _aws_pattern("Cleanrooms", "GenericResourceName")]] = None
+    description: Optional[Annotated[str, _aws_pattern("Cleanrooms", "ResourceDescription")]] = None
     idMappingConfig: Optional[IdMappingConfigTypeDef] = None
 
 
 class CollaborationIdNamespaceAssociationTypeDef(BaseValidatorModel):
-    id: str
-    arn: str
-    collaborationId: str
-    collaborationArn: str
-    name: str
-    creatorAccountId: str
+    id: Annotated[str, _aws_pattern("Cleanrooms", "IdNamespaceAssociationIdentifier")]
+    arn: Annotated[str, _aws_pattern("Cleanrooms", "IdNamespaceAssociationArn")]
+    collaborationId: Annotated[str, _aws_pattern("Cleanrooms", "UUID")]
+    collaborationArn: Annotated[str, _aws_pattern("Cleanrooms", "CollaborationArn")]
+    name: Annotated[str, _aws_pattern("Cleanrooms", "GenericResourceName")]
+    creatorAccountId: Annotated[str, _aws_pattern("Cleanrooms", "AccountId")]
     createTime: datetime
     updateTime: datetime
     inputReferenceConfig: IdNamespaceAssociationInputReferenceConfigTypeDef
     inputReferenceProperties: IdNamespaceAssociationInputReferencePropertiesTypeDef
-    description: Optional[str] = None
+    description: Optional[Annotated[str, _aws_pattern("Cleanrooms", "ResourceDescription")]] = None
     idMappingConfig: Optional[IdMappingConfigTypeDef] = None
 
 
 class IdNamespaceAssociationTypeDef(BaseValidatorModel):
-    id: str
-    arn: str
-    membershipId: str
-    membershipArn: str
-    collaborationId: str
-    collaborationArn: str
-    name: str
+    id: Annotated[str, _aws_pattern("Cleanrooms", "IdNamespaceAssociationIdentifier")]
+    arn: Annotated[str, _aws_pattern("Cleanrooms", "IdNamespaceAssociationArn")]
+    membershipId: Annotated[str, _aws_pattern("Cleanrooms", "UUID")]
+    membershipArn: Annotated[str, _aws_pattern("Cleanrooms", "MembershipArn")]
+    collaborationId: Annotated[str, _aws_pattern("Cleanrooms", "UUID")]
+    collaborationArn: Annotated[str, _aws_pattern("Cleanrooms", "CollaborationArn")]
+    name: Annotated[str, _aws_pattern("Cleanrooms", "GenericResourceName")]
     createTime: datetime
     updateTime: datetime
     inputReferenceConfig: IdNamespaceAssociationInputReferenceConfigTypeDef
     inputReferenceProperties: IdNamespaceAssociationInputReferencePropertiesTypeDef
-    description: Optional[str] = None
+    description: Optional[Annotated[str, _aws_pattern("Cleanrooms", "ResourceDescription")]] = None
     idMappingConfig: Optional[IdMappingConfigTypeDef] = None
 
 
@@ -1324,18 +1356,18 @@ class ListCollaborationsOutputTypeDef(BaseValidatorModel):
 
 
 class CollaborationTypeDef(BaseValidatorModel):
-    id: str
-    arn: str
-    name: str
-    creatorAccountId: str
-    creatorDisplayName: str
+    id: Annotated[str, _aws_pattern("Cleanrooms", "UUID")]
+    arn: Annotated[str, _aws_pattern("Cleanrooms", "CollaborationArn")]
+    name: Annotated[str, _aws_pattern("Cleanrooms", "CollaborationName")]
+    creatorAccountId: Annotated[str, _aws_pattern("Cleanrooms", "AccountId")]
+    creatorDisplayName: Annotated[str, _aws_pattern("Cleanrooms", "DisplayName")]
     createTime: datetime
     updateTime: datetime
     memberStatus: MemberStatusType
     queryLogStatus: CollaborationQueryLogStatusType
-    description: Optional[str] = None
-    membershipId: Optional[str] = None
-    membershipArn: Optional[str] = None
+    description: Optional[Annotated[str, _aws_pattern("Cleanrooms", "CollaborationDescription")]] = None
+    membershipId: Optional[Annotated[str, _aws_pattern("Cleanrooms", "UUID")]] = None
+    membershipArn: Optional[Annotated[str, _aws_pattern("Cleanrooms", "MembershipArn")]] = None
     dataEncryptionMetadata: Optional[DataEncryptionMetadataTypeDef] = None
     jobLogStatus: Optional[CollaborationJobLogStatusType] = None
     analyticsEngine: Optional[AnalyticsEngineType] = None
@@ -1427,26 +1459,26 @@ class ListConfiguredTablesOutputTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'create_id_mapping_table' function.
 class CreateIdMappingTableInputTypeDef(BaseValidatorModel):
-    membershipIdentifier: str
-    name: str
+    membershipIdentifier: Annotated[str, _aws_pattern("Cleanrooms", "MembershipIdentifier")]
+    name: Annotated[str, _aws_pattern("Cleanrooms", "ResourceAlias")]
     inputReferenceConfig: IdMappingTableInputReferenceConfigTypeDef
-    description: Optional[str] = None
+    description: Optional[Annotated[str, _aws_pattern("Cleanrooms", "ResourceDescription")]] = None
     tags: Optional[Dict[str, str]] = None
-    kmsKeyArn: Optional[str] = None
+    kmsKeyArn: Optional[Annotated[str, _aws_pattern("Cleanrooms", "KMSKeyArn")]] = None
 
 
 class IdMappingTableSummaryTypeDef(BaseValidatorModel):
-    collaborationArn: str
-    collaborationId: str
-    membershipId: str
-    membershipArn: str
+    collaborationArn: Annotated[str, _aws_pattern("Cleanrooms", "CollaborationArn")]
+    collaborationId: Annotated[str, _aws_pattern("Cleanrooms", "UUID")]
+    membershipId: Annotated[str, _aws_pattern("Cleanrooms", "MembershipIdentifier")]
+    membershipArn: Annotated[str, _aws_pattern("Cleanrooms", "MembershipArn")]
     createTime: datetime
     updateTime: datetime
-    id: str
-    arn: str
+    id: Annotated[str, _aws_pattern("Cleanrooms", "UUID")]
+    arn: Annotated[str, _aws_pattern("Cleanrooms", "IdMappingTableArn")]
     inputReferenceConfig: IdMappingTableInputReferenceConfigTypeDef
-    name: str
-    description: Optional[str] = None
+    name: Annotated[str, _aws_pattern("Cleanrooms", "ResourceAlias")]
+    description: Optional[Annotated[str, _aws_pattern("Cleanrooms", "ResourceDescription")]] = None
 
 
 class DifferentialPrivacyConfigurationOutputTypeDef(BaseValidatorModel):
@@ -1736,7 +1768,7 @@ class AnalysisTemplateArtifactsOutputTypeDef(BaseValidatorModel):
 
 class AnalysisTemplateArtifactsTypeDef(BaseValidatorModel):
     entryPoint: AnalysisTemplateArtifactTypeDef
-    roleArn: str
+    roleArn: Annotated[str, _aws_pattern("Cleanrooms", "RoleArn")]
     additionalArtifacts: Optional[List[AnalysisTemplateArtifactTypeDef]] = None
 
 
@@ -1843,20 +1875,22 @@ class AnalysisRuleCustomOutputTypeDef(BaseValidatorModel):
 
 
 class ConsolidatedPolicyCustomTypeDef(BaseValidatorModel):
-    allowedAnalyses: List[str]
-    allowedAnalysisProviders: Optional[List[str]] = None
+    allowedAnalyses: List[Annotated[str, _aws_pattern("Cleanrooms", "AnalysisTemplateArnOrQueryWildcard")]]
+    allowedAnalysisProviders: Optional[List[Annotated[str, _aws_pattern("Cleanrooms", "AccountId")]]] = None
     additionalAnalyses: Optional[AdditionalAnalysesType] = None
-    disallowedOutputColumns: Optional[List[str]] = None
+    disallowedOutputColumns: Optional[List[Annotated[str, _aws_pattern("Cleanrooms", "AnalysisRuleColumnName")]]] = None
     differentialPrivacy: Optional[DifferentialPrivacyConfigurationOutputTypeDef] = None
-    allowedResultReceivers: Optional[List[str]] = None
-    allowedAdditionalAnalyses: Optional[List[str]] = None
+    allowedResultReceivers: Optional[List[Annotated[str, _aws_pattern("Cleanrooms", "AccountId")]]] = None
+    allowedAdditionalAnalyses: Optional[
+        List[Annotated[str, _aws_pattern("Cleanrooms", "AdditionalAnalysesResourceArn")]]
+    ] = None
 
 
 class AnalysisRuleCustomTypeDef(BaseValidatorModel):
-    allowedAnalyses: List[str]
-    allowedAnalysisProviders: Optional[List[str]] = None
+    allowedAnalyses: List[Annotated[str, _aws_pattern("Cleanrooms", "AnalysisTemplateArnOrQueryWildcard")]]
+    allowedAnalysisProviders: Optional[List[Annotated[str, _aws_pattern("Cleanrooms", "AccountId")]]] = None
     additionalAnalyses: Optional[AdditionalAnalysesType] = None
-    disallowedOutputColumns: Optional[List[str]] = None
+    disallowedOutputColumns: Optional[List[Annotated[str, _aws_pattern("Cleanrooms", "AnalysisRuleColumnName")]]] = None
     differentialPrivacy: Optional[DifferentialPrivacyConfigurationTypeDef] = None
 
 
@@ -1866,7 +1900,7 @@ class PrivacyImpactTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'preview_privacy_impact' function.
 class PreviewPrivacyImpactInputTypeDef(BaseValidatorModel):
-    membershipIdentifier: str
+    membershipIdentifier: Annotated[str, _aws_pattern("Cleanrooms", "MembershipIdentifier")]
     parameters: PreviewPrivacyImpactParametersInputTypeDef
 
 
@@ -1876,19 +1910,19 @@ class PrivacyBudgetTypeDef(BaseValidatorModel):
 
 
 class IdMappingTableTypeDef(BaseValidatorModel):
-    id: str
-    arn: str
+    id: Annotated[str, _aws_pattern("Cleanrooms", "UUID")]
+    arn: Annotated[str, _aws_pattern("Cleanrooms", "IdMappingTableArn")]
     inputReferenceConfig: IdMappingTableInputReferenceConfigTypeDef
-    membershipId: str
-    membershipArn: str
-    collaborationId: str
-    collaborationArn: str
-    name: str
+    membershipId: Annotated[str, _aws_pattern("Cleanrooms", "UUID")]
+    membershipArn: Annotated[str, _aws_pattern("Cleanrooms", "MembershipArn")]
+    collaborationId: Annotated[str, _aws_pattern("Cleanrooms", "UUID")]
+    collaborationArn: Annotated[str, _aws_pattern("Cleanrooms", "CollaborationArn")]
+    name: Annotated[str, _aws_pattern("Cleanrooms", "ResourceAlias")]
     createTime: datetime
     updateTime: datetime
     inputReferenceProperties: IdMappingTableInputReferencePropertiesTypeDef
-    description: Optional[str] = None
-    kmsKeyArn: Optional[str] = None
+    description: Optional[Annotated[str, _aws_pattern("Cleanrooms", "ResourceDescription")]] = None
+    kmsKeyArn: Optional[Annotated[str, _aws_pattern("Cleanrooms", "KMSKeyArn")]] = None
 
 
 class SchemaTypePropertiesTypeDef(BaseValidatorModel):
@@ -1914,12 +1948,12 @@ class MembershipPaymentConfigurationTypeDef(BaseValidatorModel):
 
 class MembershipProtectedJobResultConfigurationTypeDef(BaseValidatorModel):
     outputConfiguration: MembershipProtectedJobOutputConfigurationTypeDef
-    roleArn: str
+    roleArn: Annotated[str, _aws_pattern("Cleanrooms", "RoleArn")]
 
 
 class MembershipProtectedQueryResultConfigurationTypeDef(BaseValidatorModel):
     outputConfiguration: MembershipProtectedQueryOutputConfigurationTypeDef
-    roleArn: Optional[str] = None
+    roleArn: Optional[Annotated[str, _aws_pattern("Cleanrooms", "RoleArn")]] = None
 
 
 class ProtectedJobReceiverConfigurationTypeDef(BaseValidatorModel):
@@ -1970,9 +2004,9 @@ class ProtectedQueryOutputTypeDef(BaseValidatorModel):
 
 
 class AnalysisRuleIdMappingTableTypeDef(BaseValidatorModel):
-    joinColumns: List[str]
+    joinColumns: List[Annotated[str, _aws_pattern("Cleanrooms", "AnalysisRuleColumnName")]]
     queryConstraints: List[QueryConstraintTypeDef]
-    dimensionColumns: Optional[List[str]] = None
+    dimensionColumns: Optional[List[Annotated[str, _aws_pattern("Cleanrooms", "AnalysisRuleColumnName")]]] = None
 
 
 class SnowflakeTableReferenceOutputTypeDef(BaseValidatorModel):
@@ -1985,17 +2019,17 @@ class SnowflakeTableReferenceOutputTypeDef(BaseValidatorModel):
 
 
 class SnowflakeTableReferenceTypeDef(BaseValidatorModel):
-    secretArn: str
-    accountIdentifier: str
-    databaseName: str
-    tableName: str
-    schemaName: str
+    secretArn: Annotated[str, _aws_pattern("Cleanrooms", "SecretsManagerArn")]
+    accountIdentifier: Annotated[str, _aws_pattern("Cleanrooms", "SnowflakeAccountIdentifier")]
+    databaseName: Annotated[str, _aws_pattern("Cleanrooms", "SnowflakeDatabaseName")]
+    tableName: Annotated[str, _aws_pattern("Cleanrooms", "SnowflakeTableName")]
+    schemaName: Annotated[str, _aws_pattern("Cleanrooms", "SnowflakeSchemaName")]
     tableSchema: SnowflakeTableSchemaTypeDef
 
 
 # This class is the input for the 'create_privacy_budget_template' function.
 class CreatePrivacyBudgetTemplateInputTypeDef(BaseValidatorModel):
-    membershipIdentifier: str
+    membershipIdentifier: Annotated[str, _aws_pattern("Cleanrooms", "MembershipIdentifier")]
     privacyBudgetType: PrivacyBudgetTypeType
     parameters: PrivacyBudgetTemplateParametersInputTypeDef
     autoRefresh: Optional[PrivacyBudgetTemplateAutoRefreshType] = None
@@ -2003,11 +2037,11 @@ class CreatePrivacyBudgetTemplateInputTypeDef(BaseValidatorModel):
 
 
 class CollaborationPrivacyBudgetTemplateTypeDef(BaseValidatorModel):
-    id: str
-    arn: str
-    collaborationId: str
-    collaborationArn: str
-    creatorAccountId: str
+    id: Annotated[str, _aws_pattern("Cleanrooms", "PrivacyBudgetTemplateIdentifier")]
+    arn: Annotated[str, _aws_pattern("Cleanrooms", "PrivacyBudgetTemplateArn")]
+    collaborationId: Annotated[str, _aws_pattern("Cleanrooms", "UUID")]
+    collaborationArn: Annotated[str, _aws_pattern("Cleanrooms", "CollaborationArn")]
+    creatorAccountId: Annotated[str, _aws_pattern("Cleanrooms", "AccountId")]
     createTime: datetime
     updateTime: datetime
     privacyBudgetType: PrivacyBudgetTypeType
@@ -2016,12 +2050,12 @@ class CollaborationPrivacyBudgetTemplateTypeDef(BaseValidatorModel):
 
 
 class PrivacyBudgetTemplateTypeDef(BaseValidatorModel):
-    id: str
-    arn: str
-    membershipId: str
-    membershipArn: str
-    collaborationId: str
-    collaborationArn: str
+    id: Annotated[str, _aws_pattern("Cleanrooms", "PrivacyBudgetTemplateIdentifier")]
+    arn: Annotated[str, _aws_pattern("Cleanrooms", "PrivacyBudgetTemplateArn")]
+    membershipId: Annotated[str, _aws_pattern("Cleanrooms", "UUID")]
+    membershipArn: Annotated[str, _aws_pattern("Cleanrooms", "MembershipArn")]
+    collaborationId: Annotated[str, _aws_pattern("Cleanrooms", "UUID")]
+    collaborationArn: Annotated[str, _aws_pattern("Cleanrooms", "CollaborationArn")]
     createTime: datetime
     updateTime: datetime
     privacyBudgetType: PrivacyBudgetTypeType
@@ -2031,8 +2065,8 @@ class PrivacyBudgetTemplateTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'update_privacy_budget_template' function.
 class UpdatePrivacyBudgetTemplateInputTypeDef(BaseValidatorModel):
-    membershipIdentifier: str
-    privacyBudgetTemplateIdentifier: str
+    membershipIdentifier: Annotated[str, _aws_pattern("Cleanrooms", "MembershipIdentifier")]
+    privacyBudgetTemplateIdentifier: Annotated[str, _aws_pattern("Cleanrooms", "PrivacyBudgetTemplateIdentifier")]
     privacyBudgetType: PrivacyBudgetTypeType
     parameters: Optional[PrivacyBudgetTemplateUpdateParametersTypeDef] = None
 
@@ -2048,8 +2082,8 @@ class AnalysisSourceTypeDef(BaseValidatorModel):
 
 
 class CollaborationChangeRequestSummaryTypeDef(BaseValidatorModel):
-    id: str
-    collaborationId: str
+    id: Annotated[str, _aws_pattern("Cleanrooms", "UUID")]
+    collaborationId: Annotated[str, _aws_pattern("Cleanrooms", "UUID")]
     createTime: datetime
     updateTime: datetime
     status: ChangeRequestStatusType
@@ -2059,8 +2093,8 @@ class CollaborationChangeRequestSummaryTypeDef(BaseValidatorModel):
 
 
 class CollaborationChangeRequestTypeDef(BaseValidatorModel):
-    id: str
-    collaborationId: str
+    id: Annotated[str, _aws_pattern("Cleanrooms", "UUID")]
+    collaborationId: Annotated[str, _aws_pattern("Cleanrooms", "UUID")]
     createTime: datetime
     updateTime: datetime
     status: ChangeRequestStatusType
@@ -2078,18 +2112,18 @@ class SyntheticDataParametersTypeDef(BaseValidatorModel):
 
 
 class ProtectedQuerySummaryTypeDef(BaseValidatorModel):
-    id: str
-    membershipId: str
-    membershipArn: str
+    id: Annotated[str, _aws_pattern("Cleanrooms", "UUID")]
+    membershipId: Annotated[str, _aws_pattern("Cleanrooms", "UUID")]
+    membershipArn: Annotated[str, _aws_pattern("Cleanrooms", "MembershipArn")]
     createTime: datetime
     status: ProtectedQueryStatusType
     receiverConfigurations: List[ReceiverConfigurationTypeDef]
 
 
 class ConfiguredTableAssociationAnalysisRuleTypeDef(BaseValidatorModel):
-    membershipIdentifier: str
-    configuredTableAssociationId: str
-    configuredTableAssociationArn: str
+    membershipIdentifier: Annotated[str, _aws_pattern("Cleanrooms", "MembershipIdentifier")]
+    configuredTableAssociationId: Annotated[str, _aws_pattern("Cleanrooms", "ConfiguredTableAssociationIdentifier")]
+    configuredTableAssociationArn: Annotated[str, _aws_pattern("Cleanrooms", "ConfiguredTableAssociationArn")]
     policy: ConfiguredTableAssociationAnalysisRulePolicyOutputTypeDef
     type: ConfiguredTableAssociationAnalysisRuleTypeType
     createTime: datetime
@@ -2126,12 +2160,12 @@ class PreviewPrivacyImpactOutputTypeDef(BaseValidatorModel):
 
 
 class CollaborationPrivacyBudgetSummaryTypeDef(BaseValidatorModel):
-    id: str
-    privacyBudgetTemplateId: str
-    privacyBudgetTemplateArn: str
-    collaborationId: str
-    collaborationArn: str
-    creatorAccountId: str
+    id: Annotated[str, _aws_pattern("Cleanrooms", "UUID")]
+    privacyBudgetTemplateId: Annotated[str, _aws_pattern("Cleanrooms", "PrivacyBudgetTemplateIdentifier")]
+    privacyBudgetTemplateArn: Annotated[str, _aws_pattern("Cleanrooms", "PrivacyBudgetTemplateArn")]
+    collaborationId: Annotated[str, _aws_pattern("Cleanrooms", "UUID")]
+    collaborationArn: Annotated[str, _aws_pattern("Cleanrooms", "CollaborationArn")]
+    creatorAccountId: Annotated[str, _aws_pattern("Cleanrooms", "AccountId")]
     type: PrivacyBudgetTypeType
     createTime: datetime
     updateTime: datetime
@@ -2139,13 +2173,13 @@ class CollaborationPrivacyBudgetSummaryTypeDef(BaseValidatorModel):
 
 
 class PrivacyBudgetSummaryTypeDef(BaseValidatorModel):
-    id: str
-    privacyBudgetTemplateId: str
-    privacyBudgetTemplateArn: str
-    membershipId: str
-    membershipArn: str
-    collaborationId: str
-    collaborationArn: str
+    id: Annotated[str, _aws_pattern("Cleanrooms", "UUID")]
+    privacyBudgetTemplateId: Annotated[str, _aws_pattern("Cleanrooms", "PrivacyBudgetTemplateIdentifier")]
+    privacyBudgetTemplateArn: Annotated[str, _aws_pattern("Cleanrooms", "PrivacyBudgetTemplateArn")]
+    membershipId: Annotated[str, _aws_pattern("Cleanrooms", "MembershipIdentifier")]
+    membershipArn: Annotated[str, _aws_pattern("Cleanrooms", "MembershipArn")]
+    collaborationId: Annotated[str, _aws_pattern("Cleanrooms", "UUID")]
+    collaborationArn: Annotated[str, _aws_pattern("Cleanrooms", "CollaborationArn")]
     type: PrivacyBudgetTypeType
     createTime: datetime
     updateTime: datetime
@@ -2174,53 +2208,53 @@ class SchemaTypeDef(BaseValidatorModel):
     columns: List[ColumnTypeDef]
     partitionKeys: List[ColumnTypeDef]
     analysisRuleTypes: List[AnalysisRuleTypeType]
-    creatorAccountId: str
-    name: str
-    collaborationId: str
-    collaborationArn: str
-    description: str
+    creatorAccountId: Annotated[str, _aws_pattern("Cleanrooms", "AccountId")]
+    name: Annotated[str, _aws_pattern("Cleanrooms", "TableAlias")]
+    collaborationId: Annotated[str, _aws_pattern("Cleanrooms", "UUID")]
+    collaborationArn: Annotated[str, _aws_pattern("Cleanrooms", "CollaborationArn")]
+    description: Annotated[str, _aws_pattern("Cleanrooms", "TableDescription")]
     createTime: datetime
     updateTime: datetime
     type: SchemaTypeType
     schemaStatusDetails: List[SchemaStatusDetailTypeDef]
     analysisMethod: Optional[AnalysisMethodType] = None
     selectedAnalysisMethods: Optional[List[SelectedAnalysisMethodType]] = None
-    resourceArn: Optional[str] = None
+    resourceArn: Optional[Annotated[str, _aws_pattern("Cleanrooms", "SchemaResourceArn")]] = None
     schemaTypeProperties: Optional[SchemaTypePropertiesTypeDef] = None
 
 
 class MemberSpecificationTypeDef(BaseValidatorModel):
-    accountId: str
+    accountId: Annotated[str, _aws_pattern("Cleanrooms", "AccountId")]
     memberAbilities: List[MemberAbilityType]
-    displayName: str
+    displayName: Annotated[str, _aws_pattern("Cleanrooms", "DisplayName")]
     mlMemberAbilities: Optional[MLMemberAbilitiesUnionTypeDef] = None
     paymentConfiguration: Optional[PaymentConfigurationTypeDef] = None
 
 
 class MemberSummaryTypeDef(BaseValidatorModel):
-    accountId: str
+    accountId: Annotated[str, _aws_pattern("Cleanrooms", "AccountId")]
     status: MemberStatusType
-    displayName: str
+    displayName: Annotated[str, _aws_pattern("Cleanrooms", "DisplayName")]
     abilities: List[MemberAbilityType]
     createTime: datetime
     updateTime: datetime
     paymentConfiguration: PaymentConfigurationTypeDef
     mlAbilities: Optional[MLMemberAbilitiesOutputTypeDef] = None
-    membershipId: Optional[str] = None
-    membershipArn: Optional[str] = None
+    membershipId: Optional[Annotated[str, _aws_pattern("Cleanrooms", "UUID")]] = None
+    membershipArn: Optional[Annotated[str, _aws_pattern("Cleanrooms", "MembershipArn")]] = None
 
 
 ChangeSpecificationUnionTypeDef = Union[ChangeSpecificationOutputTypeDef, ChangeSpecificationTypeDef]
 
 
 class MembershipSummaryTypeDef(BaseValidatorModel):
-    id: str
-    arn: str
-    collaborationArn: str
-    collaborationId: str
-    collaborationCreatorAccountId: str
-    collaborationCreatorDisplayName: str
-    collaborationName: str
+    id: Annotated[str, _aws_pattern("Cleanrooms", "UUID")]
+    arn: Annotated[str, _aws_pattern("Cleanrooms", "MembershipArn")]
+    collaborationArn: Annotated[str, _aws_pattern("Cleanrooms", "CollaborationArn")]
+    collaborationId: Annotated[str, _aws_pattern("Cleanrooms", "CollaborationIdentifier")]
+    collaborationCreatorAccountId: Annotated[str, _aws_pattern("Cleanrooms", "AccountId")]
+    collaborationCreatorDisplayName: Annotated[str, _aws_pattern("Cleanrooms", "DisplayName")]
+    collaborationName: Annotated[str, _aws_pattern("Cleanrooms", "CollaborationName")]
     createTime: datetime
     updateTime: datetime
     status: MembershipStatusType
@@ -2231,7 +2265,7 @@ class MembershipSummaryTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'create_membership' function.
 class CreateMembershipInputTypeDef(BaseValidatorModel):
-    collaborationIdentifier: str
+    collaborationIdentifier: Annotated[str, _aws_pattern("Cleanrooms", "CollaborationIdentifier")]
     queryLogStatus: MembershipQueryLogStatusType
     jobLogStatus: Optional[MembershipJobLogStatusType] = None
     tags: Optional[Dict[str, str]] = None
@@ -2242,13 +2276,13 @@ class CreateMembershipInputTypeDef(BaseValidatorModel):
 
 
 class MembershipTypeDef(BaseValidatorModel):
-    id: str
-    arn: str
-    collaborationArn: str
-    collaborationId: str
-    collaborationCreatorAccountId: str
-    collaborationCreatorDisplayName: str
-    collaborationName: str
+    id: Annotated[str, _aws_pattern("Cleanrooms", "UUID")]
+    arn: Annotated[str, _aws_pattern("Cleanrooms", "MembershipArn")]
+    collaborationArn: Annotated[str, _aws_pattern("Cleanrooms", "CollaborationArn")]
+    collaborationId: Annotated[str, _aws_pattern("Cleanrooms", "UUID")]
+    collaborationCreatorAccountId: Annotated[str, _aws_pattern("Cleanrooms", "AccountId")]
+    collaborationCreatorDisplayName: Annotated[str, _aws_pattern("Cleanrooms", "DisplayName")]
+    collaborationName: Annotated[str, _aws_pattern("Cleanrooms", "CollaborationName")]
     createTime: datetime
     updateTime: datetime
     status: MembershipStatusType
@@ -2264,7 +2298,7 @@ class MembershipTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'update_membership' function.
 class UpdateMembershipInputTypeDef(BaseValidatorModel):
-    membershipIdentifier: str
+    membershipIdentifier: Annotated[str, _aws_pattern("Cleanrooms", "MembershipIdentifier")]
     queryLogStatus: Optional[MembershipQueryLogStatusType] = None
     jobLogStatus: Optional[MembershipJobLogStatusType] = None
     defaultResultConfiguration: Optional[MembershipProtectedQueryResultConfigurationTypeDef] = None
@@ -2272,18 +2306,18 @@ class UpdateMembershipInputTypeDef(BaseValidatorModel):
 
 
 class ProtectedJobSummaryTypeDef(BaseValidatorModel):
-    id: str
-    membershipId: str
-    membershipArn: str
+    id: Annotated[str, _aws_pattern("Cleanrooms", "UUID")]
+    membershipId: Annotated[str, _aws_pattern("Cleanrooms", "MembershipIdentifier")]
+    membershipArn: Annotated[str, _aws_pattern("Cleanrooms", "MembershipArn")]
     createTime: datetime
     status: ProtectedJobStatusType
     receiverConfigurations: List[ProtectedJobReceiverConfigurationTypeDef]
 
 
 class ProtectedJobTypeDef(BaseValidatorModel):
-    id: str
-    membershipId: str
-    membershipArn: str
+    id: Annotated[str, _aws_pattern("Cleanrooms", "ProtectedJobIdentifier")]
+    membershipId: Annotated[str, _aws_pattern("Cleanrooms", "MembershipIdentifier")]
+    membershipArn: Annotated[str, _aws_pattern("Cleanrooms", "MembershipArn")]
     createTime: datetime
     status: ProtectedJobStatusType
     jobParameters: Optional[ProtectedJobParametersOutputTypeDef] = None
@@ -2389,19 +2423,19 @@ class UpdateCollaborationChangeRequestOutputTypeDef(BaseValidatorModel):
 
 
 class AnalysisTemplateTypeDef(BaseValidatorModel):
-    id: str
-    arn: str
-    collaborationId: str
-    collaborationArn: str
-    membershipId: str
-    membershipArn: str
-    name: str
+    id: Annotated[str, _aws_pattern("Cleanrooms", "AnalysisTemplateIdentifier")]
+    arn: Annotated[str, _aws_pattern("Cleanrooms", "AnalysisTemplateArn")]
+    collaborationId: Annotated[str, _aws_pattern("Cleanrooms", "UUID")]
+    collaborationArn: Annotated[str, _aws_pattern("Cleanrooms", "CollaborationArn")]
+    membershipId: Annotated[str, _aws_pattern("Cleanrooms", "UUID")]
+    membershipArn: Annotated[str, _aws_pattern("Cleanrooms", "MembershipArn")]
+    name: Annotated[str, _aws_pattern("Cleanrooms", "ResourceAlias")]
     createTime: datetime
     updateTime: datetime
     schema: AnalysisSchemaOutputTypeDef
     format: AnalysisFormatType
     source: AnalysisSourceOutputTypeDef
-    description: Optional[str] = None
+    description: Optional[Annotated[str, _aws_pattern("Cleanrooms", "ResourceDescription")]] = None
     sourceMetadata: Optional[AnalysisSourceMetadataTypeDef] = None
     analysisParameters: Optional[List[AnalysisParameterTypeDef]] = None
     validations: Optional[List[AnalysisTemplateValidationStatusDetailTypeDef]] = None
@@ -2410,17 +2444,17 @@ class AnalysisTemplateTypeDef(BaseValidatorModel):
 
 
 class CollaborationAnalysisTemplateTypeDef(BaseValidatorModel):
-    id: str
-    arn: str
-    collaborationId: str
-    collaborationArn: str
-    creatorAccountId: str
-    name: str
+    id: Annotated[str, _aws_pattern("Cleanrooms", "AnalysisTemplateIdentifier")]
+    arn: Annotated[str, _aws_pattern("Cleanrooms", "AnalysisTemplateArn")]
+    collaborationId: Annotated[str, _aws_pattern("Cleanrooms", "UUID")]
+    collaborationArn: Annotated[str, _aws_pattern("Cleanrooms", "CollaborationArn")]
+    creatorAccountId: Annotated[str, _aws_pattern("Cleanrooms", "AccountId")]
+    name: Annotated[str, _aws_pattern("Cleanrooms", "ResourceAlias")]
     createTime: datetime
     updateTime: datetime
     schema: AnalysisSchemaOutputTypeDef
     format: AnalysisFormatType
-    description: Optional[str] = None
+    description: Optional[Annotated[str, _aws_pattern("Cleanrooms", "ResourceDescription")]] = None
     source: Optional[AnalysisSourceOutputTypeDef] = None
     sourceMetadata: Optional[AnalysisSourceMetadataTypeDef] = None
     analysisParameters: Optional[List[AnalysisParameterTypeDef]] = None
@@ -2459,16 +2493,20 @@ class UpdateConfiguredTableAssociationAnalysisRuleOutputTypeDef(BaseValidatorMod
 
 # This class is the input for the 'create_configured_table_association_analysis_rule' function.
 class CreateConfiguredTableAssociationAnalysisRuleInputTypeDef(BaseValidatorModel):
-    membershipIdentifier: str
-    configuredTableAssociationIdentifier: str
+    membershipIdentifier: Annotated[str, _aws_pattern("Cleanrooms", "MembershipIdentifier")]
+    configuredTableAssociationIdentifier: Annotated[
+        str, _aws_pattern("Cleanrooms", "ConfiguredTableAssociationIdentifier")
+    ]
     analysisRuleType: ConfiguredTableAssociationAnalysisRuleTypeType
     analysisRulePolicy: ConfiguredTableAssociationAnalysisRulePolicyUnionTypeDef
 
 
 # This class is the input for the 'update_configured_table_association_analysis_rule' function.
 class UpdateConfiguredTableAssociationAnalysisRuleInputTypeDef(BaseValidatorModel):
-    membershipIdentifier: str
-    configuredTableAssociationIdentifier: str
+    membershipIdentifier: Annotated[str, _aws_pattern("Cleanrooms", "MembershipIdentifier")]
+    configuredTableAssociationIdentifier: Annotated[
+        str, _aws_pattern("Cleanrooms", "ConfiguredTableAssociationIdentifier")
+    ]
     analysisRuleType: ConfiguredTableAssociationAnalysisRuleTypeType
     analysisRulePolicy: ConfiguredTableAssociationAnalysisRulePolicyUnionTypeDef
 
@@ -2515,10 +2553,10 @@ class GetSchemaOutputTypeDef(BaseValidatorModel):
 # This class is the input for the 'create_collaboration' function.
 class CreateCollaborationInputTypeDef(BaseValidatorModel):
     members: List[MemberSpecificationTypeDef]
-    name: str
-    description: str
+    name: Annotated[str, _aws_pattern("Cleanrooms", "CollaborationName")]
+    description: Annotated[str, _aws_pattern("Cleanrooms", "CollaborationDescription")]
     creatorMemberAbilities: List[MemberAbilityType]
-    creatorDisplayName: str
+    creatorDisplayName: Annotated[str, _aws_pattern("Cleanrooms", "DisplayName")]
     queryLogStatus: CollaborationQueryLogStatusType
     creatorMLMemberAbilities: Optional[MLMemberAbilitiesUnionTypeDef] = None
     dataEncryptionMetadata: Optional[DataEncryptionMetadataTypeDef] = None
@@ -2596,7 +2634,7 @@ class UpdateProtectedJobOutputTypeDef(BaseValidatorModel):
 # This class is the input for the 'start_protected_job' function.
 class StartProtectedJobInputTypeDef(BaseValidatorModel):
     type: Literal["PYSPARK"]
-    membershipIdentifier: str
+    membershipIdentifier: Annotated[str, _aws_pattern("Cleanrooms", "MembershipIdentifier")]
     jobParameters: ProtectedJobParametersUnionTypeDef
     resultConfiguration: Optional[ProtectedJobResultConfigurationInputTypeDef] = None
     computeConfiguration: Optional[ProtectedJobComputeConfigurationUnionTypeDef] = None
@@ -2615,16 +2653,16 @@ class AnalysisRulePolicyTypeDef(BaseValidatorModel):
 
 
 class ConfiguredTableTypeDef(BaseValidatorModel):
-    id: str
-    arn: str
-    name: str
+    id: Annotated[str, _aws_pattern("Cleanrooms", "UUID")]
+    arn: Annotated[str, _aws_pattern("Cleanrooms", "ConfiguredTableArn")]
+    name: Annotated[str, _aws_pattern("Cleanrooms", "DisplayName")]
     tableReference: TableReferenceOutputTypeDef
     createTime: datetime
     updateTime: datetime
     analysisRuleTypes: List[ConfiguredTableAnalysisRuleTypeType]
     analysisMethod: AnalysisMethodType
-    allowedColumns: List[str]
-    description: Optional[str] = None
+    allowedColumns: List[Annotated[str, _aws_pattern("Cleanrooms", "ColumnName")]]
+    description: Optional[Annotated[str, _aws_pattern("Cleanrooms", "TableDescription")]] = None
     selectedAnalysisMethods: Optional[List[SelectedAnalysisMethodType]] = None
 
 
@@ -2664,11 +2702,11 @@ class GetCollaborationAnalysisTemplateOutputTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'create_analysis_template' function.
 class CreateAnalysisTemplateInputTypeDef(BaseValidatorModel):
-    membershipIdentifier: str
-    name: str
+    membershipIdentifier: Annotated[str, _aws_pattern("Cleanrooms", "MembershipIdentifier")]
+    name: Annotated[str, _aws_pattern("Cleanrooms", "TableAlias")]
     format: AnalysisFormatType
     source: AnalysisSourceUnionTypeDef
-    description: Optional[str] = None
+    description: Optional[Annotated[str, _aws_pattern("Cleanrooms", "ResourceDescription")]] = None
     tags: Optional[Dict[str, str]] = None
     analysisParameters: Optional[List[AnalysisParameterTypeDef]] = None
     schema: Optional[AnalysisSchemaUnionTypeDef] = None
@@ -2677,8 +2715,8 @@ class CreateAnalysisTemplateInputTypeDef(BaseValidatorModel):
 
 
 class ConfiguredTableAnalysisRuleTypeDef(BaseValidatorModel):
-    configuredTableId: str
-    configuredTableArn: str
+    configuredTableId: Annotated[str, _aws_pattern("Cleanrooms", "UUID")]
+    configuredTableArn: Annotated[str, _aws_pattern("Cleanrooms", "ConfiguredTableArn")]
     policy: ConfiguredTableAnalysisRulePolicyOutputTypeDef
     type: ConfiguredTableAnalysisRuleTypeType
     createTime: datetime
@@ -2692,14 +2730,14 @@ ConfiguredTableAnalysisRulePolicyUnionTypeDef = Union[
 
 # This class is the input for the 'create_collaboration_change_request' function.
 class CreateCollaborationChangeRequestInputTypeDef(BaseValidatorModel):
-    collaborationIdentifier: str
+    collaborationIdentifier: Annotated[str, _aws_pattern("Cleanrooms", "CollaborationIdentifier")]
     changes: List[ChangeInputTypeDef]
 
 
 class ProtectedQueryTypeDef(BaseValidatorModel):
-    id: str
-    membershipId: str
-    membershipArn: str
+    id: Annotated[str, _aws_pattern("Cleanrooms", "UUID")]
+    membershipId: Annotated[str, _aws_pattern("Cleanrooms", "UUID")]
+    membershipArn: Annotated[str, _aws_pattern("Cleanrooms", "MembershipArn")]
     createTime: datetime
     status: ProtectedQueryStatusType
     sqlParameters: Optional[ProtectedQuerySQLParametersOutputTypeDef] = None
@@ -2717,9 +2755,9 @@ ProtectedQueryResultConfigurationUnionTypeDef = Union[
 
 
 class AnalysisRuleTypeDef(BaseValidatorModel):
-    collaborationId: str
+    collaborationId: Annotated[str, _aws_pattern("Cleanrooms", "CollaborationIdentifier")]
     type: AnalysisRuleTypeType
-    name: str
+    name: Annotated[str, _aws_pattern("Cleanrooms", "TableAlias")]
     createTime: datetime
     updateTime: datetime
     policy: AnalysisRulePolicyTypeDef
@@ -2747,22 +2785,22 @@ class UpdateConfiguredTableOutputTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'create_configured_table' function.
 class CreateConfiguredTableInputTypeDef(BaseValidatorModel):
-    name: str
+    name: Annotated[str, _aws_pattern("Cleanrooms", "DisplayName")]
     tableReference: TableReferenceUnionTypeDef
-    allowedColumns: List[str]
+    allowedColumns: List[Annotated[str, _aws_pattern("Cleanrooms", "ColumnName")]]
     analysisMethod: AnalysisMethodType
-    description: Optional[str] = None
+    description: Optional[Annotated[str, _aws_pattern("Cleanrooms", "TableDescription")]] = None
     selectedAnalysisMethods: Optional[List[SelectedAnalysisMethodType]] = None
     tags: Optional[Dict[str, str]] = None
 
 
 # This class is the input for the 'update_configured_table' function.
 class UpdateConfiguredTableInputTypeDef(BaseValidatorModel):
-    configuredTableIdentifier: str
-    name: Optional[str] = None
-    description: Optional[str] = None
+    configuredTableIdentifier: Annotated[str, _aws_pattern("Cleanrooms", "ConfiguredTableIdentifier")]
+    name: Optional[Annotated[str, _aws_pattern("Cleanrooms", "DisplayName")]] = None
+    description: Optional[Annotated[str, _aws_pattern("Cleanrooms", "TableDescription")]] = None
     tableReference: Optional[TableReferenceUnionTypeDef] = None
-    allowedColumns: Optional[List[str]] = None
+    allowedColumns: Optional[List[Annotated[str, _aws_pattern("Cleanrooms", "ColumnName")]]] = None
     analysisMethod: Optional[AnalysisMethodType] = None
     selectedAnalysisMethods: Optional[List[SelectedAnalysisMethodType]] = None
 
@@ -2787,14 +2825,14 @@ class UpdateConfiguredTableAnalysisRuleOutputTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'create_configured_table_analysis_rule' function.
 class CreateConfiguredTableAnalysisRuleInputTypeDef(BaseValidatorModel):
-    configuredTableIdentifier: str
+    configuredTableIdentifier: Annotated[str, _aws_pattern("Cleanrooms", "ConfiguredTableIdentifier")]
     analysisRuleType: ConfiguredTableAnalysisRuleTypeType
     analysisRulePolicy: ConfiguredTableAnalysisRulePolicyUnionTypeDef
 
 
 # This class is the input for the 'update_configured_table_analysis_rule' function.
 class UpdateConfiguredTableAnalysisRuleInputTypeDef(BaseValidatorModel):
-    configuredTableIdentifier: str
+    configuredTableIdentifier: Annotated[str, _aws_pattern("Cleanrooms", "ConfiguredTableIdentifier")]
     analysisRuleType: ConfiguredTableAnalysisRuleTypeType
     analysisRulePolicy: ConfiguredTableAnalysisRulePolicyUnionTypeDef
 
@@ -2820,7 +2858,7 @@ class UpdateProtectedQueryOutputTypeDef(BaseValidatorModel):
 # This class is the input for the 'start_protected_query' function.
 class StartProtectedQueryInputTypeDef(BaseValidatorModel):
     type: Literal["SQL"]
-    membershipIdentifier: str
+    membershipIdentifier: Annotated[str, _aws_pattern("Cleanrooms", "MembershipIdentifier")]
     sqlParameters: ProtectedQuerySQLParametersUnionTypeDef
     resultConfiguration: Optional[ProtectedQueryResultConfigurationUnionTypeDef] = None
     computeConfiguration: Optional[ComputeConfigurationUnionTypeDef] = None

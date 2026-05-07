@@ -3,6 +3,7 @@
 from datetime import datetime
 from decimal import Decimal
 from typing import (
+    Annotated,
     Any,
     Callable,
     Dict,
@@ -24,6 +25,7 @@ from botocore.response import StreamingBody
 from pydantic import Field
 
 from aws_resource_validator.core.base_validator_model import BaseValidatorModel, EventStream
+from aws_resource_validator.core.pattern_validation import aws_field_pattern as _aws_pattern
 from aws_resource_validator.pydantic_models.pi.pi_constants import *  # noqa: F401,F403
 
 # Optional boto3 symbols — imported lazily so services that don't need them
@@ -39,8 +41,8 @@ except ImportError:  # pragma: no cover
 
 
 class TagTypeDef(BaseValidatorModel):
-    Key: str
-    Value: str
+    Key: Annotated[str, _aws_pattern("Pi", "TagKey")]
+    Value: Annotated[str, _aws_pattern("Pi", "TagValue")]
 
 
 TimestampTypeDef = Union[datetime, str]
@@ -60,8 +62,8 @@ class DataPointTypeDef(BaseValidatorModel):
 
 
 class PerformanceInsightsMetricTypeDef(BaseValidatorModel):
-    Metric: Optional[str] = None
-    DisplayName: Optional[str] = None
+    Metric: Optional[Annotated[str, _aws_pattern("Pi", "DescriptiveString")]] = None
+    DisplayName: Optional[Annotated[str, _aws_pattern("Pi", "DescriptiveString")]] = None
     Dimensions: Optional[Dict[str, str]] = None
     Filter: Optional[Dict[str, str]] = None
     Value: Optional[float] = None
@@ -69,13 +71,13 @@ class PerformanceInsightsMetricTypeDef(BaseValidatorModel):
 
 class DeletePerformanceAnalysisReportRequestTypeDef(BaseValidatorModel):
     ServiceType: ServiceTypeType
-    Identifier: str
-    AnalysisReportId: str
+    Identifier: Annotated[str, _aws_pattern("Pi", "IdentifierString")]
+    AnalysisReportId: Annotated[str, _aws_pattern("Pi", "AnalysisReportId")]
 
 
 class DimensionGroupTypeDef(BaseValidatorModel):
-    Group: str
-    Dimensions: Optional[List[str]] = None
+    Group: Annotated[str, _aws_pattern("Pi", "SanitizedString")]
+    Dimensions: Optional[List[Annotated[str, _aws_pattern("Pi", "SanitizedString")]]] = None
     Limit: Optional[int] = None
 
 
@@ -91,12 +93,12 @@ class ResponsePartitionKeyTypeDef(BaseValidatorModel):
 
 
 class DimensionDetailTypeDef(BaseValidatorModel):
-    Identifier: Optional[str] = None
+    Identifier: Optional[Annotated[str, _aws_pattern("Pi", "String")]] = None
 
 
 class DimensionKeyDetailTypeDef(BaseValidatorModel):
-    Value: Optional[str] = None
-    Dimension: Optional[str] = None
+    Value: Optional[Annotated[str, _aws_pattern("Pi", "String")]] = None
+    Dimension: Optional[Annotated[str, _aws_pattern("Pi", "String")]] = None
     Status: Optional[DetailStatusType] = None
 
 
@@ -107,17 +109,17 @@ class FeatureMetadataTypeDef(BaseValidatorModel):
 # This class is the input for the 'get_dimension_key_details' function.
 class GetDimensionKeyDetailsRequestTypeDef(BaseValidatorModel):
     ServiceType: ServiceTypeType
-    Identifier: str
-    Group: str
-    GroupIdentifier: str
-    RequestedDimensions: Optional[List[str]] = None
+    Identifier: Annotated[str, _aws_pattern("Pi", "IdentifierString")]
+    Group: Annotated[str, _aws_pattern("Pi", "RequestString")]
+    GroupIdentifier: Annotated[str, _aws_pattern("Pi", "RequestString")]
+    RequestedDimensions: Optional[List[Annotated[str, _aws_pattern("Pi", "SanitizedString")]]] = None
 
 
 # This class is the input for the 'get_performance_analysis_report' function.
 class GetPerformanceAnalysisReportRequestTypeDef(BaseValidatorModel):
     ServiceType: ServiceTypeType
-    Identifier: str
-    AnalysisReportId: str
+    Identifier: Annotated[str, _aws_pattern("Pi", "IdentifierString")]
+    AnalysisReportId: Annotated[str, _aws_pattern("Pi", "AnalysisReportId")]
     TextFormat: Optional[TextFormatType] = None
     AcceptLanguage: Optional[Literal["EN_US"]] = None
 
@@ -125,44 +127,44 @@ class GetPerformanceAnalysisReportRequestTypeDef(BaseValidatorModel):
 # This class is the input for the 'get_resource_metadata' function.
 class GetResourceMetadataRequestTypeDef(BaseValidatorModel):
     ServiceType: ServiceTypeType
-    Identifier: str
+    Identifier: Annotated[str, _aws_pattern("Pi", "IdentifierString")]
 
 
 class RecommendationTypeDef(BaseValidatorModel):
-    RecommendationId: Optional[str] = None
-    RecommendationDescription: Optional[str] = None
+    RecommendationId: Optional[Annotated[str, _aws_pattern("Pi", "String")]] = None
+    RecommendationDescription: Optional[Annotated[str, _aws_pattern("Pi", "MarkdownString")]] = None
 
 
 # This class is the input for the 'list_available_resource_dimensions' function.
 class ListAvailableResourceDimensionsRequestTypeDef(BaseValidatorModel):
     ServiceType: ServiceTypeType
-    Identifier: str
-    Metrics: List[str]
+    Identifier: Annotated[str, _aws_pattern("Pi", "IdentifierString")]
+    Metrics: List[Annotated[str, _aws_pattern("Pi", "SanitizedString")]]
     MaxResults: Optional[int] = None
-    NextToken: Optional[str] = None
+    NextToken: Optional[Annotated[str, _aws_pattern("Pi", "NextToken")]] = None
     AuthorizedActions: Optional[List[FineGrainedActionType]] = None
 
 
 # This class is the input for the 'list_available_resource_metrics' function.
 class ListAvailableResourceMetricsRequestTypeDef(BaseValidatorModel):
     ServiceType: ServiceTypeType
-    Identifier: str
-    MetricTypes: List[str]
-    NextToken: Optional[str] = None
+    Identifier: Annotated[str, _aws_pattern("Pi", "IdentifierString")]
+    MetricTypes: List[Annotated[str, _aws_pattern("Pi", "SanitizedString")]]
+    NextToken: Optional[Annotated[str, _aws_pattern("Pi", "NextToken")]] = None
     MaxResults: Optional[int] = None
 
 
 class ResponseResourceMetricTypeDef(BaseValidatorModel):
-    Metric: Optional[str] = None
+    Metric: Optional[Annotated[str, _aws_pattern("Pi", "String")]] = None
     Description: Optional[str] = None
-    Unit: Optional[str] = None
+    Unit: Optional[Annotated[str, _aws_pattern("Pi", "String")]] = None
 
 
 # This class is the input for the 'list_performance_analysis_reports' function.
 class ListPerformanceAnalysisReportsRequestTypeDef(BaseValidatorModel):
     ServiceType: ServiceTypeType
-    Identifier: str
-    NextToken: Optional[str] = None
+    Identifier: Annotated[str, _aws_pattern("Pi", "IdentifierString")]
+    NextToken: Optional[Annotated[str, _aws_pattern("Pi", "NextToken")]] = None
     MaxResults: Optional[int] = None
     ListTags: Optional[bool] = None
 
@@ -170,22 +172,22 @@ class ListPerformanceAnalysisReportsRequestTypeDef(BaseValidatorModel):
 # This class is the input for the 'list_tags_for_resource' function.
 class ListTagsForResourceRequestTypeDef(BaseValidatorModel):
     ServiceType: ServiceTypeType
-    ResourceARN: str
+    ResourceARN: Annotated[str, _aws_pattern("Pi", "AmazonResourceName")]
 
 
 class ResponseResourceMetricKeyTypeDef(BaseValidatorModel):
-    Metric: str
+    Metric: Annotated[str, _aws_pattern("Pi", "String")]
     Dimensions: Optional[Dict[str, str]] = None
 
 
 class UntagResourceRequestTypeDef(BaseValidatorModel):
     ServiceType: ServiceTypeType
-    ResourceARN: str
-    TagKeys: List[str]
+    ResourceARN: Annotated[str, _aws_pattern("Pi", "AmazonResourceName")]
+    TagKeys: List[Annotated[str, _aws_pattern("Pi", "TagKey")]]
 
 
 class AnalysisReportSummaryTypeDef(BaseValidatorModel):
-    AnalysisReportId: Optional[str] = None
+    AnalysisReportId: Optional[Annotated[str, _aws_pattern("Pi", "String")]] = None
     CreateTime: Optional[datetime] = None
     StartTime: Optional[datetime] = None
     EndTime: Optional[datetime] = None
@@ -195,14 +197,14 @@ class AnalysisReportSummaryTypeDef(BaseValidatorModel):
 
 class TagResourceRequestTypeDef(BaseValidatorModel):
     ServiceType: ServiceTypeType
-    ResourceARN: str
+    ResourceARN: Annotated[str, _aws_pattern("Pi", "AmazonResourceName")]
     Tags: List[TagTypeDef]
 
 
 # This class is the input for the 'create_performance_analysis_report' function.
 class CreatePerformanceAnalysisReportRequestTypeDef(BaseValidatorModel):
     ServiceType: ServiceTypeType
-    Identifier: str
+    Identifier: Annotated[str, _aws_pattern("Pi", "IdentifierString")]
     StartTime: TimestampTypeDef
     EndTime: TimestampTypeDef
     Tags: Optional[List[TagTypeDef]] = None
@@ -210,7 +212,7 @@ class CreatePerformanceAnalysisReportRequestTypeDef(BaseValidatorModel):
 
 # This class is the output for the 'create_performance_analysis_report' function.
 class CreatePerformanceAnalysisReportResponseTypeDef(BaseValidatorModel):
-    AnalysisReportId: str
+    AnalysisReportId: Annotated[str, _aws_pattern("Pi", "AnalysisReportId")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
@@ -227,21 +229,21 @@ class DataTypeDef(BaseValidatorModel):
 # This class is the input for the 'describe_dimension_keys' function.
 class DescribeDimensionKeysRequestTypeDef(BaseValidatorModel):
     ServiceType: ServiceTypeType
-    Identifier: str
+    Identifier: Annotated[str, _aws_pattern("Pi", "IdentifierString")]
     StartTime: TimestampTypeDef
     EndTime: TimestampTypeDef
-    Metric: str
+    Metric: Annotated[str, _aws_pattern("Pi", "RequestString")]
     GroupBy: DimensionGroupTypeDef
     PeriodInSeconds: Optional[int] = None
-    AdditionalMetrics: Optional[List[str]] = None
+    AdditionalMetrics: Optional[List[Annotated[str, _aws_pattern("Pi", "SanitizedString")]]] = None
     PartitionBy: Optional[DimensionGroupTypeDef] = None
     Filter: Optional[Dict[str, str]] = None
     MaxResults: Optional[int] = None
-    NextToken: Optional[str] = None
+    NextToken: Optional[Annotated[str, _aws_pattern("Pi", "NextToken")]] = None
 
 
 class MetricQueryTypeDef(BaseValidatorModel):
-    Metric: str
+    Metric: Annotated[str, _aws_pattern("Pi", "SanitizedString")]
     GroupBy: Optional[DimensionGroupTypeDef] = None
     Filter: Optional[Dict[str, str]] = None
 
@@ -253,11 +255,11 @@ class DescribeDimensionKeysResponseTypeDef(BaseValidatorModel):
     PartitionKeys: List[ResponsePartitionKeyTypeDef]
     Keys: List[DimensionKeyDescriptionTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
-    NextToken: Optional[str] = None
+    NextToken: Optional[Annotated[str, _aws_pattern("Pi", "NextToken")]] = None
 
 
 class DimensionGroupDetailTypeDef(BaseValidatorModel):
-    Group: Optional[str] = None
+    Group: Optional[Annotated[str, _aws_pattern("Pi", "String")]] = None
     Dimensions: Optional[List[DimensionDetailTypeDef]] = None
 
 
@@ -269,7 +271,7 @@ class GetDimensionKeyDetailsResponseTypeDef(BaseValidatorModel):
 
 # This class is the output for the 'get_resource_metadata' function.
 class GetResourceMetadataResponseTypeDef(BaseValidatorModel):
-    Identifier: str
+    Identifier: Annotated[str, _aws_pattern("Pi", "String")]
     Features: Dict[str, FeatureMetadataTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
 
@@ -278,7 +280,7 @@ class GetResourceMetadataResponseTypeDef(BaseValidatorModel):
 class ListAvailableResourceMetricsResponseTypeDef(BaseValidatorModel):
     Metrics: List[ResponseResourceMetricTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
-    NextToken: Optional[str] = None
+    NextToken: Optional[Annotated[str, _aws_pattern("Pi", "NextToken")]] = None
 
 
 class MetricKeyDataPointsTypeDef(BaseValidatorModel):
@@ -290,18 +292,18 @@ class MetricKeyDataPointsTypeDef(BaseValidatorModel):
 class ListPerformanceAnalysisReportsResponseTypeDef(BaseValidatorModel):
     AnalysisReports: List[AnalysisReportSummaryTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
-    NextToken: Optional[str] = None
+    NextToken: Optional[Annotated[str, _aws_pattern("Pi", "NextToken")]] = None
 
 
 class InsightTypeDef(BaseValidatorModel):
-    InsightId: str
-    InsightType: Optional[str] = None
+    InsightId: Annotated[str, _aws_pattern("Pi", "String")]
+    InsightType: Optional[Annotated[str, _aws_pattern("Pi", "String")]] = None
     Context: Optional[ContextTypeType] = None
     StartTime: Optional[datetime] = None
     EndTime: Optional[datetime] = None
     Severity: Optional[SeverityType] = None
     SupportingInsights: Optional[List[Dict[str, Any]]] = None
-    Description: Optional[str] = None
+    Description: Optional[Annotated[str, _aws_pattern("Pi", "MarkdownString")]] = None
     Recommendations: Optional[List[RecommendationTypeDef]] = None
     InsightData: Optional[List[DataTypeDef]] = None
     BaselineData: Optional[List[DataTypeDef]] = None
@@ -310,18 +312,18 @@ class InsightTypeDef(BaseValidatorModel):
 # This class is the input for the 'get_resource_metrics' function.
 class GetResourceMetricsRequestTypeDef(BaseValidatorModel):
     ServiceType: ServiceTypeType
-    Identifier: str
+    Identifier: Annotated[str, _aws_pattern("Pi", "IdentifierString")]
     MetricQueries: List[MetricQueryTypeDef]
     StartTime: TimestampTypeDef
     EndTime: TimestampTypeDef
     PeriodInSeconds: Optional[int] = None
     MaxResults: Optional[int] = None
-    NextToken: Optional[str] = None
+    NextToken: Optional[Annotated[str, _aws_pattern("Pi", "NextToken")]] = None
     PeriodAlignment: Optional[PeriodAlignmentType] = None
 
 
 class MetricDimensionGroupsTypeDef(BaseValidatorModel):
-    Metric: Optional[str] = None
+    Metric: Optional[Annotated[str, _aws_pattern("Pi", "String")]] = None
     Groups: Optional[List[DimensionGroupDetailTypeDef]] = None
 
 
@@ -329,15 +331,15 @@ class MetricDimensionGroupsTypeDef(BaseValidatorModel):
 class GetResourceMetricsResponseTypeDef(BaseValidatorModel):
     AlignedStartTime: datetime
     AlignedEndTime: datetime
-    Identifier: str
+    Identifier: Annotated[str, _aws_pattern("Pi", "String")]
     MetricList: List[MetricKeyDataPointsTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
-    NextToken: Optional[str] = None
+    NextToken: Optional[Annotated[str, _aws_pattern("Pi", "NextToken")]] = None
 
 
 class AnalysisReportTypeDef(BaseValidatorModel):
-    AnalysisReportId: str
-    Identifier: Optional[str] = None
+    AnalysisReportId: Annotated[str, _aws_pattern("Pi", "AnalysisReportId")]
+    Identifier: Optional[Annotated[str, _aws_pattern("Pi", "IdentifierString")]] = None
     ServiceType: Optional[ServiceTypeType] = None
     CreateTime: Optional[datetime] = None
     StartTime: Optional[datetime] = None
@@ -350,7 +352,7 @@ class AnalysisReportTypeDef(BaseValidatorModel):
 class ListAvailableResourceDimensionsResponseTypeDef(BaseValidatorModel):
     MetricDimensions: List[MetricDimensionGroupsTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
-    NextToken: Optional[str] = None
+    NextToken: Optional[Annotated[str, _aws_pattern("Pi", "NextToken")]] = None
 
 
 # This class is the output for the 'get_performance_analysis_report' function.

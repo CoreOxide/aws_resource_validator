@@ -3,6 +3,7 @@
 from datetime import datetime
 from decimal import Decimal
 from typing import (
+    Annotated,
     Any,
     Callable,
     Dict,
@@ -24,6 +25,7 @@ from botocore.response import StreamingBody
 from pydantic import Field
 
 from aws_resource_validator.core.base_validator_model import BaseValidatorModel, EventStream
+from aws_resource_validator.core.pattern_validation import aws_field_pattern as _aws_pattern
 from aws_resource_validator.pydantic_models.dataexchange.dataexchange_constants import *  # noqa: F401,F403
 
 # Optional boto3 symbols — imported lazily so services that don't need them
@@ -40,7 +42,7 @@ except ImportError:  # pragma: no cover
 
 # This class is the input for the 'accept_data_grant' function.
 class AcceptDataGrantRequestTypeDef(BaseValidatorModel):
-    DataGrantArn: str
+    DataGrantArn: Annotated[str, _aws_pattern("Dataexchange", "DataGrantArn")]
 
 
 class ResponseMetadataTypeDef(BaseValidatorModel):
@@ -69,7 +71,7 @@ class TagTypeDef(BaseValidatorModel):
 
 
 class AssetDestinationEntryTypeDef(BaseValidatorModel):
-    AssetId: str
+    AssetId: Annotated[str, _aws_pattern("Dataexchange", "Id")]
     Bucket: str
     Key: Optional[str] = None
 
@@ -99,7 +101,7 @@ class ExportServerSideEncryptionTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'cancel_job' function.
 class CancelJobRequestTypeDef(BaseValidatorModel):
-    JobId: str
+    JobId: Annotated[str, _aws_pattern("Dataexchange", "Id")]
 
 
 TimestampTypeDef = Union[datetime, str]
@@ -120,19 +122,19 @@ class OriginDetailsTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'create_revision' function.
 class CreateRevisionRequestTypeDef(BaseValidatorModel):
-    DataSetId: str
+    DataSetId: Annotated[str, _aws_pattern("Dataexchange", "Id")]
     Comment: Optional[str] = None
     Tags: Optional[Dict[str, str]] = None
 
 
 class DataGrantSummaryEntryTypeDef(BaseValidatorModel):
     Name: str
-    SenderPrincipal: str
-    ReceiverPrincipal: str
+    SenderPrincipal: Annotated[str, _aws_pattern("Dataexchange", "SenderPrincipal")]
+    ReceiverPrincipal: Annotated[str, _aws_pattern("Dataexchange", "ReceiverPrincipal")]
     AcceptanceState: DataGrantAcceptanceStateType
-    DataSetId: str
-    SourceDataSetId: str
-    Id: str
+    DataSetId: Annotated[str, _aws_pattern("Dataexchange", "Id")]
+    SourceDataSetId: Annotated[str, _aws_pattern("Dataexchange", "Id")]
+    Id: Annotated[str, _aws_pattern("Dataexchange", "Id")]
     Arn: str
     CreatedAt: datetime
     UpdatedAt: datetime
@@ -152,19 +154,19 @@ class LFTagTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'delete_asset' function.
 class DeleteAssetRequestTypeDef(BaseValidatorModel):
-    AssetId: str
-    DataSetId: str
-    RevisionId: str
+    AssetId: Annotated[str, _aws_pattern("Dataexchange", "Id")]
+    DataSetId: Annotated[str, _aws_pattern("Dataexchange", "Id")]
+    RevisionId: Annotated[str, _aws_pattern("Dataexchange", "Id")]
 
 
 # This class is the input for the 'delete_data_grant' function.
 class DeleteDataGrantRequestTypeDef(BaseValidatorModel):
-    DataGrantId: str
+    DataGrantId: Annotated[str, _aws_pattern("Dataexchange", "DataGrantId")]
 
 
 # This class is the input for the 'delete_data_set' function.
 class DeleteDataSetRequestTypeDef(BaseValidatorModel):
-    DataSetId: str
+    DataSetId: Annotated[str, _aws_pattern("Dataexchange", "Id")]
 
 
 # This class is the input for the 'delete_event_action' function.
@@ -174,8 +176,8 @@ class DeleteEventActionRequestTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'delete_revision' function.
 class DeleteRevisionRequestTypeDef(BaseValidatorModel):
-    DataSetId: str
-    RevisionId: str
+    DataSetId: Annotated[str, _aws_pattern("Dataexchange", "Id")]
+    RevisionId: Annotated[str, _aws_pattern("Dataexchange", "Id")]
 
 
 class ImportAssetFromSignedUrlJobErrorDetailsTypeDef(BaseValidatorModel):
@@ -183,44 +185,44 @@ class ImportAssetFromSignedUrlJobErrorDetailsTypeDef(BaseValidatorModel):
 
 
 class RevisionPublishedTypeDef(BaseValidatorModel):
-    DataSetId: str
+    DataSetId: Annotated[str, _aws_pattern("Dataexchange", "Id")]
 
 
 class ExportAssetToSignedUrlRequestDetailsTypeDef(BaseValidatorModel):
-    AssetId: str
-    DataSetId: str
-    RevisionId: str
+    AssetId: Annotated[str, _aws_pattern("Dataexchange", "Id")]
+    DataSetId: Annotated[str, _aws_pattern("Dataexchange", "Id")]
+    RevisionId: Annotated[str, _aws_pattern("Dataexchange", "Id")]
 
 
 class ExportAssetToSignedUrlResponseDetailsTypeDef(BaseValidatorModel):
-    AssetId: str
-    DataSetId: str
-    RevisionId: str
+    AssetId: Annotated[str, _aws_pattern("Dataexchange", "Id")]
+    DataSetId: Annotated[str, _aws_pattern("Dataexchange", "Id")]
+    RevisionId: Annotated[str, _aws_pattern("Dataexchange", "Id")]
     SignedUrl: Optional[str] = None
     SignedUrlExpiresAt: Optional[datetime] = None
 
 
 class RevisionDestinationEntryTypeDef(BaseValidatorModel):
     Bucket: str
-    RevisionId: str
+    RevisionId: Annotated[str, _aws_pattern("Dataexchange", "Id")]
     KeyPattern: Optional[str] = None
 
 
 # This class is the input for the 'get_asset' function.
 class GetAssetRequestTypeDef(BaseValidatorModel):
-    AssetId: str
-    DataSetId: str
-    RevisionId: str
+    AssetId: Annotated[str, _aws_pattern("Dataexchange", "Id")]
+    DataSetId: Annotated[str, _aws_pattern("Dataexchange", "Id")]
+    RevisionId: Annotated[str, _aws_pattern("Dataexchange", "Id")]
 
 
 # This class is the input for the 'get_data_grant' function.
 class GetDataGrantRequestTypeDef(BaseValidatorModel):
-    DataGrantId: str
+    DataGrantId: Annotated[str, _aws_pattern("Dataexchange", "DataGrantId")]
 
 
 # This class is the input for the 'get_data_set' function.
 class GetDataSetRequestTypeDef(BaseValidatorModel):
-    DataSetId: str
+    DataSetId: Annotated[str, _aws_pattern("Dataexchange", "Id")]
 
 
 # This class is the input for the 'get_event_action' function.
@@ -230,27 +232,29 @@ class GetEventActionRequestTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'get_job' function.
 class GetJobRequestTypeDef(BaseValidatorModel):
-    JobId: str
+    JobId: Annotated[str, _aws_pattern("Dataexchange", "Id")]
 
 
 # This class is the input for the 'get_received_data_grant' function.
 class GetReceivedDataGrantRequestTypeDef(BaseValidatorModel):
-    DataGrantArn: str
+    DataGrantArn: Annotated[str, _aws_pattern("Dataexchange", "DataGrantArn")]
 
 
 # This class is the input for the 'get_revision' function.
 class GetRevisionRequestTypeDef(BaseValidatorModel):
-    DataSetId: str
-    RevisionId: str
+    DataSetId: Annotated[str, _aws_pattern("Dataexchange", "Id")]
+    RevisionId: Annotated[str, _aws_pattern("Dataexchange", "Id")]
 
 
 class ImportAssetFromApiGatewayApiRequestDetailsTypeDef(BaseValidatorModel):
     ApiId: str
     ApiName: str
-    ApiSpecificationMd5Hash: str
-    DataSetId: str
+    ApiSpecificationMd5Hash: Annotated[
+        str, _aws_pattern("Dataexchange", "__stringMin24Max24PatternAZaZ094AZaZ092AZaZ093")
+    ]
+    DataSetId: Annotated[str, _aws_pattern("Dataexchange", "Id")]
     ProtocolType: Literal["REST"]
-    RevisionId: str
+    RevisionId: Annotated[str, _aws_pattern("Dataexchange", "Id")]
     Stage: str
     ApiDescription: Optional[str] = None
     ApiKey: Optional[str] = None
@@ -259,12 +263,14 @@ class ImportAssetFromApiGatewayApiRequestDetailsTypeDef(BaseValidatorModel):
 class ImportAssetFromApiGatewayApiResponseDetailsTypeDef(BaseValidatorModel):
     ApiId: str
     ApiName: str
-    ApiSpecificationMd5Hash: str
+    ApiSpecificationMd5Hash: Annotated[
+        str, _aws_pattern("Dataexchange", "__stringMin24Max24PatternAZaZ094AZaZ092AZaZ093")
+    ]
     ApiSpecificationUploadUrl: str
     ApiSpecificationUploadUrlExpiresAt: datetime
-    DataSetId: str
+    DataSetId: Annotated[str, _aws_pattern("Dataexchange", "Id")]
     ProtocolType: Literal["REST"]
-    RevisionId: str
+    RevisionId: Annotated[str, _aws_pattern("Dataexchange", "Id")]
     Stage: str
     ApiDescription: Optional[str] = None
     ApiKey: Optional[str] = None
@@ -272,16 +278,18 @@ class ImportAssetFromApiGatewayApiResponseDetailsTypeDef(BaseValidatorModel):
 
 class ImportAssetFromSignedUrlRequestDetailsTypeDef(BaseValidatorModel):
     AssetName: str
-    DataSetId: str
-    Md5Hash: str
-    RevisionId: str
+    DataSetId: Annotated[str, _aws_pattern("Dataexchange", "Id")]
+    Md5Hash: Annotated[str, _aws_pattern("Dataexchange", "__stringMin24Max24PatternAZaZ094AZaZ092AZaZ093")]
+    RevisionId: Annotated[str, _aws_pattern("Dataexchange", "Id")]
 
 
 class ImportAssetFromSignedUrlResponseDetailsTypeDef(BaseValidatorModel):
     AssetName: str
-    DataSetId: str
-    RevisionId: str
-    Md5Hash: Optional[str] = None
+    DataSetId: Annotated[str, _aws_pattern("Dataexchange", "Id")]
+    RevisionId: Annotated[str, _aws_pattern("Dataexchange", "Id")]
+    Md5Hash: Optional[
+        Annotated[str, _aws_pattern("Dataexchange", "__stringMin24Max24PatternAZaZ094AZaZ092AZaZ093")]
+    ] = None
     SignedUrl: Optional[str] = None
     SignedUrlExpiresAt: Optional[datetime] = None
 
@@ -313,7 +321,7 @@ class ListDataGrantsRequestTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'list_data_set_revisions' function.
 class ListDataSetRevisionsRequestTypeDef(BaseValidatorModel):
-    DataSetId: str
+    DataSetId: Annotated[str, _aws_pattern("Dataexchange", "Id")]
     MaxResults: Optional[int] = None
     NextToken: Optional[str] = None
 
@@ -321,12 +329,12 @@ class ListDataSetRevisionsRequestTypeDef(BaseValidatorModel):
 class RevisionEntryTypeDef(BaseValidatorModel):
     Arn: str
     CreatedAt: datetime
-    DataSetId: str
-    Id: str
+    DataSetId: Annotated[str, _aws_pattern("Dataexchange", "Id")]
+    Id: Annotated[str, _aws_pattern("Dataexchange", "Id")]
     UpdatedAt: datetime
     Comment: Optional[str] = None
     Finalized: Optional[bool] = None
-    SourceId: Optional[str] = None
+    SourceId: Optional[Annotated[str, _aws_pattern("Dataexchange", "Id")]] = None
     RevocationComment: Optional[str] = None
     Revoked: Optional[bool] = None
     RevokedAt: Optional[datetime] = None
@@ -363,11 +371,11 @@ class ListReceivedDataGrantsRequestTypeDef(BaseValidatorModel):
 
 class ReceivedDataGrantSummariesEntryTypeDef(BaseValidatorModel):
     Name: str
-    SenderPrincipal: str
-    ReceiverPrincipal: str
+    SenderPrincipal: Annotated[str, _aws_pattern("Dataexchange", "SenderPrincipal")]
+    ReceiverPrincipal: Annotated[str, _aws_pattern("Dataexchange", "ReceiverPrincipal")]
     AcceptanceState: DataGrantAcceptanceStateType
-    DataSetId: str
-    Id: str
+    DataSetId: Annotated[str, _aws_pattern("Dataexchange", "Id")]
+    Id: Annotated[str, _aws_pattern("Dataexchange", "Id")]
     Arn: str
     CreatedAt: datetime
     UpdatedAt: datetime
@@ -377,8 +385,8 @@ class ReceivedDataGrantSummariesEntryTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'list_revision_assets' function.
 class ListRevisionAssetsRequestTypeDef(BaseValidatorModel):
-    DataSetId: str
-    RevisionId: str
+    DataSetId: Annotated[str, _aws_pattern("Dataexchange", "Id")]
+    RevisionId: Annotated[str, _aws_pattern("Dataexchange", "Id")]
     MaxResults: Optional[int] = None
     NextToken: Optional[str] = None
 
@@ -399,8 +407,8 @@ class RedshiftDataShareDetailsTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'revoke_revision' function.
 class RevokeRevisionRequestTypeDef(BaseValidatorModel):
-    DataSetId: str
-    RevisionId: str
+    DataSetId: Annotated[str, _aws_pattern("Dataexchange", "Id")]
+    RevisionId: Annotated[str, _aws_pattern("Dataexchange", "Id")]
     RevocationComment: str
 
 
@@ -428,7 +436,7 @@ class SendApiAssetRequestTypeDef(BaseValidatorModel):
 
 
 class StartJobRequestTypeDef(BaseValidatorModel):
-    JobId: str
+    JobId: Annotated[str, _aws_pattern("Dataexchange", "Id")]
 
 
 # This class is the input for the 'tag_resource' function.
@@ -445,23 +453,23 @@ class UntagResourceRequestTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'update_asset' function.
 class UpdateAssetRequestTypeDef(BaseValidatorModel):
-    AssetId: str
-    DataSetId: str
+    AssetId: Annotated[str, _aws_pattern("Dataexchange", "Id")]
+    DataSetId: Annotated[str, _aws_pattern("Dataexchange", "Id")]
     Name: str
-    RevisionId: str
+    RevisionId: Annotated[str, _aws_pattern("Dataexchange", "Id")]
 
 
 # This class is the input for the 'update_data_set' function.
 class UpdateDataSetRequestTypeDef(BaseValidatorModel):
-    DataSetId: str
+    DataSetId: Annotated[str, _aws_pattern("Dataexchange", "Id")]
     Description: Optional[str] = None
     Name: Optional[str] = None
 
 
 # This class is the input for the 'update_revision' function.
 class UpdateRevisionRequestTypeDef(BaseValidatorModel):
-    DataSetId: str
-    RevisionId: str
+    DataSetId: Annotated[str, _aws_pattern("Dataexchange", "Id")]
+    RevisionId: Annotated[str, _aws_pattern("Dataexchange", "Id")]
     Comment: Optional[str] = None
     Finalized: Optional[bool] = None
 
@@ -469,15 +477,15 @@ class UpdateRevisionRequestTypeDef(BaseValidatorModel):
 # This class is the output for the 'accept_data_grant' function.
 class AcceptDataGrantResponseTypeDef(BaseValidatorModel):
     Name: str
-    SenderPrincipal: str
-    ReceiverPrincipal: str
+    SenderPrincipal: Annotated[str, _aws_pattern("Dataexchange", "SenderPrincipal")]
+    ReceiverPrincipal: Annotated[str, _aws_pattern("Dataexchange", "ReceiverPrincipal")]
     Description: str
     AcceptanceState: DataGrantAcceptanceStateType
     AcceptedAt: datetime
     EndsAt: datetime
     GrantDistributionScope: GrantDistributionScopeType
-    DataSetId: str
-    Id: str
+    DataSetId: Annotated[str, _aws_pattern("Dataexchange", "Id")]
+    Id: Annotated[str, _aws_pattern("Dataexchange", "Id")]
     Arn: str
     CreatedAt: datetime
     UpdatedAt: datetime
@@ -487,16 +495,16 @@ class AcceptDataGrantResponseTypeDef(BaseValidatorModel):
 # This class is the output for the 'create_data_grant' function.
 class CreateDataGrantResponseTypeDef(BaseValidatorModel):
     Name: str
-    SenderPrincipal: str
-    ReceiverPrincipal: str
+    SenderPrincipal: Annotated[str, _aws_pattern("Dataexchange", "SenderPrincipal")]
+    ReceiverPrincipal: Annotated[str, _aws_pattern("Dataexchange", "ReceiverPrincipal")]
     Description: str
     AcceptanceState: DataGrantAcceptanceStateType
     AcceptedAt: datetime
     EndsAt: datetime
     GrantDistributionScope: GrantDistributionScopeType
-    DataSetId: str
-    SourceDataSetId: str
-    Id: str
+    DataSetId: Annotated[str, _aws_pattern("Dataexchange", "Id")]
+    SourceDataSetId: Annotated[str, _aws_pattern("Dataexchange", "Id")]
+    Id: Annotated[str, _aws_pattern("Dataexchange", "Id")]
     Arn: str
     CreatedAt: datetime
     UpdatedAt: datetime
@@ -509,10 +517,10 @@ class CreateRevisionResponseTypeDef(BaseValidatorModel):
     Arn: str
     Comment: str
     CreatedAt: datetime
-    DataSetId: str
+    DataSetId: Annotated[str, _aws_pattern("Dataexchange", "Id")]
     Finalized: bool
-    Id: str
-    SourceId: str
+    Id: Annotated[str, _aws_pattern("Dataexchange", "Id")]
+    SourceId: Annotated[str, _aws_pattern("Dataexchange", "Id")]
     Tags: Dict[str, str]
     UpdatedAt: datetime
     RevocationComment: str
@@ -529,16 +537,16 @@ class EmptyResponseMetadataTypeDef(BaseValidatorModel):
 # This class is the output for the 'get_data_grant' function.
 class GetDataGrantResponseTypeDef(BaseValidatorModel):
     Name: str
-    SenderPrincipal: str
-    ReceiverPrincipal: str
+    SenderPrincipal: Annotated[str, _aws_pattern("Dataexchange", "SenderPrincipal")]
+    ReceiverPrincipal: Annotated[str, _aws_pattern("Dataexchange", "ReceiverPrincipal")]
     Description: str
     AcceptanceState: DataGrantAcceptanceStateType
     AcceptedAt: datetime
     EndsAt: datetime
     GrantDistributionScope: GrantDistributionScopeType
-    DataSetId: str
-    SourceDataSetId: str
-    Id: str
+    DataSetId: Annotated[str, _aws_pattern("Dataexchange", "Id")]
+    SourceDataSetId: Annotated[str, _aws_pattern("Dataexchange", "Id")]
+    Id: Annotated[str, _aws_pattern("Dataexchange", "Id")]
     Arn: str
     CreatedAt: datetime
     UpdatedAt: datetime
@@ -549,15 +557,15 @@ class GetDataGrantResponseTypeDef(BaseValidatorModel):
 # This class is the output for the 'get_received_data_grant' function.
 class GetReceivedDataGrantResponseTypeDef(BaseValidatorModel):
     Name: str
-    SenderPrincipal: str
-    ReceiverPrincipal: str
+    SenderPrincipal: Annotated[str, _aws_pattern("Dataexchange", "SenderPrincipal")]
+    ReceiverPrincipal: Annotated[str, _aws_pattern("Dataexchange", "ReceiverPrincipal")]
     Description: str
     AcceptanceState: DataGrantAcceptanceStateType
     AcceptedAt: datetime
     EndsAt: datetime
     GrantDistributionScope: GrantDistributionScopeType
-    DataSetId: str
-    Id: str
+    DataSetId: Annotated[str, _aws_pattern("Dataexchange", "Id")]
+    Id: Annotated[str, _aws_pattern("Dataexchange", "Id")]
     Arn: str
     CreatedAt: datetime
     UpdatedAt: datetime
@@ -569,10 +577,10 @@ class GetRevisionResponseTypeDef(BaseValidatorModel):
     Arn: str
     Comment: str
     CreatedAt: datetime
-    DataSetId: str
+    DataSetId: Annotated[str, _aws_pattern("Dataexchange", "Id")]
     Finalized: bool
-    Id: str
-    SourceId: str
+    Id: Annotated[str, _aws_pattern("Dataexchange", "Id")]
+    SourceId: Annotated[str, _aws_pattern("Dataexchange", "Id")]
     Tags: Dict[str, str]
     UpdatedAt: datetime
     RevocationComment: str
@@ -592,10 +600,10 @@ class RevokeRevisionResponseTypeDef(BaseValidatorModel):
     Arn: str
     Comment: str
     CreatedAt: datetime
-    DataSetId: str
+    DataSetId: Annotated[str, _aws_pattern("Dataexchange", "Id")]
     Finalized: bool
-    Id: str
-    SourceId: str
+    Id: Annotated[str, _aws_pattern("Dataexchange", "Id")]
+    SourceId: Annotated[str, _aws_pattern("Dataexchange", "Id")]
     UpdatedAt: datetime
     RevocationComment: str
     Revoked: bool
@@ -615,10 +623,10 @@ class UpdateRevisionResponseTypeDef(BaseValidatorModel):
     Arn: str
     Comment: str
     CreatedAt: datetime
-    DataSetId: str
+    DataSetId: Annotated[str, _aws_pattern("Dataexchange", "Id")]
     Finalized: bool
-    Id: str
-    SourceId: str
+    Id: Annotated[str, _aws_pattern("Dataexchange", "Id")]
+    SourceId: Annotated[str, _aws_pattern("Dataexchange", "Id")]
     UpdatedAt: datetime
     RevocationComment: str
     Revoked: bool
@@ -636,14 +644,14 @@ class AssetConfigurationTypeDef(BaseValidatorModel):
 
 class ImportAssetsFromS3RequestDetailsTypeDef(BaseValidatorModel):
     AssetSources: List[AssetSourceEntryTypeDef]
-    DataSetId: str
-    RevisionId: str
+    DataSetId: Annotated[str, _aws_pattern("Dataexchange", "Id")]
+    RevisionId: Annotated[str, _aws_pattern("Dataexchange", "Id")]
 
 
 class ImportAssetsFromS3ResponseDetailsTypeDef(BaseValidatorModel):
     AssetSources: List[AssetSourceEntryTypeDef]
-    DataSetId: str
-    RevisionId: str
+    DataSetId: Annotated[str, _aws_pattern("Dataexchange", "Id")]
+    RevisionId: Annotated[str, _aws_pattern("Dataexchange", "Id")]
 
 
 class AutoExportRevisionToS3RequestDetailsTypeDef(BaseValidatorModel):
@@ -653,15 +661,15 @@ class AutoExportRevisionToS3RequestDetailsTypeDef(BaseValidatorModel):
 
 class ExportAssetsToS3RequestDetailsTypeDef(BaseValidatorModel):
     AssetDestinations: List[AssetDestinationEntryTypeDef]
-    DataSetId: str
-    RevisionId: str
+    DataSetId: Annotated[str, _aws_pattern("Dataexchange", "Id")]
+    RevisionId: Annotated[str, _aws_pattern("Dataexchange", "Id")]
     Encryption: Optional[ExportServerSideEncryptionTypeDef] = None
 
 
 class ExportAssetsToS3ResponseDetailsTypeDef(BaseValidatorModel):
     AssetDestinations: List[AssetDestinationEntryTypeDef]
-    DataSetId: str
-    RevisionId: str
+    DataSetId: Annotated[str, _aws_pattern("Dataexchange", "Id")]
+    RevisionId: Annotated[str, _aws_pattern("Dataexchange", "Id")]
     Encryption: Optional[ExportServerSideEncryptionTypeDef] = None
 
 
@@ -669,8 +677,8 @@ class ExportAssetsToS3ResponseDetailsTypeDef(BaseValidatorModel):
 class CreateDataGrantRequestTypeDef(BaseValidatorModel):
     Name: str
     GrantDistributionScope: GrantDistributionScopeType
-    ReceiverPrincipal: str
-    SourceDataSetId: str
+    ReceiverPrincipal: Annotated[str, _aws_pattern("Dataexchange", "ReceiverPrincipal")]
+    SourceDataSetId: Annotated[str, _aws_pattern("Dataexchange", "Id")]
     EndsAt: Optional[TimestampTypeDef] = None
     Description: Optional[str] = None
     Tags: Optional[Dict[str, str]] = None
@@ -690,11 +698,11 @@ class CreateDataSetResponseTypeDef(BaseValidatorModel):
     AssetType: AssetTypeType
     CreatedAt: datetime
     Description: str
-    Id: str
+    Id: Annotated[str, _aws_pattern("Dataexchange", "Id")]
     Name: str
     Origin: OriginType
     OriginDetails: OriginDetailsTypeDef
-    SourceId: str
+    SourceId: Annotated[str, _aws_pattern("Dataexchange", "Id")]
     Tags: Dict[str, str]
     UpdatedAt: datetime
     ResponseMetadata: ResponseMetadataTypeDef
@@ -705,12 +713,12 @@ class DataSetEntryTypeDef(BaseValidatorModel):
     AssetType: AssetTypeType
     CreatedAt: datetime
     Description: str
-    Id: str
+    Id: Annotated[str, _aws_pattern("Dataexchange", "Id")]
     Name: str
     Origin: OriginType
     UpdatedAt: datetime
     OriginDetails: Optional[OriginDetailsTypeDef] = None
-    SourceId: Optional[str] = None
+    SourceId: Optional[Annotated[str, _aws_pattern("Dataexchange", "Id")]] = None
 
 
 # This class is the output for the 'get_data_set' function.
@@ -719,11 +727,11 @@ class GetDataSetResponseTypeDef(BaseValidatorModel):
     AssetType: AssetTypeType
     CreatedAt: datetime
     Description: str
-    Id: str
+    Id: Annotated[str, _aws_pattern("Dataexchange", "Id")]
     Name: str
     Origin: OriginType
     OriginDetails: OriginDetailsTypeDef
-    SourceId: str
+    SourceId: Annotated[str, _aws_pattern("Dataexchange", "Id")]
     Tags: Dict[str, str]
     UpdatedAt: datetime
     ResponseMetadata: ResponseMetadataTypeDef
@@ -735,11 +743,11 @@ class UpdateDataSetResponseTypeDef(BaseValidatorModel):
     AssetType: AssetTypeType
     CreatedAt: datetime
     Description: str
-    Id: str
+    Id: Annotated[str, _aws_pattern("Dataexchange", "Id")]
     Name: str
     Origin: OriginType
     OriginDetails: OriginDetailsTypeDef
-    SourceId: str
+    SourceId: Annotated[str, _aws_pattern("Dataexchange", "Id")]
     UpdatedAt: datetime
     ResponseMetadata: ResponseMetadataTypeDef
 
@@ -787,13 +795,13 @@ class EventTypeDef(BaseValidatorModel):
 
 
 class ExportRevisionsToS3RequestDetailsTypeDef(BaseValidatorModel):
-    DataSetId: str
+    DataSetId: Annotated[str, _aws_pattern("Dataexchange", "Id")]
     RevisionDestinations: List[RevisionDestinationEntryTypeDef]
     Encryption: Optional[ExportServerSideEncryptionTypeDef] = None
 
 
 class ExportRevisionsToS3ResponseDetailsTypeDef(BaseValidatorModel):
-    DataSetId: str
+    DataSetId: Annotated[str, _aws_pattern("Dataexchange", "Id")]
     RevisionDestinations: List[RevisionDestinationEntryTypeDef]
     Encryption: Optional[ExportServerSideEncryptionTypeDef] = None
     EventActionArn: Optional[str] = None
@@ -801,14 +809,14 @@ class ExportRevisionsToS3ResponseDetailsTypeDef(BaseValidatorModel):
 
 class ImportAssetsFromRedshiftDataSharesRequestDetailsTypeDef(BaseValidatorModel):
     AssetSources: List[RedshiftDataShareAssetSourceEntryTypeDef]
-    DataSetId: str
-    RevisionId: str
+    DataSetId: Annotated[str, _aws_pattern("Dataexchange", "Id")]
+    RevisionId: Annotated[str, _aws_pattern("Dataexchange", "Id")]
 
 
 class ImportAssetsFromRedshiftDataSharesResponseDetailsTypeDef(BaseValidatorModel):
     AssetSources: List[RedshiftDataShareAssetSourceEntryTypeDef]
-    DataSetId: str
-    RevisionId: str
+    DataSetId: Annotated[str, _aws_pattern("Dataexchange", "Id")]
+    RevisionId: Annotated[str, _aws_pattern("Dataexchange", "Id")]
 
 
 class S3DataAccessAssetSourceEntryOutputTypeDef(BaseValidatorModel):
@@ -910,10 +918,10 @@ class ListDataSetsResponseTypeDef(BaseValidatorModel):
 
 
 class ImportAssetsFromLakeFormationTagPolicyResponseDetailsTypeDef(BaseValidatorModel):
-    CatalogId: str
-    RoleArn: str
-    DataSetId: str
-    RevisionId: str
+    CatalogId: Annotated[str, _aws_pattern("Dataexchange", "AwsAccountId")]
+    RoleArn: Annotated[str, _aws_pattern("Dataexchange", "RoleArn")]
+    DataSetId: Annotated[str, _aws_pattern("Dataexchange", "Id")]
+    RevisionId: Annotated[str, _aws_pattern("Dataexchange", "Id")]
     Database: Optional[DatabaseLFTagPolicyAndPermissionsOutputTypeDef] = None
     Table: Optional[TableLFTagPolicyAndPermissionsOutputTypeDef] = None
 
@@ -945,8 +953,8 @@ class JobErrorTypeDef(BaseValidatorModel):
 
 class CreateS3DataAccessFromS3BucketResponseDetailsTypeDef(BaseValidatorModel):
     AssetSource: S3DataAccessAssetSourceEntryOutputTypeDef
-    DataSetId: str
-    RevisionId: str
+    DataSetId: Annotated[str, _aws_pattern("Dataexchange", "Id")]
+    RevisionId: Annotated[str, _aws_pattern("Dataexchange", "Id")]
 
 
 S3DataAccessAssetSourceEntryUnionTypeDef = Union[
@@ -973,7 +981,7 @@ class CreateEventActionResponseTypeDef(BaseValidatorModel):
     Arn: str
     CreatedAt: datetime
     Event: EventTypeDef
-    Id: str
+    Id: Annotated[str, _aws_pattern("Dataexchange", "Id")]
     Tags: Dict[str, str]
     UpdatedAt: datetime
     ResponseMetadata: ResponseMetadataTypeDef
@@ -984,7 +992,7 @@ class EventActionEntryTypeDef(BaseValidatorModel):
     Arn: str
     CreatedAt: datetime
     Event: EventTypeDef
-    Id: str
+    Id: Annotated[str, _aws_pattern("Dataexchange", "Id")]
     UpdatedAt: datetime
 
 
@@ -994,7 +1002,7 @@ class GetEventActionResponseTypeDef(BaseValidatorModel):
     Arn: str
     CreatedAt: datetime
     Event: EventTypeDef
-    Id: str
+    Id: Annotated[str, _aws_pattern("Dataexchange", "Id")]
     Tags: Dict[str, str]
     UpdatedAt: datetime
     ResponseMetadata: ResponseMetadataTypeDef
@@ -1012,13 +1020,13 @@ class UpdateEventActionResponseTypeDef(BaseValidatorModel):
     Arn: str
     CreatedAt: datetime
     Event: EventTypeDef
-    Id: str
+    Id: Annotated[str, _aws_pattern("Dataexchange", "Id")]
     UpdatedAt: datetime
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 class LFTagPolicyDetailsTypeDef(BaseValidatorModel):
-    CatalogId: str
+    CatalogId: Annotated[str, _aws_pattern("Dataexchange", "AwsAccountId")]
     ResourceType: LFResourceTypeType
     ResourceDetails: LFResourceDetailsTypeDef
 
@@ -1044,15 +1052,15 @@ class ResponseDetailsTypeDef(BaseValidatorModel):
 
 class CreateS3DataAccessFromS3BucketRequestDetailsTypeDef(BaseValidatorModel):
     AssetSource: S3DataAccessAssetSourceEntryUnionTypeDef
-    DataSetId: str
-    RevisionId: str
+    DataSetId: Annotated[str, _aws_pattern("Dataexchange", "Id")]
+    RevisionId: Annotated[str, _aws_pattern("Dataexchange", "Id")]
 
 
 class SendDataSetNotificationRequestTypeDef(BaseValidatorModel):
-    DataSetId: str
+    DataSetId: Annotated[str, _aws_pattern("Dataexchange", "Id")]
     Type: NotificationTypeType
     Scope: Optional[ScopeDetailsTypeDef] = None
-    ClientToken: Optional[str] = None
+    ClientToken: Optional[Annotated[str, _aws_pattern("Dataexchange", "ClientToken")]] = None
     Comment: Optional[str] = None
     Details: Optional[NotificationDetailsTypeDef] = None
 
@@ -1069,10 +1077,10 @@ class LakeFormationDataPermissionDetailsTypeDef(BaseValidatorModel):
 
 
 class ImportAssetsFromLakeFormationTagPolicyRequestDetailsTypeDef(BaseValidatorModel):
-    CatalogId: str
-    RoleArn: str
-    DataSetId: str
-    RevisionId: str
+    CatalogId: Annotated[str, _aws_pattern("Dataexchange", "AwsAccountId")]
+    RoleArn: Annotated[str, _aws_pattern("Dataexchange", "RoleArn")]
+    DataSetId: Annotated[str, _aws_pattern("Dataexchange", "Id")]
+    RevisionId: Annotated[str, _aws_pattern("Dataexchange", "Id")]
     Database: Optional[DatabaseLFTagPolicyAndPermissionsUnionTypeDef] = None
     Table: Optional[TableLFTagPolicyAndPermissionsUnionTypeDef] = None
 
@@ -1084,7 +1092,7 @@ class CreateJobResponseTypeDef(BaseValidatorModel):
     CreatedAt: datetime
     Details: ResponseDetailsTypeDef
     Errors: List[JobErrorTypeDef]
-    Id: str
+    Id: Annotated[str, _aws_pattern("Dataexchange", "Id")]
     State: StateType
     Type: TypeType
     UpdatedAt: datetime
@@ -1098,7 +1106,7 @@ class GetJobResponseTypeDef(BaseValidatorModel):
     CreatedAt: datetime
     Details: ResponseDetailsTypeDef
     Errors: List[JobErrorTypeDef]
-    Id: str
+    Id: Annotated[str, _aws_pattern("Dataexchange", "Id")]
     State: StateType
     Type: TypeType
     UpdatedAt: datetime
@@ -1109,7 +1117,7 @@ class JobEntryTypeDef(BaseValidatorModel):
     Arn: str
     CreatedAt: datetime
     Details: ResponseDetailsTypeDef
-    Id: str
+    Id: Annotated[str, _aws_pattern("Dataexchange", "Id")]
     State: StateType
     Type: TypeType
     UpdatedAt: datetime
@@ -1121,7 +1129,7 @@ class LakeFormationDataPermissionAssetTypeDef(BaseValidatorModel):
     LakeFormationDataPermissionDetails: LakeFormationDataPermissionDetailsTypeDef
     LakeFormationDataPermissionType: Literal["LFTagPolicy"]
     Permissions: List[LFPermissionType]
-    RoleArn: Optional[str] = None
+    RoleArn: Optional[Annotated[str, _aws_pattern("Dataexchange", "RoleArn")]] = None
 
 
 class RequestDetailsTypeDef(BaseValidatorModel):
@@ -1163,12 +1171,12 @@ class AssetEntryTypeDef(BaseValidatorModel):
     AssetDetails: AssetDetailsTypeDef
     AssetType: AssetTypeType
     CreatedAt: datetime
-    DataSetId: str
-    Id: str
+    DataSetId: Annotated[str, _aws_pattern("Dataexchange", "Id")]
+    Id: Annotated[str, _aws_pattern("Dataexchange", "Id")]
     Name: str
-    RevisionId: str
+    RevisionId: Annotated[str, _aws_pattern("Dataexchange", "Id")]
     UpdatedAt: datetime
-    SourceId: Optional[str] = None
+    SourceId: Optional[Annotated[str, _aws_pattern("Dataexchange", "Id")]] = None
 
 
 # This class is the output for the 'get_asset' function.
@@ -1177,11 +1185,11 @@ class GetAssetResponseTypeDef(BaseValidatorModel):
     AssetDetails: AssetDetailsTypeDef
     AssetType: AssetTypeType
     CreatedAt: datetime
-    DataSetId: str
-    Id: str
+    DataSetId: Annotated[str, _aws_pattern("Dataexchange", "Id")]
+    Id: Annotated[str, _aws_pattern("Dataexchange", "Id")]
     Name: str
-    RevisionId: str
-    SourceId: str
+    RevisionId: Annotated[str, _aws_pattern("Dataexchange", "Id")]
+    SourceId: Annotated[str, _aws_pattern("Dataexchange", "Id")]
     Tags: Dict[str, str]
     UpdatedAt: datetime
     ResponseMetadata: ResponseMetadataTypeDef
@@ -1193,11 +1201,11 @@ class UpdateAssetResponseTypeDef(BaseValidatorModel):
     AssetDetails: AssetDetailsTypeDef
     AssetType: AssetTypeType
     CreatedAt: datetime
-    DataSetId: str
-    Id: str
+    DataSetId: Annotated[str, _aws_pattern("Dataexchange", "Id")]
+    Id: Annotated[str, _aws_pattern("Dataexchange", "Id")]
     Name: str
-    RevisionId: str
-    SourceId: str
+    RevisionId: Annotated[str, _aws_pattern("Dataexchange", "Id")]
+    SourceId: Annotated[str, _aws_pattern("Dataexchange", "Id")]
     UpdatedAt: datetime
     ResponseMetadata: ResponseMetadataTypeDef
 

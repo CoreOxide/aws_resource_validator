@@ -3,6 +3,7 @@
 from datetime import datetime
 from decimal import Decimal
 from typing import (
+    Annotated,
     Any,
     Callable,
     Dict,
@@ -24,6 +25,7 @@ from botocore.response import StreamingBody
 from pydantic import Field
 
 from aws_resource_validator.core.base_validator_model import BaseValidatorModel, EventStream
+from aws_resource_validator.core.pattern_validation import aws_field_pattern as _aws_pattern
 from aws_resource_validator.pydantic_models.iotevents_data.iotevents_data_constants import *  # noqa: F401,F403
 
 # Optional boto3 symbols — imported lazily so services that don't need them
@@ -43,23 +45,23 @@ class AcknowledgeActionConfigurationTypeDef(BaseValidatorModel):
 
 
 class AcknowledgeAlarmActionRequestTypeDef(BaseValidatorModel):
-    requestId: str
-    alarmModelName: str
-    keyValue: Optional[str] = None
+    requestId: Annotated[str, _aws_pattern("IoteventsData", "RequestId")]
+    alarmModelName: Annotated[str, _aws_pattern("IoteventsData", "AlarmModelName")]
+    keyValue: Optional[Annotated[str, _aws_pattern("IoteventsData", "KeyValue")]] = None
     note: Optional[str] = None
 
 
 class AlarmSummaryTypeDef(BaseValidatorModel):
-    alarmModelName: Optional[str] = None
+    alarmModelName: Optional[Annotated[str, _aws_pattern("IoteventsData", "AlarmModelName")]] = None
     alarmModelVersion: Optional[str] = None
-    keyValue: Optional[str] = None
+    keyValue: Optional[Annotated[str, _aws_pattern("IoteventsData", "KeyValue")]] = None
     stateName: Optional[AlarmStateNameType] = None
     creationTime: Optional[datetime] = None
     lastUpdateTime: Optional[datetime] = None
 
 
 class BatchAlarmActionErrorEntryTypeDef(BaseValidatorModel):
-    requestId: Optional[str] = None
+    requestId: Optional[Annotated[str, _aws_pattern("IoteventsData", "RequestId")]] = None
     errorCode: Optional[ErrorCodeType] = None
     errorMessage: Optional[str] = None
 
@@ -73,54 +75,54 @@ class ResponseMetadataTypeDef(BaseValidatorModel):
 
 
 class BatchDeleteDetectorErrorEntryTypeDef(BaseValidatorModel):
-    messageId: Optional[str] = None
+    messageId: Optional[Annotated[str, _aws_pattern("IoteventsData", "MessageId")]] = None
     errorCode: Optional[ErrorCodeType] = None
     errorMessage: Optional[str] = None
 
 
 class DeleteDetectorRequestTypeDef(BaseValidatorModel):
-    messageId: str
-    detectorModelName: str
-    keyValue: Optional[str] = None
+    messageId: Annotated[str, _aws_pattern("IoteventsData", "MessageId")]
+    detectorModelName: Annotated[str, _aws_pattern("IoteventsData", "DetectorModelName")]
+    keyValue: Optional[Annotated[str, _aws_pattern("IoteventsData", "KeyValue")]] = None
 
 
 class DisableAlarmActionRequestTypeDef(BaseValidatorModel):
-    requestId: str
-    alarmModelName: str
-    keyValue: Optional[str] = None
+    requestId: Annotated[str, _aws_pattern("IoteventsData", "RequestId")]
+    alarmModelName: Annotated[str, _aws_pattern("IoteventsData", "AlarmModelName")]
+    keyValue: Optional[Annotated[str, _aws_pattern("IoteventsData", "KeyValue")]] = None
     note: Optional[str] = None
 
 
 class EnableAlarmActionRequestTypeDef(BaseValidatorModel):
-    requestId: str
-    alarmModelName: str
-    keyValue: Optional[str] = None
+    requestId: Annotated[str, _aws_pattern("IoteventsData", "RequestId")]
+    alarmModelName: Annotated[str, _aws_pattern("IoteventsData", "AlarmModelName")]
+    keyValue: Optional[Annotated[str, _aws_pattern("IoteventsData", "KeyValue")]] = None
     note: Optional[str] = None
 
 
 class BatchPutMessageErrorEntryTypeDef(BaseValidatorModel):
-    messageId: Optional[str] = None
+    messageId: Optional[Annotated[str, _aws_pattern("IoteventsData", "MessageId")]] = None
     errorCode: Optional[ErrorCodeType] = None
     errorMessage: Optional[str] = None
 
 
 class ResetAlarmActionRequestTypeDef(BaseValidatorModel):
-    requestId: str
-    alarmModelName: str
-    keyValue: Optional[str] = None
+    requestId: Annotated[str, _aws_pattern("IoteventsData", "RequestId")]
+    alarmModelName: Annotated[str, _aws_pattern("IoteventsData", "AlarmModelName")]
+    keyValue: Optional[Annotated[str, _aws_pattern("IoteventsData", "KeyValue")]] = None
     note: Optional[str] = None
 
 
 class SnoozeAlarmActionRequestTypeDef(BaseValidatorModel):
-    requestId: str
-    alarmModelName: str
+    requestId: Annotated[str, _aws_pattern("IoteventsData", "RequestId")]
+    alarmModelName: Annotated[str, _aws_pattern("IoteventsData", "AlarmModelName")]
     snoozeDuration: int
-    keyValue: Optional[str] = None
+    keyValue: Optional[Annotated[str, _aws_pattern("IoteventsData", "KeyValue")]] = None
     note: Optional[str] = None
 
 
 class BatchUpdateDetectorErrorEntryTypeDef(BaseValidatorModel):
-    messageId: Optional[str] = None
+    messageId: Optional[Annotated[str, _aws_pattern("IoteventsData", "MessageId")]] = None
     errorCode: Optional[ErrorCodeType] = None
     errorMessage: Optional[str] = None
 
@@ -147,14 +149,14 @@ class SnoozeActionConfigurationTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'describe_alarm' function.
 class DescribeAlarmRequestTypeDef(BaseValidatorModel):
-    alarmModelName: str
-    keyValue: Optional[str] = None
+    alarmModelName: Annotated[str, _aws_pattern("IoteventsData", "AlarmModelName")]
+    keyValue: Optional[Annotated[str, _aws_pattern("IoteventsData", "KeyValue")]] = None
 
 
 # This class is the input for the 'describe_detector' function.
 class DescribeDetectorRequestTypeDef(BaseValidatorModel):
-    detectorModelName: str
-    keyValue: Optional[str] = None
+    detectorModelName: Annotated[str, _aws_pattern("IoteventsData", "DetectorModelName")]
+    keyValue: Optional[Annotated[str, _aws_pattern("IoteventsData", "KeyValue")]] = None
 
 
 class TimerDefinitionTypeDef(BaseValidatorModel):
@@ -163,7 +165,7 @@ class TimerDefinitionTypeDef(BaseValidatorModel):
 
 
 class VariableDefinitionTypeDef(BaseValidatorModel):
-    name: str
+    name: Annotated[str, _aws_pattern("IoteventsData", "VariableName")]
     value: str
 
 
@@ -177,20 +179,20 @@ class TimerTypeDef(BaseValidatorModel):
 
 
 class VariableTypeDef(BaseValidatorModel):
-    name: str
+    name: Annotated[str, _aws_pattern("IoteventsData", "VariableName")]
     value: str
 
 
 # This class is the input for the 'list_alarms' function.
 class ListAlarmsRequestTypeDef(BaseValidatorModel):
-    alarmModelName: str
+    alarmModelName: Annotated[str, _aws_pattern("IoteventsData", "AlarmModelName")]
     nextToken: Optional[str] = None
     maxResults: Optional[int] = None
 
 
 # This class is the input for the 'list_detectors' function.
 class ListDetectorsRequestTypeDef(BaseValidatorModel):
-    detectorModelName: str
+    detectorModelName: Annotated[str, _aws_pattern("IoteventsData", "DetectorModelName")]
     stateName: Optional[str] = None
     nextToken: Optional[str] = None
     maxResults: Optional[int] = None
@@ -311,8 +313,8 @@ class DetectorStateDefinitionTypeDef(BaseValidatorModel):
 
 
 class DetectorSummaryTypeDef(BaseValidatorModel):
-    detectorModelName: Optional[str] = None
-    keyValue: Optional[str] = None
+    detectorModelName: Optional[Annotated[str, _aws_pattern("IoteventsData", "DetectorModelName")]] = None
+    keyValue: Optional[Annotated[str, _aws_pattern("IoteventsData", "KeyValue")]] = None
     detectorModelVersion: Optional[str] = None
     state: Optional[DetectorStateSummaryTypeDef] = None
     creationTime: Optional[datetime] = None
@@ -326,8 +328,8 @@ class DetectorStateTypeDef(BaseValidatorModel):
 
 
 class MessageTypeDef(BaseValidatorModel):
-    messageId: str
-    inputName: str
+    messageId: Annotated[str, _aws_pattern("IoteventsData", "MessageId")]
+    inputName: Annotated[str, _aws_pattern("IoteventsData", "EphemeralInputName")]
     payload: BlobTypeDef
     timestamp: Optional[TimestampValueTypeDef] = None
 
@@ -342,10 +344,10 @@ class SystemEventTypeDef(BaseValidatorModel):
 
 
 class UpdateDetectorRequestTypeDef(BaseValidatorModel):
-    messageId: str
-    detectorModelName: str
+    messageId: Annotated[str, _aws_pattern("IoteventsData", "MessageId")]
+    detectorModelName: Annotated[str, _aws_pattern("IoteventsData", "DetectorModelName")]
     state: DetectorStateDefinitionTypeDef
-    keyValue: Optional[str] = None
+    keyValue: Optional[Annotated[str, _aws_pattern("IoteventsData", "KeyValue")]] = None
 
 
 # This class is the output for the 'list_detectors' function.
@@ -356,8 +358,8 @@ class ListDetectorsResponseTypeDef(BaseValidatorModel):
 
 
 class DetectorTypeDef(BaseValidatorModel):
-    detectorModelName: Optional[str] = None
-    keyValue: Optional[str] = None
+    detectorModelName: Optional[Annotated[str, _aws_pattern("IoteventsData", "DetectorModelName")]] = None
+    keyValue: Optional[Annotated[str, _aws_pattern("IoteventsData", "KeyValue")]] = None
     detectorModelVersion: Optional[str] = None
     state: Optional[DetectorStateTypeDef] = None
     creationTime: Optional[datetime] = None
@@ -388,9 +390,9 @@ class DescribeDetectorResponseTypeDef(BaseValidatorModel):
 
 
 class AlarmTypeDef(BaseValidatorModel):
-    alarmModelName: Optional[str] = None
+    alarmModelName: Optional[Annotated[str, _aws_pattern("IoteventsData", "AlarmModelName")]] = None
     alarmModelVersion: Optional[str] = None
-    keyValue: Optional[str] = None
+    keyValue: Optional[Annotated[str, _aws_pattern("IoteventsData", "KeyValue")]] = None
     alarmState: Optional[AlarmStateTypeDef] = None
     severity: Optional[int] = None
     creationTime: Optional[datetime] = None

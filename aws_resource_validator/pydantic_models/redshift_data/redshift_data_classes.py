@@ -3,6 +3,7 @@
 from datetime import datetime
 from decimal import Decimal
 from typing import (
+    Annotated,
     Any,
     Callable,
     Dict,
@@ -24,6 +25,7 @@ from botocore.response import StreamingBody
 from pydantic import Field
 
 from aws_resource_validator.core.base_validator_model import BaseValidatorModel, EventStream
+from aws_resource_validator.core.pattern_validation import aws_field_pattern as _aws_pattern
 from aws_resource_validator.pydantic_models.redshift_data.redshift_data_constants import *  # noqa: F401,F403
 
 # Optional boto3 symbols — imported lazily so services that don't need them
@@ -39,7 +41,7 @@ except ImportError:  # pragma: no cover
 
 
 class SqlParameterTypeDef(BaseValidatorModel):
-    name: str
+    name: Annotated[str, _aws_pattern("RedshiftData", "ParameterName")]
     value: str
 
 
@@ -53,7 +55,7 @@ class ResponseMetadataTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'cancel_statement' function.
 class CancelStatementRequestTypeDef(BaseValidatorModel):
-    Id: str
+    Id: Annotated[str, _aws_pattern("RedshiftData", "UUID")]
 
 
 class ColumnMetadataTypeDef(BaseValidatorModel):
@@ -74,11 +76,11 @@ class ColumnMetadataTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'describe_statement' function.
 class DescribeStatementRequestTypeDef(BaseValidatorModel):
-    Id: str
+    Id: Annotated[str, _aws_pattern("RedshiftData", "UUID")]
 
 
 class SubStatementDataTypeDef(BaseValidatorModel):
-    Id: str
+    Id: Annotated[str, _aws_pattern("RedshiftData", "UUID")]
     Duration: Optional[int] = None
     Error: Optional[str] = None
     Status: Optional[StatementStatusStringType] = None
@@ -100,7 +102,7 @@ class PaginatorConfigTypeDef(BaseValidatorModel):
 # This class is the input for the 'describe_table' function.
 class DescribeTableRequestTypeDef(BaseValidatorModel):
     Database: str
-    ClusterIdentifier: Optional[str] = None
+    ClusterIdentifier: Optional[Annotated[str, _aws_pattern("RedshiftData", "ClusterIdentifierString")]] = None
     SecretArn: Optional[str] = None
     DbUser: Optional[str] = None
     ConnectedDatabase: Optional[str] = None
@@ -108,7 +110,7 @@ class DescribeTableRequestTypeDef(BaseValidatorModel):
     Table: Optional[str] = None
     NextToken: Optional[str] = None
     MaxResults: Optional[int] = None
-    WorkgroupName: Optional[str] = None
+    WorkgroupName: Optional[Annotated[str, _aws_pattern("RedshiftData", "WorkgroupNameString")]] = None
 
 
 class FieldTypeDef(BaseValidatorModel):
@@ -122,13 +124,13 @@ class FieldTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'get_statement_result' function.
 class GetStatementResultRequestTypeDef(BaseValidatorModel):
-    Id: str
+    Id: Annotated[str, _aws_pattern("RedshiftData", "UUID")]
     NextToken: Optional[str] = None
 
 
 # This class is the input for the 'get_statement_result_v2' function.
 class GetStatementResultV2RequestTypeDef(BaseValidatorModel):
-    Id: str
+    Id: Annotated[str, _aws_pattern("RedshiftData", "UUID")]
     NextToken: Optional[str] = None
 
 
@@ -139,25 +141,25 @@ class QueryRecordsTypeDef(BaseValidatorModel):
 # This class is the input for the 'list_databases' function.
 class ListDatabasesRequestTypeDef(BaseValidatorModel):
     Database: str
-    ClusterIdentifier: Optional[str] = None
+    ClusterIdentifier: Optional[Annotated[str, _aws_pattern("RedshiftData", "ClusterIdentifierString")]] = None
     SecretArn: Optional[str] = None
     DbUser: Optional[str] = None
     NextToken: Optional[str] = None
     MaxResults: Optional[int] = None
-    WorkgroupName: Optional[str] = None
+    WorkgroupName: Optional[Annotated[str, _aws_pattern("RedshiftData", "WorkgroupNameString")]] = None
 
 
 # This class is the input for the 'list_schemas' function.
 class ListSchemasRequestTypeDef(BaseValidatorModel):
     Database: str
-    ClusterIdentifier: Optional[str] = None
+    ClusterIdentifier: Optional[Annotated[str, _aws_pattern("RedshiftData", "ClusterIdentifierString")]] = None
     SecretArn: Optional[str] = None
     DbUser: Optional[str] = None
     ConnectedDatabase: Optional[str] = None
     SchemaPattern: Optional[str] = None
     NextToken: Optional[str] = None
     MaxResults: Optional[int] = None
-    WorkgroupName: Optional[str] = None
+    WorkgroupName: Optional[Annotated[str, _aws_pattern("RedshiftData", "WorkgroupNameString")]] = None
 
 
 # This class is the input for the 'list_statements' function.
@@ -168,14 +170,14 @@ class ListStatementsRequestTypeDef(BaseValidatorModel):
     Status: Optional[StatusStringType] = None
     RoleLevel: Optional[bool] = None
     Database: Optional[str] = None
-    ClusterIdentifier: Optional[str] = None
-    WorkgroupName: Optional[str] = None
+    ClusterIdentifier: Optional[Annotated[str, _aws_pattern("RedshiftData", "ClusterIdentifierString")]] = None
+    WorkgroupName: Optional[Annotated[str, _aws_pattern("RedshiftData", "WorkgroupNameString")]] = None
 
 
 # This class is the input for the 'list_tables' function.
 class ListTablesRequestTypeDef(BaseValidatorModel):
     Database: str
-    ClusterIdentifier: Optional[str] = None
+    ClusterIdentifier: Optional[Annotated[str, _aws_pattern("RedshiftData", "ClusterIdentifierString")]] = None
     SecretArn: Optional[str] = None
     DbUser: Optional[str] = None
     ConnectedDatabase: Optional[str] = None
@@ -183,7 +185,7 @@ class ListTablesRequestTypeDef(BaseValidatorModel):
     TablePattern: Optional[str] = None
     NextToken: Optional[str] = None
     MaxResults: Optional[int] = None
-    WorkgroupName: Optional[str] = None
+    WorkgroupName: Optional[Annotated[str, _aws_pattern("RedshiftData", "WorkgroupNameString")]] = None
 
 
 class TableMemberTypeDef(BaseValidatorModel):
@@ -195,39 +197,39 @@ class TableMemberTypeDef(BaseValidatorModel):
 # This class is the input for the 'batch_execute_statement' function.
 class BatchExecuteStatementInputTypeDef(BaseValidatorModel):
     Sqls: List[str]
-    ClusterIdentifier: Optional[str] = None
+    ClusterIdentifier: Optional[Annotated[str, _aws_pattern("RedshiftData", "ClusterIdentifierString")]] = None
     SecretArn: Optional[str] = None
     DbUser: Optional[str] = None
     Database: Optional[str] = None
     WithEvent: Optional[bool] = None
     StatementName: Optional[str] = None
     Parameters: Optional[List[SqlParameterTypeDef]] = None
-    WorkgroupName: Optional[str] = None
+    WorkgroupName: Optional[Annotated[str, _aws_pattern("RedshiftData", "WorkgroupNameString")]] = None
     ClientToken: Optional[str] = None
     ResultFormat: Optional[ResultFormatStringType] = None
     SessionKeepAliveSeconds: Optional[int] = None
-    SessionId: Optional[str] = None
+    SessionId: Optional[Annotated[str, _aws_pattern("RedshiftData", "UUID")]] = None
 
 
 # This class is the input for the 'execute_statement' function.
 class ExecuteStatementInputTypeDef(BaseValidatorModel):
     Sql: str
-    ClusterIdentifier: Optional[str] = None
+    ClusterIdentifier: Optional[Annotated[str, _aws_pattern("RedshiftData", "ClusterIdentifierString")]] = None
     SecretArn: Optional[str] = None
     DbUser: Optional[str] = None
     Database: Optional[str] = None
     WithEvent: Optional[bool] = None
     StatementName: Optional[str] = None
     Parameters: Optional[List[SqlParameterTypeDef]] = None
-    WorkgroupName: Optional[str] = None
+    WorkgroupName: Optional[Annotated[str, _aws_pattern("RedshiftData", "WorkgroupNameString")]] = None
     ClientToken: Optional[str] = None
     ResultFormat: Optional[ResultFormatStringType] = None
     SessionKeepAliveSeconds: Optional[int] = None
-    SessionId: Optional[str] = None
+    SessionId: Optional[Annotated[str, _aws_pattern("RedshiftData", "UUID")]] = None
 
 
 class StatementDataTypeDef(BaseValidatorModel):
-    Id: str
+    Id: Annotated[str, _aws_pattern("RedshiftData", "UUID")]
     QueryString: Optional[str] = None
     QueryStrings: Optional[List[str]] = None
     SecretArn: Optional[str] = None
@@ -238,20 +240,20 @@ class StatementDataTypeDef(BaseValidatorModel):
     QueryParameters: Optional[List[SqlParameterTypeDef]] = None
     IsBatchStatement: Optional[bool] = None
     ResultFormat: Optional[ResultFormatStringType] = None
-    SessionId: Optional[str] = None
+    SessionId: Optional[Annotated[str, _aws_pattern("RedshiftData", "UUID")]] = None
 
 
 # This class is the output for the 'batch_execute_statement' function.
 class BatchExecuteStatementOutputTypeDef(BaseValidatorModel):
-    Id: str
+    Id: Annotated[str, _aws_pattern("RedshiftData", "UUID")]
     CreatedAt: datetime
-    ClusterIdentifier: str
+    ClusterIdentifier: Annotated[str, _aws_pattern("RedshiftData", "ClusterIdentifierString")]
     DbUser: str
     DbGroups: List[str]
     Database: str
     SecretArn: str
-    WorkgroupName: str
-    SessionId: str
+    WorkgroupName: Annotated[str, _aws_pattern("RedshiftData", "WorkgroupNameString")]
+    SessionId: Annotated[str, _aws_pattern("RedshiftData", "UUID")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
@@ -263,15 +265,15 @@ class CancelStatementResponseTypeDef(BaseValidatorModel):
 
 # This class is the output for the 'execute_statement' function.
 class ExecuteStatementOutputTypeDef(BaseValidatorModel):
-    Id: str
+    Id: Annotated[str, _aws_pattern("RedshiftData", "UUID")]
     CreatedAt: datetime
-    ClusterIdentifier: str
+    ClusterIdentifier: Annotated[str, _aws_pattern("RedshiftData", "ClusterIdentifierString")]
     DbUser: str
     DbGroups: List[str]
     Database: str
     SecretArn: str
-    WorkgroupName: str
-    SessionId: str
+    WorkgroupName: Annotated[str, _aws_pattern("RedshiftData", "WorkgroupNameString")]
+    SessionId: Annotated[str, _aws_pattern("RedshiftData", "UUID")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
@@ -299,7 +301,7 @@ class DescribeTableResponseTypeDef(BaseValidatorModel):
 
 # This class is the output for the 'describe_statement' function.
 class DescribeStatementResponseTypeDef(BaseValidatorModel):
-    Id: str
+    Id: Annotated[str, _aws_pattern("RedshiftData", "UUID")]
     SecretArn: str
     DbUser: str
     Database: str
@@ -317,7 +319,7 @@ class DescribeStatementResponseTypeDef(BaseValidatorModel):
     RedshiftQueryId: int
     QueryParameters: List[SqlParameterTypeDef]
     SubStatements: List[SubStatementDataTypeDef]
-    WorkgroupName: str
+    WorkgroupName: Annotated[str, _aws_pattern("RedshiftData", "WorkgroupNameString")]
     ResultFormat: ResultFormatStringType
     SessionId: str
     ResponseMetadata: ResponseMetadataTypeDef

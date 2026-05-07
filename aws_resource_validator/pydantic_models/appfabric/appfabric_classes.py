@@ -3,6 +3,7 @@
 from datetime import datetime
 from decimal import Decimal
 from typing import (
+    Annotated,
     Any,
     Callable,
     Dict,
@@ -24,6 +25,7 @@ from botocore.response import StreamingBody
 from pydantic import Field
 
 from aws_resource_validator.core.base_validator_model import BaseValidatorModel, EventStream
+from aws_resource_validator.core.pattern_validation import aws_field_pattern as _aws_pattern
 from aws_resource_validator.pydantic_models.appfabric.appfabric_constants import *  # noqa: F401,F403
 
 # Optional boto3 symbols — imported lazily so services that don't need them
@@ -48,12 +50,12 @@ class TenantTypeDef(BaseValidatorModel):
 
 
 class AppBundleSummaryTypeDef(BaseValidatorModel):
-    arn: str
+    arn: Annotated[str, _aws_pattern("Appfabric", "Arn")]
 
 
 class AppBundleTypeDef(BaseValidatorModel):
-    arn: str
-    customerManagedKeyArn: Optional[str] = None
+    arn: Annotated[str, _aws_pattern("Appfabric", "Arn")]
+    customerManagedKeyArn: Optional[Annotated[str, _aws_pattern("Appfabric", "Arn")]] = None
 
 
 class AuditLogProcessingConfigurationTypeDef(BaseValidatorModel):
@@ -62,14 +64,14 @@ class AuditLogProcessingConfigurationTypeDef(BaseValidatorModel):
 
 
 class AuthRequestTypeDef(BaseValidatorModel):
-    redirectUri: str
+    redirectUri: Annotated[str, _aws_pattern("Appfabric", "RedirectUri")]
     code: str
 
 
 # This class is the input for the 'batch_get_user_access_tasks' function.
 class BatchGetUserAccessTasksRequestTypeDef(BaseValidatorModel):
-    appBundleIdentifier: str
-    taskIdList: List[str]
+    appBundleIdentifier: Annotated[str, _aws_pattern("Appfabric", "Identifier")]
+    taskIdList: List[Annotated[str, _aws_pattern("Appfabric", "UUID")]]
 
 
 class ResponseMetadataTypeDef(BaseValidatorModel):
@@ -86,8 +88,8 @@ class TagTypeDef(BaseValidatorModel):
 
 
 class IngestionTypeDef(BaseValidatorModel):
-    arn: str
-    appBundleArn: str
+    arn: Annotated[str, _aws_pattern("Appfabric", "Arn")]
+    appBundleArn: Annotated[str, _aws_pattern("Appfabric", "Arn")]
     app: str
     tenantId: str
     createdAt: datetime
@@ -102,23 +104,23 @@ class Oauth2CredentialTypeDef(BaseValidatorModel):
 
 
 class DeleteAppAuthorizationRequestTypeDef(BaseValidatorModel):
-    appBundleIdentifier: str
-    appAuthorizationIdentifier: str
+    appBundleIdentifier: Annotated[str, _aws_pattern("Appfabric", "Identifier")]
+    appAuthorizationIdentifier: Annotated[str, _aws_pattern("Appfabric", "Identifier")]
 
 
 class DeleteAppBundleRequestTypeDef(BaseValidatorModel):
-    appBundleIdentifier: str
+    appBundleIdentifier: Annotated[str, _aws_pattern("Appfabric", "Identifier")]
 
 
 class DeleteIngestionDestinationRequestTypeDef(BaseValidatorModel):
-    appBundleIdentifier: str
-    ingestionIdentifier: str
-    ingestionDestinationIdentifier: str
+    appBundleIdentifier: Annotated[str, _aws_pattern("Appfabric", "Identifier")]
+    ingestionIdentifier: Annotated[str, _aws_pattern("Appfabric", "Identifier")]
+    ingestionDestinationIdentifier: Annotated[str, _aws_pattern("Appfabric", "Identifier")]
 
 
 class DeleteIngestionRequestTypeDef(BaseValidatorModel):
-    appBundleIdentifier: str
-    ingestionIdentifier: str
+    appBundleIdentifier: Annotated[str, _aws_pattern("Appfabric", "Identifier")]
+    ingestionIdentifier: Annotated[str, _aws_pattern("Appfabric", "Identifier")]
 
 
 class FirehoseStreamTypeDef(BaseValidatorModel):
@@ -132,34 +134,34 @@ class S3BucketTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'get_app_authorization' function.
 class GetAppAuthorizationRequestTypeDef(BaseValidatorModel):
-    appBundleIdentifier: str
-    appAuthorizationIdentifier: str
+    appBundleIdentifier: Annotated[str, _aws_pattern("Appfabric", "Identifier")]
+    appAuthorizationIdentifier: Annotated[str, _aws_pattern("Appfabric", "Identifier")]
 
 
 # This class is the input for the 'get_app_bundle' function.
 class GetAppBundleRequestTypeDef(BaseValidatorModel):
-    appBundleIdentifier: str
+    appBundleIdentifier: Annotated[str, _aws_pattern("Appfabric", "Identifier")]
 
 
 # This class is the input for the 'get_ingestion_destination' function.
 class GetIngestionDestinationRequestTypeDef(BaseValidatorModel):
-    appBundleIdentifier: str
-    ingestionIdentifier: str
-    ingestionDestinationIdentifier: str
+    appBundleIdentifier: Annotated[str, _aws_pattern("Appfabric", "Identifier")]
+    ingestionIdentifier: Annotated[str, _aws_pattern("Appfabric", "Identifier")]
+    ingestionDestinationIdentifier: Annotated[str, _aws_pattern("Appfabric", "Identifier")]
 
 
 # This class is the input for the 'get_ingestion' function.
 class GetIngestionRequestTypeDef(BaseValidatorModel):
-    appBundleIdentifier: str
-    ingestionIdentifier: str
+    appBundleIdentifier: Annotated[str, _aws_pattern("Appfabric", "Identifier")]
+    ingestionIdentifier: Annotated[str, _aws_pattern("Appfabric", "Identifier")]
 
 
 class IngestionDestinationSummaryTypeDef(BaseValidatorModel):
-    arn: str
+    arn: Annotated[str, _aws_pattern("Appfabric", "Arn")]
 
 
 class IngestionSummaryTypeDef(BaseValidatorModel):
-    arn: str
+    arn: Annotated[str, _aws_pattern("Appfabric", "Arn")]
     app: str
     tenantId: str
     state: IngestionStateType
@@ -173,7 +175,7 @@ class PaginatorConfigTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'list_app_authorizations' function.
 class ListAppAuthorizationsRequestTypeDef(BaseValidatorModel):
-    appBundleIdentifier: str
+    appBundleIdentifier: Annotated[str, _aws_pattern("Appfabric", "Identifier")]
     maxResults: Optional[int] = None
     nextToken: Optional[str] = None
 
@@ -186,38 +188,38 @@ class ListAppBundlesRequestTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'list_ingestion_destinations' function.
 class ListIngestionDestinationsRequestTypeDef(BaseValidatorModel):
-    appBundleIdentifier: str
-    ingestionIdentifier: str
+    appBundleIdentifier: Annotated[str, _aws_pattern("Appfabric", "Identifier")]
+    ingestionIdentifier: Annotated[str, _aws_pattern("Appfabric", "Identifier")]
     maxResults: Optional[int] = None
     nextToken: Optional[str] = None
 
 
 # This class is the input for the 'list_ingestions' function.
 class ListIngestionsRequestTypeDef(BaseValidatorModel):
-    appBundleIdentifier: str
+    appBundleIdentifier: Annotated[str, _aws_pattern("Appfabric", "Identifier")]
     maxResults: Optional[int] = None
     nextToken: Optional[str] = None
 
 
 # This class is the input for the 'list_tags_for_resource' function.
 class ListTagsForResourceRequestTypeDef(BaseValidatorModel):
-    resourceArn: str
+    resourceArn: Annotated[str, _aws_pattern("Appfabric", "Arn")]
 
 
 class StartIngestionRequestTypeDef(BaseValidatorModel):
-    ingestionIdentifier: str
-    appBundleIdentifier: str
+    ingestionIdentifier: Annotated[str, _aws_pattern("Appfabric", "Identifier")]
+    appBundleIdentifier: Annotated[str, _aws_pattern("Appfabric", "Identifier")]
 
 
 # This class is the input for the 'start_user_access_tasks' function.
 class StartUserAccessTasksRequestTypeDef(BaseValidatorModel):
-    appBundleIdentifier: str
-    email: str
+    appBundleIdentifier: Annotated[str, _aws_pattern("Appfabric", "Identifier")]
+    email: Annotated[str, _aws_pattern("Appfabric", "Email")]
 
 
 class StopIngestionRequestTypeDef(BaseValidatorModel):
-    ingestionIdentifier: str
-    appBundleIdentifier: str
+    ingestionIdentifier: Annotated[str, _aws_pattern("Appfabric", "Identifier")]
+    appBundleIdentifier: Annotated[str, _aws_pattern("Appfabric", "Identifier")]
 
 
 class TaskErrorTypeDef(BaseValidatorModel):
@@ -226,13 +228,13 @@ class TaskErrorTypeDef(BaseValidatorModel):
 
 
 class UntagResourceRequestTypeDef(BaseValidatorModel):
-    resourceArn: str
+    resourceArn: Annotated[str, _aws_pattern("Appfabric", "Arn")]
     tagKeys: List[str]
 
 
 class AppAuthorizationSummaryTypeDef(BaseValidatorModel):
-    appAuthorizationArn: str
-    appBundleArn: str
+    appAuthorizationArn: Annotated[str, _aws_pattern("Appfabric", "Arn")]
+    appBundleArn: Annotated[str, _aws_pattern("Appfabric", "Arn")]
     app: str
     tenant: TenantTypeDef
     status: AppAuthorizationStatusType
@@ -240,8 +242,8 @@ class AppAuthorizationSummaryTypeDef(BaseValidatorModel):
 
 
 class AppAuthorizationTypeDef(BaseValidatorModel):
-    appAuthorizationArn: str
-    appBundleArn: str
+    appAuthorizationArn: Annotated[str, _aws_pattern("Appfabric", "Arn")]
+    appBundleArn: Annotated[str, _aws_pattern("Appfabric", "Arn")]
     app: str
     tenant: TenantTypeDef
     authType: AuthTypeType
@@ -258,8 +260,8 @@ class ProcessingConfigurationTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'connect_app_authorization' function.
 class ConnectAppAuthorizationRequestTypeDef(BaseValidatorModel):
-    appBundleIdentifier: str
-    appAuthorizationIdentifier: str
+    appBundleIdentifier: Annotated[str, _aws_pattern("Appfabric", "Identifier")]
+    appAuthorizationIdentifier: Annotated[str, _aws_pattern("Appfabric", "Identifier")]
     authRequest: Optional[AuthRequestTypeDef] = None
 
 
@@ -284,18 +286,18 @@ class ListAppBundlesResponseTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'create_app_bundle' function.
 class CreateAppBundleRequestTypeDef(BaseValidatorModel):
-    clientToken: Optional[str] = None
-    customerManagedKeyIdentifier: Optional[str] = None
+    clientToken: Optional[Annotated[str, _aws_pattern("Appfabric", "UUID")]] = None
+    customerManagedKeyIdentifier: Optional[Annotated[str, _aws_pattern("Appfabric", "Identifier")]] = None
     tags: Optional[List[TagTypeDef]] = None
 
 
 # This class is the input for the 'create_ingestion' function.
 class CreateIngestionRequestTypeDef(BaseValidatorModel):
-    appBundleIdentifier: str
+    appBundleIdentifier: Annotated[str, _aws_pattern("Appfabric", "Identifier")]
     app: str
     tenantId: str
     ingestionType: Literal["auditLog"]
-    clientToken: Optional[str] = None
+    clientToken: Optional[Annotated[str, _aws_pattern("Appfabric", "UUID")]] = None
     tags: Optional[List[TagTypeDef]] = None
 
 
@@ -306,7 +308,7 @@ class ListTagsForResourceResponseTypeDef(BaseValidatorModel):
 
 
 class TagResourceRequestTypeDef(BaseValidatorModel):
-    resourceArn: str
+    resourceArn: Annotated[str, _aws_pattern("Appfabric", "Arn")]
     tags: List[TagTypeDef]
 
 
@@ -370,9 +372,9 @@ class UserAccessResultItemTypeDef(BaseValidatorModel):
     app: Optional[str] = None
     tenantId: Optional[str] = None
     tenantDisplayName: Optional[str] = None
-    taskId: Optional[str] = None
+    taskId: Optional[Annotated[str, _aws_pattern("Appfabric", "UUID")]] = None
     resultStatus: Optional[ResultStatusType] = None
-    email: Optional[str] = None
+    email: Optional[Annotated[str, _aws_pattern("Appfabric", "Email")]] = None
     userId: Optional[str] = None
     userFullName: Optional[str] = None
     userFirstName: Optional[str] = None
@@ -384,7 +386,7 @@ class UserAccessResultItemTypeDef(BaseValidatorModel):
 class UserAccessTaskItemTypeDef(BaseValidatorModel):
     app: str
     tenantId: str
-    taskId: Optional[str] = None
+    taskId: Optional[Annotated[str, _aws_pattern("Appfabric", "UUID")]] = None
     error: Optional[TaskErrorTypeDef] = None
 
 
@@ -421,19 +423,19 @@ class UpdateAppAuthorizationResponseTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'create_app_authorization' function.
 class CreateAppAuthorizationRequestTypeDef(BaseValidatorModel):
-    appBundleIdentifier: str
+    appBundleIdentifier: Annotated[str, _aws_pattern("Appfabric", "Identifier")]
     app: str
     credential: CredentialTypeDef
     tenant: TenantTypeDef
     authType: AuthTypeType
-    clientToken: Optional[str] = None
+    clientToken: Optional[Annotated[str, _aws_pattern("Appfabric", "UUID")]] = None
     tags: Optional[List[TagTypeDef]] = None
 
 
 # This class is the input for the 'update_app_authorization' function.
 class UpdateAppAuthorizationRequestTypeDef(BaseValidatorModel):
-    appBundleIdentifier: str
-    appAuthorizationIdentifier: str
+    appBundleIdentifier: Annotated[str, _aws_pattern("Appfabric", "Identifier")]
+    appAuthorizationIdentifier: Annotated[str, _aws_pattern("Appfabric", "Identifier")]
     credential: Optional[CredentialTypeDef] = None
     tenant: Optional[TenantTypeDef] = None
 
@@ -460,17 +462,17 @@ class DestinationConfigurationTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'create_ingestion_destination' function.
 class CreateIngestionDestinationRequestTypeDef(BaseValidatorModel):
-    appBundleIdentifier: str
-    ingestionIdentifier: str
+    appBundleIdentifier: Annotated[str, _aws_pattern("Appfabric", "Identifier")]
+    ingestionIdentifier: Annotated[str, _aws_pattern("Appfabric", "Identifier")]
     processingConfiguration: ProcessingConfigurationTypeDef
     destinationConfiguration: DestinationConfigurationTypeDef
-    clientToken: Optional[str] = None
+    clientToken: Optional[Annotated[str, _aws_pattern("Appfabric", "UUID")]] = None
     tags: Optional[List[TagTypeDef]] = None
 
 
 class IngestionDestinationTypeDef(BaseValidatorModel):
-    arn: str
-    ingestionArn: str
+    arn: Annotated[str, _aws_pattern("Appfabric", "Arn")]
+    ingestionArn: Annotated[str, _aws_pattern("Appfabric", "Arn")]
     processingConfiguration: ProcessingConfigurationTypeDef
     destinationConfiguration: DestinationConfigurationTypeDef
     status: Optional[IngestionDestinationStatusType] = None
@@ -481,9 +483,9 @@ class IngestionDestinationTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'update_ingestion_destination' function.
 class UpdateIngestionDestinationRequestTypeDef(BaseValidatorModel):
-    appBundleIdentifier: str
-    ingestionIdentifier: str
-    ingestionDestinationIdentifier: str
+    appBundleIdentifier: Annotated[str, _aws_pattern("Appfabric", "Identifier")]
+    ingestionIdentifier: Annotated[str, _aws_pattern("Appfabric", "Identifier")]
+    ingestionDestinationIdentifier: Annotated[str, _aws_pattern("Appfabric", "Identifier")]
     destinationConfiguration: DestinationConfigurationTypeDef
 
 

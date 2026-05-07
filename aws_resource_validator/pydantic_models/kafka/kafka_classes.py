@@ -3,6 +3,7 @@
 from datetime import datetime
 from decimal import Decimal
 from typing import (
+    Annotated,
     Any,
     Callable,
     Dict,
@@ -24,6 +25,7 @@ from botocore.response import StreamingBody
 from pydantic import Field
 
 from aws_resource_validator.core.base_validator_model import BaseValidatorModel, EventStream
+from aws_resource_validator.core.pattern_validation import aws_field_pattern as _aws_pattern
 from aws_resource_validator.pydantic_models.kafka.kafka_constants import *  # noqa: F401,F403
 
 # Optional boto3 symbols — imported lazily so services that don't need them
@@ -499,6 +501,10 @@ class VpcConnectionTypeDef(BaseValidatorModel):
     Authentication: Optional[str] = None
     VpcId: Optional[str] = None
     State: Optional[VpcConnectionStateType] = None
+
+
+class ZookeeperAccessTypeDef(BaseValidatorModel):
+    Enabled: Optional[bool] = None
 
 
 class NodeExporterInfoTypeDef(BaseValidatorModel):
@@ -1447,7 +1453,7 @@ class VpcConnectivityTypeDef(BaseValidatorModel):
 class CreateReplicatorRequestTypeDef(BaseValidatorModel):
     KafkaClusters: List[KafkaClusterTypeDef]
     ReplicationInfoList: List[ReplicationInfoTypeDef]
-    ReplicatorName: str
+    ReplicatorName: Annotated[str, _aws_pattern("Kafka", "__stringMin1Max128Pattern09AZaZ09AZaZ0")]
     ServiceExecutionRoleArn: str
     Description: Optional[str] = None
     Tags: Optional[Dict[str, str]] = None
@@ -1494,6 +1500,7 @@ class MutableClusterInfoTypeDef(BaseValidatorModel):
     NumberOfBrokerNodes: Optional[int] = None
     EnhancedMonitoring: Optional[EnhancedMonitoringType] = None
     OpenMonitoring: Optional[OpenMonitoringTypeDef] = None
+    ZookeeperAccess: Optional[ZookeeperAccessTypeDef] = None
     KafkaVersion: Optional[str] = None
     LoggingInfo: Optional[LoggingInfoTypeDef] = None
     InstanceType: Optional[str] = None
@@ -1508,8 +1515,9 @@ class MutableClusterInfoTypeDef(BaseValidatorModel):
 # This class is the input for the 'update_connectivity' function.
 class UpdateConnectivityRequestTypeDef(BaseValidatorModel):
     ClusterArn: str
-    ConnectivityInfo: ConnectivityInfoTypeDef
     CurrentVersion: str
+    ConnectivityInfo: Optional[ConnectivityInfoTypeDef] = None
+    ZookeeperAccess: Optional[ZookeeperAccessTypeDef] = None
 
 
 class ClusterInfoTypeDef(BaseValidatorModel):

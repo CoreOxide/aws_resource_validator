@@ -3,6 +3,7 @@
 from datetime import datetime
 from decimal import Decimal
 from typing import (
+    Annotated,
     Any,
     Callable,
     Dict,
@@ -24,6 +25,7 @@ from botocore.response import StreamingBody
 from pydantic import Field
 
 from aws_resource_validator.core.base_validator_model import BaseValidatorModel, EventStream
+from aws_resource_validator.core.pattern_validation import aws_field_pattern as _aws_pattern
 from aws_resource_validator.pydantic_models.servicecatalog.servicecatalog_constants import *  # noqa: F401,F403
 
 # Optional boto3 symbols — imported lazily so services that don't need them
@@ -39,7 +41,7 @@ except ImportError:  # pragma: no cover
 
 
 class AcceptPortfolioShareInputTypeDef(BaseValidatorModel):
-    PortfolioId: str
+    PortfolioId: Annotated[str, _aws_pattern("Servicecatalog", "Id")]
     AcceptLanguage: Optional[str] = None
     PortfolioShareType: Optional[PortfolioShareTypeType] = None
 
@@ -51,29 +53,29 @@ class AccessLevelFilterTypeDef(BaseValidatorModel):
 
 class AssociateBudgetWithResourceInputTypeDef(BaseValidatorModel):
     BudgetName: str
-    ResourceId: str
+    ResourceId: Annotated[str, _aws_pattern("Servicecatalog", "Id")]
 
 
 class AssociatePrincipalWithPortfolioInputTypeDef(BaseValidatorModel):
-    PortfolioId: str
+    PortfolioId: Annotated[str, _aws_pattern("Servicecatalog", "Id")]
     PrincipalARN: str
     PrincipalType: PrincipalTypeType
     AcceptLanguage: Optional[str] = None
 
 
 class AssociateProductWithPortfolioInputTypeDef(BaseValidatorModel):
-    ProductId: str
-    PortfolioId: str
+    ProductId: Annotated[str, _aws_pattern("Servicecatalog", "Id")]
+    PortfolioId: Annotated[str, _aws_pattern("Servicecatalog", "Id")]
     AcceptLanguage: Optional[str] = None
-    SourcePortfolioId: Optional[str] = None
+    SourcePortfolioId: Optional[Annotated[str, _aws_pattern("Servicecatalog", "Id")]] = None
 
 
 class AssociateServiceActionWithProvisioningArtifactInputTypeDef(BaseValidatorModel):
-    ProductId: str
-    ProvisioningArtifactId: str
-    ServiceActionId: str
+    ProductId: Annotated[str, _aws_pattern("Servicecatalog", "Id")]
+    ProvisioningArtifactId: Annotated[str, _aws_pattern("Servicecatalog", "Id")]
+    ServiceActionId: Annotated[str, _aws_pattern("Servicecatalog", "Id")]
     AcceptLanguage: Optional[str] = None
-    IdempotencyToken: Optional[str] = None
+    IdempotencyToken: Optional[Annotated[str, _aws_pattern("Servicecatalog", "IdempotencyToken")]] = None
 
 
 class AssociateTagOptionWithResourceInputTypeDef(BaseValidatorModel):
@@ -82,15 +84,15 @@ class AssociateTagOptionWithResourceInputTypeDef(BaseValidatorModel):
 
 
 class ServiceActionAssociationTypeDef(BaseValidatorModel):
-    ServiceActionId: str
-    ProductId: str
-    ProvisioningArtifactId: str
+    ServiceActionId: Annotated[str, _aws_pattern("Servicecatalog", "Id")]
+    ProductId: Annotated[str, _aws_pattern("Servicecatalog", "Id")]
+    ProvisioningArtifactId: Annotated[str, _aws_pattern("Servicecatalog", "Id")]
 
 
 class FailedServiceActionAssociationTypeDef(BaseValidatorModel):
-    ServiceActionId: Optional[str] = None
-    ProductId: Optional[str] = None
-    ProvisioningArtifactId: Optional[str] = None
+    ServiceActionId: Optional[Annotated[str, _aws_pattern("Servicecatalog", "Id")]] = None
+    ProductId: Optional[Annotated[str, _aws_pattern("Servicecatalog", "Id")]] = None
+    ProvisioningArtifactId: Optional[Annotated[str, _aws_pattern("Servicecatalog", "Id")]] = None
     ErrorCode: Optional[ServiceActionAssociationErrorCodeType] = None
     ErrorMessage: Optional[str] = None
 
@@ -112,19 +114,19 @@ class CloudWatchDashboardTypeDef(BaseValidatorModel):
 
 
 class CodeStarParametersTypeDef(BaseValidatorModel):
-    ConnectionArn: str
+    ConnectionArn: Annotated[str, _aws_pattern("Servicecatalog", "CodeStarConnectionArn")]
     Repository: str
     Branch: str
     ArtifactPath: str
 
 
 class ConstraintDetailTypeDef(BaseValidatorModel):
-    ConstraintId: Optional[str] = None
+    ConstraintId: Optional[Annotated[str, _aws_pattern("Servicecatalog", "Id")]] = None
     Type: Optional[str] = None
     Description: Optional[str] = None
-    Owner: Optional[str] = None
-    ProductId: Optional[str] = None
-    PortfolioId: Optional[str] = None
+    Owner: Optional[Annotated[str, _aws_pattern("Servicecatalog", "AccountId")]] = None
+    ProductId: Optional[Annotated[str, _aws_pattern("Servicecatalog", "Id")]] = None
+    PortfolioId: Optional[Annotated[str, _aws_pattern("Servicecatalog", "Id")]] = None
 
 
 class ConstraintSummaryTypeDef(BaseValidatorModel):
@@ -134,10 +136,10 @@ class ConstraintSummaryTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'copy_product' function.
 class CopyProductInputTypeDef(BaseValidatorModel):
-    SourceProductArn: str
-    IdempotencyToken: str
+    SourceProductArn: Annotated[str, _aws_pattern("Servicecatalog", "ProductArn")]
+    IdempotencyToken: Annotated[str, _aws_pattern("Servicecatalog", "IdempotencyToken")]
     AcceptLanguage: Optional[str] = None
-    TargetProductId: Optional[str] = None
+    TargetProductId: Optional[Annotated[str, _aws_pattern("Servicecatalog", "Id")]] = None
     TargetProductName: Optional[str] = None
     SourceProvisioningArtifactIdentifiers: Optional[List[Dict[Literal["Id"], str]]] = None
     CopyOptions: Optional[List[Literal["CopyTags"]]] = None
@@ -145,22 +147,22 @@ class CopyProductInputTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'create_constraint' function.
 class CreateConstraintInputTypeDef(BaseValidatorModel):
-    PortfolioId: str
-    ProductId: str
+    PortfolioId: Annotated[str, _aws_pattern("Servicecatalog", "Id")]
+    ProductId: Annotated[str, _aws_pattern("Servicecatalog", "Id")]
     Parameters: str
     Type: str
-    IdempotencyToken: str
+    IdempotencyToken: Annotated[str, _aws_pattern("Servicecatalog", "IdempotencyToken")]
     AcceptLanguage: Optional[str] = None
     Description: Optional[str] = None
 
 
 class TagTypeDef(BaseValidatorModel):
-    Key: str
-    Value: str
+    Key: Annotated[str, _aws_pattern("Servicecatalog", "TagKey")]
+    Value: Annotated[str, _aws_pattern("Servicecatalog", "TagValue")]
 
 
 class PortfolioDetailTypeDef(BaseValidatorModel):
-    Id: Optional[str] = None
+    Id: Optional[Annotated[str, _aws_pattern("Servicecatalog", "Id")]] = None
     ARN: Optional[str] = None
     DisplayName: Optional[str] = None
     Description: Optional[str] = None
@@ -170,7 +172,7 @@ class PortfolioDetailTypeDef(BaseValidatorModel):
 
 class OrganizationNodeTypeDef(BaseValidatorModel):
     Type: Optional[OrganizationNodeTypeType] = None
-    Value: Optional[str] = None
+    Value: Optional[Annotated[str, _aws_pattern("Servicecatalog", "OrganizationNodeValue")]] = None
 
 
 class ProvisioningArtifactPropertiesTypeDef(BaseValidatorModel):
@@ -182,7 +184,7 @@ class ProvisioningArtifactPropertiesTypeDef(BaseValidatorModel):
 
 
 class ProvisioningArtifactDetailTypeDef(BaseValidatorModel):
-    Id: Optional[str] = None
+    Id: Optional[Annotated[str, _aws_pattern("Servicecatalog", "Id")]] = None
     Name: Optional[str] = None
     Description: Optional[str] = None
     Type: Optional[ProvisioningArtifactTypeType] = None
@@ -200,59 +202,59 @@ class UpdateProvisioningParameterTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'create_service_action' function.
 class CreateServiceActionInputTypeDef(BaseValidatorModel):
-    Name: str
+    Name: Annotated[str, _aws_pattern("Servicecatalog", "ServiceActionName")]
     DefinitionType: Literal["SSM_AUTOMATION"]
     Definition: Dict[ServiceActionDefinitionKeyType, str]
-    IdempotencyToken: str
+    IdempotencyToken: Annotated[str, _aws_pattern("Servicecatalog", "IdempotencyToken")]
     Description: Optional[str] = None
     AcceptLanguage: Optional[str] = None
 
 
 # This class is the input for the 'create_tag_option' function.
 class CreateTagOptionInputTypeDef(BaseValidatorModel):
-    Key: str
-    Value: str
+    Key: Annotated[str, _aws_pattern("Servicecatalog", "TagOptionKey")]
+    Value: Annotated[str, _aws_pattern("Servicecatalog", "TagOptionValue")]
 
 
 class TagOptionDetailTypeDef(BaseValidatorModel):
-    Key: Optional[str] = None
-    Value: Optional[str] = None
+    Key: Optional[Annotated[str, _aws_pattern("Servicecatalog", "TagOptionKey")]] = None
+    Value: Optional[Annotated[str, _aws_pattern("Servicecatalog", "TagOptionValue")]] = None
     Active: Optional[bool] = None
     Id: Optional[str] = None
     Owner: Optional[str] = None
 
 
 class DeleteConstraintInputTypeDef(BaseValidatorModel):
-    Id: str
+    Id: Annotated[str, _aws_pattern("Servicecatalog", "Id")]
     AcceptLanguage: Optional[str] = None
 
 
 class DeletePortfolioInputTypeDef(BaseValidatorModel):
-    Id: str
+    Id: Annotated[str, _aws_pattern("Servicecatalog", "Id")]
     AcceptLanguage: Optional[str] = None
 
 
 class DeleteProductInputTypeDef(BaseValidatorModel):
-    Id: str
+    Id: Annotated[str, _aws_pattern("Servicecatalog", "Id")]
     AcceptLanguage: Optional[str] = None
 
 
 class DeleteProvisionedProductPlanInputTypeDef(BaseValidatorModel):
-    PlanId: str
+    PlanId: Annotated[str, _aws_pattern("Servicecatalog", "Id")]
     AcceptLanguage: Optional[str] = None
     IgnoreErrors: Optional[bool] = None
 
 
 class DeleteProvisioningArtifactInputTypeDef(BaseValidatorModel):
-    ProductId: str
-    ProvisioningArtifactId: str
+    ProductId: Annotated[str, _aws_pattern("Servicecatalog", "Id")]
+    ProvisioningArtifactId: Annotated[str, _aws_pattern("Servicecatalog", "Id")]
     AcceptLanguage: Optional[str] = None
 
 
 class DeleteServiceActionInputTypeDef(BaseValidatorModel):
-    Id: str
+    Id: Annotated[str, _aws_pattern("Servicecatalog", "Id")]
     AcceptLanguage: Optional[str] = None
-    IdempotencyToken: Optional[str] = None
+    IdempotencyToken: Optional[Annotated[str, _aws_pattern("Servicecatalog", "IdempotencyToken")]] = None
 
 
 class DeleteTagOptionInputTypeDef(BaseValidatorModel):
@@ -261,37 +263,37 @@ class DeleteTagOptionInputTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'describe_constraint' function.
 class DescribeConstraintInputTypeDef(BaseValidatorModel):
-    Id: str
+    Id: Annotated[str, _aws_pattern("Servicecatalog", "Id")]
     AcceptLanguage: Optional[str] = None
 
 
 # This class is the input for the 'describe_copy_product_status' function.
 class DescribeCopyProductStatusInputTypeDef(BaseValidatorModel):
-    CopyProductToken: str
+    CopyProductToken: Annotated[str, _aws_pattern("Servicecatalog", "Id")]
     AcceptLanguage: Optional[str] = None
 
 
 # This class is the input for the 'describe_portfolio' function.
 class DescribePortfolioInputTypeDef(BaseValidatorModel):
-    Id: str
+    Id: Annotated[str, _aws_pattern("Servicecatalog", "Id")]
     AcceptLanguage: Optional[str] = None
 
 
 # This class is the input for the 'describe_portfolio_share_status' function.
 class DescribePortfolioShareStatusInputTypeDef(BaseValidatorModel):
-    PortfolioShareToken: str
+    PortfolioShareToken: Annotated[str, _aws_pattern("Servicecatalog", "Id")]
 
 
 # This class is the input for the 'describe_portfolio_shares' function.
 class DescribePortfolioSharesInputTypeDef(BaseValidatorModel):
-    PortfolioId: str
+    PortfolioId: Annotated[str, _aws_pattern("Servicecatalog", "Id")]
     Type: DescribePortfolioShareTypeType
-    PageToken: Optional[str] = None
+    PageToken: Optional[Annotated[str, _aws_pattern("Servicecatalog", "PageToken")]] = None
     PageSize: Optional[int] = None
 
 
 class PortfolioShareDetailTypeDef(BaseValidatorModel):
-    PrincipalId: Optional[str] = None
+    PrincipalId: Optional[Annotated[str, _aws_pattern("Servicecatalog", "Id")]] = None
     Type: Optional[DescribePortfolioShareTypeType] = None
     Accepted: Optional[bool] = None
     ShareTagOptions: Optional[bool] = None
@@ -301,13 +303,13 @@ class PortfolioShareDetailTypeDef(BaseValidatorModel):
 # This class is the input for the 'describe_product_as_admin' function.
 class DescribeProductAsAdminInputTypeDef(BaseValidatorModel):
     AcceptLanguage: Optional[str] = None
-    Id: Optional[str] = None
+    Id: Optional[Annotated[str, _aws_pattern("Servicecatalog", "Id")]] = None
     Name: Optional[str] = None
-    SourcePortfolioId: Optional[str] = None
+    SourcePortfolioId: Optional[Annotated[str, _aws_pattern("Servicecatalog", "Id")]] = None
 
 
 class ProvisioningArtifactSummaryTypeDef(BaseValidatorModel):
-    Id: Optional[str] = None
+    Id: Optional[Annotated[str, _aws_pattern("Servicecatalog", "Id")]] = None
     Name: Optional[str] = None
     Description: Optional[str] = None
     CreatedTime: Optional[datetime] = None
@@ -317,18 +319,18 @@ class ProvisioningArtifactSummaryTypeDef(BaseValidatorModel):
 # This class is the input for the 'describe_product' function.
 class DescribeProductInputTypeDef(BaseValidatorModel):
     AcceptLanguage: Optional[str] = None
-    Id: Optional[str] = None
+    Id: Optional[Annotated[str, _aws_pattern("Servicecatalog", "Id")]] = None
     Name: Optional[str] = None
 
 
 class LaunchPathTypeDef(BaseValidatorModel):
-    Id: Optional[str] = None
+    Id: Optional[Annotated[str, _aws_pattern("Servicecatalog", "Id")]] = None
     Name: Optional[str] = None
 
 
 class ProductViewSummaryTypeDef(BaseValidatorModel):
-    Id: Optional[str] = None
-    ProductId: Optional[str] = None
+    Id: Optional[Annotated[str, _aws_pattern("Servicecatalog", "Id")]] = None
+    ProductId: Optional[Annotated[str, _aws_pattern("Servicecatalog", "Id")]] = None
     Name: Optional[str] = None
     Owner: Optional[str] = None
     ShortDescription: Optional[str] = None
@@ -341,7 +343,7 @@ class ProductViewSummaryTypeDef(BaseValidatorModel):
 
 
 class ProvisioningArtifactTypeDef(BaseValidatorModel):
-    Id: Optional[str] = None
+    Id: Optional[Annotated[str, _aws_pattern("Servicecatalog", "Id")]] = None
     Name: Optional[str] = None
     Description: Optional[str] = None
     CreatedTime: Optional[datetime] = None
@@ -350,47 +352,47 @@ class ProvisioningArtifactTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'describe_product_view' function.
 class DescribeProductViewInputTypeDef(BaseValidatorModel):
-    Id: str
+    Id: Annotated[str, _aws_pattern("Servicecatalog", "Id")]
     AcceptLanguage: Optional[str] = None
 
 
 # This class is the input for the 'describe_provisioned_product' function.
 class DescribeProvisionedProductInputTypeDef(BaseValidatorModel):
     AcceptLanguage: Optional[str] = None
-    Id: Optional[str] = None
-    Name: Optional[str] = None
+    Id: Optional[Annotated[str, _aws_pattern("Servicecatalog", "Id")]] = None
+    Name: Optional[Annotated[str, _aws_pattern("Servicecatalog", "ProvisionedProductName")]] = None
 
 
 class ProvisionedProductDetailTypeDef(BaseValidatorModel):
-    Name: Optional[str] = None
-    Arn: Optional[str] = None
+    Name: Optional[Annotated[str, _aws_pattern("Servicecatalog", "ProvisionedProductNameOrArn")]] = None
+    Arn: Optional[Annotated[str, _aws_pattern("Servicecatalog", "ProvisionedProductNameOrArn")]] = None
     Type: Optional[str] = None
     Id: Optional[str] = None
     Status: Optional[ProvisionedProductStatusType] = None
     StatusMessage: Optional[str] = None
     CreatedTime: Optional[datetime] = None
-    IdempotencyToken: Optional[str] = None
+    IdempotencyToken: Optional[Annotated[str, _aws_pattern("Servicecatalog", "IdempotencyToken")]] = None
     LastRecordId: Optional[str] = None
-    LastProvisioningRecordId: Optional[str] = None
-    LastSuccessfulProvisioningRecordId: Optional[str] = None
-    ProductId: Optional[str] = None
-    ProvisioningArtifactId: Optional[str] = None
-    LaunchRoleArn: Optional[str] = None
+    LastProvisioningRecordId: Optional[Annotated[str, _aws_pattern("Servicecatalog", "Id")]] = None
+    LastSuccessfulProvisioningRecordId: Optional[Annotated[str, _aws_pattern("Servicecatalog", "Id")]] = None
+    ProductId: Optional[Annotated[str, _aws_pattern("Servicecatalog", "Id")]] = None
+    ProvisioningArtifactId: Optional[Annotated[str, _aws_pattern("Servicecatalog", "Id")]] = None
+    LaunchRoleArn: Optional[Annotated[str, _aws_pattern("Servicecatalog", "RoleArn")]] = None
 
 
 # This class is the input for the 'describe_provisioned_product_plan' function.
 class DescribeProvisionedProductPlanInputTypeDef(BaseValidatorModel):
-    PlanId: str
+    PlanId: Annotated[str, _aws_pattern("Servicecatalog", "Id")]
     AcceptLanguage: Optional[str] = None
     PageSize: Optional[int] = None
-    PageToken: Optional[str] = None
+    PageToken: Optional[Annotated[str, _aws_pattern("Servicecatalog", "PageToken")]] = None
 
 
 # This class is the input for the 'describe_provisioning_artifact' function.
 class DescribeProvisioningArtifactInputTypeDef(BaseValidatorModel):
     AcceptLanguage: Optional[str] = None
-    ProvisioningArtifactId: Optional[str] = None
-    ProductId: Optional[str] = None
+    ProvisioningArtifactId: Optional[Annotated[str, _aws_pattern("Servicecatalog", "Id")]] = None
+    ProductId: Optional[Annotated[str, _aws_pattern("Servicecatalog", "Id")]] = None
     ProvisioningArtifactName: Optional[str] = None
     ProductName: Optional[str] = None
     Verbose: Optional[bool] = None
@@ -400,27 +402,27 @@ class DescribeProvisioningArtifactInputTypeDef(BaseValidatorModel):
 # This class is the input for the 'describe_provisioning_parameters' function.
 class DescribeProvisioningParametersInputTypeDef(BaseValidatorModel):
     AcceptLanguage: Optional[str] = None
-    ProductId: Optional[str] = None
+    ProductId: Optional[Annotated[str, _aws_pattern("Servicecatalog", "Id")]] = None
     ProductName: Optional[str] = None
-    ProvisioningArtifactId: Optional[str] = None
+    ProvisioningArtifactId: Optional[Annotated[str, _aws_pattern("Servicecatalog", "Id")]] = None
     ProvisioningArtifactName: Optional[str] = None
-    PathId: Optional[str] = None
+    PathId: Optional[Annotated[str, _aws_pattern("Servicecatalog", "Id")]] = None
     PathName: Optional[str] = None
 
 
 class ProvisioningArtifactOutputTypeDef(BaseValidatorModel):
-    Key: Optional[str] = None
+    Key: Optional[Annotated[str, _aws_pattern("Servicecatalog", "ProvisioningArtifactOutputKey")]] = None
     Description: Optional[str] = None
 
 
 class ProvisioningArtifactPreferencesTypeDef(BaseValidatorModel):
-    StackSetAccounts: Optional[List[str]] = None
+    StackSetAccounts: Optional[List[Annotated[str, _aws_pattern("Servicecatalog", "AccountId")]]] = None
     StackSetRegions: Optional[List[str]] = None
 
 
 class TagOptionSummaryTypeDef(BaseValidatorModel):
-    Key: Optional[str] = None
-    Values: Optional[List[str]] = None
+    Key: Optional[Annotated[str, _aws_pattern("Servicecatalog", "TagOptionKey")]] = None
+    Values: Optional[List[Annotated[str, _aws_pattern("Servicecatalog", "TagOptionValue")]]] = None
 
 
 class UsageInstructionTypeDef(BaseValidatorModel):
@@ -430,9 +432,9 @@ class UsageInstructionTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'describe_record' function.
 class DescribeRecordInputTypeDef(BaseValidatorModel):
-    Id: str
+    Id: Annotated[str, _aws_pattern("Servicecatalog", "Id")]
     AcceptLanguage: Optional[str] = None
-    PageToken: Optional[str] = None
+    PageToken: Optional[Annotated[str, _aws_pattern("Servicecatalog", "PageToken")]] = None
     PageSize: Optional[int] = None
 
 
@@ -444,8 +446,8 @@ class RecordOutputTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'describe_service_action_execution_parameters' function.
 class DescribeServiceActionExecutionParametersInputTypeDef(BaseValidatorModel):
-    ProvisionedProductId: str
-    ServiceActionId: str
+    ProvisionedProductId: Annotated[str, _aws_pattern("Servicecatalog", "Id")]
+    ServiceActionId: Annotated[str, _aws_pattern("Servicecatalog", "Id")]
     AcceptLanguage: Optional[str] = None
 
 
@@ -457,7 +459,7 @@ class ExecutionParameterTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'describe_service_action' function.
 class DescribeServiceActionInputTypeDef(BaseValidatorModel):
-    Id: str
+    Id: Annotated[str, _aws_pattern("Servicecatalog", "Id")]
     AcceptLanguage: Optional[str] = None
 
 
@@ -468,28 +470,28 @@ class DescribeTagOptionInputTypeDef(BaseValidatorModel):
 
 class DisassociateBudgetFromResourceInputTypeDef(BaseValidatorModel):
     BudgetName: str
-    ResourceId: str
+    ResourceId: Annotated[str, _aws_pattern("Servicecatalog", "Id")]
 
 
 class DisassociatePrincipalFromPortfolioInputTypeDef(BaseValidatorModel):
-    PortfolioId: str
+    PortfolioId: Annotated[str, _aws_pattern("Servicecatalog", "Id")]
     PrincipalARN: str
     AcceptLanguage: Optional[str] = None
     PrincipalType: Optional[PrincipalTypeType] = None
 
 
 class DisassociateProductFromPortfolioInputTypeDef(BaseValidatorModel):
-    ProductId: str
-    PortfolioId: str
+    ProductId: Annotated[str, _aws_pattern("Servicecatalog", "Id")]
+    PortfolioId: Annotated[str, _aws_pattern("Servicecatalog", "Id")]
     AcceptLanguage: Optional[str] = None
 
 
 class DisassociateServiceActionFromProvisioningArtifactInputTypeDef(BaseValidatorModel):
-    ProductId: str
-    ProvisioningArtifactId: str
-    ServiceActionId: str
+    ProductId: Annotated[str, _aws_pattern("Servicecatalog", "Id")]
+    ProvisioningArtifactId: Annotated[str, _aws_pattern("Servicecatalog", "Id")]
+    ServiceActionId: Annotated[str, _aws_pattern("Servicecatalog", "Id")]
     AcceptLanguage: Optional[str] = None
-    IdempotencyToken: Optional[str] = None
+    IdempotencyToken: Optional[Annotated[str, _aws_pattern("Servicecatalog", "IdempotencyToken")]] = None
 
 
 class DisassociateTagOptionFromResourceInputTypeDef(BaseValidatorModel):
@@ -498,22 +500,22 @@ class DisassociateTagOptionFromResourceInputTypeDef(BaseValidatorModel):
 
 
 class UniqueTagResourceIdentifierTypeDef(BaseValidatorModel):
-    Key: Optional[str] = None
-    Value: Optional[str] = None
+    Key: Optional[Annotated[str, _aws_pattern("Servicecatalog", "UniqueTagKey")]] = None
+    Value: Optional[Annotated[str, _aws_pattern("Servicecatalog", "UniqueTagValue")]] = None
 
 
 # This class is the input for the 'execute_provisioned_product_plan' function.
 class ExecuteProvisionedProductPlanInputTypeDef(BaseValidatorModel):
-    PlanId: str
-    IdempotencyToken: str
+    PlanId: Annotated[str, _aws_pattern("Servicecatalog", "Id")]
+    IdempotencyToken: Annotated[str, _aws_pattern("Servicecatalog", "IdempotencyToken")]
     AcceptLanguage: Optional[str] = None
 
 
 # This class is the input for the 'execute_provisioned_product_service_action' function.
 class ExecuteProvisionedProductServiceActionInputTypeDef(BaseValidatorModel):
-    ProvisionedProductId: str
-    ServiceActionId: str
-    ExecuteToken: str
+    ProvisionedProductId: Annotated[str, _aws_pattern("Servicecatalog", "Id")]
+    ServiceActionId: Annotated[str, _aws_pattern("Servicecatalog", "Id")]
+    ExecuteToken: Annotated[str, _aws_pattern("Servicecatalog", "IdempotencyToken")]
     AcceptLanguage: Optional[str] = None
     Parameters: Optional[Dict[str, List[str]]] = None
 
@@ -521,20 +523,20 @@ class ExecuteProvisionedProductServiceActionInputTypeDef(BaseValidatorModel):
 # This class is the input for the 'get_provisioned_product_outputs' function.
 class GetProvisionedProductOutputsInputTypeDef(BaseValidatorModel):
     AcceptLanguage: Optional[str] = None
-    ProvisionedProductId: Optional[str] = None
-    ProvisionedProductName: Optional[str] = None
+    ProvisionedProductId: Optional[Annotated[str, _aws_pattern("Servicecatalog", "Id")]] = None
+    ProvisionedProductName: Optional[Annotated[str, _aws_pattern("Servicecatalog", "ProvisionedProductName")]] = None
     OutputKeys: Optional[List[str]] = None
     PageSize: Optional[int] = None
-    PageToken: Optional[str] = None
+    PageToken: Optional[Annotated[str, _aws_pattern("Servicecatalog", "PageToken")]] = None
 
 
 # This class is the input for the 'import_as_provisioned_product' function.
 class ImportAsProvisionedProductInputTypeDef(BaseValidatorModel):
-    ProductId: str
-    ProvisioningArtifactId: str
-    ProvisionedProductName: str
+    ProductId: Annotated[str, _aws_pattern("Servicecatalog", "Id")]
+    ProvisioningArtifactId: Annotated[str, _aws_pattern("Servicecatalog", "Id")]
+    ProvisionedProductName: Annotated[str, _aws_pattern("Servicecatalog", "ProvisionedProductName")]
     PhysicalId: str
-    IdempotencyToken: str
+    IdempotencyToken: Annotated[str, _aws_pattern("Servicecatalog", "IdempotencyToken")]
     AcceptLanguage: Optional[str] = None
 
 
@@ -543,7 +545,7 @@ class LastSyncTypeDef(BaseValidatorModel):
     LastSyncStatus: Optional[LastSyncStatusType] = None
     LastSyncStatusMessage: Optional[str] = None
     LastSuccessfulSyncTime: Optional[datetime] = None
-    LastSuccessfulSyncProvisioningArtifactId: Optional[str] = None
+    LastSuccessfulSyncProvisioningArtifactId: Optional[Annotated[str, _aws_pattern("Servicecatalog", "Id")]] = None
 
 
 class PaginatorConfigTypeDef(BaseValidatorModel):
@@ -555,75 +557,75 @@ class PaginatorConfigTypeDef(BaseValidatorModel):
 # This class is the input for the 'list_accepted_portfolio_shares' function.
 class ListAcceptedPortfolioSharesInputTypeDef(BaseValidatorModel):
     AcceptLanguage: Optional[str] = None
-    PageToken: Optional[str] = None
+    PageToken: Optional[Annotated[str, _aws_pattern("Servicecatalog", "PageToken")]] = None
     PageSize: Optional[int] = None
     PortfolioShareType: Optional[PortfolioShareTypeType] = None
 
 
 # This class is the input for the 'list_budgets_for_resource' function.
 class ListBudgetsForResourceInputTypeDef(BaseValidatorModel):
-    ResourceId: str
+    ResourceId: Annotated[str, _aws_pattern("Servicecatalog", "Id")]
     AcceptLanguage: Optional[str] = None
     PageSize: Optional[int] = None
-    PageToken: Optional[str] = None
+    PageToken: Optional[Annotated[str, _aws_pattern("Servicecatalog", "PageToken")]] = None
 
 
 # This class is the input for the 'list_constraints_for_portfolio' function.
 class ListConstraintsForPortfolioInputTypeDef(BaseValidatorModel):
-    PortfolioId: str
+    PortfolioId: Annotated[str, _aws_pattern("Servicecatalog", "Id")]
     AcceptLanguage: Optional[str] = None
-    ProductId: Optional[str] = None
+    ProductId: Optional[Annotated[str, _aws_pattern("Servicecatalog", "Id")]] = None
     PageSize: Optional[int] = None
-    PageToken: Optional[str] = None
+    PageToken: Optional[Annotated[str, _aws_pattern("Servicecatalog", "PageToken")]] = None
 
 
 # This class is the input for the 'list_launch_paths' function.
 class ListLaunchPathsInputTypeDef(BaseValidatorModel):
-    ProductId: str
+    ProductId: Annotated[str, _aws_pattern("Servicecatalog", "Id")]
     AcceptLanguage: Optional[str] = None
     PageSize: Optional[int] = None
-    PageToken: Optional[str] = None
+    PageToken: Optional[Annotated[str, _aws_pattern("Servicecatalog", "PageToken")]] = None
 
 
 # This class is the input for the 'list_organization_portfolio_access' function.
 class ListOrganizationPortfolioAccessInputTypeDef(BaseValidatorModel):
-    PortfolioId: str
+    PortfolioId: Annotated[str, _aws_pattern("Servicecatalog", "Id")]
     OrganizationNodeType: OrganizationNodeTypeType
     AcceptLanguage: Optional[str] = None
-    PageToken: Optional[str] = None
+    PageToken: Optional[Annotated[str, _aws_pattern("Servicecatalog", "PageToken")]] = None
     PageSize: Optional[int] = None
 
 
 # This class is the input for the 'list_portfolio_access' function.
 class ListPortfolioAccessInputTypeDef(BaseValidatorModel):
-    PortfolioId: str
+    PortfolioId: Annotated[str, _aws_pattern("Servicecatalog", "Id")]
     AcceptLanguage: Optional[str] = None
-    OrganizationParentId: Optional[str] = None
-    PageToken: Optional[str] = None
+    OrganizationParentId: Optional[Annotated[str, _aws_pattern("Servicecatalog", "Id")]] = None
+    PageToken: Optional[Annotated[str, _aws_pattern("Servicecatalog", "PageToken")]] = None
     PageSize: Optional[int] = None
 
 
 # This class is the input for the 'list_portfolios_for_product' function.
 class ListPortfoliosForProductInputTypeDef(BaseValidatorModel):
-    ProductId: str
+    ProductId: Annotated[str, _aws_pattern("Servicecatalog", "Id")]
     AcceptLanguage: Optional[str] = None
-    PageToken: Optional[str] = None
+    PageToken: Optional[Annotated[str, _aws_pattern("Servicecatalog", "PageToken")]] = None
     PageSize: Optional[int] = None
 
 
 # This class is the input for the 'list_portfolios' function.
 class ListPortfoliosInputTypeDef(BaseValidatorModel):
     AcceptLanguage: Optional[str] = None
-    PageToken: Optional[str] = None
+    PageToken: Optional[Annotated[str, _aws_pattern("Servicecatalog", "PageToken")]] = None
     PageSize: Optional[int] = None
 
 
 # This class is the input for the 'list_principals_for_portfolio' function.
 class ListPrincipalsForPortfolioInputTypeDef(BaseValidatorModel):
-    PortfolioId: str
+    PortfolioId: Annotated[str, _aws_pattern("Servicecatalog", "Id")]
     AcceptLanguage: Optional[str] = None
     PageSize: Optional[int] = None
-    PageToken: Optional[str] = None
+    PageToken: Optional[Annotated[str, _aws_pattern("Servicecatalog", "PageToken")]] = None
 
 
 class PrincipalTypeDef(BaseValidatorModel):
@@ -633,24 +635,24 @@ class PrincipalTypeDef(BaseValidatorModel):
 
 class ProvisionedProductPlanSummaryTypeDef(BaseValidatorModel):
     PlanName: Optional[str] = None
-    PlanId: Optional[str] = None
-    ProvisionProductId: Optional[str] = None
-    ProvisionProductName: Optional[str] = None
+    PlanId: Optional[Annotated[str, _aws_pattern("Servicecatalog", "Id")]] = None
+    ProvisionProductId: Optional[Annotated[str, _aws_pattern("Servicecatalog", "Id")]] = None
+    ProvisionProductName: Optional[Annotated[str, _aws_pattern("Servicecatalog", "ProvisionedProductName")]] = None
     PlanType: Optional[Literal["CLOUDFORMATION"]] = None
-    ProvisioningArtifactId: Optional[str] = None
+    ProvisioningArtifactId: Optional[Annotated[str, _aws_pattern("Servicecatalog", "Id")]] = None
 
 
 # This class is the input for the 'list_provisioning_artifacts_for_service_action' function.
 class ListProvisioningArtifactsForServiceActionInputTypeDef(BaseValidatorModel):
-    ServiceActionId: str
+    ServiceActionId: Annotated[str, _aws_pattern("Servicecatalog", "Id")]
     PageSize: Optional[int] = None
-    PageToken: Optional[str] = None
+    PageToken: Optional[Annotated[str, _aws_pattern("Servicecatalog", "PageToken")]] = None
     AcceptLanguage: Optional[str] = None
 
 
 # This class is the input for the 'list_provisioning_artifacts' function.
 class ListProvisioningArtifactsInputTypeDef(BaseValidatorModel):
-    ProductId: str
+    ProductId: Annotated[str, _aws_pattern("Servicecatalog", "Id")]
     AcceptLanguage: Optional[str] = None
 
 
@@ -664,7 +666,7 @@ class ListResourcesForTagOptionInputTypeDef(BaseValidatorModel):
     TagOptionId: str
     ResourceType: Optional[str] = None
     PageSize: Optional[int] = None
-    PageToken: Optional[str] = None
+    PageToken: Optional[Annotated[str, _aws_pattern("Servicecatalog", "PageToken")]] = None
 
 
 class ResourceDetailTypeDef(BaseValidatorModel):
@@ -677,16 +679,16 @@ class ResourceDetailTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'list_service_actions_for_provisioning_artifact' function.
 class ListServiceActionsForProvisioningArtifactInputTypeDef(BaseValidatorModel):
-    ProductId: str
-    ProvisioningArtifactId: str
+    ProductId: Annotated[str, _aws_pattern("Servicecatalog", "Id")]
+    ProvisioningArtifactId: Annotated[str, _aws_pattern("Servicecatalog", "Id")]
     PageSize: Optional[int] = None
-    PageToken: Optional[str] = None
+    PageToken: Optional[Annotated[str, _aws_pattern("Servicecatalog", "PageToken")]] = None
     AcceptLanguage: Optional[str] = None
 
 
 class ServiceActionSummaryTypeDef(BaseValidatorModel):
-    Id: Optional[str] = None
-    Name: Optional[str] = None
+    Id: Optional[Annotated[str, _aws_pattern("Servicecatalog", "Id")]] = None
+    Name: Optional[Annotated[str, _aws_pattern("Servicecatalog", "ServiceActionName")]] = None
     Description: Optional[str] = None
     DefinitionType: Optional[Literal["SSM_AUTOMATION"]] = None
 
@@ -695,35 +697,35 @@ class ServiceActionSummaryTypeDef(BaseValidatorModel):
 class ListServiceActionsInputTypeDef(BaseValidatorModel):
     AcceptLanguage: Optional[str] = None
     PageSize: Optional[int] = None
-    PageToken: Optional[str] = None
+    PageToken: Optional[Annotated[str, _aws_pattern("Servicecatalog", "PageToken")]] = None
 
 
 # This class is the input for the 'list_stack_instances_for_provisioned_product' function.
 class ListStackInstancesForProvisionedProductInputTypeDef(BaseValidatorModel):
-    ProvisionedProductId: str
+    ProvisionedProductId: Annotated[str, _aws_pattern("Servicecatalog", "Id")]
     AcceptLanguage: Optional[str] = None
-    PageToken: Optional[str] = None
+    PageToken: Optional[Annotated[str, _aws_pattern("Servicecatalog", "PageToken")]] = None
     PageSize: Optional[int] = None
 
 
 class StackInstanceTypeDef(BaseValidatorModel):
-    Account: Optional[str] = None
+    Account: Optional[Annotated[str, _aws_pattern("Servicecatalog", "AccountId")]] = None
     Region: Optional[str] = None
     StackInstanceStatus: Optional[StackInstanceStatusType] = None
 
 
 class ListTagOptionsFiltersTypeDef(BaseValidatorModel):
-    Key: Optional[str] = None
-    Value: Optional[str] = None
+    Key: Optional[Annotated[str, _aws_pattern("Servicecatalog", "TagOptionKey")]] = None
+    Value: Optional[Annotated[str, _aws_pattern("Servicecatalog", "TagOptionValue")]] = None
     Active: Optional[bool] = None
 
 
 class NotifyTerminateProvisionedProductEngineWorkflowResultInputTypeDef(BaseValidatorModel):
-    WorkflowToken: str
-    RecordId: str
+    WorkflowToken: Annotated[str, _aws_pattern("Servicecatalog", "EngineWorkflowToken")]
+    RecordId: Annotated[str, _aws_pattern("Servicecatalog", "Id")]
     Status: EngineWorkflowStatusType
-    IdempotencyToken: str
-    FailureReason: Optional[str] = None
+    IdempotencyToken: Annotated[str, _aws_pattern("Servicecatalog", "IdempotencyToken")]
+    FailureReason: Optional[Annotated[str, _aws_pattern("Servicecatalog", "EngineWorkflowFailureReason")]] = None
 
 
 class ParameterConstraintsTypeDef(BaseValidatorModel):
@@ -747,7 +749,7 @@ class ProvisioningParameterTypeDef(BaseValidatorModel):
 
 
 class ProvisioningPreferencesTypeDef(BaseValidatorModel):
-    StackSetAccounts: Optional[List[str]] = None
+    StackSetAccounts: Optional[List[Annotated[str, _aws_pattern("Servicecatalog", "AccountId")]]] = None
     StackSetRegions: Optional[List[str]] = None
     StackSetFailureToleranceCount: Optional[int] = None
     StackSetFailureTolerancePercentage: Optional[int] = None
@@ -761,12 +763,12 @@ class RecordErrorTypeDef(BaseValidatorModel):
 
 
 class RecordTagTypeDef(BaseValidatorModel):
-    Key: Optional[str] = None
-    Value: Optional[str] = None
+    Key: Optional[Annotated[str, _aws_pattern("Servicecatalog", "RecordTagKey")]] = None
+    Value: Optional[Annotated[str, _aws_pattern("Servicecatalog", "RecordTagValue")]] = None
 
 
 class RejectPortfolioShareInputTypeDef(BaseValidatorModel):
-    PortfolioId: str
+    PortfolioId: Annotated[str, _aws_pattern("Servicecatalog", "Id")]
     AcceptLanguage: Optional[str] = None
     PortfolioShareType: Optional[PortfolioShareTypeType] = None
 
@@ -780,11 +782,11 @@ class ResourceTargetDefinitionTypeDef(BaseValidatorModel):
 # This class is the input for the 'search_products_as_admin' function.
 class SearchProductsAsAdminInputTypeDef(BaseValidatorModel):
     AcceptLanguage: Optional[str] = None
-    PortfolioId: Optional[str] = None
+    PortfolioId: Optional[Annotated[str, _aws_pattern("Servicecatalog", "Id")]] = None
     Filters: Optional[Dict[ProductViewFilterByType, List[str]]] = None
     SortBy: Optional[ProductViewSortByType] = None
     SortOrder: Optional[SortOrderType] = None
-    PageToken: Optional[str] = None
+    PageToken: Optional[Annotated[str, _aws_pattern("Servicecatalog", "PageToken")]] = None
     PageSize: Optional[int] = None
     ProductSource: Optional[Literal["ACCOUNT"]] = None
 
@@ -796,20 +798,22 @@ class SearchProductsInputTypeDef(BaseValidatorModel):
     PageSize: Optional[int] = None
     SortBy: Optional[ProductViewSortByType] = None
     SortOrder: Optional[SortOrderType] = None
-    PageToken: Optional[str] = None
+    PageToken: Optional[Annotated[str, _aws_pattern("Servicecatalog", "PageToken")]] = None
 
 
 class ShareErrorTypeDef(BaseValidatorModel):
-    Accounts: Optional[List[str]] = None
+    Accounts: Optional[List[Annotated[str, _aws_pattern("Servicecatalog", "AccountId")]]] = None
     Message: Optional[str] = None
     Error: Optional[str] = None
 
 
 # This class is the input for the 'terminate_provisioned_product' function.
 class TerminateProvisionedProductInputTypeDef(BaseValidatorModel):
-    TerminateToken: str
-    ProvisionedProductName: Optional[str] = None
-    ProvisionedProductId: Optional[str] = None
+    TerminateToken: Annotated[str, _aws_pattern("Servicecatalog", "IdempotencyToken")]
+    ProvisionedProductName: Optional[Annotated[str, _aws_pattern("Servicecatalog", "ProvisionedProductNameOrArn")]] = (
+        None
+    )
+    ProvisionedProductId: Optional[Annotated[str, _aws_pattern("Servicecatalog", "Id")]] = None
     IgnoreErrors: Optional[bool] = None
     AcceptLanguage: Optional[str] = None
     RetainPhysicalResources: Optional[bool] = None
@@ -817,14 +821,14 @@ class TerminateProvisionedProductInputTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'update_constraint' function.
 class UpdateConstraintInputTypeDef(BaseValidatorModel):
-    Id: str
+    Id: Annotated[str, _aws_pattern("Servicecatalog", "Id")]
     AcceptLanguage: Optional[str] = None
     Description: Optional[str] = None
     Parameters: Optional[str] = None
 
 
 class UpdateProvisioningPreferencesTypeDef(BaseValidatorModel):
-    StackSetAccounts: Optional[List[str]] = None
+    StackSetAccounts: Optional[List[Annotated[str, _aws_pattern("Servicecatalog", "AccountId")]]] = None
     StackSetRegions: Optional[List[str]] = None
     StackSetFailureToleranceCount: Optional[int] = None
     StackSetFailureTolerancePercentage: Optional[int] = None
@@ -835,16 +839,16 @@ class UpdateProvisioningPreferencesTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'update_provisioned_product_properties' function.
 class UpdateProvisionedProductPropertiesInputTypeDef(BaseValidatorModel):
-    ProvisionedProductId: str
+    ProvisionedProductId: Annotated[str, _aws_pattern("Servicecatalog", "Id")]
     ProvisionedProductProperties: Dict[PropertyKeyType, str]
-    IdempotencyToken: str
+    IdempotencyToken: Annotated[str, _aws_pattern("Servicecatalog", "IdempotencyToken")]
     AcceptLanguage: Optional[str] = None
 
 
 # This class is the input for the 'update_provisioning_artifact' function.
 class UpdateProvisioningArtifactInputTypeDef(BaseValidatorModel):
-    ProductId: str
-    ProvisioningArtifactId: str
+    ProductId: Annotated[str, _aws_pattern("Servicecatalog", "Id")]
+    ProvisioningArtifactId: Annotated[str, _aws_pattern("Servicecatalog", "Id")]
     AcceptLanguage: Optional[str] = None
     Name: Optional[str] = None
     Description: Optional[str] = None
@@ -854,8 +858,8 @@ class UpdateProvisioningArtifactInputTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'update_service_action' function.
 class UpdateServiceActionInputTypeDef(BaseValidatorModel):
-    Id: str
-    Name: Optional[str] = None
+    Id: Annotated[str, _aws_pattern("Servicecatalog", "Id")]
+    Name: Optional[Annotated[str, _aws_pattern("Servicecatalog", "ServiceActionName")]] = None
     Definition: Optional[Dict[ServiceActionDefinitionKeyType, str]] = None
     Description: Optional[str] = None
     AcceptLanguage: Optional[str] = None
@@ -864,16 +868,16 @@ class UpdateServiceActionInputTypeDef(BaseValidatorModel):
 # This class is the input for the 'update_tag_option' function.
 class UpdateTagOptionInputTypeDef(BaseValidatorModel):
     Id: str
-    Value: Optional[str] = None
+    Value: Optional[Annotated[str, _aws_pattern("Servicecatalog", "TagOptionValue")]] = None
     Active: Optional[bool] = None
 
 
 # This class is the input for the 'list_provisioned_product_plans' function.
 class ListProvisionedProductPlansInputTypeDef(BaseValidatorModel):
     AcceptLanguage: Optional[str] = None
-    ProvisionProductId: Optional[str] = None
+    ProvisionProductId: Optional[Annotated[str, _aws_pattern("Servicecatalog", "Id")]] = None
     PageSize: Optional[int] = None
-    PageToken: Optional[str] = None
+    PageToken: Optional[Annotated[str, _aws_pattern("Servicecatalog", "PageToken")]] = None
     AccessLevelFilter: Optional[AccessLevelFilterTypeDef] = None
 
 
@@ -882,7 +886,7 @@ class ScanProvisionedProductsInputTypeDef(BaseValidatorModel):
     AcceptLanguage: Optional[str] = None
     AccessLevelFilter: Optional[AccessLevelFilterTypeDef] = None
     PageSize: Optional[int] = None
-    PageToken: Optional[str] = None
+    PageToken: Optional[Annotated[str, _aws_pattern("Servicecatalog", "PageToken")]] = None
 
 
 # This class is the input for the 'search_provisioned_products' function.
@@ -893,7 +897,7 @@ class SearchProvisionedProductsInputTypeDef(BaseValidatorModel):
     SortBy: Optional[str] = None
     SortOrder: Optional[SortOrderType] = None
     PageSize: Optional[int] = None
-    PageToken: Optional[str] = None
+    PageToken: Optional[Annotated[str, _aws_pattern("Servicecatalog", "PageToken")]] = None
 
 
 # This class is the input for the 'batch_associate_service_action_with_provisioning_artifact' function.
@@ -922,36 +926,36 @@ class BatchDisassociateServiceActionFromProvisioningArtifactOutputTypeDef(BaseVa
 
 # This class is the output for the 'copy_product' function.
 class CopyProductOutputTypeDef(BaseValidatorModel):
-    CopyProductToken: str
+    CopyProductToken: Annotated[str, _aws_pattern("Servicecatalog", "Id")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 # This class is the output for the 'create_portfolio_share' function.
 class CreatePortfolioShareOutputTypeDef(BaseValidatorModel):
-    PortfolioShareToken: str
+    PortfolioShareToken: Annotated[str, _aws_pattern("Servicecatalog", "Id")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 # This class is the output for the 'create_provisioned_product_plan' function.
 class CreateProvisionedProductPlanOutputTypeDef(BaseValidatorModel):
     PlanName: str
-    PlanId: str
-    ProvisionProductId: str
-    ProvisionedProductName: str
-    ProvisioningArtifactId: str
+    PlanId: Annotated[str, _aws_pattern("Servicecatalog", "Id")]
+    ProvisionProductId: Annotated[str, _aws_pattern("Servicecatalog", "Id")]
+    ProvisionedProductName: Annotated[str, _aws_pattern("Servicecatalog", "ProvisionedProductName")]
+    ProvisioningArtifactId: Annotated[str, _aws_pattern("Servicecatalog", "Id")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 # This class is the output for the 'delete_portfolio_share' function.
 class DeletePortfolioShareOutputTypeDef(BaseValidatorModel):
-    PortfolioShareToken: str
+    PortfolioShareToken: Annotated[str, _aws_pattern("Servicecatalog", "Id")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 # This class is the output for the 'describe_copy_product_status' function.
 class DescribeCopyProductStatusOutputTypeDef(BaseValidatorModel):
     CopyProductStatus: CopyProductStatusType
-    TargetProductId: str
+    TargetProductId: Annotated[str, _aws_pattern("Servicecatalog", "Id")]
     StatusDetail: str
     ResponseMetadata: ResponseMetadataTypeDef
 
@@ -963,23 +967,23 @@ class GetAWSOrganizationsAccessStatusOutputTypeDef(BaseValidatorModel):
 
 # This class is the output for the 'list_portfolio_access' function.
 class ListPortfolioAccessOutputTypeDef(BaseValidatorModel):
-    AccountIds: List[str]
-    NextPageToken: str
+    AccountIds: List[Annotated[str, _aws_pattern("Servicecatalog", "AccountId")]]
+    NextPageToken: Annotated[str, _aws_pattern("Servicecatalog", "PageToken")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 # This class is the output for the 'update_portfolio_share' function.
 class UpdatePortfolioShareOutputTypeDef(BaseValidatorModel):
-    PortfolioShareToken: str
+    PortfolioShareToken: Annotated[str, _aws_pattern("Servicecatalog", "Id")]
     Status: ShareStatusType
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 # This class is the output for the 'update_provisioned_product_properties' function.
 class UpdateProvisionedProductPropertiesOutputTypeDef(BaseValidatorModel):
-    ProvisionedProductId: str
+    ProvisionedProductId: Annotated[str, _aws_pattern("Servicecatalog", "Id")]
     ProvisionedProductProperties: Dict[PropertyKeyType, str]
-    RecordId: str
+    RecordId: Annotated[str, _aws_pattern("Servicecatalog", "Id")]
     Status: RecordStatusType
     ResponseMetadata: ResponseMetadataTypeDef
 
@@ -987,7 +991,7 @@ class UpdateProvisionedProductPropertiesOutputTypeDef(BaseValidatorModel):
 # This class is the output for the 'list_budgets_for_resource' function.
 class ListBudgetsForResourceOutputTypeDef(BaseValidatorModel):
     Budgets: List[BudgetDetailTypeDef]
-    NextPageToken: str
+    NextPageToken: Annotated[str, _aws_pattern("Servicecatalog", "PageToken")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
@@ -1014,7 +1018,7 @@ class DescribeConstraintOutputTypeDef(BaseValidatorModel):
 # This class is the output for the 'list_constraints_for_portfolio' function.
 class ListConstraintsForPortfolioOutputTypeDef(BaseValidatorModel):
     ConstraintDetails: List[ConstraintDetailTypeDef]
-    NextPageToken: str
+    NextPageToken: Annotated[str, _aws_pattern("Servicecatalog", "PageToken")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
@@ -1030,36 +1034,36 @@ class UpdateConstraintOutputTypeDef(BaseValidatorModel):
 class CreatePortfolioInputTypeDef(BaseValidatorModel):
     DisplayName: str
     ProviderName: str
-    IdempotencyToken: str
+    IdempotencyToken: Annotated[str, _aws_pattern("Servicecatalog", "IdempotencyToken")]
     AcceptLanguage: Optional[str] = None
     Description: Optional[str] = None
     Tags: Optional[List[TagTypeDef]] = None
 
 
 class LaunchPathSummaryTypeDef(BaseValidatorModel):
-    Id: Optional[str] = None
+    Id: Optional[Annotated[str, _aws_pattern("Servicecatalog", "Id")]] = None
     ConstraintSummaries: Optional[List[ConstraintSummaryTypeDef]] = None
     Tags: Optional[List[TagTypeDef]] = None
     Name: Optional[str] = None
 
 
 class ProvisionedProductAttributeTypeDef(BaseValidatorModel):
-    Name: Optional[str] = None
-    Arn: Optional[str] = None
+    Name: Optional[Annotated[str, _aws_pattern("Servicecatalog", "ProvisionedProductNameOrArn")]] = None
+    Arn: Optional[Annotated[str, _aws_pattern("Servicecatalog", "ProvisionedProductNameOrArn")]] = None
     Type: Optional[str] = None
-    Id: Optional[str] = None
+    Id: Optional[Annotated[str, _aws_pattern("Servicecatalog", "Id")]] = None
     Status: Optional[ProvisionedProductStatusType] = None
     StatusMessage: Optional[str] = None
     CreatedTime: Optional[datetime] = None
-    IdempotencyToken: Optional[str] = None
-    LastRecordId: Optional[str] = None
-    LastProvisioningRecordId: Optional[str] = None
-    LastSuccessfulProvisioningRecordId: Optional[str] = None
+    IdempotencyToken: Optional[Annotated[str, _aws_pattern("Servicecatalog", "IdempotencyToken")]] = None
+    LastRecordId: Optional[Annotated[str, _aws_pattern("Servicecatalog", "Id")]] = None
+    LastProvisioningRecordId: Optional[Annotated[str, _aws_pattern("Servicecatalog", "Id")]] = None
+    LastSuccessfulProvisioningRecordId: Optional[Annotated[str, _aws_pattern("Servicecatalog", "Id")]] = None
     Tags: Optional[List[TagTypeDef]] = None
     PhysicalId: Optional[str] = None
-    ProductId: Optional[str] = None
+    ProductId: Optional[Annotated[str, _aws_pattern("Servicecatalog", "Id")]] = None
     ProductName: Optional[str] = None
-    ProvisioningArtifactId: Optional[str] = None
+    ProvisioningArtifactId: Optional[Annotated[str, _aws_pattern("Servicecatalog", "Id")]] = None
     ProvisioningArtifactName: Optional[str] = None
     UserArn: Optional[str] = None
     UserArnSession: Optional[str] = None
@@ -1067,13 +1071,13 @@ class ProvisionedProductAttributeTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'update_portfolio' function.
 class UpdatePortfolioInputTypeDef(BaseValidatorModel):
-    Id: str
+    Id: Annotated[str, _aws_pattern("Servicecatalog", "Id")]
     AcceptLanguage: Optional[str] = None
     DisplayName: Optional[str] = None
     Description: Optional[str] = None
     ProviderName: Optional[str] = None
     AddTags: Optional[List[TagTypeDef]] = None
-    RemoveTags: Optional[List[str]] = None
+    RemoveTags: Optional[List[Annotated[str, _aws_pattern("Servicecatalog", "TagKey")]]] = None
 
 
 # This class is the output for the 'create_portfolio' function.
@@ -1086,21 +1090,21 @@ class CreatePortfolioOutputTypeDef(BaseValidatorModel):
 # This class is the output for the 'list_accepted_portfolio_shares' function.
 class ListAcceptedPortfolioSharesOutputTypeDef(BaseValidatorModel):
     PortfolioDetails: List[PortfolioDetailTypeDef]
-    NextPageToken: str
+    NextPageToken: Annotated[str, _aws_pattern("Servicecatalog", "PageToken")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 # This class is the output for the 'list_portfolios_for_product' function.
 class ListPortfoliosForProductOutputTypeDef(BaseValidatorModel):
     PortfolioDetails: List[PortfolioDetailTypeDef]
-    NextPageToken: str
+    NextPageToken: Annotated[str, _aws_pattern("Servicecatalog", "PageToken")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 # This class is the output for the 'list_portfolios' function.
 class ListPortfoliosOutputTypeDef(BaseValidatorModel):
     PortfolioDetails: List[PortfolioDetailTypeDef]
-    NextPageToken: str
+    NextPageToken: Annotated[str, _aws_pattern("Servicecatalog", "PageToken")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
@@ -1113,9 +1117,9 @@ class UpdatePortfolioOutputTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'create_portfolio_share' function.
 class CreatePortfolioShareInputTypeDef(BaseValidatorModel):
-    PortfolioId: str
+    PortfolioId: Annotated[str, _aws_pattern("Servicecatalog", "Id")]
     AcceptLanguage: Optional[str] = None
-    AccountId: Optional[str] = None
+    AccountId: Optional[Annotated[str, _aws_pattern("Servicecatalog", "AccountId")]] = None
     OrganizationNode: Optional[OrganizationNodeTypeDef] = None
     ShareTagOptions: Optional[bool] = None
     SharePrincipals: Optional[bool] = None
@@ -1123,24 +1127,24 @@ class CreatePortfolioShareInputTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'delete_portfolio_share' function.
 class DeletePortfolioShareInputTypeDef(BaseValidatorModel):
-    PortfolioId: str
+    PortfolioId: Annotated[str, _aws_pattern("Servicecatalog", "Id")]
     AcceptLanguage: Optional[str] = None
-    AccountId: Optional[str] = None
+    AccountId: Optional[Annotated[str, _aws_pattern("Servicecatalog", "AccountId")]] = None
     OrganizationNode: Optional[OrganizationNodeTypeDef] = None
 
 
 # This class is the output for the 'list_organization_portfolio_access' function.
 class ListOrganizationPortfolioAccessOutputTypeDef(BaseValidatorModel):
     OrganizationNodes: List[OrganizationNodeTypeDef]
-    NextPageToken: str
+    NextPageToken: Annotated[str, _aws_pattern("Servicecatalog", "PageToken")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 # This class is the input for the 'update_portfolio_share' function.
 class UpdatePortfolioShareInputTypeDef(BaseValidatorModel):
-    PortfolioId: str
+    PortfolioId: Annotated[str, _aws_pattern("Servicecatalog", "Id")]
     AcceptLanguage: Optional[str] = None
-    AccountId: Optional[str] = None
+    AccountId: Optional[Annotated[str, _aws_pattern("Servicecatalog", "AccountId")]] = None
     OrganizationNode: Optional[OrganizationNodeTypeDef] = None
     ShareTagOptions: Optional[bool] = None
     SharePrincipals: Optional[bool] = None
@@ -1148,9 +1152,9 @@ class UpdatePortfolioShareInputTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'create_provisioning_artifact' function.
 class CreateProvisioningArtifactInputTypeDef(BaseValidatorModel):
-    ProductId: str
+    ProductId: Annotated[str, _aws_pattern("Servicecatalog", "Id")]
     Parameters: ProvisioningArtifactPropertiesTypeDef
-    IdempotencyToken: str
+    IdempotencyToken: Annotated[str, _aws_pattern("Servicecatalog", "IdempotencyToken")]
     AcceptLanguage: Optional[str] = None
 
 
@@ -1165,7 +1169,7 @@ class CreateProvisioningArtifactOutputTypeDef(BaseValidatorModel):
 # This class is the output for the 'list_provisioning_artifacts' function.
 class ListProvisioningArtifactsOutputTypeDef(BaseValidatorModel):
     ProvisioningArtifactDetails: List[ProvisioningArtifactDetailTypeDef]
-    NextPageToken: str
+    NextPageToken: Annotated[str, _aws_pattern("Servicecatalog", "PageToken")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
@@ -1181,33 +1185,33 @@ class UpdateProvisioningArtifactOutputTypeDef(BaseValidatorModel):
 class CreateProvisionedProductPlanInputTypeDef(BaseValidatorModel):
     PlanName: str
     PlanType: Literal["CLOUDFORMATION"]
-    ProductId: str
-    ProvisionedProductName: str
-    ProvisioningArtifactId: str
-    IdempotencyToken: str
+    ProductId: Annotated[str, _aws_pattern("Servicecatalog", "Id")]
+    ProvisionedProductName: Annotated[str, _aws_pattern("Servicecatalog", "ProvisionedProductName")]
+    ProvisioningArtifactId: Annotated[str, _aws_pattern("Servicecatalog", "Id")]
+    IdempotencyToken: Annotated[str, _aws_pattern("Servicecatalog", "IdempotencyToken")]
     AcceptLanguage: Optional[str] = None
-    NotificationArns: Optional[List[str]] = None
-    PathId: Optional[str] = None
+    NotificationArns: Optional[List[Annotated[str, _aws_pattern("Servicecatalog", "NotificationArn")]]] = None
+    PathId: Optional[Annotated[str, _aws_pattern("Servicecatalog", "Id")]] = None
     ProvisioningParameters: Optional[List[UpdateProvisioningParameterTypeDef]] = None
     Tags: Optional[List[TagTypeDef]] = None
 
 
 class ProvisionedProductPlanDetailsTypeDef(BaseValidatorModel):
     CreatedTime: Optional[datetime] = None
-    PathId: Optional[str] = None
-    ProductId: Optional[str] = None
+    PathId: Optional[Annotated[str, _aws_pattern("Servicecatalog", "Id")]] = None
+    ProductId: Optional[Annotated[str, _aws_pattern("Servicecatalog", "Id")]] = None
     PlanName: Optional[str] = None
-    PlanId: Optional[str] = None
-    ProvisionProductId: Optional[str] = None
-    ProvisionProductName: Optional[str] = None
+    PlanId: Optional[Annotated[str, _aws_pattern("Servicecatalog", "Id")]] = None
+    ProvisionProductId: Optional[Annotated[str, _aws_pattern("Servicecatalog", "Id")]] = None
+    ProvisionProductName: Optional[Annotated[str, _aws_pattern("Servicecatalog", "ProvisionedProductName")]] = None
     PlanType: Optional[Literal["CLOUDFORMATION"]] = None
-    ProvisioningArtifactId: Optional[str] = None
+    ProvisioningArtifactId: Optional[Annotated[str, _aws_pattern("Servicecatalog", "Id")]] = None
     Status: Optional[ProvisionedProductPlanStatusType] = None
     UpdatedTime: Optional[datetime] = None
-    NotificationArns: Optional[List[str]] = None
+    NotificationArns: Optional[List[Annotated[str, _aws_pattern("Servicecatalog", "NotificationArn")]]] = None
     ProvisioningParameters: Optional[List[UpdateProvisioningParameterTypeDef]] = None
     Tags: Optional[List[TagTypeDef]] = None
-    StatusMessage: Optional[str] = None
+    StatusMessage: Optional[Annotated[str, _aws_pattern("Servicecatalog", "StatusMessage")]] = None
 
 
 # This class is the output for the 'create_tag_option' function.
@@ -1234,7 +1238,7 @@ class DescribeTagOptionOutputTypeDef(BaseValidatorModel):
 # This class is the output for the 'list_tag_options' function.
 class ListTagOptionsOutputTypeDef(BaseValidatorModel):
     TagOptionDetails: List[TagOptionDetailTypeDef]
-    PageToken: str
+    PageToken: Annotated[str, _aws_pattern("Servicecatalog", "PageToken")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
@@ -1246,7 +1250,7 @@ class UpdateTagOptionOutputTypeDef(BaseValidatorModel):
 
 # This class is the output for the 'describe_portfolio_shares' function.
 class DescribePortfolioSharesOutputTypeDef(BaseValidatorModel):
-    NextPageToken: str
+    NextPageToken: Annotated[str, _aws_pattern("Servicecatalog", "PageToken")]
     PortfolioShareDetails: List[PortfolioShareDetailTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
 
@@ -1282,23 +1286,23 @@ class DescribeProvisionedProductOutputTypeDef(BaseValidatorModel):
 # This class is the output for the 'scan_provisioned_products' function.
 class ScanProvisionedProductsOutputTypeDef(BaseValidatorModel):
     ProvisionedProducts: List[ProvisionedProductDetailTypeDef]
-    NextPageToken: str
+    NextPageToken: Annotated[str, _aws_pattern("Servicecatalog", "PageToken")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 # This class is the output for the 'get_provisioned_product_outputs' function.
 class GetProvisionedProductOutputsOutputTypeDef(BaseValidatorModel):
     Outputs: List[RecordOutputTypeDef]
-    NextPageToken: str
+    NextPageToken: Annotated[str, _aws_pattern("Servicecatalog", "PageToken")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 class NotifyUpdateProvisionedProductEngineWorkflowResultInputTypeDef(BaseValidatorModel):
-    WorkflowToken: str
-    RecordId: str
+    WorkflowToken: Annotated[str, _aws_pattern("Servicecatalog", "EngineWorkflowToken")]
+    RecordId: Annotated[str, _aws_pattern("Servicecatalog", "Id")]
     Status: EngineWorkflowStatusType
-    IdempotencyToken: str
-    FailureReason: Optional[str] = None
+    IdempotencyToken: Annotated[str, _aws_pattern("Servicecatalog", "IdempotencyToken")]
+    FailureReason: Optional[Annotated[str, _aws_pattern("Servicecatalog", "EngineWorkflowFailureReason")]] = None
     Outputs: Optional[List[RecordOutputTypeDef]] = None
 
 
@@ -1405,14 +1409,14 @@ class SearchProductsAsAdminInputPaginateTypeDef(BaseValidatorModel):
 # This class is the output for the 'list_principals_for_portfolio' function.
 class ListPrincipalsForPortfolioOutputTypeDef(BaseValidatorModel):
     Principals: List[PrincipalTypeDef]
-    NextPageToken: str
+    NextPageToken: Annotated[str, _aws_pattern("Servicecatalog", "PageToken")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 # This class is the output for the 'list_provisioned_product_plans' function.
 class ListProvisionedProductPlansOutputTypeDef(BaseValidatorModel):
     ProvisionedProductPlans: List[ProvisionedProductPlanSummaryTypeDef]
-    NextPageToken: str
+    NextPageToken: Annotated[str, _aws_pattern("Servicecatalog", "PageToken")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
@@ -1429,27 +1433,27 @@ class ListRecordHistoryInputTypeDef(BaseValidatorModel):
     AccessLevelFilter: Optional[AccessLevelFilterTypeDef] = None
     SearchFilter: Optional[ListRecordHistorySearchFilterTypeDef] = None
     PageSize: Optional[int] = None
-    PageToken: Optional[str] = None
+    PageToken: Optional[Annotated[str, _aws_pattern("Servicecatalog", "PageToken")]] = None
 
 
 # This class is the output for the 'list_resources_for_tag_option' function.
 class ListResourcesForTagOptionOutputTypeDef(BaseValidatorModel):
     ResourceDetails: List[ResourceDetailTypeDef]
-    PageToken: str
+    PageToken: Annotated[str, _aws_pattern("Servicecatalog", "PageToken")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 # This class is the output for the 'list_service_actions_for_provisioning_artifact' function.
 class ListServiceActionsForProvisioningArtifactOutputTypeDef(BaseValidatorModel):
     ServiceActionSummaries: List[ServiceActionSummaryTypeDef]
-    NextPageToken: str
+    NextPageToken: Annotated[str, _aws_pattern("Servicecatalog", "PageToken")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 # This class is the output for the 'list_service_actions' function.
 class ListServiceActionsOutputTypeDef(BaseValidatorModel):
     ServiceActionSummaries: List[ServiceActionSummaryTypeDef]
-    NextPageToken: str
+    NextPageToken: Annotated[str, _aws_pattern("Servicecatalog", "PageToken")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
@@ -1461,7 +1465,7 @@ class ServiceActionDetailTypeDef(BaseValidatorModel):
 # This class is the output for the 'list_stack_instances_for_provisioned_product' function.
 class ListStackInstancesForProvisionedProductOutputTypeDef(BaseValidatorModel):
     StackInstances: List[StackInstanceTypeDef]
-    NextPageToken: str
+    NextPageToken: Annotated[str, _aws_pattern("Servicecatalog", "PageToken")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
@@ -1474,7 +1478,7 @@ class ListTagOptionsInputPaginateTypeDef(BaseValidatorModel):
 class ListTagOptionsInputTypeDef(BaseValidatorModel):
     Filters: Optional[ListTagOptionsFiltersTypeDef] = None
     PageSize: Optional[int] = None
-    PageToken: Optional[str] = None
+    PageToken: Optional[Annotated[str, _aws_pattern("Servicecatalog", "PageToken")]] = None
 
 
 class ProvisioningArtifactParameterTypeDef(BaseValidatorModel):
@@ -1490,42 +1494,42 @@ class ProvisioningArtifactParameterTypeDef(BaseValidatorModel):
 class SearchProductsOutputTypeDef(BaseValidatorModel):
     ProductViewSummaries: List[ProductViewSummaryTypeDef]
     ProductViewAggregations: Dict[str, List[ProductViewAggregationValueTypeDef]]
-    NextPageToken: str
+    NextPageToken: Annotated[str, _aws_pattern("Servicecatalog", "PageToken")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 # This class is the input for the 'provision_product' function.
 class ProvisionProductInputTypeDef(BaseValidatorModel):
-    ProvisionedProductName: str
-    ProvisionToken: str
+    ProvisionedProductName: Annotated[str, _aws_pattern("Servicecatalog", "ProvisionedProductName")]
+    ProvisionToken: Annotated[str, _aws_pattern("Servicecatalog", "IdempotencyToken")]
     AcceptLanguage: Optional[str] = None
-    ProductId: Optional[str] = None
+    ProductId: Optional[Annotated[str, _aws_pattern("Servicecatalog", "Id")]] = None
     ProductName: Optional[str] = None
-    ProvisioningArtifactId: Optional[str] = None
+    ProvisioningArtifactId: Optional[Annotated[str, _aws_pattern("Servicecatalog", "Id")]] = None
     ProvisioningArtifactName: Optional[str] = None
-    PathId: Optional[str] = None
+    PathId: Optional[Annotated[str, _aws_pattern("Servicecatalog", "Id")]] = None
     PathName: Optional[str] = None
     ProvisioningParameters: Optional[List[ProvisioningParameterTypeDef]] = None
     ProvisioningPreferences: Optional[ProvisioningPreferencesTypeDef] = None
     Tags: Optional[List[TagTypeDef]] = None
-    NotificationArns: Optional[List[str]] = None
+    NotificationArns: Optional[List[Annotated[str, _aws_pattern("Servicecatalog", "NotificationArn")]]] = None
 
 
 class RecordDetailTypeDef(BaseValidatorModel):
-    RecordId: Optional[str] = None
-    ProvisionedProductName: Optional[str] = None
+    RecordId: Optional[Annotated[str, _aws_pattern("Servicecatalog", "Id")]] = None
+    ProvisionedProductName: Optional[Annotated[str, _aws_pattern("Servicecatalog", "ProvisionedProductName")]] = None
     Status: Optional[RecordStatusType] = None
     CreatedTime: Optional[datetime] = None
     UpdatedTime: Optional[datetime] = None
     ProvisionedProductType: Optional[str] = None
     RecordType: Optional[str] = None
-    ProvisionedProductId: Optional[str] = None
-    ProductId: Optional[str] = None
-    ProvisioningArtifactId: Optional[str] = None
-    PathId: Optional[str] = None
+    ProvisionedProductId: Optional[Annotated[str, _aws_pattern("Servicecatalog", "Id")]] = None
+    ProductId: Optional[Annotated[str, _aws_pattern("Servicecatalog", "Id")]] = None
+    ProvisioningArtifactId: Optional[Annotated[str, _aws_pattern("Servicecatalog", "Id")]] = None
+    PathId: Optional[Annotated[str, _aws_pattern("Servicecatalog", "Id")]] = None
     RecordErrors: Optional[List[RecordErrorTypeDef]] = None
     RecordTags: Optional[List[RecordTagTypeDef]] = None
-    LaunchRoleArn: Optional[str] = None
+    LaunchRoleArn: Optional[Annotated[str, _aws_pattern("Servicecatalog", "RoleArn")]] = None
 
 
 class ResourceChangeDetailTypeDef(BaseValidatorModel):
@@ -1535,21 +1539,23 @@ class ResourceChangeDetailTypeDef(BaseValidatorModel):
 
 
 class ShareDetailsTypeDef(BaseValidatorModel):
-    SuccessfulShares: Optional[List[str]] = None
+    SuccessfulShares: Optional[List[Annotated[str, _aws_pattern("Servicecatalog", "AccountId")]]] = None
     ShareErrors: Optional[List[ShareErrorTypeDef]] = None
 
 
 # This class is the input for the 'update_provisioned_product' function.
 class UpdateProvisionedProductInputTypeDef(BaseValidatorModel):
-    UpdateToken: str
+    UpdateToken: Annotated[str, _aws_pattern("Servicecatalog", "IdempotencyToken")]
     AcceptLanguage: Optional[str] = None
-    ProvisionedProductName: Optional[str] = None
-    ProvisionedProductId: Optional[str] = None
-    ProductId: Optional[str] = None
+    ProvisionedProductName: Optional[Annotated[str, _aws_pattern("Servicecatalog", "ProvisionedProductNameOrArn")]] = (
+        None
+    )
+    ProvisionedProductId: Optional[Annotated[str, _aws_pattern("Servicecatalog", "Id")]] = None
+    ProductId: Optional[Annotated[str, _aws_pattern("Servicecatalog", "Id")]] = None
     ProductName: Optional[str] = None
-    ProvisioningArtifactId: Optional[str] = None
+    ProvisioningArtifactId: Optional[Annotated[str, _aws_pattern("Servicecatalog", "Id")]] = None
     ProvisioningArtifactName: Optional[str] = None
-    PathId: Optional[str] = None
+    PathId: Optional[Annotated[str, _aws_pattern("Servicecatalog", "Id")]] = None
     PathName: Optional[str] = None
     ProvisioningParameters: Optional[List[UpdateProvisioningParameterTypeDef]] = None
     ProvisioningPreferences: Optional[UpdateProvisioningPreferencesTypeDef] = None
@@ -1570,7 +1576,7 @@ class SourceConnectionTypeDef(BaseValidatorModel):
 # This class is the output for the 'list_launch_paths' function.
 class ListLaunchPathsOutputTypeDef(BaseValidatorModel):
     LaunchPathSummaries: List[LaunchPathSummaryTypeDef]
-    NextPageToken: str
+    NextPageToken: Annotated[str, _aws_pattern("Servicecatalog", "PageToken")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
@@ -1578,23 +1584,23 @@ class ListLaunchPathsOutputTypeDef(BaseValidatorModel):
 class SearchProvisionedProductsOutputTypeDef(BaseValidatorModel):
     ProvisionedProducts: List[ProvisionedProductAttributeTypeDef]
     TotalResultsCount: int
-    NextPageToken: str
+    NextPageToken: Annotated[str, _aws_pattern("Servicecatalog", "PageToken")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 # This class is the output for the 'list_provisioning_artifacts_for_service_action' function.
 class ListProvisioningArtifactsForServiceActionOutputTypeDef(BaseValidatorModel):
     ProvisioningArtifactViews: List[ProvisioningArtifactViewTypeDef]
-    NextPageToken: str
+    NextPageToken: Annotated[str, _aws_pattern("Servicecatalog", "PageToken")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 class NotifyProvisionProductEngineWorkflowResultInputTypeDef(BaseValidatorModel):
-    WorkflowToken: str
-    RecordId: str
+    WorkflowToken: Annotated[str, _aws_pattern("Servicecatalog", "EngineWorkflowToken")]
+    RecordId: Annotated[str, _aws_pattern("Servicecatalog", "Id")]
     Status: EngineWorkflowStatusType
-    IdempotencyToken: str
-    FailureReason: Optional[str] = None
+    IdempotencyToken: Annotated[str, _aws_pattern("Servicecatalog", "IdempotencyToken")]
+    FailureReason: Optional[Annotated[str, _aws_pattern("Servicecatalog", "EngineWorkflowFailureReason")]] = None
     ResourceIdentifier: Optional[EngineWorkflowResourceIdentifierTypeDef] = None
     Outputs: Optional[List[RecordOutputTypeDef]] = None
 
@@ -1642,7 +1648,7 @@ class DescribeProvisioningParametersOutputTypeDef(BaseValidatorModel):
 class DescribeRecordOutputTypeDef(BaseValidatorModel):
     RecordDetail: RecordDetailTypeDef
     RecordOutputs: List[RecordOutputTypeDef]
-    NextPageToken: str
+    NextPageToken: Annotated[str, _aws_pattern("Servicecatalog", "PageToken")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
@@ -1667,7 +1673,7 @@ class ImportAsProvisionedProductOutputTypeDef(BaseValidatorModel):
 # This class is the output for the 'list_record_history' function.
 class ListRecordHistoryOutputTypeDef(BaseValidatorModel):
     RecordDetails: List[RecordDetailTypeDef]
-    NextPageToken: str
+    NextPageToken: Annotated[str, _aws_pattern("Servicecatalog", "PageToken")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
@@ -1701,9 +1707,9 @@ class ResourceChangeTypeDef(BaseValidatorModel):
 
 # This class is the output for the 'describe_portfolio_share_status' function.
 class DescribePortfolioShareStatusOutputTypeDef(BaseValidatorModel):
-    PortfolioShareToken: str
-    PortfolioId: str
-    OrganizationNodeValue: str
+    PortfolioShareToken: Annotated[str, _aws_pattern("Servicecatalog", "Id")]
+    PortfolioId: Annotated[str, _aws_pattern("Servicecatalog", "Id")]
+    OrganizationNodeValue: Annotated[str, _aws_pattern("Servicecatalog", "OrganizationNodeValue")]
     Status: ShareStatusType
     ShareDetails: ShareDetailsTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
@@ -1722,7 +1728,7 @@ class CreateProductInputTypeDef(BaseValidatorModel):
     Name: str
     Owner: str
     ProductType: ProductTypeType
-    IdempotencyToken: str
+    IdempotencyToken: Annotated[str, _aws_pattern("Servicecatalog", "IdempotencyToken")]
     AcceptLanguage: Optional[str] = None
     Description: Optional[str] = None
     Distributor: Optional[str] = None
@@ -1736,7 +1742,7 @@ class CreateProductInputTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'update_product' function.
 class UpdateProductInputTypeDef(BaseValidatorModel):
-    Id: str
+    Id: Annotated[str, _aws_pattern("Servicecatalog", "Id")]
     AcceptLanguage: Optional[str] = None
     Name: Optional[str] = None
     Owner: Optional[str] = None
@@ -1746,7 +1752,7 @@ class UpdateProductInputTypeDef(BaseValidatorModel):
     SupportEmail: Optional[str] = None
     SupportUrl: Optional[str] = None
     AddTags: Optional[List[TagTypeDef]] = None
-    RemoveTags: Optional[List[str]] = None
+    RemoveTags: Optional[List[Annotated[str, _aws_pattern("Servicecatalog", "TagKey")]]] = None
     SourceConnection: Optional[SourceConnectionTypeDef] = None
 
 
@@ -1754,7 +1760,7 @@ class UpdateProductInputTypeDef(BaseValidatorModel):
 class DescribeProvisionedProductPlanOutputTypeDef(BaseValidatorModel):
     ProvisionedProductPlanDetails: ProvisionedProductPlanDetailsTypeDef
     ResourceChanges: List[ResourceChangeTypeDef]
-    NextPageToken: str
+    NextPageToken: Annotated[str, _aws_pattern("Servicecatalog", "PageToken")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
@@ -1779,7 +1785,7 @@ class DescribeProductAsAdminOutputTypeDef(BaseValidatorModel):
 # This class is the output for the 'search_products_as_admin' function.
 class SearchProductsAsAdminOutputTypeDef(BaseValidatorModel):
     ProductViewDetails: List[ProductViewDetailTypeDef]
-    NextPageToken: str
+    NextPageToken: Annotated[str, _aws_pattern("Servicecatalog", "PageToken")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 

@@ -3,6 +3,7 @@
 from datetime import datetime
 from decimal import Decimal
 from typing import (
+    Annotated,
     Any,
     Callable,
     Dict,
@@ -24,6 +25,7 @@ from botocore.response import StreamingBody
 from pydantic import Field
 
 from aws_resource_validator.core.base_validator_model import BaseValidatorModel, EventStream
+from aws_resource_validator.core.pattern_validation import aws_field_pattern as _aws_pattern
 from aws_resource_validator.pydantic_models.workmailmessageflow.workmailmessageflow_constants import *  # noqa: F401,F403
 
 # Optional boto3 symbols — imported lazily so services that don't need them
@@ -40,7 +42,7 @@ except ImportError:  # pragma: no cover
 
 # This class is the input for the 'get_raw_message_content' function.
 class GetRawMessageContentRequestTypeDef(BaseValidatorModel):
-    messageId: str
+    messageId: Annotated[str, _aws_pattern("Workmailmessageflow", "messageIdType")]
 
 
 class ResponseMetadataTypeDef(BaseValidatorModel):
@@ -52,9 +54,9 @@ class ResponseMetadataTypeDef(BaseValidatorModel):
 
 
 class S3ReferenceTypeDef(BaseValidatorModel):
-    bucket: str
-    key: str
-    objectVersion: Optional[str] = None
+    bucket: Annotated[str, _aws_pattern("Workmailmessageflow", "s3BucketIdType")]
+    key: Annotated[str, _aws_pattern("Workmailmessageflow", "s3KeyIdType")]
+    objectVersion: Optional[Annotated[str, _aws_pattern("Workmailmessageflow", "s3VersionType")]] = None
 
 
 # This class is the output for the 'get_raw_message_content' function.
@@ -68,5 +70,5 @@ class RawMessageContentTypeDef(BaseValidatorModel):
 
 
 class PutRawMessageContentRequestTypeDef(BaseValidatorModel):
-    messageId: str
+    messageId: Annotated[str, _aws_pattern("Workmailmessageflow", "messageIdType")]
     content: RawMessageContentTypeDef

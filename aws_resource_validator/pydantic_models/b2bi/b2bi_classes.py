@@ -3,6 +3,7 @@
 from datetime import datetime
 from decimal import Decimal
 from typing import (
+    Annotated,
     Any,
     Callable,
     Dict,
@@ -24,6 +25,7 @@ from botocore.response import StreamingBody
 from pydantic import Field
 
 from aws_resource_validator.core.base_validator_model import BaseValidatorModel, EventStream
+from aws_resource_validator.core.pattern_validation import aws_field_pattern as _aws_pattern
 from aws_resource_validator.pydantic_models.b2bi.b2bi_constants import *  # noqa: F401,F403
 
 # Optional boto3 symbols — imported lazily so services that don't need them
@@ -39,7 +41,7 @@ except ImportError:  # pragma: no cover
 
 
 class CapabilitySummaryTypeDef(BaseValidatorModel):
-    capabilityId: str
+    capabilityId: Annotated[str, _aws_pattern("B2bi", "CapabilityId")]
     name: str
     type: Literal["edi"]
     createdAt: datetime
@@ -80,22 +82,22 @@ class MappingTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'delete_capability' function.
 class DeleteCapabilityRequestTypeDef(BaseValidatorModel):
-    capabilityId: str
+    capabilityId: Annotated[str, _aws_pattern("B2bi", "CapabilityId")]
 
 
 # This class is the input for the 'delete_partnership' function.
 class DeletePartnershipRequestTypeDef(BaseValidatorModel):
-    partnershipId: str
+    partnershipId: Annotated[str, _aws_pattern("B2bi", "PartnershipId")]
 
 
 # This class is the input for the 'delete_profile' function.
 class DeleteProfileRequestTypeDef(BaseValidatorModel):
-    profileId: str
+    profileId: Annotated[str, _aws_pattern("B2bi", "ProfileId")]
 
 
 # This class is the input for the 'delete_transformer' function.
 class DeleteTransformerRequestTypeDef(BaseValidatorModel):
-    transformerId: str
+    transformerId: Annotated[str, _aws_pattern("B2bi", "TransformerId")]
 
 
 # This class is the input for the 'generate_mapping' function.
@@ -107,23 +109,23 @@ class GenerateMappingRequestTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'get_capability' function.
 class GetCapabilityRequestTypeDef(BaseValidatorModel):
-    capabilityId: str
+    capabilityId: Annotated[str, _aws_pattern("B2bi", "CapabilityId")]
 
 
 # This class is the input for the 'get_partnership' function.
 class GetPartnershipRequestTypeDef(BaseValidatorModel):
-    partnershipId: str
+    partnershipId: Annotated[str, _aws_pattern("B2bi", "PartnershipId")]
 
 
 # This class is the input for the 'get_profile' function.
 class GetProfileRequestTypeDef(BaseValidatorModel):
-    profileId: str
+    profileId: Annotated[str, _aws_pattern("B2bi", "ProfileId")]
 
 
 # This class is the input for the 'get_transformer_job' function.
 class GetTransformerJobRequestTypeDef(BaseValidatorModel):
-    transformerJobId: str
-    transformerId: str
+    transformerJobId: Annotated[str, _aws_pattern("B2bi", "TransformerJobId")]
+    transformerId: Annotated[str, _aws_pattern("B2bi", "TransformerId")]
 
 
 class WaiterConfigTypeDef(BaseValidatorModel):
@@ -133,7 +135,7 @@ class WaiterConfigTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'get_transformer' function.
 class GetTransformerRequestTypeDef(BaseValidatorModel):
-    transformerId: str
+    transformerId: Annotated[str, _aws_pattern("B2bi", "TransformerId")]
 
 
 class PaginatorConfigTypeDef(BaseValidatorModel):
@@ -150,7 +152,7 @@ class ListCapabilitiesRequestTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'list_partnerships' function.
 class ListPartnershipsRequestTypeDef(BaseValidatorModel):
-    profileId: Optional[str] = None
+    profileId: Optional[Annotated[str, _aws_pattern("B2bi", "ProfileId")]] = None
     nextToken: Optional[str] = None
     maxResults: Optional[int] = None
 
@@ -162,7 +164,7 @@ class ListProfilesRequestTypeDef(BaseValidatorModel):
 
 
 class ProfileSummaryTypeDef(BaseValidatorModel):
-    profileId: str
+    profileId: Annotated[str, _aws_pattern("B2bi", "ProfileId")]
     name: str
     businessName: str
     createdAt: datetime
@@ -202,10 +204,10 @@ class UntagResourceRequestTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'update_profile' function.
 class UpdateProfileRequestTypeDef(BaseValidatorModel):
-    profileId: str
+    profileId: Annotated[str, _aws_pattern("B2bi", "ProfileId")]
     name: Optional[str] = None
-    email: Optional[str] = None
-    phone: Optional[str] = None
+    email: Optional[Annotated[str, _aws_pattern("B2bi", "Email")]] = None
+    phone: Optional[Annotated[str, _aws_pattern("B2bi", "Phone")]] = None
     businessName: Optional[str] = None
 
 
@@ -243,9 +245,9 @@ class X12ControlNumbersTypeDef(BaseValidatorModel):
 
 
 class X12DelimitersTypeDef(BaseValidatorModel):
-    componentSeparator: Optional[str] = None
-    dataElementSeparator: Optional[str] = None
-    segmentTerminator: Optional[str] = None
+    componentSeparator: Optional[Annotated[str, _aws_pattern("B2bi", "X12ComponentSeparator")]] = None
+    dataElementSeparator: Optional[Annotated[str, _aws_pattern("B2bi", "X12DataElementSeparator")]] = None
+    segmentTerminator: Optional[Annotated[str, _aws_pattern("B2bi", "X12SegmentTerminator")]] = None
 
 
 class X12ElementLengthValidationRuleTypeDef(BaseValidatorModel):
@@ -260,19 +262,19 @@ class X12ElementRequirementValidationRuleTypeDef(BaseValidatorModel):
 
 
 class X12FunctionalGroupHeadersTypeDef(BaseValidatorModel):
-    applicationSenderCode: Optional[str] = None
-    applicationReceiverCode: Optional[str] = None
-    responsibleAgencyCode: Optional[str] = None
+    applicationSenderCode: Optional[Annotated[str, _aws_pattern("B2bi", "X12ApplicationSenderCode")]] = None
+    applicationReceiverCode: Optional[Annotated[str, _aws_pattern("B2bi", "X12ApplicationReceiverCode")]] = None
+    responsibleAgencyCode: Optional[Annotated[str, _aws_pattern("B2bi", "X12ResponsibleAgencyCode")]] = None
 
 
 class X12InterchangeControlHeadersTypeDef(BaseValidatorModel):
-    senderIdQualifier: Optional[str] = None
-    senderId: Optional[str] = None
-    receiverIdQualifier: Optional[str] = None
-    receiverId: Optional[str] = None
+    senderIdQualifier: Optional[Annotated[str, _aws_pattern("B2bi", "X12IdQualifier")]] = None
+    senderId: Optional[Annotated[str, _aws_pattern("B2bi", "X12SenderId")]] = None
+    receiverIdQualifier: Optional[Annotated[str, _aws_pattern("B2bi", "X12IdQualifier")]] = None
+    receiverId: Optional[Annotated[str, _aws_pattern("B2bi", "X12ReceiverId")]] = None
     repetitionSeparator: Optional[str] = None
-    acknowledgmentRequestedCode: Optional[str] = None
-    usageIndicatorCode: Optional[str] = None
+    acknowledgmentRequestedCode: Optional[Annotated[str, _aws_pattern("B2bi", "X12AcknowledgmentRequestedCode")]] = None
+    usageIndicatorCode: Optional[Annotated[str, _aws_pattern("B2bi", "X12UsageIndicatorCode")]] = None
 
 
 class ConversionSourceTypeDef(BaseValidatorModel):
@@ -304,17 +306,17 @@ class OutputSampleFileSourceTypeDef(BaseValidatorModel):
 class StartTransformerJobRequestTypeDef(BaseValidatorModel):
     inputFile: S3LocationTypeDef
     outputLocation: S3LocationTypeDef
-    transformerId: str
+    transformerId: Annotated[str, _aws_pattern("B2bi", "TransformerId")]
     clientToken: Optional[str] = None
 
 
 # This class is the input for the 'create_profile' function.
 class CreateProfileRequestTypeDef(BaseValidatorModel):
     name: str
-    phone: str
+    phone: Annotated[str, _aws_pattern("B2bi", "Phone")]
     businessName: str
     logging: LoggingType
-    email: Optional[str] = None
+    email: Optional[Annotated[str, _aws_pattern("B2bi", "Email")]] = None
     clientToken: Optional[str] = None
     tags: Optional[List[TagTypeDef]] = None
 
@@ -327,12 +329,12 @@ class TagResourceRequestTypeDef(BaseValidatorModel):
 
 # This class is the output for the 'create_profile' function.
 class CreateProfileResponseTypeDef(BaseValidatorModel):
-    profileId: str
+    profileId: Annotated[str, _aws_pattern("B2bi", "ProfileId")]
     profileArn: str
     name: str
     businessName: str
-    phone: str
-    email: str
+    phone: Annotated[str, _aws_pattern("B2bi", "Phone")]
+    email: Annotated[str, _aws_pattern("B2bi", "Email")]
     logging: LoggingType
     logGroupName: str
     createdAt: datetime
@@ -359,11 +361,11 @@ class GenerateMappingResponseTypeDef(BaseValidatorModel):
 
 # This class is the output for the 'get_profile' function.
 class GetProfileResponseTypeDef(BaseValidatorModel):
-    profileId: str
+    profileId: Annotated[str, _aws_pattern("B2bi", "ProfileId")]
     profileArn: str
     name: str
-    email: str
-    phone: str
+    email: Annotated[str, _aws_pattern("B2bi", "Email")]
+    phone: Annotated[str, _aws_pattern("B2bi", "Phone")]
     businessName: str
     logging: LoggingType
     logGroupName: str
@@ -395,7 +397,7 @@ class ListTagsForResourceResponseTypeDef(BaseValidatorModel):
 
 # This class is the output for the 'start_transformer_job' function.
 class StartTransformerJobResponseTypeDef(BaseValidatorModel):
-    transformerJobId: str
+    transformerJobId: Annotated[str, _aws_pattern("B2bi", "TransformerJobId")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
@@ -422,11 +424,11 @@ class TestParsingResponseTypeDef(BaseValidatorModel):
 
 # This class is the output for the 'update_profile' function.
 class UpdateProfileResponseTypeDef(BaseValidatorModel):
-    profileId: str
+    profileId: Annotated[str, _aws_pattern("B2bi", "ProfileId")]
     profileArn: str
     name: str
-    email: str
-    phone: str
+    email: Annotated[str, _aws_pattern("B2bi", "Email")]
+    phone: Annotated[str, _aws_pattern("B2bi", "Phone")]
     businessName: str
     logging: LoggingType
     logGroupName: str
@@ -501,7 +503,7 @@ class EdiConfigurationTypeDef(BaseValidatorModel):
     type: EdiTypeTypeDef
     inputLocation: S3LocationTypeDef
     outputLocation: S3LocationTypeDef
-    transformerId: str
+    transformerId: Annotated[str, _aws_pattern("B2bi", "TransformerId")]
     capabilityDirection: Optional[CapabilityDirectionType] = None
 
 
@@ -562,7 +564,7 @@ class CreateCapabilityRequestTypeDef(BaseValidatorModel):
 
 # This class is the output for the 'create_capability' function.
 class CreateCapabilityResponseTypeDef(BaseValidatorModel):
-    capabilityId: str
+    capabilityId: Annotated[str, _aws_pattern("B2bi", "CapabilityId")]
     capabilityArn: str
     name: str
     type: Literal["edi"]
@@ -574,7 +576,7 @@ class CreateCapabilityResponseTypeDef(BaseValidatorModel):
 
 # This class is the output for the 'get_capability' function.
 class GetCapabilityResponseTypeDef(BaseValidatorModel):
-    capabilityId: str
+    capabilityId: Annotated[str, _aws_pattern("B2bi", "CapabilityId")]
     capabilityArn: str
     name: str
     type: Literal["edi"]
@@ -587,7 +589,7 @@ class GetCapabilityResponseTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'update_capability' function.
 class UpdateCapabilityRequestTypeDef(BaseValidatorModel):
-    capabilityId: str
+    capabilityId: Annotated[str, _aws_pattern("B2bi", "CapabilityId")]
     name: Optional[str] = None
     configuration: Optional[CapabilityConfigurationTypeDef] = None
     instructionsDocuments: Optional[List[S3LocationTypeDef]] = None
@@ -595,7 +597,7 @@ class UpdateCapabilityRequestTypeDef(BaseValidatorModel):
 
 # This class is the output for the 'update_capability' function.
 class UpdateCapabilityResponseTypeDef(BaseValidatorModel):
-    capabilityId: str
+    capabilityId: Annotated[str, _aws_pattern("B2bi", "CapabilityId")]
     capabilityArn: str
     name: str
     type: Literal["edi"]
@@ -636,11 +638,11 @@ class OutputConversionOutputTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'create_partnership' function.
 class CreatePartnershipRequestTypeDef(BaseValidatorModel):
-    profileId: str
+    profileId: Annotated[str, _aws_pattern("B2bi", "ProfileId")]
     name: str
-    email: str
-    capabilities: List[str]
-    phone: Optional[str] = None
+    email: Annotated[str, _aws_pattern("B2bi", "Email")]
+    capabilities: List[Annotated[str, _aws_pattern("B2bi", "CapabilityId")]]
+    phone: Optional[Annotated[str, _aws_pattern("B2bi", "Phone")]] = None
     capabilityOptions: Optional[CapabilityOptionsTypeDef] = None
     clientToken: Optional[str] = None
     tags: Optional[List[TagTypeDef]] = None
@@ -648,65 +650,65 @@ class CreatePartnershipRequestTypeDef(BaseValidatorModel):
 
 # This class is the output for the 'create_partnership' function.
 class CreatePartnershipResponseTypeDef(BaseValidatorModel):
-    profileId: str
-    partnershipId: str
+    profileId: Annotated[str, _aws_pattern("B2bi", "ProfileId")]
+    partnershipId: Annotated[str, _aws_pattern("B2bi", "PartnershipId")]
     partnershipArn: str
     name: str
-    email: str
-    phone: str
-    capabilities: List[str]
+    email: Annotated[str, _aws_pattern("B2bi", "Email")]
+    phone: Annotated[str, _aws_pattern("B2bi", "Phone")]
+    capabilities: List[Annotated[str, _aws_pattern("B2bi", "CapabilityId")]]
     capabilityOptions: CapabilityOptionsTypeDef
-    tradingPartnerId: str
+    tradingPartnerId: Annotated[str, _aws_pattern("B2bi", "TradingPartnerId")]
     createdAt: datetime
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 # This class is the output for the 'get_partnership' function.
 class GetPartnershipResponseTypeDef(BaseValidatorModel):
-    profileId: str
-    partnershipId: str
+    profileId: Annotated[str, _aws_pattern("B2bi", "ProfileId")]
+    partnershipId: Annotated[str, _aws_pattern("B2bi", "PartnershipId")]
     partnershipArn: str
     name: str
-    email: str
-    phone: str
-    capabilities: List[str]
+    email: Annotated[str, _aws_pattern("B2bi", "Email")]
+    phone: Annotated[str, _aws_pattern("B2bi", "Phone")]
+    capabilities: List[Annotated[str, _aws_pattern("B2bi", "CapabilityId")]]
     capabilityOptions: CapabilityOptionsTypeDef
-    tradingPartnerId: str
+    tradingPartnerId: Annotated[str, _aws_pattern("B2bi", "TradingPartnerId")]
     createdAt: datetime
     modifiedAt: datetime
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 class PartnershipSummaryTypeDef(BaseValidatorModel):
-    profileId: str
-    partnershipId: str
+    profileId: Annotated[str, _aws_pattern("B2bi", "ProfileId")]
+    partnershipId: Annotated[str, _aws_pattern("B2bi", "PartnershipId")]
     createdAt: datetime
     name: Optional[str] = None
-    capabilities: Optional[List[str]] = None
+    capabilities: Optional[List[Annotated[str, _aws_pattern("B2bi", "CapabilityId")]]] = None
     capabilityOptions: Optional[CapabilityOptionsTypeDef] = None
-    tradingPartnerId: Optional[str] = None
+    tradingPartnerId: Optional[Annotated[str, _aws_pattern("B2bi", "TradingPartnerId")]] = None
     modifiedAt: Optional[datetime] = None
 
 
 # This class is the input for the 'update_partnership' function.
 class UpdatePartnershipRequestTypeDef(BaseValidatorModel):
-    partnershipId: str
+    partnershipId: Annotated[str, _aws_pattern("B2bi", "PartnershipId")]
     name: Optional[str] = None
-    capabilities: Optional[List[str]] = None
+    capabilities: Optional[List[Annotated[str, _aws_pattern("B2bi", "CapabilityId")]]] = None
     capabilityOptions: Optional[CapabilityOptionsTypeDef] = None
 
 
 # This class is the output for the 'update_partnership' function.
 class UpdatePartnershipResponseTypeDef(BaseValidatorModel):
-    profileId: str
-    partnershipId: str
+    profileId: Annotated[str, _aws_pattern("B2bi", "ProfileId")]
+    partnershipId: Annotated[str, _aws_pattern("B2bi", "PartnershipId")]
     partnershipArn: str
     name: str
-    email: str
-    phone: str
-    capabilities: List[str]
+    email: Annotated[str, _aws_pattern("B2bi", "Email")]
+    phone: Annotated[str, _aws_pattern("B2bi", "Phone")]
+    capabilities: List[Annotated[str, _aws_pattern("B2bi", "CapabilityId")]]
     capabilityOptions: CapabilityOptionsTypeDef
-    tradingPartnerId: str
+    tradingPartnerId: Annotated[str, _aws_pattern("B2bi", "TradingPartnerId")]
     createdAt: datetime
     modifiedAt: datetime
     ResponseMetadata: ResponseMetadataTypeDef
@@ -719,9 +721,9 @@ class X12AdvancedOptionsTypeDef(BaseValidatorModel):
 
 # This class is the output for the 'create_transformer' function.
 class CreateTransformerResponseTypeDef(BaseValidatorModel):
-    transformerId: str
+    transformerId: Annotated[str, _aws_pattern("B2bi", "TransformerId")]
     transformerArn: str
-    name: str
+    name: Annotated[str, _aws_pattern("B2bi", "TransformerName")]
     status: TransformerStatusType
     createdAt: datetime
     fileFormat: FileFormatType
@@ -737,9 +739,9 @@ class CreateTransformerResponseTypeDef(BaseValidatorModel):
 
 # This class is the output for the 'get_transformer' function.
 class GetTransformerResponseTypeDef(BaseValidatorModel):
-    transformerId: str
+    transformerId: Annotated[str, _aws_pattern("B2bi", "TransformerId")]
     transformerArn: str
-    name: str
+    name: Annotated[str, _aws_pattern("B2bi", "TransformerName")]
     status: TransformerStatusType
     createdAt: datetime
     modifiedAt: datetime
@@ -755,8 +757,8 @@ class GetTransformerResponseTypeDef(BaseValidatorModel):
 
 
 class TransformerSummaryTypeDef(BaseValidatorModel):
-    transformerId: str
-    name: str
+    transformerId: Annotated[str, _aws_pattern("B2bi", "TransformerId")]
+    name: Annotated[str, _aws_pattern("B2bi", "TransformerName")]
     status: TransformerStatusType
     createdAt: datetime
     modifiedAt: Optional[datetime] = None
@@ -772,9 +774,9 @@ class TransformerSummaryTypeDef(BaseValidatorModel):
 
 # This class is the output for the 'update_transformer' function.
 class UpdateTransformerResponseTypeDef(BaseValidatorModel):
-    transformerId: str
+    transformerId: Annotated[str, _aws_pattern("B2bi", "TransformerId")]
     transformerArn: str
-    name: str
+    name: Annotated[str, _aws_pattern("B2bi", "TransformerName")]
     status: TransformerStatusType
     createdAt: datetime
     modifiedAt: datetime
@@ -853,7 +855,7 @@ class TestConversionRequestTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'create_transformer' function.
 class CreateTransformerRequestTypeDef(BaseValidatorModel):
-    name: str
+    name: Annotated[str, _aws_pattern("B2bi", "TransformerName")]
     clientToken: Optional[str] = None
     tags: Optional[List[TagTypeDef]] = None
     fileFormat: Optional[FileFormatType] = None
@@ -868,8 +870,8 @@ class CreateTransformerRequestTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'update_transformer' function.
 class UpdateTransformerRequestTypeDef(BaseValidatorModel):
-    transformerId: str
-    name: Optional[str] = None
+    transformerId: Annotated[str, _aws_pattern("B2bi", "TransformerId")]
+    name: Optional[Annotated[str, _aws_pattern("B2bi", "TransformerName")]] = None
     status: Optional[TransformerStatusType] = None
     fileFormat: Optional[FileFormatType] = None
     mappingTemplate: Optional[str] = None

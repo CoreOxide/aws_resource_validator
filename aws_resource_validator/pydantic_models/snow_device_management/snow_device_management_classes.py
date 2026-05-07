@@ -3,6 +3,7 @@
 from datetime import datetime
 from decimal import Decimal
 from typing import (
+    Annotated,
     Any,
     Callable,
     Dict,
@@ -24,6 +25,7 @@ from botocore.response import StreamingBody
 from pydantic import Field
 
 from aws_resource_validator.core.base_validator_model import BaseValidatorModel, EventStream
+from aws_resource_validator.core.pattern_validation import aws_field_pattern as _aws_pattern
 from aws_resource_validator.pydantic_models.snow_device_management.snow_device_management_constants import *  # noqa: F401,F403
 
 # Optional boto3 symbols — imported lazily so services that don't need them
@@ -148,7 +150,7 @@ class PaginatorConfigTypeDef(BaseValidatorModel):
 class ListDeviceResourcesInputTypeDef(BaseValidatorModel):
     managedDeviceId: str
     maxResults: Optional[int] = None
-    nextToken: Optional[str] = None
+    nextToken: Optional[Annotated[str, _aws_pattern("SnowDeviceManagement", "NextToken")]] = None
     type: Optional[str] = None
 
 
@@ -162,14 +164,14 @@ class ResourceSummaryTypeDef(BaseValidatorModel):
 class ListDevicesInputTypeDef(BaseValidatorModel):
     jobId: Optional[str] = None
     maxResults: Optional[int] = None
-    nextToken: Optional[str] = None
+    nextToken: Optional[Annotated[str, _aws_pattern("SnowDeviceManagement", "NextToken")]] = None
 
 
 # This class is the input for the 'list_executions' function.
 class ListExecutionsInputTypeDef(BaseValidatorModel):
     taskId: str
     maxResults: Optional[int] = None
-    nextToken: Optional[str] = None
+    nextToken: Optional[Annotated[str, _aws_pattern("SnowDeviceManagement", "NextToken")]] = None
     state: Optional[ExecutionStateType] = None
 
 
@@ -181,7 +183,7 @@ class ListTagsForResourceInputTypeDef(BaseValidatorModel):
 # This class is the input for the 'list_tasks' function.
 class ListTasksInputTypeDef(BaseValidatorModel):
     maxResults: Optional[int] = None
-    nextToken: Optional[str] = None
+    nextToken: Optional[Annotated[str, _aws_pattern("SnowDeviceManagement", "NextToken")]] = None
     state: Optional[TaskStateType] = None
 
 
@@ -232,7 +234,7 @@ class DescribeExecutionOutputTypeDef(BaseValidatorModel):
 class DescribeTaskOutputTypeDef(BaseValidatorModel):
     completedAt: datetime
     createdAt: datetime
-    description: str
+    description: Annotated[str, _aws_pattern("SnowDeviceManagement", "TaskDescriptionString")]
     lastUpdatedAt: datetime
     state: TaskStateType
     tags: Dict[str, str]
@@ -257,8 +259,8 @@ class ListTagsForResourceOutputTypeDef(BaseValidatorModel):
 class CreateTaskInputTypeDef(BaseValidatorModel):
     command: CommandTypeDef
     targets: List[str]
-    clientToken: Optional[str] = None
-    description: Optional[str] = None
+    clientToken: Optional[Annotated[str, _aws_pattern("SnowDeviceManagement", "IdempotencyToken")]] = None
+    description: Optional[Annotated[str, _aws_pattern("SnowDeviceManagement", "TaskDescriptionString")]] = None
     tags: Optional[Dict[str, str]] = None
 
 
@@ -282,7 +284,7 @@ class DescribeDeviceOutputTypeDef(BaseValidatorModel):
 class ListDevicesOutputTypeDef(BaseValidatorModel):
     devices: List[DeviceSummaryTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
-    nextToken: Optional[str] = None
+    nextToken: Optional[Annotated[str, _aws_pattern("SnowDeviceManagement", "NextToken")]] = None
 
 
 class InstanceBlockDeviceMappingTypeDef(BaseValidatorModel):
@@ -294,7 +296,7 @@ class InstanceBlockDeviceMappingTypeDef(BaseValidatorModel):
 class ListExecutionsOutputTypeDef(BaseValidatorModel):
     executions: List[ExecutionSummaryTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
-    nextToken: Optional[str] = None
+    nextToken: Optional[Annotated[str, _aws_pattern("SnowDeviceManagement", "NextToken")]] = None
 
 
 class ListDeviceResourcesInputPaginateTypeDef(BaseValidatorModel):
@@ -323,14 +325,14 @@ class ListTasksInputPaginateTypeDef(BaseValidatorModel):
 class ListDeviceResourcesOutputTypeDef(BaseValidatorModel):
     resources: List[ResourceSummaryTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
-    nextToken: Optional[str] = None
+    nextToken: Optional[Annotated[str, _aws_pattern("SnowDeviceManagement", "NextToken")]] = None
 
 
 # This class is the output for the 'list_tasks' function.
 class ListTasksOutputTypeDef(BaseValidatorModel):
     tasks: List[TaskSummaryTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
-    nextToken: Optional[str] = None
+    nextToken: Optional[Annotated[str, _aws_pattern("SnowDeviceManagement", "NextToken")]] = None
 
 
 class InstanceTypeDef(BaseValidatorModel):

@@ -3,6 +3,7 @@
 from datetime import datetime
 from decimal import Decimal
 from typing import (
+    Annotated,
     Any,
     Callable,
     Dict,
@@ -24,6 +25,7 @@ from botocore.response import StreamingBody
 from pydantic import Field
 
 from aws_resource_validator.core.base_validator_model import BaseValidatorModel, EventStream
+from aws_resource_validator.core.pattern_validation import aws_field_pattern as _aws_pattern
 from aws_resource_validator.pydantic_models.workspaces_instances.workspaces_instances_constants import *  # noqa: F401,F403
 
 # Optional boto3 symbols — imported lazily so services that don't need them
@@ -39,8 +41,8 @@ except ImportError:  # pragma: no cover
 
 
 class AssociateVolumeRequestTypeDef(BaseValidatorModel):
-    WorkspaceInstanceId: str
-    VolumeId: str
+    WorkspaceInstanceId: Annotated[str, _aws_pattern("WorkspacesInstances", "WorkspaceInstanceId")]
+    VolumeId: Annotated[str, _aws_pattern("WorkspacesInstances", "VolumeId")]
     Device: str
 
 
@@ -59,7 +61,7 @@ class EbsBlockDeviceTypeDef(BaseValidatorModel):
 
 class CapacityReservationTargetTypeDef(BaseValidatorModel):
     CapacityReservationId: Optional[str] = None
-    CapacityReservationResourceGroupArn: Optional[str] = None
+    CapacityReservationResourceGroupArn: Optional[Annotated[str, _aws_pattern("WorkspacesInstances", "ARN")]] = None
 
 
 class ConnectionTrackingSpecificationRequestTypeDef(BaseValidatorModel):
@@ -83,8 +85,8 @@ class ResponseMetadataTypeDef(BaseValidatorModel):
 
 
 class TagTypeDef(BaseValidatorModel):
-    Key: Optional[str] = None
-    Value: Optional[str] = None
+    Key: Optional[Annotated[str, _aws_pattern("WorkspacesInstances", "TagKey")]] = None
+    Value: Optional[Annotated[str, _aws_pattern("WorkspacesInstances", "TagValue")]] = None
 
 
 class CreditSpecificationRequestTypeDef(BaseValidatorModel):
@@ -92,16 +94,16 @@ class CreditSpecificationRequestTypeDef(BaseValidatorModel):
 
 
 class DeleteVolumeRequestTypeDef(BaseValidatorModel):
-    VolumeId: str
+    VolumeId: Annotated[str, _aws_pattern("WorkspacesInstances", "VolumeId")]
 
 
 class DeleteWorkspaceInstanceRequestTypeDef(BaseValidatorModel):
-    WorkspaceInstanceId: str
+    WorkspaceInstanceId: Annotated[str, _aws_pattern("WorkspacesInstances", "WorkspaceInstanceId")]
 
 
 class DisassociateVolumeRequestTypeDef(BaseValidatorModel):
-    WorkspaceInstanceId: str
-    VolumeId: str
+    WorkspaceInstanceId: Annotated[str, _aws_pattern("WorkspacesInstances", "WorkspaceInstanceId")]
+    VolumeId: Annotated[str, _aws_pattern("WorkspacesInstances", "VolumeId")]
     Device: Optional[str] = None
     DisassociateMode: Optional[DisassociateModeEnumType] = None
 
@@ -126,7 +128,7 @@ class EnclaveOptionsRequestTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'get_workspace_instance' function.
 class GetWorkspaceInstanceRequestTypeDef(BaseValidatorModel):
-    WorkspaceInstanceId: str
+    WorkspaceInstanceId: Annotated[str, _aws_pattern("WorkspacesInstances", "WorkspaceInstanceId")]
 
 
 class WorkspaceInstanceErrorTypeDef(BaseValidatorModel):
@@ -139,7 +141,7 @@ class HibernationOptionsRequestTypeDef(BaseValidatorModel):
 
 
 class IamInstanceProfileSpecificationTypeDef(BaseValidatorModel):
-    Arn: Optional[str] = None
+    Arn: Optional[Annotated[str, _aws_pattern("WorkspacesInstances", "ARN")]] = None
     Name: Optional[str] = None
 
 
@@ -167,16 +169,16 @@ class InstanceMetadataOptionsRequestTypeDef(BaseValidatorModel):
 
 
 class Ipv4PrefixSpecificationRequestTypeDef(BaseValidatorModel):
-    Ipv4Prefix: Optional[str] = None
+    Ipv4Prefix: Optional[Annotated[str, _aws_pattern("WorkspacesInstances", "Ipv4Prefix")]] = None
 
 
 class Ipv6PrefixSpecificationRequestTypeDef(BaseValidatorModel):
-    Ipv6Prefix: Optional[str] = None
+    Ipv6Prefix: Optional[Annotated[str, _aws_pattern("WorkspacesInstances", "Ipv6Prefix")]] = None
 
 
 class PrivateIpAddressSpecificationTypeDef(BaseValidatorModel):
     Primary: Optional[bool] = None
-    PrivateIpAddress: Optional[str] = None
+    PrivateIpAddress: Optional[Annotated[str, _aws_pattern("WorkspacesInstances", "Ipv4Address")]] = None
 
 
 class InstanceNetworkPerformanceOptionsRequestTypeDef(BaseValidatorModel):
@@ -190,7 +192,7 @@ class SupportedInstanceConfigurationTypeDef(BaseValidatorModel):
 
 
 class LicenseConfigurationRequestTypeDef(BaseValidatorModel):
-    LicenseConfigurationArn: Optional[str] = None
+    LicenseConfigurationArn: Optional[Annotated[str, _aws_pattern("WorkspacesInstances", "ARN")]] = None
 
 
 class PaginatorConfigTypeDef(BaseValidatorModel):
@@ -206,12 +208,12 @@ class ListRegionsRequestTypeDef(BaseValidatorModel):
 
 
 class RegionTypeDef(BaseValidatorModel):
-    RegionName: Optional[str] = None
+    RegionName: Optional[Annotated[str, _aws_pattern("WorkspacesInstances", "RegionName")]] = None
 
 
 # This class is the input for the 'list_tags_for_resource' function.
 class ListTagsForResourceRequestTypeDef(BaseValidatorModel):
-    WorkspaceInstanceId: str
+    WorkspaceInstanceId: Annotated[str, _aws_pattern("WorkspacesInstances", "WorkspaceInstanceId")]
 
 
 # This class is the input for the 'list_workspace_instances' function.
@@ -223,11 +225,11 @@ class ListWorkspaceInstancesRequestTypeDef(BaseValidatorModel):
 
 class PlacementTypeDef(BaseValidatorModel):
     Affinity: Optional[str] = None
-    AvailabilityZone: Optional[str] = None
-    GroupId: Optional[str] = None
+    AvailabilityZone: Optional[Annotated[str, _aws_pattern("WorkspacesInstances", "AvailabilityZone")]] = None
+    GroupId: Optional[Annotated[str, _aws_pattern("WorkspacesInstances", "PlacementGroupId")]] = None
     GroupName: Optional[str] = None
-    HostId: Optional[str] = None
-    HostResourceGroupArn: Optional[str] = None
+    HostId: Optional[Annotated[str, _aws_pattern("WorkspacesInstances", "HostId")]] = None
+    HostResourceGroupArn: Optional[Annotated[str, _aws_pattern("WorkspacesInstances", "ARN")]] = None
     PartitionNumber: Optional[int] = None
     Tenancy: Optional[TenancyEnumType] = None
 
@@ -246,15 +248,15 @@ TimestampTypeDef = Union[datetime, str]
 
 
 class UntagResourceRequestTypeDef(BaseValidatorModel):
-    WorkspaceInstanceId: str
-    TagKeys: List[str]
+    WorkspaceInstanceId: Annotated[str, _aws_pattern("WorkspacesInstances", "WorkspaceInstanceId")]
+    TagKeys: List[Annotated[str, _aws_pattern("WorkspacesInstances", "TagKey")]]
 
 
 class BlockDeviceMappingRequestTypeDef(BaseValidatorModel):
     DeviceName: Optional[str] = None
     Ebs: Optional[EbsBlockDeviceTypeDef] = None
     NoDevice: Optional[str] = None
-    VirtualName: Optional[str] = None
+    VirtualName: Optional[Annotated[str, _aws_pattern("WorkspacesInstances", "VirtualName")]] = None
 
 
 class CapacityReservationSpecificationTypeDef(BaseValidatorModel):
@@ -264,13 +266,13 @@ class CapacityReservationSpecificationTypeDef(BaseValidatorModel):
 
 # This class is the output for the 'create_volume' function.
 class CreateVolumeResponseTypeDef(BaseValidatorModel):
-    VolumeId: str
+    VolumeId: Annotated[str, _aws_pattern("WorkspacesInstances", "VolumeId")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 # This class is the output for the 'create_workspace_instance' function.
 class CreateWorkspaceInstanceResponseTypeDef(BaseValidatorModel):
-    WorkspaceInstanceId: str
+    WorkspaceInstanceId: Annotated[str, _aws_pattern("WorkspacesInstances", "WorkspaceInstanceId")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
@@ -281,7 +283,7 @@ class ListTagsForResourceResponseTypeDef(BaseValidatorModel):
 
 
 class TagResourceRequestTypeDef(BaseValidatorModel):
-    WorkspaceInstanceId: str
+    WorkspaceInstanceId: Annotated[str, _aws_pattern("WorkspacesInstances", "WorkspaceInstanceId")]
     Tags: List[TagTypeDef]
 
 
@@ -292,7 +294,7 @@ class TagSpecificationTypeDef(BaseValidatorModel):
 
 class WorkspaceInstanceTypeDef(BaseValidatorModel):
     ProvisionState: Optional[ProvisionStateEnumType] = None
-    WorkspaceInstanceId: Optional[str] = None
+    WorkspaceInstanceId: Optional[Annotated[str, _aws_pattern("WorkspacesInstances", "WorkspaceInstanceId")]] = None
     EC2ManagedInstance: Optional[EC2ManagedInstanceTypeDef] = None
 
 
@@ -306,7 +308,7 @@ class GetWorkspaceInstanceResponseTypeDef(BaseValidatorModel):
     WorkspaceInstanceErrors: List[WorkspaceInstanceErrorTypeDef]
     EC2InstanceErrors: List[EC2InstanceErrorTypeDef]
     ProvisionState: ProvisionStateEnumType
-    WorkspaceInstanceId: str
+    WorkspaceInstanceId: Annotated[str, _aws_pattern("WorkspacesInstances", "WorkspaceInstanceId")]
     EC2ManagedInstance: EC2ManagedInstanceTypeDef
     BillingConfiguration: BillingConfigurationTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
@@ -320,7 +322,7 @@ class ListInstanceTypesRequestTypeDef(BaseValidatorModel):
 
 
 class InstanceTypeInfoTypeDef(BaseValidatorModel):
-    InstanceType: Optional[str] = None
+    InstanceType: Optional[Annotated[str, _aws_pattern("WorkspacesInstances", "InstanceType")]] = None
     SupportedInstanceConfigurations: Optional[List[SupportedInstanceConfigurationTypeDef]] = None
 
 
@@ -361,7 +363,7 @@ class CreateVolumeRequestTypeDef(BaseValidatorModel):
     Iops: Optional[int] = None
     KmsKeyId: Optional[str] = None
     SizeInGB: Optional[int] = None
-    SnapshotId: Optional[str] = None
+    SnapshotId: Optional[Annotated[str, _aws_pattern("WorkspacesInstances", "SnapshotId")]] = None
     TagSpecifications: Optional[List[TagSpecificationTypeDef]] = None
     Throughput: Optional[int] = None
     VolumeType: Optional[VolumeTypeEnumType] = None
@@ -378,7 +380,7 @@ class InstanceNetworkInterfaceSpecificationTypeDef(BaseValidatorModel):
     AssociateCarrierIpAddress: Optional[bool] = None
     AssociatePublicIpAddress: Optional[bool] = None
     ConnectionTrackingSpecification: Optional[ConnectionTrackingSpecificationRequestTypeDef] = None
-    Description: Optional[str] = None
+    Description: Optional[Annotated[str, _aws_pattern("WorkspacesInstances", "Description")]] = None
     DeviceIndex: Optional[int] = None
     EnaSrdSpecification: Optional[EnaSrdSpecificationRequestTypeDef] = None
     InterfaceType: Optional[InterfaceTypeEnumType] = None
@@ -389,13 +391,13 @@ class InstanceNetworkInterfaceSpecificationTypeDef(BaseValidatorModel):
     Ipv6Prefixes: Optional[List[Ipv6PrefixSpecificationRequestTypeDef]] = None
     Ipv6PrefixCount: Optional[int] = None
     NetworkCardIndex: Optional[int] = None
-    NetworkInterfaceId: Optional[str] = None
+    NetworkInterfaceId: Optional[Annotated[str, _aws_pattern("WorkspacesInstances", "NetworkInterfaceId")]] = None
     PrimaryIpv6: Optional[bool] = None
-    PrivateIpAddress: Optional[str] = None
+    PrivateIpAddress: Optional[Annotated[str, _aws_pattern("WorkspacesInstances", "Ipv4Address")]] = None
     PrivateIpAddresses: Optional[List[PrivateIpAddressSpecificationTypeDef]] = None
     SecondaryPrivateIpAddressCount: Optional[int] = None
-    Groups: Optional[List[str]] = None
-    SubnetId: Optional[str] = None
+    Groups: Optional[List[Annotated[str, _aws_pattern("WorkspacesInstances", "SecurityGroupId")]]] = None
+    SubnetId: Optional[Annotated[str, _aws_pattern("WorkspacesInstances", "SubnetId")]] = None
 
 
 # This class is the output for the 'list_instance_types' function.
@@ -421,9 +423,9 @@ class ManagedInstanceRequestTypeDef(BaseValidatorModel):
     EnclaveOptions: Optional[EnclaveOptionsRequestTypeDef] = None
     HibernationOptions: Optional[HibernationOptionsRequestTypeDef] = None
     IamInstanceProfile: Optional[IamInstanceProfileSpecificationTypeDef] = None
-    ImageId: Optional[str] = None
+    ImageId: Optional[Annotated[str, _aws_pattern("WorkspacesInstances", "ImageId")]] = None
     InstanceMarketOptions: Optional[InstanceMarketOptionsRequestTypeDef] = None
-    InstanceType: Optional[str] = None
+    InstanceType: Optional[Annotated[str, _aws_pattern("WorkspacesInstances", "InstanceType")]] = None
     Ipv6Addresses: Optional[List[InstanceIpv6AddressTypeDef]] = None
     Ipv6AddressCount: Optional[int] = None
     KernelId: Optional[str] = None
@@ -436,11 +438,11 @@ class ManagedInstanceRequestTypeDef(BaseValidatorModel):
     NetworkPerformanceOptions: Optional[InstanceNetworkPerformanceOptionsRequestTypeDef] = None
     Placement: Optional[PlacementTypeDef] = None
     PrivateDnsNameOptions: Optional[PrivateDnsNameOptionsRequestTypeDef] = None
-    PrivateIpAddress: Optional[str] = None
+    PrivateIpAddress: Optional[Annotated[str, _aws_pattern("WorkspacesInstances", "Ipv4Address")]] = None
     RamdiskId: Optional[str] = None
-    SecurityGroupIds: Optional[List[str]] = None
-    SecurityGroups: Optional[List[str]] = None
-    SubnetId: Optional[str] = None
+    SecurityGroupIds: Optional[List[Annotated[str, _aws_pattern("WorkspacesInstances", "SecurityGroupId")]]] = None
+    SecurityGroups: Optional[List[Annotated[str, _aws_pattern("WorkspacesInstances", "SecurityGroupName")]]] = None
+    SubnetId: Optional[Annotated[str, _aws_pattern("WorkspacesInstances", "SubnetId")]] = None
     TagSpecifications: Optional[List[TagSpecificationTypeDef]] = None
     UserData: Optional[str] = None
 

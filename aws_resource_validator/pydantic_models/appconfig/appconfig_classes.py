@@ -3,6 +3,7 @@
 from datetime import datetime
 from decimal import Decimal
 from typing import (
+    Annotated,
     Any,
     Callable,
     Dict,
@@ -24,6 +25,7 @@ from botocore.response import StreamingBody
 from pydantic import Field
 
 from aws_resource_validator.core.base_validator_model import BaseValidatorModel, EventStream
+from aws_resource_validator.core.pattern_validation import aws_field_pattern as _aws_pattern
 from aws_resource_validator.pydantic_models.appconfig.appconfig_constants import *  # noqa: F401,F403
 
 # Optional boto3 symbols — imported lazily so services that don't need them
@@ -55,28 +57,28 @@ class ActionInvocationTypeDef(BaseValidatorModel):
     ExtensionIdentifier: Optional[str] = None
     ActionName: Optional[str] = None
     Uri: Optional[str] = None
-    RoleArn: Optional[str] = None
+    RoleArn: Optional[Annotated[str, _aws_pattern("Appconfig", "Arn")]] = None
     ErrorMessage: Optional[str] = None
     ErrorCode: Optional[str] = None
-    InvocationId: Optional[str] = None
+    InvocationId: Optional[Annotated[str, _aws_pattern("Appconfig", "Id")]] = None
 
 
 class ActionTypeDef(BaseValidatorModel):
     Name: Optional[str] = None
     Description: Optional[str] = None
     Uri: Optional[str] = None
-    RoleArn: Optional[str] = None
+    RoleArn: Optional[Annotated[str, _aws_pattern("Appconfig", "Arn")]] = None
 
 
 class ApplicationTypeDef(BaseValidatorModel):
-    Id: Optional[str] = None
+    Id: Optional[Annotated[str, _aws_pattern("Appconfig", "Id")]] = None
     Name: Optional[str] = None
     Description: Optional[str] = None
 
 
 class AppliedExtensionTypeDef(BaseValidatorModel):
-    ExtensionId: Optional[str] = None
-    ExtensionAssociationId: Optional[str] = None
+    ExtensionId: Optional[Annotated[str, _aws_pattern("Appconfig", "Id")]] = None
+    ExtensionAssociationId: Optional[Annotated[str, _aws_pattern("Appconfig", "Id")]] = None
     VersionNumber: Optional[int] = None
     Parameters: Optional[Dict[str, str]] = None
 
@@ -85,12 +87,12 @@ BlobTypeDef = Union[IO[Any], StreamingBody, bytes, str]
 
 
 class ConfigurationProfileSummaryTypeDef(BaseValidatorModel):
-    ApplicationId: Optional[str] = None
-    Id: Optional[str] = None
+    ApplicationId: Optional[Annotated[str, _aws_pattern("Appconfig", "Id")]] = None
+    Id: Optional[Annotated[str, _aws_pattern("Appconfig", "Id")]] = None
     Name: Optional[str] = None
     LocationUri: Optional[str] = None
     ValidatorTypes: Optional[List[ValidatorTypeType]] = None
-    Type: Optional[str] = None
+    Type: Optional[Annotated[str, _aws_pattern("Appconfig", "ConfigurationProfileType")]] = None
 
 
 class ValidatorTypeDef(BaseValidatorModel):
@@ -119,7 +121,7 @@ class CreateDeploymentStrategyRequestTypeDef(BaseValidatorModel):
 
 class MonitorTypeDef(BaseValidatorModel):
     AlarmArn: str
-    AlarmRoleArn: Optional[str] = None
+    AlarmRoleArn: Optional[Annotated[str, _aws_pattern("Appconfig", "RoleArn")]] = None
 
 
 # This class is the input for the 'create_extension_association' function.
@@ -139,31 +141,31 @@ class ParameterTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'delete_application' function.
 class DeleteApplicationRequestTypeDef(BaseValidatorModel):
-    ApplicationId: str
+    ApplicationId: Annotated[str, _aws_pattern("Appconfig", "Id")]
 
 
 # This class is the input for the 'delete_configuration_profile' function.
 class DeleteConfigurationProfileRequestTypeDef(BaseValidatorModel):
-    ApplicationId: str
-    ConfigurationProfileId: str
+    ApplicationId: Annotated[str, _aws_pattern("Appconfig", "Id")]
+    ConfigurationProfileId: Annotated[str, _aws_pattern("Appconfig", "Id")]
     DeletionProtectionCheck: Optional[DeletionProtectionCheckType] = None
 
 
 # This class is the input for the 'delete_deployment_strategy' function.
 class DeleteDeploymentStrategyRequestTypeDef(BaseValidatorModel):
-    DeploymentStrategyId: str
+    DeploymentStrategyId: Annotated[str, _aws_pattern("Appconfig", "DeploymentStrategyId")]
 
 
 # This class is the input for the 'delete_environment' function.
 class DeleteEnvironmentRequestTypeDef(BaseValidatorModel):
-    EnvironmentId: str
-    ApplicationId: str
+    EnvironmentId: Annotated[str, _aws_pattern("Appconfig", "Id")]
+    ApplicationId: Annotated[str, _aws_pattern("Appconfig", "Id")]
     DeletionProtectionCheck: Optional[DeletionProtectionCheckType] = None
 
 
 # This class is the input for the 'delete_extension_association' function.
 class DeleteExtensionAssociationRequestTypeDef(BaseValidatorModel):
-    ExtensionAssociationId: str
+    ExtensionAssociationId: Annotated[str, _aws_pattern("Appconfig", "Id")]
 
 
 # This class is the input for the 'delete_extension' function.
@@ -174,13 +176,13 @@ class DeleteExtensionRequestTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'delete_hosted_configuration_version' function.
 class DeleteHostedConfigurationVersionRequestTypeDef(BaseValidatorModel):
-    ApplicationId: str
-    ConfigurationProfileId: str
+    ApplicationId: Annotated[str, _aws_pattern("Appconfig", "Id")]
+    ConfigurationProfileId: Annotated[str, _aws_pattern("Appconfig", "Id")]
     VersionNumber: int
 
 
 class DeploymentStrategyTypeDef(BaseValidatorModel):
-    Id: Optional[str] = None
+    Id: Optional[Annotated[str, _aws_pattern("Appconfig", "Id")]] = None
     Name: Optional[str] = None
     Description: Optional[str] = None
     DeploymentDurationInMinutes: Optional[int] = None
@@ -202,32 +204,32 @@ class DeploymentSummaryTypeDef(BaseValidatorModel):
     PercentageComplete: Optional[float] = None
     StartedAt: Optional[datetime] = None
     CompletedAt: Optional[datetime] = None
-    VersionLabel: Optional[str] = None
+    VersionLabel: Optional[Annotated[str, _aws_pattern("Appconfig", "VersionLabel")]] = None
 
 
 class ExtensionAssociationSummaryTypeDef(BaseValidatorModel):
     Id: Optional[str] = None
-    ExtensionArn: Optional[str] = None
-    ResourceArn: Optional[str] = None
+    ExtensionArn: Optional[Annotated[str, _aws_pattern("Appconfig", "Arn")]] = None
+    ResourceArn: Optional[Annotated[str, _aws_pattern("Appconfig", "Arn")]] = None
 
 
 class ExtensionSummaryTypeDef(BaseValidatorModel):
-    Id: Optional[str] = None
+    Id: Optional[Annotated[str, _aws_pattern("Appconfig", "Id")]] = None
     Name: Optional[str] = None
     VersionNumber: Optional[int] = None
-    Arn: Optional[str] = None
+    Arn: Optional[Annotated[str, _aws_pattern("Appconfig", "Arn")]] = None
     Description: Optional[str] = None
 
 
 # This class is the input for the 'get_application' function.
 class GetApplicationRequestTypeDef(BaseValidatorModel):
-    ApplicationId: str
+    ApplicationId: Annotated[str, _aws_pattern("Appconfig", "Id")]
 
 
 # This class is the input for the 'get_configuration_profile' function.
 class GetConfigurationProfileRequestTypeDef(BaseValidatorModel):
-    ApplicationId: str
-    ConfigurationProfileId: str
+    ApplicationId: Annotated[str, _aws_pattern("Appconfig", "Id")]
+    ConfigurationProfileId: Annotated[str, _aws_pattern("Appconfig", "Id")]
 
 
 # This class is the input for the 'get_configuration' function.
@@ -241,8 +243,8 @@ class GetConfigurationRequestTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'get_deployment' function.
 class GetDeploymentRequestTypeDef(BaseValidatorModel):
-    ApplicationId: str
-    EnvironmentId: str
+    ApplicationId: Annotated[str, _aws_pattern("Appconfig", "Id")]
+    EnvironmentId: Annotated[str, _aws_pattern("Appconfig", "Id")]
     DeploymentNumber: int
 
 
@@ -253,18 +255,18 @@ class WaiterConfigTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'get_deployment_strategy' function.
 class GetDeploymentStrategyRequestTypeDef(BaseValidatorModel):
-    DeploymentStrategyId: str
+    DeploymentStrategyId: Annotated[str, _aws_pattern("Appconfig", "DeploymentStrategyId")]
 
 
 # This class is the input for the 'get_environment' function.
 class GetEnvironmentRequestTypeDef(BaseValidatorModel):
-    ApplicationId: str
-    EnvironmentId: str
+    ApplicationId: Annotated[str, _aws_pattern("Appconfig", "Id")]
+    EnvironmentId: Annotated[str, _aws_pattern("Appconfig", "Id")]
 
 
 # This class is the input for the 'get_extension_association' function.
 class GetExtensionAssociationRequestTypeDef(BaseValidatorModel):
-    ExtensionAssociationId: str
+    ExtensionAssociationId: Annotated[str, _aws_pattern("Appconfig", "Id")]
 
 
 # This class is the input for the 'get_extension' function.
@@ -275,19 +277,19 @@ class GetExtensionRequestTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'get_hosted_configuration_version' function.
 class GetHostedConfigurationVersionRequestTypeDef(BaseValidatorModel):
-    ApplicationId: str
-    ConfigurationProfileId: str
+    ApplicationId: Annotated[str, _aws_pattern("Appconfig", "Id")]
+    ConfigurationProfileId: Annotated[str, _aws_pattern("Appconfig", "Id")]
     VersionNumber: int
 
 
 class HostedConfigurationVersionSummaryTypeDef(BaseValidatorModel):
-    ApplicationId: Optional[str] = None
-    ConfigurationProfileId: Optional[str] = None
+    ApplicationId: Optional[Annotated[str, _aws_pattern("Appconfig", "Id")]] = None
+    ConfigurationProfileId: Optional[Annotated[str, _aws_pattern("Appconfig", "Id")]] = None
     VersionNumber: Optional[int] = None
     Description: Optional[str] = None
     ContentType: Optional[str] = None
-    VersionLabel: Optional[str] = None
-    KmsKeyArn: Optional[str] = None
+    VersionLabel: Optional[Annotated[str, _aws_pattern("Appconfig", "VersionLabel")]] = None
+    KmsKeyArn: Optional[Annotated[str, _aws_pattern("Appconfig", "Arn")]] = None
 
 
 class PaginatorConfigTypeDef(BaseValidatorModel):
@@ -304,10 +306,10 @@ class ListApplicationsRequestTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'list_configuration_profiles' function.
 class ListConfigurationProfilesRequestTypeDef(BaseValidatorModel):
-    ApplicationId: str
+    ApplicationId: Annotated[str, _aws_pattern("Appconfig", "Id")]
     MaxResults: Optional[int] = None
     NextToken: Optional[str] = None
-    Type: Optional[str] = None
+    Type: Optional[Annotated[str, _aws_pattern("Appconfig", "ConfigurationProfileType")]] = None
 
 
 # This class is the input for the 'list_deployment_strategies' function.
@@ -318,22 +320,22 @@ class ListDeploymentStrategiesRequestTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'list_deployments' function.
 class ListDeploymentsRequestTypeDef(BaseValidatorModel):
-    ApplicationId: str
-    EnvironmentId: str
+    ApplicationId: Annotated[str, _aws_pattern("Appconfig", "Id")]
+    EnvironmentId: Annotated[str, _aws_pattern("Appconfig", "Id")]
     MaxResults: Optional[int] = None
     NextToken: Optional[str] = None
 
 
 # This class is the input for the 'list_environments' function.
 class ListEnvironmentsRequestTypeDef(BaseValidatorModel):
-    ApplicationId: str
+    ApplicationId: Annotated[str, _aws_pattern("Appconfig", "Id")]
     MaxResults: Optional[int] = None
     NextToken: Optional[str] = None
 
 
 # This class is the input for the 'list_extension_associations' function.
 class ListExtensionAssociationsRequestTypeDef(BaseValidatorModel):
-    ResourceIdentifier: Optional[str] = None
+    ResourceIdentifier: Optional[Annotated[str, _aws_pattern("Appconfig", "Arn")]] = None
     ExtensionIdentifier: Optional[str] = None
     ExtensionVersionNumber: Optional[int] = None
     MaxResults: Optional[int] = None
@@ -349,8 +351,8 @@ class ListExtensionsRequestTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'list_hosted_configuration_versions' function.
 class ListHostedConfigurationVersionsRequestTypeDef(BaseValidatorModel):
-    ApplicationId: str
-    ConfigurationProfileId: str
+    ApplicationId: Annotated[str, _aws_pattern("Appconfig", "Id")]
+    ConfigurationProfileId: Annotated[str, _aws_pattern("Appconfig", "Id")]
     MaxResults: Optional[int] = None
     NextToken: Optional[str] = None
     VersionLabel: Optional[str] = None
@@ -358,15 +360,15 @@ class ListHostedConfigurationVersionsRequestTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'list_tags_for_resource' function.
 class ListTagsForResourceRequestTypeDef(BaseValidatorModel):
-    ResourceArn: str
+    ResourceArn: Annotated[str, _aws_pattern("Appconfig", "Arn")]
 
 
 # This class is the input for the 'start_deployment' function.
 class StartDeploymentRequestTypeDef(BaseValidatorModel):
-    ApplicationId: str
-    EnvironmentId: str
-    DeploymentStrategyId: str
-    ConfigurationProfileId: str
+    ApplicationId: Annotated[str, _aws_pattern("Appconfig", "Id")]
+    EnvironmentId: Annotated[str, _aws_pattern("Appconfig", "Id")]
+    DeploymentStrategyId: Annotated[str, _aws_pattern("Appconfig", "DeploymentStrategyId")]
+    ConfigurationProfileId: Annotated[str, _aws_pattern("Appconfig", "Id")]
     ConfigurationVersion: str
     Description: Optional[str] = None
     Tags: Optional[Dict[str, str]] = None
@@ -376,34 +378,34 @@ class StartDeploymentRequestTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'stop_deployment' function.
 class StopDeploymentRequestTypeDef(BaseValidatorModel):
-    ApplicationId: str
-    EnvironmentId: str
+    ApplicationId: Annotated[str, _aws_pattern("Appconfig", "Id")]
+    EnvironmentId: Annotated[str, _aws_pattern("Appconfig", "Id")]
     DeploymentNumber: int
     AllowRevert: Optional[bool] = None
 
 
 # This class is the input for the 'tag_resource' function.
 class TagResourceRequestTypeDef(BaseValidatorModel):
-    ResourceArn: str
+    ResourceArn: Annotated[str, _aws_pattern("Appconfig", "Arn")]
     Tags: Dict[str, str]
 
 
 # This class is the input for the 'untag_resource' function.
 class UntagResourceRequestTypeDef(BaseValidatorModel):
-    ResourceArn: str
+    ResourceArn: Annotated[str, _aws_pattern("Appconfig", "Arn")]
     TagKeys: List[str]
 
 
 # This class is the input for the 'update_application' function.
 class UpdateApplicationRequestTypeDef(BaseValidatorModel):
-    ApplicationId: str
+    ApplicationId: Annotated[str, _aws_pattern("Appconfig", "Id")]
     Name: Optional[str] = None
     Description: Optional[str] = None
 
 
 # This class is the input for the 'update_deployment_strategy' function.
 class UpdateDeploymentStrategyRequestTypeDef(BaseValidatorModel):
-    DeploymentStrategyId: str
+    DeploymentStrategyId: Annotated[str, _aws_pattern("Appconfig", "DeploymentStrategyId")]
     Description: Optional[str] = None
     DeploymentDurationInMinutes: Optional[int] = None
     FinalBakeTimeInMinutes: Optional[int] = None
@@ -413,14 +415,14 @@ class UpdateDeploymentStrategyRequestTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'update_extension_association' function.
 class UpdateExtensionAssociationRequestTypeDef(BaseValidatorModel):
-    ExtensionAssociationId: str
+    ExtensionAssociationId: Annotated[str, _aws_pattern("Appconfig", "Id")]
     Parameters: Optional[Dict[str, str]] = None
 
 
 # This class is the input for the 'validate_configuration' function.
 class ValidateConfigurationRequestTypeDef(BaseValidatorModel):
-    ApplicationId: str
-    ConfigurationProfileId: str
+    ApplicationId: Annotated[str, _aws_pattern("Appconfig", "Id")]
+    ConfigurationProfileId: Annotated[str, _aws_pattern("Appconfig", "Id")]
     ConfigurationVersion: str
 
 
@@ -472,9 +474,9 @@ class EmptyResponseMetadataTypeDef(BaseValidatorModel):
 # This class is the output for the 'create_extension_association' function.
 class ExtensionAssociationTypeDef(BaseValidatorModel):
     Id: str
-    ExtensionArn: str
-    ResourceArn: str
-    Arn: str
+    ExtensionArn: Annotated[str, _aws_pattern("Appconfig", "Arn")]
+    ResourceArn: Annotated[str, _aws_pattern("Appconfig", "Arn")]
+    Arn: Annotated[str, _aws_pattern("Appconfig", "Arn")]
     Parameters: Dict[str, str]
     ExtensionVersionNumber: int
     ResponseMetadata: ResponseMetadataTypeDef
@@ -482,14 +484,14 @@ class ExtensionAssociationTypeDef(BaseValidatorModel):
 
 # This class is the output for the 'create_hosted_configuration_version' function.
 class HostedConfigurationVersionTypeDef(BaseValidatorModel):
-    ApplicationId: str
-    ConfigurationProfileId: str
+    ApplicationId: Annotated[str, _aws_pattern("Appconfig", "Id")]
+    ConfigurationProfileId: Annotated[str, _aws_pattern("Appconfig", "Id")]
     VersionNumber: int
     Description: str
     Content: StreamingBody
     ContentType: str
-    VersionLabel: str
-    KmsKeyArn: str
+    VersionLabel: Annotated[str, _aws_pattern("Appconfig", "VersionLabel")]
+    KmsKeyArn: Annotated[str, _aws_pattern("Appconfig", "Arn")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
@@ -516,13 +518,13 @@ class ApplicationsTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'create_hosted_configuration_version' function.
 class CreateHostedConfigurationVersionRequestTypeDef(BaseValidatorModel):
-    ApplicationId: str
-    ConfigurationProfileId: str
+    ApplicationId: Annotated[str, _aws_pattern("Appconfig", "Id")]
+    ConfigurationProfileId: Annotated[str, _aws_pattern("Appconfig", "Id")]
     Content: BlobTypeDef
     ContentType: str
     Description: Optional[str] = None
     LatestVersionNumber: Optional[int] = None
-    VersionLabel: Optional[str] = None
+    VersionLabel: Optional[Annotated[str, _aws_pattern("Appconfig", "VersionLabel")]] = None
 
 
 # This class is the output for the 'list_configuration_profiles' function.
@@ -534,46 +536,46 @@ class ConfigurationProfilesTypeDef(BaseValidatorModel):
 
 # This class is the output for the 'create_configuration_profile' function.
 class ConfigurationProfileTypeDef(BaseValidatorModel):
-    ApplicationId: str
-    Id: str
+    ApplicationId: Annotated[str, _aws_pattern("Appconfig", "Id")]
+    Id: Annotated[str, _aws_pattern("Appconfig", "Id")]
     Name: str
     Description: str
     LocationUri: str
-    RetrievalRoleArn: str
+    RetrievalRoleArn: Annotated[str, _aws_pattern("Appconfig", "RoleArn")]
     Validators: List[ValidatorTypeDef]
-    Type: str
-    KmsKeyArn: str
+    Type: Annotated[str, _aws_pattern("Appconfig", "ConfigurationProfileType")]
+    KmsKeyArn: Annotated[str, _aws_pattern("Appconfig", "Arn")]
     KmsKeyIdentifier: str
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 # This class is the input for the 'create_configuration_profile' function.
 class CreateConfigurationProfileRequestTypeDef(BaseValidatorModel):
-    ApplicationId: str
+    ApplicationId: Annotated[str, _aws_pattern("Appconfig", "Id")]
     Name: str
     LocationUri: str
     Description: Optional[str] = None
-    RetrievalRoleArn: Optional[str] = None
+    RetrievalRoleArn: Optional[Annotated[str, _aws_pattern("Appconfig", "RoleArn")]] = None
     Validators: Optional[List[ValidatorTypeDef]] = None
     Tags: Optional[Dict[str, str]] = None
-    Type: Optional[str] = None
+    Type: Optional[Annotated[str, _aws_pattern("Appconfig", "ConfigurationProfileType")]] = None
     KmsKeyIdentifier: Optional[str] = None
 
 
 # This class is the input for the 'update_configuration_profile' function.
 class UpdateConfigurationProfileRequestTypeDef(BaseValidatorModel):
-    ApplicationId: str
-    ConfigurationProfileId: str
+    ApplicationId: Annotated[str, _aws_pattern("Appconfig", "Id")]
+    ConfigurationProfileId: Annotated[str, _aws_pattern("Appconfig", "Id")]
     Name: Optional[str] = None
     Description: Optional[str] = None
-    RetrievalRoleArn: Optional[str] = None
+    RetrievalRoleArn: Optional[Annotated[str, _aws_pattern("Appconfig", "RoleArn")]] = None
     Validators: Optional[List[ValidatorTypeDef]] = None
     KmsKeyIdentifier: Optional[str] = None
 
 
 # This class is the input for the 'create_environment' function.
 class CreateEnvironmentRequestTypeDef(BaseValidatorModel):
-    ApplicationId: str
+    ApplicationId: Annotated[str, _aws_pattern("Appconfig", "Id")]
     Name: str
     Description: Optional[str] = None
     Monitors: Optional[List[MonitorTypeDef]] = None
@@ -592,8 +594,8 @@ class EnvironmentResponseTypeDef(BaseValidatorModel):
 
 
 class EnvironmentTypeDef(BaseValidatorModel):
-    ApplicationId: Optional[str] = None
-    Id: Optional[str] = None
+    ApplicationId: Optional[Annotated[str, _aws_pattern("Appconfig", "Id")]] = None
+    Id: Optional[Annotated[str, _aws_pattern("Appconfig", "Id")]] = None
     Name: Optional[str] = None
     Description: Optional[str] = None
     State: Optional[EnvironmentStateType] = None
@@ -602,8 +604,8 @@ class EnvironmentTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'update_environment' function.
 class UpdateEnvironmentRequestTypeDef(BaseValidatorModel):
-    ApplicationId: str
-    EnvironmentId: str
+    ApplicationId: Annotated[str, _aws_pattern("Appconfig", "Id")]
+    EnvironmentId: Annotated[str, _aws_pattern("Appconfig", "Id")]
     Name: Optional[str] = None
     Description: Optional[str] = None
     Monitors: Optional[List[MonitorTypeDef]] = None
@@ -611,7 +613,7 @@ class UpdateEnvironmentRequestTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'create_extension' function.
 class CreateExtensionRequestTypeDef(BaseValidatorModel):
-    Name: str
+    Name: Annotated[str, _aws_pattern("Appconfig", "ExtensionOrParameterName")]
     Actions: Dict[ActionPointType, List[ActionTypeDef]]
     Description: Optional[str] = None
     Parameters: Optional[Dict[str, ParameterTypeDef]] = None
@@ -621,10 +623,10 @@ class CreateExtensionRequestTypeDef(BaseValidatorModel):
 
 # This class is the output for the 'create_extension' function.
 class ExtensionTypeDef(BaseValidatorModel):
-    Id: str
+    Id: Annotated[str, _aws_pattern("Appconfig", "Id")]
     Name: str
     VersionNumber: int
-    Arn: str
+    Arn: Annotated[str, _aws_pattern("Appconfig", "Arn")]
     Description: str
     Actions: Dict[ActionPointType, List[ActionTypeDef]]
     Parameters: Dict[str, ParameterTypeDef]
@@ -734,10 +736,10 @@ class ListHostedConfigurationVersionsRequestPaginateTypeDef(BaseValidatorModel):
 
 # This class is the output for the 'get_deployment' function.
 class DeploymentTypeDef(BaseValidatorModel):
-    ApplicationId: str
-    EnvironmentId: str
-    DeploymentStrategyId: str
-    ConfigurationProfileId: str
+    ApplicationId: Annotated[str, _aws_pattern("Appconfig", "Id")]
+    EnvironmentId: Annotated[str, _aws_pattern("Appconfig", "Id")]
+    DeploymentStrategyId: Annotated[str, _aws_pattern("Appconfig", "Id")]
+    ConfigurationProfileId: Annotated[str, _aws_pattern("Appconfig", "Id")]
     DeploymentNumber: int
     ConfigurationName: str
     ConfigurationLocationUri: str
@@ -753,9 +755,9 @@ class DeploymentTypeDef(BaseValidatorModel):
     StartedAt: datetime
     CompletedAt: datetime
     AppliedExtensions: List[AppliedExtensionTypeDef]
-    KmsKeyArn: str
+    KmsKeyArn: Annotated[str, _aws_pattern("Appconfig", "Arn")]
     KmsKeyIdentifier: str
-    VersionLabel: str
+    VersionLabel: Annotated[str, _aws_pattern("Appconfig", "VersionLabel")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 

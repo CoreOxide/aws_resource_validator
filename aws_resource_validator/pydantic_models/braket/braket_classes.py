@@ -3,6 +3,7 @@
 from datetime import datetime
 from decimal import Decimal
 from typing import (
+    Annotated,
     Any,
     Callable,
     Dict,
@@ -24,6 +25,7 @@ from botocore.response import StreamingBody
 from pydantic import Field
 
 from aws_resource_validator.core.base_validator_model import BaseValidatorModel, EventStream
+from aws_resource_validator.core.pattern_validation import aws_field_pattern as _aws_pattern
 from aws_resource_validator.pydantic_models.braket.braket_constants import *  # noqa: F401,F403
 
 # Optional boto3 symbols — imported lazily so services that don't need them
@@ -45,23 +47,23 @@ class ActionMetadataTypeDef(BaseValidatorModel):
 
 
 class ContainerImageTypeDef(BaseValidatorModel):
-    uri: str
+    uri: Annotated[str, _aws_pattern("Braket", "Uri")]
 
 
 class ScriptModeConfigTypeDef(BaseValidatorModel):
     entryPoint: str
-    s3Uri: str
+    s3Uri: Annotated[str, _aws_pattern("Braket", "S3Path")]
     compressionType: Optional[CompressionTypeType] = None
 
 
 class AssociationTypeDef(BaseValidatorModel):
-    arn: str
+    arn: Annotated[str, _aws_pattern("Braket", "BraketResourceArn")]
     type: Literal["RESERVATION_TIME_WINDOW_ARN"]
 
 
 # This class is the input for the 'cancel_job' function.
 class CancelJobRequestTypeDef(BaseValidatorModel):
-    jobArn: str
+    jobArn: Annotated[str, _aws_pattern("Braket", "JobArn")]
 
 
 class ResponseMetadataTypeDef(BaseValidatorModel):
@@ -89,12 +91,12 @@ class InstanceConfigTypeDef(BaseValidatorModel):
 
 
 class JobCheckpointConfigTypeDef(BaseValidatorModel):
-    s3Uri: str
+    s3Uri: Annotated[str, _aws_pattern("Braket", "S3Path")]
     localPath: Optional[str] = None
 
 
 class JobOutputDataConfigTypeDef(BaseValidatorModel):
-    s3Path: str
+    s3Path: Annotated[str, _aws_pattern("Braket", "S3Path")]
     kmsKeyId: Optional[str] = None
 
 
@@ -107,11 +109,11 @@ class ExperimentalCapabilitiesTypeDef(BaseValidatorModel):
 
 
 class S3DataSourceTypeDef(BaseValidatorModel):
-    s3Uri: str
+    s3Uri: Annotated[str, _aws_pattern("Braket", "S3Path")]
 
 
 class DeleteSpendingLimitRequestTypeDef(BaseValidatorModel):
-    spendingLimitArn: str
+    spendingLimitArn: Annotated[str, _aws_pattern("Braket", "SpendingLimitArn")]
 
 
 class DeviceQueueInfoTypeDef(BaseValidatorModel):
@@ -135,7 +137,7 @@ class GetDeviceRequestTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'get_job' function.
 class GetJobRequestTypeDef(BaseValidatorModel):
-    jobArn: str
+    jobArn: Annotated[str, _aws_pattern("Braket", "JobArn")]
     additionalAttributeNames: Optional[List[Literal["QueueInfo"]]] = None
 
 
@@ -166,7 +168,7 @@ class QuantumTaskQueueInfoTypeDef(BaseValidatorModel):
 
 class JobSummaryTypeDef(BaseValidatorModel):
     status: JobPrimaryStatusType
-    jobArn: str
+    jobArn: Annotated[str, _aws_pattern("Braket", "JobArn")]
     jobName: str
     device: str
     createdAt: datetime
@@ -246,7 +248,7 @@ class AlgorithmSpecificationTypeDef(BaseValidatorModel):
 
 # This class is the output for the 'cancel_job' function.
 class CancelJobResponseTypeDef(BaseValidatorModel):
-    jobArn: str
+    jobArn: Annotated[str, _aws_pattern("Braket", "JobArn")]
     cancellationStatus: CancellationStatusType
     ResponseMetadata: ResponseMetadataTypeDef
 
@@ -260,7 +262,7 @@ class CancelQuantumTaskResponseTypeDef(BaseValidatorModel):
 
 # This class is the output for the 'create_job' function.
 class CreateJobResponseTypeDef(BaseValidatorModel):
-    jobArn: str
+    jobArn: Annotated[str, _aws_pattern("Braket", "JobArn")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
@@ -272,7 +274,7 @@ class CreateQuantumTaskResponseTypeDef(BaseValidatorModel):
 
 # This class is the output for the 'create_spending_limit' function.
 class CreateSpendingLimitResponseTypeDef(BaseValidatorModel):
-    spendingLimitArn: str
+    spendingLimitArn: Annotated[str, _aws_pattern("Braket", "SpendingLimitArn")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
@@ -333,7 +335,7 @@ class GetQuantumTaskResponseTypeDef(BaseValidatorModel):
     createdAt: datetime
     endedAt: datetime
     tags: Dict[str, str]
-    jobArn: str
+    jobArn: Annotated[str, _aws_pattern("Braket", "JobArn")]
     queueInfo: QuantumTaskQueueInfoTypeDef
     associations: List[AssociationTypeDef]
     numSuccessfulShots: int
@@ -405,7 +407,7 @@ class SearchSpendingLimitsRequestTypeDef(BaseValidatorModel):
 
 
 class SpendingLimitSummaryTypeDef(BaseValidatorModel):
-    spendingLimitArn: str
+    spendingLimitArn: Annotated[str, _aws_pattern("Braket", "SpendingLimitArn")]
     deviceArn: str
     timePeriod: TimePeriodOutputTypeDef
     spendingLimit: str
@@ -422,7 +424,7 @@ class TimePeriodTypeDef(BaseValidatorModel):
 
 
 class InputFileConfigTypeDef(BaseValidatorModel):
-    channelName: str
+    channelName: Annotated[str, _aws_pattern("Braket", "InputFileConfigChannelNameString")]
     dataSource: DataSourceTypeDef
     contentType: Optional[str] = None
 
@@ -442,8 +444,8 @@ class CreateJobRequestTypeDef(BaseValidatorModel):
     clientToken: str
     algorithmSpecification: AlgorithmSpecificationTypeDef
     outputDataConfig: JobOutputDataConfigTypeDef
-    jobName: str
-    roleArn: str
+    jobName: Annotated[str, _aws_pattern("Braket", "CreateJobRequestJobNameString")]
+    roleArn: Annotated[str, _aws_pattern("Braket", "RoleArn")]
     instanceConfig: InstanceConfigTypeDef
     deviceConfig: DeviceConfigTypeDef
     inputDataConfig: Optional[List[InputFileConfigTypeDef]] = None
@@ -457,10 +459,10 @@ class CreateJobRequestTypeDef(BaseValidatorModel):
 # This class is the output for the 'get_job' function.
 class GetJobResponseTypeDef(BaseValidatorModel):
     status: JobPrimaryStatusType
-    jobArn: str
-    roleArn: str
+    jobArn: Annotated[str, _aws_pattern("Braket", "JobArn")]
+    roleArn: Annotated[str, _aws_pattern("Braket", "RoleArn")]
     failureReason: str
-    jobName: str
+    jobName: Annotated[str, _aws_pattern("Braket", "GetJobResponseJobNameString")]
     hyperParameters: Dict[str, str]
     inputDataConfig: List[InputFileConfigTypeDef]
     outputDataConfig: JobOutputDataConfigTypeDef
@@ -484,13 +486,15 @@ class GetJobResponseTypeDef(BaseValidatorModel):
 class CreateSpendingLimitRequestTypeDef(BaseValidatorModel):
     clientToken: str
     deviceArn: str
-    spendingLimit: str
+    spendingLimit: Annotated[str, _aws_pattern("Braket", "CreateSpendingLimitRequestSpendingLimitString")]
     timePeriod: Optional[TimePeriodUnionTypeDef] = None
     tags: Optional[Dict[str, str]] = None
 
 
 class UpdateSpendingLimitRequestTypeDef(BaseValidatorModel):
-    spendingLimitArn: str
+    spendingLimitArn: Annotated[str, _aws_pattern("Braket", "SpendingLimitArn")]
     clientToken: str
-    spendingLimit: Optional[str] = None
+    spendingLimit: Optional[Annotated[str, _aws_pattern("Braket", "UpdateSpendingLimitRequestSpendingLimitString")]] = (
+        None
+    )
     timePeriod: Optional[TimePeriodUnionTypeDef] = None

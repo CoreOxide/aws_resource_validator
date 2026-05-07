@@ -3,6 +3,7 @@
 from datetime import datetime
 from decimal import Decimal
 from typing import (
+    Annotated,
     Any,
     Callable,
     Dict,
@@ -24,6 +25,7 @@ from botocore.response import StreamingBody
 from pydantic import Field
 
 from aws_resource_validator.core.base_validator_model import BaseValidatorModel, EventStream
+from aws_resource_validator.core.pattern_validation import aws_field_pattern as _aws_pattern
 from aws_resource_validator.pydantic_models.inspector2.inspector2_constants import *  # noqa: F401,F403
 
 # Optional boto3 symbols — imported lazily so services that don't need them
@@ -79,12 +81,12 @@ class StringFilterTypeDef(BaseValidatorModel):
 
 
 class CodeSecurityResourceTypeDef(BaseValidatorModel):
-    projectId: Optional[str] = None
+    projectId: Optional[Annotated[str, _aws_pattern("Inspector2", "ProjectId")]] = None
 
 
 # This class is the input for the 'associate_member' function.
 class AssociateMemberRequestTypeDef(BaseValidatorModel):
-    accountId: str
+    accountId: Annotated[str, _aws_pattern("Inspector2", "AccountId")]
 
 
 class ResponseMetadataTypeDef(BaseValidatorModel):
@@ -113,7 +115,7 @@ class AutoEnableTypeDef(BaseValidatorModel):
 class AwsEc2InstanceDetailsTypeDef(BaseValidatorModel):
     type: Optional[str] = None
     imageId: Optional[str] = None
-    ipV4Addresses: Optional[List[str]] = None
+    ipV4Addresses: Optional[List[Annotated[str, _aws_pattern("Inspector2", "IpV4Address")]]] = None
     ipV6Addresses: Optional[List[str]] = None
     keyName: Optional[str] = None
     iamInstanceProfileArn: Optional[str] = None
@@ -130,7 +132,7 @@ class NumberFilterTypeDef(BaseValidatorModel):
 
 class AwsEcrContainerImageDetailsTypeDef(BaseValidatorModel):
     repositoryName: str
-    imageHash: str
+    imageHash: Annotated[str, _aws_pattern("Inspector2", "ImageHash")]
     registry: str
     imageTags: Optional[List[str]] = None
     pushedAt: Optional[datetime] = None
@@ -152,68 +154,68 @@ class AwsEksWorkloadInfoTypeDef(BaseValidatorModel):
 
 
 class LambdaVpcConfigTypeDef(BaseValidatorModel):
-    subnetIds: Optional[List[str]] = None
-    securityGroupIds: Optional[List[str]] = None
-    vpcId: Optional[str] = None
+    subnetIds: Optional[List[Annotated[str, _aws_pattern("Inspector2", "SubnetId")]]] = None
+    securityGroupIds: Optional[List[Annotated[str, _aws_pattern("Inspector2", "SecurityGroupId")]]] = None
+    vpcId: Optional[Annotated[str, _aws_pattern("Inspector2", "VpcId")]] = None
 
 
 # This class is the input for the 'batch_get_account_status' function.
 class BatchGetAccountStatusRequestTypeDef(BaseValidatorModel):
-    accountIds: Optional[List[str]] = None
+    accountIds: Optional[List[Annotated[str, _aws_pattern("Inspector2", "AccountId")]]] = None
 
 
 # This class is the input for the 'batch_get_code_snippet' function.
 class BatchGetCodeSnippetRequestTypeDef(BaseValidatorModel):
-    findingArns: List[str]
+    findingArns: List[Annotated[str, _aws_pattern("Inspector2", "FindingArn")]]
 
 
 class CodeSnippetErrorTypeDef(BaseValidatorModel):
-    findingArn: str
+    findingArn: Annotated[str, _aws_pattern("Inspector2", "FindingArn")]
     errorCode: CodeSnippetErrorCodeType
     errorMessage: str
 
 
 # This class is the input for the 'batch_get_finding_details' function.
 class BatchGetFindingDetailsRequestTypeDef(BaseValidatorModel):
-    findingArns: List[str]
+    findingArns: List[Annotated[str, _aws_pattern("Inspector2", "FindingArn")]]
 
 
 class FindingDetailsErrorTypeDef(BaseValidatorModel):
-    findingArn: str
+    findingArn: Annotated[str, _aws_pattern("Inspector2", "FindingArn")]
     errorCode: FindingDetailsErrorCodeType
     errorMessage: str
 
 
 # This class is the input for the 'batch_get_free_trial_info' function.
 class BatchGetFreeTrialInfoRequestTypeDef(BaseValidatorModel):
-    accountIds: List[str]
+    accountIds: List[Annotated[str, _aws_pattern("Inspector2", "MeteringAccountId")]]
 
 
 class FreeTrialInfoErrorTypeDef(BaseValidatorModel):
-    accountId: str
+    accountId: Annotated[str, _aws_pattern("Inspector2", "MeteringAccountId")]
     code: FreeTrialInfoErrorCodeType
     message: str
 
 
 # This class is the input for the 'batch_get_member_ec2_deep_inspection_status' function.
 class BatchGetMemberEc2DeepInspectionStatusRequestTypeDef(BaseValidatorModel):
-    accountIds: Optional[List[str]] = None
+    accountIds: Optional[List[Annotated[str, _aws_pattern("Inspector2", "AccountId")]]] = None
 
 
 class FailedMemberAccountEc2DeepInspectionStatusStateTypeDef(BaseValidatorModel):
-    accountId: str
+    accountId: Annotated[str, _aws_pattern("Inspector2", "AccountId")]
     ec2ScanStatus: Optional[StatusType] = None
     errorMessage: Optional[str] = None
 
 
 class MemberAccountEc2DeepInspectionStatusStateTypeDef(BaseValidatorModel):
-    accountId: str
+    accountId: Annotated[str, _aws_pattern("Inspector2", "AccountId")]
     status: Optional[Ec2DeepInspectionStatusType] = None
     errorMessage: Optional[str] = None
 
 
 class MemberAccountEc2DeepInspectionStatusTypeDef(BaseValidatorModel):
-    accountId: str
+    accountId: Annotated[str, _aws_pattern("Inspector2", "AccountId")]
     activateDeepInspection: bool
 
 
@@ -222,12 +224,12 @@ BlobTypeDef = Union[IO[Any], StreamingBody, bytes, str]
 
 # This class is the input for the 'cancel_findings_report' function.
 class CancelFindingsReportRequestTypeDef(BaseValidatorModel):
-    reportId: str
+    reportId: Annotated[str, _aws_pattern("Inspector2", "ReportId")]
 
 
 # This class is the input for the 'cancel_sbom_export' function.
 class CancelSbomExportRequestTypeDef(BaseValidatorModel):
-    reportId: str
+    reportId: Annotated[str, _aws_pattern("Inspector2", "ReportId")]
 
 
 class StatusCountsTypeDef(BaseValidatorModel):
@@ -255,7 +257,7 @@ class CisResultStatusFilterTypeDef(BaseValidatorModel):
 
 
 class CisTargetsTypeDef(BaseValidatorModel):
-    accountIds: Optional[List[str]] = None
+    accountIds: Optional[List[Annotated[str, _aws_pattern("Inspector2", "AccountId")]]] = None
     targetResourceTags: Optional[Dict[str, List[str]]] = None
 
 
@@ -270,9 +272,9 @@ class CisStringFilterTypeDef(BaseValidatorModel):
 
 
 class CisScanResultDetailsTypeDef(BaseValidatorModel):
-    scanArn: str
-    accountId: Optional[str] = None
-    targetResourceId: Optional[str] = None
+    scanArn: Annotated[str, _aws_pattern("Inspector2", "CisScanArn")]
+    accountId: Optional[Annotated[str, _aws_pattern("Inspector2", "AccountId")]] = None
+    targetResourceId: Optional[Annotated[str, _aws_pattern("Inspector2", "ResourceId")]] = None
     platform: Optional[str] = None
     status: Optional[CisFindingStatusType] = None
     statusReason: Optional[str] = None
@@ -281,7 +283,7 @@ class CisScanResultDetailsTypeDef(BaseValidatorModel):
     checkDescription: Optional[str] = None
     remediation: Optional[str] = None
     level: Optional[CisSecurityLevelType] = None
-    findingArn: Optional[str] = None
+    findingArn: Optional[Annotated[str, _aws_pattern("Inspector2", "CisFindingArn")]] = None
 
 
 class CisTargetStatusFilterTypeDef(BaseValidatorModel):
@@ -312,7 +314,7 @@ class CisaDataTypeDef(BaseValidatorModel):
 
 
 class ClusterForImageFilterCriteriaTypeDef(BaseValidatorModel):
-    resourceId: str
+    resourceId: Annotated[str, _aws_pattern("Inspector2", "ClusterForImageFilterCriteriaResourceIdString")]
 
 
 class CodeFilePathTypeDef(BaseValidatorModel):
@@ -329,7 +331,7 @@ class CodeLineTypeDef(BaseValidatorModel):
 
 class CodeRepositoryDetailsTypeDef(BaseValidatorModel):
     projectName: Optional[str] = None
-    integrationArn: Optional[str] = None
+    integrationArn: Optional[Annotated[str, _aws_pattern("Inspector2", "CodeRepositoryIntegrationArn")]] = None
     providerType: Optional[CodeRepositoryProviderTypeType] = None
 
 
@@ -339,8 +341,8 @@ class ScanStatusTypeDef(BaseValidatorModel):
 
 
 class CodeSecurityIntegrationSummaryTypeDef(BaseValidatorModel):
-    integrationArn: str
-    name: str
+    integrationArn: Annotated[str, _aws_pattern("Inspector2", "CodeSecurityIntegrationArn")]
+    name: Annotated[str, _aws_pattern("Inspector2", "IntegrationName")]
     type: IntegrationTypeType
     status: IntegrationStatusType
     statusReason: str
@@ -399,7 +401,7 @@ class CoverageStringFilterTypeDef(BaseValidatorModel):
 
 
 class CreateCisTargetsTypeDef(BaseValidatorModel):
-    accountIds: List[str]
+    accountIds: List[Annotated[str, _aws_pattern("Inspector2", "TargetAccount")]]
     targetResourceTags: Dict[str, List[str]]
 
 
@@ -410,7 +412,7 @@ class DestinationTypeDef(BaseValidatorModel):
 
 
 class CreateGitLabSelfManagedIntegrationDetailTypeDef(BaseValidatorModel):
-    instanceUrl: str
+    instanceUrl: Annotated[str, _aws_pattern("Inspector2", "InstanceUrl")]
     accessToken: str
 
 
@@ -442,7 +444,7 @@ class CvssScoreTypeDef(BaseValidatorModel):
 
 
 class TimeTypeDef(BaseValidatorModel):
-    timeOfDay: str
+    timeOfDay: Annotated[str, _aws_pattern("Inspector2", "TimeOfDay")]
     timezone: str
 
 
@@ -452,28 +454,28 @@ class DateFilterOutputTypeDef(BaseValidatorModel):
 
 
 class DelegatedAdminAccountTypeDef(BaseValidatorModel):
-    accountId: Optional[str] = None
+    accountId: Optional[Annotated[str, _aws_pattern("Inspector2", "AccountId")]] = None
     status: Optional[DelegatedAdminStatusType] = None
 
 
 class DelegatedAdminTypeDef(BaseValidatorModel):
-    accountId: Optional[str] = None
+    accountId: Optional[Annotated[str, _aws_pattern("Inspector2", "AccountId")]] = None
     relationshipStatus: Optional[RelationshipStatusType] = None
 
 
 # This class is the input for the 'delete_cis_scan_configuration' function.
 class DeleteCisScanConfigurationRequestTypeDef(BaseValidatorModel):
-    scanConfigurationArn: str
+    scanConfigurationArn: Annotated[str, _aws_pattern("Inspector2", "CisScanConfigurationArn")]
 
 
 # This class is the input for the 'delete_code_security_integration' function.
 class DeleteCodeSecurityIntegrationRequestTypeDef(BaseValidatorModel):
-    integrationArn: str
+    integrationArn: Annotated[str, _aws_pattern("Inspector2", "CodeSecurityIntegrationArn")]
 
 
 # This class is the input for the 'delete_code_security_scan_configuration' function.
 class DeleteCodeSecurityScanConfigurationRequestTypeDef(BaseValidatorModel):
-    scanConfigurationArn: str
+    scanConfigurationArn: Annotated[str, _aws_pattern("Inspector2", "ScanConfigurationArn")]
 
 
 # This class is the input for the 'delete_filter' function.
@@ -483,18 +485,18 @@ class DeleteFilterRequestTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'disable_delegated_admin_account' function.
 class DisableDelegatedAdminAccountRequestTypeDef(BaseValidatorModel):
-    delegatedAdminAccountId: str
+    delegatedAdminAccountId: Annotated[str, _aws_pattern("Inspector2", "AccountId")]
 
 
 # This class is the input for the 'disable' function.
 class DisableRequestTypeDef(BaseValidatorModel):
-    accountIds: Optional[List[str]] = None
+    accountIds: Optional[List[Annotated[str, _aws_pattern("Inspector2", "AccountId")]]] = None
     resourceTypes: Optional[List[ResourceScanTypeType]] = None
 
 
 # This class is the input for the 'disassociate_member' function.
 class DisassociateMemberRequestTypeDef(BaseValidatorModel):
-    accountId: str
+    accountId: Annotated[str, _aws_pattern("Inspector2", "AccountId")]
 
 
 class Ec2ScanModeStateTypeDef(BaseValidatorModel):
@@ -514,7 +516,7 @@ class MapFilterTypeDef(BaseValidatorModel):
 
 class Ec2MetadataTypeDef(BaseValidatorModel):
     tags: Optional[Dict[str, str]] = None
-    amiId: Optional[str] = None
+    amiId: Optional[Annotated[str, _aws_pattern("Inspector2", "AmiId")]] = None
     platform: Optional[Ec2PlatformType] = None
 
 
@@ -546,14 +548,14 @@ class EcrRepositoryMetadataTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'enable_delegated_admin_account' function.
 class EnableDelegatedAdminAccountRequestTypeDef(BaseValidatorModel):
-    delegatedAdminAccountId: str
+    delegatedAdminAccountId: Annotated[str, _aws_pattern("Inspector2", "AccountId")]
     clientToken: Optional[str] = None
 
 
 # This class is the input for the 'enable' function.
 class EnableRequestTypeDef(BaseValidatorModel):
     resourceTypes: List[ResourceScanTypeType]
-    accountIds: Optional[List[str]] = None
+    accountIds: Optional[List[Annotated[str, _aws_pattern("Inspector2", "AccountId")]]] = None
     clientToken: Optional[str] = None
 
 
@@ -594,8 +596,8 @@ class FreeTrialInfoTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'get_cis_scan_report' function.
 class GetCisScanReportRequestTypeDef(BaseValidatorModel):
-    scanArn: str
-    targetAccounts: Optional[List[str]] = None
+    scanArn: Annotated[str, _aws_pattern("Inspector2", "CisScanArn")]
+    targetAccounts: Optional[List[Annotated[str, _aws_pattern("Inspector2", "AccountId")]]] = None
     reportFormat: Optional[CisReportFormatType] = None
 
 
@@ -607,13 +609,13 @@ class PaginatorConfigTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'get_code_security_integration' function.
 class GetCodeSecurityIntegrationRequestTypeDef(BaseValidatorModel):
-    integrationArn: str
+    integrationArn: Annotated[str, _aws_pattern("Inspector2", "CodeSecurityIntegrationArn")]
     tags: Optional[Dict[str, str]] = None
 
 
 # This class is the input for the 'get_code_security_scan_configuration' function.
 class GetCodeSecurityScanConfigurationRequestTypeDef(BaseValidatorModel):
-    scanConfigurationArn: str
+    scanConfigurationArn: Annotated[str, _aws_pattern("Inspector2", "ScanConfigurationArn")]
 
 
 # This class is the input for the 'get_encryption_key' function.
@@ -624,24 +626,24 @@ class GetEncryptionKeyRequestTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'get_findings_report_status' function.
 class GetFindingsReportStatusRequestTypeDef(BaseValidatorModel):
-    reportId: Optional[str] = None
+    reportId: Optional[Annotated[str, _aws_pattern("Inspector2", "ReportId")]] = None
 
 
 # This class is the input for the 'get_member' function.
 class GetMemberRequestTypeDef(BaseValidatorModel):
-    accountId: str
+    accountId: Annotated[str, _aws_pattern("Inspector2", "AccountId")]
 
 
 class MemberTypeDef(BaseValidatorModel):
-    accountId: Optional[str] = None
+    accountId: Optional[Annotated[str, _aws_pattern("Inspector2", "AccountId")]] = None
     relationshipStatus: Optional[RelationshipStatusType] = None
-    delegatedAdminAccountId: Optional[str] = None
+    delegatedAdminAccountId: Optional[Annotated[str, _aws_pattern("Inspector2", "AccountId")]] = None
     updatedAt: Optional[datetime] = None
 
 
 # This class is the input for the 'get_sbom_export' function.
 class GetSbomExportRequestTypeDef(BaseValidatorModel):
-    reportId: str
+    reportId: Annotated[str, _aws_pattern("Inspector2", "ReportId")]
 
 
 class LambdaFunctionMetadataTypeDef(BaseValidatorModel):
@@ -671,7 +673,7 @@ class ListCodeSecurityIntegrationsRequestTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'list_code_security_scan_configuration_associations' function.
 class ListCodeSecurityScanConfigurationAssociationsRequestTypeDef(BaseValidatorModel):
-    scanConfigurationArn: str
+    scanConfigurationArn: Annotated[str, _aws_pattern("Inspector2", "ScanConfigurationArn")]
     nextToken: Optional[str] = None
     maxResults: Optional[int] = None
 
@@ -717,7 +719,7 @@ class ListTagsForResourceRequestTypeDef(BaseValidatorModel):
 class ListUsageTotalsRequestTypeDef(BaseValidatorModel):
     maxResults: Optional[int] = None
     nextToken: Optional[str] = None
-    accountIds: Optional[List[str]] = None
+    accountIds: Optional[List[Annotated[str, _aws_pattern("Inspector2", "UsageAccountId")]]] = None
 
 
 class StepTypeDef(BaseValidatorModel):
@@ -734,7 +736,7 @@ class PortRangeTypeDef(BaseValidatorModel):
 class VulnerablePackageTypeDef(BaseValidatorModel):
     name: str
     version: str
-    sourceLayerHash: Optional[str] = None
+    sourceLayerHash: Optional[Annotated[str, _aws_pattern("Inspector2", "SourceLayerHash")]] = None
     epoch: Optional[int] = None
     release: Optional[str] = None
     arch: Optional[str] = None
@@ -742,7 +744,7 @@ class VulnerablePackageTypeDef(BaseValidatorModel):
     filePath: Optional[str] = None
     fixedInVersion: Optional[str] = None
     remediation: Optional[str] = None
-    sourceLambdaLayerArn: Optional[str] = None
+    sourceLambdaLayerArn: Optional[Annotated[str, _aws_pattern("Inspector2", "LambdaLayerArn")]] = None
 
 
 class ProjectContinuousIntegrationScanConfigurationTypeDef(BaseValidatorModel):
@@ -777,16 +779,16 @@ class ResourceStringFilterTypeDef(BaseValidatorModel):
 
 
 class SearchVulnerabilitiesFilterCriteriaTypeDef(BaseValidatorModel):
-    vulnerabilityIds: List[str]
+    vulnerabilityIds: List[Annotated[str, _aws_pattern("Inspector2", "VulnId")]]
 
 
 class SendCisSessionHealthRequestTypeDef(BaseValidatorModel):
-    scanJobId: str
-    sessionToken: str
+    scanJobId: Annotated[str, _aws_pattern("Inspector2", "UUID")]
+    sessionToken: Annotated[str, _aws_pattern("Inspector2", "UUID")]
 
 
 class StartCisSessionMessageTypeDef(BaseValidatorModel):
-    sessionToken: str
+    sessionToken: Annotated[str, _aws_pattern("Inspector2", "UUID")]
 
 
 class StopCisMessageProgressTypeDef(BaseValidatorModel):
@@ -807,22 +809,22 @@ class TagResourceRequestTypeDef(BaseValidatorModel):
 
 class UntagResourceRequestTypeDef(BaseValidatorModel):
     resourceArn: str
-    tagKeys: List[str]
+    tagKeys: List[Annotated[str, _aws_pattern("Inspector2", "TagKey")]]
 
 
 class UpdateCisTargetsTypeDef(BaseValidatorModel):
-    accountIds: Optional[List[str]] = None
+    accountIds: Optional[List[Annotated[str, _aws_pattern("Inspector2", "TargetAccount")]]] = None
     targetResourceTags: Optional[Dict[str, List[str]]] = None
 
 
 # This class is the input for the 'update_ec2_deep_inspection_configuration' function.
 class UpdateEc2DeepInspectionConfigurationRequestTypeDef(BaseValidatorModel):
     activateDeepInspection: Optional[bool] = None
-    packagePaths: Optional[List[str]] = None
+    packagePaths: Optional[List[Annotated[str, _aws_pattern("Inspector2", "Path")]]] = None
 
 
 class UpdateEncryptionKeyRequestTypeDef(BaseValidatorModel):
-    kmsKeyId: str
+    kmsKeyId: Annotated[str, _aws_pattern("Inspector2", "KmsKeyArn")]
     scanType: ScanTypeType
     resourceType: ResourceTypeType
 
@@ -837,7 +839,7 @@ class UpdateGitLabSelfManagedIntegrationDetailTypeDef(BaseValidatorModel):
 
 
 class UpdateOrgEc2DeepInspectionConfigurationRequestTypeDef(BaseValidatorModel):
-    orgPackagePaths: List[str]
+    orgPackagePaths: List[Annotated[str, _aws_pattern("Inspector2", "Path")]]
 
 
 class UsageTypeDef(BaseValidatorModel):
@@ -848,15 +850,15 @@ class UsageTypeDef(BaseValidatorModel):
 
 
 class AccountAggregationResponseTypeDef(BaseValidatorModel):
-    accountId: Optional[str] = None
+    accountId: Optional[Annotated[str, _aws_pattern("Inspector2", "AccountId")]] = None
     severityCounts: Optional[SeverityCountsTypeDef] = None
     exploitAvailableCount: Optional[int] = None
     fixAvailableCount: Optional[int] = None
 
 
 class AmiAggregationResponseTypeDef(BaseValidatorModel):
-    ami: str
-    accountId: Optional[str] = None
+    ami: Annotated[str, _aws_pattern("Inspector2", "AmiId")]
+    accountId: Optional[Annotated[str, _aws_pattern("Inspector2", "AccountId")]] = None
     severityCounts: Optional[SeverityCountsTypeDef] = None
     affectedInstances: Optional[int] = None
 
@@ -867,7 +869,7 @@ class AwsEcrContainerAggregationResponseTypeDef(BaseValidatorModel):
     repository: Optional[str] = None
     architecture: Optional[str] = None
     imageTags: Optional[List[str]] = None
-    accountId: Optional[str] = None
+    accountId: Optional[Annotated[str, _aws_pattern("Inspector2", "AccountId")]] = None
     severityCounts: Optional[SeverityCountsTypeDef] = None
     lastInUseAt: Optional[datetime] = None
     inUseCount: Optional[int] = None
@@ -885,7 +887,7 @@ class CodeRepositoryAggregationResponseTypeDef(BaseValidatorModel):
 
 class Ec2InstanceAggregationResponseTypeDef(BaseValidatorModel):
     instanceId: str
-    ami: Optional[str] = None
+    ami: Optional[Annotated[str, _aws_pattern("Inspector2", "AmiId")]] = None
     operatingSystem: Optional[str] = None
     instanceTags: Optional[Dict[str, str]] = None
     accountId: Optional[str] = None
@@ -894,7 +896,7 @@ class Ec2InstanceAggregationResponseTypeDef(BaseValidatorModel):
 
 
 class FindingTypeAggregationResponseTypeDef(BaseValidatorModel):
-    accountId: Optional[str] = None
+    accountId: Optional[Annotated[str, _aws_pattern("Inspector2", "AccountId")]] = None
     severityCounts: Optional[SeverityCountsTypeDef] = None
     exploitAvailableCount: Optional[int] = None
     fixAvailableCount: Optional[int] = None
@@ -904,7 +906,7 @@ class ImageLayerAggregationResponseTypeDef(BaseValidatorModel):
     repository: str
     resourceId: str
     layerHash: str
-    accountId: str
+    accountId: Annotated[str, _aws_pattern("Inspector2", "AccountId")]
     severityCounts: Optional[SeverityCountsTypeDef] = None
 
 
@@ -913,7 +915,7 @@ class LambdaFunctionAggregationResponseTypeDef(BaseValidatorModel):
     functionName: Optional[str] = None
     runtime: Optional[str] = None
     lambdaTags: Optional[Dict[str, str]] = None
-    accountId: Optional[str] = None
+    accountId: Optional[Annotated[str, _aws_pattern("Inspector2", "AccountId")]] = None
     severityCounts: Optional[SeverityCountsTypeDef] = None
     lastModifiedAt: Optional[datetime] = None
 
@@ -922,19 +924,19 @@ class LambdaLayerAggregationResponseTypeDef(BaseValidatorModel):
     functionName: str
     resourceId: str
     layerArn: str
-    accountId: str
+    accountId: Annotated[str, _aws_pattern("Inspector2", "AccountId")]
     severityCounts: Optional[SeverityCountsTypeDef] = None
 
 
 class PackageAggregationResponseTypeDef(BaseValidatorModel):
     packageName: str
-    accountId: Optional[str] = None
+    accountId: Optional[Annotated[str, _aws_pattern("Inspector2", "AccountId")]] = None
     severityCounts: Optional[SeverityCountsTypeDef] = None
 
 
 class RepositoryAggregationResponseTypeDef(BaseValidatorModel):
     repository: str
-    accountId: Optional[str] = None
+    accountId: Optional[Annotated[str, _aws_pattern("Inspector2", "AccountId")]] = None
     severityCounts: Optional[SeverityCountsTypeDef] = None
     affectedImages: Optional[int] = None
 
@@ -942,7 +944,7 @@ class RepositoryAggregationResponseTypeDef(BaseValidatorModel):
 class TitleAggregationResponseTypeDef(BaseValidatorModel):
     title: str
     vulnerabilityId: Optional[str] = None
-    accountId: Optional[str] = None
+    accountId: Optional[Annotated[str, _aws_pattern("Inspector2", "AccountId")]] = None
     severityCounts: Optional[SeverityCountsTypeDef] = None
 
 
@@ -955,13 +957,13 @@ class ResourceStateTypeDef(BaseValidatorModel):
 
 
 class AccountTypeDef(BaseValidatorModel):
-    accountId: str
+    accountId: Annotated[str, _aws_pattern("Inspector2", "AccountId")]
     status: StatusType
     resourceStatus: ResourceStatusTypeDef
 
 
 class FailedAccountTypeDef(BaseValidatorModel):
-    accountId: str
+    accountId: Annotated[str, _aws_pattern("Inspector2", "AccountId")]
     errorCode: ErrorCodeType
     errorMessage: str
     status: Optional[StatusType] = None
@@ -1020,7 +1022,7 @@ class TitleAggregationTypeDef(BaseValidatorModel):
 
 
 class AssociateConfigurationRequestTypeDef(BaseValidatorModel):
-    scanConfigurationArn: str
+    scanConfigurationArn: Annotated[str, _aws_pattern("Inspector2", "ScanConfigurationArn")]
     resource: CodeSecurityResourceTypeDef
 
 
@@ -1029,12 +1031,12 @@ class CodeSecurityScanConfigurationAssociationSummaryTypeDef(BaseValidatorModel)
 
 
 class DisassociateConfigurationRequestTypeDef(BaseValidatorModel):
-    scanConfigurationArn: str
+    scanConfigurationArn: Annotated[str, _aws_pattern("Inspector2", "ScanConfigurationArn")]
     resource: CodeSecurityResourceTypeDef
 
 
 class FailedAssociationResultTypeDef(BaseValidatorModel):
-    scanConfigurationArn: Optional[str] = None
+    scanConfigurationArn: Optional[Annotated[str, _aws_pattern("Inspector2", "ScanConfigurationArn")]] = None
     resource: Optional[CodeSecurityResourceTypeDef] = None
     statusCode: Optional[AssociationResultStatusCodeType] = None
     statusMessage: Optional[str] = None
@@ -1043,47 +1045,47 @@ class FailedAssociationResultTypeDef(BaseValidatorModel):
 # This class is the input for the 'get_code_security_scan' function.
 class GetCodeSecurityScanRequestTypeDef(BaseValidatorModel):
     resource: CodeSecurityResourceTypeDef
-    scanId: str
+    scanId: Annotated[str, _aws_pattern("Inspector2", "CodeSecurityUuid")]
 
 
 # This class is the input for the 'start_code_security_scan' function.
 class StartCodeSecurityScanRequestTypeDef(BaseValidatorModel):
     resource: CodeSecurityResourceTypeDef
-    clientToken: Optional[str] = None
+    clientToken: Optional[Annotated[str, _aws_pattern("Inspector2", "CodeSecurityClientToken")]] = None
 
 
 class SuccessfulAssociationResultTypeDef(BaseValidatorModel):
-    scanConfigurationArn: Optional[str] = None
+    scanConfigurationArn: Optional[Annotated[str, _aws_pattern("Inspector2", "ScanConfigurationArn")]] = None
     resource: Optional[CodeSecurityResourceTypeDef] = None
 
 
 # This class is the output for the 'associate_member' function.
 class AssociateMemberResponseTypeDef(BaseValidatorModel):
-    accountId: str
+    accountId: Annotated[str, _aws_pattern("Inspector2", "AccountId")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 # This class is the output for the 'cancel_findings_report' function.
 class CancelFindingsReportResponseTypeDef(BaseValidatorModel):
-    reportId: str
+    reportId: Annotated[str, _aws_pattern("Inspector2", "ReportId")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 # This class is the output for the 'cancel_sbom_export' function.
 class CancelSbomExportResponseTypeDef(BaseValidatorModel):
-    reportId: str
+    reportId: Annotated[str, _aws_pattern("Inspector2", "ReportId")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 # This class is the output for the 'create_cis_scan_configuration' function.
 class CreateCisScanConfigurationResponseTypeDef(BaseValidatorModel):
-    scanConfigurationArn: str
+    scanConfigurationArn: Annotated[str, _aws_pattern("Inspector2", "CisScanConfigurationArn")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 # This class is the output for the 'create_code_security_integration' function.
 class CreateCodeSecurityIntegrationResponseTypeDef(BaseValidatorModel):
-    integrationArn: str
+    integrationArn: Annotated[str, _aws_pattern("Inspector2", "CodeSecurityIntegrationArn")]
     status: IntegrationStatusType
     authorizationUrl: str
     ResponseMetadata: ResponseMetadataTypeDef
@@ -1091,7 +1093,7 @@ class CreateCodeSecurityIntegrationResponseTypeDef(BaseValidatorModel):
 
 # This class is the output for the 'create_code_security_scan_configuration' function.
 class CreateCodeSecurityScanConfigurationResponseTypeDef(BaseValidatorModel):
-    scanConfigurationArn: str
+    scanConfigurationArn: Annotated[str, _aws_pattern("Inspector2", "ScanConfigurationArn")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
@@ -1103,31 +1105,31 @@ class CreateFilterResponseTypeDef(BaseValidatorModel):
 
 # This class is the output for the 'create_findings_report' function.
 class CreateFindingsReportResponseTypeDef(BaseValidatorModel):
-    reportId: str
+    reportId: Annotated[str, _aws_pattern("Inspector2", "ReportId")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 # This class is the output for the 'create_sbom_export' function.
 class CreateSbomExportResponseTypeDef(BaseValidatorModel):
-    reportId: str
+    reportId: Annotated[str, _aws_pattern("Inspector2", "ReportId")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 # This class is the output for the 'delete_cis_scan_configuration' function.
 class DeleteCisScanConfigurationResponseTypeDef(BaseValidatorModel):
-    scanConfigurationArn: str
+    scanConfigurationArn: Annotated[str, _aws_pattern("Inspector2", "CisScanConfigurationArn")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 # This class is the output for the 'delete_code_security_integration' function.
 class DeleteCodeSecurityIntegrationResponseTypeDef(BaseValidatorModel):
-    integrationArn: str
+    integrationArn: Annotated[str, _aws_pattern("Inspector2", "CodeSecurityIntegrationArn")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 # This class is the output for the 'delete_code_security_scan_configuration' function.
 class DeleteCodeSecurityScanConfigurationResponseTypeDef(BaseValidatorModel):
-    scanConfigurationArn: str
+    scanConfigurationArn: Annotated[str, _aws_pattern("Inspector2", "ScanConfigurationArn")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
@@ -1139,19 +1141,19 @@ class DeleteFilterResponseTypeDef(BaseValidatorModel):
 
 # This class is the output for the 'disable_delegated_admin_account' function.
 class DisableDelegatedAdminAccountResponseTypeDef(BaseValidatorModel):
-    delegatedAdminAccountId: str
+    delegatedAdminAccountId: Annotated[str, _aws_pattern("Inspector2", "AccountId")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 # This class is the output for the 'disassociate_member' function.
 class DisassociateMemberResponseTypeDef(BaseValidatorModel):
-    accountId: str
+    accountId: Annotated[str, _aws_pattern("Inspector2", "AccountId")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 # This class is the output for the 'enable_delegated_admin_account' function.
 class EnableDelegatedAdminAccountResponseTypeDef(BaseValidatorModel):
-    delegatedAdminAccountId: str
+    delegatedAdminAccountId: Annotated[str, _aws_pattern("Inspector2", "AccountId")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
@@ -1164,8 +1166,8 @@ class GetCisScanReportResponseTypeDef(BaseValidatorModel):
 
 # This class is the output for the 'get_code_security_integration' function.
 class GetCodeSecurityIntegrationResponseTypeDef(BaseValidatorModel):
-    integrationArn: str
-    name: str
+    integrationArn: Annotated[str, _aws_pattern("Inspector2", "CodeSecurityIntegrationArn")]
+    name: Annotated[str, _aws_pattern("Inspector2", "IntegrationName")]
     type: IntegrationTypeType
     status: IntegrationStatusType
     statusReason: str
@@ -1178,7 +1180,7 @@ class GetCodeSecurityIntegrationResponseTypeDef(BaseValidatorModel):
 
 # This class is the output for the 'get_code_security_scan' function.
 class GetCodeSecurityScanResponseTypeDef(BaseValidatorModel):
-    scanId: str
+    scanId: Annotated[str, _aws_pattern("Inspector2", "CodeSecurityUuid")]
     resource: CodeSecurityResourceTypeDef
     accountId: str
     status: CodeScanStatusType
@@ -1190,8 +1192,8 @@ class GetCodeSecurityScanResponseTypeDef(BaseValidatorModel):
 
 
 class GetEc2DeepInspectionConfigurationResponseTypeDef(BaseValidatorModel):
-    packagePaths: List[str]
-    orgPackagePaths: List[str]
+    packagePaths: List[Annotated[str, _aws_pattern("Inspector2", "Path")]]
+    orgPackagePaths: List[Annotated[str, _aws_pattern("Inspector2", "Path")]]
     status: Ec2DeepInspectionStatusType
     errorMessage: str
     ResponseMetadata: ResponseMetadataTypeDef
@@ -1199,7 +1201,7 @@ class GetEc2DeepInspectionConfigurationResponseTypeDef(BaseValidatorModel):
 
 # This class is the output for the 'get_encryption_key' function.
 class GetEncryptionKeyResponseTypeDef(BaseValidatorModel):
-    kmsKeyId: str
+    kmsKeyId: Annotated[str, _aws_pattern("Inspector2", "KmsKeyArn")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
@@ -1211,34 +1213,34 @@ class ListTagsForResourceResponseTypeDef(BaseValidatorModel):
 
 # This class is the output for the 'start_code_security_scan' function.
 class StartCodeSecurityScanResponseTypeDef(BaseValidatorModel):
-    scanId: str
+    scanId: Annotated[str, _aws_pattern("Inspector2", "CodeSecurityUuid")]
     status: CodeScanStatusType
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 # This class is the output for the 'update_cis_scan_configuration' function.
 class UpdateCisScanConfigurationResponseTypeDef(BaseValidatorModel):
-    scanConfigurationArn: str
+    scanConfigurationArn: Annotated[str, _aws_pattern("Inspector2", "CisScanConfigurationArn")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 # This class is the output for the 'update_code_security_integration' function.
 class UpdateCodeSecurityIntegrationResponseTypeDef(BaseValidatorModel):
-    integrationArn: str
+    integrationArn: Annotated[str, _aws_pattern("Inspector2", "CodeSecurityIntegrationArn")]
     status: IntegrationStatusType
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 # This class is the output for the 'update_code_security_scan_configuration' function.
 class UpdateCodeSecurityScanConfigurationResponseTypeDef(BaseValidatorModel):
-    scanConfigurationArn: str
+    scanConfigurationArn: Annotated[str, _aws_pattern("Inspector2", "ScanConfigurationArn")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 # This class is the output for the 'update_ec2_deep_inspection_configuration' function.
 class UpdateEc2DeepInspectionConfigurationResponseTypeDef(BaseValidatorModel):
-    packagePaths: List[str]
-    orgPackagePaths: List[str]
+    packagePaths: List[Annotated[str, _aws_pattern("Inspector2", "Path")]]
+    orgPackagePaths: List[Annotated[str, _aws_pattern("Inspector2", "Path")]]
     status: Ec2DeepInspectionStatusType
     errorMessage: str
     ResponseMetadata: ResponseMetadataTypeDef
@@ -1284,12 +1286,12 @@ class AwsEksMetadataDetailsTypeDef(BaseValidatorModel):
 
 
 class AwsLambdaFunctionDetailsTypeDef(BaseValidatorModel):
-    functionName: str
+    functionName: Annotated[str, _aws_pattern("Inspector2", "FunctionName")]
     runtime: RuntimeType
     codeSha256: str
-    version: str
-    executionRoleArn: str
-    layers: Optional[List[str]] = None
+    version: Annotated[str, _aws_pattern("Inspector2", "Version")]
+    executionRoleArn: Annotated[str, _aws_pattern("Inspector2", "ExecutionRoleArn")]
+    layers: Optional[List[Annotated[str, _aws_pattern("Inspector2", "LambdaLayerArn")]]] = None
     vpcConfig: Optional[LambdaVpcConfigTypeDef] = None
     packageType: Optional[PackageTypeType] = None
     architectures: Optional[List[ArchitectureType]] = None
@@ -1322,20 +1324,20 @@ class CisSessionMessageTypeDef(BaseValidatorModel):
 
 
 class CisCheckAggregationTypeDef(BaseValidatorModel):
-    scanArn: str
+    scanArn: Annotated[str, _aws_pattern("Inspector2", "CisScanArn")]
     checkId: Optional[str] = None
     title: Optional[str] = None
     checkDescription: Optional[str] = None
     level: Optional[CisSecurityLevelType] = None
-    accountId: Optional[str] = None
+    accountId: Optional[Annotated[str, _aws_pattern("Inspector2", "AccountId")]] = None
     statusCounts: Optional[StatusCountsTypeDef] = None
     platform: Optional[str] = None
 
 
 class CisTargetResourceAggregationTypeDef(BaseValidatorModel):
-    scanArn: str
-    targetResourceId: Optional[str] = None
-    accountId: Optional[str] = None
+    scanArn: Annotated[str, _aws_pattern("Inspector2", "CisScanArn")]
+    targetResourceId: Optional[Annotated[str, _aws_pattern("Inspector2", "ResourceId")]] = None
+    accountId: Optional[Annotated[str, _aws_pattern("Inspector2", "AccountId")]] = None
     targetResourceTags: Optional[Dict[str, List[str]]] = None
     statusCounts: Optional[StatusCountsTypeDef] = None
     platform: Optional[str] = None
@@ -1359,8 +1361,8 @@ class DateFilterTypeDef(BaseValidatorModel):
 
 
 class CisScanTypeDef(BaseValidatorModel):
-    scanArn: str
-    scanConfigurationArn: str
+    scanArn: Annotated[str, _aws_pattern("Inspector2", "CisScanArn")]
+    scanConfigurationArn: Annotated[str, _aws_pattern("Inspector2", "CisScanConfigurationArn")]
     status: Optional[CisScanStatusType] = None
     scanName: Optional[str] = None
     scanDate: Optional[datetime] = None
@@ -1428,11 +1430,11 @@ class CodeVulnerabilityDetailsTypeDef(BaseValidatorModel):
     detectorTags: Optional[List[str]] = None
     referenceUrls: Optional[List[str]] = None
     ruleId: Optional[str] = None
-    sourceLambdaLayerArn: Optional[str] = None
+    sourceLambdaLayerArn: Optional[Annotated[str, _aws_pattern("Inspector2", "LambdaLayerArn")]] = None
 
 
 class CodeRepositoryOnDemandScanTypeDef(BaseValidatorModel):
-    lastScannedCommitId: Optional[str] = None
+    lastScannedCommitId: Optional[Annotated[str, _aws_pattern("Inspector2", "CommitId")]] = None
     lastScanAt: Optional[datetime] = None
     scanStatus: Optional[ScanStatusTypeDef] = None
 
@@ -1451,9 +1453,9 @@ class CodeSecurityScanConfigurationOutputTypeDef(BaseValidatorModel):
 
 
 class CodeSecurityScanConfigurationSummaryTypeDef(BaseValidatorModel):
-    scanConfigurationArn: str
-    name: str
-    ownerAccountId: str
+    scanConfigurationArn: Annotated[str, _aws_pattern("Inspector2", "ScanConfigurationArn")]
+    name: Annotated[str, _aws_pattern("Inspector2", "ScanConfigurationName")]
+    ownerAccountId: Annotated[str, _aws_pattern("Inspector2", "OwnerId")]
     ruleSetCategories: List[RuleSetCategoryType]
     periodicScanFrequency: Optional[PeriodicScanFrequencyType] = None
     frequencyExpression: Optional[str] = None
@@ -1469,7 +1471,7 @@ class CodeSecurityScanConfigurationTypeDef(BaseValidatorModel):
 
 
 class CodeSnippetResultTypeDef(BaseValidatorModel):
-    findingArn: Optional[str] = None
+    findingArn: Optional[Annotated[str, _aws_pattern("Inspector2", "FindingArn")]] = None
     startLine: Optional[int] = None
     endLine: Optional[int] = None
     codeSnippet: Optional[List[CodeLineTypeDef]] = None
@@ -1560,7 +1562,7 @@ class UpdateConfigurationRequestTypeDef(BaseValidatorModel):
 
 
 class FindingDetailTypeDef(BaseValidatorModel):
-    findingArn: Optional[str] = None
+    findingArn: Optional[Annotated[str, _aws_pattern("Inspector2", "FindingArn")]] = None
     cisaData: Optional[CisaDataTypeDef] = None
     riskScore: Optional[int] = None
     evidences: Optional[List[EvidenceTypeDef]] = None
@@ -1594,7 +1596,7 @@ class VulnerabilityTypeDef(BaseValidatorModel):
 
 
 class FreeTrialAccountInfoTypeDef(BaseValidatorModel):
-    accountId: str
+    accountId: Annotated[str, _aws_pattern("Inspector2", "MeteringAccountId")]
     freeTrialInfo: List[FreeTrialInfoTypeDef]
 
 
@@ -1708,7 +1710,7 @@ class SearchVulnerabilitiesRequestTypeDef(BaseValidatorModel):
 
 
 class StartCisSessionRequestTypeDef(BaseValidatorModel):
-    scanJobId: str
+    scanJobId: Annotated[str, _aws_pattern("Inspector2", "UUID")]
     message: StartCisSessionMessageTypeDef
 
 
@@ -1727,7 +1729,7 @@ class UpdateIntegrationDetailsTypeDef(BaseValidatorModel):
 
 
 class UsageTotalTypeDef(BaseValidatorModel):
-    accountId: Optional[str] = None
+    accountId: Optional[Annotated[str, _aws_pattern("Inspector2", "MeteringAccountId")]] = None
     usage: Optional[List[UsageTypeDef]] = None
 
 
@@ -1747,7 +1749,7 @@ class AggregationResponseTypeDef(BaseValidatorModel):
 
 
 class AccountStateTypeDef(BaseValidatorModel):
-    accountId: str
+    accountId: Annotated[str, _aws_pattern("Inspector2", "AccountId")]
     state: StateTypeDef
     resourceState: ResourceStateTypeDef
 
@@ -1859,8 +1861,8 @@ class ResourceDetailsTypeDef(BaseValidatorModel):
 
 
 class SendCisSessionTelemetryRequestTypeDef(BaseValidatorModel):
-    scanJobId: str
-    sessionToken: str
+    scanJobId: Annotated[str, _aws_pattern("Inspector2", "UUID")]
+    sessionToken: Annotated[str, _aws_pattern("Inspector2", "UUID")]
     messages: List[CisSessionMessageTypeDef]
 
 
@@ -1986,9 +1988,9 @@ class GetCisScanResultDetailsRequestPaginateTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'get_cis_scan_result_details' function.
 class GetCisScanResultDetailsRequestTypeDef(BaseValidatorModel):
-    scanArn: str
-    targetResourceId: str
-    accountId: str
+    scanArn: Annotated[str, _aws_pattern("Inspector2", "CisScanArn")]
+    targetResourceId: Annotated[str, _aws_pattern("Inspector2", "ResourceId")]
+    accountId: Annotated[str, _aws_pattern("Inspector2", "AccountId")]
     filterCriteria: Optional[CisScanResultDetailsFilterCriteriaTypeDef] = None
     sortBy: Optional[CisScanResultDetailsSortByType] = None
     sortOrder: Optional[CisSortOrderType] = None
@@ -2006,7 +2008,7 @@ class ListCisScanResultsAggregatedByChecksRequestPaginateTypeDef(BaseValidatorMo
 
 # This class is the input for the 'list_cis_scan_results_aggregated_by_checks' function.
 class ListCisScanResultsAggregatedByChecksRequestTypeDef(BaseValidatorModel):
-    scanArn: str
+    scanArn: Annotated[str, _aws_pattern("Inspector2", "CisScanArn")]
     filterCriteria: Optional[CisScanResultsAggregatedByChecksFilterCriteriaTypeDef] = None
     sortBy: Optional[CisScanResultsAggregatedByChecksSortByType] = None
     sortOrder: Optional[CisSortOrderType] = None
@@ -2024,7 +2026,7 @@ class ListCisScanResultsAggregatedByTargetResourceRequestPaginateTypeDef(BaseVal
 
 # This class is the input for the 'list_cis_scan_results_aggregated_by_target_resource' function.
 class ListCisScanResultsAggregatedByTargetResourceRequestTypeDef(BaseValidatorModel):
-    scanArn: str
+    scanArn: Annotated[str, _aws_pattern("Inspector2", "CisScanArn")]
     filterCriteria: Optional[CisScanResultsAggregatedByTargetResourceFilterCriteriaTypeDef] = None
     sortBy: Optional[CisScanResultsAggregatedByTargetResourceSortByType] = None
     sortOrder: Optional[CisSortOrderType] = None
@@ -2050,8 +2052,8 @@ class ListCisScanConfigurationsRequestTypeDef(BaseValidatorModel):
 
 # This class is the output for the 'get_code_security_scan_configuration' function.
 class GetCodeSecurityScanConfigurationResponseTypeDef(BaseValidatorModel):
-    scanConfigurationArn: str
-    name: str
+    scanConfigurationArn: Annotated[str, _aws_pattern("Inspector2", "ScanConfigurationArn")]
+    name: Annotated[str, _aws_pattern("Inspector2", "ScanConfigurationName")]
     configuration: CodeSecurityScanConfigurationOutputTypeDef
     level: ConfigurationLevelType
     scopeSettings: ScopeSettingsTypeDef
@@ -2082,7 +2084,7 @@ class BatchGetCodeSnippetResponseTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'create_code_security_integration' function.
 class CreateCodeSecurityIntegrationRequestTypeDef(BaseValidatorModel):
-    name: str
+    name: Annotated[str, _aws_pattern("Inspector2", "IntegrationName")]
     type: IntegrationTypeType
     details: Optional[CreateIntegrationDetailTypeDef] = None
     tags: Optional[Dict[str, str]] = None
@@ -2143,15 +2145,15 @@ class CodeRepositoryMetadataTypeDef(BaseValidatorModel):
     projectName: str
     providerType: str
     providerTypeVisibility: str
-    integrationArn: Optional[str] = None
-    lastScannedCommitId: Optional[str] = None
+    integrationArn: Optional[Annotated[str, _aws_pattern("Inspector2", "CodeRepositoryIntegrationArn")]] = None
+    lastScannedCommitId: Optional[Annotated[str, _aws_pattern("Inspector2", "CommitId")]] = None
     scanConfiguration: Optional[ProjectCodeSecurityScanConfigurationTypeDef] = None
     onDemandScan: Optional[CodeRepositoryOnDemandScanTypeDef] = None
 
 
 # This class is the output for the 'get_sbom_export' function.
 class GetSbomExportResponseTypeDef(BaseValidatorModel):
-    reportId: str
+    reportId: Annotated[str, _aws_pattern("Inspector2", "ReportId")]
     format: SbomReportFormatType
     status: ExternalReportStatusType
     errorCode: ReportingErrorCodeType
@@ -2165,14 +2167,14 @@ ResourceFilterCriteriaUnionTypeDef = Union[ResourceFilterCriteriaOutputTypeDef, 
 
 
 class StopCisSessionRequestTypeDef(BaseValidatorModel):
-    scanJobId: str
-    sessionToken: str
+    scanJobId: Annotated[str, _aws_pattern("Inspector2", "UUID")]
+    sessionToken: Annotated[str, _aws_pattern("Inspector2", "UUID")]
     message: StopCisSessionMessageTypeDef
 
 
 # This class is the input for the 'update_code_security_integration' function.
 class UpdateCodeSecurityIntegrationRequestTypeDef(BaseValidatorModel):
-    integrationArn: str
+    integrationArn: Annotated[str, _aws_pattern("Inspector2", "CodeSecurityIntegrationArn")]
     details: UpdateIntegrationDetailsTypeDef
 
 
@@ -2200,7 +2202,7 @@ class BatchGetAccountStatusResponseTypeDef(BaseValidatorModel):
 
 class FilterTypeDef(BaseValidatorModel):
     arn: str
-    ownerId: str
+    ownerId: Annotated[str, _aws_pattern("Inspector2", "OwnerId")]
     name: str
     criteria: FilterCriteriaOutputTypeDef
     action: FilterActionType
@@ -2213,7 +2215,7 @@ class FilterTypeDef(BaseValidatorModel):
 
 # This class is the output for the 'get_findings_report_status' function.
 class GetFindingsReportStatusResponseTypeDef(BaseValidatorModel):
-    reportId: str
+    reportId: Annotated[str, _aws_pattern("Inspector2", "ReportId")]
     status: ExternalReportStatusType
     errorCode: ReportingErrorCodeType
     errorMessage: str
@@ -2298,7 +2300,7 @@ FilterCriteriaUnionTypeDef = Union[FilterCriteriaOutputTypeDef, FilterCriteriaTy
 
 # This class is the input for the 'create_code_security_scan_configuration' function.
 class CreateCodeSecurityScanConfigurationRequestTypeDef(BaseValidatorModel):
-    name: str
+    name: Annotated[str, _aws_pattern("Inspector2", "ScanConfigurationName")]
     level: ConfigurationLevelType
     configuration: CodeSecurityScanConfigurationUnionTypeDef
     scopeSettings: Optional[ScopeSettingsTypeDef] = None
@@ -2307,13 +2309,13 @@ class CreateCodeSecurityScanConfigurationRequestTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'update_code_security_scan_configuration' function.
 class UpdateCodeSecurityScanConfigurationRequestTypeDef(BaseValidatorModel):
-    scanConfigurationArn: str
+    scanConfigurationArn: Annotated[str, _aws_pattern("Inspector2", "ScanConfigurationArn")]
     configuration: CodeSecurityScanConfigurationUnionTypeDef
 
 
 class CisScanConfigurationTypeDef(BaseValidatorModel):
-    scanConfigurationArn: str
-    ownerId: Optional[str] = None
+    scanConfigurationArn: Annotated[str, _aws_pattern("Inspector2", "CisScanConfigurationArn")]
+    ownerId: Optional[Annotated[str, _aws_pattern("Inspector2", "CisOwnerId")]] = None
     scanName: Optional[str] = None
     securityLevel: Optional[CisSecurityLevelType] = None
     schedule: Optional[ScheduleOutputTypeDef] = None
@@ -2347,13 +2349,13 @@ class ListFiltersResponseTypeDef(BaseValidatorModel):
 
 
 class ClusterInformationTypeDef(BaseValidatorModel):
-    clusterArn: str
+    clusterArn: Annotated[str, _aws_pattern("Inspector2", "ClusterInformationClusterArnString")]
     clusterDetails: Optional[List[ClusterDetailsTypeDef]] = None
 
 
 class FindingTypeDef(BaseValidatorModel):
-    findingArn: str
-    awsAccountId: str
+    findingArn: Annotated[str, _aws_pattern("Inspector2", "FindingArn")]
+    awsAccountId: Annotated[str, _aws_pattern("Inspector2", "AccountId")]
     type: FindingTypeType
     description: str
     remediation: RemediationTypeDef
@@ -2449,7 +2451,7 @@ class CreateCisScanConfigurationRequestTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'update_cis_scan_configuration' function.
 class UpdateCisScanConfigurationRequestTypeDef(BaseValidatorModel):
-    scanConfigurationArn: str
+    scanConfigurationArn: Annotated[str, _aws_pattern("Inspector2", "CisScanConfigurationArn")]
     scanName: Optional[str] = None
     securityLevel: Optional[CisSecurityLevelType] = None
     schedule: Optional[ScheduleUnionTypeDef] = None
@@ -2458,8 +2460,8 @@ class UpdateCisScanConfigurationRequestTypeDef(BaseValidatorModel):
 
 class CoveredResourceTypeDef(BaseValidatorModel):
     resourceType: CoverageResourceTypeType
-    resourceId: str
-    accountId: str
+    resourceId: Annotated[str, _aws_pattern("Inspector2", "ResourceId")]
+    accountId: Annotated[str, _aws_pattern("Inspector2", "AccountId")]
     scanType: ScanTypeType
     scanStatus: Optional[ScanStatusTypeDef] = None
     resourceMetadata: Optional[ResourceScanMetadataTypeDef] = None

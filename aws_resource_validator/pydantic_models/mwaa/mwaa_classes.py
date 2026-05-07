@@ -3,6 +3,7 @@
 from datetime import datetime
 from decimal import Decimal
 from typing import (
+    Annotated,
     Any,
     Callable,
     Dict,
@@ -24,6 +25,7 @@ from botocore.response import StreamingBody
 from pydantic import Field
 
 from aws_resource_validator.core.base_validator_model import BaseValidatorModel, EventStream
+from aws_resource_validator.core.pattern_validation import aws_field_pattern as _aws_pattern
 from aws_resource_validator.pydantic_models.mwaa.mwaa_constants import *  # noqa: F401,F403
 
 # Optional boto3 symbols — imported lazily so services that don't need them
@@ -40,7 +42,7 @@ except ImportError:  # pragma: no cover
 
 # This class is the input for the 'create_cli_token' function.
 class CreateCliTokenRequestTypeDef(BaseValidatorModel):
-    Name: str
+    Name: Annotated[str, _aws_pattern("Mwaa", "EnvironmentName")]
 
 
 class ResponseMetadataTypeDef(BaseValidatorModel):
@@ -53,11 +55,11 @@ class ResponseMetadataTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'create_web_login_token' function.
 class CreateWebLoginTokenRequestTypeDef(BaseValidatorModel):
-    Name: str
+    Name: Annotated[str, _aws_pattern("Mwaa", "EnvironmentName")]
 
 
 class DeleteEnvironmentInputTypeDef(BaseValidatorModel):
-    Name: str
+    Name: Annotated[str, _aws_pattern("Mwaa", "EnvironmentName")]
 
 
 class DimensionTypeDef(BaseValidatorModel):
@@ -72,12 +74,12 @@ class NetworkConfigurationOutputTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'get_environment' function.
 class GetEnvironmentInputTypeDef(BaseValidatorModel):
-    Name: str
+    Name: Annotated[str, _aws_pattern("Mwaa", "EnvironmentName")]
 
 
 # This class is the input for the 'invoke_rest_api' function.
 class InvokeRestApiRequestTypeDef(BaseValidatorModel):
-    Name: str
+    Name: Annotated[str, _aws_pattern("Mwaa", "EnvironmentName")]
     Path: str
     Method: RestApiMethodType
     QueryParameters: Optional[Dict[str, Any]] = None
@@ -86,7 +88,7 @@ class InvokeRestApiRequestTypeDef(BaseValidatorModel):
 
 class UpdateErrorTypeDef(BaseValidatorModel):
     ErrorCode: Optional[str] = None
-    ErrorMessage: Optional[str] = None
+    ErrorMessage: Optional[Annotated[str, _aws_pattern("Mwaa", "ErrorMessage")]] = None
 
 
 class PaginatorConfigTypeDef(BaseValidatorModel):
@@ -103,7 +105,7 @@ class ListEnvironmentsInputTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'list_tags_for_resource' function.
 class ListTagsForResourceInputTypeDef(BaseValidatorModel):
-    ResourceArn: str
+    ResourceArn: Annotated[str, _aws_pattern("Mwaa", "EnvironmentArn")]
 
 
 class ModuleLoggingConfigurationInputTypeDef(BaseValidatorModel):
@@ -114,7 +116,7 @@ class ModuleLoggingConfigurationInputTypeDef(BaseValidatorModel):
 class ModuleLoggingConfigurationTypeDef(BaseValidatorModel):
     Enabled: Optional[bool] = None
     LogLevel: Optional[LoggingLevelType] = None
-    CloudWatchLogGroupArn: Optional[str] = None
+    CloudWatchLogGroupArn: Optional[Annotated[str, _aws_pattern("Mwaa", "CloudWatchLogGroupArn")]] = None
 
 
 class StatisticSetTypeDef(BaseValidatorModel):
@@ -128,41 +130,41 @@ TimestampTypeDef = Union[datetime, str]
 
 
 class NetworkConfigurationTypeDef(BaseValidatorModel):
-    SubnetIds: Optional[List[str]] = None
-    SecurityGroupIds: Optional[List[str]] = None
+    SubnetIds: Optional[List[Annotated[str, _aws_pattern("Mwaa", "SubnetId")]]] = None
+    SecurityGroupIds: Optional[List[Annotated[str, _aws_pattern("Mwaa", "SecurityGroupId")]]] = None
 
 
 class TagResourceInputTypeDef(BaseValidatorModel):
-    ResourceArn: str
+    ResourceArn: Annotated[str, _aws_pattern("Mwaa", "EnvironmentArn")]
     Tags: Dict[str, str]
 
 
 class UntagResourceInputTypeDef(BaseValidatorModel):
-    ResourceArn: str
-    tagKeys: List[str]
+    ResourceArn: Annotated[str, _aws_pattern("Mwaa", "EnvironmentArn")]
+    tagKeys: List[Annotated[str, _aws_pattern("Mwaa", "TagKey")]]
 
 
 class UpdateNetworkConfigurationInputTypeDef(BaseValidatorModel):
-    SecurityGroupIds: List[str]
+    SecurityGroupIds: List[Annotated[str, _aws_pattern("Mwaa", "SecurityGroupId")]]
 
 
 # This class is the output for the 'create_cli_token' function.
 class CreateCliTokenResponseTypeDef(BaseValidatorModel):
     CliToken: str
-    WebServerHostname: str
+    WebServerHostname: Annotated[str, _aws_pattern("Mwaa", "Hostname")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 # This class is the output for the 'create_environment' function.
 class CreateEnvironmentOutputTypeDef(BaseValidatorModel):
-    Arn: str
+    Arn: Annotated[str, _aws_pattern("Mwaa", "EnvironmentArn")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 # This class is the output for the 'create_web_login_token' function.
 class CreateWebLoginTokenResponseTypeDef(BaseValidatorModel):
     WebToken: str
-    WebServerHostname: str
+    WebServerHostname: Annotated[str, _aws_pattern("Mwaa", "Hostname")]
     IamIdentity: str
     AirflowIdentity: str
     ResponseMetadata: ResponseMetadataTypeDef
@@ -177,7 +179,7 @@ class InvokeRestApiResponseTypeDef(BaseValidatorModel):
 
 # This class is the output for the 'list_environments' function.
 class ListEnvironmentsOutputTypeDef(BaseValidatorModel):
-    Environments: List[str]
+    Environments: List[Annotated[str, _aws_pattern("Mwaa", "EnvironmentName")]]
     ResponseMetadata: ResponseMetadataTypeDef
     NextToken: Optional[str] = None
 
@@ -190,7 +192,7 @@ class ListTagsForResourceOutputTypeDef(BaseValidatorModel):
 
 # This class is the output for the 'update_environment' function.
 class UpdateEnvironmentOutputTypeDef(BaseValidatorModel):
-    Arn: str
+    Arn: Annotated[str, _aws_pattern("Mwaa", "EnvironmentArn")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
@@ -198,7 +200,7 @@ class LastUpdateTypeDef(BaseValidatorModel):
     Status: Optional[UpdateStatusType] = None
     CreatedAt: Optional[datetime] = None
     Error: Optional[UpdateErrorTypeDef] = None
-    Source: Optional[str] = None
+    Source: Optional[Annotated[str, _aws_pattern("Mwaa", "UpdateSource")]] = None
     WorkerReplacementStrategy: Optional[WorkerReplacementStrategyType] = None
 
 
@@ -236,11 +238,11 @@ NetworkConfigurationUnionTypeDef = Union[NetworkConfigurationOutputTypeDef, Netw
 
 # This class is the input for the 'update_environment' function.
 class UpdateEnvironmentInputTypeDef(BaseValidatorModel):
-    Name: str
-    ExecutionRoleArn: Optional[str] = None
+    Name: Annotated[str, _aws_pattern("Mwaa", "EnvironmentName")]
+    ExecutionRoleArn: Optional[Annotated[str, _aws_pattern("Mwaa", "IamRoleArn")]] = None
     AirflowConfigurationOptions: Optional[Dict[str, str]] = None
-    AirflowVersion: Optional[str] = None
-    DagS3Path: Optional[str] = None
+    AirflowVersion: Optional[Annotated[str, _aws_pattern("Mwaa", "AirflowVersion")]] = None
+    DagS3Path: Optional[Annotated[str, _aws_pattern("Mwaa", "RelativePath")]] = None
     EnvironmentClass: Optional[str] = None
     LoggingConfiguration: Optional[LoggingConfigurationInputTypeDef] = None
     MaxWorkers: Optional[int] = None
@@ -249,33 +251,33 @@ class UpdateEnvironmentInputTypeDef(BaseValidatorModel):
     MinWebservers: Optional[int] = None
     WorkerReplacementStrategy: Optional[WorkerReplacementStrategyType] = None
     NetworkConfiguration: Optional[UpdateNetworkConfigurationInputTypeDef] = None
-    PluginsS3Path: Optional[str] = None
+    PluginsS3Path: Optional[Annotated[str, _aws_pattern("Mwaa", "RelativePath")]] = None
     PluginsS3ObjectVersion: Optional[str] = None
-    RequirementsS3Path: Optional[str] = None
+    RequirementsS3Path: Optional[Annotated[str, _aws_pattern("Mwaa", "RelativePath")]] = None
     RequirementsS3ObjectVersion: Optional[str] = None
     Schedulers: Optional[int] = None
-    SourceBucketArn: Optional[str] = None
-    StartupScriptS3Path: Optional[str] = None
+    SourceBucketArn: Optional[Annotated[str, _aws_pattern("Mwaa", "S3BucketArn")]] = None
+    StartupScriptS3Path: Optional[Annotated[str, _aws_pattern("Mwaa", "RelativePath")]] = None
     StartupScriptS3ObjectVersion: Optional[str] = None
     WebserverAccessMode: Optional[WebserverAccessModeType] = None
-    WeeklyMaintenanceWindowStart: Optional[str] = None
+    WeeklyMaintenanceWindowStart: Optional[Annotated[str, _aws_pattern("Mwaa", "WeeklyMaintenanceWindowStart")]] = None
 
 
 class EnvironmentTypeDef(BaseValidatorModel):
-    Name: Optional[str] = None
+    Name: Optional[Annotated[str, _aws_pattern("Mwaa", "EnvironmentName")]] = None
     Status: Optional[EnvironmentStatusType] = None
-    Arn: Optional[str] = None
+    Arn: Optional[Annotated[str, _aws_pattern("Mwaa", "EnvironmentArn")]] = None
     CreatedAt: Optional[datetime] = None
-    WebserverUrl: Optional[str] = None
-    ExecutionRoleArn: Optional[str] = None
-    ServiceRoleArn: Optional[str] = None
-    KmsKey: Optional[str] = None
-    AirflowVersion: Optional[str] = None
-    SourceBucketArn: Optional[str] = None
-    DagS3Path: Optional[str] = None
-    PluginsS3Path: Optional[str] = None
+    WebserverUrl: Optional[Annotated[str, _aws_pattern("Mwaa", "WebserverUrl")]] = None
+    ExecutionRoleArn: Optional[Annotated[str, _aws_pattern("Mwaa", "IamRoleArn")]] = None
+    ServiceRoleArn: Optional[Annotated[str, _aws_pattern("Mwaa", "IamRoleArn")]] = None
+    KmsKey: Optional[Annotated[str, _aws_pattern("Mwaa", "KmsKey")]] = None
+    AirflowVersion: Optional[Annotated[str, _aws_pattern("Mwaa", "AirflowVersion")]] = None
+    SourceBucketArn: Optional[Annotated[str, _aws_pattern("Mwaa", "S3BucketArn")]] = None
+    DagS3Path: Optional[Annotated[str, _aws_pattern("Mwaa", "RelativePath")]] = None
+    PluginsS3Path: Optional[Annotated[str, _aws_pattern("Mwaa", "RelativePath")]] = None
     PluginsS3ObjectVersion: Optional[str] = None
-    RequirementsS3Path: Optional[str] = None
+    RequirementsS3Path: Optional[Annotated[str, _aws_pattern("Mwaa", "RelativePath")]] = None
     RequirementsS3ObjectVersion: Optional[str] = None
     StartupScriptS3Path: Optional[str] = None
     StartupScriptS3ObjectVersion: Optional[str] = None
@@ -285,44 +287,44 @@ class EnvironmentTypeDef(BaseValidatorModel):
     NetworkConfiguration: Optional[NetworkConfigurationOutputTypeDef] = None
     LoggingConfiguration: Optional[LoggingConfigurationTypeDef] = None
     LastUpdate: Optional[LastUpdateTypeDef] = None
-    WeeklyMaintenanceWindowStart: Optional[str] = None
+    WeeklyMaintenanceWindowStart: Optional[Annotated[str, _aws_pattern("Mwaa", "WeeklyMaintenanceWindowStart")]] = None
     Tags: Optional[Dict[str, str]] = None
     WebserverAccessMode: Optional[WebserverAccessModeType] = None
     MinWorkers: Optional[int] = None
     Schedulers: Optional[int] = None
-    WebserverVpcEndpointService: Optional[str] = None
-    DatabaseVpcEndpointService: Optional[str] = None
-    CeleryExecutorQueue: Optional[str] = None
+    WebserverVpcEndpointService: Optional[Annotated[str, _aws_pattern("Mwaa", "VpcEndpointServiceName")]] = None
+    DatabaseVpcEndpointService: Optional[Annotated[str, _aws_pattern("Mwaa", "VpcEndpointServiceName")]] = None
+    CeleryExecutorQueue: Optional[Annotated[str, _aws_pattern("Mwaa", "CeleryExecutorQueue")]] = None
     EndpointManagement: Optional[EndpointManagementType] = None
     MinWebservers: Optional[int] = None
     MaxWebservers: Optional[int] = None
 
 
 class PublishMetricsInputTypeDef(BaseValidatorModel):
-    EnvironmentName: str
+    EnvironmentName: Annotated[str, _aws_pattern("Mwaa", "EnvironmentName")]
     MetricData: List[MetricDatumTypeDef]
 
 
 # This class is the input for the 'create_environment' function.
 class CreateEnvironmentInputTypeDef(BaseValidatorModel):
-    Name: str
-    ExecutionRoleArn: str
-    SourceBucketArn: str
-    DagS3Path: str
+    Name: Annotated[str, _aws_pattern("Mwaa", "EnvironmentName")]
+    ExecutionRoleArn: Annotated[str, _aws_pattern("Mwaa", "IamRoleArn")]
+    SourceBucketArn: Annotated[str, _aws_pattern("Mwaa", "S3BucketArn")]
+    DagS3Path: Annotated[str, _aws_pattern("Mwaa", "RelativePath")]
     NetworkConfiguration: NetworkConfigurationUnionTypeDef
-    PluginsS3Path: Optional[str] = None
+    PluginsS3Path: Optional[Annotated[str, _aws_pattern("Mwaa", "RelativePath")]] = None
     PluginsS3ObjectVersion: Optional[str] = None
-    RequirementsS3Path: Optional[str] = None
+    RequirementsS3Path: Optional[Annotated[str, _aws_pattern("Mwaa", "RelativePath")]] = None
     RequirementsS3ObjectVersion: Optional[str] = None
-    StartupScriptS3Path: Optional[str] = None
+    StartupScriptS3Path: Optional[Annotated[str, _aws_pattern("Mwaa", "RelativePath")]] = None
     StartupScriptS3ObjectVersion: Optional[str] = None
     AirflowConfigurationOptions: Optional[Dict[str, str]] = None
     EnvironmentClass: Optional[str] = None
     MaxWorkers: Optional[int] = None
-    KmsKey: Optional[str] = None
-    AirflowVersion: Optional[str] = None
+    KmsKey: Optional[Annotated[str, _aws_pattern("Mwaa", "KmsKey")]] = None
+    AirflowVersion: Optional[Annotated[str, _aws_pattern("Mwaa", "AirflowVersion")]] = None
     LoggingConfiguration: Optional[LoggingConfigurationInputTypeDef] = None
-    WeeklyMaintenanceWindowStart: Optional[str] = None
+    WeeklyMaintenanceWindowStart: Optional[Annotated[str, _aws_pattern("Mwaa", "WeeklyMaintenanceWindowStart")]] = None
     Tags: Optional[Dict[str, str]] = None
     WebserverAccessMode: Optional[WebserverAccessModeType] = None
     MinWorkers: Optional[int] = None

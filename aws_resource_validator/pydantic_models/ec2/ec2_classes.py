@@ -3,6 +3,7 @@
 from datetime import datetime
 from decimal import Decimal
 from typing import (
+    Annotated,
     Any,
     Callable,
     Dict,
@@ -24,6 +25,7 @@ from botocore.response import StreamingBody
 from pydantic import Field
 
 from aws_resource_validator.core.base_validator_model import BaseValidatorModel, EventStream
+from aws_resource_validator.core.pattern_validation import aws_field_pattern as _aws_pattern
 from aws_resource_validator.pydantic_models.ec2.ec2_constants import *  # noqa: F401,F403
 
 # Optional boto3 symbols — imported lazily so services that don't need them
@@ -379,7 +381,7 @@ class AssociateAddressRequestVpcAddressAssociateTypeDef(BaseValidatorModel):
 # This class is the input for the 'associate_capacity_reservation_billing_owner' function.
 class AssociateCapacityReservationBillingOwnerRequestTypeDef(BaseValidatorModel):
     CapacityReservationId: str
-    UnusedReservationBillingOwnerId: str
+    UnusedReservationBillingOwnerId: Annotated[str, _aws_pattern("Ec2", "AccountID")]
     DryRun: Optional[bool] = None
 
 
@@ -1880,7 +1882,7 @@ class DeleteKeyPairRequestTypeDef(BaseValidatorModel):
 class DeleteLaunchTemplateRequestTypeDef(BaseValidatorModel):
     DryRun: Optional[bool] = None
     LaunchTemplateId: Optional[str] = None
-    LaunchTemplateName: Optional[str] = None
+    LaunchTemplateName: Optional[Annotated[str, _aws_pattern("Ec2", "LaunchTemplateName")]] = None
 
 
 # This class is the input for the 'delete_launch_template_versions' function.
@@ -1888,7 +1890,7 @@ class DeleteLaunchTemplateVersionsRequestTypeDef(BaseValidatorModel):
     Versions: List[str]
     DryRun: Optional[bool] = None
     LaunchTemplateId: Optional[str] = None
-    LaunchTemplateName: Optional[str] = None
+    LaunchTemplateName: Optional[Annotated[str, _aws_pattern("Ec2", "LaunchTemplateName")]] = None
 
 
 class ResponseErrorTypeDef(BaseValidatorModel):
@@ -3163,7 +3165,7 @@ class DisassociateAddressRequestTypeDef(BaseValidatorModel):
 # This class is the input for the 'disassociate_capacity_reservation_billing_owner' function.
 class DisassociateCapacityReservationBillingOwnerRequestTypeDef(BaseValidatorModel):
     CapacityReservationId: str
-    UnusedReservationBillingOwnerId: str
+    UnusedReservationBillingOwnerId: Annotated[str, _aws_pattern("Ec2", "AccountID")]
     DryRun: Optional[bool] = None
 
 
@@ -3498,7 +3500,7 @@ class EnableImageRequestTypeDef(BaseValidatorModel):
 # This class is the input for the 'enable_instance_sql_ha_standby_detections' function.
 class EnableInstanceSqlHaStandbyDetectionsRequestTypeDef(BaseValidatorModel):
     InstanceIds: List[str]
-    SqlServerCredentials: Optional[str] = None
+    SqlServerCredentials: Optional[Annotated[str, _aws_pattern("Ec2", "SecretArn")]] = None
     DryRun: Optional[bool] = None
 
 
@@ -3690,13 +3692,13 @@ class TargetCapacitySpecificationTypeDef(BaseValidatorModel):
 
 class FleetLaunchTemplateSpecificationRequestTypeDef(BaseValidatorModel):
     LaunchTemplateId: Optional[str] = None
-    LaunchTemplateName: Optional[str] = None
+    LaunchTemplateName: Optional[Annotated[str, _aws_pattern("Ec2", "LaunchTemplateName")]] = None
     Version: Optional[str] = None
 
 
 class FleetLaunchTemplateSpecificationTypeDef(BaseValidatorModel):
     LaunchTemplateId: Optional[str] = None
-    LaunchTemplateName: Optional[str] = None
+    LaunchTemplateName: Optional[Annotated[str, _aws_pattern("Ec2", "LaunchTemplateName")]] = None
     Version: Optional[str] = None
 
 
@@ -5020,7 +5022,7 @@ class ModifyLaunchTemplateRequestTypeDef(BaseValidatorModel):
     DryRun: Optional[bool] = None
     ClientToken: Optional[str] = None
     LaunchTemplateId: Optional[str] = None
-    LaunchTemplateName: Optional[str] = None
+    LaunchTemplateName: Optional[Annotated[str, _aws_pattern("Ec2", "LaunchTemplateName")]] = None
     DefaultVersion: Optional[str] = None
 
 
@@ -5040,8 +5042,8 @@ class RemovePrefixListEntryTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'modify_managed_resource_visibility' function.
 class ModifyManagedResourceVisibilityRequestTypeDef(BaseValidatorModel):
+    DefaultVisibility: ManagedResourceDefaultVisibilityType
     DryRun: Optional[bool] = None
-    DefaultVisibility: Optional[ManagedResourceDefaultVisibilityType] = None
 
 
 class NetworkInterfaceAttachmentChangesTypeDef(BaseValidatorModel):
@@ -5316,6 +5318,7 @@ class ModifyVpnConnectionOptionsRequestTypeDef(BaseValidatorModel):
     RemoteIpv4NetworkCidr: Optional[str] = None
     LocalIpv6NetworkCidr: Optional[str] = None
     RemoteIpv6NetworkCidr: Optional[str] = None
+    TunnelBandwidth: Optional[VpnTunnelBandwidthType] = None
     DryRun: Optional[bool] = None
 
 
@@ -7675,7 +7678,7 @@ class ModifyVpcEndpointServicePermissionsResultTypeDef(BaseValidatorModel):
 
 
 class AnalysisLoadBalancerTargetTypeDef(BaseValidatorModel):
-    Address: Optional[str] = None
+    Address: Optional[Annotated[str, _aws_pattern("Ec2", "IpAddress")]] = None
     AvailabilityZone: Optional[str] = None
     AvailabilityZoneId: Optional[str] = None
     Instance: Optional[AnalysisComponentTypeDef] = None
@@ -8442,10 +8445,10 @@ class AnalysisAclRuleTypeDef(BaseValidatorModel):
 
 
 class AnalysisPacketHeaderTypeDef(BaseValidatorModel):
-    DestinationAddresses: Optional[List[str]] = None
+    DestinationAddresses: Optional[List[Annotated[str, _aws_pattern("Ec2", "IpAddress")]]] = None
     DestinationPortRanges: Optional[List[PortRangeTypeDef]] = None
     Protocol: Optional[str] = None
-    SourceAddresses: Optional[List[str]] = None
+    SourceAddresses: Optional[List[Annotated[str, _aws_pattern("Ec2", "IpAddress")]]] = None
     SourcePortRanges: Optional[List[PortRangeTypeDef]] = None
 
 
@@ -9087,7 +9090,7 @@ class UpdateCapacityManagerMonitoredTagKeysResultTypeDef(BaseValidatorModel):
 class CapacityReservationBillingRequestTypeDef(BaseValidatorModel):
     CapacityReservationId: Optional[str] = None
     RequestedBy: Optional[str] = None
-    UnusedReservationBillingOwnerId: Optional[str] = None
+    UnusedReservationBillingOwnerId: Optional[Annotated[str, _aws_pattern("Ec2", "AccountID")]] = None
     LastUpdateTime: Optional[datetime] = None
     Status: Optional[CapacityReservationBillingRequestStatusType] = None
     StatusMessage: Optional[str] = None
@@ -10780,7 +10783,7 @@ class DescribeLaunchTemplateVersionsRequestPaginateTypeDef(BaseValidatorModel):
 class DescribeLaunchTemplateVersionsRequestTypeDef(BaseValidatorModel):
     DryRun: Optional[bool] = None
     LaunchTemplateId: Optional[str] = None
-    LaunchTemplateName: Optional[str] = None
+    LaunchTemplateName: Optional[Annotated[str, _aws_pattern("Ec2", "LaunchTemplateName")]] = None
     Versions: Optional[List[str]] = None
     MinVersion: Optional[str] = None
     MaxVersion: Optional[str] = None
@@ -10804,7 +10807,7 @@ class DescribeLaunchTemplatesRequestPaginateTypeDef(BaseValidatorModel):
 class DescribeLaunchTemplatesRequestTypeDef(BaseValidatorModel):
     DryRun: Optional[bool] = None
     LaunchTemplateIds: Optional[List[str]] = None
-    LaunchTemplateNames: Optional[List[str]] = None
+    LaunchTemplateNames: Optional[List[Annotated[str, _aws_pattern("Ec2", "LaunchTemplateName")]]] = None
     Filters: Optional[List[FilterTypeDef]] = None
     NextToken: Optional[str] = None
     MaxResults: Optional[int] = None
@@ -13275,7 +13278,7 @@ class EbsInstanceBlockDeviceTypeDef(BaseValidatorModel):
 
 class LaunchTemplateTypeDef(BaseValidatorModel):
     LaunchTemplateId: Optional[str] = None
-    LaunchTemplateName: Optional[str] = None
+    LaunchTemplateName: Optional[Annotated[str, _aws_pattern("Ec2", "LaunchTemplateName")]] = None
     CreateTime: Optional[datetime] = None
     CreatedBy: Optional[str] = None
     DefaultVersionNumber: Optional[int] = None
@@ -13453,9 +13456,9 @@ class ExportTaskTypeDef(BaseValidatorModel):
 
 
 class PathFilterTypeDef(BaseValidatorModel):
-    SourceAddress: Optional[str] = None
+    SourceAddress: Optional[Annotated[str, _aws_pattern("Ec2", "IpAddress")]] = None
     SourcePortRange: Optional[FilterPortRangeTypeDef] = None
-    DestinationAddress: Optional[str] = None
+    DestinationAddress: Optional[Annotated[str, _aws_pattern("Ec2", "IpAddress")]] = None
     DestinationPortRange: Optional[FilterPortRangeTypeDef] = None
 
 
@@ -14376,9 +14379,9 @@ class VerifiedAccessTrustProviderTypeDef(BaseValidatorModel):
 
 
 class PathRequestFilterTypeDef(BaseValidatorModel):
-    SourceAddress: Optional[str] = None
+    SourceAddress: Optional[Annotated[str, _aws_pattern("Ec2", "IpAddress")]] = None
     SourcePortRange: Optional[RequestFilterPortRangeTypeDef] = None
-    DestinationAddress: Optional[str] = None
+    DestinationAddress: Optional[Annotated[str, _aws_pattern("Ec2", "IpAddress")]] = None
     DestinationPortRange: Optional[RequestFilterPortRangeTypeDef] = None
 
 
@@ -15840,8 +15843,8 @@ class DescribeVpnConcentratorsResultTypeDef(BaseValidatorModel):
 class ExplanationTypeDef(BaseValidatorModel):
     Acl: Optional[AnalysisComponentTypeDef] = None
     AclRule: Optional[AnalysisAclRuleTypeDef] = None
-    Address: Optional[str] = None
-    Addresses: Optional[List[str]] = None
+    Address: Optional[Annotated[str, _aws_pattern("Ec2", "IpAddress")]] = None
+    Addresses: Optional[List[Annotated[str, _aws_pattern("Ec2", "IpAddress")]]] = None
     AttachedTo: Optional[AnalysisComponentTypeDef] = None
     AvailabilityZones: Optional[List[str]] = None
     AvailabilityZoneIds: Optional[List[str]] = None
@@ -15888,8 +15891,8 @@ class ExplanationTypeDef(BaseValidatorModel):
     TransitGatewayRouteTable: Optional[AnalysisComponentTypeDef] = None
     TransitGatewayRouteTableRoute: Optional[TransitGatewayRouteTableRouteTypeDef] = None
     TransitGatewayAttachment: Optional[AnalysisComponentTypeDef] = None
-    ComponentAccount: Optional[str] = None
-    ComponentRegion: Optional[str] = None
+    ComponentAccount: Optional[Annotated[str, _aws_pattern("Ec2", "ComponentAccount")]] = None
+    ComponentRegion: Optional[Annotated[str, _aws_pattern("Ec2", "ComponentRegion")]] = None
     FirewallStatelessRule: Optional[FirewallStatelessRuleTypeDef] = None
     FirewallStatefulRule: Optional[FirewallStatefulRuleTypeDef] = None
 
@@ -16181,12 +16184,12 @@ class CapacityReservationTypeDef(BaseValidatorModel):
     InstanceMatchCriteria: Optional[InstanceMatchCriteriaType] = None
     CreateDate: Optional[datetime] = None
     Tags: Optional[List[TagTypeDef]] = None
-    OutpostArn: Optional[str] = None
+    OutpostArn: Optional[Annotated[str, _aws_pattern("Ec2", "OutpostArn")]] = None
     CapacityReservationFleetId: Optional[str] = None
-    PlacementGroupArn: Optional[str] = None
+    PlacementGroupArn: Optional[Annotated[str, _aws_pattern("Ec2", "PlacementGroupArn")]] = None
     CapacityAllocations: Optional[List[CapacityAllocationTypeDef]] = None
     ReservationType: Optional[CapacityReservationTypeType] = None
-    UnusedReservationBillingOwnerId: Optional[str] = None
+    UnusedReservationBillingOwnerId: Optional[Annotated[str, _aws_pattern("Ec2", "AccountID")]] = None
     CommitmentInfo: Optional[CapacityReservationCommitmentInfoTypeDef] = None
     DeliveryPreference: Optional[CapacityReservationDeliveryPreferenceType] = None
     CapacityBlockId: Optional[str] = None
@@ -16870,8 +16873,8 @@ class NetworkInsightsPathTypeDef(BaseValidatorModel):
     Destination: Optional[str] = None
     SourceArn: Optional[str] = None
     DestinationArn: Optional[str] = None
-    SourceIp: Optional[str] = None
-    DestinationIp: Optional[str] = None
+    SourceIp: Optional[Annotated[str, _aws_pattern("Ec2", "IpAddress")]] = None
+    DestinationIp: Optional[Annotated[str, _aws_pattern("Ec2", "IpAddress")]] = None
     Protocol: Optional[ProtocolType] = None
     DestinationPort: Optional[int] = None
     Tags: Optional[List[TagTypeDef]] = None
@@ -18582,8 +18585,8 @@ class CreateCapacityReservationRequestTypeDef(BaseValidatorModel):
     InstanceMatchCriteria: Optional[InstanceMatchCriteriaType] = None
     TagSpecifications: Optional[List[TagSpecificationUnionTypeDef]] = None
     DryRun: Optional[bool] = None
-    OutpostArn: Optional[str] = None
-    PlacementGroupArn: Optional[str] = None
+    OutpostArn: Optional[Annotated[str, _aws_pattern("Ec2", "OutpostArn")]] = None
+    PlacementGroupArn: Optional[Annotated[str, _aws_pattern("Ec2", "PlacementGroupArn")]] = None
     StartDate: Optional[TimestampTypeDef] = None
     CommitmentDuration: Optional[int] = None
     DeliveryPreference: Optional[CapacityReservationDeliveryPreferenceType] = None
@@ -18992,8 +18995,8 @@ class CreateNetworkInsightsPathRequestTypeDef(BaseValidatorModel):
     Source: str
     Protocol: ProtocolType
     ClientToken: str
-    SourceIp: Optional[str] = None
-    DestinationIp: Optional[str] = None
+    SourceIp: Optional[Annotated[str, _aws_pattern("Ec2", "IpAddress")]] = None
+    DestinationIp: Optional[Annotated[str, _aws_pattern("Ec2", "IpAddress")]] = None
     Destination: Optional[str] = None
     DestinationPort: Optional[int] = None
     TagSpecifications: Optional[List[TagSpecificationUnionTypeDef]] = None
@@ -20077,7 +20080,7 @@ class InstanceRequirementsRequestTypeDef(BaseValidatorModel):
     MemoryMiB: MemoryMiBRequestTypeDef
     CpuManufacturers: Optional[List[CpuManufacturerType]] = None
     MemoryGiBPerVCpu: Optional[MemoryGiBPerVCpuRequestTypeDef] = None
-    ExcludedInstanceTypes: Optional[List[str]] = None
+    ExcludedInstanceTypes: Optional[List[Annotated[str, _aws_pattern("Ec2", "ExcludedInstanceType")]]] = None
     InstanceGenerations: Optional[List[InstanceGenerationType]] = None
     SpotMaxPricePercentageOverLowestPrice: Optional[int] = None
     OnDemandMaxPricePercentageOverLowestPrice: Optional[int] = None
@@ -20095,7 +20098,7 @@ class InstanceRequirementsRequestTypeDef(BaseValidatorModel):
     AcceleratorNames: Optional[List[AcceleratorNameType]] = None
     AcceleratorTotalMemoryMiB: Optional[AcceleratorTotalMemoryMiBRequestTypeDef] = None
     NetworkBandwidthGbps: Optional[NetworkBandwidthGbpsRequestTypeDef] = None
-    AllowedInstanceTypes: Optional[List[str]] = None
+    AllowedInstanceTypes: Optional[List[Annotated[str, _aws_pattern("Ec2", "AllowedInstanceType")]]] = None
     MaxSpotPriceAsPercentageOfOptimalOnDemandPrice: Optional[int] = None
     BaselinePerformanceFactors: Optional[BaselinePerformanceFactorsRequestTypeDef] = None
     RequireEncryptionInTransit: Optional[bool] = None
@@ -21355,7 +21358,7 @@ class GetLaunchTemplateDataResultTypeDef(BaseValidatorModel):
 
 class LaunchTemplateVersionTypeDef(BaseValidatorModel):
     LaunchTemplateId: Optional[str] = None
-    LaunchTemplateName: Optional[str] = None
+    LaunchTemplateName: Optional[Annotated[str, _aws_pattern("Ec2", "LaunchTemplateName")]] = None
     VersionNumber: Optional[int] = None
     VersionDescription: Optional[str] = None
     CreateTime: Optional[datetime] = None
@@ -21370,7 +21373,7 @@ class InstanceRequirementsTypeDef(BaseValidatorModel):
     MemoryMiB: Optional[MemoryMiBTypeDef] = None
     CpuManufacturers: Optional[List[CpuManufacturerType]] = None
     MemoryGiBPerVCpu: Optional[MemoryGiBPerVCpuTypeDef] = None
-    ExcludedInstanceTypes: Optional[List[str]] = None
+    ExcludedInstanceTypes: Optional[List[Annotated[str, _aws_pattern("Ec2", "ExcludedInstanceType")]]] = None
     InstanceGenerations: Optional[List[InstanceGenerationType]] = None
     SpotMaxPricePercentageOverLowestPrice: Optional[int] = None
     OnDemandMaxPricePercentageOverLowestPrice: Optional[int] = None
@@ -21388,7 +21391,7 @@ class InstanceRequirementsTypeDef(BaseValidatorModel):
     AcceleratorNames: Optional[List[AcceleratorNameType]] = None
     AcceleratorTotalMemoryMiB: Optional[AcceleratorTotalMemoryMiBTypeDef] = None
     NetworkBandwidthGbps: Optional[NetworkBandwidthGbpsTypeDef] = None
-    AllowedInstanceTypes: Optional[List[str]] = None
+    AllowedInstanceTypes: Optional[List[Annotated[str, _aws_pattern("Ec2", "AllowedInstanceType")]]] = None
     MaxSpotPriceAsPercentageOfOptimalOnDemandPrice: Optional[int] = None
     BaselinePerformanceFactors: Optional[BaselinePerformanceFactorsUnionTypeDef] = None
     RequireEncryptionInTransit: Optional[bool] = None
@@ -21425,7 +21428,7 @@ class GetSpotPlacementScoresRequestTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'create_launch_template' function.
 class CreateLaunchTemplateRequestTypeDef(BaseValidatorModel):
-    LaunchTemplateName: str
+    LaunchTemplateName: Annotated[str, _aws_pattern("Ec2", "LaunchTemplateName")]
     LaunchTemplateData: RequestLaunchTemplateDataTypeDef
     DryRun: Optional[bool] = None
     ClientToken: Optional[str] = None
@@ -21440,7 +21443,7 @@ class CreateLaunchTemplateVersionRequestTypeDef(BaseValidatorModel):
     DryRun: Optional[bool] = None
     ClientToken: Optional[str] = None
     LaunchTemplateId: Optional[str] = None
-    LaunchTemplateName: Optional[str] = None
+    LaunchTemplateName: Optional[Annotated[str, _aws_pattern("Ec2", "LaunchTemplateName")]] = None
     SourceVersion: Optional[str] = None
     VersionDescription: Optional[str] = None
     ResolveAlias: Optional[bool] = None

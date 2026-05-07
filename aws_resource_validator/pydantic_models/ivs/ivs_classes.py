@@ -3,6 +3,7 @@
 from datetime import datetime
 from decimal import Decimal
 from typing import (
+    Annotated,
     Any,
     Callable,
     Dict,
@@ -24,6 +25,7 @@ from botocore.response import StreamingBody
 from pydantic import Field
 
 from aws_resource_validator.core.base_validator_model import BaseValidatorModel, EventStream
+from aws_resource_validator.core.pattern_validation import aws_field_pattern as _aws_pattern
 from aws_resource_validator.pydantic_models.ivs.ivs_constants import *  # noqa: F401,F403
 
 # Optional boto3 symbols — imported lazily so services that don't need them
@@ -39,7 +41,9 @@ except ImportError:  # pragma: no cover
 
 
 class MediaTailorPlaybackConfigurationTypeDef(BaseValidatorModel):
-    playbackConfigurationArn: Optional[str] = None
+    playbackConfigurationArn: Optional[Annotated[str, _aws_pattern("Ivs", "MediaTailorPlaybackConfigurationArn")]] = (
+        None
+    )
 
 
 class AudioConfigurationTypeDef(BaseValidatorModel):
@@ -51,14 +55,14 @@ class AudioConfigurationTypeDef(BaseValidatorModel):
 
 
 class BatchErrorTypeDef(BaseValidatorModel):
-    arn: Optional[str] = None
+    arn: Optional[Annotated[str, _aws_pattern("Ivs", "ResourceArn")]] = None
     code: Optional[str] = None
     message: Optional[str] = None
 
 
 # This class is the input for the 'batch_get_channel' function.
 class BatchGetChannelRequestTypeDef(BaseValidatorModel):
-    arns: List[str]
+    arns: List[Annotated[str, _aws_pattern("Ivs", "ChannelArn")]]
 
 
 class ResponseMetadataTypeDef(BaseValidatorModel):
@@ -71,41 +75,43 @@ class ResponseMetadataTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'batch_get_stream_key' function.
 class BatchGetStreamKeyRequestTypeDef(BaseValidatorModel):
-    arns: List[str]
+    arns: List[Annotated[str, _aws_pattern("Ivs", "StreamKeyArn")]]
 
 
 class StreamKeyTypeDef(BaseValidatorModel):
-    arn: Optional[str] = None
+    arn: Optional[Annotated[str, _aws_pattern("Ivs", "StreamKeyArn")]] = None
     value: Optional[str] = None
-    channelArn: Optional[str] = None
+    channelArn: Optional[Annotated[str, _aws_pattern("Ivs", "ChannelArn")]] = None
     tags: Optional[Dict[str, str]] = None
 
 
 class BatchStartViewerSessionRevocationErrorTypeDef(BaseValidatorModel):
-    channelArn: str
+    channelArn: Annotated[str, _aws_pattern("Ivs", "ChannelArn")]
     viewerId: str
     code: Optional[str] = None
     message: Optional[str] = None
 
 
 class BatchStartViewerSessionRevocationViewerSessionTypeDef(BaseValidatorModel):
-    channelArn: str
+    channelArn: Annotated[str, _aws_pattern("Ivs", "ChannelArn")]
     viewerId: str
     viewerSessionVersionsLessThanOrEqualTo: Optional[int] = None
 
 
 class ChannelSummaryTypeDef(BaseValidatorModel):
-    arn: Optional[str] = None
-    name: Optional[str] = None
+    arn: Optional[Annotated[str, _aws_pattern("Ivs", "ChannelArn")]] = None
+    name: Optional[Annotated[str, _aws_pattern("Ivs", "ChannelName")]] = None
     latencyMode: Optional[ChannelLatencyModeType] = None
     authorized: Optional[bool] = None
-    recordingConfigurationArn: Optional[str] = None
+    recordingConfigurationArn: Optional[Annotated[str, _aws_pattern("Ivs", "ChannelRecordingConfigurationArn")]] = None
     tags: Optional[Dict[str, str]] = None
     insecureIngest: Optional[bool] = None
     type: Optional[ChannelTypeType] = None
     preset: Optional[TranscodePresetType] = None
-    playbackRestrictionPolicyArn: Optional[str] = None
-    adConfigurationArn: Optional[str] = None
+    playbackRestrictionPolicyArn: Optional[
+        Annotated[str, _aws_pattern("Ivs", "ChannelPlaybackRestrictionPolicyArn")]
+    ] = None
+    adConfigurationArn: Optional[Annotated[str, _aws_pattern("Ivs", "ChannelAdConfigurationArn")]] = None
 
 
 class MultitrackInputConfigurationTypeDef(BaseValidatorModel):
@@ -124,103 +130,103 @@ class CreatePlaybackRestrictionPolicyRequestTypeDef(BaseValidatorModel):
     allowedCountries: Optional[List[str]] = None
     allowedOrigins: Optional[List[str]] = None
     enableStrictOriginEnforcement: Optional[bool] = None
-    name: Optional[str] = None
+    name: Optional[Annotated[str, _aws_pattern("Ivs", "PlaybackRestrictionPolicyName")]] = None
     tags: Optional[Dict[str, str]] = None
 
 
 class PlaybackRestrictionPolicyTypeDef(BaseValidatorModel):
-    arn: str
+    arn: Annotated[str, _aws_pattern("Ivs", "PlaybackRestrictionPolicyArn")]
     allowedCountries: List[str]
     allowedOrigins: List[str]
     enableStrictOriginEnforcement: Optional[bool] = None
-    name: Optional[str] = None
+    name: Optional[Annotated[str, _aws_pattern("Ivs", "PlaybackRestrictionPolicyName")]] = None
     tags: Optional[Dict[str, str]] = None
 
 
 # This class is the input for the 'create_stream_key' function.
 class CreateStreamKeyRequestTypeDef(BaseValidatorModel):
-    channelArn: str
+    channelArn: Annotated[str, _aws_pattern("Ivs", "ChannelArn")]
     tags: Optional[Dict[str, str]] = None
 
 
 # This class is the input for the 'delete_ad_configuration' function.
 class DeleteAdConfigurationRequestTypeDef(BaseValidatorModel):
-    arn: str
+    arn: Annotated[str, _aws_pattern("Ivs", "AdConfigurationArn")]
 
 
 # This class is the input for the 'delete_channel' function.
 class DeleteChannelRequestTypeDef(BaseValidatorModel):
-    arn: str
+    arn: Annotated[str, _aws_pattern("Ivs", "ChannelArn")]
 
 
 class DeletePlaybackKeyPairRequestTypeDef(BaseValidatorModel):
-    arn: str
+    arn: Annotated[str, _aws_pattern("Ivs", "PlaybackKeyPairArn")]
 
 
 # This class is the input for the 'delete_playback_restriction_policy' function.
 class DeletePlaybackRestrictionPolicyRequestTypeDef(BaseValidatorModel):
-    arn: str
+    arn: Annotated[str, _aws_pattern("Ivs", "PlaybackRestrictionPolicyArn")]
 
 
 # This class is the input for the 'delete_recording_configuration' function.
 class DeleteRecordingConfigurationRequestTypeDef(BaseValidatorModel):
-    arn: str
+    arn: Annotated[str, _aws_pattern("Ivs", "RecordingConfigurationArn")]
 
 
 # This class is the input for the 'delete_stream_key' function.
 class DeleteStreamKeyRequestTypeDef(BaseValidatorModel):
-    arn: str
+    arn: Annotated[str, _aws_pattern("Ivs", "StreamKeyArn")]
 
 
 class S3DestinationConfigurationTypeDef(BaseValidatorModel):
-    bucketName: str
+    bucketName: Annotated[str, _aws_pattern("Ivs", "S3DestinationBucketName")]
 
 
 # This class is the input for the 'get_ad_configuration' function.
 class GetAdConfigurationRequestTypeDef(BaseValidatorModel):
-    arn: str
+    arn: Annotated[str, _aws_pattern("Ivs", "AdConfigurationArn")]
 
 
 # This class is the input for the 'get_channel' function.
 class GetChannelRequestTypeDef(BaseValidatorModel):
-    arn: str
+    arn: Annotated[str, _aws_pattern("Ivs", "ChannelArn")]
 
 
 # This class is the input for the 'get_playback_key_pair' function.
 class GetPlaybackKeyPairRequestTypeDef(BaseValidatorModel):
-    arn: str
+    arn: Annotated[str, _aws_pattern("Ivs", "PlaybackKeyPairArn")]
 
 
 class PlaybackKeyPairTypeDef(BaseValidatorModel):
-    arn: Optional[str] = None
-    name: Optional[str] = None
+    arn: Optional[Annotated[str, _aws_pattern("Ivs", "PlaybackKeyPairArn")]] = None
+    name: Optional[Annotated[str, _aws_pattern("Ivs", "PlaybackKeyPairName")]] = None
     fingerprint: Optional[str] = None
     tags: Optional[Dict[str, str]] = None
 
 
 # This class is the input for the 'get_playback_restriction_policy' function.
 class GetPlaybackRestrictionPolicyRequestTypeDef(BaseValidatorModel):
-    arn: str
+    arn: Annotated[str, _aws_pattern("Ivs", "PlaybackRestrictionPolicyArn")]
 
 
 # This class is the input for the 'get_recording_configuration' function.
 class GetRecordingConfigurationRequestTypeDef(BaseValidatorModel):
-    arn: str
+    arn: Annotated[str, _aws_pattern("Ivs", "RecordingConfigurationArn")]
 
 
 # This class is the input for the 'get_stream_key' function.
 class GetStreamKeyRequestTypeDef(BaseValidatorModel):
-    arn: str
+    arn: Annotated[str, _aws_pattern("Ivs", "StreamKeyArn")]
 
 
 # This class is the input for the 'get_stream' function.
 class GetStreamRequestTypeDef(BaseValidatorModel):
-    channelArn: str
+    channelArn: Annotated[str, _aws_pattern("Ivs", "ChannelArn")]
 
 
 class StreamTypeDef(BaseValidatorModel):
-    channelArn: Optional[str] = None
-    streamId: Optional[str] = None
+    channelArn: Optional[Annotated[str, _aws_pattern("Ivs", "ChannelArn")]] = None
+    streamId: Optional[Annotated[str, _aws_pattern("Ivs", "StreamId")]] = None
     playbackUrl: Optional[str] = None
     startTime: Optional[datetime] = None
     state: Optional[StreamStateType] = None
@@ -230,14 +236,14 @@ class StreamTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'get_stream_session' function.
 class GetStreamSessionRequestTypeDef(BaseValidatorModel):
-    channelArn: str
-    streamId: Optional[str] = None
+    channelArn: Annotated[str, _aws_pattern("Ivs", "ChannelArn")]
+    streamId: Optional[Annotated[str, _aws_pattern("Ivs", "StreamId")]] = None
 
 
 # This class is the input for the 'import_playback_key_pair' function.
 class ImportPlaybackKeyPairRequestTypeDef(BaseValidatorModel):
     publicKeyMaterial: str
-    name: Optional[str] = None
+    name: Optional[Annotated[str, _aws_pattern("Ivs", "PlaybackKeyPairName")]] = None
     tags: Optional[Dict[str, str]] = None
 
 
@@ -257,7 +263,7 @@ class VideoConfigurationTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'insert_ad_break' function.
 class InsertAdBreakRequestTypeDef(BaseValidatorModel):
-    channelArn: str
+    channelArn: Annotated[str, _aws_pattern("Ivs", "ChannelArn")]
     durationSeconds: int
 
 
@@ -269,75 +275,79 @@ class PaginatorConfigTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'list_ad_configurations' function.
 class ListAdConfigurationsRequestTypeDef(BaseValidatorModel):
-    nextToken: Optional[str] = None
+    nextToken: Optional[Annotated[str, _aws_pattern("Ivs", "PaginationToken")]] = None
     maxResults: Optional[int] = None
 
 
 # This class is the input for the 'list_channels' function.
 class ListChannelsRequestTypeDef(BaseValidatorModel):
-    filterByName: Optional[str] = None
-    filterByRecordingConfigurationArn: Optional[str] = None
-    filterByPlaybackRestrictionPolicyArn: Optional[str] = None
-    filterByAdConfigurationArn: Optional[str] = None
-    nextToken: Optional[str] = None
+    filterByName: Optional[Annotated[str, _aws_pattern("Ivs", "ChannelName")]] = None
+    filterByRecordingConfigurationArn: Optional[
+        Annotated[str, _aws_pattern("Ivs", "ChannelRecordingConfigurationArn")]
+    ] = None
+    filterByPlaybackRestrictionPolicyArn: Optional[
+        Annotated[str, _aws_pattern("Ivs", "ChannelPlaybackRestrictionPolicyArn")]
+    ] = None
+    filterByAdConfigurationArn: Optional[Annotated[str, _aws_pattern("Ivs", "ChannelAdConfigurationArn")]] = None
+    nextToken: Optional[Annotated[str, _aws_pattern("Ivs", "PaginationToken")]] = None
     maxResults: Optional[int] = None
 
 
 # This class is the input for the 'list_playback_key_pairs' function.
 class ListPlaybackKeyPairsRequestTypeDef(BaseValidatorModel):
-    nextToken: Optional[str] = None
+    nextToken: Optional[Annotated[str, _aws_pattern("Ivs", "PaginationToken")]] = None
     maxResults: Optional[int] = None
 
 
 class PlaybackKeyPairSummaryTypeDef(BaseValidatorModel):
-    arn: Optional[str] = None
-    name: Optional[str] = None
+    arn: Optional[Annotated[str, _aws_pattern("Ivs", "PlaybackKeyPairArn")]] = None
+    name: Optional[Annotated[str, _aws_pattern("Ivs", "PlaybackKeyPairName")]] = None
     tags: Optional[Dict[str, str]] = None
 
 
 # This class is the input for the 'list_playback_restriction_policies' function.
 class ListPlaybackRestrictionPoliciesRequestTypeDef(BaseValidatorModel):
-    nextToken: Optional[str] = None
+    nextToken: Optional[Annotated[str, _aws_pattern("Ivs", "PaginationToken")]] = None
     maxResults: Optional[int] = None
 
 
 class PlaybackRestrictionPolicySummaryTypeDef(BaseValidatorModel):
-    arn: str
+    arn: Annotated[str, _aws_pattern("Ivs", "PlaybackRestrictionPolicyArn")]
     allowedCountries: List[str]
     allowedOrigins: List[str]
     enableStrictOriginEnforcement: Optional[bool] = None
-    name: Optional[str] = None
+    name: Optional[Annotated[str, _aws_pattern("Ivs", "PlaybackRestrictionPolicyName")]] = None
     tags: Optional[Dict[str, str]] = None
 
 
 # This class is the input for the 'list_recording_configurations' function.
 class ListRecordingConfigurationsRequestTypeDef(BaseValidatorModel):
-    nextToken: Optional[str] = None
+    nextToken: Optional[Annotated[str, _aws_pattern("Ivs", "PaginationToken")]] = None
     maxResults: Optional[int] = None
 
 
 # This class is the input for the 'list_stream_keys' function.
 class ListStreamKeysRequestTypeDef(BaseValidatorModel):
-    channelArn: str
-    nextToken: Optional[str] = None
+    channelArn: Annotated[str, _aws_pattern("Ivs", "ChannelArn")]
+    nextToken: Optional[Annotated[str, _aws_pattern("Ivs", "PaginationToken")]] = None
     maxResults: Optional[int] = None
 
 
 class StreamKeySummaryTypeDef(BaseValidatorModel):
-    arn: Optional[str] = None
-    channelArn: Optional[str] = None
+    arn: Optional[Annotated[str, _aws_pattern("Ivs", "StreamKeyArn")]] = None
+    channelArn: Optional[Annotated[str, _aws_pattern("Ivs", "ChannelArn")]] = None
     tags: Optional[Dict[str, str]] = None
 
 
 # This class is the input for the 'list_stream_sessions' function.
 class ListStreamSessionsRequestTypeDef(BaseValidatorModel):
-    channelArn: str
-    nextToken: Optional[str] = None
+    channelArn: Annotated[str, _aws_pattern("Ivs", "ChannelArn")]
+    nextToken: Optional[Annotated[str, _aws_pattern("Ivs", "PaginationToken")]] = None
     maxResults: Optional[int] = None
 
 
 class StreamSessionSummaryTypeDef(BaseValidatorModel):
-    streamId: Optional[str] = None
+    streamId: Optional[Annotated[str, _aws_pattern("Ivs", "StreamId")]] = None
     startTime: Optional[datetime] = None
     endTime: Optional[datetime] = None
     hasErrorEvent: Optional[bool] = None
@@ -348,8 +358,8 @@ class StreamFiltersTypeDef(BaseValidatorModel):
 
 
 class StreamSummaryTypeDef(BaseValidatorModel):
-    channelArn: Optional[str] = None
-    streamId: Optional[str] = None
+    channelArn: Optional[Annotated[str, _aws_pattern("Ivs", "ChannelArn")]] = None
+    streamId: Optional[Annotated[str, _aws_pattern("Ivs", "StreamId")]] = None
     state: Optional[StreamStateType] = None
     health: Optional[StreamHealthType] = None
     viewerCount: Optional[int] = None
@@ -358,12 +368,12 @@ class StreamSummaryTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'list_tags_for_resource' function.
 class ListTagsForResourceRequestTypeDef(BaseValidatorModel):
-    resourceArn: str
+    resourceArn: Annotated[str, _aws_pattern("Ivs", "ResourceArn")]
 
 
 # This class is the input for the 'put_metadata' function.
 class PutMetadataRequestTypeDef(BaseValidatorModel):
-    channelArn: str
+    channelArn: Annotated[str, _aws_pattern("Ivs", "ChannelArn")]
     metadata: str
 
 
@@ -385,13 +395,13 @@ class RenditionConfigurationTypeDef(BaseValidatorModel):
 
 
 class StartViewerSessionRevocationRequestTypeDef(BaseValidatorModel):
-    channelArn: str
+    channelArn: Annotated[str, _aws_pattern("Ivs", "ChannelArn")]
     viewerId: str
     viewerSessionVersionsLessThanOrEqualTo: Optional[int] = None
 
 
 class StopStreamRequestTypeDef(BaseValidatorModel):
-    channelArn: str
+    channelArn: Annotated[str, _aws_pattern("Ivs", "ChannelArn")]
 
 
 class StreamEventTypeDef(BaseValidatorModel):
@@ -402,7 +412,7 @@ class StreamEventTypeDef(BaseValidatorModel):
 
 
 class TagResourceRequestTypeDef(BaseValidatorModel):
-    resourceArn: str
+    resourceArn: Annotated[str, _aws_pattern("Ivs", "ResourceArn")]
     tags: Dict[str, str]
 
 
@@ -414,37 +424,38 @@ class ThumbnailConfigurationTypeDef(BaseValidatorModel):
 
 
 class UntagResourceRequestTypeDef(BaseValidatorModel):
-    resourceArn: str
-    tagKeys: List[str]
+    resourceArn: Annotated[str, _aws_pattern("Ivs", "ResourceArn")]
+    tagKeys: List[Annotated[str, _aws_pattern("Ivs", "TagKey")]]
 
 
 # This class is the input for the 'update_playback_restriction_policy' function.
 class UpdatePlaybackRestrictionPolicyRequestTypeDef(BaseValidatorModel):
-    arn: str
+    arn: Annotated[str, _aws_pattern("Ivs", "PlaybackRestrictionPolicyArn")]
     allowedCountries: Optional[List[str]] = None
     allowedOrigins: Optional[List[str]] = None
     enableStrictOriginEnforcement: Optional[bool] = None
-    name: Optional[str] = None
+    name: Optional[Annotated[str, _aws_pattern("Ivs", "PlaybackRestrictionPolicyName")]] = None
 
 
 class AdConfigurationSummaryTypeDef(BaseValidatorModel):
-    arn: str
+    arn: Annotated[str, _aws_pattern("Ivs", "AdConfigurationArn")]
     mediaTailorPlaybackConfigurations: List[MediaTailorPlaybackConfigurationTypeDef]
-    name: Optional[str] = None
+    name: Optional[Annotated[str, _aws_pattern("Ivs", "AdConfigurationName")]] = None
     tags: Optional[Dict[str, str]] = None
 
 
 class AdConfigurationTypeDef(BaseValidatorModel):
-    arn: str
+    arn: Annotated[str, _aws_pattern("Ivs", "AdConfigurationArn")]
     mediaTailorPlaybackConfigurations: List[MediaTailorPlaybackConfigurationTypeDef]
-    name: Optional[str] = None
+    name: Optional[Annotated[str, _aws_pattern("Ivs", "AdConfigurationName")]] = None
     tags: Optional[Dict[str, str]] = None
 
 
 # This class is the input for the 'create_ad_configuration' function.
 class CreateAdConfigurationRequestTypeDef(BaseValidatorModel):
     mediaTailorPlaybackConfigurations: List[MediaTailorPlaybackConfigurationTypeDef]
-    name: Optional[str] = None
+    name: Optional[Annotated[str, _aws_pattern("Ivs", "AdConfigurationName")]] = None
+    tags: Optional[Dict[str, str]] = None
 
 
 # This class is the output for the 'delete_ad_configuration' function.
@@ -454,7 +465,7 @@ class EmptyResponseMetadataTypeDef(BaseValidatorModel):
 
 # This class is the output for the 'insert_ad_break' function.
 class InsertAdBreakResponseTypeDef(BaseValidatorModel):
-    adBreakId: str
+    adBreakId: Annotated[str, _aws_pattern("Ivs", "AdBreakId")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
@@ -512,47 +523,51 @@ class BatchStartViewerSessionRevocationRequestTypeDef(BaseValidatorModel):
 class ListChannelsResponseTypeDef(BaseValidatorModel):
     channels: List[ChannelSummaryTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
-    nextToken: Optional[str] = None
+    nextToken: Optional[Annotated[str, _aws_pattern("Ivs", "PaginationToken")]] = None
 
 
 # This class is the input for the 'create_channel' function.
 class CreateChannelRequestTypeDef(BaseValidatorModel):
-    name: Optional[str] = None
+    name: Optional[Annotated[str, _aws_pattern("Ivs", "ChannelName")]] = None
     latencyMode: Optional[ChannelLatencyModeType] = None
     type: Optional[ChannelTypeType] = None
     authorized: Optional[bool] = None
-    recordingConfigurationArn: Optional[str] = None
+    recordingConfigurationArn: Optional[Annotated[str, _aws_pattern("Ivs", "ChannelRecordingConfigurationArn")]] = None
     tags: Optional[Dict[str, str]] = None
     insecureIngest: Optional[bool] = None
     preset: Optional[TranscodePresetType] = None
-    playbackRestrictionPolicyArn: Optional[str] = None
+    playbackRestrictionPolicyArn: Optional[
+        Annotated[str, _aws_pattern("Ivs", "ChannelPlaybackRestrictionPolicyArn")]
+    ] = None
     multitrackInputConfiguration: Optional[MultitrackInputConfigurationTypeDef] = None
     containerFormat: Optional[ContainerFormatType] = None
-    adConfigurationArn: Optional[str] = None
+    adConfigurationArn: Optional[Annotated[str, _aws_pattern("Ivs", "ChannelAdConfigurationArn")]] = None
 
 
 # This class is the input for the 'update_channel' function.
 class UpdateChannelRequestTypeDef(BaseValidatorModel):
-    arn: str
-    name: Optional[str] = None
+    arn: Annotated[str, _aws_pattern("Ivs", "ChannelArn")]
+    name: Optional[Annotated[str, _aws_pattern("Ivs", "ChannelName")]] = None
     latencyMode: Optional[ChannelLatencyModeType] = None
     type: Optional[ChannelTypeType] = None
     authorized: Optional[bool] = None
-    recordingConfigurationArn: Optional[str] = None
+    recordingConfigurationArn: Optional[Annotated[str, _aws_pattern("Ivs", "ChannelRecordingConfigurationArn")]] = None
     insecureIngest: Optional[bool] = None
     preset: Optional[TranscodePresetType] = None
-    playbackRestrictionPolicyArn: Optional[str] = None
+    playbackRestrictionPolicyArn: Optional[
+        Annotated[str, _aws_pattern("Ivs", "ChannelPlaybackRestrictionPolicyArn")]
+    ] = None
     multitrackInputConfiguration: Optional[MultitrackInputConfigurationTypeDef] = None
     containerFormat: Optional[ContainerFormatType] = None
-    adConfigurationArn: Optional[str] = None
+    adConfigurationArn: Optional[Annotated[str, _aws_pattern("Ivs", "ChannelAdConfigurationArn")]] = None
 
 
 class ChannelTypeDef(BaseValidatorModel):
-    arn: Optional[str] = None
-    name: Optional[str] = None
+    arn: Optional[Annotated[str, _aws_pattern("Ivs", "ChannelArn")]] = None
+    name: Optional[Annotated[str, _aws_pattern("Ivs", "ChannelName")]] = None
     latencyMode: Optional[ChannelLatencyModeType] = None
     type: Optional[ChannelTypeType] = None
-    recordingConfigurationArn: Optional[str] = None
+    recordingConfigurationArn: Optional[Annotated[str, _aws_pattern("Ivs", "ChannelRecordingConfigurationArn")]] = None
     ingestEndpoint: Optional[str] = None
     playbackUrl: Optional[str] = None
     authorized: Optional[bool] = None
@@ -560,10 +575,12 @@ class ChannelTypeDef(BaseValidatorModel):
     insecureIngest: Optional[bool] = None
     preset: Optional[TranscodePresetType] = None
     srt: Optional[SrtTypeDef] = None
-    playbackRestrictionPolicyArn: Optional[str] = None
+    playbackRestrictionPolicyArn: Optional[
+        Annotated[str, _aws_pattern("Ivs", "ChannelPlaybackRestrictionPolicyArn")]
+    ] = None
     multitrackInputConfiguration: Optional[MultitrackInputConfigurationTypeDef] = None
     containerFormat: Optional[ContainerFormatType] = None
-    adConfigurationArn: Optional[str] = None
+    adConfigurationArn: Optional[Annotated[str, _aws_pattern("Ivs", "ChannelAdConfigurationArn")]] = None
 
 
 # This class is the output for the 'create_playback_restriction_policy' function.
@@ -645,28 +662,28 @@ class ListStreamKeysRequestPaginateTypeDef(BaseValidatorModel):
 class ListPlaybackKeyPairsResponseTypeDef(BaseValidatorModel):
     keyPairs: List[PlaybackKeyPairSummaryTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
-    nextToken: Optional[str] = None
+    nextToken: Optional[Annotated[str, _aws_pattern("Ivs", "PaginationToken")]] = None
 
 
 # This class is the output for the 'list_playback_restriction_policies' function.
 class ListPlaybackRestrictionPoliciesResponseTypeDef(BaseValidatorModel):
     playbackRestrictionPolicies: List[PlaybackRestrictionPolicySummaryTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
-    nextToken: Optional[str] = None
+    nextToken: Optional[Annotated[str, _aws_pattern("Ivs", "PaginationToken")]] = None
 
 
 # This class is the output for the 'list_stream_keys' function.
 class ListStreamKeysResponseTypeDef(BaseValidatorModel):
     streamKeys: List[StreamKeySummaryTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
-    nextToken: Optional[str] = None
+    nextToken: Optional[Annotated[str, _aws_pattern("Ivs", "PaginationToken")]] = None
 
 
 # This class is the output for the 'list_stream_sessions' function.
 class ListStreamSessionsResponseTypeDef(BaseValidatorModel):
     streamSessions: List[StreamSessionSummaryTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
-    nextToken: Optional[str] = None
+    nextToken: Optional[Annotated[str, _aws_pattern("Ivs", "PaginationToken")]] = None
 
 
 class ListStreamsRequestPaginateTypeDef(BaseValidatorModel):
@@ -677,7 +694,7 @@ class ListStreamsRequestPaginateTypeDef(BaseValidatorModel):
 # This class is the input for the 'list_streams' function.
 class ListStreamsRequestTypeDef(BaseValidatorModel):
     filterBy: Optional[StreamFiltersTypeDef] = None
-    nextToken: Optional[str] = None
+    nextToken: Optional[Annotated[str, _aws_pattern("Ivs", "PaginationToken")]] = None
     maxResults: Optional[int] = None
 
 
@@ -685,7 +702,7 @@ class ListStreamsRequestTypeDef(BaseValidatorModel):
 class ListStreamsResponseTypeDef(BaseValidatorModel):
     streams: List[StreamSummaryTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
-    nextToken: Optional[str] = None
+    nextToken: Optional[Annotated[str, _aws_pattern("Ivs", "PaginationToken")]] = None
 
 
 RenditionConfigurationUnionTypeDef = Union[RenditionConfigurationOutputTypeDef, RenditionConfigurationTypeDef]
@@ -697,7 +714,7 @@ ThumbnailConfigurationUnionTypeDef = Union[ThumbnailConfigurationOutputTypeDef, 
 class ListAdConfigurationsResponseTypeDef(BaseValidatorModel):
     adConfigurations: List[AdConfigurationSummaryTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
-    nextToken: Optional[str] = None
+    nextToken: Optional[Annotated[str, _aws_pattern("Ivs", "PaginationToken")]] = None
 
 
 # This class is the output for the 'create_ad_configuration' function.
@@ -746,18 +763,18 @@ class UpdateChannelResponseTypeDef(BaseValidatorModel):
 
 
 class RecordingConfigurationSummaryTypeDef(BaseValidatorModel):
-    arn: str
+    arn: Annotated[str, _aws_pattern("Ivs", "RecordingConfigurationArn")]
     destinationConfiguration: DestinationConfigurationTypeDef
     state: RecordingConfigurationStateType
-    name: Optional[str] = None
+    name: Optional[Annotated[str, _aws_pattern("Ivs", "RecordingConfigurationName")]] = None
     tags: Optional[Dict[str, str]] = None
 
 
 class RecordingConfigurationTypeDef(BaseValidatorModel):
-    arn: str
+    arn: Annotated[str, _aws_pattern("Ivs", "RecordingConfigurationArn")]
     destinationConfiguration: DestinationConfigurationTypeDef
     state: RecordingConfigurationStateType
-    name: Optional[str] = None
+    name: Optional[Annotated[str, _aws_pattern("Ivs", "RecordingConfigurationName")]] = None
     tags: Optional[Dict[str, str]] = None
     thumbnailConfiguration: Optional[ThumbnailConfigurationOutputTypeDef] = None
     recordingReconnectWindowSeconds: Optional[int] = None
@@ -767,7 +784,7 @@ class RecordingConfigurationTypeDef(BaseValidatorModel):
 # This class is the input for the 'create_recording_configuration' function.
 class CreateRecordingConfigurationRequestTypeDef(BaseValidatorModel):
     destinationConfiguration: DestinationConfigurationTypeDef
-    name: Optional[str] = None
+    name: Optional[Annotated[str, _aws_pattern("Ivs", "RecordingConfigurationName")]] = None
     tags: Optional[Dict[str, str]] = None
     thumbnailConfiguration: Optional[ThumbnailConfigurationUnionTypeDef] = None
     recordingReconnectWindowSeconds: Optional[int] = None
@@ -778,7 +795,7 @@ class CreateRecordingConfigurationRequestTypeDef(BaseValidatorModel):
 class ListRecordingConfigurationsResponseTypeDef(BaseValidatorModel):
     recordingConfigurations: List[RecordingConfigurationSummaryTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
-    nextToken: Optional[str] = None
+    nextToken: Optional[Annotated[str, _aws_pattern("Ivs", "PaginationToken")]] = None
 
 
 # This class is the output for the 'create_recording_configuration' function.
@@ -794,7 +811,7 @@ class GetRecordingConfigurationResponseTypeDef(BaseValidatorModel):
 
 
 class StreamSessionTypeDef(BaseValidatorModel):
-    streamId: Optional[str] = None
+    streamId: Optional[Annotated[str, _aws_pattern("Ivs", "StreamId")]] = None
     startTime: Optional[datetime] = None
     endTime: Optional[datetime] = None
     channel: Optional[ChannelTypeDef] = None

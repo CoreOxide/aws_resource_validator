@@ -3,6 +3,7 @@
 from datetime import datetime
 from decimal import Decimal
 from typing import (
+    Annotated,
     Any,
     Callable,
     Dict,
@@ -24,6 +25,7 @@ from botocore.response import StreamingBody
 from pydantic import Field
 
 from aws_resource_validator.core.base_validator_model import BaseValidatorModel, EventStream
+from aws_resource_validator.core.pattern_validation import aws_field_pattern as _aws_pattern
 from aws_resource_validator.pydantic_models.pinpoint_sms_voice_v2.pinpoint_sms_voice_v2_constants import *  # noqa: F401,F403
 
 # Optional boto3 symbols — imported lazily so services that don't need them
@@ -51,10 +53,10 @@ class AccountLimitTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'associate_origination_identity' function.
 class AssociateOriginationIdentityRequestTypeDef(BaseValidatorModel):
-    PoolId: str
-    OriginationIdentity: str
-    IsoCountryCode: Optional[str] = None
-    ClientToken: Optional[str] = None
+    PoolId: Annotated[str, _aws_pattern("PinpointSmsVoiceV2", "PoolIdOrArn")]
+    OriginationIdentity: Annotated[str, _aws_pattern("PinpointSmsVoiceV2", "PhoneOrSenderIdOrArn")]
+    IsoCountryCode: Optional[Annotated[str, _aws_pattern("PinpointSmsVoiceV2", "IsoCountryCode")]] = None
+    ClientToken: Optional[Annotated[str, _aws_pattern("PinpointSmsVoiceV2", "ClientToken")]] = None
 
 
 class ResponseMetadataTypeDef(BaseValidatorModel):
@@ -67,8 +69,8 @@ class ResponseMetadataTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'associate_protect_configuration' function.
 class AssociateProtectConfigurationRequestTypeDef(BaseValidatorModel):
-    ProtectConfigurationId: str
-    ConfigurationSetName: str
+    ProtectConfigurationId: Annotated[str, _aws_pattern("PinpointSmsVoiceV2", "ProtectConfigurationIdOrArn")]
+    ConfigurationSetName: Annotated[str, _aws_pattern("PinpointSmsVoiceV2", "ConfigurationSetNameOrArn")]
 
 
 BlobTypeDef = Union[IO[Any], StreamingBody, bytes, str]
@@ -76,7 +78,7 @@ BlobTypeDef = Union[IO[Any], StreamingBody, bytes, str]
 
 # This class is the input for the 'carrier_lookup' function.
 class CarrierLookupRequestTypeDef(BaseValidatorModel):
-    PhoneNumber: str
+    PhoneNumber: Annotated[str, _aws_pattern("PinpointSmsVoiceV2", "CarrierLookupInputPhoneNumberType")]
 
 
 class CarrierStatusInformationTypeDef(BaseValidatorModel):
@@ -85,43 +87,43 @@ class CarrierStatusInformationTypeDef(BaseValidatorModel):
 
 
 class CloudWatchLogsDestinationTypeDef(BaseValidatorModel):
-    IamRoleArn: str
-    LogGroupArn: str
+    IamRoleArn: Annotated[str, _aws_pattern("PinpointSmsVoiceV2", "IamRoleArn")]
+    LogGroupArn: Annotated[str, _aws_pattern("PinpointSmsVoiceV2", "LogGroupArn")]
 
 
 class ConfigurationSetFilterTypeDef(BaseValidatorModel):
     Name: ConfigurationSetFilterNameType
-    Values: List[str]
+    Values: List[Annotated[str, _aws_pattern("PinpointSmsVoiceV2", "FilterValue")]]
 
 
 class CountryLaunchStatusFilterTypeDef(BaseValidatorModel):
     Name: Literal["country-launch-status"]
-    Values: List[str]
+    Values: List[Annotated[str, _aws_pattern("PinpointSmsVoiceV2", "FilterValue")]]
 
 
 class TagTypeDef(BaseValidatorModel):
-    Key: str
-    Value: str
+    Key: Annotated[str, _aws_pattern("PinpointSmsVoiceV2", "TagKey")]
+    Value: Annotated[str, _aws_pattern("PinpointSmsVoiceV2", "TagValue")]
 
 
 class KinesisFirehoseDestinationTypeDef(BaseValidatorModel):
-    IamRoleArn: str
-    DeliveryStreamArn: str
+    IamRoleArn: Annotated[str, _aws_pattern("PinpointSmsVoiceV2", "IamRoleArn")]
+    DeliveryStreamArn: Annotated[str, _aws_pattern("PinpointSmsVoiceV2", "DeliveryStreamArn")]
 
 
 class SnsDestinationTypeDef(BaseValidatorModel):
-    TopicArn: str
+    TopicArn: Annotated[str, _aws_pattern("PinpointSmsVoiceV2", "SnsTopicArn")]
 
 
 # This class is the input for the 'create_registration_association' function.
 class CreateRegistrationAssociationRequestTypeDef(BaseValidatorModel):
-    RegistrationId: str
-    ResourceId: str
+    RegistrationId: Annotated[str, _aws_pattern("PinpointSmsVoiceV2", "RegistrationIdOrArn")]
+    ResourceId: Annotated[str, _aws_pattern("PinpointSmsVoiceV2", "ResourceIdOrArn")]
 
 
 # This class is the input for the 'create_registration_version' function.
 class CreateRegistrationVersionRequestTypeDef(BaseValidatorModel):
-    RegistrationId: str
+    RegistrationId: Annotated[str, _aws_pattern("PinpointSmsVoiceV2", "RegistrationIdOrArn")]
 
 
 class RegistrationVersionStatusHistoryTypeDef(BaseValidatorModel):
@@ -139,92 +141,92 @@ class RegistrationVersionStatusHistoryTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'delete_configuration_set' function.
 class DeleteConfigurationSetRequestTypeDef(BaseValidatorModel):
-    ConfigurationSetName: str
+    ConfigurationSetName: Annotated[str, _aws_pattern("PinpointSmsVoiceV2", "ConfigurationSetNameOrArn")]
 
 
 # This class is the input for the 'delete_default_message_type' function.
 class DeleteDefaultMessageTypeRequestTypeDef(BaseValidatorModel):
-    ConfigurationSetName: str
+    ConfigurationSetName: Annotated[str, _aws_pattern("PinpointSmsVoiceV2", "ConfigurationSetNameOrArn")]
 
 
 # This class is the input for the 'delete_default_sender_id' function.
 class DeleteDefaultSenderIdRequestTypeDef(BaseValidatorModel):
-    ConfigurationSetName: str
+    ConfigurationSetName: Annotated[str, _aws_pattern("PinpointSmsVoiceV2", "ConfigurationSetNameOrArn")]
 
 
 # This class is the input for the 'delete_event_destination' function.
 class DeleteEventDestinationRequestTypeDef(BaseValidatorModel):
-    ConfigurationSetName: str
-    EventDestinationName: str
+    ConfigurationSetName: Annotated[str, _aws_pattern("PinpointSmsVoiceV2", "ConfigurationSetNameOrArn")]
+    EventDestinationName: Annotated[str, _aws_pattern("PinpointSmsVoiceV2", "EventDestinationName")]
 
 
 # This class is the input for the 'delete_keyword' function.
 class DeleteKeywordRequestTypeDef(BaseValidatorModel):
-    OriginationIdentity: str
-    Keyword: str
+    OriginationIdentity: Annotated[str, _aws_pattern("PinpointSmsVoiceV2", "PhoneOrPoolIdOrArn")]
+    Keyword: Annotated[str, _aws_pattern("PinpointSmsVoiceV2", "Keyword")]
 
 
 # This class is the input for the 'delete_notify_configuration' function.
 class DeleteNotifyConfigurationRequestTypeDef(BaseValidatorModel):
-    NotifyConfigurationId: str
+    NotifyConfigurationId: Annotated[str, _aws_pattern("PinpointSmsVoiceV2", "NotifyConfigurationIdOrArn")]
 
 
 # This class is the input for the 'delete_opt_out_list' function.
 class DeleteOptOutListRequestTypeDef(BaseValidatorModel):
-    OptOutListName: str
+    OptOutListName: Annotated[str, _aws_pattern("PinpointSmsVoiceV2", "OptOutListNameOrArn")]
 
 
 # This class is the input for the 'delete_opted_out_number' function.
 class DeleteOptedOutNumberRequestTypeDef(BaseValidatorModel):
-    OptOutListName: str
-    OptedOutNumber: str
+    OptOutListName: Annotated[str, _aws_pattern("PinpointSmsVoiceV2", "OptOutListNameOrArn")]
+    OptedOutNumber: Annotated[str, _aws_pattern("PinpointSmsVoiceV2", "PhoneNumber")]
 
 
 # This class is the input for the 'delete_pool' function.
 class DeletePoolRequestTypeDef(BaseValidatorModel):
-    PoolId: str
+    PoolId: Annotated[str, _aws_pattern("PinpointSmsVoiceV2", "PoolIdOrArn")]
 
 
 # This class is the input for the 'delete_protect_configuration' function.
 class DeleteProtectConfigurationRequestTypeDef(BaseValidatorModel):
-    ProtectConfigurationId: str
+    ProtectConfigurationId: Annotated[str, _aws_pattern("PinpointSmsVoiceV2", "ProtectConfigurationIdOrArn")]
 
 
 # This class is the input for the 'delete_protect_configuration_rule_set_number_override' function.
 class DeleteProtectConfigurationRuleSetNumberOverrideRequestTypeDef(BaseValidatorModel):
-    ProtectConfigurationId: str
-    DestinationPhoneNumber: str
+    ProtectConfigurationId: Annotated[str, _aws_pattern("PinpointSmsVoiceV2", "ProtectConfigurationIdOrArn")]
+    DestinationPhoneNumber: Annotated[str, _aws_pattern("PinpointSmsVoiceV2", "PhoneNumber")]
 
 
 # This class is the input for the 'delete_rcs_agent' function.
 class DeleteRcsAgentRequestTypeDef(BaseValidatorModel):
-    RcsAgentId: str
+    RcsAgentId: Annotated[str, _aws_pattern("PinpointSmsVoiceV2", "RcsAgentIdOrArn")]
 
 
 # This class is the input for the 'delete_registration_attachment' function.
 class DeleteRegistrationAttachmentRequestTypeDef(BaseValidatorModel):
-    RegistrationAttachmentId: str
+    RegistrationAttachmentId: Annotated[str, _aws_pattern("PinpointSmsVoiceV2", "RegistrationAttachmentIdOrArn")]
 
 
 # This class is the input for the 'delete_registration_field_value' function.
 class DeleteRegistrationFieldValueRequestTypeDef(BaseValidatorModel):
-    RegistrationId: str
-    FieldPath: str
+    RegistrationId: Annotated[str, _aws_pattern("PinpointSmsVoiceV2", "RegistrationIdOrArn")]
+    FieldPath: Annotated[str, _aws_pattern("PinpointSmsVoiceV2", "FieldPath")]
 
 
 # This class is the input for the 'delete_registration' function.
 class DeleteRegistrationRequestTypeDef(BaseValidatorModel):
-    RegistrationId: str
+    RegistrationId: Annotated[str, _aws_pattern("PinpointSmsVoiceV2", "RegistrationIdOrArn")]
 
 
 # This class is the input for the 'delete_resource_policy' function.
 class DeleteResourcePolicyRequestTypeDef(BaseValidatorModel):
-    ResourceArn: str
+    ResourceArn: Annotated[str, _aws_pattern("PinpointSmsVoiceV2", "AmazonResourceName")]
 
 
 # This class is the input for the 'delete_verified_destination_number' function.
 class DeleteVerifiedDestinationNumberRequestTypeDef(BaseValidatorModel):
-    VerifiedDestinationNumberId: str
+    VerifiedDestinationNumberId: Annotated[str, _aws_pattern("PinpointSmsVoiceV2", "VerifiedDestinationNumberIdOrArn")]
 
 
 class PaginatorConfigTypeDef(BaseValidatorModel):
@@ -235,36 +237,36 @@ class PaginatorConfigTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'describe_account_attributes' function.
 class DescribeAccountAttributesRequestTypeDef(BaseValidatorModel):
-    NextToken: Optional[str] = None
+    NextToken: Optional[Annotated[str, _aws_pattern("PinpointSmsVoiceV2", "NextToken")]] = None
     MaxResults: Optional[int] = None
 
 
 # This class is the input for the 'describe_account_limits' function.
 class DescribeAccountLimitsRequestTypeDef(BaseValidatorModel):
-    NextToken: Optional[str] = None
+    NextToken: Optional[Annotated[str, _aws_pattern("PinpointSmsVoiceV2", "NextToken")]] = None
     MaxResults: Optional[int] = None
 
 
 class KeywordFilterTypeDef(BaseValidatorModel):
     Name: Literal["keyword-action"]
-    Values: List[str]
+    Values: List[Annotated[str, _aws_pattern("PinpointSmsVoiceV2", "FilterValue")]]
 
 
 class KeywordInformationTypeDef(BaseValidatorModel):
-    Keyword: str
-    KeywordMessage: str
+    Keyword: Annotated[str, _aws_pattern("PinpointSmsVoiceV2", "Keyword")]
+    KeywordMessage: Annotated[str, _aws_pattern("PinpointSmsVoiceV2", "KeywordMessage")]
     KeywordAction: KeywordActionType
 
 
 class NotifyConfigurationFilterTypeDef(BaseValidatorModel):
     Name: NotifyConfigurationFilterNameType
-    Values: List[str]
+    Values: List[Annotated[str, _aws_pattern("PinpointSmsVoiceV2", "FilterValue")]]
 
 
 class NotifyConfigurationInformationTypeDef(BaseValidatorModel):
-    NotifyConfigurationArn: str
-    NotifyConfigurationId: str
-    DisplayName: str
+    NotifyConfigurationArn: Annotated[str, _aws_pattern("PinpointSmsVoiceV2", "NotifyConfigurationArn")]
+    NotifyConfigurationId: Annotated[str, _aws_pattern("PinpointSmsVoiceV2", "NotifyConfigurationId")]
+    DisplayName: Annotated[str, _aws_pattern("PinpointSmsVoiceV2", "NotifyConfigurationDisplayName")]
     UseCase: Literal["CODE_VERIFICATION"]
     EnabledChannels: List[NumberCapabilityType]
     Tier: NotifyConfigurationTierType
@@ -272,64 +274,64 @@ class NotifyConfigurationInformationTypeDef(BaseValidatorModel):
     Status: NotifyConfigurationStatusType
     DeletionProtectionEnabled: bool
     CreatedTimestamp: datetime
-    DefaultTemplateId: Optional[str] = None
+    DefaultTemplateId: Optional[Annotated[str, _aws_pattern("PinpointSmsVoiceV2", "NotifyTemplateId")]] = None
     PoolId: Optional[str] = None
-    EnabledCountries: Optional[List[str]] = None
+    EnabledCountries: Optional[List[Annotated[str, _aws_pattern("PinpointSmsVoiceV2", "IsoCountryCode")]]] = None
     RejectionReason: Optional[str] = None
 
 
 class NotifyTemplateFilterTypeDef(BaseValidatorModel):
     Name: NotifyTemplateFilterNameType
-    Values: List[str]
+    Values: List[Annotated[str, _aws_pattern("PinpointSmsVoiceV2", "FilterValue")]]
 
 
 # This class is the input for the 'describe_opt_out_lists' function.
 class DescribeOptOutListsRequestTypeDef(BaseValidatorModel):
-    OptOutListNames: Optional[List[str]] = None
-    NextToken: Optional[str] = None
+    OptOutListNames: Optional[List[Annotated[str, _aws_pattern("PinpointSmsVoiceV2", "OptOutListNameOrArn")]]] = None
+    NextToken: Optional[Annotated[str, _aws_pattern("PinpointSmsVoiceV2", "NextToken")]] = None
     MaxResults: Optional[int] = None
     Owner: Optional[OwnerType] = None
 
 
 class OptOutListInformationTypeDef(BaseValidatorModel):
     OptOutListArn: str
-    OptOutListName: str
+    OptOutListName: Annotated[str, _aws_pattern("PinpointSmsVoiceV2", "OptOutListName")]
     CreatedTimestamp: datetime
 
 
 class OptedOutFilterTypeDef(BaseValidatorModel):
     Name: Literal["end-user-opted-out"]
-    Values: List[str]
+    Values: List[Annotated[str, _aws_pattern("PinpointSmsVoiceV2", "FilterValue")]]
 
 
 class OptedOutNumberInformationTypeDef(BaseValidatorModel):
-    OptedOutNumber: str
+    OptedOutNumber: Annotated[str, _aws_pattern("PinpointSmsVoiceV2", "PhoneNumber")]
     OptedOutTimestamp: datetime
     EndUserOptedOut: bool
 
 
 class PhoneNumberFilterTypeDef(BaseValidatorModel):
     Name: PhoneNumberFilterNameType
-    Values: List[str]
+    Values: List[Annotated[str, _aws_pattern("PinpointSmsVoiceV2", "FilterValue")]]
 
 
 class PhoneNumberInformationTypeDef(BaseValidatorModel):
     PhoneNumberArn: str
-    PhoneNumber: str
+    PhoneNumber: Annotated[str, _aws_pattern("PinpointSmsVoiceV2", "PhoneNumber")]
     Status: NumberStatusType
-    IsoCountryCode: str
+    IsoCountryCode: Annotated[str, _aws_pattern("PinpointSmsVoiceV2", "IsoCountryCode")]
     MessageType: MessageTypeType
     NumberCapabilities: List[NumberCapabilityType]
     NumberType: NumberTypeType
     MonthlyLeasingPrice: str
     TwoWayEnabled: bool
     SelfManagedOptOutsEnabled: bool
-    OptOutListName: str
+    OptOutListName: Annotated[str, _aws_pattern("PinpointSmsVoiceV2", "OptOutListName")]
     DeletionProtectionEnabled: bool
     CreatedTimestamp: datetime
     PhoneNumberId: Optional[str] = None
-    TwoWayChannelArn: Optional[str] = None
-    TwoWayChannelRole: Optional[str] = None
+    TwoWayChannelArn: Optional[Annotated[str, _aws_pattern("PinpointSmsVoiceV2", "TwoWayChannelArn")]] = None
+    TwoWayChannelRole: Optional[Annotated[str, _aws_pattern("PinpointSmsVoiceV2", "IamRoleArn")]] = None
     InternationalSendingEnabled: Optional[bool] = None
     PoolId: Optional[str] = None
     RegistrationId: Optional[str] = None
@@ -337,7 +339,7 @@ class PhoneNumberInformationTypeDef(BaseValidatorModel):
 
 class PoolFilterTypeDef(BaseValidatorModel):
     Name: PoolFilterNameType
-    Values: List[str]
+    Values: List[Annotated[str, _aws_pattern("PinpointSmsVoiceV2", "FilterValue")]]
 
 
 class PoolInformationTypeDef(BaseValidatorModel):
@@ -347,22 +349,22 @@ class PoolInformationTypeDef(BaseValidatorModel):
     MessageType: MessageTypeType
     TwoWayEnabled: bool
     SelfManagedOptOutsEnabled: bool
-    OptOutListName: str
+    OptOutListName: Annotated[str, _aws_pattern("PinpointSmsVoiceV2", "OptOutListName")]
     SharedRoutesEnabled: bool
     DeletionProtectionEnabled: bool
     CreatedTimestamp: datetime
-    TwoWayChannelArn: Optional[str] = None
-    TwoWayChannelRole: Optional[str] = None
+    TwoWayChannelArn: Optional[Annotated[str, _aws_pattern("PinpointSmsVoiceV2", "TwoWayChannelArn")]] = None
+    TwoWayChannelRole: Optional[Annotated[str, _aws_pattern("PinpointSmsVoiceV2", "IamRoleArn")]] = None
 
 
 class ProtectConfigurationFilterTypeDef(BaseValidatorModel):
     Name: ProtectConfigurationFilterNameType
-    Values: List[str]
+    Values: List[Annotated[str, _aws_pattern("PinpointSmsVoiceV2", "FilterValue")]]
 
 
 class ProtectConfigurationInformationTypeDef(BaseValidatorModel):
-    ProtectConfigurationArn: str
-    ProtectConfigurationId: str
+    ProtectConfigurationArn: Annotated[str, _aws_pattern("PinpointSmsVoiceV2", "ProtectConfigurationArn")]
+    ProtectConfigurationId: Annotated[str, _aws_pattern("PinpointSmsVoiceV2", "ProtectConfigurationId")]
     CreatedTimestamp: datetime
     AccountDefault: bool
     DeletionProtectionEnabled: bool
@@ -370,12 +372,12 @@ class ProtectConfigurationInformationTypeDef(BaseValidatorModel):
 
 class RcsAgentFilterTypeDef(BaseValidatorModel):
     Name: RcsAgentFilterNameType
-    Values: List[str]
+    Values: List[Annotated[str, _aws_pattern("PinpointSmsVoiceV2", "FilterValue")]]
 
 
 class RegistrationAttachmentFilterTypeDef(BaseValidatorModel):
     Name: Literal["attachment-status"]
-    Values: List[str]
+    Values: List[Annotated[str, _aws_pattern("PinpointSmsVoiceV2", "FilterValue")]]
 
 
 class RegistrationAttachmentsInformationTypeDef(BaseValidatorModel):
@@ -389,59 +391,61 @@ class RegistrationAttachmentsInformationTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'describe_registration_field_definitions' function.
 class DescribeRegistrationFieldDefinitionsRequestTypeDef(BaseValidatorModel):
-    RegistrationType: str
-    SectionPath: Optional[str] = None
-    FieldPaths: Optional[List[str]] = None
-    NextToken: Optional[str] = None
+    RegistrationType: Annotated[str, _aws_pattern("PinpointSmsVoiceV2", "RegistrationType")]
+    SectionPath: Optional[Annotated[str, _aws_pattern("PinpointSmsVoiceV2", "SectionPath")]] = None
+    FieldPaths: Optional[List[Annotated[str, _aws_pattern("PinpointSmsVoiceV2", "FieldPath")]]] = None
+    NextToken: Optional[Annotated[str, _aws_pattern("PinpointSmsVoiceV2", "NextToken")]] = None
     MaxResults: Optional[int] = None
 
 
 # This class is the input for the 'describe_registration_field_values' function.
 class DescribeRegistrationFieldValuesRequestTypeDef(BaseValidatorModel):
-    RegistrationId: str
+    RegistrationId: Annotated[str, _aws_pattern("PinpointSmsVoiceV2", "RegistrationIdOrArn")]
     VersionNumber: Optional[int] = None
-    SectionPath: Optional[str] = None
-    FieldPaths: Optional[List[str]] = None
-    NextToken: Optional[str] = None
+    SectionPath: Optional[Annotated[str, _aws_pattern("PinpointSmsVoiceV2", "SectionPath")]] = None
+    FieldPaths: Optional[List[Annotated[str, _aws_pattern("PinpointSmsVoiceV2", "FieldPath")]]] = None
+    NextToken: Optional[Annotated[str, _aws_pattern("PinpointSmsVoiceV2", "NextToken")]] = None
     MaxResults: Optional[int] = None
 
 
 class RegistrationFieldValueInformationTypeDef(BaseValidatorModel):
-    FieldPath: str
+    FieldPath: Annotated[str, _aws_pattern("PinpointSmsVoiceV2", "FieldPath")]
     SelectChoices: Optional[List[str]] = None
     TextValue: Optional[str] = None
-    RegistrationAttachmentId: Optional[str] = None
+    RegistrationAttachmentId: Optional[
+        Annotated[str, _aws_pattern("PinpointSmsVoiceV2", "RegistrationAttachmentIdOrArn")]
+    ] = None
     DeniedReason: Optional[str] = None
     Feedback: Optional[str] = None
 
 
 # This class is the input for the 'describe_registration_section_definitions' function.
 class DescribeRegistrationSectionDefinitionsRequestTypeDef(BaseValidatorModel):
-    RegistrationType: str
-    SectionPaths: Optional[List[str]] = None
-    NextToken: Optional[str] = None
+    RegistrationType: Annotated[str, _aws_pattern("PinpointSmsVoiceV2", "RegistrationType")]
+    SectionPaths: Optional[List[Annotated[str, _aws_pattern("PinpointSmsVoiceV2", "SectionPath")]]] = None
+    NextToken: Optional[Annotated[str, _aws_pattern("PinpointSmsVoiceV2", "NextToken")]] = None
     MaxResults: Optional[int] = None
 
 
 class RegistrationTypeFilterTypeDef(BaseValidatorModel):
     Name: RegistrationTypeFilterNameType
-    Values: List[str]
+    Values: List[Annotated[str, _aws_pattern("PinpointSmsVoiceV2", "FilterValue")]]
 
 
 class RegistrationVersionFilterTypeDef(BaseValidatorModel):
     Name: Literal["registration-version-status"]
-    Values: List[str]
+    Values: List[Annotated[str, _aws_pattern("PinpointSmsVoiceV2", "FilterValue")]]
 
 
 class RegistrationFilterTypeDef(BaseValidatorModel):
     Name: RegistrationFilterNameType
-    Values: List[str]
+    Values: List[Annotated[str, _aws_pattern("PinpointSmsVoiceV2", "FilterValue")]]
 
 
 class RegistrationInformationTypeDef(BaseValidatorModel):
     RegistrationArn: str
     RegistrationId: str
-    RegistrationType: str
+    RegistrationType: Annotated[str, _aws_pattern("PinpointSmsVoiceV2", "RegistrationType")]
     RegistrationStatus: RegistrationStatusType
     CurrentVersionNumber: int
     CreatedTimestamp: datetime
@@ -451,19 +455,19 @@ class RegistrationInformationTypeDef(BaseValidatorModel):
 
 
 class SenderIdAndCountryTypeDef(BaseValidatorModel):
-    SenderId: str
-    IsoCountryCode: str
+    SenderId: Annotated[str, _aws_pattern("PinpointSmsVoiceV2", "SenderIdOrArn")]
+    IsoCountryCode: Annotated[str, _aws_pattern("PinpointSmsVoiceV2", "IsoCountryCode")]
 
 
 class SenderIdFilterTypeDef(BaseValidatorModel):
     Name: SenderIdFilterNameType
-    Values: List[str]
+    Values: List[Annotated[str, _aws_pattern("PinpointSmsVoiceV2", "FilterValue")]]
 
 
 class SenderIdInformationTypeDef(BaseValidatorModel):
     SenderIdArn: str
-    SenderId: str
-    IsoCountryCode: str
+    SenderId: Annotated[str, _aws_pattern("PinpointSmsVoiceV2", "SenderId")]
+    IsoCountryCode: Annotated[str, _aws_pattern("PinpointSmsVoiceV2", "IsoCountryCode")]
     MessageTypes: List[MessageTypeType]
     MonthlyLeasingPrice: str
     DeletionProtectionEnabled: bool
@@ -473,7 +477,7 @@ class SenderIdInformationTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'describe_spend_limits' function.
 class DescribeSpendLimitsRequestTypeDef(BaseValidatorModel):
-    NextToken: Optional[str] = None
+    NextToken: Optional[Annotated[str, _aws_pattern("PinpointSmsVoiceV2", "NextToken")]] = None
     MaxResults: Optional[int] = None
 
 
@@ -486,13 +490,13 @@ class SpendLimitTypeDef(BaseValidatorModel):
 
 class VerifiedDestinationNumberFilterTypeDef(BaseValidatorModel):
     Name: VerifiedDestinationNumberFilterNameType
-    Values: List[str]
+    Values: List[Annotated[str, _aws_pattern("PinpointSmsVoiceV2", "FilterValue")]]
 
 
 class VerifiedDestinationNumberInformationTypeDef(BaseValidatorModel):
     VerifiedDestinationNumberArn: str
     VerifiedDestinationNumberId: str
-    DestinationPhoneNumber: str
+    DestinationPhoneNumber: Annotated[str, _aws_pattern("PinpointSmsVoiceV2", "PhoneNumber")]
     Status: VerificationStatusType
     CreatedTimestamp: datetime
     RcsAgentId: Optional[str] = None
@@ -500,26 +504,26 @@ class VerifiedDestinationNumberInformationTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'disassociate_origination_identity' function.
 class DisassociateOriginationIdentityRequestTypeDef(BaseValidatorModel):
-    PoolId: str
-    OriginationIdentity: str
-    IsoCountryCode: Optional[str] = None
-    ClientToken: Optional[str] = None
+    PoolId: Annotated[str, _aws_pattern("PinpointSmsVoiceV2", "PoolIdOrArn")]
+    OriginationIdentity: Annotated[str, _aws_pattern("PinpointSmsVoiceV2", "PhoneOrSenderIdOrArn")]
+    IsoCountryCode: Optional[Annotated[str, _aws_pattern("PinpointSmsVoiceV2", "IsoCountryCode")]] = None
+    ClientToken: Optional[Annotated[str, _aws_pattern("PinpointSmsVoiceV2", "ClientToken")]] = None
 
 
 # This class is the input for the 'disassociate_protect_configuration' function.
 class DisassociateProtectConfigurationRequestTypeDef(BaseValidatorModel):
-    ProtectConfigurationId: str
-    ConfigurationSetName: str
+    ProtectConfigurationId: Annotated[str, _aws_pattern("PinpointSmsVoiceV2", "ProtectConfigurationIdOrArn")]
+    ConfigurationSetName: Annotated[str, _aws_pattern("PinpointSmsVoiceV2", "ConfigurationSetNameOrArn")]
 
 
 # This class is the input for the 'discard_registration_version' function.
 class DiscardRegistrationVersionRequestTypeDef(BaseValidatorModel):
-    RegistrationId: str
+    RegistrationId: Annotated[str, _aws_pattern("PinpointSmsVoiceV2", "RegistrationIdOrArn")]
 
 
 # This class is the input for the 'get_protect_configuration_country_rule_set' function.
 class GetProtectConfigurationCountryRuleSetRequestTypeDef(BaseValidatorModel):
-    ProtectConfigurationId: str
+    ProtectConfigurationId: Annotated[str, _aws_pattern("PinpointSmsVoiceV2", "ProtectConfigurationIdOrArn")]
     NumberCapability: NumberCapabilityType
 
 
@@ -529,7 +533,7 @@ class ProtectConfigurationCountryRuleSetInformationTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'get_resource_policy' function.
 class GetResourcePolicyRequestTypeDef(BaseValidatorModel):
-    ResourceArn: str
+    ResourceArn: Annotated[str, _aws_pattern("PinpointSmsVoiceV2", "AmazonResourceName")]
 
 
 # This class is the input for the 'list_notify_countries' function.
@@ -537,12 +541,12 @@ class ListNotifyCountriesRequestTypeDef(BaseValidatorModel):
     Channels: Optional[List[NumberCapabilityType]] = None
     UseCases: Optional[List[Literal["CODE_VERIFICATION"]]] = None
     Tier: Optional[NotifyConfigurationTierType] = None
-    NextToken: Optional[str] = None
+    NextToken: Optional[Annotated[str, _aws_pattern("PinpointSmsVoiceV2", "NextToken")]] = None
     MaxResults: Optional[int] = None
 
 
 class NotifyCountryInformationTypeDef(BaseValidatorModel):
-    IsoCountryCode: str
+    IsoCountryCode: Annotated[str, _aws_pattern("PinpointSmsVoiceV2", "IsoCountryCode")]
     CountryName: str
     SupportedChannels: List[NumberCapabilityType]
     SupportedUseCases: List[Literal["CODE_VERIFICATION"]]
@@ -552,46 +556,46 @@ class NotifyCountryInformationTypeDef(BaseValidatorModel):
 
 class PoolOriginationIdentitiesFilterTypeDef(BaseValidatorModel):
     Name: PoolOriginationIdentitiesFilterNameType
-    Values: List[str]
+    Values: List[Annotated[str, _aws_pattern("PinpointSmsVoiceV2", "FilterValue")]]
 
 
 class OriginationIdentityMetadataTypeDef(BaseValidatorModel):
     OriginationIdentityArn: str
     OriginationIdentity: str
-    IsoCountryCode: str
+    IsoCountryCode: Annotated[str, _aws_pattern("PinpointSmsVoiceV2", "IsoCountryCode")]
     NumberCapabilities: List[NumberCapabilityType]
-    PhoneNumber: Optional[str] = None
+    PhoneNumber: Optional[Annotated[str, _aws_pattern("PinpointSmsVoiceV2", "PhoneNumber")]] = None
 
 
 class ProtectConfigurationRuleSetNumberOverrideFilterItemTypeDef(BaseValidatorModel):
     Name: ProtectConfigurationRuleSetNumberOverrideFilterNameType
-    Values: List[str]
+    Values: List[Annotated[str, _aws_pattern("PinpointSmsVoiceV2", "FilterValue")]]
 
 
 class ProtectConfigurationRuleSetNumberOverrideTypeDef(BaseValidatorModel):
-    DestinationPhoneNumber: str
+    DestinationPhoneNumber: Annotated[str, _aws_pattern("PinpointSmsVoiceV2", "PhoneNumber")]
     CreatedTimestamp: datetime
     Action: ProtectConfigurationRuleOverrideActionType
-    IsoCountryCode: Optional[str] = None
+    IsoCountryCode: Optional[Annotated[str, _aws_pattern("PinpointSmsVoiceV2", "IsoCountryCode")]] = None
     ExpirationTimestamp: Optional[datetime] = None
 
 
 class RegistrationAssociationFilterTypeDef(BaseValidatorModel):
     Name: RegistrationAssociationFilterNameType
-    Values: List[str]
+    Values: List[Annotated[str, _aws_pattern("PinpointSmsVoiceV2", "FilterValue")]]
 
 
 class RegistrationAssociationMetadataTypeDef(BaseValidatorModel):
     ResourceArn: str
     ResourceId: str
     ResourceType: str
-    IsoCountryCode: Optional[str] = None
-    PhoneNumber: Optional[str] = None
+    IsoCountryCode: Optional[Annotated[str, _aws_pattern("PinpointSmsVoiceV2", "IsoCountryCode")]] = None
+    PhoneNumber: Optional[Annotated[str, _aws_pattern("PinpointSmsVoiceV2", "PhoneNumber")]] = None
 
 
 # This class is the input for the 'list_tags_for_resource' function.
 class ListTagsForResourceRequestTypeDef(BaseValidatorModel):
-    ResourceArn: str
+    ResourceArn: Annotated[str, _aws_pattern("PinpointSmsVoiceV2", "AmazonResourceName")]
 
 
 class TemplateVariableMetadataTypeDef(BaseValidatorModel):
@@ -609,22 +613,22 @@ class TemplateVariableMetadataTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'put_keyword' function.
 class PutKeywordRequestTypeDef(BaseValidatorModel):
-    OriginationIdentity: str
-    Keyword: str
-    KeywordMessage: str
+    OriginationIdentity: Annotated[str, _aws_pattern("PinpointSmsVoiceV2", "PhoneOrPoolIdOrArn")]
+    Keyword: Annotated[str, _aws_pattern("PinpointSmsVoiceV2", "Keyword")]
+    KeywordMessage: Annotated[str, _aws_pattern("PinpointSmsVoiceV2", "KeywordMessage")]
     KeywordAction: Optional[KeywordActionType] = None
 
 
 # This class is the input for the 'put_message_feedback' function.
 class PutMessageFeedbackRequestTypeDef(BaseValidatorModel):
-    MessageId: str
+    MessageId: Annotated[str, _aws_pattern("PinpointSmsVoiceV2", "MessageId")]
     MessageFeedbackStatus: MessageFeedbackStatusType
 
 
 # This class is the input for the 'put_opted_out_number' function.
 class PutOptedOutNumberRequestTypeDef(BaseValidatorModel):
-    OptOutListName: str
-    OptedOutNumber: str
+    OptOutListName: Annotated[str, _aws_pattern("PinpointSmsVoiceV2", "OptOutListNameOrArn")]
+    OptedOutNumber: Annotated[str, _aws_pattern("PinpointSmsVoiceV2", "PhoneNumber")]
 
 
 TimestampTypeDef = Union[datetime, str]
@@ -632,16 +636,18 @@ TimestampTypeDef = Union[datetime, str]
 
 # This class is the input for the 'put_registration_field_value' function.
 class PutRegistrationFieldValueRequestTypeDef(BaseValidatorModel):
-    RegistrationId: str
-    FieldPath: str
+    RegistrationId: Annotated[str, _aws_pattern("PinpointSmsVoiceV2", "RegistrationIdOrArn")]
+    FieldPath: Annotated[str, _aws_pattern("PinpointSmsVoiceV2", "FieldPath")]
     SelectChoices: Optional[List[str]] = None
     TextValue: Optional[str] = None
-    RegistrationAttachmentId: Optional[str] = None
+    RegistrationAttachmentId: Optional[
+        Annotated[str, _aws_pattern("PinpointSmsVoiceV2", "RegistrationAttachmentIdOrArn")]
+    ] = None
 
 
 # This class is the input for the 'put_resource_policy' function.
 class PutResourcePolicyRequestTypeDef(BaseValidatorModel):
-    ResourceArn: str
+    ResourceArn: Annotated[str, _aws_pattern("PinpointSmsVoiceV2", "AmazonResourceName")]
     Policy: str
 
 
@@ -697,127 +703,149 @@ class SupportedAssociationTypeDef(BaseValidatorModel):
     ResourceType: str
     AssociationBehavior: RegistrationAssociationBehaviorType
     DisassociationBehavior: RegistrationDisassociationBehaviorType
-    IsoCountryCode: Optional[str] = None
+    IsoCountryCode: Optional[Annotated[str, _aws_pattern("PinpointSmsVoiceV2", "IsoCountryCode")]] = None
 
 
 # This class is the input for the 'release_phone_number' function.
 class ReleasePhoneNumberRequestTypeDef(BaseValidatorModel):
-    PhoneNumberId: str
+    PhoneNumberId: Annotated[str, _aws_pattern("PinpointSmsVoiceV2", "PhoneNumberIdOrArn")]
 
 
 # This class is the input for the 'release_sender_id' function.
 class ReleaseSenderIdRequestTypeDef(BaseValidatorModel):
-    SenderId: str
-    IsoCountryCode: str
+    SenderId: Annotated[str, _aws_pattern("PinpointSmsVoiceV2", "SenderIdOrArn")]
+    IsoCountryCode: Annotated[str, _aws_pattern("PinpointSmsVoiceV2", "IsoCountryCode")]
 
 
 # This class is the input for the 'send_destination_number_verification_code' function.
 class SendDestinationNumberVerificationCodeRequestTypeDef(BaseValidatorModel):
-    VerifiedDestinationNumberId: str
+    VerifiedDestinationNumberId: Annotated[str, _aws_pattern("PinpointSmsVoiceV2", "VerifiedDestinationNumberIdOrArn")]
     VerificationChannel: VerificationChannelType
     LanguageCode: Optional[LanguageCodeType] = None
-    OriginationIdentity: Optional[str] = None
-    ConfigurationSetName: Optional[str] = None
+    OriginationIdentity: Optional[
+        Annotated[str, _aws_pattern("PinpointSmsVoiceV2", "VerificationMessageOriginationIdentity")]
+    ] = None
+    ConfigurationSetName: Optional[Annotated[str, _aws_pattern("PinpointSmsVoiceV2", "ConfigurationSetNameOrArn")]] = (
+        None
+    )
     Context: Optional[Dict[str, str]] = None
     DestinationCountryParameters: Optional[Dict[DestinationCountryParameterKeyType, str]] = None
 
 
 # This class is the input for the 'send_media_message' function.
 class SendMediaMessageRequestTypeDef(BaseValidatorModel):
-    DestinationPhoneNumber: str
-    OriginationIdentity: str
-    MessageBody: Optional[str] = None
-    MediaUrls: Optional[List[str]] = None
-    ConfigurationSetName: Optional[str] = None
-    MaxPrice: Optional[str] = None
+    DestinationPhoneNumber: Annotated[str, _aws_pattern("PinpointSmsVoiceV2", "PhoneNumber")]
+    OriginationIdentity: Annotated[str, _aws_pattern("PinpointSmsVoiceV2", "MediaMessageOriginationIdentity")]
+    MessageBody: Optional[Annotated[str, _aws_pattern("PinpointSmsVoiceV2", "TextMessageBody")]] = None
+    MediaUrls: Optional[List[Annotated[str, _aws_pattern("PinpointSmsVoiceV2", "MediaUrlValue")]]] = None
+    ConfigurationSetName: Optional[Annotated[str, _aws_pattern("PinpointSmsVoiceV2", "ConfigurationSetNameOrArn")]] = (
+        None
+    )
+    MaxPrice: Optional[Annotated[str, _aws_pattern("PinpointSmsVoiceV2", "MaxPrice")]] = None
     TimeToLive: Optional[int] = None
     Context: Optional[Dict[str, str]] = None
     DryRun: Optional[bool] = None
-    ProtectConfigurationId: Optional[str] = None
+    ProtectConfigurationId: Optional[
+        Annotated[str, _aws_pattern("PinpointSmsVoiceV2", "ProtectConfigurationIdOrArn")]
+    ] = None
     MessageFeedbackEnabled: Optional[bool] = None
 
 
 # This class is the input for the 'send_notify_text_message' function.
 class SendNotifyTextMessageRequestTypeDef(BaseValidatorModel):
-    NotifyConfigurationId: str
-    DestinationPhoneNumber: str
+    NotifyConfigurationId: Annotated[str, _aws_pattern("PinpointSmsVoiceV2", "NotifyConfigurationIdOrArn")]
+    DestinationPhoneNumber: Annotated[str, _aws_pattern("PinpointSmsVoiceV2", "PhoneNumber")]
     TemplateVariables: Dict[str, str]
-    TemplateId: Optional[str] = None
+    TemplateId: Optional[Annotated[str, _aws_pattern("PinpointSmsVoiceV2", "NotifyTemplateId")]] = None
     TimeToLive: Optional[int] = None
     Context: Optional[Dict[str, str]] = None
-    ConfigurationSetName: Optional[str] = None
+    ConfigurationSetName: Optional[Annotated[str, _aws_pattern("PinpointSmsVoiceV2", "ConfigurationSetNameOrArn")]] = (
+        None
+    )
     DryRun: Optional[bool] = None
     MessageFeedbackEnabled: Optional[bool] = None
 
 
 # This class is the input for the 'send_notify_voice_message' function.
 class SendNotifyVoiceMessageRequestTypeDef(BaseValidatorModel):
-    NotifyConfigurationId: str
-    DestinationPhoneNumber: str
+    NotifyConfigurationId: Annotated[str, _aws_pattern("PinpointSmsVoiceV2", "NotifyConfigurationIdOrArn")]
+    DestinationPhoneNumber: Annotated[str, _aws_pattern("PinpointSmsVoiceV2", "PhoneNumber")]
     TemplateVariables: Dict[str, str]
-    TemplateId: Optional[str] = None
+    TemplateId: Optional[Annotated[str, _aws_pattern("PinpointSmsVoiceV2", "NotifyTemplateId")]] = None
     VoiceId: Optional[VoiceIdType] = None
     TimeToLive: Optional[int] = None
     Context: Optional[Dict[str, str]] = None
-    ConfigurationSetName: Optional[str] = None
+    ConfigurationSetName: Optional[Annotated[str, _aws_pattern("PinpointSmsVoiceV2", "ConfigurationSetNameOrArn")]] = (
+        None
+    )
     DryRun: Optional[bool] = None
     MessageFeedbackEnabled: Optional[bool] = None
 
 
 # This class is the input for the 'send_text_message' function.
 class SendTextMessageRequestTypeDef(BaseValidatorModel):
-    DestinationPhoneNumber: str
-    OriginationIdentity: Optional[str] = None
-    MessageBody: Optional[str] = None
+    DestinationPhoneNumber: Annotated[str, _aws_pattern("PinpointSmsVoiceV2", "PhoneNumber")]
+    OriginationIdentity: Optional[
+        Annotated[str, _aws_pattern("PinpointSmsVoiceV2", "TextMessageOriginationIdentity")]
+    ] = None
+    MessageBody: Optional[Annotated[str, _aws_pattern("PinpointSmsVoiceV2", "TextMessageBody")]] = None
     MessageType: Optional[MessageTypeType] = None
-    Keyword: Optional[str] = None
-    ConfigurationSetName: Optional[str] = None
-    MaxPrice: Optional[str] = None
+    Keyword: Optional[Annotated[str, _aws_pattern("PinpointSmsVoiceV2", "Keyword")]] = None
+    ConfigurationSetName: Optional[Annotated[str, _aws_pattern("PinpointSmsVoiceV2", "ConfigurationSetNameOrArn")]] = (
+        None
+    )
+    MaxPrice: Optional[Annotated[str, _aws_pattern("PinpointSmsVoiceV2", "MaxPrice")]] = None
     TimeToLive: Optional[int] = None
     Context: Optional[Dict[str, str]] = None
     DestinationCountryParameters: Optional[Dict[DestinationCountryParameterKeyType, str]] = None
     DryRun: Optional[bool] = None
-    ProtectConfigurationId: Optional[str] = None
+    ProtectConfigurationId: Optional[
+        Annotated[str, _aws_pattern("PinpointSmsVoiceV2", "ProtectConfigurationIdOrArn")]
+    ] = None
     MessageFeedbackEnabled: Optional[bool] = None
 
 
 # This class is the input for the 'send_voice_message' function.
 class SendVoiceMessageRequestTypeDef(BaseValidatorModel):
-    DestinationPhoneNumber: str
-    OriginationIdentity: str
-    MessageBody: Optional[str] = None
+    DestinationPhoneNumber: Annotated[str, _aws_pattern("PinpointSmsVoiceV2", "PhoneNumber")]
+    OriginationIdentity: Annotated[str, _aws_pattern("PinpointSmsVoiceV2", "VoiceMessageOriginationIdentity")]
+    MessageBody: Optional[Annotated[str, _aws_pattern("PinpointSmsVoiceV2", "VoiceMessageBody")]] = None
     MessageBodyTextType: Optional[VoiceMessageBodyTextTypeType] = None
     VoiceId: Optional[VoiceIdType] = None
-    ConfigurationSetName: Optional[str] = None
-    MaxPricePerMinute: Optional[str] = None
+    ConfigurationSetName: Optional[Annotated[str, _aws_pattern("PinpointSmsVoiceV2", "ConfigurationSetNameOrArn")]] = (
+        None
+    )
+    MaxPricePerMinute: Optional[Annotated[str, _aws_pattern("PinpointSmsVoiceV2", "MaxPrice")]] = None
     TimeToLive: Optional[int] = None
     Context: Optional[Dict[str, str]] = None
     DryRun: Optional[bool] = None
-    ProtectConfigurationId: Optional[str] = None
+    ProtectConfigurationId: Optional[
+        Annotated[str, _aws_pattern("PinpointSmsVoiceV2", "ProtectConfigurationIdOrArn")]
+    ] = None
     MessageFeedbackEnabled: Optional[bool] = None
 
 
 # This class is the input for the 'set_account_default_protect_configuration' function.
 class SetAccountDefaultProtectConfigurationRequestTypeDef(BaseValidatorModel):
-    ProtectConfigurationId: str
+    ProtectConfigurationId: Annotated[str, _aws_pattern("PinpointSmsVoiceV2", "ProtectConfigurationIdOrArn")]
 
 
 # This class is the input for the 'set_default_message_feedback_enabled' function.
 class SetDefaultMessageFeedbackEnabledRequestTypeDef(BaseValidatorModel):
-    ConfigurationSetName: str
+    ConfigurationSetName: Annotated[str, _aws_pattern("PinpointSmsVoiceV2", "ConfigurationSetNameOrArn")]
     MessageFeedbackEnabled: bool
 
 
 # This class is the input for the 'set_default_message_type' function.
 class SetDefaultMessageTypeRequestTypeDef(BaseValidatorModel):
-    ConfigurationSetName: str
+    ConfigurationSetName: Annotated[str, _aws_pattern("PinpointSmsVoiceV2", "ConfigurationSetNameOrArn")]
     MessageType: MessageTypeType
 
 
 # This class is the input for the 'set_default_sender_id' function.
 class SetDefaultSenderIdRequestTypeDef(BaseValidatorModel):
-    ConfigurationSetName: str
-    SenderId: str
+    ConfigurationSetName: Annotated[str, _aws_pattern("PinpointSmsVoiceV2", "ConfigurationSetNameOrArn")]
+    SenderId: Annotated[str, _aws_pattern("PinpointSmsVoiceV2", "SenderId")]
 
 
 # This class is the input for the 'set_media_message_spend_limit_override' function.
@@ -842,77 +870,77 @@ class SetVoiceMessageSpendLimitOverrideRequestTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'submit_registration_version' function.
 class SubmitRegistrationVersionRequestTypeDef(BaseValidatorModel):
-    RegistrationId: str
+    RegistrationId: Annotated[str, _aws_pattern("PinpointSmsVoiceV2", "RegistrationIdOrArn")]
     AwsReview: Optional[bool] = None
 
 
 class UntagResourceRequestTypeDef(BaseValidatorModel):
-    ResourceArn: str
-    TagKeys: List[str]
+    ResourceArn: Annotated[str, _aws_pattern("PinpointSmsVoiceV2", "AmazonResourceName")]
+    TagKeys: List[Annotated[str, _aws_pattern("PinpointSmsVoiceV2", "TagKey")]]
 
 
 # This class is the input for the 'update_notify_configuration' function.
 class UpdateNotifyConfigurationRequestTypeDef(BaseValidatorModel):
-    NotifyConfigurationId: str
-    DefaultTemplateId: Optional[str] = None
-    PoolId: Optional[str] = None
-    EnabledCountries: Optional[List[str]] = None
+    NotifyConfigurationId: Annotated[str, _aws_pattern("PinpointSmsVoiceV2", "NotifyConfigurationIdOrArn")]
+    DefaultTemplateId: Optional[Annotated[str, _aws_pattern("PinpointSmsVoiceV2", "NotifyTemplateId")]] = None
+    PoolId: Optional[Annotated[str, _aws_pattern("PinpointSmsVoiceV2", "NotifyPoolIdOrUnset")]] = None
+    EnabledCountries: Optional[List[Annotated[str, _aws_pattern("PinpointSmsVoiceV2", "IsoCountryCode")]]] = None
     EnabledChannels: Optional[List[NumberCapabilityType]] = None
     DeletionProtectionEnabled: Optional[bool] = None
 
 
 # This class is the input for the 'update_phone_number' function.
 class UpdatePhoneNumberRequestTypeDef(BaseValidatorModel):
-    PhoneNumberId: str
+    PhoneNumberId: Annotated[str, _aws_pattern("PinpointSmsVoiceV2", "PhoneNumberIdOrArn")]
     TwoWayEnabled: Optional[bool] = None
-    TwoWayChannelArn: Optional[str] = None
-    TwoWayChannelRole: Optional[str] = None
+    TwoWayChannelArn: Optional[Annotated[str, _aws_pattern("PinpointSmsVoiceV2", "TwoWayChannelArn")]] = None
+    TwoWayChannelRole: Optional[Annotated[str, _aws_pattern("PinpointSmsVoiceV2", "IamRoleArn")]] = None
     SelfManagedOptOutsEnabled: Optional[bool] = None
-    OptOutListName: Optional[str] = None
+    OptOutListName: Optional[Annotated[str, _aws_pattern("PinpointSmsVoiceV2", "OptOutListNameOrArn")]] = None
     InternationalSendingEnabled: Optional[bool] = None
     DeletionProtectionEnabled: Optional[bool] = None
 
 
 # This class is the input for the 'update_pool' function.
 class UpdatePoolRequestTypeDef(BaseValidatorModel):
-    PoolId: str
+    PoolId: Annotated[str, _aws_pattern("PinpointSmsVoiceV2", "PoolIdOrArn")]
     TwoWayEnabled: Optional[bool] = None
-    TwoWayChannelArn: Optional[str] = None
-    TwoWayChannelRole: Optional[str] = None
+    TwoWayChannelArn: Optional[Annotated[str, _aws_pattern("PinpointSmsVoiceV2", "TwoWayChannelArn")]] = None
+    TwoWayChannelRole: Optional[Annotated[str, _aws_pattern("PinpointSmsVoiceV2", "IamRoleArn")]] = None
     SelfManagedOptOutsEnabled: Optional[bool] = None
-    OptOutListName: Optional[str] = None
+    OptOutListName: Optional[Annotated[str, _aws_pattern("PinpointSmsVoiceV2", "OptOutListNameOrArn")]] = None
     SharedRoutesEnabled: Optional[bool] = None
     DeletionProtectionEnabled: Optional[bool] = None
 
 
 # This class is the input for the 'update_protect_configuration' function.
 class UpdateProtectConfigurationRequestTypeDef(BaseValidatorModel):
-    ProtectConfigurationId: str
+    ProtectConfigurationId: Annotated[str, _aws_pattern("PinpointSmsVoiceV2", "ProtectConfigurationIdOrArn")]
     DeletionProtectionEnabled: Optional[bool] = None
 
 
 # This class is the input for the 'update_rcs_agent' function.
 class UpdateRcsAgentRequestTypeDef(BaseValidatorModel):
-    RcsAgentId: str
+    RcsAgentId: Annotated[str, _aws_pattern("PinpointSmsVoiceV2", "RcsAgentIdOrArn")]
     DeletionProtectionEnabled: Optional[bool] = None
-    OptOutListName: Optional[str] = None
+    OptOutListName: Optional[Annotated[str, _aws_pattern("PinpointSmsVoiceV2", "OptOutListNameOrArn")]] = None
     SelfManagedOptOutsEnabled: Optional[bool] = None
-    TwoWayChannelArn: Optional[str] = None
-    TwoWayChannelRole: Optional[str] = None
+    TwoWayChannelArn: Optional[Annotated[str, _aws_pattern("PinpointSmsVoiceV2", "TwoWayChannelArn")]] = None
+    TwoWayChannelRole: Optional[Annotated[str, _aws_pattern("PinpointSmsVoiceV2", "IamRoleArn")]] = None
     TwoWayEnabled: Optional[bool] = None
 
 
 # This class is the input for the 'update_sender_id' function.
 class UpdateSenderIdRequestTypeDef(BaseValidatorModel):
-    SenderId: str
-    IsoCountryCode: str
+    SenderId: Annotated[str, _aws_pattern("PinpointSmsVoiceV2", "SenderIdOrArn")]
+    IsoCountryCode: Annotated[str, _aws_pattern("PinpointSmsVoiceV2", "IsoCountryCode")]
     DeletionProtectionEnabled: Optional[bool] = None
 
 
 # This class is the input for the 'verify_destination_number' function.
 class VerifyDestinationNumberRequestTypeDef(BaseValidatorModel):
-    VerifiedDestinationNumberId: str
-    VerificationCode: str
+    VerifiedDestinationNumberId: Annotated[str, _aws_pattern("PinpointSmsVoiceV2", "VerifiedDestinationNumberIdOrArn")]
+    VerificationCode: Annotated[str, _aws_pattern("PinpointSmsVoiceV2", "VerificationCode")]
 
 
 # This class is the output for the 'associate_origination_identity' function.
@@ -921,27 +949,27 @@ class AssociateOriginationIdentityResultTypeDef(BaseValidatorModel):
     PoolId: str
     OriginationIdentityArn: str
     OriginationIdentity: str
-    IsoCountryCode: str
+    IsoCountryCode: Annotated[str, _aws_pattern("PinpointSmsVoiceV2", "IsoCountryCode")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 # This class is the output for the 'associate_protect_configuration' function.
 class AssociateProtectConfigurationResultTypeDef(BaseValidatorModel):
     ConfigurationSetArn: str
-    ConfigurationSetName: str
-    ProtectConfigurationArn: str
-    ProtectConfigurationId: str
+    ConfigurationSetName: Annotated[str, _aws_pattern("PinpointSmsVoiceV2", "ConfigurationSetName")]
+    ProtectConfigurationArn: Annotated[str, _aws_pattern("PinpointSmsVoiceV2", "ProtectConfigurationArn")]
+    ProtectConfigurationId: Annotated[str, _aws_pattern("PinpointSmsVoiceV2", "ProtectConfigurationId")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 # This class is the output for the 'carrier_lookup' function.
 class CarrierLookupResultTypeDef(BaseValidatorModel):
-    E164PhoneNumber: str
-    DialingCountryCode: str
-    IsoCountryCode: str
+    E164PhoneNumber: Annotated[str, _aws_pattern("PinpointSmsVoiceV2", "E164PhoneNumberType")]
+    DialingCountryCode: Annotated[str, _aws_pattern("PinpointSmsVoiceV2", "DialingCountryCodeType")]
+    IsoCountryCode: Annotated[str, _aws_pattern("PinpointSmsVoiceV2", "IsoCountryCode")]
     Country: str
-    MCC: str
-    MNC: str
+    MCC: Annotated[str, _aws_pattern("PinpointSmsVoiceV2", "MCCType")]
+    MNC: Annotated[str, _aws_pattern("PinpointSmsVoiceV2", "MNCType")]
     Carrier: str
     PhoneNumberType: PhoneNumberTypeType
     ResponseMetadata: ResponseMetadataTypeDef
@@ -951,25 +979,25 @@ class CarrierLookupResultTypeDef(BaseValidatorModel):
 class CreateRegistrationAssociationResultTypeDef(BaseValidatorModel):
     RegistrationArn: str
     RegistrationId: str
-    RegistrationType: str
+    RegistrationType: Annotated[str, _aws_pattern("PinpointSmsVoiceV2", "RegistrationType")]
     ResourceArn: str
     ResourceId: str
     ResourceType: str
-    IsoCountryCode: str
-    PhoneNumber: str
+    IsoCountryCode: Annotated[str, _aws_pattern("PinpointSmsVoiceV2", "IsoCountryCode")]
+    PhoneNumber: Annotated[str, _aws_pattern("PinpointSmsVoiceV2", "PhoneNumber")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 class DeleteAccountDefaultProtectConfigurationResultTypeDef(BaseValidatorModel):
-    DefaultProtectConfigurationArn: str
-    DefaultProtectConfigurationId: str
+    DefaultProtectConfigurationArn: Annotated[str, _aws_pattern("PinpointSmsVoiceV2", "ProtectConfigurationArn")]
+    DefaultProtectConfigurationId: Annotated[str, _aws_pattern("PinpointSmsVoiceV2", "ProtectConfigurationId")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 # This class is the output for the 'delete_default_message_type' function.
 class DeleteDefaultMessageTypeResultTypeDef(BaseValidatorModel):
     ConfigurationSetArn: str
-    ConfigurationSetName: str
+    ConfigurationSetName: Annotated[str, _aws_pattern("PinpointSmsVoiceV2", "ConfigurationSetName")]
     MessageType: MessageTypeType
     ResponseMetadata: ResponseMetadataTypeDef
 
@@ -977,8 +1005,8 @@ class DeleteDefaultMessageTypeResultTypeDef(BaseValidatorModel):
 # This class is the output for the 'delete_default_sender_id' function.
 class DeleteDefaultSenderIdResultTypeDef(BaseValidatorModel):
     ConfigurationSetArn: str
-    ConfigurationSetName: str
-    SenderId: str
+    ConfigurationSetName: Annotated[str, _aws_pattern("PinpointSmsVoiceV2", "ConfigurationSetName")]
+    SenderId: Annotated[str, _aws_pattern("PinpointSmsVoiceV2", "SenderId")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
@@ -986,8 +1014,8 @@ class DeleteDefaultSenderIdResultTypeDef(BaseValidatorModel):
 class DeleteKeywordResultTypeDef(BaseValidatorModel):
     OriginationIdentityArn: str
     OriginationIdentity: str
-    Keyword: str
-    KeywordMessage: str
+    Keyword: Annotated[str, _aws_pattern("PinpointSmsVoiceV2", "Keyword")]
+    KeywordMessage: Annotated[str, _aws_pattern("PinpointSmsVoiceV2", "KeywordMessage")]
     KeywordAction: KeywordActionType
     ResponseMetadata: ResponseMetadataTypeDef
 
@@ -999,13 +1027,13 @@ class DeleteMediaMessageSpendLimitOverrideResultTypeDef(BaseValidatorModel):
 
 # This class is the output for the 'delete_notify_configuration' function.
 class DeleteNotifyConfigurationResultTypeDef(BaseValidatorModel):
-    NotifyConfigurationArn: str
-    NotifyConfigurationId: str
-    DisplayName: str
+    NotifyConfigurationArn: Annotated[str, _aws_pattern("PinpointSmsVoiceV2", "NotifyConfigurationArn")]
+    NotifyConfigurationId: Annotated[str, _aws_pattern("PinpointSmsVoiceV2", "NotifyConfigurationId")]
+    DisplayName: Annotated[str, _aws_pattern("PinpointSmsVoiceV2", "NotifyConfigurationDisplayName")]
     UseCase: Literal["CODE_VERIFICATION"]
-    DefaultTemplateId: str
+    DefaultTemplateId: Annotated[str, _aws_pattern("PinpointSmsVoiceV2", "NotifyTemplateId")]
     PoolId: str
-    EnabledCountries: List[str]
+    EnabledCountries: List[Annotated[str, _aws_pattern("PinpointSmsVoiceV2", "IsoCountryCode")]]
     EnabledChannels: List[NumberCapabilityType]
     Tier: NotifyConfigurationTierType
     TierUpgradeStatus: TierUpgradeStatusType
@@ -1024,7 +1052,7 @@ class DeleteNotifyMessageSpendLimitOverrideResultTypeDef(BaseValidatorModel):
 # This class is the output for the 'delete_opt_out_list' function.
 class DeleteOptOutListResultTypeDef(BaseValidatorModel):
     OptOutListArn: str
-    OptOutListName: str
+    OptOutListName: Annotated[str, _aws_pattern("PinpointSmsVoiceV2", "OptOutListName")]
     CreatedTimestamp: datetime
     ResponseMetadata: ResponseMetadataTypeDef
 
@@ -1032,8 +1060,8 @@ class DeleteOptOutListResultTypeDef(BaseValidatorModel):
 # This class is the output for the 'delete_opted_out_number' function.
 class DeleteOptedOutNumberResultTypeDef(BaseValidatorModel):
     OptOutListArn: str
-    OptOutListName: str
-    OptedOutNumber: str
+    OptOutListName: Annotated[str, _aws_pattern("PinpointSmsVoiceV2", "OptOutListName")]
+    OptedOutNumber: Annotated[str, _aws_pattern("PinpointSmsVoiceV2", "PhoneNumber")]
     OptedOutTimestamp: datetime
     EndUserOptedOut: bool
     ResponseMetadata: ResponseMetadataTypeDef
@@ -1046,10 +1074,10 @@ class DeletePoolResultTypeDef(BaseValidatorModel):
     Status: PoolStatusType
     MessageType: MessageTypeType
     TwoWayEnabled: bool
-    TwoWayChannelArn: str
-    TwoWayChannelRole: str
+    TwoWayChannelArn: Annotated[str, _aws_pattern("PinpointSmsVoiceV2", "TwoWayChannelArn")]
+    TwoWayChannelRole: Annotated[str, _aws_pattern("PinpointSmsVoiceV2", "IamRoleArn")]
     SelfManagedOptOutsEnabled: bool
-    OptOutListName: str
+    OptOutListName: Annotated[str, _aws_pattern("PinpointSmsVoiceV2", "OptOutListName")]
     SharedRoutesEnabled: bool
     CreatedTimestamp: datetime
     ResponseMetadata: ResponseMetadataTypeDef
@@ -1057,8 +1085,8 @@ class DeletePoolResultTypeDef(BaseValidatorModel):
 
 # This class is the output for the 'delete_protect_configuration' function.
 class DeleteProtectConfigurationResultTypeDef(BaseValidatorModel):
-    ProtectConfigurationArn: str
-    ProtectConfigurationId: str
+    ProtectConfigurationArn: Annotated[str, _aws_pattern("PinpointSmsVoiceV2", "ProtectConfigurationArn")]
+    ProtectConfigurationId: Annotated[str, _aws_pattern("PinpointSmsVoiceV2", "ProtectConfigurationId")]
     CreatedTimestamp: datetime
     AccountDefault: bool
     DeletionProtectionEnabled: bool
@@ -1067,12 +1095,12 @@ class DeleteProtectConfigurationResultTypeDef(BaseValidatorModel):
 
 # This class is the output for the 'delete_protect_configuration_rule_set_number_override' function.
 class DeleteProtectConfigurationRuleSetNumberOverrideResultTypeDef(BaseValidatorModel):
-    ProtectConfigurationArn: str
-    ProtectConfigurationId: str
-    DestinationPhoneNumber: str
+    ProtectConfigurationArn: Annotated[str, _aws_pattern("PinpointSmsVoiceV2", "ProtectConfigurationArn")]
+    ProtectConfigurationId: Annotated[str, _aws_pattern("PinpointSmsVoiceV2", "ProtectConfigurationId")]
+    DestinationPhoneNumber: Annotated[str, _aws_pattern("PinpointSmsVoiceV2", "PhoneNumber")]
     CreatedTimestamp: datetime
     Action: ProtectConfigurationRuleOverrideActionType
-    IsoCountryCode: str
+    IsoCountryCode: Annotated[str, _aws_pattern("PinpointSmsVoiceV2", "IsoCountryCode")]
     ExpirationTimestamp: datetime
     ResponseMetadata: ResponseMetadataTypeDef
 
@@ -1084,10 +1112,10 @@ class DeleteRcsAgentResultTypeDef(BaseValidatorModel):
     Status: RcsAgentStatusType
     CreatedTimestamp: datetime
     DeletionProtectionEnabled: bool
-    OptOutListName: str
+    OptOutListName: Annotated[str, _aws_pattern("PinpointSmsVoiceV2", "OptOutListName")]
     SelfManagedOptOutsEnabled: bool
-    TwoWayChannelArn: str
-    TwoWayChannelRole: str
+    TwoWayChannelArn: Annotated[str, _aws_pattern("PinpointSmsVoiceV2", "TwoWayChannelArn")]
+    TwoWayChannelRole: Annotated[str, _aws_pattern("PinpointSmsVoiceV2", "IamRoleArn")]
     TwoWayEnabled: bool
     ResponseMetadata: ResponseMetadataTypeDef
 
@@ -1107,7 +1135,7 @@ class DeleteRegistrationFieldValueResultTypeDef(BaseValidatorModel):
     RegistrationArn: str
     RegistrationId: str
     VersionNumber: int
-    FieldPath: str
+    FieldPath: Annotated[str, _aws_pattern("PinpointSmsVoiceV2", "FieldPath")]
     SelectChoices: List[str]
     TextValue: str
     RegistrationAttachmentId: str
@@ -1118,7 +1146,7 @@ class DeleteRegistrationFieldValueResultTypeDef(BaseValidatorModel):
 class DeleteRegistrationResultTypeDef(BaseValidatorModel):
     RegistrationArn: str
     RegistrationId: str
-    RegistrationType: str
+    RegistrationType: Annotated[str, _aws_pattern("PinpointSmsVoiceV2", "RegistrationType")]
     RegistrationStatus: RegistrationStatusType
     CurrentVersionNumber: int
     ApprovedVersionNumber: int
@@ -1130,7 +1158,7 @@ class DeleteRegistrationResultTypeDef(BaseValidatorModel):
 
 # This class is the output for the 'delete_resource_policy' function.
 class DeleteResourcePolicyResultTypeDef(BaseValidatorModel):
-    ResourceArn: str
+    ResourceArn: Annotated[str, _aws_pattern("PinpointSmsVoiceV2", "AmazonResourceName")]
     Policy: str
     CreatedTimestamp: datetime
     ResponseMetadata: ResponseMetadataTypeDef
@@ -1145,7 +1173,7 @@ class DeleteTextMessageSpendLimitOverrideResultTypeDef(BaseValidatorModel):
 class DeleteVerifiedDestinationNumberResultTypeDef(BaseValidatorModel):
     VerifiedDestinationNumberArn: str
     VerifiedDestinationNumberId: str
-    DestinationPhoneNumber: str
+    DestinationPhoneNumber: Annotated[str, _aws_pattern("PinpointSmsVoiceV2", "PhoneNumber")]
     CreatedTimestamp: datetime
     ResponseMetadata: ResponseMetadataTypeDef
 
@@ -1159,14 +1187,14 @@ class DeleteVoiceMessageSpendLimitOverrideResultTypeDef(BaseValidatorModel):
 class DescribeAccountAttributesResultTypeDef(BaseValidatorModel):
     AccountAttributes: List[AccountAttributeTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
-    NextToken: Optional[str] = None
+    NextToken: Optional[Annotated[str, _aws_pattern("PinpointSmsVoiceV2", "NextToken")]] = None
 
 
 # This class is the output for the 'describe_account_limits' function.
 class DescribeAccountLimitsResultTypeDef(BaseValidatorModel):
     AccountLimits: List[AccountLimitTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
-    NextToken: Optional[str] = None
+    NextToken: Optional[Annotated[str, _aws_pattern("PinpointSmsVoiceV2", "NextToken")]] = None
 
 
 # This class is the output for the 'disassociate_origination_identity' function.
@@ -1175,22 +1203,22 @@ class DisassociateOriginationIdentityResultTypeDef(BaseValidatorModel):
     PoolId: str
     OriginationIdentityArn: str
     OriginationIdentity: str
-    IsoCountryCode: str
+    IsoCountryCode: Annotated[str, _aws_pattern("PinpointSmsVoiceV2", "IsoCountryCode")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 # This class is the output for the 'disassociate_protect_configuration' function.
 class DisassociateProtectConfigurationResultTypeDef(BaseValidatorModel):
     ConfigurationSetArn: str
-    ConfigurationSetName: str
-    ProtectConfigurationArn: str
-    ProtectConfigurationId: str
+    ConfigurationSetName: Annotated[str, _aws_pattern("PinpointSmsVoiceV2", "ConfigurationSetName")]
+    ProtectConfigurationArn: Annotated[str, _aws_pattern("PinpointSmsVoiceV2", "ProtectConfigurationArn")]
+    ProtectConfigurationId: Annotated[str, _aws_pattern("PinpointSmsVoiceV2", "ProtectConfigurationId")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 # This class is the output for the 'get_resource_policy' function.
 class GetResourcePolicyResultTypeDef(BaseValidatorModel):
-    ResourceArn: str
+    ResourceArn: Annotated[str, _aws_pattern("PinpointSmsVoiceV2", "AmazonResourceName")]
     Policy: str
     CreatedTimestamp: datetime
     ResponseMetadata: ResponseMetadataTypeDef
@@ -1200,15 +1228,15 @@ class GetResourcePolicyResultTypeDef(BaseValidatorModel):
 class PutKeywordResultTypeDef(BaseValidatorModel):
     OriginationIdentityArn: str
     OriginationIdentity: str
-    Keyword: str
-    KeywordMessage: str
+    Keyword: Annotated[str, _aws_pattern("PinpointSmsVoiceV2", "Keyword")]
+    KeywordMessage: Annotated[str, _aws_pattern("PinpointSmsVoiceV2", "KeywordMessage")]
     KeywordAction: KeywordActionType
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 # This class is the output for the 'put_message_feedback' function.
 class PutMessageFeedbackResultTypeDef(BaseValidatorModel):
-    MessageId: str
+    MessageId: Annotated[str, _aws_pattern("PinpointSmsVoiceV2", "MessageId")]
     MessageFeedbackStatus: MessageFeedbackStatusType
     ResponseMetadata: ResponseMetadataTypeDef
 
@@ -1216,8 +1244,8 @@ class PutMessageFeedbackResultTypeDef(BaseValidatorModel):
 # This class is the output for the 'put_opted_out_number' function.
 class PutOptedOutNumberResultTypeDef(BaseValidatorModel):
     OptOutListArn: str
-    OptOutListName: str
-    OptedOutNumber: str
+    OptOutListName: Annotated[str, _aws_pattern("PinpointSmsVoiceV2", "OptOutListName")]
+    OptedOutNumber: Annotated[str, _aws_pattern("PinpointSmsVoiceV2", "PhoneNumber")]
     OptedOutTimestamp: datetime
     EndUserOptedOut: bool
     ResponseMetadata: ResponseMetadataTypeDef
@@ -1225,12 +1253,12 @@ class PutOptedOutNumberResultTypeDef(BaseValidatorModel):
 
 # This class is the output for the 'put_protect_configuration_rule_set_number_override' function.
 class PutProtectConfigurationRuleSetNumberOverrideResultTypeDef(BaseValidatorModel):
-    ProtectConfigurationArn: str
-    ProtectConfigurationId: str
-    DestinationPhoneNumber: str
+    ProtectConfigurationArn: Annotated[str, _aws_pattern("PinpointSmsVoiceV2", "ProtectConfigurationArn")]
+    ProtectConfigurationId: Annotated[str, _aws_pattern("PinpointSmsVoiceV2", "ProtectConfigurationId")]
+    DestinationPhoneNumber: Annotated[str, _aws_pattern("PinpointSmsVoiceV2", "PhoneNumber")]
     CreatedTimestamp: datetime
     Action: ProtectConfigurationRuleOverrideActionType
-    IsoCountryCode: str
+    IsoCountryCode: Annotated[str, _aws_pattern("PinpointSmsVoiceV2", "IsoCountryCode")]
     ExpirationTimestamp: datetime
     ResponseMetadata: ResponseMetadataTypeDef
 
@@ -1240,7 +1268,7 @@ class PutRegistrationFieldValueResultTypeDef(BaseValidatorModel):
     RegistrationArn: str
     RegistrationId: str
     VersionNumber: int
-    FieldPath: str
+    FieldPath: Annotated[str, _aws_pattern("PinpointSmsVoiceV2", "FieldPath")]
     SelectChoices: List[str]
     TextValue: str
     RegistrationAttachmentId: str
@@ -1249,7 +1277,7 @@ class PutRegistrationFieldValueResultTypeDef(BaseValidatorModel):
 
 # This class is the output for the 'put_resource_policy' function.
 class PutResourcePolicyResultTypeDef(BaseValidatorModel):
-    ResourceArn: str
+    ResourceArn: Annotated[str, _aws_pattern("PinpointSmsVoiceV2", "AmazonResourceName")]
     Policy: str
     CreatedTimestamp: datetime
     ResponseMetadata: ResponseMetadataTypeDef
@@ -1259,18 +1287,18 @@ class PutResourcePolicyResultTypeDef(BaseValidatorModel):
 class ReleasePhoneNumberResultTypeDef(BaseValidatorModel):
     PhoneNumberArn: str
     PhoneNumberId: str
-    PhoneNumber: str
+    PhoneNumber: Annotated[str, _aws_pattern("PinpointSmsVoiceV2", "PhoneNumber")]
     Status: NumberStatusType
-    IsoCountryCode: str
+    IsoCountryCode: Annotated[str, _aws_pattern("PinpointSmsVoiceV2", "IsoCountryCode")]
     MessageType: MessageTypeType
     NumberCapabilities: List[NumberCapabilityType]
     NumberType: NumberTypeType
     MonthlyLeasingPrice: str
     TwoWayEnabled: bool
-    TwoWayChannelArn: str
-    TwoWayChannelRole: str
+    TwoWayChannelArn: Annotated[str, _aws_pattern("PinpointSmsVoiceV2", "TwoWayChannelArn")]
+    TwoWayChannelRole: Annotated[str, _aws_pattern("PinpointSmsVoiceV2", "IamRoleArn")]
     SelfManagedOptOutsEnabled: bool
-    OptOutListName: str
+    OptOutListName: Annotated[str, _aws_pattern("PinpointSmsVoiceV2", "OptOutListName")]
     RegistrationId: str
     CreatedTimestamp: datetime
     ResponseMetadata: ResponseMetadataTypeDef
@@ -1279,8 +1307,8 @@ class ReleasePhoneNumberResultTypeDef(BaseValidatorModel):
 # This class is the output for the 'release_sender_id' function.
 class ReleaseSenderIdResultTypeDef(BaseValidatorModel):
     SenderIdArn: str
-    SenderId: str
-    IsoCountryCode: str
+    SenderId: Annotated[str, _aws_pattern("PinpointSmsVoiceV2", "SenderId")]
+    IsoCountryCode: Annotated[str, _aws_pattern("PinpointSmsVoiceV2", "IsoCountryCode")]
     MessageTypes: List[MessageTypeType]
     MonthlyLeasingPrice: str
     Registered: bool
@@ -1303,7 +1331,7 @@ class SendMediaMessageResultTypeDef(BaseValidatorModel):
 # This class is the output for the 'send_notify_text_message' function.
 class SendNotifyTextMessageResultTypeDef(BaseValidatorModel):
     MessageId: str
-    TemplateId: str
+    TemplateId: Annotated[str, _aws_pattern("PinpointSmsVoiceV2", "NotifyTemplateId")]
     ResolvedMessageBody: str
     ResponseMetadata: ResponseMetadataTypeDef
 
@@ -1311,7 +1339,7 @@ class SendNotifyTextMessageResultTypeDef(BaseValidatorModel):
 # This class is the output for the 'send_notify_voice_message' function.
 class SendNotifyVoiceMessageResultTypeDef(BaseValidatorModel):
     MessageId: str
-    TemplateId: str
+    TemplateId: Annotated[str, _aws_pattern("PinpointSmsVoiceV2", "NotifyTemplateId")]
     ResolvedMessageBody: str
     ResponseMetadata: ResponseMetadataTypeDef
 
@@ -1330,15 +1358,15 @@ class SendVoiceMessageResultTypeDef(BaseValidatorModel):
 
 # This class is the output for the 'set_account_default_protect_configuration' function.
 class SetAccountDefaultProtectConfigurationResultTypeDef(BaseValidatorModel):
-    DefaultProtectConfigurationArn: str
-    DefaultProtectConfigurationId: str
+    DefaultProtectConfigurationArn: Annotated[str, _aws_pattern("PinpointSmsVoiceV2", "ProtectConfigurationArn")]
+    DefaultProtectConfigurationId: Annotated[str, _aws_pattern("PinpointSmsVoiceV2", "ProtectConfigurationId")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 # This class is the output for the 'set_default_message_feedback_enabled' function.
 class SetDefaultMessageFeedbackEnabledResultTypeDef(BaseValidatorModel):
     ConfigurationSetArn: str
-    ConfigurationSetName: str
+    ConfigurationSetName: Annotated[str, _aws_pattern("PinpointSmsVoiceV2", "ConfigurationSetName")]
     MessageFeedbackEnabled: bool
     ResponseMetadata: ResponseMetadataTypeDef
 
@@ -1346,7 +1374,7 @@ class SetDefaultMessageFeedbackEnabledResultTypeDef(BaseValidatorModel):
 # This class is the output for the 'set_default_message_type' function.
 class SetDefaultMessageTypeResultTypeDef(BaseValidatorModel):
     ConfigurationSetArn: str
-    ConfigurationSetName: str
+    ConfigurationSetName: Annotated[str, _aws_pattern("PinpointSmsVoiceV2", "ConfigurationSetName")]
     MessageType: MessageTypeType
     ResponseMetadata: ResponseMetadataTypeDef
 
@@ -1354,8 +1382,8 @@ class SetDefaultMessageTypeResultTypeDef(BaseValidatorModel):
 # This class is the output for the 'set_default_sender_id' function.
 class SetDefaultSenderIdResultTypeDef(BaseValidatorModel):
     ConfigurationSetArn: str
-    ConfigurationSetName: str
-    SenderId: str
+    ConfigurationSetName: Annotated[str, _aws_pattern("PinpointSmsVoiceV2", "ConfigurationSetName")]
+    SenderId: Annotated[str, _aws_pattern("PinpointSmsVoiceV2", "SenderId")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
@@ -1385,13 +1413,13 @@ class SetVoiceMessageSpendLimitOverrideResultTypeDef(BaseValidatorModel):
 
 # This class is the output for the 'update_notify_configuration' function.
 class UpdateNotifyConfigurationResultTypeDef(BaseValidatorModel):
-    NotifyConfigurationArn: str
-    NotifyConfigurationId: str
-    DisplayName: str
+    NotifyConfigurationArn: Annotated[str, _aws_pattern("PinpointSmsVoiceV2", "NotifyConfigurationArn")]
+    NotifyConfigurationId: Annotated[str, _aws_pattern("PinpointSmsVoiceV2", "NotifyConfigurationId")]
+    DisplayName: Annotated[str, _aws_pattern("PinpointSmsVoiceV2", "NotifyConfigurationDisplayName")]
     UseCase: Literal["CODE_VERIFICATION"]
-    DefaultTemplateId: str
+    DefaultTemplateId: Annotated[str, _aws_pattern("PinpointSmsVoiceV2", "NotifyTemplateId")]
     PoolId: str
-    EnabledCountries: List[str]
+    EnabledCountries: List[Annotated[str, _aws_pattern("PinpointSmsVoiceV2", "IsoCountryCode")]]
     EnabledChannels: List[NumberCapabilityType]
     Tier: NotifyConfigurationTierType
     TierUpgradeStatus: TierUpgradeStatusType
@@ -1406,18 +1434,18 @@ class UpdateNotifyConfigurationResultTypeDef(BaseValidatorModel):
 class UpdatePhoneNumberResultTypeDef(BaseValidatorModel):
     PhoneNumberArn: str
     PhoneNumberId: str
-    PhoneNumber: str
+    PhoneNumber: Annotated[str, _aws_pattern("PinpointSmsVoiceV2", "PhoneNumber")]
     Status: NumberStatusType
-    IsoCountryCode: str
+    IsoCountryCode: Annotated[str, _aws_pattern("PinpointSmsVoiceV2", "IsoCountryCode")]
     MessageType: MessageTypeType
     NumberCapabilities: List[NumberCapabilityType]
     NumberType: NumberTypeType
     MonthlyLeasingPrice: str
     TwoWayEnabled: bool
-    TwoWayChannelArn: str
-    TwoWayChannelRole: str
+    TwoWayChannelArn: Annotated[str, _aws_pattern("PinpointSmsVoiceV2", "TwoWayChannelArn")]
+    TwoWayChannelRole: Annotated[str, _aws_pattern("PinpointSmsVoiceV2", "IamRoleArn")]
     SelfManagedOptOutsEnabled: bool
-    OptOutListName: str
+    OptOutListName: Annotated[str, _aws_pattern("PinpointSmsVoiceV2", "OptOutListName")]
     InternationalSendingEnabled: bool
     DeletionProtectionEnabled: bool
     RegistrationId: str
@@ -1432,10 +1460,10 @@ class UpdatePoolResultTypeDef(BaseValidatorModel):
     Status: PoolStatusType
     MessageType: MessageTypeType
     TwoWayEnabled: bool
-    TwoWayChannelArn: str
-    TwoWayChannelRole: str
+    TwoWayChannelArn: Annotated[str, _aws_pattern("PinpointSmsVoiceV2", "TwoWayChannelArn")]
+    TwoWayChannelRole: Annotated[str, _aws_pattern("PinpointSmsVoiceV2", "IamRoleArn")]
     SelfManagedOptOutsEnabled: bool
-    OptOutListName: str
+    OptOutListName: Annotated[str, _aws_pattern("PinpointSmsVoiceV2", "OptOutListName")]
     SharedRoutesEnabled: bool
     DeletionProtectionEnabled: bool
     CreatedTimestamp: datetime
@@ -1444,8 +1472,8 @@ class UpdatePoolResultTypeDef(BaseValidatorModel):
 
 # This class is the output for the 'update_protect_configuration' function.
 class UpdateProtectConfigurationResultTypeDef(BaseValidatorModel):
-    ProtectConfigurationArn: str
-    ProtectConfigurationId: str
+    ProtectConfigurationArn: Annotated[str, _aws_pattern("PinpointSmsVoiceV2", "ProtectConfigurationArn")]
+    ProtectConfigurationId: Annotated[str, _aws_pattern("PinpointSmsVoiceV2", "ProtectConfigurationId")]
     CreatedTimestamp: datetime
     AccountDefault: bool
     DeletionProtectionEnabled: bool
@@ -1459,10 +1487,10 @@ class UpdateRcsAgentResultTypeDef(BaseValidatorModel):
     Status: RcsAgentStatusType
     CreatedTimestamp: datetime
     DeletionProtectionEnabled: bool
-    OptOutListName: str
+    OptOutListName: Annotated[str, _aws_pattern("PinpointSmsVoiceV2", "OptOutListName")]
     SelfManagedOptOutsEnabled: bool
-    TwoWayChannelArn: str
-    TwoWayChannelRole: str
+    TwoWayChannelArn: Annotated[str, _aws_pattern("PinpointSmsVoiceV2", "TwoWayChannelArn")]
+    TwoWayChannelRole: Annotated[str, _aws_pattern("PinpointSmsVoiceV2", "IamRoleArn")]
     TwoWayEnabled: bool
     ResponseMetadata: ResponseMetadataTypeDef
 
@@ -1470,8 +1498,8 @@ class UpdateRcsAgentResultTypeDef(BaseValidatorModel):
 # This class is the output for the 'update_sender_id' function.
 class UpdateSenderIdResultTypeDef(BaseValidatorModel):
     SenderIdArn: str
-    SenderId: str
-    IsoCountryCode: str
+    SenderId: Annotated[str, _aws_pattern("PinpointSmsVoiceV2", "SenderId")]
+    IsoCountryCode: Annotated[str, _aws_pattern("PinpointSmsVoiceV2", "IsoCountryCode")]
     MessageTypes: List[MessageTypeType]
     MonthlyLeasingPrice: str
     DeletionProtectionEnabled: bool
@@ -1484,14 +1512,14 @@ class UpdateSenderIdResultTypeDef(BaseValidatorModel):
 class VerifyDestinationNumberResultTypeDef(BaseValidatorModel):
     VerifiedDestinationNumberArn: str
     VerifiedDestinationNumberId: str
-    DestinationPhoneNumber: str
+    DestinationPhoneNumber: Annotated[str, _aws_pattern("PinpointSmsVoiceV2", "PhoneNumber")]
     Status: VerificationStatusType
     CreatedTimestamp: datetime
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 class CountryLaunchStatusInformationTypeDef(BaseValidatorModel):
-    IsoCountryCode: str
+    IsoCountryCode: Annotated[str, _aws_pattern("PinpointSmsVoiceV2", "IsoCountryCode")]
     Status: CountryLaunchStatusType
     RegistrationId: str
     CarrierStatus: List[CarrierStatusInformationTypeDef]
@@ -1500,32 +1528,34 @@ class CountryLaunchStatusInformationTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'describe_configuration_sets' function.
 class DescribeConfigurationSetsRequestTypeDef(BaseValidatorModel):
-    ConfigurationSetNames: Optional[List[str]] = None
+    ConfigurationSetNames: Optional[
+        List[Annotated[str, _aws_pattern("PinpointSmsVoiceV2", "ConfigurationSetNameOrArn")]]
+    ] = None
     Filters: Optional[List[ConfigurationSetFilterTypeDef]] = None
-    NextToken: Optional[str] = None
+    NextToken: Optional[Annotated[str, _aws_pattern("PinpointSmsVoiceV2", "NextToken")]] = None
     MaxResults: Optional[int] = None
 
 
 # This class is the input for the 'describe_rcs_agent_country_launch_status' function.
 class DescribeRcsAgentCountryLaunchStatusRequestTypeDef(BaseValidatorModel):
-    RcsAgentId: str
-    IsoCountryCodes: Optional[List[str]] = None
+    RcsAgentId: Annotated[str, _aws_pattern("PinpointSmsVoiceV2", "RcsAgentIdOrArn")]
+    IsoCountryCodes: Optional[List[Annotated[str, _aws_pattern("PinpointSmsVoiceV2", "IsoCountryCode")]]] = None
     Filters: Optional[List[CountryLaunchStatusFilterTypeDef]] = None
     MaxResults: Optional[int] = None
-    NextToken: Optional[str] = None
+    NextToken: Optional[Annotated[str, _aws_pattern("PinpointSmsVoiceV2", "NextToken")]] = None
 
 
 # This class is the input for the 'create_configuration_set' function.
 class CreateConfigurationSetRequestTypeDef(BaseValidatorModel):
-    ConfigurationSetName: str
+    ConfigurationSetName: Annotated[str, _aws_pattern("PinpointSmsVoiceV2", "ConfigurationSetName")]
     Tags: Optional[List[TagTypeDef]] = None
-    ClientToken: Optional[str] = None
+    ClientToken: Optional[Annotated[str, _aws_pattern("PinpointSmsVoiceV2", "ClientToken")]] = None
 
 
 # This class is the output for the 'create_configuration_set' function.
 class CreateConfigurationSetResultTypeDef(BaseValidatorModel):
     ConfigurationSetArn: str
-    ConfigurationSetName: str
+    ConfigurationSetName: Annotated[str, _aws_pattern("PinpointSmsVoiceV2", "ConfigurationSetName")]
     Tags: List[TagTypeDef]
     CreatedTimestamp: datetime
     ResponseMetadata: ResponseMetadataTypeDef
@@ -1533,26 +1563,26 @@ class CreateConfigurationSetResultTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'create_notify_configuration' function.
 class CreateNotifyConfigurationRequestTypeDef(BaseValidatorModel):
-    DisplayName: str
+    DisplayName: Annotated[str, _aws_pattern("PinpointSmsVoiceV2", "NotifyConfigurationDisplayName")]
     UseCase: Literal["CODE_VERIFICATION"]
     EnabledChannels: List[NumberCapabilityType]
-    DefaultTemplateId: Optional[str] = None
-    PoolId: Optional[str] = None
-    EnabledCountries: Optional[List[str]] = None
+    DefaultTemplateId: Optional[Annotated[str, _aws_pattern("PinpointSmsVoiceV2", "NotifyTemplateId")]] = None
+    PoolId: Optional[Annotated[str, _aws_pattern("PinpointSmsVoiceV2", "PoolIdOrArn")]] = None
+    EnabledCountries: Optional[List[Annotated[str, _aws_pattern("PinpointSmsVoiceV2", "IsoCountryCode")]]] = None
     DeletionProtectionEnabled: Optional[bool] = None
-    ClientToken: Optional[str] = None
+    ClientToken: Optional[Annotated[str, _aws_pattern("PinpointSmsVoiceV2", "ClientToken")]] = None
     Tags: Optional[List[TagTypeDef]] = None
 
 
 # This class is the output for the 'create_notify_configuration' function.
 class CreateNotifyConfigurationResultTypeDef(BaseValidatorModel):
-    NotifyConfigurationArn: str
-    NotifyConfigurationId: str
-    DisplayName: str
+    NotifyConfigurationArn: Annotated[str, _aws_pattern("PinpointSmsVoiceV2", "NotifyConfigurationArn")]
+    NotifyConfigurationId: Annotated[str, _aws_pattern("PinpointSmsVoiceV2", "NotifyConfigurationId")]
+    DisplayName: Annotated[str, _aws_pattern("PinpointSmsVoiceV2", "NotifyConfigurationDisplayName")]
     UseCase: Literal["CODE_VERIFICATION"]
-    DefaultTemplateId: str
+    DefaultTemplateId: Annotated[str, _aws_pattern("PinpointSmsVoiceV2", "NotifyTemplateId")]
     PoolId: str
-    EnabledCountries: List[str]
+    EnabledCountries: List[Annotated[str, _aws_pattern("PinpointSmsVoiceV2", "IsoCountryCode")]]
     EnabledChannels: List[NumberCapabilityType]
     Tier: NotifyConfigurationTierType
     TierUpgradeStatus: TierUpgradeStatusType
@@ -1566,15 +1596,15 @@ class CreateNotifyConfigurationResultTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'create_opt_out_list' function.
 class CreateOptOutListRequestTypeDef(BaseValidatorModel):
-    OptOutListName: str
+    OptOutListName: Annotated[str, _aws_pattern("PinpointSmsVoiceV2", "OptOutListName")]
     Tags: Optional[List[TagTypeDef]] = None
-    ClientToken: Optional[str] = None
+    ClientToken: Optional[Annotated[str, _aws_pattern("PinpointSmsVoiceV2", "ClientToken")]] = None
 
 
 # This class is the output for the 'create_opt_out_list' function.
 class CreateOptOutListResultTypeDef(BaseValidatorModel):
     OptOutListArn: str
-    OptOutListName: str
+    OptOutListName: Annotated[str, _aws_pattern("PinpointSmsVoiceV2", "OptOutListName")]
     Tags: List[TagTypeDef]
     CreatedTimestamp: datetime
     ResponseMetadata: ResponseMetadataTypeDef
@@ -1582,12 +1612,12 @@ class CreateOptOutListResultTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'create_pool' function.
 class CreatePoolRequestTypeDef(BaseValidatorModel):
-    OriginationIdentity: str
+    OriginationIdentity: Annotated[str, _aws_pattern("PinpointSmsVoiceV2", "PhoneOrSenderIdOrArn")]
     MessageType: MessageTypeType
-    IsoCountryCode: Optional[str] = None
+    IsoCountryCode: Optional[Annotated[str, _aws_pattern("PinpointSmsVoiceV2", "IsoCountryCode")]] = None
     DeletionProtectionEnabled: Optional[bool] = None
     Tags: Optional[List[TagTypeDef]] = None
-    ClientToken: Optional[str] = None
+    ClientToken: Optional[Annotated[str, _aws_pattern("PinpointSmsVoiceV2", "ClientToken")]] = None
 
 
 # This class is the output for the 'create_pool' function.
@@ -1597,10 +1627,10 @@ class CreatePoolResultTypeDef(BaseValidatorModel):
     Status: PoolStatusType
     MessageType: MessageTypeType
     TwoWayEnabled: bool
-    TwoWayChannelArn: str
-    TwoWayChannelRole: str
+    TwoWayChannelArn: Annotated[str, _aws_pattern("PinpointSmsVoiceV2", "TwoWayChannelArn")]
+    TwoWayChannelRole: Annotated[str, _aws_pattern("PinpointSmsVoiceV2", "IamRoleArn")]
     SelfManagedOptOutsEnabled: bool
-    OptOutListName: str
+    OptOutListName: Annotated[str, _aws_pattern("PinpointSmsVoiceV2", "OptOutListName")]
     SharedRoutesEnabled: bool
     DeletionProtectionEnabled: bool
     Tags: List[TagTypeDef]
@@ -1610,15 +1640,15 @@ class CreatePoolResultTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'create_protect_configuration' function.
 class CreateProtectConfigurationRequestTypeDef(BaseValidatorModel):
-    ClientToken: Optional[str] = None
+    ClientToken: Optional[Annotated[str, _aws_pattern("PinpointSmsVoiceV2", "ClientToken")]] = None
     DeletionProtectionEnabled: Optional[bool] = None
     Tags: Optional[List[TagTypeDef]] = None
 
 
 # This class is the output for the 'create_protect_configuration' function.
 class CreateProtectConfigurationResultTypeDef(BaseValidatorModel):
-    ProtectConfigurationArn: str
-    ProtectConfigurationId: str
+    ProtectConfigurationArn: Annotated[str, _aws_pattern("PinpointSmsVoiceV2", "ProtectConfigurationArn")]
+    ProtectConfigurationId: Annotated[str, _aws_pattern("PinpointSmsVoiceV2", "ProtectConfigurationId")]
     CreatedTimestamp: datetime
     AccountDefault: bool
     DeletionProtectionEnabled: bool
@@ -1629,9 +1659,9 @@ class CreateProtectConfigurationResultTypeDef(BaseValidatorModel):
 # This class is the input for the 'create_rcs_agent' function.
 class CreateRcsAgentRequestTypeDef(BaseValidatorModel):
     DeletionProtectionEnabled: Optional[bool] = None
-    OptOutListName: Optional[str] = None
+    OptOutListName: Optional[Annotated[str, _aws_pattern("PinpointSmsVoiceV2", "OptOutListNameOrArn")]] = None
     Tags: Optional[List[TagTypeDef]] = None
-    ClientToken: Optional[str] = None
+    ClientToken: Optional[Annotated[str, _aws_pattern("PinpointSmsVoiceV2", "ClientToken")]] = None
 
 
 # This class is the output for the 'create_rcs_agent' function.
@@ -1640,11 +1670,11 @@ class CreateRcsAgentResultTypeDef(BaseValidatorModel):
     RcsAgentId: str
     Status: RcsAgentStatusType
     DeletionProtectionEnabled: bool
-    OptOutListName: str
+    OptOutListName: Annotated[str, _aws_pattern("PinpointSmsVoiceV2", "OptOutListName")]
     CreatedTimestamp: datetime
     SelfManagedOptOutsEnabled: bool
-    TwoWayChannelArn: str
-    TwoWayChannelRole: str
+    TwoWayChannelArn: Annotated[str, _aws_pattern("PinpointSmsVoiceV2", "TwoWayChannelArn")]
+    TwoWayChannelRole: Annotated[str, _aws_pattern("PinpointSmsVoiceV2", "IamRoleArn")]
     TwoWayEnabled: bool
     Tags: List[TagTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
@@ -1653,9 +1683,9 @@ class CreateRcsAgentResultTypeDef(BaseValidatorModel):
 # This class is the input for the 'create_registration_attachment' function.
 class CreateRegistrationAttachmentRequestTypeDef(BaseValidatorModel):
     AttachmentBody: Optional[BlobTypeDef] = None
-    AttachmentUrl: Optional[str] = None
+    AttachmentUrl: Optional[Annotated[str, _aws_pattern("PinpointSmsVoiceV2", "AttachmentUrl")]] = None
     Tags: Optional[List[TagTypeDef]] = None
-    ClientToken: Optional[str] = None
+    ClientToken: Optional[Annotated[str, _aws_pattern("PinpointSmsVoiceV2", "ClientToken")]] = None
 
 
 # This class is the output for the 'create_registration_attachment' function.
@@ -1670,16 +1700,16 @@ class CreateRegistrationAttachmentResultTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'create_registration' function.
 class CreateRegistrationRequestTypeDef(BaseValidatorModel):
-    RegistrationType: str
+    RegistrationType: Annotated[str, _aws_pattern("PinpointSmsVoiceV2", "RegistrationType")]
     Tags: Optional[List[TagTypeDef]] = None
-    ClientToken: Optional[str] = None
+    ClientToken: Optional[Annotated[str, _aws_pattern("PinpointSmsVoiceV2", "ClientToken")]] = None
 
 
 # This class is the output for the 'create_registration' function.
 class CreateRegistrationResultTypeDef(BaseValidatorModel):
     RegistrationArn: str
     RegistrationId: str
-    RegistrationType: str
+    RegistrationType: Annotated[str, _aws_pattern("PinpointSmsVoiceV2", "RegistrationType")]
     RegistrationStatus: RegistrationStatusType
     CurrentVersionNumber: int
     AdditionalAttributes: Dict[str, str]
@@ -1690,17 +1720,17 @@ class CreateRegistrationResultTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'create_verified_destination_number' function.
 class CreateVerifiedDestinationNumberRequestTypeDef(BaseValidatorModel):
-    DestinationPhoneNumber: str
-    RcsAgentId: Optional[str] = None
+    DestinationPhoneNumber: Annotated[str, _aws_pattern("PinpointSmsVoiceV2", "PhoneNumber")]
+    RcsAgentId: Optional[Annotated[str, _aws_pattern("PinpointSmsVoiceV2", "RcsAgentIdOrArn")]] = None
     Tags: Optional[List[TagTypeDef]] = None
-    ClientToken: Optional[str] = None
+    ClientToken: Optional[Annotated[str, _aws_pattern("PinpointSmsVoiceV2", "ClientToken")]] = None
 
 
 # This class is the output for the 'create_verified_destination_number' function.
 class CreateVerifiedDestinationNumberResultTypeDef(BaseValidatorModel):
     VerifiedDestinationNumberArn: str
     VerifiedDestinationNumberId: str
-    DestinationPhoneNumber: str
+    DestinationPhoneNumber: Annotated[str, _aws_pattern("PinpointSmsVoiceV2", "PhoneNumber")]
     Status: VerificationStatusType
     RcsAgentId: str
     Tags: List[TagTypeDef]
@@ -1710,42 +1740,42 @@ class CreateVerifiedDestinationNumberResultTypeDef(BaseValidatorModel):
 
 # This class is the output for the 'list_tags_for_resource' function.
 class ListTagsForResourceResultTypeDef(BaseValidatorModel):
-    ResourceArn: str
+    ResourceArn: Annotated[str, _aws_pattern("PinpointSmsVoiceV2", "AmazonResourceName")]
     Tags: List[TagTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 # This class is the input for the 'request_phone_number' function.
 class RequestPhoneNumberRequestTypeDef(BaseValidatorModel):
-    IsoCountryCode: str
+    IsoCountryCode: Annotated[str, _aws_pattern("PinpointSmsVoiceV2", "IsoCountryCode")]
     MessageType: MessageTypeType
     NumberCapabilities: List[NumberCapabilityType]
     NumberType: RequestableNumberTypeType
-    OptOutListName: Optional[str] = None
-    PoolId: Optional[str] = None
-    RegistrationId: Optional[str] = None
+    OptOutListName: Optional[Annotated[str, _aws_pattern("PinpointSmsVoiceV2", "OptOutListNameOrArn")]] = None
+    PoolId: Optional[Annotated[str, _aws_pattern("PinpointSmsVoiceV2", "PoolIdOrArn")]] = None
+    RegistrationId: Optional[Annotated[str, _aws_pattern("PinpointSmsVoiceV2", "RegistrationIdOrArn")]] = None
     InternationalSendingEnabled: Optional[bool] = None
     DeletionProtectionEnabled: Optional[bool] = None
     Tags: Optional[List[TagTypeDef]] = None
-    ClientToken: Optional[str] = None
+    ClientToken: Optional[Annotated[str, _aws_pattern("PinpointSmsVoiceV2", "ClientToken")]] = None
 
 
 # This class is the output for the 'request_phone_number' function.
 class RequestPhoneNumberResultTypeDef(BaseValidatorModel):
     PhoneNumberArn: str
     PhoneNumberId: str
-    PhoneNumber: str
+    PhoneNumber: Annotated[str, _aws_pattern("PinpointSmsVoiceV2", "PhoneNumber")]
     Status: NumberStatusType
-    IsoCountryCode: str
+    IsoCountryCode: Annotated[str, _aws_pattern("PinpointSmsVoiceV2", "IsoCountryCode")]
     MessageType: MessageTypeType
     NumberCapabilities: List[NumberCapabilityType]
     NumberType: RequestableNumberTypeType
     MonthlyLeasingPrice: str
     TwoWayEnabled: bool
-    TwoWayChannelArn: str
-    TwoWayChannelRole: str
+    TwoWayChannelArn: Annotated[str, _aws_pattern("PinpointSmsVoiceV2", "TwoWayChannelArn")]
+    TwoWayChannelRole: Annotated[str, _aws_pattern("PinpointSmsVoiceV2", "IamRoleArn")]
     SelfManagedOptOutsEnabled: bool
-    OptOutListName: str
+    OptOutListName: Annotated[str, _aws_pattern("PinpointSmsVoiceV2", "OptOutListName")]
     InternationalSendingEnabled: bool
     DeletionProtectionEnabled: bool
     PoolId: str
@@ -1757,19 +1787,19 @@ class RequestPhoneNumberResultTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'request_sender_id' function.
 class RequestSenderIdRequestTypeDef(BaseValidatorModel):
-    SenderId: str
-    IsoCountryCode: str
+    SenderId: Annotated[str, _aws_pattern("PinpointSmsVoiceV2", "SenderId")]
+    IsoCountryCode: Annotated[str, _aws_pattern("PinpointSmsVoiceV2", "IsoCountryCode")]
     MessageTypes: Optional[List[MessageTypeType]] = None
     DeletionProtectionEnabled: Optional[bool] = None
     Tags: Optional[List[TagTypeDef]] = None
-    ClientToken: Optional[str] = None
+    ClientToken: Optional[Annotated[str, _aws_pattern("PinpointSmsVoiceV2", "ClientToken")]] = None
 
 
 # This class is the output for the 'request_sender_id' function.
 class RequestSenderIdResultTypeDef(BaseValidatorModel):
     SenderIdArn: str
-    SenderId: str
-    IsoCountryCode: str
+    SenderId: Annotated[str, _aws_pattern("PinpointSmsVoiceV2", "SenderId")]
+    IsoCountryCode: Annotated[str, _aws_pattern("PinpointSmsVoiceV2", "IsoCountryCode")]
     MessageTypes: List[MessageTypeType]
     MonthlyLeasingPrice: str
     DeletionProtectionEnabled: bool
@@ -1779,23 +1809,23 @@ class RequestSenderIdResultTypeDef(BaseValidatorModel):
 
 
 class TagResourceRequestTypeDef(BaseValidatorModel):
-    ResourceArn: str
+    ResourceArn: Annotated[str, _aws_pattern("PinpointSmsVoiceV2", "AmazonResourceName")]
     Tags: List[TagTypeDef]
 
 
 # This class is the input for the 'create_event_destination' function.
 class CreateEventDestinationRequestTypeDef(BaseValidatorModel):
-    ConfigurationSetName: str
-    EventDestinationName: str
+    ConfigurationSetName: Annotated[str, _aws_pattern("PinpointSmsVoiceV2", "ConfigurationSetNameOrArn")]
+    EventDestinationName: Annotated[str, _aws_pattern("PinpointSmsVoiceV2", "EventDestinationName")]
     MatchingEventTypes: List[EventTypeType]
     CloudWatchLogsDestination: Optional[CloudWatchLogsDestinationTypeDef] = None
     KinesisFirehoseDestination: Optional[KinesisFirehoseDestinationTypeDef] = None
     SnsDestination: Optional[SnsDestinationTypeDef] = None
-    ClientToken: Optional[str] = None
+    ClientToken: Optional[Annotated[str, _aws_pattern("PinpointSmsVoiceV2", "ClientToken")]] = None
 
 
 class EventDestinationTypeDef(BaseValidatorModel):
-    EventDestinationName: str
+    EventDestinationName: Annotated[str, _aws_pattern("PinpointSmsVoiceV2", "EventDestinationName")]
     Enabled: bool
     MatchingEventTypes: List[EventTypeType]
     CloudWatchLogsDestination: Optional[CloudWatchLogsDestinationTypeDef] = None
@@ -1805,8 +1835,8 @@ class EventDestinationTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'update_event_destination' function.
 class UpdateEventDestinationRequestTypeDef(BaseValidatorModel):
-    ConfigurationSetName: str
-    EventDestinationName: str
+    ConfigurationSetName: Annotated[str, _aws_pattern("PinpointSmsVoiceV2", "ConfigurationSetNameOrArn")]
+    EventDestinationName: Annotated[str, _aws_pattern("PinpointSmsVoiceV2", "EventDestinationName")]
     Enabled: Optional[bool] = None
     MatchingEventTypes: Optional[List[EventTypeType]] = None
     CloudWatchLogsDestination: Optional[CloudWatchLogsDestinationTypeDef] = None
@@ -1913,10 +1943,10 @@ class DescribeKeywordsRequestPaginateTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'describe_keywords' function.
 class DescribeKeywordsRequestTypeDef(BaseValidatorModel):
-    OriginationIdentity: str
-    Keywords: Optional[List[str]] = None
+    OriginationIdentity: Annotated[str, _aws_pattern("PinpointSmsVoiceV2", "PhoneOrPoolIdOrArn")]
+    Keywords: Optional[List[Annotated[str, _aws_pattern("PinpointSmsVoiceV2", "Keyword")]]] = None
     Filters: Optional[List[KeywordFilterTypeDef]] = None
-    NextToken: Optional[str] = None
+    NextToken: Optional[Annotated[str, _aws_pattern("PinpointSmsVoiceV2", "NextToken")]] = None
     MaxResults: Optional[int] = None
 
 
@@ -1926,7 +1956,7 @@ class DescribeKeywordsResultTypeDef(BaseValidatorModel):
     OriginationIdentity: str
     Keywords: List[KeywordInformationTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
-    NextToken: Optional[str] = None
+    NextToken: Optional[Annotated[str, _aws_pattern("PinpointSmsVoiceV2", "NextToken")]] = None
 
 
 class DescribeNotifyConfigurationsRequestPaginateTypeDef(BaseValidatorModel):
@@ -1937,9 +1967,11 @@ class DescribeNotifyConfigurationsRequestPaginateTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'describe_notify_configurations' function.
 class DescribeNotifyConfigurationsRequestTypeDef(BaseValidatorModel):
-    NotifyConfigurationIds: Optional[List[str]] = None
+    NotifyConfigurationIds: Optional[
+        List[Annotated[str, _aws_pattern("PinpointSmsVoiceV2", "NotifyConfigurationIdOrArn")]]
+    ] = None
     Filters: Optional[List[NotifyConfigurationFilterTypeDef]] = None
-    NextToken: Optional[str] = None
+    NextToken: Optional[Annotated[str, _aws_pattern("PinpointSmsVoiceV2", "NextToken")]] = None
     MaxResults: Optional[int] = None
 
 
@@ -1947,7 +1979,7 @@ class DescribeNotifyConfigurationsRequestTypeDef(BaseValidatorModel):
 class DescribeNotifyConfigurationsResultTypeDef(BaseValidatorModel):
     NotifyConfigurations: List[NotifyConfigurationInformationTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
-    NextToken: Optional[str] = None
+    NextToken: Optional[Annotated[str, _aws_pattern("PinpointSmsVoiceV2", "NextToken")]] = None
 
 
 class DescribeNotifyTemplatesRequestPaginateTypeDef(BaseValidatorModel):
@@ -1958,9 +1990,9 @@ class DescribeNotifyTemplatesRequestPaginateTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'describe_notify_templates' function.
 class DescribeNotifyTemplatesRequestTypeDef(BaseValidatorModel):
-    TemplateIds: Optional[List[str]] = None
+    TemplateIds: Optional[List[Annotated[str, _aws_pattern("PinpointSmsVoiceV2", "NotifyTemplateId")]]] = None
     Filters: Optional[List[NotifyTemplateFilterTypeDef]] = None
-    NextToken: Optional[str] = None
+    NextToken: Optional[Annotated[str, _aws_pattern("PinpointSmsVoiceV2", "NextToken")]] = None
     MaxResults: Optional[int] = None
 
 
@@ -1968,7 +2000,7 @@ class DescribeNotifyTemplatesRequestTypeDef(BaseValidatorModel):
 class DescribeOptOutListsResultTypeDef(BaseValidatorModel):
     OptOutLists: List[OptOutListInformationTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
-    NextToken: Optional[str] = None
+    NextToken: Optional[Annotated[str, _aws_pattern("PinpointSmsVoiceV2", "NextToken")]] = None
 
 
 class DescribeOptedOutNumbersRequestPaginateTypeDef(BaseValidatorModel):
@@ -1980,20 +2012,20 @@ class DescribeOptedOutNumbersRequestPaginateTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'describe_opted_out_numbers' function.
 class DescribeOptedOutNumbersRequestTypeDef(BaseValidatorModel):
-    OptOutListName: str
-    OptedOutNumbers: Optional[List[str]] = None
+    OptOutListName: Annotated[str, _aws_pattern("PinpointSmsVoiceV2", "OptOutListNameOrArn")]
+    OptedOutNumbers: Optional[List[Annotated[str, _aws_pattern("PinpointSmsVoiceV2", "PhoneNumber")]]] = None
     Filters: Optional[List[OptedOutFilterTypeDef]] = None
-    NextToken: Optional[str] = None
+    NextToken: Optional[Annotated[str, _aws_pattern("PinpointSmsVoiceV2", "NextToken")]] = None
     MaxResults: Optional[int] = None
 
 
 # This class is the output for the 'describe_opted_out_numbers' function.
 class DescribeOptedOutNumbersResultTypeDef(BaseValidatorModel):
     OptOutListArn: str
-    OptOutListName: str
+    OptOutListName: Annotated[str, _aws_pattern("PinpointSmsVoiceV2", "OptOutListName")]
     OptedOutNumbers: List[OptedOutNumberInformationTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
-    NextToken: Optional[str] = None
+    NextToken: Optional[Annotated[str, _aws_pattern("PinpointSmsVoiceV2", "NextToken")]] = None
 
 
 class DescribePhoneNumbersRequestPaginateTypeDef(BaseValidatorModel):
@@ -2005,9 +2037,9 @@ class DescribePhoneNumbersRequestPaginateTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'describe_phone_numbers' function.
 class DescribePhoneNumbersRequestTypeDef(BaseValidatorModel):
-    PhoneNumberIds: Optional[List[str]] = None
+    PhoneNumberIds: Optional[List[Annotated[str, _aws_pattern("PinpointSmsVoiceV2", "PhoneNumberIdOrArn")]]] = None
     Filters: Optional[List[PhoneNumberFilterTypeDef]] = None
-    NextToken: Optional[str] = None
+    NextToken: Optional[Annotated[str, _aws_pattern("PinpointSmsVoiceV2", "NextToken")]] = None
     MaxResults: Optional[int] = None
     Owner: Optional[OwnerType] = None
 
@@ -2016,7 +2048,7 @@ class DescribePhoneNumbersRequestTypeDef(BaseValidatorModel):
 class DescribePhoneNumbersResultTypeDef(BaseValidatorModel):
     PhoneNumbers: List[PhoneNumberInformationTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
-    NextToken: Optional[str] = None
+    NextToken: Optional[Annotated[str, _aws_pattern("PinpointSmsVoiceV2", "NextToken")]] = None
 
 
 class DescribePoolsRequestPaginateTypeDef(BaseValidatorModel):
@@ -2028,9 +2060,9 @@ class DescribePoolsRequestPaginateTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'describe_pools' function.
 class DescribePoolsRequestTypeDef(BaseValidatorModel):
-    PoolIds: Optional[List[str]] = None
+    PoolIds: Optional[List[Annotated[str, _aws_pattern("PinpointSmsVoiceV2", "PoolIdOrArn")]]] = None
     Filters: Optional[List[PoolFilterTypeDef]] = None
-    NextToken: Optional[str] = None
+    NextToken: Optional[Annotated[str, _aws_pattern("PinpointSmsVoiceV2", "NextToken")]] = None
     MaxResults: Optional[int] = None
     Owner: Optional[OwnerType] = None
 
@@ -2039,7 +2071,7 @@ class DescribePoolsRequestTypeDef(BaseValidatorModel):
 class DescribePoolsResultTypeDef(BaseValidatorModel):
     Pools: List[PoolInformationTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
-    NextToken: Optional[str] = None
+    NextToken: Optional[Annotated[str, _aws_pattern("PinpointSmsVoiceV2", "NextToken")]] = None
 
 
 class DescribeProtectConfigurationsRequestPaginateTypeDef(BaseValidatorModel):
@@ -2050,9 +2082,11 @@ class DescribeProtectConfigurationsRequestPaginateTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'describe_protect_configurations' function.
 class DescribeProtectConfigurationsRequestTypeDef(BaseValidatorModel):
-    ProtectConfigurationIds: Optional[List[str]] = None
+    ProtectConfigurationIds: Optional[
+        List[Annotated[str, _aws_pattern("PinpointSmsVoiceV2", "ProtectConfigurationIdOrArn")]]
+    ] = None
     Filters: Optional[List[ProtectConfigurationFilterTypeDef]] = None
-    NextToken: Optional[str] = None
+    NextToken: Optional[Annotated[str, _aws_pattern("PinpointSmsVoiceV2", "NextToken")]] = None
     MaxResults: Optional[int] = None
 
 
@@ -2060,7 +2094,7 @@ class DescribeProtectConfigurationsRequestTypeDef(BaseValidatorModel):
 class DescribeProtectConfigurationsResultTypeDef(BaseValidatorModel):
     ProtectConfigurations: List[ProtectConfigurationInformationTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
-    NextToken: Optional[str] = None
+    NextToken: Optional[Annotated[str, _aws_pattern("PinpointSmsVoiceV2", "NextToken")]] = None
 
 
 class DescribeRcsAgentsRequestPaginateTypeDef(BaseValidatorModel):
@@ -2072,10 +2106,10 @@ class DescribeRcsAgentsRequestPaginateTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'describe_rcs_agents' function.
 class DescribeRcsAgentsRequestTypeDef(BaseValidatorModel):
-    RcsAgentIds: Optional[List[str]] = None
+    RcsAgentIds: Optional[List[Annotated[str, _aws_pattern("PinpointSmsVoiceV2", "RcsAgentIdOrArn")]]] = None
     Owner: Optional[OwnerType] = None
     Filters: Optional[List[RcsAgentFilterTypeDef]] = None
-    NextToken: Optional[str] = None
+    NextToken: Optional[Annotated[str, _aws_pattern("PinpointSmsVoiceV2", "NextToken")]] = None
     MaxResults: Optional[int] = None
 
 
@@ -2087,9 +2121,11 @@ class DescribeRegistrationAttachmentsRequestPaginateTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'describe_registration_attachments' function.
 class DescribeRegistrationAttachmentsRequestTypeDef(BaseValidatorModel):
-    RegistrationAttachmentIds: Optional[List[str]] = None
+    RegistrationAttachmentIds: Optional[
+        List[Annotated[str, _aws_pattern("PinpointSmsVoiceV2", "RegistrationIdOrArn")]]
+    ] = None
     Filters: Optional[List[RegistrationAttachmentFilterTypeDef]] = None
-    NextToken: Optional[str] = None
+    NextToken: Optional[Annotated[str, _aws_pattern("PinpointSmsVoiceV2", "NextToken")]] = None
     MaxResults: Optional[int] = None
 
 
@@ -2097,7 +2133,7 @@ class DescribeRegistrationAttachmentsRequestTypeDef(BaseValidatorModel):
 class DescribeRegistrationAttachmentsResultTypeDef(BaseValidatorModel):
     RegistrationAttachments: List[RegistrationAttachmentsInformationTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
-    NextToken: Optional[str] = None
+    NextToken: Optional[Annotated[str, _aws_pattern("PinpointSmsVoiceV2", "NextToken")]] = None
 
 
 # This class is the output for the 'describe_registration_field_values' function.
@@ -2107,7 +2143,7 @@ class DescribeRegistrationFieldValuesResultTypeDef(BaseValidatorModel):
     VersionNumber: int
     RegistrationFieldValues: List[RegistrationFieldValueInformationTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
-    NextToken: Optional[str] = None
+    NextToken: Optional[Annotated[str, _aws_pattern("PinpointSmsVoiceV2", "NextToken")]] = None
 
 
 class DescribeRegistrationTypeDefinitionsRequestPaginateTypeDef(BaseValidatorModel):
@@ -2118,9 +2154,9 @@ class DescribeRegistrationTypeDefinitionsRequestPaginateTypeDef(BaseValidatorMod
 
 # This class is the input for the 'describe_registration_type_definitions' function.
 class DescribeRegistrationTypeDefinitionsRequestTypeDef(BaseValidatorModel):
-    RegistrationTypes: Optional[List[str]] = None
+    RegistrationTypes: Optional[List[Annotated[str, _aws_pattern("PinpointSmsVoiceV2", "RegistrationType")]]] = None
     Filters: Optional[List[RegistrationTypeFilterTypeDef]] = None
-    NextToken: Optional[str] = None
+    NextToken: Optional[Annotated[str, _aws_pattern("PinpointSmsVoiceV2", "NextToken")]] = None
     MaxResults: Optional[int] = None
 
 
@@ -2133,10 +2169,10 @@ class DescribeRegistrationVersionsRequestPaginateTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'describe_registration_versions' function.
 class DescribeRegistrationVersionsRequestTypeDef(BaseValidatorModel):
-    RegistrationId: str
+    RegistrationId: Annotated[str, _aws_pattern("PinpointSmsVoiceV2", "RegistrationIdOrArn")]
     VersionNumbers: Optional[List[int]] = None
     Filters: Optional[List[RegistrationVersionFilterTypeDef]] = None
-    NextToken: Optional[str] = None
+    NextToken: Optional[Annotated[str, _aws_pattern("PinpointSmsVoiceV2", "NextToken")]] = None
     MaxResults: Optional[int] = None
 
 
@@ -2148,9 +2184,9 @@ class DescribeRegistrationsRequestPaginateTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'describe_registrations' function.
 class DescribeRegistrationsRequestTypeDef(BaseValidatorModel):
-    RegistrationIds: Optional[List[str]] = None
+    RegistrationIds: Optional[List[Annotated[str, _aws_pattern("PinpointSmsVoiceV2", "RegistrationIdOrArn")]]] = None
     Filters: Optional[List[RegistrationFilterTypeDef]] = None
-    NextToken: Optional[str] = None
+    NextToken: Optional[Annotated[str, _aws_pattern("PinpointSmsVoiceV2", "NextToken")]] = None
     MaxResults: Optional[int] = None
 
 
@@ -2158,7 +2194,7 @@ class DescribeRegistrationsRequestTypeDef(BaseValidatorModel):
 class DescribeRegistrationsResultTypeDef(BaseValidatorModel):
     Registrations: List[RegistrationInformationTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
-    NextToken: Optional[str] = None
+    NextToken: Optional[Annotated[str, _aws_pattern("PinpointSmsVoiceV2", "NextToken")]] = None
 
 
 class DescribeSenderIdsRequestPaginateTypeDef(BaseValidatorModel):
@@ -2172,7 +2208,7 @@ class DescribeSenderIdsRequestPaginateTypeDef(BaseValidatorModel):
 class DescribeSenderIdsRequestTypeDef(BaseValidatorModel):
     SenderIds: Optional[List[SenderIdAndCountryTypeDef]] = None
     Filters: Optional[List[SenderIdFilterTypeDef]] = None
-    NextToken: Optional[str] = None
+    NextToken: Optional[Annotated[str, _aws_pattern("PinpointSmsVoiceV2", "NextToken")]] = None
     MaxResults: Optional[int] = None
     Owner: Optional[OwnerType] = None
 
@@ -2181,14 +2217,14 @@ class DescribeSenderIdsRequestTypeDef(BaseValidatorModel):
 class DescribeSenderIdsResultTypeDef(BaseValidatorModel):
     SenderIds: List[SenderIdInformationTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
-    NextToken: Optional[str] = None
+    NextToken: Optional[Annotated[str, _aws_pattern("PinpointSmsVoiceV2", "NextToken")]] = None
 
 
 # This class is the output for the 'describe_spend_limits' function.
 class DescribeSpendLimitsResultTypeDef(BaseValidatorModel):
     SpendLimits: List[SpendLimitTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
-    NextToken: Optional[str] = None
+    NextToken: Optional[Annotated[str, _aws_pattern("PinpointSmsVoiceV2", "NextToken")]] = None
 
 
 class DescribeVerifiedDestinationNumbersRequestPaginateTypeDef(BaseValidatorModel):
@@ -2200,10 +2236,12 @@ class DescribeVerifiedDestinationNumbersRequestPaginateTypeDef(BaseValidatorMode
 
 # This class is the input for the 'describe_verified_destination_numbers' function.
 class DescribeVerifiedDestinationNumbersRequestTypeDef(BaseValidatorModel):
-    VerifiedDestinationNumberIds: Optional[List[str]] = None
-    DestinationPhoneNumbers: Optional[List[str]] = None
+    VerifiedDestinationNumberIds: Optional[
+        List[Annotated[str, _aws_pattern("PinpointSmsVoiceV2", "VerifiedDestinationNumberIdOrArn")]]
+    ] = None
+    DestinationPhoneNumbers: Optional[List[Annotated[str, _aws_pattern("PinpointSmsVoiceV2", "PhoneNumber")]]] = None
     Filters: Optional[List[VerifiedDestinationNumberFilterTypeDef]] = None
-    NextToken: Optional[str] = None
+    NextToken: Optional[Annotated[str, _aws_pattern("PinpointSmsVoiceV2", "NextToken")]] = None
     MaxResults: Optional[int] = None
 
 
@@ -2211,13 +2249,13 @@ class DescribeVerifiedDestinationNumbersRequestTypeDef(BaseValidatorModel):
 class DescribeVerifiedDestinationNumbersResultTypeDef(BaseValidatorModel):
     VerifiedDestinationNumbers: List[VerifiedDestinationNumberInformationTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
-    NextToken: Optional[str] = None
+    NextToken: Optional[Annotated[str, _aws_pattern("PinpointSmsVoiceV2", "NextToken")]] = None
 
 
 # This class is the output for the 'get_protect_configuration_country_rule_set' function.
 class GetProtectConfigurationCountryRuleSetResultTypeDef(BaseValidatorModel):
-    ProtectConfigurationArn: str
-    ProtectConfigurationId: str
+    ProtectConfigurationArn: Annotated[str, _aws_pattern("PinpointSmsVoiceV2", "ProtectConfigurationArn")]
+    ProtectConfigurationId: Annotated[str, _aws_pattern("PinpointSmsVoiceV2", "ProtectConfigurationId")]
     NumberCapability: NumberCapabilityType
     CountryRuleSet: Dict[str, ProtectConfigurationCountryRuleSetInformationTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
@@ -2225,15 +2263,15 @@ class GetProtectConfigurationCountryRuleSetResultTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'update_protect_configuration_country_rule_set' function.
 class UpdateProtectConfigurationCountryRuleSetRequestTypeDef(BaseValidatorModel):
-    ProtectConfigurationId: str
+    ProtectConfigurationId: Annotated[str, _aws_pattern("PinpointSmsVoiceV2", "ProtectConfigurationIdOrArn")]
     NumberCapability: NumberCapabilityType
     CountryRuleSetUpdates: Dict[str, ProtectConfigurationCountryRuleSetInformationTypeDef]
 
 
 # This class is the output for the 'update_protect_configuration_country_rule_set' function.
 class UpdateProtectConfigurationCountryRuleSetResultTypeDef(BaseValidatorModel):
-    ProtectConfigurationArn: str
-    ProtectConfigurationId: str
+    ProtectConfigurationArn: Annotated[str, _aws_pattern("PinpointSmsVoiceV2", "ProtectConfigurationArn")]
+    ProtectConfigurationId: Annotated[str, _aws_pattern("PinpointSmsVoiceV2", "ProtectConfigurationId")]
     NumberCapability: NumberCapabilityType
     CountryRuleSet: Dict[str, ProtectConfigurationCountryRuleSetInformationTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
@@ -2243,7 +2281,7 @@ class UpdateProtectConfigurationCountryRuleSetResultTypeDef(BaseValidatorModel):
 class ListNotifyCountriesResultTypeDef(BaseValidatorModel):
     NotifyCountries: List[NotifyCountryInformationTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
-    NextToken: Optional[str] = None
+    NextToken: Optional[Annotated[str, _aws_pattern("PinpointSmsVoiceV2", "NextToken")]] = None
 
 
 class ListPoolOriginationIdentitiesRequestPaginateTypeDef(BaseValidatorModel):
@@ -2254,9 +2292,9 @@ class ListPoolOriginationIdentitiesRequestPaginateTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'list_pool_origination_identities' function.
 class ListPoolOriginationIdentitiesRequestTypeDef(BaseValidatorModel):
-    PoolId: str
+    PoolId: Annotated[str, _aws_pattern("PinpointSmsVoiceV2", "PoolIdOrArn")]
     Filters: Optional[List[PoolOriginationIdentitiesFilterTypeDef]] = None
-    NextToken: Optional[str] = None
+    NextToken: Optional[Annotated[str, _aws_pattern("PinpointSmsVoiceV2", "NextToken")]] = None
     MaxResults: Optional[int] = None
 
 
@@ -2266,7 +2304,7 @@ class ListPoolOriginationIdentitiesResultTypeDef(BaseValidatorModel):
     PoolId: str
     OriginationIdentities: List[OriginationIdentityMetadataTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
-    NextToken: Optional[str] = None
+    NextToken: Optional[Annotated[str, _aws_pattern("PinpointSmsVoiceV2", "NextToken")]] = None
 
 
 class ListProtectConfigurationRuleSetNumberOverridesRequestPaginateTypeDef(BaseValidatorModel):
@@ -2277,19 +2315,19 @@ class ListProtectConfigurationRuleSetNumberOverridesRequestPaginateTypeDef(BaseV
 
 # This class is the input for the 'list_protect_configuration_rule_set_number_overrides' function.
 class ListProtectConfigurationRuleSetNumberOverridesRequestTypeDef(BaseValidatorModel):
-    ProtectConfigurationId: str
+    ProtectConfigurationId: Annotated[str, _aws_pattern("PinpointSmsVoiceV2", "ProtectConfigurationIdOrArn")]
     Filters: Optional[List[ProtectConfigurationRuleSetNumberOverrideFilterItemTypeDef]] = None
-    NextToken: Optional[str] = None
+    NextToken: Optional[Annotated[str, _aws_pattern("PinpointSmsVoiceV2", "NextToken")]] = None
     MaxResults: Optional[int] = None
 
 
 # This class is the output for the 'list_protect_configuration_rule_set_number_overrides' function.
 class ListProtectConfigurationRuleSetNumberOverridesResultTypeDef(BaseValidatorModel):
-    ProtectConfigurationArn: str
-    ProtectConfigurationId: str
+    ProtectConfigurationArn: Annotated[str, _aws_pattern("PinpointSmsVoiceV2", "ProtectConfigurationArn")]
+    ProtectConfigurationId: Annotated[str, _aws_pattern("PinpointSmsVoiceV2", "ProtectConfigurationId")]
     RuleSetNumberOverrides: List[ProtectConfigurationRuleSetNumberOverrideTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
-    NextToken: Optional[str] = None
+    NextToken: Optional[Annotated[str, _aws_pattern("PinpointSmsVoiceV2", "NextToken")]] = None
 
 
 class ListRegistrationAssociationsRequestPaginateTypeDef(BaseValidatorModel):
@@ -2300,9 +2338,9 @@ class ListRegistrationAssociationsRequestPaginateTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'list_registration_associations' function.
 class ListRegistrationAssociationsRequestTypeDef(BaseValidatorModel):
-    RegistrationId: str
+    RegistrationId: Annotated[str, _aws_pattern("PinpointSmsVoiceV2", "RegistrationIdOrArn")]
     Filters: Optional[List[RegistrationAssociationFilterTypeDef]] = None
-    NextToken: Optional[str] = None
+    NextToken: Optional[Annotated[str, _aws_pattern("PinpointSmsVoiceV2", "NextToken")]] = None
     MaxResults: Optional[int] = None
 
 
@@ -2310,22 +2348,22 @@ class ListRegistrationAssociationsRequestTypeDef(BaseValidatorModel):
 class ListRegistrationAssociationsResultTypeDef(BaseValidatorModel):
     RegistrationArn: str
     RegistrationId: str
-    RegistrationType: str
+    RegistrationType: Annotated[str, _aws_pattern("PinpointSmsVoiceV2", "RegistrationType")]
     RegistrationAssociations: List[RegistrationAssociationMetadataTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
-    NextToken: Optional[str] = None
+    NextToken: Optional[Annotated[str, _aws_pattern("PinpointSmsVoiceV2", "NextToken")]] = None
 
 
 class NotifyTemplateInformationTypeDef(BaseValidatorModel):
-    TemplateId: str
+    TemplateId: Annotated[str, _aws_pattern("PinpointSmsVoiceV2", "NotifyTemplateId")]
     Version: int
     TemplateType: Literal["OTP_VERIFICATION"]
     Channels: List[NumberCapabilityType]
     CreatedTimestamp: datetime
     TierAccess: Optional[List[NotifyConfigurationTierType]] = None
     Status: Optional[NotifyTemplateStatusType] = None
-    SupportedCountries: Optional[List[str]] = None
-    LanguageCode: Optional[str] = None
+    SupportedCountries: Optional[List[Annotated[str, _aws_pattern("PinpointSmsVoiceV2", "IsoCountryCode")]]] = None
+    LanguageCode: Optional[Annotated[str, _aws_pattern("PinpointSmsVoiceV2", "NotifyLanguageCode")]] = None
     Content: Optional[str] = None
     Variables: Optional[Dict[str, TemplateVariableMetadataTypeDef]] = None
     SupportedVoiceIds: Optional[List[VoiceIdType]] = None
@@ -2333,10 +2371,10 @@ class NotifyTemplateInformationTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'put_protect_configuration_rule_set_number_override' function.
 class PutProtectConfigurationRuleSetNumberOverrideRequestTypeDef(BaseValidatorModel):
-    ProtectConfigurationId: str
-    DestinationPhoneNumber: str
+    ProtectConfigurationId: Annotated[str, _aws_pattern("PinpointSmsVoiceV2", "ProtectConfigurationIdOrArn")]
+    DestinationPhoneNumber: Annotated[str, _aws_pattern("PinpointSmsVoiceV2", "PhoneNumber")]
     Action: ProtectConfigurationRuleOverrideActionType
-    ClientToken: Optional[str] = None
+    ClientToken: Optional[Annotated[str, _aws_pattern("PinpointSmsVoiceV2", "ClientToken")]] = None
     ExpirationTimestamp: Optional[TimestampTypeDef] = None
 
 
@@ -2348,9 +2386,9 @@ class RcsAgentInformationTypeDef(BaseValidatorModel):
     DeletionProtectionEnabled: bool
     SelfManagedOptOutsEnabled: bool
     TwoWayEnabled: bool
-    OptOutListName: Optional[str] = None
-    TwoWayChannelArn: Optional[str] = None
-    TwoWayChannelRole: Optional[str] = None
+    OptOutListName: Optional[Annotated[str, _aws_pattern("PinpointSmsVoiceV2", "OptOutListName")]] = None
+    TwoWayChannelArn: Optional[Annotated[str, _aws_pattern("PinpointSmsVoiceV2", "TwoWayChannelArn")]] = None
+    TwoWayChannelRole: Optional[Annotated[str, _aws_pattern("PinpointSmsVoiceV2", "IamRoleArn")]] = None
     PoolId: Optional[str] = None
     TestingAgent: Optional[TestingAgentInformationTypeDef] = None
 
@@ -2375,12 +2413,12 @@ class RegistrationFieldDisplayHintsTypeDef(BaseValidatorModel):
 
 
 class RegistrationSectionDefinitionTypeDef(BaseValidatorModel):
-    SectionPath: str
+    SectionPath: Annotated[str, _aws_pattern("PinpointSmsVoiceV2", "SectionPath")]
     DisplayHints: RegistrationSectionDisplayHintsTypeDef
 
 
 class RegistrationTypeDefinitionTypeDef(BaseValidatorModel):
-    RegistrationType: str
+    RegistrationType: Annotated[str, _aws_pattern("PinpointSmsVoiceV2", "RegistrationType")]
     DisplayHints: RegistrationTypeDisplayHintsTypeDef
     SupportedAssociations: Optional[List[SupportedAssociationTypeDef]] = None
 
@@ -2391,24 +2429,26 @@ class DescribeRcsAgentCountryLaunchStatusResultTypeDef(BaseValidatorModel):
     RcsAgentArn: str
     CountryLaunchStatus: List[CountryLaunchStatusInformationTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
-    NextToken: Optional[str] = None
+    NextToken: Optional[Annotated[str, _aws_pattern("PinpointSmsVoiceV2", "NextToken")]] = None
 
 
 class ConfigurationSetInformationTypeDef(BaseValidatorModel):
     ConfigurationSetArn: str
-    ConfigurationSetName: str
+    ConfigurationSetName: Annotated[str, _aws_pattern("PinpointSmsVoiceV2", "ConfigurationSetName")]
     EventDestinations: List[EventDestinationTypeDef]
     CreatedTimestamp: datetime
     DefaultMessageType: Optional[MessageTypeType] = None
-    DefaultSenderId: Optional[str] = None
+    DefaultSenderId: Optional[Annotated[str, _aws_pattern("PinpointSmsVoiceV2", "SenderId")]] = None
     DefaultMessageFeedbackEnabled: Optional[bool] = None
-    ProtectConfigurationId: Optional[str] = None
+    ProtectConfigurationId: Optional[
+        Annotated[str, _aws_pattern("PinpointSmsVoiceV2", "ProtectConfigurationIdOrArn")]
+    ] = None
 
 
 # This class is the output for the 'create_event_destination' function.
 class CreateEventDestinationResultTypeDef(BaseValidatorModel):
     ConfigurationSetArn: str
-    ConfigurationSetName: str
+    ConfigurationSetName: Annotated[str, _aws_pattern("PinpointSmsVoiceV2", "ConfigurationSetName")]
     EventDestination: EventDestinationTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
@@ -2416,10 +2456,10 @@ class CreateEventDestinationResultTypeDef(BaseValidatorModel):
 # This class is the output for the 'delete_configuration_set' function.
 class DeleteConfigurationSetResultTypeDef(BaseValidatorModel):
     ConfigurationSetArn: str
-    ConfigurationSetName: str
+    ConfigurationSetName: Annotated[str, _aws_pattern("PinpointSmsVoiceV2", "ConfigurationSetName")]
     EventDestinations: List[EventDestinationTypeDef]
     DefaultMessageType: MessageTypeType
-    DefaultSenderId: str
+    DefaultSenderId: Annotated[str, _aws_pattern("PinpointSmsVoiceV2", "SenderId")]
     DefaultMessageFeedbackEnabled: bool
     CreatedTimestamp: datetime
     ResponseMetadata: ResponseMetadataTypeDef
@@ -2428,7 +2468,7 @@ class DeleteConfigurationSetResultTypeDef(BaseValidatorModel):
 # This class is the output for the 'delete_event_destination' function.
 class DeleteEventDestinationResultTypeDef(BaseValidatorModel):
     ConfigurationSetArn: str
-    ConfigurationSetName: str
+    ConfigurationSetName: Annotated[str, _aws_pattern("PinpointSmsVoiceV2", "ConfigurationSetName")]
     EventDestination: EventDestinationTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
@@ -2436,7 +2476,7 @@ class DeleteEventDestinationResultTypeDef(BaseValidatorModel):
 # This class is the output for the 'update_event_destination' function.
 class UpdateEventDestinationResultTypeDef(BaseValidatorModel):
     ConfigurationSetArn: str
-    ConfigurationSetName: str
+    ConfigurationSetName: Annotated[str, _aws_pattern("PinpointSmsVoiceV2", "ConfigurationSetName")]
     EventDestination: EventDestinationTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
@@ -2445,14 +2485,14 @@ class UpdateEventDestinationResultTypeDef(BaseValidatorModel):
 class DescribeNotifyTemplatesResultTypeDef(BaseValidatorModel):
     NotifyTemplates: List[NotifyTemplateInformationTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
-    NextToken: Optional[str] = None
+    NextToken: Optional[Annotated[str, _aws_pattern("PinpointSmsVoiceV2", "NextToken")]] = None
 
 
 # This class is the output for the 'describe_rcs_agents' function.
 class DescribeRcsAgentsResultTypeDef(BaseValidatorModel):
     RcsAgents: List[RcsAgentInformationTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
-    NextToken: Optional[str] = None
+    NextToken: Optional[Annotated[str, _aws_pattern("PinpointSmsVoiceV2", "NextToken")]] = None
 
 
 # This class is the output for the 'describe_registration_versions' function.
@@ -2461,12 +2501,12 @@ class DescribeRegistrationVersionsResultTypeDef(BaseValidatorModel):
     RegistrationId: str
     RegistrationVersions: List[RegistrationVersionInformationTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
-    NextToken: Optional[str] = None
+    NextToken: Optional[Annotated[str, _aws_pattern("PinpointSmsVoiceV2", "NextToken")]] = None
 
 
 class RegistrationFieldDefinitionTypeDef(BaseValidatorModel):
-    SectionPath: str
-    FieldPath: str
+    SectionPath: Annotated[str, _aws_pattern("PinpointSmsVoiceV2", "SectionPath")]
+    FieldPath: Annotated[str, _aws_pattern("PinpointSmsVoiceV2", "FieldPath")]
     FieldType: FieldTypeType
     FieldRequirement: FieldRequirementType
     DisplayHints: RegistrationFieldDisplayHintsTypeDef
@@ -2476,29 +2516,29 @@ class RegistrationFieldDefinitionTypeDef(BaseValidatorModel):
 
 # This class is the output for the 'describe_registration_section_definitions' function.
 class DescribeRegistrationSectionDefinitionsResultTypeDef(BaseValidatorModel):
-    RegistrationType: str
+    RegistrationType: Annotated[str, _aws_pattern("PinpointSmsVoiceV2", "RegistrationType")]
     RegistrationSectionDefinitions: List[RegistrationSectionDefinitionTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
-    NextToken: Optional[str] = None
+    NextToken: Optional[Annotated[str, _aws_pattern("PinpointSmsVoiceV2", "NextToken")]] = None
 
 
 # This class is the output for the 'describe_registration_type_definitions' function.
 class DescribeRegistrationTypeDefinitionsResultTypeDef(BaseValidatorModel):
     RegistrationTypeDefinitions: List[RegistrationTypeDefinitionTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
-    NextToken: Optional[str] = None
+    NextToken: Optional[Annotated[str, _aws_pattern("PinpointSmsVoiceV2", "NextToken")]] = None
 
 
 # This class is the output for the 'describe_configuration_sets' function.
 class DescribeConfigurationSetsResultTypeDef(BaseValidatorModel):
     ConfigurationSets: List[ConfigurationSetInformationTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
-    NextToken: Optional[str] = None
+    NextToken: Optional[Annotated[str, _aws_pattern("PinpointSmsVoiceV2", "NextToken")]] = None
 
 
 # This class is the output for the 'describe_registration_field_definitions' function.
 class DescribeRegistrationFieldDefinitionsResultTypeDef(BaseValidatorModel):
-    RegistrationType: str
+    RegistrationType: Annotated[str, _aws_pattern("PinpointSmsVoiceV2", "RegistrationType")]
     RegistrationFieldDefinitions: List[RegistrationFieldDefinitionTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
-    NextToken: Optional[str] = None
+    NextToken: Optional[Annotated[str, _aws_pattern("PinpointSmsVoiceV2", "NextToken")]] = None

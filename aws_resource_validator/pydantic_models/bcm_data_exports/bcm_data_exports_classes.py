@@ -3,6 +3,7 @@
 from datetime import datetime
 from decimal import Decimal
 from typing import (
+    Annotated,
     Any,
     Callable,
     Dict,
@@ -24,6 +25,7 @@ from botocore.response import StreamingBody
 from pydantic import Field
 
 from aws_resource_validator.core.base_validator_model import BaseValidatorModel, EventStream
+from aws_resource_validator.core.pattern_validation import aws_field_pattern as _aws_pattern
 from aws_resource_validator.pydantic_models.bcm_data_exports.bcm_data_exports_constants import *  # noqa: F401,F403
 
 # Optional boto3 symbols — imported lazily so services that don't need them
@@ -39,9 +41,9 @@ except ImportError:  # pragma: no cover
 
 
 class ColumnTypeDef(BaseValidatorModel):
-    Name: Optional[str] = None
-    Type: Optional[str] = None
-    Description: Optional[str] = None
+    Name: Optional[Annotated[str, _aws_pattern("BcmDataExports", "GenericString")]] = None
+    Type: Optional[Annotated[str, _aws_pattern("BcmDataExports", "GenericString")]] = None
+    Description: Optional[Annotated[str, _aws_pattern("BcmDataExports", "GenericString")]] = None
 
 
 class ResourceTagTypeDef(BaseValidatorModel):
@@ -63,13 +65,13 @@ class DataQueryOutputTypeDef(BaseValidatorModel):
 
 
 class DataQueryTypeDef(BaseValidatorModel):
-    QueryStatement: str
+    QueryStatement: Annotated[str, _aws_pattern("BcmDataExports", "QueryStatement")]
     TableConfigurations: Optional[Dict[str, Dict[str, str]]] = None
 
 
 # This class is the input for the 'delete_export' function.
 class DeleteExportRequestTypeDef(BaseValidatorModel):
-    ExportArn: str
+    ExportArn: Annotated[str, _aws_pattern("BcmDataExports", "Arn")]
 
 
 class ExecutionStatusTypeDef(BaseValidatorModel):
@@ -94,18 +96,18 @@ class ExportStatusTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'get_execution' function.
 class GetExecutionRequestTypeDef(BaseValidatorModel):
-    ExportArn: str
-    ExecutionId: str
+    ExportArn: Annotated[str, _aws_pattern("BcmDataExports", "Arn")]
+    ExecutionId: Annotated[str, _aws_pattern("BcmDataExports", "GenericString")]
 
 
 # This class is the input for the 'get_export' function.
 class GetExportRequestTypeDef(BaseValidatorModel):
-    ExportArn: str
+    ExportArn: Annotated[str, _aws_pattern("BcmDataExports", "Arn")]
 
 
 # This class is the input for the 'get_table' function.
 class GetTableRequestTypeDef(BaseValidatorModel):
-    TableName: str
+    TableName: Annotated[str, _aws_pattern("BcmDataExports", "TableName")]
     TableProperties: Optional[Dict[str, str]] = None
 
 
@@ -117,28 +119,28 @@ class PaginatorConfigTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'list_executions' function.
 class ListExecutionsRequestTypeDef(BaseValidatorModel):
-    ExportArn: str
+    ExportArn: Annotated[str, _aws_pattern("BcmDataExports", "Arn")]
     MaxResults: Optional[int] = None
-    NextToken: Optional[str] = None
+    NextToken: Optional[Annotated[str, _aws_pattern("BcmDataExports", "NextPageToken")]] = None
 
 
 # This class is the input for the 'list_exports' function.
 class ListExportsRequestTypeDef(BaseValidatorModel):
     MaxResults: Optional[int] = None
-    NextToken: Optional[str] = None
+    NextToken: Optional[Annotated[str, _aws_pattern("BcmDataExports", "NextPageToken")]] = None
 
 
 # This class is the input for the 'list_tables' function.
 class ListTablesRequestTypeDef(BaseValidatorModel):
-    NextToken: Optional[str] = None
+    NextToken: Optional[Annotated[str, _aws_pattern("BcmDataExports", "NextPageToken")]] = None
     MaxResults: Optional[int] = None
 
 
 # This class is the input for the 'list_tags_for_resource' function.
 class ListTagsForResourceRequestTypeDef(BaseValidatorModel):
-    ResourceArn: str
+    ResourceArn: Annotated[str, _aws_pattern("BcmDataExports", "Arn")]
     MaxResults: Optional[int] = None
-    NextToken: Optional[str] = None
+    NextToken: Optional[Annotated[str, _aws_pattern("BcmDataExports", "NextPageToken")]] = None
 
 
 class S3OutputConfigurationsTypeDef(BaseValidatorModel):
@@ -149,38 +151,38 @@ class S3OutputConfigurationsTypeDef(BaseValidatorModel):
 
 
 class TablePropertyDescriptionTypeDef(BaseValidatorModel):
-    Name: Optional[str] = None
-    ValidValues: Optional[List[str]] = None
-    DefaultValue: Optional[str] = None
-    Description: Optional[str] = None
+    Name: Optional[Annotated[str, _aws_pattern("BcmDataExports", "GenericString")]] = None
+    ValidValues: Optional[List[Annotated[str, _aws_pattern("BcmDataExports", "GenericString")]]] = None
+    DefaultValue: Optional[Annotated[str, _aws_pattern("BcmDataExports", "GenericString")]] = None
+    Description: Optional[Annotated[str, _aws_pattern("BcmDataExports", "GenericString")]] = None
 
 
 class UntagResourceRequestTypeDef(BaseValidatorModel):
-    ResourceArn: str
+    ResourceArn: Annotated[str, _aws_pattern("BcmDataExports", "Arn")]
     ResourceTagKeys: List[str]
 
 
 class TagResourceRequestTypeDef(BaseValidatorModel):
-    ResourceArn: str
+    ResourceArn: Annotated[str, _aws_pattern("BcmDataExports", "Arn")]
     ResourceTags: List[ResourceTagTypeDef]
 
 
 # This class is the output for the 'create_export' function.
 class CreateExportResponseTypeDef(BaseValidatorModel):
-    ExportArn: str
+    ExportArn: Annotated[str, _aws_pattern("BcmDataExports", "Arn")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 # This class is the output for the 'delete_export' function.
 class DeleteExportResponseTypeDef(BaseValidatorModel):
-    ExportArn: str
+    ExportArn: Annotated[str, _aws_pattern("BcmDataExports", "Arn")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 # This class is the output for the 'get_table' function.
 class GetTableResponseTypeDef(BaseValidatorModel):
-    TableName: str
-    Description: str
+    TableName: Annotated[str, _aws_pattern("BcmDataExports", "TableName")]
+    Description: Annotated[str, _aws_pattern("BcmDataExports", "GenericString")]
     TableProperties: Dict[str, str]
     Schema: List[ColumnTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
@@ -190,23 +192,23 @@ class GetTableResponseTypeDef(BaseValidatorModel):
 class ListTagsForResourceResponseTypeDef(BaseValidatorModel):
     ResourceTags: List[ResourceTagTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
-    NextToken: Optional[str] = None
+    NextToken: Optional[Annotated[str, _aws_pattern("BcmDataExports", "NextPageToken")]] = None
 
 
 # This class is the output for the 'update_export' function.
 class UpdateExportResponseTypeDef(BaseValidatorModel):
-    ExportArn: str
+    ExportArn: Annotated[str, _aws_pattern("BcmDataExports", "Arn")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 class ExecutionReferenceTypeDef(BaseValidatorModel):
-    ExecutionId: str
+    ExecutionId: Annotated[str, _aws_pattern("BcmDataExports", "GenericString")]
     ExecutionStatus: ExecutionStatusTypeDef
 
 
 class ExportReferenceTypeDef(BaseValidatorModel):
-    ExportArn: str
-    ExportName: str
+    ExportArn: Annotated[str, _aws_pattern("BcmDataExports", "Arn")]
+    ExportName: Annotated[str, _aws_pattern("BcmDataExports", "ExportName")]
     ExportStatus: ExportStatusTypeDef
 
 
@@ -224,16 +226,16 @@ class ListTablesRequestPaginateTypeDef(BaseValidatorModel):
 
 
 class S3DestinationTypeDef(BaseValidatorModel):
-    S3Bucket: str
-    S3Prefix: str
-    S3Region: str
+    S3Bucket: Annotated[str, _aws_pattern("BcmDataExports", "GenericString")]
+    S3Prefix: Annotated[str, _aws_pattern("BcmDataExports", "GenericString")]
+    S3Region: Annotated[str, _aws_pattern("BcmDataExports", "GenericString")]
     S3OutputConfigurations: S3OutputConfigurationsTypeDef
-    S3BucketOwner: Optional[str] = None
+    S3BucketOwner: Optional[Annotated[str, _aws_pattern("BcmDataExports", "AccountId")]] = None
 
 
 class TableTypeDef(BaseValidatorModel):
-    TableName: Optional[str] = None
-    Description: Optional[str] = None
+    TableName: Optional[Annotated[str, _aws_pattern("BcmDataExports", "TableName")]] = None
+    Description: Optional[Annotated[str, _aws_pattern("BcmDataExports", "GenericString")]] = None
     TableProperties: Optional[List[TablePropertyDescriptionTypeDef]] = None
 
 
@@ -241,14 +243,14 @@ class TableTypeDef(BaseValidatorModel):
 class ListExecutionsResponseTypeDef(BaseValidatorModel):
     Executions: List[ExecutionReferenceTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
-    NextToken: Optional[str] = None
+    NextToken: Optional[Annotated[str, _aws_pattern("BcmDataExports", "NextPageToken")]] = None
 
 
 # This class is the output for the 'list_exports' function.
 class ListExportsResponseTypeDef(BaseValidatorModel):
     Exports: List[ExportReferenceTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
-    NextToken: Optional[str] = None
+    NextToken: Optional[Annotated[str, _aws_pattern("BcmDataExports", "NextPageToken")]] = None
 
 
 class DestinationConfigurationsTypeDef(BaseValidatorModel):
@@ -259,7 +261,7 @@ class DestinationConfigurationsTypeDef(BaseValidatorModel):
 class ListTablesResponseTypeDef(BaseValidatorModel):
     Tables: List[TableTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
-    NextToken: Optional[str] = None
+    NextToken: Optional[Annotated[str, _aws_pattern("BcmDataExports", "NextPageToken")]] = None
 
 
 class ExportOutputTypeDef(BaseValidatorModel):
@@ -272,17 +274,17 @@ class ExportOutputTypeDef(BaseValidatorModel):
 
 
 class ExportTypeDef(BaseValidatorModel):
-    Name: str
+    Name: Annotated[str, _aws_pattern("BcmDataExports", "ExportName")]
     DataQuery: DataQueryTypeDef
     DestinationConfigurations: DestinationConfigurationsTypeDef
     RefreshCadence: RefreshCadenceTypeDef
-    ExportArn: Optional[str] = None
-    Description: Optional[str] = None
+    ExportArn: Optional[Annotated[str, _aws_pattern("BcmDataExports", "Arn")]] = None
+    Description: Optional[Annotated[str, _aws_pattern("BcmDataExports", "GenericString")]] = None
 
 
 # This class is the output for the 'get_execution' function.
 class GetExecutionResponseTypeDef(BaseValidatorModel):
-    ExecutionId: str
+    ExecutionId: Annotated[str, _aws_pattern("BcmDataExports", "GenericString")]
     Export: ExportOutputTypeDef
     ExecutionStatus: ExecutionStatusTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
@@ -306,5 +308,5 @@ class CreateExportRequestTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'update_export' function.
 class UpdateExportRequestTypeDef(BaseValidatorModel):
-    ExportArn: str
+    ExportArn: Annotated[str, _aws_pattern("BcmDataExports", "Arn")]
     Export: ExportUnionTypeDef

@@ -3,6 +3,7 @@
 from datetime import datetime
 from decimal import Decimal
 from typing import (
+    Annotated,
     Any,
     Callable,
     Dict,
@@ -24,6 +25,7 @@ from botocore.response import StreamingBody
 from pydantic import Field
 
 from aws_resource_validator.core.base_validator_model import BaseValidatorModel, EventStream
+from aws_resource_validator.core.pattern_validation import aws_field_pattern as _aws_pattern
 from aws_resource_validator.pydantic_models.personalize.personalize_constants import *  # noqa: F401,F403
 
 # Optional boto3 symbols — imported lazily so services that don't need them
@@ -40,7 +42,7 @@ except ImportError:  # pragma: no cover
 
 class AlgorithmImageTypeDef(BaseValidatorModel):
     dockerURI: str
-    name: Optional[str] = None
+    name: Optional[Annotated[str, _aws_pattern("Personalize", "Name")]] = None
 
 
 class AutoMLConfigOutputTypeDef(BaseValidatorModel):
@@ -50,15 +52,15 @@ class AutoMLConfigOutputTypeDef(BaseValidatorModel):
 
 class AutoMLConfigTypeDef(BaseValidatorModel):
     metricName: Optional[str] = None
-    recipeList: Optional[List[str]] = None
+    recipeList: Optional[List[Annotated[str, _aws_pattern("Personalize", "Arn")]]] = None
 
 
 class AutoMLResultTypeDef(BaseValidatorModel):
-    bestRecipeArn: Optional[str] = None
+    bestRecipeArn: Optional[Annotated[str, _aws_pattern("Personalize", "Arn")]] = None
 
 
 class AutoTrainingConfigTypeDef(BaseValidatorModel):
-    schedulingExpression: Optional[str] = None
+    schedulingExpression: Optional[Annotated[str, _aws_pattern("Personalize", "SchedulingExpression")]] = None
 
 
 class BatchInferenceJobConfigOutputTypeDef(BaseValidatorModel):
@@ -72,29 +74,29 @@ class BatchInferenceJobConfigTypeDef(BaseValidatorModel):
 
 
 class S3DataConfigTypeDef(BaseValidatorModel):
-    path: str
-    kmsKeyArn: Optional[str] = None
+    path: Annotated[str, _aws_pattern("Personalize", "S3Location")]
+    kmsKeyArn: Optional[Annotated[str, _aws_pattern("Personalize", "KmsKeyArn")]] = None
 
 
 class BatchInferenceJobSummaryTypeDef(BaseValidatorModel):
-    batchInferenceJobArn: Optional[str] = None
-    jobName: Optional[str] = None
+    batchInferenceJobArn: Optional[Annotated[str, _aws_pattern("Personalize", "Arn")]] = None
+    jobName: Optional[Annotated[str, _aws_pattern("Personalize", "Name")]] = None
     status: Optional[str] = None
     creationDateTime: Optional[datetime] = None
     lastUpdatedDateTime: Optional[datetime] = None
     failureReason: Optional[str] = None
-    solutionVersionArn: Optional[str] = None
+    solutionVersionArn: Optional[Annotated[str, _aws_pattern("Personalize", "Arn")]] = None
     batchInferenceJobMode: Optional[BatchInferenceJobModeType] = None
 
 
 class BatchSegmentJobSummaryTypeDef(BaseValidatorModel):
-    batchSegmentJobArn: Optional[str] = None
-    jobName: Optional[str] = None
+    batchSegmentJobArn: Optional[Annotated[str, _aws_pattern("Personalize", "Arn")]] = None
+    jobName: Optional[Annotated[str, _aws_pattern("Personalize", "Name")]] = None
     status: Optional[str] = None
     creationDateTime: Optional[datetime] = None
     lastUpdatedDateTime: Optional[datetime] = None
     failureReason: Optional[str] = None
-    solutionVersionArn: Optional[str] = None
+    solutionVersionArn: Optional[Annotated[str, _aws_pattern("Personalize", "Arn")]] = None
 
 
 class CampaignConfigOutputTypeDef(BaseValidatorModel):
@@ -112,8 +114,8 @@ class CampaignConfigTypeDef(BaseValidatorModel):
 
 
 class CampaignSummaryTypeDef(BaseValidatorModel):
-    name: Optional[str] = None
-    campaignArn: Optional[str] = None
+    name: Optional[Annotated[str, _aws_pattern("Personalize", "Name")]] = None
+    campaignArn: Optional[Annotated[str, _aws_pattern("Personalize", "Arn")]] = None
     status: Optional[str] = None
     creationDateTime: Optional[datetime] = None
     lastUpdatedDateTime: Optional[datetime] = None
@@ -137,8 +139,8 @@ class ContinuousHyperParameterRangeTypeDef(BaseValidatorModel):
 
 
 class TagTypeDef(BaseValidatorModel):
-    tagKey: str
-    tagValue: str
+    tagKey: Annotated[str, _aws_pattern("Personalize", "TagKey")]
+    tagValue: Annotated[str, _aws_pattern("Personalize", "TagValue")]
 
 
 class ResponseMetadataTypeDef(BaseValidatorModel):
@@ -150,7 +152,7 @@ class ResponseMetadataTypeDef(BaseValidatorModel):
 
 
 class DataSourceTypeDef(BaseValidatorModel):
-    dataLocation: Optional[str] = None
+    dataLocation: Optional[Annotated[str, _aws_pattern("Personalize", "S3Location")]] = None
 
 
 class MetricAttributeTypeDef(BaseValidatorModel):
@@ -161,15 +163,15 @@ class MetricAttributeTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'create_schema' function.
 class CreateSchemaRequestTypeDef(BaseValidatorModel):
-    name: str
+    name: Annotated[str, _aws_pattern("Personalize", "Name")]
     schema: str
     domain: Optional[DomainType] = None
 
 
 class DataDeletionJobSummaryTypeDef(BaseValidatorModel):
-    dataDeletionJobArn: Optional[str] = None
-    datasetGroupArn: Optional[str] = None
-    jobName: Optional[str] = None
+    dataDeletionJobArn: Optional[Annotated[str, _aws_pattern("Personalize", "Arn")]] = None
+    datasetGroupArn: Optional[Annotated[str, _aws_pattern("Personalize", "Arn")]] = None
+    jobName: Optional[Annotated[str, _aws_pattern("Personalize", "Name")]] = None
     status: Optional[str] = None
     creationDateTime: Optional[datetime] = None
     lastUpdatedDateTime: Optional[datetime] = None
@@ -177,8 +179,8 @@ class DataDeletionJobSummaryTypeDef(BaseValidatorModel):
 
 
 class DatasetExportJobSummaryTypeDef(BaseValidatorModel):
-    datasetExportJobArn: Optional[str] = None
-    jobName: Optional[str] = None
+    datasetExportJobArn: Optional[Annotated[str, _aws_pattern("Personalize", "Arn")]] = None
+    jobName: Optional[Annotated[str, _aws_pattern("Personalize", "Name")]] = None
     status: Optional[str] = None
     creationDateTime: Optional[datetime] = None
     lastUpdatedDateTime: Optional[datetime] = None
@@ -186,8 +188,8 @@ class DatasetExportJobSummaryTypeDef(BaseValidatorModel):
 
 
 class DatasetGroupSummaryTypeDef(BaseValidatorModel):
-    name: Optional[str] = None
-    datasetGroupArn: Optional[str] = None
+    name: Optional[Annotated[str, _aws_pattern("Personalize", "Name")]] = None
+    datasetGroupArn: Optional[Annotated[str, _aws_pattern("Personalize", "Arn")]] = None
     status: Optional[str] = None
     creationDateTime: Optional[datetime] = None
     lastUpdatedDateTime: Optional[datetime] = None
@@ -196,11 +198,11 @@ class DatasetGroupSummaryTypeDef(BaseValidatorModel):
 
 
 class DatasetGroupTypeDef(BaseValidatorModel):
-    name: Optional[str] = None
-    datasetGroupArn: Optional[str] = None
+    name: Optional[Annotated[str, _aws_pattern("Personalize", "Name")]] = None
+    datasetGroupArn: Optional[Annotated[str, _aws_pattern("Personalize", "Arn")]] = None
     status: Optional[str] = None
-    roleArn: Optional[str] = None
-    kmsKeyArn: Optional[str] = None
+    roleArn: Optional[Annotated[str, _aws_pattern("Personalize", "RoleArn")]] = None
+    kmsKeyArn: Optional[Annotated[str, _aws_pattern("Personalize", "KmsKeyArn")]] = None
     creationDateTime: Optional[datetime] = None
     lastUpdatedDateTime: Optional[datetime] = None
     failureReason: Optional[str] = None
@@ -208,8 +210,8 @@ class DatasetGroupTypeDef(BaseValidatorModel):
 
 
 class DatasetImportJobSummaryTypeDef(BaseValidatorModel):
-    datasetImportJobArn: Optional[str] = None
-    jobName: Optional[str] = None
+    datasetImportJobArn: Optional[Annotated[str, _aws_pattern("Personalize", "Arn")]] = None
+    jobName: Optional[Annotated[str, _aws_pattern("Personalize", "Name")]] = None
     status: Optional[str] = None
     creationDateTime: Optional[datetime] = None
     lastUpdatedDateTime: Optional[datetime] = None
@@ -218,16 +220,16 @@ class DatasetImportJobSummaryTypeDef(BaseValidatorModel):
 
 
 class DatasetSchemaSummaryTypeDef(BaseValidatorModel):
-    name: Optional[str] = None
-    schemaArn: Optional[str] = None
+    name: Optional[Annotated[str, _aws_pattern("Personalize", "Name")]] = None
+    schemaArn: Optional[Annotated[str, _aws_pattern("Personalize", "Arn")]] = None
     creationDateTime: Optional[datetime] = None
     lastUpdatedDateTime: Optional[datetime] = None
     domain: Optional[DomainType] = None
 
 
 class DatasetSchemaTypeDef(BaseValidatorModel):
-    name: Optional[str] = None
-    schemaArn: Optional[str] = None
+    name: Optional[Annotated[str, _aws_pattern("Personalize", "Name")]] = None
+    schemaArn: Optional[Annotated[str, _aws_pattern("Personalize", "Arn")]] = None
     schema: Optional[str] = None
     creationDateTime: Optional[datetime] = None
     lastUpdatedDateTime: Optional[datetime] = None
@@ -235,16 +237,16 @@ class DatasetSchemaTypeDef(BaseValidatorModel):
 
 
 class DatasetSummaryTypeDef(BaseValidatorModel):
-    name: Optional[str] = None
-    datasetArn: Optional[str] = None
-    datasetType: Optional[str] = None
+    name: Optional[Annotated[str, _aws_pattern("Personalize", "Name")]] = None
+    datasetArn: Optional[Annotated[str, _aws_pattern("Personalize", "Arn")]] = None
+    datasetType: Optional[Annotated[str, _aws_pattern("Personalize", "DatasetType")]] = None
     status: Optional[str] = None
     creationDateTime: Optional[datetime] = None
     lastUpdatedDateTime: Optional[datetime] = None
 
 
 class DatasetUpdateSummaryTypeDef(BaseValidatorModel):
-    schemaArn: Optional[str] = None
+    schemaArn: Optional[Annotated[str, _aws_pattern("Personalize", "Arn")]] = None
     status: Optional[str] = None
     failureReason: Optional[str] = None
     creationDateTime: Optional[datetime] = None
@@ -273,105 +275,105 @@ class DefaultIntegerHyperParameterRangeTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'delete_campaign' function.
 class DeleteCampaignRequestTypeDef(BaseValidatorModel):
-    campaignArn: str
+    campaignArn: Annotated[str, _aws_pattern("Personalize", "Arn")]
 
 
 # This class is the input for the 'delete_dataset_group' function.
 class DeleteDatasetGroupRequestTypeDef(BaseValidatorModel):
-    datasetGroupArn: str
+    datasetGroupArn: Annotated[str, _aws_pattern("Personalize", "Arn")]
 
 
 # This class is the input for the 'delete_dataset' function.
 class DeleteDatasetRequestTypeDef(BaseValidatorModel):
-    datasetArn: str
+    datasetArn: Annotated[str, _aws_pattern("Personalize", "Arn")]
 
 
 # This class is the input for the 'delete_event_tracker' function.
 class DeleteEventTrackerRequestTypeDef(BaseValidatorModel):
-    eventTrackerArn: str
+    eventTrackerArn: Annotated[str, _aws_pattern("Personalize", "Arn")]
 
 
 # This class is the input for the 'delete_filter' function.
 class DeleteFilterRequestTypeDef(BaseValidatorModel):
-    filterArn: str
+    filterArn: Annotated[str, _aws_pattern("Personalize", "Arn")]
 
 
 # This class is the input for the 'delete_metric_attribution' function.
 class DeleteMetricAttributionRequestTypeDef(BaseValidatorModel):
-    metricAttributionArn: str
+    metricAttributionArn: Annotated[str, _aws_pattern("Personalize", "Arn")]
 
 
 # This class is the input for the 'delete_recommender' function.
 class DeleteRecommenderRequestTypeDef(BaseValidatorModel):
-    recommenderArn: str
+    recommenderArn: Annotated[str, _aws_pattern("Personalize", "Arn")]
 
 
 # This class is the input for the 'delete_schema' function.
 class DeleteSchemaRequestTypeDef(BaseValidatorModel):
-    schemaArn: str
+    schemaArn: Annotated[str, _aws_pattern("Personalize", "Arn")]
 
 
 # This class is the input for the 'delete_solution' function.
 class DeleteSolutionRequestTypeDef(BaseValidatorModel):
-    solutionArn: str
+    solutionArn: Annotated[str, _aws_pattern("Personalize", "Arn")]
 
 
 # This class is the input for the 'describe_algorithm' function.
 class DescribeAlgorithmRequestTypeDef(BaseValidatorModel):
-    algorithmArn: str
+    algorithmArn: Annotated[str, _aws_pattern("Personalize", "Arn")]
 
 
 # This class is the input for the 'describe_batch_inference_job' function.
 class DescribeBatchInferenceJobRequestTypeDef(BaseValidatorModel):
-    batchInferenceJobArn: str
+    batchInferenceJobArn: Annotated[str, _aws_pattern("Personalize", "Arn")]
 
 
 # This class is the input for the 'describe_batch_segment_job' function.
 class DescribeBatchSegmentJobRequestTypeDef(BaseValidatorModel):
-    batchSegmentJobArn: str
+    batchSegmentJobArn: Annotated[str, _aws_pattern("Personalize", "Arn")]
 
 
 # This class is the input for the 'describe_campaign' function.
 class DescribeCampaignRequestTypeDef(BaseValidatorModel):
-    campaignArn: str
+    campaignArn: Annotated[str, _aws_pattern("Personalize", "Arn")]
 
 
 # This class is the input for the 'describe_data_deletion_job' function.
 class DescribeDataDeletionJobRequestTypeDef(BaseValidatorModel):
-    dataDeletionJobArn: str
+    dataDeletionJobArn: Annotated[str, _aws_pattern("Personalize", "Arn")]
 
 
 # This class is the input for the 'describe_dataset_export_job' function.
 class DescribeDatasetExportJobRequestTypeDef(BaseValidatorModel):
-    datasetExportJobArn: str
+    datasetExportJobArn: Annotated[str, _aws_pattern("Personalize", "Arn")]
 
 
 # This class is the input for the 'describe_dataset_group' function.
 class DescribeDatasetGroupRequestTypeDef(BaseValidatorModel):
-    datasetGroupArn: str
+    datasetGroupArn: Annotated[str, _aws_pattern("Personalize", "Arn")]
 
 
 # This class is the input for the 'describe_dataset_import_job' function.
 class DescribeDatasetImportJobRequestTypeDef(BaseValidatorModel):
-    datasetImportJobArn: str
+    datasetImportJobArn: Annotated[str, _aws_pattern("Personalize", "Arn")]
 
 
 # This class is the input for the 'describe_dataset' function.
 class DescribeDatasetRequestTypeDef(BaseValidatorModel):
-    datasetArn: str
+    datasetArn: Annotated[str, _aws_pattern("Personalize", "Arn")]
 
 
 # This class is the input for the 'describe_event_tracker' function.
 class DescribeEventTrackerRequestTypeDef(BaseValidatorModel):
-    eventTrackerArn: str
+    eventTrackerArn: Annotated[str, _aws_pattern("Personalize", "Arn")]
 
 
 class EventTrackerTypeDef(BaseValidatorModel):
-    name: Optional[str] = None
-    eventTrackerArn: Optional[str] = None
+    name: Optional[Annotated[str, _aws_pattern("Personalize", "Name")]] = None
+    eventTrackerArn: Optional[Annotated[str, _aws_pattern("Personalize", "Arn")]] = None
     accountId: Optional[str] = None
     trackingId: Optional[str] = None
-    datasetGroupArn: Optional[str] = None
+    datasetGroupArn: Optional[Annotated[str, _aws_pattern("Personalize", "Arn")]] = None
     status: Optional[str] = None
     creationDateTime: Optional[datetime] = None
     lastUpdatedDateTime: Optional[datetime] = None
@@ -379,12 +381,12 @@ class EventTrackerTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'describe_feature_transformation' function.
 class DescribeFeatureTransformationRequestTypeDef(BaseValidatorModel):
-    featureTransformationArn: str
+    featureTransformationArn: Annotated[str, _aws_pattern("Personalize", "Arn")]
 
 
 class FeatureTransformationTypeDef(BaseValidatorModel):
-    name: Optional[str] = None
-    featureTransformationArn: Optional[str] = None
+    name: Optional[Annotated[str, _aws_pattern("Personalize", "Name")]] = None
+    featureTransformationArn: Optional[Annotated[str, _aws_pattern("Personalize", "Arn")]] = None
     defaultParameters: Optional[Dict[str, str]] = None
     creationDateTime: Optional[datetime] = None
     lastUpdatedDateTime: Optional[datetime] = None
@@ -393,15 +395,15 @@ class FeatureTransformationTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'describe_filter' function.
 class DescribeFilterRequestTypeDef(BaseValidatorModel):
-    filterArn: str
+    filterArn: Annotated[str, _aws_pattern("Personalize", "Arn")]
 
 
 class FilterTypeDef(BaseValidatorModel):
-    name: Optional[str] = None
-    filterArn: Optional[str] = None
+    name: Optional[Annotated[str, _aws_pattern("Personalize", "Name")]] = None
+    filterArn: Optional[Annotated[str, _aws_pattern("Personalize", "Arn")]] = None
     creationDateTime: Optional[datetime] = None
     lastUpdatedDateTime: Optional[datetime] = None
-    datasetGroupArn: Optional[str] = None
+    datasetGroupArn: Optional[Annotated[str, _aws_pattern("Personalize", "Arn")]] = None
     failureReason: Optional[str] = None
     filterExpression: Optional[str] = None
     status: Optional[str] = None
@@ -409,19 +411,19 @@ class FilterTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'describe_metric_attribution' function.
 class DescribeMetricAttributionRequestTypeDef(BaseValidatorModel):
-    metricAttributionArn: str
+    metricAttributionArn: Annotated[str, _aws_pattern("Personalize", "Arn")]
 
 
 # This class is the input for the 'describe_recipe' function.
 class DescribeRecipeRequestTypeDef(BaseValidatorModel):
-    recipeArn: str
+    recipeArn: Annotated[str, _aws_pattern("Personalize", "Arn")]
 
 
 class RecipeTypeDef(BaseValidatorModel):
-    name: Optional[str] = None
-    recipeArn: Optional[str] = None
-    algorithmArn: Optional[str] = None
-    featureTransformationArn: Optional[str] = None
+    name: Optional[Annotated[str, _aws_pattern("Personalize", "Name")]] = None
+    recipeArn: Optional[Annotated[str, _aws_pattern("Personalize", "Arn")]] = None
+    algorithmArn: Optional[Annotated[str, _aws_pattern("Personalize", "Arn")]] = None
+    featureTransformationArn: Optional[Annotated[str, _aws_pattern("Personalize", "Arn")]] = None
     status: Optional[str] = None
     description: Optional[str] = None
     creationDateTime: Optional[datetime] = None
@@ -431,22 +433,22 @@ class RecipeTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'describe_recommender' function.
 class DescribeRecommenderRequestTypeDef(BaseValidatorModel):
-    recommenderArn: str
+    recommenderArn: Annotated[str, _aws_pattern("Personalize", "Arn")]
 
 
 # This class is the input for the 'describe_schema' function.
 class DescribeSchemaRequestTypeDef(BaseValidatorModel):
-    schemaArn: str
+    schemaArn: Annotated[str, _aws_pattern("Personalize", "Arn")]
 
 
 # This class is the input for the 'describe_solution' function.
 class DescribeSolutionRequestTypeDef(BaseValidatorModel):
-    solutionArn: str
+    solutionArn: Annotated[str, _aws_pattern("Personalize", "Arn")]
 
 
 # This class is the input for the 'describe_solution_version' function.
 class DescribeSolutionVersionRequestTypeDef(BaseValidatorModel):
-    solutionVersionArn: str
+    solutionVersionArn: Annotated[str, _aws_pattern("Personalize", "Arn")]
 
 
 class EventParametersTypeDef(BaseValidatorModel):
@@ -456,30 +458,30 @@ class EventParametersTypeDef(BaseValidatorModel):
 
 
 class EventTrackerSummaryTypeDef(BaseValidatorModel):
-    name: Optional[str] = None
-    eventTrackerArn: Optional[str] = None
+    name: Optional[Annotated[str, _aws_pattern("Personalize", "Name")]] = None
+    eventTrackerArn: Optional[Annotated[str, _aws_pattern("Personalize", "Arn")]] = None
     status: Optional[str] = None
     creationDateTime: Optional[datetime] = None
     lastUpdatedDateTime: Optional[datetime] = None
 
 
 class FieldsForThemeGenerationTypeDef(BaseValidatorModel):
-    itemName: str
+    itemName: Annotated[str, _aws_pattern("Personalize", "ColumnName")]
 
 
 class FilterSummaryTypeDef(BaseValidatorModel):
-    name: Optional[str] = None
-    filterArn: Optional[str] = None
+    name: Optional[Annotated[str, _aws_pattern("Personalize", "Name")]] = None
+    filterArn: Optional[Annotated[str, _aws_pattern("Personalize", "Arn")]] = None
     creationDateTime: Optional[datetime] = None
     lastUpdatedDateTime: Optional[datetime] = None
-    datasetGroupArn: Optional[str] = None
+    datasetGroupArn: Optional[Annotated[str, _aws_pattern("Personalize", "Arn")]] = None
     failureReason: Optional[str] = None
     status: Optional[str] = None
 
 
 # This class is the input for the 'get_solution_metrics' function.
 class GetSolutionMetricsRequestTypeDef(BaseValidatorModel):
-    solutionVersionArn: str
+    solutionVersionArn: Annotated[str, _aws_pattern("Personalize", "Arn")]
 
 
 class HPOObjectiveTypeDef(BaseValidatorModel):
@@ -507,90 +509,90 @@ class PaginatorConfigTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'list_batch_inference_jobs' function.
 class ListBatchInferenceJobsRequestTypeDef(BaseValidatorModel):
-    solutionVersionArn: Optional[str] = None
-    nextToken: Optional[str] = None
+    solutionVersionArn: Optional[Annotated[str, _aws_pattern("Personalize", "Arn")]] = None
+    nextToken: Optional[Annotated[str, _aws_pattern("Personalize", "NextToken")]] = None
     maxResults: Optional[int] = None
 
 
 # This class is the input for the 'list_batch_segment_jobs' function.
 class ListBatchSegmentJobsRequestTypeDef(BaseValidatorModel):
-    solutionVersionArn: Optional[str] = None
-    nextToken: Optional[str] = None
+    solutionVersionArn: Optional[Annotated[str, _aws_pattern("Personalize", "Arn")]] = None
+    nextToken: Optional[Annotated[str, _aws_pattern("Personalize", "NextToken")]] = None
     maxResults: Optional[int] = None
 
 
 # This class is the input for the 'list_campaigns' function.
 class ListCampaignsRequestTypeDef(BaseValidatorModel):
-    solutionArn: Optional[str] = None
-    nextToken: Optional[str] = None
+    solutionArn: Optional[Annotated[str, _aws_pattern("Personalize", "Arn")]] = None
+    nextToken: Optional[Annotated[str, _aws_pattern("Personalize", "NextToken")]] = None
     maxResults: Optional[int] = None
 
 
 # This class is the input for the 'list_data_deletion_jobs' function.
 class ListDataDeletionJobsRequestTypeDef(BaseValidatorModel):
-    datasetGroupArn: Optional[str] = None
-    nextToken: Optional[str] = None
+    datasetGroupArn: Optional[Annotated[str, _aws_pattern("Personalize", "Arn")]] = None
+    nextToken: Optional[Annotated[str, _aws_pattern("Personalize", "NextToken")]] = None
     maxResults: Optional[int] = None
 
 
 # This class is the input for the 'list_dataset_export_jobs' function.
 class ListDatasetExportJobsRequestTypeDef(BaseValidatorModel):
-    datasetArn: Optional[str] = None
-    nextToken: Optional[str] = None
+    datasetArn: Optional[Annotated[str, _aws_pattern("Personalize", "Arn")]] = None
+    nextToken: Optional[Annotated[str, _aws_pattern("Personalize", "NextToken")]] = None
     maxResults: Optional[int] = None
 
 
 # This class is the input for the 'list_dataset_groups' function.
 class ListDatasetGroupsRequestTypeDef(BaseValidatorModel):
-    nextToken: Optional[str] = None
+    nextToken: Optional[Annotated[str, _aws_pattern("Personalize", "NextToken")]] = None
     maxResults: Optional[int] = None
 
 
 # This class is the input for the 'list_dataset_import_jobs' function.
 class ListDatasetImportJobsRequestTypeDef(BaseValidatorModel):
-    datasetArn: Optional[str] = None
-    nextToken: Optional[str] = None
+    datasetArn: Optional[Annotated[str, _aws_pattern("Personalize", "Arn")]] = None
+    nextToken: Optional[Annotated[str, _aws_pattern("Personalize", "NextToken")]] = None
     maxResults: Optional[int] = None
 
 
 # This class is the input for the 'list_datasets' function.
 class ListDatasetsRequestTypeDef(BaseValidatorModel):
-    datasetGroupArn: Optional[str] = None
-    nextToken: Optional[str] = None
+    datasetGroupArn: Optional[Annotated[str, _aws_pattern("Personalize", "Arn")]] = None
+    nextToken: Optional[Annotated[str, _aws_pattern("Personalize", "NextToken")]] = None
     maxResults: Optional[int] = None
 
 
 # This class is the input for the 'list_event_trackers' function.
 class ListEventTrackersRequestTypeDef(BaseValidatorModel):
-    datasetGroupArn: Optional[str] = None
-    nextToken: Optional[str] = None
+    datasetGroupArn: Optional[Annotated[str, _aws_pattern("Personalize", "Arn")]] = None
+    nextToken: Optional[Annotated[str, _aws_pattern("Personalize", "NextToken")]] = None
     maxResults: Optional[int] = None
 
 
 # This class is the input for the 'list_filters' function.
 class ListFiltersRequestTypeDef(BaseValidatorModel):
-    datasetGroupArn: Optional[str] = None
-    nextToken: Optional[str] = None
+    datasetGroupArn: Optional[Annotated[str, _aws_pattern("Personalize", "Arn")]] = None
+    nextToken: Optional[Annotated[str, _aws_pattern("Personalize", "NextToken")]] = None
     maxResults: Optional[int] = None
 
 
 # This class is the input for the 'list_metric_attribution_metrics' function.
 class ListMetricAttributionMetricsRequestTypeDef(BaseValidatorModel):
-    metricAttributionArn: Optional[str] = None
-    nextToken: Optional[str] = None
+    metricAttributionArn: Optional[Annotated[str, _aws_pattern("Personalize", "Arn")]] = None
+    nextToken: Optional[Annotated[str, _aws_pattern("Personalize", "NextToken")]] = None
     maxResults: Optional[int] = None
 
 
 # This class is the input for the 'list_metric_attributions' function.
 class ListMetricAttributionsRequestTypeDef(BaseValidatorModel):
-    datasetGroupArn: Optional[str] = None
-    nextToken: Optional[str] = None
+    datasetGroupArn: Optional[Annotated[str, _aws_pattern("Personalize", "Arn")]] = None
+    nextToken: Optional[Annotated[str, _aws_pattern("Personalize", "NextToken")]] = None
     maxResults: Optional[int] = None
 
 
 class MetricAttributionSummaryTypeDef(BaseValidatorModel):
-    name: Optional[str] = None
-    metricAttributionArn: Optional[str] = None
+    name: Optional[Annotated[str, _aws_pattern("Personalize", "Name")]] = None
+    metricAttributionArn: Optional[Annotated[str, _aws_pattern("Personalize", "Arn")]] = None
     status: Optional[str] = None
     creationDateTime: Optional[datetime] = None
     lastUpdatedDateTime: Optional[datetime] = None
@@ -600,14 +602,14 @@ class MetricAttributionSummaryTypeDef(BaseValidatorModel):
 # This class is the input for the 'list_recipes' function.
 class ListRecipesRequestTypeDef(BaseValidatorModel):
     recipeProvider: Optional[Literal["SERVICE"]] = None
-    nextToken: Optional[str] = None
+    nextToken: Optional[Annotated[str, _aws_pattern("Personalize", "NextToken")]] = None
     maxResults: Optional[int] = None
     domain: Optional[DomainType] = None
 
 
 class RecipeSummaryTypeDef(BaseValidatorModel):
-    name: Optional[str] = None
-    recipeArn: Optional[str] = None
+    name: Optional[Annotated[str, _aws_pattern("Personalize", "Name")]] = None
+    recipeArn: Optional[Annotated[str, _aws_pattern("Personalize", "Arn")]] = None
     status: Optional[str] = None
     creationDateTime: Optional[datetime] = None
     lastUpdatedDateTime: Optional[datetime] = None
@@ -616,26 +618,26 @@ class RecipeSummaryTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'list_recommenders' function.
 class ListRecommendersRequestTypeDef(BaseValidatorModel):
-    datasetGroupArn: Optional[str] = None
-    nextToken: Optional[str] = None
+    datasetGroupArn: Optional[Annotated[str, _aws_pattern("Personalize", "Arn")]] = None
+    nextToken: Optional[Annotated[str, _aws_pattern("Personalize", "NextToken")]] = None
     maxResults: Optional[int] = None
 
 
 # This class is the input for the 'list_schemas' function.
 class ListSchemasRequestTypeDef(BaseValidatorModel):
-    nextToken: Optional[str] = None
+    nextToken: Optional[Annotated[str, _aws_pattern("Personalize", "NextToken")]] = None
     maxResults: Optional[int] = None
 
 
 # This class is the input for the 'list_solution_versions' function.
 class ListSolutionVersionsRequestTypeDef(BaseValidatorModel):
-    solutionArn: Optional[str] = None
-    nextToken: Optional[str] = None
+    solutionArn: Optional[Annotated[str, _aws_pattern("Personalize", "Arn")]] = None
+    nextToken: Optional[Annotated[str, _aws_pattern("Personalize", "NextToken")]] = None
     maxResults: Optional[int] = None
 
 
 class SolutionVersionSummaryTypeDef(BaseValidatorModel):
-    solutionVersionArn: Optional[str] = None
+    solutionVersionArn: Optional[Annotated[str, _aws_pattern("Personalize", "Arn")]] = None
     status: Optional[str] = None
     trainingMode: Optional[TrainingModeType] = None
     trainingType: Optional[TrainingTypeType] = None
@@ -646,23 +648,23 @@ class SolutionVersionSummaryTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'list_solutions' function.
 class ListSolutionsRequestTypeDef(BaseValidatorModel):
-    datasetGroupArn: Optional[str] = None
-    nextToken: Optional[str] = None
+    datasetGroupArn: Optional[Annotated[str, _aws_pattern("Personalize", "Arn")]] = None
+    nextToken: Optional[Annotated[str, _aws_pattern("Personalize", "NextToken")]] = None
     maxResults: Optional[int] = None
 
 
 class SolutionSummaryTypeDef(BaseValidatorModel):
-    name: Optional[str] = None
-    solutionArn: Optional[str] = None
+    name: Optional[Annotated[str, _aws_pattern("Personalize", "Name")]] = None
+    solutionArn: Optional[Annotated[str, _aws_pattern("Personalize", "Arn")]] = None
     status: Optional[str] = None
     creationDateTime: Optional[datetime] = None
     lastUpdatedDateTime: Optional[datetime] = None
-    recipeArn: Optional[str] = None
+    recipeArn: Optional[Annotated[str, _aws_pattern("Personalize", "Arn")]] = None
 
 
 # This class is the input for the 'list_tags_for_resource' function.
 class ListTagsForResourceRequestTypeDef(BaseValidatorModel):
-    resourceArn: str
+    resourceArn: Annotated[str, _aws_pattern("Personalize", "Arn")]
 
 
 class OptimizationObjectiveTypeDef(BaseValidatorModel):
@@ -686,28 +688,28 @@ class TunedHPOParamsTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'start_recommender' function.
 class StartRecommenderRequestTypeDef(BaseValidatorModel):
-    recommenderArn: str
+    recommenderArn: Annotated[str, _aws_pattern("Personalize", "Arn")]
 
 
 # This class is the input for the 'stop_recommender' function.
 class StopRecommenderRequestTypeDef(BaseValidatorModel):
-    recommenderArn: str
+    recommenderArn: Annotated[str, _aws_pattern("Personalize", "Arn")]
 
 
 # This class is the input for the 'stop_solution_version_creation' function.
 class StopSolutionVersionCreationRequestTypeDef(BaseValidatorModel):
-    solutionVersionArn: str
+    solutionVersionArn: Annotated[str, _aws_pattern("Personalize", "Arn")]
 
 
 class UntagResourceRequestTypeDef(BaseValidatorModel):
-    resourceArn: str
-    tagKeys: List[str]
+    resourceArn: Annotated[str, _aws_pattern("Personalize", "Arn")]
+    tagKeys: List[Annotated[str, _aws_pattern("Personalize", "TagKey")]]
 
 
 # This class is the input for the 'update_dataset' function.
 class UpdateDatasetRequestTypeDef(BaseValidatorModel):
-    datasetArn: str
-    schemaArn: str
+    datasetArn: Annotated[str, _aws_pattern("Personalize", "Arn")]
+    schemaArn: Annotated[str, _aws_pattern("Personalize", "Arn")]
 
 
 BatchInferenceJobConfigUnionTypeDef = Union[BatchInferenceJobConfigOutputTypeDef, BatchInferenceJobConfigTypeDef]
@@ -734,12 +736,12 @@ class DatasetExportJobOutputTypeDef(BaseValidatorModel):
 
 
 class MetricAttributionOutputTypeDef(BaseValidatorModel):
-    roleArn: str
+    roleArn: Annotated[str, _aws_pattern("Personalize", "RoleArn")]
     s3DataDestination: Optional[S3DataConfigTypeDef] = None
 
 
 class CampaignUpdateSummaryTypeDef(BaseValidatorModel):
-    solutionVersionArn: Optional[str] = None
+    solutionVersionArn: Optional[Annotated[str, _aws_pattern("Personalize", "Arn")]] = None
     minProvisionedTPS: Optional[int] = None
     campaignConfig: Optional[CampaignConfigOutputTypeDef] = None
     status: Optional[str] = None
@@ -753,139 +755,139 @@ CampaignConfigUnionTypeDef = Union[CampaignConfigOutputTypeDef, CampaignConfigTy
 
 # This class is the input for the 'create_dataset_group' function.
 class CreateDatasetGroupRequestTypeDef(BaseValidatorModel):
-    name: str
-    roleArn: Optional[str] = None
-    kmsKeyArn: Optional[str] = None
+    name: Annotated[str, _aws_pattern("Personalize", "Name")]
+    roleArn: Optional[Annotated[str, _aws_pattern("Personalize", "RoleArn")]] = None
+    kmsKeyArn: Optional[Annotated[str, _aws_pattern("Personalize", "KmsKeyArn")]] = None
     domain: Optional[DomainType] = None
     tags: Optional[List[TagTypeDef]] = None
 
 
 # This class is the input for the 'create_dataset' function.
 class CreateDatasetRequestTypeDef(BaseValidatorModel):
-    name: str
-    schemaArn: str
-    datasetGroupArn: str
-    datasetType: str
+    name: Annotated[str, _aws_pattern("Personalize", "Name")]
+    schemaArn: Annotated[str, _aws_pattern("Personalize", "Arn")]
+    datasetGroupArn: Annotated[str, _aws_pattern("Personalize", "Arn")]
+    datasetType: Annotated[str, _aws_pattern("Personalize", "DatasetType")]
     tags: Optional[List[TagTypeDef]] = None
 
 
 # This class is the input for the 'create_event_tracker' function.
 class CreateEventTrackerRequestTypeDef(BaseValidatorModel):
-    name: str
-    datasetGroupArn: str
+    name: Annotated[str, _aws_pattern("Personalize", "Name")]
+    datasetGroupArn: Annotated[str, _aws_pattern("Personalize", "Arn")]
     tags: Optional[List[TagTypeDef]] = None
 
 
 # This class is the input for the 'create_filter' function.
 class CreateFilterRequestTypeDef(BaseValidatorModel):
-    name: str
-    datasetGroupArn: str
+    name: Annotated[str, _aws_pattern("Personalize", "Name")]
+    datasetGroupArn: Annotated[str, _aws_pattern("Personalize", "Arn")]
     filterExpression: str
     tags: Optional[List[TagTypeDef]] = None
 
 
 # This class is the input for the 'create_solution_version' function.
 class CreateSolutionVersionRequestTypeDef(BaseValidatorModel):
-    solutionArn: str
-    name: Optional[str] = None
+    solutionArn: Annotated[str, _aws_pattern("Personalize", "Arn")]
+    name: Optional[Annotated[str, _aws_pattern("Personalize", "Name")]] = None
     trainingMode: Optional[TrainingModeType] = None
     tags: Optional[List[TagTypeDef]] = None
 
 
 class TagResourceRequestTypeDef(BaseValidatorModel):
-    resourceArn: str
+    resourceArn: Annotated[str, _aws_pattern("Personalize", "Arn")]
     tags: List[TagTypeDef]
 
 
 # This class is the output for the 'create_batch_inference_job' function.
 class CreateBatchInferenceJobResponseTypeDef(BaseValidatorModel):
-    batchInferenceJobArn: str
+    batchInferenceJobArn: Annotated[str, _aws_pattern("Personalize", "Arn")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 # This class is the output for the 'create_batch_segment_job' function.
 class CreateBatchSegmentJobResponseTypeDef(BaseValidatorModel):
-    batchSegmentJobArn: str
+    batchSegmentJobArn: Annotated[str, _aws_pattern("Personalize", "Arn")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 # This class is the output for the 'create_campaign' function.
 class CreateCampaignResponseTypeDef(BaseValidatorModel):
-    campaignArn: str
+    campaignArn: Annotated[str, _aws_pattern("Personalize", "Arn")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 # This class is the output for the 'create_data_deletion_job' function.
 class CreateDataDeletionJobResponseTypeDef(BaseValidatorModel):
-    dataDeletionJobArn: str
+    dataDeletionJobArn: Annotated[str, _aws_pattern("Personalize", "Arn")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 # This class is the output for the 'create_dataset_export_job' function.
 class CreateDatasetExportJobResponseTypeDef(BaseValidatorModel):
-    datasetExportJobArn: str
+    datasetExportJobArn: Annotated[str, _aws_pattern("Personalize", "Arn")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 # This class is the output for the 'create_dataset_group' function.
 class CreateDatasetGroupResponseTypeDef(BaseValidatorModel):
-    datasetGroupArn: str
+    datasetGroupArn: Annotated[str, _aws_pattern("Personalize", "Arn")]
     domain: DomainType
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 # This class is the output for the 'create_dataset_import_job' function.
 class CreateDatasetImportJobResponseTypeDef(BaseValidatorModel):
-    datasetImportJobArn: str
+    datasetImportJobArn: Annotated[str, _aws_pattern("Personalize", "Arn")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 # This class is the output for the 'create_dataset' function.
 class CreateDatasetResponseTypeDef(BaseValidatorModel):
-    datasetArn: str
+    datasetArn: Annotated[str, _aws_pattern("Personalize", "Arn")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 # This class is the output for the 'create_event_tracker' function.
 class CreateEventTrackerResponseTypeDef(BaseValidatorModel):
-    eventTrackerArn: str
+    eventTrackerArn: Annotated[str, _aws_pattern("Personalize", "Arn")]
     trackingId: str
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 # This class is the output for the 'create_filter' function.
 class CreateFilterResponseTypeDef(BaseValidatorModel):
-    filterArn: str
+    filterArn: Annotated[str, _aws_pattern("Personalize", "Arn")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 # This class is the output for the 'create_metric_attribution' function.
 class CreateMetricAttributionResponseTypeDef(BaseValidatorModel):
-    metricAttributionArn: str
+    metricAttributionArn: Annotated[str, _aws_pattern("Personalize", "Arn")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 # This class is the output for the 'create_recommender' function.
 class CreateRecommenderResponseTypeDef(BaseValidatorModel):
-    recommenderArn: str
+    recommenderArn: Annotated[str, _aws_pattern("Personalize", "Arn")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 # This class is the output for the 'create_schema' function.
 class CreateSchemaResponseTypeDef(BaseValidatorModel):
-    schemaArn: str
+    schemaArn: Annotated[str, _aws_pattern("Personalize", "Arn")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 # This class is the output for the 'create_solution' function.
 class CreateSolutionResponseTypeDef(BaseValidatorModel):
-    solutionArn: str
+    solutionArn: Annotated[str, _aws_pattern("Personalize", "Arn")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 # This class is the output for the 'create_solution_version' function.
 class CreateSolutionVersionResponseTypeDef(BaseValidatorModel):
-    solutionVersionArn: str
+    solutionVersionArn: Annotated[str, _aws_pattern("Personalize", "Arn")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
@@ -896,7 +898,7 @@ class EmptyResponseMetadataTypeDef(BaseValidatorModel):
 
 # This class is the output for the 'get_solution_metrics' function.
 class GetSolutionMetricsResponseTypeDef(BaseValidatorModel):
-    solutionVersionArn: str
+    solutionVersionArn: Annotated[str, _aws_pattern("Personalize", "Arn")]
     metrics: Dict[str, float]
     ResponseMetadata: ResponseMetadataTypeDef
 
@@ -905,21 +907,21 @@ class GetSolutionMetricsResponseTypeDef(BaseValidatorModel):
 class ListBatchInferenceJobsResponseTypeDef(BaseValidatorModel):
     batchInferenceJobs: List[BatchInferenceJobSummaryTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
-    nextToken: Optional[str] = None
+    nextToken: Optional[Annotated[str, _aws_pattern("Personalize", "NextToken")]] = None
 
 
 # This class is the output for the 'list_batch_segment_jobs' function.
 class ListBatchSegmentJobsResponseTypeDef(BaseValidatorModel):
     batchSegmentJobs: List[BatchSegmentJobSummaryTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
-    nextToken: Optional[str] = None
+    nextToken: Optional[Annotated[str, _aws_pattern("Personalize", "NextToken")]] = None
 
 
 # This class is the output for the 'list_campaigns' function.
 class ListCampaignsResponseTypeDef(BaseValidatorModel):
     campaigns: List[CampaignSummaryTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
-    nextToken: Optional[str] = None
+    nextToken: Optional[Annotated[str, _aws_pattern("Personalize", "NextToken")]] = None
 
 
 # This class is the output for the 'list_tags_for_resource' function.
@@ -930,72 +932,72 @@ class ListTagsForResourceResponseTypeDef(BaseValidatorModel):
 
 # This class is the output for the 'start_recommender' function.
 class StartRecommenderResponseTypeDef(BaseValidatorModel):
-    recommenderArn: str
+    recommenderArn: Annotated[str, _aws_pattern("Personalize", "Arn")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 # This class is the output for the 'stop_recommender' function.
 class StopRecommenderResponseTypeDef(BaseValidatorModel):
-    recommenderArn: str
+    recommenderArn: Annotated[str, _aws_pattern("Personalize", "Arn")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 # This class is the output for the 'update_campaign' function.
 class UpdateCampaignResponseTypeDef(BaseValidatorModel):
-    campaignArn: str
+    campaignArn: Annotated[str, _aws_pattern("Personalize", "Arn")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 # This class is the output for the 'update_dataset' function.
 class UpdateDatasetResponseTypeDef(BaseValidatorModel):
-    datasetArn: str
+    datasetArn: Annotated[str, _aws_pattern("Personalize", "Arn")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 # This class is the output for the 'update_metric_attribution' function.
 class UpdateMetricAttributionResponseTypeDef(BaseValidatorModel):
-    metricAttributionArn: str
+    metricAttributionArn: Annotated[str, _aws_pattern("Personalize", "Arn")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 # This class is the output for the 'update_recommender' function.
 class UpdateRecommenderResponseTypeDef(BaseValidatorModel):
-    recommenderArn: str
+    recommenderArn: Annotated[str, _aws_pattern("Personalize", "Arn")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 # This class is the output for the 'update_solution' function.
 class UpdateSolutionResponseTypeDef(BaseValidatorModel):
-    solutionArn: str
+    solutionArn: Annotated[str, _aws_pattern("Personalize", "Arn")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 # This class is the input for the 'create_data_deletion_job' function.
 class CreateDataDeletionJobRequestTypeDef(BaseValidatorModel):
-    jobName: str
-    datasetGroupArn: str
+    jobName: Annotated[str, _aws_pattern("Personalize", "Name")]
+    datasetGroupArn: Annotated[str, _aws_pattern("Personalize", "Arn")]
     dataSource: DataSourceTypeDef
-    roleArn: str
+    roleArn: Annotated[str, _aws_pattern("Personalize", "RoleArn")]
     tags: Optional[List[TagTypeDef]] = None
 
 
 # This class is the input for the 'create_dataset_import_job' function.
 class CreateDatasetImportJobRequestTypeDef(BaseValidatorModel):
-    jobName: str
-    datasetArn: str
+    jobName: Annotated[str, _aws_pattern("Personalize", "Name")]
+    datasetArn: Annotated[str, _aws_pattern("Personalize", "Arn")]
     dataSource: DataSourceTypeDef
-    roleArn: Optional[str] = None
+    roleArn: Optional[Annotated[str, _aws_pattern("Personalize", "RoleArn")]] = None
     tags: Optional[List[TagTypeDef]] = None
     importMode: Optional[ImportModeType] = None
     publishAttributionMetricsToS3: Optional[bool] = None
 
 
 class DataDeletionJobTypeDef(BaseValidatorModel):
-    jobName: Optional[str] = None
-    dataDeletionJobArn: Optional[str] = None
-    datasetGroupArn: Optional[str] = None
+    jobName: Optional[Annotated[str, _aws_pattern("Personalize", "Name")]] = None
+    dataDeletionJobArn: Optional[Annotated[str, _aws_pattern("Personalize", "Arn")]] = None
+    datasetGroupArn: Optional[Annotated[str, _aws_pattern("Personalize", "Arn")]] = None
     dataSource: Optional[DataSourceTypeDef] = None
-    roleArn: Optional[str] = None
+    roleArn: Optional[Annotated[str, _aws_pattern("Personalize", "RoleArn")]] = None
     status: Optional[str] = None
     numDeleted: Optional[int] = None
     creationDateTime: Optional[datetime] = None
@@ -1004,11 +1006,11 @@ class DataDeletionJobTypeDef(BaseValidatorModel):
 
 
 class DatasetImportJobTypeDef(BaseValidatorModel):
-    jobName: Optional[str] = None
-    datasetImportJobArn: Optional[str] = None
-    datasetArn: Optional[str] = None
+    jobName: Optional[Annotated[str, _aws_pattern("Personalize", "Name")]] = None
+    datasetImportJobArn: Optional[Annotated[str, _aws_pattern("Personalize", "Arn")]] = None
+    datasetArn: Optional[Annotated[str, _aws_pattern("Personalize", "Arn")]] = None
     dataSource: Optional[DataSourceTypeDef] = None
-    roleArn: Optional[str] = None
+    roleArn: Optional[Annotated[str, _aws_pattern("Personalize", "Arn")]] = None
     status: Optional[str] = None
     creationDateTime: Optional[datetime] = None
     lastUpdatedDateTime: Optional[datetime] = None
@@ -1021,28 +1023,28 @@ class DatasetImportJobTypeDef(BaseValidatorModel):
 class ListMetricAttributionMetricsResponseTypeDef(BaseValidatorModel):
     metrics: List[MetricAttributeTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
-    nextToken: Optional[str] = None
+    nextToken: Optional[Annotated[str, _aws_pattern("Personalize", "NextToken")]] = None
 
 
 # This class is the output for the 'list_data_deletion_jobs' function.
 class ListDataDeletionJobsResponseTypeDef(BaseValidatorModel):
     dataDeletionJobs: List[DataDeletionJobSummaryTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
-    nextToken: Optional[str] = None
+    nextToken: Optional[Annotated[str, _aws_pattern("Personalize", "NextToken")]] = None
 
 
 # This class is the output for the 'list_dataset_export_jobs' function.
 class ListDatasetExportJobsResponseTypeDef(BaseValidatorModel):
     datasetExportJobs: List[DatasetExportJobSummaryTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
-    nextToken: Optional[str] = None
+    nextToken: Optional[Annotated[str, _aws_pattern("Personalize", "NextToken")]] = None
 
 
 # This class is the output for the 'list_dataset_groups' function.
 class ListDatasetGroupsResponseTypeDef(BaseValidatorModel):
     datasetGroups: List[DatasetGroupSummaryTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
-    nextToken: Optional[str] = None
+    nextToken: Optional[Annotated[str, _aws_pattern("Personalize", "NextToken")]] = None
 
 
 # This class is the output for the 'describe_dataset_group' function.
@@ -1055,14 +1057,14 @@ class DescribeDatasetGroupResponseTypeDef(BaseValidatorModel):
 class ListDatasetImportJobsResponseTypeDef(BaseValidatorModel):
     datasetImportJobs: List[DatasetImportJobSummaryTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
-    nextToken: Optional[str] = None
+    nextToken: Optional[Annotated[str, _aws_pattern("Personalize", "NextToken")]] = None
 
 
 # This class is the output for the 'list_schemas' function.
 class ListSchemasResponseTypeDef(BaseValidatorModel):
     schemas: List[DatasetSchemaSummaryTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
-    nextToken: Optional[str] = None
+    nextToken: Optional[Annotated[str, _aws_pattern("Personalize", "NextToken")]] = None
 
 
 # This class is the output for the 'describe_schema' function.
@@ -1075,15 +1077,15 @@ class DescribeSchemaResponseTypeDef(BaseValidatorModel):
 class ListDatasetsResponseTypeDef(BaseValidatorModel):
     datasets: List[DatasetSummaryTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
-    nextToken: Optional[str] = None
+    nextToken: Optional[Annotated[str, _aws_pattern("Personalize", "NextToken")]] = None
 
 
 class DatasetTypeDef(BaseValidatorModel):
-    name: Optional[str] = None
-    datasetArn: Optional[str] = None
-    datasetGroupArn: Optional[str] = None
-    datasetType: Optional[str] = None
-    schemaArn: Optional[str] = None
+    name: Optional[Annotated[str, _aws_pattern("Personalize", "Name")]] = None
+    datasetArn: Optional[Annotated[str, _aws_pattern("Personalize", "Arn")]] = None
+    datasetGroupArn: Optional[Annotated[str, _aws_pattern("Personalize", "Arn")]] = None
+    datasetType: Optional[Annotated[str, _aws_pattern("Personalize", "DatasetType")]] = None
+    schemaArn: Optional[Annotated[str, _aws_pattern("Personalize", "Arn")]] = None
     status: Optional[str] = None
     creationDateTime: Optional[datetime] = None
     lastUpdatedDateTime: Optional[datetime] = None
@@ -1133,7 +1135,7 @@ class EventsConfigTypeDef(BaseValidatorModel):
 class ListEventTrackersResponseTypeDef(BaseValidatorModel):
     eventTrackers: List[EventTrackerSummaryTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
-    nextToken: Optional[str] = None
+    nextToken: Optional[Annotated[str, _aws_pattern("Personalize", "NextToken")]] = None
 
 
 class ThemeGenerationConfigTypeDef(BaseValidatorModel):
@@ -1144,7 +1146,7 @@ class ThemeGenerationConfigTypeDef(BaseValidatorModel):
 class ListFiltersResponseTypeDef(BaseValidatorModel):
     Filters: List[FilterSummaryTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
-    nextToken: Optional[str] = None
+    nextToken: Optional[Annotated[str, _aws_pattern("Personalize", "NextToken")]] = None
 
 
 class HyperParameterRangesOutputTypeDef(BaseValidatorModel):
@@ -1242,28 +1244,28 @@ class ListSolutionsRequestPaginateTypeDef(BaseValidatorModel):
 class ListMetricAttributionsResponseTypeDef(BaseValidatorModel):
     metricAttributions: List[MetricAttributionSummaryTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
-    nextToken: Optional[str] = None
+    nextToken: Optional[Annotated[str, _aws_pattern("Personalize", "NextToken")]] = None
 
 
 # This class is the output for the 'list_recipes' function.
 class ListRecipesResponseTypeDef(BaseValidatorModel):
     recipes: List[RecipeSummaryTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
-    nextToken: Optional[str] = None
+    nextToken: Optional[Annotated[str, _aws_pattern("Personalize", "NextToken")]] = None
 
 
 # This class is the output for the 'list_solution_versions' function.
 class ListSolutionVersionsResponseTypeDef(BaseValidatorModel):
     solutionVersions: List[SolutionVersionSummaryTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
-    nextToken: Optional[str] = None
+    nextToken: Optional[Annotated[str, _aws_pattern("Personalize", "NextToken")]] = None
 
 
 # This class is the output for the 'list_solutions' function.
 class ListSolutionsResponseTypeDef(BaseValidatorModel):
     solutions: List[SolutionSummaryTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
-    nextToken: Optional[str] = None
+    nextToken: Optional[Annotated[str, _aws_pattern("Personalize", "NextToken")]] = None
 
 
 class RecommenderConfigOutputTypeDef(BaseValidatorModel):
@@ -1281,15 +1283,15 @@ class RecommenderConfigTypeDef(BaseValidatorModel):
 
 
 class BatchSegmentJobTypeDef(BaseValidatorModel):
-    jobName: Optional[str] = None
-    batchSegmentJobArn: Optional[str] = None
-    filterArn: Optional[str] = None
+    jobName: Optional[Annotated[str, _aws_pattern("Personalize", "Name")]] = None
+    batchSegmentJobArn: Optional[Annotated[str, _aws_pattern("Personalize", "Arn")]] = None
+    filterArn: Optional[Annotated[str, _aws_pattern("Personalize", "Arn")]] = None
     failureReason: Optional[str] = None
-    solutionVersionArn: Optional[str] = None
+    solutionVersionArn: Optional[Annotated[str, _aws_pattern("Personalize", "Arn")]] = None
     numResults: Optional[int] = None
     jobInput: Optional[BatchSegmentJobInputTypeDef] = None
     jobOutput: Optional[BatchSegmentJobOutputTypeDef] = None
-    roleArn: Optional[str] = None
+    roleArn: Optional[Annotated[str, _aws_pattern("Personalize", "RoleArn")]] = None
     status: Optional[str] = None
     creationDateTime: Optional[datetime] = None
     lastUpdatedDateTime: Optional[datetime] = None
@@ -1297,32 +1299,32 @@ class BatchSegmentJobTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'create_batch_segment_job' function.
 class CreateBatchSegmentJobRequestTypeDef(BaseValidatorModel):
-    jobName: str
-    solutionVersionArn: str
+    jobName: Annotated[str, _aws_pattern("Personalize", "Name")]
+    solutionVersionArn: Annotated[str, _aws_pattern("Personalize", "Arn")]
     jobInput: BatchSegmentJobInputTypeDef
     jobOutput: BatchSegmentJobOutputTypeDef
-    roleArn: str
-    filterArn: Optional[str] = None
+    roleArn: Annotated[str, _aws_pattern("Personalize", "RoleArn")]
+    filterArn: Optional[Annotated[str, _aws_pattern("Personalize", "Arn")]] = None
     numResults: Optional[int] = None
     tags: Optional[List[TagTypeDef]] = None
 
 
 # This class is the input for the 'create_dataset_export_job' function.
 class CreateDatasetExportJobRequestTypeDef(BaseValidatorModel):
-    jobName: str
-    datasetArn: str
-    roleArn: str
+    jobName: Annotated[str, _aws_pattern("Personalize", "Name")]
+    datasetArn: Annotated[str, _aws_pattern("Personalize", "Arn")]
+    roleArn: Annotated[str, _aws_pattern("Personalize", "RoleArn")]
     jobOutput: DatasetExportJobOutputTypeDef
     ingestionMode: Optional[IngestionModeType] = None
     tags: Optional[List[TagTypeDef]] = None
 
 
 class DatasetExportJobTypeDef(BaseValidatorModel):
-    jobName: Optional[str] = None
-    datasetExportJobArn: Optional[str] = None
-    datasetArn: Optional[str] = None
+    jobName: Optional[Annotated[str, _aws_pattern("Personalize", "Name")]] = None
+    datasetExportJobArn: Optional[Annotated[str, _aws_pattern("Personalize", "Arn")]] = None
+    datasetArn: Optional[Annotated[str, _aws_pattern("Personalize", "Arn")]] = None
     ingestionMode: Optional[IngestionModeType] = None
-    roleArn: Optional[str] = None
+    roleArn: Optional[Annotated[str, _aws_pattern("Personalize", "Arn")]] = None
     status: Optional[str] = None
     jobOutput: Optional[DatasetExportJobOutputTypeDef] = None
     creationDateTime: Optional[datetime] = None
@@ -1332,16 +1334,16 @@ class DatasetExportJobTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'create_metric_attribution' function.
 class CreateMetricAttributionRequestTypeDef(BaseValidatorModel):
-    name: str
-    datasetGroupArn: str
+    name: Annotated[str, _aws_pattern("Personalize", "Name")]
+    datasetGroupArn: Annotated[str, _aws_pattern("Personalize", "Arn")]
     metrics: List[MetricAttributeTypeDef]
     metricsOutputConfig: MetricAttributionOutputTypeDef
 
 
 class MetricAttributionTypeDef(BaseValidatorModel):
-    name: Optional[str] = None
-    metricAttributionArn: Optional[str] = None
-    datasetGroupArn: Optional[str] = None
+    name: Optional[Annotated[str, _aws_pattern("Personalize", "Name")]] = None
+    metricAttributionArn: Optional[Annotated[str, _aws_pattern("Personalize", "Arn")]] = None
+    datasetGroupArn: Optional[Annotated[str, _aws_pattern("Personalize", "Arn")]] = None
     metricsOutputConfig: Optional[MetricAttributionOutputTypeDef] = None
     status: Optional[str] = None
     creationDateTime: Optional[datetime] = None
@@ -1354,13 +1356,13 @@ class UpdateMetricAttributionRequestTypeDef(BaseValidatorModel):
     addMetrics: Optional[List[MetricAttributeTypeDef]] = None
     removeMetrics: Optional[List[str]] = None
     metricsOutputConfig: Optional[MetricAttributionOutputTypeDef] = None
-    metricAttributionArn: Optional[str] = None
+    metricAttributionArn: Optional[Annotated[str, _aws_pattern("Personalize", "Arn")]] = None
 
 
 class CampaignTypeDef(BaseValidatorModel):
-    name: Optional[str] = None
-    campaignArn: Optional[str] = None
-    solutionVersionArn: Optional[str] = None
+    name: Optional[Annotated[str, _aws_pattern("Personalize", "Name")]] = None
+    campaignArn: Optional[Annotated[str, _aws_pattern("Personalize", "Arn")]] = None
+    solutionVersionArn: Optional[Annotated[str, _aws_pattern("Personalize", "Arn")]] = None
     minProvisionedTPS: Optional[int] = None
     campaignConfig: Optional[CampaignConfigOutputTypeDef] = None
     status: Optional[str] = None
@@ -1372,8 +1374,8 @@ class CampaignTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'create_campaign' function.
 class CreateCampaignRequestTypeDef(BaseValidatorModel):
-    name: str
-    solutionVersionArn: str
+    name: Annotated[str, _aws_pattern("Personalize", "Name")]
+    solutionVersionArn: Annotated[str, _aws_pattern("Personalize", "Arn")]
     minProvisionedTPS: Optional[int] = None
     campaignConfig: Optional[CampaignConfigUnionTypeDef] = None
     tags: Optional[List[TagTypeDef]] = None
@@ -1381,8 +1383,8 @@ class CreateCampaignRequestTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'update_campaign' function.
 class UpdateCampaignRequestTypeDef(BaseValidatorModel):
-    campaignArn: str
-    solutionVersionArn: Optional[str] = None
+    campaignArn: Annotated[str, _aws_pattern("Personalize", "Arn")]
+    solutionVersionArn: Optional[Annotated[str, _aws_pattern("Personalize", "Arn")]] = None
     minProvisionedTPS: Optional[int] = None
     campaignConfig: Optional[CampaignConfigUnionTypeDef] = None
 
@@ -1406,14 +1408,14 @@ class DescribeDatasetResponseTypeDef(BaseValidatorModel):
 
 
 class AlgorithmTypeDef(BaseValidatorModel):
-    name: Optional[str] = None
-    algorithmArn: Optional[str] = None
+    name: Optional[Annotated[str, _aws_pattern("Personalize", "Name")]] = None
+    algorithmArn: Optional[Annotated[str, _aws_pattern("Personalize", "Arn")]] = None
     algorithmImage: Optional[AlgorithmImageTypeDef] = None
     defaultHyperParameters: Optional[Dict[str, str]] = None
     defaultHyperParameterRanges: Optional[DefaultHyperParameterRangesTypeDef] = None
     defaultResourceConfig: Optional[Dict[str, str]] = None
     trainingInputMode: Optional[str] = None
-    roleArn: Optional[str] = None
+    roleArn: Optional[Annotated[str, _aws_pattern("Personalize", "Arn")]] = None
     creationDateTime: Optional[datetime] = None
     lastUpdatedDateTime: Optional[datetime] = None
 
@@ -1429,16 +1431,16 @@ class SolutionUpdateConfigTypeDef(BaseValidatorModel):
 
 
 class BatchInferenceJobTypeDef(BaseValidatorModel):
-    jobName: Optional[str] = None
-    batchInferenceJobArn: Optional[str] = None
-    filterArn: Optional[str] = None
+    jobName: Optional[Annotated[str, _aws_pattern("Personalize", "Name")]] = None
+    batchInferenceJobArn: Optional[Annotated[str, _aws_pattern("Personalize", "Arn")]] = None
+    filterArn: Optional[Annotated[str, _aws_pattern("Personalize", "Arn")]] = None
     failureReason: Optional[str] = None
-    solutionVersionArn: Optional[str] = None
+    solutionVersionArn: Optional[Annotated[str, _aws_pattern("Personalize", "Arn")]] = None
     numResults: Optional[int] = None
     jobInput: Optional[BatchInferenceJobInputTypeDef] = None
     jobOutput: Optional[BatchInferenceJobOutputTypeDef] = None
     batchInferenceJobConfig: Optional[BatchInferenceJobConfigOutputTypeDef] = None
-    roleArn: Optional[str] = None
+    roleArn: Optional[Annotated[str, _aws_pattern("Personalize", "RoleArn")]] = None
     batchInferenceJobMode: Optional[BatchInferenceJobModeType] = None
     themeGenerationConfig: Optional[ThemeGenerationConfigTypeDef] = None
     status: Optional[str] = None
@@ -1448,12 +1450,12 @@ class BatchInferenceJobTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'create_batch_inference_job' function.
 class CreateBatchInferenceJobRequestTypeDef(BaseValidatorModel):
-    jobName: str
-    solutionVersionArn: str
+    jobName: Annotated[str, _aws_pattern("Personalize", "Name")]
+    solutionVersionArn: Annotated[str, _aws_pattern("Personalize", "Arn")]
     jobInput: BatchInferenceJobInputTypeDef
     jobOutput: BatchInferenceJobOutputTypeDef
-    roleArn: str
-    filterArn: Optional[str] = None
+    roleArn: Annotated[str, _aws_pattern("Personalize", "RoleArn")]
+    filterArn: Optional[Annotated[str, _aws_pattern("Personalize", "Arn")]] = None
     numResults: Optional[int] = None
     batchInferenceJobConfig: Optional[BatchInferenceJobConfigUnionTypeDef] = None
     tags: Optional[List[TagTypeDef]] = None
@@ -1474,10 +1476,10 @@ class HPOConfigTypeDef(BaseValidatorModel):
 
 
 class RecommenderSummaryTypeDef(BaseValidatorModel):
-    name: Optional[str] = None
-    recommenderArn: Optional[str] = None
-    datasetGroupArn: Optional[str] = None
-    recipeArn: Optional[str] = None
+    name: Optional[Annotated[str, _aws_pattern("Personalize", "Name")]] = None
+    recommenderArn: Optional[Annotated[str, _aws_pattern("Personalize", "Arn")]] = None
+    datasetGroupArn: Optional[Annotated[str, _aws_pattern("Personalize", "Arn")]] = None
+    recipeArn: Optional[Annotated[str, _aws_pattern("Personalize", "Arn")]] = None
     recommenderConfig: Optional[RecommenderConfigOutputTypeDef] = None
     status: Optional[str] = None
     creationDateTime: Optional[datetime] = None
@@ -1572,14 +1574,14 @@ class SolutionConfigTypeDef(BaseValidatorModel):
 class ListRecommendersResponseTypeDef(BaseValidatorModel):
     recommenders: List[RecommenderSummaryTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
-    nextToken: Optional[str] = None
+    nextToken: Optional[Annotated[str, _aws_pattern("Personalize", "NextToken")]] = None
 
 
 class RecommenderTypeDef(BaseValidatorModel):
-    recommenderArn: Optional[str] = None
-    datasetGroupArn: Optional[str] = None
-    name: Optional[str] = None
-    recipeArn: Optional[str] = None
+    recommenderArn: Optional[Annotated[str, _aws_pattern("Personalize", "Arn")]] = None
+    datasetGroupArn: Optional[Annotated[str, _aws_pattern("Personalize", "Arn")]] = None
+    name: Optional[Annotated[str, _aws_pattern("Personalize", "Name")]] = None
+    recipeArn: Optional[Annotated[str, _aws_pattern("Personalize", "Arn")]] = None
     recommenderConfig: Optional[RecommenderConfigOutputTypeDef] = None
     creationDateTime: Optional[datetime] = None
     lastUpdatedDateTime: Optional[datetime] = None
@@ -1591,36 +1593,36 @@ class RecommenderTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'create_recommender' function.
 class CreateRecommenderRequestTypeDef(BaseValidatorModel):
-    name: str
-    datasetGroupArn: str
-    recipeArn: str
+    name: Annotated[str, _aws_pattern("Personalize", "Name")]
+    datasetGroupArn: Annotated[str, _aws_pattern("Personalize", "Arn")]
+    recipeArn: Annotated[str, _aws_pattern("Personalize", "Arn")]
     recommenderConfig: Optional[RecommenderConfigUnionTypeDef] = None
     tags: Optional[List[TagTypeDef]] = None
 
 
 # This class is the input for the 'update_recommender' function.
 class UpdateRecommenderRequestTypeDef(BaseValidatorModel):
-    recommenderArn: str
+    recommenderArn: Annotated[str, _aws_pattern("Personalize", "Arn")]
     recommenderConfig: RecommenderConfigUnionTypeDef
 
 
 # This class is the input for the 'update_solution' function.
 class UpdateSolutionRequestTypeDef(BaseValidatorModel):
-    solutionArn: str
+    solutionArn: Annotated[str, _aws_pattern("Personalize", "Arn")]
     performAutoTraining: Optional[bool] = None
     performIncrementalUpdate: Optional[bool] = None
     solutionUpdateConfig: Optional[SolutionUpdateConfigUnionTypeDef] = None
 
 
 class SolutionTypeDef(BaseValidatorModel):
-    name: Optional[str] = None
-    solutionArn: Optional[str] = None
+    name: Optional[Annotated[str, _aws_pattern("Personalize", "Name")]] = None
+    solutionArn: Optional[Annotated[str, _aws_pattern("Personalize", "Arn")]] = None
     performHPO: Optional[bool] = None
     performAutoML: Optional[bool] = None
     performAutoTraining: Optional[bool] = None
     performIncrementalUpdate: Optional[bool] = None
-    recipeArn: Optional[str] = None
-    datasetGroupArn: Optional[str] = None
+    recipeArn: Optional[Annotated[str, _aws_pattern("Personalize", "Arn")]] = None
+    datasetGroupArn: Optional[Annotated[str, _aws_pattern("Personalize", "Arn")]] = None
     eventType: Optional[str] = None
     solutionConfig: Optional[SolutionConfigOutputTypeDef] = None
     autoMLResult: Optional[AutoMLResultTypeDef] = None
@@ -1632,15 +1634,15 @@ class SolutionTypeDef(BaseValidatorModel):
 
 
 class SolutionVersionTypeDef(BaseValidatorModel):
-    name: Optional[str] = None
-    solutionVersionArn: Optional[str] = None
-    solutionArn: Optional[str] = None
+    name: Optional[Annotated[str, _aws_pattern("Personalize", "Name")]] = None
+    solutionVersionArn: Optional[Annotated[str, _aws_pattern("Personalize", "Arn")]] = None
+    solutionArn: Optional[Annotated[str, _aws_pattern("Personalize", "Arn")]] = None
     performHPO: Optional[bool] = None
     performAutoML: Optional[bool] = None
     performIncrementalUpdate: Optional[bool] = None
-    recipeArn: Optional[str] = None
+    recipeArn: Optional[Annotated[str, _aws_pattern("Personalize", "Arn")]] = None
     eventType: Optional[str] = None
-    datasetGroupArn: Optional[str] = None
+    datasetGroupArn: Optional[Annotated[str, _aws_pattern("Personalize", "Arn")]] = None
     solutionConfig: Optional[SolutionConfigOutputTypeDef] = None
     trainingHours: Optional[float] = None
     trainingMode: Optional[TrainingModeType] = None
@@ -1675,13 +1677,13 @@ class DescribeSolutionVersionResponseTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'create_solution' function.
 class CreateSolutionRequestTypeDef(BaseValidatorModel):
-    name: str
-    datasetGroupArn: str
+    name: Annotated[str, _aws_pattern("Personalize", "Name")]
+    datasetGroupArn: Annotated[str, _aws_pattern("Personalize", "Arn")]
     performHPO: Optional[bool] = None
     performAutoML: Optional[bool] = None
     performAutoTraining: Optional[bool] = None
     performIncrementalUpdate: Optional[bool] = None
-    recipeArn: Optional[str] = None
+    recipeArn: Optional[Annotated[str, _aws_pattern("Personalize", "Arn")]] = None
     eventType: Optional[str] = None
     solutionConfig: Optional[SolutionConfigUnionTypeDef] = None
     tags: Optional[List[TagTypeDef]] = None

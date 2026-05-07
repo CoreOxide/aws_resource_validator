@@ -3,6 +3,7 @@
 from datetime import datetime
 from decimal import Decimal
 from typing import (
+    Annotated,
     Any,
     Callable,
     Dict,
@@ -24,6 +25,7 @@ from botocore.response import StreamingBody
 from pydantic import Field
 
 from aws_resource_validator.core.base_validator_model import BaseValidatorModel, EventStream
+from aws_resource_validator.core.pattern_validation import aws_field_pattern as _aws_pattern
 from aws_resource_validator.pydantic_models.cloud9.cloud9_constants import *  # noqa: F401,F403
 
 # Optional boto3 symbols — imported lazily so services that don't need them
@@ -53,26 +55,26 @@ class ResponseMetadataTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'create_environment_membership' function.
 class CreateEnvironmentMembershipRequestTypeDef(BaseValidatorModel):
-    environmentId: str
-    userArn: str
+    environmentId: Annotated[str, _aws_pattern("Cloud9", "EnvironmentId")]
+    userArn: Annotated[str, _aws_pattern("Cloud9", "UserArn")]
     permissions: MemberPermissionsType
 
 
 class EnvironmentMemberTypeDef(BaseValidatorModel):
     permissions: PermissionsType
     userId: str
-    userArn: str
-    environmentId: str
+    userArn: Annotated[str, _aws_pattern("Cloud9", "UserArn")]
+    environmentId: Annotated[str, _aws_pattern("Cloud9", "EnvironmentId")]
     lastAccess: Optional[datetime] = None
 
 
 class DeleteEnvironmentMembershipRequestTypeDef(BaseValidatorModel):
-    environmentId: str
-    userArn: str
+    environmentId: Annotated[str, _aws_pattern("Cloud9", "EnvironmentId")]
+    userArn: Annotated[str, _aws_pattern("Cloud9", "UserArn")]
 
 
 class DeleteEnvironmentRequestTypeDef(BaseValidatorModel):
-    environmentId: str
+    environmentId: Annotated[str, _aws_pattern("Cloud9", "EnvironmentId")]
 
 
 class PaginatorConfigTypeDef(BaseValidatorModel):
@@ -83,8 +85,8 @@ class PaginatorConfigTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'describe_environment_memberships' function.
 class DescribeEnvironmentMembershipsRequestTypeDef(BaseValidatorModel):
-    userArn: Optional[str] = None
-    environmentId: Optional[str] = None
+    userArn: Optional[Annotated[str, _aws_pattern("Cloud9", "UserArn")]] = None
+    environmentId: Optional[Annotated[str, _aws_pattern("Cloud9", "EnvironmentId")]] = None
     permissions: Optional[List[PermissionsType]] = None
     nextToken: Optional[str] = None
     maxResults: Optional[int] = None
@@ -92,12 +94,12 @@ class DescribeEnvironmentMembershipsRequestTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'describe_environment_status' function.
 class DescribeEnvironmentStatusRequestTypeDef(BaseValidatorModel):
-    environmentId: str
+    environmentId: Annotated[str, _aws_pattern("Cloud9", "EnvironmentId")]
 
 
 # This class is the input for the 'describe_environments' function.
 class DescribeEnvironmentsRequestTypeDef(BaseValidatorModel):
-    environmentIds: List[str]
+    environmentIds: List[Annotated[str, _aws_pattern("Cloud9", "EnvironmentId")]]
 
 
 class EnvironmentLifecycleTypeDef(BaseValidatorModel):
@@ -114,23 +116,23 @@ class ListEnvironmentsRequestTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'list_tags_for_resource' function.
 class ListTagsForResourceRequestTypeDef(BaseValidatorModel):
-    ResourceARN: str
+    ResourceARN: Annotated[str, _aws_pattern("Cloud9", "EnvironmentArn")]
 
 
 class UntagResourceRequestTypeDef(BaseValidatorModel):
-    ResourceARN: str
+    ResourceARN: Annotated[str, _aws_pattern("Cloud9", "EnvironmentArn")]
     TagKeys: List[str]
 
 
 # This class is the input for the 'update_environment_membership' function.
 class UpdateEnvironmentMembershipRequestTypeDef(BaseValidatorModel):
-    environmentId: str
-    userArn: str
+    environmentId: Annotated[str, _aws_pattern("Cloud9", "EnvironmentId")]
+    userArn: Annotated[str, _aws_pattern("Cloud9", "UserArn")]
     permissions: MemberPermissionsType
 
 
 class UpdateEnvironmentRequestTypeDef(BaseValidatorModel):
-    environmentId: str
+    environmentId: Annotated[str, _aws_pattern("Cloud9", "EnvironmentId")]
     name: Optional[str] = None
     description: Optional[str] = None
     managedCredentialsAction: Optional[ManagedCredentialsActionType] = None
@@ -139,26 +141,26 @@ class UpdateEnvironmentRequestTypeDef(BaseValidatorModel):
 # This class is the input for the 'create_environment_ec2' function.
 class CreateEnvironmentEC2RequestTypeDef(BaseValidatorModel):
     name: str
-    instanceType: str
+    instanceType: Annotated[str, _aws_pattern("Cloud9", "InstanceType")]
     imageId: str
     description: Optional[str] = None
-    clientRequestToken: Optional[str] = None
-    subnetId: Optional[str] = None
+    clientRequestToken: Optional[Annotated[str, _aws_pattern("Cloud9", "ClientRequestToken")]] = None
+    subnetId: Optional[Annotated[str, _aws_pattern("Cloud9", "SubnetId")]] = None
     automaticStopTimeMinutes: Optional[int] = None
-    ownerArn: Optional[str] = None
+    ownerArn: Optional[Annotated[str, _aws_pattern("Cloud9", "UserArn")]] = None
     tags: Optional[List[TagTypeDef]] = None
     connectionType: Optional[ConnectionTypeType] = None
     dryRun: Optional[bool] = None
 
 
 class TagResourceRequestTypeDef(BaseValidatorModel):
-    ResourceARN: str
+    ResourceARN: Annotated[str, _aws_pattern("Cloud9", "EnvironmentArn")]
     Tags: List[TagTypeDef]
 
 
 # This class is the output for the 'create_environment_ec2' function.
 class CreateEnvironmentEC2ResultTypeDef(BaseValidatorModel):
-    environmentId: str
+    environmentId: Annotated[str, _aws_pattern("Cloud9", "EnvironmentId")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
@@ -171,7 +173,7 @@ class DescribeEnvironmentStatusResultTypeDef(BaseValidatorModel):
 
 # This class is the output for the 'list_environments' function.
 class ListEnvironmentsResultTypeDef(BaseValidatorModel):
-    environmentIds: List[str]
+    environmentIds: List[Annotated[str, _aws_pattern("Cloud9", "EnvironmentId")]]
     ResponseMetadata: ResponseMetadataTypeDef
     nextToken: Optional[str] = None
 
@@ -216,7 +218,7 @@ class EnvironmentTypeDef(BaseValidatorModel):
     type: EnvironmentTypeType
     arn: str
     ownerArn: str
-    id: Optional[str] = None
+    id: Optional[Annotated[str, _aws_pattern("Cloud9", "EnvironmentId")]] = None
     name: Optional[str] = None
     description: Optional[str] = None
     connectionType: Optional[ConnectionTypeType] = None

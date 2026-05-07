@@ -3,6 +3,7 @@
 from datetime import datetime
 from decimal import Decimal
 from typing import (
+    Annotated,
     Any,
     Callable,
     Dict,
@@ -24,6 +25,7 @@ from botocore.response import StreamingBody
 from pydantic import Field
 
 from aws_resource_validator.core.base_validator_model import BaseValidatorModel, EventStream
+from aws_resource_validator.core.pattern_validation import aws_field_pattern as _aws_pattern
 from aws_resource_validator.pydantic_models.mturk.mturk_constants import *  # noqa: F401,F403
 
 # Optional boto3 symbols — imported lazily so services that don't need them
@@ -44,15 +46,15 @@ class AcceptQualificationRequestRequestTypeDef(BaseValidatorModel):
 
 
 class ApproveAssignmentRequestTypeDef(BaseValidatorModel):
-    AssignmentId: str
+    AssignmentId: Annotated[str, _aws_pattern("Mturk", "EntityId")]
     RequesterFeedback: Optional[str] = None
     OverrideRejection: Optional[bool] = None
 
 
 class AssignmentTypeDef(BaseValidatorModel):
-    AssignmentId: Optional[str] = None
-    WorkerId: Optional[str] = None
-    HITId: Optional[str] = None
+    AssignmentId: Optional[Annotated[str, _aws_pattern("Mturk", "EntityId")]] = None
+    WorkerId: Optional[Annotated[str, _aws_pattern("Mturk", "CustomerId")]] = None
+    HITId: Optional[Annotated[str, _aws_pattern("Mturk", "EntityId")]] = None
     AssignmentStatus: Optional[AssignmentStatusType] = None
     AutoApprovalTime: Optional[datetime] = None
     AcceptTime: Optional[datetime] = None
@@ -65,22 +67,22 @@ class AssignmentTypeDef(BaseValidatorModel):
 
 
 class AssociateQualificationWithWorkerRequestTypeDef(BaseValidatorModel):
-    QualificationTypeId: str
-    WorkerId: str
+    QualificationTypeId: Annotated[str, _aws_pattern("Mturk", "EntityId")]
+    WorkerId: Annotated[str, _aws_pattern("Mturk", "CustomerId")]
     IntegerValue: Optional[int] = None
     SendNotification: Optional[bool] = None
 
 
 class BonusPaymentTypeDef(BaseValidatorModel):
-    WorkerId: Optional[str] = None
-    BonusAmount: Optional[str] = None
-    AssignmentId: Optional[str] = None
+    WorkerId: Optional[Annotated[str, _aws_pattern("Mturk", "CustomerId")]] = None
+    BonusAmount: Optional[Annotated[str, _aws_pattern("Mturk", "CurrencyAmount")]] = None
+    AssignmentId: Optional[Annotated[str, _aws_pattern("Mturk", "EntityId")]] = None
     Reason: Optional[str] = None
     GrantTime: Optional[datetime] = None
 
 
 class CreateAdditionalAssignmentsForHITRequestTypeDef(BaseValidatorModel):
-    HITId: str
+    HITId: Annotated[str, _aws_pattern("Mturk", "EntityId")]
     NumberOfAdditionalAssignments: int
     UniqueRequestToken: Optional[str] = None
 
@@ -113,7 +115,7 @@ class CreateQualificationTypeRequestTypeDef(BaseValidatorModel):
 
 
 class QualificationTypeTypeDef(BaseValidatorModel):
-    QualificationTypeId: Optional[str] = None
+    QualificationTypeId: Optional[Annotated[str, _aws_pattern("Mturk", "EntityId")]] = None
     CreationTime: Optional[datetime] = None
     Name: Optional[str] = None
     Description: Optional[str] = None
@@ -129,54 +131,54 @@ class QualificationTypeTypeDef(BaseValidatorModel):
 
 
 class CreateWorkerBlockRequestTypeDef(BaseValidatorModel):
-    WorkerId: str
+    WorkerId: Annotated[str, _aws_pattern("Mturk", "CustomerId")]
     Reason: str
 
 
 class DeleteHITRequestTypeDef(BaseValidatorModel):
-    HITId: str
+    HITId: Annotated[str, _aws_pattern("Mturk", "EntityId")]
 
 
 class DeleteQualificationTypeRequestTypeDef(BaseValidatorModel):
-    QualificationTypeId: str
+    QualificationTypeId: Annotated[str, _aws_pattern("Mturk", "EntityId")]
 
 
 class DeleteWorkerBlockRequestTypeDef(BaseValidatorModel):
-    WorkerId: str
+    WorkerId: Annotated[str, _aws_pattern("Mturk", "CustomerId")]
     Reason: Optional[str] = None
 
 
 class DisassociateQualificationFromWorkerRequestTypeDef(BaseValidatorModel):
-    WorkerId: str
-    QualificationTypeId: str
+    WorkerId: Annotated[str, _aws_pattern("Mturk", "CustomerId")]
+    QualificationTypeId: Annotated[str, _aws_pattern("Mturk", "EntityId")]
     Reason: Optional[str] = None
 
 
 # This class is the input for the 'get_assignment' function.
 class GetAssignmentRequestTypeDef(BaseValidatorModel):
-    AssignmentId: str
+    AssignmentId: Annotated[str, _aws_pattern("Mturk", "EntityId")]
 
 
 # This class is the input for the 'get_file_upload_url' function.
 class GetFileUploadURLRequestTypeDef(BaseValidatorModel):
-    AssignmentId: str
+    AssignmentId: Annotated[str, _aws_pattern("Mturk", "EntityId")]
     QuestionIdentifier: str
 
 
 # This class is the input for the 'get_hit' function.
 class GetHITRequestTypeDef(BaseValidatorModel):
-    HITId: str
+    HITId: Annotated[str, _aws_pattern("Mturk", "EntityId")]
 
 
 # This class is the input for the 'get_qualification_score' function.
 class GetQualificationScoreRequestTypeDef(BaseValidatorModel):
-    QualificationTypeId: str
-    WorkerId: str
+    QualificationTypeId: Annotated[str, _aws_pattern("Mturk", "EntityId")]
+    WorkerId: Annotated[str, _aws_pattern("Mturk", "CustomerId")]
 
 
 # This class is the input for the 'get_qualification_type' function.
 class GetQualificationTypeRequestTypeDef(BaseValidatorModel):
-    QualificationTypeId: str
+    QualificationTypeId: Annotated[str, _aws_pattern("Mturk", "EntityId")]
 
 
 class PaginatorConfigTypeDef(BaseValidatorModel):
@@ -187,7 +189,7 @@ class PaginatorConfigTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'list_assignments_for_hit' function.
 class ListAssignmentsForHITRequestTypeDef(BaseValidatorModel):
-    HITId: str
+    HITId: Annotated[str, _aws_pattern("Mturk", "EntityId")]
     NextToken: Optional[str] = None
     MaxResults: Optional[int] = None
     AssignmentStatuses: Optional[List[AssignmentStatusType]] = None
@@ -195,15 +197,15 @@ class ListAssignmentsForHITRequestTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'list_bonus_payments' function.
 class ListBonusPaymentsRequestTypeDef(BaseValidatorModel):
-    HITId: Optional[str] = None
-    AssignmentId: Optional[str] = None
+    HITId: Optional[Annotated[str, _aws_pattern("Mturk", "EntityId")]] = None
+    AssignmentId: Optional[Annotated[str, _aws_pattern("Mturk", "EntityId")]] = None
     NextToken: Optional[str] = None
     MaxResults: Optional[int] = None
 
 
 # This class is the input for the 'list_hits_for_qualification_type' function.
 class ListHITsForQualificationTypeRequestTypeDef(BaseValidatorModel):
-    QualificationTypeId: str
+    QualificationTypeId: Annotated[str, _aws_pattern("Mturk", "EntityId")]
     NextToken: Optional[str] = None
     MaxResults: Optional[int] = None
 
@@ -216,15 +218,15 @@ class ListHITsRequestTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'list_qualification_requests' function.
 class ListQualificationRequestsRequestTypeDef(BaseValidatorModel):
-    QualificationTypeId: Optional[str] = None
+    QualificationTypeId: Optional[Annotated[str, _aws_pattern("Mturk", "EntityId")]] = None
     NextToken: Optional[str] = None
     MaxResults: Optional[int] = None
 
 
 class QualificationRequestTypeDef(BaseValidatorModel):
     QualificationRequestId: Optional[str] = None
-    QualificationTypeId: Optional[str] = None
-    WorkerId: Optional[str] = None
+    QualificationTypeId: Optional[Annotated[str, _aws_pattern("Mturk", "EntityId")]] = None
+    WorkerId: Optional[Annotated[str, _aws_pattern("Mturk", "CustomerId")]] = None
     Test: Optional[str] = None
     Answer: Optional[str] = None
     SubmitTime: Optional[datetime] = None
@@ -241,7 +243,7 @@ class ListQualificationTypesRequestTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'list_review_policy_results_for_hit' function.
 class ListReviewPolicyResultsForHITRequestTypeDef(BaseValidatorModel):
-    HITId: str
+    HITId: Annotated[str, _aws_pattern("Mturk", "EntityId")]
     PolicyLevels: Optional[List[ReviewPolicyLevelType]] = None
     RetrieveActions: Optional[bool] = None
     RetrieveResults: Optional[bool] = None
@@ -251,7 +253,7 @@ class ListReviewPolicyResultsForHITRequestTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'list_reviewable_hits' function.
 class ListReviewableHITsRequestTypeDef(BaseValidatorModel):
-    HITTypeId: Optional[str] = None
+    HITTypeId: Optional[Annotated[str, _aws_pattern("Mturk", "EntityId")]] = None
     Status: Optional[ReviewableHITStatusType] = None
     NextToken: Optional[str] = None
     MaxResults: Optional[int] = None
@@ -264,13 +266,13 @@ class ListWorkerBlocksRequestTypeDef(BaseValidatorModel):
 
 
 class WorkerBlockTypeDef(BaseValidatorModel):
-    WorkerId: Optional[str] = None
+    WorkerId: Optional[Annotated[str, _aws_pattern("Mturk", "CustomerId")]] = None
     Reason: Optional[str] = None
 
 
 # This class is the input for the 'list_workers_with_qualification_type' function.
 class ListWorkersWithQualificationTypeRequestTypeDef(BaseValidatorModel):
-    QualificationTypeId: str
+    QualificationTypeId: Annotated[str, _aws_pattern("Mturk", "EntityId")]
     Status: Optional[QualificationStatusType] = None
     NextToken: Optional[str] = None
     MaxResults: Optional[int] = None
@@ -291,14 +293,14 @@ class NotificationSpecificationTypeDef(BaseValidatorModel):
 class NotifyWorkersFailureStatusTypeDef(BaseValidatorModel):
     NotifyWorkersFailureCode: Optional[NotifyWorkersFailureCodeType] = None
     NotifyWorkersFailureMessage: Optional[str] = None
-    WorkerId: Optional[str] = None
+    WorkerId: Optional[Annotated[str, _aws_pattern("Mturk", "CustomerId")]] = None
 
 
 # This class is the input for the 'notify_workers' function.
 class NotifyWorkersRequestTypeDef(BaseValidatorModel):
     Subject: str
     MessageText: str
-    WorkerIds: List[str]
+    WorkerIds: List[Annotated[str, _aws_pattern("Mturk", "CustomerId")]]
 
 
 class ParameterMapEntryOutputTypeDef(BaseValidatorModel):
@@ -312,7 +314,7 @@ class ParameterMapEntryTypeDef(BaseValidatorModel):
 
 
 class RejectAssignmentRequestTypeDef(BaseValidatorModel):
-    AssignmentId: str
+    AssignmentId: Annotated[str, _aws_pattern("Mturk", "EntityId")]
     RequesterFeedback: str
 
 
@@ -322,9 +324,9 @@ class RejectQualificationRequestRequestTypeDef(BaseValidatorModel):
 
 
 class ReviewActionDetailTypeDef(BaseValidatorModel):
-    ActionId: Optional[str] = None
+    ActionId: Optional[Annotated[str, _aws_pattern("Mturk", "EntityId")]] = None
     ActionName: Optional[str] = None
-    TargetId: Optional[str] = None
+    TargetId: Optional[Annotated[str, _aws_pattern("Mturk", "EntityId")]] = None
     TargetType: Optional[str] = None
     Status: Optional[ReviewActionStatusType] = None
     CompleteTime: Optional[datetime] = None
@@ -333,18 +335,18 @@ class ReviewActionDetailTypeDef(BaseValidatorModel):
 
 
 class ReviewResultDetailTypeDef(BaseValidatorModel):
-    ActionId: Optional[str] = None
-    SubjectId: Optional[str] = None
+    ActionId: Optional[Annotated[str, _aws_pattern("Mturk", "EntityId")]] = None
+    SubjectId: Optional[Annotated[str, _aws_pattern("Mturk", "EntityId")]] = None
     SubjectType: Optional[str] = None
-    QuestionId: Optional[str] = None
+    QuestionId: Optional[Annotated[str, _aws_pattern("Mturk", "EntityId")]] = None
     Key: Optional[str] = None
     Value: Optional[str] = None
 
 
 class SendBonusRequestTypeDef(BaseValidatorModel):
-    WorkerId: str
-    BonusAmount: str
-    AssignmentId: str
+    WorkerId: Annotated[str, _aws_pattern("Mturk", "CustomerId")]
+    BonusAmount: Annotated[str, _aws_pattern("Mturk", "CurrencyAmount")]
+    AssignmentId: Annotated[str, _aws_pattern("Mturk", "EntityId")]
     Reason: str
     UniqueRequestToken: Optional[str] = None
 
@@ -353,18 +355,18 @@ TimestampTypeDef = Union[datetime, str]
 
 
 class UpdateHITReviewStatusRequestTypeDef(BaseValidatorModel):
-    HITId: str
+    HITId: Annotated[str, _aws_pattern("Mturk", "EntityId")]
     Revert: Optional[bool] = None
 
 
 class UpdateHITTypeOfHITRequestTypeDef(BaseValidatorModel):
-    HITId: str
-    HITTypeId: str
+    HITId: Annotated[str, _aws_pattern("Mturk", "EntityId")]
+    HITTypeId: Annotated[str, _aws_pattern("Mturk", "EntityId")]
 
 
 # This class is the input for the 'update_qualification_type' function.
 class UpdateQualificationTypeRequestTypeDef(BaseValidatorModel):
-    QualificationTypeId: str
+    QualificationTypeId: Annotated[str, _aws_pattern("Mturk", "EntityId")]
     Description: Optional[str] = None
     QualificationTypeStatus: Optional[QualificationTypeStatusType] = None
     Test: Optional[str] = None
@@ -377,13 +379,13 @@ class UpdateQualificationTypeRequestTypeDef(BaseValidatorModel):
 
 # This class is the output for the 'create_hit_type' function.
 class CreateHITTypeResponseTypeDef(BaseValidatorModel):
-    HITTypeId: str
+    HITTypeId: Annotated[str, _aws_pattern("Mturk", "EntityId")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 class GetAccountBalanceResponseTypeDef(BaseValidatorModel):
-    AvailableBalance: str
-    OnHoldBalance: str
+    AvailableBalance: Annotated[str, _aws_pattern("Mturk", "CurrencyAmount")]
+    OnHoldBalance: Annotated[str, _aws_pattern("Mturk", "CurrencyAmount")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
@@ -519,8 +521,8 @@ class QualificationRequirementTypeDef(BaseValidatorModel):
 
 
 class QualificationTypeDef(BaseValidatorModel):
-    QualificationTypeId: Optional[str] = None
-    WorkerId: Optional[str] = None
+    QualificationTypeId: Optional[Annotated[str, _aws_pattern("Mturk", "EntityId")]] = None
+    WorkerId: Optional[Annotated[str, _aws_pattern("Mturk", "CustomerId")]] = None
     GrantTime: Optional[datetime] = None
     IntegerValue: Optional[int] = None
     LocaleValue: Optional[LocaleTypeDef] = None
@@ -533,7 +535,7 @@ class SendTestEventNotificationRequestTypeDef(BaseValidatorModel):
 
 
 class UpdateNotificationSettingsRequestTypeDef(BaseValidatorModel):
-    HITTypeId: str
+    HITTypeId: Annotated[str, _aws_pattern("Mturk", "EntityId")]
     Notification: Optional[NotificationSpecificationTypeDef] = None
     Active: Optional[bool] = None
 
@@ -562,15 +564,15 @@ class ReviewReportTypeDef(BaseValidatorModel):
 
 
 class UpdateExpirationForHITRequestTypeDef(BaseValidatorModel):
-    HITId: str
+    HITId: Annotated[str, _aws_pattern("Mturk", "EntityId")]
     ExpireAt: TimestampTypeDef
 
 
 class HITTypeDef(BaseValidatorModel):
-    HITId: Optional[str] = None
-    HITTypeId: Optional[str] = None
-    HITGroupId: Optional[str] = None
-    HITLayoutId: Optional[str] = None
+    HITId: Optional[Annotated[str, _aws_pattern("Mturk", "EntityId")]] = None
+    HITTypeId: Optional[Annotated[str, _aws_pattern("Mturk", "EntityId")]] = None
+    HITGroupId: Optional[Annotated[str, _aws_pattern("Mturk", "EntityId")]] = None
+    HITLayoutId: Optional[Annotated[str, _aws_pattern("Mturk", "EntityId")]] = None
     CreationTime: Optional[datetime] = None
     Title: Optional[str] = None
     Description: Optional[str] = None
@@ -578,7 +580,7 @@ class HITTypeDef(BaseValidatorModel):
     Keywords: Optional[str] = None
     HITStatus: Optional[HITStatusType] = None
     MaxAssignments: Optional[int] = None
-    Reward: Optional[str] = None
+    Reward: Optional[Annotated[str, _aws_pattern("Mturk", "CurrencyAmount")]] = None
     AutoApprovalDelayInSeconds: Optional[int] = None
     Expiration: Optional[datetime] = None
     AssignmentDurationInSeconds: Optional[int] = None
@@ -669,7 +671,7 @@ class ListReviewableHITsResponseTypeDef(BaseValidatorModel):
 # This class is the input for the 'create_hit_type' function.
 class CreateHITTypeRequestTypeDef(BaseValidatorModel):
     AssignmentDurationInSeconds: int
-    Reward: str
+    Reward: Annotated[str, _aws_pattern("Mturk", "CurrencyAmount")]
     Title: str
     Description: str
     AutoApprovalDelayInSeconds: Optional[int] = None
@@ -679,7 +681,7 @@ class CreateHITTypeRequestTypeDef(BaseValidatorModel):
 
 # This class is the output for the 'list_review_policy_results_for_hit' function.
 class ListReviewPolicyResultsForHITResponseTypeDef(BaseValidatorModel):
-    HITId: str
+    HITId: Annotated[str, _aws_pattern("Mturk", "EntityId")]
     AssignmentReviewPolicy: ReviewPolicyOutputTypeDef
     HITReviewPolicy: ReviewPolicyOutputTypeDef
     AssignmentReviewReport: ReviewReportTypeDef
@@ -695,7 +697,7 @@ ReviewPolicyUnionTypeDef = Union[ReviewPolicyOutputTypeDef, ReviewPolicyTypeDef]
 class CreateHITRequestTypeDef(BaseValidatorModel):
     LifetimeInSeconds: int
     AssignmentDurationInSeconds: int
-    Reward: str
+    Reward: Annotated[str, _aws_pattern("Mturk", "CurrencyAmount")]
     Title: str
     Description: str
     MaxAssignments: Optional[int] = None
@@ -707,13 +709,13 @@ class CreateHITRequestTypeDef(BaseValidatorModel):
     UniqueRequestToken: Optional[str] = None
     AssignmentReviewPolicy: Optional[ReviewPolicyUnionTypeDef] = None
     HITReviewPolicy: Optional[ReviewPolicyUnionTypeDef] = None
-    HITLayoutId: Optional[str] = None
+    HITLayoutId: Optional[Annotated[str, _aws_pattern("Mturk", "EntityId")]] = None
     HITLayoutParameters: Optional[List[HITLayoutParameterTypeDef]] = None
 
 
 # This class is the input for the 'create_hit_with_hit_type' function.
 class CreateHITWithHITTypeRequestTypeDef(BaseValidatorModel):
-    HITTypeId: str
+    HITTypeId: Annotated[str, _aws_pattern("Mturk", "EntityId")]
     LifetimeInSeconds: int
     MaxAssignments: Optional[int] = None
     Question: Optional[str] = None
@@ -721,5 +723,5 @@ class CreateHITWithHITTypeRequestTypeDef(BaseValidatorModel):
     UniqueRequestToken: Optional[str] = None
     AssignmentReviewPolicy: Optional[ReviewPolicyUnionTypeDef] = None
     HITReviewPolicy: Optional[ReviewPolicyUnionTypeDef] = None
-    HITLayoutId: Optional[str] = None
+    HITLayoutId: Optional[Annotated[str, _aws_pattern("Mturk", "EntityId")]] = None
     HITLayoutParameters: Optional[List[HITLayoutParameterTypeDef]] = None

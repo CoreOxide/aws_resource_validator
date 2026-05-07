@@ -3,6 +3,7 @@
 from datetime import datetime
 from decimal import Decimal
 from typing import (
+    Annotated,
     Any,
     Callable,
     Dict,
@@ -24,6 +25,7 @@ from botocore.response import StreamingBody
 from pydantic import Field
 
 from aws_resource_validator.core.base_validator_model import BaseValidatorModel, EventStream
+from aws_resource_validator.core.pattern_validation import aws_field_pattern as _aws_pattern
 from aws_resource_validator.pydantic_models.globalaccelerator.globalaccelerator_constants import *  # noqa: F401,F403
 
 # Optional boto3 symbols — imported lazily so services that don't need them
@@ -286,7 +288,7 @@ class ListCrossAccountAttachmentsRequestTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'list_cross_account_resources' function.
 class ListCrossAccountResourcesRequestTypeDef(BaseValidatorModel):
-    ResourceOwnerAwsAccountId: str
+    ResourceOwnerAwsAccountId: Annotated[str, _aws_pattern("Globalaccelerator", "AwsAccountId")]
     AcceleratorArn: Optional[str] = None
     MaxResults: Optional[int] = None
     NextToken: Optional[str] = None
@@ -448,7 +450,7 @@ class EmptyResponseMetadataTypeDef(BaseValidatorModel):
 
 
 class ListCrossAccountResourceAccountsResponseTypeDef(BaseValidatorModel):
-    ResourceOwnerAwsAccountIds: List[str]
+    ResourceOwnerAwsAccountIds: List[Annotated[str, _aws_pattern("Globalaccelerator", "AwsAccountId")]]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
@@ -473,8 +475,8 @@ class AddEndpointsResponseTypeDef(BaseValidatorModel):
 
 class AttachmentTypeDef(BaseValidatorModel):
     AttachmentArn: Optional[str] = None
-    Name: Optional[str] = None
-    Principals: Optional[List[str]] = None
+    Name: Optional[Annotated[str, _aws_pattern("Globalaccelerator", "AttachmentName")]] = None
+    Principals: Optional[List[Annotated[str, _aws_pattern("Globalaccelerator", "Principal")]]] = None
     Resources: Optional[List[ResourceTypeDef]] = None
     LastModifiedTime: Optional[datetime] = None
     CreatedTime: Optional[datetime] = None
@@ -483,9 +485,9 @@ class AttachmentTypeDef(BaseValidatorModel):
 # This class is the input for the 'update_cross_account_attachment' function.
 class UpdateCrossAccountAttachmentRequestTypeDef(BaseValidatorModel):
     AttachmentArn: str
-    Name: Optional[str] = None
-    AddPrincipals: Optional[List[str]] = None
-    RemovePrincipals: Optional[List[str]] = None
+    Name: Optional[Annotated[str, _aws_pattern("Globalaccelerator", "AttachmentName")]] = None
+    AddPrincipals: Optional[List[Annotated[str, _aws_pattern("Globalaccelerator", "Principal")]]] = None
+    RemovePrincipals: Optional[List[Annotated[str, _aws_pattern("Globalaccelerator", "Principal")]]] = None
     AddResources: Optional[List[ResourceTypeDef]] = None
     RemoveResources: Optional[List[ResourceTypeDef]] = None
 
@@ -514,9 +516,9 @@ class CreateAcceleratorRequestTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'create_cross_account_attachment' function.
 class CreateCrossAccountAttachmentRequestTypeDef(BaseValidatorModel):
-    Name: str
+    Name: Annotated[str, _aws_pattern("Globalaccelerator", "AttachmentName")]
     IdempotencyToken: str
-    Principals: Optional[List[str]] = None
+    Principals: Optional[List[Annotated[str, _aws_pattern("Globalaccelerator", "Principal")]]] = None
     Resources: Optional[List[ResourceTypeDef]] = None
     Tags: Optional[List[TagTypeDef]] = None
 
@@ -601,7 +603,7 @@ class CreateEndpointGroupRequestTypeDef(BaseValidatorModel):
     TrafficDialPercentage: Optional[float] = None
     HealthCheckPort: Optional[int] = None
     HealthCheckProtocol: Optional[HealthCheckProtocolType] = None
-    HealthCheckPath: Optional[str] = None
+    HealthCheckPath: Optional[Annotated[str, _aws_pattern("Globalaccelerator", "HealthCheckPath")]] = None
     HealthCheckIntervalSeconds: Optional[int] = None
     ThresholdCount: Optional[int] = None
     PortOverrides: Optional[List[PortOverrideTypeDef]] = None
@@ -614,7 +616,7 @@ class EndpointGroupTypeDef(BaseValidatorModel):
     TrafficDialPercentage: Optional[float] = None
     HealthCheckPort: Optional[int] = None
     HealthCheckProtocol: Optional[HealthCheckProtocolType] = None
-    HealthCheckPath: Optional[str] = None
+    HealthCheckPath: Optional[Annotated[str, _aws_pattern("Globalaccelerator", "HealthCheckPath")]] = None
     HealthCheckIntervalSeconds: Optional[int] = None
     ThresholdCount: Optional[int] = None
     PortOverrides: Optional[List[PortOverrideTypeDef]] = None
@@ -627,7 +629,7 @@ class UpdateEndpointGroupRequestTypeDef(BaseValidatorModel):
     TrafficDialPercentage: Optional[float] = None
     HealthCheckPort: Optional[int] = None
     HealthCheckProtocol: Optional[HealthCheckProtocolType] = None
-    HealthCheckPath: Optional[str] = None
+    HealthCheckPath: Optional[Annotated[str, _aws_pattern("Globalaccelerator", "HealthCheckPath")]] = None
     HealthCheckIntervalSeconds: Optional[int] = None
     ThresholdCount: Optional[int] = None
     PortOverrides: Optional[List[PortOverrideTypeDef]] = None

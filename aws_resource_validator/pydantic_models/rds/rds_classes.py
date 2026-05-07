@@ -3,6 +3,7 @@
 from datetime import datetime
 from decimal import Decimal
 from typing import (
+    Annotated,
     Any,
     Callable,
     Dict,
@@ -24,6 +25,7 @@ from botocore.response import StreamingBody
 from pydantic import Field
 
 from aws_resource_validator.core.base_validator_model import BaseValidatorModel, EventStream
+from aws_resource_validator.core.pattern_validation import aws_field_pattern as _aws_pattern
 from aws_resource_validator.pydantic_models.rds.rds_constants import *  # noqa: F401,F403
 
 # Optional boto3 symbols — imported lazily so services that don't need them
@@ -159,8 +161,8 @@ class BlueGreenDeploymentTaskTypeDef(BaseValidatorModel):
 
 
 class SwitchoverDetailTypeDef(BaseValidatorModel):
-    SourceMember: Optional[str] = None
-    TargetMember: Optional[str] = None
+    SourceMember: Optional[Annotated[str, _aws_pattern("Rds", "DatabaseArn")]] = None
+    TargetMember: Optional[Annotated[str, _aws_pattern("Rds", "DatabaseArn")]] = None
     Status: Optional[str] = None
 
 
@@ -284,7 +286,7 @@ class DBProxyEndpointTypeDef(BaseValidatorModel):
 
 
 class UserAuthConfigTypeDef(BaseValidatorModel):
-    Description: Optional[str] = None
+    Description: Optional[Annotated[str, _aws_pattern("Rds", "Description")]] = None
     UserName: Optional[str] = None
     AuthScheme: Optional[Literal["SECRETS"]] = None
     SecretArn: Optional[str] = None
@@ -516,14 +518,14 @@ class DBSnapshotAttributeTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'delete_blue_green_deployment' function.
 class DeleteBlueGreenDeploymentRequestTypeDef(BaseValidatorModel):
-    BlueGreenDeploymentIdentifier: str
+    BlueGreenDeploymentIdentifier: Annotated[str, _aws_pattern("Rds", "BlueGreenDeploymentIdentifier")]
     DeleteTarget: Optional[bool] = None
 
 
 # This class is the input for the 'delete_custom_db_engine_version' function.
 class DeleteCustomDBEngineVersionMessageTypeDef(BaseValidatorModel):
-    Engine: str
-    EngineVersion: str
+    Engine: Annotated[str, _aws_pattern("Rds", "CustomEngineName")]
+    EngineVersion: Annotated[str, _aws_pattern("Rds", "CustomEngineVersion")]
 
 
 # This class is the input for the 'delete_db_cluster_automated_backup' function.
@@ -575,12 +577,12 @@ class DeleteDBParameterGroupMessageTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'delete_db_proxy_endpoint' function.
 class DeleteDBProxyEndpointRequestTypeDef(BaseValidatorModel):
-    DBProxyEndpointName: str
+    DBProxyEndpointName: Annotated[str, _aws_pattern("Rds", "DBProxyEndpointName")]
 
 
 # This class is the input for the 'delete_db_proxy' function.
 class DeleteDBProxyRequestTypeDef(BaseValidatorModel):
-    DBProxyName: str
+    DBProxyName: Annotated[str, _aws_pattern("Rds", "DBProxyName")]
 
 
 # This class is the input for the 'delete_db_security_group' function.
@@ -590,7 +592,7 @@ class DeleteDBSecurityGroupMessageTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'delete_db_shard_group' function.
 class DeleteDBShardGroupMessageTypeDef(BaseValidatorModel):
-    DBShardGroupIdentifier: str
+    DBShardGroupIdentifier: Annotated[str, _aws_pattern("Rds", "DBShardGroupIdentifier")]
 
 
 # This class is the input for the 'delete_db_snapshot' function.
@@ -610,12 +612,12 @@ class DeleteEventSubscriptionMessageTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'delete_global_cluster' function.
 class DeleteGlobalClusterMessageTypeDef(BaseValidatorModel):
-    GlobalClusterIdentifier: str
+    GlobalClusterIdentifier: Annotated[str, _aws_pattern("Rds", "GlobalClusterIdentifier")]
 
 
 # This class is the input for the 'delete_integration' function.
 class DeleteIntegrationMessageTypeDef(BaseValidatorModel):
-    IntegrationIdentifier: str
+    IntegrationIdentifier: Annotated[str, _aws_pattern("Rds", "IntegrationIdentifier")]
 
 
 # This class is the input for the 'delete_option_group' function.
@@ -632,8 +634,8 @@ class DeleteTenantDatabaseMessageTypeDef(BaseValidatorModel):
 
 
 class DeregisterDBProxyTargetsRequestTypeDef(BaseValidatorModel):
-    DBProxyName: str
-    TargetGroupName: Optional[str] = None
+    DBProxyName: Annotated[str, _aws_pattern("Rds", "DBProxyName")]
+    TargetGroupName: Optional[Annotated[str, _aws_pattern("Rds", "DBProxyTargetGroupName")]] = None
     DBInstanceIdentifiers: Optional[List[str]] = None
     DBClusterIdentifiers: Optional[List[str]] = None
 
@@ -747,8 +749,8 @@ class FailoverDBClusterMessageTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'failover_global_cluster' function.
 class FailoverGlobalClusterMessageTypeDef(BaseValidatorModel):
-    GlobalClusterIdentifier: str
-    TargetDbClusterIdentifier: str
+    GlobalClusterIdentifier: Annotated[str, _aws_pattern("Rds", "GlobalClusterIdentifier")]
+    TargetDbClusterIdentifier: Annotated[str, _aws_pattern("Rds", "DBClusterIdentifier")]
     AllowDataLoss: Optional[bool] = None
     Switchover: Optional[bool] = None
 
@@ -810,9 +812,9 @@ class ModifyCurrentDBClusterCapacityMessageTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'modify_custom_db_engine_version' function.
 class ModifyCustomDBEngineVersionMessageTypeDef(BaseValidatorModel):
-    Engine: str
-    EngineVersion: str
-    Description: Optional[str] = None
+    Engine: Annotated[str, _aws_pattern("Rds", "CustomEngineName")]
+    EngineVersion: Annotated[str, _aws_pattern("Rds", "CustomEngineVersion")]
+    Description: Optional[Annotated[str, _aws_pattern("Rds", "Description")]] = None
     Status: Optional[CustomEngineVersionStatusType] = None
 
 
@@ -834,8 +836,8 @@ class ModifyDBClusterSnapshotAttributeMessageTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'modify_db_proxy_endpoint' function.
 class ModifyDBProxyEndpointRequestTypeDef(BaseValidatorModel):
-    DBProxyEndpointName: str
-    NewDBProxyEndpointName: Optional[str] = None
+    DBProxyEndpointName: Annotated[str, _aws_pattern("Rds", "DBProxyEndpointName")]
+    NewDBProxyEndpointName: Optional[Annotated[str, _aws_pattern("Rds", "DBProxyEndpointName")]] = None
     VpcSecurityGroupIds: Optional[List[str]] = None
 
 
@@ -846,7 +848,7 @@ class RecommendedActionUpdateTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'modify_db_shard_group' function.
 class ModifyDBShardGroupMessageTypeDef(BaseValidatorModel):
-    DBShardGroupIdentifier: str
+    DBShardGroupIdentifier: Annotated[str, _aws_pattern("Rds", "DBShardGroupIdentifier")]
     MaxACU: Optional[float] = None
     MinACU: Optional[float] = None
     ComputeRedundancy: Optional[int] = None
@@ -885,8 +887,8 @@ class ModifyEventSubscriptionMessageTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'modify_global_cluster' function.
 class ModifyGlobalClusterMessageTypeDef(BaseValidatorModel):
-    GlobalClusterIdentifier: str
-    NewGlobalClusterIdentifier: Optional[str] = None
+    GlobalClusterIdentifier: Annotated[str, _aws_pattern("Rds", "GlobalClusterIdentifier")]
+    NewGlobalClusterIdentifier: Optional[Annotated[str, _aws_pattern("Rds", "GlobalClusterIdentifier")]] = None
     DeletionProtection: Optional[bool] = None
     EngineVersion: Optional[str] = None
     AllowMajorVersionUpgrade: Optional[bool] = None
@@ -894,10 +896,10 @@ class ModifyGlobalClusterMessageTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'modify_integration' function.
 class ModifyIntegrationMessageTypeDef(BaseValidatorModel):
-    IntegrationIdentifier: str
-    IntegrationName: Optional[str] = None
-    DataFilter: Optional[str] = None
-    Description: Optional[str] = None
+    IntegrationIdentifier: Annotated[str, _aws_pattern("Rds", "IntegrationIdentifier")]
+    IntegrationName: Optional[Annotated[str, _aws_pattern("Rds", "IntegrationName")]] = None
+    DataFilter: Optional[Annotated[str, _aws_pattern("Rds", "DataFilter")]] = None
+    Description: Optional[Annotated[str, _aws_pattern("Rds", "IntegrationDescription")]] = None
 
 
 # This class is the input for the 'modify_tenant_database' function.
@@ -985,7 +987,7 @@ class RebootDBInstanceMessageTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'reboot_db_shard_group' function.
 class RebootDBShardGroupMessageTypeDef(BaseValidatorModel):
-    DBShardGroupIdentifier: str
+    DBShardGroupIdentifier: Annotated[str, _aws_pattern("Rds", "DBShardGroupIdentifier")]
 
 
 class RecommendedActionParameterTypeDef(BaseValidatorModel):
@@ -1004,15 +1006,15 @@ class ScalarReferenceDetailsTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'register_db_proxy_targets' function.
 class RegisterDBProxyTargetsRequestTypeDef(BaseValidatorModel):
-    DBProxyName: str
-    TargetGroupName: Optional[str] = None
+    DBProxyName: Annotated[str, _aws_pattern("Rds", "DBProxyName")]
+    TargetGroupName: Optional[Annotated[str, _aws_pattern("Rds", "DBProxyTargetGroupName")]] = None
     DBInstanceIdentifiers: Optional[List[str]] = None
     DBClusterIdentifiers: Optional[List[str]] = None
 
 
 # This class is the input for the 'remove_from_global_cluster' function.
 class RemoveFromGlobalClusterMessageTypeDef(BaseValidatorModel):
-    GlobalClusterIdentifier: str
+    GlobalClusterIdentifier: Annotated[str, _aws_pattern("Rds", "GlobalClusterIdentifier")]
     DbClusterIdentifier: str
 
 
@@ -1112,14 +1114,14 @@ class StopDBInstanceMessageTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'switchover_blue_green_deployment' function.
 class SwitchoverBlueGreenDeploymentRequestTypeDef(BaseValidatorModel):
-    BlueGreenDeploymentIdentifier: str
+    BlueGreenDeploymentIdentifier: Annotated[str, _aws_pattern("Rds", "BlueGreenDeploymentIdentifier")]
     SwitchoverTimeout: Optional[int] = None
 
 
 # This class is the input for the 'switchover_global_cluster' function.
 class SwitchoverGlobalClusterMessageTypeDef(BaseValidatorModel):
-    GlobalClusterIdentifier: str
-    TargetDbClusterIdentifier: str
+    GlobalClusterIdentifier: Annotated[str, _aws_pattern("Rds", "GlobalClusterIdentifier")]
+    TargetDbClusterIdentifier: Annotated[str, _aws_pattern("Rds", "DBClusterIdentifier")]
 
 
 # This class is the input for the 'switchover_read_replica' function.
@@ -1359,13 +1361,15 @@ class CopyOptionGroupMessageTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'create_blue_green_deployment' function.
 class CreateBlueGreenDeploymentRequestTypeDef(BaseValidatorModel):
-    BlueGreenDeploymentName: str
-    Source: str
-    TargetEngineVersion: Optional[str] = None
-    TargetDBParameterGroupName: Optional[str] = None
-    TargetDBClusterParameterGroupName: Optional[str] = None
+    BlueGreenDeploymentName: Annotated[str, _aws_pattern("Rds", "BlueGreenDeploymentName")]
+    Source: Annotated[str, _aws_pattern("Rds", "DatabaseArn")]
+    TargetEngineVersion: Optional[Annotated[str, _aws_pattern("Rds", "TargetEngineVersion")]] = None
+    TargetDBParameterGroupName: Optional[Annotated[str, _aws_pattern("Rds", "TargetDBParameterGroupName")]] = None
+    TargetDBClusterParameterGroupName: Optional[
+        Annotated[str, _aws_pattern("Rds", "TargetDBClusterParameterGroupName")]
+    ] = None
     Tags: Optional[List[TagTypeDef]] = None
-    TargetDBInstanceClass: Optional[str] = None
+    TargetDBInstanceClass: Optional[Annotated[str, _aws_pattern("Rds", "TargetDBInstanceClass")]] = None
     UpgradeTargetStorageConfig: Optional[bool] = None
     TargetIops: Optional[int] = None
     TargetStorageType: Optional[str] = None
@@ -1375,17 +1379,17 @@ class CreateBlueGreenDeploymentRequestTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'create_custom_db_engine_version' function.
 class CreateCustomDBEngineVersionMessageTypeDef(BaseValidatorModel):
-    Engine: str
-    EngineVersion: str
-    DatabaseInstallationFilesS3BucketName: Optional[str] = None
-    DatabaseInstallationFilesS3Prefix: Optional[str] = None
+    Engine: Annotated[str, _aws_pattern("Rds", "CustomEngineName")]
+    EngineVersion: Annotated[str, _aws_pattern("Rds", "CustomEngineVersion")]
+    DatabaseInstallationFilesS3BucketName: Optional[Annotated[str, _aws_pattern("Rds", "BucketName")]] = None
+    DatabaseInstallationFilesS3Prefix: Optional[Annotated[str, _aws_pattern("Rds", "String255")]] = None
     DatabaseInstallationFiles: Optional[List[str]] = None
-    ImageId: Optional[str] = None
-    KMSKeyId: Optional[str] = None
-    SourceCustomDbEngineVersionIdentifier: Optional[str] = None
+    ImageId: Optional[Annotated[str, _aws_pattern("Rds", "String255")]] = None
+    KMSKeyId: Optional[Annotated[str, _aws_pattern("Rds", "KmsKeyIdOrArn")]] = None
+    SourceCustomDbEngineVersionIdentifier: Optional[Annotated[str, _aws_pattern("Rds", "String255")]] = None
     UseAwsProvidedLatestImage: Optional[bool] = None
-    Description: Optional[str] = None
-    Manifest: Optional[str] = None
+    Description: Optional[Annotated[str, _aws_pattern("Rds", "Description")]] = None
+    Manifest: Optional[Annotated[str, _aws_pattern("Rds", "CustomDBEngineVersionManifest")]] = None
     Tags: Optional[List[TagTypeDef]] = None
 
 
@@ -1424,8 +1428,8 @@ class CreateDBParameterGroupMessageTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'create_db_proxy_endpoint' function.
 class CreateDBProxyEndpointRequestTypeDef(BaseValidatorModel):
-    DBProxyName: str
-    DBProxyEndpointName: str
+    DBProxyName: Annotated[str, _aws_pattern("Rds", "DBProxyName")]
+    DBProxyEndpointName: Annotated[str, _aws_pattern("Rds", "DBProxyEndpointName")]
     VpcSubnetIds: List[str]
     VpcSecurityGroupIds: Optional[List[str]] = None
     TargetRole: Optional[DBProxyEndpointTargetRoleType] = None
@@ -1479,7 +1483,7 @@ class CreateEventSubscriptionMessageTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'create_global_cluster' function.
 class CreateGlobalClusterMessageTypeDef(BaseValidatorModel):
-    GlobalClusterIdentifier: str
+    GlobalClusterIdentifier: Annotated[str, _aws_pattern("Rds", "GlobalClusterIdentifier")]
     SourceDBClusterIdentifier: Optional[str] = None
     Engine: Optional[str] = None
     EngineVersion: Optional[str] = None
@@ -1492,14 +1496,14 @@ class CreateGlobalClusterMessageTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'create_integration' function.
 class CreateIntegrationMessageTypeDef(BaseValidatorModel):
-    SourceArn: str
+    SourceArn: Annotated[str, _aws_pattern("Rds", "SourceArn")]
     TargetArn: str
-    IntegrationName: str
+    IntegrationName: Annotated[str, _aws_pattern("Rds", "IntegrationName")]
     KMSKeyId: Optional[str] = None
     AdditionalEncryptionContext: Optional[Dict[str, str]] = None
     Tags: Optional[List[TagTypeDef]] = None
-    DataFilter: Optional[str] = None
-    Description: Optional[str] = None
+    DataFilter: Optional[Annotated[str, _aws_pattern("Rds", "DataFilter")]] = None
+    Description: Optional[Annotated[str, _aws_pattern("Rds", "IntegrationDescription")]] = None
 
 
 # This class is the input for the 'create_option_group' function.
@@ -1574,7 +1578,7 @@ class DBShardGroupResponseTypeDef(BaseValidatorModel):
 
 class DBShardGroupTypeDef(BaseValidatorModel):
     DBShardGroupResourceId: Optional[str] = None
-    DBShardGroupIdentifier: Optional[str] = None
+    DBShardGroupIdentifier: Optional[Annotated[str, _aws_pattern("Rds", "DBShardGroupIdentifier")]] = None
     DBClusterIdentifier: Optional[str] = None
     MaxACU: Optional[float] = None
     MinACU: Optional[float] = None
@@ -1682,10 +1686,10 @@ class BacktrackDBClusterMessageTypeDef(BaseValidatorModel):
 
 
 class BlueGreenDeploymentTypeDef(BaseValidatorModel):
-    BlueGreenDeploymentIdentifier: Optional[str] = None
-    BlueGreenDeploymentName: Optional[str] = None
-    Source: Optional[str] = None
-    Target: Optional[str] = None
+    BlueGreenDeploymentIdentifier: Optional[Annotated[str, _aws_pattern("Rds", "BlueGreenDeploymentIdentifier")]] = None
+    BlueGreenDeploymentName: Optional[Annotated[str, _aws_pattern("Rds", "BlueGreenDeploymentName")]] = None
+    Source: Optional[Annotated[str, _aws_pattern("Rds", "DatabaseArn")]] = None
+    Target: Optional[Annotated[str, _aws_pattern("Rds", "DatabaseArn")]] = None
     SwitchoverDetails: Optional[List[SwitchoverDetailTypeDef]] = None
     Tasks: Optional[List[BlueGreenDeploymentTaskTypeDef]] = None
     Status: Optional[str] = None
@@ -1736,8 +1740,8 @@ class DBProxyTargetGroupTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'modify_db_proxy_target_group' function.
 class ModifyDBProxyTargetGroupRequestTypeDef(BaseValidatorModel):
-    TargetGroupName: str
-    DBProxyName: str
+    TargetGroupName: Annotated[str, _aws_pattern("Rds", "DBProxyTargetGroupName")]
+    DBProxyName: Annotated[str, _aws_pattern("Rds", "DBProxyName")]
     ConnectionPoolConfig: Optional[ConnectionPoolConfigurationTypeDef] = None
     NewName: Optional[str] = None
 
@@ -1825,7 +1829,7 @@ class ModifyDBClusterMessageTypeDef(BaseValidatorModel):
     MasterUserSecretKmsKeyId: Optional[str] = None
     EngineMode: Optional[str] = None
     AllowEngineModeChange: Optional[bool] = None
-    AwsBackupRecoveryPointArn: Optional[str] = None
+    AwsBackupRecoveryPointArn: Optional[Annotated[str, _aws_pattern("Rds", "AwsBackupRecoveryPointArn")]] = None
     EnableLimitlessDatabase: Optional[bool] = None
     CACertificateIdentifier: Optional[str] = None
     MasterUserAuthenticationType: Optional[MasterUserAuthenticationTypeType] = None
@@ -1928,7 +1932,7 @@ class ModifyDBProxyEndpointResponseTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'create_db_proxy' function.
 class CreateDBProxyRequestTypeDef(BaseValidatorModel):
-    DBProxyName: str
+    DBProxyName: Annotated[str, _aws_pattern("Rds", "DBProxyName")]
     EngineFamily: EngineFamilyType
     RoleArn: str
     VpcSubnetIds: List[str]
@@ -1945,8 +1949,8 @@ class CreateDBProxyRequestTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'modify_db_proxy' function.
 class ModifyDBProxyRequestTypeDef(BaseValidatorModel):
-    DBProxyName: str
-    NewDBProxyName: Optional[str] = None
+    DBProxyName: Annotated[str, _aws_pattern("Rds", "DBProxyName")]
+    NewDBProxyName: Optional[Annotated[str, _aws_pattern("Rds", "DBProxyName")]] = None
     DefaultAuthScheme: Optional[DefaultAuthSchemeType] = None
     Auth: Optional[List[UserAuthConfigTypeDef]] = None
     RequireTLS: Optional[bool] = None
@@ -2084,7 +2088,7 @@ class DBEngineVersionTypeDef(BaseValidatorModel):
     DatabaseInstallationFilesS3BucketName: Optional[str] = None
     DatabaseInstallationFilesS3Prefix: Optional[str] = None
     DatabaseInstallationFiles: Optional[List[str]] = None
-    CustomDBEngineVersionManifest: Optional[str] = None
+    CustomDBEngineVersionManifest: Optional[Annotated[str, _aws_pattern("Rds", "CustomDBEngineVersionManifest")]] = None
     DBParameterGroupFamily: Optional[str] = None
     DBEngineDescription: Optional[str] = None
     DBEngineVersionArn: Optional[str] = None
@@ -2210,7 +2214,7 @@ class DBSnapshotAttributesResultTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'describe_blue_green_deployments' function.
 class DescribeBlueGreenDeploymentsRequestTypeDef(BaseValidatorModel):
-    BlueGreenDeploymentIdentifier: Optional[str] = None
+    BlueGreenDeploymentIdentifier: Optional[Annotated[str, _aws_pattern("Rds", "BlueGreenDeploymentIdentifier")]] = None
     Filters: Optional[List[FilterTypeDef]] = None
     Marker: Optional[str] = None
     MaxRecords: Optional[int] = None
@@ -2352,7 +2356,7 @@ class DescribeDBParametersMessageTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'describe_db_proxies' function.
 class DescribeDBProxiesRequestTypeDef(BaseValidatorModel):
-    DBProxyName: Optional[str] = None
+    DBProxyName: Optional[Annotated[str, _aws_pattern("Rds", "DBProxyName")]] = None
     Filters: Optional[List[FilterTypeDef]] = None
     Marker: Optional[str] = None
     MaxRecords: Optional[int] = None
@@ -2360,8 +2364,8 @@ class DescribeDBProxiesRequestTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'describe_db_proxy_endpoints' function.
 class DescribeDBProxyEndpointsRequestTypeDef(BaseValidatorModel):
-    DBProxyName: Optional[str] = None
-    DBProxyEndpointName: Optional[str] = None
+    DBProxyName: Optional[Annotated[str, _aws_pattern("Rds", "DBProxyName")]] = None
+    DBProxyEndpointName: Optional[Annotated[str, _aws_pattern("Rds", "DBProxyEndpointName")]] = None
     Filters: Optional[List[FilterTypeDef]] = None
     Marker: Optional[str] = None
     MaxRecords: Optional[int] = None
@@ -2369,8 +2373,8 @@ class DescribeDBProxyEndpointsRequestTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'describe_db_proxy_target_groups' function.
 class DescribeDBProxyTargetGroupsRequestTypeDef(BaseValidatorModel):
-    DBProxyName: str
-    TargetGroupName: Optional[str] = None
+    DBProxyName: Annotated[str, _aws_pattern("Rds", "DBProxyName")]
+    TargetGroupName: Optional[Annotated[str, _aws_pattern("Rds", "DBProxyTargetGroupName")]] = None
     Filters: Optional[List[FilterTypeDef]] = None
     Marker: Optional[str] = None
     MaxRecords: Optional[int] = None
@@ -2378,8 +2382,8 @@ class DescribeDBProxyTargetGroupsRequestTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'describe_db_proxy_targets' function.
 class DescribeDBProxyTargetsRequestTypeDef(BaseValidatorModel):
-    DBProxyName: str
-    TargetGroupName: Optional[str] = None
+    DBProxyName: Annotated[str, _aws_pattern("Rds", "DBProxyName")]
+    TargetGroupName: Optional[Annotated[str, _aws_pattern("Rds", "DBProxyTargetGroupName")]] = None
     Filters: Optional[List[FilterTypeDef]] = None
     Marker: Optional[str] = None
     MaxRecords: Optional[int] = None
@@ -2405,7 +2409,7 @@ class DescribeDBSecurityGroupsMessageTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'describe_db_shard_groups' function.
 class DescribeDBShardGroupsMessageTypeDef(BaseValidatorModel):
-    DBShardGroupIdentifier: Optional[str] = None
+    DBShardGroupIdentifier: Optional[Annotated[str, _aws_pattern("Rds", "DBShardGroupIdentifier")]] = None
     Filters: Optional[List[FilterTypeDef]] = None
     Marker: Optional[str] = None
     MaxRecords: Optional[int] = None
@@ -2498,7 +2502,7 @@ class DescribeExportTasksMessageTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'describe_global_clusters' function.
 class DescribeGlobalClustersMessageTypeDef(BaseValidatorModel):
-    GlobalClusterIdentifier: Optional[str] = None
+    GlobalClusterIdentifier: Optional[Annotated[str, _aws_pattern("Rds", "GlobalClusterIdentifier")]] = None
     Filters: Optional[List[FilterTypeDef]] = None
     MaxRecords: Optional[int] = None
     Marker: Optional[str] = None
@@ -2506,7 +2510,7 @@ class DescribeGlobalClustersMessageTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'describe_integrations' function.
 class DescribeIntegrationsMessageTypeDef(BaseValidatorModel):
-    IntegrationIdentifier: Optional[str] = None
+    IntegrationIdentifier: Optional[Annotated[str, _aws_pattern("Rds", "IntegrationIdentifier")]] = None
     Filters: Optional[List[FilterTypeDef]] = None
     MaxRecords: Optional[int] = None
     Marker: Optional[str] = None
@@ -3077,7 +3081,7 @@ class ExportTasksMessageTypeDef(BaseValidatorModel):
 
 
 class GlobalClusterTypeDef(BaseValidatorModel):
-    GlobalClusterIdentifier: Optional[str] = None
+    GlobalClusterIdentifier: Optional[Annotated[str, _aws_pattern("Rds", "GlobalClusterIdentifier")]] = None
     GlobalClusterResourceId: Optional[str] = None
     GlobalClusterArn: Optional[str] = None
     Status: Optional[str] = None
@@ -3112,16 +3116,16 @@ class IntegrationResponseTypeDef(BaseValidatorModel):
 
 
 class IntegrationTypeDef(BaseValidatorModel):
-    SourceArn: Optional[str] = None
+    SourceArn: Optional[Annotated[str, _aws_pattern("Rds", "SourceArn")]] = None
     TargetArn: Optional[str] = None
-    IntegrationName: Optional[str] = None
-    IntegrationArn: Optional[str] = None
+    IntegrationName: Optional[Annotated[str, _aws_pattern("Rds", "IntegrationName")]] = None
+    IntegrationArn: Optional[Annotated[str, _aws_pattern("Rds", "IntegrationArn")]] = None
     KMSKeyId: Optional[str] = None
     AdditionalEncryptionContext: Optional[Dict[str, str]] = None
     Status: Optional[IntegrationStatusType] = None
     Tags: Optional[List[TagTypeDef]] = None
-    DataFilter: Optional[str] = None
-    Description: Optional[str] = None
+    DataFilter: Optional[Annotated[str, _aws_pattern("Rds", "DataFilter")]] = None
+    Description: Optional[Annotated[str, _aws_pattern("Rds", "IntegrationDescription")]] = None
     CreateTime: Optional[datetime] = None
     Errors: Optional[List[IntegrationErrorTypeDef]] = None
 
@@ -3331,7 +3335,7 @@ class CreateDBClusterMessageTypeDef(BaseValidatorModel):
     PubliclyAccessible: Optional[bool] = None
     AutoMinorVersionUpgrade: Optional[bool] = None
     DeletionProtection: Optional[bool] = None
-    GlobalClusterIdentifier: Optional[str] = None
+    GlobalClusterIdentifier: Optional[Annotated[str, _aws_pattern("Rds", "GlobalClusterIdentifier")]] = None
     EnableHttpEndpoint: Optional[bool] = None
     CopyTagsToSnapshot: Optional[bool] = None
     Domain: Optional[str] = None
@@ -3540,7 +3544,7 @@ class ModifyDBInstanceMessageTypeDef(BaseValidatorModel):
     ResumeFullAutomationModeMinutes: Optional[int] = None
     EnableCustomerOwnedIp: Optional[bool] = None
     NetworkType: Optional[str] = None
-    AwsBackupRecoveryPointArn: Optional[str] = None
+    AwsBackupRecoveryPointArn: Optional[Annotated[str, _aws_pattern("Rds", "AwsBackupRecoveryPointArn")]] = None
     ManageMasterUserPassword: Optional[bool] = None
     RotateMasterUserPassword: Optional[bool] = None
     MasterUserSecretKmsKeyId: Optional[str] = None
@@ -3954,7 +3958,7 @@ class DBClusterTypeDef(BaseValidatorModel):
     CrossAccountClone: Optional[bool] = None
     DomainMemberships: Optional[List[DomainMembershipTypeDef]] = None
     TagList: Optional[List[TagTypeDef]] = None
-    GlobalClusterIdentifier: Optional[str] = None
+    GlobalClusterIdentifier: Optional[Annotated[str, _aws_pattern("Rds", "GlobalClusterIdentifier")]] = None
     GlobalWriteForwardingStatus: Optional[WriteForwardingStatusType] = None
     GlobalWriteForwardingRequested: Optional[bool] = None
     NetworkType: Optional[str] = None

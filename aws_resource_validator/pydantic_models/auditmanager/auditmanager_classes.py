@@ -3,6 +3,7 @@
 from datetime import datetime
 from decimal import Decimal
 from typing import (
+    Annotated,
     Any,
     Callable,
     Dict,
@@ -24,6 +25,7 @@ from botocore.response import StreamingBody
 from pydantic import Field
 
 from aws_resource_validator.core.base_validator_model import BaseValidatorModel, EventStream
+from aws_resource_validator.core.pattern_validation import aws_field_pattern as _aws_pattern
 from aws_resource_validator.pydantic_models.auditmanager.auditmanager_constants import *  # noqa: F401,F403
 
 # Optional boto3 symbols — imported lazily so services that don't need them
@@ -39,52 +41,52 @@ except ImportError:  # pragma: no cover
 
 
 class AWSAccountTypeDef(BaseValidatorModel):
-    id: Optional[str] = None
-    emailAddress: Optional[str] = None
-    name: Optional[str] = None
+    id: Optional[Annotated[str, _aws_pattern("Auditmanager", "AccountId")]] = None
+    emailAddress: Optional[Annotated[str, _aws_pattern("Auditmanager", "EmailAddress")]] = None
+    name: Optional[Annotated[str, _aws_pattern("Auditmanager", "AccountName")]] = None
 
 
 class AWSServiceTypeDef(BaseValidatorModel):
-    serviceName: Optional[str] = None
+    serviceName: Optional[Annotated[str, _aws_pattern("Auditmanager", "AWSServiceName")]] = None
 
 
 class DelegationTypeDef(BaseValidatorModel):
-    id: Optional[str] = None
-    assessmentName: Optional[str] = None
-    assessmentId: Optional[str] = None
+    id: Optional[Annotated[str, _aws_pattern("Auditmanager", "UUID")]] = None
+    assessmentName: Optional[Annotated[str, _aws_pattern("Auditmanager", "AssessmentName")]] = None
+    assessmentId: Optional[Annotated[str, _aws_pattern("Auditmanager", "UUID")]] = None
     status: Optional[DelegationStatusType] = None
-    roleArn: Optional[str] = None
+    roleArn: Optional[Annotated[str, _aws_pattern("Auditmanager", "IamArn")]] = None
     roleType: Optional[RoleTypeType] = None
     creationTime: Optional[datetime] = None
     lastUpdated: Optional[datetime] = None
-    controlSetId: Optional[str] = None
-    comment: Optional[str] = None
-    createdBy: Optional[str] = None
+    controlSetId: Optional[Annotated[str, _aws_pattern("Auditmanager", "ControlSetId")]] = None
+    comment: Optional[Annotated[str, _aws_pattern("Auditmanager", "DelegationComment")]] = None
+    createdBy: Optional[Annotated[str, _aws_pattern("Auditmanager", "CreatedBy")]] = None
 
 
 class RoleTypeDef(BaseValidatorModel):
     roleType: RoleTypeType
-    roleArn: str
+    roleArn: Annotated[str, _aws_pattern("Auditmanager", "IamArn")]
 
 
 class ControlCommentTypeDef(BaseValidatorModel):
-    authorName: Optional[str] = None
-    commentBody: Optional[str] = None
+    authorName: Optional[Annotated[str, _aws_pattern("Auditmanager", "Username")]] = None
+    commentBody: Optional[Annotated[str, _aws_pattern("Auditmanager", "ControlCommentBody")]] = None
     postedDate: Optional[datetime] = None
 
 
 class AssessmentEvidenceFolderTypeDef(BaseValidatorModel):
-    name: Optional[str] = None
+    name: Optional[Annotated[str, _aws_pattern("Auditmanager", "AssessmentEvidenceFolderName")]] = None
     date: Optional[datetime] = None
-    assessmentId: Optional[str] = None
-    controlSetId: Optional[str] = None
-    controlId: Optional[str] = None
-    id: Optional[str] = None
-    dataSource: Optional[str] = None
-    author: Optional[str] = None
+    assessmentId: Optional[Annotated[str, _aws_pattern("Auditmanager", "UUID")]] = None
+    controlSetId: Optional[Annotated[str, _aws_pattern("Auditmanager", "ControlSetId")]] = None
+    controlId: Optional[Annotated[str, _aws_pattern("Auditmanager", "UUID")]] = None
+    id: Optional[Annotated[str, _aws_pattern("Auditmanager", "UUID")]] = None
+    dataSource: Optional[Annotated[str, _aws_pattern("Auditmanager", "String")]] = None
+    author: Optional[Annotated[str, _aws_pattern("Auditmanager", "String")]] = None
     totalEvidence: Optional[int] = None
     assessmentReportSelectionCount: Optional[int] = None
-    controlName: Optional[str] = None
+    controlName: Optional[Annotated[str, _aws_pattern("Auditmanager", "ControlName")]] = None
     evidenceResourcesIncludedCount: Optional[int] = None
     evidenceByTypeConfigurationDataCount: Optional[int] = None
     evidenceByTypeManualCount: Optional[int] = None
@@ -95,13 +97,13 @@ class AssessmentEvidenceFolderTypeDef(BaseValidatorModel):
 
 
 class AssessmentFrameworkMetadataTypeDef(BaseValidatorModel):
-    arn: Optional[str] = None
-    id: Optional[str] = None
+    arn: Optional[Annotated[str, _aws_pattern("Auditmanager", "AuditManagerArn")]] = None
+    id: Optional[Annotated[str, _aws_pattern("Auditmanager", "UUID")]] = None
     type: Optional[FrameworkTypeType] = None
-    name: Optional[str] = None
-    description: Optional[str] = None
-    logo: Optional[str] = None
-    complianceType: Optional[str] = None
+    name: Optional[Annotated[str, _aws_pattern("Auditmanager", "FrameworkName")]] = None
+    description: Optional[Annotated[str, _aws_pattern("Auditmanager", "FrameworkDescription")]] = None
+    logo: Optional[Annotated[str, _aws_pattern("Auditmanager", "Filename")]] = None
+    complianceType: Optional[Annotated[str, _aws_pattern("Auditmanager", "ComplianceType")]] = None
     controlsCount: Optional[int] = None
     controlSetsCount: Optional[int] = None
     createdAt: Optional[datetime] = None
@@ -109,74 +111,74 @@ class AssessmentFrameworkMetadataTypeDef(BaseValidatorModel):
 
 
 class AssessmentFrameworkShareRequestTypeDef(BaseValidatorModel):
-    id: Optional[str] = None
-    frameworkId: Optional[str] = None
-    frameworkName: Optional[str] = None
-    frameworkDescription: Optional[str] = None
+    id: Optional[Annotated[str, _aws_pattern("Auditmanager", "UUID")]] = None
+    frameworkId: Optional[Annotated[str, _aws_pattern("Auditmanager", "UUID")]] = None
+    frameworkName: Optional[Annotated[str, _aws_pattern("Auditmanager", "FrameworkName")]] = None
+    frameworkDescription: Optional[Annotated[str, _aws_pattern("Auditmanager", "FrameworkDescription")]] = None
     status: Optional[ShareRequestStatusType] = None
-    sourceAccount: Optional[str] = None
-    destinationAccount: Optional[str] = None
-    destinationRegion: Optional[str] = None
+    sourceAccount: Optional[Annotated[str, _aws_pattern("Auditmanager", "AccountId")]] = None
+    destinationAccount: Optional[Annotated[str, _aws_pattern("Auditmanager", "AccountId")]] = None
+    destinationRegion: Optional[Annotated[str, _aws_pattern("Auditmanager", "Region")]] = None
     expirationTime: Optional[datetime] = None
     creationTime: Optional[datetime] = None
     lastUpdated: Optional[datetime] = None
-    comment: Optional[str] = None
+    comment: Optional[Annotated[str, _aws_pattern("Auditmanager", "ShareRequestComment")]] = None
     standardControlsCount: Optional[int] = None
     customControlsCount: Optional[int] = None
-    complianceType: Optional[str] = None
+    complianceType: Optional[Annotated[str, _aws_pattern("Auditmanager", "ComplianceType")]] = None
 
 
 class FrameworkMetadataTypeDef(BaseValidatorModel):
-    name: Optional[str] = None
-    description: Optional[str] = None
-    logo: Optional[str] = None
-    complianceType: Optional[str] = None
+    name: Optional[Annotated[str, _aws_pattern("Auditmanager", "AssessmentName")]] = None
+    description: Optional[Annotated[str, _aws_pattern("Auditmanager", "AssessmentFrameworkDescription")]] = None
+    logo: Optional[Annotated[str, _aws_pattern("Auditmanager", "Filename")]] = None
+    complianceType: Optional[Annotated[str, _aws_pattern("Auditmanager", "ComplianceType")]] = None
 
 
 class AssessmentReportsDestinationTypeDef(BaseValidatorModel):
     destinationType: Optional[Literal["S3"]] = None
-    destination: Optional[str] = None
+    destination: Optional[Annotated[str, _aws_pattern("Auditmanager", "S3Url")]] = None
 
 
 class AssessmentReportEvidenceErrorTypeDef(BaseValidatorModel):
-    evidenceId: Optional[str] = None
-    errorCode: Optional[str] = None
-    errorMessage: Optional[str] = None
+    evidenceId: Optional[Annotated[str, _aws_pattern("Auditmanager", "UUID")]] = None
+    errorCode: Optional[Annotated[str, _aws_pattern("Auditmanager", "ErrorCode")]] = None
+    errorMessage: Optional[Annotated[str, _aws_pattern("Auditmanager", "ErrorMessage")]] = None
 
 
 class AssessmentReportMetadataTypeDef(BaseValidatorModel):
-    id: Optional[str] = None
-    name: Optional[str] = None
-    description: Optional[str] = None
-    assessmentId: Optional[str] = None
-    assessmentName: Optional[str] = None
-    author: Optional[str] = None
+    id: Optional[Annotated[str, _aws_pattern("Auditmanager", "UUID")]] = None
+    name: Optional[Annotated[str, _aws_pattern("Auditmanager", "AssessmentReportName")]] = None
+    description: Optional[Annotated[str, _aws_pattern("Auditmanager", "AssessmentReportDescription")]] = None
+    assessmentId: Optional[Annotated[str, _aws_pattern("Auditmanager", "UUID")]] = None
+    assessmentName: Optional[Annotated[str, _aws_pattern("Auditmanager", "AssessmentName")]] = None
+    author: Optional[Annotated[str, _aws_pattern("Auditmanager", "Username")]] = None
     status: Optional[AssessmentReportStatusType] = None
     creationTime: Optional[datetime] = None
 
 
 class AssessmentReportTypeDef(BaseValidatorModel):
-    id: Optional[str] = None
-    name: Optional[str] = None
-    description: Optional[str] = None
-    awsAccountId: Optional[str] = None
-    assessmentId: Optional[str] = None
-    assessmentName: Optional[str] = None
-    author: Optional[str] = None
+    id: Optional[Annotated[str, _aws_pattern("Auditmanager", "UUID")]] = None
+    name: Optional[Annotated[str, _aws_pattern("Auditmanager", "AssessmentReportName")]] = None
+    description: Optional[Annotated[str, _aws_pattern("Auditmanager", "AssessmentReportDescription")]] = None
+    awsAccountId: Optional[Annotated[str, _aws_pattern("Auditmanager", "AccountId")]] = None
+    assessmentId: Optional[Annotated[str, _aws_pattern("Auditmanager", "UUID")]] = None
+    assessmentName: Optional[Annotated[str, _aws_pattern("Auditmanager", "AssessmentName")]] = None
+    author: Optional[Annotated[str, _aws_pattern("Auditmanager", "Username")]] = None
     status: Optional[AssessmentReportStatusType] = None
     creationTime: Optional[datetime] = None
 
 
 class AssociateAssessmentReportEvidenceFolderRequestTypeDef(BaseValidatorModel):
-    assessmentId: str
-    evidenceFolderId: str
+    assessmentId: Annotated[str, _aws_pattern("Auditmanager", "UUID")]
+    evidenceFolderId: Annotated[str, _aws_pattern("Auditmanager", "UUID")]
 
 
 # This class is the input for the 'batch_associate_assessment_report_evidence' function.
 class BatchAssociateAssessmentReportEvidenceRequestTypeDef(BaseValidatorModel):
-    assessmentId: str
-    evidenceFolderId: str
-    evidenceIds: List[str]
+    assessmentId: Annotated[str, _aws_pattern("Auditmanager", "UUID")]
+    evidenceFolderId: Annotated[str, _aws_pattern("Auditmanager", "UUID")]
+    evidenceIds: List[Annotated[str, _aws_pattern("Auditmanager", "UUID")]]
 
 
 class ResponseMetadataTypeDef(BaseValidatorModel):
@@ -188,43 +190,43 @@ class ResponseMetadataTypeDef(BaseValidatorModel):
 
 
 class CreateDelegationRequestTypeDef(BaseValidatorModel):
-    comment: Optional[str] = None
-    controlSetId: Optional[str] = None
-    roleArn: Optional[str] = None
+    comment: Optional[Annotated[str, _aws_pattern("Auditmanager", "DelegationComment")]] = None
+    controlSetId: Optional[Annotated[str, _aws_pattern("Auditmanager", "ControlSetId")]] = None
+    roleArn: Optional[Annotated[str, _aws_pattern("Auditmanager", "IamArn")]] = None
     roleType: Optional[RoleTypeType] = None
 
 
 class BatchDeleteDelegationByAssessmentErrorTypeDef(BaseValidatorModel):
-    delegationId: Optional[str] = None
-    errorCode: Optional[str] = None
-    errorMessage: Optional[str] = None
+    delegationId: Optional[Annotated[str, _aws_pattern("Auditmanager", "UUID")]] = None
+    errorCode: Optional[Annotated[str, _aws_pattern("Auditmanager", "ErrorCode")]] = None
+    errorMessage: Optional[Annotated[str, _aws_pattern("Auditmanager", "ErrorMessage")]] = None
 
 
 # This class is the input for the 'batch_delete_delegation_by_assessment' function.
 class BatchDeleteDelegationByAssessmentRequestTypeDef(BaseValidatorModel):
-    delegationIds: List[str]
-    assessmentId: str
+    delegationIds: List[Annotated[str, _aws_pattern("Auditmanager", "UUID")]]
+    assessmentId: Annotated[str, _aws_pattern("Auditmanager", "UUID")]
 
 
 # This class is the input for the 'batch_disassociate_assessment_report_evidence' function.
 class BatchDisassociateAssessmentReportEvidenceRequestTypeDef(BaseValidatorModel):
-    assessmentId: str
-    evidenceFolderId: str
-    evidenceIds: List[str]
+    assessmentId: Annotated[str, _aws_pattern("Auditmanager", "UUID")]
+    evidenceFolderId: Annotated[str, _aws_pattern("Auditmanager", "UUID")]
+    evidenceIds: List[Annotated[str, _aws_pattern("Auditmanager", "UUID")]]
 
 
 class ManualEvidenceTypeDef(BaseValidatorModel):
-    s3ResourcePath: Optional[str] = None
-    textResponse: Optional[str] = None
-    evidenceFileName: Optional[str] = None
+    s3ResourcePath: Optional[Annotated[str, _aws_pattern("Auditmanager", "S3Url")]] = None
+    textResponse: Optional[Annotated[str, _aws_pattern("Auditmanager", "ManualEvidenceTextResponse")]] = None
+    evidenceFileName: Optional[Annotated[str, _aws_pattern("Auditmanager", "ManualEvidenceLocalFileName")]] = None
 
 
 class ChangeLogTypeDef(BaseValidatorModel):
     objectType: Optional[ObjectTypeEnumType] = None
-    objectName: Optional[str] = None
+    objectName: Optional[Annotated[str, _aws_pattern("Auditmanager", "NonEmptyString")]] = None
     action: Optional[ActionEnumType] = None
     createdAt: Optional[datetime] = None
-    createdBy: Optional[str] = None
+    createdBy: Optional[Annotated[str, _aws_pattern("Auditmanager", "IamArn")]] = None
 
 
 class EvidenceInsightsTypeDef(BaseValidatorModel):
@@ -235,69 +237,69 @@ class EvidenceInsightsTypeDef(BaseValidatorModel):
 
 class SourceKeywordTypeDef(BaseValidatorModel):
     keywordInputType: Optional[KeywordInputTypeType] = None
-    keywordValue: Optional[str] = None
+    keywordValue: Optional[Annotated[str, _aws_pattern("Auditmanager", "KeywordValue")]] = None
 
 
 class ControlMetadataTypeDef(BaseValidatorModel):
-    arn: Optional[str] = None
-    id: Optional[str] = None
-    name: Optional[str] = None
-    controlSources: Optional[str] = None
+    arn: Optional[Annotated[str, _aws_pattern("Auditmanager", "AuditManagerArn")]] = None
+    id: Optional[Annotated[str, _aws_pattern("Auditmanager", "UUID")]] = None
+    name: Optional[Annotated[str, _aws_pattern("Auditmanager", "ControlName")]] = None
+    controlSources: Optional[Annotated[str, _aws_pattern("Auditmanager", "ControlSources")]] = None
     createdAt: Optional[datetime] = None
     lastUpdatedAt: Optional[datetime] = None
 
 
 class CreateAssessmentFrameworkControlTypeDef(BaseValidatorModel):
-    id: str
+    id: Annotated[str, _aws_pattern("Auditmanager", "UUID")]
 
 
 # This class is the input for the 'create_assessment_report' function.
 class CreateAssessmentReportRequestTypeDef(BaseValidatorModel):
-    name: str
-    assessmentId: str
-    description: Optional[str] = None
-    queryStatement: Optional[str] = None
+    name: Annotated[str, _aws_pattern("Auditmanager", "AssessmentReportName")]
+    assessmentId: Annotated[str, _aws_pattern("Auditmanager", "UUID")]
+    description: Optional[Annotated[str, _aws_pattern("Auditmanager", "AssessmentReportDescription")]] = None
+    queryStatement: Optional[Annotated[str, _aws_pattern("Auditmanager", "QueryStatement")]] = None
 
 
 class DefaultExportDestinationTypeDef(BaseValidatorModel):
     destinationType: Optional[Literal["S3"]] = None
-    destination: Optional[str] = None
+    destination: Optional[Annotated[str, _aws_pattern("Auditmanager", "S3Url")]] = None
 
 
 class DelegationMetadataTypeDef(BaseValidatorModel):
-    id: Optional[str] = None
-    assessmentName: Optional[str] = None
-    assessmentId: Optional[str] = None
+    id: Optional[Annotated[str, _aws_pattern("Auditmanager", "UUID")]] = None
+    assessmentName: Optional[Annotated[str, _aws_pattern("Auditmanager", "AssessmentName")]] = None
+    assessmentId: Optional[Annotated[str, _aws_pattern("Auditmanager", "UUID")]] = None
     status: Optional[DelegationStatusType] = None
-    roleArn: Optional[str] = None
+    roleArn: Optional[Annotated[str, _aws_pattern("Auditmanager", "IamArn")]] = None
     creationTime: Optional[datetime] = None
-    controlSetName: Optional[str] = None
+    controlSetName: Optional[Annotated[str, _aws_pattern("Auditmanager", "NonEmptyString")]] = None
 
 
 class DeleteAssessmentFrameworkRequestTypeDef(BaseValidatorModel):
-    frameworkId: str
+    frameworkId: Annotated[str, _aws_pattern("Auditmanager", "UUID")]
 
 
 class DeleteAssessmentFrameworkShareRequestTypeDef(BaseValidatorModel):
-    requestId: str
+    requestId: Annotated[str, _aws_pattern("Auditmanager", "UUID")]
     requestType: ShareRequestTypeType
 
 
 class DeleteAssessmentReportRequestTypeDef(BaseValidatorModel):
-    assessmentId: str
-    assessmentReportId: str
+    assessmentId: Annotated[str, _aws_pattern("Auditmanager", "UUID")]
+    assessmentReportId: Annotated[str, _aws_pattern("Auditmanager", "UUID")]
 
 
 class DeleteAssessmentRequestTypeDef(BaseValidatorModel):
-    assessmentId: str
+    assessmentId: Annotated[str, _aws_pattern("Auditmanager", "UUID")]
 
 
 class DeleteControlRequestTypeDef(BaseValidatorModel):
-    controlId: str
+    controlId: Annotated[str, _aws_pattern("Auditmanager", "UUID")]
 
 
 class DeregisterOrganizationAdminAccountRequestTypeDef(BaseValidatorModel):
-    adminAccountId: Optional[str] = None
+    adminAccountId: Optional[Annotated[str, _aws_pattern("Auditmanager", "AccountId")]] = None
 
 
 class DeregistrationPolicyTypeDef(BaseValidatorModel):
@@ -305,112 +307,112 @@ class DeregistrationPolicyTypeDef(BaseValidatorModel):
 
 
 class DisassociateAssessmentReportEvidenceFolderRequestTypeDef(BaseValidatorModel):
-    assessmentId: str
-    evidenceFolderId: str
+    assessmentId: Annotated[str, _aws_pattern("Auditmanager", "UUID")]
+    evidenceFolderId: Annotated[str, _aws_pattern("Auditmanager", "UUID")]
 
 
 class EvidenceFinderEnablementTypeDef(BaseValidatorModel):
-    eventDataStoreArn: Optional[str] = None
+    eventDataStoreArn: Optional[Annotated[str, _aws_pattern("Auditmanager", "CloudTrailArn")]] = None
     enablementStatus: Optional[EvidenceFinderEnablementStatusType] = None
     backfillStatus: Optional[EvidenceFinderBackfillStatusType] = None
-    error: Optional[str] = None
+    error: Optional[Annotated[str, _aws_pattern("Auditmanager", "ErrorMessage")]] = None
 
 
 class ResourceTypeDef(BaseValidatorModel):
-    arn: Optional[str] = None
-    value: Optional[str] = None
-    complianceCheck: Optional[str] = None
+    arn: Optional[Annotated[str, _aws_pattern("Auditmanager", "GenericArn")]] = None
+    value: Optional[Annotated[str, _aws_pattern("Auditmanager", "String")]] = None
+    complianceCheck: Optional[Annotated[str, _aws_pattern("Auditmanager", "String")]] = None
 
 
 # This class is the input for the 'get_assessment_framework' function.
 class GetAssessmentFrameworkRequestTypeDef(BaseValidatorModel):
-    frameworkId: str
+    frameworkId: Annotated[str, _aws_pattern("Auditmanager", "UUID")]
 
 
 # This class is the input for the 'get_assessment_report_url' function.
 class GetAssessmentReportUrlRequestTypeDef(BaseValidatorModel):
-    assessmentReportId: str
-    assessmentId: str
+    assessmentReportId: Annotated[str, _aws_pattern("Auditmanager", "UUID")]
+    assessmentId: Annotated[str, _aws_pattern("Auditmanager", "UUID")]
 
 
 class URLTypeDef(BaseValidatorModel):
-    hyperlinkName: Optional[str] = None
-    link: Optional[str] = None
+    hyperlinkName: Optional[Annotated[str, _aws_pattern("Auditmanager", "HyperlinkName")]] = None
+    link: Optional[Annotated[str, _aws_pattern("Auditmanager", "UrlLink")]] = None
 
 
 # This class is the input for the 'get_assessment' function.
 class GetAssessmentRequestTypeDef(BaseValidatorModel):
-    assessmentId: str
+    assessmentId: Annotated[str, _aws_pattern("Auditmanager", "UUID")]
 
 
 # This class is the input for the 'get_change_logs' function.
 class GetChangeLogsRequestTypeDef(BaseValidatorModel):
-    assessmentId: str
-    controlSetId: Optional[str] = None
-    controlId: Optional[str] = None
-    nextToken: Optional[str] = None
+    assessmentId: Annotated[str, _aws_pattern("Auditmanager", "UUID")]
+    controlSetId: Optional[Annotated[str, _aws_pattern("Auditmanager", "ControlSetId")]] = None
+    controlId: Optional[Annotated[str, _aws_pattern("Auditmanager", "UUID")]] = None
+    nextToken: Optional[Annotated[str, _aws_pattern("Auditmanager", "Token")]] = None
     maxResults: Optional[int] = None
 
 
 # This class is the input for the 'get_control' function.
 class GetControlRequestTypeDef(BaseValidatorModel):
-    controlId: str
+    controlId: Annotated[str, _aws_pattern("Auditmanager", "UUID")]
 
 
 # This class is the input for the 'get_delegations' function.
 class GetDelegationsRequestTypeDef(BaseValidatorModel):
-    nextToken: Optional[str] = None
+    nextToken: Optional[Annotated[str, _aws_pattern("Auditmanager", "Token")]] = None
     maxResults: Optional[int] = None
 
 
 # This class is the input for the 'get_evidence_by_evidence_folder' function.
 class GetEvidenceByEvidenceFolderRequestTypeDef(BaseValidatorModel):
-    assessmentId: str
-    controlSetId: str
-    evidenceFolderId: str
-    nextToken: Optional[str] = None
+    assessmentId: Annotated[str, _aws_pattern("Auditmanager", "UUID")]
+    controlSetId: Annotated[str, _aws_pattern("Auditmanager", "ControlSetId")]
+    evidenceFolderId: Annotated[str, _aws_pattern("Auditmanager", "UUID")]
+    nextToken: Optional[Annotated[str, _aws_pattern("Auditmanager", "Token")]] = None
     maxResults: Optional[int] = None
 
 
 # This class is the input for the 'get_evidence_file_upload_url' function.
 class GetEvidenceFileUploadUrlRequestTypeDef(BaseValidatorModel):
-    fileName: str
+    fileName: Annotated[str, _aws_pattern("Auditmanager", "ManualEvidenceLocalFileName")]
 
 
 # This class is the input for the 'get_evidence_folder' function.
 class GetEvidenceFolderRequestTypeDef(BaseValidatorModel):
-    assessmentId: str
-    controlSetId: str
-    evidenceFolderId: str
+    assessmentId: Annotated[str, _aws_pattern("Auditmanager", "UUID")]
+    controlSetId: Annotated[str, _aws_pattern("Auditmanager", "ControlSetId")]
+    evidenceFolderId: Annotated[str, _aws_pattern("Auditmanager", "UUID")]
 
 
 # This class is the input for the 'get_evidence_folders_by_assessment_control' function.
 class GetEvidenceFoldersByAssessmentControlRequestTypeDef(BaseValidatorModel):
-    assessmentId: str
-    controlSetId: str
-    controlId: str
-    nextToken: Optional[str] = None
+    assessmentId: Annotated[str, _aws_pattern("Auditmanager", "UUID")]
+    controlSetId: Annotated[str, _aws_pattern("Auditmanager", "ControlSetId")]
+    controlId: Annotated[str, _aws_pattern("Auditmanager", "UUID")]
+    nextToken: Optional[Annotated[str, _aws_pattern("Auditmanager", "Token")]] = None
     maxResults: Optional[int] = None
 
 
 # This class is the input for the 'get_evidence_folders_by_assessment' function.
 class GetEvidenceFoldersByAssessmentRequestTypeDef(BaseValidatorModel):
-    assessmentId: str
-    nextToken: Optional[str] = None
+    assessmentId: Annotated[str, _aws_pattern("Auditmanager", "UUID")]
+    nextToken: Optional[Annotated[str, _aws_pattern("Auditmanager", "Token")]] = None
     maxResults: Optional[int] = None
 
 
 # This class is the input for the 'get_evidence' function.
 class GetEvidenceRequestTypeDef(BaseValidatorModel):
-    assessmentId: str
-    controlSetId: str
-    evidenceFolderId: str
-    evidenceId: str
+    assessmentId: Annotated[str, _aws_pattern("Auditmanager", "UUID")]
+    controlSetId: Annotated[str, _aws_pattern("Auditmanager", "ControlSetId")]
+    evidenceFolderId: Annotated[str, _aws_pattern("Auditmanager", "UUID")]
+    evidenceId: Annotated[str, _aws_pattern("Auditmanager", "UUID")]
 
 
 # This class is the input for the 'get_insights_by_assessment' function.
 class GetInsightsByAssessmentRequestTypeDef(BaseValidatorModel):
-    assessmentId: str
+    assessmentId: Annotated[str, _aws_pattern("Auditmanager", "UUID")]
 
 
 class InsightsByAssessmentTypeDef(BaseValidatorModel):
@@ -433,10 +435,10 @@ class InsightsTypeDef(BaseValidatorModel):
 
 
 class ServiceMetadataTypeDef(BaseValidatorModel):
-    name: Optional[str] = None
-    displayName: Optional[str] = None
-    description: Optional[str] = None
-    category: Optional[str] = None
+    name: Optional[Annotated[str, _aws_pattern("Auditmanager", "AWSServiceName")]] = None
+    displayName: Optional[Annotated[str, _aws_pattern("Auditmanager", "NonEmptyString")]] = None
+    description: Optional[Annotated[str, _aws_pattern("Auditmanager", "NonEmptyString")]] = None
+    category: Optional[Annotated[str, _aws_pattern("Auditmanager", "NonEmptyString")]] = None
 
 
 # This class is the input for the 'get_settings' function.
@@ -446,158 +448,158 @@ class GetSettingsRequestTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'list_assessment_control_insights_by_control_domain' function.
 class ListAssessmentControlInsightsByControlDomainRequestTypeDef(BaseValidatorModel):
-    controlDomainId: str
-    assessmentId: str
-    nextToken: Optional[str] = None
+    controlDomainId: Annotated[str, _aws_pattern("Auditmanager", "ControlDomainId")]
+    assessmentId: Annotated[str, _aws_pattern("Auditmanager", "UUID")]
+    nextToken: Optional[Annotated[str, _aws_pattern("Auditmanager", "Token")]] = None
     maxResults: Optional[int] = None
 
 
 # This class is the input for the 'list_assessment_framework_share_requests' function.
 class ListAssessmentFrameworkShareRequestsRequestTypeDef(BaseValidatorModel):
     requestType: ShareRequestTypeType
-    nextToken: Optional[str] = None
+    nextToken: Optional[Annotated[str, _aws_pattern("Auditmanager", "Token")]] = None
     maxResults: Optional[int] = None
 
 
 # This class is the input for the 'list_assessment_frameworks' function.
 class ListAssessmentFrameworksRequestTypeDef(BaseValidatorModel):
     frameworkType: FrameworkTypeType
-    nextToken: Optional[str] = None
+    nextToken: Optional[Annotated[str, _aws_pattern("Auditmanager", "Token")]] = None
     maxResults: Optional[int] = None
 
 
 # This class is the input for the 'list_assessment_reports' function.
 class ListAssessmentReportsRequestTypeDef(BaseValidatorModel):
-    nextToken: Optional[str] = None
+    nextToken: Optional[Annotated[str, _aws_pattern("Auditmanager", "Token")]] = None
     maxResults: Optional[int] = None
 
 
 # This class is the input for the 'list_assessments' function.
 class ListAssessmentsRequestTypeDef(BaseValidatorModel):
     status: Optional[AssessmentStatusType] = None
-    nextToken: Optional[str] = None
+    nextToken: Optional[Annotated[str, _aws_pattern("Auditmanager", "Token")]] = None
     maxResults: Optional[int] = None
 
 
 # This class is the input for the 'list_control_domain_insights_by_assessment' function.
 class ListControlDomainInsightsByAssessmentRequestTypeDef(BaseValidatorModel):
-    assessmentId: str
-    nextToken: Optional[str] = None
+    assessmentId: Annotated[str, _aws_pattern("Auditmanager", "UUID")]
+    nextToken: Optional[Annotated[str, _aws_pattern("Auditmanager", "Token")]] = None
     maxResults: Optional[int] = None
 
 
 # This class is the input for the 'list_control_domain_insights' function.
 class ListControlDomainInsightsRequestTypeDef(BaseValidatorModel):
-    nextToken: Optional[str] = None
+    nextToken: Optional[Annotated[str, _aws_pattern("Auditmanager", "Token")]] = None
     maxResults: Optional[int] = None
 
 
 # This class is the input for the 'list_control_insights_by_control_domain' function.
 class ListControlInsightsByControlDomainRequestTypeDef(BaseValidatorModel):
-    controlDomainId: str
-    nextToken: Optional[str] = None
+    controlDomainId: Annotated[str, _aws_pattern("Auditmanager", "ControlDomainId")]
+    nextToken: Optional[Annotated[str, _aws_pattern("Auditmanager", "Token")]] = None
     maxResults: Optional[int] = None
 
 
 # This class is the input for the 'list_controls' function.
 class ListControlsRequestTypeDef(BaseValidatorModel):
     controlType: ControlTypeType
-    nextToken: Optional[str] = None
+    nextToken: Optional[Annotated[str, _aws_pattern("Auditmanager", "Token")]] = None
     maxResults: Optional[int] = None
-    controlCatalogId: Optional[str] = None
+    controlCatalogId: Optional[Annotated[str, _aws_pattern("Auditmanager", "ControlCatalogId")]] = None
 
 
 # This class is the input for the 'list_keywords_for_data_source' function.
 class ListKeywordsForDataSourceRequestTypeDef(BaseValidatorModel):
     source: DataSourceTypeType
-    nextToken: Optional[str] = None
+    nextToken: Optional[Annotated[str, _aws_pattern("Auditmanager", "Token")]] = None
     maxResults: Optional[int] = None
 
 
 # This class is the input for the 'list_notifications' function.
 class ListNotificationsRequestTypeDef(BaseValidatorModel):
-    nextToken: Optional[str] = None
+    nextToken: Optional[Annotated[str, _aws_pattern("Auditmanager", "Token")]] = None
     maxResults: Optional[int] = None
 
 
 class NotificationTypeDef(BaseValidatorModel):
-    id: Optional[str] = None
-    assessmentId: Optional[str] = None
-    assessmentName: Optional[str] = None
-    controlSetId: Optional[str] = None
-    controlSetName: Optional[str] = None
-    description: Optional[str] = None
+    id: Optional[Annotated[str, _aws_pattern("Auditmanager", "TimestampUUID")]] = None
+    assessmentId: Optional[Annotated[str, _aws_pattern("Auditmanager", "UUID")]] = None
+    assessmentName: Optional[Annotated[str, _aws_pattern("Auditmanager", "AssessmentName")]] = None
+    controlSetId: Optional[Annotated[str, _aws_pattern("Auditmanager", "ControlSetId")]] = None
+    controlSetName: Optional[Annotated[str, _aws_pattern("Auditmanager", "NonEmptyString")]] = None
+    description: Optional[Annotated[str, _aws_pattern("Auditmanager", "NonEmptyString")]] = None
     eventTime: Optional[datetime] = None
-    source: Optional[str] = None
+    source: Optional[Annotated[str, _aws_pattern("Auditmanager", "NonEmptyString")]] = None
 
 
 # This class is the input for the 'list_tags_for_resource' function.
 class ListTagsForResourceRequestTypeDef(BaseValidatorModel):
-    resourceArn: str
+    resourceArn: Annotated[str, _aws_pattern("Auditmanager", "AuditManagerArn")]
 
 
 # This class is the input for the 'register_account' function.
 class RegisterAccountRequestTypeDef(BaseValidatorModel):
-    kmsKey: Optional[str] = None
-    delegatedAdminAccount: Optional[str] = None
+    kmsKey: Optional[Annotated[str, _aws_pattern("Auditmanager", "KmsKey")]] = None
+    delegatedAdminAccount: Optional[Annotated[str, _aws_pattern("Auditmanager", "AccountId")]] = None
 
 
 # This class is the input for the 'register_organization_admin_account' function.
 class RegisterOrganizationAdminAccountRequestTypeDef(BaseValidatorModel):
-    adminAccountId: str
+    adminAccountId: Annotated[str, _aws_pattern("Auditmanager", "AccountId")]
 
 
 # This class is the input for the 'start_assessment_framework_share' function.
 class StartAssessmentFrameworkShareRequestTypeDef(BaseValidatorModel):
-    frameworkId: str
-    destinationAccount: str
-    destinationRegion: str
-    comment: Optional[str] = None
+    frameworkId: Annotated[str, _aws_pattern("Auditmanager", "UUID")]
+    destinationAccount: Annotated[str, _aws_pattern("Auditmanager", "AccountId")]
+    destinationRegion: Annotated[str, _aws_pattern("Auditmanager", "Region")]
+    comment: Optional[Annotated[str, _aws_pattern("Auditmanager", "ShareRequestComment")]] = None
 
 
 class TagResourceRequestTypeDef(BaseValidatorModel):
-    resourceArn: str
+    resourceArn: Annotated[str, _aws_pattern("Auditmanager", "AuditManagerArn")]
     tags: Dict[str, str]
 
 
 class UntagResourceRequestTypeDef(BaseValidatorModel):
-    resourceArn: str
-    tagKeys: List[str]
+    resourceArn: Annotated[str, _aws_pattern("Auditmanager", "AuditManagerArn")]
+    tagKeys: List[Annotated[str, _aws_pattern("Auditmanager", "TagKey")]]
 
 
 # This class is the input for the 'update_assessment_control' function.
 class UpdateAssessmentControlRequestTypeDef(BaseValidatorModel):
-    assessmentId: str
-    controlSetId: str
-    controlId: str
+    assessmentId: Annotated[str, _aws_pattern("Auditmanager", "UUID")]
+    controlSetId: Annotated[str, _aws_pattern("Auditmanager", "ControlSetId")]
+    controlId: Annotated[str, _aws_pattern("Auditmanager", "UUID")]
     controlStatus: Optional[ControlStatusType] = None
-    commentBody: Optional[str] = None
+    commentBody: Optional[Annotated[str, _aws_pattern("Auditmanager", "ControlCommentBody")]] = None
 
 
 # This class is the input for the 'update_assessment_control_set_status' function.
 class UpdateAssessmentControlSetStatusRequestTypeDef(BaseValidatorModel):
-    assessmentId: str
-    controlSetId: str
+    assessmentId: Annotated[str, _aws_pattern("Auditmanager", "UUID")]
+    controlSetId: Annotated[str, _aws_pattern("Auditmanager", "String")]
     status: ControlSetStatusType
-    comment: str
+    comment: Annotated[str, _aws_pattern("Auditmanager", "DelegationComment")]
 
 
 # This class is the input for the 'update_assessment_framework_share' function.
 class UpdateAssessmentFrameworkShareRequestTypeDef(BaseValidatorModel):
-    requestId: str
+    requestId: Annotated[str, _aws_pattern("Auditmanager", "UUID")]
     requestType: ShareRequestTypeType
     action: ShareRequestActionType
 
 
 # This class is the input for the 'update_assessment_status' function.
 class UpdateAssessmentStatusRequestTypeDef(BaseValidatorModel):
-    assessmentId: str
+    assessmentId: Annotated[str, _aws_pattern("Auditmanager", "UUID")]
     status: AssessmentStatusType
 
 
 # This class is the input for the 'validate_assessment_report_integrity' function.
 class ValidateAssessmentReportIntegrityRequestTypeDef(BaseValidatorModel):
-    s3RelativePath: str
+    s3RelativePath: Annotated[str, _aws_pattern("Auditmanager", "S3Url")]
 
 
 class ScopeOutputTypeDef(BaseValidatorModel):
@@ -611,9 +613,9 @@ class ScopeTypeDef(BaseValidatorModel):
 
 
 class AssessmentMetadataItemTypeDef(BaseValidatorModel):
-    name: Optional[str] = None
-    id: Optional[str] = None
-    complianceType: Optional[str] = None
+    name: Optional[Annotated[str, _aws_pattern("Auditmanager", "AssessmentName")]] = None
+    id: Optional[Annotated[str, _aws_pattern("Auditmanager", "UUID")]] = None
+    complianceType: Optional[Annotated[str, _aws_pattern("Auditmanager", "ComplianceType")]] = None
     status: Optional[AssessmentStatusType] = None
     roles: Optional[List[RoleTypeDef]] = None
     delegations: Optional[List[DelegationTypeDef]] = None
@@ -622,27 +624,27 @@ class AssessmentMetadataItemTypeDef(BaseValidatorModel):
 
 
 class AssessmentControlTypeDef(BaseValidatorModel):
-    id: Optional[str] = None
-    name: Optional[str] = None
-    description: Optional[str] = None
+    id: Optional[Annotated[str, _aws_pattern("Auditmanager", "UUID")]] = None
+    name: Optional[Annotated[str, _aws_pattern("Auditmanager", "ControlName")]] = None
+    description: Optional[Annotated[str, _aws_pattern("Auditmanager", "ControlDescription")]] = None
     status: Optional[ControlStatusType] = None
     response: Optional[ControlResponseType] = None
     comments: Optional[List[ControlCommentTypeDef]] = None
-    evidenceSources: Optional[List[str]] = None
+    evidenceSources: Optional[List[Annotated[str, _aws_pattern("Auditmanager", "NonEmptyString")]]] = None
     evidenceCount: Optional[int] = None
     assessmentReportEvidenceCount: Optional[int] = None
 
 
 # This class is the output for the 'batch_associate_assessment_report_evidence' function.
 class BatchAssociateAssessmentReportEvidenceResponseTypeDef(BaseValidatorModel):
-    evidenceIds: List[str]
+    evidenceIds: List[Annotated[str, _aws_pattern("Auditmanager", "UUID")]]
     errors: List[AssessmentReportEvidenceErrorTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 # This class is the output for the 'batch_disassociate_assessment_report_evidence' function.
 class BatchDisassociateAssessmentReportEvidenceResponseTypeDef(BaseValidatorModel):
-    evidenceIds: List[str]
+    evidenceIds: List[Annotated[str, _aws_pattern("Auditmanager", "UUID")]]
     errors: List[AssessmentReportEvidenceErrorTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
 
@@ -665,8 +667,8 @@ class GetAccountStatusResponseTypeDef(BaseValidatorModel):
 
 # This class is the output for the 'get_evidence_file_upload_url' function.
 class GetEvidenceFileUploadUrlResponseTypeDef(BaseValidatorModel):
-    evidenceFileName: str
-    uploadUrl: str
+    evidenceFileName: Annotated[str, _aws_pattern("Auditmanager", "NonEmptyString")]
+    uploadUrl: Annotated[str, _aws_pattern("Auditmanager", "NonEmptyString")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
@@ -680,19 +682,19 @@ class GetEvidenceFolderResponseTypeDef(BaseValidatorModel):
 class GetEvidenceFoldersByAssessmentControlResponseTypeDef(BaseValidatorModel):
     evidenceFolders: List[AssessmentEvidenceFolderTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
-    nextToken: Optional[str] = None
+    nextToken: Optional[Annotated[str, _aws_pattern("Auditmanager", "Token")]] = None
 
 
 # This class is the output for the 'get_evidence_folders_by_assessment' function.
 class GetEvidenceFoldersByAssessmentResponseTypeDef(BaseValidatorModel):
     evidenceFolders: List[AssessmentEvidenceFolderTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
-    nextToken: Optional[str] = None
+    nextToken: Optional[Annotated[str, _aws_pattern("Auditmanager", "Token")]] = None
 
 
 class GetOrganizationAdminAccountResponseTypeDef(BaseValidatorModel):
-    adminAccountId: str
-    organizationId: str
+    adminAccountId: Annotated[str, _aws_pattern("Auditmanager", "AccountId")]
+    organizationId: Annotated[str, _aws_pattern("Auditmanager", "organizationId")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
@@ -700,28 +702,28 @@ class GetOrganizationAdminAccountResponseTypeDef(BaseValidatorModel):
 class ListAssessmentFrameworkShareRequestsResponseTypeDef(BaseValidatorModel):
     assessmentFrameworkShareRequests: List[AssessmentFrameworkShareRequestTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
-    nextToken: Optional[str] = None
+    nextToken: Optional[Annotated[str, _aws_pattern("Auditmanager", "Token")]] = None
 
 
 # This class is the output for the 'list_assessment_frameworks' function.
 class ListAssessmentFrameworksResponseTypeDef(BaseValidatorModel):
     frameworkMetadataList: List[AssessmentFrameworkMetadataTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
-    nextToken: Optional[str] = None
+    nextToken: Optional[Annotated[str, _aws_pattern("Auditmanager", "Token")]] = None
 
 
 # This class is the output for the 'list_assessment_reports' function.
 class ListAssessmentReportsResponseTypeDef(BaseValidatorModel):
     assessmentReports: List[AssessmentReportMetadataTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
-    nextToken: Optional[str] = None
+    nextToken: Optional[Annotated[str, _aws_pattern("Auditmanager", "Token")]] = None
 
 
 # This class is the output for the 'list_keywords_for_data_source' function.
 class ListKeywordsForDataSourceResponseTypeDef(BaseValidatorModel):
-    keywords: List[str]
+    keywords: List[Annotated[str, _aws_pattern("Auditmanager", "KeywordValue")]]
     ResponseMetadata: ResponseMetadataTypeDef
-    nextToken: Optional[str] = None
+    nextToken: Optional[Annotated[str, _aws_pattern("Auditmanager", "Token")]] = None
 
 
 # This class is the output for the 'list_tags_for_resource' function.
@@ -738,8 +740,8 @@ class RegisterAccountResponseTypeDef(BaseValidatorModel):
 
 # This class is the output for the 'register_organization_admin_account' function.
 class RegisterOrganizationAdminAccountResponseTypeDef(BaseValidatorModel):
-    adminAccountId: str
-    organizationId: str
+    adminAccountId: Annotated[str, _aws_pattern("Auditmanager", "AccountId")]
+    organizationId: Annotated[str, _aws_pattern("Auditmanager", "organizationId")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
@@ -758,23 +760,23 @@ class UpdateAssessmentFrameworkShareResponseTypeDef(BaseValidatorModel):
 # This class is the output for the 'validate_assessment_report_integrity' function.
 class ValidateAssessmentReportIntegrityResponseTypeDef(BaseValidatorModel):
     signatureValid: bool
-    signatureAlgorithm: str
-    signatureDateTime: str
-    signatureKeyId: str
-    validationErrors: List[str]
+    signatureAlgorithm: Annotated[str, _aws_pattern("Auditmanager", "String")]
+    signatureDateTime: Annotated[str, _aws_pattern("Auditmanager", "String")]
+    signatureKeyId: Annotated[str, _aws_pattern("Auditmanager", "String")]
+    validationErrors: List[Annotated[str, _aws_pattern("Auditmanager", "NonEmptyString")]]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 class BatchCreateDelegationByAssessmentErrorTypeDef(BaseValidatorModel):
     createDelegationRequest: Optional[CreateDelegationRequestTypeDef] = None
-    errorCode: Optional[str] = None
-    errorMessage: Optional[str] = None
+    errorCode: Optional[Annotated[str, _aws_pattern("Auditmanager", "ErrorCode")]] = None
+    errorMessage: Optional[Annotated[str, _aws_pattern("Auditmanager", "ErrorMessage")]] = None
 
 
 # This class is the input for the 'batch_create_delegation_by_assessment' function.
 class BatchCreateDelegationByAssessmentRequestTypeDef(BaseValidatorModel):
     createDelegationRequests: List[CreateDelegationRequestTypeDef]
-    assessmentId: str
+    assessmentId: Annotated[str, _aws_pattern("Auditmanager", "UUID")]
 
 
 # This class is the output for the 'batch_delete_delegation_by_assessment' function.
@@ -785,15 +787,15 @@ class BatchDeleteDelegationByAssessmentResponseTypeDef(BaseValidatorModel):
 
 class BatchImportEvidenceToAssessmentControlErrorTypeDef(BaseValidatorModel):
     manualEvidence: Optional[ManualEvidenceTypeDef] = None
-    errorCode: Optional[str] = None
-    errorMessage: Optional[str] = None
+    errorCode: Optional[Annotated[str, _aws_pattern("Auditmanager", "ErrorCode")]] = None
+    errorMessage: Optional[Annotated[str, _aws_pattern("Auditmanager", "ErrorMessage")]] = None
 
 
 # This class is the input for the 'batch_import_evidence_to_assessment_control' function.
 class BatchImportEvidenceToAssessmentControlRequestTypeDef(BaseValidatorModel):
-    assessmentId: str
-    controlSetId: str
-    controlId: str
+    assessmentId: Annotated[str, _aws_pattern("Auditmanager", "UUID")]
+    controlSetId: Annotated[str, _aws_pattern("Auditmanager", "ControlSetId")]
+    controlId: Annotated[str, _aws_pattern("Auditmanager", "UUID")]
     manualEvidence: List[ManualEvidenceTypeDef]
 
 
@@ -801,12 +803,12 @@ class BatchImportEvidenceToAssessmentControlRequestTypeDef(BaseValidatorModel):
 class GetChangeLogsResponseTypeDef(BaseValidatorModel):
     changeLogs: List[ChangeLogTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
-    nextToken: Optional[str] = None
+    nextToken: Optional[Annotated[str, _aws_pattern("Auditmanager", "Token")]] = None
 
 
 class ControlDomainInsightsTypeDef(BaseValidatorModel):
-    name: Optional[str] = None
-    id: Optional[str] = None
+    name: Optional[Annotated[str, _aws_pattern("Auditmanager", "String")]] = None
+    id: Optional[Annotated[str, _aws_pattern("Auditmanager", "ControlDomainId")]] = None
     controlsCountByNoncompliantEvidence: Optional[int] = None
     totalControlsCount: Optional[int] = None
     evidenceInsights: Optional[EvidenceInsightsTypeDef] = None
@@ -814,72 +816,72 @@ class ControlDomainInsightsTypeDef(BaseValidatorModel):
 
 
 class ControlInsightsMetadataByAssessmentItemTypeDef(BaseValidatorModel):
-    name: Optional[str] = None
-    id: Optional[str] = None
+    name: Optional[Annotated[str, _aws_pattern("Auditmanager", "String")]] = None
+    id: Optional[Annotated[str, _aws_pattern("Auditmanager", "ControlDomainId")]] = None
     evidenceInsights: Optional[EvidenceInsightsTypeDef] = None
-    controlSetName: Optional[str] = None
+    controlSetName: Optional[Annotated[str, _aws_pattern("Auditmanager", "NonEmptyString")]] = None
     lastUpdated: Optional[datetime] = None
 
 
 class ControlInsightsMetadataItemTypeDef(BaseValidatorModel):
-    name: Optional[str] = None
-    id: Optional[str] = None
+    name: Optional[Annotated[str, _aws_pattern("Auditmanager", "String")]] = None
+    id: Optional[Annotated[str, _aws_pattern("Auditmanager", "ControlDomainId")]] = None
     evidenceInsights: Optional[EvidenceInsightsTypeDef] = None
     lastUpdated: Optional[datetime] = None
 
 
 class ControlMappingSourceTypeDef(BaseValidatorModel):
-    sourceId: Optional[str] = None
+    sourceId: Optional[Annotated[str, _aws_pattern("Auditmanager", "UUID")]] = None
     sourceName: Optional[str] = None
-    sourceDescription: Optional[str] = None
+    sourceDescription: Optional[Annotated[str, _aws_pattern("Auditmanager", "SourceDescription")]] = None
     sourceSetUpOption: Optional[SourceSetUpOptionType] = None
     sourceType: Optional[SourceTypeType] = None
     sourceKeyword: Optional[SourceKeywordTypeDef] = None
     sourceFrequency: Optional[SourceFrequencyType] = None
-    troubleshootingText: Optional[str] = None
+    troubleshootingText: Optional[Annotated[str, _aws_pattern("Auditmanager", "TroubleshootingText")]] = None
 
 
 class CreateControlMappingSourceTypeDef(BaseValidatorModel):
     sourceName: Optional[str] = None
-    sourceDescription: Optional[str] = None
+    sourceDescription: Optional[Annotated[str, _aws_pattern("Auditmanager", "SourceDescription")]] = None
     sourceSetUpOption: Optional[SourceSetUpOptionType] = None
     sourceType: Optional[SourceTypeType] = None
     sourceKeyword: Optional[SourceKeywordTypeDef] = None
     sourceFrequency: Optional[SourceFrequencyType] = None
-    troubleshootingText: Optional[str] = None
+    troubleshootingText: Optional[Annotated[str, _aws_pattern("Auditmanager", "TroubleshootingText")]] = None
 
 
 # This class is the output for the 'list_controls' function.
 class ListControlsResponseTypeDef(BaseValidatorModel):
     controlMetadataList: List[ControlMetadataTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
-    nextToken: Optional[str] = None
+    nextToken: Optional[Annotated[str, _aws_pattern("Auditmanager", "Token")]] = None
 
 
 class CreateAssessmentFrameworkControlSetTypeDef(BaseValidatorModel):
-    name: str
+    name: Annotated[str, _aws_pattern("Auditmanager", "ControlSetName")]
     controls: Optional[List[CreateAssessmentFrameworkControlTypeDef]] = None
 
 
 class UpdateAssessmentFrameworkControlSetTypeDef(BaseValidatorModel):
-    name: str
+    name: Annotated[str, _aws_pattern("Auditmanager", "ControlSetName")]
     controls: List[CreateAssessmentFrameworkControlTypeDef]
-    id: Optional[str] = None
+    id: Optional[Annotated[str, _aws_pattern("Auditmanager", "ControlSetName")]] = None
 
 
 # This class is the output for the 'get_delegations' function.
 class GetDelegationsResponseTypeDef(BaseValidatorModel):
     delegations: List[DelegationMetadataTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
-    nextToken: Optional[str] = None
+    nextToken: Optional[Annotated[str, _aws_pattern("Auditmanager", "Token")]] = None
 
 
 # This class is the input for the 'update_settings' function.
 class UpdateSettingsRequestTypeDef(BaseValidatorModel):
-    snsTopic: Optional[str] = None
+    snsTopic: Optional[Annotated[str, _aws_pattern("Auditmanager", "SnsArn")]] = None
     defaultAssessmentReportsDestination: Optional[AssessmentReportsDestinationTypeDef] = None
     defaultProcessOwners: Optional[List[RoleTypeDef]] = None
-    kmsKey: Optional[str] = None
+    kmsKey: Optional[Annotated[str, _aws_pattern("Auditmanager", "KmsKey")]] = None
     evidenceFinderEnabled: Optional[bool] = None
     deregistrationPolicy: Optional[DeregistrationPolicyTypeDef] = None
     defaultExportDestination: Optional[DefaultExportDestinationTypeDef] = None
@@ -887,31 +889,31 @@ class UpdateSettingsRequestTypeDef(BaseValidatorModel):
 
 class SettingsTypeDef(BaseValidatorModel):
     isAwsOrgEnabled: Optional[bool] = None
-    snsTopic: Optional[str] = None
+    snsTopic: Optional[Annotated[str, _aws_pattern("Auditmanager", "SNSTopic")]] = None
     defaultAssessmentReportsDestination: Optional[AssessmentReportsDestinationTypeDef] = None
     defaultProcessOwners: Optional[List[RoleTypeDef]] = None
-    kmsKey: Optional[str] = None
+    kmsKey: Optional[Annotated[str, _aws_pattern("Auditmanager", "KmsKey")]] = None
     evidenceFinderEnablement: Optional[EvidenceFinderEnablementTypeDef] = None
     deregistrationPolicy: Optional[DeregistrationPolicyTypeDef] = None
     defaultExportDestination: Optional[DefaultExportDestinationTypeDef] = None
 
 
 class EvidenceTypeDef(BaseValidatorModel):
-    dataSource: Optional[str] = None
-    evidenceAwsAccountId: Optional[str] = None
+    dataSource: Optional[Annotated[str, _aws_pattern("Auditmanager", "String")]] = None
+    evidenceAwsAccountId: Optional[Annotated[str, _aws_pattern("Auditmanager", "AccountId")]] = None
     time: Optional[datetime] = None
-    eventSource: Optional[str] = None
-    eventName: Optional[str] = None
-    evidenceByType: Optional[str] = None
+    eventSource: Optional[Annotated[str, _aws_pattern("Auditmanager", "AWSServiceName")]] = None
+    eventName: Optional[Annotated[str, _aws_pattern("Auditmanager", "EventName")]] = None
+    evidenceByType: Optional[Annotated[str, _aws_pattern("Auditmanager", "String")]] = None
     resourcesIncluded: Optional[List[ResourceTypeDef]] = None
     attributes: Optional[Dict[str, str]] = None
-    iamId: Optional[str] = None
-    complianceCheck: Optional[str] = None
-    awsOrganization: Optional[str] = None
-    awsAccountId: Optional[str] = None
-    evidenceFolderId: Optional[str] = None
-    id: Optional[str] = None
-    assessmentReportSelection: Optional[str] = None
+    iamId: Optional[Annotated[str, _aws_pattern("Auditmanager", "IamArn")]] = None
+    complianceCheck: Optional[Annotated[str, _aws_pattern("Auditmanager", "String")]] = None
+    awsOrganization: Optional[Annotated[str, _aws_pattern("Auditmanager", "String")]] = None
+    awsAccountId: Optional[Annotated[str, _aws_pattern("Auditmanager", "AccountId")]] = None
+    evidenceFolderId: Optional[Annotated[str, _aws_pattern("Auditmanager", "UUID")]] = None
+    id: Optional[Annotated[str, _aws_pattern("Auditmanager", "UUID")]] = None
+    assessmentReportSelection: Optional[Annotated[str, _aws_pattern("Auditmanager", "String")]] = None
 
 
 # This class is the output for the 'get_assessment_report_url' function.
@@ -940,14 +942,14 @@ class GetServicesInScopeResponseTypeDef(BaseValidatorModel):
 class ListNotificationsResponseTypeDef(BaseValidatorModel):
     notifications: List[NotificationTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
-    nextToken: Optional[str] = None
+    nextToken: Optional[Annotated[str, _aws_pattern("Auditmanager", "Token")]] = None
 
 
 class AssessmentMetadataTypeDef(BaseValidatorModel):
-    name: Optional[str] = None
-    id: Optional[str] = None
-    description: Optional[str] = None
-    complianceType: Optional[str] = None
+    name: Optional[Annotated[str, _aws_pattern("Auditmanager", "AssessmentName")]] = None
+    id: Optional[Annotated[str, _aws_pattern("Auditmanager", "UUID")]] = None
+    description: Optional[Annotated[str, _aws_pattern("Auditmanager", "AssessmentDescription")]] = None
+    complianceType: Optional[Annotated[str, _aws_pattern("Auditmanager", "ComplianceType")]] = None
     status: Optional[AssessmentStatusType] = None
     assessmentReportsDestination: Optional[AssessmentReportsDestinationTypeDef] = None
     scope: Optional[ScopeOutputTypeDef] = None
@@ -964,12 +966,12 @@ ScopeUnionTypeDef = Union[ScopeOutputTypeDef, ScopeTypeDef]
 class ListAssessmentsResponseTypeDef(BaseValidatorModel):
     assessmentMetadata: List[AssessmentMetadataItemTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
-    nextToken: Optional[str] = None
+    nextToken: Optional[Annotated[str, _aws_pattern("Auditmanager", "Token")]] = None
 
 
 class AssessmentControlSetTypeDef(BaseValidatorModel):
-    id: Optional[str] = None
-    description: Optional[str] = None
+    id: Optional[Annotated[str, _aws_pattern("Auditmanager", "ControlSetId")]] = None
+    description: Optional[Annotated[str, _aws_pattern("Auditmanager", "NonEmptyString")]] = None
     status: Optional[ControlSetStatusType] = None
     roles: Optional[List[RoleTypeDef]] = None
     controls: Optional[List[AssessmentControlTypeDef]] = None
@@ -1001,87 +1003,87 @@ class BatchImportEvidenceToAssessmentControlResponseTypeDef(BaseValidatorModel):
 class ListControlDomainInsightsByAssessmentResponseTypeDef(BaseValidatorModel):
     controlDomainInsights: List[ControlDomainInsightsTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
-    nextToken: Optional[str] = None
+    nextToken: Optional[Annotated[str, _aws_pattern("Auditmanager", "Token")]] = None
 
 
 # This class is the output for the 'list_control_domain_insights' function.
 class ListControlDomainInsightsResponseTypeDef(BaseValidatorModel):
     controlDomainInsights: List[ControlDomainInsightsTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
-    nextToken: Optional[str] = None
+    nextToken: Optional[Annotated[str, _aws_pattern("Auditmanager", "Token")]] = None
 
 
 # This class is the output for the 'list_assessment_control_insights_by_control_domain' function.
 class ListAssessmentControlInsightsByControlDomainResponseTypeDef(BaseValidatorModel):
     controlInsightsByAssessment: List[ControlInsightsMetadataByAssessmentItemTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
-    nextToken: Optional[str] = None
+    nextToken: Optional[Annotated[str, _aws_pattern("Auditmanager", "Token")]] = None
 
 
 # This class is the output for the 'list_control_insights_by_control_domain' function.
 class ListControlInsightsByControlDomainResponseTypeDef(BaseValidatorModel):
     controlInsightsMetadata: List[ControlInsightsMetadataItemTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
-    nextToken: Optional[str] = None
+    nextToken: Optional[Annotated[str, _aws_pattern("Auditmanager", "Token")]] = None
 
 
 class ControlTypeDef(BaseValidatorModel):
-    arn: Optional[str] = None
-    id: Optional[str] = None
+    arn: Optional[Annotated[str, _aws_pattern("Auditmanager", "AuditManagerArn")]] = None
+    id: Optional[Annotated[str, _aws_pattern("Auditmanager", "UUID")]] = None
     type: Optional[ControlTypeType] = None
-    name: Optional[str] = None
-    description: Optional[str] = None
-    testingInformation: Optional[str] = None
-    actionPlanTitle: Optional[str] = None
-    actionPlanInstructions: Optional[str] = None
-    controlSources: Optional[str] = None
+    name: Optional[Annotated[str, _aws_pattern("Auditmanager", "ControlName")]] = None
+    description: Optional[Annotated[str, _aws_pattern("Auditmanager", "ControlDescription")]] = None
+    testingInformation: Optional[Annotated[str, _aws_pattern("Auditmanager", "TestingInformation")]] = None
+    actionPlanTitle: Optional[Annotated[str, _aws_pattern("Auditmanager", "ActionPlanTitle")]] = None
+    actionPlanInstructions: Optional[Annotated[str, _aws_pattern("Auditmanager", "ActionPlanInstructions")]] = None
+    controlSources: Optional[Annotated[str, _aws_pattern("Auditmanager", "ControlSources")]] = None
     controlMappingSources: Optional[List[ControlMappingSourceTypeDef]] = None
     createdAt: Optional[datetime] = None
     lastUpdatedAt: Optional[datetime] = None
-    createdBy: Optional[str] = None
-    lastUpdatedBy: Optional[str] = None
+    createdBy: Optional[Annotated[str, _aws_pattern("Auditmanager", "CreatedBy")]] = None
+    lastUpdatedBy: Optional[Annotated[str, _aws_pattern("Auditmanager", "LastUpdatedBy")]] = None
     tags: Optional[Dict[str, str]] = None
     state: Optional[ControlStateType] = None
 
 
 # This class is the input for the 'update_control' function.
 class UpdateControlRequestTypeDef(BaseValidatorModel):
-    controlId: str
-    name: str
+    controlId: Annotated[str, _aws_pattern("Auditmanager", "UUID")]
+    name: Annotated[str, _aws_pattern("Auditmanager", "ControlName")]
     controlMappingSources: List[ControlMappingSourceTypeDef]
-    description: Optional[str] = None
-    testingInformation: Optional[str] = None
-    actionPlanTitle: Optional[str] = None
-    actionPlanInstructions: Optional[str] = None
+    description: Optional[Annotated[str, _aws_pattern("Auditmanager", "ControlDescription")]] = None
+    testingInformation: Optional[Annotated[str, _aws_pattern("Auditmanager", "TestingInformation")]] = None
+    actionPlanTitle: Optional[Annotated[str, _aws_pattern("Auditmanager", "ActionPlanTitle")]] = None
+    actionPlanInstructions: Optional[Annotated[str, _aws_pattern("Auditmanager", "ActionPlanInstructions")]] = None
 
 
 # This class is the input for the 'create_control' function.
 class CreateControlRequestTypeDef(BaseValidatorModel):
-    name: str
+    name: Annotated[str, _aws_pattern("Auditmanager", "ControlName")]
     controlMappingSources: List[CreateControlMappingSourceTypeDef]
-    description: Optional[str] = None
-    testingInformation: Optional[str] = None
-    actionPlanTitle: Optional[str] = None
-    actionPlanInstructions: Optional[str] = None
+    description: Optional[Annotated[str, _aws_pattern("Auditmanager", "ControlDescription")]] = None
+    testingInformation: Optional[Annotated[str, _aws_pattern("Auditmanager", "TestingInformation")]] = None
+    actionPlanTitle: Optional[Annotated[str, _aws_pattern("Auditmanager", "ActionPlanTitle")]] = None
+    actionPlanInstructions: Optional[Annotated[str, _aws_pattern("Auditmanager", "ActionPlanInstructions")]] = None
     tags: Optional[Dict[str, str]] = None
 
 
 # This class is the input for the 'create_assessment_framework' function.
 class CreateAssessmentFrameworkRequestTypeDef(BaseValidatorModel):
-    name: str
+    name: Annotated[str, _aws_pattern("Auditmanager", "FrameworkName")]
     controlSets: List[CreateAssessmentFrameworkControlSetTypeDef]
-    description: Optional[str] = None
-    complianceType: Optional[str] = None
+    description: Optional[Annotated[str, _aws_pattern("Auditmanager", "FrameworkDescription")]] = None
+    complianceType: Optional[Annotated[str, _aws_pattern("Auditmanager", "ComplianceType")]] = None
     tags: Optional[Dict[str, str]] = None
 
 
 # This class is the input for the 'update_assessment_framework' function.
 class UpdateAssessmentFrameworkRequestTypeDef(BaseValidatorModel):
-    frameworkId: str
-    name: str
+    frameworkId: Annotated[str, _aws_pattern("Auditmanager", "UUID")]
+    name: Annotated[str, _aws_pattern("Auditmanager", "FrameworkName")]
     controlSets: List[UpdateAssessmentFrameworkControlSetTypeDef]
-    description: Optional[str] = None
-    complianceType: Optional[str] = None
+    description: Optional[Annotated[str, _aws_pattern("Auditmanager", "FrameworkDescription")]] = None
+    complianceType: Optional[Annotated[str, _aws_pattern("Auditmanager", "ComplianceType")]] = None
 
 
 # This class is the output for the 'get_settings' function.
@@ -1100,7 +1102,7 @@ class UpdateSettingsResponseTypeDef(BaseValidatorModel):
 class GetEvidenceByEvidenceFolderResponseTypeDef(BaseValidatorModel):
     evidence: List[EvidenceTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
-    nextToken: Optional[str] = None
+    nextToken: Optional[Annotated[str, _aws_pattern("Auditmanager", "Token")]] = None
 
 
 # This class is the output for the 'get_evidence' function.
@@ -1111,28 +1113,28 @@ class GetEvidenceResponseTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'create_assessment' function.
 class CreateAssessmentRequestTypeDef(BaseValidatorModel):
-    name: str
+    name: Annotated[str, _aws_pattern("Auditmanager", "AssessmentName")]
     assessmentReportsDestination: AssessmentReportsDestinationTypeDef
     scope: ScopeUnionTypeDef
     roles: List[RoleTypeDef]
-    frameworkId: str
-    description: Optional[str] = None
+    frameworkId: Annotated[str, _aws_pattern("Auditmanager", "UUID")]
+    description: Optional[Annotated[str, _aws_pattern("Auditmanager", "AssessmentDescription")]] = None
     tags: Optional[Dict[str, str]] = None
 
 
 # This class is the input for the 'update_assessment' function.
 class UpdateAssessmentRequestTypeDef(BaseValidatorModel):
-    assessmentId: str
+    assessmentId: Annotated[str, _aws_pattern("Auditmanager", "UUID")]
     scope: ScopeUnionTypeDef
-    assessmentName: Optional[str] = None
-    assessmentDescription: Optional[str] = None
+    assessmentName: Optional[Annotated[str, _aws_pattern("Auditmanager", "AssessmentName")]] = None
+    assessmentDescription: Optional[Annotated[str, _aws_pattern("Auditmanager", "AssessmentDescription")]] = None
     assessmentReportsDestination: Optional[AssessmentReportsDestinationTypeDef] = None
     roles: Optional[List[RoleTypeDef]] = None
 
 
 class AssessmentFrameworkTypeDef(BaseValidatorModel):
-    id: Optional[str] = None
-    arn: Optional[str] = None
+    id: Optional[Annotated[str, _aws_pattern("Auditmanager", "UUID")]] = None
+    arn: Optional[Annotated[str, _aws_pattern("Auditmanager", "AuditManagerArn")]] = None
     metadata: Optional[FrameworkMetadataTypeDef] = None
     controlSets: Optional[List[AssessmentControlSetTypeDef]] = None
 
@@ -1144,8 +1146,8 @@ class UpdateAssessmentControlSetStatusResponseTypeDef(BaseValidatorModel):
 
 
 class ControlSetTypeDef(BaseValidatorModel):
-    id: Optional[str] = None
-    name: Optional[str] = None
+    id: Optional[Annotated[str, _aws_pattern("Auditmanager", "UUID")]] = None
+    name: Optional[Annotated[str, _aws_pattern("Auditmanager", "ControlSetName")]] = None
     controls: Optional[List[ControlTypeDef]] = None
 
 
@@ -1168,7 +1170,7 @@ class UpdateControlResponseTypeDef(BaseValidatorModel):
 
 
 class AssessmentTypeDef(BaseValidatorModel):
-    arn: Optional[str] = None
+    arn: Optional[Annotated[str, _aws_pattern("Auditmanager", "AuditManagerArn")]] = None
     awsAccount: Optional[AWSAccountTypeDef] = None
     metadata: Optional[AssessmentMetadataTypeDef] = None
     framework: Optional[AssessmentFrameworkTypeDef] = None
@@ -1176,19 +1178,19 @@ class AssessmentTypeDef(BaseValidatorModel):
 
 
 class FrameworkTypeDef(BaseValidatorModel):
-    arn: Optional[str] = None
-    id: Optional[str] = None
-    name: Optional[str] = None
+    arn: Optional[Annotated[str, _aws_pattern("Auditmanager", "AuditManagerArn")]] = None
+    id: Optional[Annotated[str, _aws_pattern("Auditmanager", "UUID")]] = None
+    name: Optional[Annotated[str, _aws_pattern("Auditmanager", "FrameworkName")]] = None
     type: Optional[FrameworkTypeType] = None
-    complianceType: Optional[str] = None
-    description: Optional[str] = None
-    logo: Optional[str] = None
-    controlSources: Optional[str] = None
+    complianceType: Optional[Annotated[str, _aws_pattern("Auditmanager", "ComplianceType")]] = None
+    description: Optional[Annotated[str, _aws_pattern("Auditmanager", "FrameworkDescription")]] = None
+    logo: Optional[Annotated[str, _aws_pattern("Auditmanager", "Filename")]] = None
+    controlSources: Optional[Annotated[str, _aws_pattern("Auditmanager", "ControlSources")]] = None
     controlSets: Optional[List[ControlSetTypeDef]] = None
     createdAt: Optional[datetime] = None
     lastUpdatedAt: Optional[datetime] = None
-    createdBy: Optional[str] = None
-    lastUpdatedBy: Optional[str] = None
+    createdBy: Optional[Annotated[str, _aws_pattern("Auditmanager", "CreatedBy")]] = None
+    lastUpdatedBy: Optional[Annotated[str, _aws_pattern("Auditmanager", "LastUpdatedBy")]] = None
     tags: Optional[Dict[str, str]] = None
 
 

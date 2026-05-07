@@ -3,6 +3,7 @@
 from datetime import datetime
 from decimal import Decimal
 from typing import (
+    Annotated,
     Any,
     Callable,
     Dict,
@@ -24,6 +25,7 @@ from botocore.response import StreamingBody
 from pydantic import Field
 
 from aws_resource_validator.core.base_validator_model import BaseValidatorModel, EventStream
+from aws_resource_validator.core.pattern_validation import aws_field_pattern as _aws_pattern
 from aws_resource_validator.pydantic_models.shield.shield_constants import *  # noqa: F401,F403
 
 # Optional boto3 symbols — imported lazily so services that don't need them
@@ -44,22 +46,22 @@ class ResponseActionOutputTypeDef(BaseValidatorModel):
 
 
 class AssociateDRTLogBucketRequestTypeDef(BaseValidatorModel):
-    LogBucket: str
+    LogBucket: Annotated[str, _aws_pattern("Shield", "LogBucket")]
 
 
 class AssociateDRTRoleRequestTypeDef(BaseValidatorModel):
-    RoleArn: str
+    RoleArn: Annotated[str, _aws_pattern("Shield", "RoleArn")]
 
 
 class AssociateHealthCheckRequestTypeDef(BaseValidatorModel):
-    ProtectionId: str
-    HealthCheckArn: str
+    ProtectionId: Annotated[str, _aws_pattern("Shield", "ProtectionId")]
+    HealthCheckArn: Annotated[str, _aws_pattern("Shield", "HealthCheckArn")]
 
 
 class EmergencyContactTypeDef(BaseValidatorModel):
-    EmailAddress: str
-    PhoneNumber: Optional[str] = None
-    ContactNotes: Optional[str] = None
+    EmailAddress: Annotated[str, _aws_pattern("Shield", "EmailAddress")]
+    PhoneNumber: Optional[Annotated[str, _aws_pattern("Shield", "PhoneNumber")]] = None
+    ContactNotes: Optional[Annotated[str, _aws_pattern("Shield", "ContactNotes")]] = None
 
 
 class MitigationTypeDef(BaseValidatorModel):
@@ -102,16 +104,16 @@ class ResponseMetadataTypeDef(BaseValidatorModel):
 
 
 class DeleteProtectionGroupRequestTypeDef(BaseValidatorModel):
-    ProtectionGroupId: str
+    ProtectionGroupId: Annotated[str, _aws_pattern("Shield", "ProtectionGroupId")]
 
 
 class DeleteProtectionRequestTypeDef(BaseValidatorModel):
-    ProtectionId: str
+    ProtectionId: Annotated[str, _aws_pattern("Shield", "ProtectionId")]
 
 
 # This class is the input for the 'describe_attack' function.
 class DescribeAttackRequestTypeDef(BaseValidatorModel):
-    AttackId: str
+    AttackId: Annotated[str, _aws_pattern("Shield", "AttackId")]
 
 
 class TimeRangeOutputTypeDef(BaseValidatorModel):
@@ -121,45 +123,45 @@ class TimeRangeOutputTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'describe_protection_group' function.
 class DescribeProtectionGroupRequestTypeDef(BaseValidatorModel):
-    ProtectionGroupId: str
+    ProtectionGroupId: Annotated[str, _aws_pattern("Shield", "ProtectionGroupId")]
 
 
 class ProtectionGroupTypeDef(BaseValidatorModel):
-    ProtectionGroupId: str
+    ProtectionGroupId: Annotated[str, _aws_pattern("Shield", "ProtectionGroupId")]
     Aggregation: ProtectionGroupAggregationType
     Pattern: ProtectionGroupPatternType
-    Members: List[str]
+    Members: List[Annotated[str, _aws_pattern("Shield", "ResourceArn")]]
     ResourceType: Optional[ProtectedResourceTypeType] = None
-    ProtectionGroupArn: Optional[str] = None
+    ProtectionGroupArn: Optional[Annotated[str, _aws_pattern("Shield", "ResourceArn")]] = None
 
 
 # This class is the input for the 'describe_protection' function.
 class DescribeProtectionRequestTypeDef(BaseValidatorModel):
-    ProtectionId: Optional[str] = None
-    ResourceArn: Optional[str] = None
+    ProtectionId: Optional[Annotated[str, _aws_pattern("Shield", "ProtectionId")]] = None
+    ResourceArn: Optional[Annotated[str, _aws_pattern("Shield", "ResourceArn")]] = None
 
 
 class DisableApplicationLayerAutomaticResponseRequestTypeDef(BaseValidatorModel):
-    ResourceArn: str
+    ResourceArn: Annotated[str, _aws_pattern("Shield", "ResourceArn")]
 
 
 class DisassociateDRTLogBucketRequestTypeDef(BaseValidatorModel):
-    LogBucket: str
+    LogBucket: Annotated[str, _aws_pattern("Shield", "LogBucket")]
 
 
 class DisassociateHealthCheckRequestTypeDef(BaseValidatorModel):
-    ProtectionId: str
-    HealthCheckArn: str
+    ProtectionId: Annotated[str, _aws_pattern("Shield", "ProtectionId")]
+    HealthCheckArn: Annotated[str, _aws_pattern("Shield", "HealthCheckArn")]
 
 
 class InclusionProtectionFiltersTypeDef(BaseValidatorModel):
-    ResourceArns: Optional[List[str]] = None
-    ProtectionNames: Optional[List[str]] = None
+    ResourceArns: Optional[List[Annotated[str, _aws_pattern("Shield", "ResourceArn")]]] = None
+    ProtectionNames: Optional[List[Annotated[str, _aws_pattern("Shield", "ProtectionName")]]] = None
     ResourceTypes: Optional[List[ProtectedResourceTypeType]] = None
 
 
 class InclusionProtectionGroupFiltersTypeDef(BaseValidatorModel):
-    ProtectionGroupIds: Optional[List[str]] = None
+    ProtectionGroupIds: Optional[List[Annotated[str, _aws_pattern("Shield", "ProtectionGroupId")]]] = None
     Patterns: Optional[List[ProtectionGroupPatternType]] = None
     ResourceTypes: Optional[List[ProtectedResourceTypeType]] = None
     Aggregations: Optional[List[ProtectionGroupAggregationType]] = None
@@ -178,14 +180,14 @@ class PaginatorConfigTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'list_resources_in_protection_group' function.
 class ListResourcesInProtectionGroupRequestTypeDef(BaseValidatorModel):
-    ProtectionGroupId: str
-    NextToken: Optional[str] = None
+    ProtectionGroupId: Annotated[str, _aws_pattern("Shield", "ProtectionGroupId")]
+    NextToken: Optional[Annotated[str, _aws_pattern("Shield", "Token")]] = None
     MaxResults: Optional[int] = None
 
 
 # This class is the input for the 'list_tags_for_resource' function.
 class ListTagsForResourceRequestTypeDef(BaseValidatorModel):
-    ResourceARN: str
+    ResourceARN: Annotated[str, _aws_pattern("Shield", "ResourceArn")]
 
 
 class ProtectionGroupArbitraryPatternLimitsTypeDef(BaseValidatorModel):
@@ -201,16 +203,16 @@ TimestampTypeDef = Union[datetime, str]
 
 
 class UntagResourceRequestTypeDef(BaseValidatorModel):
-    ResourceARN: str
+    ResourceARN: Annotated[str, _aws_pattern("Shield", "ResourceArn")]
     TagKeys: List[str]
 
 
 class UpdateProtectionGroupRequestTypeDef(BaseValidatorModel):
-    ProtectionGroupId: str
+    ProtectionGroupId: Annotated[str, _aws_pattern("Shield", "ProtectionGroupId")]
     Aggregation: ProtectionGroupAggregationType
     Pattern: ProtectionGroupPatternType
     ResourceType: Optional[ProtectedResourceTypeType] = None
-    Members: Optional[List[str]] = None
+    Members: Optional[List[Annotated[str, _aws_pattern("Shield", "ResourceArn")]]] = None
 
 
 class UpdateSubscriptionRequestTypeDef(BaseValidatorModel):
@@ -258,35 +260,35 @@ class AttackVolumeTypeDef(BaseValidatorModel):
 
 
 class CreateProtectionGroupRequestTypeDef(BaseValidatorModel):
-    ProtectionGroupId: str
+    ProtectionGroupId: Annotated[str, _aws_pattern("Shield", "ProtectionGroupId")]
     Aggregation: ProtectionGroupAggregationType
     Pattern: ProtectionGroupPatternType
     ResourceType: Optional[ProtectedResourceTypeType] = None
-    Members: Optional[List[str]] = None
+    Members: Optional[List[Annotated[str, _aws_pattern("Shield", "ResourceArn")]]] = None
     Tags: Optional[List[TagTypeDef]] = None
 
 
 # This class is the input for the 'create_protection' function.
 class CreateProtectionRequestTypeDef(BaseValidatorModel):
-    Name: str
-    ResourceArn: str
+    Name: Annotated[str, _aws_pattern("Shield", "ProtectionName")]
+    ResourceArn: Annotated[str, _aws_pattern("Shield", "ResourceArn")]
     Tags: Optional[List[TagTypeDef]] = None
 
 
 class TagResourceRequestTypeDef(BaseValidatorModel):
-    ResourceARN: str
+    ResourceARN: Annotated[str, _aws_pattern("Shield", "ResourceArn")]
     Tags: List[TagTypeDef]
 
 
 # This class is the output for the 'create_protection' function.
 class CreateProtectionResponseTypeDef(BaseValidatorModel):
-    ProtectionId: str
+    ProtectionId: Annotated[str, _aws_pattern("Shield", "ProtectionId")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 class DescribeDRTAccessResponseTypeDef(BaseValidatorModel):
-    RoleArn: str
-    LogBucketList: List[str]
+    RoleArn: Annotated[str, _aws_pattern("Shield", "RoleArn")]
+    LogBucketList: List[Annotated[str, _aws_pattern("Shield", "LogBucket")]]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
@@ -302,9 +304,9 @@ class GetSubscriptionStateResponseTypeDef(BaseValidatorModel):
 
 # This class is the output for the 'list_resources_in_protection_group' function.
 class ListResourcesInProtectionGroupResponseTypeDef(BaseValidatorModel):
-    ResourceArns: List[str]
+    ResourceArns: List[Annotated[str, _aws_pattern("Shield", "ResourceArn")]]
     ResponseMetadata: ResponseMetadataTypeDef
-    NextToken: Optional[str] = None
+    NextToken: Optional[Annotated[str, _aws_pattern("Shield", "Token")]] = None
 
 
 # This class is the output for the 'list_tags_for_resource' function.
@@ -323,19 +325,19 @@ class DescribeProtectionGroupResponseTypeDef(BaseValidatorModel):
 class ListProtectionGroupsResponseTypeDef(BaseValidatorModel):
     ProtectionGroups: List[ProtectionGroupTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
-    NextToken: Optional[str] = None
+    NextToken: Optional[Annotated[str, _aws_pattern("Shield", "Token")]] = None
 
 
 # This class is the input for the 'list_protections' function.
 class ListProtectionsRequestTypeDef(BaseValidatorModel):
-    NextToken: Optional[str] = None
+    NextToken: Optional[Annotated[str, _aws_pattern("Shield", "Token")]] = None
     MaxResults: Optional[int] = None
     InclusionFilters: Optional[InclusionProtectionFiltersTypeDef] = None
 
 
 # This class is the input for the 'list_protection_groups' function.
 class ListProtectionGroupsRequestTypeDef(BaseValidatorModel):
-    NextToken: Optional[str] = None
+    NextToken: Optional[Annotated[str, _aws_pattern("Shield", "Token")]] = None
     MaxResults: Optional[int] = None
     InclusionFilters: Optional[InclusionProtectionGroupFiltersTypeDef] = None
 
@@ -362,11 +364,11 @@ class TimeRangeTypeDef(BaseValidatorModel):
 
 
 class ProtectionTypeDef(BaseValidatorModel):
-    Id: Optional[str] = None
-    Name: Optional[str] = None
-    ResourceArn: Optional[str] = None
+    Id: Optional[Annotated[str, _aws_pattern("Shield", "ProtectionId")]] = None
+    Name: Optional[Annotated[str, _aws_pattern("Shield", "ProtectionName")]] = None
+    ResourceArn: Optional[Annotated[str, _aws_pattern("Shield", "ResourceArn")]] = None
     HealthCheckIds: Optional[List[str]] = None
-    ProtectionArn: Optional[str] = None
+    ProtectionArn: Optional[Annotated[str, _aws_pattern("Shield", "ResourceArn")]] = None
     ApplicationLayerAutomaticResponseConfiguration: Optional[ApplicationLayerAutomaticResponseConfigurationTypeDef] = (
         None
     )
@@ -383,7 +385,7 @@ class SubResourceSummaryTypeDef(BaseValidatorModel):
 class ListAttacksResponseTypeDef(BaseValidatorModel):
     AttackSummaries: List[AttackSummaryTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
-    NextToken: Optional[str] = None
+    NextToken: Optional[Annotated[str, _aws_pattern("Shield", "Token")]] = None
 
 
 class AttackStatisticsDataItemTypeDef(BaseValidatorModel):
@@ -397,12 +399,12 @@ class ProtectionGroupLimitsTypeDef(BaseValidatorModel):
 
 
 class EnableApplicationLayerAutomaticResponseRequestTypeDef(BaseValidatorModel):
-    ResourceArn: str
+    ResourceArn: Annotated[str, _aws_pattern("Shield", "ResourceArn")]
     Action: ResponseActionUnionTypeDef
 
 
 class UpdateApplicationLayerAutomaticResponseRequestTypeDef(BaseValidatorModel):
-    ResourceArn: str
+    ResourceArn: Annotated[str, _aws_pattern("Shield", "ResourceArn")]
     Action: ResponseActionUnionTypeDef
 
 
@@ -419,12 +421,12 @@ class DescribeProtectionResponseTypeDef(BaseValidatorModel):
 class ListProtectionsResponseTypeDef(BaseValidatorModel):
     Protections: List[ProtectionTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
-    NextToken: Optional[str] = None
+    NextToken: Optional[Annotated[str, _aws_pattern("Shield", "Token")]] = None
 
 
 class AttackDetailTypeDef(BaseValidatorModel):
-    AttackId: Optional[str] = None
-    ResourceArn: Optional[str] = None
+    AttackId: Optional[Annotated[str, _aws_pattern("Shield", "AttackId")]] = None
+    ResourceArn: Optional[Annotated[str, _aws_pattern("Shield", "ResourceArn")]] = None
     SubResources: Optional[List[SubResourceSummaryTypeDef]] = None
     StartTime: Optional[datetime] = None
     EndTime: Optional[datetime] = None
@@ -453,10 +455,10 @@ class ListAttacksRequestPaginateTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'list_attacks' function.
 class ListAttacksRequestTypeDef(BaseValidatorModel):
-    ResourceArns: Optional[List[str]] = None
+    ResourceArns: Optional[List[Annotated[str, _aws_pattern("Shield", "ResourceArn")]]] = None
     StartTime: Optional[TimeRangeUnionTypeDef] = None
     EndTime: Optional[TimeRangeUnionTypeDef] = None
-    NextToken: Optional[str] = None
+    NextToken: Optional[Annotated[str, _aws_pattern("Shield", "Token")]] = None
     MaxResults: Optional[int] = None
 
 
@@ -474,7 +476,7 @@ class SubscriptionTypeDef(BaseValidatorModel):
     AutoRenew: Optional[AutoRenewType] = None
     Limits: Optional[List[LimitTypeDef]] = None
     ProactiveEngagementStatus: Optional[ProactiveEngagementStatusType] = None
-    SubscriptionArn: Optional[str] = None
+    SubscriptionArn: Optional[Annotated[str, _aws_pattern("Shield", "ResourceArn")]] = None
 
 
 class DescribeSubscriptionResponseTypeDef(BaseValidatorModel):

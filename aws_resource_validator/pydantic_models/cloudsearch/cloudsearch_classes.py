@@ -3,6 +3,7 @@
 from datetime import datetime
 from decimal import Decimal
 from typing import (
+    Annotated,
     Any,
     Callable,
     Dict,
@@ -24,6 +25,7 @@ from botocore.response import StreamingBody
 from pydantic import Field
 
 from aws_resource_validator.core.base_validator_model import BaseValidatorModel, EventStream
+from aws_resource_validator.core.pattern_validation import aws_field_pattern as _aws_pattern
 from aws_resource_validator.pydantic_models.cloudsearch.cloudsearch_constants import *  # noqa: F401,F403
 
 # Optional boto3 symbols — imported lazily so services that don't need them
@@ -56,7 +58,7 @@ class AnalysisOptionsTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'build_suggesters' function.
 class BuildSuggestersRequestTypeDef(BaseValidatorModel):
-    DomainName: str
+    DomainName: Annotated[str, _aws_pattern("Cloudsearch", "DomainName")]
 
 
 class ResponseMetadataTypeDef(BaseValidatorModel):
@@ -69,12 +71,12 @@ class ResponseMetadataTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'create_domain' function.
 class CreateDomainRequestTypeDef(BaseValidatorModel):
-    DomainName: str
+    DomainName: Annotated[str, _aws_pattern("Cloudsearch", "DomainName")]
 
 
 class DateArrayOptionsTypeDef(BaseValidatorModel):
     DefaultValue: Optional[str] = None
-    SourceFields: Optional[str] = None
+    SourceFields: Optional[Annotated[str, _aws_pattern("Cloudsearch", "FieldNameCommaList")]] = None
     FacetEnabled: Optional[bool] = None
     SearchEnabled: Optional[bool] = None
     ReturnEnabled: Optional[bool] = None
@@ -82,7 +84,7 @@ class DateArrayOptionsTypeDef(BaseValidatorModel):
 
 class DateOptionsTypeDef(BaseValidatorModel):
     DefaultValue: Optional[str] = None
-    SourceField: Optional[str] = None
+    SourceField: Optional[Annotated[str, _aws_pattern("Cloudsearch", "FieldName")]] = None
     FacetEnabled: Optional[bool] = None
     SearchEnabled: Optional[bool] = None
     ReturnEnabled: Optional[bool] = None
@@ -90,97 +92,97 @@ class DateOptionsTypeDef(BaseValidatorModel):
 
 
 class ExpressionTypeDef(BaseValidatorModel):
-    ExpressionName: str
+    ExpressionName: Annotated[str, _aws_pattern("Cloudsearch", "StandardName")]
     ExpressionValue: str
 
 
 # This class is the input for the 'delete_analysis_scheme' function.
 class DeleteAnalysisSchemeRequestTypeDef(BaseValidatorModel):
-    DomainName: str
-    AnalysisSchemeName: str
+    DomainName: Annotated[str, _aws_pattern("Cloudsearch", "DomainName")]
+    AnalysisSchemeName: Annotated[str, _aws_pattern("Cloudsearch", "StandardName")]
 
 
 # This class is the input for the 'delete_domain' function.
 class DeleteDomainRequestTypeDef(BaseValidatorModel):
-    DomainName: str
+    DomainName: Annotated[str, _aws_pattern("Cloudsearch", "DomainName")]
 
 
 # This class is the input for the 'delete_expression' function.
 class DeleteExpressionRequestTypeDef(BaseValidatorModel):
-    DomainName: str
-    ExpressionName: str
+    DomainName: Annotated[str, _aws_pattern("Cloudsearch", "DomainName")]
+    ExpressionName: Annotated[str, _aws_pattern("Cloudsearch", "StandardName")]
 
 
 # This class is the input for the 'delete_index_field' function.
 class DeleteIndexFieldRequestTypeDef(BaseValidatorModel):
-    DomainName: str
-    IndexFieldName: str
+    DomainName: Annotated[str, _aws_pattern("Cloudsearch", "DomainName")]
+    IndexFieldName: Annotated[str, _aws_pattern("Cloudsearch", "DynamicFieldName")]
 
 
 # This class is the input for the 'delete_suggester' function.
 class DeleteSuggesterRequestTypeDef(BaseValidatorModel):
-    DomainName: str
-    SuggesterName: str
+    DomainName: Annotated[str, _aws_pattern("Cloudsearch", "DomainName")]
+    SuggesterName: Annotated[str, _aws_pattern("Cloudsearch", "StandardName")]
 
 
 # This class is the input for the 'describe_analysis_schemes' function.
 class DescribeAnalysisSchemesRequestTypeDef(BaseValidatorModel):
-    DomainName: str
-    AnalysisSchemeNames: Optional[List[str]] = None
+    DomainName: Annotated[str, _aws_pattern("Cloudsearch", "DomainName")]
+    AnalysisSchemeNames: Optional[List[Annotated[str, _aws_pattern("Cloudsearch", "StandardName")]]] = None
     Deployed: Optional[bool] = None
 
 
 # This class is the input for the 'describe_availability_options' function.
 class DescribeAvailabilityOptionsRequestTypeDef(BaseValidatorModel):
-    DomainName: str
+    DomainName: Annotated[str, _aws_pattern("Cloudsearch", "DomainName")]
     Deployed: Optional[bool] = None
 
 
 # This class is the input for the 'describe_domain_endpoint_options' function.
 class DescribeDomainEndpointOptionsRequestTypeDef(BaseValidatorModel):
-    DomainName: str
+    DomainName: Annotated[str, _aws_pattern("Cloudsearch", "DomainName")]
     Deployed: Optional[bool] = None
 
 
 # This class is the input for the 'describe_domains' function.
 class DescribeDomainsRequestTypeDef(BaseValidatorModel):
-    DomainNames: Optional[List[str]] = None
+    DomainNames: Optional[List[Annotated[str, _aws_pattern("Cloudsearch", "DomainName")]]] = None
 
 
 # This class is the input for the 'describe_expressions' function.
 class DescribeExpressionsRequestTypeDef(BaseValidatorModel):
-    DomainName: str
-    ExpressionNames: Optional[List[str]] = None
+    DomainName: Annotated[str, _aws_pattern("Cloudsearch", "DomainName")]
+    ExpressionNames: Optional[List[Annotated[str, _aws_pattern("Cloudsearch", "StandardName")]]] = None
     Deployed: Optional[bool] = None
 
 
 # This class is the input for the 'describe_index_fields' function.
 class DescribeIndexFieldsRequestTypeDef(BaseValidatorModel):
-    DomainName: str
-    FieldNames: Optional[List[str]] = None
+    DomainName: Annotated[str, _aws_pattern("Cloudsearch", "DomainName")]
+    FieldNames: Optional[List[Annotated[str, _aws_pattern("Cloudsearch", "DynamicFieldName")]]] = None
     Deployed: Optional[bool] = None
 
 
 # This class is the input for the 'describe_scaling_parameters' function.
 class DescribeScalingParametersRequestTypeDef(BaseValidatorModel):
-    DomainName: str
+    DomainName: Annotated[str, _aws_pattern("Cloudsearch", "DomainName")]
 
 
 # This class is the input for the 'describe_service_access_policies' function.
 class DescribeServiceAccessPoliciesRequestTypeDef(BaseValidatorModel):
-    DomainName: str
+    DomainName: Annotated[str, _aws_pattern("Cloudsearch", "DomainName")]
     Deployed: Optional[bool] = None
 
 
 # This class is the input for the 'describe_suggesters' function.
 class DescribeSuggestersRequestTypeDef(BaseValidatorModel):
-    DomainName: str
-    SuggesterNames: Optional[List[str]] = None
+    DomainName: Annotated[str, _aws_pattern("Cloudsearch", "DomainName")]
+    SuggesterNames: Optional[List[Annotated[str, _aws_pattern("Cloudsearch", "StandardName")]]] = None
     Deployed: Optional[bool] = None
 
 
 class DocumentSuggesterOptionsTypeDef(BaseValidatorModel):
-    SourceField: str
+    SourceField: Annotated[str, _aws_pattern("Cloudsearch", "FieldName")]
     FuzzyMatching: Optional[SuggesterFuzzyMatchingType] = None
     SortExpression: Optional[str] = None
 
@@ -201,7 +203,7 @@ class ServiceEndpointTypeDef(BaseValidatorModel):
 
 class DoubleArrayOptionsTypeDef(BaseValidatorModel):
     DefaultValue: Optional[float] = None
-    SourceFields: Optional[str] = None
+    SourceFields: Optional[Annotated[str, _aws_pattern("Cloudsearch", "FieldNameCommaList")]] = None
     FacetEnabled: Optional[bool] = None
     SearchEnabled: Optional[bool] = None
     ReturnEnabled: Optional[bool] = None
@@ -209,7 +211,7 @@ class DoubleArrayOptionsTypeDef(BaseValidatorModel):
 
 class DoubleOptionsTypeDef(BaseValidatorModel):
     DefaultValue: Optional[float] = None
-    SourceField: Optional[str] = None
+    SourceField: Optional[Annotated[str, _aws_pattern("Cloudsearch", "FieldName")]] = None
     FacetEnabled: Optional[bool] = None
     SearchEnabled: Optional[bool] = None
     ReturnEnabled: Optional[bool] = None
@@ -218,12 +220,12 @@ class DoubleOptionsTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'index_documents' function.
 class IndexDocumentsRequestTypeDef(BaseValidatorModel):
-    DomainName: str
+    DomainName: Annotated[str, _aws_pattern("Cloudsearch", "DomainName")]
 
 
 class IntArrayOptionsTypeDef(BaseValidatorModel):
     DefaultValue: Optional[int] = None
-    SourceFields: Optional[str] = None
+    SourceFields: Optional[Annotated[str, _aws_pattern("Cloudsearch", "FieldNameCommaList")]] = None
     FacetEnabled: Optional[bool] = None
     SearchEnabled: Optional[bool] = None
     ReturnEnabled: Optional[bool] = None
@@ -231,7 +233,7 @@ class IntArrayOptionsTypeDef(BaseValidatorModel):
 
 class IntOptionsTypeDef(BaseValidatorModel):
     DefaultValue: Optional[int] = None
-    SourceField: Optional[str] = None
+    SourceField: Optional[Annotated[str, _aws_pattern("Cloudsearch", "FieldName")]] = None
     FacetEnabled: Optional[bool] = None
     SearchEnabled: Optional[bool] = None
     ReturnEnabled: Optional[bool] = None
@@ -240,7 +242,7 @@ class IntOptionsTypeDef(BaseValidatorModel):
 
 class LatLonOptionsTypeDef(BaseValidatorModel):
     DefaultValue: Optional[str] = None
-    SourceField: Optional[str] = None
+    SourceField: Optional[Annotated[str, _aws_pattern("Cloudsearch", "FieldName")]] = None
     FacetEnabled: Optional[bool] = None
     SearchEnabled: Optional[bool] = None
     ReturnEnabled: Optional[bool] = None
@@ -249,7 +251,7 @@ class LatLonOptionsTypeDef(BaseValidatorModel):
 
 class LiteralArrayOptionsTypeDef(BaseValidatorModel):
     DefaultValue: Optional[str] = None
-    SourceFields: Optional[str] = None
+    SourceFields: Optional[Annotated[str, _aws_pattern("Cloudsearch", "FieldNameCommaList")]] = None
     FacetEnabled: Optional[bool] = None
     SearchEnabled: Optional[bool] = None
     ReturnEnabled: Optional[bool] = None
@@ -257,7 +259,7 @@ class LiteralArrayOptionsTypeDef(BaseValidatorModel):
 
 class LiteralOptionsTypeDef(BaseValidatorModel):
     DefaultValue: Optional[str] = None
-    SourceField: Optional[str] = None
+    SourceField: Optional[Annotated[str, _aws_pattern("Cloudsearch", "FieldName")]] = None
     FacetEnabled: Optional[bool] = None
     SearchEnabled: Optional[bool] = None
     ReturnEnabled: Optional[bool] = None
@@ -266,19 +268,19 @@ class LiteralOptionsTypeDef(BaseValidatorModel):
 
 class TextArrayOptionsTypeDef(BaseValidatorModel):
     DefaultValue: Optional[str] = None
-    SourceFields: Optional[str] = None
+    SourceFields: Optional[Annotated[str, _aws_pattern("Cloudsearch", "FieldNameCommaList")]] = None
     ReturnEnabled: Optional[bool] = None
     HighlightEnabled: Optional[bool] = None
-    AnalysisScheme: Optional[str] = None
+    AnalysisScheme: Optional[Annotated[str, _aws_pattern("Cloudsearch", "Word")]] = None
 
 
 class TextOptionsTypeDef(BaseValidatorModel):
     DefaultValue: Optional[str] = None
-    SourceField: Optional[str] = None
+    SourceField: Optional[Annotated[str, _aws_pattern("Cloudsearch", "FieldName")]] = None
     ReturnEnabled: Optional[bool] = None
     SortEnabled: Optional[bool] = None
     HighlightEnabled: Optional[bool] = None
-    AnalysisScheme: Optional[str] = None
+    AnalysisScheme: Optional[Annotated[str, _aws_pattern("Cloudsearch", "Word")]] = None
 
 
 class ScalingParametersTypeDef(BaseValidatorModel):
@@ -289,13 +291,13 @@ class ScalingParametersTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'update_availability_options' function.
 class UpdateAvailabilityOptionsRequestTypeDef(BaseValidatorModel):
-    DomainName: str
+    DomainName: Annotated[str, _aws_pattern("Cloudsearch", "DomainName")]
     MultiAZ: bool
 
 
 # This class is the input for the 'update_service_access_policies' function.
 class UpdateServiceAccessPoliciesRequestTypeDef(BaseValidatorModel):
-    DomainName: str
+    DomainName: Annotated[str, _aws_pattern("Cloudsearch", "DomainName")]
     AccessPolicies: str
 
 
@@ -310,20 +312,20 @@ class AvailabilityOptionsStatusTypeDef(BaseValidatorModel):
 
 
 class AnalysisSchemeTypeDef(BaseValidatorModel):
-    AnalysisSchemeName: str
+    AnalysisSchemeName: Annotated[str, _aws_pattern("Cloudsearch", "StandardName")]
     AnalysisSchemeLanguage: AnalysisSchemeLanguageType
     AnalysisOptions: Optional[AnalysisOptionsTypeDef] = None
 
 
 # This class is the output for the 'build_suggesters' function.
 class BuildSuggestersResponseTypeDef(BaseValidatorModel):
-    FieldNames: List[str]
+    FieldNames: List[Annotated[str, _aws_pattern("Cloudsearch", "FieldName")]]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 # This class is the output for the 'index_documents' function.
 class IndexDocumentsResponseTypeDef(BaseValidatorModel):
-    FieldNames: List[str]
+    FieldNames: List[Annotated[str, _aws_pattern("Cloudsearch", "FieldName")]]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
@@ -334,7 +336,7 @@ class ListDomainNamesResponseTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'define_expression' function.
 class DefineExpressionRequestTypeDef(BaseValidatorModel):
-    DomainName: str
+    DomainName: Annotated[str, _aws_pattern("Cloudsearch", "DomainName")]
     Expression: ExpressionTypeDef
 
 
@@ -344,7 +346,7 @@ class ExpressionStatusTypeDef(BaseValidatorModel):
 
 
 class SuggesterTypeDef(BaseValidatorModel):
-    SuggesterName: str
+    SuggesterName: Annotated[str, _aws_pattern("Cloudsearch", "StandardName")]
     DocumentSuggesterOptions: DocumentSuggesterOptionsTypeDef
 
 
@@ -355,13 +357,13 @@ class DomainEndpointOptionsStatusTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'update_domain_endpoint_options' function.
 class UpdateDomainEndpointOptionsRequestTypeDef(BaseValidatorModel):
-    DomainName: str
+    DomainName: Annotated[str, _aws_pattern("Cloudsearch", "DomainName")]
     DomainEndpointOptions: DomainEndpointOptionsTypeDef
 
 
 class DomainStatusTypeDef(BaseValidatorModel):
     DomainId: str
-    DomainName: str
+    DomainName: Annotated[str, _aws_pattern("Cloudsearch", "DomainName")]
     RequiresIndexDocuments: bool
     ARN: Optional[str] = None
     Created: Optional[bool] = None
@@ -376,7 +378,7 @@ class DomainStatusTypeDef(BaseValidatorModel):
 
 
 class IndexFieldTypeDef(BaseValidatorModel):
-    IndexFieldName: str
+    IndexFieldName: Annotated[str, _aws_pattern("Cloudsearch", "DynamicFieldName")]
     IndexFieldType: IndexFieldTypeType
     IntOptions: Optional[IntOptionsTypeDef] = None
     DoubleOptions: Optional[DoubleOptionsTypeDef] = None
@@ -398,7 +400,7 @@ class ScalingParametersStatusTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'update_scaling_parameters' function.
 class UpdateScalingParametersRequestTypeDef(BaseValidatorModel):
-    DomainName: str
+    DomainName: Annotated[str, _aws_pattern("Cloudsearch", "DomainName")]
     ScalingParameters: ScalingParametersTypeDef
 
 
@@ -433,7 +435,7 @@ class AnalysisSchemeStatusTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'define_analysis_scheme' function.
 class DefineAnalysisSchemeRequestTypeDef(BaseValidatorModel):
-    DomainName: str
+    DomainName: Annotated[str, _aws_pattern("Cloudsearch", "DomainName")]
     AnalysisScheme: AnalysisSchemeTypeDef
 
 
@@ -457,7 +459,7 @@ class DescribeExpressionsResponseTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'define_suggester' function.
 class DefineSuggesterRequestTypeDef(BaseValidatorModel):
-    DomainName: str
+    DomainName: Annotated[str, _aws_pattern("Cloudsearch", "DomainName")]
     Suggester: SuggesterTypeDef
 
 
@@ -498,7 +500,7 @@ class DescribeDomainsResponseTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'define_index_field' function.
 class DefineIndexFieldRequestTypeDef(BaseValidatorModel):
-    DomainName: str
+    DomainName: Annotated[str, _aws_pattern("Cloudsearch", "DomainName")]
     IndexField: IndexFieldTypeDef
 
 

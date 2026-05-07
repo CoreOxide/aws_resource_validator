@@ -3,6 +3,7 @@
 from datetime import datetime
 from decimal import Decimal
 from typing import (
+    Annotated,
     Any,
     Callable,
     Dict,
@@ -24,6 +25,7 @@ from botocore.response import StreamingBody
 from pydantic import Field
 
 from aws_resource_validator.core.base_validator_model import BaseValidatorModel, EventStream
+from aws_resource_validator.core.pattern_validation import aws_field_pattern as _aws_pattern
 from aws_resource_validator.pydantic_models.personalize_runtime.personalize_runtime_constants import *  # noqa: F401,F403
 
 # Optional boto3 symbols — imported lazily so services that don't need them
@@ -40,10 +42,10 @@ except ImportError:  # pragma: no cover
 
 # This class is the input for the 'get_action_recommendations' function.
 class GetActionRecommendationsRequestTypeDef(BaseValidatorModel):
-    campaignArn: Optional[str] = None
+    campaignArn: Optional[Annotated[str, _aws_pattern("PersonalizeRuntime", "Arn")]] = None
     userId: Optional[str] = None
     numResults: Optional[int] = None
-    filterArn: Optional[str] = None
+    filterArn: Optional[Annotated[str, _aws_pattern("PersonalizeRuntime", "Arn")]] = None
     filterValues: Optional[Dict[str, str]] = None
 
 
@@ -62,11 +64,11 @@ class ResponseMetadataTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'get_personalized_ranking' function.
 class GetPersonalizedRankingRequestTypeDef(BaseValidatorModel):
-    campaignArn: str
+    campaignArn: Annotated[str, _aws_pattern("PersonalizeRuntime", "Arn")]
     inputList: List[str]
     userId: str
     context: Optional[Dict[str, str]] = None
-    filterArn: Optional[str] = None
+    filterArn: Optional[Annotated[str, _aws_pattern("PersonalizeRuntime", "Arn")]] = None
     filterValues: Optional[Dict[str, str]] = None
     metadataColumns: Optional[Dict[str, List[str]]] = None
 
@@ -74,15 +76,15 @@ class GetPersonalizedRankingRequestTypeDef(BaseValidatorModel):
 class PredictedItemTypeDef(BaseValidatorModel):
     itemId: Optional[str] = None
     score: Optional[float] = None
-    promotionName: Optional[str] = None
+    promotionName: Optional[Annotated[str, _aws_pattern("PersonalizeRuntime", "Name")]] = None
     metadata: Optional[Dict[str, str]] = None
     reason: Optional[List[str]] = None
 
 
 class PromotionTypeDef(BaseValidatorModel):
-    name: Optional[str] = None
+    name: Optional[Annotated[str, _aws_pattern("PersonalizeRuntime", "Name")]] = None
     percentPromotedItems: Optional[int] = None
-    filterArn: Optional[str] = None
+    filterArn: Optional[Annotated[str, _aws_pattern("PersonalizeRuntime", "Arn")]] = None
     filterValues: Optional[Dict[str, str]] = None
 
 
@@ -109,13 +111,13 @@ class GetRecommendationsResponseTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'get_recommendations' function.
 class GetRecommendationsRequestTypeDef(BaseValidatorModel):
-    campaignArn: Optional[str] = None
+    campaignArn: Optional[Annotated[str, _aws_pattern("PersonalizeRuntime", "Arn")]] = None
     itemId: Optional[str] = None
     userId: Optional[str] = None
     numResults: Optional[int] = None
     context: Optional[Dict[str, str]] = None
-    filterArn: Optional[str] = None
+    filterArn: Optional[Annotated[str, _aws_pattern("PersonalizeRuntime", "Arn")]] = None
     filterValues: Optional[Dict[str, str]] = None
-    recommenderArn: Optional[str] = None
+    recommenderArn: Optional[Annotated[str, _aws_pattern("PersonalizeRuntime", "Arn")]] = None
     promotions: Optional[List[PromotionTypeDef]] = None
     metadataColumns: Optional[Dict[str, List[str]]] = None

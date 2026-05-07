@@ -3,6 +3,7 @@
 from datetime import datetime
 from decimal import Decimal
 from typing import (
+    Annotated,
     Any,
     Callable,
     Dict,
@@ -24,6 +25,7 @@ from botocore.response import StreamingBody
 from pydantic import Field
 
 from aws_resource_validator.core.base_validator_model import BaseValidatorModel, EventStream
+from aws_resource_validator.core.pattern_validation import aws_field_pattern as _aws_pattern
 from aws_resource_validator.pydantic_models.forecastquery.forecastquery_constants import *  # noqa: F401,F403
 
 # Optional boto3 symbols — imported lazily so services that don't need them
@@ -45,7 +47,7 @@ class DataPointTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'query_forecast' function.
 class QueryForecastRequestTypeDef(BaseValidatorModel):
-    ForecastArn: str
+    ForecastArn: Annotated[str, _aws_pattern("Forecastquery", "Arn")]
     Filters: Dict[str, str]
     StartDate: Optional[str] = None
     EndDate: Optional[str] = None
@@ -62,7 +64,7 @@ class ResponseMetadataTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'query_what_if_forecast' function.
 class QueryWhatIfForecastRequestTypeDef(BaseValidatorModel):
-    WhatIfForecastArn: str
+    WhatIfForecastArn: Annotated[str, _aws_pattern("Forecastquery", "LongArn")]
     Filters: Dict[str, str]
     StartDate: Optional[str] = None
     EndDate: Optional[str] = None

@@ -3,6 +3,7 @@
 from datetime import datetime
 from decimal import Decimal
 from typing import (
+    Annotated,
     Any,
     Callable,
     Dict,
@@ -24,6 +25,7 @@ from botocore.response import StreamingBody
 from pydantic import Field
 
 from aws_resource_validator.core.base_validator_model import BaseValidatorModel, EventStream
+from aws_resource_validator.core.pattern_validation import aws_field_pattern as _aws_pattern
 from aws_resource_validator.pydantic_models.resiliencehub.resiliencehub_constants import *  # noqa: F401,F403
 
 # Optional boto3 symbols — imported lazily so services that don't need them
@@ -56,7 +58,7 @@ class ResponseMetadataTypeDef(BaseValidatorModel):
 
 
 class AlarmTypeDef(BaseValidatorModel):
-    alarmArn: Optional[str] = None
+    alarmArn: Optional[Annotated[str, _aws_pattern("Resiliencehub", "Arn")]] = None
     source: Optional[str] = None
 
 
@@ -80,27 +82,27 @@ class DisruptionComplianceTypeDef(BaseValidatorModel):
 
 
 class AppComponentTypeDef(BaseValidatorModel):
-    name: str
+    name: Annotated[str, _aws_pattern("Resiliencehub", "EntityName255")]
     type: str
     additionalInfo: Optional[Dict[str, List[str]]] = None
-    id: Optional[str] = None
+    id: Optional[Annotated[str, _aws_pattern("Resiliencehub", "EntityName255")]] = None
 
 
 class EksSourceClusterNamespaceTypeDef(BaseValidatorModel):
-    eksClusterArn: str
-    namespace: str
+    eksClusterArn: Annotated[str, _aws_pattern("Resiliencehub", "Arn")]
+    namespace: Annotated[str, _aws_pattern("Resiliencehub", "EksNamespace")]
 
 
 class TerraformSourceTypeDef(BaseValidatorModel):
-    s3StateFileUrl: str
+    s3StateFileUrl: Annotated[str, _aws_pattern("Resiliencehub", "S3Url")]
 
 
 class AppSummaryTypeDef(BaseValidatorModel):
-    appArn: str
+    appArn: Annotated[str, _aws_pattern("Resiliencehub", "Arn")]
     creationTime: datetime
-    name: str
+    name: Annotated[str, _aws_pattern("Resiliencehub", "EntityName")]
     assessmentSchedule: Optional[AppAssessmentScheduleTypeType] = None
-    awsApplicationArn: Optional[str] = None
+    awsApplicationArn: Optional[Annotated[str, _aws_pattern("Resiliencehub", "Arn")]] = None
     complianceStatus: Optional[AppComplianceStatusTypeType] = None
     description: Optional[str] = None
     driftStatus: Optional[AppDriftStatusTypeType] = None
@@ -114,7 +116,7 @@ class AppSummaryTypeDef(BaseValidatorModel):
 class EventSubscriptionTypeDef(BaseValidatorModel):
     eventType: EventTypeType
     name: str
-    snsTopicArn: Optional[str] = None
+    snsTopicArn: Optional[Annotated[str, _aws_pattern("Resiliencehub", "Arn")]] = None
 
 
 class PermissionModelOutputTypeDef(BaseValidatorModel):
@@ -124,10 +126,10 @@ class PermissionModelOutputTypeDef(BaseValidatorModel):
 
 
 class AppVersionSummaryTypeDef(BaseValidatorModel):
-    appVersion: str
+    appVersion: Annotated[str, _aws_pattern("Resiliencehub", "EntityVersion")]
     creationTime: Optional[datetime] = None
     identifier: Optional[int] = None
-    versionName: Optional[str] = None
+    versionName: Optional[Annotated[str, _aws_pattern("Resiliencehub", "EntityVersion")]] = None
 
 
 class AssessmentRiskRecommendationTypeDef(BaseValidatorModel):
@@ -143,8 +145,8 @@ class BatchUpdateRecommendationStatusFailedEntryTypeDef(BaseValidatorModel):
 
 class UpdateRecommendationStatusItemTypeDef(BaseValidatorModel):
     resourceId: Optional[str] = None
-    targetAccountId: Optional[str] = None
-    targetRegion: Optional[str] = None
+    targetAccountId: Optional[Annotated[str, _aws_pattern("Resiliencehub", "CustomerId")]] = None
+    targetRegion: Optional[Annotated[str, _aws_pattern("Resiliencehub", "AwsRegion")]] = None
 
 
 class ConditionTypeDef(BaseValidatorModel):
@@ -163,11 +165,11 @@ class RecommendationDisruptionComplianceTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'create_app_version_app_component' function.
 class CreateAppVersionAppComponentRequestTypeDef(BaseValidatorModel):
-    appArn: str
+    appArn: Annotated[str, _aws_pattern("Resiliencehub", "Arn")]
     name: str
     type: str
     additionalInfo: Optional[Dict[str, List[str]]] = None
-    clientToken: Optional[str] = None
+    clientToken: Optional[Annotated[str, _aws_pattern("Resiliencehub", "ClientToken")]] = None
     id: Optional[str] = None
 
 
@@ -175,18 +177,18 @@ class LogicalResourceIdTypeDef(BaseValidatorModel):
     identifier: str
     eksSourceName: Optional[str] = None
     logicalStackName: Optional[str] = None
-    resourceGroupName: Optional[str] = None
+    resourceGroupName: Optional[Annotated[str, _aws_pattern("Resiliencehub", "EntityName")]] = None
     terraformSourceName: Optional[str] = None
 
 
 # This class is the input for the 'create_recommendation_template' function.
 class CreateRecommendationTemplateRequestTypeDef(BaseValidatorModel):
-    assessmentArn: str
-    name: str
-    bucketName: Optional[str] = None
-    clientToken: Optional[str] = None
+    assessmentArn: Annotated[str, _aws_pattern("Resiliencehub", "Arn")]
+    name: Annotated[str, _aws_pattern("Resiliencehub", "EntityName")]
+    bucketName: Optional[Annotated[str, _aws_pattern("Resiliencehub", "EntityName")]] = None
+    clientToken: Optional[Annotated[str, _aws_pattern("Resiliencehub", "ClientToken")]] = None
     format: Optional[TemplateFormatType] = None
-    recommendationIds: Optional[List[str]] = None
+    recommendationIds: Optional[List[Annotated[str, _aws_pattern("Resiliencehub", "Uuid")]]] = None
     recommendationTypes: Optional[List[RenderRecommendationTypeType]] = None
     tags: Optional[Dict[str, str]] = None
 
@@ -198,75 +200,75 @@ class FailurePolicyTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'delete_app_assessment' function.
 class DeleteAppAssessmentRequestTypeDef(BaseValidatorModel):
-    assessmentArn: str
-    clientToken: Optional[str] = None
+    assessmentArn: Annotated[str, _aws_pattern("Resiliencehub", "Arn")]
+    clientToken: Optional[Annotated[str, _aws_pattern("Resiliencehub", "ClientToken")]] = None
 
 
 # This class is the input for the 'delete_app' function.
 class DeleteAppRequestTypeDef(BaseValidatorModel):
-    appArn: str
-    clientToken: Optional[str] = None
+    appArn: Annotated[str, _aws_pattern("Resiliencehub", "Arn")]
+    clientToken: Optional[Annotated[str, _aws_pattern("Resiliencehub", "ClientToken")]] = None
     forceDelete: Optional[bool] = None
 
 
 # This class is the input for the 'delete_app_version_app_component' function.
 class DeleteAppVersionAppComponentRequestTypeDef(BaseValidatorModel):
-    appArn: str
+    appArn: Annotated[str, _aws_pattern("Resiliencehub", "Arn")]
     id: str
-    clientToken: Optional[str] = None
+    clientToken: Optional[Annotated[str, _aws_pattern("Resiliencehub", "ClientToken")]] = None
 
 
 # This class is the input for the 'delete_recommendation_template' function.
 class DeleteRecommendationTemplateRequestTypeDef(BaseValidatorModel):
-    recommendationTemplateArn: str
-    clientToken: Optional[str] = None
+    recommendationTemplateArn: Annotated[str, _aws_pattern("Resiliencehub", "Arn")]
+    clientToken: Optional[Annotated[str, _aws_pattern("Resiliencehub", "ClientToken")]] = None
 
 
 # This class is the input for the 'delete_resiliency_policy' function.
 class DeleteResiliencyPolicyRequestTypeDef(BaseValidatorModel):
-    policyArn: str
-    clientToken: Optional[str] = None
+    policyArn: Annotated[str, _aws_pattern("Resiliencehub", "Arn")]
+    clientToken: Optional[Annotated[str, _aws_pattern("Resiliencehub", "ClientToken")]] = None
 
 
 # This class is the input for the 'describe_app_assessment' function.
 class DescribeAppAssessmentRequestTypeDef(BaseValidatorModel):
-    assessmentArn: str
+    assessmentArn: Annotated[str, _aws_pattern("Resiliencehub", "Arn")]
 
 
 # This class is the input for the 'describe_app' function.
 class DescribeAppRequestTypeDef(BaseValidatorModel):
-    appArn: str
+    appArn: Annotated[str, _aws_pattern("Resiliencehub", "Arn")]
 
 
 # This class is the input for the 'describe_app_version_app_component' function.
 class DescribeAppVersionAppComponentRequestTypeDef(BaseValidatorModel):
-    appArn: str
-    appVersion: str
+    appArn: Annotated[str, _aws_pattern("Resiliencehub", "Arn")]
+    appVersion: Annotated[str, _aws_pattern("Resiliencehub", "EntityVersion")]
     id: str
 
 
 # This class is the input for the 'describe_app_version' function.
 class DescribeAppVersionRequestTypeDef(BaseValidatorModel):
-    appArn: str
-    appVersion: str
+    appArn: Annotated[str, _aws_pattern("Resiliencehub", "Arn")]
+    appVersion: Annotated[str, _aws_pattern("Resiliencehub", "EntityVersion")]
 
 
 # This class is the input for the 'describe_app_version_resources_resolution_status' function.
 class DescribeAppVersionResourcesResolutionStatusRequestTypeDef(BaseValidatorModel):
-    appArn: str
-    appVersion: str
+    appArn: Annotated[str, _aws_pattern("Resiliencehub", "Arn")]
+    appVersion: Annotated[str, _aws_pattern("Resiliencehub", "EntityVersion")]
     resolutionId: Optional[str] = None
 
 
 # This class is the input for the 'describe_app_version_template' function.
 class DescribeAppVersionTemplateRequestTypeDef(BaseValidatorModel):
-    appArn: str
-    appVersion: str
+    appArn: Annotated[str, _aws_pattern("Resiliencehub", "Arn")]
+    appVersion: Annotated[str, _aws_pattern("Resiliencehub", "EntityVersion")]
 
 
 # This class is the input for the 'describe_draft_app_version_resources_import_status' function.
 class DescribeDraftAppVersionResourcesImportStatusRequestTypeDef(BaseValidatorModel):
-    appArn: str
+    appArn: Annotated[str, _aws_pattern("Resiliencehub", "Arn")]
 
 
 class ErrorDetailTypeDef(BaseValidatorModel):
@@ -285,12 +287,12 @@ class S3LocationTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'describe_resiliency_policy' function.
 class DescribeResiliencyPolicyRequestTypeDef(BaseValidatorModel):
-    policyArn: str
+    policyArn: Annotated[str, _aws_pattern("Resiliencehub", "Arn")]
 
 
 # This class is the input for the 'describe_resource_grouping_recommendation_task' function.
 class DescribeResourceGroupingRecommendationTaskRequestTypeDef(BaseValidatorModel):
-    appArn: str
+    appArn: Annotated[str, _aws_pattern("Resiliencehub", "Arn")]
     groupingId: Optional[str] = None
 
 
@@ -300,8 +302,8 @@ class EksSourceOutputTypeDef(BaseValidatorModel):
 
 
 class EksSourceTypeDef(BaseValidatorModel):
-    eksClusterArn: str
-    namespaces: List[str]
+    eksClusterArn: Annotated[str, _aws_pattern("Resiliencehub", "Arn")]
+    namespaces: List[Annotated[str, _aws_pattern("Resiliencehub", "EksNamespace")]]
 
 
 class ExperimentTypeDef(BaseValidatorModel):
@@ -315,30 +317,30 @@ class FieldTypeDef(BaseValidatorModel):
 
 
 class GroupingAppComponentTypeDef(BaseValidatorModel):
-    appComponentId: str
-    appComponentName: str
+    appComponentId: Annotated[str, _aws_pattern("Resiliencehub", "EntityName255")]
+    appComponentName: Annotated[str, _aws_pattern("Resiliencehub", "EntityName255")]
     appComponentType: str
 
 
 class PhysicalResourceIdTypeDef(BaseValidatorModel):
     identifier: str
     type: PhysicalIdentifierTypeType
-    awsAccountId: Optional[str] = None
-    awsRegion: Optional[str] = None
+    awsAccountId: Optional[Annotated[str, _aws_pattern("Resiliencehub", "CustomerId")]] = None
+    awsRegion: Optional[Annotated[str, _aws_pattern("Resiliencehub", "AwsRegion")]] = None
 
 
 # This class is the input for the 'list_alarm_recommendations' function.
 class ListAlarmRecommendationsRequestTypeDef(BaseValidatorModel):
-    assessmentArn: str
+    assessmentArn: Annotated[str, _aws_pattern("Resiliencehub", "Arn")]
     maxResults: Optional[int] = None
-    nextToken: Optional[str] = None
+    nextToken: Optional[Annotated[str, _aws_pattern("Resiliencehub", "NextToken")]] = None
 
 
 # This class is the input for the 'list_app_assessment_compliance_drifts' function.
 class ListAppAssessmentComplianceDriftsRequestTypeDef(BaseValidatorModel):
-    assessmentArn: str
+    assessmentArn: Annotated[str, _aws_pattern("Resiliencehub", "Arn")]
     maxResults: Optional[int] = None
-    nextToken: Optional[str] = None
+    nextToken: Optional[Annotated[str, _aws_pattern("Resiliencehub", "NextToken")]] = None
 
 
 class PaginatorConfigTypeDef(BaseValidatorModel):
@@ -349,67 +351,67 @@ class PaginatorConfigTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'list_app_assessment_resource_drifts' function.
 class ListAppAssessmentResourceDriftsRequestTypeDef(BaseValidatorModel):
-    assessmentArn: str
+    assessmentArn: Annotated[str, _aws_pattern("Resiliencehub", "Arn")]
     maxResults: Optional[int] = None
-    nextToken: Optional[str] = None
+    nextToken: Optional[Annotated[str, _aws_pattern("Resiliencehub", "NextToken")]] = None
 
 
 # This class is the input for the 'list_app_assessments' function.
 class ListAppAssessmentsRequestTypeDef(BaseValidatorModel):
-    appArn: Optional[str] = None
-    assessmentName: Optional[str] = None
+    appArn: Optional[Annotated[str, _aws_pattern("Resiliencehub", "Arn")]] = None
+    assessmentName: Optional[Annotated[str, _aws_pattern("Resiliencehub", "EntityName")]] = None
     assessmentStatus: Optional[List[AssessmentStatusType]] = None
     complianceStatus: Optional[ComplianceStatusType] = None
     invoker: Optional[AssessmentInvokerType] = None
     maxResults: Optional[int] = None
-    nextToken: Optional[str] = None
+    nextToken: Optional[Annotated[str, _aws_pattern("Resiliencehub", "NextToken")]] = None
     reverseOrder: Optional[bool] = None
 
 
 # This class is the input for the 'list_app_component_compliances' function.
 class ListAppComponentCompliancesRequestTypeDef(BaseValidatorModel):
-    assessmentArn: str
+    assessmentArn: Annotated[str, _aws_pattern("Resiliencehub", "Arn")]
     maxResults: Optional[int] = None
-    nextToken: Optional[str] = None
+    nextToken: Optional[Annotated[str, _aws_pattern("Resiliencehub", "NextToken")]] = None
 
 
 # This class is the input for the 'list_app_component_recommendations' function.
 class ListAppComponentRecommendationsRequestTypeDef(BaseValidatorModel):
-    assessmentArn: str
+    assessmentArn: Annotated[str, _aws_pattern("Resiliencehub", "Arn")]
     maxResults: Optional[int] = None
-    nextToken: Optional[str] = None
+    nextToken: Optional[Annotated[str, _aws_pattern("Resiliencehub", "NextToken")]] = None
 
 
 # This class is the input for the 'list_app_input_sources' function.
 class ListAppInputSourcesRequestTypeDef(BaseValidatorModel):
-    appArn: str
-    appVersion: str
+    appArn: Annotated[str, _aws_pattern("Resiliencehub", "Arn")]
+    appVersion: Annotated[str, _aws_pattern("Resiliencehub", "EntityVersion")]
     maxResults: Optional[int] = None
-    nextToken: Optional[str] = None
+    nextToken: Optional[Annotated[str, _aws_pattern("Resiliencehub", "NextToken")]] = None
 
 
 # This class is the input for the 'list_app_version_app_components' function.
 class ListAppVersionAppComponentsRequestTypeDef(BaseValidatorModel):
-    appArn: str
-    appVersion: str
+    appArn: Annotated[str, _aws_pattern("Resiliencehub", "Arn")]
+    appVersion: Annotated[str, _aws_pattern("Resiliencehub", "EntityVersion")]
     maxResults: Optional[int] = None
-    nextToken: Optional[str] = None
+    nextToken: Optional[Annotated[str, _aws_pattern("Resiliencehub", "NextToken")]] = None
 
 
 # This class is the input for the 'list_app_version_resource_mappings' function.
 class ListAppVersionResourceMappingsRequestTypeDef(BaseValidatorModel):
-    appArn: str
-    appVersion: str
+    appArn: Annotated[str, _aws_pattern("Resiliencehub", "Arn")]
+    appVersion: Annotated[str, _aws_pattern("Resiliencehub", "EntityVersion")]
     maxResults: Optional[int] = None
-    nextToken: Optional[str] = None
+    nextToken: Optional[Annotated[str, _aws_pattern("Resiliencehub", "NextToken")]] = None
 
 
 # This class is the input for the 'list_app_version_resources' function.
 class ListAppVersionResourcesRequestTypeDef(BaseValidatorModel):
-    appArn: str
-    appVersion: str
+    appArn: Annotated[str, _aws_pattern("Resiliencehub", "Arn")]
+    appVersion: Annotated[str, _aws_pattern("Resiliencehub", "EntityVersion")]
     maxResults: Optional[int] = None
-    nextToken: Optional[str] = None
+    nextToken: Optional[Annotated[str, _aws_pattern("Resiliencehub", "NextToken")]] = None
     resolutionId: Optional[str] = None
 
 
@@ -423,11 +425,11 @@ class SortTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'list_recommendation_templates' function.
 class ListRecommendationTemplatesRequestTypeDef(BaseValidatorModel):
-    assessmentArn: Optional[str] = None
+    assessmentArn: Optional[Annotated[str, _aws_pattern("Resiliencehub", "Arn")]] = None
     maxResults: Optional[int] = None
-    name: Optional[str] = None
-    nextToken: Optional[str] = None
-    recommendationTemplateArn: Optional[str] = None
+    name: Optional[Annotated[str, _aws_pattern("Resiliencehub", "EntityName")]] = None
+    nextToken: Optional[Annotated[str, _aws_pattern("Resiliencehub", "NextToken")]] = None
+    recommendationTemplateArn: Optional[Annotated[str, _aws_pattern("Resiliencehub", "Arn")]] = None
     reverseOrder: Optional[bool] = None
     status: Optional[List[RecommendationTemplateStatusType]] = None
 
@@ -435,67 +437,67 @@ class ListRecommendationTemplatesRequestTypeDef(BaseValidatorModel):
 # This class is the input for the 'list_resiliency_policies' function.
 class ListResiliencyPoliciesRequestTypeDef(BaseValidatorModel):
     maxResults: Optional[int] = None
-    nextToken: Optional[str] = None
-    policyName: Optional[str] = None
+    nextToken: Optional[Annotated[str, _aws_pattern("Resiliencehub", "NextToken")]] = None
+    policyName: Optional[Annotated[str, _aws_pattern("Resiliencehub", "EntityName")]] = None
 
 
 # This class is the input for the 'list_resource_grouping_recommendations' function.
 class ListResourceGroupingRecommendationsRequestTypeDef(BaseValidatorModel):
-    appArn: Optional[str] = None
+    appArn: Optional[Annotated[str, _aws_pattern("Resiliencehub", "Arn")]] = None
     maxResults: Optional[int] = None
-    nextToken: Optional[str] = None
+    nextToken: Optional[Annotated[str, _aws_pattern("Resiliencehub", "NextToken")]] = None
 
 
 # This class is the input for the 'list_sop_recommendations' function.
 class ListSopRecommendationsRequestTypeDef(BaseValidatorModel):
-    assessmentArn: str
+    assessmentArn: Annotated[str, _aws_pattern("Resiliencehub", "Arn")]
     maxResults: Optional[int] = None
-    nextToken: Optional[str] = None
+    nextToken: Optional[Annotated[str, _aws_pattern("Resiliencehub", "NextToken")]] = None
 
 
 # This class is the input for the 'list_suggested_resiliency_policies' function.
 class ListSuggestedResiliencyPoliciesRequestTypeDef(BaseValidatorModel):
     maxResults: Optional[int] = None
-    nextToken: Optional[str] = None
+    nextToken: Optional[Annotated[str, _aws_pattern("Resiliencehub", "NextToken")]] = None
 
 
 # This class is the input for the 'list_tags_for_resource' function.
 class ListTagsForResourceRequestTypeDef(BaseValidatorModel):
-    resourceArn: str
+    resourceArn: Annotated[str, _aws_pattern("Resiliencehub", "Arn")]
 
 
 # This class is the input for the 'list_test_recommendations' function.
 class ListTestRecommendationsRequestTypeDef(BaseValidatorModel):
-    assessmentArn: str
+    assessmentArn: Annotated[str, _aws_pattern("Resiliencehub", "Arn")]
     maxResults: Optional[int] = None
-    nextToken: Optional[str] = None
+    nextToken: Optional[Annotated[str, _aws_pattern("Resiliencehub", "NextToken")]] = None
 
 
 # This class is the input for the 'list_unsupported_app_version_resources' function.
 class ListUnsupportedAppVersionResourcesRequestTypeDef(BaseValidatorModel):
-    appArn: str
-    appVersion: str
+    appArn: Annotated[str, _aws_pattern("Resiliencehub", "Arn")]
+    appVersion: Annotated[str, _aws_pattern("Resiliencehub", "EntityVersion")]
     maxResults: Optional[int] = None
-    nextToken: Optional[str] = None
+    nextToken: Optional[Annotated[str, _aws_pattern("Resiliencehub", "NextToken")]] = None
     resolutionId: Optional[str] = None
 
 
 class PermissionModelTypeDef(BaseValidatorModel):
     type: PermissionModelTypeType
-    crossAccountRoleArns: Optional[List[str]] = None
-    invokerRoleName: Optional[str] = None
+    crossAccountRoleArns: Optional[List[Annotated[str, _aws_pattern("Resiliencehub", "IamRoleArn")]]] = None
+    invokerRoleName: Optional[Annotated[str, _aws_pattern("Resiliencehub", "IamRoleName")]] = None
 
 
 # This class is the input for the 'publish_app_version' function.
 class PublishAppVersionRequestTypeDef(BaseValidatorModel):
-    appArn: str
-    versionName: Optional[str] = None
+    appArn: Annotated[str, _aws_pattern("Resiliencehub", "Arn")]
+    versionName: Optional[Annotated[str, _aws_pattern("Resiliencehub", "EntityVersion")]] = None
 
 
 # This class is the input for the 'put_draft_app_version_template' function.
 class PutDraftAppVersionTemplateRequestTypeDef(BaseValidatorModel):
-    appArn: str
-    appTemplateBody: str
+    appArn: Annotated[str, _aws_pattern("Resiliencehub", "Arn")]
+    appTemplateBody: Annotated[str, _aws_pattern("Resiliencehub", "AppTemplateBody")]
 
 
 class RejectGroupingRecommendationEntryTypeDef(BaseValidatorModel):
@@ -505,12 +507,12 @@ class RejectGroupingRecommendationEntryTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'remove_draft_app_version_resource_mappings' function.
 class RemoveDraftAppVersionResourceMappingsRequestTypeDef(BaseValidatorModel):
-    appArn: str
-    appRegistryAppNames: Optional[List[str]] = None
+    appArn: Annotated[str, _aws_pattern("Resiliencehub", "Arn")]
+    appRegistryAppNames: Optional[List[Annotated[str, _aws_pattern("Resiliencehub", "EntityName")]]] = None
     eksSourceNames: Optional[List[str]] = None
     logicalStackNames: Optional[List[str]] = None
-    resourceGroupNames: Optional[List[str]] = None
-    resourceNames: Optional[List[str]] = None
+    resourceGroupNames: Optional[List[Annotated[str, _aws_pattern("Resiliencehub", "EntityName")]]] = None
+    resourceNames: Optional[List[Annotated[str, _aws_pattern("Resiliencehub", "EntityName")]]] = None
     terraformSourceNames: Optional[List[str]] = None
 
 
@@ -523,8 +525,8 @@ class ScoringComponentResiliencyScoreTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'resolve_app_version_resources' function.
 class ResolveAppVersionResourcesRequestTypeDef(BaseValidatorModel):
-    appArn: str
-    appVersion: str
+    appArn: Annotated[str, _aws_pattern("Resiliencehub", "Arn")]
+    appVersion: Annotated[str, _aws_pattern("Resiliencehub", "EntityVersion")]
 
 
 class ResourceErrorTypeDef(BaseValidatorModel):
@@ -535,37 +537,37 @@ class ResourceErrorTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'start_app_assessment' function.
 class StartAppAssessmentRequestTypeDef(BaseValidatorModel):
-    appArn: str
-    appVersion: str
-    assessmentName: str
-    clientToken: Optional[str] = None
+    appArn: Annotated[str, _aws_pattern("Resiliencehub", "Arn")]
+    appVersion: Annotated[str, _aws_pattern("Resiliencehub", "EntityVersion")]
+    assessmentName: Annotated[str, _aws_pattern("Resiliencehub", "EntityName")]
+    clientToken: Optional[Annotated[str, _aws_pattern("Resiliencehub", "ClientToken")]] = None
     tags: Optional[Dict[str, str]] = None
 
 
 # This class is the input for the 'start_metrics_export' function.
 class StartMetricsExportRequestTypeDef(BaseValidatorModel):
-    bucketName: Optional[str] = None
-    clientToken: Optional[str] = None
+    bucketName: Optional[Annotated[str, _aws_pattern("Resiliencehub", "EntityName")]] = None
+    clientToken: Optional[Annotated[str, _aws_pattern("Resiliencehub", "ClientToken")]] = None
 
 
 # This class is the input for the 'start_resource_grouping_recommendation_task' function.
 class StartResourceGroupingRecommendationTaskRequestTypeDef(BaseValidatorModel):
-    appArn: str
+    appArn: Annotated[str, _aws_pattern("Resiliencehub", "Arn")]
 
 
 class TagResourceRequestTypeDef(BaseValidatorModel):
-    resourceArn: str
+    resourceArn: Annotated[str, _aws_pattern("Resiliencehub", "Arn")]
     tags: Dict[str, str]
 
 
 class UntagResourceRequestTypeDef(BaseValidatorModel):
-    resourceArn: str
-    tagKeys: List[str]
+    resourceArn: Annotated[str, _aws_pattern("Resiliencehub", "Arn")]
+    tagKeys: List[Annotated[str, _aws_pattern("Resiliencehub", "TagKey")]]
 
 
 # This class is the input for the 'update_app_version_app_component' function.
 class UpdateAppVersionAppComponentRequestTypeDef(BaseValidatorModel):
-    appArn: str
+    appArn: Annotated[str, _aws_pattern("Resiliencehub", "Arn")]
     id: str
     additionalInfo: Optional[Dict[str, List[str]]] = None
     name: Optional[str] = None
@@ -574,53 +576,53 @@ class UpdateAppVersionAppComponentRequestTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'update_app_version' function.
 class UpdateAppVersionRequestTypeDef(BaseValidatorModel):
-    appArn: str
+    appArn: Annotated[str, _aws_pattern("Resiliencehub", "Arn")]
     additionalInfo: Optional[Dict[str, List[str]]] = None
 
 
 # This class is the input for the 'accept_resource_grouping_recommendations' function.
 class AcceptResourceGroupingRecommendationsRequestTypeDef(BaseValidatorModel):
-    appArn: str
+    appArn: Annotated[str, _aws_pattern("Resiliencehub", "Arn")]
     entries: List[AcceptGroupingRecommendationEntryTypeDef]
 
 
 # This class is the output for the 'accept_resource_grouping_recommendations' function.
 class AcceptResourceGroupingRecommendationsResponseTypeDef(BaseValidatorModel):
-    appArn: str
+    appArn: Annotated[str, _aws_pattern("Resiliencehub", "Arn")]
     failedEntries: List[FailedGroupingRecommendationEntryTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 # This class is the output for the 'delete_app_assessment' function.
 class DeleteAppAssessmentResponseTypeDef(BaseValidatorModel):
-    assessmentArn: str
+    assessmentArn: Annotated[str, _aws_pattern("Resiliencehub", "Arn")]
     assessmentStatus: AssessmentStatusType
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 # This class is the output for the 'delete_app' function.
 class DeleteAppResponseTypeDef(BaseValidatorModel):
-    appArn: str
+    appArn: Annotated[str, _aws_pattern("Resiliencehub", "Arn")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 # This class is the output for the 'delete_recommendation_template' function.
 class DeleteRecommendationTemplateResponseTypeDef(BaseValidatorModel):
-    recommendationTemplateArn: str
+    recommendationTemplateArn: Annotated[str, _aws_pattern("Resiliencehub", "Arn")]
     status: RecommendationTemplateStatusType
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 # This class is the output for the 'delete_resiliency_policy' function.
 class DeleteResiliencyPolicyResponseTypeDef(BaseValidatorModel):
-    policyArn: str
+    policyArn: Annotated[str, _aws_pattern("Resiliencehub", "Arn")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 # This class is the output for the 'describe_app_version_resources_resolution_status' function.
 class DescribeAppVersionResourcesResolutionStatusResponseTypeDef(BaseValidatorModel):
-    appArn: str
-    appVersion: str
+    appArn: Annotated[str, _aws_pattern("Resiliencehub", "Arn")]
+    appVersion: Annotated[str, _aws_pattern("Resiliencehub", "EntityVersion")]
     errorMessage: str
     resolutionId: str
     status: ResourceResolutionStatusTypeType
@@ -630,16 +632,16 @@ class DescribeAppVersionResourcesResolutionStatusResponseTypeDef(BaseValidatorMo
 # This class is the output for the 'describe_app_version' function.
 class DescribeAppVersionResponseTypeDef(BaseValidatorModel):
     additionalInfo: Dict[str, List[str]]
-    appArn: str
-    appVersion: str
+    appArn: Annotated[str, _aws_pattern("Resiliencehub", "Arn")]
+    appVersion: Annotated[str, _aws_pattern("Resiliencehub", "EntityVersion")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 # This class is the output for the 'describe_app_version_template' function.
 class DescribeAppVersionTemplateResponseTypeDef(BaseValidatorModel):
-    appArn: str
-    appTemplateBody: str
-    appVersion: str
+    appArn: Annotated[str, _aws_pattern("Resiliencehub", "Arn")]
+    appTemplateBody: Annotated[str, _aws_pattern("Resiliencehub", "AppTemplateBody")]
+    appVersion: Annotated[str, _aws_pattern("Resiliencehub", "EntityVersion")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
@@ -655,7 +657,7 @@ class DescribeResourceGroupingRecommendationTaskResponseTypeDef(BaseValidatorMod
 class ListMetricsResponseTypeDef(BaseValidatorModel):
     rows: List[List[str]]
     ResponseMetadata: ResponseMetadataTypeDef
-    nextToken: Optional[str] = None
+    nextToken: Optional[Annotated[str, _aws_pattern("Resiliencehub", "NextToken")]] = None
 
 
 # This class is the output for the 'list_tags_for_resource' function.
@@ -666,38 +668,38 @@ class ListTagsForResourceResponseTypeDef(BaseValidatorModel):
 
 # This class is the output for the 'publish_app_version' function.
 class PublishAppVersionResponseTypeDef(BaseValidatorModel):
-    appArn: str
-    appVersion: str
+    appArn: Annotated[str, _aws_pattern("Resiliencehub", "Arn")]
+    appVersion: Annotated[str, _aws_pattern("Resiliencehub", "EntityVersion")]
     identifier: int
-    versionName: str
+    versionName: Annotated[str, _aws_pattern("Resiliencehub", "EntityVersion")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 # This class is the output for the 'put_draft_app_version_template' function.
 class PutDraftAppVersionTemplateResponseTypeDef(BaseValidatorModel):
-    appArn: str
-    appVersion: str
+    appArn: Annotated[str, _aws_pattern("Resiliencehub", "Arn")]
+    appVersion: Annotated[str, _aws_pattern("Resiliencehub", "EntityVersion")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 # This class is the output for the 'reject_resource_grouping_recommendations' function.
 class RejectResourceGroupingRecommendationsResponseTypeDef(BaseValidatorModel):
-    appArn: str
+    appArn: Annotated[str, _aws_pattern("Resiliencehub", "Arn")]
     failedEntries: List[FailedGroupingRecommendationEntryTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 # This class is the output for the 'remove_draft_app_version_resource_mappings' function.
 class RemoveDraftAppVersionResourceMappingsResponseTypeDef(BaseValidatorModel):
-    appArn: str
-    appVersion: str
+    appArn: Annotated[str, _aws_pattern("Resiliencehub", "Arn")]
+    appVersion: Annotated[str, _aws_pattern("Resiliencehub", "EntityVersion")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 # This class is the output for the 'resolve_app_version_resources' function.
 class ResolveAppVersionResourcesResponseTypeDef(BaseValidatorModel):
-    appArn: str
-    appVersion: str
+    appArn: Annotated[str, _aws_pattern("Resiliencehub", "Arn")]
+    appVersion: Annotated[str, _aws_pattern("Resiliencehub", "EntityVersion")]
     resolutionId: str
     status: ResourceResolutionStatusTypeType
     ResponseMetadata: ResponseMetadataTypeDef
@@ -712,7 +714,7 @@ class StartMetricsExportResponseTypeDef(BaseValidatorModel):
 
 # This class is the output for the 'start_resource_grouping_recommendation_task' function.
 class StartResourceGroupingRecommendationTaskResponseTypeDef(BaseValidatorModel):
-    appArn: str
+    appArn: Annotated[str, _aws_pattern("Resiliencehub", "Arn")]
     errorMessage: str
     groupingId: str
     status: ResourcesGroupingRecGenStatusTypeType
@@ -722,17 +724,17 @@ class StartResourceGroupingRecommendationTaskResponseTypeDef(BaseValidatorModel)
 # This class is the output for the 'update_app_version' function.
 class UpdateAppVersionResponseTypeDef(BaseValidatorModel):
     additionalInfo: Dict[str, List[str]]
-    appArn: str
-    appVersion: str
+    appArn: Annotated[str, _aws_pattern("Resiliencehub", "Arn")]
+    appVersion: Annotated[str, _aws_pattern("Resiliencehub", "EntityVersion")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 class AppAssessmentSummaryTypeDef(BaseValidatorModel):
-    assessmentArn: str
+    assessmentArn: Annotated[str, _aws_pattern("Resiliencehub", "Arn")]
     assessmentStatus: AssessmentStatusType
-    appArn: Optional[str] = None
-    appVersion: Optional[str] = None
-    assessmentName: Optional[str] = None
+    appArn: Optional[Annotated[str, _aws_pattern("Resiliencehub", "Arn")]] = None
+    appVersion: Optional[Annotated[str, _aws_pattern("Resiliencehub", "EntityVersion")]] = None
+    assessmentName: Optional[Annotated[str, _aws_pattern("Resiliencehub", "EntityName")]] = None
     complianceStatus: Optional[ComplianceStatusType] = None
     cost: Optional[CostTypeDef] = None
     driftStatus: Optional[DriftStatusType] = None
@@ -741,7 +743,7 @@ class AppAssessmentSummaryTypeDef(BaseValidatorModel):
     message: Optional[str] = None
     resiliencyScore: Optional[float] = None
     startTime: Optional[datetime] = None
-    versionName: Optional[str] = None
+    versionName: Optional[Annotated[str, _aws_pattern("Resiliencehub", "EntityVersion")]] = None
 
 
 class ComplianceDriftTypeDef(BaseValidatorModel):
@@ -759,42 +761,42 @@ class ComplianceDriftTypeDef(BaseValidatorModel):
 
 # This class is the output for the 'create_app_version_app_component' function.
 class CreateAppVersionAppComponentResponseTypeDef(BaseValidatorModel):
-    appArn: str
+    appArn: Annotated[str, _aws_pattern("Resiliencehub", "Arn")]
     appComponent: AppComponentTypeDef
-    appVersion: str
+    appVersion: Annotated[str, _aws_pattern("Resiliencehub", "EntityVersion")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 # This class is the output for the 'delete_app_version_app_component' function.
 class DeleteAppVersionAppComponentResponseTypeDef(BaseValidatorModel):
-    appArn: str
+    appArn: Annotated[str, _aws_pattern("Resiliencehub", "Arn")]
     appComponent: AppComponentTypeDef
-    appVersion: str
+    appVersion: Annotated[str, _aws_pattern("Resiliencehub", "EntityVersion")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 # This class is the output for the 'describe_app_version_app_component' function.
 class DescribeAppVersionAppComponentResponseTypeDef(BaseValidatorModel):
-    appArn: str
+    appArn: Annotated[str, _aws_pattern("Resiliencehub", "Arn")]
     appComponent: AppComponentTypeDef
-    appVersion: str
+    appVersion: Annotated[str, _aws_pattern("Resiliencehub", "EntityVersion")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 # This class is the output for the 'list_app_version_app_components' function.
 class ListAppVersionAppComponentsResponseTypeDef(BaseValidatorModel):
-    appArn: str
+    appArn: Annotated[str, _aws_pattern("Resiliencehub", "Arn")]
     appComponents: List[AppComponentTypeDef]
-    appVersion: str
+    appVersion: Annotated[str, _aws_pattern("Resiliencehub", "EntityVersion")]
     ResponseMetadata: ResponseMetadataTypeDef
-    nextToken: Optional[str] = None
+    nextToken: Optional[Annotated[str, _aws_pattern("Resiliencehub", "NextToken")]] = None
 
 
 # This class is the output for the 'update_app_version_app_component' function.
 class UpdateAppVersionAppComponentResponseTypeDef(BaseValidatorModel):
-    appArn: str
+    appArn: Annotated[str, _aws_pattern("Resiliencehub", "Arn")]
     appComponent: AppComponentTypeDef
-    appVersion: str
+    appVersion: Annotated[str, _aws_pattern("Resiliencehub", "EntityVersion")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
@@ -802,17 +804,17 @@ class AppInputSourceTypeDef(BaseValidatorModel):
     importType: ResourceMappingTypeType
     eksSourceClusterNamespace: Optional[EksSourceClusterNamespaceTypeDef] = None
     resourceCount: Optional[int] = None
-    sourceArn: Optional[str] = None
+    sourceArn: Optional[Annotated[str, _aws_pattern("Resiliencehub", "Arn")]] = None
     sourceName: Optional[str] = None
     terraformSource: Optional[TerraformSourceTypeDef] = None
 
 
 # This class is the input for the 'delete_app_input_source' function.
 class DeleteAppInputSourceRequestTypeDef(BaseValidatorModel):
-    appArn: str
-    clientToken: Optional[str] = None
+    appArn: Annotated[str, _aws_pattern("Resiliencehub", "Arn")]
+    clientToken: Optional[Annotated[str, _aws_pattern("Resiliencehub", "ClientToken")]] = None
     eksSourceClusterNamespace: Optional[EksSourceClusterNamespaceTypeDef] = None
-    sourceArn: Optional[str] = None
+    sourceArn: Optional[Annotated[str, _aws_pattern("Resiliencehub", "Arn")]] = None
     terraformSource: Optional[TerraformSourceTypeDef] = None
 
 
@@ -820,15 +822,15 @@ class DeleteAppInputSourceRequestTypeDef(BaseValidatorModel):
 class ListAppsResponseTypeDef(BaseValidatorModel):
     appSummaries: List[AppSummaryTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
-    nextToken: Optional[str] = None
+    nextToken: Optional[Annotated[str, _aws_pattern("Resiliencehub", "NextToken")]] = None
 
 
 class AppTypeDef(BaseValidatorModel):
-    appArn: str
+    appArn: Annotated[str, _aws_pattern("Resiliencehub", "Arn")]
     creationTime: datetime
-    name: str
+    name: Annotated[str, _aws_pattern("Resiliencehub", "EntityName")]
     assessmentSchedule: Optional[AppAssessmentScheduleTypeType] = None
-    awsApplicationArn: Optional[str] = None
+    awsApplicationArn: Optional[Annotated[str, _aws_pattern("Resiliencehub", "Arn")]] = None
     complianceStatus: Optional[AppComplianceStatusTypeType] = None
     description: Optional[str] = None
     driftStatus: Optional[AppDriftStatusTypeType] = None
@@ -837,7 +839,7 @@ class AppTypeDef(BaseValidatorModel):
     lastDriftEvaluationTime: Optional[datetime] = None
     lastResiliencyScoreEvaluationTime: Optional[datetime] = None
     permissionModel: Optional[PermissionModelOutputTypeDef] = None
-    policyArn: Optional[str] = None
+    policyArn: Optional[Annotated[str, _aws_pattern("Resiliencehub", "Arn")]] = None
     resiliencyScore: Optional[float] = None
     rpoInSecs: Optional[int] = None
     rtoInSecs: Optional[int] = None
@@ -849,7 +851,7 @@ class AppTypeDef(BaseValidatorModel):
 class ListAppVersionsResponseTypeDef(BaseValidatorModel):
     appVersions: List[AppVersionSummaryTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
-    nextToken: Optional[str] = None
+    nextToken: Optional[Annotated[str, _aws_pattern("Resiliencehub", "NextToken")]] = None
 
 
 class AssessmentSummaryTypeDef(BaseValidatorModel):
@@ -861,7 +863,7 @@ class BatchUpdateRecommendationStatusSuccessfulEntryTypeDef(BaseValidatorModel):
     entryId: str
     excluded: bool
     referenceId: str
-    appComponentId: Optional[str] = None
+    appComponentId: Optional[Annotated[str, _aws_pattern("Resiliencehub", "EntityName255")]] = None
     excludeReason: Optional[ExcludeRecommendationReasonType] = None
     item: Optional[UpdateRecommendationStatusItemTypeDef] = None
 
@@ -870,16 +872,16 @@ class UpdateRecommendationStatusRequestEntryTypeDef(BaseValidatorModel):
     entryId: str
     excluded: bool
     referenceId: str
-    appComponentId: Optional[str] = None
+    appComponentId: Optional[Annotated[str, _aws_pattern("Resiliencehub", "EntityName255")]] = None
     excludeReason: Optional[ExcludeRecommendationReasonType] = None
     item: Optional[UpdateRecommendationStatusItemTypeDef] = None
 
 
 class ConfigRecommendationTypeDef(BaseValidatorModel):
-    name: str
+    name: Annotated[str, _aws_pattern("Resiliencehub", "EntityName")]
     optimizationType: ConfigRecommendationOptimizationTypeType
     referenceId: str
-    appComponentName: Optional[str] = None
+    appComponentName: Optional[Annotated[str, _aws_pattern("Resiliencehub", "EntityId")]] = None
     compliance: Optional[Dict[DisruptionTypeType, DisruptionComplianceTypeDef]] = None
     cost: Optional[CostTypeDef] = None
     description: Optional[str] = None
@@ -890,38 +892,38 @@ class ConfigRecommendationTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'create_app_version_resource' function.
 class CreateAppVersionResourceRequestTypeDef(BaseValidatorModel):
-    appArn: str
+    appArn: Annotated[str, _aws_pattern("Resiliencehub", "Arn")]
     appComponents: List[str]
     logicalResourceId: LogicalResourceIdTypeDef
     physicalResourceId: str
     resourceType: str
     additionalInfo: Optional[Dict[str, List[str]]] = None
-    awsAccountId: Optional[str] = None
-    awsRegion: Optional[str] = None
-    clientToken: Optional[str] = None
-    resourceName: Optional[str] = None
+    awsAccountId: Optional[Annotated[str, _aws_pattern("Resiliencehub", "CustomerId")]] = None
+    awsRegion: Optional[Annotated[str, _aws_pattern("Resiliencehub", "AwsRegion")]] = None
+    clientToken: Optional[Annotated[str, _aws_pattern("Resiliencehub", "ClientToken")]] = None
+    resourceName: Optional[Annotated[str, _aws_pattern("Resiliencehub", "EntityName")]] = None
 
 
 # This class is the input for the 'delete_app_version_resource' function.
 class DeleteAppVersionResourceRequestTypeDef(BaseValidatorModel):
-    appArn: str
-    awsAccountId: Optional[str] = None
-    awsRegion: Optional[str] = None
-    clientToken: Optional[str] = None
+    appArn: Annotated[str, _aws_pattern("Resiliencehub", "Arn")]
+    awsAccountId: Optional[Annotated[str, _aws_pattern("Resiliencehub", "CustomerId")]] = None
+    awsRegion: Optional[Annotated[str, _aws_pattern("Resiliencehub", "AwsRegion")]] = None
+    clientToken: Optional[Annotated[str, _aws_pattern("Resiliencehub", "ClientToken")]] = None
     logicalResourceId: Optional[LogicalResourceIdTypeDef] = None
     physicalResourceId: Optional[str] = None
-    resourceName: Optional[str] = None
+    resourceName: Optional[Annotated[str, _aws_pattern("Resiliencehub", "EntityName")]] = None
 
 
 # This class is the input for the 'describe_app_version_resource' function.
 class DescribeAppVersionResourceRequestTypeDef(BaseValidatorModel):
-    appArn: str
-    appVersion: str
-    awsAccountId: Optional[str] = None
-    awsRegion: Optional[str] = None
+    appArn: Annotated[str, _aws_pattern("Resiliencehub", "Arn")]
+    appVersion: Annotated[str, _aws_pattern("Resiliencehub", "EntityVersion")]
+    awsAccountId: Optional[Annotated[str, _aws_pattern("Resiliencehub", "CustomerId")]] = None
+    awsRegion: Optional[Annotated[str, _aws_pattern("Resiliencehub", "AwsRegion")]] = None
     logicalResourceId: Optional[LogicalResourceIdTypeDef] = None
     physicalResourceId: Optional[str] = None
-    resourceName: Optional[str] = None
+    resourceName: Optional[Annotated[str, _aws_pattern("Resiliencehub", "EntityName")]] = None
 
 
 class ResourceIdentifierTypeDef(BaseValidatorModel):
@@ -931,24 +933,24 @@ class ResourceIdentifierTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'update_app_version_resource' function.
 class UpdateAppVersionResourceRequestTypeDef(BaseValidatorModel):
-    appArn: str
+    appArn: Annotated[str, _aws_pattern("Resiliencehub", "Arn")]
     additionalInfo: Optional[Dict[str, List[str]]] = None
     appComponents: Optional[List[str]] = None
-    awsAccountId: Optional[str] = None
-    awsRegion: Optional[str] = None
+    awsAccountId: Optional[Annotated[str, _aws_pattern("Resiliencehub", "CustomerId")]] = None
+    awsRegion: Optional[Annotated[str, _aws_pattern("Resiliencehub", "AwsRegion")]] = None
     excluded: Optional[bool] = None
     logicalResourceId: Optional[LogicalResourceIdTypeDef] = None
     physicalResourceId: Optional[str] = None
-    resourceName: Optional[str] = None
+    resourceName: Optional[Annotated[str, _aws_pattern("Resiliencehub", "EntityName")]] = None
     resourceType: Optional[str] = None
 
 
 # This class is the input for the 'create_resiliency_policy' function.
 class CreateResiliencyPolicyRequestTypeDef(BaseValidatorModel):
     policy: Dict[DisruptionTypeType, FailurePolicyTypeDef]
-    policyName: str
+    policyName: Annotated[str, _aws_pattern("Resiliencehub", "EntityName")]
     tier: ResiliencyPolicyTierType
-    clientToken: Optional[str] = None
+    clientToken: Optional[Annotated[str, _aws_pattern("Resiliencehub", "ClientToken")]] = None
     dataLocationConstraint: Optional[DataLocationConstraintType] = None
     policyDescription: Optional[str] = None
     tags: Optional[Dict[str, str]] = None
@@ -959,27 +961,27 @@ class ResiliencyPolicyTypeDef(BaseValidatorModel):
     dataLocationConstraint: Optional[DataLocationConstraintType] = None
     estimatedCostTier: Optional[EstimatedCostTierType] = None
     policy: Optional[Dict[DisruptionTypeType, FailurePolicyTypeDef]] = None
-    policyArn: Optional[str] = None
+    policyArn: Optional[Annotated[str, _aws_pattern("Resiliencehub", "Arn")]] = None
     policyDescription: Optional[str] = None
-    policyName: Optional[str] = None
+    policyName: Optional[Annotated[str, _aws_pattern("Resiliencehub", "EntityName")]] = None
     tags: Optional[Dict[str, str]] = None
     tier: Optional[ResiliencyPolicyTierType] = None
 
 
 # This class is the input for the 'update_resiliency_policy' function.
 class UpdateResiliencyPolicyRequestTypeDef(BaseValidatorModel):
-    policyArn: str
+    policyArn: Annotated[str, _aws_pattern("Resiliencehub", "Arn")]
     dataLocationConstraint: Optional[DataLocationConstraintType] = None
     policy: Optional[Dict[DisruptionTypeType, FailurePolicyTypeDef]] = None
     policyDescription: Optional[str] = None
-    policyName: Optional[str] = None
+    policyName: Optional[Annotated[str, _aws_pattern("Resiliencehub", "EntityName")]] = None
     tier: Optional[ResiliencyPolicyTierType] = None
 
 
 # This class is the output for the 'describe_draft_app_version_resources_import_status' function.
 class DescribeDraftAppVersionResourcesImportStatusResponseTypeDef(BaseValidatorModel):
-    appArn: str
-    appVersion: str
+    appArn: Annotated[str, _aws_pattern("Resiliencehub", "Arn")]
+    appVersion: Annotated[str, _aws_pattern("Resiliencehub", "EntityVersion")]
     errorDetails: List[ErrorDetailTypeDef]
     errorMessage: str
     status: ResourceImportStatusTypeType
@@ -997,17 +999,17 @@ class DescribeMetricsExportResponseTypeDef(BaseValidatorModel):
 
 
 class RecommendationTemplateTypeDef(BaseValidatorModel):
-    assessmentArn: str
+    assessmentArn: Annotated[str, _aws_pattern("Resiliencehub", "Arn")]
     format: TemplateFormatType
-    name: str
-    recommendationTemplateArn: str
+    name: Annotated[str, _aws_pattern("Resiliencehub", "EntityName")]
+    recommendationTemplateArn: Annotated[str, _aws_pattern("Resiliencehub", "Arn")]
     recommendationTypes: List[RenderRecommendationTypeType]
     status: RecommendationTemplateStatusType
-    appArn: Optional[str] = None
+    appArn: Optional[Annotated[str, _aws_pattern("Resiliencehub", "Arn")]] = None
     endTime: Optional[datetime] = None
     message: Optional[str] = None
     needsReplacements: Optional[bool] = None
-    recommendationIds: Optional[List[str]] = None
+    recommendationIds: Optional[List[Annotated[str, _aws_pattern("Resiliencehub", "Uuid")]]] = None
     startTime: Optional[datetime] = None
     tags: Optional[Dict[str, str]] = None
     templatesLocation: Optional[S3LocationTypeDef] = None
@@ -1015,10 +1017,10 @@ class RecommendationTemplateTypeDef(BaseValidatorModel):
 
 # This class is the output for the 'import_resources_to_draft_app_version' function.
 class ImportResourcesToDraftAppVersionResponseTypeDef(BaseValidatorModel):
-    appArn: str
-    appVersion: str
+    appArn: Annotated[str, _aws_pattern("Resiliencehub", "Arn")]
+    appVersion: Annotated[str, _aws_pattern("Resiliencehub", "EntityVersion")]
     eksSources: List[EksSourceOutputTypeDef]
-    sourceArns: List[str]
+    sourceArns: List[Annotated[str, _aws_pattern("Resiliencehub", "Arn")]]
     status: ResourceImportStatusTypeType
     terraformSources: List[TerraformSourceTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
@@ -1034,8 +1036,8 @@ class RecommendationItemTypeDef(BaseValidatorModel):
     excluded: Optional[bool] = None
     latestDiscoveredExperiment: Optional[ExperimentTypeDef] = None
     resourceId: Optional[str] = None
-    targetAccountId: Optional[str] = None
-    targetRegion: Optional[str] = None
+    targetAccountId: Optional[Annotated[str, _aws_pattern("Resiliencehub", "CustomerId")]] = None
+    targetRegion: Optional[Annotated[str, _aws_pattern("Resiliencehub", "AwsRegion")]] = None
 
 
 class GroupingResourceTypeDef(BaseValidatorModel):
@@ -1053,19 +1055,19 @@ class PhysicalResourceTypeDef(BaseValidatorModel):
     additionalInfo: Optional[Dict[str, List[str]]] = None
     appComponents: Optional[List[AppComponentTypeDef]] = None
     excluded: Optional[bool] = None
-    parentResourceName: Optional[str] = None
-    resourceName: Optional[str] = None
+    parentResourceName: Optional[Annotated[str, _aws_pattern("Resiliencehub", "EntityName")]] = None
+    resourceName: Optional[Annotated[str, _aws_pattern("Resiliencehub", "EntityName")]] = None
     sourceType: Optional[ResourceSourceTypeType] = None
 
 
 class ResourceMappingTypeDef(BaseValidatorModel):
     mappingType: ResourceMappingTypeType
     physicalResourceId: PhysicalResourceIdTypeDef
-    appRegistryAppName: Optional[str] = None
+    appRegistryAppName: Optional[Annotated[str, _aws_pattern("Resiliencehub", "EntityName")]] = None
     eksSourceName: Optional[str] = None
     logicalStackName: Optional[str] = None
-    resourceGroupName: Optional[str] = None
-    resourceName: Optional[str] = None
+    resourceGroupName: Optional[Annotated[str, _aws_pattern("Resiliencehub", "EntityName")]] = None
+    resourceName: Optional[Annotated[str, _aws_pattern("Resiliencehub", "EntityName")]] = None
     terraformSourceName: Optional[str] = None
 
 
@@ -1088,21 +1090,21 @@ class ListResourceGroupingRecommendationsRequestPaginateTypeDef(BaseValidatorMod
 
 # This class is the input for the 'list_app_versions' function.
 class ListAppVersionsRequestTypeDef(BaseValidatorModel):
-    appArn: str
+    appArn: Annotated[str, _aws_pattern("Resiliencehub", "Arn")]
     endTime: Optional[TimestampTypeDef] = None
     maxResults: Optional[int] = None
-    nextToken: Optional[str] = None
+    nextToken: Optional[Annotated[str, _aws_pattern("Resiliencehub", "NextToken")]] = None
     startTime: Optional[TimestampTypeDef] = None
 
 
 # This class is the input for the 'list_apps' function.
 class ListAppsRequestTypeDef(BaseValidatorModel):
-    appArn: Optional[str] = None
-    awsApplicationArn: Optional[str] = None
+    appArn: Optional[Annotated[str, _aws_pattern("Resiliencehub", "Arn")]] = None
+    awsApplicationArn: Optional[Annotated[str, _aws_pattern("Resiliencehub", "Arn")]] = None
     fromLastAssessmentTime: Optional[TimestampTypeDef] = None
     maxResults: Optional[int] = None
-    name: Optional[str] = None
-    nextToken: Optional[str] = None
+    name: Optional[Annotated[str, _aws_pattern("Resiliencehub", "EntityName")]] = None
+    nextToken: Optional[Annotated[str, _aws_pattern("Resiliencehub", "NextToken")]] = None
     reverseOrder: Optional[bool] = None
     toLastAssessmentTime: Optional[TimestampTypeDef] = None
 
@@ -1121,7 +1123,7 @@ class ListMetricsRequestTypeDef(BaseValidatorModel):
     dataSource: Optional[str] = None
     fields: Optional[List[FieldTypeDef]] = None
     maxResults: Optional[int] = None
-    nextToken: Optional[str] = None
+    nextToken: Optional[Annotated[str, _aws_pattern("Resiliencehub", "NextToken")]] = None
     sorts: Optional[List[SortTypeDef]] = None
 
 
@@ -1130,7 +1132,7 @@ PermissionModelUnionTypeDef = Union[PermissionModelOutputTypeDef, PermissionMode
 
 # This class is the input for the 'reject_resource_grouping_recommendations' function.
 class RejectResourceGroupingRecommendationsRequestTypeDef(BaseValidatorModel):
-    appArn: str
+    appArn: Annotated[str, _aws_pattern("Resiliencehub", "Arn")]
     entries: List[RejectGroupingRecommendationEntryTypeDef]
 
 
@@ -1149,19 +1151,19 @@ class ResourceErrorsDetailsTypeDef(BaseValidatorModel):
 class ListAppAssessmentsResponseTypeDef(BaseValidatorModel):
     assessmentSummaries: List[AppAssessmentSummaryTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
-    nextToken: Optional[str] = None
+    nextToken: Optional[Annotated[str, _aws_pattern("Resiliencehub", "NextToken")]] = None
 
 
 # This class is the output for the 'list_app_assessment_compliance_drifts' function.
 class ListAppAssessmentComplianceDriftsResponseTypeDef(BaseValidatorModel):
     complianceDrifts: List[ComplianceDriftTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
-    nextToken: Optional[str] = None
+    nextToken: Optional[Annotated[str, _aws_pattern("Resiliencehub", "NextToken")]] = None
 
 
 # This class is the output for the 'delete_app_input_source' function.
 class DeleteAppInputSourceResponseTypeDef(BaseValidatorModel):
-    appArn: str
+    appArn: Annotated[str, _aws_pattern("Resiliencehub", "Arn")]
     appInputSource: AppInputSourceTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
@@ -1170,7 +1172,7 @@ class DeleteAppInputSourceResponseTypeDef(BaseValidatorModel):
 class ListAppInputSourcesResponseTypeDef(BaseValidatorModel):
     appInputSources: List[AppInputSourceTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
-    nextToken: Optional[str] = None
+    nextToken: Optional[Annotated[str, _aws_pattern("Resiliencehub", "NextToken")]] = None
 
 
 # This class is the output for the 'create_app' function.
@@ -1193,7 +1195,7 @@ class UpdateAppResponseTypeDef(BaseValidatorModel):
 
 # This class is the output for the 'batch_update_recommendation_status' function.
 class BatchUpdateRecommendationStatusResponseTypeDef(BaseValidatorModel):
-    appArn: str
+    appArn: Annotated[str, _aws_pattern("Resiliencehub", "Arn")]
     failedEntries: List[BatchUpdateRecommendationStatusFailedEntryTypeDef]
     successfulEntries: List[BatchUpdateRecommendationStatusSuccessfulEntryTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
@@ -1201,21 +1203,21 @@ class BatchUpdateRecommendationStatusResponseTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'batch_update_recommendation_status' function.
 class BatchUpdateRecommendationStatusRequestTypeDef(BaseValidatorModel):
-    appArn: str
+    appArn: Annotated[str, _aws_pattern("Resiliencehub", "Arn")]
     requestEntries: List[UpdateRecommendationStatusRequestEntryTypeDef]
 
 
 class ComponentRecommendationTypeDef(BaseValidatorModel):
-    appComponentName: str
+    appComponentName: Annotated[str, _aws_pattern("Resiliencehub", "EntityId")]
     configRecommendations: List[ConfigRecommendationTypeDef]
     recommendationStatus: RecommendationComplianceStatusType
 
 
 class ResourceDriftTypeDef(BaseValidatorModel):
-    appArn: Optional[str] = None
-    appVersion: Optional[str] = None
+    appArn: Optional[Annotated[str, _aws_pattern("Resiliencehub", "Arn")]] = None
+    appVersion: Optional[Annotated[str, _aws_pattern("Resiliencehub", "EntityVersion")]] = None
     diffType: Optional[DifferenceTypeType] = None
-    referenceId: Optional[str] = None
+    referenceId: Optional[Annotated[str, _aws_pattern("Resiliencehub", "EntityId")]] = None
     resourceIdentifier: Optional[ResourceIdentifierTypeDef] = None
 
 
@@ -1235,14 +1237,14 @@ class DescribeResiliencyPolicyResponseTypeDef(BaseValidatorModel):
 class ListResiliencyPoliciesResponseTypeDef(BaseValidatorModel):
     resiliencyPolicies: List[ResiliencyPolicyTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
-    nextToken: Optional[str] = None
+    nextToken: Optional[Annotated[str, _aws_pattern("Resiliencehub", "NextToken")]] = None
 
 
 # This class is the output for the 'list_suggested_resiliency_policies' function.
 class ListSuggestedResiliencyPoliciesResponseTypeDef(BaseValidatorModel):
     resiliencyPolicies: List[ResiliencyPolicyTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
-    nextToken: Optional[str] = None
+    nextToken: Optional[Annotated[str, _aws_pattern("Resiliencehub", "NextToken")]] = None
 
 
 # This class is the output for the 'update_resiliency_policy' function.
@@ -1261,24 +1263,24 @@ class CreateRecommendationTemplateResponseTypeDef(BaseValidatorModel):
 class ListRecommendationTemplatesResponseTypeDef(BaseValidatorModel):
     recommendationTemplates: List[RecommendationTemplateTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
-    nextToken: Optional[str] = None
+    nextToken: Optional[Annotated[str, _aws_pattern("Resiliencehub", "NextToken")]] = None
 
 
 # This class is the input for the 'import_resources_to_draft_app_version' function.
 class ImportResourcesToDraftAppVersionRequestTypeDef(BaseValidatorModel):
-    appArn: str
+    appArn: Annotated[str, _aws_pattern("Resiliencehub", "Arn")]
     eksSources: Optional[List[EksSourceUnionTypeDef]] = None
     importStrategy: Optional[ResourceImportStrategyTypeType] = None
-    sourceArns: Optional[List[str]] = None
+    sourceArns: Optional[List[Annotated[str, _aws_pattern("Resiliencehub", "Arn")]]] = None
     terraformSources: Optional[List[TerraformSourceTypeDef]] = None
 
 
 class AlarmRecommendationTypeDef(BaseValidatorModel):
     name: str
-    recommendationId: str
+    recommendationId: Annotated[str, _aws_pattern("Resiliencehub", "Uuid")]
     referenceId: str
     type: AlarmTypeType
-    appComponentName: Optional[str] = None
+    appComponentName: Optional[Annotated[str, _aws_pattern("Resiliencehub", "EntityId")]] = None
     appComponentNames: Optional[List[str]] = None
     description: Optional[str] = None
     items: Optional[List[RecommendationItemTypeDef]] = None
@@ -1287,10 +1289,10 @@ class AlarmRecommendationTypeDef(BaseValidatorModel):
 
 
 class SopRecommendationTypeDef(BaseValidatorModel):
-    recommendationId: str
+    recommendationId: Annotated[str, _aws_pattern("Resiliencehub", "Uuid")]
     referenceId: str
     serviceType: Literal["SSM"]
-    appComponentName: Optional[str] = None
+    appComponentName: Optional[Annotated[str, _aws_pattern("Resiliencehub", "EntityId")]] = None
     description: Optional[str] = None
     items: Optional[List[RecommendationItemTypeDef]] = None
     name: Optional[str] = None
@@ -1300,15 +1302,15 @@ class SopRecommendationTypeDef(BaseValidatorModel):
 
 class TestRecommendationTypeDef(BaseValidatorModel):
     referenceId: str
-    appComponentId: Optional[str] = None
-    appComponentName: Optional[str] = None
+    appComponentId: Optional[Annotated[str, _aws_pattern("Resiliencehub", "EntityName255")]] = None
+    appComponentName: Optional[Annotated[str, _aws_pattern("Resiliencehub", "EntityId")]] = None
     dependsOnAlarms: Optional[List[str]] = None
     description: Optional[str] = None
     intent: Optional[str] = None
     items: Optional[List[RecommendationItemTypeDef]] = None
     name: Optional[str] = None
     prerequisite: Optional[str] = None
-    recommendationId: Optional[str] = None
+    recommendationId: Optional[Annotated[str, _aws_pattern("Resiliencehub", "Uuid")]] = None
     recommendationStatus: Optional[RecommendationStatusType] = None
     risk: Optional[TestRiskType] = None
     type: Optional[TestTypeType] = None
@@ -1328,24 +1330,24 @@ class GroupingRecommendationTypeDef(BaseValidatorModel):
 
 # This class is the output for the 'create_app_version_resource' function.
 class CreateAppVersionResourceResponseTypeDef(BaseValidatorModel):
-    appArn: str
-    appVersion: str
+    appArn: Annotated[str, _aws_pattern("Resiliencehub", "Arn")]
+    appVersion: Annotated[str, _aws_pattern("Resiliencehub", "EntityVersion")]
     physicalResource: PhysicalResourceTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 # This class is the output for the 'delete_app_version_resource' function.
 class DeleteAppVersionResourceResponseTypeDef(BaseValidatorModel):
-    appArn: str
-    appVersion: str
+    appArn: Annotated[str, _aws_pattern("Resiliencehub", "Arn")]
+    appVersion: Annotated[str, _aws_pattern("Resiliencehub", "EntityVersion")]
     physicalResource: PhysicalResourceTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 # This class is the output for the 'describe_app_version_resource' function.
 class DescribeAppVersionResourceResponseTypeDef(BaseValidatorModel):
-    appArn: str
-    appVersion: str
+    appArn: Annotated[str, _aws_pattern("Resiliencehub", "Arn")]
+    appVersion: Annotated[str, _aws_pattern("Resiliencehub", "EntityVersion")]
     physicalResource: PhysicalResourceTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
@@ -1355,27 +1357,27 @@ class ListAppVersionResourcesResponseTypeDef(BaseValidatorModel):
     physicalResources: List[PhysicalResourceTypeDef]
     resolutionId: str
     ResponseMetadata: ResponseMetadataTypeDef
-    nextToken: Optional[str] = None
+    nextToken: Optional[Annotated[str, _aws_pattern("Resiliencehub", "NextToken")]] = None
 
 
 # This class is the output for the 'update_app_version_resource' function.
 class UpdateAppVersionResourceResponseTypeDef(BaseValidatorModel):
-    appArn: str
-    appVersion: str
+    appArn: Annotated[str, _aws_pattern("Resiliencehub", "Arn")]
+    appVersion: Annotated[str, _aws_pattern("Resiliencehub", "EntityVersion")]
     physicalResource: PhysicalResourceTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 # This class is the input for the 'add_draft_app_version_resource_mappings' function.
 class AddDraftAppVersionResourceMappingsRequestTypeDef(BaseValidatorModel):
-    appArn: str
+    appArn: Annotated[str, _aws_pattern("Resiliencehub", "Arn")]
     resourceMappings: List[ResourceMappingTypeDef]
 
 
 # This class is the output for the 'add_draft_app_version_resource_mappings' function.
 class AddDraftAppVersionResourceMappingsResponseTypeDef(BaseValidatorModel):
-    appArn: str
-    appVersion: str
+    appArn: Annotated[str, _aws_pattern("Resiliencehub", "Arn")]
+    appVersion: Annotated[str, _aws_pattern("Resiliencehub", "EntityVersion")]
     resourceMappings: List[ResourceMappingTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
 
@@ -1384,7 +1386,7 @@ class AddDraftAppVersionResourceMappingsResponseTypeDef(BaseValidatorModel):
 class ListAppVersionResourceMappingsResponseTypeDef(BaseValidatorModel):
     resourceMappings: List[ResourceMappingTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
-    nextToken: Optional[str] = None
+    nextToken: Optional[Annotated[str, _aws_pattern("Resiliencehub", "NextToken")]] = None
 
 
 # This class is the output for the 'list_unsupported_app_version_resources' function.
@@ -1392,35 +1394,35 @@ class ListUnsupportedAppVersionResourcesResponseTypeDef(BaseValidatorModel):
     resolutionId: str
     unsupportedResources: List[UnsupportedResourceTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
-    nextToken: Optional[str] = None
+    nextToken: Optional[Annotated[str, _aws_pattern("Resiliencehub", "NextToken")]] = None
 
 
 # This class is the input for the 'create_app' function.
 class CreateAppRequestTypeDef(BaseValidatorModel):
-    name: str
+    name: Annotated[str, _aws_pattern("Resiliencehub", "EntityName")]
     assessmentSchedule: Optional[AppAssessmentScheduleTypeType] = None
-    awsApplicationArn: Optional[str] = None
-    clientToken: Optional[str] = None
+    awsApplicationArn: Optional[Annotated[str, _aws_pattern("Resiliencehub", "Arn")]] = None
+    clientToken: Optional[Annotated[str, _aws_pattern("Resiliencehub", "ClientToken")]] = None
     description: Optional[str] = None
     eventSubscriptions: Optional[List[EventSubscriptionTypeDef]] = None
     permissionModel: Optional[PermissionModelUnionTypeDef] = None
-    policyArn: Optional[str] = None
+    policyArn: Optional[Annotated[str, _aws_pattern("Resiliencehub", "Arn")]] = None
     tags: Optional[Dict[str, str]] = None
 
 
 # This class is the input for the 'update_app' function.
 class UpdateAppRequestTypeDef(BaseValidatorModel):
-    appArn: str
+    appArn: Annotated[str, _aws_pattern("Resiliencehub", "Arn")]
     assessmentSchedule: Optional[AppAssessmentScheduleTypeType] = None
     clearResiliencyPolicyArn: Optional[bool] = None
     description: Optional[str] = None
     eventSubscriptions: Optional[List[EventSubscriptionTypeDef]] = None
     permissionModel: Optional[PermissionModelUnionTypeDef] = None
-    policyArn: Optional[str] = None
+    policyArn: Optional[Annotated[str, _aws_pattern("Resiliencehub", "Arn")]] = None
 
 
 class AppComponentComplianceTypeDef(BaseValidatorModel):
-    appComponentName: Optional[str] = None
+    appComponentName: Optional[Annotated[str, _aws_pattern("Resiliencehub", "EntityId")]] = None
     compliance: Optional[Dict[DisruptionTypeType, DisruptionComplianceTypeDef]] = None
     cost: Optional[CostTypeDef] = None
     message: Optional[str] = None
@@ -1429,12 +1431,12 @@ class AppComponentComplianceTypeDef(BaseValidatorModel):
 
 
 class AppAssessmentTypeDef(BaseValidatorModel):
-    assessmentArn: str
+    assessmentArn: Annotated[str, _aws_pattern("Resiliencehub", "Arn")]
     assessmentStatus: AssessmentStatusType
     invoker: AssessmentInvokerType
-    appArn: Optional[str] = None
-    appVersion: Optional[str] = None
-    assessmentName: Optional[str] = None
+    appArn: Optional[Annotated[str, _aws_pattern("Resiliencehub", "Arn")]] = None
+    appVersion: Optional[Annotated[str, _aws_pattern("Resiliencehub", "EntityVersion")]] = None
+    assessmentName: Optional[Annotated[str, _aws_pattern("Resiliencehub", "EntityName")]] = None
     compliance: Optional[Dict[DisruptionTypeType, DisruptionComplianceTypeDef]] = None
     complianceStatus: Optional[ComplianceStatusType] = None
     cost: Optional[CostTypeDef] = None
@@ -1447,56 +1449,56 @@ class AppAssessmentTypeDef(BaseValidatorModel):
     startTime: Optional[datetime] = None
     summary: Optional[AssessmentSummaryTypeDef] = None
     tags: Optional[Dict[str, str]] = None
-    versionName: Optional[str] = None
+    versionName: Optional[Annotated[str, _aws_pattern("Resiliencehub", "EntityVersion")]] = None
 
 
 # This class is the output for the 'list_app_component_recommendations' function.
 class ListAppComponentRecommendationsResponseTypeDef(BaseValidatorModel):
     componentRecommendations: List[ComponentRecommendationTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
-    nextToken: Optional[str] = None
+    nextToken: Optional[Annotated[str, _aws_pattern("Resiliencehub", "NextToken")]] = None
 
 
 # This class is the output for the 'list_app_assessment_resource_drifts' function.
 class ListAppAssessmentResourceDriftsResponseTypeDef(BaseValidatorModel):
     resourceDrifts: List[ResourceDriftTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
-    nextToken: Optional[str] = None
+    nextToken: Optional[Annotated[str, _aws_pattern("Resiliencehub", "NextToken")]] = None
 
 
 # This class is the output for the 'list_alarm_recommendations' function.
 class ListAlarmRecommendationsResponseTypeDef(BaseValidatorModel):
     alarmRecommendations: List[AlarmRecommendationTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
-    nextToken: Optional[str] = None
+    nextToken: Optional[Annotated[str, _aws_pattern("Resiliencehub", "NextToken")]] = None
 
 
 # This class is the output for the 'list_sop_recommendations' function.
 class ListSopRecommendationsResponseTypeDef(BaseValidatorModel):
     sopRecommendations: List[SopRecommendationTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
-    nextToken: Optional[str] = None
+    nextToken: Optional[Annotated[str, _aws_pattern("Resiliencehub", "NextToken")]] = None
 
 
 # This class is the output for the 'list_test_recommendations' function.
 class ListTestRecommendationsResponseTypeDef(BaseValidatorModel):
     testRecommendations: List[TestRecommendationTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
-    nextToken: Optional[str] = None
+    nextToken: Optional[Annotated[str, _aws_pattern("Resiliencehub", "NextToken")]] = None
 
 
 # This class is the output for the 'list_resource_grouping_recommendations' function.
 class ListResourceGroupingRecommendationsResponseTypeDef(BaseValidatorModel):
     groupingRecommendations: List[GroupingRecommendationTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
-    nextToken: Optional[str] = None
+    nextToken: Optional[Annotated[str, _aws_pattern("Resiliencehub", "NextToken")]] = None
 
 
 # This class is the output for the 'list_app_component_compliances' function.
 class ListAppComponentCompliancesResponseTypeDef(BaseValidatorModel):
     componentCompliances: List[AppComponentComplianceTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
-    nextToken: Optional[str] = None
+    nextToken: Optional[Annotated[str, _aws_pattern("Resiliencehub", "NextToken")]] = None
 
 
 # This class is the output for the 'describe_app_assessment' function.

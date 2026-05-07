@@ -3,6 +3,7 @@
 from datetime import datetime
 from decimal import Decimal
 from typing import (
+    Annotated,
     Any,
     Callable,
     Dict,
@@ -24,6 +25,7 @@ from botocore.response import StreamingBody
 from pydantic import Field
 
 from aws_resource_validator.core.base_validator_model import BaseValidatorModel, EventStream
+from aws_resource_validator.core.pattern_validation import aws_field_pattern as _aws_pattern
 from aws_resource_validator.pydantic_models.grafana.grafana_constants import *  # noqa: F401,F403
 
 # Optional boto3 symbols — imported lazily so services that don't need them
@@ -49,7 +51,7 @@ class AssertionAttributesTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'associate_license' function.
 class AssociateLicenseRequestTypeDef(BaseValidatorModel):
-    workspaceId: str
+    workspaceId: Annotated[str, _aws_pattern("Grafana", "WorkspaceId")]
     licenseType: LicenseTypeType
     grafanaToken: Optional[str] = None
 
@@ -76,14 +78,14 @@ class CreateWorkspaceApiKeyRequestTypeDef(BaseValidatorModel):
     keyName: str
     keyRole: str
     secondsToLive: int
-    workspaceId: str
+    workspaceId: Annotated[str, _aws_pattern("Grafana", "WorkspaceId")]
 
 
 # This class is the input for the 'create_workspace_service_account' function.
 class CreateWorkspaceServiceAccountRequestTypeDef(BaseValidatorModel):
     name: str
     grafanaRole: RoleType
-    workspaceId: str
+    workspaceId: Annotated[str, _aws_pattern("Grafana", "WorkspaceId")]
 
 
 # This class is the input for the 'create_workspace_service_account_token' function.
@@ -91,7 +93,7 @@ class CreateWorkspaceServiceAccountTokenRequestTypeDef(BaseValidatorModel):
     name: str
     secondsToLive: int
     serviceAccountId: str
-    workspaceId: str
+    workspaceId: Annotated[str, _aws_pattern("Grafana", "WorkspaceId")]
 
 
 class ServiceAccountTokenSummaryWithKeyTypeDef(BaseValidatorModel):
@@ -103,45 +105,45 @@ class ServiceAccountTokenSummaryWithKeyTypeDef(BaseValidatorModel):
 # This class is the input for the 'delete_workspace_api_key' function.
 class DeleteWorkspaceApiKeyRequestTypeDef(BaseValidatorModel):
     keyName: str
-    workspaceId: str
+    workspaceId: Annotated[str, _aws_pattern("Grafana", "WorkspaceId")]
 
 
 # This class is the input for the 'delete_workspace' function.
 class DeleteWorkspaceRequestTypeDef(BaseValidatorModel):
-    workspaceId: str
+    workspaceId: Annotated[str, _aws_pattern("Grafana", "WorkspaceId")]
 
 
 # This class is the input for the 'delete_workspace_service_account' function.
 class DeleteWorkspaceServiceAccountRequestTypeDef(BaseValidatorModel):
     serviceAccountId: str
-    workspaceId: str
+    workspaceId: Annotated[str, _aws_pattern("Grafana", "WorkspaceId")]
 
 
 # This class is the input for the 'delete_workspace_service_account_token' function.
 class DeleteWorkspaceServiceAccountTokenRequestTypeDef(BaseValidatorModel):
     tokenId: str
     serviceAccountId: str
-    workspaceId: str
+    workspaceId: Annotated[str, _aws_pattern("Grafana", "WorkspaceId")]
 
 
 # This class is the input for the 'describe_workspace_authentication' function.
 class DescribeWorkspaceAuthenticationRequestTypeDef(BaseValidatorModel):
-    workspaceId: str
+    workspaceId: Annotated[str, _aws_pattern("Grafana", "WorkspaceId")]
 
 
 # This class is the input for the 'describe_workspace_configuration' function.
 class DescribeWorkspaceConfigurationRequestTypeDef(BaseValidatorModel):
-    workspaceId: str
+    workspaceId: Annotated[str, _aws_pattern("Grafana", "WorkspaceId")]
 
 
 # This class is the input for the 'describe_workspace' function.
 class DescribeWorkspaceRequestTypeDef(BaseValidatorModel):
-    workspaceId: str
+    workspaceId: Annotated[str, _aws_pattern("Grafana", "WorkspaceId")]
 
 
 # This class is the input for the 'disassociate_license' function.
 class DisassociateLicenseRequestTypeDef(BaseValidatorModel):
-    workspaceId: str
+    workspaceId: Annotated[str, _aws_pattern("Grafana", "WorkspaceId")]
     licenseType: LicenseTypeType
 
 
@@ -158,7 +160,7 @@ class PaginatorConfigTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'list_permissions' function.
 class ListPermissionsRequestTypeDef(BaseValidatorModel):
-    workspaceId: str
+    workspaceId: Annotated[str, _aws_pattern("Grafana", "WorkspaceId")]
     maxResults: Optional[int] = None
     nextToken: Optional[str] = None
     userType: Optional[UserTypeType] = None
@@ -175,13 +177,13 @@ class ListTagsForResourceRequestTypeDef(BaseValidatorModel):
 class ListVersionsRequestTypeDef(BaseValidatorModel):
     maxResults: Optional[int] = None
     nextToken: Optional[str] = None
-    workspaceId: Optional[str] = None
+    workspaceId: Optional[Annotated[str, _aws_pattern("Grafana", "WorkspaceId")]] = None
 
 
 # This class is the input for the 'list_workspace_service_account_tokens' function.
 class ListWorkspaceServiceAccountTokensRequestTypeDef(BaseValidatorModel):
     serviceAccountId: str
-    workspaceId: str
+    workspaceId: Annotated[str, _aws_pattern("Grafana", "WorkspaceId")]
     maxResults: Optional[int] = None
     nextToken: Optional[str] = None
 
@@ -196,7 +198,7 @@ class ServiceAccountTokenSummaryTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'list_workspace_service_accounts' function.
 class ListWorkspaceServiceAccountsRequestTypeDef(BaseValidatorModel):
-    workspaceId: str
+    workspaceId: Annotated[str, _aws_pattern("Grafana", "WorkspaceId")]
     maxResults: Optional[int] = None
     nextToken: Optional[str] = None
 
@@ -251,7 +253,7 @@ class UntagResourceRequestTypeDef(BaseValidatorModel):
 
 class UpdateWorkspaceConfigurationRequestTypeDef(BaseValidatorModel):
     configuration: str
-    workspaceId: str
+    workspaceId: Annotated[str, _aws_pattern("Grafana", "WorkspaceId")]
     grafanaVersion: Optional[str] = None
 
 
@@ -269,7 +271,7 @@ class VpcConfigurationTypeDef(BaseValidatorModel):
 class CreateWorkspaceApiKeyResponseTypeDef(BaseValidatorModel):
     keyName: str
     key: str
-    workspaceId: str
+    workspaceId: Annotated[str, _aws_pattern("Grafana", "WorkspaceId")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
@@ -278,21 +280,21 @@ class CreateWorkspaceServiceAccountResponseTypeDef(BaseValidatorModel):
     id: str
     name: str
     grafanaRole: RoleType
-    workspaceId: str
+    workspaceId: Annotated[str, _aws_pattern("Grafana", "WorkspaceId")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 # This class is the output for the 'delete_workspace_api_key' function.
 class DeleteWorkspaceApiKeyResponseTypeDef(BaseValidatorModel):
     keyName: str
-    workspaceId: str
+    workspaceId: Annotated[str, _aws_pattern("Grafana", "WorkspaceId")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 # This class is the output for the 'delete_workspace_service_account' function.
 class DeleteWorkspaceServiceAccountResponseTypeDef(BaseValidatorModel):
     serviceAccountId: str
-    workspaceId: str
+    workspaceId: Annotated[str, _aws_pattern("Grafana", "WorkspaceId")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
@@ -300,7 +302,7 @@ class DeleteWorkspaceServiceAccountResponseTypeDef(BaseValidatorModel):
 class DeleteWorkspaceServiceAccountTokenResponseTypeDef(BaseValidatorModel):
     tokenId: str
     serviceAccountId: str
-    workspaceId: str
+    workspaceId: Annotated[str, _aws_pattern("Grafana", "WorkspaceId")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
@@ -328,12 +330,12 @@ class WorkspaceSummaryTypeDef(BaseValidatorModel):
     created: datetime
     endpoint: str
     grafanaVersion: str
-    id: str
+    id: Annotated[str, _aws_pattern("Grafana", "WorkspaceId")]
     modified: datetime
     status: WorkspaceStatusType
     authentication: AuthenticationSummaryTypeDef
     description: Optional[str] = None
-    name: Optional[str] = None
+    name: Optional[Annotated[str, _aws_pattern("Grafana", "WorkspaceName")]] = None
     notificationDestinations: Optional[List[Literal["SNS"]]] = None
     tags: Optional[Dict[str, str]] = None
     licenseType: Optional[LicenseTypeType] = None
@@ -344,7 +346,7 @@ class WorkspaceSummaryTypeDef(BaseValidatorModel):
 class CreateWorkspaceServiceAccountTokenResponseTypeDef(BaseValidatorModel):
     serviceAccountToken: ServiceAccountTokenSummaryWithKeyTypeDef
     serviceAccountId: str
-    workspaceId: str
+    workspaceId: Annotated[str, _aws_pattern("Grafana", "WorkspaceId")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
@@ -380,7 +382,7 @@ class ListWorkspacesRequestPaginateTypeDef(BaseValidatorModel):
 class ListWorkspaceServiceAccountTokensResponseTypeDef(BaseValidatorModel):
     serviceAccountTokens: List[ServiceAccountTokenSummaryTypeDef]
     serviceAccountId: str
-    workspaceId: str
+    workspaceId: Annotated[str, _aws_pattern("Grafana", "WorkspaceId")]
     ResponseMetadata: ResponseMetadataTypeDef
     nextToken: Optional[str] = None
 
@@ -388,7 +390,7 @@ class ListWorkspaceServiceAccountTokensResponseTypeDef(BaseValidatorModel):
 # This class is the output for the 'list_workspace_service_accounts' function.
 class ListWorkspaceServiceAccountsResponseTypeDef(BaseValidatorModel):
     serviceAccounts: List[ServiceAccountSummaryTypeDef]
-    workspaceId: str
+    workspaceId: Annotated[str, _aws_pattern("Grafana", "WorkspaceId")]
     ResponseMetadata: ResponseMetadataTypeDef
     nextToken: Optional[str] = None
 
@@ -436,13 +438,13 @@ class WorkspaceDescriptionTypeDef(BaseValidatorModel):
     dataSources: List[DataSourceTypeType]
     endpoint: str
     grafanaVersion: str
-    id: str
+    id: Annotated[str, _aws_pattern("Grafana", "WorkspaceId")]
     modified: datetime
     status: WorkspaceStatusType
     authentication: AuthenticationSummaryTypeDef
     accountAccessType: Optional[AccountAccessTypeType] = None
     description: Optional[str] = None
-    name: Optional[str] = None
+    name: Optional[Annotated[str, _aws_pattern("Grafana", "WorkspaceName")]] = None
     organizationRoleName: Optional[str] = None
     notificationDestinations: Optional[List[Literal["SNS"]]] = None
     organizationalUnits: Optional[List[str]] = None
@@ -457,7 +459,7 @@ class WorkspaceDescriptionTypeDef(BaseValidatorModel):
     vpcConfiguration: Optional[VpcConfigurationOutputTypeDef] = None
     networkAccessControl: Optional[NetworkAccessConfigurationOutputTypeDef] = None
     grafanaToken: Optional[str] = None
-    kmsKeyId: Optional[str] = None
+    kmsKeyId: Optional[Annotated[str, _aws_pattern("Grafana", "KmsKeyId")]] = None
 
 
 VpcConfigurationUnionTypeDef = Union[VpcConfigurationOutputTypeDef, VpcConfigurationTypeDef]
@@ -535,12 +537,12 @@ class CreateWorkspaceRequestTypeDef(BaseValidatorModel):
     accountAccessType: AccountAccessTypeType
     permissionType: PermissionTypeType
     authenticationProviders: List[AuthenticationProviderTypesType]
-    clientToken: Optional[str] = None
+    clientToken: Optional[Annotated[str, _aws_pattern("Grafana", "ClientToken")]] = None
     organizationRoleName: Optional[str] = None
     stackSetName: Optional[str] = None
     workspaceDataSources: Optional[List[DataSourceTypeType]] = None
     workspaceDescription: Optional[str] = None
-    workspaceName: Optional[str] = None
+    workspaceName: Optional[Annotated[str, _aws_pattern("Grafana", "WorkspaceName")]] = None
     workspaceNotificationDestinations: Optional[List[Literal["SNS"]]] = None
     workspaceOrganizationalUnits: Optional[List[str]] = None
     workspaceRoleArn: Optional[str] = None
@@ -549,19 +551,19 @@ class CreateWorkspaceRequestTypeDef(BaseValidatorModel):
     configuration: Optional[str] = None
     networkAccessControl: Optional[NetworkAccessConfigurationUnionTypeDef] = None
     grafanaVersion: Optional[str] = None
-    kmsKeyId: Optional[str] = None
+    kmsKeyId: Optional[Annotated[str, _aws_pattern("Grafana", "KmsKeyId")]] = None
 
 
 # This class is the input for the 'update_workspace' function.
 class UpdateWorkspaceRequestTypeDef(BaseValidatorModel):
-    workspaceId: str
+    workspaceId: Annotated[str, _aws_pattern("Grafana", "WorkspaceId")]
     accountAccessType: Optional[AccountAccessTypeType] = None
     organizationRoleName: Optional[str] = None
     permissionType: Optional[PermissionTypeType] = None
     stackSetName: Optional[str] = None
     workspaceDataSources: Optional[List[DataSourceTypeType]] = None
     workspaceDescription: Optional[str] = None
-    workspaceName: Optional[str] = None
+    workspaceName: Optional[Annotated[str, _aws_pattern("Grafana", "WorkspaceName")]] = None
     workspaceNotificationDestinations: Optional[List[Literal["SNS"]]] = None
     workspaceOrganizationalUnits: Optional[List[str]] = None
     workspaceRoleArn: Optional[str] = None
@@ -580,7 +582,7 @@ class UpdatePermissionsResponseTypeDef(BaseValidatorModel):
 # This class is the input for the 'update_permissions' function.
 class UpdatePermissionsRequestTypeDef(BaseValidatorModel):
     updateInstructionBatch: List[UpdateInstructionUnionTypeDef]
-    workspaceId: str
+    workspaceId: Annotated[str, _aws_pattern("Grafana", "WorkspaceId")]
 
 
 class AuthenticationDescriptionTypeDef(BaseValidatorModel):
@@ -591,7 +593,7 @@ class AuthenticationDescriptionTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'update_workspace_authentication' function.
 class UpdateWorkspaceAuthenticationRequestTypeDef(BaseValidatorModel):
-    workspaceId: str
+    workspaceId: Annotated[str, _aws_pattern("Grafana", "WorkspaceId")]
     authenticationProviders: List[AuthenticationProviderTypesType]
     samlConfiguration: Optional[SamlConfigurationUnionTypeDef] = None
 

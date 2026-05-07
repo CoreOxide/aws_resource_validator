@@ -3,6 +3,7 @@
 from datetime import datetime
 from decimal import Decimal
 from typing import (
+    Annotated,
     Any,
     Callable,
     Dict,
@@ -24,6 +25,7 @@ from botocore.response import StreamingBody
 from pydantic import Field
 
 from aws_resource_validator.core.base_validator_model import BaseValidatorModel, EventStream
+from aws_resource_validator.core.pattern_validation import aws_field_pattern as _aws_pattern
 from aws_resource_validator.pydantic_models.s3.s3_constants import *  # noqa: F401,F403
 
 # Optional boto3 symbols — imported lazily so services that don't need them
@@ -119,7 +121,7 @@ class BucketTypeDef(BaseValidatorModel):
     Name: Optional[str] = None
     CreationDate: Optional[datetime] = None
     BucketRegion: Optional[str] = None
-    BucketArn: Optional[str] = None
+    BucketArn: Optional[Annotated[str, _aws_pattern("S3", "S3RegionalOrS3ExpressBucketArnString")]] = None
 
 
 class BucketUploadFileRequestTypeDef(BaseValidatorModel):
@@ -1024,7 +1026,7 @@ class ObjectDownloadFileRequestTypeDef(BaseValidatorModel):
 
 
 class SSEKMSEncryptionTypeDef(BaseValidatorModel):
-    KMSKeyArn: str
+    KMSKeyArn: Annotated[str, _aws_pattern("S3", "NonEmptyKmsKeyArnString")]
     BucketKeyEnabled: Optional[bool] = None
 
 
@@ -1189,7 +1191,7 @@ class CompleteMultipartUploadOutputTypeDef(BaseValidatorModel):
 # This class is the output for the 'create_bucket' function.
 class CreateBucketOutputTypeDef(BaseValidatorModel):
     Location: str
-    BucketArn: str
+    BucketArn: Annotated[str, _aws_pattern("S3", "S3RegionalOrS3ExpressBucketArnString")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
@@ -1326,7 +1328,7 @@ class GetObjectTorrentOutputTypeDef(BaseValidatorModel):
 
 # This class is the output for the 'head_bucket' function.
 class HeadBucketOutputTypeDef(BaseValidatorModel):
-    BucketArn: str
+    BucketArn: Annotated[str, _aws_pattern("S3", "S3RegionalOrS3ExpressBucketArnString")]
     BucketLocationType: LocationTypeType
     BucketLocationName: str
     BucketRegion: str
@@ -1790,7 +1792,7 @@ class ObjectLockRetentionTypeDef(BaseValidatorModel):
 class RenameObjectRequestTypeDef(BaseValidatorModel):
     Bucket: str
     Key: str
-    RenameSource: str
+    RenameSource: Annotated[str, _aws_pattern("S3", "RenameSource")]
     DestinationIfMatch: Optional[str] = None
     DestinationIfNoneMatch: Optional[str] = None
     DestinationIfModifiedSince: Optional[TimestampTypeDef] = None

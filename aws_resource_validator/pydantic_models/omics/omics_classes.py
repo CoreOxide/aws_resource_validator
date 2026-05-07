@@ -3,6 +3,7 @@
 from datetime import datetime
 from decimal import Decimal
 from typing import (
+    Annotated,
     Any,
     Callable,
     Dict,
@@ -24,6 +25,7 @@ from botocore.response import StreamingBody
 from pydantic import Field
 
 from aws_resource_validator.core.base_validator_model import BaseValidatorModel, EventStream
+from aws_resource_validator.core.pattern_validation import aws_field_pattern as _aws_pattern
 from aws_resource_validator.pydantic_models.omics.omics_constants import *  # noqa: F401,F403
 
 # Optional boto3 symbols — imported lazily so services that don't need them
@@ -39,8 +41,8 @@ except ImportError:  # pragma: no cover
 
 
 class AbortMultipartReadSetUploadRequestTypeDef(BaseValidatorModel):
-    sequenceStoreId: str
-    uploadId: str
+    sequenceStoreId: Annotated[str, _aws_pattern("Omics", "SequenceStoreId")]
+    uploadId: Annotated[str, _aws_pattern("Omics", "UploadId")]
 
 
 # This class is the input for the 'accept_share' function.
@@ -60,33 +62,33 @@ TimestampTypeDef = Union[datetime, str]
 
 
 class ActivateReadSetJobItemTypeDef(BaseValidatorModel):
-    id: str
-    sequenceStoreId: str
+    id: Annotated[str, _aws_pattern("Omics", "ActivationJobId")]
+    sequenceStoreId: Annotated[str, _aws_pattern("Omics", "SequenceStoreId")]
     status: ReadSetActivationJobStatusType
     creationTime: datetime
     completionTime: Optional[datetime] = None
 
 
 class ActivateReadSetSourceItemTypeDef(BaseValidatorModel):
-    readSetId: str
+    readSetId: Annotated[str, _aws_pattern("Omics", "ReadSetId")]
     status: ReadSetActivationJobItemStatusType
-    statusMessage: Optional[str] = None
+    statusMessage: Optional[Annotated[str, _aws_pattern("Omics", "JobStatusMessage")]] = None
 
 
 class AnnotationImportItemDetailTypeDef(BaseValidatorModel):
-    source: str
+    source: Annotated[str, _aws_pattern("Omics", "S3Uri")]
     jobStatus: JobStatusType
 
 
 class AnnotationImportItemSourceTypeDef(BaseValidatorModel):
-    source: str
+    source: Annotated[str, _aws_pattern("Omics", "S3Uri")]
 
 
 class AnnotationImportJobItemTypeDef(BaseValidatorModel):
     id: str
     destinationName: str
-    versionName: str
-    roleArn: str
+    versionName: Annotated[str, _aws_pattern("Omics", "VersionName")]
+    roleArn: Annotated[str, _aws_pattern("Omics", "Arn")]
     status: JobStatusType
     creationTime: datetime
     updateTime: datetime
@@ -96,21 +98,21 @@ class AnnotationImportJobItemTypeDef(BaseValidatorModel):
 
 
 class ReferenceItemTypeDef(BaseValidatorModel):
-    referenceArn: Optional[str] = None
+    referenceArn: Optional[Annotated[str, _aws_pattern("Omics", "ReferenceArn")]] = None
 
 
 class SseConfigTypeDef(BaseValidatorModel):
     type: Literal["KMS"]
-    keyArn: Optional[str] = None
+    keyArn: Optional[Annotated[str, _aws_pattern("Omics", "SseConfigKeyArnString")]] = None
 
 
 class AnnotationStoreVersionItemTypeDef(BaseValidatorModel):
-    storeId: str
-    id: str
+    storeId: Annotated[str, _aws_pattern("Omics", "ResourceId")]
+    id: Annotated[str, _aws_pattern("Omics", "ResourceId")]
     status: VersionStatusType
-    versionArn: str
-    name: str
-    versionName: str
+    versionArn: Annotated[str, _aws_pattern("Omics", "Arn")]
+    name: Annotated[str, _aws_pattern("Omics", "StoreName")]
+    versionName: Annotated[str, _aws_pattern("Omics", "VersionName")]
     description: str
     creationTime: datetime
     updateTime: datetime
@@ -120,32 +122,32 @@ class AnnotationStoreVersionItemTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'batch_delete_read_set' function.
 class BatchDeleteReadSetRequestTypeDef(BaseValidatorModel):
-    ids: List[str]
-    sequenceStoreId: str
+    ids: List[Annotated[str, _aws_pattern("Omics", "ReadSetId")]]
+    sequenceStoreId: Annotated[str, _aws_pattern("Omics", "SequenceStoreId")]
 
 
 class ReadSetBatchErrorTypeDef(BaseValidatorModel):
-    id: str
+    id: Annotated[str, _aws_pattern("Omics", "ReadSetId")]
     code: str
     message: str
 
 
 class BatchListItemTypeDef(BaseValidatorModel):
-    id: Optional[str] = None
-    name: Optional[str] = None
+    id: Optional[Annotated[str, _aws_pattern("Omics", "BatchId")]] = None
+    name: Optional[Annotated[str, _aws_pattern("Omics", "BatchName")]] = None
     status: Optional[BatchStatusType] = None
     createdAt: Optional[datetime] = None
     totalRuns: Optional[int] = None
-    workflowId: Optional[str] = None
+    workflowId: Optional[Annotated[str, _aws_pattern("Omics", "WorkflowId")]] = None
 
 
 class InlineSettingTypeDef(BaseValidatorModel):
-    runSettingId: str
-    name: Optional[str] = None
-    outputUri: Optional[str] = None
+    runSettingId: Annotated[str, _aws_pattern("Omics", "RunSettingId")]
+    name: Optional[Annotated[str, _aws_pattern("Omics", "RunName")]] = None
+    outputUri: Optional[Annotated[str, _aws_pattern("Omics", "RunOutputUri")]] = None
     priority: Optional[int] = None
     parameters: Optional[Dict[str, Any]] = None
-    outputBucketOwnerId: Optional[str] = None
+    outputBucketOwnerId: Optional[Annotated[str, _aws_pattern("Omics", "AwsAccountId")]] = None
     runTags: Optional[Dict[str, str]] = None
 
 
@@ -153,83 +155,83 @@ BlobTypeDef = Union[IO[Any], StreamingBody, bytes, str]
 
 
 class CancelAnnotationImportRequestTypeDef(BaseValidatorModel):
-    jobId: str
+    jobId: Annotated[str, _aws_pattern("Omics", "ResourceId")]
 
 
 class CancelRunBatchRequestTypeDef(BaseValidatorModel):
-    batchId: str
+    batchId: Annotated[str, _aws_pattern("Omics", "BatchId")]
 
 
 # This class is the input for the 'cancel_run' function.
 class CancelRunRequestTypeDef(BaseValidatorModel):
-    id: str
+    id: Annotated[str, _aws_pattern("Omics", "RunId")]
 
 
 class CancelVariantImportRequestTypeDef(BaseValidatorModel):
-    jobId: str
+    jobId: Annotated[str, _aws_pattern("Omics", "ResourceId")]
 
 
 class CompleteReadSetUploadPartListItemTypeDef(BaseValidatorModel):
     partNumber: int
     partSource: ReadSetPartSourceType
-    checksum: str
+    checksum: Annotated[str, _aws_pattern("Omics", "CompleteReadSetUploadPartListItemChecksumString")]
 
 
 class ConfigurationDetailsTypeDef(BaseValidatorModel):
-    name: Optional[str] = None
-    arn: Optional[str] = None
-    uuid: Optional[str] = None
+    name: Optional[Annotated[str, _aws_pattern("Omics", "ConfigurationName")]] = None
+    arn: Optional[Annotated[str, _aws_pattern("Omics", "ConfigurationArn")]] = None
+    uuid: Optional[Annotated[str, _aws_pattern("Omics", "ConfigurationUuid")]] = None
 
 
 class ConfigurationListItemTypeDef(BaseValidatorModel):
-    arn: Optional[str] = None
-    name: Optional[str] = None
-    description: Optional[str] = None
+    arn: Optional[Annotated[str, _aws_pattern("Omics", "ConfigurationArn")]] = None
+    name: Optional[Annotated[str, _aws_pattern("Omics", "ConfigurationName")]] = None
+    description: Optional[Annotated[str, _aws_pattern("Omics", "ConfigurationDescription")]] = None
     status: Optional[ConfigurationStatusType] = None
     creationTime: Optional[datetime] = None
 
 
 class ImageMappingTypeDef(BaseValidatorModel):
-    sourceImage: Optional[str] = None
-    destinationImage: Optional[str] = None
+    sourceImage: Optional[Annotated[str, _aws_pattern("Omics", "Uri")]] = None
+    destinationImage: Optional[Annotated[str, _aws_pattern("Omics", "Uri")]] = None
 
 
 class RegistryMappingTypeDef(BaseValidatorModel):
-    upstreamRegistryUrl: Optional[str] = None
-    ecrRepositoryPrefix: Optional[str] = None
-    upstreamRepositoryPrefix: Optional[str] = None
-    ecrAccountId: Optional[str] = None
+    upstreamRegistryUrl: Optional[Annotated[str, _aws_pattern("Omics", "Uri")]] = None
+    ecrRepositoryPrefix: Optional[Annotated[str, _aws_pattern("Omics", "EcrRepositoryPrefix")]] = None
+    upstreamRepositoryPrefix: Optional[Annotated[str, _aws_pattern("Omics", "UpstreamRepositoryPrefix")]] = None
+    ecrAccountId: Optional[Annotated[str, _aws_pattern("Omics", "AwsAccountId")]] = None
 
 
 # This class is the input for the 'create_multipart_read_set_upload' function.
 class CreateMultipartReadSetUploadRequestTypeDef(BaseValidatorModel):
-    sequenceStoreId: str
+    sequenceStoreId: Annotated[str, _aws_pattern("Omics", "SequenceStoreId")]
     sourceFileType: FileTypeType
-    subjectId: str
-    sampleId: str
-    name: str
-    clientToken: Optional[str] = None
-    generatedFrom: Optional[str] = None
-    referenceArn: Optional[str] = None
-    description: Optional[str] = None
+    subjectId: Annotated[str, _aws_pattern("Omics", "SubjectId")]
+    sampleId: Annotated[str, _aws_pattern("Omics", "SampleId")]
+    name: Annotated[str, _aws_pattern("Omics", "ReadSetName")]
+    clientToken: Optional[Annotated[str, _aws_pattern("Omics", "ClientToken")]] = None
+    generatedFrom: Optional[Annotated[str, _aws_pattern("Omics", "GeneratedFrom")]] = None
+    referenceArn: Optional[Annotated[str, _aws_pattern("Omics", "ReferenceArn")]] = None
+    description: Optional[Annotated[str, _aws_pattern("Omics", "ReadSetDescription")]] = None
     tags: Optional[Dict[str, str]] = None
 
 
 # This class is the input for the 'create_run_cache' function.
 class CreateRunCacheRequestTypeDef(BaseValidatorModel):
-    cacheS3Location: str
-    requestId: str
+    cacheS3Location: Annotated[str, _aws_pattern("Omics", "S3UriForBucketOrObject")]
+    requestId: Annotated[str, _aws_pattern("Omics", "RunCacheRequestId")]
     cacheBehavior: Optional[CacheBehaviorType] = None
-    description: Optional[str] = None
-    name: Optional[str] = None
+    description: Optional[Annotated[str, _aws_pattern("Omics", "UserCustomDescription")]] = None
+    name: Optional[Annotated[str, _aws_pattern("Omics", "UserCustomName")]] = None
     tags: Optional[Dict[str, str]] = None
-    cacheBucketOwnerId: Optional[str] = None
+    cacheBucketOwnerId: Optional[Annotated[str, _aws_pattern("Omics", "AwsAccountId")]] = None
 
 
 # This class is the input for the 'create_run_group' function.
 class CreateRunGroupRequestTypeDef(BaseValidatorModel):
-    requestId: str
-    name: Optional[str] = None
+    requestId: Annotated[str, _aws_pattern("Omics", "RunGroupRequestId")]
+    name: Optional[Annotated[str, _aws_pattern("Omics", "RunGroupName")]] = None
     maxCpus: Optional[int] = None
     maxRuns: Optional[int] = None
     maxDuration: Optional[int] = None
@@ -238,24 +240,24 @@ class CreateRunGroupRequestTypeDef(BaseValidatorModel):
 
 
 class S3AccessConfigTypeDef(BaseValidatorModel):
-    accessLogLocation: Optional[str] = None
+    accessLogLocation: Optional[Annotated[str, _aws_pattern("Omics", "AccessLogLocation")]] = None
 
 
 class SequenceStoreS3AccessTypeDef(BaseValidatorModel):
-    s3Uri: Optional[str] = None
-    s3AccessPointArn: Optional[str] = None
-    accessLogLocation: Optional[str] = None
+    s3Uri: Optional[Annotated[str, _aws_pattern("Omics", "S3Uri")]] = None
+    s3AccessPointArn: Optional[Annotated[str, _aws_pattern("Omics", "S3AccessPointArn")]] = None
+    accessLogLocation: Optional[Annotated[str, _aws_pattern("Omics", "AccessLogLocation")]] = None
 
 
 # This class is the input for the 'create_share' function.
 class CreateShareRequestTypeDef(BaseValidatorModel):
     resourceArn: str
     principalSubscriber: str
-    shareName: Optional[str] = None
+    shareName: Optional[Annotated[str, _aws_pattern("Omics", "ShareName")]] = None
 
 
 class WorkflowParameterTypeDef(BaseValidatorModel):
-    description: Optional[str] = None
+    description: Optional[Annotated[str, _aws_pattern("Omics", "WorkflowParameterDescription")]] = None
     optional: Optional[bool] = None
 
 
@@ -278,27 +280,31 @@ class DefaultRunSettingOutputTypeDef(BaseValidatorModel):
     workflowOwnerId: Optional[str] = None
     outputBucketOwnerId: Optional[str] = None
     workflowVersionName: Optional[str] = None
+    networkingMode: Optional[NetworkingModeType] = None
+    configurationName: Optional[str] = None
 
 
 class DefaultRunSettingTypeDef(BaseValidatorModel):
-    workflowId: str
-    roleArn: str
+    workflowId: Annotated[str, _aws_pattern("Omics", "WorkflowId")]
+    roleArn: Annotated[str, _aws_pattern("Omics", "RunRoleArn")]
     workflowType: Optional[WorkflowTypeType] = None
-    name: Optional[str] = None
-    cacheId: Optional[str] = None
+    name: Optional[Annotated[str, _aws_pattern("Omics", "RunName")]] = None
+    cacheId: Optional[Annotated[str, _aws_pattern("Omics", "NumericIdInArn")]] = None
     cacheBehavior: Optional[CacheBehaviorType] = None
-    runGroupId: Optional[str] = None
+    runGroupId: Optional[Annotated[str, _aws_pattern("Omics", "RunGroupId")]] = None
     priority: Optional[int] = None
     parameters: Optional[Dict[str, Any]] = None
     storageCapacity: Optional[int] = None
-    outputUri: Optional[str] = None
+    outputUri: Optional[Annotated[str, _aws_pattern("Omics", "RunOutputUri")]] = None
     logLevel: Optional[RunLogLevelType] = None
     runTags: Optional[Dict[str, str]] = None
     retentionMode: Optional[RunRetentionModeType] = None
     storageType: Optional[StorageTypeType] = None
-    workflowOwnerId: Optional[str] = None
-    outputBucketOwnerId: Optional[str] = None
-    workflowVersionName: Optional[str] = None
+    workflowOwnerId: Optional[Annotated[str, _aws_pattern("Omics", "WorkflowOwnerId")]] = None
+    outputBucketOwnerId: Optional[Annotated[str, _aws_pattern("Omics", "AwsAccountId")]] = None
+    workflowVersionName: Optional[Annotated[str, _aws_pattern("Omics", "WorkflowVersionName")]] = None
+    networkingMode: Optional[NetworkingModeType] = None
+    configurationName: Optional[Annotated[str, _aws_pattern("Omics", "ConfigurationName")]] = None
 
 
 class SourceReferenceTypeDef(BaseValidatorModel):
@@ -315,59 +321,59 @@ class DeleteAnnotationStoreRequestTypeDef(BaseValidatorModel):
 # This class is the input for the 'delete_annotation_store_versions' function.
 class DeleteAnnotationStoreVersionsRequestTypeDef(BaseValidatorModel):
     name: str
-    versions: List[str]
+    versions: List[Annotated[str, _aws_pattern("Omics", "VersionName")]]
     force: Optional[bool] = None
 
 
 class VersionDeleteErrorTypeDef(BaseValidatorModel):
-    versionName: str
+    versionName: Annotated[str, _aws_pattern("Omics", "VersionName")]
     message: str
 
 
 # This class is the input for the 'delete_batch' function.
 class DeleteBatchRequestTypeDef(BaseValidatorModel):
-    batchId: str
+    batchId: Annotated[str, _aws_pattern("Omics", "BatchId")]
 
 
 # This class is the input for the 'delete_configuration' function.
 class DeleteConfigurationRequestTypeDef(BaseValidatorModel):
-    name: str
+    name: Annotated[str, _aws_pattern("Omics", "ConfigurationName")]
 
 
 class DeleteReferenceRequestTypeDef(BaseValidatorModel):
-    id: str
-    referenceStoreId: str
+    id: Annotated[str, _aws_pattern("Omics", "ReferenceId")]
+    referenceStoreId: Annotated[str, _aws_pattern("Omics", "ReferenceStoreId")]
 
 
 class DeleteReferenceStoreRequestTypeDef(BaseValidatorModel):
-    id: str
+    id: Annotated[str, _aws_pattern("Omics", "ReferenceStoreId")]
 
 
 class DeleteRunBatchRequestTypeDef(BaseValidatorModel):
-    batchId: str
+    batchId: Annotated[str, _aws_pattern("Omics", "BatchId")]
 
 
 # This class is the input for the 'delete_run_cache' function.
 class DeleteRunCacheRequestTypeDef(BaseValidatorModel):
-    id: str
+    id: Annotated[str, _aws_pattern("Omics", "RunCacheId")]
 
 
 # This class is the input for the 'delete_run_group' function.
 class DeleteRunGroupRequestTypeDef(BaseValidatorModel):
-    id: str
+    id: Annotated[str, _aws_pattern("Omics", "RunGroupId")]
 
 
 # This class is the input for the 'delete_run' function.
 class DeleteRunRequestTypeDef(BaseValidatorModel):
-    id: str
+    id: Annotated[str, _aws_pattern("Omics", "RunId")]
 
 
 class DeleteS3AccessPolicyRequestTypeDef(BaseValidatorModel):
-    s3AccessPointArn: str
+    s3AccessPointArn: Annotated[str, _aws_pattern("Omics", "S3AccessPointArn")]
 
 
 class DeleteSequenceStoreRequestTypeDef(BaseValidatorModel):
-    id: str
+    id: Annotated[str, _aws_pattern("Omics", "SequenceStoreId")]
 
 
 # This class is the input for the 'delete_share' function.
@@ -383,13 +389,13 @@ class DeleteVariantStoreRequestTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'delete_workflow' function.
 class DeleteWorkflowRequestTypeDef(BaseValidatorModel):
-    id: str
+    id: Annotated[str, _aws_pattern("Omics", "WorkflowId")]
 
 
 # This class is the input for the 'delete_workflow_version' function.
 class DeleteWorkflowVersionRequestTypeDef(BaseValidatorModel):
-    workflowId: str
-    versionName: str
+    workflowId: Annotated[str, _aws_pattern("Omics", "WorkflowId")]
+    versionName: Annotated[str, _aws_pattern("Omics", "WorkflowVersionName")]
 
 
 class ETagTypeDef(BaseValidatorModel):
@@ -399,26 +405,26 @@ class ETagTypeDef(BaseValidatorModel):
 
 
 class ExportReadSetDetailTypeDef(BaseValidatorModel):
-    id: str
+    id: Annotated[str, _aws_pattern("Omics", "ReadSetId")]
     status: ReadSetExportJobItemStatusType
-    statusMessage: Optional[str] = None
+    statusMessage: Optional[Annotated[str, _aws_pattern("Omics", "JobStatusMessage")]] = None
 
 
 class ExportReadSetJobDetailTypeDef(BaseValidatorModel):
-    id: str
-    sequenceStoreId: str
-    destination: str
+    id: Annotated[str, _aws_pattern("Omics", "ExportJobId")]
+    sequenceStoreId: Annotated[str, _aws_pattern("Omics", "SequenceStoreId")]
+    destination: Annotated[str, _aws_pattern("Omics", "S3Destination")]
     status: ReadSetExportJobStatusType
     creationTime: datetime
     completionTime: Optional[datetime] = None
 
 
 class ExportReadSetTypeDef(BaseValidatorModel):
-    readSetId: str
+    readSetId: Annotated[str, _aws_pattern("Omics", "ReadSetId")]
 
 
 class ReadSetS3AccessTypeDef(BaseValidatorModel):
-    s3Uri: Optional[str] = None
+    s3Uri: Optional[Annotated[str, _aws_pattern("Omics", "S3Uri")]] = None
 
 
 class FilterTypeDef(BaseValidatorModel):
@@ -434,7 +440,7 @@ class VcfOptionsTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'get_annotation_import_job' function.
 class GetAnnotationImportRequestTypeDef(BaseValidatorModel):
-    jobId: str
+    jobId: Annotated[str, _aws_pattern("Omics", "ResourceId")]
 
 
 class WaiterConfigTypeDef(BaseValidatorModel):
@@ -455,7 +461,7 @@ class GetAnnotationStoreVersionRequestTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'get_batch' function.
 class GetBatchRequestTypeDef(BaseValidatorModel):
-    batchId: str
+    batchId: Annotated[str, _aws_pattern("Omics", "BatchId")]
 
 
 class RunSummaryTypeDef(BaseValidatorModel):
@@ -481,131 +487,131 @@ class SubmissionSummaryTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'get_configuration' function.
 class GetConfigurationRequestTypeDef(BaseValidatorModel):
-    name: str
+    name: Annotated[str, _aws_pattern("Omics", "ConfigurationName")]
 
 
 # This class is the input for the 'get_read_set_activation_job' function.
 class GetReadSetActivationJobRequestTypeDef(BaseValidatorModel):
-    id: str
-    sequenceStoreId: str
+    id: Annotated[str, _aws_pattern("Omics", "ActivationJobId")]
+    sequenceStoreId: Annotated[str, _aws_pattern("Omics", "SequenceStoreId")]
 
 
 # This class is the input for the 'get_read_set_export_job' function.
 class GetReadSetExportJobRequestTypeDef(BaseValidatorModel):
-    sequenceStoreId: str
-    id: str
+    sequenceStoreId: Annotated[str, _aws_pattern("Omics", "SequenceStoreId")]
+    id: Annotated[str, _aws_pattern("Omics", "ExportJobId")]
 
 
 # This class is the input for the 'get_read_set_import_job' function.
 class GetReadSetImportJobRequestTypeDef(BaseValidatorModel):
-    id: str
-    sequenceStoreId: str
+    id: Annotated[str, _aws_pattern("Omics", "ImportJobId")]
+    sequenceStoreId: Annotated[str, _aws_pattern("Omics", "SequenceStoreId")]
 
 
 # This class is the input for the 'get_read_set_metadata' function.
 class GetReadSetMetadataRequestTypeDef(BaseValidatorModel):
-    id: str
-    sequenceStoreId: str
+    id: Annotated[str, _aws_pattern("Omics", "ReadSetId")]
+    sequenceStoreId: Annotated[str, _aws_pattern("Omics", "SequenceStoreId")]
 
 
 class SequenceInformationTypeDef(BaseValidatorModel):
     totalReadCount: Optional[int] = None
     totalBaseCount: Optional[int] = None
-    generatedFrom: Optional[str] = None
+    generatedFrom: Optional[Annotated[str, _aws_pattern("Omics", "GeneratedFrom")]] = None
     alignment: Optional[str] = None
 
 
 # This class is the input for the 'get_read_set' function.
 class GetReadSetRequestTypeDef(BaseValidatorModel):
-    id: str
-    sequenceStoreId: str
+    id: Annotated[str, _aws_pattern("Omics", "ReadSetId")]
+    sequenceStoreId: Annotated[str, _aws_pattern("Omics", "SequenceStoreId")]
     partNumber: int
     file: Optional[ReadSetFileType] = None
 
 
 # This class is the input for the 'get_reference_import_job' function.
 class GetReferenceImportJobRequestTypeDef(BaseValidatorModel):
-    id: str
-    referenceStoreId: str
+    id: Annotated[str, _aws_pattern("Omics", "ImportJobId")]
+    referenceStoreId: Annotated[str, _aws_pattern("Omics", "ReferenceStoreId")]
 
 
 class ImportReferenceSourceItemTypeDef(BaseValidatorModel):
     status: ReferenceImportJobItemStatusType
-    sourceFile: Optional[str] = None
-    statusMessage: Optional[str] = None
-    name: Optional[str] = None
-    description: Optional[str] = None
+    sourceFile: Optional[Annotated[str, _aws_pattern("Omics", "S3Uri")]] = None
+    statusMessage: Optional[Annotated[str, _aws_pattern("Omics", "JobStatusMessage")]] = None
+    name: Optional[Annotated[str, _aws_pattern("Omics", "ReferenceName")]] = None
+    description: Optional[Annotated[str, _aws_pattern("Omics", "ReferenceDescription")]] = None
     tags: Optional[Dict[str, str]] = None
-    referenceId: Optional[str] = None
+    referenceId: Optional[Annotated[str, _aws_pattern("Omics", "ReferenceId")]] = None
 
 
 # This class is the input for the 'get_reference_metadata' function.
 class GetReferenceMetadataRequestTypeDef(BaseValidatorModel):
-    id: str
-    referenceStoreId: str
+    id: Annotated[str, _aws_pattern("Omics", "ReferenceId")]
+    referenceStoreId: Annotated[str, _aws_pattern("Omics", "ReferenceStoreId")]
 
 
 # This class is the input for the 'get_reference' function.
 class GetReferenceRequestTypeDef(BaseValidatorModel):
-    id: str
-    referenceStoreId: str
+    id: Annotated[str, _aws_pattern("Omics", "ReferenceId")]
+    referenceStoreId: Annotated[str, _aws_pattern("Omics", "ReferenceStoreId")]
     partNumber: int
-    range: Optional[str] = None
+    range: Optional[Annotated[str, _aws_pattern("Omics", "Range")]] = None
     file: Optional[ReferenceFileType] = None
 
 
 # This class is the input for the 'get_reference_store' function.
 class GetReferenceStoreRequestTypeDef(BaseValidatorModel):
-    id: str
+    id: Annotated[str, _aws_pattern("Omics", "ReferenceStoreId")]
 
 
 # This class is the input for the 'get_run_cache' function.
 class GetRunCacheRequestTypeDef(BaseValidatorModel):
-    id: str
+    id: Annotated[str, _aws_pattern("Omics", "RunCacheId")]
 
 
 # This class is the input for the 'get_run_group' function.
 class GetRunGroupRequestTypeDef(BaseValidatorModel):
-    id: str
+    id: Annotated[str, _aws_pattern("Omics", "RunGroupId")]
 
 
 # This class is the input for the 'get_run' function.
 class GetRunRequestTypeDef(BaseValidatorModel):
-    id: str
+    id: Annotated[str, _aws_pattern("Omics", "RunId")]
     export: Optional[List[Literal["DEFINITION"]]] = None
 
 
 class RunLogLocationTypeDef(BaseValidatorModel):
-    engineLogStream: Optional[str] = None
-    runLogStream: Optional[str] = None
+    engineLogStream: Optional[Annotated[str, _aws_pattern("Omics", "EngineLogStream")]] = None
+    runLogStream: Optional[Annotated[str, _aws_pattern("Omics", "RunLogStream")]] = None
 
 
 class VpcConfigResponseTypeDef(BaseValidatorModel):
-    securityGroupIds: Optional[List[str]] = None
-    subnetIds: Optional[List[str]] = None
-    vpcId: Optional[str] = None
+    securityGroupIds: Optional[List[Annotated[str, _aws_pattern("Omics", "SecurityGroupId")]]] = None
+    subnetIds: Optional[List[Annotated[str, _aws_pattern("Omics", "SubnetId")]]] = None
+    vpcId: Optional[Annotated[str, _aws_pattern("Omics", "VpcId")]] = None
 
 
 # This class is the input for the 'get_run_task' function.
 class GetRunTaskRequestTypeDef(BaseValidatorModel):
-    id: str
-    taskId: str
+    id: Annotated[str, _aws_pattern("Omics", "RunId")]
+    taskId: Annotated[str, _aws_pattern("Omics", "TaskId")]
 
 
 class ImageDetailsTypeDef(BaseValidatorModel):
-    image: Optional[str] = None
-    imageDigest: Optional[str] = None
-    sourceImage: Optional[str] = None
+    image: Optional[Annotated[str, _aws_pattern("Omics", "Uri")]] = None
+    imageDigest: Optional[Annotated[str, _aws_pattern("Omics", "TaskImageDigest")]] = None
+    sourceImage: Optional[Annotated[str, _aws_pattern("Omics", "Uri")]] = None
 
 
 # This class is the input for the 'get_s3_access_policy' function.
 class GetS3AccessPolicyRequestTypeDef(BaseValidatorModel):
-    s3AccessPointArn: str
+    s3AccessPointArn: Annotated[str, _aws_pattern("Omics", "S3AccessPointArn")]
 
 
 # This class is the input for the 'get_sequence_store' function.
 class GetSequenceStoreRequestTypeDef(BaseValidatorModel):
-    id: str
+    id: Annotated[str, _aws_pattern("Omics", "SequenceStoreId")]
 
 
 # This class is the input for the 'get_share' function.
@@ -621,18 +627,18 @@ class ShareDetailsTypeDef(BaseValidatorModel):
     ownerId: Optional[str] = None
     status: Optional[ShareStatusType] = None
     statusMessage: Optional[str] = None
-    shareName: Optional[str] = None
+    shareName: Optional[Annotated[str, _aws_pattern("Omics", "ShareName")]] = None
     creationTime: Optional[datetime] = None
     updateTime: Optional[datetime] = None
 
 
 # This class is the input for the 'get_variant_import_job' function.
 class GetVariantImportRequestTypeDef(BaseValidatorModel):
-    jobId: str
+    jobId: Annotated[str, _aws_pattern("Omics", "ResourceId")]
 
 
 class VariantImportItemDetailTypeDef(BaseValidatorModel):
-    source: str
+    source: Annotated[str, _aws_pattern("Omics", "S3Uri")]
     jobStatus: JobStatusType
     statusMessage: Optional[str] = None
 
@@ -644,39 +650,39 @@ class GetVariantStoreRequestTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'get_workflow' function.
 class GetWorkflowRequestTypeDef(BaseValidatorModel):
-    id: str
+    id: Annotated[str, _aws_pattern("Omics", "WorkflowId")]
     type: Optional[WorkflowTypeType] = None
     export: Optional[List[WorkflowExportType]] = None
-    workflowOwnerId: Optional[str] = None
+    workflowOwnerId: Optional[Annotated[str, _aws_pattern("Omics", "WorkflowOwnerId")]] = None
 
 
 # This class is the input for the 'get_workflow_version' function.
 class GetWorkflowVersionRequestTypeDef(BaseValidatorModel):
-    workflowId: str
-    versionName: str
+    workflowId: Annotated[str, _aws_pattern("Omics", "WorkflowId")]
+    versionName: Annotated[str, _aws_pattern("Omics", "WorkflowVersionName")]
     type: Optional[WorkflowTypeType] = None
     export: Optional[List[WorkflowExportType]] = None
-    workflowOwnerId: Optional[str] = None
+    workflowOwnerId: Optional[Annotated[str, _aws_pattern("Omics", "WorkflowOwnerId")]] = None
 
 
 class ImportReadSetJobItemTypeDef(BaseValidatorModel):
-    id: str
-    sequenceStoreId: str
-    roleArn: str
+    id: Annotated[str, _aws_pattern("Omics", "ImportJobId")]
+    sequenceStoreId: Annotated[str, _aws_pattern("Omics", "SequenceStoreId")]
+    roleArn: Annotated[str, _aws_pattern("Omics", "RoleArn")]
     status: ReadSetImportJobStatusType
     creationTime: datetime
     completionTime: Optional[datetime] = None
 
 
 class SourceFilesTypeDef(BaseValidatorModel):
-    source1: str
-    source2: Optional[str] = None
+    source1: Annotated[str, _aws_pattern("Omics", "S3Uri")]
+    source2: Optional[Annotated[str, _aws_pattern("Omics", "S3Uri")]] = None
 
 
 class ImportReferenceJobItemTypeDef(BaseValidatorModel):
-    id: str
-    referenceStoreId: str
-    roleArn: str
+    id: Annotated[str, _aws_pattern("Omics", "ImportJobId")]
+    referenceStoreId: Annotated[str, _aws_pattern("Omics", "ReferenceStoreId")]
+    roleArn: Annotated[str, _aws_pattern("Omics", "RoleArn")]
     status: ReferenceImportJobStatusType
     creationTime: datetime
     completionTime: Optional[datetime] = None
@@ -704,36 +710,36 @@ class ListAnnotationStoresFilterTypeDef(BaseValidatorModel):
 # This class is the input for the 'list_batch' function.
 class ListBatchRequestTypeDef(BaseValidatorModel):
     maxItems: Optional[int] = None
-    startingToken: Optional[str] = None
+    startingToken: Optional[Annotated[str, _aws_pattern("Omics", "ListToken")]] = None
     status: Optional[BatchStatusType] = None
-    name: Optional[str] = None
-    runGroupId: Optional[str] = None
+    name: Optional[Annotated[str, _aws_pattern("Omics", "BatchName")]] = None
+    runGroupId: Optional[Annotated[str, _aws_pattern("Omics", "RunGroupId")]] = None
 
 
 # This class is the input for the 'list_configurations' function.
 class ListConfigurationsRequestTypeDef(BaseValidatorModel):
     maxResults: Optional[int] = None
-    startingToken: Optional[str] = None
+    startingToken: Optional[Annotated[str, _aws_pattern("Omics", "ConfigurationListToken")]] = None
 
 
 # This class is the input for the 'list_multipart_read_set_uploads' function.
 class ListMultipartReadSetUploadsRequestTypeDef(BaseValidatorModel):
-    sequenceStoreId: str
+    sequenceStoreId: Annotated[str, _aws_pattern("Omics", "SequenceStoreId")]
     maxResults: Optional[int] = None
-    nextToken: Optional[str] = None
+    nextToken: Optional[Annotated[str, _aws_pattern("Omics", "NextToken")]] = None
 
 
 class MultipartReadSetUploadListItemTypeDef(BaseValidatorModel):
-    sequenceStoreId: str
-    uploadId: str
+    sequenceStoreId: Annotated[str, _aws_pattern("Omics", "SequenceStoreId")]
+    uploadId: Annotated[str, _aws_pattern("Omics", "UploadId")]
     sourceFileType: FileTypeType
-    subjectId: str
-    sampleId: str
-    generatedFrom: str
-    referenceArn: str
+    subjectId: Annotated[str, _aws_pattern("Omics", "SubjectId")]
+    sampleId: Annotated[str, _aws_pattern("Omics", "SampleId")]
+    generatedFrom: Annotated[str, _aws_pattern("Omics", "GeneratedFrom")]
+    referenceArn: Annotated[str, _aws_pattern("Omics", "ReferenceArn")]
     creationTime: datetime
-    name: Optional[str] = None
-    description: Optional[str] = None
+    name: Optional[Annotated[str, _aws_pattern("Omics", "ReadSetName")]] = None
+    description: Optional[Annotated[str, _aws_pattern("Omics", "ReadSetDescription")]] = None
     tags: Optional[Dict[str, str]] = None
 
 
@@ -747,44 +753,44 @@ class ReadSetUploadPartListItemTypeDef(BaseValidatorModel):
 
 
 class ReferenceListItemTypeDef(BaseValidatorModel):
-    id: str
-    arn: str
-    referenceStoreId: str
-    md5: str
+    id: Annotated[str, _aws_pattern("Omics", "ReferenceId")]
+    arn: Annotated[str, _aws_pattern("Omics", "ReferenceArn")]
+    referenceStoreId: Annotated[str, _aws_pattern("Omics", "ReferenceStoreId")]
+    md5: Annotated[str, _aws_pattern("Omics", "Md5")]
     creationTime: datetime
     updateTime: datetime
     status: Optional[ReferenceStatusType] = None
-    name: Optional[str] = None
-    description: Optional[str] = None
+    name: Optional[Annotated[str, _aws_pattern("Omics", "ReferenceName")]] = None
+    description: Optional[Annotated[str, _aws_pattern("Omics", "ReferenceDescription")]] = None
 
 
 # This class is the input for the 'list_run_caches' function.
 class ListRunCachesRequestTypeDef(BaseValidatorModel):
     maxResults: Optional[int] = None
-    startingToken: Optional[str] = None
+    startingToken: Optional[Annotated[str, _aws_pattern("Omics", "ListToken")]] = None
 
 
 class RunCacheListItemTypeDef(BaseValidatorModel):
-    arn: Optional[str] = None
+    arn: Optional[Annotated[str, _aws_pattern("Omics", "RunCacheArn")]] = None
     cacheBehavior: Optional[CacheBehaviorType] = None
-    cacheS3Uri: Optional[str] = None
+    cacheS3Uri: Optional[Annotated[str, _aws_pattern("Omics", "S3UriForBucketOrObject")]] = None
     creationTime: Optional[datetime] = None
-    id: Optional[str] = None
-    name: Optional[str] = None
+    id: Optional[Annotated[str, _aws_pattern("Omics", "RunCacheId")]] = None
+    name: Optional[Annotated[str, _aws_pattern("Omics", "UserCustomName")]] = None
     status: Optional[RunCacheStatusType] = None
 
 
 # This class is the input for the 'list_run_groups' function.
 class ListRunGroupsRequestTypeDef(BaseValidatorModel):
-    name: Optional[str] = None
-    startingToken: Optional[str] = None
+    name: Optional[Annotated[str, _aws_pattern("Omics", "RunGroupName")]] = None
+    startingToken: Optional[Annotated[str, _aws_pattern("Omics", "RunGroupListToken")]] = None
     maxResults: Optional[int] = None
 
 
 class RunGroupListItemTypeDef(BaseValidatorModel):
-    arn: Optional[str] = None
-    id: Optional[str] = None
-    name: Optional[str] = None
+    arn: Optional[Annotated[str, _aws_pattern("Omics", "RunGroupArn")]] = None
+    id: Optional[Annotated[str, _aws_pattern("Omics", "RunGroupId")]] = None
+    name: Optional[Annotated[str, _aws_pattern("Omics", "RunGroupName")]] = None
     maxCpus: Optional[int] = None
     maxRuns: Optional[int] = None
     maxDuration: Optional[int] = None
@@ -794,76 +800,76 @@ class RunGroupListItemTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'list_run_tasks' function.
 class ListRunTasksRequestTypeDef(BaseValidatorModel):
-    id: str
+    id: Annotated[str, _aws_pattern("Omics", "RunId")]
     status: Optional[TaskStatusType] = None
-    startingToken: Optional[str] = None
+    startingToken: Optional[Annotated[str, _aws_pattern("Omics", "TaskListToken")]] = None
     maxResults: Optional[int] = None
 
 
 class TaskListItemTypeDef(BaseValidatorModel):
-    taskId: Optional[str] = None
+    taskId: Optional[Annotated[str, _aws_pattern("Omics", "TaskId")]] = None
     status: Optional[TaskStatusType] = None
     name: Optional[str] = None
     cpus: Optional[int] = None
     cacheHit: Optional[bool] = None
-    cacheS3Uri: Optional[str] = None
+    cacheS3Uri: Optional[Annotated[str, _aws_pattern("Omics", "S3UriForBucketOrObject")]] = None
     memory: Optional[int] = None
     creationTime: Optional[datetime] = None
     startTime: Optional[datetime] = None
     stopTime: Optional[datetime] = None
     gpus: Optional[int] = None
-    instanceType: Optional[str] = None
+    instanceType: Optional[Annotated[str, _aws_pattern("Omics", "TaskInstanceType")]] = None
 
 
 # This class is the input for the 'list_runs_in_batch' function.
 class ListRunsInBatchRequestTypeDef(BaseValidatorModel):
-    batchId: str
+    batchId: Annotated[str, _aws_pattern("Omics", "BatchId")]
     maxItems: Optional[int] = None
-    startingToken: Optional[str] = None
+    startingToken: Optional[Annotated[str, _aws_pattern("Omics", "ListToken")]] = None
     submissionStatus: Optional[SubmissionStatusType] = None
     runSettingId: Optional[str] = None
     runId: Optional[str] = None
 
 
 class RunBatchListItemTypeDef(BaseValidatorModel):
-    runSettingId: Optional[str] = None
-    runId: Optional[str] = None
-    runInternalUuid: Optional[str] = None
-    runArn: Optional[str] = None
+    runSettingId: Optional[Annotated[str, _aws_pattern("Omics", "RunSettingId")]] = None
+    runId: Optional[Annotated[str, _aws_pattern("Omics", "RunId")]] = None
+    runInternalUuid: Optional[Annotated[str, _aws_pattern("Omics", "RunUuid")]] = None
+    runArn: Optional[Annotated[str, _aws_pattern("Omics", "RunArn")]] = None
     submissionStatus: Optional[SubmissionStatusType] = None
-    submissionFailureReason: Optional[str] = None
-    submissionFailureMessage: Optional[str] = None
+    submissionFailureReason: Optional[Annotated[str, _aws_pattern("Omics", "SubmissionFailureReason")]] = None
+    submissionFailureMessage: Optional[Annotated[str, _aws_pattern("Omics", "SubmissionFailureMessage")]] = None
 
 
 # This class is the input for the 'list_runs' function.
 class ListRunsRequestTypeDef(BaseValidatorModel):
-    name: Optional[str] = None
-    runGroupId: Optional[str] = None
-    batchId: Optional[str] = None
-    startingToken: Optional[str] = None
+    name: Optional[Annotated[str, _aws_pattern("Omics", "RunName")]] = None
+    runGroupId: Optional[Annotated[str, _aws_pattern("Omics", "RunGroupId")]] = None
+    batchId: Optional[Annotated[str, _aws_pattern("Omics", "BatchId")]] = None
+    startingToken: Optional[Annotated[str, _aws_pattern("Omics", "RunListToken")]] = None
     maxResults: Optional[int] = None
     status: Optional[RunStatusType] = None
 
 
 class RunListItemTypeDef(BaseValidatorModel):
-    arn: Optional[str] = None
-    id: Optional[str] = None
+    arn: Optional[Annotated[str, _aws_pattern("Omics", "RunArn")]] = None
+    id: Optional[Annotated[str, _aws_pattern("Omics", "RunId")]] = None
     status: Optional[RunStatusType] = None
-    workflowId: Optional[str] = None
-    batchId: Optional[str] = None
-    name: Optional[str] = None
+    workflowId: Optional[Annotated[str, _aws_pattern("Omics", "WorkflowId")]] = None
+    batchId: Optional[Annotated[str, _aws_pattern("Omics", "BatchId")]] = None
+    name: Optional[Annotated[str, _aws_pattern("Omics", "RunName")]] = None
     priority: Optional[int] = None
     storageCapacity: Optional[int] = None
     creationTime: Optional[datetime] = None
     startTime: Optional[datetime] = None
     stopTime: Optional[datetime] = None
     storageType: Optional[StorageTypeType] = None
-    workflowVersionName: Optional[str] = None
+    workflowVersionName: Optional[Annotated[str, _aws_pattern("Omics", "WorkflowVersionName")]] = None
 
 
 # This class is the input for the 'list_tags_for_resource' function.
 class ListTagsForResourceRequestTypeDef(BaseValidatorModel):
-    resourceArn: str
+    resourceArn: Annotated[str, _aws_pattern("Omics", "TagArn")]
 
 
 class ListVariantImportJobsFilterTypeDef(BaseValidatorModel):
@@ -874,7 +880,7 @@ class ListVariantImportJobsFilterTypeDef(BaseValidatorModel):
 class VariantImportJobItemTypeDef(BaseValidatorModel):
     id: str
     destinationName: str
-    roleArn: str
+    roleArn: Annotated[str, _aws_pattern("Omics", "Arn")]
     status: JobStatusType
     creationTime: datetime
     updateTime: datetime
@@ -889,18 +895,18 @@ class ListVariantStoresFilterTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'list_workflow_versions' function.
 class ListWorkflowVersionsRequestTypeDef(BaseValidatorModel):
-    workflowId: str
+    workflowId: Annotated[str, _aws_pattern("Omics", "WorkflowId")]
     type: Optional[WorkflowTypeType] = None
-    workflowOwnerId: Optional[str] = None
-    startingToken: Optional[str] = None
+    workflowOwnerId: Optional[Annotated[str, _aws_pattern("Omics", "WorkflowOwnerId")]] = None
+    startingToken: Optional[Annotated[str, _aws_pattern("Omics", "WorkflowVersionListToken")]] = None
     maxResults: Optional[int] = None
 
 
 class WorkflowVersionListItemTypeDef(BaseValidatorModel):
-    arn: Optional[str] = None
-    workflowId: Optional[str] = None
-    versionName: Optional[str] = None
-    description: Optional[str] = None
+    arn: Optional[Annotated[str, _aws_pattern("Omics", "WorkflowVersionArn")]] = None
+    workflowId: Optional[Annotated[str, _aws_pattern("Omics", "WorkflowId")]] = None
+    versionName: Optional[Annotated[str, _aws_pattern("Omics", "WorkflowVersionName")]] = None
+    description: Optional[Annotated[str, _aws_pattern("Omics", "WorkflowVersionDescription")]] = None
     status: Optional[WorkflowStatusType] = None
     type: Optional[WorkflowTypeType] = None
     digest: Optional[str] = None
@@ -911,15 +917,15 @@ class WorkflowVersionListItemTypeDef(BaseValidatorModel):
 # This class is the input for the 'list_workflows' function.
 class ListWorkflowsRequestTypeDef(BaseValidatorModel):
     type: Optional[WorkflowTypeType] = None
-    name: Optional[str] = None
-    startingToken: Optional[str] = None
+    name: Optional[Annotated[str, _aws_pattern("Omics", "WorkflowName")]] = None
+    startingToken: Optional[Annotated[str, _aws_pattern("Omics", "WorkflowListToken")]] = None
     maxResults: Optional[int] = None
 
 
 class WorkflowListItemTypeDef(BaseValidatorModel):
-    arn: Optional[str] = None
-    id: Optional[str] = None
-    name: Optional[str] = None
+    arn: Optional[Annotated[str, _aws_pattern("Omics", "WorkflowArn")]] = None
+    id: Optional[Annotated[str, _aws_pattern("Omics", "WorkflowId")]] = None
+    name: Optional[Annotated[str, _aws_pattern("Omics", "WorkflowName")]] = None
     status: Optional[WorkflowStatusType] = None
     type: Optional[WorkflowTypeType] = None
     digest: Optional[str] = None
@@ -929,7 +935,7 @@ class WorkflowListItemTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'put_s3_access_policy' function.
 class PutS3AccessPolicyRequestTypeDef(BaseValidatorModel):
-    s3AccessPointArn: str
+    s3AccessPointArn: Annotated[str, _aws_pattern("Omics", "S3AccessPointArn")]
     s3AccessPolicy: str
 
 
@@ -946,33 +952,33 @@ class ReadOptionsTypeDef(BaseValidatorModel):
 
 
 class VpcConfigTypeDef(BaseValidatorModel):
-    securityGroupIds: Optional[List[str]] = None
-    subnetIds: Optional[List[str]] = None
+    securityGroupIds: Optional[List[Annotated[str, _aws_pattern("Omics", "SecurityGroupId")]]] = None
+    subnetIds: Optional[List[Annotated[str, _aws_pattern("Omics", "SubnetId")]]] = None
 
 
 class StartReadSetActivationJobSourceItemTypeDef(BaseValidatorModel):
-    readSetId: str
+    readSetId: Annotated[str, _aws_pattern("Omics", "ReadSetId")]
 
 
 class StartReferenceImportJobSourceItemTypeDef(BaseValidatorModel):
-    sourceFile: str
-    name: str
-    description: Optional[str] = None
+    sourceFile: Annotated[str, _aws_pattern("Omics", "S3Uri")]
+    name: Annotated[str, _aws_pattern("Omics", "ReferenceName")]
+    description: Optional[Annotated[str, _aws_pattern("Omics", "ReferenceDescription")]] = None
     tags: Optional[Dict[str, str]] = None
 
 
 # This class is the input for the 'start_run' function.
 class StartRunRequestTypeDef(BaseValidatorModel):
-    roleArn: str
-    outputUri: str
-    requestId: str
-    workflowId: Optional[str] = None
+    roleArn: Annotated[str, _aws_pattern("Omics", "RunRoleArn")]
+    outputUri: Annotated[str, _aws_pattern("Omics", "RunOutputUri")]
+    requestId: Annotated[str, _aws_pattern("Omics", "RunRequestId")]
+    workflowId: Optional[Annotated[str, _aws_pattern("Omics", "WorkflowId")]] = None
     workflowType: Optional[WorkflowTypeType] = None
-    runId: Optional[str] = None
-    name: Optional[str] = None
-    cacheId: Optional[str] = None
+    runId: Optional[Annotated[str, _aws_pattern("Omics", "RunId")]] = None
+    name: Optional[Annotated[str, _aws_pattern("Omics", "RunName")]] = None
+    cacheId: Optional[Annotated[str, _aws_pattern("Omics", "NumericIdInArn")]] = None
     cacheBehavior: Optional[CacheBehaviorType] = None
-    runGroupId: Optional[str] = None
+    runGroupId: Optional[Annotated[str, _aws_pattern("Omics", "RunGroupId")]] = None
     priority: Optional[int] = None
     parameters: Optional[Dict[str, Any]] = None
     storageCapacity: Optional[int] = None
@@ -980,14 +986,14 @@ class StartRunRequestTypeDef(BaseValidatorModel):
     tags: Optional[Dict[str, str]] = None
     retentionMode: Optional[RunRetentionModeType] = None
     storageType: Optional[StorageTypeType] = None
-    workflowOwnerId: Optional[str] = None
-    workflowVersionName: Optional[str] = None
+    workflowOwnerId: Optional[Annotated[str, _aws_pattern("Omics", "WorkflowOwnerId")]] = None
+    workflowVersionName: Optional[Annotated[str, _aws_pattern("Omics", "WorkflowVersionName")]] = None
     networkingMode: Optional[NetworkingModeType] = None
-    configurationName: Optional[str] = None
+    configurationName: Optional[Annotated[str, _aws_pattern("Omics", "ConfigurationName")]] = None
 
 
 class VariantImportItemSourceTypeDef(BaseValidatorModel):
-    source: str
+    source: Annotated[str, _aws_pattern("Omics", "S3Uri")]
 
 
 class TsvStoreOptionsOutputTypeDef(BaseValidatorModel):
@@ -1003,7 +1009,7 @@ class TsvStoreOptionsTypeDef(BaseValidatorModel):
 
 
 class TagResourceRequestTypeDef(BaseValidatorModel):
-    resourceArn: str
+    resourceArn: Annotated[str, _aws_pattern("Omics", "TagArn")]
     tags: Dict[str, str]
 
 
@@ -1020,7 +1026,7 @@ class TsvVersionOptionsTypeDef(BaseValidatorModel):
 
 
 class UntagResourceRequestTypeDef(BaseValidatorModel):
-    resourceArn: str
+    resourceArn: Annotated[str, _aws_pattern("Omics", "TagArn")]
     tagKeys: List[str]
 
 
@@ -1039,16 +1045,16 @@ class UpdateAnnotationStoreVersionRequestTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'update_run_cache' function.
 class UpdateRunCacheRequestTypeDef(BaseValidatorModel):
-    id: str
+    id: Annotated[str, _aws_pattern("Omics", "RunCacheId")]
     cacheBehavior: Optional[CacheBehaviorType] = None
-    description: Optional[str] = None
-    name: Optional[str] = None
+    description: Optional[Annotated[str, _aws_pattern("Omics", "UserCustomDescription")]] = None
+    name: Optional[Annotated[str, _aws_pattern("Omics", "UserCustomName")]] = None
 
 
 # This class is the input for the 'update_run_group' function.
 class UpdateRunGroupRequestTypeDef(BaseValidatorModel):
-    id: str
-    name: Optional[str] = None
+    id: Annotated[str, _aws_pattern("Omics", "RunGroupId")]
+    name: Optional[Annotated[str, _aws_pattern("Omics", "RunGroupName")]] = None
     maxCpus: Optional[int] = None
     maxRuns: Optional[int] = None
     maxDuration: Optional[int] = None
@@ -1063,9 +1069,9 @@ class UpdateVariantStoreRequestTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'update_workflow' function.
 class UpdateWorkflowRequestTypeDef(BaseValidatorModel):
-    id: str
-    name: Optional[str] = None
-    description: Optional[str] = None
+    id: Annotated[str, _aws_pattern("Omics", "WorkflowId")]
+    name: Optional[Annotated[str, _aws_pattern("Omics", "WorkflowName")]] = None
+    description: Optional[Annotated[str, _aws_pattern("Omics", "WorkflowDescription")]] = None
     storageType: Optional[StorageTypeType] = None
     storageCapacity: Optional[int] = None
     readmeMarkdown: Optional[str] = None
@@ -1073,9 +1079,9 @@ class UpdateWorkflowRequestTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'update_workflow_version' function.
 class UpdateWorkflowVersionRequestTypeDef(BaseValidatorModel):
-    workflowId: str
-    versionName: str
-    description: Optional[str] = None
+    workflowId: Annotated[str, _aws_pattern("Omics", "WorkflowId")]
+    versionName: Annotated[str, _aws_pattern("Omics", "WorkflowVersionName")]
+    description: Optional[Annotated[str, _aws_pattern("Omics", "WorkflowVersionDescription")]] = None
     storageType: Optional[StorageTypeType] = None
     storageCapacity: Optional[int] = None
     readmeMarkdown: Optional[str] = None
@@ -1089,21 +1095,21 @@ class AcceptShareResponseTypeDef(BaseValidatorModel):
 
 # This class is the output for the 'complete_multipart_read_set_upload' function.
 class CompleteMultipartReadSetUploadResponseTypeDef(BaseValidatorModel):
-    readSetId: str
+    readSetId: Annotated[str, _aws_pattern("Omics", "ReadSetId")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 # This class is the output for the 'create_multipart_read_set_upload' function.
 class CreateMultipartReadSetUploadResponseTypeDef(BaseValidatorModel):
-    sequenceStoreId: str
-    uploadId: str
+    sequenceStoreId: Annotated[str, _aws_pattern("Omics", "SequenceStoreId")]
+    uploadId: Annotated[str, _aws_pattern("Omics", "UploadId")]
     sourceFileType: FileTypeType
-    subjectId: str
-    sampleId: str
-    generatedFrom: str
-    referenceArn: str
-    name: str
-    description: str
+    subjectId: Annotated[str, _aws_pattern("Omics", "SubjectId")]
+    sampleId: Annotated[str, _aws_pattern("Omics", "SampleId")]
+    generatedFrom: Annotated[str, _aws_pattern("Omics", "GeneratedFrom")]
+    referenceArn: Annotated[str, _aws_pattern("Omics", "ReferenceArn")]
+    name: Annotated[str, _aws_pattern("Omics", "ReadSetName")]
+    description: Annotated[str, _aws_pattern("Omics", "ReadSetDescription")]
     tags: Dict[str, str]
     creationTime: datetime
     ResponseMetadata: ResponseMetadataTypeDef
@@ -1111,8 +1117,8 @@ class CreateMultipartReadSetUploadResponseTypeDef(BaseValidatorModel):
 
 # This class is the output for the 'create_run_cache' function.
 class CreateRunCacheResponseTypeDef(BaseValidatorModel):
-    arn: str
-    id: str
+    arn: Annotated[str, _aws_pattern("Omics", "RunCacheArn")]
+    id: Annotated[str, _aws_pattern("Omics", "RunCacheId")]
     status: RunCacheStatusType
     tags: Dict[str, str]
     ResponseMetadata: ResponseMetadataTypeDef
@@ -1120,8 +1126,8 @@ class CreateRunCacheResponseTypeDef(BaseValidatorModel):
 
 # This class is the output for the 'create_run_group' function.
 class CreateRunGroupResponseTypeDef(BaseValidatorModel):
-    arn: str
-    id: str
+    arn: Annotated[str, _aws_pattern("Omics", "RunGroupArn")]
+    id: Annotated[str, _aws_pattern("Omics", "RunGroupId")]
     tags: Dict[str, str]
     ResponseMetadata: ResponseMetadataTypeDef
 
@@ -1130,28 +1136,28 @@ class CreateRunGroupResponseTypeDef(BaseValidatorModel):
 class CreateShareResponseTypeDef(BaseValidatorModel):
     shareId: str
     status: ShareStatusType
-    shareName: str
+    shareName: Annotated[str, _aws_pattern("Omics", "ShareName")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 # This class is the output for the 'create_workflow' function.
 class CreateWorkflowResponseTypeDef(BaseValidatorModel):
-    arn: str
-    id: str
+    arn: Annotated[str, _aws_pattern("Omics", "WorkflowArn")]
+    id: Annotated[str, _aws_pattern("Omics", "WorkflowId")]
     status: WorkflowStatusType
     tags: Dict[str, str]
-    uuid: str
+    uuid: Annotated[str, _aws_pattern("Omics", "WorkflowUuid")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 # This class is the output for the 'create_workflow_version' function.
 class CreateWorkflowVersionResponseTypeDef(BaseValidatorModel):
-    arn: str
-    workflowId: str
-    versionName: str
+    arn: Annotated[str, _aws_pattern("Omics", "WorkflowVersionArn")]
+    workflowId: Annotated[str, _aws_pattern("Omics", "WorkflowId")]
+    versionName: Annotated[str, _aws_pattern("Omics", "WorkflowVersionName")]
     status: WorkflowStatusType
     tags: Dict[str, str]
-    uuid: str
+    uuid: Annotated[str, _aws_pattern("Omics", "WorkflowUuid")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
@@ -1192,14 +1198,14 @@ class GetReferenceResponseTypeDef(BaseValidatorModel):
 
 # This class is the output for the 'get_run_cache' function.
 class GetRunCacheResponseTypeDef(BaseValidatorModel):
-    arn: str
+    arn: Annotated[str, _aws_pattern("Omics", "RunCacheArn")]
     cacheBehavior: CacheBehaviorType
-    cacheBucketOwnerId: str
-    cacheS3Uri: str
+    cacheBucketOwnerId: Annotated[str, _aws_pattern("Omics", "AwsAccountId")]
+    cacheS3Uri: Annotated[str, _aws_pattern("Omics", "S3UriForBucketOrObject")]
     creationTime: datetime
-    description: str
-    id: str
-    name: str
+    description: Annotated[str, _aws_pattern("Omics", "UserCustomDescription")]
+    id: Annotated[str, _aws_pattern("Omics", "RunCacheId")]
+    name: Annotated[str, _aws_pattern("Omics", "UserCustomName")]
     status: RunCacheStatusType
     tags: Dict[str, str]
     ResponseMetadata: ResponseMetadataTypeDef
@@ -1207,9 +1213,9 @@ class GetRunCacheResponseTypeDef(BaseValidatorModel):
 
 # This class is the output for the 'get_run_group' function.
 class GetRunGroupResponseTypeDef(BaseValidatorModel):
-    arn: str
-    id: str
-    name: str
+    arn: Annotated[str, _aws_pattern("Omics", "RunGroupArn")]
+    id: Annotated[str, _aws_pattern("Omics", "RunGroupId")]
+    name: Annotated[str, _aws_pattern("Omics", "RunGroupName")]
     maxCpus: int
     maxRuns: int
     maxDuration: int
@@ -1221,8 +1227,8 @@ class GetRunGroupResponseTypeDef(BaseValidatorModel):
 
 # This class is the output for the 'get_s3_access_policy' function.
 class GetS3AccessPolicyResponseTypeDef(BaseValidatorModel):
-    s3AccessPointArn: str
-    storeId: str
+    s3AccessPointArn: Annotated[str, _aws_pattern("Omics", "S3AccessPointArn")]
+    storeId: Annotated[str, _aws_pattern("Omics", "StoreId")]
     storeType: StoreTypeType
     updateTime: datetime
     s3AccessPolicy: str
@@ -1237,22 +1243,22 @@ class ListTagsForResourceResponseTypeDef(BaseValidatorModel):
 
 # This class is the output for the 'put_s3_access_policy' function.
 class PutS3AccessPolicyResponseTypeDef(BaseValidatorModel):
-    s3AccessPointArn: str
-    storeId: str
+    s3AccessPointArn: Annotated[str, _aws_pattern("Omics", "S3AccessPointArn")]
+    storeId: Annotated[str, _aws_pattern("Omics", "StoreId")]
     storeType: StoreTypeType
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 # This class is the output for the 'start_annotation_import_job' function.
 class StartAnnotationImportResponseTypeDef(BaseValidatorModel):
-    jobId: str
+    jobId: Annotated[str, _aws_pattern("Omics", "ResourceId")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 # This class is the output for the 'start_read_set_activation_job' function.
 class StartReadSetActivationJobResponseTypeDef(BaseValidatorModel):
-    id: str
-    sequenceStoreId: str
+    id: Annotated[str, _aws_pattern("Omics", "ActivationJobId")]
+    sequenceStoreId: Annotated[str, _aws_pattern("Omics", "SequenceStoreId")]
     status: ReadSetActivationJobStatusType
     creationTime: datetime
     ResponseMetadata: ResponseMetadataTypeDef
@@ -1260,9 +1266,9 @@ class StartReadSetActivationJobResponseTypeDef(BaseValidatorModel):
 
 # This class is the output for the 'start_read_set_export_job' function.
 class StartReadSetExportJobResponseTypeDef(BaseValidatorModel):
-    id: str
-    sequenceStoreId: str
-    destination: str
+    id: Annotated[str, _aws_pattern("Omics", "ExportJobId")]
+    sequenceStoreId: Annotated[str, _aws_pattern("Omics", "SequenceStoreId")]
+    destination: Annotated[str, _aws_pattern("Omics", "S3Destination")]
     status: ReadSetExportJobStatusType
     creationTime: datetime
     ResponseMetadata: ResponseMetadataTypeDef
@@ -1270,9 +1276,9 @@ class StartReadSetExportJobResponseTypeDef(BaseValidatorModel):
 
 # This class is the output for the 'start_read_set_import_job' function.
 class StartReadSetImportJobResponseTypeDef(BaseValidatorModel):
-    id: str
-    sequenceStoreId: str
-    roleArn: str
+    id: Annotated[str, _aws_pattern("Omics", "ImportJobId")]
+    sequenceStoreId: Annotated[str, _aws_pattern("Omics", "SequenceStoreId")]
+    roleArn: Annotated[str, _aws_pattern("Omics", "RoleArn")]
     status: ReadSetImportJobStatusType
     creationTime: datetime
     ResponseMetadata: ResponseMetadataTypeDef
@@ -1280,9 +1286,9 @@ class StartReadSetImportJobResponseTypeDef(BaseValidatorModel):
 
 # This class is the output for the 'start_reference_import_job' function.
 class StartReferenceImportJobResponseTypeDef(BaseValidatorModel):
-    id: str
-    referenceStoreId: str
-    roleArn: str
+    id: Annotated[str, _aws_pattern("Omics", "ImportJobId")]
+    referenceStoreId: Annotated[str, _aws_pattern("Omics", "ReferenceStoreId")]
+    roleArn: Annotated[str, _aws_pattern("Omics", "RoleArn")]
     status: ReferenceImportJobStatusType
     creationTime: datetime
     ResponseMetadata: ResponseMetadataTypeDef
@@ -1290,27 +1296,27 @@ class StartReferenceImportJobResponseTypeDef(BaseValidatorModel):
 
 # This class is the output for the 'start_run_batch' function.
 class StartRunBatchResponseTypeDef(BaseValidatorModel):
-    id: str
-    arn: str
+    id: Annotated[str, _aws_pattern("Omics", "BatchId")]
+    arn: Annotated[str, _aws_pattern("Omics", "BatchArn")]
     status: BatchStatusType
-    uuid: str
+    uuid: Annotated[str, _aws_pattern("Omics", "BatchUuid")]
     tags: Dict[str, str]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 # This class is the output for the 'start_variant_import_job' function.
 class StartVariantImportResponseTypeDef(BaseValidatorModel):
-    jobId: str
+    jobId: Annotated[str, _aws_pattern("Omics", "ResourceId")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 # This class is the output for the 'update_annotation_store_version' function.
 class UpdateAnnotationStoreVersionResponseTypeDef(BaseValidatorModel):
-    storeId: str
-    id: str
+    storeId: Annotated[str, _aws_pattern("Omics", "ResourceId")]
+    id: Annotated[str, _aws_pattern("Omics", "ResourceId")]
     status: VersionStatusType
-    name: str
-    versionName: str
+    name: Annotated[str, _aws_pattern("Omics", "StoreName")]
+    versionName: Annotated[str, _aws_pattern("Omics", "VersionName")]
     description: str
     creationTime: datetime
     updateTime: datetime
@@ -1348,14 +1354,14 @@ class ImportReferenceFilterTypeDef(BaseValidatorModel):
 
 
 class ReadSetFilterTypeDef(BaseValidatorModel):
-    name: Optional[str] = None
+    name: Optional[Annotated[str, _aws_pattern("Omics", "ReadSetName")]] = None
     status: Optional[ReadSetStatusType] = None
-    referenceArn: Optional[str] = None
+    referenceArn: Optional[Annotated[str, _aws_pattern("Omics", "ReferenceArnFilter")]] = None
     createdAfter: Optional[TimestampTypeDef] = None
     createdBefore: Optional[TimestampTypeDef] = None
-    sampleId: Optional[str] = None
-    subjectId: Optional[str] = None
-    generatedFrom: Optional[str] = None
+    sampleId: Optional[Annotated[str, _aws_pattern("Omics", "SampleId")]] = None
+    subjectId: Optional[Annotated[str, _aws_pattern("Omics", "SubjectId")]] = None
+    generatedFrom: Optional[Annotated[str, _aws_pattern("Omics", "GeneratedFrom")]] = None
     creationType: Optional[CreationTypeType] = None
 
 
@@ -1365,20 +1371,20 @@ class ReadSetUploadPartListFilterTypeDef(BaseValidatorModel):
 
 
 class ReferenceFilterTypeDef(BaseValidatorModel):
-    name: Optional[str] = None
-    md5: Optional[str] = None
+    name: Optional[Annotated[str, _aws_pattern("Omics", "ReferenceName")]] = None
+    md5: Optional[Annotated[str, _aws_pattern("Omics", "Md5")]] = None
     createdAfter: Optional[TimestampTypeDef] = None
     createdBefore: Optional[TimestampTypeDef] = None
 
 
 class ReferenceStoreFilterTypeDef(BaseValidatorModel):
-    name: Optional[str] = None
+    name: Optional[Annotated[str, _aws_pattern("Omics", "ReferenceStoreName")]] = None
     createdAfter: Optional[TimestampTypeDef] = None
     createdBefore: Optional[TimestampTypeDef] = None
 
 
 class SequenceStoreFilterTypeDef(BaseValidatorModel):
-    name: Optional[str] = None
+    name: Optional[Annotated[str, _aws_pattern("Omics", "SequenceStoreName")]] = None
     createdAfter: Optional[TimestampTypeDef] = None
     createdBefore: Optional[TimestampTypeDef] = None
     status: Optional[SequenceStoreStatusType] = None
@@ -1390,15 +1396,15 @@ class SequenceStoreFilterTypeDef(BaseValidatorModel):
 class ListReadSetActivationJobsResponseTypeDef(BaseValidatorModel):
     activationJobs: List[ActivateReadSetJobItemTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
-    nextToken: Optional[str] = None
+    nextToken: Optional[Annotated[str, _aws_pattern("Omics", "NextToken")]] = None
 
 
 # This class is the output for the 'get_read_set_activation_job' function.
 class GetReadSetActivationJobResponseTypeDef(BaseValidatorModel):
-    id: str
-    sequenceStoreId: str
+    id: Annotated[str, _aws_pattern("Omics", "ActivationJobId")]
+    sequenceStoreId: Annotated[str, _aws_pattern("Omics", "SequenceStoreId")]
     status: ReadSetActivationJobStatusType
-    statusMessage: str
+    statusMessage: Annotated[str, _aws_pattern("Omics", "JobStatusMessage")]
     creationTime: datetime
     completionTime: datetime
     sources: List[ActivateReadSetSourceItemTypeDef]
@@ -1414,7 +1420,7 @@ class ListAnnotationImportJobsResponseTypeDef(BaseValidatorModel):
 
 # This class is the output for the 'create_variant_store' function.
 class CreateVariantStoreResponseTypeDef(BaseValidatorModel):
-    id: str
+    id: Annotated[str, _aws_pattern("Omics", "ResourceId")]
     reference: ReferenceItemTypeDef
     status: StoreStatusType
     name: str
@@ -1424,7 +1430,7 @@ class CreateVariantStoreResponseTypeDef(BaseValidatorModel):
 
 # This class is the output for the 'update_variant_store' function.
 class UpdateVariantStoreResponseTypeDef(BaseValidatorModel):
-    id: str
+    id: Annotated[str, _aws_pattern("Omics", "ResourceId")]
     reference: ReferenceItemTypeDef
     status: StoreStatusType
     name: str
@@ -1435,10 +1441,10 @@ class UpdateVariantStoreResponseTypeDef(BaseValidatorModel):
 
 
 class AnnotationStoreItemTypeDef(BaseValidatorModel):
-    id: str
+    id: Annotated[str, _aws_pattern("Omics", "ResourceId")]
     reference: ReferenceItemTypeDef
     status: StoreStatusType
-    storeArn: str
+    storeArn: Annotated[str, _aws_pattern("Omics", "Arn")]
     name: str
     storeFormat: StoreFormatType
     description: str
@@ -1451,19 +1457,19 @@ class AnnotationStoreItemTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'create_reference_store' function.
 class CreateReferenceStoreRequestTypeDef(BaseValidatorModel):
-    name: str
-    description: Optional[str] = None
+    name: Annotated[str, _aws_pattern("Omics", "ReferenceStoreName")]
+    description: Optional[Annotated[str, _aws_pattern("Omics", "ReferenceStoreDescription")]] = None
     sseConfig: Optional[SseConfigTypeDef] = None
     tags: Optional[Dict[str, str]] = None
-    clientToken: Optional[str] = None
+    clientToken: Optional[Annotated[str, _aws_pattern("Omics", "ClientToken")]] = None
 
 
 # This class is the output for the 'create_reference_store' function.
 class CreateReferenceStoreResponseTypeDef(BaseValidatorModel):
-    id: str
-    arn: str
-    name: str
-    description: str
+    id: Annotated[str, _aws_pattern("Omics", "ReferenceStoreId")]
+    arn: Annotated[str, _aws_pattern("Omics", "ReferenceStoreArn")]
+    name: Annotated[str, _aws_pattern("Omics", "ReferenceStoreName")]
+    description: Annotated[str, _aws_pattern("Omics", "ReferenceStoreDescription")]
     sseConfig: SseConfigTypeDef
     creationTime: datetime
     ResponseMetadata: ResponseMetadataTypeDef
@@ -1472,7 +1478,7 @@ class CreateReferenceStoreResponseTypeDef(BaseValidatorModel):
 # This class is the input for the 'create_variant_store' function.
 class CreateVariantStoreRequestTypeDef(BaseValidatorModel):
     reference: ReferenceItemTypeDef
-    name: Optional[str] = None
+    name: Optional[Annotated[str, _aws_pattern("Omics", "StoreName")]] = None
     description: Optional[str] = None
     tags: Optional[Dict[str, str]] = None
     sseConfig: Optional[SseConfigTypeDef] = None
@@ -1480,10 +1486,10 @@ class CreateVariantStoreRequestTypeDef(BaseValidatorModel):
 
 # This class is the output for the 'get_reference_store' function.
 class GetReferenceStoreResponseTypeDef(BaseValidatorModel):
-    id: str
-    arn: str
-    name: str
-    description: str
+    id: Annotated[str, _aws_pattern("Omics", "ReferenceStoreId")]
+    arn: Annotated[str, _aws_pattern("Omics", "ReferenceStoreArn")]
+    name: Annotated[str, _aws_pattern("Omics", "ReferenceStoreName")]
+    description: Annotated[str, _aws_pattern("Omics", "ReferenceStoreDescription")]
     sseConfig: SseConfigTypeDef
     creationTime: datetime
     ResponseMetadata: ResponseMetadataTypeDef
@@ -1491,10 +1497,10 @@ class GetReferenceStoreResponseTypeDef(BaseValidatorModel):
 
 # This class is the output for the 'get_variant_store' function.
 class GetVariantStoreResponseTypeDef(BaseValidatorModel):
-    id: str
+    id: Annotated[str, _aws_pattern("Omics", "ResourceId")]
     reference: ReferenceItemTypeDef
     status: StoreStatusType
-    storeArn: str
+    storeArn: Annotated[str, _aws_pattern("Omics", "Arn")]
     name: str
     description: str
     sseConfig: SseConfigTypeDef
@@ -1507,33 +1513,33 @@ class GetVariantStoreResponseTypeDef(BaseValidatorModel):
 
 
 class ReferenceStoreDetailTypeDef(BaseValidatorModel):
-    arn: str
-    id: str
+    arn: Annotated[str, _aws_pattern("Omics", "ReferenceStoreArn")]
+    id: Annotated[str, _aws_pattern("Omics", "ReferenceStoreId")]
     creationTime: datetime
-    name: Optional[str] = None
-    description: Optional[str] = None
+    name: Optional[Annotated[str, _aws_pattern("Omics", "ReferenceStoreName")]] = None
+    description: Optional[Annotated[str, _aws_pattern("Omics", "ReferenceStoreDescription")]] = None
     sseConfig: Optional[SseConfigTypeDef] = None
 
 
 class SequenceStoreDetailTypeDef(BaseValidatorModel):
-    arn: str
-    id: str
+    arn: Annotated[str, _aws_pattern("Omics", "SequenceStoreArn")]
+    id: Annotated[str, _aws_pattern("Omics", "SequenceStoreId")]
     creationTime: datetime
-    name: Optional[str] = None
-    description: Optional[str] = None
+    name: Optional[Annotated[str, _aws_pattern("Omics", "SequenceStoreName")]] = None
+    description: Optional[Annotated[str, _aws_pattern("Omics", "SequenceStoreDescription")]] = None
     sseConfig: Optional[SseConfigTypeDef] = None
-    fallbackLocation: Optional[str] = None
+    fallbackLocation: Optional[Annotated[str, _aws_pattern("Omics", "FallbackLocation")]] = None
     eTagAlgorithmFamily: Optional[ETagAlgorithmFamilyType] = None
     status: Optional[SequenceStoreStatusType] = None
-    statusMessage: Optional[str] = None
+    statusMessage: Optional[Annotated[str, _aws_pattern("Omics", "SequenceStoreStatusMessage")]] = None
     updateTime: Optional[datetime] = None
 
 
 class VariantStoreItemTypeDef(BaseValidatorModel):
-    id: str
+    id: Annotated[str, _aws_pattern("Omics", "ResourceId")]
     reference: ReferenceItemTypeDef
     status: StoreStatusType
-    storeArn: str
+    storeArn: Annotated[str, _aws_pattern("Omics", "Arn")]
     name: str
     description: str
     sseConfig: SseConfigTypeDef
@@ -1560,18 +1566,18 @@ class BatchDeleteReadSetResponseTypeDef(BaseValidatorModel):
 class ListBatchResponseTypeDef(BaseValidatorModel):
     items: List[BatchListItemTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
-    nextToken: Optional[str] = None
+    nextToken: Optional[Annotated[str, _aws_pattern("Omics", "ListToken")]] = None
 
 
 class BatchRunSettingsTypeDef(BaseValidatorModel):
     inlineSettings: Optional[List[InlineSettingTypeDef]] = None
-    s3UriSettings: Optional[str] = None
+    s3UriSettings: Optional[Annotated[str, _aws_pattern("Omics", "S3UriSettings")]] = None
 
 
 # This class is the input for the 'upload_read_set_part' function.
 class UploadReadSetPartRequestTypeDef(BaseValidatorModel):
-    sequenceStoreId: str
-    uploadId: str
+    sequenceStoreId: Annotated[str, _aws_pattern("Omics", "SequenceStoreId")]
+    uploadId: Annotated[str, _aws_pattern("Omics", "UploadId")]
     partSource: ReadSetPartSourceType
     partNumber: int
     payload: BlobTypeDef
@@ -1579,19 +1585,19 @@ class UploadReadSetPartRequestTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'complete_multipart_read_set_upload' function.
 class CompleteMultipartReadSetUploadRequestTypeDef(BaseValidatorModel):
-    sequenceStoreId: str
-    uploadId: str
+    sequenceStoreId: Annotated[str, _aws_pattern("Omics", "SequenceStoreId")]
+    uploadId: Annotated[str, _aws_pattern("Omics", "UploadId")]
     parts: List[CompleteReadSetUploadPartListItemTypeDef]
 
 
 # This class is the output for the 'start_run' function.
 class StartRunResponseTypeDef(BaseValidatorModel):
-    arn: str
-    id: str
+    arn: Annotated[str, _aws_pattern("Omics", "RunArn")]
+    id: Annotated[str, _aws_pattern("Omics", "RunId")]
     status: RunStatusType
     tags: Dict[str, str]
-    uuid: str
-    runOutputUri: str
+    uuid: Annotated[str, _aws_pattern("Omics", "RunUuid")]
+    runOutputUri: Annotated[str, _aws_pattern("Omics", "RunOutputUri")]
     configuration: ConfigurationDetailsTypeDef
     networkingMode: str
     ResponseMetadata: ResponseMetadataTypeDef
@@ -1601,7 +1607,7 @@ class StartRunResponseTypeDef(BaseValidatorModel):
 class ListConfigurationsResponseTypeDef(BaseValidatorModel):
     items: List[ConfigurationListItemTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
-    nextToken: Optional[str] = None
+    nextToken: Optional[Annotated[str, _aws_pattern("Omics", "ConfigurationListToken")]] = None
 
 
 class ContainerRegistryMapOutputTypeDef(BaseValidatorModel):
@@ -1616,12 +1622,12 @@ class ContainerRegistryMapTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'create_sequence_store' function.
 class CreateSequenceStoreRequestTypeDef(BaseValidatorModel):
-    name: str
-    description: Optional[str] = None
+    name: Annotated[str, _aws_pattern("Omics", "SequenceStoreName")]
+    description: Optional[Annotated[str, _aws_pattern("Omics", "SequenceStoreDescription")]] = None
     sseConfig: Optional[SseConfigTypeDef] = None
     tags: Optional[Dict[str, str]] = None
-    clientToken: Optional[str] = None
-    fallbackLocation: Optional[str] = None
+    clientToken: Optional[Annotated[str, _aws_pattern("Omics", "ClientToken")]] = None
+    fallbackLocation: Optional[Annotated[str, _aws_pattern("Omics", "FallbackLocation")]] = None
     eTagAlgorithmFamily: Optional[ETagAlgorithmFamilyType] = None
     propagatedSetLevelTags: Optional[List[str]] = None
     s3AccessConfig: Optional[S3AccessConfigTypeDef] = None
@@ -1629,27 +1635,27 @@ class CreateSequenceStoreRequestTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'update_sequence_store' function.
 class UpdateSequenceStoreRequestTypeDef(BaseValidatorModel):
-    id: str
-    name: Optional[str] = None
-    description: Optional[str] = None
-    clientToken: Optional[str] = None
-    fallbackLocation: Optional[str] = None
+    id: Annotated[str, _aws_pattern("Omics", "SequenceStoreId")]
+    name: Optional[Annotated[str, _aws_pattern("Omics", "SequenceStoreName")]] = None
+    description: Optional[Annotated[str, _aws_pattern("Omics", "SequenceStoreDescription")]] = None
+    clientToken: Optional[Annotated[str, _aws_pattern("Omics", "ClientToken")]] = None
+    fallbackLocation: Optional[Annotated[str, _aws_pattern("Omics", "FallbackLocation")]] = None
     propagatedSetLevelTags: Optional[List[str]] = None
     s3AccessConfig: Optional[S3AccessConfigTypeDef] = None
 
 
 # This class is the output for the 'create_sequence_store' function.
 class CreateSequenceStoreResponseTypeDef(BaseValidatorModel):
-    id: str
-    arn: str
-    name: str
-    description: str
+    id: Annotated[str, _aws_pattern("Omics", "SequenceStoreId")]
+    arn: Annotated[str, _aws_pattern("Omics", "SequenceStoreArn")]
+    name: Annotated[str, _aws_pattern("Omics", "SequenceStoreName")]
+    description: Annotated[str, _aws_pattern("Omics", "SequenceStoreDescription")]
     sseConfig: SseConfigTypeDef
     creationTime: datetime
-    fallbackLocation: str
+    fallbackLocation: Annotated[str, _aws_pattern("Omics", "FallbackLocation")]
     eTagAlgorithmFamily: ETagAlgorithmFamilyType
     status: SequenceStoreStatusType
-    statusMessage: str
+    statusMessage: Annotated[str, _aws_pattern("Omics", "SequenceStoreStatusMessage")]
     propagatedSetLevelTags: List[str]
     s3Access: SequenceStoreS3AccessTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
@@ -1657,17 +1663,17 @@ class CreateSequenceStoreResponseTypeDef(BaseValidatorModel):
 
 # This class is the output for the 'get_sequence_store' function.
 class GetSequenceStoreResponseTypeDef(BaseValidatorModel):
-    id: str
-    arn: str
-    name: str
-    description: str
+    id: Annotated[str, _aws_pattern("Omics", "SequenceStoreId")]
+    arn: Annotated[str, _aws_pattern("Omics", "SequenceStoreArn")]
+    name: Annotated[str, _aws_pattern("Omics", "SequenceStoreName")]
+    description: Annotated[str, _aws_pattern("Omics", "SequenceStoreDescription")]
     sseConfig: SseConfigTypeDef
     creationTime: datetime
-    fallbackLocation: str
+    fallbackLocation: Annotated[str, _aws_pattern("Omics", "FallbackLocation")]
     s3Access: SequenceStoreS3AccessTypeDef
     eTagAlgorithmFamily: ETagAlgorithmFamilyType
     status: SequenceStoreStatusType
-    statusMessage: str
+    statusMessage: Annotated[str, _aws_pattern("Omics", "SequenceStoreStatusMessage")]
     propagatedSetLevelTags: List[str]
     updateTime: datetime
     ResponseMetadata: ResponseMetadataTypeDef
@@ -1675,17 +1681,17 @@ class GetSequenceStoreResponseTypeDef(BaseValidatorModel):
 
 # This class is the output for the 'update_sequence_store' function.
 class UpdateSequenceStoreResponseTypeDef(BaseValidatorModel):
-    id: str
-    arn: str
-    name: str
-    description: str
+    id: Annotated[str, _aws_pattern("Omics", "SequenceStoreId")]
+    arn: Annotated[str, _aws_pattern("Omics", "SequenceStoreArn")]
+    name: Annotated[str, _aws_pattern("Omics", "SequenceStoreName")]
+    description: Annotated[str, _aws_pattern("Omics", "SequenceStoreDescription")]
     sseConfig: SseConfigTypeDef
     creationTime: datetime
     updateTime: datetime
     propagatedSetLevelTags: List[str]
     status: SequenceStoreStatusType
-    statusMessage: str
-    fallbackLocation: str
+    statusMessage: Annotated[str, _aws_pattern("Omics", "SequenceStoreStatusMessage")]
+    fallbackLocation: Annotated[str, _aws_pattern("Omics", "FallbackLocation")]
     s3Access: SequenceStoreS3AccessTypeDef
     eTagAlgorithmFamily: ETagAlgorithmFamilyType
     ResponseMetadata: ResponseMetadataTypeDef
@@ -1695,16 +1701,16 @@ DefaultRunSettingUnionTypeDef = Union[DefaultRunSettingOutputTypeDef, DefaultRun
 
 
 class DefinitionRepositoryDetailsTypeDef(BaseValidatorModel):
-    connectionArn: Optional[str] = None
-    fullRepositoryId: Optional[str] = None
+    connectionArn: Optional[Annotated[str, _aws_pattern("Omics", "ConnectionArn")]] = None
+    fullRepositoryId: Optional[Annotated[str, _aws_pattern("Omics", "FullRepositoryId")]] = None
     sourceReference: Optional[SourceReferenceTypeDef] = None
     providerType: Optional[str] = None
     providerEndpoint: Optional[str] = None
 
 
 class DefinitionRepositoryTypeDef(BaseValidatorModel):
-    connectionArn: str
-    fullRepositoryId: str
+    connectionArn: Annotated[str, _aws_pattern("Omics", "ConnectionArn")]
+    fullRepositoryId: Annotated[str, _aws_pattern("Omics", "FullRepositoryId")]
     sourceReference: Optional[SourceReferenceTypeDef] = None
     excludeFilePatterns: Optional[List[str]] = None
 
@@ -1717,11 +1723,11 @@ class DeleteAnnotationStoreVersionsResponseTypeDef(BaseValidatorModel):
 
 # This class is the output for the 'get_read_set_export_job' function.
 class GetReadSetExportJobResponseTypeDef(BaseValidatorModel):
-    id: str
-    sequenceStoreId: str
-    destination: str
+    id: Annotated[str, _aws_pattern("Omics", "ExportJobId")]
+    sequenceStoreId: Annotated[str, _aws_pattern("Omics", "SequenceStoreId")]
+    destination: Annotated[str, _aws_pattern("Omics", "S3Destination")]
     status: ReadSetExportJobStatusType
-    statusMessage: str
+    statusMessage: Annotated[str, _aws_pattern("Omics", "JobStatusMessage")]
     creationTime: datetime
     completionTime: datetime
     readSets: List[ExportReadSetDetailTypeDef]
@@ -1732,16 +1738,16 @@ class GetReadSetExportJobResponseTypeDef(BaseValidatorModel):
 class ListReadSetExportJobsResponseTypeDef(BaseValidatorModel):
     exportJobs: List[ExportReadSetJobDetailTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
-    nextToken: Optional[str] = None
+    nextToken: Optional[Annotated[str, _aws_pattern("Omics", "NextToken")]] = None
 
 
 # This class is the input for the 'start_read_set_export_job' function.
 class StartReadSetExportJobRequestTypeDef(BaseValidatorModel):
-    sequenceStoreId: str
-    destination: str
-    roleArn: str
+    sequenceStoreId: Annotated[str, _aws_pattern("Omics", "SequenceStoreId")]
+    destination: Annotated[str, _aws_pattern("Omics", "S3Destination")]
+    roleArn: Annotated[str, _aws_pattern("Omics", "RoleArn")]
     sources: List[ExportReadSetTypeDef]
-    clientToken: Optional[str] = None
+    clientToken: Optional[Annotated[str, _aws_pattern("Omics", "ClientToken")]] = None
 
 
 class FileInformationTypeDef(BaseValidatorModel):
@@ -1868,10 +1874,10 @@ class GetWorkflowVersionRequestWaitTypeDef(BaseValidatorModel):
 
 # This class is the output for the 'get_batch' function.
 class GetBatchResponseTypeDef(BaseValidatorModel):
-    id: str
-    arn: str
-    uuid: str
-    name: str
+    id: Annotated[str, _aws_pattern("Omics", "BatchId")]
+    arn: Annotated[str, _aws_pattern("Omics", "BatchArn")]
+    uuid: Annotated[str, _aws_pattern("Omics", "BatchUuid")]
+    name: Annotated[str, _aws_pattern("Omics", "BatchName")]
     status: BatchStatusType
     tags: Dict[str, str]
     totalRuns: int
@@ -1887,30 +1893,30 @@ class GetBatchResponseTypeDef(BaseValidatorModel):
 
 
 class ReadSetListItemTypeDef(BaseValidatorModel):
-    id: str
-    arn: str
-    sequenceStoreId: str
+    id: Annotated[str, _aws_pattern("Omics", "ReadSetId")]
+    arn: Annotated[str, _aws_pattern("Omics", "ReadSetArn")]
+    sequenceStoreId: Annotated[str, _aws_pattern("Omics", "SequenceStoreId")]
     status: ReadSetStatusType
     fileType: FileTypeType
     creationTime: datetime
-    subjectId: Optional[str] = None
-    sampleId: Optional[str] = None
-    name: Optional[str] = None
-    description: Optional[str] = None
-    referenceArn: Optional[str] = None
+    subjectId: Optional[Annotated[str, _aws_pattern("Omics", "SubjectId")]] = None
+    sampleId: Optional[Annotated[str, _aws_pattern("Omics", "SampleId")]] = None
+    name: Optional[Annotated[str, _aws_pattern("Omics", "ReadSetName")]] = None
+    description: Optional[Annotated[str, _aws_pattern("Omics", "ReadSetDescription")]] = None
+    referenceArn: Optional[Annotated[str, _aws_pattern("Omics", "ReferenceArn")]] = None
     sequenceInformation: Optional[SequenceInformationTypeDef] = None
-    statusMessage: Optional[str] = None
+    statusMessage: Optional[Annotated[str, _aws_pattern("Omics", "ReadSetStatusMessage")]] = None
     creationType: Optional[CreationTypeType] = None
     etag: Optional[ETagTypeDef] = None
 
 
 # This class is the output for the 'get_reference_import_job' function.
 class GetReferenceImportJobResponseTypeDef(BaseValidatorModel):
-    id: str
-    referenceStoreId: str
-    roleArn: str
+    id: Annotated[str, _aws_pattern("Omics", "ImportJobId")]
+    referenceStoreId: Annotated[str, _aws_pattern("Omics", "ReferenceStoreId")]
+    roleArn: Annotated[str, _aws_pattern("Omics", "RoleArn")]
     status: ReferenceImportJobStatusType
-    statusMessage: str
+    statusMessage: Annotated[str, _aws_pattern("Omics", "JobStatusMessage")]
     creationTime: datetime
     completionTime: datetime
     sources: List[ImportReferenceSourceItemTypeDef]
@@ -1919,43 +1925,43 @@ class GetReferenceImportJobResponseTypeDef(BaseValidatorModel):
 
 # This class is the output for the 'get_run' function.
 class GetRunResponseTypeDef(BaseValidatorModel):
-    arn: str
-    id: str
-    cacheId: str
+    arn: Annotated[str, _aws_pattern("Omics", "RunArn")]
+    id: Annotated[str, _aws_pattern("Omics", "RunId")]
+    cacheId: Annotated[str, _aws_pattern("Omics", "NumericIdInArn")]
     cacheBehavior: CacheBehaviorType
-    engineVersion: str
+    engineVersion: Annotated[str, _aws_pattern("Omics", "EngineVersion")]
     status: RunStatusType
-    workflowId: str
+    workflowId: Annotated[str, _aws_pattern("Omics", "WorkflowId")]
     workflowType: WorkflowTypeType
-    runId: str
-    roleArn: str
-    name: str
-    runGroupId: str
-    batchId: str
+    runId: Annotated[str, _aws_pattern("Omics", "RunId")]
+    roleArn: Annotated[str, _aws_pattern("Omics", "RunRoleArn")]
+    name: Annotated[str, _aws_pattern("Omics", "RunName")]
+    runGroupId: Annotated[str, _aws_pattern("Omics", "RunGroupId")]
+    batchId: Annotated[str, _aws_pattern("Omics", "BatchId")]
     priority: int
-    definition: str
+    definition: Annotated[str, _aws_pattern("Omics", "WorkflowDefinition")]
     digest: str
     parameters: Dict[str, Any]
     storageCapacity: int
-    outputUri: str
+    outputUri: Annotated[str, _aws_pattern("Omics", "RunOutputUri")]
     logLevel: RunLogLevelType
     resourceDigests: Dict[str, str]
     startedBy: str
     creationTime: datetime
     startTime: datetime
     stopTime: datetime
-    statusMessage: str
+    statusMessage: Annotated[str, _aws_pattern("Omics", "RunStatusMessage")]
     tags: Dict[str, str]
     accelerators: Literal["GPU"]
     retentionMode: RunRetentionModeType
-    failureReason: str
+    failureReason: Annotated[str, _aws_pattern("Omics", "RunFailureReason")]
     logLocation: RunLogLocationTypeDef
-    uuid: str
-    runOutputUri: str
+    uuid: Annotated[str, _aws_pattern("Omics", "RunUuid")]
+    runOutputUri: Annotated[str, _aws_pattern("Omics", "RunOutputUri")]
     storageType: StorageTypeType
-    workflowOwnerId: str
-    workflowVersionName: str
-    workflowUuid: str
+    workflowOwnerId: Annotated[str, _aws_pattern("Omics", "WorkflowOwnerId")]
+    workflowVersionName: Annotated[str, _aws_pattern("Omics", "WorkflowVersionName")]
+    workflowUuid: Annotated[str, _aws_pattern("Omics", "WorkflowUuid")]
     networkingMode: NetworkingModeType
     configuration: ConfigurationDetailsTypeDef
     vpcConfig: VpcConfigResponseTypeDef
@@ -1968,21 +1974,21 @@ class RunConfigurationsResponseTypeDef(BaseValidatorModel):
 
 # This class is the output for the 'get_run_task' function.
 class GetRunTaskResponseTypeDef(BaseValidatorModel):
-    taskId: str
+    taskId: Annotated[str, _aws_pattern("Omics", "TaskId")]
     status: TaskStatusType
     name: str
     cpus: int
     cacheHit: bool
-    cacheS3Uri: str
+    cacheS3Uri: Annotated[str, _aws_pattern("Omics", "S3UriForBucketOrObject")]
     memory: int
     creationTime: datetime
     startTime: datetime
     stopTime: datetime
-    statusMessage: str
-    logStream: str
+    statusMessage: Annotated[str, _aws_pattern("Omics", "TaskStatusMessage")]
+    logStream: Annotated[str, _aws_pattern("Omics", "TaskLogStream")]
     gpus: int
-    instanceType: str
-    failureReason: str
+    instanceType: Annotated[str, _aws_pattern("Omics", "TaskInstanceType")]
+    failureReason: Annotated[str, _aws_pattern("Omics", "TaskFailureReason")]
     imageDetails: ImageDetailsTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
@@ -2002,9 +2008,9 @@ class ListSharesResponseTypeDef(BaseValidatorModel):
 
 # This class is the output for the 'get_variant_import_job' function.
 class GetVariantImportResponseTypeDef(BaseValidatorModel):
-    id: str
-    destinationName: str
-    roleArn: str
+    id: Annotated[str, _aws_pattern("Omics", "ResourceId")]
+    destinationName: Annotated[str, _aws_pattern("Omics", "StoreName")]
+    roleArn: Annotated[str, _aws_pattern("Omics", "Arn")]
     status: JobStatusType
     statusMessage: str
     creationTime: datetime
@@ -2020,33 +2026,33 @@ class GetVariantImportResponseTypeDef(BaseValidatorModel):
 class ListReadSetImportJobsResponseTypeDef(BaseValidatorModel):
     importJobs: List[ImportReadSetJobItemTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
-    nextToken: Optional[str] = None
+    nextToken: Optional[Annotated[str, _aws_pattern("Omics", "NextToken")]] = None
 
 
 class ImportReadSetSourceItemTypeDef(BaseValidatorModel):
     sourceFiles: SourceFilesTypeDef
     sourceFileType: FileTypeType
     status: ReadSetImportJobItemStatusType
-    subjectId: str
-    sampleId: str
-    statusMessage: Optional[str] = None
-    generatedFrom: Optional[str] = None
-    referenceArn: Optional[str] = None
-    name: Optional[str] = None
-    description: Optional[str] = None
+    subjectId: Annotated[str, _aws_pattern("Omics", "SubjectId")]
+    sampleId: Annotated[str, _aws_pattern("Omics", "SampleId")]
+    statusMessage: Optional[Annotated[str, _aws_pattern("Omics", "JobStatusMessage")]] = None
+    generatedFrom: Optional[Annotated[str, _aws_pattern("Omics", "GeneratedFrom")]] = None
+    referenceArn: Optional[Annotated[str, _aws_pattern("Omics", "ReferenceArn")]] = None
+    name: Optional[Annotated[str, _aws_pattern("Omics", "ReadSetName")]] = None
+    description: Optional[Annotated[str, _aws_pattern("Omics", "ReadSetDescription")]] = None
     tags: Optional[Dict[str, str]] = None
-    readSetId: Optional[str] = None
+    readSetId: Optional[Annotated[str, _aws_pattern("Omics", "ReadSetId")]] = None
 
 
 class StartReadSetImportJobSourceItemTypeDef(BaseValidatorModel):
     sourceFiles: SourceFilesTypeDef
     sourceFileType: FileTypeType
-    subjectId: str
-    sampleId: str
-    generatedFrom: Optional[str] = None
-    referenceArn: Optional[str] = None
-    name: Optional[str] = None
-    description: Optional[str] = None
+    subjectId: Annotated[str, _aws_pattern("Omics", "SubjectId")]
+    sampleId: Annotated[str, _aws_pattern("Omics", "SampleId")]
+    generatedFrom: Optional[Annotated[str, _aws_pattern("Omics", "GeneratedFrom")]] = None
+    referenceArn: Optional[Annotated[str, _aws_pattern("Omics", "ReferenceArn")]] = None
+    name: Optional[Annotated[str, _aws_pattern("Omics", "ReadSetName")]] = None
+    description: Optional[Annotated[str, _aws_pattern("Omics", "ReadSetDescription")]] = None
     tags: Optional[Dict[str, str]] = None
 
 
@@ -2054,7 +2060,7 @@ class StartReadSetImportJobSourceItemTypeDef(BaseValidatorModel):
 class ListReferenceImportJobsResponseTypeDef(BaseValidatorModel):
     importJobs: List[ImportReferenceJobItemTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
-    nextToken: Optional[str] = None
+    nextToken: Optional[Annotated[str, _aws_pattern("Omics", "NextToken")]] = None
 
 
 # This class is the input for the 'list_annotation_import_jobs' function.
@@ -2169,56 +2175,56 @@ class ListAnnotationStoresRequestTypeDef(BaseValidatorModel):
 class ListMultipartReadSetUploadsResponseTypeDef(BaseValidatorModel):
     uploads: List[MultipartReadSetUploadListItemTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
-    nextToken: Optional[str] = None
+    nextToken: Optional[Annotated[str, _aws_pattern("Omics", "NextToken")]] = None
 
 
 # This class is the output for the 'list_read_set_upload_parts' function.
 class ListReadSetUploadPartsResponseTypeDef(BaseValidatorModel):
     parts: List[ReadSetUploadPartListItemTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
-    nextToken: Optional[str] = None
+    nextToken: Optional[Annotated[str, _aws_pattern("Omics", "NextToken")]] = None
 
 
 # This class is the output for the 'list_references' function.
 class ListReferencesResponseTypeDef(BaseValidatorModel):
     references: List[ReferenceListItemTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
-    nextToken: Optional[str] = None
+    nextToken: Optional[Annotated[str, _aws_pattern("Omics", "NextToken")]] = None
 
 
 # This class is the output for the 'list_run_caches' function.
 class ListRunCachesResponseTypeDef(BaseValidatorModel):
     items: List[RunCacheListItemTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
-    nextToken: Optional[str] = None
+    nextToken: Optional[Annotated[str, _aws_pattern("Omics", "ListToken")]] = None
 
 
 # This class is the output for the 'list_run_groups' function.
 class ListRunGroupsResponseTypeDef(BaseValidatorModel):
     items: List[RunGroupListItemTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
-    nextToken: Optional[str] = None
+    nextToken: Optional[Annotated[str, _aws_pattern("Omics", "RunGroupListToken")]] = None
 
 
 # This class is the output for the 'list_run_tasks' function.
 class ListRunTasksResponseTypeDef(BaseValidatorModel):
     items: List[TaskListItemTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
-    nextToken: Optional[str] = None
+    nextToken: Optional[Annotated[str, _aws_pattern("Omics", "TaskListToken")]] = None
 
 
 # This class is the output for the 'list_runs_in_batch' function.
 class ListRunsInBatchResponseTypeDef(BaseValidatorModel):
     runs: List[RunBatchListItemTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
-    nextToken: Optional[str] = None
+    nextToken: Optional[Annotated[str, _aws_pattern("Omics", "ListToken")]] = None
 
 
 # This class is the output for the 'list_runs' function.
 class ListRunsResponseTypeDef(BaseValidatorModel):
     items: List[RunListItemTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
-    nextToken: Optional[str] = None
+    nextToken: Optional[Annotated[str, _aws_pattern("Omics", "RunListToken")]] = None
 
 
 class ListVariantImportJobsRequestPaginateTypeDef(BaseValidatorModel):
@@ -2260,14 +2266,14 @@ class ListVariantStoresRequestTypeDef(BaseValidatorModel):
 class ListWorkflowVersionsResponseTypeDef(BaseValidatorModel):
     items: List[WorkflowVersionListItemTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
-    nextToken: Optional[str] = None
+    nextToken: Optional[Annotated[str, _aws_pattern("Omics", "WorkflowVersionListToken")]] = None
 
 
 # This class is the output for the 'list_workflows' function.
 class ListWorkflowsResponseTypeDef(BaseValidatorModel):
     items: List[WorkflowListItemTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
-    nextToken: Optional[str] = None
+    nextToken: Optional[Annotated[str, _aws_pattern("Omics", "WorkflowListToken")]] = None
 
 
 class TsvOptionsTypeDef(BaseValidatorModel):
@@ -2280,23 +2286,23 @@ class RunConfigurationsTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'start_read_set_activation_job' function.
 class StartReadSetActivationJobRequestTypeDef(BaseValidatorModel):
-    sequenceStoreId: str
+    sequenceStoreId: Annotated[str, _aws_pattern("Omics", "SequenceStoreId")]
     sources: List[StartReadSetActivationJobSourceItemTypeDef]
-    clientToken: Optional[str] = None
+    clientToken: Optional[Annotated[str, _aws_pattern("Omics", "ClientToken")]] = None
 
 
 # This class is the input for the 'start_reference_import_job' function.
 class StartReferenceImportJobRequestTypeDef(BaseValidatorModel):
-    referenceStoreId: str
-    roleArn: str
+    referenceStoreId: Annotated[str, _aws_pattern("Omics", "ReferenceStoreId")]
+    roleArn: Annotated[str, _aws_pattern("Omics", "RoleArn")]
     sources: List[StartReferenceImportJobSourceItemTypeDef]
-    clientToken: Optional[str] = None
+    clientToken: Optional[Annotated[str, _aws_pattern("Omics", "ClientToken")]] = None
 
 
 # This class is the input for the 'start_variant_import_job' function.
 class StartVariantImportRequestTypeDef(BaseValidatorModel):
-    destinationName: str
-    roleArn: str
+    destinationName: Annotated[str, _aws_pattern("Omics", "StoreName")]
+    roleArn: Annotated[str, _aws_pattern("Omics", "Arn")]
     items: List[VariantImportItemSourceTypeDef]
     runLeftNormalization: Optional[bool] = None
     annotationFields: Optional[Dict[str, str]] = None
@@ -2326,9 +2332,9 @@ class ListReadSetActivationJobsRequestPaginateTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'list_read_set_activation_jobs' function.
 class ListReadSetActivationJobsRequestTypeDef(BaseValidatorModel):
-    sequenceStoreId: str
+    sequenceStoreId: Annotated[str, _aws_pattern("Omics", "SequenceStoreId")]
     maxResults: Optional[int] = None
-    nextToken: Optional[str] = None
+    nextToken: Optional[Annotated[str, _aws_pattern("Omics", "NextToken")]] = None
     filter: Optional[ActivateReadSetFilterTypeDef] = None
 
 
@@ -2340,9 +2346,9 @@ class ListReadSetExportJobsRequestPaginateTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'list_read_set_export_jobs' function.
 class ListReadSetExportJobsRequestTypeDef(BaseValidatorModel):
-    sequenceStoreId: str
+    sequenceStoreId: Annotated[str, _aws_pattern("Omics", "SequenceStoreId")]
     maxResults: Optional[int] = None
-    nextToken: Optional[str] = None
+    nextToken: Optional[Annotated[str, _aws_pattern("Omics", "NextToken")]] = None
     filter: Optional[ExportReadSetFilterTypeDef] = None
 
 
@@ -2354,9 +2360,9 @@ class ListReadSetImportJobsRequestPaginateTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'list_read_set_import_jobs' function.
 class ListReadSetImportJobsRequestTypeDef(BaseValidatorModel):
-    sequenceStoreId: str
+    sequenceStoreId: Annotated[str, _aws_pattern("Omics", "SequenceStoreId")]
     maxResults: Optional[int] = None
-    nextToken: Optional[str] = None
+    nextToken: Optional[Annotated[str, _aws_pattern("Omics", "NextToken")]] = None
     filter: Optional[ImportReadSetFilterTypeDef] = None
 
 
@@ -2368,9 +2374,9 @@ class ListReferenceImportJobsRequestPaginateTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'list_reference_import_jobs' function.
 class ListReferenceImportJobsRequestTypeDef(BaseValidatorModel):
-    referenceStoreId: str
+    referenceStoreId: Annotated[str, _aws_pattern("Omics", "ReferenceStoreId")]
     maxResults: Optional[int] = None
-    nextToken: Optional[str] = None
+    nextToken: Optional[Annotated[str, _aws_pattern("Omics", "NextToken")]] = None
     filter: Optional[ImportReferenceFilterTypeDef] = None
 
 
@@ -2382,9 +2388,9 @@ class ListReadSetsRequestPaginateTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'list_read_sets' function.
 class ListReadSetsRequestTypeDef(BaseValidatorModel):
-    sequenceStoreId: str
+    sequenceStoreId: Annotated[str, _aws_pattern("Omics", "SequenceStoreId")]
     maxResults: Optional[int] = None
-    nextToken: Optional[str] = None
+    nextToken: Optional[Annotated[str, _aws_pattern("Omics", "NextToken")]] = None
     filter: Optional[ReadSetFilterTypeDef] = None
 
 
@@ -2398,11 +2404,11 @@ class ListReadSetUploadPartsRequestPaginateTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'list_read_set_upload_parts' function.
 class ListReadSetUploadPartsRequestTypeDef(BaseValidatorModel):
-    sequenceStoreId: str
-    uploadId: str
+    sequenceStoreId: Annotated[str, _aws_pattern("Omics", "SequenceStoreId")]
+    uploadId: Annotated[str, _aws_pattern("Omics", "UploadId")]
     partSource: ReadSetPartSourceType
     maxResults: Optional[int] = None
-    nextToken: Optional[str] = None
+    nextToken: Optional[Annotated[str, _aws_pattern("Omics", "NextToken")]] = None
     filter: Optional[ReadSetUploadPartListFilterTypeDef] = None
 
 
@@ -2414,9 +2420,9 @@ class ListReferencesRequestPaginateTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'list_references' function.
 class ListReferencesRequestTypeDef(BaseValidatorModel):
-    referenceStoreId: str
+    referenceStoreId: Annotated[str, _aws_pattern("Omics", "ReferenceStoreId")]
     maxResults: Optional[int] = None
-    nextToken: Optional[str] = None
+    nextToken: Optional[Annotated[str, _aws_pattern("Omics", "NextToken")]] = None
     filter: Optional[ReferenceFilterTypeDef] = None
 
 
@@ -2428,7 +2434,7 @@ class ListReferenceStoresRequestPaginateTypeDef(BaseValidatorModel):
 # This class is the input for the 'list_reference_stores' function.
 class ListReferenceStoresRequestTypeDef(BaseValidatorModel):
     maxResults: Optional[int] = None
-    nextToken: Optional[str] = None
+    nextToken: Optional[Annotated[str, _aws_pattern("Omics", "NextToken")]] = None
     filter: Optional[ReferenceStoreFilterTypeDef] = None
 
 
@@ -2440,7 +2446,7 @@ class ListSequenceStoresRequestPaginateTypeDef(BaseValidatorModel):
 # This class is the input for the 'list_sequence_stores' function.
 class ListSequenceStoresRequestTypeDef(BaseValidatorModel):
     maxResults: Optional[int] = None
-    nextToken: Optional[str] = None
+    nextToken: Optional[Annotated[str, _aws_pattern("Omics", "NextToken")]] = None
     filter: Optional[SequenceStoreFilterTypeDef] = None
 
 
@@ -2455,14 +2461,14 @@ class ListAnnotationStoresResponseTypeDef(BaseValidatorModel):
 class ListReferenceStoresResponseTypeDef(BaseValidatorModel):
     referenceStores: List[ReferenceStoreDetailTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
-    nextToken: Optional[str] = None
+    nextToken: Optional[Annotated[str, _aws_pattern("Omics", "NextToken")]] = None
 
 
 # This class is the output for the 'list_sequence_stores' function.
 class ListSequenceStoresResponseTypeDef(BaseValidatorModel):
     sequenceStores: List[SequenceStoreDetailTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
-    nextToken: Optional[str] = None
+    nextToken: Optional[Annotated[str, _aws_pattern("Omics", "NextToken")]] = None
 
 
 # This class is the output for the 'list_variant_stores' function.
@@ -2477,67 +2483,67 @@ ContainerRegistryMapUnionTypeDef = Union[ContainerRegistryMapOutputTypeDef, Cont
 
 # This class is the input for the 'start_run_batch' function.
 class StartRunBatchRequestTypeDef(BaseValidatorModel):
-    requestId: str
+    requestId: Annotated[str, _aws_pattern("Omics", "BatchRequestId")]
     defaultRunSetting: DefaultRunSettingUnionTypeDef
     batchRunSettings: BatchRunSettingsTypeDef
-    batchName: Optional[str] = None
+    batchName: Optional[Annotated[str, _aws_pattern("Omics", "BatchName")]] = None
     tags: Optional[Dict[str, str]] = None
 
 
 # This class is the output for the 'get_workflow' function.
 class GetWorkflowResponseTypeDef(BaseValidatorModel):
-    arn: str
-    id: str
+    arn: Annotated[str, _aws_pattern("Omics", "WorkflowArn")]
+    id: Annotated[str, _aws_pattern("Omics", "WorkflowId")]
     status: WorkflowStatusType
     type: WorkflowTypeType
-    name: str
-    description: str
+    name: Annotated[str, _aws_pattern("Omics", "WorkflowName")]
+    description: Annotated[str, _aws_pattern("Omics", "WorkflowDescription")]
     engine: WorkflowEngineType
-    definition: str
-    main: str
+    definition: Annotated[str, _aws_pattern("Omics", "WorkflowDefinition")]
+    main: Annotated[str, _aws_pattern("Omics", "WorkflowMain")]
     digest: str
     parameterTemplate: Dict[str, WorkflowParameterTypeDef]
     storageCapacity: int
     creationTime: datetime
-    statusMessage: str
+    statusMessage: Annotated[str, _aws_pattern("Omics", "WorkflowStatusMessage")]
     tags: Dict[str, str]
     metadata: Dict[str, str]
     accelerators: Literal["GPU"]
     storageType: StorageTypeType
-    uuid: str
+    uuid: Annotated[str, _aws_pattern("Omics", "WorkflowUuid")]
     containerRegistryMap: ContainerRegistryMapOutputTypeDef
-    readme: str
+    readme: Annotated[str, _aws_pattern("Omics", "ReadmeS3PresignedUrl")]
     definitionRepositoryDetails: DefinitionRepositoryDetailsTypeDef
-    readmePath: str
+    readmePath: Annotated[str, _aws_pattern("Omics", "ReadmePath")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 # This class is the output for the 'get_workflow_version' function.
 class GetWorkflowVersionResponseTypeDef(BaseValidatorModel):
-    arn: str
-    workflowId: str
-    versionName: str
+    arn: Annotated[str, _aws_pattern("Omics", "WorkflowVersionArn")]
+    workflowId: Annotated[str, _aws_pattern("Omics", "WorkflowId")]
+    versionName: Annotated[str, _aws_pattern("Omics", "WorkflowVersionName")]
     accelerators: Literal["GPU"]
     creationTime: datetime
-    description: str
-    definition: str
+    description: Annotated[str, _aws_pattern("Omics", "WorkflowVersionDescription")]
+    definition: Annotated[str, _aws_pattern("Omics", "WorkflowDefinition")]
     digest: str
     engine: WorkflowEngineType
-    main: str
+    main: Annotated[str, _aws_pattern("Omics", "WorkflowMain")]
     metadata: Dict[str, str]
     parameterTemplate: Dict[str, WorkflowParameterTypeDef]
     status: WorkflowStatusType
-    statusMessage: str
+    statusMessage: Annotated[str, _aws_pattern("Omics", "WorkflowStatusMessage")]
     storageType: StorageTypeType
     storageCapacity: int
     type: WorkflowTypeType
     tags: Dict[str, str]
-    uuid: str
-    workflowBucketOwnerId: str
+    uuid: Annotated[str, _aws_pattern("Omics", "WorkflowUuid")]
+    workflowBucketOwnerId: Annotated[str, _aws_pattern("Omics", "WorkflowBucketOwnerId")]
     containerRegistryMap: ContainerRegistryMapOutputTypeDef
-    readme: str
+    readme: Annotated[str, _aws_pattern("Omics", "ReadmeS3PresignedUrl")]
     definitionRepositoryDetails: DefinitionRepositoryDetailsTypeDef
-    readmePath: str
+    readmePath: Annotated[str, _aws_pattern("Omics", "ReadmePath")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
@@ -2556,15 +2562,15 @@ class ReferenceFilesTypeDef(BaseValidatorModel):
 class ListReadSetsResponseTypeDef(BaseValidatorModel):
     readSets: List[ReadSetListItemTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
-    nextToken: Optional[str] = None
+    nextToken: Optional[Annotated[str, _aws_pattern("Omics", "NextToken")]] = None
 
 
 # This class is the output for the 'create_configuration' function.
 class CreateConfigurationResponseTypeDef(BaseValidatorModel):
-    arn: str
-    uuid: str
-    name: str
-    description: str
+    arn: Annotated[str, _aws_pattern("Omics", "ConfigurationArn")]
+    uuid: Annotated[str, _aws_pattern("Omics", "ConfigurationUuid")]
+    name: Annotated[str, _aws_pattern("Omics", "ConfigurationName")]
+    description: Annotated[str, _aws_pattern("Omics", "ConfigurationDescription")]
     runConfigurations: RunConfigurationsResponseTypeDef
     status: ConfigurationStatusType
     creationTime: datetime
@@ -2574,10 +2580,10 @@ class CreateConfigurationResponseTypeDef(BaseValidatorModel):
 
 # This class is the output for the 'get_configuration' function.
 class GetConfigurationResponseTypeDef(BaseValidatorModel):
-    arn: str
-    uuid: str
-    name: str
-    description: str
+    arn: Annotated[str, _aws_pattern("Omics", "ConfigurationArn")]
+    uuid: Annotated[str, _aws_pattern("Omics", "ConfigurationUuid")]
+    name: Annotated[str, _aws_pattern("Omics", "ConfigurationName")]
+    description: Annotated[str, _aws_pattern("Omics", "ConfigurationDescription")]
     runConfigurations: RunConfigurationsResponseTypeDef
     status: ConfigurationStatusType
     creationTime: datetime
@@ -2587,11 +2593,11 @@ class GetConfigurationResponseTypeDef(BaseValidatorModel):
 
 # This class is the output for the 'get_read_set_import_job' function.
 class GetReadSetImportJobResponseTypeDef(BaseValidatorModel):
-    id: str
-    sequenceStoreId: str
-    roleArn: str
+    id: Annotated[str, _aws_pattern("Omics", "ImportJobId")]
+    sequenceStoreId: Annotated[str, _aws_pattern("Omics", "SequenceStoreId")]
+    roleArn: Annotated[str, _aws_pattern("Omics", "RoleArn")]
     status: ReadSetImportJobStatusType
-    statusMessage: str
+    statusMessage: Annotated[str, _aws_pattern("Omics", "JobStatusMessage")]
     creationTime: datetime
     completionTime: datetime
     sources: List[ImportReadSetSourceItemTypeDef]
@@ -2600,10 +2606,10 @@ class GetReadSetImportJobResponseTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'start_read_set_import_job' function.
 class StartReadSetImportJobRequestTypeDef(BaseValidatorModel):
-    sequenceStoreId: str
-    roleArn: str
+    sequenceStoreId: Annotated[str, _aws_pattern("Omics", "SequenceStoreId")]
+    roleArn: Annotated[str, _aws_pattern("Omics", "RoleArn")]
     sources: List[StartReadSetImportJobSourceItemTypeDef]
-    clientToken: Optional[str] = None
+    clientToken: Optional[Annotated[str, _aws_pattern("Omics", "ClientToken")]] = None
 
 
 class FormatOptionsTypeDef(BaseValidatorModel):
@@ -2613,32 +2619,32 @@ class FormatOptionsTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'create_configuration' function.
 class CreateConfigurationRequestTypeDef(BaseValidatorModel):
-    name: str
+    name: Annotated[str, _aws_pattern("Omics", "ConfigurationName")]
     runConfigurations: RunConfigurationsTypeDef
-    requestId: str
-    description: Optional[str] = None
+    requestId: Annotated[str, _aws_pattern("Omics", "ConfigurationRequestId")]
+    description: Optional[Annotated[str, _aws_pattern("Omics", "ConfigurationDescription")]] = None
     tags: Optional[Dict[str, str]] = None
 
 
 # This class is the output for the 'create_annotation_store' function.
 class CreateAnnotationStoreResponseTypeDef(BaseValidatorModel):
-    id: str
+    id: Annotated[str, _aws_pattern("Omics", "ResourceId")]
     reference: ReferenceItemTypeDef
     storeFormat: StoreFormatType
     storeOptions: StoreOptionsOutputTypeDef
     status: StoreStatusType
     name: str
-    versionName: str
+    versionName: Annotated[str, _aws_pattern("Omics", "VersionName")]
     creationTime: datetime
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 # This class is the output for the 'get_annotation_store' function.
 class GetAnnotationStoreResponseTypeDef(BaseValidatorModel):
-    id: str
+    id: Annotated[str, _aws_pattern("Omics", "ResourceId")]
     reference: ReferenceItemTypeDef
     status: StoreStatusType
-    storeArn: str
+    storeArn: Annotated[str, _aws_pattern("Omics", "Arn")]
     name: str
     description: str
     sseConfig: SseConfigTypeDef
@@ -2655,7 +2661,7 @@ class GetAnnotationStoreResponseTypeDef(BaseValidatorModel):
 
 # This class is the output for the 'update_annotation_store' function.
 class UpdateAnnotationStoreResponseTypeDef(BaseValidatorModel):
-    id: str
+    id: Annotated[str, _aws_pattern("Omics", "ResourceId")]
     reference: ReferenceItemTypeDef
     status: StoreStatusType
     name: str
@@ -2672,11 +2678,11 @@ StoreOptionsUnionTypeDef = Union[StoreOptionsOutputTypeDef, StoreOptionsTypeDef]
 
 # This class is the output for the 'create_annotation_store_version' function.
 class CreateAnnotationStoreVersionResponseTypeDef(BaseValidatorModel):
-    id: str
-    versionName: str
-    storeId: str
+    id: Annotated[str, _aws_pattern("Omics", "ResourceId")]
+    versionName: Annotated[str, _aws_pattern("Omics", "VersionName")]
+    storeId: Annotated[str, _aws_pattern("Omics", "ResourceId")]
     versionOptions: VersionOptionsOutputTypeDef
-    name: str
+    name: Annotated[str, _aws_pattern("Omics", "StoreName")]
     status: VersionStatusType
     creationTime: datetime
     ResponseMetadata: ResponseMetadataTypeDef
@@ -2684,12 +2690,12 @@ class CreateAnnotationStoreVersionResponseTypeDef(BaseValidatorModel):
 
 # This class is the output for the 'get_annotation_store_version' function.
 class GetAnnotationStoreVersionResponseTypeDef(BaseValidatorModel):
-    storeId: str
-    id: str
+    storeId: Annotated[str, _aws_pattern("Omics", "ResourceId")]
+    id: Annotated[str, _aws_pattern("Omics", "ResourceId")]
     status: VersionStatusType
-    versionArn: str
-    name: str
-    versionName: str
+    versionArn: Annotated[str, _aws_pattern("Omics", "Arn")]
+    name: Annotated[str, _aws_pattern("Omics", "StoreName")]
+    versionName: Annotated[str, _aws_pattern("Omics", "VersionName")]
     description: str
     creationTime: datetime
     updateTime: datetime
@@ -2705,98 +2711,98 @@ VersionOptionsUnionTypeDef = Union[VersionOptionsOutputTypeDef, VersionOptionsTy
 
 # This class is the input for the 'create_workflow' function.
 class CreateWorkflowRequestTypeDef(BaseValidatorModel):
-    requestId: str
-    name: Optional[str] = None
-    description: Optional[str] = None
+    requestId: Annotated[str, _aws_pattern("Omics", "WorkflowRequestId")]
+    name: Optional[Annotated[str, _aws_pattern("Omics", "WorkflowName")]] = None
+    description: Optional[Annotated[str, _aws_pattern("Omics", "WorkflowDescription")]] = None
     engine: Optional[WorkflowEngineType] = None
     definitionZip: Optional[BlobTypeDef] = None
-    definitionUri: Optional[str] = None
-    main: Optional[str] = None
+    definitionUri: Optional[Annotated[str, _aws_pattern("Omics", "WorkflowDefinition")]] = None
+    main: Optional[Annotated[str, _aws_pattern("Omics", "WorkflowMain")]] = None
     parameterTemplate: Optional[Dict[str, WorkflowParameterTypeDef]] = None
     storageCapacity: Optional[int] = None
     tags: Optional[Dict[str, str]] = None
     accelerators: Optional[Literal["GPU"]] = None
     storageType: Optional[StorageTypeType] = None
     containerRegistryMap: Optional[ContainerRegistryMapUnionTypeDef] = None
-    containerRegistryMapUri: Optional[str] = None
+    containerRegistryMapUri: Optional[Annotated[str, _aws_pattern("Omics", "Uri")]] = None
     readmeMarkdown: Optional[str] = None
-    parameterTemplatePath: Optional[str] = None
-    readmePath: Optional[str] = None
+    parameterTemplatePath: Optional[Annotated[str, _aws_pattern("Omics", "ParameterTemplatePath")]] = None
+    readmePath: Optional[Annotated[str, _aws_pattern("Omics", "ReadmePath")]] = None
     definitionRepository: Optional[DefinitionRepositoryTypeDef] = None
-    workflowBucketOwnerId: Optional[str] = None
-    readmeUri: Optional[str] = None
+    workflowBucketOwnerId: Optional[Annotated[str, _aws_pattern("Omics", "WorkflowBucketOwnerId")]] = None
+    readmeUri: Optional[Annotated[str, _aws_pattern("Omics", "S3UriForObject")]] = None
 
 
 # This class is the input for the 'create_workflow_version' function.
 class CreateWorkflowVersionRequestTypeDef(BaseValidatorModel):
-    workflowId: str
-    versionName: str
-    requestId: str
+    workflowId: Annotated[str, _aws_pattern("Omics", "WorkflowId")]
+    versionName: Annotated[str, _aws_pattern("Omics", "WorkflowVersionName")]
+    requestId: Annotated[str, _aws_pattern("Omics", "WorkflowRequestId")]
     definitionZip: Optional[BlobTypeDef] = None
-    definitionUri: Optional[str] = None
+    definitionUri: Optional[Annotated[str, _aws_pattern("Omics", "WorkflowDefinition")]] = None
     accelerators: Optional[Literal["GPU"]] = None
-    description: Optional[str] = None
+    description: Optional[Annotated[str, _aws_pattern("Omics", "WorkflowVersionDescription")]] = None
     engine: Optional[WorkflowEngineType] = None
-    main: Optional[str] = None
+    main: Optional[Annotated[str, _aws_pattern("Omics", "WorkflowMain")]] = None
     parameterTemplate: Optional[Dict[str, WorkflowParameterTypeDef]] = None
     storageType: Optional[StorageTypeType] = None
     storageCapacity: Optional[int] = None
     tags: Optional[Dict[str, str]] = None
-    workflowBucketOwnerId: Optional[str] = None
+    workflowBucketOwnerId: Optional[Annotated[str, _aws_pattern("Omics", "WorkflowBucketOwnerId")]] = None
     containerRegistryMap: Optional[ContainerRegistryMapUnionTypeDef] = None
-    containerRegistryMapUri: Optional[str] = None
+    containerRegistryMapUri: Optional[Annotated[str, _aws_pattern("Omics", "Uri")]] = None
     readmeMarkdown: Optional[str] = None
-    parameterTemplatePath: Optional[str] = None
-    readmePath: Optional[str] = None
+    parameterTemplatePath: Optional[Annotated[str, _aws_pattern("Omics", "ParameterTemplatePath")]] = None
+    readmePath: Optional[Annotated[str, _aws_pattern("Omics", "ReadmePath")]] = None
     definitionRepository: Optional[DefinitionRepositoryTypeDef] = None
-    readmeUri: Optional[str] = None
+    readmeUri: Optional[Annotated[str, _aws_pattern("Omics", "S3UriForObject")]] = None
 
 
 # This class is the output for the 'get_read_set_metadata' function.
 class GetReadSetMetadataResponseTypeDef(BaseValidatorModel):
-    id: str
-    arn: str
-    sequenceStoreId: str
-    subjectId: str
-    sampleId: str
+    id: Annotated[str, _aws_pattern("Omics", "ReadSetId")]
+    arn: Annotated[str, _aws_pattern("Omics", "ReadSetArn")]
+    sequenceStoreId: Annotated[str, _aws_pattern("Omics", "SequenceStoreId")]
+    subjectId: Annotated[str, _aws_pattern("Omics", "SubjectId")]
+    sampleId: Annotated[str, _aws_pattern("Omics", "SampleId")]
     status: ReadSetStatusType
-    name: str
-    description: str
+    name: Annotated[str, _aws_pattern("Omics", "ReadSetName")]
+    description: Annotated[str, _aws_pattern("Omics", "ReadSetDescription")]
     fileType: FileTypeType
     creationTime: datetime
     sequenceInformation: SequenceInformationTypeDef
-    referenceArn: str
+    referenceArn: Annotated[str, _aws_pattern("Omics", "ReferenceArn")]
     files: ReadSetFilesTypeDef
-    statusMessage: str
+    statusMessage: Annotated[str, _aws_pattern("Omics", "ReadSetStatusMessage")]
     creationType: CreationTypeType
     etag: ETagTypeDef
-    creationJobId: str
+    creationJobId: Annotated[str, _aws_pattern("Omics", "CreationJobId")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 # This class is the output for the 'get_reference_metadata' function.
 class GetReferenceMetadataResponseTypeDef(BaseValidatorModel):
-    id: str
-    arn: str
-    referenceStoreId: str
-    md5: str
+    id: Annotated[str, _aws_pattern("Omics", "ReferenceId")]
+    arn: Annotated[str, _aws_pattern("Omics", "ReferenceArn")]
+    referenceStoreId: Annotated[str, _aws_pattern("Omics", "ReferenceStoreId")]
+    md5: Annotated[str, _aws_pattern("Omics", "Md5")]
     status: ReferenceStatusType
-    name: str
-    description: str
+    name: Annotated[str, _aws_pattern("Omics", "ReferenceName")]
+    description: Annotated[str, _aws_pattern("Omics", "ReferenceDescription")]
     creationTime: datetime
     updateTime: datetime
     files: ReferenceFilesTypeDef
     creationType: Literal["IMPORT"]
-    creationJobId: str
+    creationJobId: Annotated[str, _aws_pattern("Omics", "CreationJobId")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 # This class is the output for the 'get_annotation_import_job' function.
 class GetAnnotationImportResponseTypeDef(BaseValidatorModel):
-    id: str
-    destinationName: str
-    versionName: str
-    roleArn: str
+    id: Annotated[str, _aws_pattern("Omics", "ResourceId")]
+    destinationName: Annotated[str, _aws_pattern("Omics", "StoreName")]
+    versionName: Annotated[str, _aws_pattern("Omics", "VersionName")]
+    roleArn: Annotated[str, _aws_pattern("Omics", "Arn")]
     status: JobStatusType
     statusMessage: str
     creationTime: datetime
@@ -2811,10 +2817,10 @@ class GetAnnotationImportResponseTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'start_annotation_import_job' function.
 class StartAnnotationImportRequestTypeDef(BaseValidatorModel):
-    destinationName: str
-    roleArn: str
+    destinationName: Annotated[str, _aws_pattern("Omics", "StoreName")]
+    roleArn: Annotated[str, _aws_pattern("Omics", "Arn")]
     items: List[AnnotationImportItemSourceTypeDef]
-    versionName: Optional[str] = None
+    versionName: Optional[Annotated[str, _aws_pattern("Omics", "VersionName")]] = None
     formatOptions: Optional[FormatOptionsTypeDef] = None
     runLeftNormalization: Optional[bool] = None
     annotationFields: Optional[Dict[str, str]] = None
@@ -2824,18 +2830,18 @@ class StartAnnotationImportRequestTypeDef(BaseValidatorModel):
 class CreateAnnotationStoreRequestTypeDef(BaseValidatorModel):
     storeFormat: StoreFormatType
     reference: Optional[ReferenceItemTypeDef] = None
-    name: Optional[str] = None
+    name: Optional[Annotated[str, _aws_pattern("Omics", "StoreName")]] = None
     description: Optional[str] = None
     tags: Optional[Dict[str, str]] = None
-    versionName: Optional[str] = None
+    versionName: Optional[Annotated[str, _aws_pattern("Omics", "VersionName")]] = None
     sseConfig: Optional[SseConfigTypeDef] = None
     storeOptions: Optional[StoreOptionsUnionTypeDef] = None
 
 
 # This class is the input for the 'create_annotation_store_version' function.
 class CreateAnnotationStoreVersionRequestTypeDef(BaseValidatorModel):
-    name: str
-    versionName: str
+    name: Annotated[str, _aws_pattern("Omics", "StoreName")]
+    versionName: Annotated[str, _aws_pattern("Omics", "VersionName")]
     description: Optional[str] = None
     versionOptions: Optional[VersionOptionsUnionTypeDef] = None
     tags: Optional[Dict[str, str]] = None

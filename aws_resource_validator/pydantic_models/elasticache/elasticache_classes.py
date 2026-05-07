@@ -3,6 +3,7 @@
 from datetime import datetime
 from decimal import Decimal
 from typing import (
+    Annotated,
     Any,
     Callable,
     Dict,
@@ -24,6 +25,7 @@ from botocore.response import StreamingBody
 from pydantic import Field
 
 from aws_resource_validator.core.base_validator_model import BaseValidatorModel, EventStream
+from aws_resource_validator.core.pattern_validation import aws_field_pattern as _aws_pattern
 from aws_resource_validator.pydantic_models.elasticache.elasticache_constants import *  # noqa: F401,F403
 
 # Optional boto3 symbols — imported lazily so services that don't need them
@@ -184,7 +186,7 @@ class CompleteMigrationMessageTypeDef(BaseValidatorModel):
 
 
 class ConfigureShardTypeDef(BaseValidatorModel):
-    NodeGroupId: str
+    NodeGroupId: Annotated[str, _aws_pattern("Elasticache", "AllowedNodeGroupId")]
     NewReplicaCount: int
     PreferredAvailabilityZones: Optional[List[str]] = None
     PreferredOutpostArns: Optional[List[str]] = None
@@ -268,7 +270,7 @@ class DeleteUserGroupMessageTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'delete_user' function.
 class DeleteUserMessageTypeDef(BaseValidatorModel):
-    UserId: str
+    UserId: Annotated[str, _aws_pattern("Elasticache", "UserId")]
 
 
 class PaginatorConfigTypeDef(BaseValidatorModel):
@@ -421,8 +423,8 @@ class DescribeUserGroupsMessageTypeDef(BaseValidatorModel):
 
 
 class FilterTypeDef(BaseValidatorModel):
-    Name: str
-    Values: List[str]
+    Name: Annotated[str, _aws_pattern("Elasticache", "FilterName")]
+    Values: List[Annotated[str, _aws_pattern("Elasticache", "FilterValue")]]
 
 
 class KinesisFirehoseDestinationDetailsTypeDef(BaseValidatorModel):
@@ -515,16 +517,16 @@ class ModifyGlobalReplicationGroupMessageTypeDef(BaseValidatorModel):
 
 
 class ReshardingConfigurationTypeDef(BaseValidatorModel):
-    NodeGroupId: Optional[str] = None
+    NodeGroupId: Optional[Annotated[str, _aws_pattern("Elasticache", "AllowedNodeGroupId")]] = None
     PreferredAvailabilityZones: Optional[List[str]] = None
 
 
 # This class is the input for the 'modify_user_group' function.
 class ModifyUserGroupMessageTypeDef(BaseValidatorModel):
     UserGroupId: str
-    UserIdsToAdd: Optional[List[str]] = None
-    UserIdsToRemove: Optional[List[str]] = None
-    Engine: Optional[str] = None
+    UserIdsToAdd: Optional[List[Annotated[str, _aws_pattern("Elasticache", "UserId")]]] = None
+    UserIdsToRemove: Optional[List[Annotated[str, _aws_pattern("Elasticache", "UserId")]]] = None
+    Engine: Optional[Annotated[str, _aws_pattern("Elasticache", "EngineType")]] = None
 
 
 class NodeGroupConfigurationOutputTypeDef(BaseValidatorModel):
@@ -538,7 +540,7 @@ class NodeGroupConfigurationOutputTypeDef(BaseValidatorModel):
 
 
 class NodeGroupConfigurationTypeDef(BaseValidatorModel):
-    NodeGroupId: Optional[str] = None
+    NodeGroupId: Optional[Annotated[str, _aws_pattern("Elasticache", "AllowedNodeGroupId")]] = None
     Slots: Optional[str] = None
     ReplicaCount: Optional[int] = None
     PrimaryAvailabilityZone: Optional[str] = None
@@ -590,8 +592,8 @@ class RemoveTagsFromResourceMessageTypeDef(BaseValidatorModel):
 
 
 class UserGroupsUpdateStatusTypeDef(BaseValidatorModel):
-    UserGroupIdsToAdd: Optional[List[str]] = None
-    UserGroupIdsToRemove: Optional[List[str]] = None
+    UserGroupIdsToAdd: Optional[List[Annotated[str, _aws_pattern("Elasticache", "UserGroupId")]]] = None
+    UserGroupIdsToRemove: Optional[List[Annotated[str, _aws_pattern("Elasticache", "UserGroupId")]]] = None
 
 
 class SlotMigrationTypeDef(BaseValidatorModel):
@@ -633,7 +635,7 @@ class SubnetOutpostTypeDef(BaseValidatorModel):
 # This class is the input for the 'test_failover' function.
 class TestFailoverMessageTypeDef(BaseValidatorModel):
     ReplicationGroupId: str
-    NodeGroupId: str
+    NodeGroupId: Annotated[str, _aws_pattern("Elasticache", "AllowedNodeGroupId")]
 
 
 class UnprocessedUpdateActionTypeDef(BaseValidatorModel):
@@ -645,8 +647,8 @@ class UnprocessedUpdateActionTypeDef(BaseValidatorModel):
 
 
 class UserGroupPendingChangesTypeDef(BaseValidatorModel):
-    UserIdsToRemove: Optional[List[str]] = None
-    UserIdsToAdd: Optional[List[str]] = None
+    UserIdsToRemove: Optional[List[Annotated[str, _aws_pattern("Elasticache", "UserId")]]] = None
+    UserIdsToAdd: Optional[List[Annotated[str, _aws_pattern("Elasticache", "UserId")]]] = None
 
 
 # This class is the input for the 'add_tags_to_resource' function.
@@ -715,8 +717,8 @@ class CreateSnapshotMessageTypeDef(BaseValidatorModel):
 # This class is the input for the 'create_user_group' function.
 class CreateUserGroupMessageTypeDef(BaseValidatorModel):
     UserGroupId: str
-    Engine: str
-    UserIds: Optional[List[str]] = None
+    Engine: Annotated[str, _aws_pattern("Elasticache", "EngineType")]
+    UserIds: Optional[List[Annotated[str, _aws_pattern("Elasticache", "UserId")]]] = None
     Tags: Optional[List[TagTypeDef]] = None
 
 
@@ -754,10 +756,10 @@ class TagListMessageTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'create_user' function.
 class CreateUserMessageTypeDef(BaseValidatorModel):
-    UserId: str
+    UserId: Annotated[str, _aws_pattern("Elasticache", "UserId")]
     UserName: str
-    Engine: str
-    AccessString: str
+    Engine: Annotated[str, _aws_pattern("Elasticache", "EngineType")]
+    AccessString: Annotated[str, _aws_pattern("Elasticache", "AccessString")]
     Passwords: Optional[List[str]] = None
     NoPasswordRequired: Optional[bool] = None
     Tags: Optional[List[TagTypeDef]] = None
@@ -766,13 +768,13 @@ class CreateUserMessageTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'modify_user' function.
 class ModifyUserMessageTypeDef(BaseValidatorModel):
-    UserId: str
-    AccessString: Optional[str] = None
-    AppendAccessString: Optional[str] = None
+    UserId: Annotated[str, _aws_pattern("Elasticache", "UserId")]
+    AccessString: Optional[Annotated[str, _aws_pattern("Elasticache", "AccessString")]] = None
+    AppendAccessString: Optional[Annotated[str, _aws_pattern("Elasticache", "AccessString")]] = None
     Passwords: Optional[List[str]] = None
     NoPasswordRequired: Optional[bool] = None
     AuthenticationMode: Optional[AuthenticationModeTypeDef] = None
-    Engine: Optional[str] = None
+    Engine: Optional[Annotated[str, _aws_pattern("Elasticache", "EngineType")]] = None
 
 
 # This class is the output for the 'create_user' function.
@@ -793,10 +795,10 @@ class UserTypeDef(BaseValidatorModel):
     UserId: Optional[str] = None
     UserName: Optional[str] = None
     Status: Optional[str] = None
-    Engine: Optional[str] = None
+    Engine: Optional[Annotated[str, _aws_pattern("Elasticache", "EngineType")]] = None
     MinimumEngineVersion: Optional[str] = None
     AccessString: Optional[str] = None
-    UserGroupIds: Optional[List[str]] = None
+    UserGroupIds: Optional[List[Annotated[str, _aws_pattern("Elasticache", "UserGroupId")]]] = None
     Authentication: Optional[AuthenticationTypeDef] = None
     ARN: Optional[str] = None
 
@@ -1064,8 +1066,8 @@ class DescribeUsersMessagePaginateTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'describe_users' function.
 class DescribeUsersMessageTypeDef(BaseValidatorModel):
-    Engine: Optional[str] = None
-    UserId: Optional[str] = None
+    Engine: Optional[Annotated[str, _aws_pattern("Elasticache", "EngineType")]] = None
+    UserId: Optional[Annotated[str, _aws_pattern("Elasticache", "UserId")]] = None
     Filters: Optional[List[FilterTypeDef]] = None
     MaxRecords: Optional[int] = None
     Marker: Optional[str] = None
@@ -1118,8 +1120,8 @@ class ModifyReplicationGroupShardConfigurationMessageTypeDef(BaseValidatorModel)
     NodeGroupCount: int
     ApplyImmediately: bool
     ReshardingConfiguration: Optional[List[ReshardingConfigurationTypeDef]] = None
-    NodeGroupsToRemove: Optional[List[str]] = None
-    NodeGroupsToRetain: Optional[List[str]] = None
+    NodeGroupsToRemove: Optional[List[Annotated[str, _aws_pattern("Elasticache", "AllowedNodeGroupId")]]] = None
+    NodeGroupsToRetain: Optional[List[Annotated[str, _aws_pattern("Elasticache", "AllowedNodeGroupId")]]] = None
 
 
 class RegionalConfigurationTypeDef(BaseValidatorModel):
@@ -1227,8 +1229,8 @@ class UserGroupResponseTypeDef(BaseValidatorModel):
 class UserGroupTypeDef(BaseValidatorModel):
     UserGroupId: Optional[str] = None
     Status: Optional[str] = None
-    Engine: Optional[str] = None
-    UserIds: Optional[List[str]] = None
+    Engine: Optional[Annotated[str, _aws_pattern("Elasticache", "EngineType")]] = None
+    UserIds: Optional[List[Annotated[str, _aws_pattern("Elasticache", "UserId")]]] = None
     MinimumEngineVersion: Optional[str] = None
     PendingChanges: Optional[UserGroupPendingChangesTypeDef] = None
     ReplicationGroups: Optional[List[str]] = None
@@ -1674,7 +1676,7 @@ class CreateReplicationGroupMessageTypeDef(BaseValidatorModel):
     TransitEncryptionEnabled: Optional[bool] = None
     AtRestEncryptionEnabled: Optional[bool] = None
     KmsKeyId: Optional[str] = None
-    UserGroupIds: Optional[List[str]] = None
+    UserGroupIds: Optional[List[Annotated[str, _aws_pattern("Elasticache", "UserGroupId")]]] = None
     LogDeliveryConfigurations: Optional[List[LogDeliveryConfigurationRequestTypeDef]] = None
     DataTieringEnabled: Optional[bool] = None
     NetworkType: Optional[NetworkTypeType] = None
@@ -1735,8 +1737,8 @@ class ModifyReplicationGroupMessageTypeDef(BaseValidatorModel):
     CacheNodeType: Optional[str] = None
     AuthToken: Optional[str] = None
     AuthTokenUpdateStrategy: Optional[AuthTokenUpdateStrategyTypeType] = None
-    UserGroupIdsToAdd: Optional[List[str]] = None
-    UserGroupIdsToRemove: Optional[List[str]] = None
+    UserGroupIdsToAdd: Optional[List[Annotated[str, _aws_pattern("Elasticache", "UserGroupId")]]] = None
+    UserGroupIdsToRemove: Optional[List[Annotated[str, _aws_pattern("Elasticache", "UserGroupId")]]] = None
     RemoveUserGroups: Optional[bool] = None
     LogDeliveryConfigurations: Optional[List[LogDeliveryConfigurationRequestTypeDef]] = None
     IpDiscovery: Optional[IpDiscoveryType] = None
@@ -1879,7 +1881,7 @@ class ReplicationGroupTypeDef(BaseValidatorModel):
     MemberClustersOutpostArns: Optional[List[str]] = None
     KmsKeyId: Optional[str] = None
     ARN: Optional[str] = None
-    UserGroupIds: Optional[List[str]] = None
+    UserGroupIds: Optional[List[Annotated[str, _aws_pattern("Elasticache", "UserGroupId")]]] = None
     LogDeliveryConfigurations: Optional[List[LogDeliveryConfigurationTypeDef]] = None
     ReplicationGroupCreateTime: Optional[datetime] = None
     DataTiering: Optional[DataTieringStatusType] = None

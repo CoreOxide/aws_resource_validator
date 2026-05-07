@@ -3,6 +3,7 @@
 from datetime import datetime
 from decimal import Decimal
 from typing import (
+    Annotated,
     Any,
     Callable,
     Dict,
@@ -24,6 +25,7 @@ from botocore.response import StreamingBody
 from pydantic import Field
 
 from aws_resource_validator.core.base_validator_model import BaseValidatorModel, EventStream
+from aws_resource_validator.core.pattern_validation import aws_field_pattern as _aws_pattern
 from aws_resource_validator.pydantic_models.secretsmanager.secretsmanager_constants import *  # noqa: F401,F403
 
 # Optional boto3 symbols — imported lazily so services that don't need them
@@ -46,7 +48,7 @@ class APIErrorTypeTypeDef(BaseValidatorModel):
 
 class FilterTypeDef(BaseValidatorModel):
     Key: Optional[FilterNameStringTypeType] = None
-    Values: Optional[List[str]] = None
+    Values: Optional[List[Annotated[str, _aws_pattern("Secretsmanager", "FilterValueStringType")]]] = None
 
 
 class ResponseMetadataTypeDef(BaseValidatorModel):
@@ -76,7 +78,7 @@ class CancelRotateSecretRequestTypeDef(BaseValidatorModel):
 
 
 class ReplicaRegionTypeTypeDef(BaseValidatorModel):
-    Region: Optional[str] = None
+    Region: Optional[Annotated[str, _aws_pattern("Secretsmanager", "RegionType")]] = None
     KmsKeyId: Optional[str] = None
 
 
@@ -86,7 +88,7 @@ class TagTypeDef(BaseValidatorModel):
 
 
 class ReplicationStatusTypeTypeDef(BaseValidatorModel):
-    Region: Optional[str] = None
+    Region: Optional[Annotated[str, _aws_pattern("Secretsmanager", "RegionType")]] = None
     KmsKeyId: Optional[str] = None
     Status: Optional[StatusTypeType] = None
     StatusMessage: Optional[str] = None
@@ -117,8 +119,8 @@ class ExternalSecretRotationMetadataItemTypeDef(BaseValidatorModel):
 
 class RotationRulesTypeTypeDef(BaseValidatorModel):
     AutomaticallyAfterDays: Optional[int] = None
-    Duration: Optional[str] = None
-    ScheduleExpression: Optional[str] = None
+    Duration: Optional[Annotated[str, _aws_pattern("Secretsmanager", "DurationType")]] = None
+    ScheduleExpression: Optional[Annotated[str, _aws_pattern("Secretsmanager", "ScheduleExpressionType")]] = None
 
 
 # This class is the input for the 'get_random_password' function.
@@ -177,7 +179,7 @@ class PutResourcePolicyRequestTypeDef(BaseValidatorModel):
 # This class is the input for the 'remove_regions_from_replication' function.
 class RemoveRegionsFromReplicationRequestTypeDef(BaseValidatorModel):
     SecretId: str
-    RemoveReplicaRegions: List[str]
+    RemoveReplicaRegions: List[Annotated[str, _aws_pattern("Secretsmanager", "RegionType")]]
 
 
 # This class is the input for the 'restore_secret' function.
@@ -354,7 +356,7 @@ class PutSecretValueRequestTypeDef(BaseValidatorModel):
     SecretBinary: Optional[BlobTypeDef] = None
     SecretString: Optional[str] = None
     VersionStages: Optional[List[str]] = None
-    RotationToken: Optional[str] = None
+    RotationToken: Optional[Annotated[str, _aws_pattern("Secretsmanager", "RotationTokenType")]] = None
 
 
 # This class is the input for the 'update_secret' function.
@@ -439,7 +441,7 @@ class DescribeSecretResponseTypeDef(BaseValidatorModel):
     VersionIdsToStages: Dict[str, List[str]]
     OwningService: str
     CreatedDate: datetime
-    PrimaryRegion: str
+    PrimaryRegion: Annotated[str, _aws_pattern("Secretsmanager", "RegionType")]
     ReplicationStatus: List[ReplicationStatusTypeTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
 
@@ -475,7 +477,7 @@ class SecretListEntryTypeDef(BaseValidatorModel):
     SecretVersionsToStages: Optional[Dict[str, List[str]]] = None
     OwningService: Optional[str] = None
     CreatedDate: Optional[datetime] = None
-    PrimaryRegion: Optional[str] = None
+    PrimaryRegion: Optional[Annotated[str, _aws_pattern("Secretsmanager", "RegionType")]] = None
 
 
 # This class is the output for the 'list_secret_version_ids' function.

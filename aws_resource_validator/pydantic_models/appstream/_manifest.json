@@ -2,6 +2,7 @@
   "classes": [
     "AccessEndpointTypeDef",
     "AdminAppLicenseUsageRecordTypeDef",
+    "AgentAccessSettingTypeDef",
     "AppBlockBuilderAppBlockAssociationTypeDef",
     "AppBlockBuilderStateChangeReasonTypeDef",
     "ResourceErrorTypeDef",
@@ -108,6 +109,9 @@
     "TagResourceRequestTypeDef",
     "UntagResourceRequestTypeDef",
     "VpcConfigTypeDef",
+    "AgentAccessConfigForUpdateTypeDef",
+    "AgentAccessConfigOutputTypeDef",
+    "AgentAccessConfigTypeDef",
     "AppBlockBuilderTypeDef",
     "ExportImageTaskTypeDef",
     "SoftwareAssociationsTypeDef",
@@ -225,6 +229,7 @@
   "union_aliases": [
     "StorageConnectorUnionTypeDef",
     "VpcConfigUnionTypeDef",
+    "AgentAccessConfigUnionTypeDef",
     "ContentRedirectionUnionTypeDef"
   ]
 }

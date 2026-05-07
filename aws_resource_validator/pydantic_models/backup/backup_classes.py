@@ -3,6 +3,7 @@
 from datetime import datetime
 from decimal import Decimal
 from typing import (
+    Annotated,
     Any,
     Callable,
     Dict,
@@ -24,6 +25,7 @@ from botocore.response import StreamingBody
 from pydantic import Field
 
 from aws_resource_validator.core.base_validator_model import BaseValidatorModel, EventStream
+from aws_resource_validator.core.pattern_validation import aws_field_pattern as _aws_pattern
 from aws_resource_validator.pydantic_models.backup.backup_constants import *  # noqa: F401,F403
 
 # Optional boto3 symbols — imported lazily so services that don't need them
@@ -44,7 +46,7 @@ class AdvancedBackupSettingOutputTypeDef(BaseValidatorModel):
 
 
 class AdvancedBackupSettingTypeDef(BaseValidatorModel):
-    ResourceType: Optional[str] = None
+    ResourceType: Optional[Annotated[str, _aws_pattern("Backup", "ResourceType")]] = None
     BackupOptions: Optional[Dict[str, str]] = None
 
 
@@ -56,16 +58,16 @@ class AggregatedScanResultTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'associate_backup_vault_mpa_approval_team' function.
 class AssociateBackupVaultMpaApprovalTeamInputTypeDef(BaseValidatorModel):
-    BackupVaultName: str
+    BackupVaultName: Annotated[str, _aws_pattern("Backup", "BackupVaultName")]
     MpaApprovalTeamArn: str
     RequesterComment: Optional[str] = None
 
 
 class BackupJobSummaryTypeDef(BaseValidatorModel):
     Region: Optional[str] = None
-    AccountId: Optional[str] = None
+    AccountId: Optional[Annotated[str, _aws_pattern("Backup", "AccountId")]] = None
     State: Optional[BackupJobStatusType] = None
-    ResourceType: Optional[str] = None
+    ResourceType: Optional[Annotated[str, _aws_pattern("Backup", "ResourceType")]] = None
     MessageCategory: Optional[str] = None
     Count: Optional[int] = None
     StartTime: Optional[datetime] = None
@@ -118,7 +120,7 @@ class ConditionTypeDef(BaseValidatorModel):
 
 class BackupSelectionsListMemberTypeDef(BaseValidatorModel):
     SelectionId: Optional[str] = None
-    SelectionName: Optional[str] = None
+    SelectionName: Optional[Annotated[str, _aws_pattern("Backup", "BackupSelectionName")]] = None
     BackupPlanId: Optional[str] = None
     CreationDate: Optional[datetime] = None
     CreatorRequestId: Optional[str] = None
@@ -126,7 +128,7 @@ class BackupSelectionsListMemberTypeDef(BaseValidatorModel):
 
 
 class BackupVaultListMemberTypeDef(BaseValidatorModel):
-    BackupVaultName: Optional[str] = None
+    BackupVaultName: Optional[Annotated[str, _aws_pattern("Backup", "BackupVaultName")]] = None
     BackupVaultArn: Optional[str] = None
     VaultType: Optional[VaultTypeType] = None
     VaultState: Optional[VaultStateType] = None
@@ -176,9 +178,9 @@ class ControlScopeTypeDef(BaseValidatorModel):
 
 class CopyJobSummaryTypeDef(BaseValidatorModel):
     Region: Optional[str] = None
-    AccountId: Optional[str] = None
+    AccountId: Optional[Annotated[str, _aws_pattern("Backup", "AccountId")]] = None
     State: Optional[CopyJobStatusType] = None
-    ResourceType: Optional[str] = None
+    ResourceType: Optional[Annotated[str, _aws_pattern("Backup", "ResourceType")]] = None
     MessageCategory: Optional[str] = None
     Count: Optional[int] = None
     StartTime: Optional[datetime] = None
@@ -195,7 +197,7 @@ class ResponseMetadataTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'create_backup_vault' function.
 class CreateBackupVaultInputTypeDef(BaseValidatorModel):
-    BackupVaultName: str
+    BackupVaultName: Annotated[str, _aws_pattern("Backup", "BackupVaultName")]
     BackupVaultTags: Optional[Dict[str, str]] = None
     EncryptionKeyArn: Optional[str] = None
     CreatorRequestId: Optional[str] = None
@@ -203,7 +205,7 @@ class CreateBackupVaultInputTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'create_logically_air_gapped_backup_vault' function.
 class CreateLogicallyAirGappedBackupVaultInputTypeDef(BaseValidatorModel):
-    BackupVaultName: str
+    BackupVaultName: Annotated[str, _aws_pattern("Backup", "BackupVaultName")]
     MinRetentionDays: int
     MaxRetentionDays: int
     BackupVaultTags: Optional[Dict[str, str]] = None
@@ -214,7 +216,7 @@ class CreateLogicallyAirGappedBackupVaultInputTypeDef(BaseValidatorModel):
 # This class is the input for the 'create_restore_access_backup_vault' function.
 class CreateRestoreAccessBackupVaultInputTypeDef(BaseValidatorModel):
     SourceBackupVaultArn: str
-    BackupVaultName: Optional[str] = None
+    BackupVaultName: Optional[Annotated[str, _aws_pattern("Backup", "BackupVaultName")]] = None
     BackupVaultTags: Optional[Dict[str, str]] = None
     CreatorRequestId: Optional[str] = None
     RequesterComment: Optional[str] = None
@@ -241,7 +243,7 @@ class DeleteBackupSelectionInputTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'delete_backup_vault_access_policy' function.
 class DeleteBackupVaultAccessPolicyInputTypeDef(BaseValidatorModel):
-    BackupVaultName: str
+    BackupVaultName: Annotated[str, _aws_pattern("Backup", "BackupVaultName")]
 
 
 # This class is the input for the 'delete_backup_vault' function.
@@ -251,28 +253,28 @@ class DeleteBackupVaultInputTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'delete_backup_vault_lock_configuration' function.
 class DeleteBackupVaultLockConfigurationInputTypeDef(BaseValidatorModel):
-    BackupVaultName: str
+    BackupVaultName: Annotated[str, _aws_pattern("Backup", "BackupVaultName")]
 
 
 # This class is the input for the 'delete_backup_vault_notifications' function.
 class DeleteBackupVaultNotificationsInputTypeDef(BaseValidatorModel):
-    BackupVaultName: str
+    BackupVaultName: Annotated[str, _aws_pattern("Backup", "BackupVaultName")]
 
 
 # This class is the input for the 'delete_framework' function.
 class DeleteFrameworkInputTypeDef(BaseValidatorModel):
-    FrameworkName: str
+    FrameworkName: Annotated[str, _aws_pattern("Backup", "FrameworkName")]
 
 
 # This class is the input for the 'delete_recovery_point' function.
 class DeleteRecoveryPointInputTypeDef(BaseValidatorModel):
-    BackupVaultName: str
+    BackupVaultName: Annotated[str, _aws_pattern("Backup", "BackupVaultName")]
     RecoveryPointArn: str
 
 
 # This class is the input for the 'delete_report_plan' function.
 class DeleteReportPlanInputTypeDef(BaseValidatorModel):
-    ReportPlanName: str
+    ReportPlanName: Annotated[str, _aws_pattern("Backup", "ReportPlanName")]
 
 
 # This class is the input for the 'delete_restore_testing_plan' function.
@@ -287,7 +289,7 @@ class DeleteRestoreTestingSelectionInputTypeDef(BaseValidatorModel):
 
 
 class DeleteTieringConfigurationInputTypeDef(BaseValidatorModel):
-    TieringConfigurationName: str
+    TieringConfigurationName: Annotated[str, _aws_pattern("Backup", "TieringConfigurationName")]
 
 
 # This class is the input for the 'describe_backup_job' function.
@@ -316,7 +318,7 @@ class DescribeCopyJobInputTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'describe_framework' function.
 class DescribeFrameworkInputTypeDef(BaseValidatorModel):
-    FrameworkName: str
+    FrameworkName: Annotated[str, _aws_pattern("Backup", "FrameworkName")]
 
 
 # This class is the input for the 'describe_protected_resource' function.
@@ -326,9 +328,9 @@ class DescribeProtectedResourceInputTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'describe_recovery_point' function.
 class DescribeRecoveryPointInputTypeDef(BaseValidatorModel):
-    BackupVaultName: str
+    BackupVaultName: Annotated[str, _aws_pattern("Backup", "BackupVaultName")]
     RecoveryPointArn: str
-    BackupVaultAccountId: Optional[str] = None
+    BackupVaultAccountId: Optional[Annotated[str, _aws_pattern("Backup", "AccountId")]] = None
 
 
 class ScanResultTypeDef(BaseValidatorModel):
@@ -345,7 +347,7 @@ class DescribeReportJobInputTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'describe_report_plan' function.
 class DescribeReportPlanInputTypeDef(BaseValidatorModel):
-    ReportPlanName: str
+    ReportPlanName: Annotated[str, _aws_pattern("Backup", "ReportPlanName")]
 
 
 # This class is the input for the 'describe_restore_job' function.
@@ -375,19 +377,19 @@ class ScanResultInfoTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'disassociate_backup_vault_mpa_approval_team' function.
 class DisassociateBackupVaultMpaApprovalTeamInputTypeDef(BaseValidatorModel):
-    BackupVaultName: str
+    BackupVaultName: Annotated[str, _aws_pattern("Backup", "BackupVaultName")]
     RequesterComment: Optional[str] = None
 
 
 # This class is the input for the 'disassociate_recovery_point_from_parent' function.
 class DisassociateRecoveryPointFromParentInputTypeDef(BaseValidatorModel):
-    BackupVaultName: str
+    BackupVaultName: Annotated[str, _aws_pattern("Backup", "BackupVaultName")]
     RecoveryPointArn: str
 
 
 # This class is the input for the 'disassociate_recovery_point' function.
 class DisassociateRecoveryPointInputTypeDef(BaseValidatorModel):
-    BackupVaultName: str
+    BackupVaultName: Annotated[str, _aws_pattern("Backup", "BackupVaultName")]
     RecoveryPointArn: str
 
 
@@ -397,9 +399,9 @@ class ExportBackupPlanTemplateInputTypeDef(BaseValidatorModel):
 
 
 class FrameworkTypeDef(BaseValidatorModel):
-    FrameworkName: Optional[str] = None
+    FrameworkName: Optional[Annotated[str, _aws_pattern("Backup", "FrameworkName")]] = None
     FrameworkArn: Optional[str] = None
-    FrameworkDescription: Optional[str] = None
+    FrameworkDescription: Optional[Annotated[str, _aws_pattern("Backup", "FrameworkDescription")]] = None
     NumberOfControls: Optional[int] = None
     CreationTime: Optional[datetime] = None
     DeploymentStatus: Optional[str] = None
@@ -436,12 +438,12 @@ class GetBackupSelectionInputTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'get_backup_vault_access_policy' function.
 class GetBackupVaultAccessPolicyInputTypeDef(BaseValidatorModel):
-    BackupVaultName: str
+    BackupVaultName: Annotated[str, _aws_pattern("Backup", "BackupVaultName")]
 
 
 # This class is the input for the 'get_backup_vault_notifications' function.
 class GetBackupVaultNotificationsInputTypeDef(BaseValidatorModel):
-    BackupVaultName: str
+    BackupVaultName: Annotated[str, _aws_pattern("Backup", "BackupVaultName")]
 
 
 # This class is the input for the 'get_legal_hold' function.
@@ -451,15 +453,15 @@ class GetLegalHoldInputTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'get_recovery_point_index_details' function.
 class GetRecoveryPointIndexDetailsInputTypeDef(BaseValidatorModel):
-    BackupVaultName: str
+    BackupVaultName: Annotated[str, _aws_pattern("Backup", "BackupVaultName")]
     RecoveryPointArn: str
 
 
 # This class is the input for the 'get_recovery_point_restore_metadata' function.
 class GetRecoveryPointRestoreMetadataInputTypeDef(BaseValidatorModel):
-    BackupVaultName: str
+    BackupVaultName: Annotated[str, _aws_pattern("Backup", "BackupVaultName")]
     RecoveryPointArn: str
-    BackupVaultAccountId: Optional[str] = None
+    BackupVaultAccountId: Optional[Annotated[str, _aws_pattern("Backup", "AccountId")]] = None
 
 
 # This class is the input for the 'get_restore_job_metadata' function.
@@ -487,11 +489,11 @@ class GetRestoreTestingSelectionInputTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'get_tiering_configuration' function.
 class GetTieringConfigurationInputTypeDef(BaseValidatorModel):
-    TieringConfigurationName: str
+    TieringConfigurationName: Annotated[str, _aws_pattern("Backup", "TieringConfigurationName")]
 
 
 class IndexActionTypeDef(BaseValidatorModel):
-    ResourceTypes: Optional[List[str]] = None
+    ResourceTypes: Optional[List[Annotated[str, _aws_pattern("Backup", "ResourceType")]]] = None
 
 
 class IndexedRecoveryPointTypeDef(BaseValidatorModel):
@@ -499,7 +501,7 @@ class IndexedRecoveryPointTypeDef(BaseValidatorModel):
     SourceResourceArn: Optional[str] = None
     IamRoleArn: Optional[str] = None
     BackupCreationDate: Optional[datetime] = None
-    ResourceType: Optional[str] = None
+    ResourceType: Optional[Annotated[str, _aws_pattern("Backup", "ResourceType")]] = None
     IndexCreationDate: Optional[datetime] = None
     IndexStatus: Optional[IndexStatusType] = None
     IndexStatusMessage: Optional[str] = None
@@ -531,9 +533,9 @@ class LegalHoldTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'list_backup_job_summaries' function.
 class ListBackupJobSummariesInputTypeDef(BaseValidatorModel):
-    AccountId: Optional[str] = None
+    AccountId: Optional[Annotated[str, _aws_pattern("Backup", "AccountId")]] = None
     State: Optional[BackupJobStatusType] = None
-    ResourceType: Optional[str] = None
+    ResourceType: Optional[Annotated[str, _aws_pattern("Backup", "ResourceType")]] = None
     MessageCategory: Optional[str] = None
     AggregationPeriod: Optional[AggregationPeriodType] = None
     MaxResults: Optional[int] = None
@@ -583,9 +585,9 @@ class ListBackupVaultsInputTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'list_copy_job_summaries' function.
 class ListCopyJobSummariesInputTypeDef(BaseValidatorModel):
-    AccountId: Optional[str] = None
+    AccountId: Optional[Annotated[str, _aws_pattern("Backup", "AccountId")]] = None
     State: Optional[CopyJobStatusType] = None
-    ResourceType: Optional[str] = None
+    ResourceType: Optional[Annotated[str, _aws_pattern("Backup", "ResourceType")]] = None
     MessageCategory: Optional[str] = None
     AggregationPeriod: Optional[AggregationPeriodType] = None
     MaxResults: Optional[int] = None
@@ -606,15 +608,15 @@ class ListLegalHoldsInputTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'list_protected_resources_by_backup_vault' function.
 class ListProtectedResourcesByBackupVaultInputTypeDef(BaseValidatorModel):
-    BackupVaultName: str
-    BackupVaultAccountId: Optional[str] = None
+    BackupVaultName: Annotated[str, _aws_pattern("Backup", "BackupVaultName")]
+    BackupVaultAccountId: Optional[Annotated[str, _aws_pattern("Backup", "AccountId")]] = None
     NextToken: Optional[str] = None
     MaxResults: Optional[int] = None
 
 
 class ProtectedResourceTypeDef(BaseValidatorModel):
     ResourceArn: Optional[str] = None
-    ResourceType: Optional[str] = None
+    ResourceType: Optional[Annotated[str, _aws_pattern("Backup", "ResourceType")]] = None
     LastBackupTime: Optional[datetime] = None
     ResourceName: Optional[str] = None
     LastBackupVaultArn: Optional[str] = None
@@ -637,8 +639,8 @@ class ListRecoveryPointsByLegalHoldInputTypeDef(BaseValidatorModel):
 class RecoveryPointMemberTypeDef(BaseValidatorModel):
     RecoveryPointArn: Optional[str] = None
     ResourceArn: Optional[str] = None
-    ResourceType: Optional[str] = None
-    BackupVaultName: Optional[str] = None
+    ResourceType: Optional[Annotated[str, _aws_pattern("Backup", "ResourceType")]] = None
+    BackupVaultName: Optional[Annotated[str, _aws_pattern("Backup", "BackupVaultName")]] = None
 
 
 # This class is the input for the 'list_recovery_points_by_resource' function.
@@ -657,16 +659,16 @@ class ListReportPlansInputTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'list_restore_access_backup_vaults' function.
 class ListRestoreAccessBackupVaultsInputTypeDef(BaseValidatorModel):
-    BackupVaultName: str
+    BackupVaultName: Annotated[str, _aws_pattern("Backup", "BackupVaultName")]
     NextToken: Optional[str] = None
     MaxResults: Optional[int] = None
 
 
 # This class is the input for the 'list_restore_job_summaries' function.
 class ListRestoreJobSummariesInputTypeDef(BaseValidatorModel):
-    AccountId: Optional[str] = None
+    AccountId: Optional[Annotated[str, _aws_pattern("Backup", "AccountId")]] = None
     State: Optional[RestoreJobStateType] = None
-    ResourceType: Optional[str] = None
+    ResourceType: Optional[Annotated[str, _aws_pattern("Backup", "ResourceType")]] = None
     AggregationPeriod: Optional[AggregationPeriodType] = None
     MaxResults: Optional[int] = None
     NextToken: Optional[str] = None
@@ -674,9 +676,9 @@ class ListRestoreJobSummariesInputTypeDef(BaseValidatorModel):
 
 class RestoreJobSummaryTypeDef(BaseValidatorModel):
     Region: Optional[str] = None
-    AccountId: Optional[str] = None
+    AccountId: Optional[Annotated[str, _aws_pattern("Backup", "AccountId")]] = None
     State: Optional[RestoreJobStateType] = None
-    ResourceType: Optional[str] = None
+    ResourceType: Optional[Annotated[str, _aws_pattern("Backup", "ResourceType")]] = None
     Count: Optional[int] = None
     StartTime: Optional[datetime] = None
     EndTime: Optional[datetime] = None
@@ -717,8 +719,8 @@ class RestoreTestingSelectionForListTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'list_scan_job_summaries' function.
 class ListScanJobSummariesInputTypeDef(BaseValidatorModel):
-    AccountId: Optional[str] = None
-    ResourceType: Optional[str] = None
+    AccountId: Optional[Annotated[str, _aws_pattern("Backup", "AccountId")]] = None
+    ResourceType: Optional[Annotated[str, _aws_pattern("Backup", "ResourceType")]] = None
     MalwareScanner: Optional[Literal["GUARDDUTY"]] = None
     ScanResultStatus: Optional[ScanResultStatusType] = None
     State: Optional[ScanJobStatusType] = None
@@ -729,9 +731,9 @@ class ListScanJobSummariesInputTypeDef(BaseValidatorModel):
 
 class ScanJobSummaryTypeDef(BaseValidatorModel):
     Region: Optional[str] = None
-    AccountId: Optional[str] = None
+    AccountId: Optional[Annotated[str, _aws_pattern("Backup", "AccountId")]] = None
     State: Optional[ScanJobStatusType] = None
-    ResourceType: Optional[str] = None
+    ResourceType: Optional[Annotated[str, _aws_pattern("Backup", "ResourceType")]] = None
     Count: Optional[int] = None
     StartTime: Optional[datetime] = None
     EndTime: Optional[datetime] = None
@@ -754,21 +756,21 @@ class ListTieringConfigurationsInputTypeDef(BaseValidatorModel):
 
 class TieringConfigurationsListMemberTypeDef(BaseValidatorModel):
     TieringConfigurationArn: Optional[str] = None
-    TieringConfigurationName: Optional[str] = None
-    BackupVaultName: Optional[str] = None
+    TieringConfigurationName: Optional[Annotated[str, _aws_pattern("Backup", "TieringConfigurationName")]] = None
+    BackupVaultName: Optional[Annotated[str, _aws_pattern("Backup", "BackupVaultNameOrWildcard")]] = None
     CreationTime: Optional[datetime] = None
     LastUpdatedTime: Optional[datetime] = None
 
 
 # This class is the input for the 'put_backup_vault_access_policy' function.
 class PutBackupVaultAccessPolicyInputTypeDef(BaseValidatorModel):
-    BackupVaultName: str
+    BackupVaultName: Annotated[str, _aws_pattern("Backup", "BackupVaultName")]
     Policy: Optional[str] = None
 
 
 # This class is the input for the 'put_backup_vault_lock_configuration' function.
 class PutBackupVaultLockConfigurationInputTypeDef(BaseValidatorModel):
-    BackupVaultName: str
+    BackupVaultName: Annotated[str, _aws_pattern("Backup", "BackupVaultName")]
     MinRetentionDays: Optional[int] = None
     MaxRetentionDays: Optional[int] = None
     ChangeableForDays: Optional[int] = None
@@ -776,7 +778,7 @@ class PutBackupVaultLockConfigurationInputTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'put_backup_vault_notifications' function.
 class PutBackupVaultNotificationsInputTypeDef(BaseValidatorModel):
-    BackupVaultName: str
+    BackupVaultName: Annotated[str, _aws_pattern("Backup", "BackupVaultName")]
     SNSTopicArn: str
     BackupVaultEvents: List[BackupVaultEventType]
 
@@ -832,7 +834,7 @@ class ResourceSelectionOutputTypeDef(BaseValidatorModel):
 class ResourceSelectionTypeDef(BaseValidatorModel):
     Resources: List[str]
     TieringDownSettingsInDays: int
-    ResourceType: str
+    ResourceType: Annotated[str, _aws_pattern("Backup", "ResourceType")]
 
 
 class RestoreTestingRecoveryPointSelectionOutputTypeDef(BaseValidatorModel):
@@ -853,20 +855,20 @@ class RestoreTestingRecoveryPointSelectionTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'revoke_restore_access_backup_vault' function.
 class RevokeRestoreAccessBackupVaultInputTypeDef(BaseValidatorModel):
-    BackupVaultName: str
+    BackupVaultName: Annotated[str, _aws_pattern("Backup", "BackupVaultName")]
     RestoreAccessBackupVaultArn: str
     RequesterComment: Optional[str] = None
 
 
 class ScanSettingTypeDef(BaseValidatorModel):
     MalwareScanner: Optional[Literal["GUARDDUTY"]] = None
-    ResourceTypes: Optional[List[str]] = None
+    ResourceTypes: Optional[List[Annotated[str, _aws_pattern("Backup", "ResourceType")]]] = None
     ScannerRoleArn: Optional[str] = None
 
 
 # This class is the input for the 'start_report_job' function.
 class StartReportJobInputTypeDef(BaseValidatorModel):
-    ReportPlanName: str
+    ReportPlanName: Annotated[str, _aws_pattern("Backup", "ReportPlanName")]
     IdempotencyToken: Optional[str] = None
 
 
@@ -876,7 +878,7 @@ class StartRestoreJobInputTypeDef(BaseValidatorModel):
     Metadata: Dict[str, str]
     IamRoleArn: Optional[str] = None
     IdempotencyToken: Optional[str] = None
-    ResourceType: Optional[str] = None
+    ResourceType: Optional[Annotated[str, _aws_pattern("Backup", "ResourceType")]] = None
     CopySourceTagsToRestoredResource: Optional[bool] = None
 
 
@@ -916,7 +918,7 @@ class UpdateGlobalSettingsInputTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'update_recovery_point_index_settings' function.
 class UpdateRecoveryPointIndexSettingsInputTypeDef(BaseValidatorModel):
-    BackupVaultName: str
+    BackupVaultName: Annotated[str, _aws_pattern("Backup", "BackupVaultName")]
     RecoveryPointArn: str
     Index: IndexType
     IamRoleArn: Optional[str] = None
@@ -950,7 +952,7 @@ class RecoveryPointByResourceTypeDef(BaseValidatorModel):
     StatusMessage: Optional[str] = None
     EncryptionKeyArn: Optional[str] = None
     BackupSizeBytes: Optional[int] = None
-    BackupVaultName: Optional[str] = None
+    BackupVaultName: Optional[Annotated[str, _aws_pattern("Backup", "BackupVaultName")]] = None
     IsParent: Optional[bool] = None
     ParentRecoveryPointArn: Optional[str] = None
     ResourceName: Optional[str] = None
@@ -968,7 +970,7 @@ class CopyActionTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'start_backup_job' function.
 class StartBackupJobInputTypeDef(BaseValidatorModel):
-    BackupVaultName: str
+    BackupVaultName: Annotated[str, _aws_pattern("Backup", "BackupVaultName")]
     ResourceArn: str
     IamRoleArn: str
     LogicallyAirGappedBackupVaultArn: Optional[str] = None
@@ -984,7 +986,7 @@ class StartBackupJobInputTypeDef(BaseValidatorModel):
 # This class is the input for the 'start_copy_job' function.
 class StartCopyJobInputTypeDef(BaseValidatorModel):
     RecoveryPointArn: str
-    SourceBackupVaultName: str
+    SourceBackupVaultName: Annotated[str, _aws_pattern("Backup", "BackupVaultName")]
     DestinationBackupVaultArn: str
     IamRoleArn: str
     IdempotencyToken: Optional[str] = None
@@ -993,15 +995,15 @@ class StartCopyJobInputTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'update_recovery_point_lifecycle' function.
 class UpdateRecoveryPointLifecycleInputTypeDef(BaseValidatorModel):
-    BackupVaultName: str
+    BackupVaultName: Annotated[str, _aws_pattern("Backup", "BackupVaultName")]
     RecoveryPointArn: str
     Lifecycle: Optional[LifecycleTypeDef] = None
 
 
 class BackupJobTypeDef(BaseValidatorModel):
-    AccountId: Optional[str] = None
+    AccountId: Optional[Annotated[str, _aws_pattern("Backup", "AccountId")]] = None
     BackupJobId: Optional[str] = None
-    BackupVaultName: Optional[str] = None
+    BackupVaultName: Optional[Annotated[str, _aws_pattern("Backup", "BackupVaultName")]] = None
     BackupVaultArn: Optional[str] = None
     VaultType: Optional[str] = None
     VaultLockState: Optional[str] = None
@@ -1020,7 +1022,7 @@ class BackupJobTypeDef(BaseValidatorModel):
     CreatedBy: Optional[RecoveryPointCreatorTypeDef] = None
     ExpectedCompletionDate: Optional[datetime] = None
     StartBy: Optional[datetime] = None
-    ResourceType: Optional[str] = None
+    ResourceType: Optional[Annotated[str, _aws_pattern("Backup", "ResourceType")]] = None
     BytesTransferred: Optional[int] = None
     BackupOptions: Optional[Dict[str, str]] = None
     BackupType: Optional[str] = None
@@ -1032,7 +1034,7 @@ class BackupJobTypeDef(BaseValidatorModel):
 
 
 class CopyJobTypeDef(BaseValidatorModel):
-    AccountId: Optional[str] = None
+    AccountId: Optional[Annotated[str, _aws_pattern("Backup", "AccountId")]] = None
     CopyJobId: Optional[str] = None
     SourceBackupVaultArn: Optional[str] = None
     SourceRecoveryPointArn: Optional[str] = None
@@ -1051,7 +1053,7 @@ class CopyJobTypeDef(BaseValidatorModel):
     IamRoleArn: Optional[str] = None
     CreatedBy: Optional[RecoveryPointCreatorTypeDef] = None
     CreatedByBackupJobId: Optional[str] = None
-    ResourceType: Optional[str] = None
+    ResourceType: Optional[Annotated[str, _aws_pattern("Backup", "ResourceType")]] = None
     ParentJobId: Optional[str] = None
     IsParent: Optional[bool] = None
     CompositeMemberIdentifier: Optional[str] = None
@@ -1063,11 +1065,11 @@ class CopyJobTypeDef(BaseValidatorModel):
 
 class RecoveryPointByBackupVaultTypeDef(BaseValidatorModel):
     RecoveryPointArn: Optional[str] = None
-    BackupVaultName: Optional[str] = None
+    BackupVaultName: Optional[Annotated[str, _aws_pattern("Backup", "BackupVaultName")]] = None
     BackupVaultArn: Optional[str] = None
     SourceBackupVaultArn: Optional[str] = None
     ResourceArn: Optional[str] = None
-    ResourceType: Optional[str] = None
+    ResourceType: Optional[Annotated[str, _aws_pattern("Backup", "ResourceType")]] = None
     CreatedBy: Optional[RecoveryPointCreatorTypeDef] = None
     IamRoleArn: Optional[str] = None
     Status: Optional[RecoveryPointStatusType] = None
@@ -1135,7 +1137,7 @@ class CreateBackupSelectionOutputTypeDef(BaseValidatorModel):
 
 # This class is the output for the 'create_backup_vault' function.
 class CreateBackupVaultOutputTypeDef(BaseValidatorModel):
-    BackupVaultName: str
+    BackupVaultName: Annotated[str, _aws_pattern("Backup", "BackupVaultName")]
     BackupVaultArn: str
     CreationDate: datetime
     ResponseMetadata: ResponseMetadataTypeDef
@@ -1143,14 +1145,14 @@ class CreateBackupVaultOutputTypeDef(BaseValidatorModel):
 
 # This class is the output for the 'create_framework' function.
 class CreateFrameworkOutputTypeDef(BaseValidatorModel):
-    FrameworkName: str
+    FrameworkName: Annotated[str, _aws_pattern("Backup", "FrameworkName")]
     FrameworkArn: str
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 # This class is the output for the 'create_logically_air_gapped_backup_vault' function.
 class CreateLogicallyAirGappedBackupVaultOutputTypeDef(BaseValidatorModel):
-    BackupVaultName: str
+    BackupVaultName: Annotated[str, _aws_pattern("Backup", "BackupVaultName")]
     BackupVaultArn: str
     CreationDate: datetime
     VaultState: VaultStateType
@@ -1159,7 +1161,7 @@ class CreateLogicallyAirGappedBackupVaultOutputTypeDef(BaseValidatorModel):
 
 # This class is the output for the 'create_report_plan' function.
 class CreateReportPlanOutputTypeDef(BaseValidatorModel):
-    ReportPlanName: str
+    ReportPlanName: Annotated[str, _aws_pattern("Backup", "ReportPlanName")]
     ReportPlanArn: str
     CreationTime: datetime
     ResponseMetadata: ResponseMetadataTypeDef
@@ -1169,7 +1171,7 @@ class CreateReportPlanOutputTypeDef(BaseValidatorModel):
 class CreateRestoreAccessBackupVaultOutputTypeDef(BaseValidatorModel):
     RestoreAccessBackupVaultArn: str
     VaultState: VaultStateType
-    RestoreAccessBackupVaultName: str
+    RestoreAccessBackupVaultName: Annotated[str, _aws_pattern("Backup", "BackupVaultName")]
     CreationDate: datetime
     ResponseMetadata: ResponseMetadataTypeDef
 
@@ -1210,9 +1212,9 @@ class DeleteBackupPlanOutputTypeDef(BaseValidatorModel):
 
 # This class is the output for the 'describe_backup_job' function.
 class DescribeBackupJobOutputTypeDef(BaseValidatorModel):
-    AccountId: str
+    AccountId: Annotated[str, _aws_pattern("Backup", "AccountId")]
     BackupJobId: str
-    BackupVaultName: str
+    BackupVaultName: Annotated[str, _aws_pattern("Backup", "BackupVaultName")]
     RecoveryPointLifecycle: LifecycleTypeDef
     BackupVaultArn: str
     VaultType: str
@@ -1229,7 +1231,7 @@ class DescribeBackupJobOutputTypeDef(BaseValidatorModel):
     BackupSizeInBytes: int
     IamRoleArn: str
     CreatedBy: RecoveryPointCreatorTypeDef
-    ResourceType: str
+    ResourceType: Annotated[str, _aws_pattern("Backup", "ResourceType")]
     BytesTransferred: int
     ExpectedCompletionDate: datetime
     StartBy: datetime
@@ -1254,7 +1256,7 @@ class DescribeGlobalSettingsOutputTypeDef(BaseValidatorModel):
 # This class is the output for the 'describe_protected_resource' function.
 class DescribeProtectedResourceOutputTypeDef(BaseValidatorModel):
     ResourceArn: str
-    ResourceType: str
+    ResourceType: Annotated[str, _aws_pattern("Backup", "ResourceType")]
     LastBackupTime: datetime
     ResourceName: str
     LastBackupVaultArn: str
@@ -1284,7 +1286,7 @@ class ExportBackupPlanTemplateOutputTypeDef(BaseValidatorModel):
 
 # This class is the output for the 'get_backup_vault_access_policy' function.
 class GetBackupVaultAccessPolicyOutputTypeDef(BaseValidatorModel):
-    BackupVaultName: str
+    BackupVaultName: Annotated[str, _aws_pattern("Backup", "BackupVaultName")]
     BackupVaultArn: str
     Policy: str
     ResponseMetadata: ResponseMetadataTypeDef
@@ -1292,7 +1294,7 @@ class GetBackupVaultAccessPolicyOutputTypeDef(BaseValidatorModel):
 
 # This class is the output for the 'get_backup_vault_notifications' function.
 class GetBackupVaultNotificationsOutputTypeDef(BaseValidatorModel):
-    BackupVaultName: str
+    BackupVaultName: Annotated[str, _aws_pattern("Backup", "BackupVaultName")]
     BackupVaultArn: str
     SNSTopicArn: str
     BackupVaultEvents: List[BackupVaultEventType]
@@ -1318,7 +1320,7 @@ class GetRecoveryPointRestoreMetadataOutputTypeDef(BaseValidatorModel):
     BackupVaultArn: str
     RecoveryPointArn: str
     RestoreMetadata: Dict[str, str]
-    ResourceType: str
+    ResourceType: Annotated[str, _aws_pattern("Backup", "ResourceType")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
@@ -1336,7 +1338,7 @@ class GetRestoreTestingInferredMetadataOutputTypeDef(BaseValidatorModel):
 
 
 class GetSupportedResourceTypesOutputTypeDef(BaseValidatorModel):
-    ResourceTypes: List[str]
+    ResourceTypes: List[Annotated[str, _aws_pattern("Backup", "ResourceType")]]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
@@ -1433,7 +1435,7 @@ class UpdateBackupPlanOutputTypeDef(BaseValidatorModel):
 
 # This class is the output for the 'update_framework' function.
 class UpdateFrameworkOutputTypeDef(BaseValidatorModel):
-    FrameworkName: str
+    FrameworkName: Annotated[str, _aws_pattern("Backup", "FrameworkName")]
     FrameworkArn: str
     CreationTime: datetime
     ResponseMetadata: ResponseMetadataTypeDef
@@ -1441,7 +1443,7 @@ class UpdateFrameworkOutputTypeDef(BaseValidatorModel):
 
 # This class is the output for the 'update_recovery_point_index_settings' function.
 class UpdateRecoveryPointIndexSettingsOutputTypeDef(BaseValidatorModel):
-    BackupVaultName: str
+    BackupVaultName: Annotated[str, _aws_pattern("Backup", "BackupVaultName")]
     RecoveryPointArn: str
     IndexStatus: IndexStatusType
     Index: IndexType
@@ -1459,7 +1461,7 @@ class UpdateRecoveryPointLifecycleOutputTypeDef(BaseValidatorModel):
 
 # This class is the output for the 'update_report_plan' function.
 class UpdateReportPlanOutputTypeDef(BaseValidatorModel):
-    ReportPlanName: str
+    ReportPlanName: Annotated[str, _aws_pattern("Backup", "ReportPlanName")]
     ReportPlanArn: str
     CreationTime: datetime
     ResponseMetadata: ResponseMetadataTypeDef
@@ -1487,7 +1489,7 @@ class UpdateRestoreTestingSelectionOutputTypeDef(BaseValidatorModel):
 # This class is the output for the 'update_tiering_configuration' function.
 class UpdateTieringConfigurationOutputTypeDef(BaseValidatorModel):
     TieringConfigurationArn: str
-    TieringConfigurationName: str
+    TieringConfigurationName: Annotated[str, _aws_pattern("Backup", "TieringConfigurationName")]
     CreationTime: datetime
     LastUpdatedTime: datetime
     ResponseMetadata: ResponseMetadataTypeDef
@@ -1510,11 +1512,11 @@ class ListBackupJobsInputTypeDef(BaseValidatorModel):
     MaxResults: Optional[int] = None
     ByResourceArn: Optional[str] = None
     ByState: Optional[BackupJobStateType] = None
-    ByBackupVaultName: Optional[str] = None
+    ByBackupVaultName: Optional[Annotated[str, _aws_pattern("Backup", "BackupVaultName")]] = None
     ByCreatedBefore: Optional[TimestampTypeDef] = None
     ByCreatedAfter: Optional[TimestampTypeDef] = None
-    ByResourceType: Optional[str] = None
-    ByAccountId: Optional[str] = None
+    ByResourceType: Optional[Annotated[str, _aws_pattern("Backup", "ResourceType")]] = None
+    ByAccountId: Optional[Annotated[str, _aws_pattern("Backup", "AccountId")]] = None
     ByCompleteAfter: Optional[TimestampTypeDef] = None
     ByCompleteBefore: Optional[TimestampTypeDef] = None
     ByParentJobId: Optional[str] = None
@@ -1529,9 +1531,9 @@ class ListCopyJobsInputTypeDef(BaseValidatorModel):
     ByState: Optional[CopyJobStateType] = None
     ByCreatedBefore: Optional[TimestampTypeDef] = None
     ByCreatedAfter: Optional[TimestampTypeDef] = None
-    ByResourceType: Optional[str] = None
+    ByResourceType: Optional[Annotated[str, _aws_pattern("Backup", "ResourceType")]] = None
     ByDestinationVaultArn: Optional[str] = None
-    ByAccountId: Optional[str] = None
+    ByAccountId: Optional[Annotated[str, _aws_pattern("Backup", "AccountId")]] = None
     ByCompleteBefore: Optional[TimestampTypeDef] = None
     ByCompleteAfter: Optional[TimestampTypeDef] = None
     ByParentJobId: Optional[str] = None
@@ -1546,18 +1548,18 @@ class ListIndexedRecoveryPointsInputTypeDef(BaseValidatorModel):
     SourceResourceArn: Optional[str] = None
     CreatedBefore: Optional[TimestampTypeDef] = None
     CreatedAfter: Optional[TimestampTypeDef] = None
-    ResourceType: Optional[str] = None
+    ResourceType: Optional[Annotated[str, _aws_pattern("Backup", "ResourceType")]] = None
     IndexStatus: Optional[IndexStatusType] = None
 
 
 # This class is the input for the 'list_recovery_points_by_backup_vault' function.
 class ListRecoveryPointsByBackupVaultInputTypeDef(BaseValidatorModel):
-    BackupVaultName: str
-    BackupVaultAccountId: Optional[str] = None
+    BackupVaultName: Annotated[str, _aws_pattern("Backup", "BackupVaultName")]
+    BackupVaultAccountId: Optional[Annotated[str, _aws_pattern("Backup", "AccountId")]] = None
     NextToken: Optional[str] = None
     MaxResults: Optional[int] = None
     ByResourceArn: Optional[str] = None
-    ByResourceType: Optional[str] = None
+    ByResourceType: Optional[Annotated[str, _aws_pattern("Backup", "ResourceType")]] = None
     ByBackupPlanId: Optional[str] = None
     ByCreatedBefore: Optional[TimestampTypeDef] = None
     ByCreatedAfter: Optional[TimestampTypeDef] = None
@@ -1566,7 +1568,7 @@ class ListRecoveryPointsByBackupVaultInputTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'list_report_jobs' function.
 class ListReportJobsInputTypeDef(BaseValidatorModel):
-    ByReportPlanName: Optional[str] = None
+    ByReportPlanName: Optional[Annotated[str, _aws_pattern("Backup", "ReportPlanName")]] = None
     ByCreationBefore: Optional[TimestampTypeDef] = None
     ByCreationAfter: Optional[TimestampTypeDef] = None
     ByStatus: Optional[str] = None
@@ -1588,8 +1590,8 @@ class ListRestoreJobsByProtectedResourceInputTypeDef(BaseValidatorModel):
 class ListRestoreJobsInputTypeDef(BaseValidatorModel):
     NextToken: Optional[str] = None
     MaxResults: Optional[int] = None
-    ByAccountId: Optional[str] = None
-    ByResourceType: Optional[str] = None
+    ByAccountId: Optional[Annotated[str, _aws_pattern("Backup", "AccountId")]] = None
+    ByResourceType: Optional[Annotated[str, _aws_pattern("Backup", "ResourceType")]] = None
     ByCreatedBefore: Optional[TimestampTypeDef] = None
     ByCreatedAfter: Optional[TimestampTypeDef] = None
     ByStatus: Optional[RestoreJobStatusType] = None
@@ -1640,11 +1642,11 @@ class DescribeBackupVaultOutputTypeDef(BaseValidatorModel):
 # This class is the output for the 'describe_recovery_point' function.
 class DescribeRecoveryPointOutputTypeDef(BaseValidatorModel):
     RecoveryPointArn: str
-    BackupVaultName: str
+    BackupVaultName: Annotated[str, _aws_pattern("Backup", "BackupVaultName")]
     BackupVaultArn: str
     SourceBackupVaultArn: str
     ResourceArn: str
-    ResourceType: str
+    ResourceType: Annotated[str, _aws_pattern("Backup", "ResourceType")]
     CreatedBy: RecoveryPointCreatorTypeDef
     IamRoleArn: str
     Status: RecoveryPointStatusType
@@ -1673,7 +1675,7 @@ class DescribeRecoveryPointOutputTypeDef(BaseValidatorModel):
 
 # This class is the output for the 'describe_restore_job' function.
 class DescribeRestoreJobOutputTypeDef(BaseValidatorModel):
-    AccountId: str
+    AccountId: Annotated[str, _aws_pattern("Backup", "AccountId")]
     RestoreJobId: str
     RecoveryPointArn: str
     SourceResourceArn: str
@@ -1687,7 +1689,7 @@ class DescribeRestoreJobOutputTypeDef(BaseValidatorModel):
     IamRoleArn: str
     ExpectedCompletionTimeMinutes: int
     CreatedResourceArn: str
-    ResourceType: str
+    ResourceType: Annotated[str, _aws_pattern("Backup", "ResourceType")]
     RecoveryPointCreationDate: datetime
     CreatedBy: RestoreJobCreatorTypeDef
     ValidationStatus: RestoreValidationStatusType
@@ -1700,7 +1702,7 @@ class DescribeRestoreJobOutputTypeDef(BaseValidatorModel):
 
 
 class RestoreJobsListMemberTypeDef(BaseValidatorModel):
-    AccountId: Optional[str] = None
+    AccountId: Optional[Annotated[str, _aws_pattern("Backup", "AccountId")]] = None
     RestoreJobId: Optional[str] = None
     RecoveryPointArn: Optional[str] = None
     SourceResourceArn: Optional[str] = None
@@ -1714,7 +1716,7 @@ class RestoreJobsListMemberTypeDef(BaseValidatorModel):
     IamRoleArn: Optional[str] = None
     ExpectedCompletionTimeMinutes: Optional[int] = None
     CreatedResourceArn: Optional[str] = None
-    ResourceType: Optional[str] = None
+    ResourceType: Optional[Annotated[str, _aws_pattern("Backup", "ResourceType")]] = None
     RecoveryPointCreationDate: Optional[datetime] = None
     IsParent: Optional[bool] = None
     ParentJobId: Optional[str] = None
@@ -2054,8 +2056,8 @@ class ReportJobTypeDef(BaseValidatorModel):
 
 class ReportPlanTypeDef(BaseValidatorModel):
     ReportPlanArn: Optional[str] = None
-    ReportPlanName: Optional[str] = None
-    ReportPlanDescription: Optional[str] = None
+    ReportPlanName: Optional[Annotated[str, _aws_pattern("Backup", "ReportPlanName")]] = None
+    ReportPlanDescription: Optional[Annotated[str, _aws_pattern("Backup", "ReportPlanDescription")]] = None
     ReportSetting: Optional[ReportSettingOutputTypeDef] = None
     ReportDeliveryChannel: Optional[ReportDeliveryChannelOutputTypeDef] = None
     DeploymentStatus: Optional[str] = None
@@ -2068,8 +2070,8 @@ ReportSettingUnionTypeDef = Union[ReportSettingOutputTypeDef, ReportSettingTypeD
 
 
 class TieringConfigurationTypeDef(BaseValidatorModel):
-    TieringConfigurationName: str
-    BackupVaultName: str
+    TieringConfigurationName: Annotated[str, _aws_pattern("Backup", "TieringConfigurationName")]
+    BackupVaultName: Annotated[str, _aws_pattern("Backup", "BackupVaultNameOrWildcard")]
     ResourceSelection: List[ResourceSelectionOutputTypeDef]
     TieringConfigurationArn: Optional[str] = None
     CreatorRequestId: Optional[str] = None
@@ -2122,8 +2124,8 @@ class ListRecoveryPointsByResourceOutputTypeDef(BaseValidatorModel):
 
 
 class BackupRuleTypeDef(BaseValidatorModel):
-    RuleName: str
-    TargetBackupVaultName: str
+    RuleName: Annotated[str, _aws_pattern("Backup", "BackupRuleName")]
+    TargetBackupVaultName: Annotated[str, _aws_pattern("Backup", "BackupVaultName")]
     TargetLogicallyAirGappedBackupVaultArn: Optional[str] = None
     ScheduleExpression: Optional[str] = None
     StartWindowMinutes: Optional[int] = None
@@ -2175,7 +2177,7 @@ class BackupSelectionOutputTypeDef(BaseValidatorModel):
 
 
 class BackupSelectionTypeDef(BaseValidatorModel):
-    SelectionName: str
+    SelectionName: Annotated[str, _aws_pattern("Backup", "BackupSelectionName")]
     IamRoleArn: str
     Resources: Optional[List[str]] = None
     ListOfTags: Optional[List[ConditionTypeDef]] = None
@@ -2185,9 +2187,9 @@ class BackupSelectionTypeDef(BaseValidatorModel):
 
 # This class is the output for the 'describe_framework' function.
 class DescribeFrameworkOutputTypeDef(BaseValidatorModel):
-    FrameworkName: str
+    FrameworkName: Annotated[str, _aws_pattern("Backup", "FrameworkName")]
     FrameworkArn: str
-    FrameworkDescription: str
+    FrameworkDescription: Annotated[str, _aws_pattern("Backup", "FrameworkDescription")]
     FrameworkControls: List[FrameworkControlOutputTypeDef]
     CreationTime: datetime
     DeploymentStatus: str
@@ -2257,8 +2259,8 @@ class ListScanJobsOutputTypeDef(BaseValidatorModel):
 
 
 class BackupRuleInputTypeDef(BaseValidatorModel):
-    RuleName: str
-    TargetBackupVaultName: str
+    RuleName: Annotated[str, _aws_pattern("Backup", "BackupRuleName")]
+    TargetBackupVaultName: Annotated[str, _aws_pattern("Backup", "BackupVaultName")]
     TargetLogicallyAirGappedBackupVaultArn: Optional[str] = None
     ScheduleExpression: Optional[str] = None
     StartWindowMinutes: Optional[int] = None
@@ -2325,18 +2327,18 @@ class ListReportPlansOutputTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'create_report_plan' function.
 class CreateReportPlanInputTypeDef(BaseValidatorModel):
-    ReportPlanName: str
+    ReportPlanName: Annotated[str, _aws_pattern("Backup", "ReportPlanName")]
     ReportDeliveryChannel: ReportDeliveryChannelUnionTypeDef
     ReportSetting: ReportSettingUnionTypeDef
-    ReportPlanDescription: Optional[str] = None
+    ReportPlanDescription: Optional[Annotated[str, _aws_pattern("Backup", "ReportPlanDescription")]] = None
     ReportPlanTags: Optional[Dict[str, str]] = None
     IdempotencyToken: Optional[str] = None
 
 
 # This class is the input for the 'update_report_plan' function.
 class UpdateReportPlanInputTypeDef(BaseValidatorModel):
-    ReportPlanName: str
-    ReportPlanDescription: Optional[str] = None
+    ReportPlanName: Annotated[str, _aws_pattern("Backup", "ReportPlanName")]
+    ReportPlanDescription: Optional[Annotated[str, _aws_pattern("Backup", "ReportPlanDescription")]] = None
     ReportDeliveryChannel: Optional[ReportDeliveryChannelUnionTypeDef] = None
     ReportSetting: Optional[ReportSettingUnionTypeDef] = None
     IdempotencyToken: Optional[str] = None
@@ -2349,14 +2351,14 @@ class GetTieringConfigurationOutputTypeDef(BaseValidatorModel):
 
 
 class TieringConfigurationInputForCreateTypeDef(BaseValidatorModel):
-    TieringConfigurationName: str
-    BackupVaultName: str
+    TieringConfigurationName: Annotated[str, _aws_pattern("Backup", "TieringConfigurationName")]
+    BackupVaultName: Annotated[str, _aws_pattern("Backup", "BackupVaultNameOrWildcard")]
     ResourceSelection: List[ResourceSelectionUnionTypeDef]
 
 
 class TieringConfigurationInputForUpdateTypeDef(BaseValidatorModel):
     ResourceSelection: List[ResourceSelectionUnionTypeDef]
-    BackupVaultName: str
+    BackupVaultName: Annotated[str, _aws_pattern("Backup", "BackupVaultNameOrWildcard")]
 
 
 # This class is the output for the 'get_restore_testing_plan' function.
@@ -2444,7 +2446,7 @@ class CreateTieringConfigurationInputTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'update_tiering_configuration' function.
 class UpdateTieringConfigurationInputTypeDef(BaseValidatorModel):
-    TieringConfigurationName: str
+    TieringConfigurationName: Annotated[str, _aws_pattern("Backup", "TieringConfigurationName")]
     TieringConfiguration: TieringConfigurationInputForUpdateTypeDef
 
 
@@ -2497,17 +2499,17 @@ class CreateBackupSelectionInputTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'create_framework' function.
 class CreateFrameworkInputTypeDef(BaseValidatorModel):
-    FrameworkName: str
+    FrameworkName: Annotated[str, _aws_pattern("Backup", "FrameworkName")]
     FrameworkControls: List[FrameworkControlUnionTypeDef]
-    FrameworkDescription: Optional[str] = None
+    FrameworkDescription: Optional[Annotated[str, _aws_pattern("Backup", "FrameworkDescription")]] = None
     IdempotencyToken: Optional[str] = None
     FrameworkTags: Optional[Dict[str, str]] = None
 
 
 # This class is the input for the 'update_framework' function.
 class UpdateFrameworkInputTypeDef(BaseValidatorModel):
-    FrameworkName: str
-    FrameworkDescription: Optional[str] = None
+    FrameworkName: Annotated[str, _aws_pattern("Backup", "FrameworkName")]
+    FrameworkDescription: Optional[Annotated[str, _aws_pattern("Backup", "FrameworkDescription")]] = None
     FrameworkControls: Optional[List[FrameworkControlUnionTypeDef]] = None
     IdempotencyToken: Optional[str] = None
 

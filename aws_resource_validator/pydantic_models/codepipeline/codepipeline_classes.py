@@ -3,6 +3,7 @@
 from datetime import datetime
 from decimal import Decimal
 from typing import (
+    Annotated,
     Any,
     Callable,
     Dict,
@@ -24,6 +25,7 @@ from botocore.response import StreamingBody
 from pydantic import Field
 
 from aws_resource_validator.core.base_validator_model import BaseValidatorModel, EventStream
+from aws_resource_validator.core.pattern_validation import aws_field_pattern as _aws_pattern
 from aws_resource_validator.pydantic_models.codepipeline.codepipeline_constants import *  # noqa: F401,F403
 
 # Optional boto3 symbols — imported lazily so services that don't need them
@@ -46,7 +48,7 @@ class AWSSessionCredentialsTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'acknowledge_job' function.
 class AcknowledgeJobInputTypeDef(BaseValidatorModel):
-    jobId: str
+    jobId: Annotated[str, _aws_pattern("Codepipeline", "JobId")]
     nonce: str
 
 
@@ -80,25 +82,25 @@ class ActionConfigurationTypeDef(BaseValidatorModel):
 
 
 class ActionContextTypeDef(BaseValidatorModel):
-    name: Optional[str] = None
+    name: Optional[Annotated[str, _aws_pattern("Codepipeline", "ActionName")]] = None
     actionExecutionId: Optional[str] = None
 
 
 class ActionTypeIdTypeDef(BaseValidatorModel):
     category: ActionCategoryType
     owner: ActionOwnerType
-    provider: str
-    version: str
+    provider: Annotated[str, _aws_pattern("Codepipeline", "ActionProvider")]
+    version: Annotated[str, _aws_pattern("Codepipeline", "Version")]
 
 
 class EnvironmentVariableTypeDef(BaseValidatorModel):
-    name: str
-    value: str
+    name: Annotated[str, _aws_pattern("Codepipeline", "EnvironmentVariableName")]
+    value: Annotated[str, _aws_pattern("Codepipeline", "EnvironmentVariableValue")]
     type: Optional[EnvironmentVariableTypeType] = None
 
 
 class InputArtifactTypeDef(BaseValidatorModel):
-    name: str
+    name: Annotated[str, _aws_pattern("Codepipeline", "ArtifactName")]
 
 
 class OutputArtifactOutputTypeDef(BaseValidatorModel):
@@ -107,12 +109,12 @@ class OutputArtifactOutputTypeDef(BaseValidatorModel):
 
 
 class OutputArtifactTypeDef(BaseValidatorModel):
-    name: str
+    name: Annotated[str, _aws_pattern("Codepipeline", "ArtifactName")]
     files: Optional[List[str]] = None
 
 
 class LatestInPipelineExecutionFilterTypeDef(BaseValidatorModel):
-    pipelineExecutionId: str
+    pipelineExecutionId: Annotated[str, _aws_pattern("Codepipeline", "PipelineExecutionId")]
     startTimeRange: StartTimeRangeType
 
 
@@ -137,9 +139,9 @@ class ActionTypeArtifactDetailsTypeDef(BaseValidatorModel):
 
 class ActionTypeIdentifierTypeDef(BaseValidatorModel):
     category: ActionCategoryType
-    owner: str
-    provider: str
-    version: str
+    owner: Annotated[str, _aws_pattern("Codepipeline", "ActionTypeOwner")]
+    provider: Annotated[str, _aws_pattern("Codepipeline", "ActionProvider")]
+    version: Annotated[str, _aws_pattern("Codepipeline", "Version")]
 
 
 class ActionTypePermissionsOutputTypeDef(BaseValidatorModel):
@@ -163,7 +165,7 @@ class ActionTypeUrlsTypeDef(BaseValidatorModel):
 
 
 class ActionTypePermissionsTypeDef(BaseValidatorModel):
-    allowedAccounts: List[str]
+    allowedAccounts: List[Annotated[str, _aws_pattern("Codepipeline", "AllowedAccount")]]
 
 
 class ActionTypeSettingsTypeDef(BaseValidatorModel):
@@ -194,7 +196,7 @@ class S3ArtifactLocationTypeDef(BaseValidatorModel):
 
 
 class ArtifactRevisionTypeDef(BaseValidatorModel):
-    name: Optional[str] = None
+    name: Optional[Annotated[str, _aws_pattern("Codepipeline", "ArtifactName")]] = None
     revisionId: Optional[str] = None
     revisionChangeIdentifier: Optional[str] = None
     revisionSummary: Optional[str] = None
@@ -226,17 +228,17 @@ class TagTypeDef(BaseValidatorModel):
 # This class is the input for the 'delete_custom_action_type' function.
 class DeleteCustomActionTypeInputTypeDef(BaseValidatorModel):
     category: ActionCategoryType
-    provider: str
-    version: str
+    provider: Annotated[str, _aws_pattern("Codepipeline", "ActionProvider")]
+    version: Annotated[str, _aws_pattern("Codepipeline", "Version")]
 
 
 # This class is the input for the 'delete_pipeline' function.
 class DeletePipelineInputTypeDef(BaseValidatorModel):
-    name: str
+    name: Annotated[str, _aws_pattern("Codepipeline", "PipelineName")]
 
 
 class DeleteWebhookInputTypeDef(BaseValidatorModel):
-    name: str
+    name: Annotated[str, _aws_pattern("Codepipeline", "WebhookName")]
 
 
 class DeployTargetEventContextTypeDef(BaseValidatorModel):
@@ -245,21 +247,21 @@ class DeployTargetEventContextTypeDef(BaseValidatorModel):
 
 
 class DeregisterWebhookWithThirdPartyInputTypeDef(BaseValidatorModel):
-    webhookName: Optional[str] = None
+    webhookName: Optional[Annotated[str, _aws_pattern("Codepipeline", "WebhookName")]] = None
 
 
 # This class is the input for the 'disable_stage_transition' function.
 class DisableStageTransitionInputTypeDef(BaseValidatorModel):
-    pipelineName: str
-    stageName: str
+    pipelineName: Annotated[str, _aws_pattern("Codepipeline", "PipelineName")]
+    stageName: Annotated[str, _aws_pattern("Codepipeline", "StageName")]
     transitionType: StageTransitionTypeType
-    reason: str
+    reason: Annotated[str, _aws_pattern("Codepipeline", "DisabledReason")]
 
 
 # This class is the input for the 'enable_stage_transition' function.
 class EnableStageTransitionInputTypeDef(BaseValidatorModel):
-    pipelineName: str
-    stageName: str
+    pipelineName: Annotated[str, _aws_pattern("Codepipeline", "PipelineName")]
+    stageName: Annotated[str, _aws_pattern("Codepipeline", "StageName")]
     transitionType: StageTransitionTypeType
 
 
@@ -280,11 +282,11 @@ class JobWorkerExecutorConfigurationOutputTypeDef(BaseValidatorModel):
 
 
 class LambdaExecutorConfigurationTypeDef(BaseValidatorModel):
-    lambdaFunctionArn: str
+    lambdaFunctionArn: Annotated[str, _aws_pattern("Codepipeline", "LambdaFunctionArn")]
 
 
 class JobWorkerExecutorConfigurationTypeDef(BaseValidatorModel):
-    pollingAccounts: Optional[List[str]] = None
+    pollingAccounts: Optional[List[Annotated[str, _aws_pattern("Codepipeline", "AccountId")]]] = None
     pollingServicePrincipals: Optional[List[str]] = None
 
 
@@ -301,30 +303,30 @@ class FailureDetailsTypeDef(BaseValidatorModel):
 # This class is the input for the 'get_action_type' function.
 class GetActionTypeInputTypeDef(BaseValidatorModel):
     category: ActionCategoryType
-    owner: str
-    provider: str
-    version: str
+    owner: Annotated[str, _aws_pattern("Codepipeline", "ActionTypeOwner")]
+    provider: Annotated[str, _aws_pattern("Codepipeline", "ActionProvider")]
+    version: Annotated[str, _aws_pattern("Codepipeline", "Version")]
 
 
 # This class is the input for the 'get_job_details' function.
 class GetJobDetailsInputTypeDef(BaseValidatorModel):
-    jobId: str
+    jobId: Annotated[str, _aws_pattern("Codepipeline", "JobId")]
 
 
 # This class is the input for the 'get_pipeline_execution' function.
 class GetPipelineExecutionInputTypeDef(BaseValidatorModel):
-    pipelineName: str
-    pipelineExecutionId: str
+    pipelineName: Annotated[str, _aws_pattern("Codepipeline", "PipelineName")]
+    pipelineExecutionId: Annotated[str, _aws_pattern("Codepipeline", "PipelineExecutionId")]
 
 
 # This class is the input for the 'get_pipeline' function.
 class GetPipelineInputTypeDef(BaseValidatorModel):
-    name: str
+    name: Annotated[str, _aws_pattern("Codepipeline", "PipelineName")]
     version: Optional[int] = None
 
 
 class PipelineMetadataTypeDef(BaseValidatorModel):
-    pipelineArn: Optional[str] = None
+    pipelineArn: Optional[Annotated[str, _aws_pattern("Codepipeline", "PipelineArn")]] = None
     created: Optional[datetime] = None
     updated: Optional[datetime] = None
     pollingDisabledAt: Optional[datetime] = None
@@ -332,7 +334,7 @@ class PipelineMetadataTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'get_pipeline_state' function.
 class GetPipelineStateInputTypeDef(BaseValidatorModel):
-    name: str
+    name: Annotated[str, _aws_pattern("Codepipeline", "PipelineName")]
 
 
 # This class is the input for the 'get_third_party_job_details' function.
@@ -347,8 +349,8 @@ class GitBranchFilterCriteriaOutputTypeDef(BaseValidatorModel):
 
 
 class GitBranchFilterCriteriaTypeDef(BaseValidatorModel):
-    includes: Optional[List[str]] = None
-    excludes: Optional[List[str]] = None
+    includes: Optional[List[Annotated[str, _aws_pattern("Codepipeline", "GitBranchNamePattern")]]] = None
+    excludes: Optional[List[Annotated[str, _aws_pattern("Codepipeline", "GitBranchNamePattern")]]] = None
 
 
 class GitFilePathFilterCriteriaOutputTypeDef(BaseValidatorModel):
@@ -357,8 +359,8 @@ class GitFilePathFilterCriteriaOutputTypeDef(BaseValidatorModel):
 
 
 class GitFilePathFilterCriteriaTypeDef(BaseValidatorModel):
-    includes: Optional[List[str]] = None
-    excludes: Optional[List[str]] = None
+    includes: Optional[List[Annotated[str, _aws_pattern("Codepipeline", "GitFilePathPattern")]]] = None
+    excludes: Optional[List[Annotated[str, _aws_pattern("Codepipeline", "GitFilePathPattern")]]] = None
 
 
 class GitTagFilterCriteriaOutputTypeDef(BaseValidatorModel):
@@ -396,7 +398,7 @@ class ListPipelinesInputTypeDef(BaseValidatorModel):
 
 
 class PipelineSummaryTypeDef(BaseValidatorModel):
-    name: Optional[str] = None
+    name: Optional[Annotated[str, _aws_pattern("Codepipeline", "PipelineName")]] = None
     version: Optional[int] = None
     pipelineType: Optional[PipelineTypeType] = None
     executionMode: Optional[ExecutionModeType] = None
@@ -412,7 +414,7 @@ class ListRuleTypesInputTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'list_tags_for_resource' function.
 class ListTagsForResourceInputTypeDef(BaseValidatorModel):
-    resourceArn: str
+    resourceArn: Annotated[str, _aws_pattern("Codepipeline", "ResourceArn")]
     nextToken: Optional[str] = None
     maxResults: Optional[int] = None
 
@@ -425,32 +427,34 @@ class ListWebhooksInputTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'override_stage_condition' function.
 class OverrideStageConditionInputTypeDef(BaseValidatorModel):
-    pipelineName: str
-    stageName: str
-    pipelineExecutionId: str
+    pipelineName: Annotated[str, _aws_pattern("Codepipeline", "PipelineName")]
+    stageName: Annotated[str, _aws_pattern("Codepipeline", "StageName")]
+    pipelineExecutionId: Annotated[str, _aws_pattern("Codepipeline", "PipelineExecutionId")]
     conditionType: ConditionTypeType
 
 
 class StageContextTypeDef(BaseValidatorModel):
-    name: Optional[str] = None
+    name: Optional[Annotated[str, _aws_pattern("Codepipeline", "StageName")]] = None
 
 
 class PipelineVariableDeclarationTypeDef(BaseValidatorModel):
-    name: str
-    defaultValue: Optional[str] = None
-    description: Optional[str] = None
+    name: Annotated[str, _aws_pattern("Codepipeline", "PipelineVariableName")]
+    defaultValue: Optional[Annotated[str, _aws_pattern("Codepipeline", "PipelineVariableValue")]] = None
+    description: Optional[Annotated[str, _aws_pattern("Codepipeline", "PipelineVariableDescription")]] = None
 
 
 class SucceededInStageFilterTypeDef(BaseValidatorModel):
-    stageName: Optional[str] = None
+    stageName: Optional[Annotated[str, _aws_pattern("Codepipeline", "StageName")]] = None
 
 
 class PipelineRollbackMetadataTypeDef(BaseValidatorModel):
-    rollbackTargetPipelineExecutionId: Optional[str] = None
+    rollbackTargetPipelineExecutionId: Optional[Annotated[str, _aws_pattern("Codepipeline", "PipelineExecutionId")]] = (
+        None
+    )
 
 
 class SourceRevisionTypeDef(BaseValidatorModel):
-    actionName: str
+    actionName: Annotated[str, _aws_pattern("Codepipeline", "ActionName")]
     revisionId: Optional[str] = None
     revisionSummary: Optional[str] = None
     revisionUrl: Optional[str] = None
@@ -466,24 +470,24 @@ class ResolvedPipelineVariableTypeDef(BaseValidatorModel):
 
 
 class PipelineVariableTypeDef(BaseValidatorModel):
-    name: str
-    value: str
+    name: Annotated[str, _aws_pattern("Codepipeline", "PipelineVariableName")]
+    value: Annotated[str, _aws_pattern("Codepipeline", "PipelineVariableValue")]
 
 
 class ThirdPartyJobTypeDef(BaseValidatorModel):
-    clientId: Optional[str] = None
-    jobId: Optional[str] = None
+    clientId: Optional[Annotated[str, _aws_pattern("Codepipeline", "ClientId")]] = None
+    jobId: Optional[Annotated[str, _aws_pattern("Codepipeline", "JobId")]] = None
 
 
 class RegisterWebhookWithThirdPartyInputTypeDef(BaseValidatorModel):
-    webhookName: Optional[str] = None
+    webhookName: Optional[Annotated[str, _aws_pattern("Codepipeline", "WebhookName")]] = None
 
 
 # This class is the input for the 'retry_stage_execution' function.
 class RetryStageExecutionInputTypeDef(BaseValidatorModel):
-    pipelineName: str
-    stageName: str
-    pipelineExecutionId: str
+    pipelineName: Annotated[str, _aws_pattern("Codepipeline", "PipelineName")]
+    stageName: Annotated[str, _aws_pattern("Codepipeline", "StageName")]
+    pipelineExecutionId: Annotated[str, _aws_pattern("Codepipeline", "PipelineExecutionId")]
     retryMode: StageRetryModeType
 
 
@@ -495,9 +499,9 @@ class RetryStageMetadataTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'rollback_stage' function.
 class RollbackStageInputTypeDef(BaseValidatorModel):
-    pipelineName: str
-    stageName: str
-    targetPipelineExecutionId: str
+    pipelineName: Annotated[str, _aws_pattern("Codepipeline", "PipelineName")]
+    stageName: Annotated[str, _aws_pattern("Codepipeline", "StageName")]
+    targetPipelineExecutionId: Annotated[str, _aws_pattern("Codepipeline", "PipelineExecutionId")]
 
 
 class RuleConfigurationPropertyTypeDef(BaseValidatorModel):
@@ -512,9 +516,9 @@ class RuleConfigurationPropertyTypeDef(BaseValidatorModel):
 
 class RuleTypeIdTypeDef(BaseValidatorModel):
     category: Literal["Rule"]
-    provider: str
+    provider: Annotated[str, _aws_pattern("Codepipeline", "RuleProvider")]
     owner: Optional[Literal["AWS"]] = None
-    version: Optional[str] = None
+    version: Optional[Annotated[str, _aws_pattern("Codepipeline", "Version")]] = None
 
 
 class RuleRevisionTypeDef(BaseValidatorModel):
@@ -531,7 +535,7 @@ class RuleTypeSettingsTypeDef(BaseValidatorModel):
 
 
 class SourceRevisionOverrideTypeDef(BaseValidatorModel):
-    actionName: str
+    actionName: Annotated[str, _aws_pattern("Codepipeline", "ActionName")]
     revisionType: SourceRevisionTypeType
     revisionValue: str
 
@@ -542,7 +546,7 @@ class StageConditionsExecutionTypeDef(BaseValidatorModel):
 
 
 class StageExecutionTypeDef(BaseValidatorModel):
-    pipelineExecutionId: str
+    pipelineExecutionId: Annotated[str, _aws_pattern("Codepipeline", "PipelineExecutionId")]
     status: StageExecutionStatusType
     type: Optional[ExecutionTypeType] = None
 
@@ -551,19 +555,19 @@ class TransitionStateTypeDef(BaseValidatorModel):
     enabled: Optional[bool] = None
     lastChangedBy: Optional[str] = None
     lastChangedAt: Optional[datetime] = None
-    disabledReason: Optional[str] = None
+    disabledReason: Optional[Annotated[str, _aws_pattern("Codepipeline", "DisabledReason")]] = None
 
 
 # This class is the input for the 'stop_pipeline_execution' function.
 class StopPipelineExecutionInputTypeDef(BaseValidatorModel):
-    pipelineName: str
-    pipelineExecutionId: str
+    pipelineName: Annotated[str, _aws_pattern("Codepipeline", "PipelineName")]
+    pipelineExecutionId: Annotated[str, _aws_pattern("Codepipeline", "PipelineExecutionId")]
     abandon: Optional[bool] = None
     reason: Optional[str] = None
 
 
 class UntagResourceInputTypeDef(BaseValidatorModel):
-    resourceArn: str
+    resourceArn: Annotated[str, _aws_pattern("Codepipeline", "ResourceArn")]
     tagKeys: List[str]
 
 
@@ -597,7 +601,7 @@ class EmptyResponseMetadataTypeDef(BaseValidatorModel):
 # This class is the output for the 'put_action_revision' function.
 class PutActionRevisionOutputTypeDef(BaseValidatorModel):
     newRevision: bool
-    pipelineExecutionId: str
+    pipelineExecutionId: Annotated[str, _aws_pattern("Codepipeline", "PipelineExecutionId")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
@@ -609,25 +613,25 @@ class PutApprovalResultOutputTypeDef(BaseValidatorModel):
 
 # This class is the output for the 'retry_stage_execution' function.
 class RetryStageExecutionOutputTypeDef(BaseValidatorModel):
-    pipelineExecutionId: str
+    pipelineExecutionId: Annotated[str, _aws_pattern("Codepipeline", "PipelineExecutionId")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 # This class is the output for the 'rollback_stage' function.
 class RollbackStageOutputTypeDef(BaseValidatorModel):
-    pipelineExecutionId: str
+    pipelineExecutionId: Annotated[str, _aws_pattern("Codepipeline", "PipelineExecutionId")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 # This class is the output for the 'start_pipeline_execution' function.
 class StartPipelineExecutionOutputTypeDef(BaseValidatorModel):
-    pipelineExecutionId: str
+    pipelineExecutionId: Annotated[str, _aws_pattern("Codepipeline", "PipelineExecutionId")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 # This class is the output for the 'stop_pipeline_execution' function.
 class StopPipelineExecutionOutputTypeDef(BaseValidatorModel):
-    pipelineExecutionId: str
+    pipelineExecutionId: Annotated[str, _aws_pattern("Codepipeline", "PipelineExecutionId")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
@@ -661,7 +665,7 @@ class ActionDeclarationOutputTypeDef(BaseValidatorModel):
 
 
 class ActionDeclarationTypeDef(BaseValidatorModel):
-    name: str
+    name: Annotated[str, _aws_pattern("Codepipeline", "ActionName")]
     actionTypeId: ActionTypeIdTypeDef
     runOrder: Optional[int] = None
     configuration: Optional[Dict[str, str]] = None
@@ -669,20 +673,20 @@ class ActionDeclarationTypeDef(BaseValidatorModel):
     outputArtifacts: Optional[List[OutputArtifactTypeDef]] = None
     inputArtifacts: Optional[List[InputArtifactTypeDef]] = None
     outputVariables: Optional[List[str]] = None
-    roleArn: Optional[str] = None
+    roleArn: Optional[Annotated[str, _aws_pattern("Codepipeline", "RoleArn")]] = None
     region: Optional[str] = None
-    namespace: Optional[str] = None
+    namespace: Optional[Annotated[str, _aws_pattern("Codepipeline", "ActionNamespace")]] = None
     timeoutInMinutes: Optional[int] = None
     environmentVariables: Optional[List[EnvironmentVariableTypeDef]] = None
 
 
 class ActionExecutionFilterTypeDef(BaseValidatorModel):
-    pipelineExecutionId: Optional[str] = None
+    pipelineExecutionId: Optional[Annotated[str, _aws_pattern("Codepipeline", "PipelineExecutionId")]] = None
     latestInPipelineExecution: Optional[LatestInPipelineExecutionFilterTypeDef] = None
 
 
 class RuleExecutionFilterTypeDef(BaseValidatorModel):
-    pipelineExecutionId: Optional[str] = None
+    pipelineExecutionId: Optional[Annotated[str, _aws_pattern("Codepipeline", "PipelineExecutionId")]] = None
     latestInPipelineExecution: Optional[LatestInPipelineExecutionFilterTypeDef] = None
 
 
@@ -720,7 +724,7 @@ class RuleExecutionTypeDef(BaseValidatorModel):
     status: Optional[RuleExecutionStatusType] = None
     summary: Optional[str] = None
     lastStatusChange: Optional[datetime] = None
-    token: Optional[str] = None
+    token: Optional[Annotated[str, _aws_pattern("Codepipeline", "RuleExecutionToken")]] = None
     lastUpdatedBy: Optional[str] = None
     externalExecutionId: Optional[str] = None
     externalExecutionUrl: Optional[str] = None
@@ -750,15 +754,15 @@ class ActionTypeTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'put_approval_result' function.
 class PutApprovalResultInputTypeDef(BaseValidatorModel):
-    pipelineName: str
-    stageName: str
-    actionName: str
+    pipelineName: Annotated[str, _aws_pattern("Codepipeline", "PipelineName")]
+    stageName: Annotated[str, _aws_pattern("Codepipeline", "StageName")]
+    actionName: Annotated[str, _aws_pattern("Codepipeline", "ActionName")]
     result: ApprovalResultTypeDef
-    token: str
+    token: Annotated[str, _aws_pattern("Codepipeline", "ApprovalToken")]
 
 
 class ArtifactDetailTypeDef(BaseValidatorModel):
-    name: Optional[str] = None
+    name: Optional[Annotated[str, _aws_pattern("Codepipeline", "ArtifactName")]] = None
     s3location: Optional[S3LocationTypeDef] = None
 
 
@@ -769,15 +773,15 @@ class ArtifactLocationTypeDef(BaseValidatorModel):
 
 class ArtifactStoreTypeDef(BaseValidatorModel):
     type: Literal["S3"]
-    location: str
+    location: Annotated[str, _aws_pattern("Codepipeline", "ArtifactStoreLocation")]
     encryptionKey: Optional[EncryptionKeyTypeDef] = None
 
 
 # This class is the input for the 'create_custom_action_type' function.
 class CreateCustomActionTypeInputTypeDef(BaseValidatorModel):
     category: ActionCategoryType
-    provider: str
-    version: str
+    provider: Annotated[str, _aws_pattern("Codepipeline", "ActionProvider")]
+    version: Annotated[str, _aws_pattern("Codepipeline", "Version")]
     inputArtifactDetails: ArtifactDetailsTypeDef
     outputArtifactDetails: ArtifactDetailsTypeDef
     settings: Optional[ActionTypeSettingsTypeDef] = None
@@ -793,7 +797,7 @@ class ListTagsForResourceOutputTypeDef(BaseValidatorModel):
 
 
 class TagResourceInputTypeDef(BaseValidatorModel):
-    resourceArn: str
+    resourceArn: Annotated[str, _aws_pattern("Codepipeline", "ResourceArn")]
     tags: List[TagTypeDef]
 
 
@@ -817,7 +821,7 @@ class ExecutorConfigurationTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'put_job_failure_result' function.
 class PutJobFailureResultInputTypeDef(BaseValidatorModel):
-    jobId: str
+    jobId: Annotated[str, _aws_pattern("Codepipeline", "JobId")]
     failureDetails: FailureDetailsTypeDef
 
 
@@ -881,7 +885,7 @@ class ListDeployActionExecutionTargetsInputPaginateTypeDef(BaseValidatorModel):
 # This class is the input for the 'list_deploy_action_execution_targets' function.
 class ListDeployActionExecutionTargetsInputTypeDef(BaseValidatorModel):
     actionExecutionId: str
-    pipelineName: Optional[str] = None
+    pipelineName: Optional[Annotated[str, _aws_pattern("Codepipeline", "PipelineName")]] = None
     filters: Optional[List[TargetFilterTypeDef]] = None
     maxResults: Optional[int] = None
     nextToken: Optional[str] = None
@@ -895,11 +899,11 @@ class ListPipelinesOutputTypeDef(BaseValidatorModel):
 
 
 class PipelineContextTypeDef(BaseValidatorModel):
-    pipelineName: Optional[str] = None
+    pipelineName: Optional[Annotated[str, _aws_pattern("Codepipeline", "PipelineName")]] = None
     stage: Optional[StageContextTypeDef] = None
     action: Optional[ActionContextTypeDef] = None
-    pipelineArn: Optional[str] = None
-    pipelineExecutionId: Optional[str] = None
+    pipelineArn: Optional[Annotated[str, _aws_pattern("Codepipeline", "PipelineArn")]] = None
+    pipelineExecutionId: Optional[Annotated[str, _aws_pattern("Codepipeline", "PipelineExecutionId")]] = None
 
 
 class PipelineExecutionFilterTypeDef(BaseValidatorModel):
@@ -907,7 +911,7 @@ class PipelineExecutionFilterTypeDef(BaseValidatorModel):
 
 
 class PipelineExecutionSummaryTypeDef(BaseValidatorModel):
-    pipelineExecutionId: Optional[str] = None
+    pipelineExecutionId: Optional[Annotated[str, _aws_pattern("Codepipeline", "PipelineExecutionId")]] = None
     status: Optional[PipelineExecutionStatusType] = None
     statusSummary: Optional[str] = None
     startTime: Optional[datetime] = None
@@ -921,9 +925,9 @@ class PipelineExecutionSummaryTypeDef(BaseValidatorModel):
 
 
 class PipelineExecutionTypeDef(BaseValidatorModel):
-    pipelineName: Optional[str] = None
+    pipelineName: Optional[Annotated[str, _aws_pattern("Codepipeline", "PipelineName")]] = None
     pipelineVersion: Optional[int] = None
-    pipelineExecutionId: Optional[str] = None
+    pipelineExecutionId: Optional[Annotated[str, _aws_pattern("Codepipeline", "PipelineExecutionId")]] = None
     status: Optional[PipelineExecutionStatusType] = None
     statusSummary: Optional[str] = None
     artifactRevisions: Optional[List[ArtifactRevisionTypeDef]] = None
@@ -952,12 +956,12 @@ class RuleDeclarationOutputTypeDef(BaseValidatorModel):
 
 
 class RuleDeclarationTypeDef(BaseValidatorModel):
-    name: str
+    name: Annotated[str, _aws_pattern("Codepipeline", "RuleName")]
     ruleTypeId: RuleTypeIdTypeDef
     configuration: Optional[Dict[str, str]] = None
     commands: Optional[List[str]] = None
     inputArtifacts: Optional[List[InputArtifactTypeDef]] = None
-    roleArn: Optional[str] = None
+    roleArn: Optional[Annotated[str, _aws_pattern("Codepipeline", "RoleArn")]] = None
     region: Optional[str] = None
     timeoutInMinutes: Optional[int] = None
 
@@ -971,9 +975,9 @@ class RuleTypeTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'start_pipeline_execution' function.
 class StartPipelineExecutionInputTypeDef(BaseValidatorModel):
-    name: str
+    name: Annotated[str, _aws_pattern("Codepipeline", "PipelineName")]
     variables: Optional[List[PipelineVariableTypeDef]] = None
-    clientRequestToken: Optional[str] = None
+    clientRequestToken: Optional[Annotated[str, _aws_pattern("Codepipeline", "ClientRequestToken")]] = None
     sourceRevisions: Optional[List[SourceRevisionOverrideTypeDef]] = None
 
 
@@ -987,9 +991,9 @@ class WebhookDefinitionOutputTypeDef(BaseValidatorModel):
 
 
 class WebhookDefinitionTypeDef(BaseValidatorModel):
-    name: str
-    targetPipeline: str
-    targetAction: str
+    name: Annotated[str, _aws_pattern("Codepipeline", "WebhookName")]
+    targetPipeline: Annotated[str, _aws_pattern("Codepipeline", "PipelineName")]
+    targetAction: Annotated[str, _aws_pattern("Codepipeline", "ActionName")]
     filters: List[WebhookFilterRuleTypeDef]
     authentication: WebhookAuthenticationTypeType
     authenticationConfiguration: WebhookAuthConfigurationTypeDef
@@ -1003,7 +1007,7 @@ class ListActionExecutionsInputPaginateTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'list_action_executions' function.
 class ListActionExecutionsInputTypeDef(BaseValidatorModel):
-    pipelineName: str
+    pipelineName: Annotated[str, _aws_pattern("Codepipeline", "PipelineName")]
     filter: Optional[ActionExecutionFilterTypeDef] = None
     maxResults: Optional[int] = None
     nextToken: Optional[str] = None
@@ -1017,14 +1021,14 @@ class ListRuleExecutionsInputPaginateTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'list_rule_executions' function.
 class ListRuleExecutionsInputTypeDef(BaseValidatorModel):
-    pipelineName: str
+    pipelineName: Annotated[str, _aws_pattern("Codepipeline", "PipelineName")]
     filter: Optional[RuleExecutionFilterTypeDef] = None
     maxResults: Optional[int] = None
     nextToken: Optional[str] = None
 
 
 class ActionStateTypeDef(BaseValidatorModel):
-    actionName: Optional[str] = None
+    actionName: Optional[Annotated[str, _aws_pattern("Codepipeline", "ActionName")]] = None
     currentRevision: Optional[ActionRevisionOutputTypeDef] = None
     latestExecution: Optional[ActionExecutionTypeDef] = None
     entityUrl: Optional[str] = None
@@ -1036,7 +1040,7 @@ class RuleExecutionOutputTypeDef(BaseValidatorModel):
 
 
 class RuleStateTypeDef(BaseValidatorModel):
-    ruleName: Optional[str] = None
+    ruleName: Optional[Annotated[str, _aws_pattern("Codepipeline", "RuleName")]] = None
     currentRevision: Optional[RuleRevisionTypeDef] = None
     latestExecution: Optional[RuleExecutionTypeDef] = None
     entityUrl: Optional[str] = None
@@ -1048,7 +1052,7 @@ ActionRevisionUnionTypeDef = Union[ActionRevisionOutputTypeDef, ActionRevisionTy
 
 # This class is the input for the 'put_job_success_result' function.
 class PutJobSuccessResultInputTypeDef(BaseValidatorModel):
-    jobId: str
+    jobId: Annotated[str, _aws_pattern("Codepipeline", "JobId")]
     currentRevision: Optional[CurrentRevisionTypeDef] = None
     continuationToken: Optional[str] = None
     executionDetails: Optional[ExecutionDetailsTypeDef] = None
@@ -1082,10 +1086,10 @@ class ActionExecutionInputTypeDef(BaseValidatorModel):
     actionTypeId: Optional[ActionTypeIdTypeDef] = None
     configuration: Optional[Dict[str, str]] = None
     resolvedConfiguration: Optional[Dict[str, str]] = None
-    roleArn: Optional[str] = None
+    roleArn: Optional[Annotated[str, _aws_pattern("Codepipeline", "RoleArn")]] = None
     region: Optional[str] = None
     inputArtifacts: Optional[List[ArtifactDetailTypeDef]] = None
-    namespace: Optional[str] = None
+    namespace: Optional[Annotated[str, _aws_pattern("Codepipeline", "ActionNamespace")]] = None
 
 
 class ActionExecutionOutputTypeDef(BaseValidatorModel):
@@ -1098,13 +1102,13 @@ class RuleExecutionInputTypeDef(BaseValidatorModel):
     ruleTypeId: Optional[RuleTypeIdTypeDef] = None
     configuration: Optional[Dict[str, str]] = None
     resolvedConfiguration: Optional[Dict[str, str]] = None
-    roleArn: Optional[str] = None
+    roleArn: Optional[Annotated[str, _aws_pattern("Codepipeline", "RoleArn")]] = None
     region: Optional[str] = None
     inputArtifacts: Optional[List[ArtifactDetailTypeDef]] = None
 
 
 class ArtifactTypeDef(BaseValidatorModel):
-    name: Optional[str] = None
+    name: Optional[Annotated[str, _aws_pattern("Codepipeline", "ArtifactName")]] = None
     revision: Optional[str] = None
     location: Optional[ArtifactLocationTypeDef] = None
 
@@ -1139,7 +1143,7 @@ class GitConfigurationOutputTypeDef(BaseValidatorModel):
 
 
 class GitConfigurationTypeDef(BaseValidatorModel):
-    sourceActionName: str
+    sourceActionName: Annotated[str, _aws_pattern("Codepipeline", "ActionName")]
     push: Optional[List[GitPushFilterTypeDef]] = None
     pullRequest: Optional[List[GitPullRequestFilterTypeDef]] = None
 
@@ -1152,7 +1156,7 @@ class ListPipelineExecutionsInputPaginateTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'list_pipeline_executions' function.
 class ListPipelineExecutionsInputTypeDef(BaseValidatorModel):
-    pipelineName: str
+    pipelineName: Annotated[str, _aws_pattern("Codepipeline", "PipelineName")]
     maxResults: Optional[int] = None
     filter: Optional[PipelineExecutionFilterTypeDef] = None
     nextToken: Optional[str] = None
@@ -1207,18 +1211,18 @@ class ConditionStateTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'put_action_revision' function.
 class PutActionRevisionInputTypeDef(BaseValidatorModel):
-    pipelineName: str
-    stageName: str
-    actionName: str
+    pipelineName: Annotated[str, _aws_pattern("Codepipeline", "PipelineName")]
+    stageName: Annotated[str, _aws_pattern("Codepipeline", "StageName")]
+    actionName: Annotated[str, _aws_pattern("Codepipeline", "ActionName")]
     actionRevision: ActionRevisionUnionTypeDef
 
 
 class ActionExecutionDetailTypeDef(BaseValidatorModel):
-    pipelineExecutionId: Optional[str] = None
+    pipelineExecutionId: Optional[Annotated[str, _aws_pattern("Codepipeline", "PipelineExecutionId")]] = None
     actionExecutionId: Optional[str] = None
     pipelineVersion: Optional[int] = None
-    stageName: Optional[str] = None
-    actionName: Optional[str] = None
+    stageName: Optional[Annotated[str, _aws_pattern("Codepipeline", "StageName")]] = None
+    actionName: Optional[Annotated[str, _aws_pattern("Codepipeline", "ActionName")]] = None
     startTime: Optional[datetime] = None
     lastUpdateTime: Optional[datetime] = None
     updatedBy: Optional[str] = None
@@ -1228,11 +1232,11 @@ class ActionExecutionDetailTypeDef(BaseValidatorModel):
 
 
 class RuleExecutionDetailTypeDef(BaseValidatorModel):
-    pipelineExecutionId: Optional[str] = None
+    pipelineExecutionId: Optional[Annotated[str, _aws_pattern("Codepipeline", "PipelineExecutionId")]] = None
     ruleExecutionId: Optional[str] = None
     pipelineVersion: Optional[int] = None
-    stageName: Optional[str] = None
-    ruleName: Optional[str] = None
+    stageName: Optional[Annotated[str, _aws_pattern("Codepipeline", "StageName")]] = None
+    ruleName: Optional[Annotated[str, _aws_pattern("Codepipeline", "RuleName")]] = None
     startTime: Optional[datetime] = None
     lastUpdateTime: Optional[datetime] = None
     updatedBy: Optional[str] = None
@@ -1369,16 +1373,16 @@ class ListRuleExecutionsOutputTypeDef(BaseValidatorModel):
 
 
 class JobDetailsTypeDef(BaseValidatorModel):
-    id: Optional[str] = None
+    id: Optional[Annotated[str, _aws_pattern("Codepipeline", "JobId")]] = None
     data: Optional[JobDataTypeDef] = None
-    accountId: Optional[str] = None
+    accountId: Optional[Annotated[str, _aws_pattern("Codepipeline", "AccountId")]] = None
 
 
 class JobTypeDef(BaseValidatorModel):
-    id: Optional[str] = None
+    id: Optional[Annotated[str, _aws_pattern("Codepipeline", "JobId")]] = None
     data: Optional[JobDataTypeDef] = None
     nonce: Optional[str] = None
-    accountId: Optional[str] = None
+    accountId: Optional[Annotated[str, _aws_pattern("Codepipeline", "AccountId")]] = None
 
 
 class ThirdPartyJobDetailsTypeDef(BaseValidatorModel):
@@ -1406,7 +1410,7 @@ class StageDeclarationOutputTypeDef(BaseValidatorModel):
 
 
 class StageDeclarationTypeDef(BaseValidatorModel):
-    name: str
+    name: Annotated[str, _aws_pattern("Codepipeline", "StageName")]
     actions: List[ActionDeclarationTypeDef]
     blockers: Optional[List[BlockerDeclarationTypeDef]] = None
     onFailure: Optional[FailureConditionsTypeDef] = None
@@ -1415,7 +1419,7 @@ class StageDeclarationTypeDef(BaseValidatorModel):
 
 
 class StageStateTypeDef(BaseValidatorModel):
-    stageName: Optional[str] = None
+    stageName: Optional[Annotated[str, _aws_pattern("Codepipeline", "StageName")]] = None
     inboundExecution: Optional[StageExecutionTypeDef] = None
     inboundExecutions: Optional[List[StageExecutionTypeDef]] = None
     inboundTransitionState: Optional[TransitionStateTypeDef] = None
@@ -1464,8 +1468,8 @@ class PipelineDeclarationOutputTypeDef(BaseValidatorModel):
 
 
 class PipelineDeclarationTypeDef(BaseValidatorModel):
-    name: str
-    roleArn: str
+    name: Annotated[str, _aws_pattern("Codepipeline", "PipelineName")]
+    roleArn: Annotated[str, _aws_pattern("Codepipeline", "RoleArn")]
     stages: List[StageDeclarationTypeDef]
     artifactStore: Optional[ArtifactStoreTypeDef] = None
     artifactStores: Optional[Dict[str, ArtifactStoreTypeDef]] = None
@@ -1478,7 +1482,7 @@ class PipelineDeclarationTypeDef(BaseValidatorModel):
 
 # This class is the output for the 'get_pipeline_state' function.
 class GetPipelineStateOutputTypeDef(BaseValidatorModel):
-    pipelineName: str
+    pipelineName: Annotated[str, _aws_pattern("Codepipeline", "PipelineName")]
     pipelineVersion: int
     stageStates: List[StageStateTypeDef]
     created: datetime

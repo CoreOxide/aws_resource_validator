@@ -3,6 +3,7 @@
 from datetime import datetime
 from decimal import Decimal
 from typing import (
+    Annotated,
     Any,
     Callable,
     Dict,
@@ -24,6 +25,7 @@ from botocore.response import StreamingBody
 from pydantic import Field
 
 from aws_resource_validator.core.base_validator_model import BaseValidatorModel, EventStream
+from aws_resource_validator.core.pattern_validation import aws_field_pattern as _aws_pattern
 from aws_resource_validator.pydantic_models.iotwireless.iotwireless_constants import *  # noqa: F401,F403
 
 # Optional boto3 symbols — imported lazily so services that don't need them
@@ -62,12 +64,12 @@ class WiFiCellularTypeDef(BaseValidatorModel):
 class ApplicationConfigTypeDef(BaseValidatorModel):
     FPort: Optional[int] = None
     Type: Optional[Literal["SemtechGeolocation"]] = None
-    DestinationName: Optional[str] = None
+    DestinationName: Optional[Annotated[str, _aws_pattern("Iotwireless", "DestinationName")]] = None
 
 
 class SidewalkAccountInfoTypeDef(BaseValidatorModel):
     AmazonId: Optional[str] = None
-    AppServerPrivateKey: Optional[str] = None
+    AppServerPrivateKey: Optional[Annotated[str, _aws_pattern("Iotwireless", "AppServerPrivateKey")]] = None
 
 
 class TagTypeDef(BaseValidatorModel):
@@ -181,7 +183,7 @@ class LoRaWANServiceProfileTypeDef(BaseValidatorModel):
 # This class is the input for the 'create_wireless_gateway_task' function.
 class CreateWirelessGatewayTaskRequestTypeDef(BaseValidatorModel):
     Id: str
-    WirelessGatewayTaskDefinitionId: str
+    WirelessGatewayTaskDefinitionId: Annotated[str, _aws_pattern("Iotwireless", "WirelessGatewayTaskDefinitionId")]
 
 
 class DakCertificateMetadataTypeDef(BaseValidatorModel):
@@ -193,7 +195,7 @@ class DakCertificateMetadataTypeDef(BaseValidatorModel):
 
 
 class DeleteDestinationRequestTypeDef(BaseValidatorModel):
-    Name: str
+    Name: Annotated[str, _aws_pattern("Iotwireless", "DestinationName")]
 
 
 class DeleteDeviceProfileRequestTypeDef(BaseValidatorModel):
@@ -209,7 +211,7 @@ class DeleteMulticastGroupRequestTypeDef(BaseValidatorModel):
 
 
 class DeleteNetworkAnalyzerConfigurationRequestTypeDef(BaseValidatorModel):
-    ConfigurationName: str
+    ConfigurationName: Annotated[str, _aws_pattern("Iotwireless", "NetworkAnalyzerConfigurationName")]
 
 
 class DeleteQueuedMessagesRequestTypeDef(BaseValidatorModel):
@@ -235,7 +237,7 @@ class DeleteWirelessGatewayRequestTypeDef(BaseValidatorModel):
 
 
 class DeleteWirelessGatewayTaskDefinitionRequestTypeDef(BaseValidatorModel):
-    Id: str
+    Id: Annotated[str, _aws_pattern("Iotwireless", "WirelessGatewayTaskDefinitionId")]
 
 
 class DeleteWirelessGatewayTaskRequestTypeDef(BaseValidatorModel):
@@ -249,7 +251,7 @@ class DeregisterWirelessDeviceRequestTypeDef(BaseValidatorModel):
 
 class DestinationsTypeDef(BaseValidatorModel):
     Arn: Optional[str] = None
-    Name: Optional[str] = None
+    Name: Optional[Annotated[str, _aws_pattern("Iotwireless", "DestinationName")]] = None
     ExpressionType: Optional[ExpressionTypeType] = None
     Expression: Optional[str] = None
     Description: Optional[str] = None
@@ -331,7 +333,7 @@ class GatewayListItemTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'get_destination' function.
 class GetDestinationRequestTypeDef(BaseValidatorModel):
-    Name: str
+    Name: Annotated[str, _aws_pattern("Iotwireless", "DestinationName")]
 
 
 # This class is the input for the 'get_device_profile' function.
@@ -395,7 +397,7 @@ class LoRaWANMulticastSessionOutputTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'get_network_analyzer_configuration' function.
 class GetNetworkAnalyzerConfigurationRequestTypeDef(BaseValidatorModel):
-    ConfigurationName: str
+    ConfigurationName: Annotated[str, _aws_pattern("Iotwireless", "NetworkAnalyzerConfigurationName")]
 
 
 # This class is the input for the 'get_partner_account' function.
@@ -406,13 +408,13 @@ class GetPartnerAccountRequestTypeDef(BaseValidatorModel):
 
 class SidewalkAccountInfoWithFingerprintTypeDef(BaseValidatorModel):
     AmazonId: Optional[str] = None
-    Fingerprint: Optional[str] = None
+    Fingerprint: Optional[Annotated[str, _aws_pattern("Iotwireless", "Fingerprint")]] = None
     Arn: Optional[str] = None
 
 
 # This class is the input for the 'get_position_configuration' function.
 class GetPositionConfigurationRequestTypeDef(BaseValidatorModel):
-    ResourceIdentifier: str
+    ResourceIdentifier: Annotated[str, _aws_pattern("Iotwireless", "PositionResourceIdentifier")]
     ResourceType: PositionResourceTypeType
 
 
@@ -433,13 +435,13 @@ TimestampTypeDef = Union[datetime, str]
 
 
 class WiFiAccessPointTypeDef(BaseValidatorModel):
-    MacAddress: str
+    MacAddress: Annotated[str, _aws_pattern("Iotwireless", "MacAddress")]
     Rss: int
 
 
 # This class is the input for the 'get_position' function.
 class GetPositionRequestTypeDef(BaseValidatorModel):
-    ResourceIdentifier: str
+    ResourceIdentifier: Annotated[str, _aws_pattern("Iotwireless", "PositionResourceIdentifier")]
     ResourceType: PositionResourceTypeType
 
 
@@ -458,7 +460,7 @@ class GetResourceLogLevelRequestTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'get_resource_position' function.
 class GetResourcePositionRequestTypeDef(BaseValidatorModel):
-    ResourceIdentifier: str
+    ResourceIdentifier: Annotated[str, _aws_pattern("Iotwireless", "PositionResourceIdentifier")]
     ResourceType: PositionResourceTypeType
 
 
@@ -544,7 +546,7 @@ class GetWirelessGatewayStatisticsRequestTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'get_wireless_gateway_task_definition' function.
 class GetWirelessGatewayTaskDefinitionRequestTypeDef(BaseValidatorModel):
-    Id: str
+    Id: Annotated[str, _aws_pattern("Iotwireless", "WirelessGatewayTaskDefinitionId")]
 
 
 # This class is the input for the 'get_wireless_gateway_task' function.
@@ -642,7 +644,7 @@ class ListNetworkAnalyzerConfigurationsRequestTypeDef(BaseValidatorModel):
 
 class NetworkAnalyzerConfigurationsTypeDef(BaseValidatorModel):
     Arn: Optional[str] = None
-    Name: Optional[str] = None
+    Name: Optional[Annotated[str, _aws_pattern("Iotwireless", "NetworkAnalyzerConfigurationName")]] = None
 
 
 # This class is the input for the 'list_partner_accounts' function.
@@ -693,7 +695,7 @@ class ListWirelessDeviceImportTasksRequestTypeDef(BaseValidatorModel):
 class ListWirelessDevicesRequestTypeDef(BaseValidatorModel):
     MaxResults: Optional[int] = None
     NextToken: Optional[str] = None
-    DestinationName: Optional[str] = None
+    DestinationName: Optional[Annotated[str, _aws_pattern("Iotwireless", "DestinationName")]] = None
     DeviceProfileId: Optional[str] = None
     ServiceProfileId: Optional[str] = None
     WirelessDeviceType: Optional[WirelessDeviceTypeType] = None
@@ -715,7 +717,7 @@ class ListWirelessGatewaysRequestTypeDef(BaseValidatorModel):
 
 
 class LoRaWANGatewayMetadataTypeDef(BaseValidatorModel):
-    GatewayEui: Optional[str] = None
+    GatewayEui: Optional[Annotated[str, _aws_pattern("Iotwireless", "GatewayEui")]] = None
     Snr: Optional[float] = None
     Rssi: Optional[float] = None
 
@@ -771,7 +773,7 @@ class LoRaWANGatewayVersionTypeDef(BaseValidatorModel):
 
 
 class LoRaWANListDeviceTypeDef(BaseValidatorModel):
-    DevEui: Optional[str] = None
+    DevEui: Optional[Annotated[str, _aws_pattern("Iotwireless", "DevEui")]] = None
 
 
 class ParticipatingGatewaysMulticastOutputTypeDef(BaseValidatorModel):
@@ -842,7 +844,7 @@ class ResetResourceLogLevelRequestTypeDef(BaseValidatorModel):
 
 
 class SidewalkPositioningTypeDef(BaseValidatorModel):
-    DestinationName: Optional[str] = None
+    DestinationName: Optional[Annotated[str, _aws_pattern("Iotwireless", "DestinationName")]] = None
 
 
 class SidewalkSendDataToDeviceTypeDef(BaseValidatorModel):
@@ -852,7 +854,7 @@ class SidewalkSendDataToDeviceTypeDef(BaseValidatorModel):
 
 
 class SidewalkUpdateAccountTypeDef(BaseValidatorModel):
-    AppServerPrivateKey: Optional[str] = None
+    AppServerPrivateKey: Optional[Annotated[str, _aws_pattern("Iotwireless", "AppServerPrivateKey")]] = None
 
 
 class SidewalkUpdateImportInfoTypeDef(BaseValidatorModel):
@@ -883,7 +885,7 @@ class UntagResourceRequestTypeDef(BaseValidatorModel):
 
 
 class UpdateDestinationRequestTypeDef(BaseValidatorModel):
-    Name: str
+    Name: Annotated[str, _aws_pattern("Iotwireless", "DestinationName")]
     ExpressionType: Optional[ExpressionTypeType] = None
     Expression: Optional[str] = None
     Description: Optional[str] = None
@@ -891,7 +893,7 @@ class UpdateDestinationRequestTypeDef(BaseValidatorModel):
 
 
 class UpdatePositionRequestTypeDef(BaseValidatorModel):
-    ResourceIdentifier: str
+    ResourceIdentifier: Annotated[str, _aws_pattern("Iotwireless", "PositionResourceIdentifier")]
     ResourceType: PositionResourceTypeType
     Position: List[float]
 
@@ -901,7 +903,7 @@ class UpdateWirelessGatewayRequestTypeDef(BaseValidatorModel):
     Name: Optional[str] = None
     Description: Optional[str] = None
     JoinEuiFilters: Optional[List[List[str]]] = None
-    NetIdFilters: Optional[List[str]] = None
+    NetIdFilters: Optional[List[Annotated[str, _aws_pattern("Iotwireless", "NetId")]]] = None
     MaxEirp: Optional[float] = None
 
 
@@ -947,19 +949,19 @@ class AdvancedConfigurationTypeDef(BaseValidatorModel):
 # This class is the input for the 'associate_aws_account_with_partner_account' function.
 class AssociateAwsAccountWithPartnerAccountRequestTypeDef(BaseValidatorModel):
     Sidewalk: SidewalkAccountInfoTypeDef
-    ClientRequestToken: Optional[str] = None
+    ClientRequestToken: Optional[Annotated[str, _aws_pattern("Iotwireless", "ClientRequestToken")]] = None
     Tags: Optional[List[TagTypeDef]] = None
 
 
 # This class is the input for the 'create_destination' function.
 class CreateDestinationRequestTypeDef(BaseValidatorModel):
-    Name: str
+    Name: Annotated[str, _aws_pattern("Iotwireless", "DestinationName")]
     ExpressionType: ExpressionTypeType
     Expression: str
     RoleArn: str
     Description: Optional[str] = None
     Tags: Optional[List[TagTypeDef]] = None
-    ClientRequestToken: Optional[str] = None
+    ClientRequestToken: Optional[Annotated[str, _aws_pattern("Iotwireless", "ClientRequestToken")]] = None
 
 
 class StartBulkAssociateWirelessDeviceWithMulticastGroupRequestTypeDef(BaseValidatorModel):
@@ -995,7 +997,7 @@ class AssociateWirelessGatewayWithCertificateResponseTypeDef(BaseValidatorModel)
 # This class is the output for the 'create_destination' function.
 class CreateDestinationResponseTypeDef(BaseValidatorModel):
     Arn: str
-    Name: str
+    Name: Annotated[str, _aws_pattern("Iotwireless", "DestinationName")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
@@ -1023,7 +1025,7 @@ class CreateMulticastGroupResponseTypeDef(BaseValidatorModel):
 # This class is the output for the 'create_network_analyzer_configuration' function.
 class CreateNetworkAnalyzerConfigurationResponseTypeDef(BaseValidatorModel):
     Arn: str
-    Name: str
+    Name: Annotated[str, _aws_pattern("Iotwireless", "NetworkAnalyzerConfigurationName")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
@@ -1050,14 +1052,14 @@ class CreateWirelessGatewayResponseTypeDef(BaseValidatorModel):
 
 # This class is the output for the 'create_wireless_gateway_task_definition' function.
 class CreateWirelessGatewayTaskDefinitionResponseTypeDef(BaseValidatorModel):
-    Id: str
+    Id: Annotated[str, _aws_pattern("Iotwireless", "WirelessGatewayTaskDefinitionId")]
     Arn: str
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 # This class is the output for the 'create_wireless_gateway_task' function.
 class CreateWirelessGatewayTaskResponseTypeDef(BaseValidatorModel):
-    WirelessGatewayTaskDefinitionId: str
+    WirelessGatewayTaskDefinitionId: Annotated[str, _aws_pattern("Iotwireless", "WirelessGatewayTaskDefinitionId")]
     Status: WirelessGatewayTaskStatusType
     ResponseMetadata: ResponseMetadataTypeDef
 
@@ -1065,7 +1067,7 @@ class CreateWirelessGatewayTaskResponseTypeDef(BaseValidatorModel):
 # This class is the output for the 'get_destination' function.
 class GetDestinationResponseTypeDef(BaseValidatorModel):
     Arn: str
-    Name: str
+    Name: Annotated[str, _aws_pattern("Iotwireless", "DestinationName")]
     Expression: str
     ExpressionType: ExpressionTypeType
     Description: str
@@ -1086,7 +1088,7 @@ class GetPositionResponseTypeDef(BaseValidatorModel):
     SolverType: Literal["GNSS"]
     SolverProvider: Literal["Semtech"]
     SolverVersion: str
-    Timestamp: str
+    Timestamp: Annotated[str, _aws_pattern("Iotwireless", "ISODateTimeString")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
@@ -1106,7 +1108,7 @@ class GetResourcePositionResponseTypeDef(BaseValidatorModel):
 class GetServiceEndpointResponseTypeDef(BaseValidatorModel):
     ServiceType: WirelessGatewayServiceTypeType
     ServiceEndpoint: str
-    ServerTrust: str
+    ServerTrust: Annotated[str, _aws_pattern("Iotwireless", "CertificatePEM")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
@@ -1120,7 +1122,7 @@ class GetWirelessGatewayCertificateResponseTypeDef(BaseValidatorModel):
 # This class is the output for the 'get_wireless_gateway_statistics' function.
 class GetWirelessGatewayStatisticsResponseTypeDef(BaseValidatorModel):
     WirelessGatewayId: str
-    LastUplinkReceivedAt: str
+    LastUplinkReceivedAt: Annotated[str, _aws_pattern("Iotwireless", "ISODateTimeString")]
     ConnectionStatus: ConnectionStatusType
     ResponseMetadata: ResponseMetadataTypeDef
 
@@ -1128,9 +1130,9 @@ class GetWirelessGatewayStatisticsResponseTypeDef(BaseValidatorModel):
 # This class is the output for the 'get_wireless_gateway_task' function.
 class GetWirelessGatewayTaskResponseTypeDef(BaseValidatorModel):
     WirelessGatewayId: str
-    WirelessGatewayTaskDefinitionId: str
-    LastUplinkReceivedAt: str
-    TaskCreatedAt: str
+    WirelessGatewayTaskDefinitionId: Annotated[str, _aws_pattern("Iotwireless", "WirelessGatewayTaskDefinitionId")]
+    LastUplinkReceivedAt: Annotated[str, _aws_pattern("Iotwireless", "ISODateTimeString")]
+    TaskCreatedAt: Annotated[str, _aws_pattern("Iotwireless", "ISODateTimeString")]
     Status: WirelessGatewayTaskStatusType
     ResponseMetadata: ResponseMetadataTypeDef
 
@@ -1184,17 +1186,17 @@ class LoRaWANGatewayOutputTypeDef(BaseValidatorModel):
 
 
 class LoRaWANGatewayTypeDef(BaseValidatorModel):
-    GatewayEui: Optional[str] = None
+    GatewayEui: Optional[Annotated[str, _aws_pattern("Iotwireless", "GatewayEui")]] = None
     RfRegion: Optional[str] = None
     JoinEuiFilters: Optional[List[List[str]]] = None
-    NetIdFilters: Optional[List[str]] = None
+    NetIdFilters: Optional[List[Annotated[str, _aws_pattern("Iotwireless", "NetId")]]] = None
     SubBands: Optional[List[int]] = None
     Beaconing: Optional[BeaconingTypeDef] = None
     MaxEirp: Optional[float] = None
 
 
 class UpdateResourcePositionRequestTypeDef(BaseValidatorModel):
-    ResourceIdentifier: str
+    ResourceIdentifier: Annotated[str, _aws_pattern("Iotwireless", "PositionResourceIdentifier")]
     ResourceType: PositionResourceTypeType
     GeoJsonPayload: Optional[BlobTypeDef] = None
 
@@ -1226,13 +1228,13 @@ class CreateFuotaTaskRequestTypeDef(BaseValidatorModel):
     FirmwareUpdateRole: str
     Name: Optional[str] = None
     Description: Optional[str] = None
-    ClientRequestToken: Optional[str] = None
+    ClientRequestToken: Optional[Annotated[str, _aws_pattern("Iotwireless", "ClientRequestToken")]] = None
     LoRaWAN: Optional[LoRaWANFuotaTaskTypeDef] = None
     Tags: Optional[List[TagTypeDef]] = None
     RedundancyPercent: Optional[int] = None
     FragmentSizeBytes: Optional[int] = None
     FragmentIntervalMS: Optional[int] = None
-    Descriptor: Optional[str] = None
+    Descriptor: Optional[Annotated[str, _aws_pattern("Iotwireless", "FileDescriptor")]] = None
 
 
 class UpdateFuotaTaskRequestTypeDef(BaseValidatorModel):
@@ -1245,18 +1247,18 @@ class UpdateFuotaTaskRequestTypeDef(BaseValidatorModel):
     RedundancyPercent: Optional[int] = None
     FragmentSizeBytes: Optional[int] = None
     FragmentIntervalMS: Optional[int] = None
-    Descriptor: Optional[str] = None
+    Descriptor: Optional[Annotated[str, _aws_pattern("Iotwireless", "FileDescriptor")]] = None
 
 
 # This class is the input for the 'create_network_analyzer_configuration' function.
 class CreateNetworkAnalyzerConfigurationRequestTypeDef(BaseValidatorModel):
-    Name: str
+    Name: Annotated[str, _aws_pattern("Iotwireless", "NetworkAnalyzerConfigurationName")]
     TraceContent: Optional[TraceContentTypeDef] = None
     WirelessDevices: Optional[List[str]] = None
     WirelessGateways: Optional[List[str]] = None
     Description: Optional[str] = None
     Tags: Optional[List[TagTypeDef]] = None
-    ClientRequestToken: Optional[str] = None
+    ClientRequestToken: Optional[Annotated[str, _aws_pattern("Iotwireless", "ClientRequestToken")]] = None
     MulticastGroups: Optional[List[str]] = None
 
 
@@ -1267,13 +1269,13 @@ class GetNetworkAnalyzerConfigurationResponseTypeDef(BaseValidatorModel):
     WirelessGateways: List[str]
     Description: str
     Arn: str
-    Name: str
+    Name: Annotated[str, _aws_pattern("Iotwireless", "NetworkAnalyzerConfigurationName")]
     MulticastGroups: List[str]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 class UpdateNetworkAnalyzerConfigurationRequestTypeDef(BaseValidatorModel):
-    ConfigurationName: str
+    ConfigurationName: Annotated[str, _aws_pattern("Iotwireless", "NetworkAnalyzerConfigurationName")]
     TraceContent: Optional[TraceContentTypeDef] = None
     WirelessDevicesToAdd: Optional[List[str]] = None
     WirelessDevicesToRemove: Optional[List[str]] = None
@@ -1289,11 +1291,13 @@ class CreateServiceProfileRequestTypeDef(BaseValidatorModel):
     Name: Optional[str] = None
     LoRaWAN: Optional[LoRaWANServiceProfileTypeDef] = None
     Tags: Optional[List[TagTypeDef]] = None
-    ClientRequestToken: Optional[str] = None
+    ClientRequestToken: Optional[Annotated[str, _aws_pattern("Iotwireless", "ClientRequestToken")]] = None
 
 
 class SidewalkGetDeviceProfileTypeDef(BaseValidatorModel):
-    ApplicationServerPublicKey: Optional[str] = None
+    ApplicationServerPublicKey: Optional[Annotated[str, _aws_pattern("Iotwireless", "ApplicationServerPublicKey")]] = (
+        None
+    )
     QualificationStatus: Optional[bool] = None
     DakCertificateMetadata: Optional[List[DakCertificateMetadataTypeDef]] = None
 
@@ -1405,7 +1409,7 @@ class GetFuotaTaskResponseTypeDef(BaseValidatorModel):
     RedundancyPercent: int
     FragmentSizeBytes: int
     FragmentIntervalMS: int
-    Descriptor: str
+    Descriptor: Annotated[str, _aws_pattern("Iotwireless", "FileDescriptor")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
@@ -1517,11 +1521,11 @@ class ListServiceProfilesResponseTypeDef(BaseValidatorModel):
 
 
 class LoRaWANDeviceMetadataTypeDef(BaseValidatorModel):
-    DevEui: Optional[str] = None
+    DevEui: Optional[Annotated[str, _aws_pattern("Iotwireless", "DevEui")]] = None
     FPort: Optional[int] = None
     DataRate: Optional[int] = None
     Frequency: Optional[int] = None
-    Timestamp: Optional[str] = None
+    Timestamp: Optional[Annotated[str, _aws_pattern("Iotwireless", "ISODateTimeString")]] = None
     Gateways: Optional[List[LoRaWANGatewayMetadataTypeDef]] = None
     PublicGateways: Optional[List[LoRaWANPublicGatewayMetadataTypeDef]] = None
 
@@ -1726,7 +1730,7 @@ class WirelessGatewayStatisticsTypeDef(BaseValidatorModel):
     Name: Optional[str] = None
     Description: Optional[str] = None
     LoRaWAN: Optional[LoRaWANGatewayOutputTypeDef] = None
-    LastUplinkReceivedAt: Optional[str] = None
+    LastUplinkReceivedAt: Optional[Annotated[str, _aws_pattern("Iotwireless", "ISODateTimeString")]] = None
 
 
 LoRaWANGatewayUnionTypeDef = Union[LoRaWANGatewayOutputTypeDef, LoRaWANGatewayTypeDef]
@@ -1754,7 +1758,7 @@ class LoRaWANDeviceOutputTypeDef(BaseValidatorModel):
 
 
 class LoRaWANDeviceTypeDef(BaseValidatorModel):
-    DevEui: Optional[str] = None
+    DevEui: Optional[Annotated[str, _aws_pattern("Iotwireless", "DevEui")]] = None
     DeviceProfileId: Optional[str] = None
     ServiceProfileId: Optional[str] = None
     OtaaV1_1: Optional[OtaaV11TypeDef] = None
@@ -1855,7 +1859,7 @@ class UpdateEventConfigurationByResourceTypesRequestTypeDef(BaseValidatorModel):
 # This class is the output for the 'get_wireless_device_statistics' function.
 class GetWirelessDeviceStatisticsResponseTypeDef(BaseValidatorModel):
     WirelessDeviceId: str
-    LastUplinkReceivedAt: str
+    LastUplinkReceivedAt: Annotated[str, _aws_pattern("Iotwireless", "ISODateTimeString")]
     LoRaWAN: LoRaWANDeviceMetadataTypeDef
     Sidewalk: SidewalkDeviceMetadataTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
@@ -1866,7 +1870,7 @@ class CreateDeviceProfileRequestTypeDef(BaseValidatorModel):
     Name: Optional[str] = None
     LoRaWAN: Optional[LoRaWANDeviceProfileUnionTypeDef] = None
     Tags: Optional[List[TagTypeDef]] = None
-    ClientRequestToken: Optional[str] = None
+    ClientRequestToken: Optional[Annotated[str, _aws_pattern("Iotwireless", "ClientRequestToken")]] = None
     Sidewalk: Optional[Dict[str, Any]] = None
 
 
@@ -1883,7 +1887,7 @@ class UpdateWirelessGatewayTaskCreateTypeDef(BaseValidatorModel):
 
 
 class UpdateWirelessGatewayTaskEntryTypeDef(BaseValidatorModel):
-    Id: Optional[str] = None
+    Id: Optional[Annotated[str, _aws_pattern("Iotwireless", "WirelessGatewayTaskDefinitionId")]] = None
     LoRaWAN: Optional[LoRaWANUpdateGatewayTaskEntryTypeDef] = None
     Arn: Optional[str] = None
 
@@ -1903,7 +1907,7 @@ class GetMulticastGroupResponseTypeDef(BaseValidatorModel):
 # This class is the input for the 'send_data_to_multicast_group' function.
 class SendDataToMulticastGroupRequestTypeDef(BaseValidatorModel):
     Id: str
-    PayloadData: str
+    PayloadData: Annotated[str, _aws_pattern("Iotwireless", "PayloadData")]
     WirelessMetadata: MulticastWirelessMetadataTypeDef
 
 
@@ -1920,31 +1924,31 @@ class LoRaWANMulticastTypeDef(BaseValidatorModel):
 
 
 class PutPositionConfigurationRequestTypeDef(BaseValidatorModel):
-    ResourceIdentifier: str
+    ResourceIdentifier: Annotated[str, _aws_pattern("Iotwireless", "PositionResourceIdentifier")]
     ResourceType: PositionResourceTypeType
     Solvers: Optional[PositionSolverConfigurationsTypeDef] = None
-    Destination: Optional[str] = None
+    Destination: Optional[Annotated[str, _aws_pattern("Iotwireless", "DestinationName")]] = None
 
 
 # This class is the output for the 'get_position_configuration' function.
 class GetPositionConfigurationResponseTypeDef(BaseValidatorModel):
     Solvers: PositionSolverDetailsTypeDef
-    Destination: str
+    Destination: Annotated[str, _aws_pattern("Iotwireless", "DestinationName")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 class PositionConfigurationItemTypeDef(BaseValidatorModel):
-    ResourceIdentifier: Optional[str] = None
+    ResourceIdentifier: Optional[Annotated[str, _aws_pattern("Iotwireless", "PositionResourceIdentifier")]] = None
     ResourceType: Optional[PositionResourceTypeType] = None
     Solvers: Optional[PositionSolverDetailsTypeDef] = None
-    Destination: Optional[str] = None
+    Destination: Optional[Annotated[str, _aws_pattern("Iotwireless", "DestinationName")]] = None
 
 
 # This class is the output for the 'get_wireless_device_import_task' function.
 class GetWirelessDeviceImportTaskResponseTypeDef(BaseValidatorModel):
     Id: str
     Arn: str
-    DestinationName: str
+    DestinationName: Annotated[str, _aws_pattern("Iotwireless", "DestinationName")]
     Positioning: PositioningConfigStatusType
     Sidewalk: SidewalkGetStartImportInfoTypeDef
     CreationTime: datetime
@@ -1960,7 +1964,7 @@ class GetWirelessDeviceImportTaskResponseTypeDef(BaseValidatorModel):
 class WirelessDeviceImportTaskTypeDef(BaseValidatorModel):
     Id: Optional[str] = None
     Arn: Optional[str] = None
-    DestinationName: Optional[str] = None
+    DestinationName: Optional[Annotated[str, _aws_pattern("Iotwireless", "DestinationName")]] = None
     Positioning: Optional[PositioningConfigStatusType] = None
     Sidewalk: Optional[SidewalkGetStartImportInfoTypeDef] = None
     CreationTime: Optional[datetime] = None
@@ -1977,8 +1981,8 @@ class WirelessDeviceStatisticsTypeDef(BaseValidatorModel):
     Id: Optional[str] = None
     Type: Optional[WirelessDeviceTypeType] = None
     Name: Optional[str] = None
-    DestinationName: Optional[str] = None
-    LastUplinkReceivedAt: Optional[str] = None
+    DestinationName: Optional[Annotated[str, _aws_pattern("Iotwireless", "DestinationName")]] = None
+    LastUplinkReceivedAt: Optional[Annotated[str, _aws_pattern("Iotwireless", "ISODateTimeString")]] = None
     LoRaWAN: Optional[LoRaWANListDeviceTypeDef] = None
     Sidewalk: Optional[SidewalkListDeviceTypeDef] = None
     FuotaDeviceStatus: Optional[FuotaDeviceStatusType] = None
@@ -1989,7 +1993,7 @@ class WirelessDeviceStatisticsTypeDef(BaseValidatorModel):
 
 # This class is the output for the 'list_devices_for_wireless_device_import_task' function.
 class ListDevicesForWirelessDeviceImportTaskResponseTypeDef(BaseValidatorModel):
-    DestinationName: str
+    DestinationName: Annotated[str, _aws_pattern("Iotwireless", "DestinationName")]
     Positioning: PositioningConfigStatusType
     Sidewalk: SidewalkListDevicesForImportInfoTypeDef
     ImportedWirelessDeviceList: List[ImportedWirelessDeviceTypeDef]
@@ -1999,9 +2003,9 @@ class ListDevicesForWirelessDeviceImportTaskResponseTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'start_single_wireless_device_import_task' function.
 class StartSingleWirelessDeviceImportTaskRequestTypeDef(BaseValidatorModel):
-    DestinationName: str
+    DestinationName: Annotated[str, _aws_pattern("Iotwireless", "DestinationName")]
     Sidewalk: SidewalkSingleStartImportInfoTypeDef
-    ClientRequestToken: Optional[str] = None
+    ClientRequestToken: Optional[Annotated[str, _aws_pattern("Iotwireless", "ClientRequestToken")]] = None
     DeviceName: Optional[str] = None
     Tags: Optional[List[TagTypeDef]] = None
     Positioning: Optional[PositioningConfigStatusType] = None
@@ -2009,9 +2013,9 @@ class StartSingleWirelessDeviceImportTaskRequestTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'start_wireless_device_import_task' function.
 class StartWirelessDeviceImportTaskRequestTypeDef(BaseValidatorModel):
-    DestinationName: str
+    DestinationName: Annotated[str, _aws_pattern("Iotwireless", "DestinationName")]
     Sidewalk: SidewalkStartImportInfoTypeDef
-    ClientRequestToken: Optional[str] = None
+    ClientRequestToken: Optional[Annotated[str, _aws_pattern("Iotwireless", "ClientRequestToken")]] = None
     Tags: Optional[List[TagTypeDef]] = None
     Positioning: Optional[PositioningConfigStatusType] = None
 
@@ -2043,7 +2047,7 @@ class CreateWirelessGatewayRequestTypeDef(BaseValidatorModel):
     Name: Optional[str] = None
     Description: Optional[str] = None
     Tags: Optional[List[TagTypeDef]] = None
-    ClientRequestToken: Optional[str] = None
+    ClientRequestToken: Optional[Annotated[str, _aws_pattern("Iotwireless", "ClientRequestToken")]] = None
 
 
 # This class is the output for the 'get_wireless_device' function.
@@ -2051,7 +2055,7 @@ class GetWirelessDeviceResponseTypeDef(BaseValidatorModel):
     Type: WirelessDeviceTypeType
     Name: str
     Description: str
-    DestinationName: str
+    DestinationName: Annotated[str, _aws_pattern("Iotwireless", "DestinationName")]
     Id: str
     Arn: str
     ThingName: str
@@ -2067,7 +2071,7 @@ LoRaWANDeviceUnionTypeDef = Union[LoRaWANDeviceOutputTypeDef, LoRaWANDeviceTypeD
 
 class UpdateWirelessDeviceRequestTypeDef(BaseValidatorModel):
     Id: str
-    DestinationName: Optional[str] = None
+    DestinationName: Optional[Annotated[str, _aws_pattern("Iotwireless", "DestinationName")]] = None
     Name: Optional[str] = None
     Description: Optional[str] = None
     LoRaWAN: Optional[LoRaWANUpdateDeviceTypeDef] = None
@@ -2078,7 +2082,7 @@ class UpdateWirelessDeviceRequestTypeDef(BaseValidatorModel):
 class DownlinkQueueMessageTypeDef(BaseValidatorModel):
     MessageId: Optional[str] = None
     TransmitMode: Optional[int] = None
-    ReceivedAt: Optional[str] = None
+    ReceivedAt: Optional[Annotated[str, _aws_pattern("Iotwireless", "ISODateTimeString")]] = None
     LoRaWAN: Optional[LoRaWANSendDataToDeviceOutputTypeDef] = None
 
 
@@ -2112,7 +2116,7 @@ class CreateWirelessGatewayTaskDefinitionRequestTypeDef(BaseValidatorModel):
     AutoCreateTasks: bool
     Name: Optional[str] = None
     Update: Optional[UpdateWirelessGatewayTaskCreateTypeDef] = None
-    ClientRequestToken: Optional[str] = None
+    ClientRequestToken: Optional[Annotated[str, _aws_pattern("Iotwireless", "ClientRequestToken")]] = None
     Tags: Optional[List[TagTypeDef]] = None
 
 
@@ -2137,7 +2141,7 @@ class CreateMulticastGroupRequestTypeDef(BaseValidatorModel):
     LoRaWAN: LoRaWANMulticastTypeDef
     Name: Optional[str] = None
     Description: Optional[str] = None
-    ClientRequestToken: Optional[str] = None
+    ClientRequestToken: Optional[Annotated[str, _aws_pattern("Iotwireless", "ClientRequestToken")]] = None
     Tags: Optional[List[TagTypeDef]] = None
 
 
@@ -2179,10 +2183,10 @@ class UpdateLogLevelsByResourceTypesRequestTypeDef(BaseValidatorModel):
 # This class is the input for the 'create_wireless_device' function.
 class CreateWirelessDeviceRequestTypeDef(BaseValidatorModel):
     Type: WirelessDeviceTypeType
-    DestinationName: str
+    DestinationName: Annotated[str, _aws_pattern("Iotwireless", "DestinationName")]
     Name: Optional[str] = None
     Description: Optional[str] = None
-    ClientRequestToken: Optional[str] = None
+    ClientRequestToken: Optional[Annotated[str, _aws_pattern("Iotwireless", "ClientRequestToken")]] = None
     LoRaWAN: Optional[LoRaWANDeviceUnionTypeDef] = None
     Tags: Optional[List[TagTypeDef]] = None
     Positioning: Optional[PositioningConfigStatusType] = None
@@ -2225,5 +2229,5 @@ class WirelessMetadataTypeDef(BaseValidatorModel):
 class SendDataToWirelessDeviceRequestTypeDef(BaseValidatorModel):
     Id: str
     TransmitMode: int
-    PayloadData: str
+    PayloadData: Annotated[str, _aws_pattern("Iotwireless", "PayloadData")]
     WirelessMetadata: Optional[WirelessMetadataTypeDef] = None

@@ -3,6 +3,7 @@
 from datetime import datetime
 from decimal import Decimal
 from typing import (
+    Annotated,
     Any,
     Callable,
     Dict,
@@ -24,6 +25,7 @@ from botocore.response import StreamingBody
 from pydantic import Field
 
 from aws_resource_validator.core.base_validator_model import BaseValidatorModel, EventStream
+from aws_resource_validator.core.pattern_validation import aws_field_pattern as _aws_pattern
 from aws_resource_validator.pydantic_models.comprehend.comprehend_constants import *  # noqa: F401,F403
 
 # Optional boto3 symbols — imported lazily so services that don't need them
@@ -48,11 +50,11 @@ class AugmentedManifestsListItemOutputTypeDef(BaseValidatorModel):
 
 
 class AugmentedManifestsListItemTypeDef(BaseValidatorModel):
-    S3Uri: str
-    AttributeNames: List[str]
+    S3Uri: Annotated[str, _aws_pattern("Comprehend", "S3Uri")]
+    AttributeNames: List[Annotated[str, _aws_pattern("Comprehend", "AttributeNamesListItem")]]
     Split: Optional[SplitType] = None
-    AnnotationDataS3Uri: Optional[str] = None
-    SourceDocumentsS3Uri: Optional[str] = None
+    AnnotationDataS3Uri: Optional[Annotated[str, _aws_pattern("Comprehend", "S3Uri")]] = None
+    SourceDocumentsS3Uri: Optional[Annotated[str, _aws_pattern("Comprehend", "S3Uri")]] = None
     DocumentType: Optional[AugmentedManifestsDocumentTypeFormatType] = None
 
 
@@ -202,9 +204,9 @@ class TagTypeDef(BaseValidatorModel):
 
 
 class DocumentClassifierOutputDataConfigTypeDef(BaseValidatorModel):
-    S3Uri: Optional[str] = None
-    KmsKeyId: Optional[str] = None
-    FlywheelStatsS3Prefix: Optional[str] = None
+    S3Uri: Optional[Annotated[str, _aws_pattern("Comprehend", "S3Uri")]] = None
+    KmsKeyId: Optional[Annotated[str, _aws_pattern("Comprehend", "KmsKeyId")]] = None
+    FlywheelStatsS3Prefix: Optional[Annotated[str, _aws_pattern("Comprehend", "S3Uri")]] = None
 
 
 class VpcConfigOutputTypeDef(BaseValidatorModel):
@@ -213,45 +215,45 @@ class VpcConfigOutputTypeDef(BaseValidatorModel):
 
 
 class VpcConfigTypeDef(BaseValidatorModel):
-    SecurityGroupIds: List[str]
-    Subnets: List[str]
+    SecurityGroupIds: List[Annotated[str, _aws_pattern("Comprehend", "SecurityGroupId")]]
+    Subnets: List[Annotated[str, _aws_pattern("Comprehend", "SubnetId")]]
 
 
 class DatasetAugmentedManifestsListItemTypeDef(BaseValidatorModel):
-    AttributeNames: List[str]
-    S3Uri: str
-    AnnotationDataS3Uri: Optional[str] = None
-    SourceDocumentsS3Uri: Optional[str] = None
+    AttributeNames: List[Annotated[str, _aws_pattern("Comprehend", "AttributeNamesListItem")]]
+    S3Uri: Annotated[str, _aws_pattern("Comprehend", "S3Uri")]
+    AnnotationDataS3Uri: Optional[Annotated[str, _aws_pattern("Comprehend", "S3Uri")]] = None
+    SourceDocumentsS3Uri: Optional[Annotated[str, _aws_pattern("Comprehend", "S3Uri")]] = None
     DocumentType: Optional[AugmentedManifestsDocumentTypeFormatType] = None
 
 
 class DatasetDocumentClassifierInputDataConfigTypeDef(BaseValidatorModel):
-    S3Uri: str
-    LabelDelimiter: Optional[str] = None
+    S3Uri: Annotated[str, _aws_pattern("Comprehend", "S3Uri")]
+    LabelDelimiter: Optional[Annotated[str, _aws_pattern("Comprehend", "LabelDelimiter")]] = None
 
 
 class DatasetEntityRecognizerAnnotationsTypeDef(BaseValidatorModel):
-    S3Uri: str
+    S3Uri: Annotated[str, _aws_pattern("Comprehend", "S3Uri")]
 
 
 class DatasetEntityRecognizerDocumentsTypeDef(BaseValidatorModel):
-    S3Uri: str
+    S3Uri: Annotated[str, _aws_pattern("Comprehend", "S3Uri")]
     InputFormat: Optional[InputFormatType] = None
 
 
 class DatasetEntityRecognizerEntityListTypeDef(BaseValidatorModel):
-    S3Uri: str
+    S3Uri: Annotated[str, _aws_pattern("Comprehend", "S3Uri")]
 
 
 TimestampTypeDef = Union[datetime, str]
 
 
 class DatasetPropertiesTypeDef(BaseValidatorModel):
-    DatasetArn: Optional[str] = None
-    DatasetName: Optional[str] = None
+    DatasetArn: Optional[Annotated[str, _aws_pattern("Comprehend", "ComprehendDatasetArn")]] = None
+    DatasetName: Optional[Annotated[str, _aws_pattern("Comprehend", "ComprehendArnName")]] = None
     DatasetType: Optional[DatasetTypeType] = None
-    DatasetS3Uri: Optional[str] = None
-    Description: Optional[str] = None
+    DatasetS3Uri: Optional[Annotated[str, _aws_pattern("Comprehend", "S3Uri")]] = None
+    Description: Optional[Annotated[str, _aws_pattern("Comprehend", "Description")]] = None
     Status: Optional[DatasetStatusType] = None
     Message: Optional[str] = None
     NumberOfDocuments: Optional[int] = None
@@ -260,120 +262,120 @@ class DatasetPropertiesTypeDef(BaseValidatorModel):
 
 
 class DeleteDocumentClassifierRequestTypeDef(BaseValidatorModel):
-    DocumentClassifierArn: str
+    DocumentClassifierArn: Annotated[str, _aws_pattern("Comprehend", "DocumentClassifierArn")]
 
 
 class DeleteEndpointRequestTypeDef(BaseValidatorModel):
-    EndpointArn: str
+    EndpointArn: Annotated[str, _aws_pattern("Comprehend", "ComprehendEndpointArn")]
 
 
 class DeleteEntityRecognizerRequestTypeDef(BaseValidatorModel):
-    EntityRecognizerArn: str
+    EntityRecognizerArn: Annotated[str, _aws_pattern("Comprehend", "EntityRecognizerArn")]
 
 
 class DeleteFlywheelRequestTypeDef(BaseValidatorModel):
-    FlywheelArn: str
+    FlywheelArn: Annotated[str, _aws_pattern("Comprehend", "ComprehendFlywheelArn")]
 
 
 class DeleteResourcePolicyRequestTypeDef(BaseValidatorModel):
-    ResourceArn: str
-    PolicyRevisionId: Optional[str] = None
+    ResourceArn: Annotated[str, _aws_pattern("Comprehend", "ComprehendModelArn")]
+    PolicyRevisionId: Optional[Annotated[str, _aws_pattern("Comprehend", "PolicyRevisionId")]] = None
 
 
 # This class is the input for the 'describe_dataset' function.
 class DescribeDatasetRequestTypeDef(BaseValidatorModel):
-    DatasetArn: str
+    DatasetArn: Annotated[str, _aws_pattern("Comprehend", "ComprehendDatasetArn")]
 
 
 # This class is the input for the 'describe_document_classification_job' function.
 class DescribeDocumentClassificationJobRequestTypeDef(BaseValidatorModel):
-    JobId: str
+    JobId: Annotated[str, _aws_pattern("Comprehend", "JobId")]
 
 
 # This class is the input for the 'describe_document_classifier' function.
 class DescribeDocumentClassifierRequestTypeDef(BaseValidatorModel):
-    DocumentClassifierArn: str
+    DocumentClassifierArn: Annotated[str, _aws_pattern("Comprehend", "DocumentClassifierArn")]
 
 
 # This class is the input for the 'describe_dominant_language_detection_job' function.
 class DescribeDominantLanguageDetectionJobRequestTypeDef(BaseValidatorModel):
-    JobId: str
+    JobId: Annotated[str, _aws_pattern("Comprehend", "JobId")]
 
 
 # This class is the input for the 'describe_endpoint' function.
 class DescribeEndpointRequestTypeDef(BaseValidatorModel):
-    EndpointArn: str
+    EndpointArn: Annotated[str, _aws_pattern("Comprehend", "ComprehendEndpointArn")]
 
 
 class EndpointPropertiesTypeDef(BaseValidatorModel):
-    EndpointArn: Optional[str] = None
+    EndpointArn: Optional[Annotated[str, _aws_pattern("Comprehend", "ComprehendEndpointArn")]] = None
     Status: Optional[EndpointStatusType] = None
     Message: Optional[str] = None
-    ModelArn: Optional[str] = None
-    DesiredModelArn: Optional[str] = None
+    ModelArn: Optional[Annotated[str, _aws_pattern("Comprehend", "ComprehendModelArn")]] = None
+    DesiredModelArn: Optional[Annotated[str, _aws_pattern("Comprehend", "ComprehendModelArn")]] = None
     DesiredInferenceUnits: Optional[int] = None
     CurrentInferenceUnits: Optional[int] = None
     CreationTime: Optional[datetime] = None
     LastModifiedTime: Optional[datetime] = None
-    DataAccessRoleArn: Optional[str] = None
-    DesiredDataAccessRoleArn: Optional[str] = None
-    FlywheelArn: Optional[str] = None
+    DataAccessRoleArn: Optional[Annotated[str, _aws_pattern("Comprehend", "IamRoleArn")]] = None
+    DesiredDataAccessRoleArn: Optional[Annotated[str, _aws_pattern("Comprehend", "IamRoleArn")]] = None
+    FlywheelArn: Optional[Annotated[str, _aws_pattern("Comprehend", "ComprehendFlywheelArn")]] = None
 
 
 # This class is the input for the 'describe_entities_detection_job' function.
 class DescribeEntitiesDetectionJobRequestTypeDef(BaseValidatorModel):
-    JobId: str
+    JobId: Annotated[str, _aws_pattern("Comprehend", "JobId")]
 
 
 # This class is the input for the 'describe_entity_recognizer' function.
 class DescribeEntityRecognizerRequestTypeDef(BaseValidatorModel):
-    EntityRecognizerArn: str
+    EntityRecognizerArn: Annotated[str, _aws_pattern("Comprehend", "EntityRecognizerArn")]
 
 
 # This class is the input for the 'describe_events_detection_job' function.
 class DescribeEventsDetectionJobRequestTypeDef(BaseValidatorModel):
-    JobId: str
+    JobId: Annotated[str, _aws_pattern("Comprehend", "JobId")]
 
 
 # This class is the input for the 'describe_flywheel_iteration' function.
 class DescribeFlywheelIterationRequestTypeDef(BaseValidatorModel):
-    FlywheelArn: str
-    FlywheelIterationId: str
+    FlywheelArn: Annotated[str, _aws_pattern("Comprehend", "ComprehendFlywheelArn")]
+    FlywheelIterationId: Annotated[str, _aws_pattern("Comprehend", "FlywheelIterationId")]
 
 
 # This class is the input for the 'describe_flywheel' function.
 class DescribeFlywheelRequestTypeDef(BaseValidatorModel):
-    FlywheelArn: str
+    FlywheelArn: Annotated[str, _aws_pattern("Comprehend", "ComprehendFlywheelArn")]
 
 
 # This class is the input for the 'describe_key_phrases_detection_job' function.
 class DescribeKeyPhrasesDetectionJobRequestTypeDef(BaseValidatorModel):
-    JobId: str
+    JobId: Annotated[str, _aws_pattern("Comprehend", "JobId")]
 
 
 # This class is the input for the 'describe_pii_entities_detection_job' function.
 class DescribePiiEntitiesDetectionJobRequestTypeDef(BaseValidatorModel):
-    JobId: str
+    JobId: Annotated[str, _aws_pattern("Comprehend", "JobId")]
 
 
 # This class is the input for the 'describe_resource_policy' function.
 class DescribeResourcePolicyRequestTypeDef(BaseValidatorModel):
-    ResourceArn: str
+    ResourceArn: Annotated[str, _aws_pattern("Comprehend", "ComprehendModelArn")]
 
 
 # This class is the input for the 'describe_sentiment_detection_job' function.
 class DescribeSentimentDetectionJobRequestTypeDef(BaseValidatorModel):
-    JobId: str
+    JobId: Annotated[str, _aws_pattern("Comprehend", "JobId")]
 
 
 # This class is the input for the 'describe_targeted_sentiment_detection_job' function.
 class DescribeTargetedSentimentDetectionJobRequestTypeDef(BaseValidatorModel):
-    JobId: str
+    JobId: Annotated[str, _aws_pattern("Comprehend", "JobId")]
 
 
 # This class is the input for the 'describe_topics_detection_job' function.
 class DescribeTopicsDetectionJobRequestTypeDef(BaseValidatorModel):
-    JobId: str
+    JobId: Annotated[str, _aws_pattern("Comprehend", "JobId")]
 
 
 # This class is the input for the 'detect_dominant_language' function.
@@ -429,17 +431,17 @@ class DocumentClassificationConfigOutputTypeDef(BaseValidatorModel):
 
 class DocumentClassificationConfigTypeDef(BaseValidatorModel):
     Mode: DocumentClassifierModeType
-    Labels: Optional[List[str]] = None
+    Labels: Optional[List[Annotated[str, _aws_pattern("Comprehend", "LabelListItem")]]] = None
 
 
 class OutputDataConfigTypeDef(BaseValidatorModel):
-    S3Uri: str
-    KmsKeyId: Optional[str] = None
+    S3Uri: Annotated[str, _aws_pattern("Comprehend", "S3Uri")]
+    KmsKeyId: Optional[Annotated[str, _aws_pattern("Comprehend", "KmsKeyId")]] = None
 
 
 class DocumentClassifierDocumentsTypeDef(BaseValidatorModel):
-    S3Uri: str
-    TestS3Uri: Optional[str] = None
+    S3Uri: Annotated[str, _aws_pattern("Comprehend", "S3Uri")]
+    TestS3Uri: Optional[Annotated[str, _aws_pattern("Comprehend", "S3Uri")]] = None
 
 
 class DocumentReaderConfigOutputTypeDef(BaseValidatorModel):
@@ -455,10 +457,10 @@ class DocumentReaderConfigTypeDef(BaseValidatorModel):
 
 
 class DocumentClassifierSummaryTypeDef(BaseValidatorModel):
-    DocumentClassifierName: Optional[str] = None
+    DocumentClassifierName: Optional[Annotated[str, _aws_pattern("Comprehend", "ComprehendArnName")]] = None
     NumberOfVersions: Optional[int] = None
     LatestVersionCreatedAt: Optional[datetime] = None
-    LatestVersionName: Optional[str] = None
+    LatestVersionName: Optional[Annotated[str, _aws_pattern("Comprehend", "VersionName")]] = None
     LatestVersionStatus: Optional[ModelStatusType] = None
 
 
@@ -468,22 +470,22 @@ class ExtractedCharactersListItemTypeDef(BaseValidatorModel):
 
 
 class EntityTypesListItemTypeDef(BaseValidatorModel):
-    Type: str
+    Type: Annotated[str, _aws_pattern("Comprehend", "EntityTypeName")]
 
 
 class EntityRecognizerAnnotationsTypeDef(BaseValidatorModel):
-    S3Uri: str
-    TestS3Uri: Optional[str] = None
+    S3Uri: Annotated[str, _aws_pattern("Comprehend", "S3Uri")]
+    TestS3Uri: Optional[Annotated[str, _aws_pattern("Comprehend", "S3Uri")]] = None
 
 
 class EntityRecognizerDocumentsTypeDef(BaseValidatorModel):
-    S3Uri: str
-    TestS3Uri: Optional[str] = None
+    S3Uri: Annotated[str, _aws_pattern("Comprehend", "S3Uri")]
+    TestS3Uri: Optional[Annotated[str, _aws_pattern("Comprehend", "S3Uri")]] = None
     InputFormat: Optional[InputFormatType] = None
 
 
 class EntityRecognizerEntityListTypeDef(BaseValidatorModel):
-    S3Uri: str
+    S3Uri: Annotated[str, _aws_pattern("Comprehend", "S3Uri")]
 
 
 class EntityRecognizerEvaluationMetricsTypeDef(BaseValidatorModel):
@@ -499,14 +501,14 @@ class EntityTypesEvaluationMetricsTypeDef(BaseValidatorModel):
 
 
 class EntityRecognizerOutputDataConfigTypeDef(BaseValidatorModel):
-    FlywheelStatsS3Prefix: Optional[str] = None
+    FlywheelStatsS3Prefix: Optional[Annotated[str, _aws_pattern("Comprehend", "S3Uri")]] = None
 
 
 class EntityRecognizerSummaryTypeDef(BaseValidatorModel):
-    RecognizerName: Optional[str] = None
+    RecognizerName: Optional[Annotated[str, _aws_pattern("Comprehend", "ComprehendArnName")]] = None
     NumberOfVersions: Optional[int] = None
     LatestVersionCreatedAt: Optional[datetime] = None
-    LatestVersionName: Optional[str] = None
+    LatestVersionName: Optional[Annotated[str, _aws_pattern("Comprehend", "VersionName")]] = None
     LatestVersionStatus: Optional[ModelStatusType] = None
 
 
@@ -518,15 +520,15 @@ class FlywheelModelEvaluationMetricsTypeDef(BaseValidatorModel):
 
 
 class FlywheelSummaryTypeDef(BaseValidatorModel):
-    FlywheelArn: Optional[str] = None
-    ActiveModelArn: Optional[str] = None
-    DataLakeS3Uri: Optional[str] = None
+    FlywheelArn: Optional[Annotated[str, _aws_pattern("Comprehend", "ComprehendFlywheelArn")]] = None
+    ActiveModelArn: Optional[Annotated[str, _aws_pattern("Comprehend", "ComprehendModelArn")]] = None
+    DataLakeS3Uri: Optional[Annotated[str, _aws_pattern("Comprehend", "S3Uri")]] = None
     Status: Optional[FlywheelStatusType] = None
     ModelType: Optional[ModelTypeType] = None
     Message: Optional[str] = None
     CreationTime: Optional[datetime] = None
     LastModifiedTime: Optional[datetime] = None
-    LatestFlywheelIteration: Optional[str] = None
+    LatestFlywheelIteration: Optional[Annotated[str, _aws_pattern("Comprehend", "FlywheelIterationId")]] = None
 
 
 class PointTypeDef(BaseValidatorModel):
@@ -554,7 +556,7 @@ class ListEntityRecognizerSummariesRequestTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'list_tags_for_resource' function.
 class ListTagsForResourceRequestTypeDef(BaseValidatorModel):
-    ResourceArn: str
+    ResourceArn: Annotated[str, _aws_pattern("Comprehend", "ComprehendArn")]
 
 
 class PartOfSpeechTagTypeDef(BaseValidatorModel):
@@ -563,8 +565,8 @@ class PartOfSpeechTagTypeDef(BaseValidatorModel):
 
 
 class PiiOutputDataConfigTypeDef(BaseValidatorModel):
-    S3Uri: str
-    KmsKeyId: Optional[str] = None
+    S3Uri: Annotated[str, _aws_pattern("Comprehend", "S3Uri")]
+    KmsKeyId: Optional[Annotated[str, _aws_pattern("Comprehend", "KmsKeyId")]] = None
 
 
 class RedactionConfigOutputTypeDef(BaseValidatorModel):
@@ -575,64 +577,64 @@ class RedactionConfigOutputTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'put_resource_policy' function.
 class PutResourcePolicyRequestTypeDef(BaseValidatorModel):
-    ResourceArn: str
-    ResourcePolicy: str
-    PolicyRevisionId: Optional[str] = None
+    ResourceArn: Annotated[str, _aws_pattern("Comprehend", "ComprehendModelArn")]
+    ResourcePolicy: Annotated[str, _aws_pattern("Comprehend", "Policy")]
+    PolicyRevisionId: Optional[Annotated[str, _aws_pattern("Comprehend", "PolicyRevisionId")]] = None
 
 
 class RedactionConfigTypeDef(BaseValidatorModel):
     PiiEntityTypes: Optional[List[PiiEntityTypeType]] = None
     MaskMode: Optional[PiiEntitiesDetectionMaskModeType] = None
-    MaskCharacter: Optional[str] = None
+    MaskCharacter: Optional[Annotated[str, _aws_pattern("Comprehend", "MaskCharacter")]] = None
 
 
 # This class is the input for the 'start_flywheel_iteration' function.
 class StartFlywheelIterationRequestTypeDef(BaseValidatorModel):
-    FlywheelArn: str
-    ClientRequestToken: Optional[str] = None
+    FlywheelArn: Annotated[str, _aws_pattern("Comprehend", "ComprehendFlywheelArn")]
+    ClientRequestToken: Optional[Annotated[str, _aws_pattern("Comprehend", "ClientRequestTokenString")]] = None
 
 
 # This class is the input for the 'stop_dominant_language_detection_job' function.
 class StopDominantLanguageDetectionJobRequestTypeDef(BaseValidatorModel):
-    JobId: str
+    JobId: Annotated[str, _aws_pattern("Comprehend", "JobId")]
 
 
 # This class is the input for the 'stop_entities_detection_job' function.
 class StopEntitiesDetectionJobRequestTypeDef(BaseValidatorModel):
-    JobId: str
+    JobId: Annotated[str, _aws_pattern("Comprehend", "JobId")]
 
 
 # This class is the input for the 'stop_events_detection_job' function.
 class StopEventsDetectionJobRequestTypeDef(BaseValidatorModel):
-    JobId: str
+    JobId: Annotated[str, _aws_pattern("Comprehend", "JobId")]
 
 
 # This class is the input for the 'stop_key_phrases_detection_job' function.
 class StopKeyPhrasesDetectionJobRequestTypeDef(BaseValidatorModel):
-    JobId: str
+    JobId: Annotated[str, _aws_pattern("Comprehend", "JobId")]
 
 
 # This class is the input for the 'stop_pii_entities_detection_job' function.
 class StopPiiEntitiesDetectionJobRequestTypeDef(BaseValidatorModel):
-    JobId: str
+    JobId: Annotated[str, _aws_pattern("Comprehend", "JobId")]
 
 
 # This class is the input for the 'stop_sentiment_detection_job' function.
 class StopSentimentDetectionJobRequestTypeDef(BaseValidatorModel):
-    JobId: str
+    JobId: Annotated[str, _aws_pattern("Comprehend", "JobId")]
 
 
 # This class is the input for the 'stop_targeted_sentiment_detection_job' function.
 class StopTargetedSentimentDetectionJobRequestTypeDef(BaseValidatorModel):
-    JobId: str
+    JobId: Annotated[str, _aws_pattern("Comprehend", "JobId")]
 
 
 class StopTrainingDocumentClassifierRequestTypeDef(BaseValidatorModel):
-    DocumentClassifierArn: str
+    DocumentClassifierArn: Annotated[str, _aws_pattern("Comprehend", "DocumentClassifierArn")]
 
 
 class StopTrainingEntityRecognizerRequestTypeDef(BaseValidatorModel):
-    EntityRecognizerArn: str
+    EntityRecognizerArn: Annotated[str, _aws_pattern("Comprehend", "EntityRecognizerArn")]
 
 
 class ToxicContentTypeDef(BaseValidatorModel):
@@ -641,17 +643,17 @@ class ToxicContentTypeDef(BaseValidatorModel):
 
 
 class UntagResourceRequestTypeDef(BaseValidatorModel):
-    ResourceArn: str
+    ResourceArn: Annotated[str, _aws_pattern("Comprehend", "ComprehendArn")]
     TagKeys: List[str]
 
 
 # This class is the input for the 'update_endpoint' function.
 class UpdateEndpointRequestTypeDef(BaseValidatorModel):
-    EndpointArn: str
-    DesiredModelArn: Optional[str] = None
+    EndpointArn: Annotated[str, _aws_pattern("Comprehend", "ComprehendEndpointArn")]
+    DesiredModelArn: Optional[Annotated[str, _aws_pattern("Comprehend", "ComprehendModelArn")]] = None
     DesiredInferenceUnits: Optional[int] = None
-    DesiredDataAccessRoleArn: Optional[str] = None
-    FlywheelArn: Optional[str] = None
+    DesiredDataAccessRoleArn: Optional[Annotated[str, _aws_pattern("Comprehend", "IamRoleArn")]] = None
+    FlywheelArn: Optional[Annotated[str, _aws_pattern("Comprehend", "ComprehendFlywheelArn")]] = None
 
 
 class BatchDetectDominantLanguageItemResultTypeDef(BaseValidatorModel):
@@ -661,42 +663,42 @@ class BatchDetectDominantLanguageItemResultTypeDef(BaseValidatorModel):
 
 # This class is the output for the 'create_dataset' function.
 class CreateDatasetResponseTypeDef(BaseValidatorModel):
-    DatasetArn: str
+    DatasetArn: Annotated[str, _aws_pattern("Comprehend", "ComprehendDatasetArn")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 # This class is the output for the 'create_document_classifier' function.
 class CreateDocumentClassifierResponseTypeDef(BaseValidatorModel):
-    DocumentClassifierArn: str
+    DocumentClassifierArn: Annotated[str, _aws_pattern("Comprehend", "DocumentClassifierArn")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 # This class is the output for the 'create_endpoint' function.
 class CreateEndpointResponseTypeDef(BaseValidatorModel):
-    EndpointArn: str
-    ModelArn: str
+    EndpointArn: Annotated[str, _aws_pattern("Comprehend", "ComprehendEndpointArn")]
+    ModelArn: Annotated[str, _aws_pattern("Comprehend", "ComprehendModelArn")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 # This class is the output for the 'create_entity_recognizer' function.
 class CreateEntityRecognizerResponseTypeDef(BaseValidatorModel):
-    EntityRecognizerArn: str
+    EntityRecognizerArn: Annotated[str, _aws_pattern("Comprehend", "EntityRecognizerArn")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 # This class is the output for the 'create_flywheel' function.
 class CreateFlywheelResponseTypeDef(BaseValidatorModel):
-    FlywheelArn: str
-    ActiveModelArn: str
+    FlywheelArn: Annotated[str, _aws_pattern("Comprehend", "ComprehendFlywheelArn")]
+    ActiveModelArn: Annotated[str, _aws_pattern("Comprehend", "ComprehendModelArn")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 # This class is the output for the 'describe_resource_policy' function.
 class DescribeResourcePolicyResponseTypeDef(BaseValidatorModel):
-    ResourcePolicy: str
+    ResourcePolicy: Annotated[str, _aws_pattern("Comprehend", "Policy")]
     CreationTime: datetime
     LastModifiedTime: datetime
-    PolicyRevisionId: str
+    PolicyRevisionId: Annotated[str, _aws_pattern("Comprehend", "PolicyRevisionId")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
@@ -708,149 +710,149 @@ class DetectDominantLanguageResponseTypeDef(BaseValidatorModel):
 
 # This class is the output for the 'import_model' function.
 class ImportModelResponseTypeDef(BaseValidatorModel):
-    ModelArn: str
+    ModelArn: Annotated[str, _aws_pattern("Comprehend", "ComprehendModelArn")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 # This class is the output for the 'put_resource_policy' function.
 class PutResourcePolicyResponseTypeDef(BaseValidatorModel):
-    PolicyRevisionId: str
+    PolicyRevisionId: Annotated[str, _aws_pattern("Comprehend", "PolicyRevisionId")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 # This class is the output for the 'start_document_classification_job' function.
 class StartDocumentClassificationJobResponseTypeDef(BaseValidatorModel):
-    JobId: str
-    JobArn: str
+    JobId: Annotated[str, _aws_pattern("Comprehend", "JobId")]
+    JobArn: Annotated[str, _aws_pattern("Comprehend", "ComprehendArn")]
     JobStatus: JobStatusType
-    DocumentClassifierArn: str
+    DocumentClassifierArn: Annotated[str, _aws_pattern("Comprehend", "DocumentClassifierArn")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 # This class is the output for the 'start_dominant_language_detection_job' function.
 class StartDominantLanguageDetectionJobResponseTypeDef(BaseValidatorModel):
-    JobId: str
-    JobArn: str
+    JobId: Annotated[str, _aws_pattern("Comprehend", "JobId")]
+    JobArn: Annotated[str, _aws_pattern("Comprehend", "ComprehendArn")]
     JobStatus: JobStatusType
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 # This class is the output for the 'start_entities_detection_job' function.
 class StartEntitiesDetectionJobResponseTypeDef(BaseValidatorModel):
-    JobId: str
-    JobArn: str
+    JobId: Annotated[str, _aws_pattern("Comprehend", "JobId")]
+    JobArn: Annotated[str, _aws_pattern("Comprehend", "ComprehendArn")]
     JobStatus: JobStatusType
-    EntityRecognizerArn: str
+    EntityRecognizerArn: Annotated[str, _aws_pattern("Comprehend", "EntityRecognizerArn")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 # This class is the output for the 'start_events_detection_job' function.
 class StartEventsDetectionJobResponseTypeDef(BaseValidatorModel):
-    JobId: str
-    JobArn: str
+    JobId: Annotated[str, _aws_pattern("Comprehend", "JobId")]
+    JobArn: Annotated[str, _aws_pattern("Comprehend", "ComprehendArn")]
     JobStatus: JobStatusType
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 # This class is the output for the 'start_flywheel_iteration' function.
 class StartFlywheelIterationResponseTypeDef(BaseValidatorModel):
-    FlywheelArn: str
-    FlywheelIterationId: str
+    FlywheelArn: Annotated[str, _aws_pattern("Comprehend", "ComprehendFlywheelArn")]
+    FlywheelIterationId: Annotated[str, _aws_pattern("Comprehend", "FlywheelIterationId")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 # This class is the output for the 'start_key_phrases_detection_job' function.
 class StartKeyPhrasesDetectionJobResponseTypeDef(BaseValidatorModel):
-    JobId: str
-    JobArn: str
+    JobId: Annotated[str, _aws_pattern("Comprehend", "JobId")]
+    JobArn: Annotated[str, _aws_pattern("Comprehend", "ComprehendArn")]
     JobStatus: JobStatusType
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 # This class is the output for the 'start_pii_entities_detection_job' function.
 class StartPiiEntitiesDetectionJobResponseTypeDef(BaseValidatorModel):
-    JobId: str
-    JobArn: str
+    JobId: Annotated[str, _aws_pattern("Comprehend", "JobId")]
+    JobArn: Annotated[str, _aws_pattern("Comprehend", "ComprehendArn")]
     JobStatus: JobStatusType
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 # This class is the output for the 'start_sentiment_detection_job' function.
 class StartSentimentDetectionJobResponseTypeDef(BaseValidatorModel):
-    JobId: str
-    JobArn: str
+    JobId: Annotated[str, _aws_pattern("Comprehend", "JobId")]
+    JobArn: Annotated[str, _aws_pattern("Comprehend", "ComprehendArn")]
     JobStatus: JobStatusType
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 # This class is the output for the 'start_targeted_sentiment_detection_job' function.
 class StartTargetedSentimentDetectionJobResponseTypeDef(BaseValidatorModel):
-    JobId: str
-    JobArn: str
+    JobId: Annotated[str, _aws_pattern("Comprehend", "JobId")]
+    JobArn: Annotated[str, _aws_pattern("Comprehend", "ComprehendArn")]
     JobStatus: JobStatusType
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 # This class is the output for the 'start_topics_detection_job' function.
 class StartTopicsDetectionJobResponseTypeDef(BaseValidatorModel):
-    JobId: str
-    JobArn: str
+    JobId: Annotated[str, _aws_pattern("Comprehend", "JobId")]
+    JobArn: Annotated[str, _aws_pattern("Comprehend", "ComprehendArn")]
     JobStatus: JobStatusType
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 # This class is the output for the 'stop_dominant_language_detection_job' function.
 class StopDominantLanguageDetectionJobResponseTypeDef(BaseValidatorModel):
-    JobId: str
+    JobId: Annotated[str, _aws_pattern("Comprehend", "JobId")]
     JobStatus: JobStatusType
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 # This class is the output for the 'stop_entities_detection_job' function.
 class StopEntitiesDetectionJobResponseTypeDef(BaseValidatorModel):
-    JobId: str
+    JobId: Annotated[str, _aws_pattern("Comprehend", "JobId")]
     JobStatus: JobStatusType
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 # This class is the output for the 'stop_events_detection_job' function.
 class StopEventsDetectionJobResponseTypeDef(BaseValidatorModel):
-    JobId: str
+    JobId: Annotated[str, _aws_pattern("Comprehend", "JobId")]
     JobStatus: JobStatusType
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 # This class is the output for the 'stop_key_phrases_detection_job' function.
 class StopKeyPhrasesDetectionJobResponseTypeDef(BaseValidatorModel):
-    JobId: str
+    JobId: Annotated[str, _aws_pattern("Comprehend", "JobId")]
     JobStatus: JobStatusType
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 # This class is the output for the 'stop_pii_entities_detection_job' function.
 class StopPiiEntitiesDetectionJobResponseTypeDef(BaseValidatorModel):
-    JobId: str
+    JobId: Annotated[str, _aws_pattern("Comprehend", "JobId")]
     JobStatus: JobStatusType
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 # This class is the output for the 'stop_sentiment_detection_job' function.
 class StopSentimentDetectionJobResponseTypeDef(BaseValidatorModel):
-    JobId: str
+    JobId: Annotated[str, _aws_pattern("Comprehend", "JobId")]
     JobStatus: JobStatusType
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 # This class is the output for the 'stop_targeted_sentiment_detection_job' function.
 class StopTargetedSentimentDetectionJobResponseTypeDef(BaseValidatorModel):
-    JobId: str
+    JobId: Annotated[str, _aws_pattern("Comprehend", "JobId")]
     JobStatus: JobStatusType
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 # This class is the output for the 'update_endpoint' function.
 class UpdateEndpointResponseTypeDef(BaseValidatorModel):
-    DesiredModelArn: str
+    DesiredModelArn: Annotated[str, _aws_pattern("Comprehend", "ComprehendModelArn")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
@@ -905,34 +907,34 @@ class ContainsPiiEntitiesResponseTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'create_endpoint' function.
 class CreateEndpointRequestTypeDef(BaseValidatorModel):
-    EndpointName: str
+    EndpointName: Annotated[str, _aws_pattern("Comprehend", "ComprehendEndpointName")]
     DesiredInferenceUnits: int
-    ModelArn: Optional[str] = None
-    ClientRequestToken: Optional[str] = None
+    ModelArn: Optional[Annotated[str, _aws_pattern("Comprehend", "ComprehendModelArn")]] = None
+    ClientRequestToken: Optional[Annotated[str, _aws_pattern("Comprehend", "ClientRequestTokenString")]] = None
     Tags: Optional[List[TagTypeDef]] = None
-    DataAccessRoleArn: Optional[str] = None
-    FlywheelArn: Optional[str] = None
+    DataAccessRoleArn: Optional[Annotated[str, _aws_pattern("Comprehend", "IamRoleArn")]] = None
+    FlywheelArn: Optional[Annotated[str, _aws_pattern("Comprehend", "ComprehendFlywheelArn")]] = None
 
 
 # This class is the input for the 'import_model' function.
 class ImportModelRequestTypeDef(BaseValidatorModel):
-    SourceModelArn: str
-    ModelName: Optional[str] = None
-    VersionName: Optional[str] = None
-    ModelKmsKeyId: Optional[str] = None
-    DataAccessRoleArn: Optional[str] = None
+    SourceModelArn: Annotated[str, _aws_pattern("Comprehend", "ComprehendModelArn")]
+    ModelName: Optional[Annotated[str, _aws_pattern("Comprehend", "ComprehendArnName")]] = None
+    VersionName: Optional[Annotated[str, _aws_pattern("Comprehend", "VersionName")]] = None
+    ModelKmsKeyId: Optional[Annotated[str, _aws_pattern("Comprehend", "KmsKeyId")]] = None
+    DataAccessRoleArn: Optional[Annotated[str, _aws_pattern("Comprehend", "IamRoleArn")]] = None
     Tags: Optional[List[TagTypeDef]] = None
 
 
 # This class is the output for the 'list_tags_for_resource' function.
 class ListTagsForResourceResponseTypeDef(BaseValidatorModel):
-    ResourceArn: str
+    ResourceArn: Annotated[str, _aws_pattern("Comprehend", "ComprehendArn")]
     Tags: List[TagTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 class TagResourceRequestTypeDef(BaseValidatorModel):
-    ResourceArn: str
+    ResourceArn: Annotated[str, _aws_pattern("Comprehend", "ComprehendArn")]
     Tags: List[TagTypeDef]
 
 
@@ -944,9 +946,9 @@ class DataSecurityConfigOutputTypeDef(BaseValidatorModel):
 
 
 class DataSecurityConfigTypeDef(BaseValidatorModel):
-    ModelKmsKeyId: Optional[str] = None
-    VolumeKmsKeyId: Optional[str] = None
-    DataLakeKmsKeyId: Optional[str] = None
+    ModelKmsKeyId: Optional[Annotated[str, _aws_pattern("Comprehend", "KmsKeyId")]] = None
+    VolumeKmsKeyId: Optional[Annotated[str, _aws_pattern("Comprehend", "KmsKeyId")]] = None
+    DataLakeKmsKeyId: Optional[Annotated[str, _aws_pattern("Comprehend", "KmsKeyId")]] = None
     VpcConfig: Optional[VpcConfigTypeDef] = None
 
 
@@ -967,7 +969,7 @@ class DatasetFilterTypeDef(BaseValidatorModel):
 
 
 class DocumentClassificationJobFilterTypeDef(BaseValidatorModel):
-    JobName: Optional[str] = None
+    JobName: Optional[Annotated[str, _aws_pattern("Comprehend", "JobName")]] = None
     JobStatus: Optional[JobStatusType] = None
     SubmitTimeBefore: Optional[TimestampTypeDef] = None
     SubmitTimeAfter: Optional[TimestampTypeDef] = None
@@ -975,27 +977,27 @@ class DocumentClassificationJobFilterTypeDef(BaseValidatorModel):
 
 class DocumentClassifierFilterTypeDef(BaseValidatorModel):
     Status: Optional[ModelStatusType] = None
-    DocumentClassifierName: Optional[str] = None
+    DocumentClassifierName: Optional[Annotated[str, _aws_pattern("Comprehend", "ComprehendArnName")]] = None
     SubmitTimeBefore: Optional[TimestampTypeDef] = None
     SubmitTimeAfter: Optional[TimestampTypeDef] = None
 
 
 class DominantLanguageDetectionJobFilterTypeDef(BaseValidatorModel):
-    JobName: Optional[str] = None
+    JobName: Optional[Annotated[str, _aws_pattern("Comprehend", "JobName")]] = None
     JobStatus: Optional[JobStatusType] = None
     SubmitTimeBefore: Optional[TimestampTypeDef] = None
     SubmitTimeAfter: Optional[TimestampTypeDef] = None
 
 
 class EndpointFilterTypeDef(BaseValidatorModel):
-    ModelArn: Optional[str] = None
+    ModelArn: Optional[Annotated[str, _aws_pattern("Comprehend", "ComprehendModelArn")]] = None
     Status: Optional[EndpointStatusType] = None
     CreationTimeBefore: Optional[TimestampTypeDef] = None
     CreationTimeAfter: Optional[TimestampTypeDef] = None
 
 
 class EntitiesDetectionJobFilterTypeDef(BaseValidatorModel):
-    JobName: Optional[str] = None
+    JobName: Optional[Annotated[str, _aws_pattern("Comprehend", "JobName")]] = None
     JobStatus: Optional[JobStatusType] = None
     SubmitTimeBefore: Optional[TimestampTypeDef] = None
     SubmitTimeAfter: Optional[TimestampTypeDef] = None
@@ -1003,13 +1005,13 @@ class EntitiesDetectionJobFilterTypeDef(BaseValidatorModel):
 
 class EntityRecognizerFilterTypeDef(BaseValidatorModel):
     Status: Optional[ModelStatusType] = None
-    RecognizerName: Optional[str] = None
+    RecognizerName: Optional[Annotated[str, _aws_pattern("Comprehend", "ComprehendArnName")]] = None
     SubmitTimeBefore: Optional[TimestampTypeDef] = None
     SubmitTimeAfter: Optional[TimestampTypeDef] = None
 
 
 class EventsDetectionJobFilterTypeDef(BaseValidatorModel):
-    JobName: Optional[str] = None
+    JobName: Optional[Annotated[str, _aws_pattern("Comprehend", "JobName")]] = None
     JobStatus: Optional[JobStatusType] = None
     SubmitTimeBefore: Optional[TimestampTypeDef] = None
     SubmitTimeAfter: Optional[TimestampTypeDef] = None
@@ -1027,35 +1029,35 @@ class FlywheelIterationFilterTypeDef(BaseValidatorModel):
 
 
 class KeyPhrasesDetectionJobFilterTypeDef(BaseValidatorModel):
-    JobName: Optional[str] = None
+    JobName: Optional[Annotated[str, _aws_pattern("Comprehend", "JobName")]] = None
     JobStatus: Optional[JobStatusType] = None
     SubmitTimeBefore: Optional[TimestampTypeDef] = None
     SubmitTimeAfter: Optional[TimestampTypeDef] = None
 
 
 class PiiEntitiesDetectionJobFilterTypeDef(BaseValidatorModel):
-    JobName: Optional[str] = None
+    JobName: Optional[Annotated[str, _aws_pattern("Comprehend", "JobName")]] = None
     JobStatus: Optional[JobStatusType] = None
     SubmitTimeBefore: Optional[TimestampTypeDef] = None
     SubmitTimeAfter: Optional[TimestampTypeDef] = None
 
 
 class SentimentDetectionJobFilterTypeDef(BaseValidatorModel):
-    JobName: Optional[str] = None
+    JobName: Optional[Annotated[str, _aws_pattern("Comprehend", "JobName")]] = None
     JobStatus: Optional[JobStatusType] = None
     SubmitTimeBefore: Optional[TimestampTypeDef] = None
     SubmitTimeAfter: Optional[TimestampTypeDef] = None
 
 
 class TargetedSentimentDetectionJobFilterTypeDef(BaseValidatorModel):
-    JobName: Optional[str] = None
+    JobName: Optional[Annotated[str, _aws_pattern("Comprehend", "JobName")]] = None
     JobStatus: Optional[JobStatusType] = None
     SubmitTimeBefore: Optional[TimestampTypeDef] = None
     SubmitTimeAfter: Optional[TimestampTypeDef] = None
 
 
 class TopicsDetectionJobFilterTypeDef(BaseValidatorModel):
-    JobName: Optional[str] = None
+    JobName: Optional[Annotated[str, _aws_pattern("Comprehend", "JobName")]] = None
     JobStatus: Optional[JobStatusType] = None
     SubmitTimeBefore: Optional[TimestampTypeDef] = None
     SubmitTimeAfter: Optional[TimestampTypeDef] = None
@@ -1118,9 +1120,9 @@ class InputDataConfigOutputTypeDef(BaseValidatorModel):
 
 class DocumentClassifierInputDataConfigTypeDef(BaseValidatorModel):
     DataFormat: Optional[DocumentClassifierDataFormatType] = None
-    S3Uri: Optional[str] = None
-    TestS3Uri: Optional[str] = None
-    LabelDelimiter: Optional[str] = None
+    S3Uri: Optional[Annotated[str, _aws_pattern("Comprehend", "S3Uri")]] = None
+    TestS3Uri: Optional[Annotated[str, _aws_pattern("Comprehend", "S3Uri")]] = None
+    LabelDelimiter: Optional[Annotated[str, _aws_pattern("Comprehend", "LabelDelimiter")]] = None
     AugmentedManifests: Optional[List[AugmentedManifestsListItemTypeDef]] = None
     DocumentType: Optional[DocumentClassifierDocumentTypeFormatType] = None
     Documents: Optional[DocumentClassifierDocumentsTypeDef] = None
@@ -1131,7 +1133,7 @@ DocumentReaderConfigUnionTypeDef = Union[DocumentReaderConfigOutputTypeDef, Docu
 
 
 class InputDataConfigTypeDef(BaseValidatorModel):
-    S3Uri: str
+    S3Uri: Annotated[str, _aws_pattern("Comprehend", "S3Uri")]
     InputFormat: Optional[InputFormatType] = None
     DocumentReaderConfig: Optional[DocumentReaderConfigTypeDef] = None
 
@@ -1188,17 +1190,17 @@ class ListEntityRecognizerSummariesResponseTypeDef(BaseValidatorModel):
 
 
 class FlywheelIterationPropertiesTypeDef(BaseValidatorModel):
-    FlywheelArn: Optional[str] = None
-    FlywheelIterationId: Optional[str] = None
+    FlywheelArn: Optional[Annotated[str, _aws_pattern("Comprehend", "ComprehendFlywheelArn")]] = None
+    FlywheelIterationId: Optional[Annotated[str, _aws_pattern("Comprehend", "FlywheelIterationId")]] = None
     CreationTime: Optional[datetime] = None
     EndTime: Optional[datetime] = None
     Status: Optional[FlywheelIterationStatusType] = None
     Message: Optional[str] = None
-    EvaluatedModelArn: Optional[str] = None
+    EvaluatedModelArn: Optional[Annotated[str, _aws_pattern("Comprehend", "ComprehendModelArn")]] = None
     EvaluatedModelMetrics: Optional[FlywheelModelEvaluationMetricsTypeDef] = None
-    TrainedModelArn: Optional[str] = None
+    TrainedModelArn: Optional[Annotated[str, _aws_pattern("Comprehend", "ComprehendModelArn")]] = None
     TrainedModelMetrics: Optional[FlywheelModelEvaluationMetricsTypeDef] = None
-    EvaluationManifestS3Prefix: Optional[str] = None
+    EvaluationManifestS3Prefix: Optional[Annotated[str, _aws_pattern("Comprehend", "S3Uri")]] = None
 
 
 # This class is the output for the 'list_flywheels' function.
@@ -1273,8 +1275,8 @@ DataSecurityConfigUnionTypeDef = Union[DataSecurityConfigOutputTypeDef, DataSecu
 
 
 class UpdateDataSecurityConfigTypeDef(BaseValidatorModel):
-    ModelKmsKeyId: Optional[str] = None
-    VolumeKmsKeyId: Optional[str] = None
+    ModelKmsKeyId: Optional[Annotated[str, _aws_pattern("Comprehend", "KmsKeyId")]] = None
+    VolumeKmsKeyId: Optional[Annotated[str, _aws_pattern("Comprehend", "KmsKeyId")]] = None
     VpcConfig: Optional[VpcConfigUnionTypeDef] = None
 
 
@@ -1287,7 +1289,7 @@ class DatasetInputDataConfigTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'list_datasets' function.
 class ListDatasetsRequestTypeDef(BaseValidatorModel):
-    FlywheelArn: Optional[str] = None
+    FlywheelArn: Optional[Annotated[str, _aws_pattern("Comprehend", "ComprehendFlywheelArn")]] = None
     Filter: Optional[DatasetFilterTypeDef] = None
     NextToken: Optional[str] = None
     MaxResults: Optional[int] = None
@@ -1381,7 +1383,7 @@ class ListFlywheelsRequestTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'list_flywheel_iteration_history' function.
 class ListFlywheelIterationHistoryRequestTypeDef(BaseValidatorModel):
-    FlywheelArn: str
+    FlywheelArn: Annotated[str, _aws_pattern("Comprehend", "ComprehendFlywheelArn")]
     Filter: Optional[FlywheelIterationFilterTypeDef] = None
     NextToken: Optional[str] = None
     MaxResults: Optional[int] = None
@@ -1443,7 +1445,7 @@ class ListTopicsDetectionJobsRequestTypeDef(BaseValidatorModel):
 
 
 class DocumentClassifierPropertiesTypeDef(BaseValidatorModel):
-    DocumentClassifierArn: Optional[str] = None
+    DocumentClassifierArn: Optional[Annotated[str, _aws_pattern("Comprehend", "DocumentClassifierArn")]] = None
     LanguageCode: Optional[LanguageCodeType] = None
     Status: Optional[ModelStatusType] = None
     Message: Optional[str] = None
@@ -1454,70 +1456,70 @@ class DocumentClassifierPropertiesTypeDef(BaseValidatorModel):
     InputDataConfig: Optional[DocumentClassifierInputDataConfigOutputTypeDef] = None
     OutputDataConfig: Optional[DocumentClassifierOutputDataConfigTypeDef] = None
     ClassifierMetadata: Optional[ClassifierMetadataTypeDef] = None
-    DataAccessRoleArn: Optional[str] = None
-    VolumeKmsKeyId: Optional[str] = None
+    DataAccessRoleArn: Optional[Annotated[str, _aws_pattern("Comprehend", "IamRoleArn")]] = None
+    VolumeKmsKeyId: Optional[Annotated[str, _aws_pattern("Comprehend", "KmsKeyId")]] = None
     VpcConfig: Optional[VpcConfigOutputTypeDef] = None
     Mode: Optional[DocumentClassifierModeType] = None
-    ModelKmsKeyId: Optional[str] = None
-    VersionName: Optional[str] = None
-    SourceModelArn: Optional[str] = None
-    FlywheelArn: Optional[str] = None
+    ModelKmsKeyId: Optional[Annotated[str, _aws_pattern("Comprehend", "KmsKeyId")]] = None
+    VersionName: Optional[Annotated[str, _aws_pattern("Comprehend", "VersionName")]] = None
+    SourceModelArn: Optional[Annotated[str, _aws_pattern("Comprehend", "DocumentClassifierArn")]] = None
+    FlywheelArn: Optional[Annotated[str, _aws_pattern("Comprehend", "ComprehendFlywheelArn")]] = None
 
 
 class DocumentClassificationJobPropertiesTypeDef(BaseValidatorModel):
-    JobId: Optional[str] = None
-    JobArn: Optional[str] = None
-    JobName: Optional[str] = None
+    JobId: Optional[Annotated[str, _aws_pattern("Comprehend", "JobId")]] = None
+    JobArn: Optional[Annotated[str, _aws_pattern("Comprehend", "ComprehendArn")]] = None
+    JobName: Optional[Annotated[str, _aws_pattern("Comprehend", "JobName")]] = None
     JobStatus: Optional[JobStatusType] = None
     Message: Optional[str] = None
     SubmitTime: Optional[datetime] = None
     EndTime: Optional[datetime] = None
-    DocumentClassifierArn: Optional[str] = None
+    DocumentClassifierArn: Optional[Annotated[str, _aws_pattern("Comprehend", "DocumentClassifierArn")]] = None
     InputDataConfig: Optional[InputDataConfigOutputTypeDef] = None
     OutputDataConfig: Optional[OutputDataConfigTypeDef] = None
-    DataAccessRoleArn: Optional[str] = None
-    VolumeKmsKeyId: Optional[str] = None
+    DataAccessRoleArn: Optional[Annotated[str, _aws_pattern("Comprehend", "IamRoleArn")]] = None
+    VolumeKmsKeyId: Optional[Annotated[str, _aws_pattern("Comprehend", "KmsKeyId")]] = None
     VpcConfig: Optional[VpcConfigOutputTypeDef] = None
-    FlywheelArn: Optional[str] = None
+    FlywheelArn: Optional[Annotated[str, _aws_pattern("Comprehend", "ComprehendFlywheelArn")]] = None
 
 
 class DominantLanguageDetectionJobPropertiesTypeDef(BaseValidatorModel):
-    JobId: Optional[str] = None
-    JobArn: Optional[str] = None
-    JobName: Optional[str] = None
+    JobId: Optional[Annotated[str, _aws_pattern("Comprehend", "JobId")]] = None
+    JobArn: Optional[Annotated[str, _aws_pattern("Comprehend", "ComprehendArn")]] = None
+    JobName: Optional[Annotated[str, _aws_pattern("Comprehend", "JobName")]] = None
     JobStatus: Optional[JobStatusType] = None
     Message: Optional[str] = None
     SubmitTime: Optional[datetime] = None
     EndTime: Optional[datetime] = None
     InputDataConfig: Optional[InputDataConfigOutputTypeDef] = None
     OutputDataConfig: Optional[OutputDataConfigTypeDef] = None
-    DataAccessRoleArn: Optional[str] = None
-    VolumeKmsKeyId: Optional[str] = None
+    DataAccessRoleArn: Optional[Annotated[str, _aws_pattern("Comprehend", "IamRoleArn")]] = None
+    VolumeKmsKeyId: Optional[Annotated[str, _aws_pattern("Comprehend", "KmsKeyId")]] = None
     VpcConfig: Optional[VpcConfigOutputTypeDef] = None
 
 
 class EntitiesDetectionJobPropertiesTypeDef(BaseValidatorModel):
-    JobId: Optional[str] = None
-    JobArn: Optional[str] = None
-    JobName: Optional[str] = None
+    JobId: Optional[Annotated[str, _aws_pattern("Comprehend", "JobId")]] = None
+    JobArn: Optional[Annotated[str, _aws_pattern("Comprehend", "ComprehendArn")]] = None
+    JobName: Optional[Annotated[str, _aws_pattern("Comprehend", "JobName")]] = None
     JobStatus: Optional[JobStatusType] = None
     Message: Optional[str] = None
     SubmitTime: Optional[datetime] = None
     EndTime: Optional[datetime] = None
-    EntityRecognizerArn: Optional[str] = None
+    EntityRecognizerArn: Optional[Annotated[str, _aws_pattern("Comprehend", "EntityRecognizerArn")]] = None
     InputDataConfig: Optional[InputDataConfigOutputTypeDef] = None
     OutputDataConfig: Optional[OutputDataConfigTypeDef] = None
     LanguageCode: Optional[LanguageCodeType] = None
-    DataAccessRoleArn: Optional[str] = None
-    VolumeKmsKeyId: Optional[str] = None
+    DataAccessRoleArn: Optional[Annotated[str, _aws_pattern("Comprehend", "IamRoleArn")]] = None
+    VolumeKmsKeyId: Optional[Annotated[str, _aws_pattern("Comprehend", "KmsKeyId")]] = None
     VpcConfig: Optional[VpcConfigOutputTypeDef] = None
-    FlywheelArn: Optional[str] = None
+    FlywheelArn: Optional[Annotated[str, _aws_pattern("Comprehend", "ComprehendFlywheelArn")]] = None
 
 
 class EventsDetectionJobPropertiesTypeDef(BaseValidatorModel):
-    JobId: Optional[str] = None
-    JobArn: Optional[str] = None
-    JobName: Optional[str] = None
+    JobId: Optional[Annotated[str, _aws_pattern("Comprehend", "JobId")]] = None
+    JobArn: Optional[Annotated[str, _aws_pattern("Comprehend", "ComprehendArn")]] = None
+    JobName: Optional[Annotated[str, _aws_pattern("Comprehend", "JobName")]] = None
     JobStatus: Optional[JobStatusType] = None
     Message: Optional[str] = None
     SubmitTime: Optional[datetime] = None
@@ -1525,14 +1527,14 @@ class EventsDetectionJobPropertiesTypeDef(BaseValidatorModel):
     InputDataConfig: Optional[InputDataConfigOutputTypeDef] = None
     OutputDataConfig: Optional[OutputDataConfigTypeDef] = None
     LanguageCode: Optional[LanguageCodeType] = None
-    DataAccessRoleArn: Optional[str] = None
-    TargetEventTypes: Optional[List[str]] = None
+    DataAccessRoleArn: Optional[Annotated[str, _aws_pattern("Comprehend", "IamRoleArn")]] = None
+    TargetEventTypes: Optional[List[Annotated[str, _aws_pattern("Comprehend", "EventTypeString")]]] = None
 
 
 class KeyPhrasesDetectionJobPropertiesTypeDef(BaseValidatorModel):
-    JobId: Optional[str] = None
-    JobArn: Optional[str] = None
-    JobName: Optional[str] = None
+    JobId: Optional[Annotated[str, _aws_pattern("Comprehend", "JobId")]] = None
+    JobArn: Optional[Annotated[str, _aws_pattern("Comprehend", "ComprehendArn")]] = None
+    JobName: Optional[Annotated[str, _aws_pattern("Comprehend", "JobName")]] = None
     JobStatus: Optional[JobStatusType] = None
     Message: Optional[str] = None
     SubmitTime: Optional[datetime] = None
@@ -1540,15 +1542,15 @@ class KeyPhrasesDetectionJobPropertiesTypeDef(BaseValidatorModel):
     InputDataConfig: Optional[InputDataConfigOutputTypeDef] = None
     OutputDataConfig: Optional[OutputDataConfigTypeDef] = None
     LanguageCode: Optional[LanguageCodeType] = None
-    DataAccessRoleArn: Optional[str] = None
-    VolumeKmsKeyId: Optional[str] = None
+    DataAccessRoleArn: Optional[Annotated[str, _aws_pattern("Comprehend", "IamRoleArn")]] = None
+    VolumeKmsKeyId: Optional[Annotated[str, _aws_pattern("Comprehend", "KmsKeyId")]] = None
     VpcConfig: Optional[VpcConfigOutputTypeDef] = None
 
 
 class PiiEntitiesDetectionJobPropertiesTypeDef(BaseValidatorModel):
-    JobId: Optional[str] = None
-    JobArn: Optional[str] = None
-    JobName: Optional[str] = None
+    JobId: Optional[Annotated[str, _aws_pattern("Comprehend", "JobId")]] = None
+    JobArn: Optional[Annotated[str, _aws_pattern("Comprehend", "ComprehendArn")]] = None
+    JobName: Optional[Annotated[str, _aws_pattern("Comprehend", "JobName")]] = None
     JobStatus: Optional[JobStatusType] = None
     Message: Optional[str] = None
     SubmitTime: Optional[datetime] = None
@@ -1557,14 +1559,14 @@ class PiiEntitiesDetectionJobPropertiesTypeDef(BaseValidatorModel):
     OutputDataConfig: Optional[PiiOutputDataConfigTypeDef] = None
     RedactionConfig: Optional[RedactionConfigOutputTypeDef] = None
     LanguageCode: Optional[LanguageCodeType] = None
-    DataAccessRoleArn: Optional[str] = None
+    DataAccessRoleArn: Optional[Annotated[str, _aws_pattern("Comprehend", "IamRoleArn")]] = None
     Mode: Optional[PiiEntitiesDetectionModeType] = None
 
 
 class SentimentDetectionJobPropertiesTypeDef(BaseValidatorModel):
-    JobId: Optional[str] = None
-    JobArn: Optional[str] = None
-    JobName: Optional[str] = None
+    JobId: Optional[Annotated[str, _aws_pattern("Comprehend", "JobId")]] = None
+    JobArn: Optional[Annotated[str, _aws_pattern("Comprehend", "ComprehendArn")]] = None
+    JobName: Optional[Annotated[str, _aws_pattern("Comprehend", "JobName")]] = None
     JobStatus: Optional[JobStatusType] = None
     Message: Optional[str] = None
     SubmitTime: Optional[datetime] = None
@@ -1572,15 +1574,15 @@ class SentimentDetectionJobPropertiesTypeDef(BaseValidatorModel):
     InputDataConfig: Optional[InputDataConfigOutputTypeDef] = None
     OutputDataConfig: Optional[OutputDataConfigTypeDef] = None
     LanguageCode: Optional[LanguageCodeType] = None
-    DataAccessRoleArn: Optional[str] = None
-    VolumeKmsKeyId: Optional[str] = None
+    DataAccessRoleArn: Optional[Annotated[str, _aws_pattern("Comprehend", "IamRoleArn")]] = None
+    VolumeKmsKeyId: Optional[Annotated[str, _aws_pattern("Comprehend", "KmsKeyId")]] = None
     VpcConfig: Optional[VpcConfigOutputTypeDef] = None
 
 
 class TargetedSentimentDetectionJobPropertiesTypeDef(BaseValidatorModel):
-    JobId: Optional[str] = None
-    JobArn: Optional[str] = None
-    JobName: Optional[str] = None
+    JobId: Optional[Annotated[str, _aws_pattern("Comprehend", "JobId")]] = None
+    JobArn: Optional[Annotated[str, _aws_pattern("Comprehend", "ComprehendArn")]] = None
+    JobName: Optional[Annotated[str, _aws_pattern("Comprehend", "JobName")]] = None
     JobStatus: Optional[JobStatusType] = None
     Message: Optional[str] = None
     SubmitTime: Optional[datetime] = None
@@ -1588,15 +1590,15 @@ class TargetedSentimentDetectionJobPropertiesTypeDef(BaseValidatorModel):
     InputDataConfig: Optional[InputDataConfigOutputTypeDef] = None
     OutputDataConfig: Optional[OutputDataConfigTypeDef] = None
     LanguageCode: Optional[LanguageCodeType] = None
-    DataAccessRoleArn: Optional[str] = None
-    VolumeKmsKeyId: Optional[str] = None
+    DataAccessRoleArn: Optional[Annotated[str, _aws_pattern("Comprehend", "IamRoleArn")]] = None
+    VolumeKmsKeyId: Optional[Annotated[str, _aws_pattern("Comprehend", "KmsKeyId")]] = None
     VpcConfig: Optional[VpcConfigOutputTypeDef] = None
 
 
 class TopicsDetectionJobPropertiesTypeDef(BaseValidatorModel):
-    JobId: Optional[str] = None
-    JobArn: Optional[str] = None
-    JobName: Optional[str] = None
+    JobId: Optional[Annotated[str, _aws_pattern("Comprehend", "JobId")]] = None
+    JobArn: Optional[Annotated[str, _aws_pattern("Comprehend", "ComprehendArn")]] = None
+    JobName: Optional[Annotated[str, _aws_pattern("Comprehend", "JobName")]] = None
     JobStatus: Optional[JobStatusType] = None
     Message: Optional[str] = None
     SubmitTime: Optional[datetime] = None
@@ -1604,8 +1606,8 @@ class TopicsDetectionJobPropertiesTypeDef(BaseValidatorModel):
     InputDataConfig: Optional[InputDataConfigOutputTypeDef] = None
     OutputDataConfig: Optional[OutputDataConfigTypeDef] = None
     NumberOfTopics: Optional[int] = None
-    DataAccessRoleArn: Optional[str] = None
-    VolumeKmsKeyId: Optional[str] = None
+    DataAccessRoleArn: Optional[Annotated[str, _aws_pattern("Comprehend", "IamRoleArn")]] = None
+    VolumeKmsKeyId: Optional[Annotated[str, _aws_pattern("Comprehend", "KmsKeyId")]] = None
     VpcConfig: Optional[VpcConfigOutputTypeDef] = None
 
 
@@ -1616,7 +1618,7 @@ DocumentClassifierInputDataConfigUnionTypeDef = Union[
 
 # This class is the input for the 'classify_document' function.
 class ClassifyDocumentRequestTypeDef(BaseValidatorModel):
-    EndpointArn: str
+    EndpointArn: Annotated[str, _aws_pattern("Comprehend", "DocumentClassifierEndpointArn")]
     Text: Optional[str] = None
     Bytes: Optional[BlobTypeDef] = None
     DocumentReaderConfig: Optional[DocumentReaderConfigUnionTypeDef] = None
@@ -1626,7 +1628,7 @@ class ClassifyDocumentRequestTypeDef(BaseValidatorModel):
 class DetectEntitiesRequestTypeDef(BaseValidatorModel):
     Text: Optional[str] = None
     LanguageCode: Optional[LanguageCodeType] = None
-    EndpointArn: Optional[str] = None
+    EndpointArn: Optional[Annotated[str, _aws_pattern("Comprehend", "EntityRecognizerEndpointArn")]] = None
     Bytes: Optional[BlobTypeDef] = None
     DocumentReaderConfig: Optional[DocumentReaderConfigUnionTypeDef] = None
 
@@ -1720,20 +1722,20 @@ class BatchDetectEntitiesItemResultTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'update_flywheel' function.
 class UpdateFlywheelRequestTypeDef(BaseValidatorModel):
-    FlywheelArn: str
-    ActiveModelArn: Optional[str] = None
-    DataAccessRoleArn: Optional[str] = None
+    FlywheelArn: Annotated[str, _aws_pattern("Comprehend", "ComprehendFlywheelArn")]
+    ActiveModelArn: Optional[Annotated[str, _aws_pattern("Comprehend", "ComprehendModelArn")]] = None
+    DataAccessRoleArn: Optional[Annotated[str, _aws_pattern("Comprehend", "IamRoleArn")]] = None
     DataSecurityConfig: Optional[UpdateDataSecurityConfigTypeDef] = None
 
 
 # This class is the input for the 'create_dataset' function.
 class CreateDatasetRequestTypeDef(BaseValidatorModel):
-    FlywheelArn: str
-    DatasetName: str
+    FlywheelArn: Annotated[str, _aws_pattern("Comprehend", "ComprehendFlywheelArn")]
+    DatasetName: Annotated[str, _aws_pattern("Comprehend", "ComprehendArnName")]
     InputDataConfig: DatasetInputDataConfigTypeDef
     DatasetType: Optional[DatasetTypeType] = None
-    Description: Optional[str] = None
-    ClientRequestToken: Optional[str] = None
+    Description: Optional[Annotated[str, _aws_pattern("Comprehend", "Description")]] = None
+    ClientRequestToken: Optional[Annotated[str, _aws_pattern("Comprehend", "ClientRequestTokenString")]] = None
     Tags: Optional[List[TagTypeDef]] = None
 
 
@@ -1869,43 +1871,43 @@ class ListTopicsDetectionJobsResponseTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'create_document_classifier' function.
 class CreateDocumentClassifierRequestTypeDef(BaseValidatorModel):
-    DocumentClassifierName: str
-    DataAccessRoleArn: str
+    DocumentClassifierName: Annotated[str, _aws_pattern("Comprehend", "ComprehendArnName")]
+    DataAccessRoleArn: Annotated[str, _aws_pattern("Comprehend", "IamRoleArn")]
     InputDataConfig: DocumentClassifierInputDataConfigUnionTypeDef
     LanguageCode: LanguageCodeType
-    VersionName: Optional[str] = None
+    VersionName: Optional[Annotated[str, _aws_pattern("Comprehend", "VersionName")]] = None
     Tags: Optional[List[TagTypeDef]] = None
     OutputDataConfig: Optional[DocumentClassifierOutputDataConfigTypeDef] = None
-    ClientRequestToken: Optional[str] = None
-    VolumeKmsKeyId: Optional[str] = None
+    ClientRequestToken: Optional[Annotated[str, _aws_pattern("Comprehend", "ClientRequestTokenString")]] = None
+    VolumeKmsKeyId: Optional[Annotated[str, _aws_pattern("Comprehend", "KmsKeyId")]] = None
     VpcConfig: Optional[VpcConfigUnionTypeDef] = None
     Mode: Optional[DocumentClassifierModeType] = None
-    ModelKmsKeyId: Optional[str] = None
-    ModelPolicy: Optional[str] = None
+    ModelKmsKeyId: Optional[Annotated[str, _aws_pattern("Comprehend", "KmsKeyId")]] = None
+    ModelPolicy: Optional[Annotated[str, _aws_pattern("Comprehend", "Policy")]] = None
 
 
 # This class is the input for the 'start_document_classification_job' function.
 class StartDocumentClassificationJobRequestTypeDef(BaseValidatorModel):
     InputDataConfig: InputDataConfigUnionTypeDef
     OutputDataConfig: OutputDataConfigTypeDef
-    DataAccessRoleArn: str
-    JobName: Optional[str] = None
-    DocumentClassifierArn: Optional[str] = None
-    ClientRequestToken: Optional[str] = None
-    VolumeKmsKeyId: Optional[str] = None
+    DataAccessRoleArn: Annotated[str, _aws_pattern("Comprehend", "IamRoleArn")]
+    JobName: Optional[Annotated[str, _aws_pattern("Comprehend", "JobName")]] = None
+    DocumentClassifierArn: Optional[Annotated[str, _aws_pattern("Comprehend", "DocumentClassifierArn")]] = None
+    ClientRequestToken: Optional[Annotated[str, _aws_pattern("Comprehend", "ClientRequestTokenString")]] = None
+    VolumeKmsKeyId: Optional[Annotated[str, _aws_pattern("Comprehend", "KmsKeyId")]] = None
     VpcConfig: Optional[VpcConfigUnionTypeDef] = None
     Tags: Optional[List[TagTypeDef]] = None
-    FlywheelArn: Optional[str] = None
+    FlywheelArn: Optional[Annotated[str, _aws_pattern("Comprehend", "ComprehendFlywheelArn")]] = None
 
 
 # This class is the input for the 'start_dominant_language_detection_job' function.
 class StartDominantLanguageDetectionJobRequestTypeDef(BaseValidatorModel):
     InputDataConfig: InputDataConfigUnionTypeDef
     OutputDataConfig: OutputDataConfigTypeDef
-    DataAccessRoleArn: str
-    JobName: Optional[str] = None
-    ClientRequestToken: Optional[str] = None
-    VolumeKmsKeyId: Optional[str] = None
+    DataAccessRoleArn: Annotated[str, _aws_pattern("Comprehend", "IamRoleArn")]
+    JobName: Optional[Annotated[str, _aws_pattern("Comprehend", "JobName")]] = None
+    ClientRequestToken: Optional[Annotated[str, _aws_pattern("Comprehend", "ClientRequestTokenString")]] = None
+    VolumeKmsKeyId: Optional[Annotated[str, _aws_pattern("Comprehend", "KmsKeyId")]] = None
     VpcConfig: Optional[VpcConfigUnionTypeDef] = None
     Tags: Optional[List[TagTypeDef]] = None
 
@@ -1914,26 +1916,26 @@ class StartDominantLanguageDetectionJobRequestTypeDef(BaseValidatorModel):
 class StartEntitiesDetectionJobRequestTypeDef(BaseValidatorModel):
     InputDataConfig: InputDataConfigUnionTypeDef
     OutputDataConfig: OutputDataConfigTypeDef
-    DataAccessRoleArn: str
+    DataAccessRoleArn: Annotated[str, _aws_pattern("Comprehend", "IamRoleArn")]
     LanguageCode: LanguageCodeType
-    JobName: Optional[str] = None
-    EntityRecognizerArn: Optional[str] = None
-    ClientRequestToken: Optional[str] = None
-    VolumeKmsKeyId: Optional[str] = None
+    JobName: Optional[Annotated[str, _aws_pattern("Comprehend", "JobName")]] = None
+    EntityRecognizerArn: Optional[Annotated[str, _aws_pattern("Comprehend", "EntityRecognizerArn")]] = None
+    ClientRequestToken: Optional[Annotated[str, _aws_pattern("Comprehend", "ClientRequestTokenString")]] = None
+    VolumeKmsKeyId: Optional[Annotated[str, _aws_pattern("Comprehend", "KmsKeyId")]] = None
     VpcConfig: Optional[VpcConfigUnionTypeDef] = None
     Tags: Optional[List[TagTypeDef]] = None
-    FlywheelArn: Optional[str] = None
+    FlywheelArn: Optional[Annotated[str, _aws_pattern("Comprehend", "ComprehendFlywheelArn")]] = None
 
 
 # This class is the input for the 'start_events_detection_job' function.
 class StartEventsDetectionJobRequestTypeDef(BaseValidatorModel):
     InputDataConfig: InputDataConfigUnionTypeDef
     OutputDataConfig: OutputDataConfigTypeDef
-    DataAccessRoleArn: str
+    DataAccessRoleArn: Annotated[str, _aws_pattern("Comprehend", "IamRoleArn")]
     LanguageCode: LanguageCodeType
-    TargetEventTypes: List[str]
-    JobName: Optional[str] = None
-    ClientRequestToken: Optional[str] = None
+    TargetEventTypes: List[Annotated[str, _aws_pattern("Comprehend", "EventTypeString")]]
+    JobName: Optional[Annotated[str, _aws_pattern("Comprehend", "JobName")]] = None
+    ClientRequestToken: Optional[Annotated[str, _aws_pattern("Comprehend", "ClientRequestTokenString")]] = None
     Tags: Optional[List[TagTypeDef]] = None
 
 
@@ -1941,11 +1943,11 @@ class StartEventsDetectionJobRequestTypeDef(BaseValidatorModel):
 class StartKeyPhrasesDetectionJobRequestTypeDef(BaseValidatorModel):
     InputDataConfig: InputDataConfigUnionTypeDef
     OutputDataConfig: OutputDataConfigTypeDef
-    DataAccessRoleArn: str
+    DataAccessRoleArn: Annotated[str, _aws_pattern("Comprehend", "IamRoleArn")]
     LanguageCode: LanguageCodeType
-    JobName: Optional[str] = None
-    ClientRequestToken: Optional[str] = None
-    VolumeKmsKeyId: Optional[str] = None
+    JobName: Optional[Annotated[str, _aws_pattern("Comprehend", "JobName")]] = None
+    ClientRequestToken: Optional[Annotated[str, _aws_pattern("Comprehend", "ClientRequestTokenString")]] = None
+    VolumeKmsKeyId: Optional[Annotated[str, _aws_pattern("Comprehend", "KmsKeyId")]] = None
     VpcConfig: Optional[VpcConfigUnionTypeDef] = None
     Tags: Optional[List[TagTypeDef]] = None
 
@@ -1955,11 +1957,11 @@ class StartPiiEntitiesDetectionJobRequestTypeDef(BaseValidatorModel):
     InputDataConfig: InputDataConfigUnionTypeDef
     OutputDataConfig: OutputDataConfigTypeDef
     Mode: PiiEntitiesDetectionModeType
-    DataAccessRoleArn: str
+    DataAccessRoleArn: Annotated[str, _aws_pattern("Comprehend", "IamRoleArn")]
     LanguageCode: LanguageCodeType
     RedactionConfig: Optional[RedactionConfigUnionTypeDef] = None
-    JobName: Optional[str] = None
-    ClientRequestToken: Optional[str] = None
+    JobName: Optional[Annotated[str, _aws_pattern("Comprehend", "JobName")]] = None
+    ClientRequestToken: Optional[Annotated[str, _aws_pattern("Comprehend", "ClientRequestTokenString")]] = None
     Tags: Optional[List[TagTypeDef]] = None
 
 
@@ -1967,11 +1969,11 @@ class StartPiiEntitiesDetectionJobRequestTypeDef(BaseValidatorModel):
 class StartSentimentDetectionJobRequestTypeDef(BaseValidatorModel):
     InputDataConfig: InputDataConfigUnionTypeDef
     OutputDataConfig: OutputDataConfigTypeDef
-    DataAccessRoleArn: str
+    DataAccessRoleArn: Annotated[str, _aws_pattern("Comprehend", "IamRoleArn")]
     LanguageCode: LanguageCodeType
-    JobName: Optional[str] = None
-    ClientRequestToken: Optional[str] = None
-    VolumeKmsKeyId: Optional[str] = None
+    JobName: Optional[Annotated[str, _aws_pattern("Comprehend", "JobName")]] = None
+    ClientRequestToken: Optional[Annotated[str, _aws_pattern("Comprehend", "ClientRequestTokenString")]] = None
+    VolumeKmsKeyId: Optional[Annotated[str, _aws_pattern("Comprehend", "KmsKeyId")]] = None
     VpcConfig: Optional[VpcConfigUnionTypeDef] = None
     Tags: Optional[List[TagTypeDef]] = None
 
@@ -1980,11 +1982,11 @@ class StartSentimentDetectionJobRequestTypeDef(BaseValidatorModel):
 class StartTargetedSentimentDetectionJobRequestTypeDef(BaseValidatorModel):
     InputDataConfig: InputDataConfigUnionTypeDef
     OutputDataConfig: OutputDataConfigTypeDef
-    DataAccessRoleArn: str
+    DataAccessRoleArn: Annotated[str, _aws_pattern("Comprehend", "IamRoleArn")]
     LanguageCode: LanguageCodeType
-    JobName: Optional[str] = None
-    ClientRequestToken: Optional[str] = None
-    VolumeKmsKeyId: Optional[str] = None
+    JobName: Optional[Annotated[str, _aws_pattern("Comprehend", "JobName")]] = None
+    ClientRequestToken: Optional[Annotated[str, _aws_pattern("Comprehend", "ClientRequestTokenString")]] = None
+    VolumeKmsKeyId: Optional[Annotated[str, _aws_pattern("Comprehend", "KmsKeyId")]] = None
     VpcConfig: Optional[VpcConfigUnionTypeDef] = None
     Tags: Optional[List[TagTypeDef]] = None
 
@@ -1993,28 +1995,28 @@ class StartTargetedSentimentDetectionJobRequestTypeDef(BaseValidatorModel):
 class StartTopicsDetectionJobRequestTypeDef(BaseValidatorModel):
     InputDataConfig: InputDataConfigUnionTypeDef
     OutputDataConfig: OutputDataConfigTypeDef
-    DataAccessRoleArn: str
-    JobName: Optional[str] = None
+    DataAccessRoleArn: Annotated[str, _aws_pattern("Comprehend", "IamRoleArn")]
+    JobName: Optional[Annotated[str, _aws_pattern("Comprehend", "JobName")]] = None
     NumberOfTopics: Optional[int] = None
-    ClientRequestToken: Optional[str] = None
-    VolumeKmsKeyId: Optional[str] = None
+    ClientRequestToken: Optional[Annotated[str, _aws_pattern("Comprehend", "ClientRequestTokenString")]] = None
+    VolumeKmsKeyId: Optional[Annotated[str, _aws_pattern("Comprehend", "KmsKeyId")]] = None
     VpcConfig: Optional[VpcConfigUnionTypeDef] = None
     Tags: Optional[List[TagTypeDef]] = None
 
 
 class FlywheelPropertiesTypeDef(BaseValidatorModel):
-    FlywheelArn: Optional[str] = None
-    ActiveModelArn: Optional[str] = None
-    DataAccessRoleArn: Optional[str] = None
+    FlywheelArn: Optional[Annotated[str, _aws_pattern("Comprehend", "ComprehendFlywheelArn")]] = None
+    ActiveModelArn: Optional[Annotated[str, _aws_pattern("Comprehend", "ComprehendModelArn")]] = None
+    DataAccessRoleArn: Optional[Annotated[str, _aws_pattern("Comprehend", "IamRoleArn")]] = None
     TaskConfig: Optional[TaskConfigOutputTypeDef] = None
-    DataLakeS3Uri: Optional[str] = None
+    DataLakeS3Uri: Optional[Annotated[str, _aws_pattern("Comprehend", "S3Uri")]] = None
     DataSecurityConfig: Optional[DataSecurityConfigOutputTypeDef] = None
     Status: Optional[FlywheelStatusType] = None
     ModelType: Optional[ModelTypeType] = None
     Message: Optional[str] = None
     CreationTime: Optional[datetime] = None
     LastModifiedTime: Optional[datetime] = None
-    LatestFlywheelIteration: Optional[str] = None
+    LatestFlywheelIteration: Optional[Annotated[str, _aws_pattern("Comprehend", "FlywheelIterationId")]] = None
 
 
 TaskConfigUnionTypeDef = Union[TaskConfigOutputTypeDef, TaskConfigTypeDef]
@@ -2022,21 +2024,21 @@ TaskConfigUnionTypeDef = Union[TaskConfigOutputTypeDef, TaskConfigTypeDef]
 
 # This class is the input for the 'create_entity_recognizer' function.
 class CreateEntityRecognizerRequestTypeDef(BaseValidatorModel):
-    RecognizerName: str
-    DataAccessRoleArn: str
+    RecognizerName: Annotated[str, _aws_pattern("Comprehend", "ComprehendArnName")]
+    DataAccessRoleArn: Annotated[str, _aws_pattern("Comprehend", "IamRoleArn")]
     InputDataConfig: EntityRecognizerInputDataConfigUnionTypeDef
     LanguageCode: LanguageCodeType
-    VersionName: Optional[str] = None
+    VersionName: Optional[Annotated[str, _aws_pattern("Comprehend", "VersionName")]] = None
     Tags: Optional[List[TagTypeDef]] = None
-    ClientRequestToken: Optional[str] = None
-    VolumeKmsKeyId: Optional[str] = None
+    ClientRequestToken: Optional[Annotated[str, _aws_pattern("Comprehend", "ClientRequestTokenString")]] = None
+    VolumeKmsKeyId: Optional[Annotated[str, _aws_pattern("Comprehend", "KmsKeyId")]] = None
     VpcConfig: Optional[VpcConfigUnionTypeDef] = None
-    ModelKmsKeyId: Optional[str] = None
-    ModelPolicy: Optional[str] = None
+    ModelKmsKeyId: Optional[Annotated[str, _aws_pattern("Comprehend", "KmsKeyId")]] = None
+    ModelPolicy: Optional[Annotated[str, _aws_pattern("Comprehend", "Policy")]] = None
 
 
 class EntityRecognizerPropertiesTypeDef(BaseValidatorModel):
-    EntityRecognizerArn: Optional[str] = None
+    EntityRecognizerArn: Optional[Annotated[str, _aws_pattern("Comprehend", "EntityRecognizerArn")]] = None
     LanguageCode: Optional[LanguageCodeType] = None
     Status: Optional[ModelStatusType] = None
     Message: Optional[str] = None
@@ -2046,13 +2048,13 @@ class EntityRecognizerPropertiesTypeDef(BaseValidatorModel):
     TrainingEndTime: Optional[datetime] = None
     InputDataConfig: Optional[EntityRecognizerInputDataConfigOutputTypeDef] = None
     RecognizerMetadata: Optional[EntityRecognizerMetadataTypeDef] = None
-    DataAccessRoleArn: Optional[str] = None
-    VolumeKmsKeyId: Optional[str] = None
+    DataAccessRoleArn: Optional[Annotated[str, _aws_pattern("Comprehend", "IamRoleArn")]] = None
+    VolumeKmsKeyId: Optional[Annotated[str, _aws_pattern("Comprehend", "KmsKeyId")]] = None
     VpcConfig: Optional[VpcConfigOutputTypeDef] = None
-    ModelKmsKeyId: Optional[str] = None
-    VersionName: Optional[str] = None
-    SourceModelArn: Optional[str] = None
-    FlywheelArn: Optional[str] = None
+    ModelKmsKeyId: Optional[Annotated[str, _aws_pattern("Comprehend", "KmsKeyId")]] = None
+    VersionName: Optional[Annotated[str, _aws_pattern("Comprehend", "VersionName")]] = None
+    SourceModelArn: Optional[Annotated[str, _aws_pattern("Comprehend", "EntityRecognizerArn")]] = None
+    FlywheelArn: Optional[Annotated[str, _aws_pattern("Comprehend", "ComprehendFlywheelArn")]] = None
     OutputDataConfig: Optional[EntityRecognizerOutputDataConfigTypeDef] = None
 
 
@@ -2105,14 +2107,14 @@ class UpdateFlywheelResponseTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'create_flywheel' function.
 class CreateFlywheelRequestTypeDef(BaseValidatorModel):
-    FlywheelName: str
-    DataAccessRoleArn: str
-    DataLakeS3Uri: str
-    ActiveModelArn: Optional[str] = None
+    FlywheelName: Annotated[str, _aws_pattern("Comprehend", "ComprehendArnName")]
+    DataAccessRoleArn: Annotated[str, _aws_pattern("Comprehend", "IamRoleArn")]
+    DataLakeS3Uri: Annotated[str, _aws_pattern("Comprehend", "FlywheelS3Uri")]
+    ActiveModelArn: Optional[Annotated[str, _aws_pattern("Comprehend", "ComprehendModelArn")]] = None
     TaskConfig: Optional[TaskConfigUnionTypeDef] = None
     ModelType: Optional[ModelTypeType] = None
     DataSecurityConfig: Optional[DataSecurityConfigUnionTypeDef] = None
-    ClientRequestToken: Optional[str] = None
+    ClientRequestToken: Optional[Annotated[str, _aws_pattern("Comprehend", "ClientRequestTokenString")]] = None
     Tags: Optional[List[TagTypeDef]] = None
 
 

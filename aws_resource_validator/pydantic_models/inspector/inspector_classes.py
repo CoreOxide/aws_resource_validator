@@ -3,6 +3,7 @@
 from datetime import datetime
 from decimal import Decimal
 from typing import (
+    Annotated,
     Any,
     Callable,
     Dict,
@@ -24,6 +25,7 @@ from botocore.response import StreamingBody
 from pydantic import Field
 
 from aws_resource_validator.core.base_validator_model import BaseValidatorModel, EventStream
+from aws_resource_validator.core.pattern_validation import aws_field_pattern as _aws_pattern
 from aws_resource_validator.pydantic_models.inspector.inspector_constants import *  # noqa: F401,F403
 
 # Optional boto3 symbols — imported lazily so services that don't need them
@@ -217,7 +219,7 @@ class GetAssessmentReportRequestTypeDef(BaseValidatorModel):
 # This class is the input for the 'get_exclusions_preview' function.
 class GetExclusionsPreviewRequestTypeDef(BaseValidatorModel):
     assessmentTemplateArn: str
-    previewToken: str
+    previewToken: Annotated[str, _aws_pattern("Inspector", "UUID")]
     nextToken: Optional[str] = None
     maxResults: Optional[int] = None
     locale: Optional[Literal["EN_US"]] = None
@@ -370,7 +372,7 @@ class CreateAssessmentTemplateResponseTypeDef(BaseValidatorModel):
 
 # This class is the output for the 'create_exclusions_preview' function.
 class CreateExclusionsPreviewResponseTypeDef(BaseValidatorModel):
-    previewToken: str
+    previewToken: Annotated[str, _aws_pattern("Inspector", "UUID")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 

@@ -3,6 +3,7 @@
 from datetime import datetime
 from decimal import Decimal
 from typing import (
+    Annotated,
     Any,
     Callable,
     Dict,
@@ -24,6 +25,7 @@ from botocore.response import StreamingBody
 from pydantic import Field
 
 from aws_resource_validator.core.base_validator_model import BaseValidatorModel, EventStream
+from aws_resource_validator.core.pattern_validation import aws_field_pattern as _aws_pattern
 from aws_resource_validator.pydantic_models.ce.ce_constants import *  # noqa: F401,F403
 
 # Optional boto3 symbols — imported lazily so services that don't need them
@@ -39,8 +41,8 @@ except ImportError:  # pragma: no cover
 
 
 class AnomalyDateIntervalTypeDef(BaseValidatorModel):
-    StartDate: str
-    EndDate: Optional[str] = None
+    StartDate: Annotated[str, _aws_pattern("Ce", "YearMonthDay")]
+    EndDate: Optional[Annotated[str, _aws_pattern("Ce", "YearMonthDay")]] = None
 
 
 class AnomalyScoreTypeDef(BaseValidatorModel):
@@ -49,7 +51,7 @@ class AnomalyScoreTypeDef(BaseValidatorModel):
 
 
 class SubscriberTypeDef(BaseValidatorModel):
-    Address: Optional[str] = None
+    Address: Optional[Annotated[str, _aws_pattern("Ce", "SubscriberAddress")]] = None
     Type: Optional[SubscriberTypeType] = None
     Status: Optional[SubscriberStatusType] = None
 
@@ -63,36 +65,36 @@ class ImpactTypeDef(BaseValidatorModel):
 
 
 class ComparisonMetricValueTypeDef(BaseValidatorModel):
-    BaselineTimePeriodAmount: Optional[str] = None
-    ComparisonTimePeriodAmount: Optional[str] = None
-    Difference: Optional[str] = None
-    Unit: Optional[str] = None
+    BaselineTimePeriodAmount: Optional[Annotated[str, _aws_pattern("Ce", "GenericString")]] = None
+    ComparisonTimePeriodAmount: Optional[Annotated[str, _aws_pattern("Ce", "GenericString")]] = None
+    Difference: Optional[Annotated[str, _aws_pattern("Ce", "GenericString")]] = None
+    Unit: Optional[Annotated[str, _aws_pattern("Ce", "GenericString")]] = None
 
 
 class CostAllocationTagBackfillRequestTypeDef(BaseValidatorModel):
-    BackfillFrom: Optional[str] = None
-    RequestedAt: Optional[str] = None
-    CompletedAt: Optional[str] = None
+    BackfillFrom: Optional[Annotated[str, _aws_pattern("Ce", "ZonedDateTime")]] = None
+    RequestedAt: Optional[Annotated[str, _aws_pattern("Ce", "ZonedDateTime")]] = None
+    CompletedAt: Optional[Annotated[str, _aws_pattern("Ce", "ZonedDateTime")]] = None
     BackfillStatus: Optional[CostAllocationTagBackfillStatusType] = None
-    LastUpdatedAt: Optional[str] = None
+    LastUpdatedAt: Optional[Annotated[str, _aws_pattern("Ce", "ZonedDateTime")]] = None
 
 
 class CostAllocationTagStatusEntryTypeDef(BaseValidatorModel):
-    TagKey: str
+    TagKey: Annotated[str, _aws_pattern("Ce", "TagKey")]
     Status: CostAllocationTagStatusType
 
 
 class CostAllocationTagTypeDef(BaseValidatorModel):
-    TagKey: str
+    TagKey: Annotated[str, _aws_pattern("Ce", "TagKey")]
     Type: CostAllocationTagTypeType
     Status: CostAllocationTagStatusType
-    LastUpdatedDate: Optional[str] = None
-    LastUsedDate: Optional[str] = None
+    LastUpdatedDate: Optional[Annotated[str, _aws_pattern("Ce", "ZonedDateTime")]] = None
+    LastUsedDate: Optional[Annotated[str, _aws_pattern("Ce", "ZonedDateTime")]] = None
 
 
 class CostCategoryInheritedValueDimensionTypeDef(BaseValidatorModel):
     DimensionName: Optional[CostCategoryInheritedValueDimensionNameType] = None
-    DimensionKey: Optional[str] = None
+    DimensionKey: Optional[Annotated[str, _aws_pattern("Ce", "GenericString")]] = None
 
 
 class CostCategoryProcessingStatusTypeDef(BaseValidatorModel):
@@ -101,9 +103,9 @@ class CostCategoryProcessingStatusTypeDef(BaseValidatorModel):
 
 
 class CostCategoryResourceAssociationTypeDef(BaseValidatorModel):
-    ResourceArn: Optional[str] = None
-    CostCategoryName: Optional[str] = None
-    CostCategoryArn: Optional[str] = None
+    ResourceArn: Optional[Annotated[str, _aws_pattern("Ce", "GenericArn")]] = None
+    CostCategoryName: Optional[Annotated[str, _aws_pattern("Ce", "CostCategoryName")]] = None
+    CostCategoryArn: Optional[Annotated[str, _aws_pattern("Ce", "Arn")]] = None
 
 
 class CostCategorySplitChargeRuleParameterOutputTypeDef(BaseValidatorModel):
@@ -113,7 +115,7 @@ class CostCategorySplitChargeRuleParameterOutputTypeDef(BaseValidatorModel):
 
 class CostCategorySplitChargeRuleParameterTypeDef(BaseValidatorModel):
     Type: Literal["ALLOCATION_PERCENTAGES"]
-    Values: List[str]
+    Values: List[Annotated[str, _aws_pattern("Ce", "GenericString")]]
 
 
 class CostCategoryValuesOutputTypeDef(BaseValidatorModel):
@@ -123,14 +125,14 @@ class CostCategoryValuesOutputTypeDef(BaseValidatorModel):
 
 
 class CostCategoryValuesTypeDef(BaseValidatorModel):
-    Key: Optional[str] = None
-    Values: Optional[List[str]] = None
+    Key: Optional[Annotated[str, _aws_pattern("Ce", "CostCategoryName")]] = None
+    Values: Optional[List[Annotated[str, _aws_pattern("Ce", "Value")]]] = None
     MatchOptions: Optional[List[MatchOptionType]] = None
 
 
 class DateIntervalTypeDef(BaseValidatorModel):
-    Start: str
-    End: str
+    Start: Annotated[str, _aws_pattern("Ce", "YearMonthDay")]
+    End: Annotated[str, _aws_pattern("Ce", "YearMonthDay")]
 
 
 class CoverageCostTypeDef(BaseValidatorModel):
@@ -152,8 +154,8 @@ class CoverageNormalizedUnitsTypeDef(BaseValidatorModel):
 
 
 class ResourceTagTypeDef(BaseValidatorModel):
-    Key: str
-    Value: str
+    Key: Annotated[str, _aws_pattern("Ce", "ResourceTagKey")]
+    Value: Annotated[str, _aws_pattern("Ce", "ResourceTagValue")]
 
 
 class ResponseMetadataTypeDef(BaseValidatorModel):
@@ -171,22 +173,22 @@ class TagValuesOutputTypeDef(BaseValidatorModel):
 
 
 class DeleteAnomalyMonitorRequestTypeDef(BaseValidatorModel):
-    MonitorArn: str
+    MonitorArn: Annotated[str, _aws_pattern("Ce", "GenericString")]
 
 
 class DeleteAnomalySubscriptionRequestTypeDef(BaseValidatorModel):
-    SubscriptionArn: str
+    SubscriptionArn: Annotated[str, _aws_pattern("Ce", "GenericString")]
 
 
 # This class is the input for the 'delete_cost_category_definition' function.
 class DeleteCostCategoryDefinitionRequestTypeDef(BaseValidatorModel):
-    CostCategoryArn: str
+    CostCategoryArn: Annotated[str, _aws_pattern("Ce", "Arn")]
 
 
 # This class is the input for the 'describe_cost_category_definition' function.
 class DescribeCostCategoryDefinitionRequestTypeDef(BaseValidatorModel):
-    CostCategoryArn: str
-    EffectiveOn: Optional[str] = None
+    CostCategoryArn: Annotated[str, _aws_pattern("Ce", "Arn")]
+    EffectiveOn: Optional[Annotated[str, _aws_pattern("Ce", "ZonedDateTime")]] = None
 
 
 class DimensionValuesOutputTypeDef(BaseValidatorModel):
@@ -197,62 +199,62 @@ class DimensionValuesOutputTypeDef(BaseValidatorModel):
 
 class DimensionValuesTypeDef(BaseValidatorModel):
     Key: Optional[DimensionType] = None
-    Values: Optional[List[str]] = None
+    Values: Optional[List[Annotated[str, _aws_pattern("Ce", "Value")]]] = None
     MatchOptions: Optional[List[MatchOptionType]] = None
 
 
 class DimensionValuesWithAttributesTypeDef(BaseValidatorModel):
-    Value: Optional[str] = None
+    Value: Optional[Annotated[str, _aws_pattern("Ce", "Value")]] = None
     Attributes: Optional[Dict[str, str]] = None
 
 
 class DiskResourceUtilizationTypeDef(BaseValidatorModel):
-    DiskReadOpsPerSecond: Optional[str] = None
-    DiskWriteOpsPerSecond: Optional[str] = None
-    DiskReadBytesPerSecond: Optional[str] = None
-    DiskWriteBytesPerSecond: Optional[str] = None
+    DiskReadOpsPerSecond: Optional[Annotated[str, _aws_pattern("Ce", "GenericString")]] = None
+    DiskWriteOpsPerSecond: Optional[Annotated[str, _aws_pattern("Ce", "GenericString")]] = None
+    DiskReadBytesPerSecond: Optional[Annotated[str, _aws_pattern("Ce", "GenericString")]] = None
+    DiskWriteBytesPerSecond: Optional[Annotated[str, _aws_pattern("Ce", "GenericString")]] = None
 
 
 class DynamoDBCapacityDetailsTypeDef(BaseValidatorModel):
-    CapacityUnits: Optional[str] = None
-    Region: Optional[str] = None
+    CapacityUnits: Optional[Annotated[str, _aws_pattern("Ce", "GenericString")]] = None
+    Region: Optional[Annotated[str, _aws_pattern("Ce", "GenericString")]] = None
 
 
 class EBSResourceUtilizationTypeDef(BaseValidatorModel):
-    EbsReadOpsPerSecond: Optional[str] = None
-    EbsWriteOpsPerSecond: Optional[str] = None
-    EbsReadBytesPerSecond: Optional[str] = None
-    EbsWriteBytesPerSecond: Optional[str] = None
+    EbsReadOpsPerSecond: Optional[Annotated[str, _aws_pattern("Ce", "GenericString")]] = None
+    EbsWriteOpsPerSecond: Optional[Annotated[str, _aws_pattern("Ce", "GenericString")]] = None
+    EbsReadBytesPerSecond: Optional[Annotated[str, _aws_pattern("Ce", "GenericString")]] = None
+    EbsWriteBytesPerSecond: Optional[Annotated[str, _aws_pattern("Ce", "GenericString")]] = None
 
 
 class EC2InstanceDetailsTypeDef(BaseValidatorModel):
-    Family: Optional[str] = None
-    InstanceType: Optional[str] = None
-    Region: Optional[str] = None
-    AvailabilityZone: Optional[str] = None
-    Platform: Optional[str] = None
-    Tenancy: Optional[str] = None
+    Family: Optional[Annotated[str, _aws_pattern("Ce", "GenericString")]] = None
+    InstanceType: Optional[Annotated[str, _aws_pattern("Ce", "GenericString")]] = None
+    Region: Optional[Annotated[str, _aws_pattern("Ce", "GenericString")]] = None
+    AvailabilityZone: Optional[Annotated[str, _aws_pattern("Ce", "GenericString")]] = None
+    Platform: Optional[Annotated[str, _aws_pattern("Ce", "GenericString")]] = None
+    Tenancy: Optional[Annotated[str, _aws_pattern("Ce", "GenericString")]] = None
     CurrentGeneration: Optional[bool] = None
     SizeFlexEligible: Optional[bool] = None
 
 
 class EC2ResourceDetailsTypeDef(BaseValidatorModel):
-    HourlyOnDemandRate: Optional[str] = None
-    InstanceType: Optional[str] = None
-    Platform: Optional[str] = None
-    Region: Optional[str] = None
-    Sku: Optional[str] = None
-    Memory: Optional[str] = None
-    NetworkPerformance: Optional[str] = None
-    Storage: Optional[str] = None
-    Vcpu: Optional[str] = None
+    HourlyOnDemandRate: Optional[Annotated[str, _aws_pattern("Ce", "GenericString")]] = None
+    InstanceType: Optional[Annotated[str, _aws_pattern("Ce", "GenericString")]] = None
+    Platform: Optional[Annotated[str, _aws_pattern("Ce", "GenericString")]] = None
+    Region: Optional[Annotated[str, _aws_pattern("Ce", "GenericString")]] = None
+    Sku: Optional[Annotated[str, _aws_pattern("Ce", "GenericString")]] = None
+    Memory: Optional[Annotated[str, _aws_pattern("Ce", "GenericString")]] = None
+    NetworkPerformance: Optional[Annotated[str, _aws_pattern("Ce", "GenericString")]] = None
+    Storage: Optional[Annotated[str, _aws_pattern("Ce", "GenericString")]] = None
+    Vcpu: Optional[Annotated[str, _aws_pattern("Ce", "GenericString")]] = None
 
 
 class NetworkResourceUtilizationTypeDef(BaseValidatorModel):
-    NetworkInBytesPerSecond: Optional[str] = None
-    NetworkOutBytesPerSecond: Optional[str] = None
-    NetworkPacketsInPerSecond: Optional[str] = None
-    NetworkPacketsOutPerSecond: Optional[str] = None
+    NetworkInBytesPerSecond: Optional[Annotated[str, _aws_pattern("Ce", "GenericString")]] = None
+    NetworkOutBytesPerSecond: Optional[Annotated[str, _aws_pattern("Ce", "GenericString")]] = None
+    NetworkPacketsInPerSecond: Optional[Annotated[str, _aws_pattern("Ce", "GenericString")]] = None
+    NetworkPacketsOutPerSecond: Optional[Annotated[str, _aws_pattern("Ce", "GenericString")]] = None
 
 
 class EC2SpecificationTypeDef(BaseValidatorModel):
@@ -260,34 +262,34 @@ class EC2SpecificationTypeDef(BaseValidatorModel):
 
 
 class ESInstanceDetailsTypeDef(BaseValidatorModel):
-    InstanceClass: Optional[str] = None
-    InstanceSize: Optional[str] = None
-    Region: Optional[str] = None
+    InstanceClass: Optional[Annotated[str, _aws_pattern("Ce", "GenericString")]] = None
+    InstanceSize: Optional[Annotated[str, _aws_pattern("Ce", "GenericString")]] = None
+    Region: Optional[Annotated[str, _aws_pattern("Ce", "GenericString")]] = None
     CurrentGeneration: Optional[bool] = None
     SizeFlexEligible: Optional[bool] = None
 
 
 class ElastiCacheInstanceDetailsTypeDef(BaseValidatorModel):
-    Family: Optional[str] = None
-    NodeType: Optional[str] = None
-    Region: Optional[str] = None
-    ProductDescription: Optional[str] = None
+    Family: Optional[Annotated[str, _aws_pattern("Ce", "GenericString")]] = None
+    NodeType: Optional[Annotated[str, _aws_pattern("Ce", "GenericString")]] = None
+    Region: Optional[Annotated[str, _aws_pattern("Ce", "GenericString")]] = None
+    ProductDescription: Optional[Annotated[str, _aws_pattern("Ce", "GenericString")]] = None
     CurrentGeneration: Optional[bool] = None
     SizeFlexEligible: Optional[bool] = None
 
 
 class TagValuesTypeDef(BaseValidatorModel):
-    Key: Optional[str] = None
-    Values: Optional[List[str]] = None
+    Key: Optional[Annotated[str, _aws_pattern("Ce", "TagKey")]] = None
+    Values: Optional[List[Annotated[str, _aws_pattern("Ce", "Value")]]] = None
     MatchOptions: Optional[List[MatchOptionType]] = None
 
 
 class GenerationSummaryTypeDef(BaseValidatorModel):
-    RecommendationId: Optional[str] = None
+    RecommendationId: Optional[Annotated[str, _aws_pattern("Ce", "RecommendationId")]] = None
     GenerationStatus: Optional[GenerationStatusType] = None
-    GenerationStartedTime: Optional[str] = None
-    GenerationCompletionTime: Optional[str] = None
-    EstimatedCompletionTime: Optional[str] = None
+    GenerationStartedTime: Optional[Annotated[str, _aws_pattern("Ce", "ZonedDateTime")]] = None
+    GenerationCompletionTime: Optional[Annotated[str, _aws_pattern("Ce", "ZonedDateTime")]] = None
+    EstimatedCompletionTime: Optional[Annotated[str, _aws_pattern("Ce", "ZonedDateTime")]] = None
 
 
 class PaginatorConfigTypeDef(BaseValidatorModel):
@@ -304,16 +306,16 @@ class TotalImpactFilterTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'get_anomaly_monitors' function.
 class GetAnomalyMonitorsRequestTypeDef(BaseValidatorModel):
-    MonitorArnList: Optional[List[str]] = None
-    NextPageToken: Optional[str] = None
+    MonitorArnList: Optional[List[Annotated[str, _aws_pattern("Ce", "Value")]]] = None
+    NextPageToken: Optional[Annotated[str, _aws_pattern("Ce", "NextPageToken")]] = None
     MaxResults: Optional[int] = None
 
 
 # This class is the input for the 'get_anomaly_subscriptions' function.
 class GetAnomalySubscriptionsRequestTypeDef(BaseValidatorModel):
-    SubscriptionArnList: Optional[List[str]] = None
-    MonitorArn: Optional[str] = None
-    NextPageToken: Optional[str] = None
+    SubscriptionArnList: Optional[List[Annotated[str, _aws_pattern("Ce", "Value")]]] = None
+    MonitorArn: Optional[Annotated[str, _aws_pattern("Ce", "GenericString")]] = None
+    NextPageToken: Optional[Annotated[str, _aws_pattern("Ce", "NextPageToken")]] = None
     MaxResults: Optional[int] = None
 
 
@@ -321,21 +323,21 @@ class GetAnomalySubscriptionsRequestTypeDef(BaseValidatorModel):
 class GetApproximateUsageRecordsRequestTypeDef(BaseValidatorModel):
     Granularity: GranularityType
     ApproximationDimension: ApproximationDimensionType
-    Services: Optional[List[str]] = None
+    Services: Optional[List[Annotated[str, _aws_pattern("Ce", "GenericString")]]] = None
 
 
 # This class is the input for the 'get_commitment_purchase_analysis' function.
 class GetCommitmentPurchaseAnalysisRequestTypeDef(BaseValidatorModel):
-    AnalysisId: str
+    AnalysisId: Annotated[str, _aws_pattern("Ce", "AnalysisId")]
 
 
 class GroupDefinitionTypeDef(BaseValidatorModel):
     Type: Optional[GroupDefinitionTypeType] = None
-    Key: Optional[str] = None
+    Key: Optional[Annotated[str, _aws_pattern("Ce", "GroupDefinitionKey")]] = None
 
 
 class SortDefinitionTypeDef(BaseValidatorModel):
-    Key: str
+    Key: Annotated[str, _aws_pattern("Ce", "SortDefinitionKey")]
     SortOrder: Optional[SortOrderType] = None
 
 
@@ -345,9 +347,9 @@ class MetricValueTypeDef(BaseValidatorModel):
 
 
 class ReservationPurchaseRecommendationMetadataTypeDef(BaseValidatorModel):
-    RecommendationId: Optional[str] = None
-    GenerationTimestamp: Optional[str] = None
-    AdditionalMetadata: Optional[str] = None
+    RecommendationId: Optional[Annotated[str, _aws_pattern("Ce", "GenericString")]] = None
+    GenerationTimestamp: Optional[Annotated[str, _aws_pattern("Ce", "GenericString")]] = None
+    AdditionalMetadata: Optional[Annotated[str, _aws_pattern("Ce", "GenericString")]] = None
 
 
 class ReservationAggregatesTypeDef(BaseValidatorModel):
@@ -376,55 +378,55 @@ class RightsizingRecommendationConfigurationTypeDef(BaseValidatorModel):
 
 
 class RightsizingRecommendationMetadataTypeDef(BaseValidatorModel):
-    RecommendationId: Optional[str] = None
-    GenerationTimestamp: Optional[str] = None
+    RecommendationId: Optional[Annotated[str, _aws_pattern("Ce", "GenericString")]] = None
+    GenerationTimestamp: Optional[Annotated[str, _aws_pattern("Ce", "GenericString")]] = None
     LookbackPeriodInDays: Optional[LookbackPeriodInDaysType] = None
-    AdditionalMetadata: Optional[str] = None
+    AdditionalMetadata: Optional[Annotated[str, _aws_pattern("Ce", "GenericString")]] = None
 
 
 class RightsizingRecommendationSummaryTypeDef(BaseValidatorModel):
-    TotalRecommendationCount: Optional[str] = None
-    EstimatedTotalMonthlySavingsAmount: Optional[str] = None
-    SavingsCurrencyCode: Optional[str] = None
-    SavingsPercentage: Optional[str] = None
+    TotalRecommendationCount: Optional[Annotated[str, _aws_pattern("Ce", "GenericString")]] = None
+    EstimatedTotalMonthlySavingsAmount: Optional[Annotated[str, _aws_pattern("Ce", "GenericString")]] = None
+    SavingsCurrencyCode: Optional[Annotated[str, _aws_pattern("Ce", "GenericString")]] = None
+    SavingsPercentage: Optional[Annotated[str, _aws_pattern("Ce", "GenericString")]] = None
 
 
 # This class is the input for the 'get_savings_plan_purchase_recommendation_details' function.
 class GetSavingsPlanPurchaseRecommendationDetailsRequestTypeDef(BaseValidatorModel):
-    RecommendationDetailId: str
+    RecommendationDetailId: Annotated[str, _aws_pattern("Ce", "RecommendationDetailId")]
 
 
 class SavingsPlansPurchaseRecommendationMetadataTypeDef(BaseValidatorModel):
-    RecommendationId: Optional[str] = None
-    GenerationTimestamp: Optional[str] = None
-    AdditionalMetadata: Optional[str] = None
+    RecommendationId: Optional[Annotated[str, _aws_pattern("Ce", "GenericString")]] = None
+    GenerationTimestamp: Optional[Annotated[str, _aws_pattern("Ce", "GenericString")]] = None
+    AdditionalMetadata: Optional[Annotated[str, _aws_pattern("Ce", "GenericString")]] = None
 
 
 class MemoryDBInstanceDetailsTypeDef(BaseValidatorModel):
-    Family: Optional[str] = None
-    NodeType: Optional[str] = None
-    Region: Optional[str] = None
+    Family: Optional[Annotated[str, _aws_pattern("Ce", "GenericString")]] = None
+    NodeType: Optional[Annotated[str, _aws_pattern("Ce", "GenericString")]] = None
+    Region: Optional[Annotated[str, _aws_pattern("Ce", "GenericString")]] = None
     CurrentGeneration: Optional[bool] = None
     SizeFlexEligible: Optional[bool] = None
 
 
 class RDSInstanceDetailsTypeDef(BaseValidatorModel):
-    Family: Optional[str] = None
-    InstanceType: Optional[str] = None
-    Region: Optional[str] = None
-    DatabaseEngine: Optional[str] = None
-    DatabaseEdition: Optional[str] = None
-    DeploymentOption: Optional[str] = None
-    LicenseModel: Optional[str] = None
+    Family: Optional[Annotated[str, _aws_pattern("Ce", "GenericString")]] = None
+    InstanceType: Optional[Annotated[str, _aws_pattern("Ce", "GenericString")]] = None
+    Region: Optional[Annotated[str, _aws_pattern("Ce", "GenericString")]] = None
+    DatabaseEngine: Optional[Annotated[str, _aws_pattern("Ce", "GenericString")]] = None
+    DatabaseEdition: Optional[Annotated[str, _aws_pattern("Ce", "GenericString")]] = None
+    DeploymentOption: Optional[Annotated[str, _aws_pattern("Ce", "GenericString")]] = None
+    LicenseModel: Optional[Annotated[str, _aws_pattern("Ce", "GenericString")]] = None
     CurrentGeneration: Optional[bool] = None
     SizeFlexEligible: Optional[bool] = None
-    DeploymentModel: Optional[str] = None
+    DeploymentModel: Optional[Annotated[str, _aws_pattern("Ce", "GenericString")]] = None
 
 
 class RedshiftInstanceDetailsTypeDef(BaseValidatorModel):
-    Family: Optional[str] = None
-    NodeType: Optional[str] = None
-    Region: Optional[str] = None
+    Family: Optional[Annotated[str, _aws_pattern("Ce", "GenericString")]] = None
+    NodeType: Optional[Annotated[str, _aws_pattern("Ce", "GenericString")]] = None
+    Region: Optional[Annotated[str, _aws_pattern("Ce", "GenericString")]] = None
     CurrentGeneration: Optional[bool] = None
     SizeFlexEligible: Optional[bool] = None
 
@@ -432,77 +434,77 @@ class RedshiftInstanceDetailsTypeDef(BaseValidatorModel):
 # This class is the input for the 'list_commitment_purchase_analyses' function.
 class ListCommitmentPurchaseAnalysesRequestTypeDef(BaseValidatorModel):
     AnalysisStatus: Optional[AnalysisStatusType] = None
-    NextPageToken: Optional[str] = None
+    NextPageToken: Optional[Annotated[str, _aws_pattern("Ce", "NextPageToken")]] = None
     PageSize: Optional[int] = None
-    AnalysisIds: Optional[List[str]] = None
+    AnalysisIds: Optional[List[Annotated[str, _aws_pattern("Ce", "AnalysisId")]]] = None
 
 
 # This class is the input for the 'list_cost_allocation_tag_backfill_history' function.
 class ListCostAllocationTagBackfillHistoryRequestTypeDef(BaseValidatorModel):
-    NextToken: Optional[str] = None
+    NextToken: Optional[Annotated[str, _aws_pattern("Ce", "NextPageToken")]] = None
     MaxResults: Optional[int] = None
 
 
 # This class is the input for the 'list_cost_allocation_tags' function.
 class ListCostAllocationTagsRequestTypeDef(BaseValidatorModel):
     Status: Optional[CostAllocationTagStatusType] = None
-    TagKeys: Optional[List[str]] = None
+    TagKeys: Optional[List[Annotated[str, _aws_pattern("Ce", "TagKey")]]] = None
     Type: Optional[CostAllocationTagTypeType] = None
-    NextToken: Optional[str] = None
+    NextToken: Optional[Annotated[str, _aws_pattern("Ce", "NextPageToken")]] = None
     MaxResults: Optional[int] = None
 
 
 # This class is the input for the 'list_cost_category_definitions' function.
 class ListCostCategoryDefinitionsRequestTypeDef(BaseValidatorModel):
-    EffectiveOn: Optional[str] = None
-    NextToken: Optional[str] = None
+    EffectiveOn: Optional[Annotated[str, _aws_pattern("Ce", "ZonedDateTime")]] = None
+    NextToken: Optional[Annotated[str, _aws_pattern("Ce", "NextPageToken")]] = None
     MaxResults: Optional[int] = None
-    SupportedResourceTypes: Optional[List[str]] = None
+    SupportedResourceTypes: Optional[List[Annotated[str, _aws_pattern("Ce", "ResourceType")]]] = None
 
 
 # This class is the input for the 'list_cost_category_resource_associations' function.
 class ListCostCategoryResourceAssociationsRequestTypeDef(BaseValidatorModel):
-    CostCategoryArn: Optional[str] = None
-    NextToken: Optional[str] = None
+    CostCategoryArn: Optional[Annotated[str, _aws_pattern("Ce", "Arn")]] = None
+    NextToken: Optional[Annotated[str, _aws_pattern("Ce", "NextPageToken")]] = None
     MaxResults: Optional[int] = None
 
 
 # This class is the input for the 'list_savings_plans_purchase_recommendation_generation' function.
 class ListSavingsPlansPurchaseRecommendationGenerationRequestTypeDef(BaseValidatorModel):
     GenerationStatus: Optional[GenerationStatusType] = None
-    RecommendationIds: Optional[List[str]] = None
+    RecommendationIds: Optional[List[Annotated[str, _aws_pattern("Ce", "RecommendationId")]]] = None
     PageSize: Optional[int] = None
-    NextPageToken: Optional[str] = None
+    NextPageToken: Optional[Annotated[str, _aws_pattern("Ce", "NextPageToken")]] = None
 
 
 # This class is the input for the 'list_tags_for_resource' function.
 class ListTagsForResourceRequestTypeDef(BaseValidatorModel):
-    ResourceArn: str
+    ResourceArn: Annotated[str, _aws_pattern("Ce", "Arn")]
 
 
 # This class is the input for the 'provide_anomaly_feedback' function.
 class ProvideAnomalyFeedbackRequestTypeDef(BaseValidatorModel):
-    AnomalyId: str
+    AnomalyId: Annotated[str, _aws_pattern("Ce", "GenericString")]
     Feedback: AnomalyFeedbackTypeType
 
 
 class RecommendationDetailHourlyMetricsTypeDef(BaseValidatorModel):
-    StartTime: Optional[str] = None
-    EstimatedOnDemandCost: Optional[str] = None
-    CurrentCoverage: Optional[str] = None
-    EstimatedCoverage: Optional[str] = None
-    EstimatedNewCommitmentUtilization: Optional[str] = None
+    StartTime: Optional[Annotated[str, _aws_pattern("Ce", "ZonedDateTime")]] = None
+    EstimatedOnDemandCost: Optional[Annotated[str, _aws_pattern("Ce", "GenericString")]] = None
+    CurrentCoverage: Optional[Annotated[str, _aws_pattern("Ce", "GenericString")]] = None
+    EstimatedCoverage: Optional[Annotated[str, _aws_pattern("Ce", "GenericString")]] = None
+    EstimatedNewCommitmentUtilization: Optional[Annotated[str, _aws_pattern("Ce", "GenericString")]] = None
 
 
 class ReservationPurchaseRecommendationSummaryTypeDef(BaseValidatorModel):
-    TotalEstimatedMonthlySavingsAmount: Optional[str] = None
-    TotalEstimatedMonthlySavingsPercentage: Optional[str] = None
-    CurrencyCode: Optional[str] = None
+    TotalEstimatedMonthlySavingsAmount: Optional[Annotated[str, _aws_pattern("Ce", "GenericString")]] = None
+    TotalEstimatedMonthlySavingsPercentage: Optional[Annotated[str, _aws_pattern("Ce", "GenericString")]] = None
+    CurrencyCode: Optional[Annotated[str, _aws_pattern("Ce", "GenericString")]] = None
 
 
 class TerminateRecommendationDetailTypeDef(BaseValidatorModel):
-    EstimatedMonthlySavings: Optional[str] = None
-    CurrencyCode: Optional[str] = None
+    EstimatedMonthlySavings: Optional[Annotated[str, _aws_pattern("Ce", "GenericString")]] = None
+    CurrencyCode: Optional[Annotated[str, _aws_pattern("Ce", "GenericString")]] = None
 
 
 class RootCauseImpactTypeDef(BaseValidatorModel):
@@ -510,85 +512,85 @@ class RootCauseImpactTypeDef(BaseValidatorModel):
 
 
 class SavingsPlansAmortizedCommitmentTypeDef(BaseValidatorModel):
-    AmortizedRecurringCommitment: Optional[str] = None
-    AmortizedUpfrontCommitment: Optional[str] = None
-    TotalAmortizedCommitment: Optional[str] = None
+    AmortizedRecurringCommitment: Optional[Annotated[str, _aws_pattern("Ce", "GenericString")]] = None
+    AmortizedUpfrontCommitment: Optional[Annotated[str, _aws_pattern("Ce", "GenericString")]] = None
+    TotalAmortizedCommitment: Optional[Annotated[str, _aws_pattern("Ce", "GenericString")]] = None
 
 
 class SavingsPlansCoverageDataTypeDef(BaseValidatorModel):
-    SpendCoveredBySavingsPlans: Optional[str] = None
-    OnDemandCost: Optional[str] = None
-    TotalCost: Optional[str] = None
-    CoveragePercentage: Optional[str] = None
+    SpendCoveredBySavingsPlans: Optional[Annotated[str, _aws_pattern("Ce", "GenericString")]] = None
+    OnDemandCost: Optional[Annotated[str, _aws_pattern("Ce", "GenericString")]] = None
+    TotalCost: Optional[Annotated[str, _aws_pattern("Ce", "GenericString")]] = None
+    CoveragePercentage: Optional[Annotated[str, _aws_pattern("Ce", "GenericString")]] = None
 
 
 class SavingsPlansDetailsTypeDef(BaseValidatorModel):
-    Region: Optional[str] = None
-    InstanceFamily: Optional[str] = None
-    OfferingId: Optional[str] = None
+    Region: Optional[Annotated[str, _aws_pattern("Ce", "GenericString")]] = None
+    InstanceFamily: Optional[Annotated[str, _aws_pattern("Ce", "GenericString")]] = None
+    OfferingId: Optional[Annotated[str, _aws_pattern("Ce", "GenericString")]] = None
 
 
 class SavingsPlansTypeDef(BaseValidatorModel):
     PaymentOption: Optional[PaymentOptionType] = None
     SavingsPlansType: Optional[SupportedSavingsPlansTypeType] = None
-    Region: Optional[str] = None
-    InstanceFamily: Optional[str] = None
+    Region: Optional[Annotated[str, _aws_pattern("Ce", "GenericString")]] = None
+    InstanceFamily: Optional[Annotated[str, _aws_pattern("Ce", "GenericString")]] = None
     TermInYears: Optional[TermInYearsType] = None
     SavingsPlansCommitment: Optional[float] = None
-    OfferingId: Optional[str] = None
+    OfferingId: Optional[Annotated[str, _aws_pattern("Ce", "GenericString")]] = None
 
 
 class SavingsPlansPurchaseRecommendationSummaryTypeDef(BaseValidatorModel):
-    EstimatedROI: Optional[str] = None
-    CurrencyCode: Optional[str] = None
-    EstimatedTotalCost: Optional[str] = None
-    CurrentOnDemandSpend: Optional[str] = None
-    EstimatedSavingsAmount: Optional[str] = None
-    TotalRecommendationCount: Optional[str] = None
-    DailyCommitmentToPurchase: Optional[str] = None
-    HourlyCommitmentToPurchase: Optional[str] = None
-    EstimatedSavingsPercentage: Optional[str] = None
-    EstimatedMonthlySavingsAmount: Optional[str] = None
-    EstimatedOnDemandCostWithCurrentCommitment: Optional[str] = None
+    EstimatedROI: Optional[Annotated[str, _aws_pattern("Ce", "GenericString")]] = None
+    CurrencyCode: Optional[Annotated[str, _aws_pattern("Ce", "GenericString")]] = None
+    EstimatedTotalCost: Optional[Annotated[str, _aws_pattern("Ce", "GenericString")]] = None
+    CurrentOnDemandSpend: Optional[Annotated[str, _aws_pattern("Ce", "GenericString")]] = None
+    EstimatedSavingsAmount: Optional[Annotated[str, _aws_pattern("Ce", "GenericString")]] = None
+    TotalRecommendationCount: Optional[Annotated[str, _aws_pattern("Ce", "GenericString")]] = None
+    DailyCommitmentToPurchase: Optional[Annotated[str, _aws_pattern("Ce", "GenericString")]] = None
+    HourlyCommitmentToPurchase: Optional[Annotated[str, _aws_pattern("Ce", "GenericString")]] = None
+    EstimatedSavingsPercentage: Optional[Annotated[str, _aws_pattern("Ce", "GenericString")]] = None
+    EstimatedMonthlySavingsAmount: Optional[Annotated[str, _aws_pattern("Ce", "GenericString")]] = None
+    EstimatedOnDemandCostWithCurrentCommitment: Optional[Annotated[str, _aws_pattern("Ce", "GenericString")]] = None
 
 
 class SavingsPlansSavingsTypeDef(BaseValidatorModel):
-    NetSavings: Optional[str] = None
-    OnDemandCostEquivalent: Optional[str] = None
+    NetSavings: Optional[Annotated[str, _aws_pattern("Ce", "GenericString")]] = None
+    OnDemandCostEquivalent: Optional[Annotated[str, _aws_pattern("Ce", "GenericString")]] = None
 
 
 class SavingsPlansUtilizationTypeDef(BaseValidatorModel):
-    TotalCommitment: Optional[str] = None
-    UsedCommitment: Optional[str] = None
-    UnusedCommitment: Optional[str] = None
-    UtilizationPercentage: Optional[str] = None
+    TotalCommitment: Optional[Annotated[str, _aws_pattern("Ce", "GenericString")]] = None
+    UsedCommitment: Optional[Annotated[str, _aws_pattern("Ce", "GenericString")]] = None
+    UnusedCommitment: Optional[Annotated[str, _aws_pattern("Ce", "GenericString")]] = None
+    UtilizationPercentage: Optional[Annotated[str, _aws_pattern("Ce", "GenericString")]] = None
 
 
 # This class is the input for the 'start_cost_allocation_tag_backfill' function.
 class StartCostAllocationTagBackfillRequestTypeDef(BaseValidatorModel):
-    BackfillFrom: str
+    BackfillFrom: Annotated[str, _aws_pattern("Ce", "ZonedDateTime")]
 
 
 class UntagResourceRequestTypeDef(BaseValidatorModel):
-    ResourceArn: str
-    ResourceTagKeys: List[str]
+    ResourceArn: Annotated[str, _aws_pattern("Ce", "Arn")]
+    ResourceTagKeys: List[Annotated[str, _aws_pattern("Ce", "ResourceTagKey")]]
 
 
 # This class is the input for the 'update_anomaly_monitor' function.
 class UpdateAnomalyMonitorRequestTypeDef(BaseValidatorModel):
-    MonitorArn: str
-    MonitorName: Optional[str] = None
+    MonitorArn: Annotated[str, _aws_pattern("Ce", "GenericString")]
+    MonitorName: Optional[Annotated[str, _aws_pattern("Ce", "GenericString")]] = None
 
 
 class UpdateCostAllocationTagsStatusErrorTypeDef(BaseValidatorModel):
-    TagKey: Optional[str] = None
-    Code: Optional[str] = None
+    TagKey: Optional[Annotated[str, _aws_pattern("Ce", "TagKey")]] = None
+    Code: Optional[Annotated[str, _aws_pattern("Ce", "GenericString")]] = None
     Message: Optional[str] = None
 
 
 class CostDriverTypeDef(BaseValidatorModel):
-    Type: Optional[str] = None
-    Name: Optional[str] = None
+    Type: Optional[Annotated[str, _aws_pattern("Ce", "GenericString")]] = None
+    Name: Optional[Annotated[str, _aws_pattern("Ce", "GenericString")]] = None
     Metrics: Optional[Dict[str, ComparisonMetricValueTypeDef]] = None
 
 
@@ -598,15 +600,15 @@ class UpdateCostAllocationTagsStatusRequestTypeDef(BaseValidatorModel):
 
 
 class CostCategoryReferenceTypeDef(BaseValidatorModel):
-    CostCategoryArn: Optional[str] = None
-    Name: Optional[str] = None
-    EffectiveStart: Optional[str] = None
-    EffectiveEnd: Optional[str] = None
+    CostCategoryArn: Optional[Annotated[str, _aws_pattern("Ce", "Arn")]] = None
+    Name: Optional[Annotated[str, _aws_pattern("Ce", "CostCategoryName")]] = None
+    EffectiveStart: Optional[Annotated[str, _aws_pattern("Ce", "ZonedDateTime")]] = None
+    EffectiveEnd: Optional[Annotated[str, _aws_pattern("Ce", "ZonedDateTime")]] = None
     NumberOfRules: Optional[int] = None
     ProcessingStatus: Optional[List[CostCategoryProcessingStatusTypeDef]] = None
-    Values: Optional[List[str]] = None
-    DefaultValue: Optional[str] = None
-    SupportedResourceTypes: Optional[List[str]] = None
+    Values: Optional[List[Annotated[str, _aws_pattern("Ce", "CostCategoryValue")]]] = None
+    DefaultValue: Optional[Annotated[str, _aws_pattern("Ce", "CostCategoryValue")]] = None
+    SupportedResourceTypes: Optional[List[Annotated[str, _aws_pattern("Ce", "ResourceType")]]] = None
 
 
 class CostCategorySplitChargeRuleOutputTypeDef(BaseValidatorModel):
@@ -625,9 +627,9 @@ CostCategoryValuesUnionTypeDef = Union[CostCategoryValuesOutputTypeDef, CostCate
 
 class ForecastResultTypeDef(BaseValidatorModel):
     TimePeriod: Optional[DateIntervalTypeDef] = None
-    MeanValue: Optional[str] = None
-    PredictionIntervalLowerBound: Optional[str] = None
-    PredictionIntervalUpperBound: Optional[str] = None
+    MeanValue: Optional[Annotated[str, _aws_pattern("Ce", "GenericString")]] = None
+    PredictionIntervalLowerBound: Optional[Annotated[str, _aws_pattern("Ce", "GenericString")]] = None
+    PredictionIntervalUpperBound: Optional[Annotated[str, _aws_pattern("Ce", "GenericString")]] = None
 
 
 class CoverageTypeDef(BaseValidatorModel):
@@ -637,33 +639,33 @@ class CoverageTypeDef(BaseValidatorModel):
 
 
 class TagResourceRequestTypeDef(BaseValidatorModel):
-    ResourceArn: str
+    ResourceArn: Annotated[str, _aws_pattern("Ce", "Arn")]
     ResourceTags: List[ResourceTagTypeDef]
 
 
 # This class is the output for the 'create_anomaly_monitor' function.
 class CreateAnomalyMonitorResponseTypeDef(BaseValidatorModel):
-    MonitorArn: str
+    MonitorArn: Annotated[str, _aws_pattern("Ce", "GenericString")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 # This class is the output for the 'create_anomaly_subscription' function.
 class CreateAnomalySubscriptionResponseTypeDef(BaseValidatorModel):
-    SubscriptionArn: str
+    SubscriptionArn: Annotated[str, _aws_pattern("Ce", "GenericString")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 # This class is the output for the 'create_cost_category_definition' function.
 class CreateCostCategoryDefinitionResponseTypeDef(BaseValidatorModel):
-    CostCategoryArn: str
-    EffectiveStart: str
+    CostCategoryArn: Annotated[str, _aws_pattern("Ce", "Arn")]
+    EffectiveStart: Annotated[str, _aws_pattern("Ce", "ZonedDateTime")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 # This class is the output for the 'delete_cost_category_definition' function.
 class DeleteCostCategoryDefinitionResponseTypeDef(BaseValidatorModel):
-    CostCategoryArn: str
-    EffectiveEnd: str
+    CostCategoryArn: Annotated[str, _aws_pattern("Ce", "Arn")]
+    EffectiveEnd: Annotated[str, _aws_pattern("Ce", "ZonedDateTime")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
@@ -677,9 +679,9 @@ class GetApproximateUsageRecordsResponseTypeDef(BaseValidatorModel):
 
 # This class is the output for the 'get_cost_categories' function.
 class GetCostCategoriesResponseTypeDef(BaseValidatorModel):
-    NextPageToken: str
-    CostCategoryNames: List[str]
-    CostCategoryValues: List[str]
+    NextPageToken: Annotated[str, _aws_pattern("Ce", "NextPageToken")]
+    CostCategoryNames: List[Annotated[str, _aws_pattern("Ce", "CostCategoryName")]]
+    CostCategoryValues: List[Annotated[str, _aws_pattern("Ce", "CostCategoryValue")]]
     ReturnSize: int
     TotalSize: int
     ResponseMetadata: ResponseMetadataTypeDef
@@ -687,7 +689,7 @@ class GetCostCategoriesResponseTypeDef(BaseValidatorModel):
 
 # This class is the output for the 'get_tags' function.
 class GetTagsResponseTypeDef(BaseValidatorModel):
-    NextPageToken: str
+    NextPageToken: Annotated[str, _aws_pattern("Ce", "NextPageToken")]
     Tags: List[str]
     ReturnSize: int
     TotalSize: int
@@ -698,21 +700,21 @@ class GetTagsResponseTypeDef(BaseValidatorModel):
 class ListCostAllocationTagBackfillHistoryResponseTypeDef(BaseValidatorModel):
     BackfillRequests: List[CostAllocationTagBackfillRequestTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
-    NextToken: Optional[str] = None
+    NextToken: Optional[Annotated[str, _aws_pattern("Ce", "NextPageToken")]] = None
 
 
 # This class is the output for the 'list_cost_allocation_tags' function.
 class ListCostAllocationTagsResponseTypeDef(BaseValidatorModel):
     CostAllocationTags: List[CostAllocationTagTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
-    NextToken: Optional[str] = None
+    NextToken: Optional[Annotated[str, _aws_pattern("Ce", "NextPageToken")]] = None
 
 
 # This class is the output for the 'list_cost_category_resource_associations' function.
 class ListCostCategoryResourceAssociationsResponseTypeDef(BaseValidatorModel):
     CostCategoryResourceAssociations: List[CostCategoryResourceAssociationTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
-    NextToken: Optional[str] = None
+    NextToken: Optional[Annotated[str, _aws_pattern("Ce", "NextPageToken")]] = None
 
 
 # This class is the output for the 'list_tags_for_resource' function.
@@ -723,15 +725,15 @@ class ListTagsForResourceResponseTypeDef(BaseValidatorModel):
 
 # This class is the output for the 'provide_anomaly_feedback' function.
 class ProvideAnomalyFeedbackResponseTypeDef(BaseValidatorModel):
-    AnomalyId: str
+    AnomalyId: Annotated[str, _aws_pattern("Ce", "GenericString")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 # This class is the output for the 'start_commitment_purchase_analysis' function.
 class StartCommitmentPurchaseAnalysisResponseTypeDef(BaseValidatorModel):
-    AnalysisId: str
-    AnalysisStartedTime: str
-    EstimatedCompletionTime: str
+    AnalysisId: Annotated[str, _aws_pattern("Ce", "AnalysisId")]
+    AnalysisStartedTime: Annotated[str, _aws_pattern("Ce", "ZonedDateTime")]
+    EstimatedCompletionTime: Annotated[str, _aws_pattern("Ce", "ZonedDateTime")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
@@ -742,28 +744,28 @@ class StartCostAllocationTagBackfillResponseTypeDef(BaseValidatorModel):
 
 
 class StartSavingsPlansPurchaseRecommendationGenerationResponseTypeDef(BaseValidatorModel):
-    RecommendationId: str
-    GenerationStartedTime: str
-    EstimatedCompletionTime: str
+    RecommendationId: Annotated[str, _aws_pattern("Ce", "RecommendationId")]
+    GenerationStartedTime: Annotated[str, _aws_pattern("Ce", "ZonedDateTime")]
+    EstimatedCompletionTime: Annotated[str, _aws_pattern("Ce", "ZonedDateTime")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 # This class is the output for the 'update_anomaly_monitor' function.
 class UpdateAnomalyMonitorResponseTypeDef(BaseValidatorModel):
-    MonitorArn: str
+    MonitorArn: Annotated[str, _aws_pattern("Ce", "GenericString")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 # This class is the output for the 'update_anomaly_subscription' function.
 class UpdateAnomalySubscriptionResponseTypeDef(BaseValidatorModel):
-    SubscriptionArn: str
+    SubscriptionArn: Annotated[str, _aws_pattern("Ce", "GenericString")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 # This class is the output for the 'update_cost_category_definition' function.
 class UpdateCostCategoryDefinitionResponseTypeDef(BaseValidatorModel):
-    CostCategoryArn: str
-    EffectiveStart: str
+    CostCategoryArn: Annotated[str, _aws_pattern("Ce", "Arn")]
+    EffectiveStart: Annotated[str, _aws_pattern("Ce", "ZonedDateTime")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
@@ -793,7 +795,7 @@ class GetDimensionValuesResponseTypeDef(BaseValidatorModel):
     DimensionValues: List[DimensionValuesWithAttributesTypeDef]
     ReturnSize: int
     TotalSize: int
-    NextPageToken: str
+    NextPageToken: Annotated[str, _aws_pattern("Ce", "NextPageToken")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
@@ -806,9 +808,9 @@ class ResourceDetailsTypeDef(BaseValidatorModel):
 
 
 class EC2ResourceUtilizationTypeDef(BaseValidatorModel):
-    MaxCpuUtilizationPercentage: Optional[str] = None
-    MaxMemoryUtilizationPercentage: Optional[str] = None
-    MaxStorageUtilizationPercentage: Optional[str] = None
+    MaxCpuUtilizationPercentage: Optional[Annotated[str, _aws_pattern("Ce", "GenericString")]] = None
+    MaxMemoryUtilizationPercentage: Optional[Annotated[str, _aws_pattern("Ce", "GenericString")]] = None
+    MaxStorageUtilizationPercentage: Optional[Annotated[str, _aws_pattern("Ce", "GenericString")]] = None
     EBSResourceUtilization: Optional[EBSResourceUtilizationTypeDef] = None
     DiskResourceUtilization: Optional[DiskResourceUtilizationTypeDef] = None
     NetworkResourceUtilization: Optional[NetworkResourceUtilizationTypeDef] = None
@@ -833,7 +835,7 @@ TagValuesUnionTypeDef = Union[TagValuesOutputTypeDef, TagValuesTypeDef]
 # This class is the output for the 'list_savings_plans_purchase_recommendation_generation' function.
 class ListSavingsPlansPurchaseRecommendationGenerationResponseTypeDef(BaseValidatorModel):
     GenerationSummaryList: List[GenerationSummaryTypeDef]
-    NextPageToken: str
+    NextPageToken: Annotated[str, _aws_pattern("Ce", "NextPageToken")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
@@ -893,10 +895,10 @@ class GetAnomaliesRequestPaginateTypeDef(BaseValidatorModel):
 # This class is the input for the 'get_anomalies' function.
 class GetAnomaliesRequestTypeDef(BaseValidatorModel):
     DateInterval: AnomalyDateIntervalTypeDef
-    MonitorArn: Optional[str] = None
+    MonitorArn: Optional[Annotated[str, _aws_pattern("Ce", "GenericString")]] = None
     Feedback: Optional[AnomalyFeedbackTypeType] = None
     TotalImpact: Optional[TotalImpactFilterTypeDef] = None
-    NextPageToken: Optional[str] = None
+    NextPageToken: Optional[Annotated[str, _aws_pattern("Ce", "NextPageToken")]] = None
     MaxResults: Optional[int] = None
 
 
@@ -927,63 +929,63 @@ class RecommendationDetailDataTypeDef(BaseValidatorModel):
     SavingsPlansType: Optional[SupportedSavingsPlansTypeType] = None
     TermInYears: Optional[TermInYearsType] = None
     PaymentOption: Optional[PaymentOptionType] = None
-    AccountId: Optional[str] = None
-    CurrencyCode: Optional[str] = None
-    InstanceFamily: Optional[str] = None
-    Region: Optional[str] = None
-    OfferingId: Optional[str] = None
-    GenerationTimestamp: Optional[str] = None
-    LatestUsageTimestamp: Optional[str] = None
-    CurrentAverageHourlyOnDemandSpend: Optional[str] = None
-    CurrentMaximumHourlyOnDemandSpend: Optional[str] = None
-    CurrentMinimumHourlyOnDemandSpend: Optional[str] = None
-    EstimatedAverageUtilization: Optional[str] = None
-    EstimatedMonthlySavingsAmount: Optional[str] = None
-    EstimatedOnDemandCost: Optional[str] = None
-    EstimatedOnDemandCostWithCurrentCommitment: Optional[str] = None
-    EstimatedROI: Optional[str] = None
-    EstimatedSPCost: Optional[str] = None
-    EstimatedSavingsAmount: Optional[str] = None
-    EstimatedSavingsPercentage: Optional[str] = None
-    ExistingHourlyCommitment: Optional[str] = None
-    HourlyCommitmentToPurchase: Optional[str] = None
-    UpfrontCost: Optional[str] = None
-    CurrentAverageCoverage: Optional[str] = None
-    EstimatedAverageCoverage: Optional[str] = None
+    AccountId: Optional[Annotated[str, _aws_pattern("Ce", "GenericString")]] = None
+    CurrencyCode: Optional[Annotated[str, _aws_pattern("Ce", "GenericString")]] = None
+    InstanceFamily: Optional[Annotated[str, _aws_pattern("Ce", "GenericString")]] = None
+    Region: Optional[Annotated[str, _aws_pattern("Ce", "GenericString")]] = None
+    OfferingId: Optional[Annotated[str, _aws_pattern("Ce", "GenericString")]] = None
+    GenerationTimestamp: Optional[Annotated[str, _aws_pattern("Ce", "ZonedDateTime")]] = None
+    LatestUsageTimestamp: Optional[Annotated[str, _aws_pattern("Ce", "ZonedDateTime")]] = None
+    CurrentAverageHourlyOnDemandSpend: Optional[Annotated[str, _aws_pattern("Ce", "GenericString")]] = None
+    CurrentMaximumHourlyOnDemandSpend: Optional[Annotated[str, _aws_pattern("Ce", "GenericString")]] = None
+    CurrentMinimumHourlyOnDemandSpend: Optional[Annotated[str, _aws_pattern("Ce", "GenericString")]] = None
+    EstimatedAverageUtilization: Optional[Annotated[str, _aws_pattern("Ce", "GenericString")]] = None
+    EstimatedMonthlySavingsAmount: Optional[Annotated[str, _aws_pattern("Ce", "GenericString")]] = None
+    EstimatedOnDemandCost: Optional[Annotated[str, _aws_pattern("Ce", "GenericString")]] = None
+    EstimatedOnDemandCostWithCurrentCommitment: Optional[Annotated[str, _aws_pattern("Ce", "GenericString")]] = None
+    EstimatedROI: Optional[Annotated[str, _aws_pattern("Ce", "GenericString")]] = None
+    EstimatedSPCost: Optional[Annotated[str, _aws_pattern("Ce", "GenericString")]] = None
+    EstimatedSavingsAmount: Optional[Annotated[str, _aws_pattern("Ce", "GenericString")]] = None
+    EstimatedSavingsPercentage: Optional[Annotated[str, _aws_pattern("Ce", "GenericString")]] = None
+    ExistingHourlyCommitment: Optional[Annotated[str, _aws_pattern("Ce", "GenericString")]] = None
+    HourlyCommitmentToPurchase: Optional[Annotated[str, _aws_pattern("Ce", "GenericString")]] = None
+    UpfrontCost: Optional[Annotated[str, _aws_pattern("Ce", "GenericString")]] = None
+    CurrentAverageCoverage: Optional[Annotated[str, _aws_pattern("Ce", "GenericString")]] = None
+    EstimatedAverageCoverage: Optional[Annotated[str, _aws_pattern("Ce", "GenericString")]] = None
     MetricsOverLookbackPeriod: Optional[List[RecommendationDetailHourlyMetricsTypeDef]] = None
 
 
 class SavingsPlansPurchaseAnalysisDetailsTypeDef(BaseValidatorModel):
-    CurrencyCode: Optional[str] = None
-    LookbackPeriodInHours: Optional[str] = None
-    CurrentAverageCoverage: Optional[str] = None
-    CurrentAverageHourlyOnDemandSpend: Optional[str] = None
-    CurrentMaximumHourlyOnDemandSpend: Optional[str] = None
-    CurrentMinimumHourlyOnDemandSpend: Optional[str] = None
-    CurrentOnDemandSpend: Optional[str] = None
-    ExistingHourlyCommitment: Optional[str] = None
-    HourlyCommitmentToPurchase: Optional[str] = None
-    EstimatedAverageCoverage: Optional[str] = None
-    EstimatedAverageUtilization: Optional[str] = None
-    EstimatedMonthlySavingsAmount: Optional[str] = None
-    EstimatedOnDemandCost: Optional[str] = None
-    EstimatedOnDemandCostWithCurrentCommitment: Optional[str] = None
-    EstimatedROI: Optional[str] = None
-    EstimatedSavingsAmount: Optional[str] = None
-    EstimatedSavingsPercentage: Optional[str] = None
-    EstimatedCommitmentCost: Optional[str] = None
-    LatestUsageTimestamp: Optional[str] = None
-    UpfrontCost: Optional[str] = None
-    AdditionalMetadata: Optional[str] = None
+    CurrencyCode: Optional[Annotated[str, _aws_pattern("Ce", "GenericString")]] = None
+    LookbackPeriodInHours: Optional[Annotated[str, _aws_pattern("Ce", "GenericString")]] = None
+    CurrentAverageCoverage: Optional[Annotated[str, _aws_pattern("Ce", "GenericString")]] = None
+    CurrentAverageHourlyOnDemandSpend: Optional[Annotated[str, _aws_pattern("Ce", "GenericString")]] = None
+    CurrentMaximumHourlyOnDemandSpend: Optional[Annotated[str, _aws_pattern("Ce", "GenericString")]] = None
+    CurrentMinimumHourlyOnDemandSpend: Optional[Annotated[str, _aws_pattern("Ce", "GenericString")]] = None
+    CurrentOnDemandSpend: Optional[Annotated[str, _aws_pattern("Ce", "GenericString")]] = None
+    ExistingHourlyCommitment: Optional[Annotated[str, _aws_pattern("Ce", "GenericString")]] = None
+    HourlyCommitmentToPurchase: Optional[Annotated[str, _aws_pattern("Ce", "GenericString")]] = None
+    EstimatedAverageCoverage: Optional[Annotated[str, _aws_pattern("Ce", "GenericString")]] = None
+    EstimatedAverageUtilization: Optional[Annotated[str, _aws_pattern("Ce", "GenericString")]] = None
+    EstimatedMonthlySavingsAmount: Optional[Annotated[str, _aws_pattern("Ce", "GenericString")]] = None
+    EstimatedOnDemandCost: Optional[Annotated[str, _aws_pattern("Ce", "GenericString")]] = None
+    EstimatedOnDemandCostWithCurrentCommitment: Optional[Annotated[str, _aws_pattern("Ce", "GenericString")]] = None
+    EstimatedROI: Optional[Annotated[str, _aws_pattern("Ce", "GenericString")]] = None
+    EstimatedSavingsAmount: Optional[Annotated[str, _aws_pattern("Ce", "GenericString")]] = None
+    EstimatedSavingsPercentage: Optional[Annotated[str, _aws_pattern("Ce", "GenericString")]] = None
+    EstimatedCommitmentCost: Optional[Annotated[str, _aws_pattern("Ce", "GenericString")]] = None
+    LatestUsageTimestamp: Optional[Annotated[str, _aws_pattern("Ce", "GenericString")]] = None
+    UpfrontCost: Optional[Annotated[str, _aws_pattern("Ce", "GenericString")]] = None
+    AdditionalMetadata: Optional[Annotated[str, _aws_pattern("Ce", "GenericString")]] = None
     MetricsOverLookbackPeriod: Optional[List[RecommendationDetailHourlyMetricsTypeDef]] = None
 
 
 class RootCauseTypeDef(BaseValidatorModel):
-    Service: Optional[str] = None
-    Region: Optional[str] = None
-    LinkedAccount: Optional[str] = None
-    LinkedAccountName: Optional[str] = None
-    UsageType: Optional[str] = None
+    Service: Optional[Annotated[str, _aws_pattern("Ce", "GenericString")]] = None
+    Region: Optional[Annotated[str, _aws_pattern("Ce", "GenericString")]] = None
+    LinkedAccount: Optional[Annotated[str, _aws_pattern("Ce", "GenericString")]] = None
+    LinkedAccountName: Optional[Annotated[str, _aws_pattern("Ce", "GenericString")]] = None
+    UsageType: Optional[Annotated[str, _aws_pattern("Ce", "GenericString")]] = None
     Impact: Optional[RootCauseImpactTypeDef] = None
 
 
@@ -995,22 +997,22 @@ class SavingsPlansCoverageTypeDef(BaseValidatorModel):
 
 class SavingsPlansPurchaseRecommendationDetailTypeDef(BaseValidatorModel):
     SavingsPlansDetails: Optional[SavingsPlansDetailsTypeDef] = None
-    AccountId: Optional[str] = None
-    UpfrontCost: Optional[str] = None
-    EstimatedROI: Optional[str] = None
-    CurrencyCode: Optional[str] = None
-    EstimatedSPCost: Optional[str] = None
-    EstimatedOnDemandCost: Optional[str] = None
-    EstimatedOnDemandCostWithCurrentCommitment: Optional[str] = None
-    EstimatedSavingsAmount: Optional[str] = None
-    EstimatedSavingsPercentage: Optional[str] = None
-    HourlyCommitmentToPurchase: Optional[str] = None
-    EstimatedAverageUtilization: Optional[str] = None
-    EstimatedMonthlySavingsAmount: Optional[str] = None
-    CurrentMinimumHourlyOnDemandSpend: Optional[str] = None
-    CurrentMaximumHourlyOnDemandSpend: Optional[str] = None
-    CurrentAverageHourlyOnDemandSpend: Optional[str] = None
-    RecommendationDetailId: Optional[str] = None
+    AccountId: Optional[Annotated[str, _aws_pattern("Ce", "GenericString")]] = None
+    UpfrontCost: Optional[Annotated[str, _aws_pattern("Ce", "GenericString")]] = None
+    EstimatedROI: Optional[Annotated[str, _aws_pattern("Ce", "GenericString")]] = None
+    CurrencyCode: Optional[Annotated[str, _aws_pattern("Ce", "GenericString")]] = None
+    EstimatedSPCost: Optional[Annotated[str, _aws_pattern("Ce", "GenericString")]] = None
+    EstimatedOnDemandCost: Optional[Annotated[str, _aws_pattern("Ce", "GenericString")]] = None
+    EstimatedOnDemandCostWithCurrentCommitment: Optional[Annotated[str, _aws_pattern("Ce", "GenericString")]] = None
+    EstimatedSavingsAmount: Optional[Annotated[str, _aws_pattern("Ce", "GenericString")]] = None
+    EstimatedSavingsPercentage: Optional[Annotated[str, _aws_pattern("Ce", "GenericString")]] = None
+    HourlyCommitmentToPurchase: Optional[Annotated[str, _aws_pattern("Ce", "GenericString")]] = None
+    EstimatedAverageUtilization: Optional[Annotated[str, _aws_pattern("Ce", "GenericString")]] = None
+    EstimatedMonthlySavingsAmount: Optional[Annotated[str, _aws_pattern("Ce", "GenericString")]] = None
+    CurrentMinimumHourlyOnDemandSpend: Optional[Annotated[str, _aws_pattern("Ce", "GenericString")]] = None
+    CurrentMaximumHourlyOnDemandSpend: Optional[Annotated[str, _aws_pattern("Ce", "GenericString")]] = None
+    CurrentAverageHourlyOnDemandSpend: Optional[Annotated[str, _aws_pattern("Ce", "GenericString")]] = None
+    RecommendationDetailId: Optional[Annotated[str, _aws_pattern("Ce", "RecommendationDetailId")]] = None
 
 
 class SavingsPlansPurchaseAnalysisConfigurationOutputTypeDef(BaseValidatorModel):
@@ -1027,8 +1029,8 @@ class SavingsPlansPurchaseAnalysisConfigurationTypeDef(BaseValidatorModel):
     SavingsPlansToAdd: List[SavingsPlansTypeDef]
     LookBackTimePeriod: DateIntervalTypeDef
     AccountScope: Optional[AccountScopeType] = None
-    AccountId: Optional[str] = None
-    SavingsPlansToExclude: Optional[List[str]] = None
+    AccountId: Optional[Annotated[str, _aws_pattern("Ce", "AccountId")]] = None
+    SavingsPlansToExclude: Optional[List[Annotated[str, _aws_pattern("Ce", "SavingsPlansId")]]] = None
 
 
 class SavingsPlansUtilizationAggregatesTypeDef(BaseValidatorModel):
@@ -1062,12 +1064,12 @@ class UpdateCostAllocationTagsStatusResponseTypeDef(BaseValidatorModel):
 class ListCostCategoryDefinitionsResponseTypeDef(BaseValidatorModel):
     CostCategoryReferences: List[CostCategoryReferenceTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
-    NextToken: Optional[str] = None
+    NextToken: Optional[Annotated[str, _aws_pattern("Ce", "NextPageToken")]] = None
 
 
 class CostCategorySplitChargeRuleTypeDef(BaseValidatorModel):
-    Source: str
-    Targets: List[str]
+    Source: Annotated[str, _aws_pattern("Ce", "GenericString")]
+    Targets: List[Annotated[str, _aws_pattern("Ce", "GenericString")]]
     Method: CostCategorySplitChargeMethodType
     Parameters: Optional[List[CostCategorySplitChargeRuleParameterUnionTypeDef]] = None
 
@@ -1196,35 +1198,35 @@ class UtilizationByTimeTypeDef(BaseValidatorModel):
 
 
 class ReservationPurchaseRecommendationDetailTypeDef(BaseValidatorModel):
-    AccountId: Optional[str] = None
+    AccountId: Optional[Annotated[str, _aws_pattern("Ce", "GenericString")]] = None
     InstanceDetails: Optional[InstanceDetailsTypeDef] = None
-    RecommendedNumberOfInstancesToPurchase: Optional[str] = None
-    RecommendedNormalizedUnitsToPurchase: Optional[str] = None
-    MinimumNumberOfInstancesUsedPerHour: Optional[str] = None
-    MinimumNormalizedUnitsUsedPerHour: Optional[str] = None
-    MaximumNumberOfInstancesUsedPerHour: Optional[str] = None
-    MaximumNormalizedUnitsUsedPerHour: Optional[str] = None
-    AverageNumberOfInstancesUsedPerHour: Optional[str] = None
-    AverageNormalizedUnitsUsedPerHour: Optional[str] = None
-    AverageUtilization: Optional[str] = None
-    EstimatedBreakEvenInMonths: Optional[str] = None
-    CurrencyCode: Optional[str] = None
-    EstimatedMonthlySavingsAmount: Optional[str] = None
-    EstimatedMonthlySavingsPercentage: Optional[str] = None
-    EstimatedMonthlyOnDemandCost: Optional[str] = None
-    EstimatedReservationCostForLookbackPeriod: Optional[str] = None
-    UpfrontCost: Optional[str] = None
-    RecurringStandardMonthlyCost: Optional[str] = None
+    RecommendedNumberOfInstancesToPurchase: Optional[Annotated[str, _aws_pattern("Ce", "GenericString")]] = None
+    RecommendedNormalizedUnitsToPurchase: Optional[Annotated[str, _aws_pattern("Ce", "GenericString")]] = None
+    MinimumNumberOfInstancesUsedPerHour: Optional[Annotated[str, _aws_pattern("Ce", "GenericString")]] = None
+    MinimumNormalizedUnitsUsedPerHour: Optional[Annotated[str, _aws_pattern("Ce", "GenericString")]] = None
+    MaximumNumberOfInstancesUsedPerHour: Optional[Annotated[str, _aws_pattern("Ce", "GenericString")]] = None
+    MaximumNormalizedUnitsUsedPerHour: Optional[Annotated[str, _aws_pattern("Ce", "GenericString")]] = None
+    AverageNumberOfInstancesUsedPerHour: Optional[Annotated[str, _aws_pattern("Ce", "GenericString")]] = None
+    AverageNormalizedUnitsUsedPerHour: Optional[Annotated[str, _aws_pattern("Ce", "GenericString")]] = None
+    AverageUtilization: Optional[Annotated[str, _aws_pattern("Ce", "GenericString")]] = None
+    EstimatedBreakEvenInMonths: Optional[Annotated[str, _aws_pattern("Ce", "GenericString")]] = None
+    CurrencyCode: Optional[Annotated[str, _aws_pattern("Ce", "GenericString")]] = None
+    EstimatedMonthlySavingsAmount: Optional[Annotated[str, _aws_pattern("Ce", "GenericString")]] = None
+    EstimatedMonthlySavingsPercentage: Optional[Annotated[str, _aws_pattern("Ce", "GenericString")]] = None
+    EstimatedMonthlyOnDemandCost: Optional[Annotated[str, _aws_pattern("Ce", "GenericString")]] = None
+    EstimatedReservationCostForLookbackPeriod: Optional[Annotated[str, _aws_pattern("Ce", "GenericString")]] = None
+    UpfrontCost: Optional[Annotated[str, _aws_pattern("Ce", "GenericString")]] = None
+    RecurringStandardMonthlyCost: Optional[Annotated[str, _aws_pattern("Ce", "GenericString")]] = None
     ReservedCapacityDetails: Optional[ReservedCapacityDetailsTypeDef] = None
-    RecommendedNumberOfCapacityUnitsToPurchase: Optional[str] = None
-    MinimumNumberOfCapacityUnitsUsedPerHour: Optional[str] = None
-    MaximumNumberOfCapacityUnitsUsedPerHour: Optional[str] = None
-    AverageNumberOfCapacityUnitsUsedPerHour: Optional[str] = None
+    RecommendedNumberOfCapacityUnitsToPurchase: Optional[Annotated[str, _aws_pattern("Ce", "GenericString")]] = None
+    MinimumNumberOfCapacityUnitsUsedPerHour: Optional[Annotated[str, _aws_pattern("Ce", "GenericString")]] = None
+    MaximumNumberOfCapacityUnitsUsedPerHour: Optional[Annotated[str, _aws_pattern("Ce", "GenericString")]] = None
+    AverageNumberOfCapacityUnitsUsedPerHour: Optional[Annotated[str, _aws_pattern("Ce", "GenericString")]] = None
 
 
 # This class is the output for the 'get_savings_plan_purchase_recommendation_details' function.
 class GetSavingsPlanPurchaseRecommendationDetailsResponseTypeDef(BaseValidatorModel):
-    RecommendationDetailId: str
+    RecommendationDetailId: Annotated[str, _aws_pattern("Ce", "RecommendationDetailId")]
     RecommendationDetailData: RecommendationDetailDataTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
@@ -1234,13 +1236,13 @@ class AnalysisDetailsTypeDef(BaseValidatorModel):
 
 
 class AnomalyTypeDef(BaseValidatorModel):
-    AnomalyId: str
+    AnomalyId: Annotated[str, _aws_pattern("Ce", "GenericString")]
     AnomalyScore: AnomalyScoreTypeDef
     Impact: ImpactTypeDef
-    MonitorArn: str
-    AnomalyStartDate: Optional[str] = None
-    AnomalyEndDate: Optional[str] = None
-    DimensionValue: Optional[str] = None
+    MonitorArn: Annotated[str, _aws_pattern("Ce", "GenericString")]
+    AnomalyStartDate: Optional[Annotated[str, _aws_pattern("Ce", "YearMonthDay")]] = None
+    AnomalyEndDate: Optional[Annotated[str, _aws_pattern("Ce", "YearMonthDay")]] = None
+    DimensionValue: Optional[Annotated[str, _aws_pattern("Ce", "GenericString")]] = None
     RootCauses: Optional[List[RootCauseTypeDef]] = None
     Feedback: Optional[AnomalyFeedbackTypeType] = None
 
@@ -1249,7 +1251,7 @@ class AnomalyTypeDef(BaseValidatorModel):
 class GetSavingsPlansCoverageResponseTypeDef(BaseValidatorModel):
     SavingsPlansCoverages: List[SavingsPlansCoverageTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
-    NextToken: Optional[str] = None
+    NextToken: Optional[Annotated[str, _aws_pattern("Ce", "NextPageToken")]] = None
 
 
 class SavingsPlansPurchaseRecommendationTypeDef(BaseValidatorModel):
@@ -1283,7 +1285,7 @@ class GetSavingsPlansUtilizationDetailsResponseTypeDef(BaseValidatorModel):
     Total: SavingsPlansUtilizationAggregatesTypeDef
     TimePeriod: DateIntervalTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
-    NextToken: Optional[str] = None
+    NextToken: Optional[Annotated[str, _aws_pattern("Ce", "NextPageToken")]] = None
 
 
 CostCategorySplitChargeRuleUnionTypeDef = Union[
@@ -1300,14 +1302,14 @@ class CoverageByTimeTypeDef(BaseValidatorModel):
 # This class is the output for the 'get_anomaly_monitors' function.
 class GetAnomalyMonitorsResponseTypeDef(BaseValidatorModel):
     AnomalyMonitors: List[AnomalyMonitorOutputTypeDef]
-    NextPageToken: str
+    NextPageToken: Annotated[str, _aws_pattern("Ce", "NextPageToken")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 # This class is the output for the 'get_anomaly_subscriptions' function.
 class GetAnomalySubscriptionsResponseTypeDef(BaseValidatorModel):
     AnomalySubscriptions: List[AnomalySubscriptionOutputTypeDef]
-    NextPageToken: str
+    NextPageToken: Annotated[str, _aws_pattern("Ce", "NextPageToken")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
@@ -1315,26 +1317,26 @@ class GetAnomalySubscriptionsResponseTypeDef(BaseValidatorModel):
 class GetCostAndUsageComparisonsResponseTypeDef(BaseValidatorModel):
     CostAndUsageComparisons: List[CostAndUsageComparisonTypeDef]
     TotalCostAndUsage: Dict[str, ComparisonMetricValueTypeDef]
-    NextPageToken: str
+    NextPageToken: Annotated[str, _aws_pattern("Ce", "NextPageToken")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 class CostCategoryTypeDef(BaseValidatorModel):
-    CostCategoryArn: str
-    EffectiveStart: str
-    Name: str
+    CostCategoryArn: Annotated[str, _aws_pattern("Ce", "Arn")]
+    EffectiveStart: Annotated[str, _aws_pattern("Ce", "ZonedDateTime")]
+    Name: Annotated[str, _aws_pattern("Ce", "CostCategoryName")]
     RuleVersion: Literal["CostCategoryExpression.v1"]
     Rules: List[CostCategoryRuleOutputTypeDef]
-    EffectiveEnd: Optional[str] = None
+    EffectiveEnd: Optional[Annotated[str, _aws_pattern("Ce", "ZonedDateTime")]] = None
     SplitChargeRules: Optional[List[CostCategorySplitChargeRuleOutputTypeDef]] = None
     ProcessingStatus: Optional[List[CostCategoryProcessingStatusTypeDef]] = None
-    DefaultValue: Optional[str] = None
+    DefaultValue: Optional[Annotated[str, _aws_pattern("Ce", "CostCategoryValue")]] = None
 
 
 # This class is the output for the 'get_cost_comparison_drivers' function.
 class GetCostComparisonDriversResponseTypeDef(BaseValidatorModel):
     CostComparisonDrivers: List[CostComparisonDriverTypeDef]
-    NextPageToken: str
+    NextPageToken: Annotated[str, _aws_pattern("Ce", "NextPageToken")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
@@ -1364,23 +1366,23 @@ class GetCostComparisonDriversResponsePaginatorTypeDef(BaseValidatorModel):
 
 
 class CurrentInstanceTypeDef(BaseValidatorModel):
-    ResourceId: Optional[str] = None
-    InstanceName: Optional[str] = None
+    ResourceId: Optional[Annotated[str, _aws_pattern("Ce", "GenericString")]] = None
+    InstanceName: Optional[Annotated[str, _aws_pattern("Ce", "GenericString")]] = None
     Tags: Optional[List[TagValuesOutputTypeDef]] = None
     ResourceDetails: Optional[ResourceDetailsTypeDef] = None
     ResourceUtilization: Optional[ResourceUtilizationTypeDef] = None
-    ReservationCoveredHoursInLookbackPeriod: Optional[str] = None
-    SavingsPlansCoveredHoursInLookbackPeriod: Optional[str] = None
-    OnDemandHoursInLookbackPeriod: Optional[str] = None
-    TotalRunningHoursInLookbackPeriod: Optional[str] = None
-    MonthlyCost: Optional[str] = None
-    CurrencyCode: Optional[str] = None
+    ReservationCoveredHoursInLookbackPeriod: Optional[Annotated[str, _aws_pattern("Ce", "GenericString")]] = None
+    SavingsPlansCoveredHoursInLookbackPeriod: Optional[Annotated[str, _aws_pattern("Ce", "GenericString")]] = None
+    OnDemandHoursInLookbackPeriod: Optional[Annotated[str, _aws_pattern("Ce", "GenericString")]] = None
+    TotalRunningHoursInLookbackPeriod: Optional[Annotated[str, _aws_pattern("Ce", "GenericString")]] = None
+    MonthlyCost: Optional[Annotated[str, _aws_pattern("Ce", "GenericString")]] = None
+    CurrencyCode: Optional[Annotated[str, _aws_pattern("Ce", "GenericString")]] = None
 
 
 class TargetInstanceTypeDef(BaseValidatorModel):
-    EstimatedMonthlyCost: Optional[str] = None
-    EstimatedMonthlySavings: Optional[str] = None
-    CurrencyCode: Optional[str] = None
+    EstimatedMonthlyCost: Optional[Annotated[str, _aws_pattern("Ce", "GenericString")]] = None
+    EstimatedMonthlySavings: Optional[Annotated[str, _aws_pattern("Ce", "GenericString")]] = None
+    CurrencyCode: Optional[Annotated[str, _aws_pattern("Ce", "GenericString")]] = None
     DefaultTargetInstance: Optional[bool] = None
     ResourceDetails: Optional[ResourceDetailsTypeDef] = None
     ExpectedResourceUtilization: Optional[ResourceUtilizationTypeDef] = None
@@ -1427,24 +1429,24 @@ class GetRightsizingRecommendationRequestPaginateTypeDef(BaseValidatorModel):
 
 
 class AnomalyMonitorTypeDef(BaseValidatorModel):
-    MonitorName: str
+    MonitorName: Annotated[str, _aws_pattern("Ce", "GenericString")]
     MonitorType: MonitorTypeType
-    MonitorArn: Optional[str] = None
-    CreationDate: Optional[str] = None
-    LastUpdatedDate: Optional[str] = None
-    LastEvaluatedDate: Optional[str] = None
+    MonitorArn: Optional[Annotated[str, _aws_pattern("Ce", "GenericString")]] = None
+    CreationDate: Optional[Annotated[str, _aws_pattern("Ce", "YearMonthDay")]] = None
+    LastUpdatedDate: Optional[Annotated[str, _aws_pattern("Ce", "YearMonthDay")]] = None
+    LastEvaluatedDate: Optional[Annotated[str, _aws_pattern("Ce", "YearMonthDay")]] = None
     MonitorDimension: Optional[MonitorDimensionType] = None
     MonitorSpecification: Optional[ExpressionTypeDef] = None
     DimensionalValueCount: Optional[int] = None
 
 
 class AnomalySubscriptionTypeDef(BaseValidatorModel):
-    MonitorArnList: List[str]
+    MonitorArnList: List[Annotated[str, _aws_pattern("Ce", "Arn")]]
     Subscribers: List[SubscriberTypeDef]
     Frequency: AnomalySubscriptionFrequencyType
-    SubscriptionName: str
-    SubscriptionArn: Optional[str] = None
-    AccountId: Optional[str] = None
+    SubscriptionName: Annotated[str, _aws_pattern("Ce", "GenericString")]
+    SubscriptionArn: Optional[Annotated[str, _aws_pattern("Ce", "GenericString")]] = None
+    AccountId: Optional[Annotated[str, _aws_pattern("Ce", "GenericString")]] = None
     Threshold: Optional[float] = None
     ThresholdExpression: Optional[ExpressionTypeDef] = None
 
@@ -1454,7 +1456,7 @@ ExpressionUnionTypeDef = Union[ExpressionOutputTypeDef, ExpressionTypeDef]
 
 # This class is the output for the 'get_cost_and_usage' function.
 class GetCostAndUsageResponseTypeDef(BaseValidatorModel):
-    NextPageToken: str
+    NextPageToken: Annotated[str, _aws_pattern("Ce", "NextPageToken")]
     GroupDefinitions: List[GroupDefinitionTypeDef]
     ResultsByTime: List[ResultByTimeTypeDef]
     DimensionValueAttributes: List[DimensionValuesWithAttributesTypeDef]
@@ -1463,7 +1465,7 @@ class GetCostAndUsageResponseTypeDef(BaseValidatorModel):
 
 # This class is the output for the 'get_cost_and_usage_with_resources' function.
 class GetCostAndUsageWithResourcesResponseTypeDef(BaseValidatorModel):
-    NextPageToken: str
+    NextPageToken: Annotated[str, _aws_pattern("Ce", "NextPageToken")]
     GroupDefinitions: List[GroupDefinitionTypeDef]
     ResultsByTime: List[ResultByTimeTypeDef]
     DimensionValueAttributes: List[DimensionValuesWithAttributesTypeDef]
@@ -1474,7 +1476,7 @@ class GetCostAndUsageWithResourcesResponseTypeDef(BaseValidatorModel):
 class GetReservationUtilizationResponseTypeDef(BaseValidatorModel):
     UtilizationsByTime: List[UtilizationByTimeTypeDef]
     Total: ReservationAggregatesTypeDef
-    NextPageToken: str
+    NextPageToken: Annotated[str, _aws_pattern("Ce", "NextPageToken")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
@@ -1491,7 +1493,7 @@ class ReservationPurchaseRecommendationTypeDef(BaseValidatorModel):
 # This class is the output for the 'get_anomalies' function.
 class GetAnomaliesResponseTypeDef(BaseValidatorModel):
     Anomalies: List[AnomalyTypeDef]
-    NextPageToken: str
+    NextPageToken: Annotated[str, _aws_pattern("Ce", "NextPageToken")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
@@ -1499,26 +1501,26 @@ class GetAnomaliesResponseTypeDef(BaseValidatorModel):
 class GetSavingsPlansPurchaseRecommendationResponseTypeDef(BaseValidatorModel):
     Metadata: SavingsPlansPurchaseRecommendationMetadataTypeDef
     SavingsPlansPurchaseRecommendation: SavingsPlansPurchaseRecommendationTypeDef
-    NextPageToken: str
+    NextPageToken: Annotated[str, _aws_pattern("Ce", "NextPageToken")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 class AnalysisSummaryTypeDef(BaseValidatorModel):
-    EstimatedCompletionTime: Optional[str] = None
-    AnalysisCompletionTime: Optional[str] = None
-    AnalysisStartedTime: Optional[str] = None
+    EstimatedCompletionTime: Optional[Annotated[str, _aws_pattern("Ce", "ZonedDateTime")]] = None
+    AnalysisCompletionTime: Optional[Annotated[str, _aws_pattern("Ce", "ZonedDateTime")]] = None
+    AnalysisStartedTime: Optional[Annotated[str, _aws_pattern("Ce", "ZonedDateTime")]] = None
     AnalysisStatus: Optional[AnalysisStatusType] = None
     ErrorCode: Optional[ErrorCodeType] = None
-    AnalysisId: Optional[str] = None
+    AnalysisId: Optional[Annotated[str, _aws_pattern("Ce", "AnalysisId")]] = None
     CommitmentPurchaseAnalysisConfiguration: Optional[CommitmentPurchaseAnalysisConfigurationOutputTypeDef] = None
 
 
 # This class is the output for the 'get_commitment_purchase_analysis' function.
 class GetCommitmentPurchaseAnalysisResponseTypeDef(BaseValidatorModel):
-    EstimatedCompletionTime: str
-    AnalysisCompletionTime: str
-    AnalysisStartedTime: str
-    AnalysisId: str
+    EstimatedCompletionTime: Annotated[str, _aws_pattern("Ce", "ZonedDateTime")]
+    AnalysisCompletionTime: Annotated[str, _aws_pattern("Ce", "ZonedDateTime")]
+    AnalysisStartedTime: Annotated[str, _aws_pattern("Ce", "ZonedDateTime")]
+    AnalysisId: Annotated[str, _aws_pattern("Ce", "AnalysisId")]
     AnalysisStatus: AnalysisStatusType
     ErrorCode: ErrorCodeType
     AnalysisDetails: AnalysisDetailsTypeDef
@@ -1535,7 +1537,7 @@ CommitmentPurchaseAnalysisConfigurationUnionTypeDef = Union[
 class GetReservationCoverageResponseTypeDef(BaseValidatorModel):
     CoveragesByTime: List[CoverageByTimeTypeDef]
     Total: CoverageTypeDef
-    NextPageToken: str
+    NextPageToken: Annotated[str, _aws_pattern("Ce", "NextPageToken")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
@@ -1555,7 +1557,7 @@ AnomalySubscriptionUnionTypeDef = Union[AnomalySubscriptionOutputTypeDef, Anomal
 
 
 class CostCategoryRuleTypeDef(BaseValidatorModel):
-    Value: Optional[str] = None
+    Value: Optional[Annotated[str, _aws_pattern("Ce", "CostCategoryValue")]] = None
     Rule: Optional[ExpressionUnionTypeDef] = None
     InheritedValue: Optional[CostCategoryInheritedValueDimensionTypeDef] = None
     Type: Optional[CostCategoryRuleTypeType] = None
@@ -1565,23 +1567,23 @@ class CostCategoryRuleTypeDef(BaseValidatorModel):
 class GetCostAndUsageComparisonsRequestTypeDef(BaseValidatorModel):
     BaselineTimePeriod: DateIntervalTypeDef
     ComparisonTimePeriod: DateIntervalTypeDef
-    MetricForComparison: str
-    BillingViewArn: Optional[str] = None
+    MetricForComparison: Annotated[str, _aws_pattern("Ce", "MetricName")]
+    BillingViewArn: Optional[Annotated[str, _aws_pattern("Ce", "BillingViewArn")]] = None
     Filter: Optional[ExpressionUnionTypeDef] = None
     GroupBy: Optional[List[GroupDefinitionTypeDef]] = None
     MaxResults: Optional[int] = None
-    NextPageToken: Optional[str] = None
+    NextPageToken: Optional[Annotated[str, _aws_pattern("Ce", "NextPageToken")]] = None
 
 
 # This class is the input for the 'get_cost_and_usage' function.
 class GetCostAndUsageRequestTypeDef(BaseValidatorModel):
     TimePeriod: DateIntervalTypeDef
     Granularity: GranularityType
-    Metrics: List[str]
+    Metrics: List[Annotated[str, _aws_pattern("Ce", "MetricName")]]
     Filter: Optional[ExpressionUnionTypeDef] = None
     GroupBy: Optional[List[GroupDefinitionTypeDef]] = None
-    BillingViewArn: Optional[str] = None
-    NextPageToken: Optional[str] = None
+    BillingViewArn: Optional[Annotated[str, _aws_pattern("Ce", "BillingViewArn")]] = None
+    NextPageToken: Optional[Annotated[str, _aws_pattern("Ce", "NextPageToken")]] = None
 
 
 # This class is the input for the 'get_cost_and_usage_with_resources' function.
@@ -1589,34 +1591,34 @@ class GetCostAndUsageWithResourcesRequestTypeDef(BaseValidatorModel):
     TimePeriod: DateIntervalTypeDef
     Granularity: GranularityType
     Filter: ExpressionUnionTypeDef
-    Metrics: Optional[List[str]] = None
+    Metrics: Optional[List[Annotated[str, _aws_pattern("Ce", "MetricName")]]] = None
     GroupBy: Optional[List[GroupDefinitionTypeDef]] = None
-    BillingViewArn: Optional[str] = None
-    NextPageToken: Optional[str] = None
+    BillingViewArn: Optional[Annotated[str, _aws_pattern("Ce", "BillingViewArn")]] = None
+    NextPageToken: Optional[Annotated[str, _aws_pattern("Ce", "NextPageToken")]] = None
 
 
 # This class is the input for the 'get_cost_categories' function.
 class GetCostCategoriesRequestTypeDef(BaseValidatorModel):
     TimePeriod: DateIntervalTypeDef
-    SearchString: Optional[str] = None
-    CostCategoryName: Optional[str] = None
+    SearchString: Optional[Annotated[str, _aws_pattern("Ce", "SearchString")]] = None
+    CostCategoryName: Optional[Annotated[str, _aws_pattern("Ce", "CostCategoryName")]] = None
     Filter: Optional[ExpressionUnionTypeDef] = None
     SortBy: Optional[List[SortDefinitionTypeDef]] = None
-    BillingViewArn: Optional[str] = None
+    BillingViewArn: Optional[Annotated[str, _aws_pattern("Ce", "BillingViewArn")]] = None
     MaxResults: Optional[int] = None
-    NextPageToken: Optional[str] = None
+    NextPageToken: Optional[Annotated[str, _aws_pattern("Ce", "NextPageToken")]] = None
 
 
 # This class is the input for the 'get_cost_comparison_drivers' function.
 class GetCostComparisonDriversRequestTypeDef(BaseValidatorModel):
     BaselineTimePeriod: DateIntervalTypeDef
     ComparisonTimePeriod: DateIntervalTypeDef
-    MetricForComparison: str
-    BillingViewArn: Optional[str] = None
+    MetricForComparison: Annotated[str, _aws_pattern("Ce", "MetricName")]
+    BillingViewArn: Optional[Annotated[str, _aws_pattern("Ce", "BillingViewArn")]] = None
     Filter: Optional[ExpressionUnionTypeDef] = None
     GroupBy: Optional[List[GroupDefinitionTypeDef]] = None
     MaxResults: Optional[int] = None
-    NextPageToken: Optional[str] = None
+    NextPageToken: Optional[Annotated[str, _aws_pattern("Ce", "NextPageToken")]] = None
 
 
 # This class is the input for the 'get_cost_forecast' function.
@@ -1625,7 +1627,7 @@ class GetCostForecastRequestTypeDef(BaseValidatorModel):
     Metric: MetricType
     Granularity: GranularityType
     Filter: Optional[ExpressionUnionTypeDef] = None
-    BillingViewArn: Optional[str] = None
+    BillingViewArn: Optional[Annotated[str, _aws_pattern("Ce", "BillingViewArn")]] = None
     PredictionIntervalLevel: Optional[int] = None
 
 
@@ -1633,13 +1635,13 @@ class GetCostForecastRequestTypeDef(BaseValidatorModel):
 class GetDimensionValuesRequestTypeDef(BaseValidatorModel):
     TimePeriod: DateIntervalTypeDef
     Dimension: DimensionType
-    SearchString: Optional[str] = None
+    SearchString: Optional[Annotated[str, _aws_pattern("Ce", "SearchString")]] = None
     Context: Optional[ContextType] = None
     Filter: Optional[ExpressionUnionTypeDef] = None
     SortBy: Optional[List[SortDefinitionTypeDef]] = None
-    BillingViewArn: Optional[str] = None
+    BillingViewArn: Optional[Annotated[str, _aws_pattern("Ce", "BillingViewArn")]] = None
     MaxResults: Optional[int] = None
-    NextPageToken: Optional[str] = None
+    NextPageToken: Optional[Annotated[str, _aws_pattern("Ce", "NextPageToken")]] = None
 
 
 # This class is the input for the 'get_reservation_coverage' function.
@@ -1648,16 +1650,16 @@ class GetReservationCoverageRequestTypeDef(BaseValidatorModel):
     GroupBy: Optional[List[GroupDefinitionTypeDef]] = None
     Granularity: Optional[GranularityType] = None
     Filter: Optional[ExpressionUnionTypeDef] = None
-    Metrics: Optional[List[str]] = None
-    NextPageToken: Optional[str] = None
+    Metrics: Optional[List[Annotated[str, _aws_pattern("Ce", "MetricName")]]] = None
+    NextPageToken: Optional[Annotated[str, _aws_pattern("Ce", "NextPageToken")]] = None
     SortBy: Optional[SortDefinitionTypeDef] = None
     MaxResults: Optional[int] = None
 
 
 # This class is the input for the 'get_reservation_purchase_recommendation' function.
 class GetReservationPurchaseRecommendationRequestTypeDef(BaseValidatorModel):
-    Service: str
-    AccountId: Optional[str] = None
+    Service: Annotated[str, _aws_pattern("Ce", "GenericString")]
+    AccountId: Optional[Annotated[str, _aws_pattern("Ce", "GenericString")]] = None
     Filter: Optional[ExpressionUnionTypeDef] = None
     AccountScope: Optional[AccountScopeType] = None
     LookbackPeriodInDays: Optional[LookbackPeriodInDaysType] = None
@@ -1665,7 +1667,7 @@ class GetReservationPurchaseRecommendationRequestTypeDef(BaseValidatorModel):
     PaymentOption: Optional[PaymentOptionType] = None
     ServiceSpecification: Optional[ServiceSpecificationTypeDef] = None
     PageSize: Optional[int] = None
-    NextPageToken: Optional[str] = None
+    NextPageToken: Optional[Annotated[str, _aws_pattern("Ce", "NextPageToken")]] = None
 
 
 # This class is the input for the 'get_reservation_utilization' function.
@@ -1675,17 +1677,17 @@ class GetReservationUtilizationRequestTypeDef(BaseValidatorModel):
     Granularity: Optional[GranularityType] = None
     Filter: Optional[ExpressionUnionTypeDef] = None
     SortBy: Optional[SortDefinitionTypeDef] = None
-    NextPageToken: Optional[str] = None
+    NextPageToken: Optional[Annotated[str, _aws_pattern("Ce", "NextPageToken")]] = None
     MaxResults: Optional[int] = None
 
 
 # This class is the input for the 'get_rightsizing_recommendation' function.
 class GetRightsizingRecommendationRequestTypeDef(BaseValidatorModel):
-    Service: str
+    Service: Annotated[str, _aws_pattern("Ce", "GenericString")]
     Filter: Optional[ExpressionUnionTypeDef] = None
     Configuration: Optional[RightsizingRecommendationConfigurationTypeDef] = None
     PageSize: Optional[int] = None
-    NextPageToken: Optional[str] = None
+    NextPageToken: Optional[Annotated[str, _aws_pattern("Ce", "NextPageToken")]] = None
 
 
 # This class is the input for the 'get_savings_plans_coverage' function.
@@ -1694,8 +1696,8 @@ class GetSavingsPlansCoverageRequestTypeDef(BaseValidatorModel):
     GroupBy: Optional[List[GroupDefinitionTypeDef]] = None
     Granularity: Optional[GranularityType] = None
     Filter: Optional[ExpressionUnionTypeDef] = None
-    Metrics: Optional[List[str]] = None
-    NextToken: Optional[str] = None
+    Metrics: Optional[List[Annotated[str, _aws_pattern("Ce", "MetricName")]]] = None
+    NextToken: Optional[Annotated[str, _aws_pattern("Ce", "NextPageToken")]] = None
     MaxResults: Optional[int] = None
     SortBy: Optional[SortDefinitionTypeDef] = None
 
@@ -1707,7 +1709,7 @@ class GetSavingsPlansPurchaseRecommendationRequestTypeDef(BaseValidatorModel):
     PaymentOption: PaymentOptionType
     LookbackPeriodInDays: LookbackPeriodInDaysType
     AccountScope: Optional[AccountScopeType] = None
-    NextPageToken: Optional[str] = None
+    NextPageToken: Optional[Annotated[str, _aws_pattern("Ce", "NextPageToken")]] = None
     PageSize: Optional[int] = None
     Filter: Optional[ExpressionUnionTypeDef] = None
 
@@ -1717,7 +1719,7 @@ class GetSavingsPlansUtilizationDetailsRequestTypeDef(BaseValidatorModel):
     TimePeriod: DateIntervalTypeDef
     Filter: Optional[ExpressionUnionTypeDef] = None
     DataType: Optional[List[SavingsPlansDataTypeType]] = None
-    NextToken: Optional[str] = None
+    NextToken: Optional[Annotated[str, _aws_pattern("Ce", "NextPageToken")]] = None
     MaxResults: Optional[int] = None
     SortBy: Optional[SortDefinitionTypeDef] = None
 
@@ -1733,13 +1735,13 @@ class GetSavingsPlansUtilizationRequestTypeDef(BaseValidatorModel):
 # This class is the input for the 'get_tags' function.
 class GetTagsRequestTypeDef(BaseValidatorModel):
     TimePeriod: DateIntervalTypeDef
-    SearchString: Optional[str] = None
-    TagKey: Optional[str] = None
+    SearchString: Optional[Annotated[str, _aws_pattern("Ce", "SearchString")]] = None
+    TagKey: Optional[Annotated[str, _aws_pattern("Ce", "TagKey")]] = None
     Filter: Optional[ExpressionUnionTypeDef] = None
     SortBy: Optional[List[SortDefinitionTypeDef]] = None
-    BillingViewArn: Optional[str] = None
+    BillingViewArn: Optional[Annotated[str, _aws_pattern("Ce", "BillingViewArn")]] = None
     MaxResults: Optional[int] = None
-    NextPageToken: Optional[str] = None
+    NextPageToken: Optional[Annotated[str, _aws_pattern("Ce", "NextPageToken")]] = None
 
 
 # This class is the input for the 'get_usage_forecast' function.
@@ -1748,18 +1750,18 @@ class GetUsageForecastRequestTypeDef(BaseValidatorModel):
     Metric: MetricType
     Granularity: GranularityType
     Filter: Optional[ExpressionUnionTypeDef] = None
-    BillingViewArn: Optional[str] = None
+    BillingViewArn: Optional[Annotated[str, _aws_pattern("Ce", "BillingViewArn")]] = None
     PredictionIntervalLevel: Optional[int] = None
 
 
 # This class is the input for the 'update_anomaly_subscription' function.
 class UpdateAnomalySubscriptionRequestTypeDef(BaseValidatorModel):
-    SubscriptionArn: str
+    SubscriptionArn: Annotated[str, _aws_pattern("Ce", "GenericString")]
     Threshold: Optional[float] = None
     Frequency: Optional[AnomalySubscriptionFrequencyType] = None
-    MonitorArnList: Optional[List[str]] = None
+    MonitorArnList: Optional[List[Annotated[str, _aws_pattern("Ce", "Arn")]]] = None
     Subscribers: Optional[List[SubscriberTypeDef]] = None
-    SubscriptionName: Optional[str] = None
+    SubscriptionName: Optional[Annotated[str, _aws_pattern("Ce", "GenericString")]] = None
     ThresholdExpression: Optional[ExpressionUnionTypeDef] = None
 
 
@@ -1767,14 +1769,14 @@ class UpdateAnomalySubscriptionRequestTypeDef(BaseValidatorModel):
 class GetReservationPurchaseRecommendationResponseTypeDef(BaseValidatorModel):
     Metadata: ReservationPurchaseRecommendationMetadataTypeDef
     Recommendations: List[ReservationPurchaseRecommendationTypeDef]
-    NextPageToken: str
+    NextPageToken: Annotated[str, _aws_pattern("Ce", "NextPageToken")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 # This class is the output for the 'list_commitment_purchase_analyses' function.
 class ListCommitmentPurchaseAnalysesResponseTypeDef(BaseValidatorModel):
     AnalysisSummaryList: List[AnalysisSummaryTypeDef]
-    NextPageToken: str
+    NextPageToken: Annotated[str, _aws_pattern("Ce", "NextPageToken")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
@@ -1784,7 +1786,7 @@ class StartCommitmentPurchaseAnalysisRequestTypeDef(BaseValidatorModel):
 
 
 class RightsizingRecommendationTypeDef(BaseValidatorModel):
-    AccountId: Optional[str] = None
+    AccountId: Optional[Annotated[str, _aws_pattern("Ce", "GenericString")]] = None
     CurrentInstance: Optional[CurrentInstanceTypeDef] = None
     RightsizingType: Optional[RightsizingTypeType] = None
     ModifyRecommendationDetail: Optional[ModifyRecommendationDetailTypeDef] = None
@@ -1812,27 +1814,27 @@ class GetRightsizingRecommendationResponseTypeDef(BaseValidatorModel):
     Metadata: RightsizingRecommendationMetadataTypeDef
     Summary: RightsizingRecommendationSummaryTypeDef
     RightsizingRecommendations: List[RightsizingRecommendationTypeDef]
-    NextPageToken: str
+    NextPageToken: Annotated[str, _aws_pattern("Ce", "NextPageToken")]
     Configuration: RightsizingRecommendationConfigurationTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 # This class is the input for the 'create_cost_category_definition' function.
 class CreateCostCategoryDefinitionRequestTypeDef(BaseValidatorModel):
-    Name: str
+    Name: Annotated[str, _aws_pattern("Ce", "CostCategoryName")]
     RuleVersion: Literal["CostCategoryExpression.v1"]
     Rules: List[CostCategoryRuleUnionTypeDef]
-    EffectiveStart: Optional[str] = None
-    DefaultValue: Optional[str] = None
+    EffectiveStart: Optional[Annotated[str, _aws_pattern("Ce", "ZonedDateTime")]] = None
+    DefaultValue: Optional[Annotated[str, _aws_pattern("Ce", "CostCategoryValue")]] = None
     SplitChargeRules: Optional[List[CostCategorySplitChargeRuleUnionTypeDef]] = None
     ResourceTags: Optional[List[ResourceTagTypeDef]] = None
 
 
 # This class is the input for the 'update_cost_category_definition' function.
 class UpdateCostCategoryDefinitionRequestTypeDef(BaseValidatorModel):
-    CostCategoryArn: str
+    CostCategoryArn: Annotated[str, _aws_pattern("Ce", "Arn")]
     RuleVersion: Literal["CostCategoryExpression.v1"]
     Rules: List[CostCategoryRuleUnionTypeDef]
-    EffectiveStart: Optional[str] = None
-    DefaultValue: Optional[str] = None
+    EffectiveStart: Optional[Annotated[str, _aws_pattern("Ce", "ZonedDateTime")]] = None
+    DefaultValue: Optional[Annotated[str, _aws_pattern("Ce", "CostCategoryValue")]] = None
     SplitChargeRules: Optional[List[CostCategorySplitChargeRuleUnionTypeDef]] = None

@@ -3,6 +3,7 @@
 from datetime import datetime
 from decimal import Decimal
 from typing import (
+    Annotated,
     Any,
     Callable,
     Dict,
@@ -24,6 +25,7 @@ from botocore.response import StreamingBody
 from pydantic import Field
 
 from aws_resource_validator.core.base_validator_model import BaseValidatorModel, EventStream
+from aws_resource_validator.core.pattern_validation import aws_field_pattern as _aws_pattern
 from aws_resource_validator.pydantic_models.sagemaker_geospatial.sagemaker_geospatial_constants import *  # noqa: F401,F403
 
 # Optional boto3 symbols — imported lazily so services that don't need them
@@ -69,11 +71,11 @@ class OperationTypeDef(BaseValidatorModel):
 
 
 class DeleteEarthObservationJobInputTypeDef(BaseValidatorModel):
-    Arn: str
+    Arn: Annotated[str, _aws_pattern("SagemakerGeospatial", "EarthObservationJobArn")]
 
 
 class DeleteVectorEnrichmentJobInputTypeDef(BaseValidatorModel):
-    Arn: str
+    Arn: Annotated[str, _aws_pattern("SagemakerGeospatial", "VectorEnrichmentJobArn")]
 
 
 class EarthObservationJobErrorDetailsTypeDef(BaseValidatorModel):
@@ -100,12 +102,12 @@ class ExportErrorDetailsOutputTypeDef(BaseValidatorModel):
 
 
 class ExportS3DataInputTypeDef(BaseValidatorModel):
-    S3Uri: str
+    S3Uri: Annotated[str, _aws_pattern("SagemakerGeospatial", "S3Uri")]
     KmsKeyId: Optional[str] = None
 
 
 class VectorEnrichmentJobS3DataTypeDef(BaseValidatorModel):
-    S3Uri: str
+    S3Uri: Annotated[str, _aws_pattern("SagemakerGeospatial", "S3Uri")]
     KmsKeyId: Optional[str] = None
 
 
@@ -133,7 +135,7 @@ class GeometryTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'get_earth_observation_job' function.
 class GetEarthObservationJobInputTypeDef(BaseValidatorModel):
-    Arn: str
+    Arn: Annotated[str, _aws_pattern("SagemakerGeospatial", "EarthObservationJobArn")]
 
 
 class OutputBandTypeDef(BaseValidatorModel):
@@ -143,18 +145,18 @@ class OutputBandTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'get_raster_data_collection' function.
 class GetRasterDataCollectionInputTypeDef(BaseValidatorModel):
-    Arn: str
+    Arn: Annotated[str, _aws_pattern("SagemakerGeospatial", "DataCollectionArn")]
 
 
 # This class is the input for the 'get_tile' function.
 class GetTileInputTypeDef(BaseValidatorModel):
-    Arn: str
+    Arn: Annotated[str, _aws_pattern("SagemakerGeospatial", "EarthObservationJobArn")]
     ImageAssets: List[str]
     Target: TargetOptionsType
     x: int
     y: int
     z: int
-    ExecutionRoleArn: Optional[str] = None
+    ExecutionRoleArn: Optional[Annotated[str, _aws_pattern("SagemakerGeospatial", "ExecutionRoleArn")]] = None
     ImageMask: Optional[bool] = None
     OutputDataType: Optional[OutputTypeType] = None
     OutputFormat: Optional[str] = None
@@ -164,7 +166,7 @@ class GetTileInputTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'get_vector_enrichment_job' function.
 class GetVectorEnrichmentJobInputTypeDef(BaseValidatorModel):
-    Arn: str
+    Arn: Annotated[str, _aws_pattern("SagemakerGeospatial", "VectorEnrichmentJobArn")]
 
 
 class VectorEnrichmentJobErrorDetailsTypeDef(BaseValidatorModel):
@@ -207,7 +209,7 @@ class TemporalStatisticsConfigInputTypeDef(BaseValidatorModel):
 
 class ZonalStatisticsConfigInputTypeDef(BaseValidatorModel):
     Statistics: List[ZonalStatisticsType]
-    ZoneS3Path: str
+    ZoneS3Path: Annotated[str, _aws_pattern("SagemakerGeospatial", "S3Uri")]
     TargetBands: Optional[List[str]] = None
     ZoneS3PathKmsKeyId: Optional[str] = None
 
@@ -263,7 +265,7 @@ class ListVectorEnrichmentJobInputTypeDef(BaseValidatorModel):
 
 
 class ListVectorEnrichmentJobOutputConfigTypeDef(BaseValidatorModel):
-    Arn: str
+    Arn: Annotated[str, _aws_pattern("SagemakerGeospatial", "VectorEnrichmentJobArn")]
     CreationTime: datetime
     DurationInSeconds: int
     Name: str
@@ -323,11 +325,11 @@ class ReverseGeocodingConfigTypeDef(BaseValidatorModel):
 
 
 class StopEarthObservationJobInputTypeDef(BaseValidatorModel):
-    Arn: str
+    Arn: Annotated[str, _aws_pattern("SagemakerGeospatial", "EarthObservationJobArn")]
 
 
 class StopVectorEnrichmentJobInputTypeDef(BaseValidatorModel):
-    Arn: str
+    Arn: Annotated[str, _aws_pattern("SagemakerGeospatial", "VectorEnrichmentJobArn")]
 
 
 class TagResourceRequestTypeDef(BaseValidatorModel):
@@ -387,7 +389,7 @@ class VectorEnrichmentJobDataSourceConfigInputTypeDef(BaseValidatorModel):
 
 # This class is the output for the 'get_raster_data_collection' function.
 class GetRasterDataCollectionOutputTypeDef(BaseValidatorModel):
-    Arn: str
+    Arn: Annotated[str, _aws_pattern("SagemakerGeospatial", "DataCollectionArn")]
     Description: str
     DescriptionPageUrl: str
     ImageSourceBands: List[str]
@@ -399,7 +401,7 @@ class GetRasterDataCollectionOutputTypeDef(BaseValidatorModel):
 
 
 class RasterDataCollectionMetadataTypeDef(BaseValidatorModel):
-    Arn: str
+    Arn: Annotated[str, _aws_pattern("SagemakerGeospatial", "DataCollectionArn")]
     Description: str
     Name: str
     SupportedFilters: List[FilterTypeDef]
@@ -498,8 +500,8 @@ class BandMathConfigInputTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'export_earth_observation_job' function.
 class ExportEarthObservationJobInputTypeDef(BaseValidatorModel):
-    Arn: str
-    ExecutionRoleArn: str
+    Arn: Annotated[str, _aws_pattern("SagemakerGeospatial", "EarthObservationJobArn")]
+    ExecutionRoleArn: Annotated[str, _aws_pattern("SagemakerGeospatial", "ExecutionRoleArn")]
     OutputConfig: OutputConfigInputTypeDef
     ClientToken: Optional[str] = None
     ExportSourceImages: Optional[bool] = None
@@ -507,9 +509,9 @@ class ExportEarthObservationJobInputTypeDef(BaseValidatorModel):
 
 # This class is the output for the 'export_earth_observation_job' function.
 class ExportEarthObservationJobOutputTypeDef(BaseValidatorModel):
-    Arn: str
+    Arn: Annotated[str, _aws_pattern("SagemakerGeospatial", "EarthObservationJobArn")]
     CreationTime: datetime
-    ExecutionRoleArn: str
+    ExecutionRoleArn: Annotated[str, _aws_pattern("SagemakerGeospatial", "ExecutionRoleArn")]
     ExportSourceImages: bool
     ExportStatus: EarthObservationJobExportStatusType
     OutputConfig: OutputConfigInputTypeDef
@@ -518,17 +520,17 @@ class ExportEarthObservationJobOutputTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'export_vector_enrichment_job' function.
 class ExportVectorEnrichmentJobInputTypeDef(BaseValidatorModel):
-    Arn: str
-    ExecutionRoleArn: str
+    Arn: Annotated[str, _aws_pattern("SagemakerGeospatial", "VectorEnrichmentJobArn")]
+    ExecutionRoleArn: Annotated[str, _aws_pattern("SagemakerGeospatial", "ExecutionRoleArn")]
     OutputConfig: ExportVectorEnrichmentJobOutputConfigTypeDef
     ClientToken: Optional[str] = None
 
 
 # This class is the output for the 'export_vector_enrichment_job' function.
 class ExportVectorEnrichmentJobOutputTypeDef(BaseValidatorModel):
-    Arn: str
+    Arn: Annotated[str, _aws_pattern("SagemakerGeospatial", "VectorEnrichmentJobArn")]
     CreationTime: datetime
-    ExecutionRoleArn: str
+    ExecutionRoleArn: Annotated[str, _aws_pattern("SagemakerGeospatial", "ExecutionRoleArn")]
     ExportStatus: VectorEnrichmentJobExportStatusType
     OutputConfig: ExportVectorEnrichmentJobOutputConfigTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
@@ -591,7 +593,7 @@ class GetVectorEnrichmentJobOutputTypeDef(BaseValidatorModel):
     CreationTime: datetime
     DurationInSeconds: int
     ErrorDetails: VectorEnrichmentJobErrorDetailsTypeDef
-    ExecutionRoleArn: str
+    ExecutionRoleArn: Annotated[str, _aws_pattern("SagemakerGeospatial", "ExecutionRoleArn")]
     ExportErrorDetails: VectorEnrichmentJobExportErrorDetailsTypeDef
     ExportStatus: VectorEnrichmentJobExportStatusType
     InputConfig: VectorEnrichmentJobInputConfigTypeDef
@@ -606,7 +608,7 @@ class GetVectorEnrichmentJobOutputTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'start_vector_enrichment_job' function.
 class StartVectorEnrichmentJobInputTypeDef(BaseValidatorModel):
-    ExecutionRoleArn: str
+    ExecutionRoleArn: Annotated[str, _aws_pattern("SagemakerGeospatial", "ExecutionRoleArn")]
     InputConfig: VectorEnrichmentJobInputConfigTypeDef
     JobConfig: VectorEnrichmentJobConfigTypeDef
     Name: str
@@ -617,10 +619,10 @@ class StartVectorEnrichmentJobInputTypeDef(BaseValidatorModel):
 
 # This class is the output for the 'start_vector_enrichment_job' function.
 class StartVectorEnrichmentJobOutputTypeDef(BaseValidatorModel):
-    Arn: str
+    Arn: Annotated[str, _aws_pattern("SagemakerGeospatial", "VectorEnrichmentJobArn")]
     CreationTime: datetime
     DurationInSeconds: int
-    ExecutionRoleArn: str
+    ExecutionRoleArn: Annotated[str, _aws_pattern("SagemakerGeospatial", "ExecutionRoleArn")]
     InputConfig: VectorEnrichmentJobInputConfigTypeDef
     JobConfig: VectorEnrichmentJobConfigTypeDef
     KmsKeyId: str
@@ -676,7 +678,7 @@ class AreaOfInterestTypeDef(BaseValidatorModel):
 
 
 class RasterDataCollectionQueryOutputTypeDef(BaseValidatorModel):
-    RasterDataCollectionArn: str
+    RasterDataCollectionArn: Annotated[str, _aws_pattern("SagemakerGeospatial", "DataCollectionArn")]
     RasterDataCollectionName: str
     TimeRangeFilter: TimeRangeFilterOutputTypeDef
     AreaOfInterest: Optional[AreaOfInterestOutputTypeDef] = None
@@ -689,12 +691,14 @@ AreaOfInterestUnionTypeDef = Union[AreaOfInterestOutputTypeDef, AreaOfInterestTy
 
 
 class InputConfigOutputTypeDef(BaseValidatorModel):
-    PreviousEarthObservationJobArn: Optional[str] = None
+    PreviousEarthObservationJobArn: Optional[
+        Annotated[str, _aws_pattern("SagemakerGeospatial", "EarthObservationJobArn")]
+    ] = None
     RasterDataCollectionQuery: Optional[RasterDataCollectionQueryOutputTypeDef] = None
 
 
 class RasterDataCollectionQueryInputTypeDef(BaseValidatorModel):
-    RasterDataCollectionArn: str
+    RasterDataCollectionArn: Annotated[str, _aws_pattern("SagemakerGeospatial", "DataCollectionArn")]
     TimeRangeFilter: TimeRangeFilterInputTypeDef
     AreaOfInterest: Optional[AreaOfInterestUnionTypeDef] = None
     PropertyFilters: Optional[PropertyFiltersUnionTypeDef] = None
@@ -713,7 +717,7 @@ class GetEarthObservationJobOutputTypeDef(BaseValidatorModel):
     CreationTime: datetime
     DurationInSeconds: int
     ErrorDetails: EarthObservationJobErrorDetailsTypeDef
-    ExecutionRoleArn: str
+    ExecutionRoleArn: Annotated[str, _aws_pattern("SagemakerGeospatial", "ExecutionRoleArn")]
     ExportErrorDetails: ExportErrorDetailsTypeDef
     ExportStatus: EarthObservationJobExportStatusType
     InputConfig: InputConfigOutputTypeDef
@@ -731,7 +735,7 @@ class StartEarthObservationJobOutputTypeDef(BaseValidatorModel):
     Arn: str
     CreationTime: datetime
     DurationInSeconds: int
-    ExecutionRoleArn: str
+    ExecutionRoleArn: Annotated[str, _aws_pattern("SagemakerGeospatial", "ExecutionRoleArn")]
     InputConfig: InputConfigOutputTypeDef
     JobConfig: JobConfigInputOutputTypeDef
     KmsKeyId: str
@@ -742,20 +746,22 @@ class StartEarthObservationJobOutputTypeDef(BaseValidatorModel):
 
 
 class InputConfigInputTypeDef(BaseValidatorModel):
-    PreviousEarthObservationJobArn: Optional[str] = None
+    PreviousEarthObservationJobArn: Optional[
+        Annotated[str, _aws_pattern("SagemakerGeospatial", "EarthObservationJobArn")]
+    ] = None
     RasterDataCollectionQuery: Optional[RasterDataCollectionQueryInputTypeDef] = None
 
 
 # This class is the input for the 'search_raster_data_collection' function.
 class SearchRasterDataCollectionInputTypeDef(BaseValidatorModel):
-    Arn: str
+    Arn: Annotated[str, _aws_pattern("SagemakerGeospatial", "DataCollectionArn")]
     RasterDataCollectionQuery: RasterDataCollectionQueryWithBandFilterInputTypeDef
     NextToken: Optional[str] = None
 
 
 # This class is the input for the 'start_earth_observation_job' function.
 class StartEarthObservationJobInputTypeDef(BaseValidatorModel):
-    ExecutionRoleArn: str
+    ExecutionRoleArn: Annotated[str, _aws_pattern("SagemakerGeospatial", "ExecutionRoleArn")]
     InputConfig: InputConfigInputTypeDef
     JobConfig: JobConfigInputUnionTypeDef
     Name: str

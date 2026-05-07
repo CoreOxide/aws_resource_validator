@@ -3,6 +3,7 @@
 from datetime import datetime
 from decimal import Decimal
 from typing import (
+    Annotated,
     Any,
     Callable,
     Dict,
@@ -24,6 +25,7 @@ from botocore.response import StreamingBody
 from pydantic import Field
 
 from aws_resource_validator.core.base_validator_model import BaseValidatorModel, EventStream
+from aws_resource_validator.core.pattern_validation import aws_field_pattern as _aws_pattern
 from aws_resource_validator.pydantic_models.lookoutequipment.lookoutequipment_constants import *  # noqa: F401,F403
 
 # Optional boto3 symbols — imported lazily so services that don't need them
@@ -53,8 +55,8 @@ class DatasetSchemaTypeDef(BaseValidatorModel):
 
 
 class TagTypeDef(BaseValidatorModel):
-    Key: str
-    Value: str
+    Key: Annotated[str, _aws_pattern("Lookoutequipment", "TagKey")]
+    Value: Annotated[str, _aws_pattern("Lookoutequipment", "TagValue")]
 
 
 class ResponseMetadataTypeDef(BaseValidatorModel):
@@ -91,103 +93,103 @@ class UnsupportedTimestampsTypeDef(BaseValidatorModel):
 
 
 class DatasetSummaryTypeDef(BaseValidatorModel):
-    DatasetName: Optional[str] = None
-    DatasetArn: Optional[str] = None
+    DatasetName: Optional[Annotated[str, _aws_pattern("Lookoutequipment", "DatasetName")]] = None
+    DatasetArn: Optional[Annotated[str, _aws_pattern("Lookoutequipment", "DatasetArn")]] = None
     Status: Optional[DatasetStatusType] = None
     CreatedAt: Optional[datetime] = None
 
 
 # This class is the input for the 'delete_dataset' function.
 class DeleteDatasetRequestTypeDef(BaseValidatorModel):
-    DatasetName: str
+    DatasetName: Annotated[str, _aws_pattern("Lookoutequipment", "DatasetIdentifier")]
 
 
 # This class is the input for the 'delete_inference_scheduler' function.
 class DeleteInferenceSchedulerRequestTypeDef(BaseValidatorModel):
-    InferenceSchedulerName: str
+    InferenceSchedulerName: Annotated[str, _aws_pattern("Lookoutequipment", "InferenceSchedulerIdentifier")]
 
 
 # This class is the input for the 'delete_label_group' function.
 class DeleteLabelGroupRequestTypeDef(BaseValidatorModel):
-    LabelGroupName: str
+    LabelGroupName: Annotated[str, _aws_pattern("Lookoutequipment", "LabelGroupName")]
 
 
 # This class is the input for the 'delete_label' function.
 class DeleteLabelRequestTypeDef(BaseValidatorModel):
-    LabelGroupName: str
-    LabelId: str
+    LabelGroupName: Annotated[str, _aws_pattern("Lookoutequipment", "LabelGroupName")]
+    LabelId: Annotated[str, _aws_pattern("Lookoutequipment", "LabelId")]
 
 
 # This class is the input for the 'delete_model' function.
 class DeleteModelRequestTypeDef(BaseValidatorModel):
-    ModelName: str
+    ModelName: Annotated[str, _aws_pattern("Lookoutequipment", "ModelName")]
 
 
 # This class is the input for the 'delete_resource_policy' function.
 class DeleteResourcePolicyRequestTypeDef(BaseValidatorModel):
-    ResourceArn: str
+    ResourceArn: Annotated[str, _aws_pattern("Lookoutequipment", "ResourceArn")]
 
 
 # This class is the input for the 'delete_retraining_scheduler' function.
 class DeleteRetrainingSchedulerRequestTypeDef(BaseValidatorModel):
-    ModelName: str
+    ModelName: Annotated[str, _aws_pattern("Lookoutequipment", "ModelName")]
 
 
 # This class is the input for the 'describe_data_ingestion_job' function.
 class DescribeDataIngestionJobRequestTypeDef(BaseValidatorModel):
-    JobId: str
+    JobId: Annotated[str, _aws_pattern("Lookoutequipment", "IngestionJobId")]
 
 
 # This class is the input for the 'describe_dataset' function.
 class DescribeDatasetRequestTypeDef(BaseValidatorModel):
-    DatasetName: str
+    DatasetName: Annotated[str, _aws_pattern("Lookoutequipment", "DatasetIdentifier")]
 
 
 # This class is the input for the 'describe_inference_scheduler' function.
 class DescribeInferenceSchedulerRequestTypeDef(BaseValidatorModel):
-    InferenceSchedulerName: str
+    InferenceSchedulerName: Annotated[str, _aws_pattern("Lookoutequipment", "InferenceSchedulerIdentifier")]
 
 
 # This class is the input for the 'describe_label_group' function.
 class DescribeLabelGroupRequestTypeDef(BaseValidatorModel):
-    LabelGroupName: str
+    LabelGroupName: Annotated[str, _aws_pattern("Lookoutequipment", "LabelGroupName")]
 
 
 # This class is the input for the 'describe_label' function.
 class DescribeLabelRequestTypeDef(BaseValidatorModel):
-    LabelGroupName: str
-    LabelId: str
+    LabelGroupName: Annotated[str, _aws_pattern("Lookoutequipment", "LabelGroupName")]
+    LabelId: Annotated[str, _aws_pattern("Lookoutequipment", "LabelId")]
 
 
 # This class is the input for the 'describe_model' function.
 class DescribeModelRequestTypeDef(BaseValidatorModel):
-    ModelName: str
+    ModelName: Annotated[str, _aws_pattern("Lookoutequipment", "ModelName")]
 
 
 # This class is the input for the 'describe_model_version' function.
 class DescribeModelVersionRequestTypeDef(BaseValidatorModel):
-    ModelName: str
+    ModelName: Annotated[str, _aws_pattern("Lookoutequipment", "ModelName")]
     ModelVersion: int
 
 
 class S3ObjectTypeDef(BaseValidatorModel):
-    Bucket: str
-    Key: str
+    Bucket: Annotated[str, _aws_pattern("Lookoutequipment", "S3Bucket")]
+    Key: Annotated[str, _aws_pattern("Lookoutequipment", "S3Key")]
 
 
 # This class is the input for the 'describe_resource_policy' function.
 class DescribeResourcePolicyRequestTypeDef(BaseValidatorModel):
-    ResourceArn: str
+    ResourceArn: Annotated[str, _aws_pattern("Lookoutequipment", "ResourceArn")]
 
 
 # This class is the input for the 'describe_retraining_scheduler' function.
 class DescribeRetrainingSchedulerRequestTypeDef(BaseValidatorModel):
-    ModelName: str
+    ModelName: Annotated[str, _aws_pattern("Lookoutequipment", "ModelName")]
 
 
 class InferenceEventSummaryTypeDef(BaseValidatorModel):
-    InferenceSchedulerArn: Optional[str] = None
-    InferenceSchedulerName: Optional[str] = None
+    InferenceSchedulerArn: Optional[Annotated[str, _aws_pattern("Lookoutequipment", "InferenceSchedulerArn")]] = None
+    InferenceSchedulerName: Optional[Annotated[str, _aws_pattern("Lookoutequipment", "InferenceSchedulerName")]] = None
     EventStartTime: Optional[datetime] = None
     EventEndTime: Optional[datetime] = None
     Diagnostics: Optional[str] = None
@@ -195,25 +197,27 @@ class InferenceEventSummaryTypeDef(BaseValidatorModel):
 
 
 class InferenceInputNameConfigurationTypeDef(BaseValidatorModel):
-    TimestampFormat: Optional[str] = None
-    ComponentTimestampDelimiter: Optional[str] = None
+    TimestampFormat: Optional[Annotated[str, _aws_pattern("Lookoutequipment", "FileNameTimestampFormat")]] = None
+    ComponentTimestampDelimiter: Optional[
+        Annotated[str, _aws_pattern("Lookoutequipment", "ComponentTimestampDelimiter")]
+    ] = None
 
 
 class InferenceS3InputConfigurationTypeDef(BaseValidatorModel):
-    Bucket: str
-    Prefix: Optional[str] = None
+    Bucket: Annotated[str, _aws_pattern("Lookoutequipment", "S3Bucket")]
+    Prefix: Optional[Annotated[str, _aws_pattern("Lookoutequipment", "S3Prefix")]] = None
 
 
 class InferenceS3OutputConfigurationTypeDef(BaseValidatorModel):
-    Bucket: str
-    Prefix: Optional[str] = None
+    Bucket: Annotated[str, _aws_pattern("Lookoutequipment", "S3Bucket")]
+    Prefix: Optional[Annotated[str, _aws_pattern("Lookoutequipment", "S3Prefix")]] = None
 
 
 class InferenceSchedulerSummaryTypeDef(BaseValidatorModel):
-    ModelName: Optional[str] = None
-    ModelArn: Optional[str] = None
-    InferenceSchedulerName: Optional[str] = None
-    InferenceSchedulerArn: Optional[str] = None
+    ModelName: Optional[Annotated[str, _aws_pattern("Lookoutequipment", "ModelName")]] = None
+    ModelArn: Optional[Annotated[str, _aws_pattern("Lookoutequipment", "ModelArn")]] = None
+    InferenceSchedulerName: Optional[Annotated[str, _aws_pattern("Lookoutequipment", "InferenceSchedulerName")]] = None
+    InferenceSchedulerArn: Optional[Annotated[str, _aws_pattern("Lookoutequipment", "InferenceSchedulerArn")]] = None
     Status: Optional[InferenceSchedulerStatusType] = None
     DataDelayOffsetInMinutes: Optional[int] = None
     DataUploadFrequency: Optional[DataUploadFrequencyType] = None
@@ -221,8 +225,8 @@ class InferenceSchedulerSummaryTypeDef(BaseValidatorModel):
 
 
 class IngestionS3InputConfigurationTypeDef(BaseValidatorModel):
-    Bucket: str
-    Prefix: Optional[str] = None
+    Bucket: Annotated[str, _aws_pattern("Lookoutequipment", "S3Bucket")]
+    Prefix: Optional[Annotated[str, _aws_pattern("Lookoutequipment", "S3Prefix")]] = None
     KeyPattern: Optional[str] = None
 
 
@@ -235,27 +239,27 @@ class SensorsWithShortDateRangeTypeDef(BaseValidatorModel):
 
 
 class LabelGroupSummaryTypeDef(BaseValidatorModel):
-    LabelGroupName: Optional[str] = None
-    LabelGroupArn: Optional[str] = None
+    LabelGroupName: Optional[Annotated[str, _aws_pattern("Lookoutequipment", "LabelGroupName")]] = None
+    LabelGroupArn: Optional[Annotated[str, _aws_pattern("Lookoutequipment", "LabelGroupArn")]] = None
     CreatedAt: Optional[datetime] = None
     UpdatedAt: Optional[datetime] = None
 
 
 class LabelSummaryTypeDef(BaseValidatorModel):
-    LabelGroupName: Optional[str] = None
-    LabelId: Optional[str] = None
-    LabelGroupArn: Optional[str] = None
+    LabelGroupName: Optional[Annotated[str, _aws_pattern("Lookoutequipment", "LabelGroupName")]] = None
+    LabelId: Optional[Annotated[str, _aws_pattern("Lookoutequipment", "LabelId")]] = None
+    LabelGroupArn: Optional[Annotated[str, _aws_pattern("Lookoutequipment", "LabelGroupArn")]] = None
     StartTime: Optional[datetime] = None
     EndTime: Optional[datetime] = None
     Rating: Optional[LabelRatingType] = None
-    FaultCode: Optional[str] = None
-    Equipment: Optional[str] = None
+    FaultCode: Optional[Annotated[str, _aws_pattern("Lookoutequipment", "FaultCode")]] = None
+    Equipment: Optional[Annotated[str, _aws_pattern("Lookoutequipment", "Equipment")]] = None
     CreatedAt: Optional[datetime] = None
 
 
 class LabelsS3InputConfigurationTypeDef(BaseValidatorModel):
-    Bucket: str
-    Prefix: Optional[str] = None
+    Bucket: Annotated[str, _aws_pattern("Lookoutequipment", "S3Bucket")]
+    Prefix: Optional[Annotated[str, _aws_pattern("Lookoutequipment", "S3Prefix")]] = None
 
 
 class LargeTimestampGapsTypeDef(BaseValidatorModel):
@@ -266,40 +270,42 @@ class LargeTimestampGapsTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'list_data_ingestion_jobs' function.
 class ListDataIngestionJobsRequestTypeDef(BaseValidatorModel):
-    DatasetName: Optional[str] = None
-    NextToken: Optional[str] = None
+    DatasetName: Optional[Annotated[str, _aws_pattern("Lookoutequipment", "DatasetName")]] = None
+    NextToken: Optional[Annotated[str, _aws_pattern("Lookoutequipment", "NextToken")]] = None
     MaxResults: Optional[int] = None
     Status: Optional[IngestionJobStatusType] = None
 
 
 # This class is the input for the 'list_datasets' function.
 class ListDatasetsRequestTypeDef(BaseValidatorModel):
-    NextToken: Optional[str] = None
+    NextToken: Optional[Annotated[str, _aws_pattern("Lookoutequipment", "NextToken")]] = None
     MaxResults: Optional[int] = None
-    DatasetNameBeginsWith: Optional[str] = None
+    DatasetNameBeginsWith: Optional[Annotated[str, _aws_pattern("Lookoutequipment", "DatasetName")]] = None
 
 
 # This class is the input for the 'list_inference_schedulers' function.
 class ListInferenceSchedulersRequestTypeDef(BaseValidatorModel):
-    NextToken: Optional[str] = None
+    NextToken: Optional[Annotated[str, _aws_pattern("Lookoutequipment", "NextToken")]] = None
     MaxResults: Optional[int] = None
-    InferenceSchedulerNameBeginsWith: Optional[str] = None
-    ModelName: Optional[str] = None
+    InferenceSchedulerNameBeginsWith: Optional[
+        Annotated[str, _aws_pattern("Lookoutequipment", "InferenceSchedulerIdentifier")]
+    ] = None
+    ModelName: Optional[Annotated[str, _aws_pattern("Lookoutequipment", "ModelName")]] = None
     Status: Optional[InferenceSchedulerStatusType] = None
 
 
 # This class is the input for the 'list_label_groups' function.
 class ListLabelGroupsRequestTypeDef(BaseValidatorModel):
-    LabelGroupNameBeginsWith: Optional[str] = None
-    NextToken: Optional[str] = None
+    LabelGroupNameBeginsWith: Optional[Annotated[str, _aws_pattern("Lookoutequipment", "LabelGroupName")]] = None
+    NextToken: Optional[Annotated[str, _aws_pattern("Lookoutequipment", "NextToken")]] = None
     MaxResults: Optional[int] = None
 
 
 class ModelVersionSummaryTypeDef(BaseValidatorModel):
-    ModelName: Optional[str] = None
-    ModelArn: Optional[str] = None
+    ModelName: Optional[Annotated[str, _aws_pattern("Lookoutequipment", "ModelName")]] = None
+    ModelArn: Optional[Annotated[str, _aws_pattern("Lookoutequipment", "ModelArn")]] = None
     ModelVersion: Optional[int] = None
-    ModelVersionArn: Optional[str] = None
+    ModelVersionArn: Optional[Annotated[str, _aws_pattern("Lookoutequipment", "ModelVersionArn")]] = None
     CreatedAt: Optional[datetime] = None
     Status: Optional[ModelVersionStatusType] = None
     SourceType: Optional[ModelVersionSourceTypeType] = None
@@ -308,36 +314,36 @@ class ModelVersionSummaryTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'list_models' function.
 class ListModelsRequestTypeDef(BaseValidatorModel):
-    NextToken: Optional[str] = None
+    NextToken: Optional[Annotated[str, _aws_pattern("Lookoutequipment", "NextToken")]] = None
     MaxResults: Optional[int] = None
     Status: Optional[ModelStatusType] = None
-    ModelNameBeginsWith: Optional[str] = None
-    DatasetNameBeginsWith: Optional[str] = None
+    ModelNameBeginsWith: Optional[Annotated[str, _aws_pattern("Lookoutequipment", "ModelName")]] = None
+    DatasetNameBeginsWith: Optional[Annotated[str, _aws_pattern("Lookoutequipment", "DatasetName")]] = None
 
 
 # This class is the input for the 'list_retraining_schedulers' function.
 class ListRetrainingSchedulersRequestTypeDef(BaseValidatorModel):
-    ModelNameBeginsWith: Optional[str] = None
+    ModelNameBeginsWith: Optional[Annotated[str, _aws_pattern("Lookoutequipment", "ModelName")]] = None
     Status: Optional[RetrainingSchedulerStatusType] = None
-    NextToken: Optional[str] = None
+    NextToken: Optional[Annotated[str, _aws_pattern("Lookoutequipment", "NextToken")]] = None
     MaxResults: Optional[int] = None
 
 
 class RetrainingSchedulerSummaryTypeDef(BaseValidatorModel):
-    ModelName: Optional[str] = None
-    ModelArn: Optional[str] = None
+    ModelName: Optional[Annotated[str, _aws_pattern("Lookoutequipment", "ModelName")]] = None
+    ModelArn: Optional[Annotated[str, _aws_pattern("Lookoutequipment", "ModelArn")]] = None
     Status: Optional[RetrainingSchedulerStatusType] = None
     RetrainingStartDate: Optional[datetime] = None
-    RetrainingFrequency: Optional[str] = None
-    LookbackWindow: Optional[str] = None
+    RetrainingFrequency: Optional[Annotated[str, _aws_pattern("Lookoutequipment", "RetrainingFrequency")]] = None
+    LookbackWindow: Optional[Annotated[str, _aws_pattern("Lookoutequipment", "LookbackWindow")]] = None
 
 
 # This class is the input for the 'list_sensor_statistics' function.
 class ListSensorStatisticsRequestTypeDef(BaseValidatorModel):
-    DatasetName: str
-    IngestionJobId: Optional[str] = None
+    DatasetName: Annotated[str, _aws_pattern("Lookoutequipment", "DatasetName")]
+    IngestionJobId: Optional[Annotated[str, _aws_pattern("Lookoutequipment", "IngestionJobId")]] = None
     MaxResults: Optional[int] = None
-    NextToken: Optional[str] = None
+    NextToken: Optional[Annotated[str, _aws_pattern("Lookoutequipment", "NextToken")]] = None
 
 
 # This class is the input for the 'list_tags_for_resource' function.
@@ -346,8 +352,8 @@ class ListTagsForResourceRequestTypeDef(BaseValidatorModel):
 
 
 class ModelDiagnosticsS3OutputConfigurationTypeDef(BaseValidatorModel):
-    Bucket: str
-    Prefix: Optional[str] = None
+    Bucket: Annotated[str, _aws_pattern("Lookoutequipment", "S3Bucket")]
+    Prefix: Optional[Annotated[str, _aws_pattern("Lookoutequipment", "S3Prefix")]] = None
 
 
 class MonotonicValuesTypeDef(BaseValidatorModel):
@@ -361,72 +367,72 @@ class MultipleOperatingModesTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'put_resource_policy' function.
 class PutResourcePolicyRequestTypeDef(BaseValidatorModel):
-    ResourceArn: str
-    ResourcePolicy: str
-    ClientToken: str
-    PolicyRevisionId: Optional[str] = None
+    ResourceArn: Annotated[str, _aws_pattern("Lookoutequipment", "ResourceArn")]
+    ResourcePolicy: Annotated[str, _aws_pattern("Lookoutequipment", "Policy")]
+    ClientToken: Annotated[str, _aws_pattern("Lookoutequipment", "IdempotenceToken")]
+    PolicyRevisionId: Optional[Annotated[str, _aws_pattern("Lookoutequipment", "PolicyRevisionId")]] = None
 
 
 # This class is the input for the 'start_inference_scheduler' function.
 class StartInferenceSchedulerRequestTypeDef(BaseValidatorModel):
-    InferenceSchedulerName: str
+    InferenceSchedulerName: Annotated[str, _aws_pattern("Lookoutequipment", "InferenceSchedulerIdentifier")]
 
 
 # This class is the input for the 'start_retraining_scheduler' function.
 class StartRetrainingSchedulerRequestTypeDef(BaseValidatorModel):
-    ModelName: str
+    ModelName: Annotated[str, _aws_pattern("Lookoutequipment", "ModelName")]
 
 
 # This class is the input for the 'stop_inference_scheduler' function.
 class StopInferenceSchedulerRequestTypeDef(BaseValidatorModel):
-    InferenceSchedulerName: str
+    InferenceSchedulerName: Annotated[str, _aws_pattern("Lookoutequipment", "InferenceSchedulerIdentifier")]
 
 
 # This class is the input for the 'stop_retraining_scheduler' function.
 class StopRetrainingSchedulerRequestTypeDef(BaseValidatorModel):
-    ModelName: str
+    ModelName: Annotated[str, _aws_pattern("Lookoutequipment", "ModelName")]
 
 
 class UntagResourceRequestTypeDef(BaseValidatorModel):
     ResourceArn: str
-    TagKeys: List[str]
+    TagKeys: List[Annotated[str, _aws_pattern("Lookoutequipment", "TagKey")]]
 
 
 # This class is the input for the 'update_active_model_version' function.
 class UpdateActiveModelVersionRequestTypeDef(BaseValidatorModel):
-    ModelName: str
+    ModelName: Annotated[str, _aws_pattern("Lookoutequipment", "ModelName")]
     ModelVersion: int
 
 
 # This class is the input for the 'update_label_group' function.
 class UpdateLabelGroupRequestTypeDef(BaseValidatorModel):
-    LabelGroupName: str
-    FaultCodes: Optional[List[str]] = None
+    LabelGroupName: Annotated[str, _aws_pattern("Lookoutequipment", "LabelGroupName")]
+    FaultCodes: Optional[List[Annotated[str, _aws_pattern("Lookoutequipment", "FaultCode")]]] = None
 
 
 # This class is the input for the 'create_dataset' function.
 class CreateDatasetRequestTypeDef(BaseValidatorModel):
-    DatasetName: str
-    ClientToken: str
+    DatasetName: Annotated[str, _aws_pattern("Lookoutequipment", "DatasetName")]
+    ClientToken: Annotated[str, _aws_pattern("Lookoutequipment", "IdempotenceToken")]
     DatasetSchema: Optional[DatasetSchemaTypeDef] = None
-    ServerSideKmsKeyId: Optional[str] = None
+    ServerSideKmsKeyId: Optional[Annotated[str, _aws_pattern("Lookoutequipment", "NameOrArn")]] = None
     Tags: Optional[List[TagTypeDef]] = None
 
 
 # This class is the input for the 'create_label_group' function.
 class CreateLabelGroupRequestTypeDef(BaseValidatorModel):
-    LabelGroupName: str
-    ClientToken: str
-    FaultCodes: Optional[List[str]] = None
+    LabelGroupName: Annotated[str, _aws_pattern("Lookoutequipment", "LabelGroupName")]
+    ClientToken: Annotated[str, _aws_pattern("Lookoutequipment", "IdempotenceToken")]
+    FaultCodes: Optional[List[Annotated[str, _aws_pattern("Lookoutequipment", "FaultCode")]]] = None
     Tags: Optional[List[TagTypeDef]] = None
 
 
 # This class is the input for the 'import_dataset' function.
 class ImportDatasetRequestTypeDef(BaseValidatorModel):
-    SourceDatasetArn: str
-    ClientToken: str
-    DatasetName: Optional[str] = None
-    ServerSideKmsKeyId: Optional[str] = None
+    SourceDatasetArn: Annotated[str, _aws_pattern("Lookoutequipment", "DatasetArn")]
+    ClientToken: Annotated[str, _aws_pattern("Lookoutequipment", "IdempotenceToken")]
+    DatasetName: Optional[Annotated[str, _aws_pattern("Lookoutequipment", "DatasetName")]] = None
+    ServerSideKmsKeyId: Optional[Annotated[str, _aws_pattern("Lookoutequipment", "NameOrArn")]] = None
     Tags: Optional[List[TagTypeDef]] = None
 
 
@@ -437,16 +443,16 @@ class TagResourceRequestTypeDef(BaseValidatorModel):
 
 # This class is the output for the 'create_dataset' function.
 class CreateDatasetResponseTypeDef(BaseValidatorModel):
-    DatasetName: str
-    DatasetArn: str
+    DatasetName: Annotated[str, _aws_pattern("Lookoutequipment", "DatasetName")]
+    DatasetArn: Annotated[str, _aws_pattern("Lookoutequipment", "DatasetArn")]
     Status: DatasetStatusType
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 # This class is the output for the 'create_inference_scheduler' function.
 class CreateInferenceSchedulerResponseTypeDef(BaseValidatorModel):
-    InferenceSchedulerArn: str
-    InferenceSchedulerName: str
+    InferenceSchedulerArn: Annotated[str, _aws_pattern("Lookoutequipment", "InferenceSchedulerArn")]
+    InferenceSchedulerName: Annotated[str, _aws_pattern("Lookoutequipment", "InferenceSchedulerName")]
     Status: InferenceSchedulerStatusType
     ModelQuality: ModelQualityType
     ResponseMetadata: ResponseMetadataTypeDef
@@ -454,37 +460,37 @@ class CreateInferenceSchedulerResponseTypeDef(BaseValidatorModel):
 
 # This class is the output for the 'create_label_group' function.
 class CreateLabelGroupResponseTypeDef(BaseValidatorModel):
-    LabelGroupName: str
-    LabelGroupArn: str
+    LabelGroupName: Annotated[str, _aws_pattern("Lookoutequipment", "LabelGroupName")]
+    LabelGroupArn: Annotated[str, _aws_pattern("Lookoutequipment", "LabelGroupArn")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 # This class is the output for the 'create_label' function.
 class CreateLabelResponseTypeDef(BaseValidatorModel):
-    LabelId: str
+    LabelId: Annotated[str, _aws_pattern("Lookoutequipment", "LabelId")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 # This class is the output for the 'create_model' function.
 class CreateModelResponseTypeDef(BaseValidatorModel):
-    ModelArn: str
+    ModelArn: Annotated[str, _aws_pattern("Lookoutequipment", "ModelArn")]
     Status: ModelStatusType
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 # This class is the output for the 'create_retraining_scheduler' function.
 class CreateRetrainingSchedulerResponseTypeDef(BaseValidatorModel):
-    ModelName: str
-    ModelArn: str
+    ModelName: Annotated[str, _aws_pattern("Lookoutequipment", "ModelName")]
+    ModelArn: Annotated[str, _aws_pattern("Lookoutequipment", "ModelArn")]
     Status: RetrainingSchedulerStatusType
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 # This class is the output for the 'describe_label_group' function.
 class DescribeLabelGroupResponseTypeDef(BaseValidatorModel):
-    LabelGroupName: str
-    LabelGroupArn: str
-    FaultCodes: List[str]
+    LabelGroupName: Annotated[str, _aws_pattern("Lookoutequipment", "LabelGroupName")]
+    LabelGroupArn: Annotated[str, _aws_pattern("Lookoutequipment", "LabelGroupArn")]
+    FaultCodes: List[Annotated[str, _aws_pattern("Lookoutequipment", "FaultCode")]]
     CreatedAt: datetime
     UpdatedAt: datetime
     ResponseMetadata: ResponseMetadataTypeDef
@@ -492,23 +498,23 @@ class DescribeLabelGroupResponseTypeDef(BaseValidatorModel):
 
 # This class is the output for the 'describe_label' function.
 class DescribeLabelResponseTypeDef(BaseValidatorModel):
-    LabelGroupName: str
-    LabelGroupArn: str
-    LabelId: str
+    LabelGroupName: Annotated[str, _aws_pattern("Lookoutequipment", "LabelGroupName")]
+    LabelGroupArn: Annotated[str, _aws_pattern("Lookoutequipment", "LabelGroupArn")]
+    LabelId: Annotated[str, _aws_pattern("Lookoutequipment", "LabelId")]
     StartTime: datetime
     EndTime: datetime
     Rating: LabelRatingType
-    FaultCode: str
-    Notes: str
-    Equipment: str
+    FaultCode: Annotated[str, _aws_pattern("Lookoutequipment", "FaultCode")]
+    Notes: Annotated[str, _aws_pattern("Lookoutequipment", "Comments")]
+    Equipment: Annotated[str, _aws_pattern("Lookoutequipment", "Equipment")]
     CreatedAt: datetime
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 # This class is the output for the 'describe_resource_policy' function.
 class DescribeResourcePolicyResponseTypeDef(BaseValidatorModel):
-    PolicyRevisionId: str
-    ResourcePolicy: str
+    PolicyRevisionId: Annotated[str, _aws_pattern("Lookoutequipment", "PolicyRevisionId")]
+    ResourcePolicy: Annotated[str, _aws_pattern("Lookoutequipment", "Policy")]
     CreationTime: datetime
     LastModifiedTime: datetime
     ResponseMetadata: ResponseMetadataTypeDef
@@ -516,11 +522,11 @@ class DescribeResourcePolicyResponseTypeDef(BaseValidatorModel):
 
 # This class is the output for the 'describe_retraining_scheduler' function.
 class DescribeRetrainingSchedulerResponseTypeDef(BaseValidatorModel):
-    ModelName: str
-    ModelArn: str
+    ModelName: Annotated[str, _aws_pattern("Lookoutequipment", "ModelName")]
+    ModelArn: Annotated[str, _aws_pattern("Lookoutequipment", "ModelArn")]
     RetrainingStartDate: datetime
-    RetrainingFrequency: str
-    LookbackWindow: str
+    RetrainingFrequency: Annotated[str, _aws_pattern("Lookoutequipment", "RetrainingFrequency")]
+    LookbackWindow: Annotated[str, _aws_pattern("Lookoutequipment", "LookbackWindow")]
     Status: RetrainingSchedulerStatusType
     PromoteMode: ModelPromoteModeType
     CreatedAt: datetime
@@ -535,18 +541,18 @@ class EmptyResponseMetadataTypeDef(BaseValidatorModel):
 
 # This class is the output for the 'import_dataset' function.
 class ImportDatasetResponseTypeDef(BaseValidatorModel):
-    DatasetName: str
-    DatasetArn: str
+    DatasetName: Annotated[str, _aws_pattern("Lookoutequipment", "DatasetName")]
+    DatasetArn: Annotated[str, _aws_pattern("Lookoutequipment", "DatasetArn")]
     Status: DatasetStatusType
-    JobId: str
+    JobId: Annotated[str, _aws_pattern("Lookoutequipment", "IngestionJobId")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 # This class is the output for the 'import_model_version' function.
 class ImportModelVersionResponseTypeDef(BaseValidatorModel):
-    ModelName: str
-    ModelArn: str
-    ModelVersionArn: str
+    ModelName: Annotated[str, _aws_pattern("Lookoutequipment", "ModelName")]
+    ModelArn: Annotated[str, _aws_pattern("Lookoutequipment", "ModelArn")]
+    ModelVersionArn: Annotated[str, _aws_pattern("Lookoutequipment", "ModelVersionArn")]
     ModelVersion: int
     Status: ModelVersionStatusType
     ResponseMetadata: ResponseMetadataTypeDef
@@ -560,100 +566,100 @@ class ListTagsForResourceResponseTypeDef(BaseValidatorModel):
 
 # This class is the output for the 'put_resource_policy' function.
 class PutResourcePolicyResponseTypeDef(BaseValidatorModel):
-    ResourceArn: str
-    PolicyRevisionId: str
+    ResourceArn: Annotated[str, _aws_pattern("Lookoutequipment", "ResourceArn")]
+    PolicyRevisionId: Annotated[str, _aws_pattern("Lookoutequipment", "PolicyRevisionId")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 # This class is the output for the 'start_data_ingestion_job' function.
 class StartDataIngestionJobResponseTypeDef(BaseValidatorModel):
-    JobId: str
+    JobId: Annotated[str, _aws_pattern("Lookoutequipment", "IngestionJobId")]
     Status: IngestionJobStatusType
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 # This class is the output for the 'start_inference_scheduler' function.
 class StartInferenceSchedulerResponseTypeDef(BaseValidatorModel):
-    ModelArn: str
-    ModelName: str
-    InferenceSchedulerName: str
-    InferenceSchedulerArn: str
+    ModelArn: Annotated[str, _aws_pattern("Lookoutequipment", "ModelArn")]
+    ModelName: Annotated[str, _aws_pattern("Lookoutequipment", "ModelName")]
+    InferenceSchedulerName: Annotated[str, _aws_pattern("Lookoutequipment", "InferenceSchedulerName")]
+    InferenceSchedulerArn: Annotated[str, _aws_pattern("Lookoutequipment", "InferenceSchedulerArn")]
     Status: InferenceSchedulerStatusType
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 # This class is the output for the 'start_retraining_scheduler' function.
 class StartRetrainingSchedulerResponseTypeDef(BaseValidatorModel):
-    ModelName: str
-    ModelArn: str
+    ModelName: Annotated[str, _aws_pattern("Lookoutequipment", "ModelName")]
+    ModelArn: Annotated[str, _aws_pattern("Lookoutequipment", "ModelArn")]
     Status: RetrainingSchedulerStatusType
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 # This class is the output for the 'stop_inference_scheduler' function.
 class StopInferenceSchedulerResponseTypeDef(BaseValidatorModel):
-    ModelArn: str
-    ModelName: str
-    InferenceSchedulerName: str
-    InferenceSchedulerArn: str
+    ModelArn: Annotated[str, _aws_pattern("Lookoutequipment", "ModelArn")]
+    ModelName: Annotated[str, _aws_pattern("Lookoutequipment", "ModelName")]
+    InferenceSchedulerName: Annotated[str, _aws_pattern("Lookoutequipment", "InferenceSchedulerName")]
+    InferenceSchedulerArn: Annotated[str, _aws_pattern("Lookoutequipment", "InferenceSchedulerArn")]
     Status: InferenceSchedulerStatusType
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 # This class is the output for the 'stop_retraining_scheduler' function.
 class StopRetrainingSchedulerResponseTypeDef(BaseValidatorModel):
-    ModelName: str
-    ModelArn: str
+    ModelName: Annotated[str, _aws_pattern("Lookoutequipment", "ModelName")]
+    ModelArn: Annotated[str, _aws_pattern("Lookoutequipment", "ModelArn")]
     Status: RetrainingSchedulerStatusType
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 # This class is the output for the 'update_active_model_version' function.
 class UpdateActiveModelVersionResponseTypeDef(BaseValidatorModel):
-    ModelName: str
-    ModelArn: str
+    ModelName: Annotated[str, _aws_pattern("Lookoutequipment", "ModelName")]
+    ModelArn: Annotated[str, _aws_pattern("Lookoutequipment", "ModelArn")]
     CurrentActiveVersion: int
     PreviousActiveVersion: int
-    CurrentActiveVersionArn: str
-    PreviousActiveVersionArn: str
+    CurrentActiveVersionArn: Annotated[str, _aws_pattern("Lookoutequipment", "ModelVersionArn")]
+    PreviousActiveVersionArn: Annotated[str, _aws_pattern("Lookoutequipment", "ModelVersionArn")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 # This class is the input for the 'create_label' function.
 class CreateLabelRequestTypeDef(BaseValidatorModel):
-    LabelGroupName: str
+    LabelGroupName: Annotated[str, _aws_pattern("Lookoutequipment", "LabelGroupName")]
     StartTime: TimestampTypeDef
     EndTime: TimestampTypeDef
     Rating: LabelRatingType
-    ClientToken: str
-    FaultCode: Optional[str] = None
-    Notes: Optional[str] = None
-    Equipment: Optional[str] = None
+    ClientToken: Annotated[str, _aws_pattern("Lookoutequipment", "IdempotenceToken")]
+    FaultCode: Optional[Annotated[str, _aws_pattern("Lookoutequipment", "FaultCode")]] = None
+    Notes: Optional[Annotated[str, _aws_pattern("Lookoutequipment", "Comments")]] = None
+    Equipment: Optional[Annotated[str, _aws_pattern("Lookoutequipment", "Equipment")]] = None
 
 
 # This class is the input for the 'create_retraining_scheduler' function.
 class CreateRetrainingSchedulerRequestTypeDef(BaseValidatorModel):
-    ModelName: str
-    RetrainingFrequency: str
-    LookbackWindow: str
-    ClientToken: str
+    ModelName: Annotated[str, _aws_pattern("Lookoutequipment", "ModelName")]
+    RetrainingFrequency: Annotated[str, _aws_pattern("Lookoutequipment", "RetrainingFrequency")]
+    LookbackWindow: Annotated[str, _aws_pattern("Lookoutequipment", "LookbackWindow")]
+    ClientToken: Annotated[str, _aws_pattern("Lookoutequipment", "IdempotenceToken")]
     RetrainingStartDate: Optional[TimestampTypeDef] = None
     PromoteMode: Optional[ModelPromoteModeType] = None
 
 
 # This class is the input for the 'list_inference_events' function.
 class ListInferenceEventsRequestTypeDef(BaseValidatorModel):
-    InferenceSchedulerName: str
+    InferenceSchedulerName: Annotated[str, _aws_pattern("Lookoutequipment", "InferenceSchedulerIdentifier")]
     IntervalStartTime: TimestampTypeDef
     IntervalEndTime: TimestampTypeDef
-    NextToken: Optional[str] = None
+    NextToken: Optional[Annotated[str, _aws_pattern("Lookoutequipment", "NextToken")]] = None
     MaxResults: Optional[int] = None
 
 
 # This class is the input for the 'list_inference_executions' function.
 class ListInferenceExecutionsRequestTypeDef(BaseValidatorModel):
-    InferenceSchedulerName: str
-    NextToken: Optional[str] = None
+    InferenceSchedulerName: Annotated[str, _aws_pattern("Lookoutequipment", "InferenceSchedulerIdentifier")]
+    NextToken: Optional[Annotated[str, _aws_pattern("Lookoutequipment", "NextToken")]] = None
     MaxResults: Optional[int] = None
     DataStartTimeAfter: Optional[TimestampTypeDef] = None
     DataEndTimeBefore: Optional[TimestampTypeDef] = None
@@ -662,19 +668,19 @@ class ListInferenceExecutionsRequestTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'list_labels' function.
 class ListLabelsRequestTypeDef(BaseValidatorModel):
-    LabelGroupName: str
+    LabelGroupName: Annotated[str, _aws_pattern("Lookoutequipment", "LabelGroupName")]
     IntervalStartTime: Optional[TimestampTypeDef] = None
     IntervalEndTime: Optional[TimestampTypeDef] = None
-    FaultCode: Optional[str] = None
-    Equipment: Optional[str] = None
-    NextToken: Optional[str] = None
+    FaultCode: Optional[Annotated[str, _aws_pattern("Lookoutequipment", "FaultCode")]] = None
+    Equipment: Optional[Annotated[str, _aws_pattern("Lookoutequipment", "Equipment")]] = None
+    NextToken: Optional[Annotated[str, _aws_pattern("Lookoutequipment", "NextToken")]] = None
     MaxResults: Optional[int] = None
 
 
 # This class is the input for the 'list_model_versions' function.
 class ListModelVersionsRequestTypeDef(BaseValidatorModel):
-    ModelName: str
-    NextToken: Optional[str] = None
+    ModelName: Annotated[str, _aws_pattern("Lookoutequipment", "ModelName")]
+    NextToken: Optional[Annotated[str, _aws_pattern("Lookoutequipment", "NextToken")]] = None
     MaxResults: Optional[int] = None
     Status: Optional[ModelVersionStatusType] = None
     SourceType: Optional[ModelVersionSourceTypeType] = None
@@ -686,10 +692,10 @@ class ListModelVersionsRequestTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'update_retraining_scheduler' function.
 class UpdateRetrainingSchedulerRequestTypeDef(BaseValidatorModel):
-    ModelName: str
+    ModelName: Annotated[str, _aws_pattern("Lookoutequipment", "ModelName")]
     RetrainingStartDate: Optional[TimestampTypeDef] = None
-    RetrainingFrequency: Optional[str] = None
-    LookbackWindow: Optional[str] = None
+    RetrainingFrequency: Optional[Annotated[str, _aws_pattern("Lookoutequipment", "RetrainingFrequency")]] = None
+    LookbackWindow: Optional[Annotated[str, _aws_pattern("Lookoutequipment", "LookbackWindow")]] = None
     PromoteMode: Optional[ModelPromoteModeType] = None
 
 
@@ -697,7 +703,7 @@ class UpdateRetrainingSchedulerRequestTypeDef(BaseValidatorModel):
 class ListDatasetsResponseTypeDef(BaseValidatorModel):
     DatasetSummaries: List[DatasetSummaryTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
-    NextToken: Optional[str] = None
+    NextToken: Optional[Annotated[str, _aws_pattern("Lookoutequipment", "NextToken")]] = None
 
 
 class IngestedFilesSummaryTypeDef(BaseValidatorModel):
@@ -710,25 +716,25 @@ class IngestedFilesSummaryTypeDef(BaseValidatorModel):
 class ListInferenceEventsResponseTypeDef(BaseValidatorModel):
     InferenceEventSummaries: List[InferenceEventSummaryTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
-    NextToken: Optional[str] = None
+    NextToken: Optional[Annotated[str, _aws_pattern("Lookoutequipment", "NextToken")]] = None
 
 
 class InferenceInputConfigurationTypeDef(BaseValidatorModel):
     S3InputConfiguration: Optional[InferenceS3InputConfigurationTypeDef] = None
-    InputTimeZoneOffset: Optional[str] = None
+    InputTimeZoneOffset: Optional[Annotated[str, _aws_pattern("Lookoutequipment", "TimeZoneOffset")]] = None
     InferenceInputNameConfiguration: Optional[InferenceInputNameConfigurationTypeDef] = None
 
 
 class InferenceOutputConfigurationTypeDef(BaseValidatorModel):
     S3OutputConfiguration: InferenceS3OutputConfigurationTypeDef
-    KmsKeyId: Optional[str] = None
+    KmsKeyId: Optional[Annotated[str, _aws_pattern("Lookoutequipment", "NameOrArn")]] = None
 
 
 # This class is the output for the 'list_inference_schedulers' function.
 class ListInferenceSchedulersResponseTypeDef(BaseValidatorModel):
     InferenceSchedulerSummaries: List[InferenceSchedulerSummaryTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
-    NextToken: Optional[str] = None
+    NextToken: Optional[Annotated[str, _aws_pattern("Lookoutequipment", "NextToken")]] = None
 
 
 class IngestionInputConfigurationTypeDef(BaseValidatorModel):
@@ -744,43 +750,43 @@ class InsufficientSensorDataTypeDef(BaseValidatorModel):
 class ListLabelGroupsResponseTypeDef(BaseValidatorModel):
     LabelGroupSummaries: List[LabelGroupSummaryTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
-    NextToken: Optional[str] = None
+    NextToken: Optional[Annotated[str, _aws_pattern("Lookoutequipment", "NextToken")]] = None
 
 
 # This class is the output for the 'list_labels' function.
 class ListLabelsResponseTypeDef(BaseValidatorModel):
     LabelSummaries: List[LabelSummaryTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
-    NextToken: Optional[str] = None
+    NextToken: Optional[Annotated[str, _aws_pattern("Lookoutequipment", "NextToken")]] = None
 
 
 class LabelsInputConfigurationTypeDef(BaseValidatorModel):
     S3InputConfiguration: Optional[LabelsS3InputConfigurationTypeDef] = None
-    LabelGroupName: Optional[str] = None
+    LabelGroupName: Optional[Annotated[str, _aws_pattern("Lookoutequipment", "LabelGroupName")]] = None
 
 
 # This class is the output for the 'list_model_versions' function.
 class ListModelVersionsResponseTypeDef(BaseValidatorModel):
     ModelVersionSummaries: List[ModelVersionSummaryTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
-    NextToken: Optional[str] = None
+    NextToken: Optional[Annotated[str, _aws_pattern("Lookoutequipment", "NextToken")]] = None
 
 
 # This class is the output for the 'list_retraining_schedulers' function.
 class ListRetrainingSchedulersResponseTypeDef(BaseValidatorModel):
     RetrainingSchedulerSummaries: List[RetrainingSchedulerSummaryTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
-    NextToken: Optional[str] = None
+    NextToken: Optional[Annotated[str, _aws_pattern("Lookoutequipment", "NextToken")]] = None
 
 
 class ModelDiagnosticsOutputConfigurationTypeDef(BaseValidatorModel):
     S3OutputConfiguration: ModelDiagnosticsS3OutputConfigurationTypeDef
-    KmsKeyId: Optional[str] = None
+    KmsKeyId: Optional[Annotated[str, _aws_pattern("Lookoutequipment", "NameOrArn")]] = None
 
 
 class SensorStatisticsSummaryTypeDef(BaseValidatorModel):
-    ComponentName: Optional[str] = None
-    SensorName: Optional[str] = None
+    ComponentName: Optional[Annotated[str, _aws_pattern("Lookoutequipment", "ComponentName")]] = None
+    SensorName: Optional[Annotated[str, _aws_pattern("Lookoutequipment", "SensorName")]] = None
     DataExists: Optional[bool] = None
     MissingValues: Optional[CountPercentTypeDef] = None
     InvalidValues: Optional[CountPercentTypeDef] = None
@@ -796,24 +802,24 @@ class SensorStatisticsSummaryTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'create_inference_scheduler' function.
 class CreateInferenceSchedulerRequestTypeDef(BaseValidatorModel):
-    ModelName: str
-    InferenceSchedulerName: str
+    ModelName: Annotated[str, _aws_pattern("Lookoutequipment", "ModelName")]
+    InferenceSchedulerName: Annotated[str, _aws_pattern("Lookoutequipment", "InferenceSchedulerName")]
     DataUploadFrequency: DataUploadFrequencyType
     DataInputConfiguration: InferenceInputConfigurationTypeDef
     DataOutputConfiguration: InferenceOutputConfigurationTypeDef
-    RoleArn: str
-    ClientToken: str
+    RoleArn: Annotated[str, _aws_pattern("Lookoutequipment", "IamRoleArn")]
+    ClientToken: Annotated[str, _aws_pattern("Lookoutequipment", "IdempotenceToken")]
     DataDelayOffsetInMinutes: Optional[int] = None
-    ServerSideKmsKeyId: Optional[str] = None
+    ServerSideKmsKeyId: Optional[Annotated[str, _aws_pattern("Lookoutequipment", "NameOrArn")]] = None
     Tags: Optional[List[TagTypeDef]] = None
 
 
 # This class is the output for the 'describe_inference_scheduler' function.
 class DescribeInferenceSchedulerResponseTypeDef(BaseValidatorModel):
-    ModelArn: str
-    ModelName: str
-    InferenceSchedulerName: str
-    InferenceSchedulerArn: str
+    ModelArn: Annotated[str, _aws_pattern("Lookoutequipment", "ModelArn")]
+    ModelName: Annotated[str, _aws_pattern("Lookoutequipment", "ModelName")]
+    InferenceSchedulerName: Annotated[str, _aws_pattern("Lookoutequipment", "InferenceSchedulerName")]
+    InferenceSchedulerArn: Annotated[str, _aws_pattern("Lookoutequipment", "InferenceSchedulerArn")]
     Status: InferenceSchedulerStatusType
     DataDelayOffsetInMinutes: int
     DataUploadFrequency: DataUploadFrequencyType
@@ -821,17 +827,17 @@ class DescribeInferenceSchedulerResponseTypeDef(BaseValidatorModel):
     UpdatedAt: datetime
     DataInputConfiguration: InferenceInputConfigurationTypeDef
     DataOutputConfiguration: InferenceOutputConfigurationTypeDef
-    RoleArn: str
-    ServerSideKmsKeyId: str
+    RoleArn: Annotated[str, _aws_pattern("Lookoutequipment", "IamRoleArn")]
+    ServerSideKmsKeyId: Annotated[str, _aws_pattern("Lookoutequipment", "KmsKeyArn")]
     LatestInferenceResult: LatestInferenceResultType
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 class InferenceExecutionSummaryTypeDef(BaseValidatorModel):
-    ModelName: Optional[str] = None
-    ModelArn: Optional[str] = None
-    InferenceSchedulerName: Optional[str] = None
-    InferenceSchedulerArn: Optional[str] = None
+    ModelName: Optional[Annotated[str, _aws_pattern("Lookoutequipment", "ModelName")]] = None
+    ModelArn: Optional[Annotated[str, _aws_pattern("Lookoutequipment", "ModelArn")]] = None
+    InferenceSchedulerName: Optional[Annotated[str, _aws_pattern("Lookoutequipment", "InferenceSchedulerName")]] = None
+    InferenceSchedulerArn: Optional[Annotated[str, _aws_pattern("Lookoutequipment", "InferenceSchedulerArn")]] = None
     ScheduledStartTime: Optional[datetime] = None
     DataStartTime: Optional[datetime] = None
     DataEndTime: Optional[datetime] = None
@@ -839,35 +845,35 @@ class InferenceExecutionSummaryTypeDef(BaseValidatorModel):
     DataOutputConfiguration: Optional[InferenceOutputConfigurationTypeDef] = None
     CustomerResultObject: Optional[S3ObjectTypeDef] = None
     Status: Optional[InferenceExecutionStatusType] = None
-    FailedReason: Optional[str] = None
+    FailedReason: Optional[Annotated[str, _aws_pattern("Lookoutequipment", "BoundedLengthString")]] = None
     ModelVersion: Optional[int] = None
-    ModelVersionArn: Optional[str] = None
+    ModelVersionArn: Optional[Annotated[str, _aws_pattern("Lookoutequipment", "ModelVersionArn")]] = None
 
 
 # This class is the input for the 'update_inference_scheduler' function.
 class UpdateInferenceSchedulerRequestTypeDef(BaseValidatorModel):
-    InferenceSchedulerName: str
+    InferenceSchedulerName: Annotated[str, _aws_pattern("Lookoutequipment", "InferenceSchedulerIdentifier")]
     DataDelayOffsetInMinutes: Optional[int] = None
     DataUploadFrequency: Optional[DataUploadFrequencyType] = None
     DataInputConfiguration: Optional[InferenceInputConfigurationTypeDef] = None
     DataOutputConfiguration: Optional[InferenceOutputConfigurationTypeDef] = None
-    RoleArn: Optional[str] = None
+    RoleArn: Optional[Annotated[str, _aws_pattern("Lookoutequipment", "IamRoleArn")]] = None
 
 
 class DataIngestionJobSummaryTypeDef(BaseValidatorModel):
-    JobId: Optional[str] = None
-    DatasetName: Optional[str] = None
-    DatasetArn: Optional[str] = None
+    JobId: Optional[Annotated[str, _aws_pattern("Lookoutequipment", "IngestionJobId")]] = None
+    DatasetName: Optional[Annotated[str, _aws_pattern("Lookoutequipment", "DatasetName")]] = None
+    DatasetArn: Optional[Annotated[str, _aws_pattern("Lookoutequipment", "DatasetArn")]] = None
     IngestionInputConfiguration: Optional[IngestionInputConfigurationTypeDef] = None
     Status: Optional[IngestionJobStatusType] = None
 
 
 # This class is the input for the 'start_data_ingestion_job' function.
 class StartDataIngestionJobRequestTypeDef(BaseValidatorModel):
-    DatasetName: str
+    DatasetName: Annotated[str, _aws_pattern("Lookoutequipment", "DatasetIdentifier")]
     IngestionInputConfiguration: IngestionInputConfigurationTypeDef
-    RoleArn: str
-    ClientToken: str
+    RoleArn: Annotated[str, _aws_pattern("Lookoutequipment", "IamRoleArn")]
+    ClientToken: Annotated[str, _aws_pattern("Lookoutequipment", "IdempotenceToken")]
 
 
 class DataQualitySummaryTypeDef(BaseValidatorModel):
@@ -880,31 +886,31 @@ class DataQualitySummaryTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'import_model_version' function.
 class ImportModelVersionRequestTypeDef(BaseValidatorModel):
-    SourceModelVersionArn: str
-    DatasetName: str
-    ClientToken: str
-    ModelName: Optional[str] = None
+    SourceModelVersionArn: Annotated[str, _aws_pattern("Lookoutequipment", "ModelVersionArn")]
+    DatasetName: Annotated[str, _aws_pattern("Lookoutequipment", "DatasetIdentifier")]
+    ClientToken: Annotated[str, _aws_pattern("Lookoutequipment", "IdempotenceToken")]
+    ModelName: Optional[Annotated[str, _aws_pattern("Lookoutequipment", "ModelName")]] = None
     LabelsInputConfiguration: Optional[LabelsInputConfigurationTypeDef] = None
-    RoleArn: Optional[str] = None
-    ServerSideKmsKeyId: Optional[str] = None
+    RoleArn: Optional[Annotated[str, _aws_pattern("Lookoutequipment", "IamRoleArn")]] = None
+    ServerSideKmsKeyId: Optional[Annotated[str, _aws_pattern("Lookoutequipment", "NameOrArn")]] = None
     Tags: Optional[List[TagTypeDef]] = None
     InferenceDataImportStrategy: Optional[InferenceDataImportStrategyType] = None
 
 
 # This class is the input for the 'create_model' function.
 class CreateModelRequestTypeDef(BaseValidatorModel):
-    ModelName: str
-    DatasetName: str
-    ClientToken: str
+    ModelName: Annotated[str, _aws_pattern("Lookoutequipment", "ModelName")]
+    DatasetName: Annotated[str, _aws_pattern("Lookoutequipment", "DatasetIdentifier")]
+    ClientToken: Annotated[str, _aws_pattern("Lookoutequipment", "IdempotenceToken")]
     DatasetSchema: Optional[DatasetSchemaTypeDef] = None
     LabelsInputConfiguration: Optional[LabelsInputConfigurationTypeDef] = None
     TrainingDataStartTime: Optional[TimestampTypeDef] = None
     TrainingDataEndTime: Optional[TimestampTypeDef] = None
     EvaluationDataStartTime: Optional[TimestampTypeDef] = None
     EvaluationDataEndTime: Optional[TimestampTypeDef] = None
-    RoleArn: Optional[str] = None
+    RoleArn: Optional[Annotated[str, _aws_pattern("Lookoutequipment", "IamRoleArn")]] = None
     DataPreProcessingConfiguration: Optional[DataPreProcessingConfigurationTypeDef] = None
-    ServerSideKmsKeyId: Optional[str] = None
+    ServerSideKmsKeyId: Optional[Annotated[str, _aws_pattern("Lookoutequipment", "NameOrArn")]] = None
     Tags: Optional[List[TagTypeDef]] = None
     OffCondition: Optional[str] = None
     ModelDiagnosticsOutputConfiguration: Optional[ModelDiagnosticsOutputConfigurationTypeDef] = None
@@ -912,38 +918,38 @@ class CreateModelRequestTypeDef(BaseValidatorModel):
 
 # This class is the output for the 'describe_model' function.
 class DescribeModelResponseTypeDef(BaseValidatorModel):
-    ModelName: str
-    ModelArn: str
-    DatasetName: str
-    DatasetArn: str
+    ModelName: Annotated[str, _aws_pattern("Lookoutequipment", "ModelName")]
+    ModelArn: Annotated[str, _aws_pattern("Lookoutequipment", "ModelArn")]
+    DatasetName: Annotated[str, _aws_pattern("Lookoutequipment", "DatasetName")]
+    DatasetArn: Annotated[str, _aws_pattern("Lookoutequipment", "DatasetArn")]
     Schema: str
     LabelsInputConfiguration: LabelsInputConfigurationTypeDef
     TrainingDataStartTime: datetime
     TrainingDataEndTime: datetime
     EvaluationDataStartTime: datetime
     EvaluationDataEndTime: datetime
-    RoleArn: str
+    RoleArn: Annotated[str, _aws_pattern("Lookoutequipment", "IamRoleArn")]
     DataPreProcessingConfiguration: DataPreProcessingConfigurationTypeDef
     Status: ModelStatusType
     TrainingExecutionStartTime: datetime
     TrainingExecutionEndTime: datetime
-    FailedReason: str
+    FailedReason: Annotated[str, _aws_pattern("Lookoutequipment", "BoundedLengthString")]
     ModelMetrics: str
     LastUpdatedTime: datetime
     CreatedAt: datetime
-    ServerSideKmsKeyId: str
+    ServerSideKmsKeyId: Annotated[str, _aws_pattern("Lookoutequipment", "KmsKeyArn")]
     OffCondition: str
-    SourceModelVersionArn: str
+    SourceModelVersionArn: Annotated[str, _aws_pattern("Lookoutequipment", "ModelVersionArn")]
     ImportJobStartTime: datetime
     ImportJobEndTime: datetime
     ActiveModelVersion: int
-    ActiveModelVersionArn: str
+    ActiveModelVersionArn: Annotated[str, _aws_pattern("Lookoutequipment", "ModelVersionArn")]
     ModelVersionActivatedAt: datetime
     PreviousActiveModelVersion: int
-    PreviousActiveModelVersionArn: str
+    PreviousActiveModelVersionArn: Annotated[str, _aws_pattern("Lookoutequipment", "ModelVersionArn")]
     PreviousModelVersionActivatedAt: datetime
     PriorModelMetrics: str
-    LatestScheduledRetrainingFailedReason: str
+    LatestScheduledRetrainingFailedReason: Annotated[str, _aws_pattern("Lookoutequipment", "BoundedLengthString")]
     LatestScheduledRetrainingStatus: ModelVersionStatusType
     LatestScheduledRetrainingModelVersion: int
     LatestScheduledRetrainingStartTime: datetime
@@ -959,31 +965,31 @@ class DescribeModelResponseTypeDef(BaseValidatorModel):
 
 # This class is the output for the 'describe_model_version' function.
 class DescribeModelVersionResponseTypeDef(BaseValidatorModel):
-    ModelName: str
-    ModelArn: str
+    ModelName: Annotated[str, _aws_pattern("Lookoutequipment", "ModelName")]
+    ModelArn: Annotated[str, _aws_pattern("Lookoutequipment", "ModelArn")]
     ModelVersion: int
-    ModelVersionArn: str
+    ModelVersionArn: Annotated[str, _aws_pattern("Lookoutequipment", "ModelVersionArn")]
     Status: ModelVersionStatusType
     SourceType: ModelVersionSourceTypeType
-    DatasetName: str
-    DatasetArn: str
+    DatasetName: Annotated[str, _aws_pattern("Lookoutequipment", "DatasetName")]
+    DatasetArn: Annotated[str, _aws_pattern("Lookoutequipment", "DatasetArn")]
     Schema: str
     LabelsInputConfiguration: LabelsInputConfigurationTypeDef
     TrainingDataStartTime: datetime
     TrainingDataEndTime: datetime
     EvaluationDataStartTime: datetime
     EvaluationDataEndTime: datetime
-    RoleArn: str
+    RoleArn: Annotated[str, _aws_pattern("Lookoutequipment", "IamRoleArn")]
     DataPreProcessingConfiguration: DataPreProcessingConfigurationTypeDef
     TrainingExecutionStartTime: datetime
     TrainingExecutionEndTime: datetime
-    FailedReason: str
+    FailedReason: Annotated[str, _aws_pattern("Lookoutequipment", "BoundedLengthString")]
     ModelMetrics: str
     LastUpdatedTime: datetime
     CreatedAt: datetime
-    ServerSideKmsKeyId: str
+    ServerSideKmsKeyId: Annotated[str, _aws_pattern("Lookoutequipment", "KmsKeyArn")]
     OffCondition: str
-    SourceModelVersionArn: str
+    SourceModelVersionArn: Annotated[str, _aws_pattern("Lookoutequipment", "ModelVersionArn")]
     ImportJobStartTime: datetime
     ImportJobEndTime: datetime
     ImportedDataSizeInBytes: int
@@ -998,14 +1004,14 @@ class DescribeModelVersionResponseTypeDef(BaseValidatorModel):
 
 
 class ModelSummaryTypeDef(BaseValidatorModel):
-    ModelName: Optional[str] = None
-    ModelArn: Optional[str] = None
-    DatasetName: Optional[str] = None
-    DatasetArn: Optional[str] = None
+    ModelName: Optional[Annotated[str, _aws_pattern("Lookoutequipment", "ModelName")]] = None
+    ModelArn: Optional[Annotated[str, _aws_pattern("Lookoutequipment", "ModelArn")]] = None
+    DatasetName: Optional[Annotated[str, _aws_pattern("Lookoutequipment", "DatasetName")]] = None
+    DatasetArn: Optional[Annotated[str, _aws_pattern("Lookoutequipment", "DatasetArn")]] = None
     Status: Optional[ModelStatusType] = None
     CreatedAt: Optional[datetime] = None
     ActiveModelVersion: Optional[int] = None
-    ActiveModelVersionArn: Optional[str] = None
+    ActiveModelVersionArn: Optional[Annotated[str, _aws_pattern("Lookoutequipment", "ModelVersionArn")]] = None
     LatestScheduledRetrainingStatus: Optional[ModelVersionStatusType] = None
     LatestScheduledRetrainingModelVersion: Optional[int] = None
     LatestScheduledRetrainingStartTime: Optional[datetime] = None
@@ -1017,9 +1023,9 @@ class ModelSummaryTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'update_model' function.
 class UpdateModelRequestTypeDef(BaseValidatorModel):
-    ModelName: str
+    ModelName: Annotated[str, _aws_pattern("Lookoutequipment", "ModelName")]
     LabelsInputConfiguration: Optional[LabelsInputConfigurationTypeDef] = None
-    RoleArn: Optional[str] = None
+    RoleArn: Optional[Annotated[str, _aws_pattern("Lookoutequipment", "IamRoleArn")]] = None
     ModelDiagnosticsOutputConfiguration: Optional[ModelDiagnosticsOutputConfigurationTypeDef] = None
 
 
@@ -1027,58 +1033,58 @@ class UpdateModelRequestTypeDef(BaseValidatorModel):
 class ListSensorStatisticsResponseTypeDef(BaseValidatorModel):
     SensorStatisticsSummaries: List[SensorStatisticsSummaryTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
-    NextToken: Optional[str] = None
+    NextToken: Optional[Annotated[str, _aws_pattern("Lookoutequipment", "NextToken")]] = None
 
 
 # This class is the output for the 'list_inference_executions' function.
 class ListInferenceExecutionsResponseTypeDef(BaseValidatorModel):
     InferenceExecutionSummaries: List[InferenceExecutionSummaryTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
-    NextToken: Optional[str] = None
+    NextToken: Optional[Annotated[str, _aws_pattern("Lookoutequipment", "NextToken")]] = None
 
 
 # This class is the output for the 'list_data_ingestion_jobs' function.
 class ListDataIngestionJobsResponseTypeDef(BaseValidatorModel):
     DataIngestionJobSummaries: List[DataIngestionJobSummaryTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
-    NextToken: Optional[str] = None
+    NextToken: Optional[Annotated[str, _aws_pattern("Lookoutequipment", "NextToken")]] = None
 
 
 # This class is the output for the 'describe_data_ingestion_job' function.
 class DescribeDataIngestionJobResponseTypeDef(BaseValidatorModel):
-    JobId: str
-    DatasetArn: str
+    JobId: Annotated[str, _aws_pattern("Lookoutequipment", "IngestionJobId")]
+    DatasetArn: Annotated[str, _aws_pattern("Lookoutequipment", "DatasetArn")]
     IngestionInputConfiguration: IngestionInputConfigurationTypeDef
-    RoleArn: str
+    RoleArn: Annotated[str, _aws_pattern("Lookoutequipment", "IamRoleArn")]
     CreatedAt: datetime
     Status: IngestionJobStatusType
-    FailedReason: str
+    FailedReason: Annotated[str, _aws_pattern("Lookoutequipment", "BoundedLengthString")]
     DataQualitySummary: DataQualitySummaryTypeDef
     IngestedFilesSummary: IngestedFilesSummaryTypeDef
-    StatusDetail: str
+    StatusDetail: Annotated[str, _aws_pattern("Lookoutequipment", "BoundedLengthString")]
     IngestedDataSize: int
     DataStartTime: datetime
     DataEndTime: datetime
-    SourceDatasetArn: str
+    SourceDatasetArn: Annotated[str, _aws_pattern("Lookoutequipment", "DatasetArn")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 # This class is the output for the 'describe_dataset' function.
 class DescribeDatasetResponseTypeDef(BaseValidatorModel):
-    DatasetName: str
-    DatasetArn: str
+    DatasetName: Annotated[str, _aws_pattern("Lookoutequipment", "DatasetName")]
+    DatasetArn: Annotated[str, _aws_pattern("Lookoutequipment", "DatasetArn")]
     CreatedAt: datetime
     LastUpdatedAt: datetime
     Status: DatasetStatusType
     Schema: str
-    ServerSideKmsKeyId: str
+    ServerSideKmsKeyId: Annotated[str, _aws_pattern("Lookoutequipment", "KmsKeyArn")]
     IngestionInputConfiguration: IngestionInputConfigurationTypeDef
     DataQualitySummary: DataQualitySummaryTypeDef
     IngestedFilesSummary: IngestedFilesSummaryTypeDef
-    RoleArn: str
+    RoleArn: Annotated[str, _aws_pattern("Lookoutequipment", "IamRoleArn")]
     DataStartTime: datetime
     DataEndTime: datetime
-    SourceDatasetArn: str
+    SourceDatasetArn: Annotated[str, _aws_pattern("Lookoutequipment", "DatasetArn")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
@@ -1086,4 +1092,4 @@ class DescribeDatasetResponseTypeDef(BaseValidatorModel):
 class ListModelsResponseTypeDef(BaseValidatorModel):
     ModelSummaries: List[ModelSummaryTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
-    NextToken: Optional[str] = None
+    NextToken: Optional[Annotated[str, _aws_pattern("Lookoutequipment", "NextToken")]] = None

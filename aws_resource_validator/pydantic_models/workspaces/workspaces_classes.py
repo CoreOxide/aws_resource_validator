@@ -3,6 +3,7 @@
 from datetime import datetime
 from decimal import Decimal
 from typing import (
+    Annotated,
     Any,
     Callable,
     Dict,
@@ -24,6 +25,7 @@ from botocore.response import StreamingBody
 from pydantic import Field
 
 from aws_resource_validator.core.base_validator_model import BaseValidatorModel, EventStream
+from aws_resource_validator.core.pattern_validation import aws_field_pattern as _aws_pattern
 from aws_resource_validator.pydantic_models.workspaces.workspaces_constants import *  # noqa: F401,F403
 
 # Optional boto3 symbols — imported lazily so services that don't need them
@@ -40,15 +42,15 @@ except ImportError:  # pragma: no cover
 
 # This class is the input for the 'accept_account_link_invitation' function.
 class AcceptAccountLinkInvitationRequestTypeDef(BaseValidatorModel):
-    LinkId: str
-    ClientToken: Optional[str] = None
+    LinkId: Annotated[str, _aws_pattern("Workspaces", "LinkId")]
+    ClientToken: Optional[Annotated[str, _aws_pattern("Workspaces", "ClientToken")]] = None
 
 
 class AccountLinkTypeDef(BaseValidatorModel):
-    AccountLinkId: Optional[str] = None
+    AccountLinkId: Optional[Annotated[str, _aws_pattern("Workspaces", "LinkId")]] = None
     AccountLinkStatus: Optional[AccountLinkStatusEnumType] = None
-    SourceAccountId: Optional[str] = None
-    TargetAccountId: Optional[str] = None
+    SourceAccountId: Optional[Annotated[str, _aws_pattern("Workspaces", "AwsAccount")]] = None
+    TargetAccountId: Optional[Annotated[str, _aws_pattern("Workspaces", "AwsAccount")]] = None
 
 
 class ResponseMetadataTypeDef(BaseValidatorModel):
@@ -61,21 +63,25 @@ class ResponseMetadataTypeDef(BaseValidatorModel):
 
 class AccessEndpointTypeDef(BaseValidatorModel):
     AccessEndpointType: Optional[Literal["STREAMING_WSP"]] = None
-    VpcEndpointId: Optional[str] = None
+    VpcEndpointId: Optional[Annotated[str, _aws_pattern("Workspaces", "AlphanumericDashUnderscoreNonEmptyString")]] = (
+        None
+    )
 
 
 class AccountModificationTypeDef(BaseValidatorModel):
     ModificationState: Optional[DedicatedTenancyModificationStateEnumType] = None
     DedicatedTenancySupport: Optional[DedicatedTenancySupportResultEnumType] = None
-    DedicatedTenancyManagementCidrRange: Optional[str] = None
+    DedicatedTenancyManagementCidrRange: Optional[
+        Annotated[str, _aws_pattern("Workspaces", "DedicatedTenancyManagementCidrRange")]
+    ] = None
     StartTime: Optional[datetime] = None
     ErrorCode: Optional[str] = None
     ErrorMessage: Optional[str] = None
 
 
 class ActiveDirectoryConfigTypeDef(BaseValidatorModel):
-    DomainName: str
-    ServiceAccountSecretArn: str
+    DomainName: Annotated[str, _aws_pattern("Workspaces", "DomainName")]
+    ServiceAccountSecretArn: Annotated[str, _aws_pattern("Workspaces", "SecretsManagerArn")]
 
 
 class AssociationStateReasonTypeDef(BaseValidatorModel):
@@ -85,30 +91,30 @@ class AssociationStateReasonTypeDef(BaseValidatorModel):
 
 class ApplicationSettingsRequestTypeDef(BaseValidatorModel):
     Status: ApplicationSettingsStatusEnumType
-    SettingsGroup: Optional[str] = None
+    SettingsGroup: Optional[Annotated[str, _aws_pattern("Workspaces", "SettingsGroup")]] = None
 
 
 class ApplicationSettingsResponseTypeDef(BaseValidatorModel):
     Status: ApplicationSettingsStatusEnumType
-    SettingsGroup: Optional[str] = None
-    S3BucketName: Optional[str] = None
+    SettingsGroup: Optional[Annotated[str, _aws_pattern("Workspaces", "SettingsGroup")]] = None
+    S3BucketName: Optional[Annotated[str, _aws_pattern("Workspaces", "S3BucketName")]] = None
 
 
 # This class is the input for the 'associate_connection_alias' function.
 class AssociateConnectionAliasRequestTypeDef(BaseValidatorModel):
-    AliasId: str
+    AliasId: Annotated[str, _aws_pattern("Workspaces", "ConnectionAliasId")]
     ResourceId: str
 
 
 class AssociateIpGroupsRequestTypeDef(BaseValidatorModel):
-    DirectoryId: str
-    GroupIds: List[str]
+    DirectoryId: Annotated[str, _aws_pattern("Workspaces", "DirectoryId")]
+    GroupIds: List[Annotated[str, _aws_pattern("Workspaces", "IpGroupId")]]
 
 
 # This class is the input for the 'associate_workspace_application' function.
 class AssociateWorkspaceApplicationRequestTypeDef(BaseValidatorModel):
-    WorkspaceId: str
-    ApplicationId: str
+    WorkspaceId: Annotated[str, _aws_pattern("Workspaces", "WorkspaceId")]
+    ApplicationId: Annotated[str, _aws_pattern("Workspaces", "WorkSpaceApplicationId")]
 
 
 class IpRuleItemTypeDef(BaseValidatorModel):
@@ -132,7 +138,7 @@ class CapacityTypeDef(BaseValidatorModel):
 
 class CertificateBasedAuthPropertiesTypeDef(BaseValidatorModel):
     Status: Optional[CertificateBasedAuthStatusEnumType] = None
-    CertificateAuthorityArn: Optional[str] = None
+    CertificateAuthorityArn: Optional[Annotated[str, _aws_pattern("Workspaces", "CertificateAuthorityArn")]] = None
 
 
 class ClientPropertiesTypeDef(BaseValidatorModel):
@@ -145,21 +151,21 @@ class ComputeTypeTypeDef(BaseValidatorModel):
 
 
 class ConnectClientAddInTypeDef(BaseValidatorModel):
-    AddInId: Optional[str] = None
-    ResourceId: Optional[str] = None
-    Name: Optional[str] = None
-    URL: Optional[str] = None
+    AddInId: Optional[Annotated[str, _aws_pattern("Workspaces", "AmazonUuid")]] = None
+    ResourceId: Optional[Annotated[str, _aws_pattern("Workspaces", "DirectoryId")]] = None
+    Name: Optional[Annotated[str, _aws_pattern("Workspaces", "AddInName")]] = None
+    URL: Optional[Annotated[str, _aws_pattern("Workspaces", "AddInUrl")]] = None
 
 
 class ConnectionAliasAssociationTypeDef(BaseValidatorModel):
     AssociationStatus: Optional[AssociationStatusType] = None
-    AssociatedAccountId: Optional[str] = None
+    AssociatedAccountId: Optional[Annotated[str, _aws_pattern("Workspaces", "AwsAccount")]] = None
     ResourceId: Optional[str] = None
-    ConnectionIdentifier: Optional[str] = None
+    ConnectionIdentifier: Optional[Annotated[str, _aws_pattern("Workspaces", "ConnectionIdentifier")]] = None
 
 
 class ConnectionAliasPermissionTypeDef(BaseValidatorModel):
-    SharedAccountId: str
+    SharedAccountId: Annotated[str, _aws_pattern("Workspaces", "AwsAccount")]
     AllowAssociation: bool
 
 
@@ -170,22 +176,22 @@ class TagTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'create_account_link_invitation' function.
 class CreateAccountLinkInvitationRequestTypeDef(BaseValidatorModel):
-    TargetAccountId: str
-    ClientToken: Optional[str] = None
+    TargetAccountId: Annotated[str, _aws_pattern("Workspaces", "AwsAccount")]
+    ClientToken: Optional[Annotated[str, _aws_pattern("Workspaces", "ClientToken")]] = None
 
 
 # This class is the input for the 'create_connect_client_add_in' function.
 class CreateConnectClientAddInRequestTypeDef(BaseValidatorModel):
-    ResourceId: str
-    Name: str
-    URL: str
+    ResourceId: Annotated[str, _aws_pattern("Workspaces", "DirectoryId")]
+    Name: Annotated[str, _aws_pattern("Workspaces", "AddInName")]
+    URL: Annotated[str, _aws_pattern("Workspaces", "AddInUrl")]
 
 
 class PendingCreateStandbyWorkspacesRequestTypeDef(BaseValidatorModel):
     UserName: Optional[str] = None
-    DirectoryId: Optional[str] = None
+    DirectoryId: Optional[Annotated[str, _aws_pattern("Workspaces", "DirectoryId")]] = None
     State: Optional[WorkspaceStateType] = None
-    WorkspaceId: Optional[str] = None
+    WorkspaceId: Optional[Annotated[str, _aws_pattern("Workspaces", "WorkspaceId")]] = None
 
 
 class RootStorageTypeDef(BaseValidatorModel):
@@ -217,44 +223,44 @@ class DataReplicationSettingsTypeDef(BaseValidatorModel):
 
 
 class DefaultClientBrandingAttributesTypeDef(BaseValidatorModel):
-    LogoUrl: Optional[str] = None
-    SupportEmail: Optional[str] = None
-    SupportLink: Optional[str] = None
-    ForgotPasswordLink: Optional[str] = None
+    LogoUrl: Optional[Annotated[str, _aws_pattern("Workspaces", "ClientUrl")]] = None
+    SupportEmail: Optional[Annotated[str, _aws_pattern("Workspaces", "ClientEmail")]] = None
+    SupportLink: Optional[Annotated[str, _aws_pattern("Workspaces", "ClientUrl")]] = None
+    ForgotPasswordLink: Optional[Annotated[str, _aws_pattern("Workspaces", "ClientUrl")]] = None
     LoginMessage: Optional[Dict[str, str]] = None
 
 
 class DefaultWorkspaceCreationPropertiesTypeDef(BaseValidatorModel):
     EnableInternetAccess: Optional[bool] = None
     DefaultOu: Optional[str] = None
-    CustomSecurityGroupId: Optional[str] = None
+    CustomSecurityGroupId: Optional[Annotated[str, _aws_pattern("Workspaces", "SecurityGroupId")]] = None
     UserEnabledAsLocalAdministrator: Optional[bool] = None
     EnableMaintenanceMode: Optional[bool] = None
-    InstanceIamRoleArn: Optional[str] = None
+    InstanceIamRoleArn: Optional[Annotated[str, _aws_pattern("Workspaces", "ARN")]] = None
 
 
 # This class is the input for the 'delete_account_link_invitation' function.
 class DeleteAccountLinkInvitationRequestTypeDef(BaseValidatorModel):
-    LinkId: str
-    ClientToken: Optional[str] = None
+    LinkId: Annotated[str, _aws_pattern("Workspaces", "LinkId")]
+    ClientToken: Optional[Annotated[str, _aws_pattern("Workspaces", "ClientToken")]] = None
 
 
 class DeleteClientBrandingRequestTypeDef(BaseValidatorModel):
-    ResourceId: str
+    ResourceId: Annotated[str, _aws_pattern("Workspaces", "DirectoryId")]
     Platforms: List[ClientDeviceTypeType]
 
 
 class DeleteConnectClientAddInRequestTypeDef(BaseValidatorModel):
-    AddInId: str
-    ResourceId: str
+    AddInId: Annotated[str, _aws_pattern("Workspaces", "AmazonUuid")]
+    ResourceId: Annotated[str, _aws_pattern("Workspaces", "DirectoryId")]
 
 
 class DeleteConnectionAliasRequestTypeDef(BaseValidatorModel):
-    AliasId: str
+    AliasId: Annotated[str, _aws_pattern("Workspaces", "ConnectionAliasId")]
 
 
 class DeleteIpGroupRequestTypeDef(BaseValidatorModel):
-    GroupId: str
+    GroupId: Annotated[str, _aws_pattern("Workspaces", "IpGroupId")]
 
 
 class DeleteTagsRequestTypeDef(BaseValidatorModel):
@@ -263,21 +269,21 @@ class DeleteTagsRequestTypeDef(BaseValidatorModel):
 
 
 class DeleteWorkspaceBundleRequestTypeDef(BaseValidatorModel):
-    BundleId: Optional[str] = None
+    BundleId: Optional[Annotated[str, _aws_pattern("Workspaces", "BundleId")]] = None
 
 
 class DeleteWorkspaceImageRequestTypeDef(BaseValidatorModel):
-    ImageId: str
+    ImageId: Annotated[str, _aws_pattern("Workspaces", "WorkspaceImageId")]
 
 
 # This class is the input for the 'deploy_workspace_applications' function.
 class DeployWorkspaceApplicationsRequestTypeDef(BaseValidatorModel):
-    WorkspaceId: str
+    WorkspaceId: Annotated[str, _aws_pattern("Workspaces", "WorkspaceId")]
     Force: Optional[bool] = None
 
 
 class DeregisterWorkspaceDirectoryRequestTypeDef(BaseValidatorModel):
-    DirectoryId: str
+    DirectoryId: Annotated[str, _aws_pattern("Workspaces", "DirectoryId")]
 
 
 class PaginatorConfigTypeDef(BaseValidatorModel):
@@ -293,7 +299,7 @@ class DescribeAccountModificationsRequestTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'describe_application_associations' function.
 class DescribeApplicationAssociationsRequestTypeDef(BaseValidatorModel):
-    ApplicationId: str
+    ApplicationId: Annotated[str, _aws_pattern("Workspaces", "WorkSpaceApplicationId")]
     AssociatedResourceTypes: List[ApplicationAssociatedResourceTypeType]
     MaxResults: Optional[int] = None
     NextToken: Optional[str] = None
@@ -301,22 +307,22 @@ class DescribeApplicationAssociationsRequestTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'describe_applications' function.
 class DescribeApplicationsRequestTypeDef(BaseValidatorModel):
-    ApplicationIds: Optional[List[str]] = None
+    ApplicationIds: Optional[List[Annotated[str, _aws_pattern("Workspaces", "WorkSpaceApplicationId")]]] = None
     ComputeTypeNames: Optional[List[ComputeType]] = None
     LicenseType: Optional[WorkSpaceApplicationLicenseTypeType] = None
     OperatingSystemNames: Optional[List[OperatingSystemNameType]] = None
-    Owner: Optional[str] = None
+    Owner: Optional[Annotated[str, _aws_pattern("Workspaces", "WorkSpaceApplicationOwner")]] = None
     MaxResults: Optional[int] = None
     NextToken: Optional[str] = None
 
 
 class WorkSpaceApplicationTypeDef(BaseValidatorModel):
-    ApplicationId: Optional[str] = None
+    ApplicationId: Optional[Annotated[str, _aws_pattern("Workspaces", "WorkSpaceApplicationId")]] = None
     Created: Optional[datetime] = None
     Description: Optional[str] = None
     LicenseType: Optional[WorkSpaceApplicationLicenseTypeType] = None
     Name: Optional[str] = None
-    Owner: Optional[str] = None
+    Owner: Optional[Annotated[str, _aws_pattern("Workspaces", "WorkSpaceApplicationOwner")]] = None
     State: Optional[WorkSpaceApplicationStateType] = None
     SupportedComputeTypeNames: Optional[List[ComputeType]] = None
     SupportedOperatingSystemNames: Optional[List[OperatingSystemNameType]] = None
@@ -324,22 +330,22 @@ class WorkSpaceApplicationTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'describe_bundle_associations' function.
 class DescribeBundleAssociationsRequestTypeDef(BaseValidatorModel):
-    BundleId: str
+    BundleId: Annotated[str, _aws_pattern("Workspaces", "BundleId")]
     AssociatedResourceTypes: List[Literal["APPLICATION"]]
 
 
 # This class is the input for the 'describe_client_branding' function.
 class DescribeClientBrandingRequestTypeDef(BaseValidatorModel):
-    ResourceId: str
+    ResourceId: Annotated[str, _aws_pattern("Workspaces", "DirectoryId")]
 
 
 class IosClientBrandingAttributesTypeDef(BaseValidatorModel):
-    LogoUrl: Optional[str] = None
-    Logo2xUrl: Optional[str] = None
-    Logo3xUrl: Optional[str] = None
-    SupportEmail: Optional[str] = None
-    SupportLink: Optional[str] = None
-    ForgotPasswordLink: Optional[str] = None
+    LogoUrl: Optional[Annotated[str, _aws_pattern("Workspaces", "ClientUrl")]] = None
+    Logo2xUrl: Optional[Annotated[str, _aws_pattern("Workspaces", "ClientUrl")]] = None
+    Logo3xUrl: Optional[Annotated[str, _aws_pattern("Workspaces", "ClientUrl")]] = None
+    SupportEmail: Optional[Annotated[str, _aws_pattern("Workspaces", "ClientEmail")]] = None
+    SupportLink: Optional[Annotated[str, _aws_pattern("Workspaces", "ClientUrl")]] = None
+    ForgotPasswordLink: Optional[Annotated[str, _aws_pattern("Workspaces", "ClientUrl")]] = None
     LoginMessage: Optional[Dict[str, str]] = None
 
 
@@ -350,21 +356,21 @@ class DescribeClientPropertiesRequestTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'describe_connect_client_add_ins' function.
 class DescribeConnectClientAddInsRequestTypeDef(BaseValidatorModel):
-    ResourceId: str
+    ResourceId: Annotated[str, _aws_pattern("Workspaces", "DirectoryId")]
     NextToken: Optional[str] = None
     MaxResults: Optional[int] = None
 
 
 # This class is the input for the 'describe_connection_alias_permissions' function.
 class DescribeConnectionAliasPermissionsRequestTypeDef(BaseValidatorModel):
-    AliasId: str
+    AliasId: Annotated[str, _aws_pattern("Workspaces", "ConnectionAliasId")]
     NextToken: Optional[str] = None
     MaxResults: Optional[int] = None
 
 
 # This class is the input for the 'describe_connection_aliases' function.
 class DescribeConnectionAliasesRequestTypeDef(BaseValidatorModel):
-    AliasIds: Optional[List[str]] = None
+    AliasIds: Optional[List[Annotated[str, _aws_pattern("Workspaces", "ConnectionAliasId")]]] = None
     ResourceId: Optional[str] = None
     Limit: Optional[int] = None
     NextToken: Optional[str] = None
@@ -372,24 +378,24 @@ class DescribeConnectionAliasesRequestTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'describe_custom_workspace_image_import' function.
 class DescribeCustomWorkspaceImageImportRequestTypeDef(BaseValidatorModel):
-    ImageId: str
+    ImageId: Annotated[str, _aws_pattern("Workspaces", "WorkspaceImageId")]
 
 
 class ImageSourceIdentifierTypeDef(BaseValidatorModel):
-    Ec2ImportTaskId: Optional[str] = None
-    ImageBuildVersionArn: Optional[str] = None
-    Ec2ImageId: Optional[str] = None
+    Ec2ImportTaskId: Optional[Annotated[str, _aws_pattern("Workspaces", "Ec2ImportTaskId")]] = None
+    ImageBuildVersionArn: Optional[Annotated[str, _aws_pattern("Workspaces", "ImageBuildVersionArn")]] = None
+    Ec2ImageId: Optional[Annotated[str, _aws_pattern("Workspaces", "Ec2ImageId")]] = None
 
 
 # This class is the input for the 'describe_image_associations' function.
 class DescribeImageAssociationsRequestTypeDef(BaseValidatorModel):
-    ImageId: str
+    ImageId: Annotated[str, _aws_pattern("Workspaces", "WorkspaceImageId")]
     AssociatedResourceTypes: List[Literal["APPLICATION"]]
 
 
 # This class is the input for the 'describe_ip_groups' function.
 class DescribeIpGroupsRequestTypeDef(BaseValidatorModel):
-    GroupIds: Optional[List[str]] = None
+    GroupIds: Optional[List[Annotated[str, _aws_pattern("Workspaces", "IpGroupId")]]] = None
     NextToken: Optional[str] = None
     MaxResults: Optional[int] = None
 
@@ -401,36 +407,36 @@ class DescribeTagsRequestTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'describe_workspace_associations' function.
 class DescribeWorkspaceAssociationsRequestTypeDef(BaseValidatorModel):
-    WorkspaceId: str
+    WorkspaceId: Annotated[str, _aws_pattern("Workspaces", "WorkspaceId")]
     AssociatedResourceTypes: List[Literal["APPLICATION"]]
 
 
 # This class is the input for the 'describe_workspace_bundles' function.
 class DescribeWorkspaceBundlesRequestTypeDef(BaseValidatorModel):
-    BundleIds: Optional[List[str]] = None
+    BundleIds: Optional[List[Annotated[str, _aws_pattern("Workspaces", "BundleId")]]] = None
     Owner: Optional[str] = None
     NextToken: Optional[str] = None
 
 
 class DescribeWorkspaceDirectoriesFilterTypeDef(BaseValidatorModel):
     Name: DescribeWorkspaceDirectoriesFilterNameType
-    Values: List[str]
+    Values: List[Annotated[str, _aws_pattern("Workspaces", "DescribeWorkspaceDirectoriesFilterValue")]]
 
 
 # This class is the input for the 'describe_workspace_image_permissions' function.
 class DescribeWorkspaceImagePermissionsRequestTypeDef(BaseValidatorModel):
-    ImageId: str
+    ImageId: Annotated[str, _aws_pattern("Workspaces", "WorkspaceImageId")]
     NextToken: Optional[str] = None
     MaxResults: Optional[int] = None
 
 
 class ImagePermissionTypeDef(BaseValidatorModel):
-    SharedAccountId: Optional[str] = None
+    SharedAccountId: Optional[Annotated[str, _aws_pattern("Workspaces", "AwsAccount")]] = None
 
 
 # This class is the input for the 'describe_workspace_images' function.
 class DescribeWorkspaceImagesRequestTypeDef(BaseValidatorModel):
-    ImageIds: Optional[List[str]] = None
+    ImageIds: Optional[List[Annotated[str, _aws_pattern("Workspaces", "WorkspaceImageId")]]] = None
     ImageType: Optional[ImageTypeType] = None
     NextToken: Optional[str] = None
     MaxResults: Optional[int] = None
@@ -438,7 +444,7 @@ class DescribeWorkspaceImagesRequestTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'describe_workspace_snapshots' function.
 class DescribeWorkspaceSnapshotsRequestTypeDef(BaseValidatorModel):
-    WorkspaceId: str
+    WorkspaceId: Annotated[str, _aws_pattern("Workspaces", "WorkspaceId")]
 
 
 class SnapshotTypeDef(BaseValidatorModel):
@@ -447,12 +453,12 @@ class SnapshotTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'describe_workspaces_connection_status' function.
 class DescribeWorkspacesConnectionStatusRequestTypeDef(BaseValidatorModel):
-    WorkspaceIds: Optional[List[str]] = None
+    WorkspaceIds: Optional[List[Annotated[str, _aws_pattern("Workspaces", "WorkspaceId")]]] = None
     NextToken: Optional[str] = None
 
 
 class WorkspaceConnectionStatusTypeDef(BaseValidatorModel):
-    WorkspaceId: Optional[str] = None
+    WorkspaceId: Optional[Annotated[str, _aws_pattern("Workspaces", "WorkspaceId")]] = None
     ConnectionState: Optional[ConnectionStateType] = None
     ConnectionStateCheckTimestamp: Optional[datetime] = None
     LastKnownUserConnectionTimestamp: Optional[datetime] = None
@@ -460,7 +466,7 @@ class WorkspaceConnectionStatusTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'describe_workspaces_pool_sessions' function.
 class DescribeWorkspacesPoolSessionsRequestTypeDef(BaseValidatorModel):
-    PoolId: str
+    PoolId: Annotated[str, _aws_pattern("Workspaces", "WorkspacesPoolId")]
     UserId: Optional[str] = None
     Limit: Optional[int] = None
     NextToken: Optional[str] = None
@@ -468,34 +474,34 @@ class DescribeWorkspacesPoolSessionsRequestTypeDef(BaseValidatorModel):
 
 class DescribeWorkspacesPoolsFilterTypeDef(BaseValidatorModel):
     Name: Literal["PoolName"]
-    Values: List[str]
+    Values: List[Annotated[str, _aws_pattern("Workspaces", "DescribeWorkspacesPoolsFilterValue")]]
     Operator: DescribeWorkspacesPoolsFilterOperatorType
 
 
 # This class is the input for the 'describe_workspaces' function.
 class DescribeWorkspacesRequestTypeDef(BaseValidatorModel):
-    WorkspaceIds: Optional[List[str]] = None
-    DirectoryId: Optional[str] = None
+    WorkspaceIds: Optional[List[Annotated[str, _aws_pattern("Workspaces", "WorkspaceId")]]] = None
+    DirectoryId: Optional[Annotated[str, _aws_pattern("Workspaces", "DirectoryId")]] = None
     UserName: Optional[str] = None
-    BundleId: Optional[str] = None
+    BundleId: Optional[Annotated[str, _aws_pattern("Workspaces", "BundleId")]] = None
     Limit: Optional[int] = None
     NextToken: Optional[str] = None
-    WorkspaceName: Optional[str] = None
+    WorkspaceName: Optional[Annotated[str, _aws_pattern("Workspaces", "WorkspaceName")]] = None
 
 
 class DisassociateConnectionAliasRequestTypeDef(BaseValidatorModel):
-    AliasId: str
+    AliasId: Annotated[str, _aws_pattern("Workspaces", "ConnectionAliasId")]
 
 
 class DisassociateIpGroupsRequestTypeDef(BaseValidatorModel):
-    DirectoryId: str
-    GroupIds: List[str]
+    DirectoryId: Annotated[str, _aws_pattern("Workspaces", "DirectoryId")]
+    GroupIds: List[Annotated[str, _aws_pattern("Workspaces", "IpGroupId")]]
 
 
 # This class is the input for the 'disassociate_workspace_application' function.
 class DisassociateWorkspaceApplicationRequestTypeDef(BaseValidatorModel):
-    WorkspaceId: str
-    ApplicationId: str
+    WorkspaceId: Annotated[str, _aws_pattern("Workspaces", "WorkspaceId")]
+    ApplicationId: Annotated[str, _aws_pattern("Workspaces", "WorkSpaceApplicationId")]
 
 
 class ErrorDetailsTypeDef(BaseValidatorModel):
@@ -504,15 +510,15 @@ class ErrorDetailsTypeDef(BaseValidatorModel):
 
 
 class FailedWorkspaceChangeRequestTypeDef(BaseValidatorModel):
-    WorkspaceId: Optional[str] = None
+    WorkspaceId: Optional[Annotated[str, _aws_pattern("Workspaces", "WorkspaceId")]] = None
     ErrorCode: Optional[str] = None
     ErrorMessage: Optional[str] = None
 
 
 # This class is the input for the 'get_account_link' function.
 class GetAccountLinkRequestTypeDef(BaseValidatorModel):
-    LinkId: Optional[str] = None
-    LinkedAccountId: Optional[str] = None
+    LinkId: Optional[Annotated[str, _aws_pattern("Workspaces", "LinkId")]] = None
+    LinkedAccountId: Optional[Annotated[str, _aws_pattern("Workspaces", "AwsAccount")]] = None
 
 
 class GlobalAcceleratorForDirectoryTypeDef(BaseValidatorModel):
@@ -526,8 +532,8 @@ class GlobalAcceleratorForWorkSpaceTypeDef(BaseValidatorModel):
 
 
 class IDCConfigTypeDef(BaseValidatorModel):
-    InstanceArn: Optional[str] = None
-    ApplicationArn: Optional[str] = None
+    InstanceArn: Optional[Annotated[str, _aws_pattern("Workspaces", "ARN")]] = None
+    ApplicationArn: Optional[Annotated[str, _aws_pattern("Workspaces", "ARN")]] = None
 
 
 # This class is the input for the 'list_account_links' function.
@@ -539,20 +545,20 @@ class ListAccountLinksRequestTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'list_available_management_cidr_ranges' function.
 class ListAvailableManagementCidrRangesRequestTypeDef(BaseValidatorModel):
-    ManagementCidrRangeConstraint: str
+    ManagementCidrRangeConstraint: Annotated[str, _aws_pattern("Workspaces", "ManagementCidrRangeConstraint")]
     MaxResults: Optional[int] = None
     NextToken: Optional[str] = None
 
 
 class MicrosoftEntraConfigTypeDef(BaseValidatorModel):
-    TenantId: Optional[str] = None
-    ApplicationConfigSecretArn: Optional[str] = None
+    TenantId: Optional[Annotated[str, _aws_pattern("Workspaces", "MicrosoftEntraConfigTenantId")]] = None
+    ApplicationConfigSecretArn: Optional[Annotated[str, _aws_pattern("Workspaces", "SecretsManagerArn")]] = None
 
 
 # This class is the input for the 'migrate_workspace' function.
 class MigrateWorkspaceRequestTypeDef(BaseValidatorModel):
-    SourceWorkspaceId: str
-    BundleId: str
+    SourceWorkspaceId: Annotated[str, _aws_pattern("Workspaces", "WorkspaceId")]
+    BundleId: Annotated[str, _aws_pattern("Workspaces", "BundleId")]
 
 
 class ModificationStateTypeDef(BaseValidatorModel):
@@ -563,17 +569,19 @@ class ModificationStateTypeDef(BaseValidatorModel):
 # This class is the input for the 'modify_account' function.
 class ModifyAccountRequestTypeDef(BaseValidatorModel):
     DedicatedTenancySupport: Optional[Literal["ENABLED"]] = None
-    DedicatedTenancyManagementCidrRange: Optional[str] = None
+    DedicatedTenancyManagementCidrRange: Optional[
+        Annotated[str, _aws_pattern("Workspaces", "DedicatedTenancyManagementCidrRange")]
+    ] = None
 
 
 class ModifyEndpointEncryptionModeRequestTypeDef(BaseValidatorModel):
-    DirectoryId: str
+    DirectoryId: Annotated[str, _aws_pattern("Workspaces", "DirectoryId")]
     EndpointEncryptionMode: EndpointEncryptionModeType
 
 
 class SamlPropertiesTypeDef(BaseValidatorModel):
     Status: Optional[SamlStatusEnumType] = None
-    UserAccessUrl: Optional[str] = None
+    UserAccessUrl: Optional[Annotated[str, _aws_pattern("Workspaces", "SamlUserAccessUrl")]] = None
     RelayStateParameterName: Optional[str] = None
 
 
@@ -588,14 +596,14 @@ class SelfservicePermissionsTypeDef(BaseValidatorModel):
 class WorkspaceCreationPropertiesTypeDef(BaseValidatorModel):
     EnableInternetAccess: Optional[bool] = None
     DefaultOu: Optional[str] = None
-    CustomSecurityGroupId: Optional[str] = None
+    CustomSecurityGroupId: Optional[Annotated[str, _aws_pattern("Workspaces", "SecurityGroupId")]] = None
     UserEnabledAsLocalAdministrator: Optional[bool] = None
     EnableMaintenanceMode: Optional[bool] = None
-    InstanceIamRoleArn: Optional[str] = None
+    InstanceIamRoleArn: Optional[Annotated[str, _aws_pattern("Workspaces", "ARN")]] = None
 
 
 class ModifyWorkspaceStateRequestTypeDef(BaseValidatorModel):
-    WorkspaceId: str
+    WorkspaceId: Annotated[str, _aws_pattern("Workspaces", "WorkspaceId")]
     WorkspaceState: TargetWorkspaceStateType
 
 
@@ -605,55 +613,55 @@ class NetworkAccessConfigurationTypeDef(BaseValidatorModel):
 
 
 class RebootRequestTypeDef(BaseValidatorModel):
-    WorkspaceId: str
+    WorkspaceId: Annotated[str, _aws_pattern("Workspaces", "WorkspaceId")]
 
 
 class RebuildRequestTypeDef(BaseValidatorModel):
-    WorkspaceId: str
+    WorkspaceId: Annotated[str, _aws_pattern("Workspaces", "WorkspaceId")]
 
 
 # This class is the input for the 'reject_account_link_invitation' function.
 class RejectAccountLinkInvitationRequestTypeDef(BaseValidatorModel):
-    LinkId: str
-    ClientToken: Optional[str] = None
+    LinkId: Annotated[str, _aws_pattern("Workspaces", "LinkId")]
+    ClientToken: Optional[Annotated[str, _aws_pattern("Workspaces", "ClientToken")]] = None
 
 
 class RelatedWorkspacePropertiesTypeDef(BaseValidatorModel):
-    WorkspaceId: Optional[str] = None
-    Region: Optional[str] = None
+    WorkspaceId: Optional[Annotated[str, _aws_pattern("Workspaces", "WorkspaceId")]] = None
+    Region: Optional[Annotated[str, _aws_pattern("Workspaces", "Region")]] = None
     State: Optional[WorkspaceStateType] = None
     Type: Optional[StandbyWorkspaceRelationshipTypeType] = None
 
 
 class RestoreWorkspaceRequestTypeDef(BaseValidatorModel):
-    WorkspaceId: str
+    WorkspaceId: Annotated[str, _aws_pattern("Workspaces", "WorkspaceId")]
 
 
 class RevokeIpRulesRequestTypeDef(BaseValidatorModel):
-    GroupId: str
+    GroupId: Annotated[str, _aws_pattern("Workspaces", "IpGroupId")]
     UserRules: List[str]
 
 
 class StandbyWorkspacesPropertiesTypeDef(BaseValidatorModel):
-    StandbyWorkspaceId: Optional[str] = None
+    StandbyWorkspaceId: Optional[Annotated[str, _aws_pattern("Workspaces", "WorkspaceId")]] = None
     DataReplication: Optional[DataReplicationType] = None
     RecoverySnapshotTime: Optional[datetime] = None
 
 
 class StartRequestTypeDef(BaseValidatorModel):
-    WorkspaceId: Optional[str] = None
+    WorkspaceId: Optional[Annotated[str, _aws_pattern("Workspaces", "WorkspaceId")]] = None
 
 
 class StartWorkspacesPoolRequestTypeDef(BaseValidatorModel):
-    PoolId: str
+    PoolId: Annotated[str, _aws_pattern("Workspaces", "WorkspacesPoolId")]
 
 
 class StopRequestTypeDef(BaseValidatorModel):
-    WorkspaceId: Optional[str] = None
+    WorkspaceId: Optional[Annotated[str, _aws_pattern("Workspaces", "WorkspaceId")]] = None
 
 
 class StopWorkspacesPoolRequestTypeDef(BaseValidatorModel):
-    PoolId: str
+    PoolId: Annotated[str, _aws_pattern("Workspaces", "WorkspacesPoolId")]
 
 
 class StorageConnectorTypeDef(BaseValidatorModel):
@@ -668,38 +676,38 @@ class UserSettingTypeDef(BaseValidatorModel):
 
 
 class TerminateRequestTypeDef(BaseValidatorModel):
-    WorkspaceId: str
+    WorkspaceId: Annotated[str, _aws_pattern("Workspaces", "WorkspaceId")]
 
 
 class TerminateWorkspacesPoolRequestTypeDef(BaseValidatorModel):
-    PoolId: str
+    PoolId: Annotated[str, _aws_pattern("Workspaces", "WorkspacesPoolId")]
 
 
 class TerminateWorkspacesPoolSessionRequestTypeDef(BaseValidatorModel):
-    SessionId: str
+    SessionId: Annotated[str, _aws_pattern("Workspaces", "AmazonUuid")]
 
 
 class UpdateConnectClientAddInRequestTypeDef(BaseValidatorModel):
-    AddInId: str
-    ResourceId: str
-    Name: Optional[str] = None
-    URL: Optional[str] = None
+    AddInId: Annotated[str, _aws_pattern("Workspaces", "AmazonUuid")]
+    ResourceId: Annotated[str, _aws_pattern("Workspaces", "DirectoryId")]
+    Name: Optional[Annotated[str, _aws_pattern("Workspaces", "AddInName")]] = None
+    URL: Optional[Annotated[str, _aws_pattern("Workspaces", "AddInUrl")]] = None
 
 
 class UpdateResultTypeDef(BaseValidatorModel):
     UpdateAvailable: Optional[bool] = None
-    Description: Optional[str] = None
+    Description: Optional[Annotated[str, _aws_pattern("Workspaces", "UpdateDescription")]] = None
 
 
 class UpdateWorkspaceBundleRequestTypeDef(BaseValidatorModel):
-    BundleId: Optional[str] = None
-    ImageId: Optional[str] = None
+    BundleId: Optional[Annotated[str, _aws_pattern("Workspaces", "BundleId")]] = None
+    ImageId: Optional[Annotated[str, _aws_pattern("Workspaces", "WorkspaceImageId")]] = None
 
 
 class UpdateWorkspaceImagePermissionRequestTypeDef(BaseValidatorModel):
-    ImageId: str
+    ImageId: Annotated[str, _aws_pattern("Workspaces", "WorkspaceImageId")]
     AllowCopyImage: bool
-    SharedAccountId: str
+    SharedAccountId: Annotated[str, _aws_pattern("Workspaces", "AwsAccount")]
 
 
 class WorkspacesPoolErrorTypeDef(BaseValidatorModel):
@@ -715,13 +723,13 @@ class AcceptAccountLinkInvitationResultTypeDef(BaseValidatorModel):
 
 # This class is the output for the 'associate_connection_alias' function.
 class AssociateConnectionAliasResultTypeDef(BaseValidatorModel):
-    ConnectionIdentifier: str
+    ConnectionIdentifier: Annotated[str, _aws_pattern("Workspaces", "ConnectionIdentifier")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 # This class is the output for the 'copy_workspace_image' function.
 class CopyWorkspaceImageResultTypeDef(BaseValidatorModel):
-    ImageId: str
+    ImageId: Annotated[str, _aws_pattern("Workspaces", "WorkspaceImageId")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
@@ -733,25 +741,25 @@ class CreateAccountLinkInvitationResultTypeDef(BaseValidatorModel):
 
 # This class is the output for the 'create_connect_client_add_in' function.
 class CreateConnectClientAddInResultTypeDef(BaseValidatorModel):
-    AddInId: str
+    AddInId: Annotated[str, _aws_pattern("Workspaces", "AmazonUuid")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 # This class is the output for the 'create_connection_alias' function.
 class CreateConnectionAliasResultTypeDef(BaseValidatorModel):
-    AliasId: str
+    AliasId: Annotated[str, _aws_pattern("Workspaces", "ConnectionAliasId")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 # This class is the output for the 'create_ip_group' function.
 class CreateIpGroupResultTypeDef(BaseValidatorModel):
-    GroupId: str
+    GroupId: Annotated[str, _aws_pattern("Workspaces", "IpGroupId")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 # This class is the output for the 'create_updated_workspace_image' function.
 class CreateUpdatedWorkspaceImageResultTypeDef(BaseValidatorModel):
-    ImageId: str
+    ImageId: Annotated[str, _aws_pattern("Workspaces", "WorkspaceImageId")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
@@ -763,7 +771,9 @@ class DeleteAccountLinkInvitationResultTypeDef(BaseValidatorModel):
 
 class DescribeAccountResultTypeDef(BaseValidatorModel):
     DedicatedTenancySupport: DedicatedTenancySupportResultEnumType
-    DedicatedTenancyManagementCidrRange: str
+    DedicatedTenancyManagementCidrRange: Annotated[
+        str, _aws_pattern("Workspaces", "DedicatedTenancyManagementCidrRange")
+    ]
     DedicatedTenancyAccountType: DedicatedTenancyAccountTypeType
     Message: str
     ResponseMetadata: ResponseMetadataTypeDef
@@ -777,14 +787,14 @@ class GetAccountLinkResultTypeDef(BaseValidatorModel):
 
 # This class is the output for the 'import_custom_workspace_image' function.
 class ImportCustomWorkspaceImageResultTypeDef(BaseValidatorModel):
-    ImageId: str
+    ImageId: Annotated[str, _aws_pattern("Workspaces", "WorkspaceImageId")]
     State: CustomWorkspaceImageImportStateType
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 # This class is the output for the 'import_workspace_image' function.
 class ImportWorkspaceImageResultTypeDef(BaseValidatorModel):
-    ImageId: str
+    ImageId: Annotated[str, _aws_pattern("Workspaces", "WorkspaceImageId")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
@@ -797,15 +807,15 @@ class ListAccountLinksResultTypeDef(BaseValidatorModel):
 
 # This class is the output for the 'list_available_management_cidr_ranges' function.
 class ListAvailableManagementCidrRangesResultTypeDef(BaseValidatorModel):
-    ManagementCidrRanges: List[str]
+    ManagementCidrRanges: List[Annotated[str, _aws_pattern("Workspaces", "DedicatedTenancyManagementCidrRange")]]
     ResponseMetadata: ResponseMetadataTypeDef
     NextToken: Optional[str] = None
 
 
 # This class is the output for the 'migrate_workspace' function.
 class MigrateWorkspaceResultTypeDef(BaseValidatorModel):
-    SourceWorkspaceId: str
-    TargetWorkspaceId: str
+    SourceWorkspaceId: Annotated[str, _aws_pattern("Workspaces", "WorkspaceId")]
+    TargetWorkspaceId: Annotated[str, _aws_pattern("Workspaces", "WorkspaceId")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
@@ -817,7 +827,7 @@ class ModifyAccountResultTypeDef(BaseValidatorModel):
 
 # This class is the output for the 'register_workspace_directory' function.
 class RegisterWorkspaceDirectoryResultTypeDef(BaseValidatorModel):
-    DirectoryId: str
+    DirectoryId: Annotated[str, _aws_pattern("Workspaces", "DirectoryId")]
     State: WorkspaceDirectoryStateType
     ResponseMetadata: ResponseMetadataTypeDef
 
@@ -846,7 +856,7 @@ class DescribeAccountModificationsResultTypeDef(BaseValidatorModel):
 
 
 class ApplicationResourceAssociationTypeDef(BaseValidatorModel):
-    ApplicationId: Optional[str] = None
+    ApplicationId: Optional[Annotated[str, _aws_pattern("Workspaces", "WorkSpaceApplicationId")]] = None
     AssociatedResourceId: Optional[str] = None
     AssociatedResourceType: Optional[ApplicationAssociatedResourceTypeType] = None
     Created: Optional[datetime] = None
@@ -858,7 +868,7 @@ class ApplicationResourceAssociationTypeDef(BaseValidatorModel):
 class BundleResourceAssociationTypeDef(BaseValidatorModel):
     AssociatedResourceId: Optional[str] = None
     AssociatedResourceType: Optional[Literal["APPLICATION"]] = None
-    BundleId: Optional[str] = None
+    BundleId: Optional[Annotated[str, _aws_pattern("Workspaces", "BundleId")]] = None
     Created: Optional[datetime] = None
     LastUpdatedTime: Optional[datetime] = None
     State: Optional[AssociationStateType] = None
@@ -870,7 +880,7 @@ class ImageResourceAssociationTypeDef(BaseValidatorModel):
     AssociatedResourceType: Optional[Literal["APPLICATION"]] = None
     Created: Optional[datetime] = None
     LastUpdatedTime: Optional[datetime] = None
-    ImageId: Optional[str] = None
+    ImageId: Optional[Annotated[str, _aws_pattern("Workspaces", "WorkspaceImageId")]] = None
     State: Optional[AssociationStateType] = None
     StateReason: Optional[AssociationStateReasonTypeDef] = None
 
@@ -882,21 +892,21 @@ class WorkspaceResourceAssociationTypeDef(BaseValidatorModel):
     LastUpdatedTime: Optional[datetime] = None
     State: Optional[AssociationStateType] = None
     StateReason: Optional[AssociationStateReasonTypeDef] = None
-    WorkspaceId: Optional[str] = None
+    WorkspaceId: Optional[Annotated[str, _aws_pattern("Workspaces", "WorkspaceId")]] = None
 
 
 class AuthorizeIpRulesRequestTypeDef(BaseValidatorModel):
-    GroupId: str
+    GroupId: Annotated[str, _aws_pattern("Workspaces", "IpGroupId")]
     UserRules: List[IpRuleItemTypeDef]
 
 
 class UpdateRulesOfIpGroupRequestTypeDef(BaseValidatorModel):
-    GroupId: str
+    GroupId: Annotated[str, _aws_pattern("Workspaces", "IpGroupId")]
     UserRules: List[IpRuleItemTypeDef]
 
 
 class WorkspacesIpGroupTypeDef(BaseValidatorModel):
-    groupId: Optional[str] = None
+    groupId: Optional[Annotated[str, _aws_pattern("Workspaces", "IpGroupId")]] = None
     groupName: Optional[str] = None
     groupDesc: Optional[str] = None
     userRules: Optional[List[IpRuleItemTypeDef]] = None
@@ -904,9 +914,9 @@ class WorkspacesIpGroupTypeDef(BaseValidatorModel):
 
 class DefaultImportClientBrandingAttributesTypeDef(BaseValidatorModel):
     Logo: Optional[BlobTypeDef] = None
-    SupportEmail: Optional[str] = None
-    SupportLink: Optional[str] = None
-    ForgotPasswordLink: Optional[str] = None
+    SupportEmail: Optional[Annotated[str, _aws_pattern("Workspaces", "ClientEmail")]] = None
+    SupportLink: Optional[Annotated[str, _aws_pattern("Workspaces", "ClientUrl")]] = None
+    ForgotPasswordLink: Optional[Annotated[str, _aws_pattern("Workspaces", "ClientUrl")]] = None
     LoginMessage: Optional[Dict[str, str]] = None
 
 
@@ -914,14 +924,14 @@ class IosImportClientBrandingAttributesTypeDef(BaseValidatorModel):
     Logo: Optional[BlobTypeDef] = None
     Logo2x: Optional[BlobTypeDef] = None
     Logo3x: Optional[BlobTypeDef] = None
-    SupportEmail: Optional[str] = None
-    SupportLink: Optional[str] = None
-    ForgotPasswordLink: Optional[str] = None
+    SupportEmail: Optional[Annotated[str, _aws_pattern("Workspaces", "ClientEmail")]] = None
+    SupportLink: Optional[Annotated[str, _aws_pattern("Workspaces", "ClientUrl")]] = None
+    ForgotPasswordLink: Optional[Annotated[str, _aws_pattern("Workspaces", "ClientUrl")]] = None
     LoginMessage: Optional[Dict[str, str]] = None
 
 
 class ModifyCertificateBasedAuthPropertiesRequestTypeDef(BaseValidatorModel):
-    ResourceId: str
+    ResourceId: Annotated[str, _aws_pattern("Workspaces", "DirectoryId")]
     CertificateBasedAuthProperties: Optional[CertificateBasedAuthPropertiesTypeDef] = None
     PropertiesToDelete: Optional[List[Literal["CERTIFICATE_BASED_AUTH_PROPERTIES_CERTIFICATE_AUTHORITY_ARN"]]] = None
 
@@ -944,38 +954,38 @@ class DescribeConnectClientAddInsResultTypeDef(BaseValidatorModel):
 
 
 class ConnectionAliasTypeDef(BaseValidatorModel):
-    ConnectionString: Optional[str] = None
-    AliasId: Optional[str] = None
+    ConnectionString: Optional[Annotated[str, _aws_pattern("Workspaces", "ConnectionString")]] = None
+    AliasId: Optional[Annotated[str, _aws_pattern("Workspaces", "ConnectionAliasId")]] = None
     State: Optional[ConnectionAliasStateType] = None
-    OwnerAccountId: Optional[str] = None
+    OwnerAccountId: Optional[Annotated[str, _aws_pattern("Workspaces", "AwsAccount")]] = None
     Associations: Optional[List[ConnectionAliasAssociationTypeDef]] = None
 
 
 # This class is the output for the 'describe_connection_alias_permissions' function.
 class DescribeConnectionAliasPermissionsResultTypeDef(BaseValidatorModel):
-    AliasId: str
+    AliasId: Annotated[str, _aws_pattern("Workspaces", "ConnectionAliasId")]
     ConnectionAliasPermissions: List[ConnectionAliasPermissionTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
     NextToken: Optional[str] = None
 
 
 class UpdateConnectionAliasPermissionRequestTypeDef(BaseValidatorModel):
-    AliasId: str
+    AliasId: Annotated[str, _aws_pattern("Workspaces", "ConnectionAliasId")]
     ConnectionAliasPermission: ConnectionAliasPermissionTypeDef
 
 
 # This class is the input for the 'copy_workspace_image' function.
 class CopyWorkspaceImageRequestTypeDef(BaseValidatorModel):
-    Name: str
-    SourceImageId: str
-    SourceRegion: str
-    Description: Optional[str] = None
+    Name: Annotated[str, _aws_pattern("Workspaces", "WorkspaceImageName")]
+    SourceImageId: Annotated[str, _aws_pattern("Workspaces", "WorkspaceImageId")]
+    SourceRegion: Annotated[str, _aws_pattern("Workspaces", "Region")]
+    Description: Optional[Annotated[str, _aws_pattern("Workspaces", "WorkspaceImageDescription")]] = None
     Tags: Optional[List[TagTypeDef]] = None
 
 
 # This class is the input for the 'create_connection_alias' function.
 class CreateConnectionAliasRequestTypeDef(BaseValidatorModel):
-    ConnectionString: str
+    ConnectionString: Annotated[str, _aws_pattern("Workspaces", "ConnectionString")]
     Tags: Optional[List[TagTypeDef]] = None
 
 
@@ -994,17 +1004,17 @@ class CreateTagsRequestTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'create_updated_workspace_image' function.
 class CreateUpdatedWorkspaceImageRequestTypeDef(BaseValidatorModel):
-    Name: str
-    Description: str
-    SourceImageId: str
+    Name: Annotated[str, _aws_pattern("Workspaces", "WorkspaceImageName")]
+    Description: Annotated[str, _aws_pattern("Workspaces", "WorkspaceImageDescription")]
+    SourceImageId: Annotated[str, _aws_pattern("Workspaces", "WorkspaceImageId")]
     Tags: Optional[List[TagTypeDef]] = None
 
 
 # This class is the input for the 'create_workspace_image' function.
 class CreateWorkspaceImageRequestTypeDef(BaseValidatorModel):
-    Name: str
-    Description: str
-    WorkspaceId: str
+    Name: Annotated[str, _aws_pattern("Workspaces", "WorkspaceImageName")]
+    Description: Annotated[str, _aws_pattern("Workspaces", "WorkspaceImageDescription")]
+    WorkspaceId: Annotated[str, _aws_pattern("Workspaces", "WorkspaceId")]
     Tags: Optional[List[TagTypeDef]] = None
 
 
@@ -1016,10 +1026,10 @@ class DescribeTagsResultTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'import_workspace_image' function.
 class ImportWorkspaceImageRequestTypeDef(BaseValidatorModel):
-    Ec2ImageId: str
+    Ec2ImageId: Annotated[str, _aws_pattern("Workspaces", "Ec2ImageId")]
     IngestionProcess: WorkspaceImageIngestionProcessType
-    ImageName: str
-    ImageDescription: str
+    ImageName: Annotated[str, _aws_pattern("Workspaces", "WorkspaceImageName")]
+    ImageDescription: Annotated[str, _aws_pattern("Workspaces", "WorkspaceImageDescription")]
     Tags: Optional[List[TagTypeDef]] = None
     Applications: Optional[List[ApplicationType]] = None
 
@@ -1033,8 +1043,8 @@ class StandbyWorkspaceOutputTypeDef(BaseValidatorModel):
 
 
 class StandbyWorkspaceTypeDef(BaseValidatorModel):
-    PrimaryWorkspaceId: str
-    DirectoryId: str
+    PrimaryWorkspaceId: Annotated[str, _aws_pattern("Workspaces", "WorkspaceId")]
+    DirectoryId: Annotated[str, _aws_pattern("Workspaces", "DirectoryId")]
     VolumeEncryptionKey: Optional[str] = None
     Tags: Optional[List[TagTypeDef]] = None
     DataReplication: Optional[DataReplicationType] = None
@@ -1042,9 +1052,9 @@ class StandbyWorkspaceTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'create_workspace_bundle' function.
 class CreateWorkspaceBundleRequestTypeDef(BaseValidatorModel):
-    BundleName: str
-    BundleDescription: str
-    ImageId: str
+    BundleName: Annotated[str, _aws_pattern("Workspaces", "WorkspaceBundleName")]
+    BundleDescription: Annotated[str, _aws_pattern("Workspaces", "WorkspaceBundleDescription")]
+    ImageId: Annotated[str, _aws_pattern("Workspaces", "WorkspaceImageId")]
     ComputeType: ComputeTypeTypeDef
     UserStorage: UserStorageTypeDef
     RootStorage: Optional[RootStorageTypeDef] = None
@@ -1052,11 +1062,11 @@ class CreateWorkspaceBundleRequestTypeDef(BaseValidatorModel):
 
 
 class WorkspaceBundleTypeDef(BaseValidatorModel):
-    BundleId: Optional[str] = None
+    BundleId: Optional[Annotated[str, _aws_pattern("Workspaces", "BundleId")]] = None
     Name: Optional[str] = None
     Owner: Optional[str] = None
     Description: Optional[str] = None
-    ImageId: Optional[str] = None
+    ImageId: Optional[Annotated[str, _aws_pattern("Workspaces", "WorkspaceImageId")]] = None
     RootStorage: Optional[RootStorageTypeDef] = None
     UserStorage: Optional[UserStorageTypeDef] = None
     ComputeType: Optional[ComputeTypeTypeDef] = None
@@ -1068,23 +1078,23 @@ class WorkspaceBundleTypeDef(BaseValidatorModel):
 
 # This class is the output for the 'create_workspace_image' function.
 class CreateWorkspaceImageResultTypeDef(BaseValidatorModel):
-    ImageId: str
-    Name: str
-    Description: str
+    ImageId: Annotated[str, _aws_pattern("Workspaces", "WorkspaceImageId")]
+    Name: Annotated[str, _aws_pattern("Workspaces", "WorkspaceImageName")]
+    Description: Annotated[str, _aws_pattern("Workspaces", "WorkspaceImageDescription")]
     OperatingSystem: OperatingSystemTypeDef
     State: WorkspaceImageStateType
     RequiredTenancy: WorkspaceImageRequiredTenancyType
     Created: datetime
-    OwnerAccountId: str
+    OwnerAccountId: Annotated[str, _aws_pattern("Workspaces", "AwsAccount")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 # This class is the input for the 'create_workspaces_pool' function.
 class CreateWorkspacesPoolRequestTypeDef(BaseValidatorModel):
-    PoolName: str
-    Description: str
-    BundleId: str
-    DirectoryId: str
+    PoolName: Annotated[str, _aws_pattern("Workspaces", "WorkspacesPoolName")]
+    Description: Annotated[str, _aws_pattern("Workspaces", "UpdateDescription")]
+    BundleId: Annotated[str, _aws_pattern("Workspaces", "BundleId")]
+    DirectoryId: Annotated[str, _aws_pattern("Workspaces", "DirectoryId")]
     Capacity: CapacityTypeDef
     Tags: Optional[List[TagTypeDef]] = None
     ApplicationSettings: Optional[ApplicationSettingsRequestTypeDef] = None
@@ -1094,10 +1104,10 @@ class CreateWorkspacesPoolRequestTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'update_workspaces_pool' function.
 class UpdateWorkspacesPoolRequestTypeDef(BaseValidatorModel):
-    PoolId: str
-    Description: Optional[str] = None
-    BundleId: Optional[str] = None
-    DirectoryId: Optional[str] = None
+    PoolId: Annotated[str, _aws_pattern("Workspaces", "WorkspacesPoolId")]
+    Description: Optional[Annotated[str, _aws_pattern("Workspaces", "UpdateDescription")]] = None
+    BundleId: Optional[Annotated[str, _aws_pattern("Workspaces", "BundleId")]] = None
+    DirectoryId: Optional[Annotated[str, _aws_pattern("Workspaces", "DirectoryId")]] = None
     Capacity: Optional[CapacityTypeDef] = None
     ApplicationSettings: Optional[ApplicationSettingsRequestTypeDef] = None
     TimeoutSettings: Optional[TimeoutSettingsTypeDef] = None
@@ -1180,8 +1190,8 @@ class ImportClientBrandingResultTypeDef(BaseValidatorModel):
 
 # This class is the output for the 'describe_custom_workspace_image_import' function.
 class DescribeCustomWorkspaceImageImportResultTypeDef(BaseValidatorModel):
-    ImageId: str
-    InfrastructureConfigurationArn: str
+    ImageId: Annotated[str, _aws_pattern("Workspaces", "WorkspaceImageId")]
+    InfrastructureConfigurationArn: Annotated[str, _aws_pattern("Workspaces", "InfrastructureConfigurationArn")]
     State: CustomWorkspaceImageImportStateType
     StateMessage: str
     ProgressPercentage: int
@@ -1195,12 +1205,12 @@ class DescribeCustomWorkspaceImageImportResultTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'import_custom_workspace_image' function.
 class ImportCustomWorkspaceImageRequestTypeDef(BaseValidatorModel):
-    ImageName: str
-    ImageDescription: str
+    ImageName: Annotated[str, _aws_pattern("Workspaces", "WorkspaceImageName")]
+    ImageDescription: Annotated[str, _aws_pattern("Workspaces", "WorkspaceImageDescription")]
     ComputeType: ImageComputeTypeType
     Protocol: CustomImageProtocolType
     ImageSource: ImageSourceIdentifierTypeDef
-    InfrastructureConfigurationArn: str
+    InfrastructureConfigurationArn: Annotated[str, _aws_pattern("Workspaces", "InfrastructureConfigurationArn")]
     Platform: Literal["WINDOWS"]
     OsVersion: OSVersionType
     Tags: Optional[List[TagTypeDef]] = None
@@ -1216,8 +1226,8 @@ class DescribeWorkspaceDirectoriesRequestPaginateTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'describe_workspace_directories' function.
 class DescribeWorkspaceDirectoriesRequestTypeDef(BaseValidatorModel):
-    DirectoryIds: Optional[List[str]] = None
-    WorkspaceDirectoryNames: Optional[List[str]] = None
+    DirectoryIds: Optional[List[Annotated[str, _aws_pattern("Workspaces", "DirectoryId")]]] = None
+    WorkspaceDirectoryNames: Optional[List[Annotated[str, _aws_pattern("Workspaces", "WorkspaceDirectoryName")]]] = None
     Limit: Optional[int] = None
     NextToken: Optional[str] = None
     Filters: Optional[List[DescribeWorkspaceDirectoriesFilterTypeDef]] = None
@@ -1225,7 +1235,7 @@ class DescribeWorkspaceDirectoriesRequestTypeDef(BaseValidatorModel):
 
 # This class is the output for the 'describe_workspace_image_permissions' function.
 class DescribeWorkspaceImagePermissionsResultTypeDef(BaseValidatorModel):
-    ImageId: str
+    ImageId: Annotated[str, _aws_pattern("Workspaces", "WorkspaceImageId")]
     ImagePermissions: List[ImagePermissionTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
     NextToken: Optional[str] = None
@@ -1247,7 +1257,7 @@ class DescribeWorkspacesConnectionStatusResultTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'describe_workspaces_pools' function.
 class DescribeWorkspacesPoolsRequestTypeDef(BaseValidatorModel):
-    PoolIds: Optional[List[str]] = None
+    PoolIds: Optional[List[Annotated[str, _aws_pattern("Workspaces", "WorkspacesPoolId")]]] = None
     Filters: Optional[List[DescribeWorkspacesPoolsFilterTypeDef]] = None
     Limit: Optional[int] = None
     NextToken: Optional[str] = None
@@ -1307,43 +1317,45 @@ class WorkspacePropertiesTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'register_workspace_directory' function.
 class RegisterWorkspaceDirectoryRequestTypeDef(BaseValidatorModel):
-    DirectoryId: Optional[str] = None
-    SubnetIds: Optional[List[str]] = None
+    DirectoryId: Optional[Annotated[str, _aws_pattern("Workspaces", "DirectoryId")]] = None
+    SubnetIds: Optional[List[Annotated[str, _aws_pattern("Workspaces", "SubnetId")]]] = None
     EnableSelfService: Optional[bool] = None
     Tenancy: Optional[TenancyType] = None
     Tags: Optional[List[TagTypeDef]] = None
-    WorkspaceDirectoryName: Optional[str] = None
-    WorkspaceDirectoryDescription: Optional[str] = None
+    WorkspaceDirectoryName: Optional[Annotated[str, _aws_pattern("Workspaces", "WorkspaceDirectoryName")]] = None
+    WorkspaceDirectoryDescription: Optional[
+        Annotated[str, _aws_pattern("Workspaces", "WorkspaceDirectoryDescription")]
+    ] = None
     UserIdentityType: Optional[UserIdentityTypeType] = None
-    IdcInstanceArn: Optional[str] = None
+    IdcInstanceArn: Optional[Annotated[str, _aws_pattern("Workspaces", "ARN")]] = None
     MicrosoftEntraConfig: Optional[MicrosoftEntraConfigTypeDef] = None
     WorkspaceType: Optional[WorkspaceTypeType] = None
     ActiveDirectoryConfig: Optional[ActiveDirectoryConfigTypeDef] = None
 
 
 class ModifySamlPropertiesRequestTypeDef(BaseValidatorModel):
-    ResourceId: str
+    ResourceId: Annotated[str, _aws_pattern("Workspaces", "DirectoryId")]
     SamlProperties: Optional[SamlPropertiesTypeDef] = None
     PropertiesToDelete: Optional[List[DeletableSamlPropertyType]] = None
 
 
 class ModifySelfservicePermissionsRequestTypeDef(BaseValidatorModel):
-    ResourceId: str
+    ResourceId: Annotated[str, _aws_pattern("Workspaces", "DirectoryId")]
     SelfservicePermissions: SelfservicePermissionsTypeDef
 
 
 class ModifyWorkspaceCreationPropertiesRequestTypeDef(BaseValidatorModel):
-    ResourceId: str
+    ResourceId: Annotated[str, _aws_pattern("Workspaces", "DirectoryId")]
     WorkspaceCreationProperties: WorkspaceCreationPropertiesTypeDef
 
 
 class WorkspacesPoolSessionTypeDef(BaseValidatorModel):
-    SessionId: str
-    PoolId: str
+    SessionId: Annotated[str, _aws_pattern("Workspaces", "AmazonUuid")]
+    PoolId: Annotated[str, _aws_pattern("Workspaces", "WorkspacesPoolId")]
     UserId: str
     AuthenticationType: Optional[Literal["SAML"]] = None
     ConnectionState: Optional[SessionConnectionStateType] = None
-    InstanceId: Optional[str] = None
+    InstanceId: Optional[Annotated[str, _aws_pattern("Workspaces", "SessionInstanceId")]] = None
     ExpirationTime: Optional[datetime] = None
     NetworkAccessConfiguration: Optional[NetworkAccessConfigurationTypeDef] = None
     StartTime: Optional[datetime] = None
@@ -1389,31 +1401,31 @@ class TerminateWorkspacesRequestTypeDef(BaseValidatorModel):
 
 
 class WorkspaceImageTypeDef(BaseValidatorModel):
-    ImageId: Optional[str] = None
-    Name: Optional[str] = None
-    Description: Optional[str] = None
+    ImageId: Optional[Annotated[str, _aws_pattern("Workspaces", "WorkspaceImageId")]] = None
+    Name: Optional[Annotated[str, _aws_pattern("Workspaces", "WorkspaceImageName")]] = None
+    Description: Optional[Annotated[str, _aws_pattern("Workspaces", "WorkspaceImageDescription")]] = None
     OperatingSystem: Optional[OperatingSystemTypeDef] = None
     State: Optional[WorkspaceImageStateType] = None
     RequiredTenancy: Optional[WorkspaceImageRequiredTenancyType] = None
     ErrorCode: Optional[str] = None
     ErrorMessage: Optional[str] = None
     Created: Optional[datetime] = None
-    OwnerAccountId: Optional[str] = None
+    OwnerAccountId: Optional[Annotated[str, _aws_pattern("Workspaces", "AwsAccount")]] = None
     Updates: Optional[UpdateResultTypeDef] = None
     ErrorDetails: Optional[List[ErrorDetailsTypeDef]] = None
 
 
 class WorkspacesPoolTypeDef(BaseValidatorModel):
-    PoolId: str
-    PoolArn: str
+    PoolId: Annotated[str, _aws_pattern("Workspaces", "WorkspacesPoolId")]
+    PoolArn: Annotated[str, _aws_pattern("Workspaces", "ARN")]
     CapacityStatus: CapacityStatusTypeDef
-    PoolName: str
+    PoolName: Annotated[str, _aws_pattern("Workspaces", "WorkspacesPoolName")]
     State: WorkspacesPoolStateType
     CreatedAt: datetime
-    BundleId: str
-    DirectoryId: str
+    BundleId: Annotated[str, _aws_pattern("Workspaces", "BundleId")]
+    DirectoryId: Annotated[str, _aws_pattern("Workspaces", "DirectoryId")]
     RunningMode: PoolsRunningModeType
-    Description: Optional[str] = None
+    Description: Optional[Annotated[str, _aws_pattern("Workspaces", "UpdateDescription")]] = None
     Errors: Optional[List[WorkspacesPoolErrorTypeDef]] = None
     ApplicationSettings: Optional[ApplicationSettingsResponseTypeDef] = None
     TimeoutSettings: Optional[TimeoutSettingsTypeDef] = None
@@ -1495,7 +1507,7 @@ class DescribeIpGroupsResultTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'import_client_branding' function.
 class ImportClientBrandingRequestTypeDef(BaseValidatorModel):
-    ResourceId: str
+    ResourceId: Annotated[str, _aws_pattern("Workspaces", "DirectoryId")]
     DeviceTypeWindows: Optional[DefaultImportClientBrandingAttributesTypeDef] = None
     DeviceTypeOsx: Optional[DefaultImportClientBrandingAttributesTypeDef] = None
     DeviceTypeAndroid: Optional[DefaultImportClientBrandingAttributesTypeDef] = None
@@ -1553,21 +1565,21 @@ class WorkspaceRequestOutputTypeDef(BaseValidatorModel):
 
 
 class WorkspaceTypeDef(BaseValidatorModel):
-    WorkspaceId: Optional[str] = None
-    DirectoryId: Optional[str] = None
+    WorkspaceId: Optional[Annotated[str, _aws_pattern("Workspaces", "WorkspaceId")]] = None
+    DirectoryId: Optional[Annotated[str, _aws_pattern("Workspaces", "DirectoryId")]] = None
     UserName: Optional[str] = None
     IpAddress: Optional[str] = None
-    Ipv6Address: Optional[str] = None
+    Ipv6Address: Optional[Annotated[str, _aws_pattern("Workspaces", "Ipv6Address")]] = None
     State: Optional[WorkspaceStateType] = None
-    BundleId: Optional[str] = None
-    SubnetId: Optional[str] = None
+    BundleId: Optional[Annotated[str, _aws_pattern("Workspaces", "BundleId")]] = None
+    SubnetId: Optional[Annotated[str, _aws_pattern("Workspaces", "SubnetId")]] = None
     ErrorMessage: Optional[str] = None
     ErrorCode: Optional[str] = None
     ComputerName: Optional[str] = None
     VolumeEncryptionKey: Optional[str] = None
     UserVolumeEncryptionEnabled: Optional[bool] = None
     RootVolumeEncryptionEnabled: Optional[bool] = None
-    WorkspaceName: Optional[str] = None
+    WorkspaceName: Optional[Annotated[str, _aws_pattern("Workspaces", "WorkspaceName")]] = None
     WorkspaceProperties: Optional[WorkspacePropertiesOutputTypeDef] = None
     ModificationStates: Optional[List[ModificationStateTypeDef]] = None
     RelatedWorkspaces: Optional[List[RelatedWorkspacePropertiesTypeDef]] = None
@@ -1615,20 +1627,20 @@ class UpdateWorkspacesPoolResultTypeDef(BaseValidatorModel):
 
 
 class WorkspaceDirectoryTypeDef(BaseValidatorModel):
-    DirectoryId: Optional[str] = None
+    DirectoryId: Optional[Annotated[str, _aws_pattern("Workspaces", "DirectoryId")]] = None
     Alias: Optional[str] = None
     DirectoryName: Optional[str] = None
     RegistrationCode: Optional[str] = None
-    SubnetIds: Optional[List[str]] = None
+    SubnetIds: Optional[List[Annotated[str, _aws_pattern("Workspaces", "SubnetId")]]] = None
     DnsIpAddresses: Optional[List[str]] = None
-    DnsIpv6Addresses: Optional[List[str]] = None
+    DnsIpv6Addresses: Optional[List[Annotated[str, _aws_pattern("Workspaces", "Ipv6Address")]]] = None
     CustomerUserName: Optional[str] = None
-    IamRoleId: Optional[str] = None
+    IamRoleId: Optional[Annotated[str, _aws_pattern("Workspaces", "ARN")]] = None
     DirectoryType: Optional[WorkspaceDirectoryTypeType] = None
-    WorkspaceSecurityGroupId: Optional[str] = None
+    WorkspaceSecurityGroupId: Optional[Annotated[str, _aws_pattern("Workspaces", "SecurityGroupId")]] = None
     State: Optional[WorkspaceDirectoryStateType] = None
     WorkspaceCreationProperties: Optional[DefaultWorkspaceCreationPropertiesTypeDef] = None
-    ipGroupIds: Optional[List[str]] = None
+    ipGroupIds: Optional[List[Annotated[str, _aws_pattern("Workspaces", "IpGroupId")]]] = None
     WorkspaceAccessProperties: Optional[WorkspaceAccessPropertiesOutputTypeDef] = None
     Tenancy: Optional[TenancyType] = None
     SelfservicePermissions: Optional[SelfservicePermissionsTypeDef] = None
@@ -1636,8 +1648,10 @@ class WorkspaceDirectoryTypeDef(BaseValidatorModel):
     CertificateBasedAuthProperties: Optional[CertificateBasedAuthPropertiesTypeDef] = None
     EndpointEncryptionMode: Optional[EndpointEncryptionModeType] = None
     MicrosoftEntraConfig: Optional[MicrosoftEntraConfigTypeDef] = None
-    WorkspaceDirectoryName: Optional[str] = None
-    WorkspaceDirectoryDescription: Optional[str] = None
+    WorkspaceDirectoryName: Optional[Annotated[str, _aws_pattern("Workspaces", "WorkspaceDirectoryName")]] = None
+    WorkspaceDirectoryDescription: Optional[
+        Annotated[str, _aws_pattern("Workspaces", "WorkspaceDirectoryDescription")]
+    ] = None
     UserIdentityType: Optional[UserIdentityTypeType] = None
     WorkspaceType: Optional[WorkspaceTypeType] = None
     IDCConfig: Optional[IDCConfigTypeDef] = None
@@ -1664,7 +1678,7 @@ class CreateStandbyWorkspacesResultTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'create_standby_workspaces' function.
 class CreateStandbyWorkspacesRequestTypeDef(BaseValidatorModel):
-    PrimaryRegion: str
+    PrimaryRegion: Annotated[str, _aws_pattern("Workspaces", "Region")]
     StandbyWorkspaces: List[StandbyWorkspaceUnionTypeDef]
 
 
@@ -1682,26 +1696,26 @@ class DescribeWorkspacesResultTypeDef(BaseValidatorModel):
 
 
 class ModifyWorkspacePropertiesRequestTypeDef(BaseValidatorModel):
-    WorkspaceId: str
+    WorkspaceId: Annotated[str, _aws_pattern("Workspaces", "WorkspaceId")]
     WorkspaceProperties: Optional[WorkspacePropertiesUnionTypeDef] = None
     DataReplication: Optional[DataReplicationType] = None
 
 
 class WorkspaceRequestTypeDef(BaseValidatorModel):
-    DirectoryId: str
+    DirectoryId: Annotated[str, _aws_pattern("Workspaces", "DirectoryId")]
     UserName: str
-    BundleId: str
+    BundleId: Annotated[str, _aws_pattern("Workspaces", "BundleId")]
     VolumeEncryptionKey: Optional[str] = None
     UserVolumeEncryptionEnabled: Optional[bool] = None
     RootVolumeEncryptionEnabled: Optional[bool] = None
     WorkspaceProperties: Optional[WorkspacePropertiesUnionTypeDef] = None
     Tags: Optional[List[TagTypeDef]] = None
-    WorkspaceName: Optional[str] = None
-    Ipv6Address: Optional[str] = None
+    WorkspaceName: Optional[Annotated[str, _aws_pattern("Workspaces", "WorkspaceName")]] = None
+    Ipv6Address: Optional[Annotated[str, _aws_pattern("Workspaces", "Ipv6Address")]] = None
 
 
 class ModifyStreamingPropertiesRequestTypeDef(BaseValidatorModel):
-    ResourceId: str
+    ResourceId: Annotated[str, _aws_pattern("Workspaces", "DirectoryId")]
     StreamingProperties: Optional[StreamingPropertiesUnionTypeDef] = None
 
 
@@ -1713,7 +1727,7 @@ class DescribeWorkspaceDirectoriesResultTypeDef(BaseValidatorModel):
 
 
 class ModifyWorkspaceAccessPropertiesRequestTypeDef(BaseValidatorModel):
-    ResourceId: str
+    ResourceId: Annotated[str, _aws_pattern("Workspaces", "DirectoryId")]
     WorkspaceAccessProperties: WorkspaceAccessPropertiesUnionTypeDef
 
 

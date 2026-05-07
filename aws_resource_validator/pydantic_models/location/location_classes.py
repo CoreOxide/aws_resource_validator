@@ -3,6 +3,7 @@
 from datetime import datetime
 from decimal import Decimal
 from typing import (
+    Annotated,
     Any,
     Callable,
     Dict,
@@ -24,6 +25,7 @@ from botocore.response import StreamingBody
 from pydantic import Field
 
 from aws_resource_validator.core.base_validator_model import BaseValidatorModel, EventStream
+from aws_resource_validator.core.pattern_validation import aws_field_pattern as _aws_pattern
 from aws_resource_validator.pydantic_models.location.location_constants import *  # noqa: F401,F403
 
 # Optional boto3 symbols — imported lazily so services that don't need them
@@ -39,8 +41,8 @@ except ImportError:  # pragma: no cover
 
 
 class AndroidAppTypeDef(BaseValidatorModel):
-    Package: str
-    CertificateFingerprint: str
+    Package: Annotated[str, _aws_pattern("Location", "AndroidPackageName")]
+    CertificateFingerprint: Annotated[str, _aws_pattern("Location", "Sha1CertificateFingerprint")]
 
 
 class ApiKeyFilterTypeDef(BaseValidatorModel):
@@ -48,12 +50,12 @@ class ApiKeyFilterTypeDef(BaseValidatorModel):
 
 
 class AppleAppTypeDef(BaseValidatorModel):
-    BundleId: str
+    BundleId: Annotated[str, _aws_pattern("Location", "AppleBundleId")]
 
 
 class AssociateTrackerConsumerRequestTypeDef(BaseValidatorModel):
-    TrackerName: str
-    ConsumerArn: str
+    TrackerName: Annotated[str, _aws_pattern("Location", "ResourceName")]
+    ConsumerArn: Annotated[str, _aws_pattern("Location", "Arn")]
 
 
 class BatchItemErrorTypeDef(BaseValidatorModel):
@@ -63,8 +65,8 @@ class BatchItemErrorTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'batch_delete_device_position_history' function.
 class BatchDeleteDevicePositionHistoryRequestTypeDef(BaseValidatorModel):
-    TrackerName: str
-    DeviceIds: List[str]
+    TrackerName: Annotated[str, _aws_pattern("Location", "ResourceName")]
+    DeviceIds: List[Annotated[str, _aws_pattern("Location", "Id")]]
 
 
 class ResponseMetadataTypeDef(BaseValidatorModel):
@@ -77,18 +79,18 @@ class ResponseMetadataTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'batch_delete_geofence' function.
 class BatchDeleteGeofenceRequestTypeDef(BaseValidatorModel):
-    CollectionName: str
-    GeofenceIds: List[str]
+    CollectionName: Annotated[str, _aws_pattern("Location", "ResourceName")]
+    GeofenceIds: List[Annotated[str, _aws_pattern("Location", "Id")]]
 
 
 # This class is the input for the 'batch_get_device_position' function.
 class BatchGetDevicePositionRequestTypeDef(BaseValidatorModel):
-    TrackerName: str
-    DeviceIds: List[str]
+    TrackerName: Annotated[str, _aws_pattern("Location", "BatchGetDevicePositionRequestTrackerNameString")]
+    DeviceIds: List[Annotated[str, _aws_pattern("Location", "Id")]]
 
 
 class BatchPutGeofenceSuccessTypeDef(BaseValidatorModel):
-    GeofenceId: str
+    GeofenceId: Annotated[str, _aws_pattern("Location", "Id")]
     CreateTime: datetime
     UpdateTime: datetime
 
@@ -133,7 +135,7 @@ class TruckWeightTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'cancel_job' function.
 class CancelJobRequestTypeDef(BaseValidatorModel):
-    JobId: str
+    JobId: Annotated[str, _aws_pattern("Location", "JobId")]
 
 
 class CircleOutputTypeDef(BaseValidatorModel):
@@ -148,7 +150,7 @@ class CircleTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'create_geofence_collection' function.
 class CreateGeofenceCollectionRequestTypeDef(BaseValidatorModel):
-    CollectionName: str
+    CollectionName: Annotated[str, _aws_pattern("Location", "ResourceName")]
     PricingPlan: Optional[PricingPlanType] = None
     PricingPlanDataSource: Optional[str] = None
     Description: Optional[str] = None
@@ -162,7 +164,7 @@ class DataSourceConfigurationTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'create_route_calculator' function.
 class CreateRouteCalculatorRequestTypeDef(BaseValidatorModel):
-    CalculatorName: str
+    CalculatorName: Annotated[str, _aws_pattern("Location", "ResourceName")]
     DataSource: str
     PricingPlan: Optional[PricingPlanType] = None
     Description: Optional[str] = None
@@ -171,7 +173,7 @@ class CreateRouteCalculatorRequestTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'create_tracker' function.
 class CreateTrackerRequestTypeDef(BaseValidatorModel):
-    TrackerName: str
+    TrackerName: Annotated[str, _aws_pattern("Location", "ResourceName")]
     PricingPlan: Optional[PricingPlanType] = None
     KmsKeyId: Optional[str] = None
     PricingPlanDataSource: Optional[str] = None
@@ -183,43 +185,43 @@ class CreateTrackerRequestTypeDef(BaseValidatorModel):
 
 
 class DeleteGeofenceCollectionRequestTypeDef(BaseValidatorModel):
-    CollectionName: str
+    CollectionName: Annotated[str, _aws_pattern("Location", "ResourceName")]
 
 
 class DeleteKeyRequestTypeDef(BaseValidatorModel):
-    KeyName: str
+    KeyName: Annotated[str, _aws_pattern("Location", "ResourceName")]
     ForceDelete: Optional[bool] = None
 
 
 class DeleteMapRequestTypeDef(BaseValidatorModel):
-    MapName: str
+    MapName: Annotated[str, _aws_pattern("Location", "ResourceName")]
 
 
 class DeletePlaceIndexRequestTypeDef(BaseValidatorModel):
-    IndexName: str
+    IndexName: Annotated[str, _aws_pattern("Location", "ResourceName")]
 
 
 class DeleteRouteCalculatorRequestTypeDef(BaseValidatorModel):
-    CalculatorName: str
+    CalculatorName: Annotated[str, _aws_pattern("Location", "ResourceName")]
 
 
 class DeleteTrackerRequestTypeDef(BaseValidatorModel):
-    TrackerName: str
+    TrackerName: Annotated[str, _aws_pattern("Location", "ResourceName")]
 
 
 # This class is the input for the 'describe_geofence_collection' function.
 class DescribeGeofenceCollectionRequestTypeDef(BaseValidatorModel):
-    CollectionName: str
+    CollectionName: Annotated[str, _aws_pattern("Location", "ResourceName")]
 
 
 # This class is the input for the 'describe_key' function.
 class DescribeKeyRequestTypeDef(BaseValidatorModel):
-    KeyName: str
+    KeyName: Annotated[str, _aws_pattern("Location", "ResourceName")]
 
 
 # This class is the input for the 'describe_map' function.
 class DescribeMapRequestTypeDef(BaseValidatorModel):
-    MapName: str
+    MapName: Annotated[str, _aws_pattern("Location", "ResourceName")]
 
 
 class MapConfigurationOutputTypeDef(BaseValidatorModel):
@@ -230,17 +232,17 @@ class MapConfigurationOutputTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'describe_place_index' function.
 class DescribePlaceIndexRequestTypeDef(BaseValidatorModel):
-    IndexName: str
+    IndexName: Annotated[str, _aws_pattern("Location", "ResourceName")]
 
 
 # This class is the input for the 'describe_route_calculator' function.
 class DescribeRouteCalculatorRequestTypeDef(BaseValidatorModel):
-    CalculatorName: str
+    CalculatorName: Annotated[str, _aws_pattern("Location", "ResourceName")]
 
 
 # This class is the input for the 'describe_tracker' function.
 class DescribeTrackerRequestTypeDef(BaseValidatorModel):
-    TrackerName: str
+    TrackerName: Annotated[str, _aws_pattern("Location", "ResourceName")]
 
 
 class PositionalAccuracyTypeDef(BaseValidatorModel):
@@ -248,13 +250,13 @@ class PositionalAccuracyTypeDef(BaseValidatorModel):
 
 
 class WiFiAccessPointTypeDef(BaseValidatorModel):
-    MacAddress: str
+    MacAddress: Annotated[str, _aws_pattern("Location", "WiFiAccessPointMacAddressString")]
     Rss: int
 
 
 class DisassociateTrackerConsumerRequestTypeDef(BaseValidatorModel):
-    TrackerName: str
-    ConsumerArn: str
+    TrackerName: Annotated[str, _aws_pattern("Location", "ResourceName")]
+    ConsumerArn: Annotated[str, _aws_pattern("Location", "Arn")]
 
 
 class ForecastGeofenceEventsDeviceStateTypeDef(BaseValidatorModel):
@@ -269,8 +271,8 @@ class PaginatorConfigTypeDef(BaseValidatorModel):
 
 
 class ForecastedEventTypeDef(BaseValidatorModel):
-    EventId: str
-    GeofenceId: str
+    EventId: Annotated[str, _aws_pattern("Location", "Uuid")]
+    GeofenceId: Annotated[str, _aws_pattern("Location", "Id")]
     IsDeviceInGeofence: bool
     NearestDistance: float
     EventType: ForecastedGeofenceEventTypeType
@@ -280,19 +282,19 @@ class ForecastedEventTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'get_device_position' function.
 class GetDevicePositionRequestTypeDef(BaseValidatorModel):
-    TrackerName: str
-    DeviceId: str
+    TrackerName: Annotated[str, _aws_pattern("Location", "ResourceName")]
+    DeviceId: Annotated[str, _aws_pattern("Location", "Id")]
 
 
 # This class is the input for the 'get_geofence' function.
 class GetGeofenceRequestTypeDef(BaseValidatorModel):
-    CollectionName: str
-    GeofenceId: str
+    CollectionName: Annotated[str, _aws_pattern("Location", "ResourceName")]
+    GeofenceId: Annotated[str, _aws_pattern("Location", "Id")]
 
 
 # This class is the input for the 'get_job' function.
 class GetJobRequestTypeDef(BaseValidatorModel):
-    JobId: str
+    JobId: Annotated[str, _aws_pattern("Location", "JobId")]
 
 
 class WaiterConfigTypeDef(BaseValidatorModel):
@@ -306,48 +308,48 @@ class JobErrorTypeDef(BaseValidatorModel):
 
 
 class JobInputOptionsTypeDef(BaseValidatorModel):
-    Location: str
+    Location: Annotated[str, _aws_pattern("Location", "JobInputLocation")]
     Format: Literal["Parquet"]
 
 
 class JobOutputOptionsTypeDef(BaseValidatorModel):
     Format: Literal["Parquet"]
-    Location: str
+    Location: Annotated[str, _aws_pattern("Location", "JobOutputLocation")]
 
 
 # This class is the input for the 'get_map_glyphs' function.
 class GetMapGlyphsRequestTypeDef(BaseValidatorModel):
-    MapName: str
+    MapName: Annotated[str, _aws_pattern("Location", "ResourceName")]
     FontStack: str
-    FontUnicodeRange: str
+    FontUnicodeRange: Annotated[str, _aws_pattern("Location", "GetMapGlyphsRequestFontUnicodeRangeString")]
     Key: Optional[str] = None
 
 
 # This class is the input for the 'get_map_sprites' function.
 class GetMapSpritesRequestTypeDef(BaseValidatorModel):
-    MapName: str
-    FileName: str
+    MapName: Annotated[str, _aws_pattern("Location", "ResourceName")]
+    FileName: Annotated[str, _aws_pattern("Location", "GetMapSpritesRequestFileNameString")]
     Key: Optional[str] = None
 
 
 # This class is the input for the 'get_map_style_descriptor' function.
 class GetMapStyleDescriptorRequestTypeDef(BaseValidatorModel):
-    MapName: str
+    MapName: Annotated[str, _aws_pattern("Location", "ResourceName")]
     Key: Optional[str] = None
 
 
 # This class is the input for the 'get_map_tile' function.
 class GetMapTileRequestTypeDef(BaseValidatorModel):
-    MapName: str
-    Z: str
-    X: str
-    Y: str
+    MapName: Annotated[str, _aws_pattern("Location", "ResourceName")]
+    Z: Annotated[str, _aws_pattern("Location", "GetMapTileRequestZString")]
+    X: Annotated[str, _aws_pattern("Location", "GetMapTileRequestXString")]
+    Y: Annotated[str, _aws_pattern("Location", "GetMapTileRequestYString")]
     Key: Optional[str] = None
 
 
 # This class is the input for the 'get_place' function.
 class GetPlaceRequestTypeDef(BaseValidatorModel):
-    IndexName: str
+    IndexName: Annotated[str, _aws_pattern("Location", "ResourceName")]
     PlaceId: str
     Language: Optional[str] = None
     Key: Optional[str] = None
@@ -388,7 +390,7 @@ class ListGeofenceCollectionsRequestTypeDef(BaseValidatorModel):
 
 
 class ListGeofenceCollectionsResponseEntryTypeDef(BaseValidatorModel):
-    CollectionName: str
+    CollectionName: Annotated[str, _aws_pattern("Location", "ResourceName")]
     Description: str
     CreateTime: datetime
     UpdateTime: datetime
@@ -398,7 +400,7 @@ class ListGeofenceCollectionsResponseEntryTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'list_geofences' function.
 class ListGeofencesRequestTypeDef(BaseValidatorModel):
-    CollectionName: str
+    CollectionName: Annotated[str, _aws_pattern("Location", "ResourceName")]
     NextToken: Optional[str] = None
     MaxResults: Optional[int] = None
 
@@ -410,7 +412,7 @@ class ListMapsRequestTypeDef(BaseValidatorModel):
 
 
 class ListMapsResponseEntryTypeDef(BaseValidatorModel):
-    MapName: str
+    MapName: Annotated[str, _aws_pattern("Location", "ResourceName")]
     Description: str
     DataSource: str
     CreateTime: datetime
@@ -425,7 +427,7 @@ class ListPlaceIndexesRequestTypeDef(BaseValidatorModel):
 
 
 class ListPlaceIndexesResponseEntryTypeDef(BaseValidatorModel):
-    IndexName: str
+    IndexName: Annotated[str, _aws_pattern("Location", "ResourceName")]
     Description: str
     DataSource: str
     CreateTime: datetime
@@ -440,7 +442,7 @@ class ListRouteCalculatorsRequestTypeDef(BaseValidatorModel):
 
 
 class ListRouteCalculatorsResponseEntryTypeDef(BaseValidatorModel):
-    CalculatorName: str
+    CalculatorName: Annotated[str, _aws_pattern("Location", "ResourceName")]
     Description: str
     DataSource: str
     CreateTime: datetime
@@ -450,12 +452,12 @@ class ListRouteCalculatorsResponseEntryTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'list_tags_for_resource' function.
 class ListTagsForResourceRequestTypeDef(BaseValidatorModel):
-    ResourceArn: str
+    ResourceArn: Annotated[str, _aws_pattern("Location", "Arn")]
 
 
 # This class is the input for the 'list_tracker_consumers' function.
 class ListTrackerConsumersRequestTypeDef(BaseValidatorModel):
-    TrackerName: str
+    TrackerName: Annotated[str, _aws_pattern("Location", "ResourceName")]
     MaxResults: Optional[int] = None
     NextToken: Optional[str] = None
 
@@ -467,7 +469,7 @@ class ListTrackersRequestTypeDef(BaseValidatorModel):
 
 
 class ListTrackersResponseEntryTypeDef(BaseValidatorModel):
-    TrackerName: str
+    TrackerName: Annotated[str, _aws_pattern("Location", "ResourceName")]
     Description: str
     CreateTime: datetime
     UpdateTime: datetime
@@ -489,14 +491,14 @@ class LteNetworkMeasurementsTypeDef(BaseValidatorModel):
 
 
 class MapConfigurationTypeDef(BaseValidatorModel):
-    Style: str
-    PoliticalView: Optional[str] = None
-    CustomLayers: Optional[List[str]] = None
+    Style: Annotated[str, _aws_pattern("Location", "MapStyle")]
+    PoliticalView: Optional[Annotated[str, _aws_pattern("Location", "CountryCode3")]] = None
+    CustomLayers: Optional[List[Annotated[str, _aws_pattern("Location", "CustomLayer")]]] = None
 
 
 class MapConfigurationUpdateTypeDef(BaseValidatorModel):
-    PoliticalView: Optional[str] = None
-    CustomLayers: Optional[List[str]] = None
+    PoliticalView: Optional[Annotated[str, _aws_pattern("Location", "CountryCode3OrEmpty")]] = None
+    CustomLayers: Optional[List[Annotated[str, _aws_pattern("Location", "CustomLayer")]]] = None
 
 
 class PlaceGeometryTypeDef(BaseValidatorModel):
@@ -522,7 +524,7 @@ class SearchForSuggestionsResultTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'search_place_index_for_position' function.
 class SearchPlaceIndexForPositionRequestTypeDef(BaseValidatorModel):
-    IndexName: str
+    IndexName: Annotated[str, _aws_pattern("Location", "ResourceName")]
     Position: List[float]
     MaxResults: Optional[int] = None
     Language: Optional[str] = None
@@ -538,11 +540,11 @@ class SearchPlaceIndexForPositionSummaryTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'search_place_index_for_suggestions' function.
 class SearchPlaceIndexForSuggestionsRequestTypeDef(BaseValidatorModel):
-    IndexName: str
+    IndexName: Annotated[str, _aws_pattern("Location", "ResourceName")]
     Text: str
     BiasPosition: Optional[List[float]] = None
     FilterBBox: Optional[List[float]] = None
-    FilterCountries: Optional[List[str]] = None
+    FilterCountries: Optional[List[Annotated[str, _aws_pattern("Location", "CountryCode3")]]] = None
     MaxResults: Optional[int] = None
     Language: Optional[str] = None
     FilterCategories: Optional[List[str]] = None
@@ -554,7 +556,7 @@ class SearchPlaceIndexForSuggestionsSummaryTypeDef(BaseValidatorModel):
     DataSource: str
     BiasPosition: Optional[List[float]] = None
     FilterBBox: Optional[List[float]] = None
-    FilterCountries: Optional[List[str]] = None
+    FilterCountries: Optional[List[Annotated[str, _aws_pattern("Location", "CountryCode3")]]] = None
     MaxResults: Optional[int] = None
     Language: Optional[str] = None
     FilterCategories: Optional[List[str]] = None
@@ -562,11 +564,11 @@ class SearchPlaceIndexForSuggestionsSummaryTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'search_place_index_for_text' function.
 class SearchPlaceIndexForTextRequestTypeDef(BaseValidatorModel):
-    IndexName: str
+    IndexName: Annotated[str, _aws_pattern("Location", "ResourceName")]
     Text: str
     BiasPosition: Optional[List[float]] = None
     FilterBBox: Optional[List[float]] = None
-    FilterCountries: Optional[List[str]] = None
+    FilterCountries: Optional[List[Annotated[str, _aws_pattern("Location", "CountryCode3")]]] = None
     MaxResults: Optional[int] = None
     Language: Optional[str] = None
     FilterCategories: Optional[List[str]] = None
@@ -578,7 +580,7 @@ class SearchPlaceIndexForTextSummaryTypeDef(BaseValidatorModel):
     DataSource: str
     BiasPosition: Optional[List[float]] = None
     FilterBBox: Optional[List[float]] = None
-    FilterCountries: Optional[List[str]] = None
+    FilterCountries: Optional[List[Annotated[str, _aws_pattern("Location", "CountryCode3")]]] = None
     MaxResults: Optional[int] = None
     ResultBBox: Optional[List[float]] = None
     Language: Optional[str] = None
@@ -586,18 +588,18 @@ class SearchPlaceIndexForTextSummaryTypeDef(BaseValidatorModel):
 
 
 class TagResourceRequestTypeDef(BaseValidatorModel):
-    ResourceArn: str
+    ResourceArn: Annotated[str, _aws_pattern("Location", "Arn")]
     Tags: Dict[str, str]
 
 
 class UntagResourceRequestTypeDef(BaseValidatorModel):
-    ResourceArn: str
+    ResourceArn: Annotated[str, _aws_pattern("Location", "Arn")]
     TagKeys: List[str]
 
 
 # This class is the input for the 'update_geofence_collection' function.
 class UpdateGeofenceCollectionRequestTypeDef(BaseValidatorModel):
-    CollectionName: str
+    CollectionName: Annotated[str, _aws_pattern("Location", "ResourceName")]
     PricingPlan: Optional[PricingPlanType] = None
     PricingPlanDataSource: Optional[str] = None
     Description: Optional[str] = None
@@ -605,14 +607,14 @@ class UpdateGeofenceCollectionRequestTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'update_route_calculator' function.
 class UpdateRouteCalculatorRequestTypeDef(BaseValidatorModel):
-    CalculatorName: str
+    CalculatorName: Annotated[str, _aws_pattern("Location", "ResourceName")]
     PricingPlan: Optional[PricingPlanType] = None
     Description: Optional[str] = None
 
 
 # This class is the input for the 'update_tracker' function.
 class UpdateTrackerRequestTypeDef(BaseValidatorModel):
-    TrackerName: str
+    TrackerName: Annotated[str, _aws_pattern("Location", "ResourceName")]
     PricingPlan: Optional[PricingPlanType] = None
     PricingPlanDataSource: Optional[str] = None
     Description: Optional[str] = None
@@ -637,57 +639,57 @@ class ApiKeyRestrictionsOutputTypeDef(BaseValidatorModel):
 
 
 class ApiKeyRestrictionsTypeDef(BaseValidatorModel):
-    AllowActions: List[str]
-    AllowResources: List[str]
-    AllowReferers: Optional[List[str]] = None
+    AllowActions: List[Annotated[str, _aws_pattern("Location", "ApiKeyAction")]]
+    AllowResources: List[Annotated[str, _aws_pattern("Location", "GeoArnV2")]]
+    AllowReferers: Optional[List[Annotated[str, _aws_pattern("Location", "RefererPattern")]]] = None
     AllowAndroidApps: Optional[List[AndroidAppTypeDef]] = None
     AllowAppleApps: Optional[List[AppleAppTypeDef]] = None
 
 
 class BatchDeleteDevicePositionHistoryErrorTypeDef(BaseValidatorModel):
-    DeviceId: str
+    DeviceId: Annotated[str, _aws_pattern("Location", "Id")]
     Error: BatchItemErrorTypeDef
 
 
 class BatchDeleteGeofenceErrorTypeDef(BaseValidatorModel):
-    GeofenceId: str
+    GeofenceId: Annotated[str, _aws_pattern("Location", "Id")]
     Error: BatchItemErrorTypeDef
 
 
 class BatchEvaluateGeofencesErrorTypeDef(BaseValidatorModel):
-    DeviceId: str
+    DeviceId: Annotated[str, _aws_pattern("Location", "Id")]
     SampleTime: datetime
     Error: BatchItemErrorTypeDef
 
 
 class BatchGetDevicePositionErrorTypeDef(BaseValidatorModel):
-    DeviceId: str
+    DeviceId: Annotated[str, _aws_pattern("Location", "Id")]
     Error: BatchItemErrorTypeDef
 
 
 class BatchPutGeofenceErrorTypeDef(BaseValidatorModel):
-    GeofenceId: str
+    GeofenceId: Annotated[str, _aws_pattern("Location", "Id")]
     Error: BatchItemErrorTypeDef
 
 
 class BatchUpdateDevicePositionErrorTypeDef(BaseValidatorModel):
-    DeviceId: str
+    DeviceId: Annotated[str, _aws_pattern("Location", "Id")]
     SampleTime: datetime
     Error: BatchItemErrorTypeDef
 
 
 # This class is the output for the 'cancel_job' function.
 class CancelJobResponseTypeDef(BaseValidatorModel):
-    JobArn: str
-    JobId: str
+    JobArn: Annotated[str, _aws_pattern("Location", "GeoArn")]
+    JobId: Annotated[str, _aws_pattern("Location", "JobId")]
     Status: JobStatusType
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 # This class is the output for the 'create_geofence_collection' function.
 class CreateGeofenceCollectionResponseTypeDef(BaseValidatorModel):
-    CollectionName: str
-    CollectionArn: str
+    CollectionName: Annotated[str, _aws_pattern("Location", "ResourceName")]
+    CollectionArn: Annotated[str, _aws_pattern("Location", "Arn")]
     CreateTime: datetime
     ResponseMetadata: ResponseMetadataTypeDef
 
@@ -695,48 +697,48 @@ class CreateGeofenceCollectionResponseTypeDef(BaseValidatorModel):
 # This class is the output for the 'create_key' function.
 class CreateKeyResponseTypeDef(BaseValidatorModel):
     Key: str
-    KeyArn: str
-    KeyName: str
+    KeyArn: Annotated[str, _aws_pattern("Location", "Arn")]
+    KeyName: Annotated[str, _aws_pattern("Location", "ResourceName")]
     CreateTime: datetime
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 # This class is the output for the 'create_map' function.
 class CreateMapResponseTypeDef(BaseValidatorModel):
-    MapName: str
-    MapArn: str
+    MapName: Annotated[str, _aws_pattern("Location", "ResourceName")]
+    MapArn: Annotated[str, _aws_pattern("Location", "GeoArn")]
     CreateTime: datetime
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 # This class is the output for the 'create_place_index' function.
 class CreatePlaceIndexResponseTypeDef(BaseValidatorModel):
-    IndexName: str
-    IndexArn: str
+    IndexName: Annotated[str, _aws_pattern("Location", "ResourceName")]
+    IndexArn: Annotated[str, _aws_pattern("Location", "GeoArn")]
     CreateTime: datetime
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 # This class is the output for the 'create_route_calculator' function.
 class CreateRouteCalculatorResponseTypeDef(BaseValidatorModel):
-    CalculatorName: str
-    CalculatorArn: str
+    CalculatorName: Annotated[str, _aws_pattern("Location", "ResourceName")]
+    CalculatorArn: Annotated[str, _aws_pattern("Location", "GeoArn")]
     CreateTime: datetime
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 # This class is the output for the 'create_tracker' function.
 class CreateTrackerResponseTypeDef(BaseValidatorModel):
-    TrackerName: str
-    TrackerArn: str
+    TrackerName: Annotated[str, _aws_pattern("Location", "ResourceName")]
+    TrackerArn: Annotated[str, _aws_pattern("Location", "Arn")]
     CreateTime: datetime
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 # This class is the output for the 'describe_geofence_collection' function.
 class DescribeGeofenceCollectionResponseTypeDef(BaseValidatorModel):
-    CollectionName: str
-    CollectionArn: str
+    CollectionName: Annotated[str, _aws_pattern("Location", "ResourceName")]
+    CollectionArn: Annotated[str, _aws_pattern("Location", "Arn")]
     Description: str
     PricingPlan: PricingPlanType
     PricingPlanDataSource: str
@@ -750,8 +752,8 @@ class DescribeGeofenceCollectionResponseTypeDef(BaseValidatorModel):
 
 # This class is the output for the 'describe_route_calculator' function.
 class DescribeRouteCalculatorResponseTypeDef(BaseValidatorModel):
-    CalculatorName: str
-    CalculatorArn: str
+    CalculatorName: Annotated[str, _aws_pattern("Location", "ResourceName")]
+    CalculatorArn: Annotated[str, _aws_pattern("Location", "GeoArn")]
     PricingPlan: PricingPlanType
     Description: str
     CreateTime: datetime
@@ -763,8 +765,8 @@ class DescribeRouteCalculatorResponseTypeDef(BaseValidatorModel):
 
 # This class is the output for the 'describe_tracker' function.
 class DescribeTrackerResponseTypeDef(BaseValidatorModel):
-    TrackerName: str
-    TrackerArn: str
+    TrackerName: Annotated[str, _aws_pattern("Location", "ResourceName")]
+    TrackerArn: Annotated[str, _aws_pattern("Location", "Arn")]
     Description: str
     PricingPlan: PricingPlanType
     PricingPlanDataSource: str
@@ -818,14 +820,14 @@ class ListTagsForResourceResponseTypeDef(BaseValidatorModel):
 
 # This class is the output for the 'list_tracker_consumers' function.
 class ListTrackerConsumersResponseTypeDef(BaseValidatorModel):
-    ConsumerArns: List[str]
+    ConsumerArns: List[Annotated[str, _aws_pattern("Location", "Arn")]]
     ResponseMetadata: ResponseMetadataTypeDef
     NextToken: Optional[str] = None
 
 
 # This class is the output for the 'put_geofence' function.
 class PutGeofenceResponseTypeDef(BaseValidatorModel):
-    GeofenceId: str
+    GeofenceId: Annotated[str, _aws_pattern("Location", "Id")]
     CreateTime: datetime
     UpdateTime: datetime
     ResponseMetadata: ResponseMetadataTypeDef
@@ -834,64 +836,64 @@ class PutGeofenceResponseTypeDef(BaseValidatorModel):
 # This class is the output for the 'start_job' function.
 class StartJobResponseTypeDef(BaseValidatorModel):
     CreatedAt: datetime
-    JobArn: str
-    JobId: str
+    JobArn: Annotated[str, _aws_pattern("Location", "GeoArn")]
+    JobId: Annotated[str, _aws_pattern("Location", "JobId")]
     Status: JobStatusType
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 # This class is the output for the 'update_geofence_collection' function.
 class UpdateGeofenceCollectionResponseTypeDef(BaseValidatorModel):
-    CollectionName: str
-    CollectionArn: str
+    CollectionName: Annotated[str, _aws_pattern("Location", "ResourceName")]
+    CollectionArn: Annotated[str, _aws_pattern("Location", "Arn")]
     UpdateTime: datetime
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 # This class is the output for the 'update_key' function.
 class UpdateKeyResponseTypeDef(BaseValidatorModel):
-    KeyArn: str
-    KeyName: str
+    KeyArn: Annotated[str, _aws_pattern("Location", "Arn")]
+    KeyName: Annotated[str, _aws_pattern("Location", "ResourceName")]
     UpdateTime: datetime
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 # This class is the output for the 'update_map' function.
 class UpdateMapResponseTypeDef(BaseValidatorModel):
-    MapName: str
-    MapArn: str
+    MapName: Annotated[str, _aws_pattern("Location", "ResourceName")]
+    MapArn: Annotated[str, _aws_pattern("Location", "GeoArn")]
     UpdateTime: datetime
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 # This class is the output for the 'update_place_index' function.
 class UpdatePlaceIndexResponseTypeDef(BaseValidatorModel):
-    IndexName: str
-    IndexArn: str
+    IndexName: Annotated[str, _aws_pattern("Location", "ResourceName")]
+    IndexArn: Annotated[str, _aws_pattern("Location", "GeoArn")]
     UpdateTime: datetime
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 # This class is the output for the 'update_route_calculator' function.
 class UpdateRouteCalculatorResponseTypeDef(BaseValidatorModel):
-    CalculatorName: str
-    CalculatorArn: str
+    CalculatorName: Annotated[str, _aws_pattern("Location", "ResourceName")]
+    CalculatorArn: Annotated[str, _aws_pattern("Location", "GeoArn")]
     UpdateTime: datetime
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 # This class is the output for the 'update_tracker' function.
 class UpdateTrackerResponseTypeDef(BaseValidatorModel):
-    TrackerName: str
-    TrackerArn: str
+    TrackerName: Annotated[str, _aws_pattern("Location", "ResourceName")]
+    TrackerArn: Annotated[str, _aws_pattern("Location", "Arn")]
     UpdateTime: datetime
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 # This class is the input for the 'get_device_position_history' function.
 class GetDevicePositionHistoryRequestTypeDef(BaseValidatorModel):
-    TrackerName: str
-    DeviceId: str
+    TrackerName: Annotated[str, _aws_pattern("Location", "ResourceName")]
+    DeviceId: Annotated[str, _aws_pattern("Location", "Id")]
     NextToken: Optional[str] = None
     StartTimeInclusive: Optional[TimestampTypeDef] = None
     EndTimeExclusive: Optional[TimestampTypeDef] = None
@@ -917,7 +919,7 @@ CircleUnionTypeDef = Union[CircleOutputTypeDef, CircleTypeDef]
 
 # This class is the input for the 'create_place_index' function.
 class CreatePlaceIndexRequestTypeDef(BaseValidatorModel):
-    IndexName: str
+    IndexName: Annotated[str, _aws_pattern("Location", "ResourceName")]
     DataSource: str
     PricingPlan: Optional[PricingPlanType] = None
     Description: Optional[str] = None
@@ -927,8 +929,8 @@ class CreatePlaceIndexRequestTypeDef(BaseValidatorModel):
 
 # This class is the output for the 'describe_place_index' function.
 class DescribePlaceIndexResponseTypeDef(BaseValidatorModel):
-    IndexName: str
-    IndexArn: str
+    IndexName: Annotated[str, _aws_pattern("Location", "ResourceName")]
+    IndexArn: Annotated[str, _aws_pattern("Location", "GeoArn")]
     PricingPlan: PricingPlanType
     Description: str
     CreateTime: datetime
@@ -941,7 +943,7 @@ class DescribePlaceIndexResponseTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'update_place_index' function.
 class UpdatePlaceIndexRequestTypeDef(BaseValidatorModel):
-    IndexName: str
+    IndexName: Annotated[str, _aws_pattern("Location", "ResourceName")]
     PricingPlan: Optional[PricingPlanType] = None
     Description: Optional[str] = None
     DataSourceConfiguration: Optional[DataSourceConfigurationTypeDef] = None
@@ -949,8 +951,8 @@ class UpdatePlaceIndexRequestTypeDef(BaseValidatorModel):
 
 # This class is the output for the 'describe_map' function.
 class DescribeMapResponseTypeDef(BaseValidatorModel):
-    MapName: str
-    MapArn: str
+    MapName: Annotated[str, _aws_pattern("Location", "ResourceName")]
+    MapArn: Annotated[str, _aws_pattern("Location", "GeoArn")]
     PricingPlan: PricingPlanType
     DataSource: str
     Configuration: MapConfigurationOutputTypeDef
@@ -965,13 +967,13 @@ class DevicePositionTypeDef(BaseValidatorModel):
     SampleTime: datetime
     ReceivedTime: datetime
     Position: List[float]
-    DeviceId: Optional[str] = None
+    DeviceId: Optional[Annotated[str, _aws_pattern("Location", "Id")]] = None
     Accuracy: Optional[PositionalAccuracyTypeDef] = None
     PositionProperties: Optional[Dict[str, str]] = None
 
 
 class DevicePositionUpdateTypeDef(BaseValidatorModel):
-    DeviceId: str
+    DeviceId: Annotated[str, _aws_pattern("Location", "Id")]
     SampleTime: TimestampTypeDef
     Position: List[float]
     Accuracy: Optional[PositionalAccuracyTypeDef] = None
@@ -980,7 +982,7 @@ class DevicePositionUpdateTypeDef(BaseValidatorModel):
 
 # This class is the output for the 'get_device_position' function.
 class GetDevicePositionResponseTypeDef(BaseValidatorModel):
-    DeviceId: str
+    DeviceId: Annotated[str, _aws_pattern("Location", "Id")]
     SampleTime: datetime
     ReceivedTime: datetime
     Position: List[float]
@@ -997,7 +999,7 @@ class InferredStateTypeDef(BaseValidatorModel):
 
 
 class ListDevicePositionsResponseEntryTypeDef(BaseValidatorModel):
-    DeviceId: str
+    DeviceId: Annotated[str, _aws_pattern("Location", "Id")]
     SampleTime: datetime
     Position: List[float]
     Accuracy: Optional[PositionalAccuracyTypeDef] = None
@@ -1006,7 +1008,7 @@ class ListDevicePositionsResponseEntryTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'forecast_geofence_events' function.
 class ForecastGeofenceEventsRequestTypeDef(BaseValidatorModel):
-    CollectionName: str
+    CollectionName: Annotated[str, _aws_pattern("Location", "ResourceName")]
     DeviceState: ForecastGeofenceEventsDeviceStateTypeDef
     TimeHorizonMinutes: Optional[float] = None
     DistanceUnit: Optional[DistanceUnitType] = None
@@ -1118,7 +1120,7 @@ class ListDevicePositionsRequestPaginateTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'list_device_positions' function.
 class ListDevicePositionsRequestTypeDef(BaseValidatorModel):
-    TrackerName: str
+    TrackerName: Annotated[str, _aws_pattern("Location", "ResourceName")]
     MaxResults: Optional[int] = None
     NextToken: Optional[str] = None
     FilterGeometry: Optional[TrackingFilterGeometryTypeDef] = None
@@ -1177,7 +1179,7 @@ MapConfigurationUnionTypeDef = Union[MapConfigurationOutputTypeDef, MapConfigura
 
 # This class is the input for the 'update_map' function.
 class UpdateMapRequestTypeDef(BaseValidatorModel):
-    MapName: str
+    MapName: Annotated[str, _aws_pattern("Location", "ResourceName")]
     PricingPlan: Optional[PricingPlanType] = None
     Description: Optional[str] = None
     ConfigurationUpdate: Optional[MapConfigurationUpdateTypeDef] = None
@@ -1219,8 +1221,8 @@ class SearchPlaceIndexForSuggestionsResponseTypeDef(BaseValidatorModel):
 # This class is the output for the 'describe_key' function.
 class DescribeKeyResponseTypeDef(BaseValidatorModel):
     Key: str
-    KeyArn: str
-    KeyName: str
+    KeyArn: Annotated[str, _aws_pattern("Location", "Arn")]
+    KeyName: Annotated[str, _aws_pattern("Location", "ResourceName")]
     Restrictions: ApiKeyRestrictionsOutputTypeDef
     CreateTime: datetime
     ExpireTime: datetime
@@ -1231,7 +1233,7 @@ class DescribeKeyResponseTypeDef(BaseValidatorModel):
 
 
 class ListKeysResponseEntryTypeDef(BaseValidatorModel):
-    KeyName: str
+    KeyName: Annotated[str, _aws_pattern("Location", "ResourceName")]
     ExpireTime: datetime
     Restrictions: ApiKeyRestrictionsOutputTypeDef
     CreateTime: datetime
@@ -1275,7 +1277,7 @@ class BatchUpdateDevicePositionResponseTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'calculate_route_matrix' function.
 class CalculateRouteMatrixRequestTypeDef(BaseValidatorModel):
-    CalculatorName: str
+    CalculatorName: Annotated[str, _aws_pattern("Location", "ResourceName")]
     DeparturePositions: List[List[float]]
     DestinationPositions: List[List[float]]
     TravelMode: Optional[TravelModeType] = None
@@ -1289,7 +1291,7 @@ class CalculateRouteMatrixRequestTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'calculate_route' function.
 class CalculateRouteRequestTypeDef(BaseValidatorModel):
-    CalculatorName: str
+    CalculatorName: Annotated[str, _aws_pattern("Location", "ResourceName")]
     DeparturePosition: List[float]
     DestinationPosition: List[float]
     WaypointPositions: Optional[List[List[float]]] = None
@@ -1307,7 +1309,7 @@ class CalculateRouteRequestTypeDef(BaseValidatorModel):
 
 # This class is the output for the 'get_geofence' function.
 class GetGeofenceResponseTypeDef(BaseValidatorModel):
-    GeofenceId: str
+    GeofenceId: Annotated[str, _aws_pattern("Location", "Id")]
     Geometry: GeofenceGeometryOutputTypeDef
     Status: str
     CreateTime: datetime
@@ -1317,7 +1319,7 @@ class GetGeofenceResponseTypeDef(BaseValidatorModel):
 
 
 class ListGeofenceResponseEntryTypeDef(BaseValidatorModel):
-    GeofenceId: str
+    GeofenceId: Annotated[str, _aws_pattern("Location", "Id")]
     Geometry: GeofenceGeometryOutputTypeDef
     Status: str
     CreateTime: datetime
@@ -1348,20 +1350,20 @@ class GetDevicePositionHistoryResponseTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'batch_evaluate_geofences' function.
 class BatchEvaluateGeofencesRequestTypeDef(BaseValidatorModel):
-    CollectionName: str
+    CollectionName: Annotated[str, _aws_pattern("Location", "ResourceName")]
     DevicePositionUpdates: List[DevicePositionUpdateTypeDef]
 
 
 # This class is the input for the 'batch_update_device_position' function.
 class BatchUpdateDevicePositionRequestTypeDef(BaseValidatorModel):
-    TrackerName: str
+    TrackerName: Annotated[str, _aws_pattern("Location", "ResourceName")]
     Updates: List[DevicePositionUpdateTypeDef]
 
 
 # This class is the output for the 'verify_device_position' function.
 class VerifyDevicePositionResponseTypeDef(BaseValidatorModel):
     InferredState: InferredStateTypeDef
-    DeviceId: str
+    DeviceId: Annotated[str, _aws_pattern("Location", "Id")]
     SampleTime: datetime
     ReceivedTime: datetime
     DistanceUnit: DistanceUnitType
@@ -1384,9 +1386,9 @@ class GetJobResponseTypeDef(BaseValidatorModel):
     Error: JobErrorTypeDef
     ExecutionRoleArn: str
     InputOptions: JobInputOptionsTypeDef
-    JobArn: str
-    JobId: str
-    Name: str
+    JobArn: Annotated[str, _aws_pattern("Location", "GeoArn")]
+    JobId: Annotated[str, _aws_pattern("Location", "JobId")]
+    Name: Annotated[str, _aws_pattern("Location", "ResourceName")]
     OutputOptions: JobOutputOptionsTypeDef
     Status: JobStatusType
     UpdatedAt: datetime
@@ -1399,15 +1401,15 @@ class ListJobsResponseEntryTypeDef(BaseValidatorModel):
     CreatedAt: datetime
     ExecutionRoleArn: str
     InputOptions: JobInputOptionsTypeDef
-    JobId: str
-    JobArn: str
+    JobId: Annotated[str, _aws_pattern("Location", "JobId")]
+    JobArn: Annotated[str, _aws_pattern("Location", "GeoArn")]
     OutputOptions: JobOutputOptionsTypeDef
     Status: JobStatusType
     UpdatedAt: datetime
     ActionOptions: Optional[JobActionOptionsOutputTypeDef] = None
     EndedAt: Optional[datetime] = None
     Error: Optional[JobErrorTypeDef] = None
-    Name: Optional[str] = None
+    Name: Optional[Annotated[str, _aws_pattern("Location", "ResourceName")]] = None
 
 
 JobActionOptionsUnionTypeDef = Union[JobActionOptionsOutputTypeDef, JobActionOptionsTypeDef]
@@ -1426,7 +1428,7 @@ class CellSignalsTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'create_map' function.
 class CreateMapRequestTypeDef(BaseValidatorModel):
-    MapName: str
+    MapName: Annotated[str, _aws_pattern("Location", "ResourceName")]
     Configuration: MapConfigurationUnionTypeDef
     PricingPlan: Optional[PricingPlanType] = None
     Description: Optional[str] = None
@@ -1470,7 +1472,7 @@ class ListKeysResponseTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'create_key' function.
 class CreateKeyRequestTypeDef(BaseValidatorModel):
-    KeyName: str
+    KeyName: Annotated[str, _aws_pattern("Location", "ResourceName")]
     Restrictions: ApiKeyRestrictionsUnionTypeDef
     Description: Optional[str] = None
     ExpireTime: Optional[TimestampTypeDef] = None
@@ -1480,7 +1482,7 @@ class CreateKeyRequestTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'update_key' function.
 class UpdateKeyRequestTypeDef(BaseValidatorModel):
-    KeyName: str
+    KeyName: Annotated[str, _aws_pattern("Location", "ResourceName")]
     Description: Optional[str] = None
     ExpireTime: Optional[TimestampTypeDef] = None
     NoExpiry: Optional[bool] = None
@@ -1511,18 +1513,18 @@ class StartJobRequestTypeDef(BaseValidatorModel):
     ExecutionRoleArn: str
     InputOptions: JobInputOptionsTypeDef
     OutputOptions: JobOutputOptionsTypeDef
-    ClientToken: Optional[str] = None
+    ClientToken: Optional[Annotated[str, _aws_pattern("Location", "ClientToken")]] = None
     ActionOptions: Optional[JobActionOptionsUnionTypeDef] = None
-    Name: Optional[str] = None
+    Name: Optional[Annotated[str, _aws_pattern("Location", "ResourceName")]] = None
     Tags: Optional[Dict[str, str]] = None
 
 
 class DeviceStateTypeDef(BaseValidatorModel):
-    DeviceId: str
+    DeviceId: Annotated[str, _aws_pattern("Location", "Id")]
     SampleTime: TimestampTypeDef
     Position: List[float]
     Accuracy: Optional[PositionalAccuracyTypeDef] = None
-    Ipv4Address: Optional[str] = None
+    Ipv4Address: Optional[Annotated[str, _aws_pattern("Location", "DeviceStateIpv4AddressString")]] = None
     WiFiAccessPoints: Optional[List[WiFiAccessPointTypeDef]] = None
     CellSignals: Optional[CellSignalsTypeDef] = None
 
@@ -1542,27 +1544,27 @@ class SearchPlaceIndexForTextResponseTypeDef(BaseValidatorModel):
 
 
 class BatchPutGeofenceRequestEntryTypeDef(BaseValidatorModel):
-    GeofenceId: str
+    GeofenceId: Annotated[str, _aws_pattern("Location", "Id")]
     Geometry: GeofenceGeometryUnionTypeDef
     GeofenceProperties: Optional[Dict[str, str]] = None
 
 
 # This class is the input for the 'put_geofence' function.
 class PutGeofenceRequestTypeDef(BaseValidatorModel):
-    CollectionName: str
-    GeofenceId: str
+    CollectionName: Annotated[str, _aws_pattern("Location", "ResourceName")]
+    GeofenceId: Annotated[str, _aws_pattern("Location", "Id")]
     Geometry: GeofenceGeometryUnionTypeDef
     GeofenceProperties: Optional[Dict[str, str]] = None
 
 
 # This class is the input for the 'verify_device_position' function.
 class VerifyDevicePositionRequestTypeDef(BaseValidatorModel):
-    TrackerName: str
+    TrackerName: Annotated[str, _aws_pattern("Location", "ResourceName")]
     DeviceState: DeviceStateTypeDef
     DistanceUnit: Optional[DistanceUnitType] = None
 
 
 # This class is the input for the 'batch_put_geofence' function.
 class BatchPutGeofenceRequestTypeDef(BaseValidatorModel):
-    CollectionName: str
+    CollectionName: Annotated[str, _aws_pattern("Location", "ResourceName")]
     Entries: List[BatchPutGeofenceRequestEntryTypeDef]

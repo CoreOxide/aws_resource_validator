@@ -3,6 +3,7 @@
 from datetime import datetime
 from decimal import Decimal
 from typing import (
+    Annotated,
     Any,
     Callable,
     Dict,
@@ -24,6 +25,7 @@ from botocore.response import StreamingBody
 from pydantic import Field
 
 from aws_resource_validator.core.base_validator_model import BaseValidatorModel, EventStream
+from aws_resource_validator.core.pattern_validation import aws_field_pattern as _aws_pattern
 from aws_resource_validator.pydantic_models.iottwinmaker.iottwinmaker_constants import *  # noqa: F401,F403
 
 # Optional boto3 symbols — imported lazily so services that don't need them
@@ -47,13 +49,13 @@ class ResponseMetadataTypeDef(BaseValidatorModel):
 
 
 class BundleInformationTypeDef(BaseValidatorModel):
-    bundleNames: List[str]
+    bundleNames: List[Annotated[str, _aws_pattern("Iottwinmaker", "BundleName")]]
     pricingTier: Optional[PricingTierType] = None
 
 
 # This class is the input for the 'cancel_metadata_transfer_job' function.
 class CancelMetadataTransferJobRequestTypeDef(BaseValidatorModel):
-    metadataTransferJobId: str
+    metadataTransferJobId: Annotated[str, _aws_pattern("Iottwinmaker", "Id")]
 
 
 class MetadataTransferJobProgressTypeDef(BaseValidatorModel):
@@ -64,113 +66,113 @@ class MetadataTransferJobProgressTypeDef(BaseValidatorModel):
 
 
 class ColumnDescriptionTypeDef(BaseValidatorModel):
-    name: Optional[str] = None
+    name: Optional[Annotated[str, _aws_pattern("Iottwinmaker", "ColumnName")]] = None
     type: Optional[ColumnTypeType] = None
 
 
 class ComponentPropertyGroupRequestTypeDef(BaseValidatorModel):
     groupType: Optional[Literal["TABULAR"]] = None
-    propertyNames: Optional[List[str]] = None
+    propertyNames: Optional[List[Annotated[str, _aws_pattern("Iottwinmaker", "Name")]]] = None
     updateType: Optional[PropertyGroupUpdateTypeType] = None
 
 
 class ComponentPropertyGroupResponseTypeDef(BaseValidatorModel):
     groupType: Literal["TABULAR"]
-    propertyNames: List[str]
+    propertyNames: List[Annotated[str, _aws_pattern("Iottwinmaker", "Name")]]
     isInherited: bool
 
 
 class CompositeComponentTypeRequestTypeDef(BaseValidatorModel):
-    componentTypeId: Optional[str] = None
+    componentTypeId: Optional[Annotated[str, _aws_pattern("Iottwinmaker", "ComponentTypeId")]] = None
 
 
 class CompositeComponentTypeResponseTypeDef(BaseValidatorModel):
-    componentTypeId: Optional[str] = None
+    componentTypeId: Optional[Annotated[str, _aws_pattern("Iottwinmaker", "ComponentTypeId")]] = None
     isInherited: Optional[bool] = None
 
 
 class PropertyGroupRequestTypeDef(BaseValidatorModel):
     groupType: Optional[Literal["TABULAR"]] = None
-    propertyNames: Optional[List[str]] = None
+    propertyNames: Optional[List[Annotated[str, _aws_pattern("Iottwinmaker", "Name")]]] = None
 
 
 # This class is the input for the 'create_scene' function.
 class CreateSceneRequestTypeDef(BaseValidatorModel):
-    workspaceId: str
-    sceneId: str
-    contentLocation: str
-    description: Optional[str] = None
-    capabilities: Optional[List[str]] = None
+    workspaceId: Annotated[str, _aws_pattern("Iottwinmaker", "Id")]
+    sceneId: Annotated[str, _aws_pattern("Iottwinmaker", "Id")]
+    contentLocation: Annotated[str, _aws_pattern("Iottwinmaker", "S3Url")]
+    description: Optional[Annotated[str, _aws_pattern("Iottwinmaker", "Description")]] = None
+    capabilities: Optional[List[Annotated[str, _aws_pattern("Iottwinmaker", "SceneCapability")]]] = None
     tags: Optional[Dict[str, str]] = None
     sceneMetadata: Optional[Dict[str, str]] = None
 
 
 # This class is the input for the 'create_sync_job' function.
 class CreateSyncJobRequestTypeDef(BaseValidatorModel):
-    workspaceId: str
-    syncSource: str
-    syncRole: str
+    workspaceId: Annotated[str, _aws_pattern("Iottwinmaker", "Id")]
+    syncSource: Annotated[str, _aws_pattern("Iottwinmaker", "SyncSource")]
+    syncRole: Annotated[str, _aws_pattern("Iottwinmaker", "RoleArn")]
     tags: Optional[Dict[str, str]] = None
 
 
 # This class is the input for the 'create_workspace' function.
 class CreateWorkspaceRequestTypeDef(BaseValidatorModel):
-    workspaceId: str
-    description: Optional[str] = None
-    s3Location: Optional[str] = None
-    role: Optional[str] = None
+    workspaceId: Annotated[str, _aws_pattern("Iottwinmaker", "Id")]
+    description: Optional[Annotated[str, _aws_pattern("Iottwinmaker", "Description")]] = None
+    s3Location: Optional[Annotated[str, _aws_pattern("Iottwinmaker", "S3Location")]] = None
+    role: Optional[Annotated[str, _aws_pattern("Iottwinmaker", "RoleArn")]] = None
     tags: Optional[Dict[str, str]] = None
 
 
 class LambdaFunctionTypeDef(BaseValidatorModel):
-    arn: str
+    arn: Annotated[str, _aws_pattern("Iottwinmaker", "LambdaArn")]
 
 
 class RelationshipTypeDef(BaseValidatorModel):
-    targetComponentTypeId: Optional[str] = None
-    relationshipType: Optional[str] = None
+    targetComponentTypeId: Optional[Annotated[str, _aws_pattern("Iottwinmaker", "ComponentTypeId")]] = None
+    relationshipType: Optional[Annotated[str, _aws_pattern("Iottwinmaker", "String")]] = None
 
 
 class RelationshipValueTypeDef(BaseValidatorModel):
-    targetEntityId: Optional[str] = None
-    targetComponentName: Optional[str] = None
+    targetEntityId: Optional[Annotated[str, _aws_pattern("Iottwinmaker", "EntityId")]] = None
+    targetComponentName: Optional[Annotated[str, _aws_pattern("Iottwinmaker", "Name")]] = None
 
 
 # This class is the input for the 'delete_component_type' function.
 class DeleteComponentTypeRequestTypeDef(BaseValidatorModel):
-    workspaceId: str
-    componentTypeId: str
+    workspaceId: Annotated[str, _aws_pattern("Iottwinmaker", "Id")]
+    componentTypeId: Annotated[str, _aws_pattern("Iottwinmaker", "ComponentTypeId")]
 
 
 # This class is the input for the 'delete_entity' function.
 class DeleteEntityRequestTypeDef(BaseValidatorModel):
-    workspaceId: str
-    entityId: str
+    workspaceId: Annotated[str, _aws_pattern("Iottwinmaker", "Id")]
+    entityId: Annotated[str, _aws_pattern("Iottwinmaker", "EntityId")]
     isRecursive: Optional[bool] = None
 
 
 class DeleteSceneRequestTypeDef(BaseValidatorModel):
-    workspaceId: str
-    sceneId: str
+    workspaceId: Annotated[str, _aws_pattern("Iottwinmaker", "Id")]
+    sceneId: Annotated[str, _aws_pattern("Iottwinmaker", "Id")]
 
 
 # This class is the input for the 'delete_sync_job' function.
 class DeleteSyncJobRequestTypeDef(BaseValidatorModel):
-    workspaceId: str
-    syncSource: str
+    workspaceId: Annotated[str, _aws_pattern("Iottwinmaker", "Id")]
+    syncSource: Annotated[str, _aws_pattern("Iottwinmaker", "SyncSource")]
 
 
 # This class is the input for the 'delete_workspace' function.
 class DeleteWorkspaceRequestTypeDef(BaseValidatorModel):
-    workspaceId: str
+    workspaceId: Annotated[str, _aws_pattern("Iottwinmaker", "Id")]
 
 
 class IotTwinMakerDestinationConfigurationTypeDef(BaseValidatorModel):
-    workspace: str
+    workspace: Annotated[str, _aws_pattern("Iottwinmaker", "TwinMakerArn")]
 
 
 class S3DestinationConfigurationTypeDef(BaseValidatorModel):
-    location: str
+    location: Annotated[str, _aws_pattern("Iottwinmaker", "S3DestinationLocation")]
 
 
 class EntityPropertyReferenceOutputTypeDef(BaseValidatorModel):
@@ -182,11 +184,11 @@ class EntityPropertyReferenceOutputTypeDef(BaseValidatorModel):
 
 
 class EntityPropertyReferenceTypeDef(BaseValidatorModel):
-    propertyName: str
-    componentName: Optional[str] = None
-    componentPath: Optional[str] = None
+    propertyName: Annotated[str, _aws_pattern("Iottwinmaker", "Name")]
+    componentName: Optional[Annotated[str, _aws_pattern("Iottwinmaker", "Name")]] = None
+    componentPath: Optional[Annotated[str, _aws_pattern("Iottwinmaker", "ComponentPath")]] = None
     externalIdProperty: Optional[Dict[str, str]] = None
-    entityId: Optional[str] = None
+    entityId: Optional[Annotated[str, _aws_pattern("Iottwinmaker", "EntityId")]] = None
 
 
 class ErrorDetailsTypeDef(BaseValidatorModel):
@@ -196,10 +198,10 @@ class ErrorDetailsTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'execute_query' function.
 class ExecuteQueryRequestTypeDef(BaseValidatorModel):
-    workspaceId: str
-    queryStatement: str
+    workspaceId: Annotated[str, _aws_pattern("Iottwinmaker", "Id")]
+    queryStatement: Annotated[str, _aws_pattern("Iottwinmaker", "QueryStatement")]
     maxResults: Optional[int] = None
-    nextToken: Optional[str] = None
+    nextToken: Optional[Annotated[str, _aws_pattern("Iottwinmaker", "NextToken")]] = None
 
 
 class RowTypeDef(BaseValidatorModel):
@@ -207,48 +209,48 @@ class RowTypeDef(BaseValidatorModel):
 
 
 class FilterByAssetModelTypeDef(BaseValidatorModel):
-    assetModelId: Optional[str] = None
-    assetModelExternalId: Optional[str] = None
+    assetModelId: Optional[Annotated[str, _aws_pattern("Iottwinmaker", "Uuid")]] = None
+    assetModelExternalId: Optional[Annotated[str, _aws_pattern("Iottwinmaker", "SiteWiseExternalId")]] = None
     includeOffspring: Optional[bool] = None
     includeAssets: Optional[bool] = None
 
 
 class FilterByAssetTypeDef(BaseValidatorModel):
-    assetId: Optional[str] = None
-    assetExternalId: Optional[str] = None
+    assetId: Optional[Annotated[str, _aws_pattern("Iottwinmaker", "Uuid")]] = None
+    assetExternalId: Optional[Annotated[str, _aws_pattern("Iottwinmaker", "SiteWiseExternalId")]] = None
     includeOffspring: Optional[bool] = None
     includeAssetModel: Optional[bool] = None
 
 
 class FilterByComponentTypeTypeDef(BaseValidatorModel):
-    componentTypeId: str
+    componentTypeId: Annotated[str, _aws_pattern("Iottwinmaker", "ComponentTypeId")]
 
 
 class FilterByEntityTypeDef(BaseValidatorModel):
-    entityId: str
+    entityId: Annotated[str, _aws_pattern("Iottwinmaker", "EntityId")]
 
 
 # This class is the input for the 'get_component_type' function.
 class GetComponentTypeRequestTypeDef(BaseValidatorModel):
-    workspaceId: str
-    componentTypeId: str
+    workspaceId: Annotated[str, _aws_pattern("Iottwinmaker", "Id")]
+    componentTypeId: Annotated[str, _aws_pattern("Iottwinmaker", "ComponentTypeId")]
 
 
 class PropertyGroupResponseTypeDef(BaseValidatorModel):
     groupType: Literal["TABULAR"]
-    propertyNames: List[str]
+    propertyNames: List[Annotated[str, _aws_pattern("Iottwinmaker", "Name")]]
     isInherited: bool
 
 
 # This class is the input for the 'get_entity' function.
 class GetEntityRequestTypeDef(BaseValidatorModel):
-    workspaceId: str
-    entityId: str
+    workspaceId: Annotated[str, _aws_pattern("Iottwinmaker", "Id")]
+    entityId: Annotated[str, _aws_pattern("Iottwinmaker", "EntityId")]
 
 
 # This class is the input for the 'get_metadata_transfer_job' function.
 class GetMetadataTransferJobRequestTypeDef(BaseValidatorModel):
-    metadataTransferJobId: str
+    metadataTransferJobId: Annotated[str, _aws_pattern("Iottwinmaker", "Id")]
 
 
 class InterpolationParametersTypeDef(BaseValidatorModel):
@@ -261,8 +263,8 @@ TimestampTypeDef = Union[datetime, str]
 
 # This class is the input for the 'get_scene' function.
 class GetSceneRequestTypeDef(BaseValidatorModel):
-    workspaceId: str
-    sceneId: str
+    workspaceId: Annotated[str, _aws_pattern("Iottwinmaker", "Id")]
+    sceneId: Annotated[str, _aws_pattern("Iottwinmaker", "Id")]
 
 
 class SceneErrorTypeDef(BaseValidatorModel):
@@ -272,154 +274,154 @@ class SceneErrorTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'get_sync_job' function.
 class GetSyncJobRequestTypeDef(BaseValidatorModel):
-    syncSource: str
-    workspaceId: Optional[str] = None
+    syncSource: Annotated[str, _aws_pattern("Iottwinmaker", "SyncSource")]
+    workspaceId: Optional[Annotated[str, _aws_pattern("Iottwinmaker", "Id")]] = None
 
 
 # This class is the input for the 'get_workspace' function.
 class GetWorkspaceRequestTypeDef(BaseValidatorModel):
-    workspaceId: str
+    workspaceId: Annotated[str, _aws_pattern("Iottwinmaker", "IdOrArn")]
 
 
 class ListComponentTypesFilterTypeDef(BaseValidatorModel):
-    extendsFrom: Optional[str] = None
-    namespace: Optional[str] = None
+    extendsFrom: Optional[Annotated[str, _aws_pattern("Iottwinmaker", "ComponentTypeId")]] = None
+    namespace: Optional[Annotated[str, _aws_pattern("Iottwinmaker", "String")]] = None
     isAbstract: Optional[bool] = None
 
 
 # This class is the input for the 'list_components' function.
 class ListComponentsRequestTypeDef(BaseValidatorModel):
-    workspaceId: str
-    entityId: str
-    componentPath: Optional[str] = None
+    workspaceId: Annotated[str, _aws_pattern("Iottwinmaker", "Id")]
+    entityId: Annotated[str, _aws_pattern("Iottwinmaker", "EntityId")]
+    componentPath: Optional[Annotated[str, _aws_pattern("Iottwinmaker", "ComponentPath")]] = None
     maxResults: Optional[int] = None
-    nextToken: Optional[str] = None
+    nextToken: Optional[Annotated[str, _aws_pattern("Iottwinmaker", "NextToken")]] = None
 
 
 class ListEntitiesFilterTypeDef(BaseValidatorModel):
-    parentEntityId: Optional[str] = None
-    componentTypeId: Optional[str] = None
-    externalId: Optional[str] = None
+    parentEntityId: Optional[Annotated[str, _aws_pattern("Iottwinmaker", "ParentEntityId")]] = None
+    componentTypeId: Optional[Annotated[str, _aws_pattern("Iottwinmaker", "ComponentTypeId")]] = None
+    externalId: Optional[Annotated[str, _aws_pattern("Iottwinmaker", "String")]] = None
 
 
 class ListMetadataTransferJobsFilterTypeDef(BaseValidatorModel):
-    workspaceId: Optional[str] = None
+    workspaceId: Optional[Annotated[str, _aws_pattern("Iottwinmaker", "Id")]] = None
     state: Optional[MetadataTransferJobStateType] = None
 
 
 # This class is the input for the 'list_properties' function.
 class ListPropertiesRequestTypeDef(BaseValidatorModel):
-    workspaceId: str
-    entityId: str
-    componentName: Optional[str] = None
-    componentPath: Optional[str] = None
+    workspaceId: Annotated[str, _aws_pattern("Iottwinmaker", "Id")]
+    entityId: Annotated[str, _aws_pattern("Iottwinmaker", "EntityId")]
+    componentName: Optional[Annotated[str, _aws_pattern("Iottwinmaker", "Name")]] = None
+    componentPath: Optional[Annotated[str, _aws_pattern("Iottwinmaker", "ComponentPath")]] = None
     maxResults: Optional[int] = None
-    nextToken: Optional[str] = None
+    nextToken: Optional[Annotated[str, _aws_pattern("Iottwinmaker", "NextToken")]] = None
 
 
 # This class is the input for the 'list_scenes' function.
 class ListScenesRequestTypeDef(BaseValidatorModel):
-    workspaceId: str
+    workspaceId: Annotated[str, _aws_pattern("Iottwinmaker", "Id")]
     maxResults: Optional[int] = None
-    nextToken: Optional[str] = None
+    nextToken: Optional[Annotated[str, _aws_pattern("Iottwinmaker", "NextToken")]] = None
 
 
 class SceneSummaryTypeDef(BaseValidatorModel):
-    sceneId: str
-    contentLocation: str
-    arn: str
+    sceneId: Annotated[str, _aws_pattern("Iottwinmaker", "Id")]
+    contentLocation: Annotated[str, _aws_pattern("Iottwinmaker", "S3Url")]
+    arn: Annotated[str, _aws_pattern("Iottwinmaker", "TwinMakerArn")]
     creationDateTime: datetime
     updateDateTime: datetime
-    description: Optional[str] = None
+    description: Optional[Annotated[str, _aws_pattern("Iottwinmaker", "Description")]] = None
 
 
 # This class is the input for the 'list_sync_jobs' function.
 class ListSyncJobsRequestTypeDef(BaseValidatorModel):
-    workspaceId: str
+    workspaceId: Annotated[str, _aws_pattern("Iottwinmaker", "Id")]
     maxResults: Optional[int] = None
-    nextToken: Optional[str] = None
+    nextToken: Optional[Annotated[str, _aws_pattern("Iottwinmaker", "NextToken")]] = None
 
 
 class SyncResourceFilterTypeDef(BaseValidatorModel):
     state: Optional[SyncResourceStateType] = None
     resourceType: Optional[SyncResourceTypeType] = None
-    resourceId: Optional[str] = None
-    externalId: Optional[str] = None
+    resourceId: Optional[Annotated[str, _aws_pattern("Iottwinmaker", "Id")]] = None
+    externalId: Optional[Annotated[str, _aws_pattern("Iottwinmaker", "Id")]] = None
 
 
 # This class is the input for the 'list_tags_for_resource' function.
 class ListTagsForResourceRequestTypeDef(BaseValidatorModel):
-    resourceARN: str
+    resourceARN: Annotated[str, _aws_pattern("Iottwinmaker", "TwinMakerArn")]
     maxResults: Optional[int] = None
-    nextToken: Optional[str] = None
+    nextToken: Optional[Annotated[str, _aws_pattern("Iottwinmaker", "NextToken")]] = None
 
 
 # This class is the input for the 'list_workspaces' function.
 class ListWorkspacesRequestTypeDef(BaseValidatorModel):
     maxResults: Optional[int] = None
-    nextToken: Optional[str] = None
+    nextToken: Optional[Annotated[str, _aws_pattern("Iottwinmaker", "NextToken")]] = None
 
 
 class WorkspaceSummaryTypeDef(BaseValidatorModel):
-    workspaceId: str
-    arn: str
+    workspaceId: Annotated[str, _aws_pattern("Iottwinmaker", "Id")]
+    arn: Annotated[str, _aws_pattern("Iottwinmaker", "TwinMakerArn")]
     creationDateTime: datetime
     updateDateTime: datetime
-    description: Optional[str] = None
-    linkedServices: Optional[List[str]] = None
+    description: Optional[Annotated[str, _aws_pattern("Iottwinmaker", "Description")]] = None
+    linkedServices: Optional[List[Annotated[str, _aws_pattern("Iottwinmaker", "LinkedService")]]] = None
 
 
 class OrderByTypeDef(BaseValidatorModel):
-    propertyName: str
+    propertyName: Annotated[str, _aws_pattern("Iottwinmaker", "String")]
     order: Optional[OrderType] = None
 
 
 class ParentEntityUpdateRequestTypeDef(BaseValidatorModel):
     updateType: ParentEntityUpdateTypeType
-    parentEntityId: Optional[str] = None
+    parentEntityId: Optional[Annotated[str, _aws_pattern("Iottwinmaker", "ParentEntityId")]] = None
 
 
 class S3SourceConfigurationTypeDef(BaseValidatorModel):
-    location: str
+    location: Annotated[str, _aws_pattern("Iottwinmaker", "S3SourceLocation")]
 
 
 class TagResourceRequestTypeDef(BaseValidatorModel):
-    resourceARN: str
+    resourceARN: Annotated[str, _aws_pattern("Iottwinmaker", "TwinMakerArn")]
     tags: Dict[str, str]
 
 
 class UntagResourceRequestTypeDef(BaseValidatorModel):
-    resourceARN: str
-    tagKeys: List[str]
+    resourceARN: Annotated[str, _aws_pattern("Iottwinmaker", "TwinMakerArn")]
+    tagKeys: List[Annotated[str, _aws_pattern("Iottwinmaker", "TagKey")]]
 
 
 # This class is the input for the 'update_pricing_plan' function.
 class UpdatePricingPlanRequestTypeDef(BaseValidatorModel):
     pricingMode: PricingModeType
-    bundleNames: Optional[List[str]] = None
+    bundleNames: Optional[List[Annotated[str, _aws_pattern("Iottwinmaker", "BundleName")]]] = None
 
 
 # This class is the input for the 'update_scene' function.
 class UpdateSceneRequestTypeDef(BaseValidatorModel):
-    workspaceId: str
-    sceneId: str
-    contentLocation: Optional[str] = None
-    description: Optional[str] = None
-    capabilities: Optional[List[str]] = None
+    workspaceId: Annotated[str, _aws_pattern("Iottwinmaker", "Id")]
+    sceneId: Annotated[str, _aws_pattern("Iottwinmaker", "Id")]
+    contentLocation: Optional[Annotated[str, _aws_pattern("Iottwinmaker", "S3Url")]] = None
+    description: Optional[Annotated[str, _aws_pattern("Iottwinmaker", "Description")]] = None
+    capabilities: Optional[List[Annotated[str, _aws_pattern("Iottwinmaker", "SceneCapability")]]] = None
     sceneMetadata: Optional[Dict[str, str]] = None
 
 
 # This class is the input for the 'update_workspace' function.
 class UpdateWorkspaceRequestTypeDef(BaseValidatorModel):
-    workspaceId: str
-    description: Optional[str] = None
-    role: Optional[str] = None
-    s3Location: Optional[str] = None
+    workspaceId: Annotated[str, _aws_pattern("Iottwinmaker", "Id")]
+    description: Optional[Annotated[str, _aws_pattern("Iottwinmaker", "Description")]] = None
+    role: Optional[Annotated[str, _aws_pattern("Iottwinmaker", "RoleArn")]] = None
+    s3Location: Optional[Annotated[str, _aws_pattern("Iottwinmaker", "S3Location")]] = None
 
 
 # This class is the output for the 'create_component_type' function.
 class CreateComponentTypeResponseTypeDef(BaseValidatorModel):
-    arn: str
+    arn: Annotated[str, _aws_pattern("Iottwinmaker", "TwinMakerArn")]
     creationDateTime: datetime
     state: StateType
     ResponseMetadata: ResponseMetadataTypeDef
@@ -427,8 +429,8 @@ class CreateComponentTypeResponseTypeDef(BaseValidatorModel):
 
 # This class is the output for the 'create_entity' function.
 class CreateEntityResponseTypeDef(BaseValidatorModel):
-    entityId: str
-    arn: str
+    entityId: Annotated[str, _aws_pattern("Iottwinmaker", "EntityId")]
+    arn: Annotated[str, _aws_pattern("Iottwinmaker", "TwinMakerArn")]
     creationDateTime: datetime
     state: StateType
     ResponseMetadata: ResponseMetadataTypeDef
@@ -436,14 +438,14 @@ class CreateEntityResponseTypeDef(BaseValidatorModel):
 
 # This class is the output for the 'create_scene' function.
 class CreateSceneResponseTypeDef(BaseValidatorModel):
-    arn: str
+    arn: Annotated[str, _aws_pattern("Iottwinmaker", "TwinMakerArn")]
     creationDateTime: datetime
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 # This class is the output for the 'create_sync_job' function.
 class CreateSyncJobResponseTypeDef(BaseValidatorModel):
-    arn: str
+    arn: Annotated[str, _aws_pattern("Iottwinmaker", "TwinMakerArn")]
     creationDateTime: datetime
     state: SyncJobStateType
     ResponseMetadata: ResponseMetadataTypeDef
@@ -451,7 +453,7 @@ class CreateSyncJobResponseTypeDef(BaseValidatorModel):
 
 # This class is the output for the 'create_workspace' function.
 class CreateWorkspaceResponseTypeDef(BaseValidatorModel):
-    arn: str
+    arn: Annotated[str, _aws_pattern("Iottwinmaker", "TwinMakerArn")]
     creationDateTime: datetime
     ResponseMetadata: ResponseMetadataTypeDef
 
@@ -476,18 +478,18 @@ class DeleteSyncJobResponseTypeDef(BaseValidatorModel):
 
 # This class is the output for the 'delete_workspace' function.
 class DeleteWorkspaceResponseTypeDef(BaseValidatorModel):
-    message: str
+    message: Annotated[str, _aws_pattern("Iottwinmaker", "WorkspaceDeleteMessage")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 # This class is the output for the 'get_workspace' function.
 class GetWorkspaceResponseTypeDef(BaseValidatorModel):
-    workspaceId: str
-    arn: str
-    description: str
-    linkedServices: List[str]
-    s3Location: str
-    role: str
+    workspaceId: Annotated[str, _aws_pattern("Iottwinmaker", "Id")]
+    arn: Annotated[str, _aws_pattern("Iottwinmaker", "TwinMakerArn")]
+    description: Annotated[str, _aws_pattern("Iottwinmaker", "Description")]
+    linkedServices: List[Annotated[str, _aws_pattern("Iottwinmaker", "LinkedService")]]
+    s3Location: Annotated[str, _aws_pattern("Iottwinmaker", "S3Location")]
+    role: Annotated[str, _aws_pattern("Iottwinmaker", "RoleArn")]
     creationDateTime: datetime
     updateDateTime: datetime
     ResponseMetadata: ResponseMetadataTypeDef
@@ -497,14 +499,14 @@ class GetWorkspaceResponseTypeDef(BaseValidatorModel):
 class ListTagsForResourceResponseTypeDef(BaseValidatorModel):
     tags: Dict[str, str]
     ResponseMetadata: ResponseMetadataTypeDef
-    nextToken: Optional[str] = None
+    nextToken: Optional[Annotated[str, _aws_pattern("Iottwinmaker", "NextToken")]] = None
 
 
 # This class is the output for the 'update_component_type' function.
 class UpdateComponentTypeResponseTypeDef(BaseValidatorModel):
-    workspaceId: str
-    arn: str
-    componentTypeId: str
+    workspaceId: Annotated[str, _aws_pattern("Iottwinmaker", "Id")]
+    arn: Annotated[str, _aws_pattern("Iottwinmaker", "TwinMakerArn")]
+    componentTypeId: Annotated[str, _aws_pattern("Iottwinmaker", "ComponentTypeId")]
     state: StateType
     ResponseMetadata: ResponseMetadataTypeDef
 
@@ -559,11 +561,11 @@ class DataValueTypeDef(BaseValidatorModel):
     doubleValue: Optional[float] = None
     integerValue: Optional[int] = None
     longValue: Optional[int] = None
-    stringValue: Optional[str] = None
+    stringValue: Optional[Annotated[str, _aws_pattern("Iottwinmaker", "String")]] = None
     listValue: Optional[List[Dict[str, Any]]] = None
     mapValue: Optional[Dict[str, Dict[str, Any]]] = None
     relationshipValue: Optional[RelationshipValueTypeDef] = None
-    expression: Optional[str] = None
+    expression: Optional[Annotated[str, _aws_pattern("Iottwinmaker", "Expression")]] = None
 
 
 class DestinationConfigurationTypeDef(BaseValidatorModel):
@@ -601,7 +603,7 @@ class ExecuteQueryResponseTypeDef(BaseValidatorModel):
     columnDescriptions: List[ColumnDescriptionTypeDef]
     rows: List[RowTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
-    nextToken: Optional[str] = None
+    nextToken: Optional[Annotated[str, _aws_pattern("Iottwinmaker", "NextToken")]] = None
 
 
 class IotSiteWiseSourceConfigurationFilterTypeDef(BaseValidatorModel):
@@ -616,14 +618,14 @@ class IotTwinMakerSourceConfigurationFilterTypeDef(BaseValidatorModel):
 
 # This class is the output for the 'get_scene' function.
 class GetSceneResponseTypeDef(BaseValidatorModel):
-    workspaceId: str
-    sceneId: str
-    contentLocation: str
-    arn: str
+    workspaceId: Annotated[str, _aws_pattern("Iottwinmaker", "Id")]
+    sceneId: Annotated[str, _aws_pattern("Iottwinmaker", "Id")]
+    contentLocation: Annotated[str, _aws_pattern("Iottwinmaker", "S3Url")]
+    arn: Annotated[str, _aws_pattern("Iottwinmaker", "TwinMakerArn")]
     creationDateTime: datetime
     updateDateTime: datetime
-    description: str
-    capabilities: List[str]
+    description: Annotated[str, _aws_pattern("Iottwinmaker", "Description")]
+    capabilities: List[Annotated[str, _aws_pattern("Iottwinmaker", "SceneCapability")]]
     sceneMetadata: Dict[str, str]
     generatedSceneMetadata: Dict[str, str]
     error: SceneErrorTypeDef
@@ -632,18 +634,18 @@ class GetSceneResponseTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'list_component_types' function.
 class ListComponentTypesRequestTypeDef(BaseValidatorModel):
-    workspaceId: str
+    workspaceId: Annotated[str, _aws_pattern("Iottwinmaker", "Id")]
     filters: Optional[List[ListComponentTypesFilterTypeDef]] = None
-    nextToken: Optional[str] = None
+    nextToken: Optional[Annotated[str, _aws_pattern("Iottwinmaker", "NextToken")]] = None
     maxResults: Optional[int] = None
 
 
 # This class is the input for the 'list_entities' function.
 class ListEntitiesRequestTypeDef(BaseValidatorModel):
-    workspaceId: str
+    workspaceId: Annotated[str, _aws_pattern("Iottwinmaker", "Id")]
     filters: Optional[List[ListEntitiesFilterTypeDef]] = None
     maxResults: Optional[int] = None
-    nextToken: Optional[str] = None
+    nextToken: Optional[Annotated[str, _aws_pattern("Iottwinmaker", "NextToken")]] = None
 
 
 # This class is the input for the 'list_metadata_transfer_jobs' function.
@@ -651,7 +653,7 @@ class ListMetadataTransferJobsRequestTypeDef(BaseValidatorModel):
     sourceType: SourceTypeType
     destinationType: DestinationTypeType
     filters: Optional[List[ListMetadataTransferJobsFilterTypeDef]] = None
-    nextToken: Optional[str] = None
+    nextToken: Optional[Annotated[str, _aws_pattern("Iottwinmaker", "NextToken")]] = None
     maxResults: Optional[int] = None
 
 
@@ -659,23 +661,23 @@ class ListMetadataTransferJobsRequestTypeDef(BaseValidatorModel):
 class ListScenesResponseTypeDef(BaseValidatorModel):
     sceneSummaries: List[SceneSummaryTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
-    nextToken: Optional[str] = None
+    nextToken: Optional[Annotated[str, _aws_pattern("Iottwinmaker", "NextToken")]] = None
 
 
 # This class is the input for the 'list_sync_resources' function.
 class ListSyncResourcesRequestTypeDef(BaseValidatorModel):
-    workspaceId: str
-    syncSource: str
+    workspaceId: Annotated[str, _aws_pattern("Iottwinmaker", "Id")]
+    syncSource: Annotated[str, _aws_pattern("Iottwinmaker", "SyncSource")]
     filters: Optional[List[SyncResourceFilterTypeDef]] = None
     maxResults: Optional[int] = None
-    nextToken: Optional[str] = None
+    nextToken: Optional[Annotated[str, _aws_pattern("Iottwinmaker", "NextToken")]] = None
 
 
 # This class is the output for the 'list_workspaces' function.
 class ListWorkspacesResponseTypeDef(BaseValidatorModel):
     workspaceSummaries: List[WorkspaceSummaryTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
-    nextToken: Optional[str] = None
+    nextToken: Optional[Annotated[str, _aws_pattern("Iottwinmaker", "NextToken")]] = None
 
 
 class GetPricingPlanResponseTypeDef(BaseValidatorModel):
@@ -692,13 +694,13 @@ class UpdatePricingPlanResponseTypeDef(BaseValidatorModel):
 
 
 class FunctionRequestTypeDef(BaseValidatorModel):
-    requiredProperties: Optional[List[str]] = None
+    requiredProperties: Optional[List[Annotated[str, _aws_pattern("Iottwinmaker", "Name")]]] = None
     scope: Optional[ScopeType] = None
     implementedBy: Optional[DataConnectorTypeDef] = None
 
 
 class FunctionResponseTypeDef(BaseValidatorModel):
-    requiredProperties: Optional[List[str]] = None
+    requiredProperties: Optional[List[Annotated[str, _aws_pattern("Iottwinmaker", "Name")]]] = None
     scope: Optional[ScopeType] = None
     implementedBy: Optional[DataConnectorTypeDef] = None
     isInherited: Optional[bool] = None
@@ -728,8 +730,8 @@ DataValueUnionTypeDef = Union[DataValueOutputTypeDef, DataValueTypeDef]
 
 # This class is the output for the 'cancel_metadata_transfer_job' function.
 class CancelMetadataTransferJobResponseTypeDef(BaseValidatorModel):
-    metadataTransferJobId: str
-    arn: str
+    metadataTransferJobId: Annotated[str, _aws_pattern("Iottwinmaker", "Id")]
+    arn: Annotated[str, _aws_pattern("Iottwinmaker", "TwinMakerArn")]
     updateDateTime: datetime
     status: MetadataTransferJobStatusTypeDef
     progress: MetadataTransferJobProgressTypeDef
@@ -738,16 +740,16 @@ class CancelMetadataTransferJobResponseTypeDef(BaseValidatorModel):
 
 # This class is the output for the 'create_metadata_transfer_job' function.
 class CreateMetadataTransferJobResponseTypeDef(BaseValidatorModel):
-    metadataTransferJobId: str
-    arn: str
+    metadataTransferJobId: Annotated[str, _aws_pattern("Iottwinmaker", "Id")]
+    arn: Annotated[str, _aws_pattern("Iottwinmaker", "TwinMakerArn")]
     creationDateTime: datetime
     status: MetadataTransferJobStatusTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 class MetadataTransferJobSummaryTypeDef(BaseValidatorModel):
-    metadataTransferJobId: str
-    arn: str
+    metadataTransferJobId: Annotated[str, _aws_pattern("Iottwinmaker", "Id")]
+    arn: Annotated[str, _aws_pattern("Iottwinmaker", "TwinMakerArn")]
     creationDateTime: datetime
     updateDateTime: datetime
     status: MetadataTransferJobStatusTypeDef
@@ -755,44 +757,44 @@ class MetadataTransferJobSummaryTypeDef(BaseValidatorModel):
 
 
 class ComponentSummaryTypeDef(BaseValidatorModel):
-    componentName: str
-    componentTypeId: str
+    componentName: Annotated[str, _aws_pattern("Iottwinmaker", "Name")]
+    componentTypeId: Annotated[str, _aws_pattern("Iottwinmaker", "ComponentTypeId")]
     status: StatusTypeDef
-    definedIn: Optional[str] = None
-    description: Optional[str] = None
+    definedIn: Optional[Annotated[str, _aws_pattern("Iottwinmaker", "String")]] = None
+    description: Optional[Annotated[str, _aws_pattern("Iottwinmaker", "Description")]] = None
     propertyGroups: Optional[Dict[str, ComponentPropertyGroupResponseTypeDef]] = None
-    syncSource: Optional[str] = None
-    componentPath: Optional[str] = None
+    syncSource: Optional[Annotated[str, _aws_pattern("Iottwinmaker", "SyncSource")]] = None
+    componentPath: Optional[Annotated[str, _aws_pattern("Iottwinmaker", "ComponentPath")]] = None
 
 
 class ComponentTypeSummaryTypeDef(BaseValidatorModel):
-    arn: str
-    componentTypeId: str
+    arn: Annotated[str, _aws_pattern("Iottwinmaker", "TwinMakerArn")]
+    componentTypeId: Annotated[str, _aws_pattern("Iottwinmaker", "ComponentTypeId")]
     creationDateTime: datetime
     updateDateTime: datetime
-    description: Optional[str] = None
+    description: Optional[Annotated[str, _aws_pattern("Iottwinmaker", "Description")]] = None
     status: Optional[StatusTypeDef] = None
-    componentTypeName: Optional[str] = None
+    componentTypeName: Optional[Annotated[str, _aws_pattern("Iottwinmaker", "ComponentTypeName")]] = None
 
 
 class EntitySummaryTypeDef(BaseValidatorModel):
-    entityId: str
-    entityName: str
-    arn: str
+    entityId: Annotated[str, _aws_pattern("Iottwinmaker", "EntityId")]
+    entityName: Annotated[str, _aws_pattern("Iottwinmaker", "EntityName")]
+    arn: Annotated[str, _aws_pattern("Iottwinmaker", "TwinMakerArn")]
     status: StatusTypeDef
     creationDateTime: datetime
     updateDateTime: datetime
-    parentEntityId: Optional[str] = None
-    description: Optional[str] = None
+    parentEntityId: Optional[Annotated[str, _aws_pattern("Iottwinmaker", "ParentEntityId")]] = None
+    description: Optional[Annotated[str, _aws_pattern("Iottwinmaker", "Description")]] = None
     hasChildEntities: Optional[bool] = None
 
 
 # This class is the output for the 'get_sync_job' function.
 class GetSyncJobResponseTypeDef(BaseValidatorModel):
-    arn: str
-    workspaceId: str
-    syncSource: str
-    syncRole: str
+    arn: Annotated[str, _aws_pattern("Iottwinmaker", "TwinMakerArn")]
+    workspaceId: Annotated[str, _aws_pattern("Iottwinmaker", "Id")]
+    syncSource: Annotated[str, _aws_pattern("Iottwinmaker", "SyncSource")]
+    syncRole: Annotated[str, _aws_pattern("Iottwinmaker", "RoleArn")]
     status: SyncJobStatusTypeDef
     creationDateTime: datetime
     updateDateTime: datetime
@@ -800,9 +802,9 @@ class GetSyncJobResponseTypeDef(BaseValidatorModel):
 
 
 class SyncJobSummaryTypeDef(BaseValidatorModel):
-    arn: Optional[str] = None
-    workspaceId: Optional[str] = None
-    syncSource: Optional[str] = None
+    arn: Optional[Annotated[str, _aws_pattern("Iottwinmaker", "TwinMakerArn")]] = None
+    workspaceId: Optional[Annotated[str, _aws_pattern("Iottwinmaker", "Id")]] = None
+    syncSource: Optional[Annotated[str, _aws_pattern("Iottwinmaker", "SyncSource")]] = None
     status: Optional[SyncJobStatusTypeDef] = None
     creationDateTime: Optional[datetime] = None
     updateDateTime: Optional[datetime] = None
@@ -810,8 +812,8 @@ class SyncJobSummaryTypeDef(BaseValidatorModel):
 
 class SyncResourceSummaryTypeDef(BaseValidatorModel):
     resourceType: Optional[SyncResourceTypeType] = None
-    externalId: Optional[str] = None
-    resourceId: Optional[str] = None
+    externalId: Optional[Annotated[str, _aws_pattern("Iottwinmaker", "Id")]] = None
+    resourceId: Optional[Annotated[str, _aws_pattern("Iottwinmaker", "Id")]] = None
     status: Optional[SyncResourceStatusTypeDef] = None
     updateDateTime: Optional[datetime] = None
 
@@ -830,7 +832,7 @@ class IotTwinMakerSourceConfigurationOutputTypeDef(BaseValidatorModel):
 
 
 class IotTwinMakerSourceConfigurationTypeDef(BaseValidatorModel):
-    workspace: str
+    workspace: Annotated[str, _aws_pattern("Iottwinmaker", "TwinMakerArn")]
     filters: Optional[List[IotTwinMakerSourceConfigurationFilterTypeDef]] = None
 
 
@@ -845,7 +847,7 @@ class PropertyDefinitionResponseTypeDef(BaseValidatorModel):
     isInherited: bool
     defaultValue: Optional[DataValueOutputTypeDef] = None
     configuration: Optional[Dict[str, str]] = None
-    displayName: Optional[str] = None
+    displayName: Optional[Annotated[str, _aws_pattern("Iottwinmaker", "PropertyDisplayName")]] = None
 
 
 # This class is the output for the 'get_property_value' function.
@@ -853,7 +855,7 @@ class GetPropertyValueResponseTypeDef(BaseValidatorModel):
     propertyValues: Dict[str, PropertyLatestValueTypeDef]
     tabularPropertyValues: List[List[Dict[str, DataValueOutputTypeDef]]]
     ResponseMetadata: ResponseMetadataTypeDef
-    nextToken: Optional[str] = None
+    nextToken: Optional[Annotated[str, _aws_pattern("Iottwinmaker", "NextToken")]] = None
 
 
 class PropertyValueEntryOutputTypeDef(BaseValidatorModel):
@@ -870,13 +872,13 @@ class DataTypeTypeDef(BaseValidatorModel):
     type: TypeType
     nestedType: Optional[Dict[str, Any]] = None
     allowedValues: Optional[List[DataValueUnionTypeDef]] = None
-    unitOfMeasure: Optional[str] = None
+    unitOfMeasure: Optional[Annotated[str, _aws_pattern("Iottwinmaker", "String")]] = None
     relationship: Optional[RelationshipTypeDef] = None
 
 
 class PropertyFilterTypeDef(BaseValidatorModel):
-    propertyName: Optional[str] = None
-    operator: Optional[str] = None
+    propertyName: Optional[Annotated[str, _aws_pattern("Iottwinmaker", "String")]] = None
+    operator: Optional[Annotated[str, _aws_pattern("Iottwinmaker", "String")]] = None
     value: Optional[DataValueUnionTypeDef] = None
 
 
@@ -890,44 +892,44 @@ class PropertyValueTypeDef(BaseValidatorModel):
 class ListMetadataTransferJobsResponseTypeDef(BaseValidatorModel):
     metadataTransferJobSummaries: List[MetadataTransferJobSummaryTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
-    nextToken: Optional[str] = None
+    nextToken: Optional[Annotated[str, _aws_pattern("Iottwinmaker", "NextToken")]] = None
 
 
 # This class is the output for the 'list_components' function.
 class ListComponentsResponseTypeDef(BaseValidatorModel):
     componentSummaries: List[ComponentSummaryTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
-    nextToken: Optional[str] = None
+    nextToken: Optional[Annotated[str, _aws_pattern("Iottwinmaker", "NextToken")]] = None
 
 
 # This class is the output for the 'list_component_types' function.
 class ListComponentTypesResponseTypeDef(BaseValidatorModel):
-    workspaceId: str
+    workspaceId: Annotated[str, _aws_pattern("Iottwinmaker", "Id")]
     componentTypeSummaries: List[ComponentTypeSummaryTypeDef]
     maxResults: int
     ResponseMetadata: ResponseMetadataTypeDef
-    nextToken: Optional[str] = None
+    nextToken: Optional[Annotated[str, _aws_pattern("Iottwinmaker", "NextToken")]] = None
 
 
 # This class is the output for the 'list_entities' function.
 class ListEntitiesResponseTypeDef(BaseValidatorModel):
     entitySummaries: List[EntitySummaryTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
-    nextToken: Optional[str] = None
+    nextToken: Optional[Annotated[str, _aws_pattern("Iottwinmaker", "NextToken")]] = None
 
 
 # This class is the output for the 'list_sync_jobs' function.
 class ListSyncJobsResponseTypeDef(BaseValidatorModel):
     syncJobSummaries: List[SyncJobSummaryTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
-    nextToken: Optional[str] = None
+    nextToken: Optional[Annotated[str, _aws_pattern("Iottwinmaker", "NextToken")]] = None
 
 
 # This class is the output for the 'list_sync_resources' function.
 class ListSyncResourcesResponseTypeDef(BaseValidatorModel):
     syncResources: List[SyncResourceSummaryTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
-    nextToken: Optional[str] = None
+    nextToken: Optional[Annotated[str, _aws_pattern("Iottwinmaker", "NextToken")]] = None
 
 
 IotSiteWiseSourceConfigurationUnionTypeDef = Union[
@@ -949,22 +951,22 @@ IotTwinMakerSourceConfigurationUnionTypeDef = Union[
 
 # This class is the output for the 'get_component_type' function.
 class GetComponentTypeResponseTypeDef(BaseValidatorModel):
-    workspaceId: str
+    workspaceId: Annotated[str, _aws_pattern("Iottwinmaker", "Id")]
     isSingleton: bool
-    componentTypeId: str
-    description: str
+    componentTypeId: Annotated[str, _aws_pattern("Iottwinmaker", "ComponentTypeId")]
+    description: Annotated[str, _aws_pattern("Iottwinmaker", "Description")]
     propertyDefinitions: Dict[str, PropertyDefinitionResponseTypeDef]
-    extendsFrom: List[str]
+    extendsFrom: List[Annotated[str, _aws_pattern("Iottwinmaker", "ComponentTypeId")]]
     functions: Dict[str, FunctionResponseTypeDef]
     creationDateTime: datetime
     updateDateTime: datetime
-    arn: str
+    arn: Annotated[str, _aws_pattern("Iottwinmaker", "TwinMakerArn")]
     isAbstract: bool
     isSchemaInitialized: bool
     status: StatusTypeDef
     propertyGroups: Dict[str, PropertyGroupResponseTypeDef]
-    syncSource: str
-    componentTypeName: str
+    syncSource: Annotated[str, _aws_pattern("Iottwinmaker", "SyncSource")]
+    componentTypeName: Annotated[str, _aws_pattern("Iottwinmaker", "ComponentTypeName")]
     compositeComponentTypes: Dict[str, CompositeComponentTypeResponseTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
 
@@ -976,15 +978,15 @@ class PropertyResponseTypeDef(BaseValidatorModel):
 
 
 class PropertySummaryTypeDef(BaseValidatorModel):
-    propertyName: str
+    propertyName: Annotated[str, _aws_pattern("Iottwinmaker", "Name")]
     definition: Optional[PropertyDefinitionResponseTypeDef] = None
     value: Optional[DataValueOutputTypeDef] = None
     areAllPropertyValuesReturned: Optional[bool] = None
 
 
 class BatchPutPropertyErrorTypeDef(BaseValidatorModel):
-    errorCode: str
-    errorMessage: str
+    errorCode: Annotated[str, _aws_pattern("Iottwinmaker", "String")]
+    errorMessage: Annotated[str, _aws_pattern("Iottwinmaker", "String")]
     entry: PropertyValueEntryOutputTypeDef
 
 
@@ -992,7 +994,7 @@ class BatchPutPropertyErrorTypeDef(BaseValidatorModel):
 class GetPropertyValueHistoryResponseTypeDef(BaseValidatorModel):
     propertyValues: List[PropertyValueHistoryTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
-    nextToken: Optional[str] = None
+    nextToken: Optional[Annotated[str, _aws_pattern("Iottwinmaker", "NextToken")]] = None
 
 
 DataTypeUnionTypeDef = Union[DataTypeOutputTypeDef, DataTypeTypeDef]
@@ -1000,17 +1002,17 @@ DataTypeUnionTypeDef = Union[DataTypeOutputTypeDef, DataTypeTypeDef]
 
 # This class is the input for the 'get_property_value_history' function.
 class GetPropertyValueHistoryRequestTypeDef(BaseValidatorModel):
-    workspaceId: str
-    selectedProperties: List[str]
-    entityId: Optional[str] = None
-    componentName: Optional[str] = None
-    componentPath: Optional[str] = None
-    componentTypeId: Optional[str] = None
+    workspaceId: Annotated[str, _aws_pattern("Iottwinmaker", "Id")]
+    selectedProperties: List[Annotated[str, _aws_pattern("Iottwinmaker", "String")]]
+    entityId: Optional[Annotated[str, _aws_pattern("Iottwinmaker", "EntityId")]] = None
+    componentName: Optional[Annotated[str, _aws_pattern("Iottwinmaker", "Name")]] = None
+    componentPath: Optional[Annotated[str, _aws_pattern("Iottwinmaker", "ComponentPath")]] = None
+    componentTypeId: Optional[Annotated[str, _aws_pattern("Iottwinmaker", "ComponentTypeId")]] = None
     propertyFilters: Optional[List[PropertyFilterTypeDef]] = None
     startDateTime: Optional[TimestampTypeDef] = None
     endDateTime: Optional[TimestampTypeDef] = None
     interpolation: Optional[InterpolationParametersTypeDef] = None
-    nextToken: Optional[str] = None
+    nextToken: Optional[Annotated[str, _aws_pattern("Iottwinmaker", "NextToken")]] = None
     maxResults: Optional[int] = None
     orderByTime: Optional[OrderByTimeType] = None
     startTime: Optional[str] = None
@@ -1027,13 +1029,13 @@ PropertyValueUnionTypeDef = Union[PropertyValueOutputTypeDef, PropertyValueTypeD
 
 # This class is the output for the 'get_metadata_transfer_job' function.
 class GetMetadataTransferJobResponseTypeDef(BaseValidatorModel):
-    metadataTransferJobId: str
-    arn: str
-    description: str
+    metadataTransferJobId: Annotated[str, _aws_pattern("Iottwinmaker", "Id")]
+    arn: Annotated[str, _aws_pattern("Iottwinmaker", "TwinMakerArn")]
+    description: Annotated[str, _aws_pattern("Iottwinmaker", "Description")]
     sources: List[SourceConfigurationOutputTypeDef]
     destination: DestinationConfigurationTypeDef
-    metadataTransferJobRole: str
-    reportUrl: str
+    metadataTransferJobRole: Annotated[str, _aws_pattern("Iottwinmaker", "RoleArn")]
+    reportUrl: Annotated[str, _aws_pattern("Iottwinmaker", "String")]
     creationDateTime: datetime
     updateDateTime: datetime
     status: MetadataTransferJobStatusTypeDef
@@ -1049,14 +1051,14 @@ class SourceConfigurationTypeDef(BaseValidatorModel):
 
 
 class ComponentResponseTypeDef(BaseValidatorModel):
-    componentName: Optional[str] = None
-    description: Optional[str] = None
-    componentTypeId: Optional[str] = None
+    componentName: Optional[Annotated[str, _aws_pattern("Iottwinmaker", "Name")]] = None
+    description: Optional[Annotated[str, _aws_pattern("Iottwinmaker", "Description")]] = None
+    componentTypeId: Optional[Annotated[str, _aws_pattern("Iottwinmaker", "ComponentTypeId")]] = None
     status: Optional[StatusTypeDef] = None
-    definedIn: Optional[str] = None
+    definedIn: Optional[Annotated[str, _aws_pattern("Iottwinmaker", "String")]] = None
     properties: Optional[Dict[str, PropertyResponseTypeDef]] = None
     propertyGroups: Optional[Dict[str, ComponentPropertyGroupResponseTypeDef]] = None
-    syncSource: Optional[str] = None
+    syncSource: Optional[Annotated[str, _aws_pattern("Iottwinmaker", "SyncSource")]] = None
     areAllPropertiesReturned: Optional[bool] = None
     compositeComponents: Optional[Dict[str, ComponentSummaryTypeDef]] = None
     areAllCompositeComponentsReturned: Optional[bool] = None
@@ -1066,7 +1068,7 @@ class ComponentResponseTypeDef(BaseValidatorModel):
 class ListPropertiesResponseTypeDef(BaseValidatorModel):
     propertySummaries: List[PropertySummaryTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
-    nextToken: Optional[str] = None
+    nextToken: Optional[Annotated[str, _aws_pattern("Iottwinmaker", "NextToken")]] = None
 
 
 class BatchPutPropertyErrorEntryTypeDef(BaseValidatorModel):
@@ -1081,20 +1083,20 @@ class PropertyDefinitionRequestTypeDef(BaseValidatorModel):
     isTimeSeries: Optional[bool] = None
     defaultValue: Optional[DataValueUnionTypeDef] = None
     configuration: Optional[Dict[str, str]] = None
-    displayName: Optional[str] = None
+    displayName: Optional[Annotated[str, _aws_pattern("Iottwinmaker", "PropertyDisplayName")]] = None
 
 
 # This class is the input for the 'get_property_value' function.
 class GetPropertyValueRequestTypeDef(BaseValidatorModel):
-    selectedProperties: List[str]
-    workspaceId: str
-    componentName: Optional[str] = None
-    componentPath: Optional[str] = None
-    componentTypeId: Optional[str] = None
-    entityId: Optional[str] = None
+    selectedProperties: List[Annotated[str, _aws_pattern("Iottwinmaker", "String")]]
+    workspaceId: Annotated[str, _aws_pattern("Iottwinmaker", "Id")]
+    componentName: Optional[Annotated[str, _aws_pattern("Iottwinmaker", "Name")]] = None
+    componentPath: Optional[Annotated[str, _aws_pattern("Iottwinmaker", "ComponentPath")]] = None
+    componentTypeId: Optional[Annotated[str, _aws_pattern("Iottwinmaker", "ComponentTypeId")]] = None
+    entityId: Optional[Annotated[str, _aws_pattern("Iottwinmaker", "EntityId")]] = None
     maxResults: Optional[int] = None
-    nextToken: Optional[str] = None
-    propertyGroupName: Optional[str] = None
+    nextToken: Optional[Annotated[str, _aws_pattern("Iottwinmaker", "NextToken")]] = None
+    propertyGroupName: Optional[Annotated[str, _aws_pattern("Iottwinmaker", "Name")]] = None
     tabularConditions: Optional[TabularConditionsTypeDef] = None
 
 
@@ -1108,18 +1110,18 @@ SourceConfigurationUnionTypeDef = Union[SourceConfigurationOutputTypeDef, Source
 
 # This class is the output for the 'get_entity' function.
 class GetEntityResponseTypeDef(BaseValidatorModel):
-    entityId: str
-    entityName: str
-    arn: str
+    entityId: Annotated[str, _aws_pattern("Iottwinmaker", "EntityId")]
+    entityName: Annotated[str, _aws_pattern("Iottwinmaker", "EntityName")]
+    arn: Annotated[str, _aws_pattern("Iottwinmaker", "TwinMakerArn")]
     status: StatusTypeDef
-    workspaceId: str
-    description: str
+    workspaceId: Annotated[str, _aws_pattern("Iottwinmaker", "Id")]
+    description: Annotated[str, _aws_pattern("Iottwinmaker", "Description")]
     components: Dict[str, ComponentResponseTypeDef]
-    parentEntityId: str
+    parentEntityId: Annotated[str, _aws_pattern("Iottwinmaker", "ParentEntityId")]
     hasChildEntities: bool
     creationDateTime: datetime
     updateDateTime: datetime
-    syncSource: str
+    syncSource: Annotated[str, _aws_pattern("Iottwinmaker", "SyncSource")]
     areAllComponentsReturned: bool
     ResponseMetadata: ResponseMetadataTypeDef
 
@@ -1132,16 +1134,16 @@ class BatchPutPropertyValuesResponseTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'create_component_type' function.
 class CreateComponentTypeRequestTypeDef(BaseValidatorModel):
-    workspaceId: str
-    componentTypeId: str
+    workspaceId: Annotated[str, _aws_pattern("Iottwinmaker", "Id")]
+    componentTypeId: Annotated[str, _aws_pattern("Iottwinmaker", "ComponentTypeId")]
     isSingleton: Optional[bool] = None
-    description: Optional[str] = None
+    description: Optional[Annotated[str, _aws_pattern("Iottwinmaker", "Description")]] = None
     propertyDefinitions: Optional[Dict[str, PropertyDefinitionRequestTypeDef]] = None
-    extendsFrom: Optional[List[str]] = None
+    extendsFrom: Optional[List[Annotated[str, _aws_pattern("Iottwinmaker", "ComponentTypeId")]]] = None
     functions: Optional[Dict[str, FunctionRequestTypeDef]] = None
     tags: Optional[Dict[str, str]] = None
     propertyGroups: Optional[Dict[str, PropertyGroupRequestTypeDef]] = None
-    componentTypeName: Optional[str] = None
+    componentTypeName: Optional[Annotated[str, _aws_pattern("Iottwinmaker", "ComponentTypeName")]] = None
     compositeComponentTypes: Optional[Dict[str, CompositeComponentTypeRequestTypeDef]] = None
 
 
@@ -1153,15 +1155,15 @@ class PropertyRequestTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'update_component_type' function.
 class UpdateComponentTypeRequestTypeDef(BaseValidatorModel):
-    workspaceId: str
-    componentTypeId: str
+    workspaceId: Annotated[str, _aws_pattern("Iottwinmaker", "Id")]
+    componentTypeId: Annotated[str, _aws_pattern("Iottwinmaker", "ComponentTypeId")]
     isSingleton: Optional[bool] = None
-    description: Optional[str] = None
+    description: Optional[Annotated[str, _aws_pattern("Iottwinmaker", "Description")]] = None
     propertyDefinitions: Optional[Dict[str, PropertyDefinitionRequestTypeDef]] = None
-    extendsFrom: Optional[List[str]] = None
+    extendsFrom: Optional[List[Annotated[str, _aws_pattern("Iottwinmaker", "ComponentTypeId")]]] = None
     functions: Optional[Dict[str, FunctionRequestTypeDef]] = None
     propertyGroups: Optional[Dict[str, PropertyGroupRequestTypeDef]] = None
-    componentTypeName: Optional[str] = None
+    componentTypeName: Optional[Annotated[str, _aws_pattern("Iottwinmaker", "ComponentTypeName")]] = None
     compositeComponentTypes: Optional[Dict[str, CompositeComponentTypeRequestTypeDef]] = None
 
 
@@ -1172,62 +1174,62 @@ PropertyValueEntryUnionTypeDef = Union[PropertyValueEntryOutputTypeDef, Property
 class CreateMetadataTransferJobRequestTypeDef(BaseValidatorModel):
     sources: List[SourceConfigurationUnionTypeDef]
     destination: DestinationConfigurationTypeDef
-    metadataTransferJobId: Optional[str] = None
-    description: Optional[str] = None
+    metadataTransferJobId: Optional[Annotated[str, _aws_pattern("Iottwinmaker", "Id")]] = None
+    description: Optional[Annotated[str, _aws_pattern("Iottwinmaker", "Description")]] = None
 
 
 class ComponentRequestTypeDef(BaseValidatorModel):
-    description: Optional[str] = None
-    componentTypeId: Optional[str] = None
+    description: Optional[Annotated[str, _aws_pattern("Iottwinmaker", "Description")]] = None
+    componentTypeId: Optional[Annotated[str, _aws_pattern("Iottwinmaker", "ComponentTypeId")]] = None
     properties: Optional[Dict[str, PropertyRequestTypeDef]] = None
     propertyGroups: Optional[Dict[str, ComponentPropertyGroupRequestTypeDef]] = None
 
 
 class ComponentUpdateRequestTypeDef(BaseValidatorModel):
     updateType: Optional[ComponentUpdateTypeType] = None
-    description: Optional[str] = None
-    componentTypeId: Optional[str] = None
+    description: Optional[Annotated[str, _aws_pattern("Iottwinmaker", "Description")]] = None
+    componentTypeId: Optional[Annotated[str, _aws_pattern("Iottwinmaker", "ComponentTypeId")]] = None
     propertyUpdates: Optional[Dict[str, PropertyRequestTypeDef]] = None
     propertyGroupUpdates: Optional[Dict[str, ComponentPropertyGroupRequestTypeDef]] = None
 
 
 class CompositeComponentRequestTypeDef(BaseValidatorModel):
-    description: Optional[str] = None
+    description: Optional[Annotated[str, _aws_pattern("Iottwinmaker", "Description")]] = None
     properties: Optional[Dict[str, PropertyRequestTypeDef]] = None
     propertyGroups: Optional[Dict[str, ComponentPropertyGroupRequestTypeDef]] = None
 
 
 class CompositeComponentUpdateRequestTypeDef(BaseValidatorModel):
     updateType: Optional[ComponentUpdateTypeType] = None
-    description: Optional[str] = None
+    description: Optional[Annotated[str, _aws_pattern("Iottwinmaker", "Description")]] = None
     propertyUpdates: Optional[Dict[str, PropertyRequestTypeDef]] = None
     propertyGroupUpdates: Optional[Dict[str, ComponentPropertyGroupRequestTypeDef]] = None
 
 
 # This class is the input for the 'batch_put_property_values' function.
 class BatchPutPropertyValuesRequestTypeDef(BaseValidatorModel):
-    workspaceId: str
+    workspaceId: Annotated[str, _aws_pattern("Iottwinmaker", "Id")]
     entries: List[PropertyValueEntryUnionTypeDef]
 
 
 # This class is the input for the 'create_entity' function.
 class CreateEntityRequestTypeDef(BaseValidatorModel):
-    workspaceId: str
-    entityName: str
-    entityId: Optional[str] = None
-    description: Optional[str] = None
+    workspaceId: Annotated[str, _aws_pattern("Iottwinmaker", "Id")]
+    entityName: Annotated[str, _aws_pattern("Iottwinmaker", "EntityName")]
+    entityId: Optional[Annotated[str, _aws_pattern("Iottwinmaker", "EntityId")]] = None
+    description: Optional[Annotated[str, _aws_pattern("Iottwinmaker", "Description")]] = None
     components: Optional[Dict[str, ComponentRequestTypeDef]] = None
     compositeComponents: Optional[Dict[str, CompositeComponentRequestTypeDef]] = None
-    parentEntityId: Optional[str] = None
+    parentEntityId: Optional[Annotated[str, _aws_pattern("Iottwinmaker", "ParentEntityId")]] = None
     tags: Optional[Dict[str, str]] = None
 
 
 # This class is the input for the 'update_entity' function.
 class UpdateEntityRequestTypeDef(BaseValidatorModel):
-    workspaceId: str
-    entityId: str
-    entityName: Optional[str] = None
-    description: Optional[str] = None
+    workspaceId: Annotated[str, _aws_pattern("Iottwinmaker", "Id")]
+    entityId: Annotated[str, _aws_pattern("Iottwinmaker", "EntityId")]
+    entityName: Optional[Annotated[str, _aws_pattern("Iottwinmaker", "EntityName")]] = None
+    description: Optional[Annotated[str, _aws_pattern("Iottwinmaker", "Description")]] = None
     componentUpdates: Optional[Dict[str, ComponentUpdateRequestTypeDef]] = None
     compositeComponentUpdates: Optional[Dict[str, CompositeComponentUpdateRequestTypeDef]] = None
     parentEntityUpdate: Optional[ParentEntityUpdateRequestTypeDef] = None

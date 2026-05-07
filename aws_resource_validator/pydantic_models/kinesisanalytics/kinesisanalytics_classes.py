@@ -3,6 +3,7 @@
 from datetime import datetime
 from decimal import Decimal
 from typing import (
+    Annotated,
     Any,
     Callable,
     Dict,
@@ -24,6 +25,7 @@ from botocore.response import StreamingBody
 from pydantic import Field
 
 from aws_resource_validator.core.base_validator_model import BaseValidatorModel, EventStream
+from aws_resource_validator.core.pattern_validation import aws_field_pattern as _aws_pattern
 from aws_resource_validator.pydantic_models.kinesisanalytics.kinesisanalytics_constants import *  # noqa: F401,F403
 
 # Optional boto3 symbols — imported lazily so services that don't need them
@@ -39,26 +41,26 @@ except ImportError:  # pragma: no cover
 
 
 class CloudWatchLoggingOptionTypeDef(BaseValidatorModel):
-    LogStreamARN: str
-    RoleARN: str
+    LogStreamARN: Annotated[str, _aws_pattern("Kinesisanalytics", "LogStreamARN")]
+    RoleARN: Annotated[str, _aws_pattern("Kinesisanalytics", "RoleARN")]
 
 
 class CloudWatchLoggingOptionDescriptionTypeDef(BaseValidatorModel):
-    LogStreamARN: str
-    RoleARN: str
-    CloudWatchLoggingOptionId: Optional[str] = None
+    LogStreamARN: Annotated[str, _aws_pattern("Kinesisanalytics", "LogStreamARN")]
+    RoleARN: Annotated[str, _aws_pattern("Kinesisanalytics", "RoleARN")]
+    CloudWatchLoggingOptionId: Optional[Annotated[str, _aws_pattern("Kinesisanalytics", "Id")]] = None
 
 
 class ApplicationSummaryTypeDef(BaseValidatorModel):
-    ApplicationName: str
-    ApplicationARN: str
+    ApplicationName: Annotated[str, _aws_pattern("Kinesisanalytics", "ApplicationName")]
+    ApplicationARN: Annotated[str, _aws_pattern("Kinesisanalytics", "ResourceARN")]
     ApplicationStatus: ApplicationStatusType
 
 
 class CloudWatchLoggingOptionUpdateTypeDef(BaseValidatorModel):
-    CloudWatchLoggingOptionId: str
-    LogStreamARNUpdate: Optional[str] = None
-    RoleARNUpdate: Optional[str] = None
+    CloudWatchLoggingOptionId: Annotated[str, _aws_pattern("Kinesisanalytics", "Id")]
+    LogStreamARNUpdate: Optional[Annotated[str, _aws_pattern("Kinesisanalytics", "LogStreamARN")]] = None
+    RoleARNUpdate: Optional[Annotated[str, _aws_pattern("Kinesisanalytics", "RoleARN")]] = None
 
 
 class CSVMappingParametersTypeDef(BaseValidatorModel):
@@ -80,27 +82,27 @@ class ResponseMetadataTypeDef(BaseValidatorModel):
 
 
 class DeleteApplicationCloudWatchLoggingOptionRequestTypeDef(BaseValidatorModel):
-    ApplicationName: str
+    ApplicationName: Annotated[str, _aws_pattern("Kinesisanalytics", "ApplicationName")]
     CurrentApplicationVersionId: int
-    CloudWatchLoggingOptionId: str
+    CloudWatchLoggingOptionId: Annotated[str, _aws_pattern("Kinesisanalytics", "Id")]
 
 
 class DeleteApplicationInputProcessingConfigurationRequestTypeDef(BaseValidatorModel):
-    ApplicationName: str
+    ApplicationName: Annotated[str, _aws_pattern("Kinesisanalytics", "ApplicationName")]
     CurrentApplicationVersionId: int
-    InputId: str
+    InputId: Annotated[str, _aws_pattern("Kinesisanalytics", "Id")]
 
 
 class DeleteApplicationOutputRequestTypeDef(BaseValidatorModel):
-    ApplicationName: str
+    ApplicationName: Annotated[str, _aws_pattern("Kinesisanalytics", "ApplicationName")]
     CurrentApplicationVersionId: int
-    OutputId: str
+    OutputId: Annotated[str, _aws_pattern("Kinesisanalytics", "Id")]
 
 
 class DeleteApplicationReferenceDataSourceRequestTypeDef(BaseValidatorModel):
-    ApplicationName: str
+    ApplicationName: Annotated[str, _aws_pattern("Kinesisanalytics", "ApplicationName")]
     CurrentApplicationVersionId: int
-    ReferenceId: str
+    ReferenceId: Annotated[str, _aws_pattern("Kinesisanalytics", "Id")]
 
 
 TimestampTypeDef = Union[datetime, str]
@@ -108,7 +110,7 @@ TimestampTypeDef = Union[datetime, str]
 
 # This class is the input for the 'describe_application' function.
 class DescribeApplicationRequestTypeDef(BaseValidatorModel):
-    ApplicationName: str
+    ApplicationName: Annotated[str, _aws_pattern("Kinesisanalytics", "ApplicationName")]
 
 
 class DestinationSchemaTypeDef(BaseValidatorModel):
@@ -120,8 +122,8 @@ class InputStartingPositionConfigurationTypeDef(BaseValidatorModel):
 
 
 class S3ConfigurationTypeDef(BaseValidatorModel):
-    RoleARN: str
-    BucketARN: str
+    RoleARN: Annotated[str, _aws_pattern("Kinesisanalytics", "RoleARN")]
+    BucketARN: Annotated[str, _aws_pattern("Kinesisanalytics", "BucketARN")]
     FileKey: str
 
 
@@ -130,28 +132,28 @@ class InputParallelismTypeDef(BaseValidatorModel):
 
 
 class KinesisFirehoseInputDescriptionTypeDef(BaseValidatorModel):
-    ResourceARN: Optional[str] = None
-    RoleARN: Optional[str] = None
+    ResourceARN: Optional[Annotated[str, _aws_pattern("Kinesisanalytics", "ResourceARN")]] = None
+    RoleARN: Optional[Annotated[str, _aws_pattern("Kinesisanalytics", "RoleARN")]] = None
 
 
 class KinesisStreamsInputDescriptionTypeDef(BaseValidatorModel):
-    ResourceARN: Optional[str] = None
-    RoleARN: Optional[str] = None
+    ResourceARN: Optional[Annotated[str, _aws_pattern("Kinesisanalytics", "ResourceARN")]] = None
+    RoleARN: Optional[Annotated[str, _aws_pattern("Kinesisanalytics", "RoleARN")]] = None
 
 
 class InputLambdaProcessorDescriptionTypeDef(BaseValidatorModel):
-    ResourceARN: Optional[str] = None
-    RoleARN: Optional[str] = None
+    ResourceARN: Optional[Annotated[str, _aws_pattern("Kinesisanalytics", "ResourceARN")]] = None
+    RoleARN: Optional[Annotated[str, _aws_pattern("Kinesisanalytics", "RoleARN")]] = None
 
 
 class InputLambdaProcessorTypeDef(BaseValidatorModel):
-    ResourceARN: str
-    RoleARN: str
+    ResourceARN: Annotated[str, _aws_pattern("Kinesisanalytics", "ResourceARN")]
+    RoleARN: Annotated[str, _aws_pattern("Kinesisanalytics", "RoleARN")]
 
 
 class InputLambdaProcessorUpdateTypeDef(BaseValidatorModel):
-    ResourceARNUpdate: Optional[str] = None
-    RoleARNUpdate: Optional[str] = None
+    ResourceARNUpdate: Optional[Annotated[str, _aws_pattern("Kinesisanalytics", "ResourceARN")]] = None
+    RoleARNUpdate: Optional[Annotated[str, _aws_pattern("Kinesisanalytics", "RoleARN")]] = None
 
 
 class InputParallelismUpdateTypeDef(BaseValidatorModel):
@@ -165,23 +167,23 @@ class RecordColumnTypeDef(BaseValidatorModel):
 
 
 class KinesisFirehoseInputTypeDef(BaseValidatorModel):
-    ResourceARN: str
-    RoleARN: str
+    ResourceARN: Annotated[str, _aws_pattern("Kinesisanalytics", "ResourceARN")]
+    RoleARN: Annotated[str, _aws_pattern("Kinesisanalytics", "RoleARN")]
 
 
 class KinesisStreamsInputTypeDef(BaseValidatorModel):
-    ResourceARN: str
-    RoleARN: str
+    ResourceARN: Annotated[str, _aws_pattern("Kinesisanalytics", "ResourceARN")]
+    RoleARN: Annotated[str, _aws_pattern("Kinesisanalytics", "RoleARN")]
 
 
 class KinesisFirehoseInputUpdateTypeDef(BaseValidatorModel):
-    ResourceARNUpdate: Optional[str] = None
-    RoleARNUpdate: Optional[str] = None
+    ResourceARNUpdate: Optional[Annotated[str, _aws_pattern("Kinesisanalytics", "ResourceARN")]] = None
+    RoleARNUpdate: Optional[Annotated[str, _aws_pattern("Kinesisanalytics", "RoleARN")]] = None
 
 
 class KinesisStreamsInputUpdateTypeDef(BaseValidatorModel):
-    ResourceARNUpdate: Optional[str] = None
-    RoleARNUpdate: Optional[str] = None
+    ResourceARNUpdate: Optional[Annotated[str, _aws_pattern("Kinesisanalytics", "ResourceARN")]] = None
+    RoleARNUpdate: Optional[Annotated[str, _aws_pattern("Kinesisanalytics", "RoleARN")]] = None
 
 
 class JSONMappingParametersTypeDef(BaseValidatorModel):
@@ -189,96 +191,96 @@ class JSONMappingParametersTypeDef(BaseValidatorModel):
 
 
 class KinesisFirehoseOutputDescriptionTypeDef(BaseValidatorModel):
-    ResourceARN: Optional[str] = None
-    RoleARN: Optional[str] = None
+    ResourceARN: Optional[Annotated[str, _aws_pattern("Kinesisanalytics", "ResourceARN")]] = None
+    RoleARN: Optional[Annotated[str, _aws_pattern("Kinesisanalytics", "RoleARN")]] = None
 
 
 class KinesisFirehoseOutputTypeDef(BaseValidatorModel):
-    ResourceARN: str
-    RoleARN: str
+    ResourceARN: Annotated[str, _aws_pattern("Kinesisanalytics", "ResourceARN")]
+    RoleARN: Annotated[str, _aws_pattern("Kinesisanalytics", "RoleARN")]
 
 
 class KinesisFirehoseOutputUpdateTypeDef(BaseValidatorModel):
-    ResourceARNUpdate: Optional[str] = None
-    RoleARNUpdate: Optional[str] = None
+    ResourceARNUpdate: Optional[Annotated[str, _aws_pattern("Kinesisanalytics", "ResourceARN")]] = None
+    RoleARNUpdate: Optional[Annotated[str, _aws_pattern("Kinesisanalytics", "RoleARN")]] = None
 
 
 class KinesisStreamsOutputDescriptionTypeDef(BaseValidatorModel):
-    ResourceARN: Optional[str] = None
-    RoleARN: Optional[str] = None
+    ResourceARN: Optional[Annotated[str, _aws_pattern("Kinesisanalytics", "ResourceARN")]] = None
+    RoleARN: Optional[Annotated[str, _aws_pattern("Kinesisanalytics", "RoleARN")]] = None
 
 
 class KinesisStreamsOutputTypeDef(BaseValidatorModel):
-    ResourceARN: str
-    RoleARN: str
+    ResourceARN: Annotated[str, _aws_pattern("Kinesisanalytics", "ResourceARN")]
+    RoleARN: Annotated[str, _aws_pattern("Kinesisanalytics", "RoleARN")]
 
 
 class KinesisStreamsOutputUpdateTypeDef(BaseValidatorModel):
-    ResourceARNUpdate: Optional[str] = None
-    RoleARNUpdate: Optional[str] = None
+    ResourceARNUpdate: Optional[Annotated[str, _aws_pattern("Kinesisanalytics", "ResourceARN")]] = None
+    RoleARNUpdate: Optional[Annotated[str, _aws_pattern("Kinesisanalytics", "RoleARN")]] = None
 
 
 class LambdaOutputDescriptionTypeDef(BaseValidatorModel):
-    ResourceARN: Optional[str] = None
-    RoleARN: Optional[str] = None
+    ResourceARN: Optional[Annotated[str, _aws_pattern("Kinesisanalytics", "ResourceARN")]] = None
+    RoleARN: Optional[Annotated[str, _aws_pattern("Kinesisanalytics", "RoleARN")]] = None
 
 
 class LambdaOutputTypeDef(BaseValidatorModel):
-    ResourceARN: str
-    RoleARN: str
+    ResourceARN: Annotated[str, _aws_pattern("Kinesisanalytics", "ResourceARN")]
+    RoleARN: Annotated[str, _aws_pattern("Kinesisanalytics", "RoleARN")]
 
 
 class LambdaOutputUpdateTypeDef(BaseValidatorModel):
-    ResourceARNUpdate: Optional[str] = None
-    RoleARNUpdate: Optional[str] = None
+    ResourceARNUpdate: Optional[Annotated[str, _aws_pattern("Kinesisanalytics", "ResourceARN")]] = None
+    RoleARNUpdate: Optional[Annotated[str, _aws_pattern("Kinesisanalytics", "RoleARN")]] = None
 
 
 # This class is the input for the 'list_applications' function.
 class ListApplicationsRequestTypeDef(BaseValidatorModel):
     Limit: Optional[int] = None
-    ExclusiveStartApplicationName: Optional[str] = None
+    ExclusiveStartApplicationName: Optional[Annotated[str, _aws_pattern("Kinesisanalytics", "ApplicationName")]] = None
 
 
 # This class is the input for the 'list_tags_for_resource' function.
 class ListTagsForResourceRequestTypeDef(BaseValidatorModel):
-    ResourceARN: str
+    ResourceARN: Annotated[str, _aws_pattern("Kinesisanalytics", "KinesisAnalyticsARN")]
 
 
 class S3ReferenceDataSourceDescriptionTypeDef(BaseValidatorModel):
-    BucketARN: str
+    BucketARN: Annotated[str, _aws_pattern("Kinesisanalytics", "BucketARN")]
     FileKey: str
-    ReferenceRoleARN: str
+    ReferenceRoleARN: Annotated[str, _aws_pattern("Kinesisanalytics", "RoleARN")]
 
 
 class S3ReferenceDataSourceTypeDef(BaseValidatorModel):
-    BucketARN: str
+    BucketARN: Annotated[str, _aws_pattern("Kinesisanalytics", "BucketARN")]
     FileKey: str
-    ReferenceRoleARN: str
+    ReferenceRoleARN: Annotated[str, _aws_pattern("Kinesisanalytics", "RoleARN")]
 
 
 class S3ReferenceDataSourceUpdateTypeDef(BaseValidatorModel):
-    BucketARNUpdate: Optional[str] = None
+    BucketARNUpdate: Optional[Annotated[str, _aws_pattern("Kinesisanalytics", "BucketARN")]] = None
     FileKeyUpdate: Optional[str] = None
-    ReferenceRoleARNUpdate: Optional[str] = None
+    ReferenceRoleARNUpdate: Optional[Annotated[str, _aws_pattern("Kinesisanalytics", "RoleARN")]] = None
 
 
 class StopApplicationRequestTypeDef(BaseValidatorModel):
-    ApplicationName: str
+    ApplicationName: Annotated[str, _aws_pattern("Kinesisanalytics", "ApplicationName")]
 
 
 class UntagResourceRequestTypeDef(BaseValidatorModel):
-    ResourceARN: str
+    ResourceARN: Annotated[str, _aws_pattern("Kinesisanalytics", "KinesisAnalyticsARN")]
     TagKeys: List[str]
 
 
 class AddApplicationCloudWatchLoggingOptionRequestTypeDef(BaseValidatorModel):
-    ApplicationName: str
+    ApplicationName: Annotated[str, _aws_pattern("Kinesisanalytics", "ApplicationName")]
     CurrentApplicationVersionId: int
     CloudWatchLoggingOption: CloudWatchLoggingOptionTypeDef
 
 
 class TagResourceRequestTypeDef(BaseValidatorModel):
-    ResourceARN: str
+    ResourceARN: Annotated[str, _aws_pattern("Kinesisanalytics", "KinesisAnalyticsARN")]
     Tags: List[TagTypeDef]
 
 
@@ -302,12 +304,12 @@ class ListTagsForResourceResponseTypeDef(BaseValidatorModel):
 
 
 class DeleteApplicationRequestTypeDef(BaseValidatorModel):
-    ApplicationName: str
+    ApplicationName: Annotated[str, _aws_pattern("Kinesisanalytics", "ApplicationName")]
     CreateTimestamp: TimestampTypeDef
 
 
 class InputConfigurationTypeDef(BaseValidatorModel):
-    Id: str
+    Id: Annotated[str, _aws_pattern("Kinesisanalytics", "Id")]
     InputStartingPositionConfiguration: InputStartingPositionConfigurationTypeDef
 
 
@@ -329,7 +331,7 @@ class MappingParametersTypeDef(BaseValidatorModel):
 
 
 class OutputDescriptionTypeDef(BaseValidatorModel):
-    OutputId: Optional[str] = None
+    OutputId: Optional[Annotated[str, _aws_pattern("Kinesisanalytics", "Id")]] = None
     Name: Optional[str] = None
     KinesisStreamsOutputDescription: Optional[KinesisStreamsOutputDescriptionTypeDef] = None
     KinesisFirehoseOutputDescription: Optional[KinesisFirehoseOutputDescriptionTypeDef] = None
@@ -346,7 +348,7 @@ class OutputTypeDef(BaseValidatorModel):
 
 
 class OutputUpdateTypeDef(BaseValidatorModel):
-    OutputId: str
+    OutputId: Annotated[str, _aws_pattern("Kinesisanalytics", "Id")]
     NameUpdate: Optional[str] = None
     KinesisStreamsOutputUpdate: Optional[KinesisStreamsOutputUpdateTypeDef] = None
     KinesisFirehoseOutputUpdate: Optional[KinesisFirehoseOutputUpdateTypeDef] = None
@@ -355,21 +357,21 @@ class OutputUpdateTypeDef(BaseValidatorModel):
 
 
 class StartApplicationRequestTypeDef(BaseValidatorModel):
-    ApplicationName: str
+    ApplicationName: Annotated[str, _aws_pattern("Kinesisanalytics", "ApplicationName")]
     InputConfigurations: List[InputConfigurationTypeDef]
 
 
 class AddApplicationInputProcessingConfigurationRequestTypeDef(BaseValidatorModel):
-    ApplicationName: str
+    ApplicationName: Annotated[str, _aws_pattern("Kinesisanalytics", "ApplicationName")]
     CurrentApplicationVersionId: int
-    InputId: str
+    InputId: Annotated[str, _aws_pattern("Kinesisanalytics", "Id")]
     InputProcessingConfiguration: InputProcessingConfigurationTypeDef
 
 
 # This class is the input for the 'discover_input_schema' function.
 class DiscoverInputSchemaRequestTypeDef(BaseValidatorModel):
-    ResourceARN: Optional[str] = None
-    RoleARN: Optional[str] = None
+    ResourceARN: Optional[Annotated[str, _aws_pattern("Kinesisanalytics", "ResourceARN")]] = None
+    RoleARN: Optional[Annotated[str, _aws_pattern("Kinesisanalytics", "RoleARN")]] = None
     InputStartingPositionConfiguration: Optional[InputStartingPositionConfigurationTypeDef] = None
     S3Configuration: Optional[S3ConfigurationTypeDef] = None
     InputProcessingConfiguration: Optional[InputProcessingConfigurationTypeDef] = None
@@ -381,14 +383,14 @@ class RecordFormatTypeDef(BaseValidatorModel):
 
 
 class AddApplicationOutputRequestTypeDef(BaseValidatorModel):
-    ApplicationName: str
+    ApplicationName: Annotated[str, _aws_pattern("Kinesisanalytics", "ApplicationName")]
     CurrentApplicationVersionId: int
     Output: OutputTypeDef
 
 
 class InputSchemaUpdateTypeDef(BaseValidatorModel):
     RecordFormatUpdate: Optional[RecordFormatTypeDef] = None
-    RecordEncodingUpdate: Optional[str] = None
+    RecordEncodingUpdate: Optional[Annotated[str, _aws_pattern("Kinesisanalytics", "RecordEncoding")]] = None
     RecordColumnUpdates: Optional[List[RecordColumnTypeDef]] = None
 
 
@@ -401,11 +403,11 @@ class SourceSchemaOutputTypeDef(BaseValidatorModel):
 class SourceSchemaTypeDef(BaseValidatorModel):
     RecordFormat: RecordFormatTypeDef
     RecordColumns: List[RecordColumnTypeDef]
-    RecordEncoding: Optional[str] = None
+    RecordEncoding: Optional[Annotated[str, _aws_pattern("Kinesisanalytics", "RecordEncoding")]] = None
 
 
 class InputUpdateTypeDef(BaseValidatorModel):
-    InputId: str
+    InputId: Annotated[str, _aws_pattern("Kinesisanalytics", "Id")]
     NamePrefixUpdate: Optional[str] = None
     InputProcessingConfigurationUpdate: Optional[InputProcessingConfigurationUpdateTypeDef] = None
     KinesisStreamsInputUpdate: Optional[KinesisStreamsInputUpdateTypeDef] = None
@@ -424,7 +426,7 @@ class DiscoverInputSchemaResponseTypeDef(BaseValidatorModel):
 
 
 class InputDescriptionTypeDef(BaseValidatorModel):
-    InputId: Optional[str] = None
+    InputId: Optional[Annotated[str, _aws_pattern("Kinesisanalytics", "Id")]] = None
     NamePrefix: Optional[str] = None
     InAppStreamNames: Optional[List[str]] = None
     InputProcessingConfigurationDescription: Optional[InputProcessingConfigurationDescriptionTypeDef] = None
@@ -436,7 +438,7 @@ class InputDescriptionTypeDef(BaseValidatorModel):
 
 
 class ReferenceDataSourceDescriptionTypeDef(BaseValidatorModel):
-    ReferenceId: str
+    ReferenceId: Annotated[str, _aws_pattern("Kinesisanalytics", "Id")]
     TableName: str
     S3ReferenceDataSourceDescription: S3ReferenceDataSourceDescriptionTypeDef
     ReferenceSchema: Optional[SourceSchemaOutputTypeDef] = None
@@ -446,8 +448,8 @@ SourceSchemaUnionTypeDef = Union[SourceSchemaOutputTypeDef, SourceSchemaTypeDef]
 
 
 class ApplicationDetailTypeDef(BaseValidatorModel):
-    ApplicationName: str
-    ApplicationARN: str
+    ApplicationName: Annotated[str, _aws_pattern("Kinesisanalytics", "ApplicationName")]
+    ApplicationARN: Annotated[str, _aws_pattern("Kinesisanalytics", "ResourceARN")]
     ApplicationStatus: ApplicationStatusType
     ApplicationVersionId: int
     ApplicationDescription: Optional[str] = None
@@ -476,7 +478,7 @@ class ReferenceDataSourceTypeDef(BaseValidatorModel):
 
 
 class ReferenceDataSourceUpdateTypeDef(BaseValidatorModel):
-    ReferenceId: str
+    ReferenceId: Annotated[str, _aws_pattern("Kinesisanalytics", "Id")]
     TableNameUpdate: Optional[str] = None
     S3ReferenceDataSourceUpdate: Optional[S3ReferenceDataSourceUpdateTypeDef] = None
     ReferenceSchemaUpdate: Optional[SourceSchemaUnionTypeDef] = None
@@ -489,14 +491,14 @@ class DescribeApplicationResponseTypeDef(BaseValidatorModel):
 
 
 class AddApplicationInputRequestTypeDef(BaseValidatorModel):
-    ApplicationName: str
+    ApplicationName: Annotated[str, _aws_pattern("Kinesisanalytics", "ApplicationName")]
     CurrentApplicationVersionId: int
     Input: InputTypeDef
 
 
 # This class is the input for the 'create_application' function.
 class CreateApplicationRequestTypeDef(BaseValidatorModel):
-    ApplicationName: str
+    ApplicationName: Annotated[str, _aws_pattern("Kinesisanalytics", "ApplicationName")]
     ApplicationDescription: Optional[str] = None
     Inputs: Optional[List[InputTypeDef]] = None
     Outputs: Optional[List[OutputTypeDef]] = None
@@ -506,7 +508,7 @@ class CreateApplicationRequestTypeDef(BaseValidatorModel):
 
 
 class AddApplicationReferenceDataSourceRequestTypeDef(BaseValidatorModel):
-    ApplicationName: str
+    ApplicationName: Annotated[str, _aws_pattern("Kinesisanalytics", "ApplicationName")]
     CurrentApplicationVersionId: int
     ReferenceDataSource: ReferenceDataSourceTypeDef
 
@@ -520,6 +522,6 @@ class ApplicationUpdateTypeDef(BaseValidatorModel):
 
 
 class UpdateApplicationRequestTypeDef(BaseValidatorModel):
-    ApplicationName: str
+    ApplicationName: Annotated[str, _aws_pattern("Kinesisanalytics", "ApplicationName")]
     CurrentApplicationVersionId: int
     ApplicationUpdate: ApplicationUpdateTypeDef

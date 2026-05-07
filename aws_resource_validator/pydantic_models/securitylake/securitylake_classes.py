@@ -3,6 +3,7 @@
 from datetime import datetime
 from decimal import Decimal
 from typing import (
+    Annotated,
     Any,
     Callable,
     Dict,
@@ -24,6 +25,7 @@ from botocore.response import StreamingBody
 from pydantic import Field
 
 from aws_resource_validator.core.base_validator_model import BaseValidatorModel, EventStream
+from aws_resource_validator.core.pattern_validation import aws_field_pattern as _aws_pattern
 from aws_resource_validator.pydantic_models.securitylake.securitylake_constants import *  # noqa: F401,F403
 
 # Optional boto3 symbols — imported lazily so services that don't need them
@@ -39,20 +41,20 @@ except ImportError:  # pragma: no cover
 
 
 class AwsIdentityTypeDef(BaseValidatorModel):
-    externalId: str
-    principal: str
+    externalId: Annotated[str, _aws_pattern("Securitylake", "ExternalId")]
+    principal: Annotated[str, _aws_pattern("Securitylake", "AwsPrincipal")]
 
 
 class AwsLogSourceConfigurationTypeDef(BaseValidatorModel):
-    regions: List[str]
+    regions: List[Annotated[str, _aws_pattern("Securitylake", "Region")]]
     sourceName: AwsLogSourceNameType
-    accounts: Optional[List[str]] = None
-    sourceVersion: Optional[str] = None
+    accounts: Optional[List[Annotated[str, _aws_pattern("Securitylake", "AwsAccountId")]]] = None
+    sourceVersion: Optional[Annotated[str, _aws_pattern("Securitylake", "AwsLogSourceVersion")]] = None
 
 
 class AwsLogSourceResourceTypeDef(BaseValidatorModel):
     sourceName: Optional[AwsLogSourceNameType] = None
-    sourceVersion: Optional[str] = None
+    sourceVersion: Optional[Annotated[str, _aws_pattern("Securitylake", "AwsLogSourceVersion")]] = None
 
 
 class ResponseMetadataTypeDef(BaseValidatorModel):
@@ -64,8 +66,8 @@ class ResponseMetadataTypeDef(BaseValidatorModel):
 
 
 class CreateDataLakeExceptionSubscriptionRequestTypeDef(BaseValidatorModel):
-    notificationEndpoint: str
-    subscriptionProtocol: str
+    notificationEndpoint: Annotated[str, _aws_pattern("Securitylake", "SafeString")]
+    subscriptionProtocol: Annotated[str, _aws_pattern("Securitylake", "SubscriptionProtocol")]
     exceptionTimeToLive: Optional[int] = None
 
 
@@ -75,18 +77,18 @@ class TagTypeDef(BaseValidatorModel):
 
 
 class CustomLogSourceAttributesTypeDef(BaseValidatorModel):
-    crawlerArn: Optional[str] = None
-    databaseArn: Optional[str] = None
-    tableArn: Optional[str] = None
+    crawlerArn: Optional[Annotated[str, _aws_pattern("Securitylake", "AmazonResourceName")]] = None
+    databaseArn: Optional[Annotated[str, _aws_pattern("Securitylake", "AmazonResourceName")]] = None
+    tableArn: Optional[Annotated[str, _aws_pattern("Securitylake", "AmazonResourceName")]] = None
 
 
 class CustomLogSourceCrawlerConfigurationTypeDef(BaseValidatorModel):
-    roleArn: str
+    roleArn: Annotated[str, _aws_pattern("Securitylake", "RoleArn")]
 
 
 class CustomLogSourceProviderTypeDef(BaseValidatorModel):
-    location: Optional[str] = None
-    roleArn: Optional[str] = None
+    location: Optional[Annotated[str, _aws_pattern("Securitylake", "S3URI")]] = None
+    roleArn: Optional[Annotated[str, _aws_pattern("Securitylake", "RoleArn")]] = None
 
 
 class DataLakeEncryptionConfigurationTypeDef(BaseValidatorModel):
@@ -94,9 +96,9 @@ class DataLakeEncryptionConfigurationTypeDef(BaseValidatorModel):
 
 
 class DataLakeExceptionTypeDef(BaseValidatorModel):
-    exception: Optional[str] = None
-    region: Optional[str] = None
-    remediation: Optional[str] = None
+    exception: Optional[Annotated[str, _aws_pattern("Securitylake", "SafeString")]] = None
+    region: Optional[Annotated[str, _aws_pattern("Securitylake", "Region")]] = None
+    remediation: Optional[Annotated[str, _aws_pattern("Securitylake", "SafeString")]] = None
     timestamp: Optional[datetime] = None
 
 
@@ -115,8 +117,8 @@ class DataLakeReplicationConfigurationOutputTypeDef(BaseValidatorModel):
 
 
 class DataLakeReplicationConfigurationTypeDef(BaseValidatorModel):
-    regions: Optional[List[str]] = None
-    roleArn: Optional[str] = None
+    regions: Optional[List[Annotated[str, _aws_pattern("Securitylake", "Region")]]] = None
+    roleArn: Optional[Annotated[str, _aws_pattern("Securitylake", "RoleArn")]] = None
 
 
 class DataLakeSourceStatusTypeDef(BaseValidatorModel):
@@ -130,20 +132,20 @@ class DataLakeUpdateExceptionTypeDef(BaseValidatorModel):
 
 
 class DeleteCustomLogSourceRequestTypeDef(BaseValidatorModel):
-    sourceName: str
-    sourceVersion: Optional[str] = None
+    sourceName: Annotated[str, _aws_pattern("Securitylake", "CustomLogSourceName")]
+    sourceVersion: Optional[Annotated[str, _aws_pattern("Securitylake", "CustomLogSourceVersion")]] = None
 
 
 class DeleteDataLakeRequestTypeDef(BaseValidatorModel):
-    regions: List[str]
+    regions: List[Annotated[str, _aws_pattern("Securitylake", "Region")]]
 
 
 class DeleteSubscriberNotificationRequestTypeDef(BaseValidatorModel):
-    subscriberId: str
+    subscriberId: Annotated[str, _aws_pattern("Securitylake", "UUID")]
 
 
 class DeleteSubscriberRequestTypeDef(BaseValidatorModel):
-    subscriberId: str
+    subscriberId: Annotated[str, _aws_pattern("Securitylake", "UUID")]
 
 
 class PaginatorConfigTypeDef(BaseValidatorModel):
@@ -154,19 +156,19 @@ class PaginatorConfigTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'get_data_lake_sources' function.
 class GetDataLakeSourcesRequestTypeDef(BaseValidatorModel):
-    accounts: Optional[List[str]] = None
+    accounts: Optional[List[Annotated[str, _aws_pattern("Securitylake", "AwsAccountId")]]] = None
     maxResults: Optional[int] = None
     nextToken: Optional[str] = None
 
 
 # This class is the input for the 'get_subscriber' function.
 class GetSubscriberRequestTypeDef(BaseValidatorModel):
-    subscriberId: str
+    subscriberId: Annotated[str, _aws_pattern("Securitylake", "UUID")]
 
 
 class HttpsNotificationConfigurationTypeDef(BaseValidatorModel):
-    endpoint: str
-    targetRoleArn: str
+    endpoint: Annotated[str, _aws_pattern("Securitylake", "HttpsNotificationConfigurationEndpointString")]
+    targetRoleArn: Annotated[str, _aws_pattern("Securitylake", "RoleArn")]
     authorizationApiKeyName: Optional[str] = None
     authorizationApiKeyValue: Optional[str] = None
     httpMethod: Optional[HttpMethodType] = None
@@ -176,12 +178,12 @@ class HttpsNotificationConfigurationTypeDef(BaseValidatorModel):
 class ListDataLakeExceptionsRequestTypeDef(BaseValidatorModel):
     maxResults: Optional[int] = None
     nextToken: Optional[str] = None
-    regions: Optional[List[str]] = None
+    regions: Optional[List[Annotated[str, _aws_pattern("Securitylake", "Region")]]] = None
 
 
 # This class is the input for the 'list_data_lakes' function.
 class ListDataLakesRequestTypeDef(BaseValidatorModel):
-    regions: Optional[List[str]] = None
+    regions: Optional[List[Annotated[str, _aws_pattern("Securitylake", "Region")]]] = None
 
 
 # This class is the input for the 'list_subscribers' function.
@@ -192,21 +194,21 @@ class ListSubscribersRequestTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'list_tags_for_resource' function.
 class ListTagsForResourceRequestTypeDef(BaseValidatorModel):
-    resourceArn: str
+    resourceArn: Annotated[str, _aws_pattern("Securitylake", "AmazonResourceName")]
 
 
 class RegisterDataLakeDelegatedAdministratorRequestTypeDef(BaseValidatorModel):
-    accountId: str
+    accountId: Annotated[str, _aws_pattern("Securitylake", "SafeString")]
 
 
 class UntagResourceRequestTypeDef(BaseValidatorModel):
-    resourceArn: str
+    resourceArn: Annotated[str, _aws_pattern("Securitylake", "AmazonResourceName")]
     tagKeys: List[str]
 
 
 class UpdateDataLakeExceptionSubscriptionRequestTypeDef(BaseValidatorModel):
-    notificationEndpoint: str
-    subscriptionProtocol: str
+    notificationEndpoint: Annotated[str, _aws_pattern("Securitylake", "SafeString")]
+    subscriptionProtocol: Annotated[str, _aws_pattern("Securitylake", "SubscriptionProtocol")]
     exceptionTimeToLive: Optional[int] = None
 
 
@@ -226,38 +228,38 @@ class DataLakeAutoEnableNewAccountConfigurationOutputTypeDef(BaseValidatorModel)
 
 
 class DataLakeAutoEnableNewAccountConfigurationTypeDef(BaseValidatorModel):
-    region: str
+    region: Annotated[str, _aws_pattern("Securitylake", "Region")]
     sources: List[AwsLogSourceResourceTypeDef]
 
 
 # This class is the output for the 'create_aws_log_source' function.
 class CreateAwsLogSourceResponseTypeDef(BaseValidatorModel):
-    failed: List[str]
+    failed: List[Annotated[str, _aws_pattern("Securitylake", "AwsAccountId")]]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 # This class is the output for the 'create_subscriber_notification' function.
 class CreateSubscriberNotificationResponseTypeDef(BaseValidatorModel):
-    subscriberEndpoint: str
+    subscriberEndpoint: Annotated[str, _aws_pattern("Securitylake", "SafeString")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 # This class is the output for the 'delete_aws_log_source' function.
 class DeleteAwsLogSourceResponseTypeDef(BaseValidatorModel):
-    failed: List[str]
+    failed: List[Annotated[str, _aws_pattern("Securitylake", "AwsAccountId")]]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 class GetDataLakeExceptionSubscriptionResponseTypeDef(BaseValidatorModel):
     exceptionTimeToLive: int
-    notificationEndpoint: str
-    subscriptionProtocol: str
+    notificationEndpoint: Annotated[str, _aws_pattern("Securitylake", "SafeString")]
+    subscriptionProtocol: Annotated[str, _aws_pattern("Securitylake", "SubscriptionProtocol")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 # This class is the output for the 'update_subscriber_notification' function.
 class UpdateSubscriberNotificationResponseTypeDef(BaseValidatorModel):
-    subscriberEndpoint: str
+    subscriberEndpoint: Annotated[str, _aws_pattern("Securitylake", "SafeString")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
@@ -268,7 +270,7 @@ class ListTagsForResourceResponseTypeDef(BaseValidatorModel):
 
 
 class TagResourceRequestTypeDef(BaseValidatorModel):
-    resourceArn: str
+    resourceArn: Annotated[str, _aws_pattern("Securitylake", "AmazonResourceName")]
     tags: List[TagTypeDef]
 
 
@@ -280,8 +282,8 @@ class CustomLogSourceConfigurationTypeDef(BaseValidatorModel):
 class CustomLogSourceResourceTypeDef(BaseValidatorModel):
     attributes: Optional[CustomLogSourceAttributesTypeDef] = None
     provider: Optional[CustomLogSourceProviderTypeDef] = None
-    sourceName: Optional[str] = None
-    sourceVersion: Optional[str] = None
+    sourceName: Optional[Annotated[str, _aws_pattern("Securitylake", "CustomLogSourceName")]] = None
+    sourceVersion: Optional[Annotated[str, _aws_pattern("Securitylake", "CustomLogSourceVersion")]] = None
 
 
 # This class is the output for the 'list_data_lake_exceptions' function.
@@ -308,7 +310,7 @@ DataLakeReplicationConfigurationUnionTypeDef = Union[
 
 class DataLakeSourceTypeDef(BaseValidatorModel):
     account: Optional[str] = None
-    eventClasses: Optional[List[str]] = None
+    eventClasses: Optional[List[Annotated[str, _aws_pattern("Securitylake", "OcsfEventClass")]]] = None
     sourceName: Optional[str] = None
     sourceStatuses: Optional[List[DataLakeSourceStatusTypeDef]] = None
 
@@ -351,9 +353,9 @@ DataLakeAutoEnableNewAccountConfigurationUnionTypeDef = Union[
 # This class is the input for the 'create_custom_log_source' function.
 class CreateCustomLogSourceRequestTypeDef(BaseValidatorModel):
     configuration: CustomLogSourceConfigurationTypeDef
-    sourceName: str
-    eventClasses: Optional[List[str]] = None
-    sourceVersion: Optional[str] = None
+    sourceName: Annotated[str, _aws_pattern("Securitylake", "CustomLogSourceName")]
+    eventClasses: Optional[List[Annotated[str, _aws_pattern("Securitylake", "OcsfEventClass")]]] = None
+    sourceVersion: Optional[Annotated[str, _aws_pattern("Securitylake", "CustomLogSourceVersion")]] = None
 
 
 # This class is the output for the 'create_custom_log_source' function.
@@ -374,15 +376,15 @@ DataLakeLifecycleConfigurationUnionTypeDef = Union[
 
 # This class is the output for the 'get_data_lake_sources' function.
 class GetDataLakeSourcesResponseTypeDef(BaseValidatorModel):
-    dataLakeArn: str
+    dataLakeArn: Annotated[str, _aws_pattern("Securitylake", "AmazonResourceName")]
     dataLakeSources: List[DataLakeSourceTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
     nextToken: Optional[str] = None
 
 
 class DataLakeResourceTypeDef(BaseValidatorModel):
-    dataLakeArn: str
-    region: str
+    dataLakeArn: Annotated[str, _aws_pattern("Securitylake", "AmazonResourceName")]
+    region: Annotated[str, _aws_pattern("Securitylake", "Region")]
     createStatus: Optional[DataLakeStatusType] = None
     encryptionConfiguration: Optional[DataLakeEncryptionConfigurationTypeDef] = None
     lifecycleConfiguration: Optional[DataLakeLifecycleConfigurationOutputTypeDef] = None
@@ -394,13 +396,13 @@ class DataLakeResourceTypeDef(BaseValidatorModel):
 # This class is the input for the 'create_subscriber_notification' function.
 class CreateSubscriberNotificationRequestTypeDef(BaseValidatorModel):
     configuration: NotificationConfigurationTypeDef
-    subscriberId: str
+    subscriberId: Annotated[str, _aws_pattern("Securitylake", "UUID")]
 
 
 # This class is the input for the 'update_subscriber_notification' function.
 class UpdateSubscriberNotificationRequestTypeDef(BaseValidatorModel):
     configuration: NotificationConfigurationTypeDef
-    subscriberId: str
+    subscriberId: Annotated[str, _aws_pattern("Securitylake", "UUID")]
 
 
 class CreateDataLakeOrganizationConfigurationRequestTypeDef(BaseValidatorModel):
@@ -417,7 +419,7 @@ class CreateSubscriberRequestTypeDef(BaseValidatorModel):
     subscriberIdentity: AwsIdentityTypeDef
     subscriberName: str
     accessTypes: Optional[List[AccessTypeType]] = None
-    subscriberDescription: Optional[str] = None
+    subscriberDescription: Optional[Annotated[str, _aws_pattern("Securitylake", "DescriptionString")]] = None
     tags: Optional[List[TagTypeDef]] = None
 
 
@@ -430,48 +432,50 @@ class ListLogSourcesRequestPaginateTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'list_log_sources' function.
 class ListLogSourcesRequestTypeDef(BaseValidatorModel):
-    accounts: Optional[List[str]] = None
+    accounts: Optional[List[Annotated[str, _aws_pattern("Securitylake", "AwsAccountId")]]] = None
     maxResults: Optional[int] = None
     nextToken: Optional[str] = None
-    regions: Optional[List[str]] = None
+    regions: Optional[List[Annotated[str, _aws_pattern("Securitylake", "Region")]]] = None
     sources: Optional[List[LogSourceResourceTypeDef]] = None
 
 
 class LogSourceTypeDef(BaseValidatorModel):
-    account: Optional[str] = None
-    region: Optional[str] = None
+    account: Optional[Annotated[str, _aws_pattern("Securitylake", "AwsAccountId")]] = None
+    region: Optional[Annotated[str, _aws_pattern("Securitylake", "Region")]] = None
     sources: Optional[List[LogSourceResourceTypeDef]] = None
 
 
 class SubscriberResourceTypeDef(BaseValidatorModel):
     sources: List[LogSourceResourceTypeDef]
-    subscriberArn: str
-    subscriberId: str
+    subscriberArn: Annotated[str, _aws_pattern("Securitylake", "AmazonResourceName")]
+    subscriberId: Annotated[str, _aws_pattern("Securitylake", "UUID")]
     subscriberIdentity: AwsIdentityTypeDef
-    subscriberName: str
+    subscriberName: Annotated[str, _aws_pattern("Securitylake", "SafeString")]
     accessTypes: Optional[List[AccessTypeType]] = None
     createdAt: Optional[datetime] = None
     resourceShareArn: Optional[str] = None
-    resourceShareName: Optional[str] = None
-    roleArn: Optional[str] = None
+    resourceShareName: Optional[Annotated[str, _aws_pattern("Securitylake", "ResourceShareName")]] = None
+    roleArn: Optional[Annotated[str, _aws_pattern("Securitylake", "RoleArn")]] = None
     s3BucketArn: Optional[str] = None
-    subscriberDescription: Optional[str] = None
-    subscriberEndpoint: Optional[str] = None
+    subscriberDescription: Optional[Annotated[str, _aws_pattern("Securitylake", "SafeString")]] = None
+    subscriberEndpoint: Optional[Annotated[str, _aws_pattern("Securitylake", "SafeString")]] = None
     subscriberStatus: Optional[SubscriberStatusType] = None
     updatedAt: Optional[datetime] = None
 
 
 # This class is the input for the 'update_subscriber' function.
 class UpdateSubscriberRequestTypeDef(BaseValidatorModel):
-    subscriberId: str
+    subscriberId: Annotated[str, _aws_pattern("Securitylake", "UUID")]
     sources: Optional[List[LogSourceResourceTypeDef]] = None
-    subscriberDescription: Optional[str] = None
+    subscriberDescription: Optional[Annotated[str, _aws_pattern("Securitylake", "DescriptionString")]] = None
     subscriberIdentity: Optional[AwsIdentityTypeDef] = None
-    subscriberName: Optional[str] = None
+    subscriberName: Optional[
+        Annotated[str, _aws_pattern("Securitylake", "UpdateSubscriberRequestSubscriberNameString")]
+    ] = None
 
 
 class DataLakeConfigurationTypeDef(BaseValidatorModel):
-    region: str
+    region: Annotated[str, _aws_pattern("Securitylake", "Region")]
     encryptionConfiguration: Optional[DataLakeEncryptionConfigurationTypeDef] = None
     lifecycleConfiguration: Optional[DataLakeLifecycleConfigurationUnionTypeDef] = None
     replicationConfiguration: Optional[DataLakeReplicationConfigurationUnionTypeDef] = None
@@ -530,11 +534,11 @@ class UpdateSubscriberResponseTypeDef(BaseValidatorModel):
 # This class is the input for the 'create_data_lake' function.
 class CreateDataLakeRequestTypeDef(BaseValidatorModel):
     configurations: List[DataLakeConfigurationTypeDef]
-    metaStoreManagerRoleArn: str
+    metaStoreManagerRoleArn: Annotated[str, _aws_pattern("Securitylake", "RoleArn")]
     tags: Optional[List[TagTypeDef]] = None
 
 
 # This class is the input for the 'update_data_lake' function.
 class UpdateDataLakeRequestTypeDef(BaseValidatorModel):
     configurations: List[DataLakeConfigurationTypeDef]
-    metaStoreManagerRoleArn: Optional[str] = None
+    metaStoreManagerRoleArn: Optional[Annotated[str, _aws_pattern("Securitylake", "RoleArn")]] = None

@@ -3,6 +3,7 @@
 from datetime import datetime
 from decimal import Decimal
 from typing import (
+    Annotated,
     Any,
     Callable,
     Dict,
@@ -24,6 +25,7 @@ from botocore.response import StreamingBody
 from pydantic import Field
 
 from aws_resource_validator.core.base_validator_model import BaseValidatorModel, EventStream
+from aws_resource_validator.core.pattern_validation import aws_field_pattern as _aws_pattern
 from aws_resource_validator.pydantic_models.mgn.mgn_constants import *  # noqa: F401,F403
 
 # Optional boto3 symbols — imported lazily so services that don't need them
@@ -39,7 +41,7 @@ except ImportError:  # pragma: no cover
 
 
 class ApplicationAggregatedStatusTypeDef(BaseValidatorModel):
-    lastUpdateDateTime: Optional[str] = None
+    lastUpdateDateTime: Optional[Annotated[str, _aws_pattern("Mgn", "ISO8601DatetimeString")]] = None
     healthStatus: Optional[ApplicationHealthStatusType] = None
     progressStatus: Optional[ApplicationProgressStatusType] = None
     totalSourceServers: Optional[int] = None
@@ -55,26 +57,26 @@ class ResponseMetadataTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'archive_application' function.
 class ArchiveApplicationRequestTypeDef(BaseValidatorModel):
-    applicationID: str
-    accountID: Optional[str] = None
+    applicationID: Annotated[str, _aws_pattern("Mgn", "ApplicationID")]
+    accountID: Optional[Annotated[str, _aws_pattern("Mgn", "AccountID")]] = None
 
 
 # This class is the input for the 'archive_wave' function.
 class ArchiveWaveRequestTypeDef(BaseValidatorModel):
-    waveID: str
-    accountID: Optional[str] = None
+    waveID: Annotated[str, _aws_pattern("Mgn", "WaveID")]
+    accountID: Optional[Annotated[str, _aws_pattern("Mgn", "AccountID")]] = None
 
 
 class AssociateApplicationsRequestTypeDef(BaseValidatorModel):
-    waveID: str
-    applicationIDs: List[str]
-    accountID: Optional[str] = None
+    waveID: Annotated[str, _aws_pattern("Mgn", "WaveID")]
+    applicationIDs: List[Annotated[str, _aws_pattern("Mgn", "ApplicationID")]]
+    accountID: Optional[Annotated[str, _aws_pattern("Mgn", "AccountID")]] = None
 
 
 class AssociateSourceServersRequestTypeDef(BaseValidatorModel):
-    applicationID: str
-    sourceServerIDs: List[str]
-    accountID: Optional[str] = None
+    applicationID: Annotated[str, _aws_pattern("Mgn", "ApplicationID")]
+    sourceServerIDs: List[Annotated[str, _aws_pattern("Mgn", "SourceServerID")]]
+    accountID: Optional[Annotated[str, _aws_pattern("Mgn", "AccountID")]] = None
 
 
 class CPUTypeDef(BaseValidatorModel):
@@ -88,7 +90,7 @@ class ChangeServerLifeCycleStateSourceServerLifecycleTypeDef(BaseValidatorModel)
 
 class ChecksumTypeDef(BaseValidatorModel):
     encryptionAlgorithm: Optional[Literal["SHA256"]] = None
-    hash: Optional[str] = None
+    hash: Optional[Annotated[str, _aws_pattern("Mgn", "Hash")]] = None
 
 
 class CodeGenerationOutputFormatStatusDetailsTypeDef(BaseValidatorModel):
@@ -99,16 +101,16 @@ class CodeGenerationOutputFormatStatusDetailsTypeDef(BaseValidatorModel):
 class ConnectorSsmCommandConfigTypeDef(BaseValidatorModel):
     s3OutputEnabled: bool
     cloudWatchOutputEnabled: bool
-    outputS3BucketName: Optional[str] = None
-    cloudWatchLogGroupName: Optional[str] = None
+    outputS3BucketName: Optional[Annotated[str, _aws_pattern("Mgn", "S3BucketName")]] = None
+    cloudWatchLogGroupName: Optional[Annotated[str, _aws_pattern("Mgn", "CloudWatchLogGroupName")]] = None
 
 
 # This class is the input for the 'create_application' function.
 class CreateApplicationRequestTypeDef(BaseValidatorModel):
-    name: str
-    description: Optional[str] = None
+    name: Annotated[str, _aws_pattern("Mgn", "ApplicationName")]
+    description: Optional[Annotated[str, _aws_pattern("Mgn", "ApplicationDescription")]] = None
     tags: Optional[Dict[str, str]] = None
-    accountID: Optional[str] = None
+    accountID: Optional[Annotated[str, _aws_pattern("Mgn", "AccountID")]] = None
 
 
 class LaunchTemplateDiskConfTypeDef(BaseValidatorModel):
@@ -123,21 +125,21 @@ class LicensingTypeDef(BaseValidatorModel):
 
 class TargetNetworkTypeDef(BaseValidatorModel):
     topology: TargetNetworkTopologyType
-    inboundCidr: Optional[str] = None
-    outboundCidr: Optional[str] = None
-    inspectionCidr: Optional[str] = None
+    inboundCidr: Optional[Annotated[str, _aws_pattern("Mgn", "Cidr")]] = None
+    outboundCidr: Optional[Annotated[str, _aws_pattern("Mgn", "Cidr")]] = None
+    inspectionCidr: Optional[Annotated[str, _aws_pattern("Mgn", "Cidr")]] = None
 
 
 class TargetS3ConfigurationTypeDef(BaseValidatorModel):
-    s3Bucket: str
-    s3BucketOwner: str
+    s3Bucket: Annotated[str, _aws_pattern("Mgn", "S3BucketName")]
+    s3BucketOwner: Annotated[str, _aws_pattern("Mgn", "AccountID")]
 
 
 # This class is the input for the 'create_replication_configuration_template' function.
 class CreateReplicationConfigurationTemplateRequestTypeDef(BaseValidatorModel):
-    stagingAreaSubnetId: str
+    stagingAreaSubnetId: Annotated[str, _aws_pattern("Mgn", "SubnetID")]
     associateDefaultSecurityGroup: bool
-    replicationServersSecurityGroupsIDs: List[str]
+    replicationServersSecurityGroupsIDs: List[Annotated[str, _aws_pattern("Mgn", "SecurityGroupID")]]
     replicationServerInstanceType: str
     useDedicatedReplicationServer: bool
     defaultLargeStagingDiskType: ReplicationConfigurationDefaultLargeStagingDiskTypeType
@@ -155,10 +157,10 @@ class CreateReplicationConfigurationTemplateRequestTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'create_wave' function.
 class CreateWaveRequestTypeDef(BaseValidatorModel):
-    name: str
-    description: Optional[str] = None
+    name: Annotated[str, _aws_pattern("Mgn", "WaveName")]
+    description: Optional[Annotated[str, _aws_pattern("Mgn", "WaveDescription")]] = None
     tags: Optional[Dict[str, str]] = None
-    accountID: Optional[str] = None
+    accountID: Optional[Annotated[str, _aws_pattern("Mgn", "AccountID")]] = None
 
 
 class DataReplicationErrorTypeDef(BaseValidatorModel):
@@ -180,45 +182,45 @@ class DataReplicationInitiationStepTypeDef(BaseValidatorModel):
 
 
 class DeleteApplicationRequestTypeDef(BaseValidatorModel):
-    applicationID: str
-    accountID: Optional[str] = None
+    applicationID: Annotated[str, _aws_pattern("Mgn", "ApplicationID")]
+    accountID: Optional[Annotated[str, _aws_pattern("Mgn", "AccountID")]] = None
 
 
 # This class is the input for the 'delete_connector' function.
 class DeleteConnectorRequestTypeDef(BaseValidatorModel):
-    connectorID: str
+    connectorID: Annotated[str, _aws_pattern("Mgn", "ConnectorID")]
 
 
 class DeleteJobRequestTypeDef(BaseValidatorModel):
-    jobID: str
-    accountID: Optional[str] = None
+    jobID: Annotated[str, _aws_pattern("Mgn", "JobID")]
+    accountID: Optional[Annotated[str, _aws_pattern("Mgn", "AccountID")]] = None
 
 
 class DeleteLaunchConfigurationTemplateRequestTypeDef(BaseValidatorModel):
-    launchConfigurationTemplateID: str
+    launchConfigurationTemplateID: Annotated[str, _aws_pattern("Mgn", "LaunchConfigurationTemplateID")]
 
 
 class DeleteNetworkMigrationDefinitionRequestTypeDef(BaseValidatorModel):
-    networkMigrationDefinitionID: str
+    networkMigrationDefinitionID: Annotated[str, _aws_pattern("Mgn", "NetworkMigrationDefinitionID")]
 
 
 class DeleteReplicationConfigurationTemplateRequestTypeDef(BaseValidatorModel):
-    replicationConfigurationTemplateID: str
+    replicationConfigurationTemplateID: Annotated[str, _aws_pattern("Mgn", "ReplicationConfigurationTemplateID")]
 
 
 class DeleteSourceServerRequestTypeDef(BaseValidatorModel):
-    sourceServerID: str
-    accountID: Optional[str] = None
+    sourceServerID: Annotated[str, _aws_pattern("Mgn", "SourceServerID")]
+    accountID: Optional[Annotated[str, _aws_pattern("Mgn", "AccountID")]] = None
 
 
 # This class is the input for the 'delete_vcenter_client' function.
 class DeleteVcenterClientRequestTypeDef(BaseValidatorModel):
-    vcenterClientID: str
+    vcenterClientID: Annotated[str, _aws_pattern("Mgn", "VcenterClientID")]
 
 
 class DeleteWaveRequestTypeDef(BaseValidatorModel):
-    waveID: str
-    accountID: Optional[str] = None
+    waveID: Annotated[str, _aws_pattern("Mgn", "WaveID")]
+    accountID: Optional[Annotated[str, _aws_pattern("Mgn", "AccountID")]] = None
 
 
 class PaginatorConfigTypeDef(BaseValidatorModel):
@@ -229,38 +231,42 @@ class PaginatorConfigTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'describe_job_log_items' function.
 class DescribeJobLogItemsRequestTypeDef(BaseValidatorModel):
-    jobID: str
+    jobID: Annotated[str, _aws_pattern("Mgn", "JobID")]
     maxResults: Optional[int] = None
     nextToken: Optional[str] = None
-    accountID: Optional[str] = None
+    accountID: Optional[Annotated[str, _aws_pattern("Mgn", "AccountID")]] = None
 
 
 class DescribeJobsRequestFiltersTypeDef(BaseValidatorModel):
-    jobIDs: Optional[List[str]] = None
-    fromDate: Optional[str] = None
-    toDate: Optional[str] = None
+    jobIDs: Optional[List[Annotated[str, _aws_pattern("Mgn", "JobID")]]] = None
+    fromDate: Optional[Annotated[str, _aws_pattern("Mgn", "ISO8601DatetimeString")]] = None
+    toDate: Optional[Annotated[str, _aws_pattern("Mgn", "ISO8601DatetimeString")]] = None
 
 
 # This class is the input for the 'describe_launch_configuration_templates' function.
 class DescribeLaunchConfigurationTemplatesRequestTypeDef(BaseValidatorModel):
-    launchConfigurationTemplateIDs: Optional[List[str]] = None
+    launchConfigurationTemplateIDs: Optional[
+        List[Annotated[str, _aws_pattern("Mgn", "LaunchConfigurationTemplateID")]]
+    ] = None
     maxResults: Optional[int] = None
     nextToken: Optional[str] = None
 
 
 # This class is the input for the 'describe_replication_configuration_templates' function.
 class DescribeReplicationConfigurationTemplatesRequestTypeDef(BaseValidatorModel):
-    replicationConfigurationTemplateIDs: Optional[List[str]] = None
+    replicationConfigurationTemplateIDs: Optional[
+        List[Annotated[str, _aws_pattern("Mgn", "ReplicationConfigurationTemplateID")]]
+    ] = None
     maxResults: Optional[int] = None
     nextToken: Optional[str] = None
 
 
 class ReplicationConfigurationTemplateTypeDef(BaseValidatorModel):
-    replicationConfigurationTemplateID: str
+    replicationConfigurationTemplateID: Annotated[str, _aws_pattern("Mgn", "ReplicationConfigurationTemplateID")]
     arn: Optional[str] = None
-    stagingAreaSubnetId: Optional[str] = None
+    stagingAreaSubnetId: Optional[Annotated[str, _aws_pattern("Mgn", "SubnetID")]] = None
     associateDefaultSecurityGroup: Optional[bool] = None
-    replicationServersSecurityGroupsIDs: Optional[List[str]] = None
+    replicationServersSecurityGroupsIDs: Optional[List[Annotated[str, _aws_pattern("Mgn", "SecurityGroupID")]]] = None
     replicationServerInstanceType: Optional[str] = None
     useDedicatedReplicationServer: Optional[bool] = None
     defaultLargeStagingDiskType: Optional[ReplicationConfigurationDefaultLargeStagingDiskTypeType] = None
@@ -277,11 +283,11 @@ class ReplicationConfigurationTemplateTypeDef(BaseValidatorModel):
 
 
 class DescribeSourceServersRequestFiltersTypeDef(BaseValidatorModel):
-    sourceServerIDs: Optional[List[str]] = None
+    sourceServerIDs: Optional[List[Annotated[str, _aws_pattern("Mgn", "SourceServerID")]]] = None
     isArchived: Optional[bool] = None
     replicationTypes: Optional[List[ReplicationTypeType]] = None
     lifeCycleStates: Optional[List[LifeCycleStateType]] = None
-    applicationIDs: Optional[List[str]] = None
+    applicationIDs: Optional[List[Annotated[str, _aws_pattern("Mgn", "ApplicationID")]]] = None
 
 
 # This class is the input for the 'describe_vcenter_clients' function.
@@ -291,32 +297,32 @@ class DescribeVcenterClientsRequestTypeDef(BaseValidatorModel):
 
 
 class VcenterClientTypeDef(BaseValidatorModel):
-    vcenterClientID: Optional[str] = None
+    vcenterClientID: Optional[Annotated[str, _aws_pattern("Mgn", "VcenterClientID")]] = None
     arn: Optional[str] = None
     hostname: Optional[str] = None
     vcenterUUID: Optional[str] = None
     datacenterName: Optional[str] = None
-    lastSeenDatetime: Optional[str] = None
+    lastSeenDatetime: Optional[Annotated[str, _aws_pattern("Mgn", "ISO8601DatetimeString")]] = None
     sourceServerTags: Optional[Dict[str, str]] = None
     tags: Optional[Dict[str, str]] = None
 
 
 class DisassociateApplicationsRequestTypeDef(BaseValidatorModel):
-    waveID: str
-    applicationIDs: List[str]
-    accountID: Optional[str] = None
+    waveID: Annotated[str, _aws_pattern("Mgn", "WaveID")]
+    applicationIDs: List[Annotated[str, _aws_pattern("Mgn", "ApplicationID")]]
+    accountID: Optional[Annotated[str, _aws_pattern("Mgn", "AccountID")]] = None
 
 
 class DisassociateSourceServersRequestTypeDef(BaseValidatorModel):
-    applicationID: str
-    sourceServerIDs: List[str]
-    accountID: Optional[str] = None
+    applicationID: Annotated[str, _aws_pattern("Mgn", "ApplicationID")]
+    sourceServerIDs: List[Annotated[str, _aws_pattern("Mgn", "SourceServerID")]]
+    accountID: Optional[Annotated[str, _aws_pattern("Mgn", "AccountID")]] = None
 
 
 # This class is the input for the 'disconnect_from_service' function.
 class DisconnectFromServiceRequestTypeDef(BaseValidatorModel):
-    sourceServerID: str
-    accountID: Optional[str] = None
+    sourceServerID: Annotated[str, _aws_pattern("Mgn", "SourceServerID")]
+    accountID: Optional[Annotated[str, _aws_pattern("Mgn", "AccountID")]] = None
 
 
 class DiskTypeDef(BaseValidatorModel):
@@ -325,15 +331,15 @@ class DiskTypeDef(BaseValidatorModel):
 
 
 class EnrichmentSourceS3ConfigurationTypeDef(BaseValidatorModel):
-    s3Bucket: str
-    s3BucketOwner: str
-    s3Key: str
+    s3Bucket: Annotated[str, _aws_pattern("Mgn", "S3BucketName")]
+    s3BucketOwner: Annotated[str, _aws_pattern("Mgn", "AccountID")]
+    s3Key: Annotated[str, _aws_pattern("Mgn", "S3KeyName")]
 
 
 class EnrichmentTargetS3ConfigurationTypeDef(BaseValidatorModel):
-    s3Bucket: str
-    s3BucketOwner: str
-    s3Key: str
+    s3Bucket: Annotated[str, _aws_pattern("Mgn", "S3BucketName")]
+    s3BucketOwner: Annotated[str, _aws_pattern("Mgn", "AccountID")]
+    s3Key: Annotated[str, _aws_pattern("Mgn", "S3KeyName")]
 
 
 class ExportErrorDataTypeDef(BaseValidatorModel):
@@ -348,35 +354,36 @@ class ExportTaskSummaryTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'finalize_cutover' function.
 class FinalizeCutoverRequestTypeDef(BaseValidatorModel):
-    sourceServerID: str
-    accountID: Optional[str] = None
+    sourceServerID: Annotated[str, _aws_pattern("Mgn", "SourceServerID")]
+    accountID: Optional[Annotated[str, _aws_pattern("Mgn", "AccountID")]] = None
 
 
 # This class is the input for the 'get_launch_configuration' function.
 class GetLaunchConfigurationRequestTypeDef(BaseValidatorModel):
-    sourceServerID: str
-    accountID: Optional[str] = None
+    sourceServerID: Annotated[str, _aws_pattern("Mgn", "SourceServerID")]
+    accountID: Optional[Annotated[str, _aws_pattern("Mgn", "AccountID")]] = None
 
 
 # This class is the input for the 'get_network_migration_definition' function.
 class GetNetworkMigrationDefinitionRequestTypeDef(BaseValidatorModel):
-    networkMigrationDefinitionID: str
+    networkMigrationDefinitionID: Annotated[str, _aws_pattern("Mgn", "NetworkMigrationDefinitionID")]
 
 
 # This class is the input for the 'get_network_migration_mapper_segment_construct' function.
 class GetNetworkMigrationMapperSegmentConstructRequestTypeDef(BaseValidatorModel):
-    networkMigrationDefinitionID: str
-    networkMigrationExecutionID: str
-    segmentID: str
-    constructID: str
+    networkMigrationDefinitionID: Annotated[str, _aws_pattern("Mgn", "NetworkMigrationDefinitionID")]
+    networkMigrationExecutionID: Annotated[str, _aws_pattern("Mgn", "NetworkMigrationExecutionID")]
+    segmentID: Annotated[str, _aws_pattern("Mgn", "SegmentID")]
+    constructID: Annotated[str, _aws_pattern("Mgn", "ConstructID")]
 
 
 class NetworkMigrationMapperSegmentConstructTypeDef(BaseValidatorModel):
-    constructID: Optional[str] = None
-    constructType: Optional[str] = None
-    name: Optional[str] = None
-    description: Optional[str] = None
-    logicalID: Optional[str] = None
+    constructID: Optional[Annotated[str, _aws_pattern("Mgn", "ConstructID")]] = None
+    constructType: Optional[Annotated[str, _aws_pattern("Mgn", "NetworkMigrationMapperSegmentConstructType")]] = None
+    name: Optional[Annotated[str, _aws_pattern("Mgn", "SegmentConstructName")]] = None
+    description: Optional[Annotated[str, _aws_pattern("Mgn", "SegmentConstructDescription")]] = None
+    logicalID: Optional[Annotated[str, _aws_pattern("Mgn", "LogicalID")]] = None
+    excluded: Optional[bool] = None
     createdAt: Optional[datetime] = None
     updatedAt: Optional[datetime] = None
     properties: Optional[Dict[str, str]] = None
@@ -384,26 +391,26 @@ class NetworkMigrationMapperSegmentConstructTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'get_replication_configuration' function.
 class GetReplicationConfigurationRequestTypeDef(BaseValidatorModel):
-    sourceServerID: str
-    accountID: Optional[str] = None
+    sourceServerID: Annotated[str, _aws_pattern("Mgn", "SourceServerID")]
+    accountID: Optional[Annotated[str, _aws_pattern("Mgn", "AccountID")]] = None
 
 
 class IdentificationHintsTypeDef(BaseValidatorModel):
     fqdn: Optional[str] = None
     hostname: Optional[str] = None
     vmWareUuid: Optional[str] = None
-    awsInstanceID: Optional[str] = None
+    awsInstanceID: Optional[Annotated[str, _aws_pattern("Mgn", "EC2InstanceID")]] = None
     vmPath: Optional[str] = None
 
 
 class ImportErrorDataTypeDef(BaseValidatorModel):
-    sourceServerID: Optional[str] = None
-    applicationID: Optional[str] = None
-    waveID: Optional[str] = None
+    sourceServerID: Optional[Annotated[str, _aws_pattern("Mgn", "SourceServerID")]] = None
+    applicationID: Optional[Annotated[str, _aws_pattern("Mgn", "ApplicationID")]] = None
+    waveID: Optional[Annotated[str, _aws_pattern("Mgn", "WaveID")]] = None
     ec2LaunchTemplateID: Optional[str] = None
     rowNumber: Optional[int] = None
     rawError: Optional[str] = None
-    accountID: Optional[str] = None
+    accountID: Optional[Annotated[str, _aws_pattern("Mgn", "AccountID")]] = None
 
 
 class ImportTaskSummaryApplicationsTypeDef(BaseValidatorModel):
@@ -422,86 +429,86 @@ class ImportTaskSummaryWavesTypeDef(BaseValidatorModel):
 
 
 class S3BucketSourceTypeDef(BaseValidatorModel):
-    s3Bucket: str
-    s3Key: str
-    s3BucketOwner: Optional[str] = None
+    s3Bucket: Annotated[str, _aws_pattern("Mgn", "S3BucketName")]
+    s3Key: Annotated[str, _aws_pattern("Mgn", "S3Key")]
+    s3BucketOwner: Optional[Annotated[str, _aws_pattern("Mgn", "AccountID")]] = None
 
 
 class JobLogEventDataTypeDef(BaseValidatorModel):
-    sourceServerID: Optional[str] = None
-    conversionServerID: Optional[str] = None
-    targetInstanceID: Optional[str] = None
+    sourceServerID: Optional[Annotated[str, _aws_pattern("Mgn", "SourceServerID")]] = None
+    conversionServerID: Optional[Annotated[str, _aws_pattern("Mgn", "EC2InstanceID")]] = None
+    targetInstanceID: Optional[Annotated[str, _aws_pattern("Mgn", "EC2InstanceID")]] = None
     rawError: Optional[str] = None
     attemptCount: Optional[int] = None
     maxAttemptsCount: Optional[int] = None
 
 
 class LaunchedInstanceTypeDef(BaseValidatorModel):
-    ec2InstanceID: Optional[str] = None
-    jobID: Optional[str] = None
+    ec2InstanceID: Optional[Annotated[str, _aws_pattern("Mgn", "EC2InstanceID")]] = None
+    jobID: Optional[Annotated[str, _aws_pattern("Mgn", "JobID")]] = None
     firstBoot: Optional[FirstBootType] = None
 
 
 class LifeCycleLastCutoverFinalizedTypeDef(BaseValidatorModel):
-    apiCallDateTime: Optional[str] = None
+    apiCallDateTime: Optional[Annotated[str, _aws_pattern("Mgn", "ISO8601DatetimeString")]] = None
 
 
 class LifeCycleLastCutoverInitiatedTypeDef(BaseValidatorModel):
-    apiCallDateTime: Optional[str] = None
-    jobID: Optional[str] = None
+    apiCallDateTime: Optional[Annotated[str, _aws_pattern("Mgn", "ISO8601DatetimeString")]] = None
+    jobID: Optional[Annotated[str, _aws_pattern("Mgn", "JobID")]] = None
 
 
 class LifeCycleLastCutoverRevertedTypeDef(BaseValidatorModel):
-    apiCallDateTime: Optional[str] = None
+    apiCallDateTime: Optional[Annotated[str, _aws_pattern("Mgn", "ISO8601DatetimeString")]] = None
 
 
 class LifeCycleLastTestFinalizedTypeDef(BaseValidatorModel):
-    apiCallDateTime: Optional[str] = None
+    apiCallDateTime: Optional[Annotated[str, _aws_pattern("Mgn", "ISO8601DatetimeString")]] = None
 
 
 class LifeCycleLastTestInitiatedTypeDef(BaseValidatorModel):
-    apiCallDateTime: Optional[str] = None
-    jobID: Optional[str] = None
+    apiCallDateTime: Optional[Annotated[str, _aws_pattern("Mgn", "ISO8601DatetimeString")]] = None
+    jobID: Optional[Annotated[str, _aws_pattern("Mgn", "JobID")]] = None
 
 
 class LifeCycleLastTestRevertedTypeDef(BaseValidatorModel):
-    apiCallDateTime: Optional[str] = None
+    apiCallDateTime: Optional[Annotated[str, _aws_pattern("Mgn", "ISO8601DatetimeString")]] = None
 
 
 class ListApplicationsRequestFiltersTypeDef(BaseValidatorModel):
-    applicationIDs: Optional[List[str]] = None
+    applicationIDs: Optional[List[Annotated[str, _aws_pattern("Mgn", "ApplicationID")]]] = None
     isArchived: Optional[bool] = None
-    waveIDs: Optional[List[str]] = None
+    waveIDs: Optional[List[Annotated[str, _aws_pattern("Mgn", "WaveID")]]] = None
 
 
 class ListConnectorsRequestFiltersTypeDef(BaseValidatorModel):
-    connectorIDs: Optional[List[str]] = None
+    connectorIDs: Optional[List[Annotated[str, _aws_pattern("Mgn", "ConnectorID")]]] = None
 
 
 # This class is the input for the 'list_export_errors' function.
 class ListExportErrorsRequestTypeDef(BaseValidatorModel):
-    exportID: str
+    exportID: Annotated[str, _aws_pattern("Mgn", "ExportID")]
     maxResults: Optional[int] = None
     nextToken: Optional[str] = None
 
 
 class ListExportsRequestFiltersTypeDef(BaseValidatorModel):
-    exportIDs: Optional[List[str]] = None
+    exportIDs: Optional[List[Annotated[str, _aws_pattern("Mgn", "ExportID")]]] = None
 
 
 # This class is the input for the 'list_import_errors' function.
 class ListImportErrorsRequestTypeDef(BaseValidatorModel):
-    importID: str
+    importID: Annotated[str, _aws_pattern("Mgn", "ImportID")]
     maxResults: Optional[int] = None
     nextToken: Optional[str] = None
 
 
 class ListImportFileEnrichmentsFiltersTypeDef(BaseValidatorModel):
-    jobIDs: Optional[List[str]] = None
+    jobIDs: Optional[List[Annotated[str, _aws_pattern("Mgn", "ImportFileEnrichmentJobID")]]] = None
 
 
 class ListImportsRequestFiltersTypeDef(BaseValidatorModel):
-    importIDs: Optional[List[str]] = None
+    importIDs: Optional[List[Annotated[str, _aws_pattern("Mgn", "ImportID")]]] = None
 
 
 # This class is the input for the 'list_managed_accounts' function.
@@ -511,17 +518,17 @@ class ListManagedAccountsRequestTypeDef(BaseValidatorModel):
 
 
 class ManagedAccountTypeDef(BaseValidatorModel):
-    accountId: Optional[str] = None
+    accountId: Optional[Annotated[str, _aws_pattern("Mgn", "AccountID")]] = None
 
 
 class ListNetworkMigrationAnalysesFiltersTypeDef(BaseValidatorModel):
-    jobIDs: Optional[List[str]] = None
+    jobIDs: Optional[List[Annotated[str, _aws_pattern("Mgn", "NetworkMigrationJobID")]]] = None
 
 
 class NetworkMigrationAnalysisJobDetailsTypeDef(BaseValidatorModel):
-    jobID: Optional[str] = None
-    networkMigrationExecutionID: Optional[str] = None
-    networkMigrationDefinitionID: Optional[str] = None
+    jobID: Optional[Annotated[str, _aws_pattern("Mgn", "NetworkMigrationJobID")]] = None
+    networkMigrationExecutionID: Optional[Annotated[str, _aws_pattern("Mgn", "NetworkMigrationExecutionID")]] = None
+    networkMigrationDefinitionID: Optional[Annotated[str, _aws_pattern("Mgn", "NetworkMigrationDefinitionID")]] = None
     createdAt: Optional[datetime] = None
     endedAt: Optional[datetime] = None
     status: Optional[NetworkMigrationJobStatusType] = None
@@ -529,24 +536,26 @@ class NetworkMigrationAnalysisJobDetailsTypeDef(BaseValidatorModel):
 
 
 class ListNetworkMigrationAnalysisResultsFiltersTypeDef(BaseValidatorModel):
-    vpcIDs: Optional[List[str]] = None
+    vpcIDs: Optional[List[Annotated[str, _aws_pattern("Mgn", "VpcID")]]] = None
 
 
 class ListNetworkMigrationCodeGenerationSegmentsFiltersTypeDef(BaseValidatorModel):
-    segmentIDs: Optional[List[str]] = None
+    segmentIDs: Optional[List[Annotated[str, _aws_pattern("Mgn", "SegmentID")]]] = None
 
 
 class ListNetworkMigrationCodeGenerationsFiltersTypeDef(BaseValidatorModel):
-    jobIDs: Optional[List[str]] = None
+    jobIDs: Optional[List[Annotated[str, _aws_pattern("Mgn", "NetworkMigrationJobID")]]] = None
 
 
 class ListNetworkMigrationDefinitionsRequestFiltersTypeDef(BaseValidatorModel):
-    networkMigrationDefinitionIDs: Optional[List[str]] = None
+    networkMigrationDefinitionIDs: Optional[
+        List[Annotated[str, _aws_pattern("Mgn", "NetworkMigrationDefinitionID")]]
+    ] = None
 
 
 class NetworkMigrationDefinitionSummaryTypeDef(BaseValidatorModel):
-    networkMigrationDefinitionID: Optional[str] = None
-    name: Optional[str] = None
+    networkMigrationDefinitionID: Optional[Annotated[str, _aws_pattern("Mgn", "NetworkMigrationDefinitionID")]] = None
+    name: Optional[Annotated[str, _aws_pattern("Mgn", "NetworkMigrationDefinitionName")]] = None
     sourceEnvironment: Optional[SourceEnvironmentType] = None
     arn: Optional[str] = None
     tags: Optional[Dict[str, str]] = None
@@ -555,20 +564,20 @@ class NetworkMigrationDefinitionSummaryTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'list_network_migration_deployed_stacks' function.
 class ListNetworkMigrationDeployedStacksRequestTypeDef(BaseValidatorModel):
-    networkMigrationExecutionID: str
-    networkMigrationDefinitionID: str
+    networkMigrationExecutionID: Annotated[str, _aws_pattern("Mgn", "NetworkMigrationExecutionID")]
+    networkMigrationDefinitionID: Annotated[str, _aws_pattern("Mgn", "NetworkMigrationDefinitionID")]
     maxResults: Optional[int] = None
     nextToken: Optional[str] = None
 
 
 class ListNetworkMigrationDeployerJobFiltersTypeDef(BaseValidatorModel):
-    jobIDs: Optional[List[str]] = None
+    jobIDs: Optional[List[Annotated[str, _aws_pattern("Mgn", "NetworkMigrationJobID")]]] = None
 
 
 class NetworkMigrationDeployerJobDetailsTypeDef(BaseValidatorModel):
-    jobID: Optional[str] = None
-    networkMigrationExecutionID: Optional[str] = None
-    networkMigrationDefinitionID: Optional[str] = None
+    jobID: Optional[Annotated[str, _aws_pattern("Mgn", "NetworkMigrationJobID")]] = None
+    networkMigrationExecutionID: Optional[Annotated[str, _aws_pattern("Mgn", "NetworkMigrationExecutionID")]] = None
+    networkMigrationDefinitionID: Optional[Annotated[str, _aws_pattern("Mgn", "NetworkMigrationDefinitionID")]] = None
     createdAt: Optional[datetime] = None
     endedAt: Optional[datetime] = None
     status: Optional[NetworkMigrationJobStatusType] = None
@@ -576,13 +585,15 @@ class NetworkMigrationDeployerJobDetailsTypeDef(BaseValidatorModel):
 
 
 class ListNetworkMigrationExecutionRequestFiltersTypeDef(BaseValidatorModel):
-    networkMigrationExecutionIDs: Optional[List[str]] = None
+    networkMigrationExecutionIDs: Optional[List[Annotated[str, _aws_pattern("Mgn", "NetworkMigrationExecutionID")]]] = (
+        None
+    )
     networkMigrationExecutionStatuses: Optional[List[ExecutionStatusType]] = None
 
 
 class NetworkMigrationExecutionTypeDef(BaseValidatorModel):
-    networkMigrationDefinitionID: Optional[str] = None
-    networkMigrationExecutionID: Optional[str] = None
+    networkMigrationDefinitionID: Optional[Annotated[str, _aws_pattern("Mgn", "NetworkMigrationDefinitionID")]] = None
+    networkMigrationExecutionID: Optional[Annotated[str, _aws_pattern("Mgn", "NetworkMigrationExecutionID")]] = None
     status: Optional[ExecutionStatusType] = None
     stage: Optional[ExecutionStageType] = None
     activity: Optional[ExecutionStageActivityType] = None
@@ -592,22 +603,24 @@ class NetworkMigrationExecutionTypeDef(BaseValidatorModel):
 
 
 class ListNetworkMigrationMapperSegmentConstructsFiltersTypeDef(BaseValidatorModel):
-    constructIDs: Optional[List[str]] = None
-    constructTypes: Optional[List[str]] = None
+    constructIDs: Optional[List[Annotated[str, _aws_pattern("Mgn", "ConstructID")]]] = None
+    constructTypes: Optional[
+        List[Annotated[str, _aws_pattern("Mgn", "NetworkMigrationMapperSegmentConstructType")]]
+    ] = None
 
 
 class ListNetworkMigrationMapperSegmentsFiltersTypeDef(BaseValidatorModel):
-    segmentIDs: Optional[List[str]] = None
+    segmentIDs: Optional[List[Annotated[str, _aws_pattern("Mgn", "SegmentID")]]] = None
 
 
 class ListNetworkMigrationMappingUpdatesFiltersTypeDef(BaseValidatorModel):
-    jobIDs: Optional[List[str]] = None
+    jobIDs: Optional[List[Annotated[str, _aws_pattern("Mgn", "NetworkMigrationJobID")]]] = None
 
 
 class NetworkMigrationMappingUpdateJobDetailsTypeDef(BaseValidatorModel):
-    jobID: Optional[str] = None
-    networkMigrationExecutionID: Optional[str] = None
-    networkMigrationDefinitionID: Optional[str] = None
+    jobID: Optional[Annotated[str, _aws_pattern("Mgn", "NetworkMigrationJobID")]] = None
+    networkMigrationExecutionID: Optional[Annotated[str, _aws_pattern("Mgn", "NetworkMigrationExecutionID")]] = None
+    networkMigrationDefinitionID: Optional[Annotated[str, _aws_pattern("Mgn", "NetworkMigrationDefinitionID")]] = None
     createdAt: Optional[datetime] = None
     endedAt: Optional[datetime] = None
     status: Optional[NetworkMigrationJobStatusType] = None
@@ -615,13 +628,13 @@ class NetworkMigrationMappingUpdateJobDetailsTypeDef(BaseValidatorModel):
 
 
 class ListNetworkMigrationMappingsFiltersTypeDef(BaseValidatorModel):
-    jobIDs: Optional[List[str]] = None
+    jobIDs: Optional[List[Annotated[str, _aws_pattern("Mgn", "NetworkMigrationJobID")]]] = None
 
 
 class NetworkMigrationMappingJobDetailsTypeDef(BaseValidatorModel):
-    jobID: Optional[str] = None
-    networkMigrationExecutionID: Optional[str] = None
-    networkMigrationDefinitionID: Optional[str] = None
+    jobID: Optional[Annotated[str, _aws_pattern("Mgn", "NetworkMigrationJobID")]] = None
+    networkMigrationExecutionID: Optional[Annotated[str, _aws_pattern("Mgn", "NetworkMigrationExecutionID")]] = None
+    networkMigrationDefinitionID: Optional[Annotated[str, _aws_pattern("Mgn", "NetworkMigrationDefinitionID")]] = None
     createdAt: Optional[datetime] = None
     endedAt: Optional[datetime] = None
     status: Optional[NetworkMigrationJobStatusType] = None
@@ -629,7 +642,7 @@ class NetworkMigrationMappingJobDetailsTypeDef(BaseValidatorModel):
 
 
 class SourceServerActionsRequestFiltersTypeDef(BaseValidatorModel):
-    actionIDs: Optional[List[str]] = None
+    actionIDs: Optional[List[Annotated[str, _aws_pattern("Mgn", "ActionID")]]] = None
 
 
 # This class is the input for the 'list_tags_for_resource' function.
@@ -638,18 +651,23 @@ class ListTagsForResourceRequestTypeDef(BaseValidatorModel):
 
 
 class TemplateActionsRequestFiltersTypeDef(BaseValidatorModel):
-    actionIDs: Optional[List[str]] = None
+    actionIDs: Optional[List[Annotated[str, _aws_pattern("Mgn", "ActionID")]]] = None
 
 
 class ListWavesRequestFiltersTypeDef(BaseValidatorModel):
-    waveIDs: Optional[List[str]] = None
+    waveIDs: Optional[List[Annotated[str, _aws_pattern("Mgn", "WaveID")]]] = None
     isArchived: Optional[bool] = None
 
 
 # This class is the input for the 'mark_as_archived' function.
 class MarkAsArchivedRequestTypeDef(BaseValidatorModel):
-    sourceServerID: str
-    accountID: Optional[str] = None
+    sourceServerID: Annotated[str, _aws_pattern("Mgn", "SourceServerID")]
+    accountID: Optional[Annotated[str, _aws_pattern("Mgn", "AccountID")]] = None
+
+
+class MergeConstructTypeDef(BaseValidatorModel):
+    segmentID: Optional[Annotated[str, _aws_pattern("Mgn", "SegmentID")]] = None
+    constructID: Optional[Annotated[str, _aws_pattern("Mgn", "ConstructID")]] = None
 
 
 class NetworkInterfaceTypeDef(BaseValidatorModel):
@@ -659,23 +677,23 @@ class NetworkInterfaceTypeDef(BaseValidatorModel):
 
 
 class NetworkMigrationAnalysisResultSourceTypeDef(BaseValidatorModel):
-    vpcID: Optional[str] = None
-    subnetID: Optional[str] = None
+    vpcID: Optional[Annotated[str, _aws_pattern("Mgn", "VpcID")]] = None
+    subnetID: Optional[Annotated[str, _aws_pattern("Mgn", "SubnetID")]] = None
 
 
 class NetworkMigrationAnalysisResultTargetTypeDef(BaseValidatorModel):
-    vpcID: Optional[str] = None
-    subnetID: Optional[str] = None
+    vpcID: Optional[Annotated[str, _aws_pattern("Mgn", "VpcID")]] = None
+    subnetID: Optional[Annotated[str, _aws_pattern("Mgn", "SubnetID")]] = None
 
 
 class S3ConfigurationTypeDef(BaseValidatorModel):
-    s3Bucket: Optional[str] = None
-    s3BucketOwner: Optional[str] = None
-    s3Key: Optional[str] = None
+    s3Bucket: Optional[Annotated[str, _aws_pattern("Mgn", "S3BucketName")]] = None
+    s3BucketOwner: Optional[Annotated[str, _aws_pattern("Mgn", "AccountID")]] = None
+    s3Key: Optional[Annotated[str, _aws_pattern("Mgn", "S3KeyName")]] = None
 
 
 class NetworkMigrationFailedResourceDetailsTypeDef(BaseValidatorModel):
-    logicalID: Optional[str] = None
+    logicalID: Optional[Annotated[str, _aws_pattern("Mgn", "LogicalID")]] = None
     status: Optional[NetworkMigrationFailedResourceStatusType] = None
     statusReason: Optional[str] = None
 
@@ -685,33 +703,35 @@ class OSTypeDef(BaseValidatorModel):
 
 
 class UpdateOperationTypeDef(BaseValidatorModel):
+    name: Optional[Annotated[str, _aws_pattern("Mgn", "SegmentConstructName")]] = None
+    excluded: Optional[bool] = None
     properties: Optional[Dict[str, str]] = None
 
 
 # This class is the input for the 'pause_replication' function.
 class PauseReplicationRequestTypeDef(BaseValidatorModel):
-    sourceServerID: str
-    accountID: Optional[str] = None
+    sourceServerID: Annotated[str, _aws_pattern("Mgn", "SourceServerID")]
+    accountID: Optional[Annotated[str, _aws_pattern("Mgn", "AccountID")]] = None
 
 
 class SsmExternalParameterTypeDef(BaseValidatorModel):
-    dynamicPath: Optional[str] = None
+    dynamicPath: Optional[Annotated[str, _aws_pattern("Mgn", "JmesPathString")]] = None
 
 
 class SsmParameterStoreParameterTypeDef(BaseValidatorModel):
     parameterType: SsmParameterStoreParameterTypeType
-    parameterName: str
+    parameterName: Annotated[str, _aws_pattern("Mgn", "SsmParameterStoreParameterName")]
 
 
 class RemoveSourceServerActionRequestTypeDef(BaseValidatorModel):
-    sourceServerID: str
-    actionID: str
-    accountID: Optional[str] = None
+    sourceServerID: Annotated[str, _aws_pattern("Mgn", "SourceServerID")]
+    actionID: Annotated[str, _aws_pattern("Mgn", "ActionID")]
+    accountID: Optional[Annotated[str, _aws_pattern("Mgn", "AccountID")]] = None
 
 
 class RemoveTemplateActionRequestTypeDef(BaseValidatorModel):
-    launchConfigurationTemplateID: str
-    actionID: str
+    launchConfigurationTemplateID: Annotated[str, _aws_pattern("Mgn", "LaunchConfigurationTemplateID")]
+    actionID: Annotated[str, _aws_pattern("Mgn", "ActionID")]
 
 
 class ReplicationConfigurationReplicatedDiskTypeDef(BaseValidatorModel):
@@ -724,91 +744,95 @@ class ReplicationConfigurationReplicatedDiskTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'resume_replication' function.
 class ResumeReplicationRequestTypeDef(BaseValidatorModel):
-    sourceServerID: str
-    accountID: Optional[str] = None
+    sourceServerID: Annotated[str, _aws_pattern("Mgn", "SourceServerID")]
+    accountID: Optional[Annotated[str, _aws_pattern("Mgn", "AccountID")]] = None
 
 
 # This class is the input for the 'retry_data_replication' function.
 class RetryDataReplicationRequestTypeDef(BaseValidatorModel):
-    sourceServerID: str
-    accountID: Optional[str] = None
+    sourceServerID: Annotated[str, _aws_pattern("Mgn", "SourceServerID")]
+    accountID: Optional[Annotated[str, _aws_pattern("Mgn", "AccountID")]] = None
 
 
 class SourceS3ConfigurationTypeDef(BaseValidatorModel):
-    s3Bucket: str
-    s3BucketOwner: str
-    s3Key: str
+    s3Bucket: Annotated[str, _aws_pattern("Mgn", "S3BucketName")]
+    s3BucketOwner: Annotated[str, _aws_pattern("Mgn", "AccountID")]
+    s3Key: Annotated[str, _aws_pattern("Mgn", "S3KeyName")]
 
 
 class SourceServerConnectorActionTypeDef(BaseValidatorModel):
-    credentialsSecretArn: Optional[str] = None
-    connectorArn: Optional[str] = None
+    credentialsSecretArn: Optional[Annotated[str, _aws_pattern("Mgn", "SecretArn")]] = None
+    connectorArn: Optional[Annotated[str, _aws_pattern("Mgn", "ConnectorArn")]] = None
+
+
+class SplitConstructTypeDef(BaseValidatorModel):
+    cidrBlock: Optional[Annotated[str, _aws_pattern("Mgn", "CidrBlock")]] = None
 
 
 # This class is the input for the 'start_cutover' function.
 class StartCutoverRequestTypeDef(BaseValidatorModel):
-    sourceServerIDs: List[str]
+    sourceServerIDs: List[Annotated[str, _aws_pattern("Mgn", "SourceServerID")]]
     tags: Optional[Dict[str, str]] = None
-    accountID: Optional[str] = None
+    accountID: Optional[Annotated[str, _aws_pattern("Mgn", "AccountID")]] = None
 
 
 # This class is the input for the 'start_export' function.
 class StartExportRequestTypeDef(BaseValidatorModel):
-    s3Bucket: str
-    s3Key: str
-    s3BucketOwner: Optional[str] = None
+    s3Bucket: Annotated[str, _aws_pattern("Mgn", "S3BucketName")]
+    s3Key: Annotated[str, _aws_pattern("Mgn", "S3Key")]
+    s3BucketOwner: Optional[Annotated[str, _aws_pattern("Mgn", "AccountID")]] = None
     tags: Optional[Dict[str, str]] = None
 
 
 # This class is the input for the 'start_network_migration_analysis' function.
 class StartNetworkMigrationAnalysisRequestTypeDef(BaseValidatorModel):
-    networkMigrationExecutionID: str
-    networkMigrationDefinitionID: str
+    networkMigrationExecutionID: Annotated[str, _aws_pattern("Mgn", "NetworkMigrationExecutionID")]
+    networkMigrationDefinitionID: Annotated[str, _aws_pattern("Mgn", "NetworkMigrationDefinitionID")]
 
 
 # This class is the input for the 'start_network_migration_code_generation' function.
 class StartNetworkMigrationCodeGenerationRequestTypeDef(BaseValidatorModel):
-    networkMigrationExecutionID: str
-    networkMigrationDefinitionID: str
+    networkMigrationExecutionID: Annotated[str, _aws_pattern("Mgn", "NetworkMigrationExecutionID")]
+    networkMigrationDefinitionID: Annotated[str, _aws_pattern("Mgn", "NetworkMigrationDefinitionID")]
     codeGenerationOutputFormatTypes: Optional[List[CodeGenerationOutputFormatTypeType]] = None
 
 
 # This class is the input for the 'start_network_migration_deployment' function.
 class StartNetworkMigrationDeploymentRequestTypeDef(BaseValidatorModel):
-    networkMigrationExecutionID: str
-    networkMigrationDefinitionID: str
+    networkMigrationExecutionID: Annotated[str, _aws_pattern("Mgn", "NetworkMigrationExecutionID")]
+    networkMigrationDefinitionID: Annotated[str, _aws_pattern("Mgn", "NetworkMigrationDefinitionID")]
 
 
 # This class is the input for the 'start_network_migration_mapping' function.
 class StartNetworkMigrationMappingRequestTypeDef(BaseValidatorModel):
-    networkMigrationExecutionID: str
-    networkMigrationDefinitionID: str
+    networkMigrationExecutionID: Annotated[str, _aws_pattern("Mgn", "NetworkMigrationExecutionID")]
+    networkMigrationDefinitionID: Annotated[str, _aws_pattern("Mgn", "NetworkMigrationDefinitionID")]
     securityGroupMappingStrategy: Optional[SecurityGroupMappingStrategyType] = None
 
 
 class StartNetworkMigrationMappingUpdateSegmentTypeDef(BaseValidatorModel):
-    segmentID: str
-    targetAccount: Optional[str] = None
+    segmentID: Annotated[str, _aws_pattern("Mgn", "SegmentID")]
+    targetAccount: Optional[Annotated[str, _aws_pattern("Mgn", "AccountID")]] = None
     scopeTags: Optional[Dict[str, str]] = None
 
 
 # This class is the input for the 'start_replication' function.
 class StartReplicationRequestTypeDef(BaseValidatorModel):
-    sourceServerID: str
-    accountID: Optional[str] = None
+    sourceServerID: Annotated[str, _aws_pattern("Mgn", "SourceServerID")]
+    accountID: Optional[Annotated[str, _aws_pattern("Mgn", "AccountID")]] = None
 
 
 # This class is the input for the 'start_test' function.
 class StartTestRequestTypeDef(BaseValidatorModel):
-    sourceServerIDs: List[str]
+    sourceServerIDs: List[Annotated[str, _aws_pattern("Mgn", "SourceServerID")]]
     tags: Optional[Dict[str, str]] = None
-    accountID: Optional[str] = None
+    accountID: Optional[Annotated[str, _aws_pattern("Mgn", "AccountID")]] = None
 
 
 # This class is the input for the 'stop_replication' function.
 class StopReplicationRequestTypeDef(BaseValidatorModel):
-    sourceServerID: str
-    accountID: Optional[str] = None
+    sourceServerID: Annotated[str, _aws_pattern("Mgn", "SourceServerID")]
+    accountID: Optional[Annotated[str, _aws_pattern("Mgn", "AccountID")]] = None
 
 
 # This class is the input for the 'tag_resource' function.
@@ -819,33 +843,33 @@ class TagResourceRequestTypeDef(BaseValidatorModel):
 
 class TargetNetworkUpdateTypeDef(BaseValidatorModel):
     topology: Optional[TargetNetworkTopologyType] = None
-    inboundCidr: Optional[str] = None
-    outboundCidr: Optional[str] = None
-    inspectionCidr: Optional[str] = None
+    inboundCidr: Optional[Annotated[str, _aws_pattern("Mgn", "Cidr")]] = None
+    outboundCidr: Optional[Annotated[str, _aws_pattern("Mgn", "Cidr")]] = None
+    inspectionCidr: Optional[Annotated[str, _aws_pattern("Mgn", "Cidr")]] = None
 
 
 class TargetS3ConfigurationUpdateTypeDef(BaseValidatorModel):
-    s3Bucket: Optional[str] = None
-    s3BucketOwner: Optional[str] = None
+    s3Bucket: Optional[Annotated[str, _aws_pattern("Mgn", "S3BucketName")]] = None
+    s3BucketOwner: Optional[Annotated[str, _aws_pattern("Mgn", "AccountID")]] = None
 
 
 # This class is the input for the 'terminate_target_instances' function.
 class TerminateTargetInstancesRequestTypeDef(BaseValidatorModel):
-    sourceServerIDs: List[str]
+    sourceServerIDs: List[Annotated[str, _aws_pattern("Mgn", "SourceServerID")]]
     tags: Optional[Dict[str, str]] = None
-    accountID: Optional[str] = None
+    accountID: Optional[Annotated[str, _aws_pattern("Mgn", "AccountID")]] = None
 
 
 # This class is the input for the 'unarchive_application' function.
 class UnarchiveApplicationRequestTypeDef(BaseValidatorModel):
-    applicationID: str
-    accountID: Optional[str] = None
+    applicationID: Annotated[str, _aws_pattern("Mgn", "ApplicationID")]
+    accountID: Optional[Annotated[str, _aws_pattern("Mgn", "AccountID")]] = None
 
 
 # This class is the input for the 'unarchive_wave' function.
 class UnarchiveWaveRequestTypeDef(BaseValidatorModel):
-    waveID: str
-    accountID: Optional[str] = None
+    waveID: Annotated[str, _aws_pattern("Mgn", "WaveID")]
+    accountID: Optional[Annotated[str, _aws_pattern("Mgn", "AccountID")]] = None
 
 
 # This class is the input for the 'untag_resource' function.
@@ -856,27 +880,27 @@ class UntagResourceRequestTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'update_application' function.
 class UpdateApplicationRequestTypeDef(BaseValidatorModel):
-    applicationID: str
-    name: Optional[str] = None
-    description: Optional[str] = None
-    accountID: Optional[str] = None
+    applicationID: Annotated[str, _aws_pattern("Mgn", "ApplicationID")]
+    name: Optional[Annotated[str, _aws_pattern("Mgn", "ApplicationName")]] = None
+    description: Optional[Annotated[str, _aws_pattern("Mgn", "ApplicationDescription")]] = None
+    accountID: Optional[Annotated[str, _aws_pattern("Mgn", "AccountID")]] = None
 
 
 # This class is the input for the 'update_network_migration_mapper_segment' function.
 class UpdateNetworkMigrationMapperSegmentRequestTypeDef(BaseValidatorModel):
-    networkMigrationDefinitionID: str
-    networkMigrationExecutionID: str
-    segmentID: str
+    networkMigrationDefinitionID: Annotated[str, _aws_pattern("Mgn", "NetworkMigrationDefinitionID")]
+    networkMigrationExecutionID: Annotated[str, _aws_pattern("Mgn", "NetworkMigrationExecutionID")]
+    segmentID: Annotated[str, _aws_pattern("Mgn", "SegmentID")]
     scopeTags: Optional[Dict[str, str]] = None
 
 
 # This class is the input for the 'update_replication_configuration_template' function.
 class UpdateReplicationConfigurationTemplateRequestTypeDef(BaseValidatorModel):
-    replicationConfigurationTemplateID: str
+    replicationConfigurationTemplateID: Annotated[str, _aws_pattern("Mgn", "ReplicationConfigurationTemplateID")]
     arn: Optional[str] = None
-    stagingAreaSubnetId: Optional[str] = None
+    stagingAreaSubnetId: Optional[Annotated[str, _aws_pattern("Mgn", "SubnetID")]] = None
     associateDefaultSecurityGroup: Optional[bool] = None
-    replicationServersSecurityGroupsIDs: Optional[List[str]] = None
+    replicationServersSecurityGroupsIDs: Optional[List[Annotated[str, _aws_pattern("Mgn", "SecurityGroupID")]]] = None
     replicationServerInstanceType: Optional[str] = None
     useDedicatedReplicationServer: Optional[bool] = None
     defaultLargeStagingDiskType: Optional[ReplicationConfigurationDefaultLargeStagingDiskTypeType] = None
@@ -893,38 +917,38 @@ class UpdateReplicationConfigurationTemplateRequestTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'update_source_server_replication_type' function.
 class UpdateSourceServerReplicationTypeRequestTypeDef(BaseValidatorModel):
-    sourceServerID: str
+    sourceServerID: Annotated[str, _aws_pattern("Mgn", "SourceServerID")]
     replicationType: ReplicationTypeType
-    accountID: Optional[str] = None
+    accountID: Optional[Annotated[str, _aws_pattern("Mgn", "AccountID")]] = None
 
 
 # This class is the input for the 'update_wave' function.
 class UpdateWaveRequestTypeDef(BaseValidatorModel):
-    waveID: str
-    name: Optional[str] = None
-    description: Optional[str] = None
-    accountID: Optional[str] = None
+    waveID: Annotated[str, _aws_pattern("Mgn", "WaveID")]
+    name: Optional[Annotated[str, _aws_pattern("Mgn", "WaveName")]] = None
+    description: Optional[Annotated[str, _aws_pattern("Mgn", "WaveDescription")]] = None
+    accountID: Optional[Annotated[str, _aws_pattern("Mgn", "AccountID")]] = None
 
 
 class WaveAggregatedStatusTypeDef(BaseValidatorModel):
-    lastUpdateDateTime: Optional[str] = None
-    replicationStartedDateTime: Optional[str] = None
+    lastUpdateDateTime: Optional[Annotated[str, _aws_pattern("Mgn", "ISO8601DatetimeString")]] = None
+    replicationStartedDateTime: Optional[Annotated[str, _aws_pattern("Mgn", "ISO8601DatetimeString")]] = None
     healthStatus: Optional[WaveHealthStatusType] = None
     progressStatus: Optional[WaveProgressStatusType] = None
     totalApplications: Optional[int] = None
 
 
 class ApplicationTypeDef(BaseValidatorModel):
-    applicationID: Optional[str] = None
+    applicationID: Optional[Annotated[str, _aws_pattern("Mgn", "ApplicationID")]] = None
     arn: Optional[str] = None
-    name: Optional[str] = None
-    description: Optional[str] = None
+    name: Optional[Annotated[str, _aws_pattern("Mgn", "ApplicationName")]] = None
+    description: Optional[Annotated[str, _aws_pattern("Mgn", "ApplicationDescription")]] = None
     isArchived: Optional[bool] = None
     applicationAggregatedStatus: Optional[ApplicationAggregatedStatusTypeDef] = None
-    creationDateTime: Optional[str] = None
-    lastModifiedDateTime: Optional[str] = None
+    creationDateTime: Optional[Annotated[str, _aws_pattern("Mgn", "ISO8601DatetimeString")]] = None
+    lastModifiedDateTime: Optional[Annotated[str, _aws_pattern("Mgn", "ISO8601DatetimeString")]] = None
     tags: Optional[Dict[str, str]] = None
-    waveID: Optional[str] = None
+    waveID: Optional[Annotated[str, _aws_pattern("Mgn", "WaveID")]] = None
 
 
 # This class is the output for the 'archive_application' function.
@@ -978,51 +1002,51 @@ class ReplicationConfigurationTemplateResponseTypeDef(BaseValidatorModel):
 
 # This class is the output for the 'start_import_file_enrichment' function.
 class StartImportFileEnrichmentResponseTypeDef(BaseValidatorModel):
-    jobID: str
+    jobID: Annotated[str, _aws_pattern("Mgn", "ImportFileEnrichmentJobID")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 # This class is the output for the 'start_network_migration_analysis' function.
 class StartNetworkMigrationAnalysisResponseTypeDef(BaseValidatorModel):
-    jobID: str
+    jobID: Annotated[str, _aws_pattern("Mgn", "NetworkMigrationJobID")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 # This class is the output for the 'start_network_migration_code_generation' function.
 class StartNetworkMigrationCodeGenerationResponseTypeDef(BaseValidatorModel):
-    jobID: str
+    jobID: Annotated[str, _aws_pattern("Mgn", "NetworkMigrationJobID")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 # This class is the output for the 'start_network_migration_deployment' function.
 class StartNetworkMigrationDeployerJobResponseTypeDef(BaseValidatorModel):
-    jobID: str
+    jobID: Annotated[str, _aws_pattern("Mgn", "NetworkMigrationJobID")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 # This class is the output for the 'start_network_migration_mapping' function.
 class StartNetworkMigrationMappingResponseTypeDef(BaseValidatorModel):
-    jobID: str
+    jobID: Annotated[str, _aws_pattern("Mgn", "NetworkMigrationJobID")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 # This class is the output for the 'start_network_migration_mapping_update' function.
 class StartNetworkMigrationMappingUpdateResponseTypeDef(BaseValidatorModel):
-    jobID: str
+    jobID: Annotated[str, _aws_pattern("Mgn", "NetworkMigrationJobID")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 # This class is the input for the 'change_server_life_cycle_state' function.
 class ChangeServerLifeCycleStateRequestTypeDef(BaseValidatorModel):
-    sourceServerID: str
+    sourceServerID: Annotated[str, _aws_pattern("Mgn", "SourceServerID")]
     lifeCycle: ChangeServerLifeCycleStateSourceServerLifecycleTypeDef
-    accountID: Optional[str] = None
+    accountID: Optional[Annotated[str, _aws_pattern("Mgn", "AccountID")]] = None
 
 
 class NetworkMigrationCodeGenerationJobDetailsTypeDef(BaseValidatorModel):
-    jobID: Optional[str] = None
-    networkMigrationExecutionID: Optional[str] = None
-    networkMigrationDefinitionID: Optional[str] = None
+    jobID: Optional[Annotated[str, _aws_pattern("Mgn", "NetworkMigrationJobID")]] = None
+    networkMigrationExecutionID: Optional[Annotated[str, _aws_pattern("Mgn", "NetworkMigrationExecutionID")]] = None
+    networkMigrationDefinitionID: Optional[Annotated[str, _aws_pattern("Mgn", "NetworkMigrationDefinitionID")]] = None
     createdAt: Optional[datetime] = None
     endedAt: Optional[datetime] = None
     status: Optional[NetworkMigrationJobStatusType] = None
@@ -1044,9 +1068,9 @@ class ConnectorResponseTypeDef(BaseValidatorModel):
 
 
 class ConnectorTypeDef(BaseValidatorModel):
-    connectorID: Optional[str] = None
-    name: Optional[str] = None
-    ssmInstanceID: Optional[str] = None
+    connectorID: Optional[Annotated[str, _aws_pattern("Mgn", "ConnectorID")]] = None
+    name: Optional[Annotated[str, _aws_pattern("Mgn", "ConnectorName")]] = None
+    ssmInstanceID: Optional[Annotated[str, _aws_pattern("Mgn", "SsmInstanceID")]] = None
     arn: Optional[str] = None
     tags: Optional[Dict[str, str]] = None
     ssmCommandConfig: Optional[ConnectorSsmCommandConfigTypeDef] = None
@@ -1054,22 +1078,22 @@ class ConnectorTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'create_connector' function.
 class CreateConnectorRequestTypeDef(BaseValidatorModel):
-    name: str
-    ssmInstanceID: str
+    name: Annotated[str, _aws_pattern("Mgn", "ConnectorName")]
+    ssmInstanceID: Annotated[str, _aws_pattern("Mgn", "SsmInstanceID")]
     tags: Optional[Dict[str, str]] = None
     ssmCommandConfig: Optional[ConnectorSsmCommandConfigTypeDef] = None
 
 
 # This class is the input for the 'update_connector' function.
 class UpdateConnectorRequestTypeDef(BaseValidatorModel):
-    connectorID: str
-    name: Optional[str] = None
+    connectorID: Annotated[str, _aws_pattern("Mgn", "ConnectorID")]
+    name: Optional[Annotated[str, _aws_pattern("Mgn", "ConnectorName")]] = None
     ssmCommandConfig: Optional[ConnectorSsmCommandConfigTypeDef] = None
 
 
 class DataReplicationInitiationTypeDef(BaseValidatorModel):
-    startDateTime: Optional[str] = None
-    nextAttemptDateTime: Optional[str] = None
+    startDateTime: Optional[Annotated[str, _aws_pattern("Mgn", "ISO8601DatetimeString")]] = None
+    nextAttemptDateTime: Optional[Annotated[str, _aws_pattern("Mgn", "ISO8601DatetimeString")]] = None
     steps: Optional[List[DataReplicationInitiationStepTypeDef]] = None
 
 
@@ -1124,7 +1148,7 @@ class DescribeJobsRequestTypeDef(BaseValidatorModel):
     filters: Optional[DescribeJobsRequestFiltersTypeDef] = None
     maxResults: Optional[int] = None
     nextToken: Optional[str] = None
-    accountID: Optional[str] = None
+    accountID: Optional[Annotated[str, _aws_pattern("Mgn", "AccountID")]] = None
 
 
 # This class is the output for the 'describe_replication_configuration_templates' function.
@@ -1145,7 +1169,7 @@ class DescribeSourceServersRequestTypeDef(BaseValidatorModel):
     filters: Optional[DescribeSourceServersRequestFiltersTypeDef] = None
     maxResults: Optional[int] = None
     nextToken: Optional[str] = None
-    accountID: Optional[str] = None
+    accountID: Optional[Annotated[str, _aws_pattern("Mgn", "AccountID")]] = None
 
 
 # This class is the output for the 'describe_vcenter_clients' function.
@@ -1156,7 +1180,7 @@ class DescribeVcenterClientsResponseTypeDef(BaseValidatorModel):
 
 
 class ImportFileEnrichmentTypeDef(BaseValidatorModel):
-    jobID: Optional[str] = None
+    jobID: Optional[Annotated[str, _aws_pattern("Mgn", "ImportFileEnrichmentJobID")]] = None
     createdAt: Optional[datetime] = None
     endedAt: Optional[datetime] = None
     status: Optional[ImportFileEnrichmentStatusType] = None
@@ -1174,18 +1198,18 @@ class StartImportFileEnrichmentRequestTypeDef(BaseValidatorModel):
 
 
 class ExportTaskErrorTypeDef(BaseValidatorModel):
-    errorDateTime: Optional[str] = None
+    errorDateTime: Optional[Annotated[str, _aws_pattern("Mgn", "ISO8601DatetimeString")]] = None
     errorData: Optional[ExportErrorDataTypeDef] = None
 
 
 class ExportTaskTypeDef(BaseValidatorModel):
-    exportID: Optional[str] = None
+    exportID: Optional[Annotated[str, _aws_pattern("Mgn", "ExportID")]] = None
     arn: Optional[str] = None
-    s3Bucket: Optional[str] = None
-    s3Key: Optional[str] = None
-    s3BucketOwner: Optional[str] = None
-    creationDateTime: Optional[str] = None
-    endDateTime: Optional[str] = None
+    s3Bucket: Optional[Annotated[str, _aws_pattern("Mgn", "S3BucketName")]] = None
+    s3Key: Optional[Annotated[str, _aws_pattern("Mgn", "S3Key")]] = None
+    s3BucketOwner: Optional[Annotated[str, _aws_pattern("Mgn", "AccountID")]] = None
+    creationDateTime: Optional[Annotated[str, _aws_pattern("Mgn", "ISO8601DatetimeString")]] = None
+    endDateTime: Optional[Annotated[str, _aws_pattern("Mgn", "ISO8601DatetimeString")]] = None
     status: Optional[ExportStatusType] = None
     progressPercentage: Optional[float] = None
     summary: Optional[ExportTaskSummaryTypeDef] = None
@@ -1206,7 +1230,7 @@ class ListNetworkMigrationMapperSegmentConstructsResponseTypeDef(BaseValidatorMo
 
 
 class ImportTaskErrorTypeDef(BaseValidatorModel):
-    errorDateTime: Optional[str] = None
+    errorDateTime: Optional[Annotated[str, _aws_pattern("Mgn", "ISO8601DatetimeString")]] = None
     errorType: Optional[ImportErrorTypeType] = None
     errorData: Optional[ImportErrorDataTypeDef] = None
 
@@ -1225,7 +1249,7 @@ class StartImportRequestTypeDef(BaseValidatorModel):
 
 
 class JobLogTypeDef(BaseValidatorModel):
-    logDateTime: Optional[str] = None
+    logDateTime: Optional[Annotated[str, _aws_pattern("Mgn", "ISO8601DatetimeString")]] = None
     event: Optional[JobLogEventType] = None
     eventData: Optional[JobLogEventDataTypeDef] = None
 
@@ -1253,7 +1277,7 @@ class ListApplicationsRequestTypeDef(BaseValidatorModel):
     filters: Optional[ListApplicationsRequestFiltersTypeDef] = None
     maxResults: Optional[int] = None
     nextToken: Optional[str] = None
-    accountID: Optional[str] = None
+    accountID: Optional[Annotated[str, _aws_pattern("Mgn", "AccountID")]] = None
 
 
 class ListConnectorsRequestPaginateTypeDef(BaseValidatorModel):
@@ -1320,8 +1344,8 @@ class ListNetworkMigrationAnalysesRequestPaginateTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'list_network_migration_analyses' function.
 class ListNetworkMigrationAnalysesRequestTypeDef(BaseValidatorModel):
-    networkMigrationExecutionID: str
-    networkMigrationDefinitionID: str
+    networkMigrationExecutionID: Annotated[str, _aws_pattern("Mgn", "NetworkMigrationExecutionID")]
+    networkMigrationDefinitionID: Annotated[str, _aws_pattern("Mgn", "NetworkMigrationDefinitionID")]
     filters: Optional[ListNetworkMigrationAnalysesFiltersTypeDef] = None
     maxResults: Optional[int] = None
     nextToken: Optional[str] = None
@@ -1343,8 +1367,8 @@ class ListNetworkMigrationAnalysisResultsRequestPaginateTypeDef(BaseValidatorMod
 
 # This class is the input for the 'list_network_migration_analysis_results' function.
 class ListNetworkMigrationAnalysisResultsRequestTypeDef(BaseValidatorModel):
-    networkMigrationExecutionID: str
-    networkMigrationDefinitionID: str
+    networkMigrationExecutionID: Annotated[str, _aws_pattern("Mgn", "NetworkMigrationExecutionID")]
+    networkMigrationDefinitionID: Annotated[str, _aws_pattern("Mgn", "NetworkMigrationDefinitionID")]
     filters: Optional[ListNetworkMigrationAnalysisResultsFiltersTypeDef] = None
     maxResults: Optional[int] = None
     nextToken: Optional[str] = None
@@ -1359,8 +1383,8 @@ class ListNetworkMigrationCodeGenerationSegmentsRequestPaginateTypeDef(BaseValid
 
 # This class is the input for the 'list_network_migration_code_generation_segments' function.
 class ListNetworkMigrationCodeGenerationSegmentsRequestTypeDef(BaseValidatorModel):
-    networkMigrationExecutionID: str
-    networkMigrationDefinitionID: str
+    networkMigrationExecutionID: Annotated[str, _aws_pattern("Mgn", "NetworkMigrationExecutionID")]
+    networkMigrationDefinitionID: Annotated[str, _aws_pattern("Mgn", "NetworkMigrationDefinitionID")]
     filters: Optional[ListNetworkMigrationCodeGenerationSegmentsFiltersTypeDef] = None
     maxResults: Optional[int] = None
     nextToken: Optional[str] = None
@@ -1375,8 +1399,8 @@ class ListNetworkMigrationCodeGenerationsRequestPaginateTypeDef(BaseValidatorMod
 
 # This class is the input for the 'list_network_migration_code_generations' function.
 class ListNetworkMigrationCodeGenerationsRequestTypeDef(BaseValidatorModel):
-    networkMigrationExecutionID: str
-    networkMigrationDefinitionID: str
+    networkMigrationExecutionID: Annotated[str, _aws_pattern("Mgn", "NetworkMigrationExecutionID")]
+    networkMigrationDefinitionID: Annotated[str, _aws_pattern("Mgn", "NetworkMigrationDefinitionID")]
     filters: Optional[ListNetworkMigrationCodeGenerationsFiltersTypeDef] = None
     maxResults: Optional[int] = None
     nextToken: Optional[str] = None
@@ -1410,8 +1434,8 @@ class ListNetworkMigrationDeploymentsRequestPaginateTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'list_network_migration_deployments' function.
 class ListNetworkMigrationDeploymentsRequestTypeDef(BaseValidatorModel):
-    networkMigrationExecutionID: str
-    networkMigrationDefinitionID: str
+    networkMigrationExecutionID: Annotated[str, _aws_pattern("Mgn", "NetworkMigrationExecutionID")]
+    networkMigrationDefinitionID: Annotated[str, _aws_pattern("Mgn", "NetworkMigrationDefinitionID")]
     filters: Optional[ListNetworkMigrationDeployerJobFiltersTypeDef] = None
     maxResults: Optional[int] = None
     nextToken: Optional[str] = None
@@ -1432,7 +1456,7 @@ class ListNetworkMigrationExecutionsRequestPaginateTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'list_network_migration_executions' function.
 class ListNetworkMigrationExecutionsRequestTypeDef(BaseValidatorModel):
-    networkMigrationDefinitionID: str
+    networkMigrationDefinitionID: Annotated[str, _aws_pattern("Mgn", "NetworkMigrationDefinitionID")]
     filters: Optional[ListNetworkMigrationExecutionRequestFiltersTypeDef] = None
     nextToken: Optional[str] = None
     maxResults: Optional[int] = None
@@ -1455,9 +1479,9 @@ class ListNetworkMigrationMapperSegmentConstructsRequestPaginateTypeDef(BaseVali
 
 # This class is the input for the 'list_network_migration_mapper_segment_constructs' function.
 class ListNetworkMigrationMapperSegmentConstructsRequestTypeDef(BaseValidatorModel):
-    networkMigrationExecutionID: str
-    networkMigrationDefinitionID: str
-    segmentID: str
+    networkMigrationExecutionID: Annotated[str, _aws_pattern("Mgn", "NetworkMigrationExecutionID")]
+    networkMigrationDefinitionID: Annotated[str, _aws_pattern("Mgn", "NetworkMigrationDefinitionID")]
+    segmentID: Annotated[str, _aws_pattern("Mgn", "SegmentID")]
     filters: Optional[ListNetworkMigrationMapperSegmentConstructsFiltersTypeDef] = None
     maxResults: Optional[int] = None
     nextToken: Optional[str] = None
@@ -1472,8 +1496,8 @@ class ListNetworkMigrationMapperSegmentsRequestPaginateTypeDef(BaseValidatorMode
 
 # This class is the input for the 'list_network_migration_mapper_segments' function.
 class ListNetworkMigrationMapperSegmentsRequestTypeDef(BaseValidatorModel):
-    networkMigrationExecutionID: str
-    networkMigrationDefinitionID: str
+    networkMigrationExecutionID: Annotated[str, _aws_pattern("Mgn", "NetworkMigrationExecutionID")]
+    networkMigrationDefinitionID: Annotated[str, _aws_pattern("Mgn", "NetworkMigrationDefinitionID")]
     filters: Optional[ListNetworkMigrationMapperSegmentsFiltersTypeDef] = None
     maxResults: Optional[int] = None
     nextToken: Optional[str] = None
@@ -1488,8 +1512,8 @@ class ListNetworkMigrationMappingUpdatesRequestPaginateTypeDef(BaseValidatorMode
 
 # This class is the input for the 'list_network_migration_mapping_updates' function.
 class ListNetworkMigrationMappingUpdatesRequestTypeDef(BaseValidatorModel):
-    networkMigrationExecutionID: str
-    networkMigrationDefinitionID: str
+    networkMigrationExecutionID: Annotated[str, _aws_pattern("Mgn", "NetworkMigrationExecutionID")]
+    networkMigrationDefinitionID: Annotated[str, _aws_pattern("Mgn", "NetworkMigrationDefinitionID")]
     filters: Optional[ListNetworkMigrationMappingUpdatesFiltersTypeDef] = None
     maxResults: Optional[int] = None
     nextToken: Optional[str] = None
@@ -1511,8 +1535,8 @@ class ListNetworkMigrationMappingsRequestPaginateTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'list_network_migration_mappings' function.
 class ListNetworkMigrationMappingsRequestTypeDef(BaseValidatorModel):
-    networkMigrationExecutionID: str
-    networkMigrationDefinitionID: str
+    networkMigrationExecutionID: Annotated[str, _aws_pattern("Mgn", "NetworkMigrationExecutionID")]
+    networkMigrationDefinitionID: Annotated[str, _aws_pattern("Mgn", "NetworkMigrationDefinitionID")]
     filters: Optional[ListNetworkMigrationMappingsFiltersTypeDef] = None
     maxResults: Optional[int] = None
     nextToken: Optional[str] = None
@@ -1534,11 +1558,11 @@ class ListSourceServerActionsRequestPaginateTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'list_source_server_actions' function.
 class ListSourceServerActionsRequestTypeDef(BaseValidatorModel):
-    sourceServerID: str
+    sourceServerID: Annotated[str, _aws_pattern("Mgn", "SourceServerID")]
     filters: Optional[SourceServerActionsRequestFiltersTypeDef] = None
     maxResults: Optional[int] = None
     nextToken: Optional[str] = None
-    accountID: Optional[str] = None
+    accountID: Optional[Annotated[str, _aws_pattern("Mgn", "AccountID")]] = None
 
 
 class ListTemplateActionsRequestPaginateTypeDef(BaseValidatorModel):
@@ -1549,7 +1573,7 @@ class ListTemplateActionsRequestPaginateTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'list_template_actions' function.
 class ListTemplateActionsRequestTypeDef(BaseValidatorModel):
-    launchConfigurationTemplateID: str
+    launchConfigurationTemplateID: Annotated[str, _aws_pattern("Mgn", "LaunchConfigurationTemplateID")]
     filters: Optional[TemplateActionsRequestFiltersTypeDef] = None
     maxResults: Optional[int] = None
     nextToken: Optional[str] = None
@@ -1566,13 +1590,17 @@ class ListWavesRequestTypeDef(BaseValidatorModel):
     filters: Optional[ListWavesRequestFiltersTypeDef] = None
     maxResults: Optional[int] = None
     nextToken: Optional[str] = None
-    accountID: Optional[str] = None
+    accountID: Optional[Annotated[str, _aws_pattern("Mgn", "AccountID")]] = None
+
+
+class MergeOperationTypeDef(BaseValidatorModel):
+    mergeConstructs: Optional[List[MergeConstructTypeDef]] = None
 
 
 class NetworkMigrationAnalysisResultTypeDef(BaseValidatorModel):
-    jobID: Optional[str] = None
-    networkMigrationExecutionID: Optional[str] = None
-    networkMigrationDefinitionID: Optional[str] = None
+    jobID: Optional[Annotated[str, _aws_pattern("Mgn", "NetworkMigrationJobID")]] = None
+    networkMigrationExecutionID: Optional[Annotated[str, _aws_pattern("Mgn", "NetworkMigrationExecutionID")]] = None
+    networkMigrationDefinitionID: Optional[Annotated[str, _aws_pattern("Mgn", "NetworkMigrationDefinitionID")]] = None
     analyzerType: Optional[Literal["REACHABILITY_ANALYZER"]] = None
     source: Optional[NetworkMigrationAnalysisResultSourceTypeDef] = None
     target: Optional[NetworkMigrationAnalysisResultTargetTypeDef] = None
@@ -1581,10 +1609,10 @@ class NetworkMigrationAnalysisResultTypeDef(BaseValidatorModel):
 
 
 class NetworkMigrationCodeGenerationArtifactTypeDef(BaseValidatorModel):
-    artifactID: Optional[str] = None
+    artifactID: Optional[Annotated[str, _aws_pattern("Mgn", "NetworkMigrationCodeGenerationArtifactID")]] = None
     artifactType: Optional[NetworkMigrationCodeGenerationArtifactTypeType] = None
     artifactSubType: Optional[NetworkMigrationCodeGenerationArtifactSubTypeType] = None
-    logicalID: Optional[str] = None
+    logicalID: Optional[Annotated[str, _aws_pattern("Mgn", "LogicalID")]] = None
     outputS3Configuration: Optional[S3ConfigurationTypeDef] = None
     checksum: Optional[ChecksumTypeDef] = None
     createdAt: Optional[datetime] = None
@@ -1611,34 +1639,34 @@ class NetworkMigrationMapperSegmentResponseTypeDef(BaseValidatorModel):
 
 
 class NetworkMigrationMapperSegmentTypeDef(BaseValidatorModel):
-    jobID: Optional[str] = None
-    networkMigrationExecutionID: Optional[str] = None
-    networkMigrationDefinitionID: Optional[str] = None
-    segmentID: Optional[str] = None
+    jobID: Optional[Annotated[str, _aws_pattern("Mgn", "NetworkMigrationJobID")]] = None
+    networkMigrationExecutionID: Optional[Annotated[str, _aws_pattern("Mgn", "NetworkMigrationExecutionID")]] = None
+    networkMigrationDefinitionID: Optional[Annotated[str, _aws_pattern("Mgn", "NetworkMigrationDefinitionID")]] = None
+    segmentID: Optional[Annotated[str, _aws_pattern("Mgn", "SegmentID")]] = None
     segmentType: Optional[NetworkMigrationMapperSegmentTypeType] = None
-    name: Optional[str] = None
-    description: Optional[str] = None
-    logicalID: Optional[str] = None
+    name: Optional[Annotated[str, _aws_pattern("Mgn", "SegmentName")]] = None
+    description: Optional[Annotated[str, _aws_pattern("Mgn", "SegmentDescription")]] = None
+    logicalID: Optional[Annotated[str, _aws_pattern("Mgn", "LogicalID")]] = None
     checksum: Optional[ChecksumTypeDef] = None
     outputS3Configuration: Optional[S3ConfigurationTypeDef] = None
     createdAt: Optional[datetime] = None
     updatedAt: Optional[datetime] = None
     scopeTags: Optional[Dict[str, str]] = None
-    targetAccount: Optional[str] = None
-    referencedSegments: Optional[List[str]] = None
+    targetAccount: Optional[Annotated[str, _aws_pattern("Mgn", "AccountID")]] = None
+    referencedSegments: Optional[List[Annotated[str, _aws_pattern("Mgn", "SegmentID")]]] = None
 
 
 class NetworkMigrationDeployedStackDetailsTypeDef(BaseValidatorModel):
     status: Optional[NetworkMigrationDeployedStackStatusType] = None
-    stackPhysicalID: Optional[str] = None
-    stackLogicalID: Optional[str] = None
-    segmentID: Optional[str] = None
-    targetAccount: Optional[str] = None
+    stackPhysicalID: Optional[Annotated[str, _aws_pattern("Mgn", "PhysicalID")]] = None
+    stackLogicalID: Optional[Annotated[str, _aws_pattern("Mgn", "LogicalID")]] = None
+    segmentID: Optional[Annotated[str, _aws_pattern("Mgn", "SegmentID")]] = None
+    targetAccount: Optional[Annotated[str, _aws_pattern("Mgn", "AccountID")]] = None
     failedResources: Optional[List[NetworkMigrationFailedResourceDetailsTypeDef]] = None
 
 
 class SourcePropertiesTypeDef(BaseValidatorModel):
-    lastUpdatedDateTime: Optional[str] = None
+    lastUpdatedDateTime: Optional[Annotated[str, _aws_pattern("Mgn", "ISO8601DatetimeString")]] = None
     recommendedInstanceType: Optional[str] = None
     identificationHints: Optional[IdentificationHintsTypeDef] = None
     networkInterfaces: Optional[List[NetworkInterfaceTypeDef]] = None
@@ -1648,43 +1676,39 @@ class SourcePropertiesTypeDef(BaseValidatorModel):
     os: Optional[OSTypeDef] = None
 
 
-class OperationUnionTypeDef(BaseValidatorModel):
-    update: Optional[UpdateOperationTypeDef] = None
-
-
 # This class is the input for the 'put_source_server_action' function.
 class PutSourceServerActionRequestTypeDef(BaseValidatorModel):
-    sourceServerID: str
-    actionName: str
+    sourceServerID: Annotated[str, _aws_pattern("Mgn", "SourceServerID")]
+    actionName: Annotated[str, _aws_pattern("Mgn", "ActionName")]
     documentIdentifier: str
     order: int
-    actionID: str
-    documentVersion: Optional[str] = None
+    actionID: Annotated[str, _aws_pattern("Mgn", "ActionID")]
+    documentVersion: Optional[Annotated[str, _aws_pattern("Mgn", "DocumentVersion")]] = None
     active: Optional[bool] = None
     timeoutSeconds: Optional[int] = None
     mustSucceedForCutover: Optional[bool] = None
     parameters: Optional[Dict[str, List[SsmParameterStoreParameterTypeDef]]] = None
     externalParameters: Optional[Dict[str, SsmExternalParameterTypeDef]] = None
-    description: Optional[str] = None
+    description: Optional[Annotated[str, _aws_pattern("Mgn", "ActionDescription")]] = None
     category: Optional[ActionCategoryType] = None
-    accountID: Optional[str] = None
+    accountID: Optional[Annotated[str, _aws_pattern("Mgn", "AccountID")]] = None
 
 
 # This class is the input for the 'put_template_action' function.
 class PutTemplateActionRequestTypeDef(BaseValidatorModel):
-    launchConfigurationTemplateID: str
+    launchConfigurationTemplateID: Annotated[str, _aws_pattern("Mgn", "LaunchConfigurationTemplateID")]
     actionName: str
     documentIdentifier: str
     order: int
-    actionID: str
-    documentVersion: Optional[str] = None
+    actionID: Annotated[str, _aws_pattern("Mgn", "ActionID")]
+    documentVersion: Optional[Annotated[str, _aws_pattern("Mgn", "DocumentVersion")]] = None
     active: Optional[bool] = None
     timeoutSeconds: Optional[int] = None
     mustSucceedForCutover: Optional[bool] = None
     parameters: Optional[Dict[str, List[SsmParameterStoreParameterTypeDef]]] = None
-    operatingSystem: Optional[str] = None
+    operatingSystem: Optional[Annotated[str, _aws_pattern("Mgn", "OperatingSystemString")]] = None
     externalParameters: Optional[Dict[str, SsmExternalParameterTypeDef]] = None
-    description: Optional[str] = None
+    description: Optional[Annotated[str, _aws_pattern("Mgn", "ActionDescription")]] = None
     category: Optional[ActionCategoryType] = None
 
 
@@ -1706,17 +1730,17 @@ class SourceServerActionDocumentResponseTypeDef(BaseValidatorModel):
 
 
 class SourceServerActionDocumentTypeDef(BaseValidatorModel):
-    actionID: Optional[str] = None
-    actionName: Optional[str] = None
+    actionID: Optional[Annotated[str, _aws_pattern("Mgn", "ActionID")]] = None
+    actionName: Optional[Annotated[str, _aws_pattern("Mgn", "ActionName")]] = None
     documentIdentifier: Optional[str] = None
     order: Optional[int] = None
-    documentVersion: Optional[str] = None
+    documentVersion: Optional[Annotated[str, _aws_pattern("Mgn", "DocumentVersion")]] = None
     active: Optional[bool] = None
     timeoutSeconds: Optional[int] = None
     mustSucceedForCutover: Optional[bool] = None
     parameters: Optional[Dict[str, List[SsmParameterStoreParameterTypeDef]]] = None
     externalParameters: Optional[Dict[str, SsmExternalParameterTypeDef]] = None
-    description: Optional[str] = None
+    description: Optional[Annotated[str, _aws_pattern("Mgn", "ActionDescription")]] = None
     category: Optional[ActionCategoryType] = None
 
 
@@ -1731,7 +1755,7 @@ class SsmDocumentOutputTypeDef(BaseValidatorModel):
 
 class SsmDocumentTypeDef(BaseValidatorModel):
     actionName: str
-    ssmDocumentName: str
+    ssmDocumentName: Annotated[str, _aws_pattern("Mgn", "SsmDocumentName")]
     timeoutSeconds: Optional[int] = None
     mustSucceedForCutover: Optional[bool] = None
     parameters: Optional[Dict[str, List[SsmParameterStoreParameterTypeDef]]] = None
@@ -1757,28 +1781,28 @@ class TemplateActionDocumentResponseTypeDef(BaseValidatorModel):
 
 
 class TemplateActionDocumentTypeDef(BaseValidatorModel):
-    actionID: Optional[str] = None
+    actionID: Optional[Annotated[str, _aws_pattern("Mgn", "ActionID")]] = None
     actionName: Optional[str] = None
     documentIdentifier: Optional[str] = None
     order: Optional[int] = None
-    documentVersion: Optional[str] = None
+    documentVersion: Optional[Annotated[str, _aws_pattern("Mgn", "DocumentVersion")]] = None
     active: Optional[bool] = None
     timeoutSeconds: Optional[int] = None
     mustSucceedForCutover: Optional[bool] = None
     parameters: Optional[Dict[str, List[SsmParameterStoreParameterTypeDef]]] = None
-    operatingSystem: Optional[str] = None
+    operatingSystem: Optional[Annotated[str, _aws_pattern("Mgn", "OperatingSystemString")]] = None
     externalParameters: Optional[Dict[str, SsmExternalParameterTypeDef]] = None
-    description: Optional[str] = None
+    description: Optional[Annotated[str, _aws_pattern("Mgn", "ActionDescription")]] = None
     category: Optional[ActionCategoryType] = None
 
 
 # This class is the output for the 'get_replication_configuration' function.
 class ReplicationConfigurationTypeDef(BaseValidatorModel):
-    sourceServerID: str
+    sourceServerID: Annotated[str, _aws_pattern("Mgn", "SourceServerID")]
     name: str
-    stagingAreaSubnetId: str
+    stagingAreaSubnetId: Annotated[str, _aws_pattern("Mgn", "SubnetID")]
     associateDefaultSecurityGroup: bool
-    replicationServersSecurityGroupsIDs: List[str]
+    replicationServersSecurityGroupsIDs: List[Annotated[str, _aws_pattern("Mgn", "SecurityGroupID")]]
     replicationServerInstanceType: str
     useDedicatedReplicationServer: bool
     defaultLargeStagingDiskType: ReplicationConfigurationDefaultLargeStagingDiskTypeType
@@ -1797,11 +1821,11 @@ class ReplicationConfigurationTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'update_replication_configuration' function.
 class UpdateReplicationConfigurationRequestTypeDef(BaseValidatorModel):
-    sourceServerID: str
+    sourceServerID: Annotated[str, _aws_pattern("Mgn", "SourceServerID")]
     name: Optional[str] = None
-    stagingAreaSubnetId: Optional[str] = None
+    stagingAreaSubnetId: Optional[Annotated[str, _aws_pattern("Mgn", "SubnetID")]] = None
     associateDefaultSecurityGroup: Optional[bool] = None
-    replicationServersSecurityGroupsIDs: Optional[List[str]] = None
+    replicationServersSecurityGroupsIDs: Optional[List[Annotated[str, _aws_pattern("Mgn", "SecurityGroupID")]]] = None
     replicationServerInstanceType: Optional[str] = None
     useDedicatedReplicationServer: Optional[bool] = None
     defaultLargeStagingDiskType: Optional[ReplicationConfigurationDefaultLargeStagingDiskTypeType] = None
@@ -1813,7 +1837,7 @@ class UpdateReplicationConfigurationRequestTypeDef(BaseValidatorModel):
     createPublicIP: Optional[bool] = None
     stagingAreaTags: Optional[Dict[str, str]] = None
     useFipsEndpoint: Optional[bool] = None
-    accountID: Optional[str] = None
+    accountID: Optional[Annotated[str, _aws_pattern("Mgn", "AccountID")]] = None
     internetProtocol: Optional[InternetProtocolType] = None
     storeSnapshotOnLocalZone: Optional[bool] = None
 
@@ -1825,9 +1849,13 @@ class SourceConfigurationTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'update_source_server' function.
 class UpdateSourceServerRequestTypeDef(BaseValidatorModel):
-    sourceServerID: str
-    accountID: Optional[str] = None
+    sourceServerID: Annotated[str, _aws_pattern("Mgn", "SourceServerID")]
+    accountID: Optional[Annotated[str, _aws_pattern("Mgn", "AccountID")]] = None
     connectorAction: Optional[SourceServerConnectorActionTypeDef] = None
+
+
+class SplitOperationTypeDef(BaseValidatorModel):
+    splitConstructs: Optional[List[SplitConstructTypeDef]] = None
 
 
 # This class is the output for the 'archive_wave' function.
@@ -1845,14 +1873,14 @@ class WaveResponseTypeDef(BaseValidatorModel):
 
 
 class WaveTypeDef(BaseValidatorModel):
-    waveID: Optional[str] = None
+    waveID: Optional[Annotated[str, _aws_pattern("Mgn", "WaveID")]] = None
     arn: Optional[str] = None
-    name: Optional[str] = None
-    description: Optional[str] = None
+    name: Optional[Annotated[str, _aws_pattern("Mgn", "WaveName")]] = None
+    description: Optional[Annotated[str, _aws_pattern("Mgn", "WaveDescription")]] = None
     isArchived: Optional[bool] = None
     waveAggregatedStatus: Optional[WaveAggregatedStatusTypeDef] = None
-    creationDateTime: Optional[str] = None
-    lastModifiedDateTime: Optional[str] = None
+    creationDateTime: Optional[Annotated[str, _aws_pattern("Mgn", "ISO8601DatetimeString")]] = None
+    lastModifiedDateTime: Optional[Annotated[str, _aws_pattern("Mgn", "ISO8601DatetimeString")]] = None
     tags: Optional[Dict[str, str]] = None
 
 
@@ -1879,13 +1907,13 @@ class ListConnectorsResponseTypeDef(BaseValidatorModel):
 
 class DataReplicationInfoTypeDef(BaseValidatorModel):
     lagDuration: Optional[str] = None
-    etaDateTime: Optional[str] = None
+    etaDateTime: Optional[Annotated[str, _aws_pattern("Mgn", "ISO8601DatetimeString")]] = None
     replicatedDisks: Optional[List[DataReplicationInfoReplicatedDiskTypeDef]] = None
     dataReplicationState: Optional[DataReplicationStateType] = None
     dataReplicationInitiation: Optional[DataReplicationInitiationTypeDef] = None
     dataReplicationError: Optional[DataReplicationErrorTypeDef] = None
-    lastSnapshotDateTime: Optional[str] = None
-    replicatorId: Optional[str] = None
+    lastSnapshotDateTime: Optional[Annotated[str, _aws_pattern("Mgn", "ISO8601DatetimeString")]] = None
+    replicatorId: Optional[Annotated[str, _aws_pattern("Mgn", "ReplicatorID")]] = None
 
 
 # This class is the output for the 'list_import_file_enrichments' function.
@@ -1923,11 +1951,11 @@ class ListImportErrorsResponseTypeDef(BaseValidatorModel):
 
 
 class ImportTaskTypeDef(BaseValidatorModel):
-    importID: Optional[str] = None
+    importID: Optional[Annotated[str, _aws_pattern("Mgn", "ImportID")]] = None
     arn: Optional[str] = None
     s3BucketSource: Optional[S3BucketSourceTypeDef] = None
-    creationDateTime: Optional[str] = None
-    endDateTime: Optional[str] = None
+    creationDateTime: Optional[Annotated[str, _aws_pattern("Mgn", "ISO8601DatetimeString")]] = None
+    endDateTime: Optional[Annotated[str, _aws_pattern("Mgn", "ISO8601DatetimeString")]] = None
     status: Optional[ImportStatusType] = None
     progressPercentage: Optional[float] = None
     summary: Optional[ImportTaskSummaryTypeDef] = None
@@ -1942,10 +1970,10 @@ class DescribeJobLogItemsResponseTypeDef(BaseValidatorModel):
 
 
 class LifeCycleTypeDef(BaseValidatorModel):
-    addedToServiceDateTime: Optional[str] = None
-    firstByteDateTime: Optional[str] = None
+    addedToServiceDateTime: Optional[Annotated[str, _aws_pattern("Mgn", "ISO8601DatetimeString")]] = None
+    firstByteDateTime: Optional[Annotated[str, _aws_pattern("Mgn", "ISO8601DatetimeString")]] = None
     elapsedReplicationDuration: Optional[str] = None
-    lastSeenByServiceDateTime: Optional[str] = None
+    lastSeenByServiceDateTime: Optional[Annotated[str, _aws_pattern("Mgn", "ISO8601DatetimeString")]] = None
     lastTest: Optional[LifeCycleLastTestTypeDef] = None
     lastCutover: Optional[LifeCycleLastCutoverTypeDef] = None
     state: Optional[LifeCycleStateType] = None
@@ -1959,13 +1987,13 @@ class ListNetworkMigrationAnalysisResultsResponseTypeDef(BaseValidatorModel):
 
 
 class NetworkMigrationCodeGenerationSegmentTypeDef(BaseValidatorModel):
-    jobID: Optional[str] = None
-    networkMigrationExecutionID: Optional[str] = None
-    networkMigrationDefinitionID: Optional[str] = None
-    segmentID: Optional[str] = None
+    jobID: Optional[Annotated[str, _aws_pattern("Mgn", "NetworkMigrationJobID")]] = None
+    networkMigrationExecutionID: Optional[Annotated[str, _aws_pattern("Mgn", "NetworkMigrationExecutionID")]] = None
+    networkMigrationDefinitionID: Optional[Annotated[str, _aws_pattern("Mgn", "NetworkMigrationDefinitionID")]] = None
+    segmentID: Optional[Annotated[str, _aws_pattern("Mgn", "SegmentID")]] = None
     segmentType: Optional[NetworkMigrationCodeGenerationSegmentTypeType] = None
-    logicalID: Optional[str] = None
-    mapperSegmentID: Optional[str] = None
+    logicalID: Optional[Annotated[str, _aws_pattern("Mgn", "LogicalID")]] = None
+    mapperSegmentID: Optional[Annotated[str, _aws_pattern("Mgn", "SegmentID")]] = None
     artifacts: Optional[List[NetworkMigrationCodeGenerationArtifactTypeDef]] = None
     createdAt: Optional[datetime] = None
 
@@ -1982,13 +2010,6 @@ class ListNetworkMigrationDeployedStacksResponseTypeDef(BaseValidatorModel):
     items: List[NetworkMigrationDeployedStackDetailsTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
     nextToken: Optional[str] = None
-
-
-class StartNetworkMigrationMappingUpdateConstructTypeDef(BaseValidatorModel):
-    segmentID: str
-    constructID: str
-    constructType: str
-    operation: Optional[OperationUnionTypeDef] = None
 
 
 # This class is the output for the 'list_source_server_actions' function.
@@ -2018,7 +2039,7 @@ class PostLaunchActionsTypeDef(BaseValidatorModel):
     deployment: Optional[PostLaunchActionsDeploymentTypeType] = None
     s3LogBucket: Optional[str] = None
     s3OutputKeyPrefix: Optional[str] = None
-    cloudWatchLogGroupName: Optional[str] = None
+    cloudWatchLogGroupName: Optional[Annotated[str, _aws_pattern("Mgn", "CloudWatchLogGroupName")]] = None
     ssmDocuments: Optional[List[SsmDocumentTypeDef]] = None
 
 
@@ -2031,10 +2052,10 @@ class ListTemplateActionsResponseTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'create_network_migration_definition' function.
 class CreateNetworkMigrationDefinitionRequestTypeDef(BaseValidatorModel):
-    name: str
+    name: Annotated[str, _aws_pattern("Mgn", "NetworkMigrationDefinitionName")]
     targetS3Configuration: TargetS3ConfigurationTypeDef
     targetNetwork: TargetNetworkTypeDef
-    description: Optional[str] = None
+    description: Optional[Annotated[str, _aws_pattern("Mgn", "NetworkMigrationDefinitionDescription")]] = None
     sourceConfigurations: Optional[List[SourceConfigurationTypeDef]] = None
     targetDeployment: Optional[TargetDeploymentType] = None
     tags: Optional[Dict[str, str]] = None
@@ -2044,9 +2065,9 @@ class CreateNetworkMigrationDefinitionRequestTypeDef(BaseValidatorModel):
 # This class is the output for the 'create_network_migration_definition' function.
 class NetworkMigrationDefinitionTypeDef(BaseValidatorModel):
     arn: str
-    networkMigrationDefinitionID: str
-    name: str
-    description: str
+    networkMigrationDefinitionID: Annotated[str, _aws_pattern("Mgn", "NetworkMigrationDefinitionID")]
+    name: Annotated[str, _aws_pattern("Mgn", "NetworkMigrationDefinitionName")]
+    description: Annotated[str, _aws_pattern("Mgn", "NetworkMigrationDefinitionDescription")]
     sourceConfigurations: List[SourceConfigurationTypeDef]
     targetS3Configuration: TargetS3ConfigurationTypeDef
     targetNetwork: TargetNetworkTypeDef
@@ -2060,14 +2081,21 @@ class NetworkMigrationDefinitionTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'update_network_migration_definition' function.
 class UpdateNetworkMigrationDefinitionRequestTypeDef(BaseValidatorModel):
-    networkMigrationDefinitionID: str
-    name: Optional[str] = None
-    description: Optional[str] = None
+    networkMigrationDefinitionID: Annotated[str, _aws_pattern("Mgn", "NetworkMigrationDefinitionID")]
+    name: Optional[Annotated[str, _aws_pattern("Mgn", "NetworkMigrationDefinitionName")]] = None
+    description: Optional[Annotated[str, _aws_pattern("Mgn", "NetworkMigrationDefinitionDescription")]] = None
     sourceConfigurations: Optional[List[SourceConfigurationTypeDef]] = None
     targetS3Configuration: Optional[TargetS3ConfigurationUpdateTypeDef] = None
     targetNetwork: Optional[TargetNetworkUpdateTypeDef] = None
     targetDeployment: Optional[TargetDeploymentType] = None
     scopeTags: Optional[Dict[str, str]] = None
+
+
+class OperationUnionTypeDef(BaseValidatorModel):
+    merge: Optional[MergeOperationTypeDef] = None
+    split: Optional[SplitOperationTypeDef] = None
+    delete: Optional[Dict[str, Any]] = None
+    update: Optional[UpdateOperationTypeDef] = None
 
 
 # This class is the output for the 'list_waves' function.
@@ -2110,7 +2138,7 @@ class SourceServerResponseTypeDef(BaseValidatorModel):
 
 
 class SourceServerTypeDef(BaseValidatorModel):
-    sourceServerID: Optional[str] = None
+    sourceServerID: Optional[Annotated[str, _aws_pattern("Mgn", "SourceServerID")]] = None
     arn: Optional[str] = None
     isArchived: Optional[bool] = None
     tags: Optional[Dict[str, str]] = None
@@ -2119,9 +2147,9 @@ class SourceServerTypeDef(BaseValidatorModel):
     lifeCycle: Optional[LifeCycleTypeDef] = None
     sourceProperties: Optional[SourcePropertiesTypeDef] = None
     replicationType: Optional[ReplicationTypeType] = None
-    vcenterClientID: Optional[str] = None
-    applicationID: Optional[str] = None
-    userProvidedID: Optional[str] = None
+    vcenterClientID: Optional[Annotated[str, _aws_pattern("Mgn", "VcenterClientID")]] = None
+    applicationID: Optional[Annotated[str, _aws_pattern("Mgn", "ApplicationID")]] = None
+    userProvidedID: Optional[Annotated[str, _aws_pattern("Mgn", "UserProvidedId")]] = None
     fqdnForActionFramework: Optional[str] = None
     connectorAction: Optional[SourceServerConnectorActionTypeDef] = None
 
@@ -2133,16 +2161,8 @@ class ListNetworkMigrationCodeGenerationSegmentsResponseTypeDef(BaseValidatorMod
     nextToken: Optional[str] = None
 
 
-# This class is the input for the 'start_network_migration_mapping_update' function.
-class StartNetworkMigrationMappingUpdateRequestTypeDef(BaseValidatorModel):
-    networkMigrationExecutionID: str
-    networkMigrationDefinitionID: str
-    constructs: Optional[List[StartNetworkMigrationMappingUpdateConstructTypeDef]] = None
-    segments: Optional[List[StartNetworkMigrationMappingUpdateSegmentTypeDef]] = None
-
-
 class PostLaunchActionsStatusTypeDef(BaseValidatorModel):
-    ssmAgentDiscoveryDatetime: Optional[str] = None
+    ssmAgentDiscoveryDatetime: Optional[Annotated[str, _aws_pattern("Mgn", "ISO8601DatetimeString")]] = None
     postLaunchActionsLaunchStatusList: Optional[List[JobPostLaunchActionsLaunchStatusTypeDef]] = None
 
 
@@ -2171,13 +2191,13 @@ class LaunchConfigurationTemplateResponseTypeDef(BaseValidatorModel):
 
 
 class LaunchConfigurationTemplateTypeDef(BaseValidatorModel):
-    launchConfigurationTemplateID: str
+    launchConfigurationTemplateID: Annotated[str, _aws_pattern("Mgn", "LaunchConfigurationTemplateID")]
     arn: Optional[str] = None
     postLaunchActions: Optional[PostLaunchActionsOutputTypeDef] = None
     enableMapAutoTagging: Optional[bool] = None
     mapAutoTaggingMpeID: Optional[str] = None
     tags: Optional[Dict[str, str]] = None
-    ec2LaunchTemplateID: Optional[str] = None
+    ec2LaunchTemplateID: Optional[Annotated[str, _aws_pattern("Mgn", "EC2LaunchConfigurationTemplateID")]] = None
     launchDisposition: Optional[LaunchDispositionType] = None
     targetInstanceTypeRightSizingMethod: Optional[TargetInstanceTypeRightSizingMethodType] = None
     copyPrivateIp: Optional[bool] = None
@@ -2194,7 +2214,7 @@ class LaunchConfigurationTemplateTypeDef(BaseValidatorModel):
 
 # This class is the output for the 'get_launch_configuration' function.
 class LaunchConfigurationTypeDef(BaseValidatorModel):
-    sourceServerID: str
+    sourceServerID: Annotated[str, _aws_pattern("Mgn", "SourceServerID")]
     name: str
     ec2LaunchTemplateID: str
     launchDisposition: LaunchDispositionType
@@ -2212,6 +2232,13 @@ class LaunchConfigurationTypeDef(BaseValidatorModel):
 PostLaunchActionsUnionTypeDef = Union[PostLaunchActionsOutputTypeDef, PostLaunchActionsTypeDef]
 
 
+class StartNetworkMigrationMappingUpdateConstructTypeDef(BaseValidatorModel):
+    segmentID: Annotated[str, _aws_pattern("Mgn", "SegmentID")]
+    constructID: Annotated[str, _aws_pattern("Mgn", "ConstructID")]
+    constructType: Annotated[str, _aws_pattern("Mgn", "NetworkMigrationMapperSegmentConstructType")]
+    operation: Optional[OperationUnionTypeDef] = None
+
+
 # This class is the output for the 'describe_source_servers' function.
 class DescribeSourceServersResponseTypeDef(BaseValidatorModel):
     items: List[SourceServerTypeDef]
@@ -2220,9 +2247,9 @@ class DescribeSourceServersResponseTypeDef(BaseValidatorModel):
 
 
 class ParticipatingServerTypeDef(BaseValidatorModel):
-    sourceServerID: str
+    sourceServerID: Annotated[str, _aws_pattern("Mgn", "SourceServerID")]
     launchStatus: Optional[LaunchStatusType] = None
-    launchedEc2InstanceID: Optional[str] = None
+    launchedEc2InstanceID: Optional[Annotated[str, _aws_pattern("Mgn", "EC2InstanceID")]] = None
     postLaunchActionsStatus: Optional[PostLaunchActionsStatusTypeDef] = None
 
 
@@ -2250,12 +2277,12 @@ class CreateLaunchConfigurationTemplateRequestTypeDef(BaseValidatorModel):
     smallVolumeConf: Optional[LaunchTemplateDiskConfTypeDef] = None
     largeVolumeConf: Optional[LaunchTemplateDiskConfTypeDef] = None
     enableParametersEncryption: Optional[bool] = None
-    parametersEncryptionKey: Optional[str] = None
+    parametersEncryptionKey: Optional[Annotated[str, _aws_pattern("Mgn", "KmsKeyArn")]] = None
 
 
 # This class is the input for the 'update_launch_configuration' function.
 class UpdateLaunchConfigurationRequestTypeDef(BaseValidatorModel):
-    sourceServerID: str
+    sourceServerID: Annotated[str, _aws_pattern("Mgn", "SourceServerID")]
     name: Optional[str] = None
     launchDisposition: Optional[LaunchDispositionType] = None
     targetInstanceTypeRightSizingMethod: Optional[TargetInstanceTypeRightSizingMethodType] = None
@@ -2266,12 +2293,12 @@ class UpdateLaunchConfigurationRequestTypeDef(BaseValidatorModel):
     postLaunchActions: Optional[PostLaunchActionsUnionTypeDef] = None
     enableMapAutoTagging: Optional[bool] = None
     mapAutoTaggingMpeID: Optional[str] = None
-    accountID: Optional[str] = None
+    accountID: Optional[Annotated[str, _aws_pattern("Mgn", "AccountID")]] = None
 
 
 # This class is the input for the 'update_launch_configuration_template' function.
 class UpdateLaunchConfigurationTemplateRequestTypeDef(BaseValidatorModel):
-    launchConfigurationTemplateID: str
+    launchConfigurationTemplateID: Annotated[str, _aws_pattern("Mgn", "LaunchConfigurationTemplateID")]
     postLaunchActions: Optional[PostLaunchActionsUnionTypeDef] = None
     enableMapAutoTagging: Optional[bool] = None
     mapAutoTaggingMpeID: Optional[str] = None
@@ -2289,13 +2316,21 @@ class UpdateLaunchConfigurationTemplateRequestTypeDef(BaseValidatorModel):
     parametersEncryptionKey: Optional[str] = None
 
 
+# This class is the input for the 'start_network_migration_mapping_update' function.
+class StartNetworkMigrationMappingUpdateRequestTypeDef(BaseValidatorModel):
+    networkMigrationExecutionID: Annotated[str, _aws_pattern("Mgn", "NetworkMigrationExecutionID")]
+    networkMigrationDefinitionID: Annotated[str, _aws_pattern("Mgn", "NetworkMigrationDefinitionID")]
+    constructs: Optional[List[StartNetworkMigrationMappingUpdateConstructTypeDef]] = None
+    segments: Optional[List[StartNetworkMigrationMappingUpdateSegmentTypeDef]] = None
+
+
 class JobTypeDef(BaseValidatorModel):
-    jobID: str
+    jobID: Annotated[str, _aws_pattern("Mgn", "JobID")]
     arn: Optional[str] = None
     type: Optional[JobTypeType] = None
     initiatedBy: Optional[InitiatedByType] = None
-    creationDateTime: Optional[str] = None
-    endDateTime: Optional[str] = None
+    creationDateTime: Optional[Annotated[str, _aws_pattern("Mgn", "ISO8601DatetimeString")]] = None
+    endDateTime: Optional[Annotated[str, _aws_pattern("Mgn", "ISO8601DatetimeString")]] = None
     status: Optional[JobStatusType] = None
     participatingServers: Optional[List[ParticipatingServerTypeDef]] = None
     tags: Optional[Dict[str, str]] = None

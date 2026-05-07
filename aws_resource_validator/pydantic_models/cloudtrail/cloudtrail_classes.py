@@ -3,6 +3,7 @@
 from datetime import datetime
 from decimal import Decimal
 from typing import (
+    Annotated,
     Any,
     Callable,
     Dict,
@@ -24,6 +25,7 @@ from botocore.response import StreamingBody
 from pydantic import Field
 
 from aws_resource_validator.core.base_validator_model import BaseValidatorModel, EventStream
+from aws_resource_validator.core.pattern_validation import aws_field_pattern as _aws_pattern
 from aws_resource_validator.pydantic_models.cloudtrail.cloudtrail_constants import *  # noqa: F401,F403
 
 # Optional boto3 symbols — imported lazily so services that don't need them
@@ -54,13 +56,13 @@ class AdvancedFieldSelectorOutputTypeDef(BaseValidatorModel):
 
 
 class AdvancedFieldSelectorTypeDef(BaseValidatorModel):
-    Field: str
-    Equals: Optional[List[str]] = None
-    StartsWith: Optional[List[str]] = None
-    EndsWith: Optional[List[str]] = None
-    NotEquals: Optional[List[str]] = None
-    NotStartsWith: Optional[List[str]] = None
-    NotEndsWith: Optional[List[str]] = None
+    Field: Annotated[str, _aws_pattern("Cloudtrail", "SelectorField")]
+    Equals: Optional[List[Annotated[str, _aws_pattern("Cloudtrail", "OperatorValue")]]] = None
+    StartsWith: Optional[List[Annotated[str, _aws_pattern("Cloudtrail", "OperatorValue")]]] = None
+    EndsWith: Optional[List[Annotated[str, _aws_pattern("Cloudtrail", "OperatorValue")]]] = None
+    NotEquals: Optional[List[Annotated[str, _aws_pattern("Cloudtrail", "OperatorValue")]]] = None
+    NotStartsWith: Optional[List[Annotated[str, _aws_pattern("Cloudtrail", "OperatorValue")]]] = None
+    NotEndsWith: Optional[List[Annotated[str, _aws_pattern("Cloudtrail", "OperatorValue")]]] = None
 
 
 class AggregationConfigurationOutputTypeDef(BaseValidatorModel):
@@ -75,9 +77,9 @@ class AggregationConfigurationTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'cancel_query' function.
 class CancelQueryRequestTypeDef(BaseValidatorModel):
-    QueryId: str
-    EventDataStore: Optional[str] = None
-    EventDataStoreOwnerAccountId: Optional[str] = None
+    QueryId: Annotated[str, _aws_pattern("Cloudtrail", "UUID")]
+    EventDataStore: Optional[Annotated[str, _aws_pattern("Cloudtrail", "EventDataStoreArn")]] = None
+    EventDataStoreOwnerAccountId: Optional[Annotated[str, _aws_pattern("Cloudtrail", "AccountId")]] = None
 
 
 class ResponseMetadataTypeDef(BaseValidatorModel):
@@ -89,8 +91,8 @@ class ResponseMetadataTypeDef(BaseValidatorModel):
 
 
 class ChannelTypeDef(BaseValidatorModel):
-    ChannelArn: Optional[str] = None
-    Name: Optional[str] = None
+    ChannelArn: Optional[Annotated[str, _aws_pattern("Cloudtrail", "ChannelArn")]] = None
+    Name: Optional[Annotated[str, _aws_pattern("Cloudtrail", "ChannelName")]] = None
 
 
 class ContextKeySelectorOutputTypeDef(BaseValidatorModel):
@@ -105,24 +107,24 @@ class ContextKeySelectorTypeDef(BaseValidatorModel):
 
 class DestinationTypeDef(BaseValidatorModel):
     Type: DestinationTypeType
-    Location: str
+    Location: Annotated[str, _aws_pattern("Cloudtrail", "Location")]
 
 
 class RequestWidgetTypeDef(BaseValidatorModel):
-    QueryStatement: str
+    QueryStatement: Annotated[str, _aws_pattern("Cloudtrail", "QueryStatement")]
     ViewProperties: Dict[str, str]
-    QueryParameters: Optional[List[str]] = None
+    QueryParameters: Optional[List[Annotated[str, _aws_pattern("Cloudtrail", "QueryParameter")]]] = None
 
 
 class WidgetTypeDef(BaseValidatorModel):
-    QueryAlias: Optional[str] = None
-    QueryStatement: Optional[str] = None
-    QueryParameters: Optional[List[str]] = None
+    QueryAlias: Optional[Annotated[str, _aws_pattern("Cloudtrail", "QueryAlias")]] = None
+    QueryStatement: Optional[Annotated[str, _aws_pattern("Cloudtrail", "QueryStatement")]] = None
+    QueryParameters: Optional[List[Annotated[str, _aws_pattern("Cloudtrail", "QueryParameter")]]] = None
     ViewProperties: Optional[Dict[str, str]] = None
 
 
 class DashboardDetailTypeDef(BaseValidatorModel):
-    DashboardArn: Optional[str] = None
+    DashboardArn: Optional[Annotated[str, _aws_pattern("Cloudtrail", "DashboardArn")]] = None
     Type: Optional[DashboardTypeType] = None
 
 
@@ -137,19 +139,19 @@ class DataResourceTypeDef(BaseValidatorModel):
 
 
 class DeleteChannelRequestTypeDef(BaseValidatorModel):
-    Channel: str
+    Channel: Annotated[str, _aws_pattern("Cloudtrail", "ChannelArn")]
 
 
 class DeleteDashboardRequestTypeDef(BaseValidatorModel):
-    DashboardId: str
+    DashboardId: Annotated[str, _aws_pattern("Cloudtrail", "DashboardArn")]
 
 
 class DeleteEventDataStoreRequestTypeDef(BaseValidatorModel):
-    EventDataStore: str
+    EventDataStore: Annotated[str, _aws_pattern("Cloudtrail", "EventDataStoreArn")]
 
 
 class DeleteResourcePolicyRequestTypeDef(BaseValidatorModel):
-    ResourceArn: str
+    ResourceArn: Annotated[str, _aws_pattern("Cloudtrail", "ResourceArn")]
 
 
 class DeleteTrailRequestTypeDef(BaseValidatorModel):
@@ -157,16 +159,16 @@ class DeleteTrailRequestTypeDef(BaseValidatorModel):
 
 
 class DeregisterOrganizationDelegatedAdminRequestTypeDef(BaseValidatorModel):
-    DelegatedAdminAccountId: str
+    DelegatedAdminAccountId: Annotated[str, _aws_pattern("Cloudtrail", "AccountId")]
 
 
 # This class is the input for the 'describe_query' function.
 class DescribeQueryRequestTypeDef(BaseValidatorModel):
-    EventDataStore: Optional[str] = None
-    QueryId: Optional[str] = None
-    QueryAlias: Optional[str] = None
-    RefreshId: Optional[str] = None
-    EventDataStoreOwnerAccountId: Optional[str] = None
+    EventDataStore: Optional[Annotated[str, _aws_pattern("Cloudtrail", "EventDataStoreArn")]] = None
+    QueryId: Optional[Annotated[str, _aws_pattern("Cloudtrail", "UUID")]] = None
+    QueryAlias: Optional[Annotated[str, _aws_pattern("Cloudtrail", "QueryAlias")]] = None
+    RefreshId: Optional[Annotated[str, _aws_pattern("Cloudtrail", "RefreshId")]] = None
+    EventDataStoreOwnerAccountId: Optional[Annotated[str, _aws_pattern("Cloudtrail", "AccountId")]] = None
 
 
 class QueryStatisticsForDescribeQueryTypeDef(BaseValidatorModel):
@@ -204,13 +206,13 @@ class TrailTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'disable_federation' function.
 class DisableFederationRequestTypeDef(BaseValidatorModel):
-    EventDataStore: str
+    EventDataStore: Annotated[str, _aws_pattern("Cloudtrail", "EventDataStoreArn")]
 
 
 # This class is the input for the 'enable_federation' function.
 class EnableFederationRequestTypeDef(BaseValidatorModel):
-    EventDataStore: str
-    FederationRoleArn: str
+    EventDataStore: Annotated[str, _aws_pattern("Cloudtrail", "EventDataStoreArn")]
+    FederationRoleArn: Annotated[str, _aws_pattern("Cloudtrail", "FederationRoleArn")]
 
 
 class ResourceTypeDef(BaseValidatorModel):
@@ -220,26 +222,26 @@ class ResourceTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'generate_query' function.
 class GenerateQueryRequestTypeDef(BaseValidatorModel):
-    EventDataStores: List[str]
-    Prompt: str
+    EventDataStores: List[Annotated[str, _aws_pattern("Cloudtrail", "EventDataStoreArn")]]
+    Prompt: Annotated[str, _aws_pattern("Cloudtrail", "Prompt")]
 
 
 # This class is the input for the 'get_channel' function.
 class GetChannelRequestTypeDef(BaseValidatorModel):
-    Channel: str
+    Channel: Annotated[str, _aws_pattern("Cloudtrail", "ChannelArn")]
 
 
 class IngestionStatusTypeDef(BaseValidatorModel):
     LatestIngestionSuccessTime: Optional[datetime] = None
-    LatestIngestionSuccessEventID: Optional[str] = None
-    LatestIngestionErrorCode: Optional[str] = None
+    LatestIngestionSuccessEventID: Optional[Annotated[str, _aws_pattern("Cloudtrail", "UUID")]] = None
+    LatestIngestionErrorCode: Optional[Annotated[str, _aws_pattern("Cloudtrail", "ErrorMessage")]] = None
     LatestIngestionAttemptTime: Optional[datetime] = None
-    LatestIngestionAttemptEventID: Optional[str] = None
+    LatestIngestionAttemptEventID: Optional[Annotated[str, _aws_pattern("Cloudtrail", "UUID")]] = None
 
 
 # This class is the input for the 'get_dashboard' function.
 class GetDashboardRequestTypeDef(BaseValidatorModel):
-    DashboardId: str
+    DashboardId: Annotated[str, _aws_pattern("Cloudtrail", "DashboardArn")]
 
 
 # This class is the input for the 'get_event_configuration' function.
@@ -250,12 +252,12 @@ class GetEventConfigurationRequestTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'get_event_data_store' function.
 class GetEventDataStoreRequestTypeDef(BaseValidatorModel):
-    EventDataStore: str
+    EventDataStore: Annotated[str, _aws_pattern("Cloudtrail", "EventDataStoreArn")]
 
 
 class PartitionKeyTypeDef(BaseValidatorModel):
-    Name: str
-    Type: str
+    Name: Annotated[str, _aws_pattern("Cloudtrail", "PartitionKeyName")]
+    Type: Annotated[str, _aws_pattern("Cloudtrail", "PartitionKeyType")]
 
 
 # This class is the input for the 'get_event_selectors' function.
@@ -265,7 +267,7 @@ class GetEventSelectorsRequestTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'get_import' function.
 class GetImportRequestTypeDef(BaseValidatorModel):
-    ImportId: str
+    ImportId: Annotated[str, _aws_pattern("Cloudtrail", "UUID")]
 
 
 class ImportStatisticsTypeDef(BaseValidatorModel):
@@ -279,7 +281,7 @@ class ImportStatisticsTypeDef(BaseValidatorModel):
 # This class is the input for the 'get_insight_selectors' function.
 class GetInsightSelectorsRequestTypeDef(BaseValidatorModel):
     TrailName: Optional[str] = None
-    EventDataStore: Optional[str] = None
+    EventDataStore: Optional[Annotated[str, _aws_pattern("Cloudtrail", "EventDataStoreArn")]] = None
 
 
 class InsightSelectorOutputTypeDef(BaseValidatorModel):
@@ -289,11 +291,11 @@ class InsightSelectorOutputTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'get_query_results' function.
 class GetQueryResultsRequestTypeDef(BaseValidatorModel):
-    QueryId: str
-    EventDataStore: Optional[str] = None
-    NextToken: Optional[str] = None
+    QueryId: Annotated[str, _aws_pattern("Cloudtrail", "UUID")]
+    EventDataStore: Optional[Annotated[str, _aws_pattern("Cloudtrail", "EventDataStoreArn")]] = None
+    NextToken: Optional[Annotated[str, _aws_pattern("Cloudtrail", "PaginationToken")]] = None
     MaxQueryResults: Optional[int] = None
-    EventDataStoreOwnerAccountId: Optional[str] = None
+    EventDataStoreOwnerAccountId: Optional[Annotated[str, _aws_pattern("Cloudtrail", "AccountId")]] = None
 
 
 class QueryStatisticsTypeDef(BaseValidatorModel):
@@ -304,7 +306,7 @@ class QueryStatisticsTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'get_resource_policy' function.
 class GetResourcePolicyRequestTypeDef(BaseValidatorModel):
-    ResourceArn: str
+    ResourceArn: Annotated[str, _aws_pattern("Cloudtrail", "ResourceArn")]
 
 
 # This class is the input for the 'get_trail' function.
@@ -332,9 +334,9 @@ class S3ImportSourceTypeDef(BaseValidatorModel):
 
 
 class ImportsListItemTypeDef(BaseValidatorModel):
-    ImportId: Optional[str] = None
+    ImportId: Optional[Annotated[str, _aws_pattern("Cloudtrail", "UUID")]] = None
     ImportStatus: Optional[ImportStatusType] = None
-    Destinations: Optional[List[str]] = None
+    Destinations: Optional[List[Annotated[str, _aws_pattern("Cloudtrail", "EventDataStoreArn")]]] = None
     CreatedTimestamp: Optional[datetime] = None
     UpdatedTimestamp: Optional[datetime] = None
 
@@ -347,20 +349,20 @@ class InsightSelectorTypeDef(BaseValidatorModel):
 # This class is the input for the 'list_channels' function.
 class ListChannelsRequestTypeDef(BaseValidatorModel):
     MaxResults: Optional[int] = None
-    NextToken: Optional[str] = None
+    NextToken: Optional[Annotated[str, _aws_pattern("Cloudtrail", "PaginationToken")]] = None
 
 
 # This class is the input for the 'list_dashboards' function.
 class ListDashboardsRequestTypeDef(BaseValidatorModel):
-    NamePrefix: Optional[str] = None
+    NamePrefix: Optional[Annotated[str, _aws_pattern("Cloudtrail", "DashboardName")]] = None
     Type: Optional[DashboardTypeType] = None
-    NextToken: Optional[str] = None
+    NextToken: Optional[Annotated[str, _aws_pattern("Cloudtrail", "PaginationToken")]] = None
     MaxResults: Optional[int] = None
 
 
 # This class is the input for the 'list_event_data_stores' function.
 class ListEventDataStoresRequestTypeDef(BaseValidatorModel):
-    NextToken: Optional[str] = None
+    NextToken: Optional[Annotated[str, _aws_pattern("Cloudtrail", "PaginationToken")]] = None
     MaxResults: Optional[int] = None
 
 
@@ -372,17 +374,17 @@ class PaginatorConfigTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'list_import_failures' function.
 class ListImportFailuresRequestTypeDef(BaseValidatorModel):
-    ImportId: str
+    ImportId: Annotated[str, _aws_pattern("Cloudtrail", "UUID")]
     MaxResults: Optional[int] = None
-    NextToken: Optional[str] = None
+    NextToken: Optional[Annotated[str, _aws_pattern("Cloudtrail", "PaginationToken")]] = None
 
 
 # This class is the input for the 'list_imports' function.
 class ListImportsRequestTypeDef(BaseValidatorModel):
     MaxResults: Optional[int] = None
-    Destination: Optional[str] = None
+    Destination: Optional[Annotated[str, _aws_pattern("Cloudtrail", "EventDataStoreArn")]] = None
     ImportStatus: Optional[ImportStatusType] = None
-    NextToken: Optional[str] = None
+    NextToken: Optional[Annotated[str, _aws_pattern("Cloudtrail", "PaginationToken")]] = None
 
 
 TimestampTypeDef = Union[datetime, str]
@@ -396,7 +398,7 @@ class PublicKeyTypeDef(BaseValidatorModel):
 
 
 class QueryTypeDef(BaseValidatorModel):
-    QueryId: Optional[str] = None
+    QueryId: Optional[Annotated[str, _aws_pattern("Cloudtrail", "UUID")]] = None
     QueryStatus: Optional[QueryStatusType] = None
     CreationTime: Optional[datetime] = None
 
@@ -425,7 +427,7 @@ class LookupAttributeTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'put_resource_policy' function.
 class PutResourcePolicyRequestTypeDef(BaseValidatorModel):
-    ResourceArn: str
+    ResourceArn: Annotated[str, _aws_pattern("Cloudtrail", "ResourceArn")]
     ResourcePolicy: str
 
 
@@ -435,19 +437,19 @@ class RefreshScheduleFrequencyTypeDef(BaseValidatorModel):
 
 
 class RegisterOrganizationDelegatedAdminRequestTypeDef(BaseValidatorModel):
-    MemberAccountId: str
+    MemberAccountId: Annotated[str, _aws_pattern("Cloudtrail", "AccountId")]
 
 
 # This class is the input for the 'restore_event_data_store' function.
 class RestoreEventDataStoreRequestTypeDef(BaseValidatorModel):
-    EventDataStore: str
+    EventDataStore: Annotated[str, _aws_pattern("Cloudtrail", "EventDataStoreArn")]
 
 
 # This class is the input for the 'search_sample_queries' function.
 class SearchSampleQueriesRequestTypeDef(BaseValidatorModel):
-    SearchPhrase: str
+    SearchPhrase: Annotated[str, _aws_pattern("Cloudtrail", "SearchSampleQueriesSearchPhrase")]
     MaxResults: Optional[int] = None
-    NextToken: Optional[str] = None
+    NextToken: Optional[Annotated[str, _aws_pattern("Cloudtrail", "PaginationToken")]] = None
 
 
 class SearchSampleQueriesSearchResultTypeDef(BaseValidatorModel):
@@ -459,12 +461,12 @@ class SearchSampleQueriesSearchResultTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'start_dashboard_refresh' function.
 class StartDashboardRefreshRequestTypeDef(BaseValidatorModel):
-    DashboardId: str
+    DashboardId: Annotated[str, _aws_pattern("Cloudtrail", "DashboardArn")]
     QueryParameterValues: Optional[Dict[str, str]] = None
 
 
 class StartEventDataStoreIngestionRequestTypeDef(BaseValidatorModel):
-    EventDataStore: str
+    EventDataStore: Annotated[str, _aws_pattern("Cloudtrail", "EventDataStoreArn")]
 
 
 class StartLoggingRequestTypeDef(BaseValidatorModel):
@@ -473,20 +475,20 @@ class StartLoggingRequestTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'start_query' function.
 class StartQueryRequestTypeDef(BaseValidatorModel):
-    QueryStatement: Optional[str] = None
-    DeliveryS3Uri: Optional[str] = None
-    QueryAlias: Optional[str] = None
-    QueryParameters: Optional[List[str]] = None
-    EventDataStoreOwnerAccountId: Optional[str] = None
+    QueryStatement: Optional[Annotated[str, _aws_pattern("Cloudtrail", "QueryStatement")]] = None
+    DeliveryS3Uri: Optional[Annotated[str, _aws_pattern("Cloudtrail", "DeliveryS3Uri")]] = None
+    QueryAlias: Optional[Annotated[str, _aws_pattern("Cloudtrail", "QueryAlias")]] = None
+    QueryParameters: Optional[List[Annotated[str, _aws_pattern("Cloudtrail", "QueryParameter")]]] = None
+    EventDataStoreOwnerAccountId: Optional[Annotated[str, _aws_pattern("Cloudtrail", "AccountId")]] = None
 
 
 class StopEventDataStoreIngestionRequestTypeDef(BaseValidatorModel):
-    EventDataStore: str
+    EventDataStore: Annotated[str, _aws_pattern("Cloudtrail", "EventDataStoreArn")]
 
 
 # This class is the input for the 'stop_import' function.
 class StopImportRequestTypeDef(BaseValidatorModel):
-    ImportId: str
+    ImportId: Annotated[str, _aws_pattern("Cloudtrail", "UUID")]
 
 
 class StopLoggingRequestTypeDef(BaseValidatorModel):
@@ -551,9 +553,9 @@ AggregationConfigurationUnionTypeDef = Union[AggregationConfigurationOutputTypeD
 
 # This class is the output for the 'cancel_query' function.
 class CancelQueryResponseTypeDef(BaseValidatorModel):
-    QueryId: str
+    QueryId: Annotated[str, _aws_pattern("Cloudtrail", "UUID")]
     QueryStatus: QueryStatusType
-    EventDataStoreOwnerAccountId: str
+    EventDataStoreOwnerAccountId: Annotated[str, _aws_pattern("Cloudtrail", "AccountId")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
@@ -577,30 +579,30 @@ class CreateTrailResponseTypeDef(BaseValidatorModel):
 
 # This class is the output for the 'disable_federation' function.
 class DisableFederationResponseTypeDef(BaseValidatorModel):
-    EventDataStoreArn: str
+    EventDataStoreArn: Annotated[str, _aws_pattern("Cloudtrail", "EventDataStoreArn")]
     FederationStatus: FederationStatusType
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 # This class is the output for the 'enable_federation' function.
 class EnableFederationResponseTypeDef(BaseValidatorModel):
-    EventDataStoreArn: str
+    EventDataStoreArn: Annotated[str, _aws_pattern("Cloudtrail", "EventDataStoreArn")]
     FederationStatus: FederationStatusType
-    FederationRoleArn: str
+    FederationRoleArn: Annotated[str, _aws_pattern("Cloudtrail", "FederationRoleArn")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 # This class is the output for the 'generate_query' function.
 class GenerateQueryResponseTypeDef(BaseValidatorModel):
-    QueryStatement: str
-    QueryAlias: str
-    EventDataStoreOwnerAccountId: str
+    QueryStatement: Annotated[str, _aws_pattern("Cloudtrail", "QueryStatement")]
+    QueryAlias: Annotated[str, _aws_pattern("Cloudtrail", "QueryAlias")]
+    EventDataStoreOwnerAccountId: Annotated[str, _aws_pattern("Cloudtrail", "AccountId")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 # This class is the output for the 'get_resource_policy' function.
 class GetResourcePolicyResponseTypeDef(BaseValidatorModel):
-    ResourceArn: str
+    ResourceArn: Annotated[str, _aws_pattern("Cloudtrail", "ResourceArn")]
     ResourcePolicy: str
     DelegatedAdminResourcePolicy: str
     ResponseMetadata: ResponseMetadataTypeDef
@@ -631,10 +633,10 @@ class GetTrailStatusResponseTypeDef(BaseValidatorModel):
 # This class is the output for the 'list_insights_metric_data' function.
 class ListInsightsMetricDataResponseTypeDef(BaseValidatorModel):
     TrailARN: str
-    EventSource: str
-    EventName: str
+    EventSource: Annotated[str, _aws_pattern("Cloudtrail", "EventSource")]
+    EventName: Annotated[str, _aws_pattern("Cloudtrail", "EventName")]
     InsightType: InsightTypeType
-    ErrorCode: str
+    ErrorCode: Annotated[str, _aws_pattern("Cloudtrail", "ErrorCode")]
     Timestamps: List[datetime]
     Values: List[float]
     ResponseMetadata: ResponseMetadataTypeDef
@@ -643,7 +645,7 @@ class ListInsightsMetricDataResponseTypeDef(BaseValidatorModel):
 
 # This class is the output for the 'put_resource_policy' function.
 class PutResourcePolicyResponseTypeDef(BaseValidatorModel):
-    ResourceArn: str
+    ResourceArn: Annotated[str, _aws_pattern("Cloudtrail", "ResourceArn")]
     ResourcePolicy: str
     DelegatedAdminResourcePolicy: str
     ResponseMetadata: ResponseMetadataTypeDef
@@ -651,14 +653,14 @@ class PutResourcePolicyResponseTypeDef(BaseValidatorModel):
 
 # This class is the output for the 'start_dashboard_refresh' function.
 class StartDashboardRefreshResponseTypeDef(BaseValidatorModel):
-    RefreshId: str
+    RefreshId: Annotated[str, _aws_pattern("Cloudtrail", "RefreshId")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 # This class is the output for the 'start_query' function.
 class StartQueryResponseTypeDef(BaseValidatorModel):
-    QueryId: str
-    EventDataStoreOwnerAccountId: str
+    QueryId: Annotated[str, _aws_pattern("Cloudtrail", "UUID")]
+    EventDataStoreOwnerAccountId: Annotated[str, _aws_pattern("Cloudtrail", "AccountId")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
@@ -684,13 +686,13 @@ class UpdateTrailResponseTypeDef(BaseValidatorModel):
 class ListChannelsResponseTypeDef(BaseValidatorModel):
     Channels: List[ChannelTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
-    NextToken: Optional[str] = None
+    NextToken: Optional[Annotated[str, _aws_pattern("Cloudtrail", "PaginationToken")]] = None
 
 
 # This class is the output for the 'get_event_configuration' function.
 class GetEventConfigurationResponseTypeDef(BaseValidatorModel):
     TrailARN: str
-    EventDataStoreArn: str
+    EventDataStoreArn: Annotated[str, _aws_pattern("Cloudtrail", "EventDataStoreArn")]
     MaxEventSize: MaxEventSizeType
     ContextKeySelectors: List[ContextKeySelectorOutputTypeDef]
     AggregationConfigurations: List[AggregationConfigurationOutputTypeDef]
@@ -700,7 +702,7 @@ class GetEventConfigurationResponseTypeDef(BaseValidatorModel):
 # This class is the output for the 'put_event_configuration' function.
 class PutEventConfigurationResponseTypeDef(BaseValidatorModel):
     TrailARN: str
-    EventDataStoreArn: str
+    EventDataStoreArn: Annotated[str, _aws_pattern("Cloudtrail", "EventDataStoreArn")]
     MaxEventSize: MaxEventSizeType
     ContextKeySelectors: List[ContextKeySelectorOutputTypeDef]
     AggregationConfigurations: List[AggregationConfigurationOutputTypeDef]
@@ -712,17 +714,17 @@ ContextKeySelectorUnionTypeDef = Union[ContextKeySelectorOutputTypeDef, ContextK
 
 # This class is the input for the 'create_channel' function.
 class CreateChannelRequestTypeDef(BaseValidatorModel):
-    Name: str
-    Source: str
+    Name: Annotated[str, _aws_pattern("Cloudtrail", "ChannelName")]
+    Source: Annotated[str, _aws_pattern("Cloudtrail", "Source")]
     Destinations: List[DestinationTypeDef]
     Tags: Optional[List[TagTypeDef]] = None
 
 
 # This class is the output for the 'create_channel' function.
 class CreateChannelResponseTypeDef(BaseValidatorModel):
-    ChannelArn: str
-    Name: str
-    Source: str
+    ChannelArn: Annotated[str, _aws_pattern("Cloudtrail", "ChannelArn")]
+    Name: Annotated[str, _aws_pattern("Cloudtrail", "ChannelName")]
+    Source: Annotated[str, _aws_pattern("Cloudtrail", "Source")]
     Destinations: List[DestinationTypeDef]
     Tags: List[TagTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
@@ -730,16 +732,16 @@ class CreateChannelResponseTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'update_channel' function.
 class UpdateChannelRequestTypeDef(BaseValidatorModel):
-    Channel: str
+    Channel: Annotated[str, _aws_pattern("Cloudtrail", "ChannelArn")]
     Destinations: Optional[List[DestinationTypeDef]] = None
-    Name: Optional[str] = None
+    Name: Optional[Annotated[str, _aws_pattern("Cloudtrail", "ChannelName")]] = None
 
 
 # This class is the output for the 'update_channel' function.
 class UpdateChannelResponseTypeDef(BaseValidatorModel):
-    ChannelArn: str
-    Name: str
-    Source: str
+    ChannelArn: Annotated[str, _aws_pattern("Cloudtrail", "ChannelArn")]
+    Name: Annotated[str, _aws_pattern("Cloudtrail", "ChannelName")]
+    Source: Annotated[str, _aws_pattern("Cloudtrail", "Source")]
     Destinations: List[DestinationTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
 
@@ -748,7 +750,7 @@ class UpdateChannelResponseTypeDef(BaseValidatorModel):
 class ListDashboardsResponseTypeDef(BaseValidatorModel):
     Dashboards: List[DashboardDetailTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
-    NextToken: Optional[str] = None
+    NextToken: Optional[Annotated[str, _aws_pattern("Cloudtrail", "PaginationToken")]] = None
 
 
 class EventSelectorOutputTypeDef(BaseValidatorModel):
@@ -763,15 +765,15 @@ DataResourceUnionTypeDef = Union[DataResourceOutputTypeDef, DataResourceTypeDef]
 
 # This class is the output for the 'describe_query' function.
 class DescribeQueryResponseTypeDef(BaseValidatorModel):
-    QueryId: str
-    QueryString: str
+    QueryId: Annotated[str, _aws_pattern("Cloudtrail", "UUID")]
+    QueryString: Annotated[str, _aws_pattern("Cloudtrail", "QueryStatement")]
     QueryStatus: QueryStatusType
     QueryStatistics: QueryStatisticsForDescribeQueryTypeDef
-    ErrorMessage: str
-    DeliveryS3Uri: str
+    ErrorMessage: Annotated[str, _aws_pattern("Cloudtrail", "ErrorMessage")]
+    DeliveryS3Uri: Annotated[str, _aws_pattern("Cloudtrail", "DeliveryS3Uri")]
     DeliveryStatus: DeliveryStatusType
-    Prompt: str
-    EventDataStoreOwnerAccountId: str
+    Prompt: Annotated[str, _aws_pattern("Cloudtrail", "Prompt")]
+    EventDataStoreOwnerAccountId: Annotated[str, _aws_pattern("Cloudtrail", "AccountId")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
@@ -803,8 +805,8 @@ class EventTypeDef(BaseValidatorModel):
 class GetInsightSelectorsResponseTypeDef(BaseValidatorModel):
     TrailARN: str
     InsightSelectors: List[InsightSelectorOutputTypeDef]
-    EventDataStoreArn: str
-    InsightsDestination: str
+    EventDataStoreArn: Annotated[str, _aws_pattern("Cloudtrail", "EventDataStoreArn")]
+    InsightsDestination: Annotated[str, _aws_pattern("Cloudtrail", "EventDataStoreArn")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
@@ -812,8 +814,8 @@ class GetInsightSelectorsResponseTypeDef(BaseValidatorModel):
 class PutInsightSelectorsResponseTypeDef(BaseValidatorModel):
     TrailARN: str
     InsightSelectors: List[InsightSelectorOutputTypeDef]
-    EventDataStoreArn: str
-    InsightsDestination: str
+    EventDataStoreArn: Annotated[str, _aws_pattern("Cloudtrail", "EventDataStoreArn")]
+    InsightsDestination: Annotated[str, _aws_pattern("Cloudtrail", "EventDataStoreArn")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
@@ -822,16 +824,16 @@ class GetQueryResultsResponseTypeDef(BaseValidatorModel):
     QueryStatus: QueryStatusType
     QueryStatistics: QueryStatisticsTypeDef
     QueryResultRows: List[List[Dict[str, str]]]
-    ErrorMessage: str
+    ErrorMessage: Annotated[str, _aws_pattern("Cloudtrail", "ErrorMessage")]
     ResponseMetadata: ResponseMetadataTypeDef
-    NextToken: Optional[str] = None
+    NextToken: Optional[Annotated[str, _aws_pattern("Cloudtrail", "PaginationToken")]] = None
 
 
 # This class is the output for the 'list_import_failures' function.
 class ListImportFailuresResponseTypeDef(BaseValidatorModel):
     Failures: List[ImportFailureListItemTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
-    NextToken: Optional[str] = None
+    NextToken: Optional[Annotated[str, _aws_pattern("Cloudtrail", "PaginationToken")]] = None
 
 
 class ImportSourceTypeDef(BaseValidatorModel):
@@ -842,7 +844,7 @@ class ImportSourceTypeDef(BaseValidatorModel):
 class ListImportsResponseTypeDef(BaseValidatorModel):
     Imports: List[ImportsListItemTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
-    NextToken: Optional[str] = None
+    NextToken: Optional[Annotated[str, _aws_pattern("Cloudtrail", "PaginationToken")]] = None
 
 
 InsightSelectorUnionTypeDef = Union[InsightSelectorOutputTypeDef, InsightSelectorTypeDef]
@@ -879,22 +881,22 @@ class ListInsightsDataRequestPaginateTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'list_insights_data' function.
 class ListInsightsDataRequestTypeDef(BaseValidatorModel):
-    InsightSource: str
+    InsightSource: Annotated[str, _aws_pattern("Cloudtrail", "ResourceArn")]
     DataType: Literal["InsightsEvents"]
     Dimensions: Optional[Dict[ListInsightsDataDimensionKeyType, str]] = None
     StartTime: Optional[TimestampTypeDef] = None
     EndTime: Optional[TimestampTypeDef] = None
     MaxResults: Optional[int] = None
-    NextToken: Optional[str] = None
+    NextToken: Optional[Annotated[str, _aws_pattern("Cloudtrail", "PaginationToken")]] = None
 
 
 # This class is the input for the 'list_insights_metric_data' function.
 class ListInsightsMetricDataRequestTypeDef(BaseValidatorModel):
-    EventSource: str
-    EventName: str
+    EventSource: Annotated[str, _aws_pattern("Cloudtrail", "EventSource")]
+    EventName: Annotated[str, _aws_pattern("Cloudtrail", "EventName")]
     InsightType: InsightTypeType
     TrailName: Optional[str] = None
-    ErrorCode: Optional[str] = None
+    ErrorCode: Optional[Annotated[str, _aws_pattern("Cloudtrail", "ErrorCode")]] = None
     StartTime: Optional[TimestampTypeDef] = None
     EndTime: Optional[TimestampTypeDef] = None
     Period: Optional[int] = None
@@ -918,8 +920,8 @@ class ListPublicKeysRequestTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'list_queries' function.
 class ListQueriesRequestTypeDef(BaseValidatorModel):
-    EventDataStore: str
-    NextToken: Optional[str] = None
+    EventDataStore: Annotated[str, _aws_pattern("Cloudtrail", "EventDataStoreArn")]
+    NextToken: Optional[Annotated[str, _aws_pattern("Cloudtrail", "PaginationToken")]] = None
     MaxResults: Optional[int] = None
     StartTime: Optional[TimestampTypeDef] = None
     EndTime: Optional[TimestampTypeDef] = None
@@ -937,7 +939,7 @@ class ListPublicKeysResponseTypeDef(BaseValidatorModel):
 class ListQueriesResponseTypeDef(BaseValidatorModel):
     Queries: List[QueryTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
-    NextToken: Optional[str] = None
+    NextToken: Optional[Annotated[str, _aws_pattern("Cloudtrail", "PaginationToken")]] = None
 
 
 # This class is the output for the 'list_trails' function.
@@ -968,14 +970,14 @@ class LookupEventsRequestTypeDef(BaseValidatorModel):
 class RefreshScheduleTypeDef(BaseValidatorModel):
     Frequency: Optional[RefreshScheduleFrequencyTypeDef] = None
     Status: Optional[RefreshScheduleStatusType] = None
-    TimeOfDay: Optional[str] = None
+    TimeOfDay: Optional[Annotated[str, _aws_pattern("Cloudtrail", "TimeOfDay")]] = None
 
 
 # This class is the output for the 'search_sample_queries' function.
 class SearchSampleQueriesResponseTypeDef(BaseValidatorModel):
     SearchResults: List[SearchSampleQueriesSearchResultTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
-    NextToken: Optional[str] = None
+    NextToken: Optional[Annotated[str, _aws_pattern("Cloudtrail", "PaginationToken")]] = None
 
 
 # This class is the output for the 'list_tags' function.
@@ -987,8 +989,8 @@ class ListTagsResponseTypeDef(BaseValidatorModel):
 
 # This class is the output for the 'create_event_data_store' function.
 class CreateEventDataStoreResponseTypeDef(BaseValidatorModel):
-    EventDataStoreArn: str
-    Name: str
+    EventDataStoreArn: Annotated[str, _aws_pattern("Cloudtrail", "EventDataStoreArn")]
+    Name: Annotated[str, _aws_pattern("Cloudtrail", "EventDataStoreName")]
     Status: EventDataStoreStatusType
     AdvancedEventSelectors: List[AdvancedEventSelectorOutputTypeDef]
     MultiRegionEnabled: bool
@@ -998,14 +1000,14 @@ class CreateEventDataStoreResponseTypeDef(BaseValidatorModel):
     TagsList: List[TagTypeDef]
     CreatedTimestamp: datetime
     UpdatedTimestamp: datetime
-    KmsKeyId: str
+    KmsKeyId: Annotated[str, _aws_pattern("Cloudtrail", "EventDataStoreKmsKeyId")]
     BillingMode: BillingModeType
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 class EventDataStoreTypeDef(BaseValidatorModel):
-    EventDataStoreArn: Optional[str] = None
-    Name: Optional[str] = None
+    EventDataStoreArn: Optional[Annotated[str, _aws_pattern("Cloudtrail", "EventDataStoreArn")]] = None
+    Name: Optional[Annotated[str, _aws_pattern("Cloudtrail", "EventDataStoreName")]] = None
     TerminationProtectionEnabled: Optional[bool] = None
     Status: Optional[EventDataStoreStatusType] = None
     AdvancedEventSelectors: Optional[List[AdvancedEventSelectorOutputTypeDef]] = None
@@ -1018,8 +1020,8 @@ class EventDataStoreTypeDef(BaseValidatorModel):
 
 # This class is the output for the 'get_event_data_store' function.
 class GetEventDataStoreResponseTypeDef(BaseValidatorModel):
-    EventDataStoreArn: str
-    Name: str
+    EventDataStoreArn: Annotated[str, _aws_pattern("Cloudtrail", "EventDataStoreArn")]
+    Name: Annotated[str, _aws_pattern("Cloudtrail", "EventDataStoreName")]
     Status: EventDataStoreStatusType
     AdvancedEventSelectors: List[AdvancedEventSelectorOutputTypeDef]
     MultiRegionEnabled: bool
@@ -1028,18 +1030,18 @@ class GetEventDataStoreResponseTypeDef(BaseValidatorModel):
     TerminationProtectionEnabled: bool
     CreatedTimestamp: datetime
     UpdatedTimestamp: datetime
-    KmsKeyId: str
+    KmsKeyId: Annotated[str, _aws_pattern("Cloudtrail", "EventDataStoreKmsKeyId")]
     BillingMode: BillingModeType
     FederationStatus: FederationStatusType
-    FederationRoleArn: str
+    FederationRoleArn: Annotated[str, _aws_pattern("Cloudtrail", "FederationRoleArn")]
     PartitionKeys: List[PartitionKeyTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 # This class is the output for the 'restore_event_data_store' function.
 class RestoreEventDataStoreResponseTypeDef(BaseValidatorModel):
-    EventDataStoreArn: str
-    Name: str
+    EventDataStoreArn: Annotated[str, _aws_pattern("Cloudtrail", "EventDataStoreArn")]
+    Name: Annotated[str, _aws_pattern("Cloudtrail", "EventDataStoreName")]
     Status: EventDataStoreStatusType
     AdvancedEventSelectors: List[AdvancedEventSelectorOutputTypeDef]
     MultiRegionEnabled: bool
@@ -1048,7 +1050,7 @@ class RestoreEventDataStoreResponseTypeDef(BaseValidatorModel):
     TerminationProtectionEnabled: bool
     CreatedTimestamp: datetime
     UpdatedTimestamp: datetime
-    KmsKeyId: str
+    KmsKeyId: Annotated[str, _aws_pattern("Cloudtrail", "EventDataStoreKmsKeyId")]
     BillingMode: BillingModeType
     ResponseMetadata: ResponseMetadataTypeDef
 
@@ -1060,8 +1062,8 @@ class SourceConfigTypeDef(BaseValidatorModel):
 
 # This class is the output for the 'update_event_data_store' function.
 class UpdateEventDataStoreResponseTypeDef(BaseValidatorModel):
-    EventDataStoreArn: str
-    Name: str
+    EventDataStoreArn: Annotated[str, _aws_pattern("Cloudtrail", "EventDataStoreArn")]
+    Name: Annotated[str, _aws_pattern("Cloudtrail", "EventDataStoreName")]
     Status: EventDataStoreStatusType
     AdvancedEventSelectors: List[AdvancedEventSelectorOutputTypeDef]
     MultiRegionEnabled: bool
@@ -1070,16 +1072,16 @@ class UpdateEventDataStoreResponseTypeDef(BaseValidatorModel):
     TerminationProtectionEnabled: bool
     CreatedTimestamp: datetime
     UpdatedTimestamp: datetime
-    KmsKeyId: str
+    KmsKeyId: Annotated[str, _aws_pattern("Cloudtrail", "EventDataStoreKmsKeyId")]
     BillingMode: BillingModeType
     FederationStatus: FederationStatusType
-    FederationRoleArn: str
+    FederationRoleArn: Annotated[str, _aws_pattern("Cloudtrail", "FederationRoleArn")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 class AdvancedEventSelectorTypeDef(BaseValidatorModel):
     FieldSelectors: List[AdvancedFieldSelectorUnionTypeDef]
-    Name: Optional[str] = None
+    Name: Optional[Annotated[str, _aws_pattern("Cloudtrail", "SelectorName")]] = None
 
 
 # This class is the input for the 'put_event_configuration' function.
@@ -1118,7 +1120,7 @@ class EventSelectorTypeDef(BaseValidatorModel):
 class ListInsightsDataResponseTypeDef(BaseValidatorModel):
     Events: List[EventTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
-    NextToken: Optional[str] = None
+    NextToken: Optional[Annotated[str, _aws_pattern("Cloudtrail", "PaginationToken")]] = None
 
 
 # This class is the output for the 'lookup_events' function.
@@ -1130,8 +1132,8 @@ class LookupEventsResponseTypeDef(BaseValidatorModel):
 
 # This class is the output for the 'get_import' function.
 class GetImportResponseTypeDef(BaseValidatorModel):
-    ImportId: str
-    Destinations: List[str]
+    ImportId: Annotated[str, _aws_pattern("Cloudtrail", "UUID")]
+    Destinations: List[Annotated[str, _aws_pattern("Cloudtrail", "EventDataStoreArn")]]
     ImportSource: ImportSourceTypeDef
     StartEventTime: datetime
     EndEventTime: datetime
@@ -1144,17 +1146,17 @@ class GetImportResponseTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'start_import' function.
 class StartImportRequestTypeDef(BaseValidatorModel):
-    Destinations: Optional[List[str]] = None
+    Destinations: Optional[List[Annotated[str, _aws_pattern("Cloudtrail", "EventDataStoreArn")]]] = None
     ImportSource: Optional[ImportSourceTypeDef] = None
     StartEventTime: Optional[TimestampTypeDef] = None
     EndEventTime: Optional[TimestampTypeDef] = None
-    ImportId: Optional[str] = None
+    ImportId: Optional[Annotated[str, _aws_pattern("Cloudtrail", "UUID")]] = None
 
 
 # This class is the output for the 'start_import' function.
 class StartImportResponseTypeDef(BaseValidatorModel):
-    ImportId: str
-    Destinations: List[str]
+    ImportId: Annotated[str, _aws_pattern("Cloudtrail", "UUID")]
+    Destinations: List[Annotated[str, _aws_pattern("Cloudtrail", "EventDataStoreArn")]]
     ImportSource: ImportSourceTypeDef
     StartEventTime: datetime
     EndEventTime: datetime
@@ -1166,9 +1168,9 @@ class StartImportResponseTypeDef(BaseValidatorModel):
 
 # This class is the output for the 'stop_import' function.
 class StopImportResponseTypeDef(BaseValidatorModel):
-    ImportId: str
+    ImportId: Annotated[str, _aws_pattern("Cloudtrail", "UUID")]
     ImportSource: ImportSourceTypeDef
-    Destinations: List[str]
+    Destinations: List[Annotated[str, _aws_pattern("Cloudtrail", "EventDataStoreArn")]]
     ImportStatus: ImportStatusType
     CreatedTimestamp: datetime
     UpdatedTimestamp: datetime
@@ -1182,13 +1184,13 @@ class StopImportResponseTypeDef(BaseValidatorModel):
 class PutInsightSelectorsRequestTypeDef(BaseValidatorModel):
     InsightSelectors: List[InsightSelectorUnionTypeDef]
     TrailName: Optional[str] = None
-    EventDataStore: Optional[str] = None
-    InsightsDestination: Optional[str] = None
+    EventDataStore: Optional[Annotated[str, _aws_pattern("Cloudtrail", "EventDataStoreArn")]] = None
+    InsightsDestination: Optional[Annotated[str, _aws_pattern("Cloudtrail", "EventDataStoreArn")]] = None
 
 
 # This class is the input for the 'create_dashboard' function.
 class CreateDashboardRequestTypeDef(BaseValidatorModel):
-    Name: str
+    Name: Annotated[str, _aws_pattern("Cloudtrail", "DashboardName")]
     RefreshSchedule: Optional[RefreshScheduleTypeDef] = None
     TagsList: Optional[List[TagTypeDef]] = None
     TerminationProtectionEnabled: Optional[bool] = None
@@ -1197,8 +1199,8 @@ class CreateDashboardRequestTypeDef(BaseValidatorModel):
 
 # This class is the output for the 'create_dashboard' function.
 class CreateDashboardResponseTypeDef(BaseValidatorModel):
-    DashboardArn: str
-    Name: str
+    DashboardArn: Annotated[str, _aws_pattern("Cloudtrail", "DashboardArn")]
+    Name: Annotated[str, _aws_pattern("Cloudtrail", "DashboardName")]
     Type: DashboardTypeType
     Widgets: List[WidgetTypeDef]
     TagsList: List[TagTypeDef]
@@ -1209,22 +1211,22 @@ class CreateDashboardResponseTypeDef(BaseValidatorModel):
 
 # This class is the output for the 'get_dashboard' function.
 class GetDashboardResponseTypeDef(BaseValidatorModel):
-    DashboardArn: str
+    DashboardArn: Annotated[str, _aws_pattern("Cloudtrail", "DashboardArn")]
     Type: DashboardTypeType
     Status: DashboardStatusType
     Widgets: List[WidgetTypeDef]
     RefreshSchedule: RefreshScheduleTypeDef
     CreatedTimestamp: datetime
     UpdatedTimestamp: datetime
-    LastRefreshId: str
-    LastRefreshFailureReason: str
+    LastRefreshId: Annotated[str, _aws_pattern("Cloudtrail", "RefreshId")]
+    LastRefreshFailureReason: Annotated[str, _aws_pattern("Cloudtrail", "ErrorMessage")]
     TerminationProtectionEnabled: bool
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 # This class is the input for the 'update_dashboard' function.
 class UpdateDashboardRequestTypeDef(BaseValidatorModel):
-    DashboardId: str
+    DashboardId: Annotated[str, _aws_pattern("Cloudtrail", "DashboardArn")]
     Widgets: Optional[List[RequestWidgetTypeDef]] = None
     RefreshSchedule: Optional[RefreshScheduleTypeDef] = None
     TerminationProtectionEnabled: Optional[bool] = None
@@ -1232,8 +1234,8 @@ class UpdateDashboardRequestTypeDef(BaseValidatorModel):
 
 # This class is the output for the 'update_dashboard' function.
 class UpdateDashboardResponseTypeDef(BaseValidatorModel):
-    DashboardArn: str
-    Name: str
+    DashboardArn: Annotated[str, _aws_pattern("Cloudtrail", "DashboardArn")]
+    Name: Annotated[str, _aws_pattern("Cloudtrail", "DashboardName")]
     Type: DashboardTypeType
     Widgets: List[WidgetTypeDef]
     RefreshSchedule: RefreshScheduleTypeDef
@@ -1247,14 +1249,14 @@ class UpdateDashboardResponseTypeDef(BaseValidatorModel):
 class ListEventDataStoresResponseTypeDef(BaseValidatorModel):
     EventDataStores: List[EventDataStoreTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
-    NextToken: Optional[str] = None
+    NextToken: Optional[Annotated[str, _aws_pattern("Cloudtrail", "PaginationToken")]] = None
 
 
 # This class is the output for the 'get_channel' function.
 class GetChannelResponseTypeDef(BaseValidatorModel):
-    ChannelArn: str
-    Name: str
-    Source: str
+    ChannelArn: Annotated[str, _aws_pattern("Cloudtrail", "ChannelArn")]
+    Name: Annotated[str, _aws_pattern("Cloudtrail", "ChannelName")]
+    Source: Annotated[str, _aws_pattern("Cloudtrail", "Source")]
     SourceConfig: SourceConfigTypeDef
     Destinations: List[DestinationTypeDef]
     IngestionStatus: IngestionStatusTypeDef
@@ -1268,28 +1270,28 @@ EventSelectorUnionTypeDef = Union[EventSelectorOutputTypeDef, EventSelectorTypeD
 
 # This class is the input for the 'create_event_data_store' function.
 class CreateEventDataStoreRequestTypeDef(BaseValidatorModel):
-    Name: str
+    Name: Annotated[str, _aws_pattern("Cloudtrail", "EventDataStoreName")]
     AdvancedEventSelectors: Optional[List[AdvancedEventSelectorUnionTypeDef]] = None
     MultiRegionEnabled: Optional[bool] = None
     OrganizationEnabled: Optional[bool] = None
     RetentionPeriod: Optional[int] = None
     TerminationProtectionEnabled: Optional[bool] = None
     TagsList: Optional[List[TagTypeDef]] = None
-    KmsKeyId: Optional[str] = None
+    KmsKeyId: Optional[Annotated[str, _aws_pattern("Cloudtrail", "EventDataStoreKmsKeyId")]] = None
     StartIngestion: Optional[bool] = None
     BillingMode: Optional[BillingModeType] = None
 
 
 # This class is the input for the 'update_event_data_store' function.
 class UpdateEventDataStoreRequestTypeDef(BaseValidatorModel):
-    EventDataStore: str
-    Name: Optional[str] = None
+    EventDataStore: Annotated[str, _aws_pattern("Cloudtrail", "EventDataStoreArn")]
+    Name: Optional[Annotated[str, _aws_pattern("Cloudtrail", "EventDataStoreName")]] = None
     AdvancedEventSelectors: Optional[List[AdvancedEventSelectorUnionTypeDef]] = None
     MultiRegionEnabled: Optional[bool] = None
     OrganizationEnabled: Optional[bool] = None
     RetentionPeriod: Optional[int] = None
     TerminationProtectionEnabled: Optional[bool] = None
-    KmsKeyId: Optional[str] = None
+    KmsKeyId: Optional[Annotated[str, _aws_pattern("Cloudtrail", "EventDataStoreKmsKeyId")]] = None
     BillingMode: Optional[BillingModeType] = None
 
 

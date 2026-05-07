@@ -3,6 +3,7 @@
 from datetime import datetime
 from decimal import Decimal
 from typing import (
+    Annotated,
     Any,
     Callable,
     Dict,
@@ -24,6 +25,7 @@ from botocore.response import StreamingBody
 from pydantic import Field
 
 from aws_resource_validator.core.base_validator_model import BaseValidatorModel, EventStream
+from aws_resource_validator.core.pattern_validation import aws_field_pattern as _aws_pattern
 from aws_resource_validator.pydantic_models.lexv2_runtime.lexv2_runtime_constants import *  # noqa: F401,F403
 
 # Optional boto3 symbols — imported lazily so services that don't need them
@@ -53,7 +55,7 @@ BlobTypeDef = Union[IO[Any], StreamingBody, bytes, str]
 class AudioResponseEventTypeDef(BaseValidatorModel):
     audioChunk: Optional[bytes] = None
     contentType: Optional[str] = None
-    eventId: Optional[str] = None
+    eventId: Optional[Annotated[str, _aws_pattern("Lexv2Runtime", "EventId")]] = None
 
 
 class BadGatewayExceptionTypeDef(BaseValidatorModel):
@@ -74,17 +76,17 @@ class ConflictExceptionTypeDef(BaseValidatorModel):
 
 
 class DTMFInputEventTypeDef(BaseValidatorModel):
-    inputCharacter: str
-    eventId: Optional[str] = None
+    inputCharacter: Annotated[str, _aws_pattern("Lexv2Runtime", "DTMFRegex")]
+    eventId: Optional[Annotated[str, _aws_pattern("Lexv2Runtime", "EventId")]] = None
     clientTimestampMillis: Optional[int] = None
 
 
 # This class is the input for the 'delete_session' function.
 class DeleteSessionRequestTypeDef(BaseValidatorModel):
-    botId: str
+    botId: Annotated[str, _aws_pattern("Lexv2Runtime", "BotIdentifier")]
     botAliasId: str
     localeId: str
-    sessionId: str
+    sessionId: Annotated[str, _aws_pattern("Lexv2Runtime", "SessionId")]
 
 
 class ResponseMetadataTypeDef(BaseValidatorModel):
@@ -105,7 +107,7 @@ class ElicitSubSlotOutputTypeDef(BaseValidatorModel):
 
 
 class DisconnectionEventTypeDef(BaseValidatorModel):
-    eventId: Optional[str] = None
+    eventId: Optional[Annotated[str, _aws_pattern("Lexv2Runtime", "EventId")]] = None
     clientTimestampMillis: Optional[int] = None
 
 
@@ -116,19 +118,19 @@ class ElicitSubSlotTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'get_session' function.
 class GetSessionRequestTypeDef(BaseValidatorModel):
-    botId: str
+    botId: Annotated[str, _aws_pattern("Lexv2Runtime", "BotIdentifier")]
     botAliasId: str
     localeId: str
-    sessionId: str
+    sessionId: Annotated[str, _aws_pattern("Lexv2Runtime", "SessionId")]
 
 
 class HeartbeatEventTypeDef(BaseValidatorModel):
-    eventId: Optional[str] = None
+    eventId: Optional[Annotated[str, _aws_pattern("Lexv2Runtime", "EventId")]] = None
 
 
 class RecognizedBotMemberTypeDef(BaseValidatorModel):
-    botId: str
-    botName: Optional[str] = None
+    botId: Annotated[str, _aws_pattern("Lexv2Runtime", "BotIdentifier")]
+    botName: Optional[Annotated[str, _aws_pattern("Lexv2Runtime", "Name")]] = None
 
 
 class InternalServerExceptionTypeDef(BaseValidatorModel):
@@ -136,14 +138,14 @@ class InternalServerExceptionTypeDef(BaseValidatorModel):
 
 
 class PlaybackCompletionEventTypeDef(BaseValidatorModel):
-    eventId: Optional[str] = None
+    eventId: Optional[Annotated[str, _aws_pattern("Lexv2Runtime", "EventId")]] = None
     clientTimestampMillis: Optional[int] = None
 
 
 class PlaybackInterruptionEventTypeDef(BaseValidatorModel):
     eventReason: Optional[PlaybackInterruptionReasonType] = None
-    causedByEventId: Optional[str] = None
-    eventId: Optional[str] = None
+    causedByEventId: Optional[Annotated[str, _aws_pattern("Lexv2Runtime", "EventId")]] = None
+    eventId: Optional[Annotated[str, _aws_pattern("Lexv2Runtime", "EventId")]] = None
 
 
 class ResourceNotFoundExceptionTypeDef(BaseValidatorModel):
@@ -169,7 +171,7 @@ class ValueOutputTypeDef(BaseValidatorModel):
 
 class TextInputEventTypeDef(BaseValidatorModel):
     text: str
-    eventId: Optional[str] = None
+    eventId: Optional[Annotated[str, _aws_pattern("Lexv2Runtime", "EventId")]] = None
     clientTimestampMillis: Optional[int] = None
 
 
@@ -179,7 +181,7 @@ class ThrottlingExceptionTypeDef(BaseValidatorModel):
 
 class TranscriptEventTypeDef(BaseValidatorModel):
     transcript: Optional[str] = None
-    eventId: Optional[str] = None
+    eventId: Optional[Annotated[str, _aws_pattern("Lexv2Runtime", "EventId")]] = None
 
 
 class ValidationExceptionTypeDef(BaseValidatorModel):
@@ -199,7 +201,7 @@ class ActiveContextOutputTypeDef(BaseValidatorModel):
 
 
 class ActiveContextTypeDef(BaseValidatorModel):
-    name: str
+    name: Annotated[str, _aws_pattern("Lexv2Runtime", "ActiveContextName")]
     timeToLive: ActiveContextTimeToLiveTypeDef
     contextAttributes: Dict[str, str]
 
@@ -207,16 +209,16 @@ class ActiveContextTypeDef(BaseValidatorModel):
 class AudioInputEventTypeDef(BaseValidatorModel):
     contentType: str
     audioChunk: Optional[BlobTypeDef] = None
-    eventId: Optional[str] = None
+    eventId: Optional[Annotated[str, _aws_pattern("Lexv2Runtime", "EventId")]] = None
     clientTimestampMillis: Optional[int] = None
 
 
 # This class is the input for the 'recognize_utterance' function.
 class RecognizeUtteranceRequestTypeDef(BaseValidatorModel):
-    botId: str
+    botId: Annotated[str, _aws_pattern("Lexv2Runtime", "BotIdentifier")]
     botAliasId: str
     localeId: str
-    sessionId: str
+    sessionId: Annotated[str, _aws_pattern("Lexv2Runtime", "SessionId")]
     requestContentType: str
     sessionState: Optional[str] = None
     requestAttributes: Optional[str] = None
@@ -240,10 +242,10 @@ class ImageResponseCardTypeDef(BaseValidatorModel):
 
 # This class is the output for the 'delete_session' function.
 class DeleteSessionResponseTypeDef(BaseValidatorModel):
-    botId: str
+    botId: Annotated[str, _aws_pattern("Lexv2Runtime", "BotIdentifier")]
     botAliasId: str
     localeId: str
-    sessionId: str
+    sessionId: Annotated[str, _aws_pattern("Lexv2Runtime", "SessionId")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
@@ -253,7 +255,7 @@ class PutSessionResponseTypeDef(BaseValidatorModel):
     messages: str
     sessionState: str
     requestAttributes: str
-    sessionId: str
+    sessionId: Annotated[str, _aws_pattern("Lexv2Runtime", "SessionId")]
     audioStream: StreamingBody
     ResponseMetadata: ResponseMetadataTypeDef
 
@@ -266,7 +268,7 @@ class RecognizeUtteranceResponseTypeDef(BaseValidatorModel):
     interpretations: str
     sessionState: str
     requestAttributes: str
-    sessionId: str
+    sessionId: Annotated[str, _aws_pattern("Lexv2Runtime", "SessionId")]
     inputTranscript: str
     audioStream: StreamingBody
     recognizedBotMember: str
@@ -349,7 +351,7 @@ class SlotTypeDef(BaseValidatorModel):
 
 class TextResponseEventTypeDef(BaseValidatorModel):
     messages: Optional[List[MessageOutputTypeDef]] = None
-    eventId: Optional[str] = None
+    eventId: Optional[Annotated[str, _aws_pattern("Lexv2Runtime", "EventId")]] = None
 
 
 class MessageTypeDef(BaseValidatorModel):
@@ -402,8 +404,8 @@ class IntentResultEventTypeDef(BaseValidatorModel):
     interpretations: Optional[List[InterpretationTypeDef]] = None
     sessionState: Optional[SessionStateOutputTypeDef] = None
     requestAttributes: Optional[Dict[str, str]] = None
-    sessionId: Optional[str] = None
-    eventId: Optional[str] = None
+    sessionId: Optional[Annotated[str, _aws_pattern("Lexv2Runtime", "SessionId")]] = None
+    eventId: Optional[Annotated[str, _aws_pattern("Lexv2Runtime", "EventId")]] = None
     recognizedBotMember: Optional[RecognizedBotMemberTypeDef] = None
 
 
@@ -413,7 +415,7 @@ class RecognizeTextResponseTypeDef(BaseValidatorModel):
     sessionState: SessionStateOutputTypeDef
     interpretations: List[InterpretationTypeDef]
     requestAttributes: Dict[str, str]
-    sessionId: str
+    sessionId: Annotated[str, _aws_pattern("Lexv2Runtime", "SessionId")]
     recognizedBotMember: RecognizedBotMemberTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
@@ -468,16 +470,16 @@ class ConfigurationEventTypeDef(BaseValidatorModel):
     sessionState: Optional[SessionStateUnionTypeDef] = None
     welcomeMessages: Optional[List[MessageUnionTypeDef]] = None
     disablePlayback: Optional[bool] = None
-    eventId: Optional[str] = None
+    eventId: Optional[Annotated[str, _aws_pattern("Lexv2Runtime", "EventId")]] = None
     clientTimestampMillis: Optional[int] = None
 
 
 # This class is the input for the 'put_session' function.
 class PutSessionRequestTypeDef(BaseValidatorModel):
-    botId: str
+    botId: Annotated[str, _aws_pattern("Lexv2Runtime", "BotIdentifier")]
     botAliasId: str
     localeId: str
-    sessionId: str
+    sessionId: Annotated[str, _aws_pattern("Lexv2Runtime", "SessionId")]
     sessionState: SessionStateUnionTypeDef
     messages: Optional[List[MessageUnionTypeDef]] = None
     requestAttributes: Optional[Dict[str, str]] = None
@@ -486,10 +488,10 @@ class PutSessionRequestTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'recognize_text' function.
 class RecognizeTextRequestTypeDef(BaseValidatorModel):
-    botId: str
+    botId: Annotated[str, _aws_pattern("Lexv2Runtime", "BotIdentifier")]
     botAliasId: str
     localeId: str
-    sessionId: str
+    sessionId: Annotated[str, _aws_pattern("Lexv2Runtime", "SessionId")]
     text: str
     sessionState: Optional[SessionStateUnionTypeDef] = None
     requestAttributes: Optional[Dict[str, str]] = None

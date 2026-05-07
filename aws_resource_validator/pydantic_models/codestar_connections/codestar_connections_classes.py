@@ -3,6 +3,7 @@
 from datetime import datetime
 from decimal import Decimal
 from typing import (
+    Annotated,
     Any,
     Callable,
     Dict,
@@ -24,6 +25,7 @@ from botocore.response import StreamingBody
 from pydantic import Field
 
 from aws_resource_validator.core.base_validator_model import BaseValidatorModel, EventStream
+from aws_resource_validator.core.pattern_validation import aws_field_pattern as _aws_pattern
 from aws_resource_validator.pydantic_models.codestar_connections.codestar_connections_constants import *  # noqa: F401,F403
 
 # Optional boto3 symbols — imported lazily so services that don't need them
@@ -39,17 +41,17 @@ except ImportError:  # pragma: no cover
 
 
 class ConnectionTypeDef(BaseValidatorModel):
-    ConnectionName: Optional[str] = None
-    ConnectionArn: Optional[str] = None
+    ConnectionName: Optional[Annotated[str, _aws_pattern("CodestarConnections", "ConnectionName")]] = None
+    ConnectionArn: Optional[Annotated[str, _aws_pattern("CodestarConnections", "ConnectionArn")]] = None
     ProviderType: Optional[ProviderTypeType] = None
-    OwnerAccountId: Optional[str] = None
+    OwnerAccountId: Optional[Annotated[str, _aws_pattern("CodestarConnections", "AccountId")]] = None
     ConnectionStatus: Optional[ConnectionStatusType] = None
-    HostArn: Optional[str] = None
+    HostArn: Optional[Annotated[str, _aws_pattern("CodestarConnections", "HostArn")]] = None
 
 
 class TagTypeDef(BaseValidatorModel):
-    Key: str
-    Value: str
+    Key: Annotated[str, _aws_pattern("CodestarConnections", "TagKey")]
+    Value: Annotated[str, _aws_pattern("CodestarConnections", "TagValue")]
 
 
 class ResponseMetadataTypeDef(BaseValidatorModel):
@@ -61,35 +63,35 @@ class ResponseMetadataTypeDef(BaseValidatorModel):
 
 
 class RepositoryLinkInfoTypeDef(BaseValidatorModel):
-    ConnectionArn: str
-    OwnerId: str
+    ConnectionArn: Annotated[str, _aws_pattern("CodestarConnections", "ConnectionArn")]
+    OwnerId: Annotated[str, _aws_pattern("CodestarConnections", "OwnerId")]
     ProviderType: ProviderTypeType
-    RepositoryLinkArn: str
-    RepositoryLinkId: str
-    RepositoryName: str
-    EncryptionKeyArn: Optional[str] = None
+    RepositoryLinkArn: Annotated[str, _aws_pattern("CodestarConnections", "RepositoryLinkArn")]
+    RepositoryLinkId: Annotated[str, _aws_pattern("CodestarConnections", "RepositoryLinkId")]
+    RepositoryName: Annotated[str, _aws_pattern("CodestarConnections", "RepositoryName")]
+    EncryptionKeyArn: Optional[Annotated[str, _aws_pattern("CodestarConnections", "KmsKeyArn")]] = None
 
 
 # This class is the input for the 'create_sync_configuration' function.
 class CreateSyncConfigurationInputTypeDef(BaseValidatorModel):
-    Branch: str
+    Branch: Annotated[str, _aws_pattern("CodestarConnections", "BranchName")]
     ConfigFile: str
-    RepositoryLinkId: str
-    ResourceName: str
-    RoleArn: str
+    RepositoryLinkId: Annotated[str, _aws_pattern("CodestarConnections", "RepositoryLinkId")]
+    ResourceName: Annotated[str, _aws_pattern("CodestarConnections", "ResourceName")]
+    RoleArn: Annotated[str, _aws_pattern("CodestarConnections", "IamRoleArn")]
     SyncType: Literal["CFN_STACK_SYNC"]
     PublishDeploymentStatus: Optional[PublishDeploymentStatusType] = None
     TriggerResourceUpdateOn: Optional[TriggerResourceUpdateOnType] = None
 
 
 class SyncConfigurationTypeDef(BaseValidatorModel):
-    Branch: str
-    OwnerId: str
+    Branch: Annotated[str, _aws_pattern("CodestarConnections", "BranchName")]
+    OwnerId: Annotated[str, _aws_pattern("CodestarConnections", "OwnerId")]
     ProviderType: ProviderTypeType
-    RepositoryLinkId: str
-    RepositoryName: str
-    ResourceName: str
-    RoleArn: str
+    RepositoryLinkId: Annotated[str, _aws_pattern("CodestarConnections", "RepositoryLinkId")]
+    RepositoryName: Annotated[str, _aws_pattern("CodestarConnections", "RepositoryName")]
+    ResourceName: Annotated[str, _aws_pattern("CodestarConnections", "ResourceName")]
+    RoleArn: Annotated[str, _aws_pattern("CodestarConnections", "IamRoleArn")]
     SyncType: Literal["CFN_STACK_SYNC"]
     ConfigFile: Optional[str] = None
     PublishDeploymentStatus: Optional[PublishDeploymentStatusType] = None
@@ -97,30 +99,30 @@ class SyncConfigurationTypeDef(BaseValidatorModel):
 
 
 class DeleteConnectionInputTypeDef(BaseValidatorModel):
-    ConnectionArn: str
+    ConnectionArn: Annotated[str, _aws_pattern("CodestarConnections", "ConnectionArn")]
 
 
 class DeleteHostInputTypeDef(BaseValidatorModel):
-    HostArn: str
+    HostArn: Annotated[str, _aws_pattern("CodestarConnections", "HostArn")]
 
 
 class DeleteRepositoryLinkInputTypeDef(BaseValidatorModel):
-    RepositoryLinkId: str
+    RepositoryLinkId: Annotated[str, _aws_pattern("CodestarConnections", "RepositoryLinkId")]
 
 
 class DeleteSyncConfigurationInputTypeDef(BaseValidatorModel):
     SyncType: Literal["CFN_STACK_SYNC"]
-    ResourceName: str
+    ResourceName: Annotated[str, _aws_pattern("CodestarConnections", "ResourceName")]
 
 
 # This class is the input for the 'get_connection' function.
 class GetConnectionInputTypeDef(BaseValidatorModel):
-    ConnectionArn: str
+    ConnectionArn: Annotated[str, _aws_pattern("CodestarConnections", "ConnectionArn")]
 
 
 # This class is the input for the 'get_host' function.
 class GetHostInputTypeDef(BaseValidatorModel):
-    HostArn: str
+    HostArn: Annotated[str, _aws_pattern("CodestarConnections", "HostArn")]
 
 
 class VpcConfigurationOutputTypeDef(BaseValidatorModel):
@@ -132,27 +134,27 @@ class VpcConfigurationOutputTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'get_repository_link' function.
 class GetRepositoryLinkInputTypeDef(BaseValidatorModel):
-    RepositoryLinkId: str
+    RepositoryLinkId: Annotated[str, _aws_pattern("CodestarConnections", "RepositoryLinkId")]
 
 
 # This class is the input for the 'get_repository_sync_status' function.
 class GetRepositorySyncStatusInputTypeDef(BaseValidatorModel):
-    Branch: str
-    RepositoryLinkId: str
+    Branch: Annotated[str, _aws_pattern("CodestarConnections", "BranchName")]
+    RepositoryLinkId: Annotated[str, _aws_pattern("CodestarConnections", "RepositoryLinkId")]
     SyncType: Literal["CFN_STACK_SYNC"]
 
 
 # This class is the input for the 'get_resource_sync_status' function.
 class GetResourceSyncStatusInputTypeDef(BaseValidatorModel):
-    ResourceName: str
+    ResourceName: Annotated[str, _aws_pattern("CodestarConnections", "ResourceName")]
     SyncType: Literal["CFN_STACK_SYNC"]
 
 
 class RevisionTypeDef(BaseValidatorModel):
-    Branch: str
+    Branch: Annotated[str, _aws_pattern("CodestarConnections", "BranchName")]
     Directory: str
-    OwnerId: str
-    RepositoryName: str
+    OwnerId: Annotated[str, _aws_pattern("CodestarConnections", "OwnerId")]
+    RepositoryName: Annotated[str, _aws_pattern("CodestarConnections", "RepositoryName")]
     ProviderType: ProviderTypeType
     Sha: str
 
@@ -160,43 +162,43 @@ class RevisionTypeDef(BaseValidatorModel):
 # This class is the input for the 'get_sync_blocker_summary' function.
 class GetSyncBlockerSummaryInputTypeDef(BaseValidatorModel):
     SyncType: Literal["CFN_STACK_SYNC"]
-    ResourceName: str
+    ResourceName: Annotated[str, _aws_pattern("CodestarConnections", "ResourceName")]
 
 
 # This class is the input for the 'get_sync_configuration' function.
 class GetSyncConfigurationInputTypeDef(BaseValidatorModel):
     SyncType: Literal["CFN_STACK_SYNC"]
-    ResourceName: str
+    ResourceName: Annotated[str, _aws_pattern("CodestarConnections", "ResourceName")]
 
 
 # This class is the input for the 'list_connections' function.
 class ListConnectionsInputTypeDef(BaseValidatorModel):
     ProviderTypeFilter: Optional[ProviderTypeType] = None
-    HostArnFilter: Optional[str] = None
+    HostArnFilter: Optional[Annotated[str, _aws_pattern("CodestarConnections", "HostArn")]] = None
     MaxResults: Optional[int] = None
-    NextToken: Optional[str] = None
+    NextToken: Optional[Annotated[str, _aws_pattern("CodestarConnections", "NextToken")]] = None
 
 
 # This class is the input for the 'list_hosts' function.
 class ListHostsInputTypeDef(BaseValidatorModel):
     MaxResults: Optional[int] = None
-    NextToken: Optional[str] = None
+    NextToken: Optional[Annotated[str, _aws_pattern("CodestarConnections", "NextToken")]] = None
 
 
 # This class is the input for the 'list_repository_links' function.
 class ListRepositoryLinksInputTypeDef(BaseValidatorModel):
     MaxResults: Optional[int] = None
-    NextToken: Optional[str] = None
+    NextToken: Optional[Annotated[str, _aws_pattern("CodestarConnections", "SharpNextToken")]] = None
 
 
 # This class is the input for the 'list_repository_sync_definitions' function.
 class ListRepositorySyncDefinitionsInputTypeDef(BaseValidatorModel):
-    RepositoryLinkId: str
+    RepositoryLinkId: Annotated[str, _aws_pattern("CodestarConnections", "RepositoryLinkId")]
     SyncType: Literal["CFN_STACK_SYNC"]
 
 
 class RepositorySyncDefinitionTypeDef(BaseValidatorModel):
-    Branch: str
+    Branch: Annotated[str, _aws_pattern("CodestarConnections", "BranchName")]
     Directory: str
     Parent: str
     Target: str
@@ -204,15 +206,15 @@ class RepositorySyncDefinitionTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'list_sync_configurations' function.
 class ListSyncConfigurationsInputTypeDef(BaseValidatorModel):
-    RepositoryLinkId: str
+    RepositoryLinkId: Annotated[str, _aws_pattern("CodestarConnections", "RepositoryLinkId")]
     SyncType: Literal["CFN_STACK_SYNC"]
     MaxResults: Optional[int] = None
-    NextToken: Optional[str] = None
+    NextToken: Optional[Annotated[str, _aws_pattern("CodestarConnections", "SharpNextToken")]] = None
 
 
 # This class is the input for the 'list_tags_for_resource' function.
 class ListTagsForResourceInputTypeDef(BaseValidatorModel):
-    ResourceArn: str
+    ResourceArn: Annotated[str, _aws_pattern("CodestarConnections", "AmazonResourceName")]
 
 
 class RepositorySyncEventTypeDef(BaseValidatorModel):
@@ -235,76 +237,76 @@ class SyncBlockerContextTypeDef(BaseValidatorModel):
 
 
 class UntagResourceInputTypeDef(BaseValidatorModel):
-    ResourceArn: str
-    TagKeys: List[str]
+    ResourceArn: Annotated[str, _aws_pattern("CodestarConnections", "AmazonResourceName")]
+    TagKeys: List[Annotated[str, _aws_pattern("CodestarConnections", "TagKey")]]
 
 
 # This class is the input for the 'update_repository_link' function.
 class UpdateRepositoryLinkInputTypeDef(BaseValidatorModel):
-    RepositoryLinkId: str
-    ConnectionArn: Optional[str] = None
-    EncryptionKeyArn: Optional[str] = None
+    RepositoryLinkId: Annotated[str, _aws_pattern("CodestarConnections", "RepositoryLinkId")]
+    ConnectionArn: Optional[Annotated[str, _aws_pattern("CodestarConnections", "ConnectionArn")]] = None
+    EncryptionKeyArn: Optional[Annotated[str, _aws_pattern("CodestarConnections", "KmsKeyArn")]] = None
 
 
 # This class is the input for the 'update_sync_blocker' function.
 class UpdateSyncBlockerInputTypeDef(BaseValidatorModel):
     Id: str
     SyncType: Literal["CFN_STACK_SYNC"]
-    ResourceName: str
+    ResourceName: Annotated[str, _aws_pattern("CodestarConnections", "ResourceName")]
     ResolvedReason: str
 
 
 # This class is the input for the 'update_sync_configuration' function.
 class UpdateSyncConfigurationInputTypeDef(BaseValidatorModel):
-    ResourceName: str
+    ResourceName: Annotated[str, _aws_pattern("CodestarConnections", "ResourceName")]
     SyncType: Literal["CFN_STACK_SYNC"]
-    Branch: Optional[str] = None
+    Branch: Optional[Annotated[str, _aws_pattern("CodestarConnections", "BranchName")]] = None
     ConfigFile: Optional[str] = None
-    RepositoryLinkId: Optional[str] = None
-    RoleArn: Optional[str] = None
+    RepositoryLinkId: Optional[Annotated[str, _aws_pattern("CodestarConnections", "RepositoryLinkId")]] = None
+    RoleArn: Optional[Annotated[str, _aws_pattern("CodestarConnections", "IamRoleArn")]] = None
     PublishDeploymentStatus: Optional[PublishDeploymentStatusType] = None
     TriggerResourceUpdateOn: Optional[TriggerResourceUpdateOnType] = None
 
 
 class VpcConfigurationTypeDef(BaseValidatorModel):
-    VpcId: str
-    SubnetIds: List[str]
-    SecurityGroupIds: List[str]
-    TlsCertificate: Optional[str] = None
+    VpcId: Annotated[str, _aws_pattern("CodestarConnections", "VpcId")]
+    SubnetIds: List[Annotated[str, _aws_pattern("CodestarConnections", "SubnetId")]]
+    SecurityGroupIds: List[Annotated[str, _aws_pattern("CodestarConnections", "SecurityGroupId")]]
+    TlsCertificate: Optional[Annotated[str, _aws_pattern("CodestarConnections", "TlsCertificate")]] = None
 
 
 # This class is the input for the 'create_connection' function.
 class CreateConnectionInputTypeDef(BaseValidatorModel):
-    ConnectionName: str
+    ConnectionName: Annotated[str, _aws_pattern("CodestarConnections", "ConnectionName")]
     ProviderType: Optional[ProviderTypeType] = None
     Tags: Optional[List[TagTypeDef]] = None
-    HostArn: Optional[str] = None
+    HostArn: Optional[Annotated[str, _aws_pattern("CodestarConnections", "HostArn")]] = None
 
 
 # This class is the input for the 'create_repository_link' function.
 class CreateRepositoryLinkInputTypeDef(BaseValidatorModel):
-    ConnectionArn: str
-    OwnerId: str
-    RepositoryName: str
-    EncryptionKeyArn: Optional[str] = None
+    ConnectionArn: Annotated[str, _aws_pattern("CodestarConnections", "ConnectionArn")]
+    OwnerId: Annotated[str, _aws_pattern("CodestarConnections", "OwnerId")]
+    RepositoryName: Annotated[str, _aws_pattern("CodestarConnections", "RepositoryName")]
+    EncryptionKeyArn: Optional[Annotated[str, _aws_pattern("CodestarConnections", "KmsKeyArn")]] = None
     Tags: Optional[List[TagTypeDef]] = None
 
 
 class TagResourceInputTypeDef(BaseValidatorModel):
-    ResourceArn: str
+    ResourceArn: Annotated[str, _aws_pattern("CodestarConnections", "AmazonResourceName")]
     Tags: List[TagTypeDef]
 
 
 # This class is the output for the 'create_connection' function.
 class CreateConnectionOutputTypeDef(BaseValidatorModel):
-    ConnectionArn: str
+    ConnectionArn: Annotated[str, _aws_pattern("CodestarConnections", "ConnectionArn")]
     Tags: List[TagTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 # This class is the output for the 'create_host' function.
 class CreateHostOutputTypeDef(BaseValidatorModel):
-    HostArn: str
+    HostArn: Annotated[str, _aws_pattern("CodestarConnections", "HostArn")]
     Tags: List[TagTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
 
@@ -319,7 +321,7 @@ class GetConnectionOutputTypeDef(BaseValidatorModel):
 class ListConnectionsOutputTypeDef(BaseValidatorModel):
     Connections: List[ConnectionTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
-    NextToken: Optional[str] = None
+    NextToken: Optional[Annotated[str, _aws_pattern("CodestarConnections", "NextToken")]] = None
 
 
 # This class is the output for the 'list_tags_for_resource' function.
@@ -344,7 +346,7 @@ class GetRepositoryLinkOutputTypeDef(BaseValidatorModel):
 class ListRepositoryLinksOutputTypeDef(BaseValidatorModel):
     RepositoryLinks: List[RepositoryLinkInfoTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
-    NextToken: Optional[str] = None
+    NextToken: Optional[Annotated[str, _aws_pattern("CodestarConnections", "SharpNextToken")]] = None
 
 
 # This class is the output for the 'update_repository_link' function.
@@ -369,7 +371,7 @@ class GetSyncConfigurationOutputTypeDef(BaseValidatorModel):
 class ListSyncConfigurationsOutputTypeDef(BaseValidatorModel):
     SyncConfigurations: List[SyncConfigurationTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
-    NextToken: Optional[str] = None
+    NextToken: Optional[Annotated[str, _aws_pattern("CodestarConnections", "SharpNextToken")]] = None
 
 
 # This class is the output for the 'update_sync_configuration' function.
@@ -380,21 +382,21 @@ class UpdateSyncConfigurationOutputTypeDef(BaseValidatorModel):
 
 # This class is the output for the 'get_host' function.
 class GetHostOutputTypeDef(BaseValidatorModel):
-    Name: str
-    Status: str
+    Name: Annotated[str, _aws_pattern("CodestarConnections", "HostName")]
+    Status: Annotated[str, _aws_pattern("CodestarConnections", "HostStatus")]
     ProviderType: ProviderTypeType
-    ProviderEndpoint: str
+    ProviderEndpoint: Annotated[str, _aws_pattern("CodestarConnections", "Url")]
     VpcConfiguration: VpcConfigurationOutputTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 class HostTypeDef(BaseValidatorModel):
-    Name: Optional[str] = None
-    HostArn: Optional[str] = None
+    Name: Optional[Annotated[str, _aws_pattern("CodestarConnections", "HostName")]] = None
+    HostArn: Optional[Annotated[str, _aws_pattern("CodestarConnections", "HostArn")]] = None
     ProviderType: Optional[ProviderTypeType] = None
-    ProviderEndpoint: Optional[str] = None
+    ProviderEndpoint: Optional[Annotated[str, _aws_pattern("CodestarConnections", "Url")]] = None
     VpcConfiguration: Optional[VpcConfigurationOutputTypeDef] = None
-    Status: Optional[str] = None
+    Status: Optional[Annotated[str, _aws_pattern("CodestarConnections", "HostStatus")]] = None
     StatusMessage: Optional[str] = None
 
 
@@ -402,7 +404,7 @@ class HostTypeDef(BaseValidatorModel):
 class ListRepositorySyncDefinitionsOutputTypeDef(BaseValidatorModel):
     RepositorySyncDefinitions: List[RepositorySyncDefinitionTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
-    NextToken: Optional[str] = None
+    NextToken: Optional[Annotated[str, _aws_pattern("CodestarConnections", "SharpNextToken")]] = None
 
 
 class RepositorySyncAttemptTypeDef(BaseValidatorModel):
@@ -438,7 +440,7 @@ VpcConfigurationUnionTypeDef = Union[VpcConfigurationOutputTypeDef, VpcConfigura
 class ListHostsOutputTypeDef(BaseValidatorModel):
     Hosts: List[HostTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
-    NextToken: Optional[str] = None
+    NextToken: Optional[Annotated[str, _aws_pattern("CodestarConnections", "NextToken")]] = None
 
 
 # This class is the output for the 'get_repository_sync_status' function.
@@ -456,31 +458,31 @@ class GetResourceSyncStatusOutputTypeDef(BaseValidatorModel):
 
 
 class SyncBlockerSummaryTypeDef(BaseValidatorModel):
-    ResourceName: str
-    ParentResourceName: Optional[str] = None
+    ResourceName: Annotated[str, _aws_pattern("CodestarConnections", "ResourceName")]
+    ParentResourceName: Optional[Annotated[str, _aws_pattern("CodestarConnections", "ResourceName")]] = None
     LatestBlockers: Optional[List[SyncBlockerTypeDef]] = None
 
 
 # This class is the output for the 'update_sync_blocker' function.
 class UpdateSyncBlockerOutputTypeDef(BaseValidatorModel):
-    ResourceName: str
-    ParentResourceName: str
+    ResourceName: Annotated[str, _aws_pattern("CodestarConnections", "ResourceName")]
+    ParentResourceName: Annotated[str, _aws_pattern("CodestarConnections", "ResourceName")]
     SyncBlocker: SyncBlockerTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 # This class is the input for the 'create_host' function.
 class CreateHostInputTypeDef(BaseValidatorModel):
-    Name: str
+    Name: Annotated[str, _aws_pattern("CodestarConnections", "HostName")]
     ProviderType: ProviderTypeType
-    ProviderEndpoint: str
+    ProviderEndpoint: Annotated[str, _aws_pattern("CodestarConnections", "Url")]
     VpcConfiguration: Optional[VpcConfigurationUnionTypeDef] = None
     Tags: Optional[List[TagTypeDef]] = None
 
 
 class UpdateHostInputTypeDef(BaseValidatorModel):
-    HostArn: str
-    ProviderEndpoint: Optional[str] = None
+    HostArn: Annotated[str, _aws_pattern("CodestarConnections", "HostArn")]
+    ProviderEndpoint: Optional[Annotated[str, _aws_pattern("CodestarConnections", "Url")]] = None
     VpcConfiguration: Optional[VpcConfigurationUnionTypeDef] = None
 
 

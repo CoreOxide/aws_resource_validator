@@ -3,6 +3,7 @@
 from datetime import datetime
 from decimal import Decimal
 from typing import (
+    Annotated,
     Any,
     Callable,
     Dict,
@@ -24,6 +25,7 @@ from botocore.response import StreamingBody
 from pydantic import Field
 
 from aws_resource_validator.core.base_validator_model import BaseValidatorModel, EventStream
+from aws_resource_validator.core.pattern_validation import aws_field_pattern as _aws_pattern
 from aws_resource_validator.pydantic_models.pcs.pcs_constants import *  # noqa: F401,F403
 
 # Optional boto3 symbols — imported lazily so services that don't need them
@@ -99,8 +101,8 @@ class ErrorInfoTypeDef(BaseValidatorModel):
 
 
 class NetworkingTypeDef(BaseValidatorModel):
-    subnetIds: Optional[List[str]] = None
-    securityGroupIds: Optional[List[str]] = None
+    subnetIds: Optional[List[Annotated[str, _aws_pattern("Pcs", "SubnetId")]]] = None
+    securityGroupIds: Optional[List[Annotated[str, _aws_pattern("Pcs", "SecurityGroupId")]]] = None
     networkType: Optional[NetworkTypeType] = None
 
 
@@ -114,7 +116,7 @@ class ComputeNodeGroupConfigurationTypeDef(BaseValidatorModel):
 
 
 class ComputeNodeGroupSummaryTypeDef(BaseValidatorModel):
-    name: str
+    name: Annotated[str, _aws_pattern("Pcs", "ComputeNodeGroupName")]
     id: str
     arn: str
     clusterId: str
@@ -142,8 +144,8 @@ class SpotOptionsTypeDef(BaseValidatorModel):
 
 
 class NetworkingRequestTypeDef(BaseValidatorModel):
-    subnetIds: Optional[List[str]] = None
-    securityGroupIds: Optional[List[str]] = None
+    subnetIds: Optional[List[Annotated[str, _aws_pattern("Pcs", "SubnetId")]]] = None
+    securityGroupIds: Optional[List[Annotated[str, _aws_pattern("Pcs", "SecurityGroupId")]]] = None
     networkType: Optional[NetworkTypeType] = None
 
 
@@ -166,37 +168,37 @@ class ScalingConfigurationRequestTypeDef(BaseValidatorModel):
 
 
 class DeleteClusterRequestTypeDef(BaseValidatorModel):
-    clusterIdentifier: str
+    clusterIdentifier: Annotated[str, _aws_pattern("Pcs", "ClusterIdentifier")]
     clientToken: Optional[str] = None
 
 
 class DeleteComputeNodeGroupRequestTypeDef(BaseValidatorModel):
-    clusterIdentifier: str
-    computeNodeGroupIdentifier: str
+    clusterIdentifier: Annotated[str, _aws_pattern("Pcs", "ClusterIdentifier")]
+    computeNodeGroupIdentifier: Annotated[str, _aws_pattern("Pcs", "ComputeNodeGroupIdentifier")]
     clientToken: Optional[str] = None
 
 
 class DeleteQueueRequestTypeDef(BaseValidatorModel):
-    clusterIdentifier: str
-    queueIdentifier: str
+    clusterIdentifier: Annotated[str, _aws_pattern("Pcs", "ClusterIdentifier")]
+    queueIdentifier: Annotated[str, _aws_pattern("Pcs", "QueueIdentifier")]
     clientToken: Optional[str] = None
 
 
 # This class is the input for the 'get_cluster' function.
 class GetClusterRequestTypeDef(BaseValidatorModel):
-    clusterIdentifier: str
+    clusterIdentifier: Annotated[str, _aws_pattern("Pcs", "ClusterIdentifier")]
 
 
 # This class is the input for the 'get_compute_node_group' function.
 class GetComputeNodeGroupRequestTypeDef(BaseValidatorModel):
-    clusterIdentifier: str
-    computeNodeGroupIdentifier: str
+    clusterIdentifier: Annotated[str, _aws_pattern("Pcs", "ClusterIdentifier")]
+    computeNodeGroupIdentifier: Annotated[str, _aws_pattern("Pcs", "ComputeNodeGroupIdentifier")]
 
 
 # This class is the input for the 'get_queue' function.
 class GetQueueRequestTypeDef(BaseValidatorModel):
-    clusterIdentifier: str
-    queueIdentifier: str
+    clusterIdentifier: Annotated[str, _aws_pattern("Pcs", "ClusterIdentifier")]
+    queueIdentifier: Annotated[str, _aws_pattern("Pcs", "QueueIdentifier")]
 
 
 class JwtKeyTypeDef(BaseValidatorModel):
@@ -218,20 +220,20 @@ class ListClustersRequestTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'list_compute_node_groups' function.
 class ListComputeNodeGroupsRequestTypeDef(BaseValidatorModel):
-    clusterIdentifier: str
+    clusterIdentifier: Annotated[str, _aws_pattern("Pcs", "ClusterIdentifier")]
     nextToken: Optional[str] = None
     maxResults: Optional[int] = None
 
 
 # This class is the input for the 'list_queues' function.
 class ListQueuesRequestTypeDef(BaseValidatorModel):
-    clusterIdentifier: str
+    clusterIdentifier: Annotated[str, _aws_pattern("Pcs", "ClusterIdentifier")]
     nextToken: Optional[str] = None
     maxResults: Optional[int] = None
 
 
 class QueueSummaryTypeDef(BaseValidatorModel):
-    name: str
+    name: Annotated[str, _aws_pattern("Pcs", "QueueName")]
     id: str
     arn: str
     clusterId: str
@@ -242,22 +244,22 @@ class QueueSummaryTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'list_tags_for_resource' function.
 class ListTagsForResourceRequestTypeDef(BaseValidatorModel):
-    resourceArn: str
+    resourceArn: Annotated[str, _aws_pattern("Pcs", "Arn")]
 
 
 # This class is the input for the 'register_compute_node_group_instance' function.
 class RegisterComputeNodeGroupInstanceRequestTypeDef(BaseValidatorModel):
-    clusterIdentifier: str
-    bootstrapId: str
+    clusterIdentifier: Annotated[str, _aws_pattern("Pcs", "ClusterIdentifier")]
+    bootstrapId: Annotated[str, _aws_pattern("Pcs", "BootstrapId")]
 
 
 class TagResourceRequestTypeDef(BaseValidatorModel):
-    resourceArn: str
+    resourceArn: Annotated[str, _aws_pattern("Pcs", "Arn")]
     tags: Dict[str, str]
 
 
 class UntagResourceRequestTypeDef(BaseValidatorModel):
-    resourceArn: str
+    resourceArn: Annotated[str, _aws_pattern("Pcs", "Arn")]
     tagKeys: List[str]
 
 
@@ -367,14 +369,14 @@ class UpdateClusterSlurmConfigurationRequestTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'create_compute_node_group' function.
 class CreateComputeNodeGroupRequestTypeDef(BaseValidatorModel):
-    clusterIdentifier: str
-    computeNodeGroupName: str
+    clusterIdentifier: Annotated[str, _aws_pattern("Pcs", "ClusterIdentifier")]
+    computeNodeGroupName: Annotated[str, _aws_pattern("Pcs", "ComputeNodeGroupName")]
     subnetIds: List[str]
     customLaunchTemplate: CustomLaunchTemplateTypeDef
-    iamInstanceProfileArn: str
+    iamInstanceProfileArn: Annotated[str, _aws_pattern("Pcs", "InstanceProfileArn")]
     scalingConfiguration: ScalingConfigurationRequestTypeDef
     instanceConfigs: List[InstanceConfigTypeDef]
-    amiId: Optional[str] = None
+    amiId: Optional[Annotated[str, _aws_pattern("Pcs", "AmiId")]] = None
     purchaseOption: Optional[PurchaseOptionType] = None
     spotOptions: Optional[SpotOptionsTypeDef] = None
     slurmConfiguration: Optional[ComputeNodeGroupSlurmConfigurationRequestTypeDef] = None
@@ -383,19 +385,19 @@ class CreateComputeNodeGroupRequestTypeDef(BaseValidatorModel):
 
 
 class ComputeNodeGroupTypeDef(BaseValidatorModel):
-    name: str
+    name: Annotated[str, _aws_pattern("Pcs", "ComputeNodeGroupName")]
     id: str
     arn: str
     clusterId: str
     createdAt: datetime
     modifiedAt: datetime
     status: ComputeNodeGroupStatusType
-    subnetIds: List[str]
+    subnetIds: List[Annotated[str, _aws_pattern("Pcs", "SubnetId")]]
     customLaunchTemplate: CustomLaunchTemplateTypeDef
-    iamInstanceProfileArn: str
+    iamInstanceProfileArn: Annotated[str, _aws_pattern("Pcs", "InstanceProfileArn")]
     scalingConfiguration: ScalingConfigurationTypeDef
     instanceConfigs: List[InstanceConfigTypeDef]
-    amiId: Optional[str] = None
+    amiId: Optional[Annotated[str, _aws_pattern("Pcs", "AmiId")]] = None
     purchaseOption: Optional[PurchaseOptionType] = None
     spotOptions: Optional[SpotOptionsTypeDef] = None
     slurmConfiguration: Optional[ComputeNodeGroupSlurmConfigurationTypeDef] = None
@@ -404,8 +406,8 @@ class ComputeNodeGroupTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'create_queue' function.
 class CreateQueueRequestTypeDef(BaseValidatorModel):
-    clusterIdentifier: str
-    queueName: str
+    clusterIdentifier: Annotated[str, _aws_pattern("Pcs", "ClusterIdentifier")]
+    queueName: Annotated[str, _aws_pattern("Pcs", "QueueName")]
     computeNodeGroupConfigurations: Optional[List[ComputeNodeGroupConfigurationTypeDef]] = None
     slurmConfiguration: Optional[QueueSlurmConfigurationRequestTypeDef] = None
     clientToken: Optional[str] = None
@@ -413,7 +415,7 @@ class CreateQueueRequestTypeDef(BaseValidatorModel):
 
 
 class QueueTypeDef(BaseValidatorModel):
-    name: str
+    name: Annotated[str, _aws_pattern("Pcs", "QueueName")]
     id: str
     arn: str
     clusterId: str
@@ -427,23 +429,23 @@ class QueueTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'update_compute_node_group' function.
 class UpdateComputeNodeGroupRequestTypeDef(BaseValidatorModel):
-    clusterIdentifier: str
-    computeNodeGroupIdentifier: str
-    amiId: Optional[str] = None
+    clusterIdentifier: Annotated[str, _aws_pattern("Pcs", "ClusterIdentifier")]
+    computeNodeGroupIdentifier: Annotated[str, _aws_pattern("Pcs", "ComputeNodeGroupIdentifier")]
+    amiId: Optional[Annotated[str, _aws_pattern("Pcs", "AmiId")]] = None
     subnetIds: Optional[List[str]] = None
     customLaunchTemplate: Optional[CustomLaunchTemplateTypeDef] = None
     purchaseOption: Optional[PurchaseOptionType] = None
     spotOptions: Optional[SpotOptionsTypeDef] = None
     scalingConfiguration: Optional[ScalingConfigurationRequestTypeDef] = None
-    iamInstanceProfileArn: Optional[str] = None
+    iamInstanceProfileArn: Optional[Annotated[str, _aws_pattern("Pcs", "InstanceProfileArn")]] = None
     slurmConfiguration: Optional[UpdateComputeNodeGroupSlurmConfigurationRequestTypeDef] = None
     clientToken: Optional[str] = None
 
 
 # This class is the input for the 'update_queue' function.
 class UpdateQueueRequestTypeDef(BaseValidatorModel):
-    clusterIdentifier: str
-    queueIdentifier: str
+    clusterIdentifier: Annotated[str, _aws_pattern("Pcs", "ClusterIdentifier")]
+    queueIdentifier: Annotated[str, _aws_pattern("Pcs", "QueueIdentifier")]
     computeNodeGroupConfigurations: Optional[List[ComputeNodeGroupConfigurationTypeDef]] = None
     slurmConfiguration: Optional[UpdateQueueSlurmConfigurationRequestTypeDef] = None
     clientToken: Optional[str] = None
@@ -451,7 +453,7 @@ class UpdateQueueRequestTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'create_cluster' function.
 class CreateClusterRequestTypeDef(BaseValidatorModel):
-    clusterName: str
+    clusterName: Annotated[str, _aws_pattern("Pcs", "ClusterName")]
     scheduler: SchedulerRequestTypeDef
     size: SizeType
     networking: NetworkingRequestTypeDef
@@ -473,7 +475,7 @@ class ClusterSlurmConfigurationTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'update_cluster' function.
 class UpdateClusterRequestTypeDef(BaseValidatorModel):
-    clusterIdentifier: str
+    clusterIdentifier: Annotated[str, _aws_pattern("Pcs", "ClusterIdentifier")]
     clientToken: Optional[str] = None
     slurmConfiguration: Optional[UpdateClusterSlurmConfigurationRequestTypeDef] = None
 

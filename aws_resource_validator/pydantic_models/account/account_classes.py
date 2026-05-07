@@ -3,6 +3,7 @@
 from datetime import datetime
 from decimal import Decimal
 from typing import (
+    Annotated,
     Any,
     Callable,
     Dict,
@@ -24,6 +25,7 @@ from botocore.response import StreamingBody
 from pydantic import Field
 
 from aws_resource_validator.core.base_validator_model import BaseValidatorModel, EventStream
+from aws_resource_validator.core.pattern_validation import aws_field_pattern as _aws_pattern
 from aws_resource_validator.pydantic_models.account.account_constants import *  # noqa: F401,F403
 
 # Optional boto3 symbols — imported lazily so services that don't need them
@@ -40,9 +42,9 @@ except ImportError:  # pragma: no cover
 
 # This class is the input for the 'accept_primary_email_update' function.
 class AcceptPrimaryEmailUpdateRequestTypeDef(BaseValidatorModel):
-    AccountId: str
-    Otp: str
+    AccountId: Annotated[str, _aws_pattern("Account", "AccountId")]
     PrimaryEmail: str
+    Otp: Annotated[str, _aws_pattern("Account", "Otp")]
 
 
 class ResponseMetadataTypeDef(BaseValidatorModel):
@@ -54,76 +56,76 @@ class ResponseMetadataTypeDef(BaseValidatorModel):
 
 
 class AlternateContactTypeDef(BaseValidatorModel):
-    AlternateContactType: Optional[AlternateContactTypeType] = None
-    EmailAddress: Optional[str] = None
     Name: Optional[str] = None
-    PhoneNumber: Optional[str] = None
     Title: Optional[str] = None
+    EmailAddress: Optional[Annotated[str, _aws_pattern("Account", "EmailAddress")]] = None
+    PhoneNumber: Optional[Annotated[str, _aws_pattern("Account", "PhoneNumber")]] = None
+    AlternateContactType: Optional[AlternateContactTypeType] = None
 
 
 class ContactInformationTypeDef(BaseValidatorModel):
+    FullName: str
     AddressLine1: str
     City: str
-    CountryCode: str
-    FullName: str
-    PhoneNumber: str
     PostalCode: str
+    CountryCode: str
+    PhoneNumber: Annotated[str, _aws_pattern("Account", "ContactInformationPhoneNumber")]
     AddressLine2: Optional[str] = None
     AddressLine3: Optional[str] = None
-    CompanyName: Optional[str] = None
-    DistrictOrCounty: Optional[str] = None
     StateOrRegion: Optional[str] = None
+    DistrictOrCounty: Optional[str] = None
+    CompanyName: Optional[str] = None
     WebsiteUrl: Optional[str] = None
 
 
 # This class is the input for the 'delete_alternate_contact' function.
 class DeleteAlternateContactRequestTypeDef(BaseValidatorModel):
     AlternateContactType: AlternateContactTypeType
-    AccountId: Optional[str] = None
+    AccountId: Optional[Annotated[str, _aws_pattern("Account", "AccountId")]] = None
 
 
 # This class is the input for the 'disable_region' function.
 class DisableRegionRequestTypeDef(BaseValidatorModel):
     RegionName: str
-    AccountId: Optional[str] = None
+    AccountId: Optional[Annotated[str, _aws_pattern("Account", "AccountId")]] = None
 
 
 # This class is the input for the 'enable_region' function.
 class EnableRegionRequestTypeDef(BaseValidatorModel):
     RegionName: str
-    AccountId: Optional[str] = None
+    AccountId: Optional[Annotated[str, _aws_pattern("Account", "AccountId")]] = None
 
 
 # This class is the input for the 'get_account_information' function.
 class GetAccountInformationRequestTypeDef(BaseValidatorModel):
-    AccountId: Optional[str] = None
+    AccountId: Optional[Annotated[str, _aws_pattern("Account", "AccountId")]] = None
 
 
 # This class is the input for the 'get_alternate_contact' function.
 class GetAlternateContactRequestTypeDef(BaseValidatorModel):
     AlternateContactType: AlternateContactTypeType
-    AccountId: Optional[str] = None
+    AccountId: Optional[Annotated[str, _aws_pattern("Account", "AccountId")]] = None
 
 
 # This class is the input for the 'get_contact_information' function.
 class GetContactInformationRequestTypeDef(BaseValidatorModel):
-    AccountId: Optional[str] = None
+    AccountId: Optional[Annotated[str, _aws_pattern("Account", "AccountId")]] = None
 
 
 # This class is the input for the 'get_gov_cloud_account_information' function.
 class GetGovCloudAccountInformationRequestTypeDef(BaseValidatorModel):
-    StandardAccountId: Optional[str] = None
+    StandardAccountId: Optional[Annotated[str, _aws_pattern("Account", "AccountId")]] = None
 
 
 # This class is the input for the 'get_primary_email' function.
 class GetPrimaryEmailRequestTypeDef(BaseValidatorModel):
-    AccountId: str
+    AccountId: Annotated[str, _aws_pattern("Account", "AccountId")]
 
 
 # This class is the input for the 'get_region_opt_status' function.
 class GetRegionOptStatusRequestTypeDef(BaseValidatorModel):
     RegionName: str
-    AccountId: Optional[str] = None
+    AccountId: Optional[Annotated[str, _aws_pattern("Account", "AccountId")]] = None
 
 
 class PaginatorConfigTypeDef(BaseValidatorModel):
@@ -134,7 +136,7 @@ class PaginatorConfigTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'list_regions' function.
 class ListRegionsRequestTypeDef(BaseValidatorModel):
-    AccountId: Optional[str] = None
+    AccountId: Optional[Annotated[str, _aws_pattern("Account", "AccountId")]] = None
     MaxResults: Optional[int] = None
     NextToken: Optional[str] = None
     RegionOptStatusContains: Optional[List[RegionOptStatusType]] = None
@@ -147,23 +149,23 @@ class RegionTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'put_account_name' function.
 class PutAccountNameRequestTypeDef(BaseValidatorModel):
-    AccountName: str
-    AccountId: Optional[str] = None
+    AccountName: Annotated[str, _aws_pattern("Account", "AccountName")]
+    AccountId: Optional[Annotated[str, _aws_pattern("Account", "AccountId")]] = None
 
 
 # This class is the input for the 'put_alternate_contact' function.
 class PutAlternateContactRequestTypeDef(BaseValidatorModel):
-    AlternateContactType: AlternateContactTypeType
-    EmailAddress: str
     Name: str
-    PhoneNumber: str
     Title: str
-    AccountId: Optional[str] = None
+    EmailAddress: Annotated[str, _aws_pattern("Account", "EmailAddress")]
+    PhoneNumber: Annotated[str, _aws_pattern("Account", "PhoneNumber")]
+    AlternateContactType: AlternateContactTypeType
+    AccountId: Optional[Annotated[str, _aws_pattern("Account", "AccountId")]] = None
 
 
 # This class is the input for the 'start_primary_email_update' function.
 class StartPrimaryEmailUpdateRequestTypeDef(BaseValidatorModel):
-    AccountId: str
+    AccountId: Annotated[str, _aws_pattern("Account", "AccountId")]
     PrimaryEmail: str
 
 
@@ -180,16 +182,17 @@ class EmptyResponseMetadataTypeDef(BaseValidatorModel):
 
 # This class is the output for the 'get_account_information' function.
 class GetAccountInformationResponseTypeDef(BaseValidatorModel):
+    AccountId: Annotated[str, _aws_pattern("Account", "AccountId")]
+    AccountName: Annotated[str, _aws_pattern("Account", "AccountName")]
     AccountCreatedDate: datetime
-    AccountId: str
-    AccountName: str
+    AccountState: AccountStateType
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 # This class is the output for the 'get_gov_cloud_account_information' function.
 class GetGovCloudAccountInformationResponseTypeDef(BaseValidatorModel):
+    GovCloudAccountId: Annotated[str, _aws_pattern("Account", "AccountId")]
     AccountState: AwsAccountStateType
-    GovCloudAccountId: str
     ResponseMetadata: ResponseMetadataTypeDef
 
 
@@ -227,7 +230,7 @@ class GetContactInformationResponseTypeDef(BaseValidatorModel):
 # This class is the input for the 'put_contact_information' function.
 class PutContactInformationRequestTypeDef(BaseValidatorModel):
     ContactInformation: ContactInformationTypeDef
-    AccountId: Optional[str] = None
+    AccountId: Optional[Annotated[str, _aws_pattern("Account", "AccountId")]] = None
 
 
 class ListRegionsRequestPaginateTypeDef(BaseValidatorModel):

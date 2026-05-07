@@ -3,6 +3,7 @@
 from datetime import datetime
 from decimal import Decimal
 from typing import (
+    Annotated,
     Any,
     Callable,
     Dict,
@@ -24,6 +25,7 @@ from botocore.response import StreamingBody
 from pydantic import Field
 
 from aws_resource_validator.core.base_validator_model import BaseValidatorModel, EventStream
+from aws_resource_validator.core.pattern_validation import aws_field_pattern as _aws_pattern
 from aws_resource_validator.pydantic_models.datasync.datasync_constants import *  # noqa: F401,F403
 
 # Optional boto3 symbols — imported lazily so services that don't need them
@@ -39,28 +41,28 @@ except ImportError:  # pragma: no cover
 
 
 class PlatformTypeDef(BaseValidatorModel):
-    Version: Optional[str] = None
+    Version: Optional[Annotated[str, _aws_pattern("Datasync", "AgentVersion")]] = None
 
 
 class AzureBlobSasConfigurationTypeDef(BaseValidatorModel):
-    Token: str
+    Token: Annotated[str, _aws_pattern("Datasync", "AzureBlobSasToken")]
 
 
 BlobTypeDef = Union[IO[Any], StreamingBody, bytes, str]
 
 
 class CancelTaskExecutionRequestTypeDef(BaseValidatorModel):
-    TaskExecutionArn: str
+    TaskExecutionArn: Annotated[str, _aws_pattern("Datasync", "TaskExecutionArn")]
 
 
 class CmkSecretConfigTypeDef(BaseValidatorModel):
-    SecretArn: Optional[str] = None
-    KmsKeyArn: Optional[str] = None
+    SecretArn: Optional[Annotated[str, _aws_pattern("Datasync", "SecretArn")]] = None
+    KmsKeyArn: Optional[Annotated[str, _aws_pattern("Datasync", "KmsKeyArn")]] = None
 
 
 class TagListEntryTypeDef(BaseValidatorModel):
-    Key: str
-    Value: Optional[str] = None
+    Key: Annotated[str, _aws_pattern("Datasync", "TagKey")]
+    Value: Optional[Annotated[str, _aws_pattern("Datasync", "TagValue")]] = None
 
 
 class ResponseMetadataTypeDef(BaseValidatorModel):
@@ -72,12 +74,12 @@ class ResponseMetadataTypeDef(BaseValidatorModel):
 
 
 class CustomSecretConfigTypeDef(BaseValidatorModel):
-    SecretArn: Optional[str] = None
-    SecretAccessRoleArn: Optional[str] = None
+    SecretArn: Optional[Annotated[str, _aws_pattern("Datasync", "SecretArn")]] = None
+    SecretAccessRoleArn: Optional[Annotated[str, _aws_pattern("Datasync", "IamRoleArnOrEmptyString")]] = None
 
 
 class HdfsNameNodeTypeDef(BaseValidatorModel):
-    Hostname: str
+    Hostname: Annotated[str, _aws_pattern("Datasync", "HdfsServerHostname")]
     Port: int
 
 
@@ -91,7 +93,7 @@ class NfsMountOptionsTypeDef(BaseValidatorModel):
 
 
 class S3ConfigTypeDef(BaseValidatorModel):
-    BucketAccessRoleArn: str
+    BucketAccessRoleArn: Annotated[str, _aws_pattern("Datasync", "IamRoleArn")]
 
 
 class SmbMountOptionsTypeDef(BaseValidatorModel):
@@ -100,7 +102,7 @@ class SmbMountOptionsTypeDef(BaseValidatorModel):
 
 class FilterRuleTypeDef(BaseValidatorModel):
     FilterType: Optional[Literal["SIMPLE_PATTERN"]] = None
-    Value: Optional[str] = None
+    Value: Optional[Annotated[str, _aws_pattern("Datasync", "FilterValue")]] = None
 
 
 class OptionsTypeDef(BaseValidatorModel):
@@ -122,46 +124,46 @@ class OptionsTypeDef(BaseValidatorModel):
 
 
 class TaskScheduleTypeDef(BaseValidatorModel):
-    ScheduleExpression: str
+    ScheduleExpression: Annotated[str, _aws_pattern("Datasync", "ScheduleExpressionCron")]
     Status: Optional[ScheduleStatusType] = None
 
 
 class DeleteAgentRequestTypeDef(BaseValidatorModel):
-    AgentArn: str
+    AgentArn: Annotated[str, _aws_pattern("Datasync", "AgentArn")]
 
 
 class DeleteLocationRequestTypeDef(BaseValidatorModel):
-    LocationArn: str
+    LocationArn: Annotated[str, _aws_pattern("Datasync", "LocationArn")]
 
 
 class DeleteTaskRequestTypeDef(BaseValidatorModel):
-    TaskArn: str
+    TaskArn: Annotated[str, _aws_pattern("Datasync", "TaskArn")]
 
 
 # This class is the input for the 'describe_agent' function.
 class DescribeAgentRequestTypeDef(BaseValidatorModel):
-    AgentArn: str
+    AgentArn: Annotated[str, _aws_pattern("Datasync", "AgentArn")]
 
 
 class PrivateLinkConfigTypeDef(BaseValidatorModel):
-    VpcEndpointId: Optional[str] = None
-    PrivateLinkEndpoint: Optional[str] = None
-    SubnetArns: Optional[List[str]] = None
-    SecurityGroupArns: Optional[List[str]] = None
+    VpcEndpointId: Optional[Annotated[str, _aws_pattern("Datasync", "VpcEndpointId")]] = None
+    PrivateLinkEndpoint: Optional[Annotated[str, _aws_pattern("Datasync", "Endpoint")]] = None
+    SubnetArns: Optional[List[Annotated[str, _aws_pattern("Datasync", "Ec2SubnetArn")]]] = None
+    SecurityGroupArns: Optional[List[Annotated[str, _aws_pattern("Datasync", "Ec2SecurityGroupArn")]]] = None
 
 
 # This class is the input for the 'describe_location_azure_blob' function.
 class DescribeLocationAzureBlobRequestTypeDef(BaseValidatorModel):
-    LocationArn: str
+    LocationArn: Annotated[str, _aws_pattern("Datasync", "LocationArn")]
 
 
 class ManagedSecretConfigTypeDef(BaseValidatorModel):
-    SecretArn: Optional[str] = None
+    SecretArn: Optional[Annotated[str, _aws_pattern("Datasync", "SecretArn")]] = None
 
 
 # This class is the input for the 'describe_location_efs' function.
 class DescribeLocationEfsRequestTypeDef(BaseValidatorModel):
-    LocationArn: str
+    LocationArn: Annotated[str, _aws_pattern("Datasync", "LocationArn")]
 
 
 class Ec2ConfigOutputTypeDef(BaseValidatorModel):
@@ -171,32 +173,32 @@ class Ec2ConfigOutputTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'describe_location_fsx_lustre' function.
 class DescribeLocationFsxLustreRequestTypeDef(BaseValidatorModel):
-    LocationArn: str
+    LocationArn: Annotated[str, _aws_pattern("Datasync", "LocationArn")]
 
 
 # This class is the input for the 'describe_location_fsx_ontap' function.
 class DescribeLocationFsxOntapRequestTypeDef(BaseValidatorModel):
-    LocationArn: str
+    LocationArn: Annotated[str, _aws_pattern("Datasync", "LocationArn")]
 
 
 # This class is the input for the 'describe_location_fsx_open_zfs' function.
 class DescribeLocationFsxOpenZfsRequestTypeDef(BaseValidatorModel):
-    LocationArn: str
+    LocationArn: Annotated[str, _aws_pattern("Datasync", "LocationArn")]
 
 
 # This class is the input for the 'describe_location_fsx_windows' function.
 class DescribeLocationFsxWindowsRequestTypeDef(BaseValidatorModel):
-    LocationArn: str
+    LocationArn: Annotated[str, _aws_pattern("Datasync", "LocationArn")]
 
 
 # This class is the input for the 'describe_location_hdfs' function.
 class DescribeLocationHdfsRequestTypeDef(BaseValidatorModel):
-    LocationArn: str
+    LocationArn: Annotated[str, _aws_pattern("Datasync", "LocationArn")]
 
 
 # This class is the input for the 'describe_location_nfs' function.
 class DescribeLocationNfsRequestTypeDef(BaseValidatorModel):
-    LocationArn: str
+    LocationArn: Annotated[str, _aws_pattern("Datasync", "LocationArn")]
 
 
 class OnPremConfigOutputTypeDef(BaseValidatorModel):
@@ -205,22 +207,22 @@ class OnPremConfigOutputTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'describe_location_object_storage' function.
 class DescribeLocationObjectStorageRequestTypeDef(BaseValidatorModel):
-    LocationArn: str
+    LocationArn: Annotated[str, _aws_pattern("Datasync", "LocationArn")]
 
 
 # This class is the input for the 'describe_location_s3' function.
 class DescribeLocationS3RequestTypeDef(BaseValidatorModel):
-    LocationArn: str
+    LocationArn: Annotated[str, _aws_pattern("Datasync", "LocationArn")]
 
 
 # This class is the input for the 'describe_location_smb' function.
 class DescribeLocationSmbRequestTypeDef(BaseValidatorModel):
-    LocationArn: str
+    LocationArn: Annotated[str, _aws_pattern("Datasync", "LocationArn")]
 
 
 # This class is the input for the 'describe_task_execution' function.
 class DescribeTaskExecutionRequestTypeDef(BaseValidatorModel):
-    TaskExecutionArn: str
+    TaskExecutionArn: Annotated[str, _aws_pattern("Datasync", "TaskExecutionArn")]
 
 
 class ReportResultTypeDef(BaseValidatorModel):
@@ -268,18 +270,18 @@ class TaskExecutionResultDetailTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'describe_task' function.
 class DescribeTaskRequestTypeDef(BaseValidatorModel):
-    TaskArn: str
+    TaskArn: Annotated[str, _aws_pattern("Datasync", "TaskArn")]
 
 
 class TaskScheduleDetailsTypeDef(BaseValidatorModel):
     StatusUpdateTime: Optional[datetime] = None
-    DisabledReason: Optional[str] = None
+    DisabledReason: Optional[Annotated[str, _aws_pattern("Datasync", "ScheduleDisabledReason")]] = None
     DisabledBy: Optional[ScheduleDisabledByType] = None
 
 
 class Ec2ConfigTypeDef(BaseValidatorModel):
-    SubnetArn: str
-    SecurityGroupArns: List[str]
+    SubnetArn: Annotated[str, _aws_pattern("Datasync", "Ec2SubnetArn")]
+    SecurityGroupArns: List[Annotated[str, _aws_pattern("Datasync", "Ec2SecurityGroupArn")]]
 
 
 class PaginatorConfigTypeDef(BaseValidatorModel):
@@ -291,61 +293,61 @@ class PaginatorConfigTypeDef(BaseValidatorModel):
 # This class is the input for the 'list_agents' function.
 class ListAgentsRequestTypeDef(BaseValidatorModel):
     MaxResults: Optional[int] = None
-    NextToken: Optional[str] = None
+    NextToken: Optional[Annotated[str, _aws_pattern("Datasync", "NextToken")]] = None
 
 
 class LocationFilterTypeDef(BaseValidatorModel):
     Name: LocationFilterNameType
-    Values: List[str]
+    Values: List[Annotated[str, _aws_pattern("Datasync", "FilterAttributeValue")]]
     Operator: OperatorType
 
 
 class LocationListEntryTypeDef(BaseValidatorModel):
-    LocationArn: Optional[str] = None
-    LocationUri: Optional[str] = None
+    LocationArn: Optional[Annotated[str, _aws_pattern("Datasync", "LocationArn")]] = None
+    LocationUri: Optional[Annotated[str, _aws_pattern("Datasync", "LocationUri")]] = None
 
 
 # This class is the input for the 'list_tags_for_resource' function.
 class ListTagsForResourceRequestTypeDef(BaseValidatorModel):
-    ResourceArn: str
+    ResourceArn: Annotated[str, _aws_pattern("Datasync", "TaggableResourceArn")]
     MaxResults: Optional[int] = None
-    NextToken: Optional[str] = None
+    NextToken: Optional[Annotated[str, _aws_pattern("Datasync", "NextToken")]] = None
 
 
 # This class is the input for the 'list_task_executions' function.
 class ListTaskExecutionsRequestTypeDef(BaseValidatorModel):
-    TaskArn: Optional[str] = None
+    TaskArn: Optional[Annotated[str, _aws_pattern("Datasync", "TaskArn")]] = None
     MaxResults: Optional[int] = None
-    NextToken: Optional[str] = None
+    NextToken: Optional[Annotated[str, _aws_pattern("Datasync", "NextToken")]] = None
 
 
 class TaskExecutionListEntryTypeDef(BaseValidatorModel):
-    TaskExecutionArn: Optional[str] = None
+    TaskExecutionArn: Optional[Annotated[str, _aws_pattern("Datasync", "TaskExecutionArn")]] = None
     Status: Optional[TaskExecutionStatusType] = None
     TaskMode: Optional[TaskModeType] = None
 
 
 class TaskFilterTypeDef(BaseValidatorModel):
     Name: TaskFilterNameType
-    Values: List[str]
+    Values: List[Annotated[str, _aws_pattern("Datasync", "FilterAttributeValue")]]
     Operator: OperatorType
 
 
 class TaskListEntryTypeDef(BaseValidatorModel):
-    TaskArn: Optional[str] = None
+    TaskArn: Optional[Annotated[str, _aws_pattern("Datasync", "TaskArn")]] = None
     Status: Optional[TaskStatusType] = None
-    Name: Optional[str] = None
+    Name: Optional[Annotated[str, _aws_pattern("Datasync", "TagValue")]] = None
     TaskMode: Optional[TaskModeType] = None
 
 
 class OnPremConfigTypeDef(BaseValidatorModel):
-    AgentArns: List[str]
+    AgentArns: List[Annotated[str, _aws_pattern("Datasync", "AgentArn")]]
 
 
 class ReportDestinationS3TypeDef(BaseValidatorModel):
-    S3BucketArn: str
-    BucketAccessRoleArn: str
-    Subdirectory: Optional[str] = None
+    S3BucketArn: Annotated[str, _aws_pattern("Datasync", "S3BucketArn")]
+    BucketAccessRoleArn: Annotated[str, _aws_pattern("Datasync", "IamRoleArn")]
+    Subdirectory: Optional[Annotated[str, _aws_pattern("Datasync", "S3Subdirectory")]] = None
 
 
 class ReportOverrideTypeDef(BaseValidatorModel):
@@ -353,148 +355,148 @@ class ReportOverrideTypeDef(BaseValidatorModel):
 
 
 class S3ManifestConfigTypeDef(BaseValidatorModel):
-    ManifestObjectPath: str
-    BucketAccessRoleArn: str
-    S3BucketArn: str
-    ManifestObjectVersionId: Optional[str] = None
+    ManifestObjectPath: Annotated[str, _aws_pattern("Datasync", "S3Subdirectory")]
+    BucketAccessRoleArn: Annotated[str, _aws_pattern("Datasync", "IamRoleArn")]
+    S3BucketArn: Annotated[str, _aws_pattern("Datasync", "S3BucketArn")]
+    ManifestObjectVersionId: Optional[Annotated[str, _aws_pattern("Datasync", "S3ObjectVersionId")]] = None
 
 
 class UntagResourceRequestTypeDef(BaseValidatorModel):
-    ResourceArn: str
-    Keys: List[str]
+    ResourceArn: Annotated[str, _aws_pattern("Datasync", "TaggableResourceArn")]
+    Keys: List[Annotated[str, _aws_pattern("Datasync", "TagKey")]]
 
 
 class UpdateAgentRequestTypeDef(BaseValidatorModel):
-    AgentArn: str
-    Name: Optional[str] = None
+    AgentArn: Annotated[str, _aws_pattern("Datasync", "AgentArn")]
+    Name: Optional[Annotated[str, _aws_pattern("Datasync", "TagValue")]] = None
 
 
 class UpdateLocationEfsRequestTypeDef(BaseValidatorModel):
-    LocationArn: str
-    Subdirectory: Optional[str] = None
-    AccessPointArn: Optional[str] = None
-    FileSystemAccessRoleArn: Optional[str] = None
+    LocationArn: Annotated[str, _aws_pattern("Datasync", "LocationArn")]
+    Subdirectory: Optional[Annotated[str, _aws_pattern("Datasync", "EfsSubdirectory")]] = None
+    AccessPointArn: Optional[Annotated[str, _aws_pattern("Datasync", "UpdatedEfsAccessPointArn")]] = None
+    FileSystemAccessRoleArn: Optional[Annotated[str, _aws_pattern("Datasync", "UpdatedEfsIamRoleArn")]] = None
     InTransitEncryption: Optional[EfsInTransitEncryptionType] = None
 
 
 class UpdateLocationFsxLustreRequestTypeDef(BaseValidatorModel):
-    LocationArn: str
-    Subdirectory: Optional[str] = None
+    LocationArn: Annotated[str, _aws_pattern("Datasync", "LocationArn")]
+    Subdirectory: Optional[Annotated[str, _aws_pattern("Datasync", "SmbSubdirectory")]] = None
 
 
 class AgentListEntryTypeDef(BaseValidatorModel):
-    AgentArn: Optional[str] = None
-    Name: Optional[str] = None
+    AgentArn: Optional[Annotated[str, _aws_pattern("Datasync", "AgentArn")]] = None
+    Name: Optional[Annotated[str, _aws_pattern("Datasync", "TagValue")]] = None
     Status: Optional[AgentStatusType] = None
     Platform: Optional[PlatformTypeDef] = None
 
 
 # This class is the input for the 'create_agent' function.
 class CreateAgentRequestTypeDef(BaseValidatorModel):
-    ActivationKey: str
-    AgentName: Optional[str] = None
+    ActivationKey: Annotated[str, _aws_pattern("Datasync", "ActivationKey")]
+    AgentName: Optional[Annotated[str, _aws_pattern("Datasync", "TagValue")]] = None
     Tags: Optional[List[TagListEntryTypeDef]] = None
-    VpcEndpointId: Optional[str] = None
-    SubnetArns: Optional[List[str]] = None
-    SecurityGroupArns: Optional[List[str]] = None
+    VpcEndpointId: Optional[Annotated[str, _aws_pattern("Datasync", "VpcEndpointId")]] = None
+    SubnetArns: Optional[List[Annotated[str, _aws_pattern("Datasync", "Ec2SubnetArn")]]] = None
+    SecurityGroupArns: Optional[List[Annotated[str, _aws_pattern("Datasync", "Ec2SecurityGroupArn")]]] = None
 
 
 # This class is the input for the 'create_location_fsx_lustre' function.
 class CreateLocationFsxLustreRequestTypeDef(BaseValidatorModel):
-    FsxFilesystemArn: str
-    SecurityGroupArns: List[str]
-    Subdirectory: Optional[str] = None
+    FsxFilesystemArn: Annotated[str, _aws_pattern("Datasync", "FsxFilesystemArn")]
+    SecurityGroupArns: List[Annotated[str, _aws_pattern("Datasync", "Ec2SecurityGroupArn")]]
+    Subdirectory: Optional[Annotated[str, _aws_pattern("Datasync", "FsxLustreSubdirectory")]] = None
     Tags: Optional[List[TagListEntryTypeDef]] = None
 
 
 class TagResourceRequestTypeDef(BaseValidatorModel):
-    ResourceArn: str
+    ResourceArn: Annotated[str, _aws_pattern("Datasync", "TaggableResourceArn")]
     Tags: List[TagListEntryTypeDef]
 
 
 # This class is the output for the 'create_agent' function.
 class CreateAgentResponseTypeDef(BaseValidatorModel):
-    AgentArn: str
+    AgentArn: Annotated[str, _aws_pattern("Datasync", "AgentArn")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 # This class is the output for the 'create_location_azure_blob' function.
 class CreateLocationAzureBlobResponseTypeDef(BaseValidatorModel):
-    LocationArn: str
+    LocationArn: Annotated[str, _aws_pattern("Datasync", "LocationArn")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 # This class is the output for the 'create_location_efs' function.
 class CreateLocationEfsResponseTypeDef(BaseValidatorModel):
-    LocationArn: str
+    LocationArn: Annotated[str, _aws_pattern("Datasync", "LocationArn")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 # This class is the output for the 'create_location_fsx_lustre' function.
 class CreateLocationFsxLustreResponseTypeDef(BaseValidatorModel):
-    LocationArn: str
+    LocationArn: Annotated[str, _aws_pattern("Datasync", "LocationArn")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 # This class is the output for the 'create_location_fsx_ontap' function.
 class CreateLocationFsxOntapResponseTypeDef(BaseValidatorModel):
-    LocationArn: str
+    LocationArn: Annotated[str, _aws_pattern("Datasync", "LocationArn")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 # This class is the output for the 'create_location_fsx_open_zfs' function.
 class CreateLocationFsxOpenZfsResponseTypeDef(BaseValidatorModel):
-    LocationArn: str
+    LocationArn: Annotated[str, _aws_pattern("Datasync", "LocationArn")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 # This class is the output for the 'create_location_fsx_windows' function.
 class CreateLocationFsxWindowsResponseTypeDef(BaseValidatorModel):
-    LocationArn: str
+    LocationArn: Annotated[str, _aws_pattern("Datasync", "LocationArn")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 # This class is the output for the 'create_location_hdfs' function.
 class CreateLocationHdfsResponseTypeDef(BaseValidatorModel):
-    LocationArn: str
+    LocationArn: Annotated[str, _aws_pattern("Datasync", "LocationArn")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 # This class is the output for the 'create_location_nfs' function.
 class CreateLocationNfsResponseTypeDef(BaseValidatorModel):
-    LocationArn: str
+    LocationArn: Annotated[str, _aws_pattern("Datasync", "LocationArn")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 # This class is the output for the 'create_location_object_storage' function.
 class CreateLocationObjectStorageResponseTypeDef(BaseValidatorModel):
-    LocationArn: str
+    LocationArn: Annotated[str, _aws_pattern("Datasync", "LocationArn")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 # This class is the output for the 'create_location_s3' function.
 class CreateLocationS3ResponseTypeDef(BaseValidatorModel):
-    LocationArn: str
+    LocationArn: Annotated[str, _aws_pattern("Datasync", "LocationArn")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 # This class is the output for the 'create_location_smb' function.
 class CreateLocationSmbResponseTypeDef(BaseValidatorModel):
-    LocationArn: str
+    LocationArn: Annotated[str, _aws_pattern("Datasync", "LocationArn")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 # This class is the output for the 'create_task' function.
 class CreateTaskResponseTypeDef(BaseValidatorModel):
-    TaskArn: str
+    TaskArn: Annotated[str, _aws_pattern("Datasync", "TaskArn")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 # This class is the output for the 'describe_location_fsx_lustre' function.
 class DescribeLocationFsxLustreResponseTypeDef(BaseValidatorModel):
-    LocationArn: str
-    LocationUri: str
-    SecurityGroupArns: List[str]
+    LocationArn: Annotated[str, _aws_pattern("Datasync", "LocationArn")]
+    LocationUri: Annotated[str, _aws_pattern("Datasync", "LocationUri")]
+    SecurityGroupArns: List[Annotated[str, _aws_pattern("Datasync", "Ec2SecurityGroupArn")]]
     CreationTime: datetime
     ResponseMetadata: ResponseMetadataTypeDef
 
@@ -503,24 +505,24 @@ class DescribeLocationFsxLustreResponseTypeDef(BaseValidatorModel):
 class ListTagsForResourceResponseTypeDef(BaseValidatorModel):
     Tags: List[TagListEntryTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
-    NextToken: Optional[str] = None
+    NextToken: Optional[Annotated[str, _aws_pattern("Datasync", "NextToken")]] = None
 
 
 # This class is the output for the 'start_task_execution' function.
 class StartTaskExecutionResponseTypeDef(BaseValidatorModel):
-    TaskExecutionArn: str
+    TaskExecutionArn: Annotated[str, _aws_pattern("Datasync", "TaskExecutionArn")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 # This class is the input for the 'create_location_azure_blob' function.
 class CreateLocationAzureBlobRequestTypeDef(BaseValidatorModel):
-    ContainerUrl: str
+    ContainerUrl: Annotated[str, _aws_pattern("Datasync", "AzureBlobContainerUrl")]
     AuthenticationType: AzureBlobAuthenticationTypeType
     SasConfiguration: Optional[AzureBlobSasConfigurationTypeDef] = None
     BlobType: Optional[Literal["BLOCK"]] = None
     AccessTier: Optional[AzureAccessTierType] = None
-    Subdirectory: Optional[str] = None
-    AgentArns: Optional[List[str]] = None
+    Subdirectory: Optional[Annotated[str, _aws_pattern("Datasync", "AzureBlobSubdirectory")]] = None
+    AgentArns: Optional[List[Annotated[str, _aws_pattern("Datasync", "AgentArn")]]] = None
     Tags: Optional[List[TagListEntryTypeDef]] = None
     CmkSecretConfig: Optional[CmkSecretConfigTypeDef] = None
     CustomSecretConfig: Optional[CustomSecretConfigTypeDef] = None
@@ -528,27 +530,27 @@ class CreateLocationAzureBlobRequestTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'create_location_fsx_windows' function.
 class CreateLocationFsxWindowsRequestTypeDef(BaseValidatorModel):
-    FsxFilesystemArn: str
-    SecurityGroupArns: List[str]
-    User: str
-    Subdirectory: Optional[str] = None
+    FsxFilesystemArn: Annotated[str, _aws_pattern("Datasync", "FsxFilesystemArn")]
+    SecurityGroupArns: List[Annotated[str, _aws_pattern("Datasync", "Ec2SecurityGroupArn")]]
+    User: Annotated[str, _aws_pattern("Datasync", "SmbUser")]
+    Subdirectory: Optional[Annotated[str, _aws_pattern("Datasync", "FsxWindowsSubdirectory")]] = None
     Tags: Optional[List[TagListEntryTypeDef]] = None
-    Domain: Optional[str] = None
-    Password: Optional[str] = None
+    Domain: Optional[Annotated[str, _aws_pattern("Datasync", "SmbDomain")]] = None
+    Password: Optional[Annotated[str, _aws_pattern("Datasync", "SmbPassword")]] = None
     CmkSecretConfig: Optional[CmkSecretConfigTypeDef] = None
     CustomSecretConfig: Optional[CustomSecretConfigTypeDef] = None
 
 
 # This class is the input for the 'create_location_object_storage' function.
 class CreateLocationObjectStorageRequestTypeDef(BaseValidatorModel):
-    ServerHostname: str
-    BucketName: str
+    ServerHostname: Annotated[str, _aws_pattern("Datasync", "ServerHostname")]
+    BucketName: Annotated[str, _aws_pattern("Datasync", "ObjectStorageBucketName")]
     ServerPort: Optional[int] = None
     ServerProtocol: Optional[ObjectStorageServerProtocolType] = None
-    Subdirectory: Optional[str] = None
-    AccessKey: Optional[str] = None
-    SecretKey: Optional[str] = None
-    AgentArns: Optional[List[str]] = None
+    Subdirectory: Optional[Annotated[str, _aws_pattern("Datasync", "S3Subdirectory")]] = None
+    AccessKey: Optional[Annotated[str, _aws_pattern("Datasync", "ObjectStorageAccessKey")]] = None
+    SecretKey: Optional[Annotated[str, _aws_pattern("Datasync", "ObjectStorageSecretKey")]] = None
+    AgentArns: Optional[List[Annotated[str, _aws_pattern("Datasync", "AgentArn")]]] = None
     Tags: Optional[List[TagListEntryTypeDef]] = None
     ServerCertificate: Optional[BlobTypeDef] = None
     CmkSecretConfig: Optional[CmkSecretConfigTypeDef] = None
@@ -556,36 +558,36 @@ class CreateLocationObjectStorageRequestTypeDef(BaseValidatorModel):
 
 
 class UpdateLocationAzureBlobRequestTypeDef(BaseValidatorModel):
-    LocationArn: str
-    Subdirectory: Optional[str] = None
+    LocationArn: Annotated[str, _aws_pattern("Datasync", "LocationArn")]
+    Subdirectory: Optional[Annotated[str, _aws_pattern("Datasync", "AzureBlobSubdirectory")]] = None
     AuthenticationType: Optional[AzureBlobAuthenticationTypeType] = None
     SasConfiguration: Optional[AzureBlobSasConfigurationTypeDef] = None
     BlobType: Optional[Literal["BLOCK"]] = None
     AccessTier: Optional[AzureAccessTierType] = None
-    AgentArns: Optional[List[str]] = None
+    AgentArns: Optional[List[Annotated[str, _aws_pattern("Datasync", "AgentArn")]]] = None
     CmkSecretConfig: Optional[CmkSecretConfigTypeDef] = None
     CustomSecretConfig: Optional[CustomSecretConfigTypeDef] = None
 
 
 class UpdateLocationFsxWindowsRequestTypeDef(BaseValidatorModel):
-    LocationArn: str
-    Subdirectory: Optional[str] = None
-    Domain: Optional[str] = None
-    User: Optional[str] = None
-    Password: Optional[str] = None
+    LocationArn: Annotated[str, _aws_pattern("Datasync", "LocationArn")]
+    Subdirectory: Optional[Annotated[str, _aws_pattern("Datasync", "FsxWindowsSubdirectory")]] = None
+    Domain: Optional[Annotated[str, _aws_pattern("Datasync", "UpdateSmbDomain")]] = None
+    User: Optional[Annotated[str, _aws_pattern("Datasync", "SmbUser")]] = None
+    Password: Optional[Annotated[str, _aws_pattern("Datasync", "SmbPassword")]] = None
     CmkSecretConfig: Optional[CmkSecretConfigTypeDef] = None
     CustomSecretConfig: Optional[CustomSecretConfigTypeDef] = None
 
 
 class UpdateLocationObjectStorageRequestTypeDef(BaseValidatorModel):
-    LocationArn: str
+    LocationArn: Annotated[str, _aws_pattern("Datasync", "LocationArn")]
     ServerPort: Optional[int] = None
     ServerProtocol: Optional[ObjectStorageServerProtocolType] = None
-    Subdirectory: Optional[str] = None
-    ServerHostname: Optional[str] = None
-    AccessKey: Optional[str] = None
-    SecretKey: Optional[str] = None
-    AgentArns: Optional[List[str]] = None
+    Subdirectory: Optional[Annotated[str, _aws_pattern("Datasync", "S3Subdirectory")]] = None
+    ServerHostname: Optional[Annotated[str, _aws_pattern("Datasync", "ServerHostname")]] = None
+    AccessKey: Optional[Annotated[str, _aws_pattern("Datasync", "ObjectStorageAccessKey")]] = None
+    SecretKey: Optional[Annotated[str, _aws_pattern("Datasync", "ObjectStorageSecretKey")]] = None
+    AgentArns: Optional[List[Annotated[str, _aws_pattern("Datasync", "AgentArn")]]] = None
     ServerCertificate: Optional[BlobTypeDef] = None
     CmkSecretConfig: Optional[CmkSecretConfigTypeDef] = None
     CustomSecretConfig: Optional[CustomSecretConfigTypeDef] = None
@@ -595,14 +597,14 @@ class UpdateLocationObjectStorageRequestTypeDef(BaseValidatorModel):
 class CreateLocationHdfsRequestTypeDef(BaseValidatorModel):
     NameNodes: List[HdfsNameNodeTypeDef]
     AuthenticationType: HdfsAuthenticationTypeType
-    AgentArns: List[str]
-    Subdirectory: Optional[str] = None
+    AgentArns: List[Annotated[str, _aws_pattern("Datasync", "AgentArn")]]
+    Subdirectory: Optional[Annotated[str, _aws_pattern("Datasync", "HdfsSubdirectory")]] = None
     BlockSize: Optional[int] = None
     ReplicationFactor: Optional[int] = None
-    KmsKeyProviderUri: Optional[str] = None
+    KmsKeyProviderUri: Optional[Annotated[str, _aws_pattern("Datasync", "KmsKeyProviderUri")]] = None
     QopConfiguration: Optional[QopConfigurationTypeDef] = None
-    SimpleUser: Optional[str] = None
-    KerberosPrincipal: Optional[str] = None
+    SimpleUser: Optional[Annotated[str, _aws_pattern("Datasync", "HdfsUser")]] = None
+    KerberosPrincipal: Optional[Annotated[str, _aws_pattern("Datasync", "KerberosPrincipal")]] = None
     KerberosKeytab: Optional[BlobTypeDef] = None
     KerberosKrb5Conf: Optional[BlobTypeDef] = None
     Tags: Optional[List[TagListEntryTypeDef]] = None
@@ -611,19 +613,19 @@ class CreateLocationHdfsRequestTypeDef(BaseValidatorModel):
 
 
 class UpdateLocationHdfsRequestTypeDef(BaseValidatorModel):
-    LocationArn: str
-    Subdirectory: Optional[str] = None
+    LocationArn: Annotated[str, _aws_pattern("Datasync", "LocationArn")]
+    Subdirectory: Optional[Annotated[str, _aws_pattern("Datasync", "HdfsSubdirectory")]] = None
     NameNodes: Optional[List[HdfsNameNodeTypeDef]] = None
     BlockSize: Optional[int] = None
     ReplicationFactor: Optional[int] = None
-    KmsKeyProviderUri: Optional[str] = None
+    KmsKeyProviderUri: Optional[Annotated[str, _aws_pattern("Datasync", "KmsKeyProviderUri")]] = None
     QopConfiguration: Optional[QopConfigurationTypeDef] = None
     AuthenticationType: Optional[HdfsAuthenticationTypeType] = None
-    SimpleUser: Optional[str] = None
-    KerberosPrincipal: Optional[str] = None
+    SimpleUser: Optional[Annotated[str, _aws_pattern("Datasync", "HdfsUser")]] = None
+    KerberosPrincipal: Optional[Annotated[str, _aws_pattern("Datasync", "KerberosPrincipal")]] = None
     KerberosKeytab: Optional[BlobTypeDef] = None
     KerberosKrb5Conf: Optional[BlobTypeDef] = None
-    AgentArns: Optional[List[str]] = None
+    AgentArns: Optional[List[Annotated[str, _aws_pattern("Datasync", "AgentArn")]]] = None
     CmkSecretConfig: Optional[CmkSecretConfigTypeDef] = None
     CustomSecretConfig: Optional[CustomSecretConfigTypeDef] = None
 
@@ -634,87 +636,87 @@ class FsxProtocolNfsTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'create_location_s3' function.
 class CreateLocationS3RequestTypeDef(BaseValidatorModel):
-    S3BucketArn: str
+    S3BucketArn: Annotated[str, _aws_pattern("Datasync", "S3BucketArn")]
     S3Config: S3ConfigTypeDef
-    Subdirectory: Optional[str] = None
+    Subdirectory: Optional[Annotated[str, _aws_pattern("Datasync", "S3Subdirectory")]] = None
     S3StorageClass: Optional[S3StorageClassType] = None
-    AgentArns: Optional[List[str]] = None
+    AgentArns: Optional[List[Annotated[str, _aws_pattern("Datasync", "AgentArn")]]] = None
     Tags: Optional[List[TagListEntryTypeDef]] = None
 
 
 # This class is the output for the 'describe_location_s3' function.
 class DescribeLocationS3ResponseTypeDef(BaseValidatorModel):
-    LocationArn: str
-    LocationUri: str
+    LocationArn: Annotated[str, _aws_pattern("Datasync", "LocationArn")]
+    LocationUri: Annotated[str, _aws_pattern("Datasync", "LocationUri")]
     S3StorageClass: S3StorageClassType
     S3Config: S3ConfigTypeDef
-    AgentArns: List[str]
+    AgentArns: List[Annotated[str, _aws_pattern("Datasync", "AgentArn")]]
     CreationTime: datetime
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 class UpdateLocationS3RequestTypeDef(BaseValidatorModel):
-    LocationArn: str
-    Subdirectory: Optional[str] = None
+    LocationArn: Annotated[str, _aws_pattern("Datasync", "LocationArn")]
+    Subdirectory: Optional[Annotated[str, _aws_pattern("Datasync", "S3Subdirectory")]] = None
     S3StorageClass: Optional[S3StorageClassType] = None
     S3Config: Optional[S3ConfigTypeDef] = None
 
 
 # This class is the input for the 'create_location_smb' function.
 class CreateLocationSmbRequestTypeDef(BaseValidatorModel):
-    Subdirectory: str
-    ServerHostname: str
-    AgentArns: List[str]
-    User: Optional[str] = None
-    Domain: Optional[str] = None
-    Password: Optional[str] = None
+    Subdirectory: Annotated[str, _aws_pattern("Datasync", "SmbSubdirectory")]
+    ServerHostname: Annotated[str, _aws_pattern("Datasync", "ServerHostname")]
+    AgentArns: List[Annotated[str, _aws_pattern("Datasync", "AgentArn")]]
+    User: Optional[Annotated[str, _aws_pattern("Datasync", "SmbUser")]] = None
+    Domain: Optional[Annotated[str, _aws_pattern("Datasync", "SmbDomain")]] = None
+    Password: Optional[Annotated[str, _aws_pattern("Datasync", "SmbPassword")]] = None
     CmkSecretConfig: Optional[CmkSecretConfigTypeDef] = None
     CustomSecretConfig: Optional[CustomSecretConfigTypeDef] = None
     MountOptions: Optional[SmbMountOptionsTypeDef] = None
     Tags: Optional[List[TagListEntryTypeDef]] = None
     AuthenticationType: Optional[SmbAuthenticationTypeType] = None
-    DnsIpAddresses: Optional[List[str]] = None
-    KerberosPrincipal: Optional[str] = None
+    DnsIpAddresses: Optional[List[Annotated[str, _aws_pattern("Datasync", "ServerIpAddress")]]] = None
+    KerberosPrincipal: Optional[Annotated[str, _aws_pattern("Datasync", "KerberosPrincipal")]] = None
     KerberosKeytab: Optional[BlobTypeDef] = None
     KerberosKrb5Conf: Optional[BlobTypeDef] = None
 
 
 class FsxUpdateProtocolSmbTypeDef(BaseValidatorModel):
-    Domain: Optional[str] = None
+    Domain: Optional[Annotated[str, _aws_pattern("Datasync", "UpdateSmbDomain")]] = None
     MountOptions: Optional[SmbMountOptionsTypeDef] = None
-    Password: Optional[str] = None
-    User: Optional[str] = None
+    Password: Optional[Annotated[str, _aws_pattern("Datasync", "SmbPassword")]] = None
+    User: Optional[Annotated[str, _aws_pattern("Datasync", "SmbUser")]] = None
     CmkSecretConfig: Optional[CmkSecretConfigTypeDef] = None
     CustomSecretConfig: Optional[CustomSecretConfigTypeDef] = None
 
 
 class UpdateLocationSmbRequestTypeDef(BaseValidatorModel):
-    LocationArn: str
-    Subdirectory: Optional[str] = None
-    ServerHostname: Optional[str] = None
-    User: Optional[str] = None
-    Domain: Optional[str] = None
-    Password: Optional[str] = None
+    LocationArn: Annotated[str, _aws_pattern("Datasync", "LocationArn")]
+    Subdirectory: Optional[Annotated[str, _aws_pattern("Datasync", "SmbSubdirectory")]] = None
+    ServerHostname: Optional[Annotated[str, _aws_pattern("Datasync", "ServerHostname")]] = None
+    User: Optional[Annotated[str, _aws_pattern("Datasync", "SmbUser")]] = None
+    Domain: Optional[Annotated[str, _aws_pattern("Datasync", "SmbDomain")]] = None
+    Password: Optional[Annotated[str, _aws_pattern("Datasync", "SmbPassword")]] = None
     CmkSecretConfig: Optional[CmkSecretConfigTypeDef] = None
     CustomSecretConfig: Optional[CustomSecretConfigTypeDef] = None
-    AgentArns: Optional[List[str]] = None
+    AgentArns: Optional[List[Annotated[str, _aws_pattern("Datasync", "AgentArn")]]] = None
     MountOptions: Optional[SmbMountOptionsTypeDef] = None
     AuthenticationType: Optional[SmbAuthenticationTypeType] = None
-    DnsIpAddresses: Optional[List[str]] = None
-    KerberosPrincipal: Optional[str] = None
+    DnsIpAddresses: Optional[List[Annotated[str, _aws_pattern("Datasync", "ServerIpAddress")]]] = None
+    KerberosPrincipal: Optional[Annotated[str, _aws_pattern("Datasync", "KerberosPrincipal")]] = None
     KerberosKeytab: Optional[BlobTypeDef] = None
     KerberosKrb5Conf: Optional[BlobTypeDef] = None
 
 
 class UpdateTaskExecutionRequestTypeDef(BaseValidatorModel):
-    TaskExecutionArn: str
+    TaskExecutionArn: Annotated[str, _aws_pattern("Datasync", "TaskExecutionArn")]
     Options: OptionsTypeDef
 
 
 # This class is the output for the 'describe_agent' function.
 class DescribeAgentResponseTypeDef(BaseValidatorModel):
-    AgentArn: str
-    Name: str
+    AgentArn: Annotated[str, _aws_pattern("Datasync", "AgentArn")]
+    Name: Annotated[str, _aws_pattern("Datasync", "TagValue")]
     Status: AgentStatusType
     LastConnectionTime: datetime
     CreationTime: datetime
@@ -726,12 +728,12 @@ class DescribeAgentResponseTypeDef(BaseValidatorModel):
 
 # This class is the output for the 'describe_location_azure_blob' function.
 class DescribeLocationAzureBlobResponseTypeDef(BaseValidatorModel):
-    LocationArn: str
-    LocationUri: str
+    LocationArn: Annotated[str, _aws_pattern("Datasync", "LocationArn")]
+    LocationUri: Annotated[str, _aws_pattern("Datasync", "LocationUri")]
     AuthenticationType: AzureBlobAuthenticationTypeType
     BlobType: Literal["BLOCK"]
     AccessTier: AzureAccessTierType
-    AgentArns: List[str]
+    AgentArns: List[Annotated[str, _aws_pattern("Datasync", "AgentArn")]]
     CreationTime: datetime
     ManagedSecretConfig: ManagedSecretConfigTypeDef
     CmkSecretConfig: CmkSecretConfigTypeDef
@@ -741,12 +743,12 @@ class DescribeLocationAzureBlobResponseTypeDef(BaseValidatorModel):
 
 # This class is the output for the 'describe_location_fsx_windows' function.
 class DescribeLocationFsxWindowsResponseTypeDef(BaseValidatorModel):
-    LocationArn: str
-    LocationUri: str
-    SecurityGroupArns: List[str]
+    LocationArn: Annotated[str, _aws_pattern("Datasync", "LocationArn")]
+    LocationUri: Annotated[str, _aws_pattern("Datasync", "LocationUri")]
+    SecurityGroupArns: List[Annotated[str, _aws_pattern("Datasync", "Ec2SecurityGroupArn")]]
     CreationTime: datetime
-    User: str
-    Domain: str
+    User: Annotated[str, _aws_pattern("Datasync", "SmbUser")]
+    Domain: Annotated[str, _aws_pattern("Datasync", "SmbDomain")]
     ManagedSecretConfig: ManagedSecretConfigTypeDef
     CmkSecretConfig: CmkSecretConfigTypeDef
     CustomSecretConfig: CustomSecretConfigTypeDef
@@ -755,17 +757,17 @@ class DescribeLocationFsxWindowsResponseTypeDef(BaseValidatorModel):
 
 # This class is the output for the 'describe_location_hdfs' function.
 class DescribeLocationHdfsResponseTypeDef(BaseValidatorModel):
-    LocationArn: str
-    LocationUri: str
+    LocationArn: Annotated[str, _aws_pattern("Datasync", "LocationArn")]
+    LocationUri: Annotated[str, _aws_pattern("Datasync", "LocationUri")]
     NameNodes: List[HdfsNameNodeTypeDef]
     BlockSize: int
     ReplicationFactor: int
-    KmsKeyProviderUri: str
+    KmsKeyProviderUri: Annotated[str, _aws_pattern("Datasync", "KmsKeyProviderUri")]
     QopConfiguration: QopConfigurationTypeDef
     AuthenticationType: HdfsAuthenticationTypeType
-    SimpleUser: str
-    KerberosPrincipal: str
-    AgentArns: List[str]
+    SimpleUser: Annotated[str, _aws_pattern("Datasync", "HdfsUser")]
+    KerberosPrincipal: Annotated[str, _aws_pattern("Datasync", "KerberosPrincipal")]
+    AgentArns: List[Annotated[str, _aws_pattern("Datasync", "AgentArn")]]
     CreationTime: datetime
     ManagedSecretConfig: ManagedSecretConfigTypeDef
     CmkSecretConfig: CmkSecretConfigTypeDef
@@ -775,12 +777,12 @@ class DescribeLocationHdfsResponseTypeDef(BaseValidatorModel):
 
 # This class is the output for the 'describe_location_object_storage' function.
 class DescribeLocationObjectStorageResponseTypeDef(BaseValidatorModel):
-    LocationArn: str
-    LocationUri: str
-    AccessKey: str
+    LocationArn: Annotated[str, _aws_pattern("Datasync", "LocationArn")]
+    LocationUri: Annotated[str, _aws_pattern("Datasync", "LocationUri")]
+    AccessKey: Annotated[str, _aws_pattern("Datasync", "ObjectStorageAccessKey")]
     ServerPort: int
     ServerProtocol: ObjectStorageServerProtocolType
-    AgentArns: List[str]
+    AgentArns: List[Annotated[str, _aws_pattern("Datasync", "AgentArn")]]
     CreationTime: datetime
     ServerCertificate: bytes
     ManagedSecretConfig: ManagedSecretConfigTypeDef
@@ -791,15 +793,15 @@ class DescribeLocationObjectStorageResponseTypeDef(BaseValidatorModel):
 
 # This class is the output for the 'describe_location_smb' function.
 class DescribeLocationSmbResponseTypeDef(BaseValidatorModel):
-    LocationArn: str
-    LocationUri: str
-    AgentArns: List[str]
-    User: str
-    Domain: str
+    LocationArn: Annotated[str, _aws_pattern("Datasync", "LocationArn")]
+    LocationUri: Annotated[str, _aws_pattern("Datasync", "LocationUri")]
+    AgentArns: List[Annotated[str, _aws_pattern("Datasync", "AgentArn")]]
+    User: Annotated[str, _aws_pattern("Datasync", "SmbUser")]
+    Domain: Annotated[str, _aws_pattern("Datasync", "SmbDomain")]
     MountOptions: SmbMountOptionsTypeDef
     CreationTime: datetime
-    DnsIpAddresses: List[str]
-    KerberosPrincipal: str
+    DnsIpAddresses: List[Annotated[str, _aws_pattern("Datasync", "ServerIpAddress")]]
+    KerberosPrincipal: Annotated[str, _aws_pattern("Datasync", "KerberosPrincipal")]
     AuthenticationType: SmbAuthenticationTypeType
     ManagedSecretConfig: ManagedSecretConfigTypeDef
     CmkSecretConfig: CmkSecretConfigTypeDef
@@ -808,10 +810,10 @@ class DescribeLocationSmbResponseTypeDef(BaseValidatorModel):
 
 
 class FsxProtocolSmbTypeDef(BaseValidatorModel):
-    User: str
-    Domain: Optional[str] = None
+    User: Annotated[str, _aws_pattern("Datasync", "SmbUser")]
+    Domain: Optional[Annotated[str, _aws_pattern("Datasync", "SmbDomain")]] = None
     MountOptions: Optional[SmbMountOptionsTypeDef] = None
-    Password: Optional[str] = None
+    Password: Optional[Annotated[str, _aws_pattern("Datasync", "SmbPassword")]] = None
     ManagedSecretConfig: Optional[ManagedSecretConfigTypeDef] = None
     CmkSecretConfig: Optional[CmkSecretConfigTypeDef] = None
     CustomSecretConfig: Optional[CustomSecretConfigTypeDef] = None
@@ -819,20 +821,20 @@ class FsxProtocolSmbTypeDef(BaseValidatorModel):
 
 # This class is the output for the 'describe_location_efs' function.
 class DescribeLocationEfsResponseTypeDef(BaseValidatorModel):
-    LocationArn: str
-    LocationUri: str
+    LocationArn: Annotated[str, _aws_pattern("Datasync", "LocationArn")]
+    LocationUri: Annotated[str, _aws_pattern("Datasync", "LocationUri")]
     Ec2Config: Ec2ConfigOutputTypeDef
     CreationTime: datetime
-    AccessPointArn: str
-    FileSystemAccessRoleArn: str
+    AccessPointArn: Annotated[str, _aws_pattern("Datasync", "EfsAccessPointArn")]
+    FileSystemAccessRoleArn: Annotated[str, _aws_pattern("Datasync", "IamRoleArn")]
     InTransitEncryption: EfsInTransitEncryptionType
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 # This class is the output for the 'describe_location_nfs' function.
 class DescribeLocationNfsResponseTypeDef(BaseValidatorModel):
-    LocationArn: str
-    LocationUri: str
+    LocationArn: Annotated[str, _aws_pattern("Datasync", "LocationArn")]
+    LocationUri: Annotated[str, _aws_pattern("Datasync", "LocationUri")]
     OnPremConfig: OnPremConfigOutputTypeDef
     MountOptions: NfsMountOptionsTypeDef
     CreationTime: datetime
@@ -864,7 +866,7 @@ class ListLocationsRequestPaginateTypeDef(BaseValidatorModel):
 # This class is the input for the 'list_locations' function.
 class ListLocationsRequestTypeDef(BaseValidatorModel):
     MaxResults: Optional[int] = None
-    NextToken: Optional[str] = None
+    NextToken: Optional[Annotated[str, _aws_pattern("Datasync", "NextToken")]] = None
     Filters: Optional[List[LocationFilterTypeDef]] = None
 
 
@@ -872,14 +874,14 @@ class ListLocationsRequestTypeDef(BaseValidatorModel):
 class ListLocationsResponseTypeDef(BaseValidatorModel):
     Locations: List[LocationListEntryTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
-    NextToken: Optional[str] = None
+    NextToken: Optional[Annotated[str, _aws_pattern("Datasync", "NextToken")]] = None
 
 
 # This class is the output for the 'list_task_executions' function.
 class ListTaskExecutionsResponseTypeDef(BaseValidatorModel):
     TaskExecutions: List[TaskExecutionListEntryTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
-    NextToken: Optional[str] = None
+    NextToken: Optional[Annotated[str, _aws_pattern("Datasync", "NextToken")]] = None
 
 
 class ListTasksRequestPaginateTypeDef(BaseValidatorModel):
@@ -890,7 +892,7 @@ class ListTasksRequestPaginateTypeDef(BaseValidatorModel):
 # This class is the input for the 'list_tasks' function.
 class ListTasksRequestTypeDef(BaseValidatorModel):
     MaxResults: Optional[int] = None
-    NextToken: Optional[str] = None
+    NextToken: Optional[Annotated[str, _aws_pattern("Datasync", "NextToken")]] = None
     Filters: Optional[List[TaskFilterTypeDef]] = None
 
 
@@ -898,7 +900,7 @@ class ListTasksRequestTypeDef(BaseValidatorModel):
 class ListTasksResponseTypeDef(BaseValidatorModel):
     Tasks: List[TaskListEntryTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
-    NextToken: Optional[str] = None
+    NextToken: Optional[Annotated[str, _aws_pattern("Datasync", "NextToken")]] = None
 
 
 OnPremConfigUnionTypeDef = Union[OnPremConfigOutputTypeDef, OnPremConfigTypeDef]
@@ -923,7 +925,7 @@ class SourceManifestConfigTypeDef(BaseValidatorModel):
 class ListAgentsResponseTypeDef(BaseValidatorModel):
     Agents: List[AgentListEntryTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
-    NextToken: Optional[str] = None
+    NextToken: Optional[Annotated[str, _aws_pattern("Datasync", "NextToken")]] = None
 
 
 class FsxUpdateProtocolTypeDef(BaseValidatorModel):
@@ -938,28 +940,28 @@ class FsxProtocolTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'create_location_efs' function.
 class CreateLocationEfsRequestTypeDef(BaseValidatorModel):
-    EfsFilesystemArn: str
+    EfsFilesystemArn: Annotated[str, _aws_pattern("Datasync", "EfsFilesystemArn")]
     Ec2Config: Ec2ConfigUnionTypeDef
-    Subdirectory: Optional[str] = None
+    Subdirectory: Optional[Annotated[str, _aws_pattern("Datasync", "EfsSubdirectory")]] = None
     Tags: Optional[List[TagListEntryTypeDef]] = None
-    AccessPointArn: Optional[str] = None
-    FileSystemAccessRoleArn: Optional[str] = None
+    AccessPointArn: Optional[Annotated[str, _aws_pattern("Datasync", "EfsAccessPointArn")]] = None
+    FileSystemAccessRoleArn: Optional[Annotated[str, _aws_pattern("Datasync", "IamRoleArn")]] = None
     InTransitEncryption: Optional[EfsInTransitEncryptionType] = None
 
 
 # This class is the input for the 'create_location_nfs' function.
 class CreateLocationNfsRequestTypeDef(BaseValidatorModel):
-    Subdirectory: str
-    ServerHostname: str
+    Subdirectory: Annotated[str, _aws_pattern("Datasync", "NfsSubdirectory")]
+    ServerHostname: Annotated[str, _aws_pattern("Datasync", "ServerHostname")]
     OnPremConfig: OnPremConfigUnionTypeDef
     MountOptions: Optional[NfsMountOptionsTypeDef] = None
     Tags: Optional[List[TagListEntryTypeDef]] = None
 
 
 class UpdateLocationNfsRequestTypeDef(BaseValidatorModel):
-    LocationArn: str
-    Subdirectory: Optional[str] = None
-    ServerHostname: Optional[str] = None
+    LocationArn: Annotated[str, _aws_pattern("Datasync", "LocationArn")]
+    Subdirectory: Optional[Annotated[str, _aws_pattern("Datasync", "NfsSubdirectory")]] = None
+    ServerHostname: Optional[Annotated[str, _aws_pattern("Datasync", "ServerHostname")]] = None
     OnPremConfig: Optional[OnPremConfigUnionTypeDef] = None
     MountOptions: Optional[NfsMountOptionsTypeDef] = None
 
@@ -979,63 +981,63 @@ class ManifestConfigTypeDef(BaseValidatorModel):
 
 
 class UpdateLocationFsxOntapRequestTypeDef(BaseValidatorModel):
-    LocationArn: str
+    LocationArn: Annotated[str, _aws_pattern("Datasync", "LocationArn")]
     Protocol: Optional[FsxUpdateProtocolTypeDef] = None
-    Subdirectory: Optional[str] = None
+    Subdirectory: Optional[Annotated[str, _aws_pattern("Datasync", "FsxOntapSubdirectory")]] = None
 
 
 # This class is the input for the 'create_location_fsx_ontap' function.
 class CreateLocationFsxOntapRequestTypeDef(BaseValidatorModel):
     Protocol: FsxProtocolTypeDef
-    SecurityGroupArns: List[str]
-    StorageVirtualMachineArn: str
-    Subdirectory: Optional[str] = None
+    SecurityGroupArns: List[Annotated[str, _aws_pattern("Datasync", "Ec2SecurityGroupArn")]]
+    StorageVirtualMachineArn: Annotated[str, _aws_pattern("Datasync", "StorageVirtualMachineArn")]
+    Subdirectory: Optional[Annotated[str, _aws_pattern("Datasync", "FsxOntapSubdirectory")]] = None
     Tags: Optional[List[TagListEntryTypeDef]] = None
 
 
 # This class is the input for the 'create_location_fsx_open_zfs' function.
 class CreateLocationFsxOpenZfsRequestTypeDef(BaseValidatorModel):
-    FsxFilesystemArn: str
+    FsxFilesystemArn: Annotated[str, _aws_pattern("Datasync", "FsxFilesystemArn")]
     Protocol: FsxProtocolTypeDef
-    SecurityGroupArns: List[str]
-    Subdirectory: Optional[str] = None
+    SecurityGroupArns: List[Annotated[str, _aws_pattern("Datasync", "Ec2SecurityGroupArn")]]
+    Subdirectory: Optional[Annotated[str, _aws_pattern("Datasync", "FsxOpenZfsSubdirectory")]] = None
     Tags: Optional[List[TagListEntryTypeDef]] = None
 
 
 # This class is the output for the 'describe_location_fsx_ontap' function.
 class DescribeLocationFsxOntapResponseTypeDef(BaseValidatorModel):
     CreationTime: datetime
-    LocationArn: str
-    LocationUri: str
+    LocationArn: Annotated[str, _aws_pattern("Datasync", "LocationArn")]
+    LocationUri: Annotated[str, _aws_pattern("Datasync", "LocationUri")]
     Protocol: FsxProtocolTypeDef
-    SecurityGroupArns: List[str]
-    StorageVirtualMachineArn: str
-    FsxFilesystemArn: str
+    SecurityGroupArns: List[Annotated[str, _aws_pattern("Datasync", "Ec2SecurityGroupArn")]]
+    StorageVirtualMachineArn: Annotated[str, _aws_pattern("Datasync", "StorageVirtualMachineArn")]
+    FsxFilesystemArn: Annotated[str, _aws_pattern("Datasync", "FsxFilesystemArn")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 # This class is the output for the 'describe_location_fsx_open_zfs' function.
 class DescribeLocationFsxOpenZfsResponseTypeDef(BaseValidatorModel):
-    LocationArn: str
-    LocationUri: str
-    SecurityGroupArns: List[str]
+    LocationArn: Annotated[str, _aws_pattern("Datasync", "LocationArn")]
+    LocationUri: Annotated[str, _aws_pattern("Datasync", "LocationUri")]
+    SecurityGroupArns: List[Annotated[str, _aws_pattern("Datasync", "Ec2SecurityGroupArn")]]
     Protocol: FsxProtocolTypeDef
     CreationTime: datetime
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 class UpdateLocationFsxOpenZfsRequestTypeDef(BaseValidatorModel):
-    LocationArn: str
+    LocationArn: Annotated[str, _aws_pattern("Datasync", "LocationArn")]
     Protocol: Optional[FsxProtocolTypeDef] = None
-    Subdirectory: Optional[str] = None
+    Subdirectory: Optional[Annotated[str, _aws_pattern("Datasync", "SmbSubdirectory")]] = None
 
 
 # This class is the input for the 'create_task' function.
 class CreateTaskRequestTypeDef(BaseValidatorModel):
-    SourceLocationArn: str
-    DestinationLocationArn: str
-    CloudWatchLogGroupArn: Optional[str] = None
-    Name: Optional[str] = None
+    SourceLocationArn: Annotated[str, _aws_pattern("Datasync", "LocationArn")]
+    DestinationLocationArn: Annotated[str, _aws_pattern("Datasync", "LocationArn")]
+    CloudWatchLogGroupArn: Optional[Annotated[str, _aws_pattern("Datasync", "LogGroupArn")]] = None
+    Name: Optional[Annotated[str, _aws_pattern("Datasync", "TagValue")]] = None
     Options: Optional[OptionsTypeDef] = None
     Excludes: Optional[List[FilterRuleTypeDef]] = None
     Schedule: Optional[TaskScheduleTypeDef] = None
@@ -1048,7 +1050,7 @@ class CreateTaskRequestTypeDef(BaseValidatorModel):
 
 # This class is the output for the 'describe_task_execution' function.
 class DescribeTaskExecutionResponseTypeDef(BaseValidatorModel):
-    TaskExecutionArn: str
+    TaskExecutionArn: Annotated[str, _aws_pattern("Datasync", "TaskExecutionArn")]
     Status: TaskExecutionStatusType
     Options: OptionsTypeDef
     Excludes: List[FilterRuleTypeDef]
@@ -1088,15 +1090,15 @@ class DescribeTaskExecutionResponseTypeDef(BaseValidatorModel):
 
 # This class is the output for the 'describe_task' function.
 class DescribeTaskResponseTypeDef(BaseValidatorModel):
-    TaskArn: str
+    TaskArn: Annotated[str, _aws_pattern("Datasync", "TaskArn")]
     Status: TaskStatusType
-    Name: str
-    CurrentTaskExecutionArn: str
-    SourceLocationArn: str
-    DestinationLocationArn: str
-    CloudWatchLogGroupArn: str
-    SourceNetworkInterfaceArns: List[str]
-    DestinationNetworkInterfaceArns: List[str]
+    Name: Annotated[str, _aws_pattern("Datasync", "TagValue")]
+    CurrentTaskExecutionArn: Annotated[str, _aws_pattern("Datasync", "TaskExecutionArn")]
+    SourceLocationArn: Annotated[str, _aws_pattern("Datasync", "LocationArn")]
+    DestinationLocationArn: Annotated[str, _aws_pattern("Datasync", "LocationArn")]
+    CloudWatchLogGroupArn: Annotated[str, _aws_pattern("Datasync", "LogGroupArn")]
+    SourceNetworkInterfaceArns: List[Annotated[str, _aws_pattern("Datasync", "NetworkInterfaceArn")]]
+    DestinationNetworkInterfaceArns: List[Annotated[str, _aws_pattern("Datasync", "NetworkInterfaceArn")]]
     Options: OptionsTypeDef
     Excludes: List[FilterRuleTypeDef]
     Schedule: TaskScheduleTypeDef
@@ -1113,7 +1115,7 @@ class DescribeTaskResponseTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'start_task_execution' function.
 class StartTaskExecutionRequestTypeDef(BaseValidatorModel):
-    TaskArn: str
+    TaskArn: Annotated[str, _aws_pattern("Datasync", "TaskArn")]
     OverrideOptions: Optional[OptionsTypeDef] = None
     Includes: Optional[List[FilterRuleTypeDef]] = None
     Excludes: Optional[List[FilterRuleTypeDef]] = None
@@ -1123,12 +1125,12 @@ class StartTaskExecutionRequestTypeDef(BaseValidatorModel):
 
 
 class UpdateTaskRequestTypeDef(BaseValidatorModel):
-    TaskArn: str
+    TaskArn: Annotated[str, _aws_pattern("Datasync", "TaskArn")]
     Options: Optional[OptionsTypeDef] = None
     Excludes: Optional[List[FilterRuleTypeDef]] = None
     Schedule: Optional[TaskScheduleTypeDef] = None
-    Name: Optional[str] = None
-    CloudWatchLogGroupArn: Optional[str] = None
+    Name: Optional[Annotated[str, _aws_pattern("Datasync", "TagValue")]] = None
+    CloudWatchLogGroupArn: Optional[Annotated[str, _aws_pattern("Datasync", "LogGroupArn")]] = None
     Includes: Optional[List[FilterRuleTypeDef]] = None
     ManifestConfig: Optional[ManifestConfigTypeDef] = None
     TaskReportConfig: Optional[TaskReportConfigTypeDef] = None

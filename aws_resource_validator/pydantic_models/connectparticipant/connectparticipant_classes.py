@@ -3,6 +3,7 @@
 from datetime import datetime
 from decimal import Decimal
 from typing import (
+    Annotated,
     Any,
     Callable,
     Dict,
@@ -24,6 +25,7 @@ from botocore.response import StreamingBody
 from pydantic import Field
 
 from aws_resource_validator.core.base_validator_model import BaseValidatorModel, EventStream
+from aws_resource_validator.core.pattern_validation import aws_field_pattern as _aws_pattern
 from aws_resource_validator.pydantic_models.connectparticipant.connectparticipant_constants import *  # noqa: F401,F403
 
 # Optional boto3 symbols — imported lazily so services that don't need them
@@ -165,7 +167,7 @@ class UploadMetadataTypeDef(BaseValidatorModel):
 class ViewContentTypeDef(BaseValidatorModel):
     InputSchema: Optional[str] = None
     Template: Optional[str] = None
-    Actions: Optional[List[str]] = None
+    Actions: Optional[List[Annotated[str, _aws_pattern("Connectparticipant", "ViewAction")]]] = None
 
 
 class WebRTCMediaPlacementTypeDef(BaseValidatorModel):
@@ -233,9 +235,9 @@ class StartAttachmentUploadResponseTypeDef(BaseValidatorModel):
 
 
 class ViewTypeDef(BaseValidatorModel):
-    Id: Optional[str] = None
+    Id: Optional[Annotated[str, _aws_pattern("Connectparticipant", "ViewId")]] = None
     Arn: Optional[str] = None
-    Name: Optional[str] = None
+    Name: Optional[Annotated[str, _aws_pattern("Connectparticipant", "ViewName")]] = None
     Version: Optional[int] = None
     Content: Optional[ViewContentTypeDef] = None
 
@@ -243,7 +245,7 @@ class ViewTypeDef(BaseValidatorModel):
 class WebRTCMeetingTypeDef(BaseValidatorModel):
     MediaPlacement: Optional[WebRTCMediaPlacementTypeDef] = None
     MeetingFeatures: Optional[MeetingFeaturesConfigurationTypeDef] = None
-    MeetingId: Optional[str] = None
+    MeetingId: Optional[Annotated[str, _aws_pattern("Connectparticipant", "GuidString")]] = None
 
 
 class ItemTypeDef(BaseValidatorModel):

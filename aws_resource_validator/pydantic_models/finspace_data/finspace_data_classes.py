@@ -3,6 +3,7 @@
 from datetime import datetime
 from decimal import Decimal
 from typing import (
+    Annotated,
     Any,
     Callable,
     Dict,
@@ -24,6 +25,7 @@ from botocore.response import StreamingBody
 from pydantic import Field
 
 from aws_resource_validator.core.base_validator_model import BaseValidatorModel, EventStream
+from aws_resource_validator.core.pattern_validation import aws_field_pattern as _aws_pattern
 from aws_resource_validator.pydantic_models.finspace_data.finspace_data_constants import *  # noqa: F401,F403
 
 # Optional boto3 symbols — imported lazily so services that don't need them
@@ -40,9 +42,9 @@ except ImportError:  # pragma: no cover
 
 # This class is the input for the 'associate_user_to_permission_group' function.
 class AssociateUserToPermissionGroupRequestTypeDef(BaseValidatorModel):
-    permissionGroupId: str
-    userId: str
-    clientToken: Optional[str] = None
+    permissionGroupId: Annotated[str, _aws_pattern("FinspaceData", "PermissionGroupId")]
+    userId: Annotated[str, _aws_pattern("FinspaceData", "UserId")]
+    clientToken: Optional[Annotated[str, _aws_pattern("FinspaceData", "ClientToken")]] = None
 
 
 class ResponseMetadataTypeDef(BaseValidatorModel):
@@ -54,9 +56,9 @@ class ResponseMetadataTypeDef(BaseValidatorModel):
 
 
 class AwsCredentialsTypeDef(BaseValidatorModel):
-    accessKeyId: Optional[str] = None
-    secretAccessKey: Optional[str] = None
-    sessionToken: Optional[str] = None
+    accessKeyId: Optional[Annotated[str, _aws_pattern("FinspaceData", "AccessKeyId")]] = None
+    secretAccessKey: Optional[Annotated[str, _aws_pattern("FinspaceData", "SecretAccessKey")]] = None
+    sessionToken: Optional[Annotated[str, _aws_pattern("FinspaceData", "SessionToken")]] = None
     expiration: Optional[int] = None
 
 
@@ -67,8 +69,8 @@ class ChangesetErrorInfoTypeDef(BaseValidatorModel):
 
 class ColumnDefinitionTypeDef(BaseValidatorModel):
     dataType: Optional[ColumnDataTypeType] = None
-    columnName: Optional[str] = None
-    columnDescription: Optional[str] = None
+    columnName: Optional[Annotated[str, _aws_pattern("FinspaceData", "ColumnName")]] = None
+    columnDescription: Optional[Annotated[str, _aws_pattern("FinspaceData", "ColumnDescription")]] = None
 
 
 # This class is the input for the 'create_changeset' function.
@@ -77,32 +79,32 @@ class CreateChangesetRequestTypeDef(BaseValidatorModel):
     changeType: ChangeTypeType
     sourceParams: Dict[str, str]
     formatParams: Dict[str, str]
-    clientToken: Optional[str] = None
+    clientToken: Optional[Annotated[str, _aws_pattern("FinspaceData", "ClientToken")]] = None
 
 
 class DatasetOwnerInfoTypeDef(BaseValidatorModel):
-    name: Optional[str] = None
-    phoneNumber: Optional[str] = None
-    email: Optional[str] = None
+    name: Optional[Annotated[str, _aws_pattern("FinspaceData", "OwnerName")]] = None
+    phoneNumber: Optional[Annotated[str, _aws_pattern("FinspaceData", "PhoneNumber")]] = None
+    email: Optional[Annotated[str, _aws_pattern("FinspaceData", "Email")]] = None
 
 
 # This class is the input for the 'create_permission_group' function.
 class CreatePermissionGroupRequestTypeDef(BaseValidatorModel):
-    name: str
+    name: Annotated[str, _aws_pattern("FinspaceData", "PermissionGroupName")]
     applicationPermissions: List[ApplicationPermissionType]
-    description: Optional[str] = None
-    clientToken: Optional[str] = None
+    description: Optional[Annotated[str, _aws_pattern("FinspaceData", "PermissionGroupDescription")]] = None
+    clientToken: Optional[Annotated[str, _aws_pattern("FinspaceData", "ClientToken")]] = None
 
 
 # This class is the input for the 'create_user' function.
 class CreateUserRequestTypeDef(BaseValidatorModel):
-    emailAddress: str
+    emailAddress: Annotated[str, _aws_pattern("FinspaceData", "Email")]
     type: UserTypeType
-    firstName: Optional[str] = None
-    lastName: Optional[str] = None
+    firstName: Optional[Annotated[str, _aws_pattern("FinspaceData", "FirstName")]] = None
+    lastName: Optional[Annotated[str, _aws_pattern("FinspaceData", "LastName")]] = None
     apiAccess: Optional[ApiAccessType] = None
-    apiAccessPrincipalArn: Optional[str] = None
-    clientToken: Optional[str] = None
+    apiAccessPrincipalArn: Optional[Annotated[str, _aws_pattern("FinspaceData", "RoleArn")]] = None
+    clientToken: Optional[Annotated[str, _aws_pattern("FinspaceData", "ClientToken")]] = None
 
 
 class CredentialsTypeDef(BaseValidatorModel):
@@ -131,32 +133,32 @@ class DataViewErrorInfoTypeDef(BaseValidatorModel):
 # This class is the input for the 'delete_dataset' function.
 class DeleteDatasetRequestTypeDef(BaseValidatorModel):
     datasetId: str
-    clientToken: Optional[str] = None
+    clientToken: Optional[Annotated[str, _aws_pattern("FinspaceData", "ClientToken")]] = None
 
 
 # This class is the input for the 'delete_permission_group' function.
 class DeletePermissionGroupRequestTypeDef(BaseValidatorModel):
-    permissionGroupId: str
-    clientToken: Optional[str] = None
+    permissionGroupId: Annotated[str, _aws_pattern("FinspaceData", "PermissionGroupId")]
+    clientToken: Optional[Annotated[str, _aws_pattern("FinspaceData", "ClientToken")]] = None
 
 
 # This class is the input for the 'disable_user' function.
 class DisableUserRequestTypeDef(BaseValidatorModel):
-    userId: str
-    clientToken: Optional[str] = None
+    userId: Annotated[str, _aws_pattern("FinspaceData", "UserId")]
+    clientToken: Optional[Annotated[str, _aws_pattern("FinspaceData", "ClientToken")]] = None
 
 
 # This class is the input for the 'disassociate_user_from_permission_group' function.
 class DisassociateUserFromPermissionGroupRequestTypeDef(BaseValidatorModel):
-    permissionGroupId: str
-    userId: str
-    clientToken: Optional[str] = None
+    permissionGroupId: Annotated[str, _aws_pattern("FinspaceData", "PermissionGroupId")]
+    userId: Annotated[str, _aws_pattern("FinspaceData", "UserId")]
+    clientToken: Optional[Annotated[str, _aws_pattern("FinspaceData", "ClientToken")]] = None
 
 
 # This class is the input for the 'enable_user' function.
 class EnableUserRequestTypeDef(BaseValidatorModel):
-    userId: str
-    clientToken: Optional[str] = None
+    userId: Annotated[str, _aws_pattern("FinspaceData", "UserId")]
+    clientToken: Optional[Annotated[str, _aws_pattern("FinspaceData", "ClientToken")]] = None
 
 
 # This class is the input for the 'get_changeset' function.
@@ -173,7 +175,7 @@ class GetDataViewRequestTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'get_dataset' function.
 class GetDatasetRequestTypeDef(BaseValidatorModel):
-    datasetId: str
+    datasetId: Annotated[str, _aws_pattern("FinspaceData", "StringValueLength1to255")]
 
 
 # This class is the input for the 'get_external_data_view_access_details' function.
@@ -183,19 +185,19 @@ class GetExternalDataViewAccessDetailsRequestTypeDef(BaseValidatorModel):
 
 
 class S3LocationTypeDef(BaseValidatorModel):
-    bucket: str
-    key: str
+    bucket: Annotated[str, _aws_pattern("FinspaceData", "S3BucketName")]
+    key: Annotated[str, _aws_pattern("FinspaceData", "S3Key")]
 
 
 # This class is the input for the 'get_permission_group' function.
 class GetPermissionGroupRequestTypeDef(BaseValidatorModel):
-    permissionGroupId: str
+    permissionGroupId: Annotated[str, _aws_pattern("FinspaceData", "PermissionGroupId")]
 
 
 class PermissionGroupTypeDef(BaseValidatorModel):
-    permissionGroupId: Optional[str] = None
-    name: Optional[str] = None
-    description: Optional[str] = None
+    permissionGroupId: Optional[Annotated[str, _aws_pattern("FinspaceData", "PermissionGroupId")]] = None
+    name: Optional[Annotated[str, _aws_pattern("FinspaceData", "PermissionGroupName")]] = None
+    description: Optional[Annotated[str, _aws_pattern("FinspaceData", "PermissionGroupDescription")]] = None
     applicationPermissions: Optional[List[ApplicationPermissionType]] = None
     createTime: Optional[int] = None
     lastModifiedTime: Optional[int] = None
@@ -210,7 +212,7 @@ class GetProgrammaticAccessCredentialsRequestTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'get_user' function.
 class GetUserRequestTypeDef(BaseValidatorModel):
-    userId: str
+    userId: Annotated[str, _aws_pattern("FinspaceData", "UserId")]
 
 
 # This class is the input for the 'get_working_location' function.
@@ -246,14 +248,14 @@ class ListDatasetsRequestTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'list_permission_groups_by_user' function.
 class ListPermissionGroupsByUserRequestTypeDef(BaseValidatorModel):
-    userId: str
+    userId: Annotated[str, _aws_pattern("FinspaceData", "UserId")]
     maxResults: int
     nextToken: Optional[str] = None
 
 
 class PermissionGroupByUserTypeDef(BaseValidatorModel):
-    permissionGroupId: Optional[str] = None
-    name: Optional[str] = None
+    permissionGroupId: Optional[Annotated[str, _aws_pattern("FinspaceData", "PermissionGroupId")]] = None
+    name: Optional[Annotated[str, _aws_pattern("FinspaceData", "PermissionGroupName")]] = None
     membershipStatus: Optional[PermissionGroupMembershipStatusType] = None
 
 
@@ -265,20 +267,20 @@ class ListPermissionGroupsRequestTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'list_users_by_permission_group' function.
 class ListUsersByPermissionGroupRequestTypeDef(BaseValidatorModel):
-    permissionGroupId: str
+    permissionGroupId: Annotated[str, _aws_pattern("FinspaceData", "PermissionGroupId")]
     maxResults: int
     nextToken: Optional[str] = None
 
 
 class UserByPermissionGroupTypeDef(BaseValidatorModel):
-    userId: Optional[str] = None
+    userId: Optional[Annotated[str, _aws_pattern("FinspaceData", "UserId")]] = None
     status: Optional[UserStatusType] = None
-    firstName: Optional[str] = None
-    lastName: Optional[str] = None
-    emailAddress: Optional[str] = None
+    firstName: Optional[Annotated[str, _aws_pattern("FinspaceData", "FirstName")]] = None
+    lastName: Optional[Annotated[str, _aws_pattern("FinspaceData", "LastName")]] = None
+    emailAddress: Optional[Annotated[str, _aws_pattern("FinspaceData", "Email")]] = None
     type: Optional[UserTypeType] = None
     apiAccess: Optional[ApiAccessType] = None
-    apiAccessPrincipalArn: Optional[str] = None
+    apiAccessPrincipalArn: Optional[Annotated[str, _aws_pattern("FinspaceData", "RoleArn")]] = None
     membershipStatus: Optional[PermissionGroupMembershipStatusType] = None
 
 
@@ -289,14 +291,14 @@ class ListUsersRequestTypeDef(BaseValidatorModel):
 
 
 class UserTypeDef(BaseValidatorModel):
-    userId: Optional[str] = None
+    userId: Optional[Annotated[str, _aws_pattern("FinspaceData", "UserId")]] = None
     status: Optional[UserStatusType] = None
-    firstName: Optional[str] = None
-    lastName: Optional[str] = None
-    emailAddress: Optional[str] = None
+    firstName: Optional[Annotated[str, _aws_pattern("FinspaceData", "FirstName")]] = None
+    lastName: Optional[Annotated[str, _aws_pattern("FinspaceData", "LastName")]] = None
+    emailAddress: Optional[Annotated[str, _aws_pattern("FinspaceData", "Email")]] = None
     type: Optional[UserTypeType] = None
     apiAccess: Optional[ApiAccessType] = None
-    apiAccessPrincipalArn: Optional[str] = None
+    apiAccessPrincipalArn: Optional[Annotated[str, _aws_pattern("FinspaceData", "RoleArn")]] = None
     createTime: Optional[int] = None
     lastEnabledTime: Optional[int] = None
     lastDisabledTime: Optional[int] = None
@@ -305,13 +307,13 @@ class UserTypeDef(BaseValidatorModel):
 
 
 class ResourcePermissionTypeDef(BaseValidatorModel):
-    permission: Optional[str] = None
+    permission: Optional[Annotated[str, _aws_pattern("FinspaceData", "StringValueLength1to250")]] = None
 
 
 # This class is the input for the 'reset_user_password' function.
 class ResetUserPasswordRequestTypeDef(BaseValidatorModel):
-    userId: str
-    clientToken: Optional[str] = None
+    userId: Annotated[str, _aws_pattern("FinspaceData", "UserId")]
+    clientToken: Optional[Annotated[str, _aws_pattern("FinspaceData", "ClientToken")]] = None
 
 
 # This class is the input for the 'update_changeset' function.
@@ -320,27 +322,27 @@ class UpdateChangesetRequestTypeDef(BaseValidatorModel):
     changesetId: str
     sourceParams: Dict[str, str]
     formatParams: Dict[str, str]
-    clientToken: Optional[str] = None
+    clientToken: Optional[Annotated[str, _aws_pattern("FinspaceData", "ClientToken")]] = None
 
 
 # This class is the input for the 'update_permission_group' function.
 class UpdatePermissionGroupRequestTypeDef(BaseValidatorModel):
-    permissionGroupId: str
-    name: Optional[str] = None
-    description: Optional[str] = None
+    permissionGroupId: Annotated[str, _aws_pattern("FinspaceData", "PermissionGroupId")]
+    name: Optional[Annotated[str, _aws_pattern("FinspaceData", "PermissionGroupName")]] = None
+    description: Optional[Annotated[str, _aws_pattern("FinspaceData", "PermissionGroupDescription")]] = None
     applicationPermissions: Optional[List[ApplicationPermissionType]] = None
-    clientToken: Optional[str] = None
+    clientToken: Optional[Annotated[str, _aws_pattern("FinspaceData", "ClientToken")]] = None
 
 
 # This class is the input for the 'update_user' function.
 class UpdateUserRequestTypeDef(BaseValidatorModel):
-    userId: str
+    userId: Annotated[str, _aws_pattern("FinspaceData", "UserId")]
     type: Optional[UserTypeType] = None
-    firstName: Optional[str] = None
-    lastName: Optional[str] = None
+    firstName: Optional[Annotated[str, _aws_pattern("FinspaceData", "FirstName")]] = None
+    lastName: Optional[Annotated[str, _aws_pattern("FinspaceData", "LastName")]] = None
     apiAccess: Optional[ApiAccessType] = None
-    apiAccessPrincipalArn: Optional[str] = None
-    clientToken: Optional[str] = None
+    apiAccessPrincipalArn: Optional[Annotated[str, _aws_pattern("FinspaceData", "RoleArn")]] = None
+    clientToken: Optional[Annotated[str, _aws_pattern("FinspaceData", "ClientToken")]] = None
 
 
 # This class is the output for the 'associate_user_to_permission_group' function.
@@ -371,13 +373,13 @@ class CreateDatasetResponseTypeDef(BaseValidatorModel):
 
 # This class is the output for the 'create_permission_group' function.
 class CreatePermissionGroupResponseTypeDef(BaseValidatorModel):
-    permissionGroupId: str
+    permissionGroupId: Annotated[str, _aws_pattern("FinspaceData", "PermissionGroupId")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 # This class is the output for the 'create_user' function.
 class CreateUserResponseTypeDef(BaseValidatorModel):
-    userId: str
+    userId: Annotated[str, _aws_pattern("FinspaceData", "UserId")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
@@ -389,13 +391,13 @@ class DeleteDatasetResponseTypeDef(BaseValidatorModel):
 
 # This class is the output for the 'delete_permission_group' function.
 class DeletePermissionGroupResponseTypeDef(BaseValidatorModel):
-    permissionGroupId: str
+    permissionGroupId: Annotated[str, _aws_pattern("FinspaceData", "PermissionGroupId")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 # This class is the output for the 'disable_user' function.
 class DisableUserResponseTypeDef(BaseValidatorModel):
-    userId: str
+    userId: Annotated[str, _aws_pattern("FinspaceData", "UserId")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
@@ -407,20 +409,20 @@ class DisassociateUserFromPermissionGroupResponseTypeDef(BaseValidatorModel):
 
 # This class is the output for the 'enable_user' function.
 class EnableUserResponseTypeDef(BaseValidatorModel):
-    userId: str
+    userId: Annotated[str, _aws_pattern("FinspaceData", "UserId")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 # This class is the output for the 'get_user' function.
 class GetUserResponseTypeDef(BaseValidatorModel):
-    userId: str
+    userId: Annotated[str, _aws_pattern("FinspaceData", "UserId")]
     status: UserStatusType
-    firstName: str
-    lastName: str
-    emailAddress: str
+    firstName: Annotated[str, _aws_pattern("FinspaceData", "FirstName")]
+    lastName: Annotated[str, _aws_pattern("FinspaceData", "LastName")]
+    emailAddress: Annotated[str, _aws_pattern("FinspaceData", "Email")]
     type: UserTypeType
     apiAccess: ApiAccessType
-    apiAccessPrincipalArn: str
+    apiAccessPrincipalArn: Annotated[str, _aws_pattern("FinspaceData", "RoleArn")]
     createTime: int
     lastEnabledTime: int
     lastDisabledTime: int
@@ -431,16 +433,16 @@ class GetUserResponseTypeDef(BaseValidatorModel):
 
 # This class is the output for the 'get_working_location' function.
 class GetWorkingLocationResponseTypeDef(BaseValidatorModel):
-    s3Uri: str
-    s3Path: str
-    s3Bucket: str
+    s3Uri: Annotated[str, _aws_pattern("FinspaceData", "stringValueLength1to1024")]
+    s3Path: Annotated[str, _aws_pattern("FinspaceData", "stringValueLength1to1024")]
+    s3Bucket: Annotated[str, _aws_pattern("FinspaceData", "stringValueLength1to63")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 # This class is the output for the 'reset_user_password' function.
 class ResetUserPasswordResponseTypeDef(BaseValidatorModel):
-    userId: str
-    temporaryPassword: str
+    userId: Annotated[str, _aws_pattern("FinspaceData", "UserId")]
+    temporaryPassword: Annotated[str, _aws_pattern("FinspaceData", "Password")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
@@ -459,13 +461,13 @@ class UpdateDatasetResponseTypeDef(BaseValidatorModel):
 
 # This class is the output for the 'update_permission_group' function.
 class UpdatePermissionGroupResponseTypeDef(BaseValidatorModel):
-    permissionGroupId: str
+    permissionGroupId: Annotated[str, _aws_pattern("FinspaceData", "PermissionGroupId")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 # This class is the output for the 'update_user' function.
 class UpdateUserResponseTypeDef(BaseValidatorModel):
-    userId: str
+    userId: Annotated[str, _aws_pattern("FinspaceData", "UserId")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
@@ -510,7 +512,7 @@ class SchemaDefinitionOutputTypeDef(BaseValidatorModel):
 
 class SchemaDefinitionTypeDef(BaseValidatorModel):
     columns: Optional[List[ColumnDefinitionTypeDef]] = None
-    primaryKeyColumns: Optional[List[str]] = None
+    primaryKeyColumns: Optional[List[Annotated[str, _aws_pattern("FinspaceData", "ColumnName")]]] = None
 
 
 # This class is the output for the 'get_programmatic_access_credentials' function.
@@ -530,8 +532,8 @@ class DataViewSummaryTypeDef(BaseValidatorModel):
     dataViewArn: Optional[str] = None
     datasetId: Optional[str] = None
     asOfTimestamp: Optional[int] = None
-    partitionColumns: Optional[List[str]] = None
-    sortColumns: Optional[List[str]] = None
+    partitionColumns: Optional[List[Annotated[str, _aws_pattern("FinspaceData", "StringValueLength1to255")]]] = None
+    sortColumns: Optional[List[Annotated[str, _aws_pattern("FinspaceData", "StringValueLength1to255")]]] = None
     status: Optional[DataViewStatusType] = None
     errorInfo: Optional[DataViewErrorInfoTypeDef] = None
     destinationTypeProperties: Optional[DataViewDestinationTypeParamsOutputTypeDef] = None
@@ -543,13 +545,13 @@ class DataViewSummaryTypeDef(BaseValidatorModel):
 # This class is the output for the 'get_data_view' function.
 class GetDataViewResponseTypeDef(BaseValidatorModel):
     autoUpdate: bool
-    partitionColumns: List[str]
+    partitionColumns: List[Annotated[str, _aws_pattern("FinspaceData", "StringValueLength1to255")]]
     datasetId: str
     asOfTimestamp: int
     errorInfo: DataViewErrorInfoTypeDef
     lastModifiedTime: int
     createTime: int
-    sortColumns: List[str]
+    sortColumns: List[Annotated[str, _aws_pattern("FinspaceData", "StringValueLength1to255")]]
     dataViewId: str
     dataViewArn: str
     destinationTypeParams: DataViewDestinationTypeParamsOutputTypeDef
@@ -621,7 +623,7 @@ class ListUsersResponseTypeDef(BaseValidatorModel):
 
 
 class PermissionGroupParamsTypeDef(BaseValidatorModel):
-    permissionGroupId: Optional[str] = None
+    permissionGroupId: Optional[Annotated[str, _aws_pattern("FinspaceData", "PermissionGroupId")]] = None
     datasetPermissions: Optional[List[ResourcePermissionTypeDef]] = None
 
 
@@ -644,10 +646,10 @@ class SchemaUnionTypeDef(BaseValidatorModel):
 class CreateDataViewRequestTypeDef(BaseValidatorModel):
     datasetId: str
     destinationTypeParams: DataViewDestinationTypeParamsUnionTypeDef
-    clientToken: Optional[str] = None
+    clientToken: Optional[Annotated[str, _aws_pattern("FinspaceData", "ClientToken")]] = None
     autoUpdate: Optional[bool] = None
-    sortColumns: Optional[List[str]] = None
-    partitionColumns: Optional[List[str]] = None
+    sortColumns: Optional[List[Annotated[str, _aws_pattern("FinspaceData", "StringValueLength1to255")]]] = None
+    partitionColumns: Optional[List[Annotated[str, _aws_pattern("FinspaceData", "StringValueLength1to255")]]] = None
     asOfTimestamp: Optional[int] = None
 
 
@@ -661,27 +663,27 @@ class ListDataViewsResponseTypeDef(BaseValidatorModel):
 class DatasetTypeDef(BaseValidatorModel):
     datasetId: Optional[str] = None
     datasetArn: Optional[str] = None
-    datasetTitle: Optional[str] = None
+    datasetTitle: Optional[Annotated[str, _aws_pattern("FinspaceData", "DatasetTitle")]] = None
     kind: Optional[DatasetKindType] = None
-    datasetDescription: Optional[str] = None
+    datasetDescription: Optional[Annotated[str, _aws_pattern("FinspaceData", "DatasetDescription")]] = None
     ownerInfo: Optional[DatasetOwnerInfoTypeDef] = None
     createTime: Optional[int] = None
     lastModifiedTime: Optional[int] = None
     schemaDefinition: Optional[SchemaUnionOutputTypeDef] = None
-    alias: Optional[str] = None
+    alias: Optional[Annotated[str, _aws_pattern("FinspaceData", "AliasString")]] = None
 
 
 # This class is the output for the 'get_dataset' function.
 class GetDatasetResponseTypeDef(BaseValidatorModel):
     datasetId: str
     datasetArn: str
-    datasetTitle: str
+    datasetTitle: Annotated[str, _aws_pattern("FinspaceData", "DatasetTitle")]
     kind: DatasetKindType
-    datasetDescription: str
+    datasetDescription: Annotated[str, _aws_pattern("FinspaceData", "DatasetDescription")]
     createTime: int
     lastModifiedTime: int
     schemaDefinition: SchemaUnionOutputTypeDef
-    alias: str
+    alias: Annotated[str, _aws_pattern("FinspaceData", "AliasString")]
     status: DatasetStatusType
     ResponseMetadata: ResponseMetadataTypeDef
 
@@ -698,22 +700,22 @@ class ListDatasetsResponseTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'create_dataset' function.
 class CreateDatasetRequestTypeDef(BaseValidatorModel):
-    datasetTitle: str
+    datasetTitle: Annotated[str, _aws_pattern("FinspaceData", "DatasetTitle")]
     kind: DatasetKindType
     permissionGroupParams: PermissionGroupParamsTypeDef
-    clientToken: Optional[str] = None
-    datasetDescription: Optional[str] = None
+    clientToken: Optional[Annotated[str, _aws_pattern("FinspaceData", "ClientToken")]] = None
+    datasetDescription: Optional[Annotated[str, _aws_pattern("FinspaceData", "DatasetDescription")]] = None
     ownerInfo: Optional[DatasetOwnerInfoTypeDef] = None
-    alias: Optional[str] = None
+    alias: Optional[Annotated[str, _aws_pattern("FinspaceData", "AliasString")]] = None
     schemaDefinition: Optional[SchemaUnionUnionTypeDef] = None
 
 
 # This class is the input for the 'update_dataset' function.
 class UpdateDatasetRequestTypeDef(BaseValidatorModel):
     datasetId: str
-    datasetTitle: str
+    datasetTitle: Annotated[str, _aws_pattern("FinspaceData", "DatasetTitle")]
     kind: DatasetKindType
-    clientToken: Optional[str] = None
-    datasetDescription: Optional[str] = None
-    alias: Optional[str] = None
+    clientToken: Optional[Annotated[str, _aws_pattern("FinspaceData", "ClientToken")]] = None
+    datasetDescription: Optional[Annotated[str, _aws_pattern("FinspaceData", "DatasetDescription")]] = None
+    alias: Optional[Annotated[str, _aws_pattern("FinspaceData", "AliasString")]] = None
     schemaDefinition: Optional[SchemaUnionUnionTypeDef] = None

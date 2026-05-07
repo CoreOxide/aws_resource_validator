@@ -3,6 +3,7 @@
 from datetime import datetime
 from decimal import Decimal
 from typing import (
+    Annotated,
     Any,
     Callable,
     Dict,
@@ -24,6 +25,7 @@ from botocore.response import StreamingBody
 from pydantic import Field
 
 from aws_resource_validator.core.base_validator_model import BaseValidatorModel, EventStream
+from aws_resource_validator.core.pattern_validation import aws_field_pattern as _aws_pattern
 from aws_resource_validator.pydantic_models.workspaces_thin_client.workspaces_thin_client_constants import *  # noqa: F401,F403
 
 # Optional boto3 symbols — imported lazily so services that don't need them
@@ -47,51 +49,51 @@ class ResponseMetadataTypeDef(BaseValidatorModel):
 
 
 class DeleteDeviceRequestTypeDef(BaseValidatorModel):
-    id: str
+    id: Annotated[str, _aws_pattern("WorkspacesThinClient", "DeviceId")]
     clientToken: Optional[str] = None
 
 
 class DeleteEnvironmentRequestTypeDef(BaseValidatorModel):
-    id: str
+    id: Annotated[str, _aws_pattern("WorkspacesThinClient", "EnvironmentId")]
     clientToken: Optional[str] = None
 
 
 class DeregisterDeviceRequestTypeDef(BaseValidatorModel):
-    id: str
+    id: Annotated[str, _aws_pattern("WorkspacesThinClient", "DeviceId")]
     targetDeviceStatus: Optional[TargetDeviceStatusType] = None
     clientToken: Optional[str] = None
 
 
 class DeviceSummaryTypeDef(BaseValidatorModel):
-    id: Optional[str] = None
+    id: Optional[Annotated[str, _aws_pattern("WorkspacesThinClient", "DeviceId")]] = None
     serialNumber: Optional[str] = None
-    name: Optional[str] = None
+    name: Optional[Annotated[str, _aws_pattern("WorkspacesThinClient", "DeviceName")]] = None
     model: Optional[str] = None
-    environmentId: Optional[str] = None
+    environmentId: Optional[Annotated[str, _aws_pattern("WorkspacesThinClient", "EnvironmentId")]] = None
     status: Optional[DeviceStatusType] = None
-    currentSoftwareSetId: Optional[str] = None
-    desiredSoftwareSetId: Optional[str] = None
-    pendingSoftwareSetId: Optional[str] = None
+    currentSoftwareSetId: Optional[Annotated[str, _aws_pattern("WorkspacesThinClient", "SoftwareSetId")]] = None
+    desiredSoftwareSetId: Optional[Annotated[str, _aws_pattern("WorkspacesThinClient", "SoftwareSetId")]] = None
+    pendingSoftwareSetId: Optional[Annotated[str, _aws_pattern("WorkspacesThinClient", "SoftwareSetId")]] = None
     softwareSetUpdateSchedule: Optional[SoftwareSetUpdateScheduleType] = None
     lastConnectedAt: Optional[datetime] = None
     lastPostureAt: Optional[datetime] = None
     createdAt: Optional[datetime] = None
     updatedAt: Optional[datetime] = None
-    arn: Optional[str] = None
+    arn: Optional[Annotated[str, _aws_pattern("WorkspacesThinClient", "Arn")]] = None
     lastUserId: Optional[str] = None
 
 
 class DeviceTypeDef(BaseValidatorModel):
-    id: Optional[str] = None
+    id: Optional[Annotated[str, _aws_pattern("WorkspacesThinClient", "DeviceId")]] = None
     serialNumber: Optional[str] = None
-    name: Optional[str] = None
+    name: Optional[Annotated[str, _aws_pattern("WorkspacesThinClient", "DeviceName")]] = None
     model: Optional[str] = None
-    environmentId: Optional[str] = None
+    environmentId: Optional[Annotated[str, _aws_pattern("WorkspacesThinClient", "EnvironmentId")]] = None
     status: Optional[DeviceStatusType] = None
-    currentSoftwareSetId: Optional[str] = None
+    currentSoftwareSetId: Optional[Annotated[str, _aws_pattern("WorkspacesThinClient", "SoftwareSetId")]] = None
     currentSoftwareSetVersion: Optional[str] = None
-    desiredSoftwareSetId: Optional[str] = None
-    pendingSoftwareSetId: Optional[str] = None
+    desiredSoftwareSetId: Optional[Annotated[str, _aws_pattern("WorkspacesThinClient", "SoftwareSetId")]] = None
+    pendingSoftwareSetId: Optional[Annotated[str, _aws_pattern("WorkspacesThinClient", "SoftwareSetId")]] = None
     pendingSoftwareSetVersion: Optional[str] = None
     softwareSetUpdateSchedule: Optional[SoftwareSetUpdateScheduleType] = None
     softwareSetComplianceStatus: Optional[DeviceSoftwareSetComplianceStatusType] = None
@@ -100,8 +102,8 @@ class DeviceTypeDef(BaseValidatorModel):
     lastPostureAt: Optional[datetime] = None
     createdAt: Optional[datetime] = None
     updatedAt: Optional[datetime] = None
-    arn: Optional[str] = None
-    kmsKeyArn: Optional[str] = None
+    arn: Optional[Annotated[str, _aws_pattern("WorkspacesThinClient", "Arn")]] = None
+    kmsKeyArn: Optional[Annotated[str, _aws_pattern("WorkspacesThinClient", "KmsKeyArn")]] = None
     lastUserId: Optional[str] = None
 
 
@@ -117,17 +119,17 @@ class MaintenanceWindowOutputTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'get_device' function.
 class GetDeviceRequestTypeDef(BaseValidatorModel):
-    id: str
+    id: Annotated[str, _aws_pattern("WorkspacesThinClient", "DeviceId")]
 
 
 # This class is the input for the 'get_environment' function.
 class GetEnvironmentRequestTypeDef(BaseValidatorModel):
-    id: str
+    id: Annotated[str, _aws_pattern("WorkspacesThinClient", "EnvironmentId")]
 
 
 # This class is the input for the 'get_software_set' function.
 class GetSoftwareSetRequestTypeDef(BaseValidatorModel):
-    id: str
+    id: Annotated[str, _aws_pattern("WorkspacesThinClient", "SoftwareSetId")]
 
 
 class PaginatorConfigTypeDef(BaseValidatorModel):
@@ -138,29 +140,29 @@ class PaginatorConfigTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'list_devices' function.
 class ListDevicesRequestTypeDef(BaseValidatorModel):
-    nextToken: Optional[str] = None
+    nextToken: Optional[Annotated[str, _aws_pattern("WorkspacesThinClient", "PaginationToken")]] = None
     maxResults: Optional[int] = None
 
 
 # This class is the input for the 'list_environments' function.
 class ListEnvironmentsRequestTypeDef(BaseValidatorModel):
-    nextToken: Optional[str] = None
+    nextToken: Optional[Annotated[str, _aws_pattern("WorkspacesThinClient", "PaginationToken")]] = None
     maxResults: Optional[int] = None
 
 
 # This class is the input for the 'list_software_sets' function.
 class ListSoftwareSetsRequestTypeDef(BaseValidatorModel):
-    nextToken: Optional[str] = None
+    nextToken: Optional[Annotated[str, _aws_pattern("WorkspacesThinClient", "PaginationToken")]] = None
     maxResults: Optional[int] = None
 
 
 class SoftwareSetSummaryTypeDef(BaseValidatorModel):
-    id: Optional[str] = None
+    id: Optional[Annotated[str, _aws_pattern("WorkspacesThinClient", "SoftwareSetId")]] = None
     version: Optional[str] = None
     releasedAt: Optional[datetime] = None
     supportedUntil: Optional[datetime] = None
     validationStatus: Optional[SoftwareSetValidationStatusType] = None
-    arn: Optional[str] = None
+    arn: Optional[Annotated[str, _aws_pattern("WorkspacesThinClient", "Arn")]] = None
 
 
 # This class is the input for the 'list_tags_for_resource' function.
@@ -195,14 +197,14 @@ class UntagResourceRequestTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'update_device' function.
 class UpdateDeviceRequestTypeDef(BaseValidatorModel):
-    id: str
-    name: Optional[str] = None
-    desiredSoftwareSetId: Optional[str] = None
+    id: Annotated[str, _aws_pattern("WorkspacesThinClient", "DeviceId")]
+    name: Optional[Annotated[str, _aws_pattern("WorkspacesThinClient", "DeviceName")]] = None
+    desiredSoftwareSetId: Optional[Annotated[str, _aws_pattern("WorkspacesThinClient", "SoftwareSetId")]] = None
     softwareSetUpdateSchedule: Optional[SoftwareSetUpdateScheduleType] = None
 
 
 class UpdateSoftwareSetRequestTypeDef(BaseValidatorModel):
-    id: str
+    id: Annotated[str, _aws_pattern("WorkspacesThinClient", "SoftwareSetId")]
     validationStatus: SoftwareSetValidationStatusType
 
 
@@ -216,7 +218,7 @@ class ListTagsForResourceResponseTypeDef(BaseValidatorModel):
 class ListDevicesResponseTypeDef(BaseValidatorModel):
     devices: List[DeviceSummaryTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
-    nextToken: Optional[str] = None
+    nextToken: Optional[Annotated[str, _aws_pattern("WorkspacesThinClient", "PaginationToken")]] = None
 
 
 # This class is the output for the 'update_device' function.
@@ -232,41 +234,41 @@ class GetDeviceResponseTypeDef(BaseValidatorModel):
 
 
 class EnvironmentSummaryTypeDef(BaseValidatorModel):
-    id: Optional[str] = None
-    name: Optional[str] = None
-    desktopArn: Optional[str] = None
-    desktopEndpoint: Optional[str] = None
+    id: Optional[Annotated[str, _aws_pattern("WorkspacesThinClient", "EnvironmentId")]] = None
+    name: Optional[Annotated[str, _aws_pattern("WorkspacesThinClient", "EnvironmentName")]] = None
+    desktopArn: Optional[Annotated[str, _aws_pattern("WorkspacesThinClient", "Arn")]] = None
+    desktopEndpoint: Optional[Annotated[str, _aws_pattern("WorkspacesThinClient", "DesktopEndpoint")]] = None
     desktopType: Optional[DesktopTypeType] = None
-    activationCode: Optional[str] = None
+    activationCode: Optional[Annotated[str, _aws_pattern("WorkspacesThinClient", "ActivationCode")]] = None
     softwareSetUpdateSchedule: Optional[SoftwareSetUpdateScheduleType] = None
     maintenanceWindow: Optional[MaintenanceWindowOutputTypeDef] = None
     softwareSetUpdateMode: Optional[SoftwareSetUpdateModeType] = None
-    desiredSoftwareSetId: Optional[str] = None
-    pendingSoftwareSetId: Optional[str] = None
+    desiredSoftwareSetId: Optional[Annotated[str, _aws_pattern("WorkspacesThinClient", "SoftwareSetId")]] = None
+    pendingSoftwareSetId: Optional[Annotated[str, _aws_pattern("WorkspacesThinClient", "SoftwareSetId")]] = None
     createdAt: Optional[datetime] = None
     updatedAt: Optional[datetime] = None
-    arn: Optional[str] = None
+    arn: Optional[Annotated[str, _aws_pattern("WorkspacesThinClient", "Arn")]] = None
 
 
 class EnvironmentTypeDef(BaseValidatorModel):
-    id: Optional[str] = None
-    name: Optional[str] = None
-    desktopArn: Optional[str] = None
-    desktopEndpoint: Optional[str] = None
+    id: Optional[Annotated[str, _aws_pattern("WorkspacesThinClient", "EnvironmentId")]] = None
+    name: Optional[Annotated[str, _aws_pattern("WorkspacesThinClient", "EnvironmentName")]] = None
+    desktopArn: Optional[Annotated[str, _aws_pattern("WorkspacesThinClient", "Arn")]] = None
+    desktopEndpoint: Optional[Annotated[str, _aws_pattern("WorkspacesThinClient", "DesktopEndpoint")]] = None
     desktopType: Optional[DesktopTypeType] = None
-    activationCode: Optional[str] = None
+    activationCode: Optional[Annotated[str, _aws_pattern("WorkspacesThinClient", "ActivationCode")]] = None
     registeredDevicesCount: Optional[int] = None
     softwareSetUpdateSchedule: Optional[SoftwareSetUpdateScheduleType] = None
     maintenanceWindow: Optional[MaintenanceWindowOutputTypeDef] = None
     softwareSetUpdateMode: Optional[SoftwareSetUpdateModeType] = None
-    desiredSoftwareSetId: Optional[str] = None
-    pendingSoftwareSetId: Optional[str] = None
+    desiredSoftwareSetId: Optional[Annotated[str, _aws_pattern("WorkspacesThinClient", "SoftwareSetId")]] = None
+    pendingSoftwareSetId: Optional[Annotated[str, _aws_pattern("WorkspacesThinClient", "SoftwareSetId")]] = None
     pendingSoftwareSetVersion: Optional[str] = None
     softwareSetComplianceStatus: Optional[EnvironmentSoftwareSetComplianceStatusType] = None
     createdAt: Optional[datetime] = None
     updatedAt: Optional[datetime] = None
-    arn: Optional[str] = None
-    kmsKeyArn: Optional[str] = None
+    arn: Optional[Annotated[str, _aws_pattern("WorkspacesThinClient", "Arn")]] = None
+    kmsKeyArn: Optional[Annotated[str, _aws_pattern("WorkspacesThinClient", "KmsKeyArn")]] = None
     deviceCreationTags: Optional[Dict[str, str]] = None
 
 
@@ -286,20 +288,20 @@ class ListSoftwareSetsRequestPaginateTypeDef(BaseValidatorModel):
 class ListSoftwareSetsResponseTypeDef(BaseValidatorModel):
     softwareSets: List[SoftwareSetSummaryTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
-    nextToken: Optional[str] = None
+    nextToken: Optional[Annotated[str, _aws_pattern("WorkspacesThinClient", "PaginationToken")]] = None
 
 
 MaintenanceWindowUnionTypeDef = Union[MaintenanceWindowOutputTypeDef, MaintenanceWindowTypeDef]
 
 
 class SoftwareSetTypeDef(BaseValidatorModel):
-    id: Optional[str] = None
+    id: Optional[Annotated[str, _aws_pattern("WorkspacesThinClient", "SoftwareSetId")]] = None
     version: Optional[str] = None
     releasedAt: Optional[datetime] = None
     supportedUntil: Optional[datetime] = None
     validationStatus: Optional[SoftwareSetValidationStatusType] = None
     software: Optional[List[SoftwareTypeDef]] = None
-    arn: Optional[str] = None
+    arn: Optional[Annotated[str, _aws_pattern("WorkspacesThinClient", "Arn")]] = None
 
 
 # This class is the output for the 'create_environment' function.
@@ -312,7 +314,7 @@ class CreateEnvironmentResponseTypeDef(BaseValidatorModel):
 class ListEnvironmentsResponseTypeDef(BaseValidatorModel):
     environments: List[EnvironmentSummaryTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
-    nextToken: Optional[str] = None
+    nextToken: Optional[Annotated[str, _aws_pattern("WorkspacesThinClient", "PaginationToken")]] = None
 
 
 # This class is the output for the 'update_environment' function.
@@ -329,14 +331,14 @@ class GetEnvironmentResponseTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'create_environment' function.
 class CreateEnvironmentRequestTypeDef(BaseValidatorModel):
-    desktopArn: str
-    name: Optional[str] = None
-    desktopEndpoint: Optional[str] = None
+    desktopArn: Annotated[str, _aws_pattern("WorkspacesThinClient", "Arn")]
+    name: Optional[Annotated[str, _aws_pattern("WorkspacesThinClient", "EnvironmentName")]] = None
+    desktopEndpoint: Optional[Annotated[str, _aws_pattern("WorkspacesThinClient", "DesktopEndpoint")]] = None
     softwareSetUpdateSchedule: Optional[SoftwareSetUpdateScheduleType] = None
     maintenanceWindow: Optional[MaintenanceWindowUnionTypeDef] = None
     softwareSetUpdateMode: Optional[SoftwareSetUpdateModeType] = None
-    desiredSoftwareSetId: Optional[str] = None
-    kmsKeyArn: Optional[str] = None
+    desiredSoftwareSetId: Optional[Annotated[str, _aws_pattern("WorkspacesThinClient", "SoftwareSetId")]] = None
+    kmsKeyArn: Optional[Annotated[str, _aws_pattern("WorkspacesThinClient", "KmsKeyArn")]] = None
     clientToken: Optional[str] = None
     tags: Optional[Dict[str, str]] = None
     deviceCreationTags: Optional[Dict[str, str]] = None
@@ -344,14 +346,16 @@ class CreateEnvironmentRequestTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'update_environment' function.
 class UpdateEnvironmentRequestTypeDef(BaseValidatorModel):
-    id: str
-    name: Optional[str] = None
-    desktopArn: Optional[str] = None
-    desktopEndpoint: Optional[str] = None
+    id: Annotated[str, _aws_pattern("WorkspacesThinClient", "EnvironmentId")]
+    name: Optional[Annotated[str, _aws_pattern("WorkspacesThinClient", "EnvironmentName")]] = None
+    desktopArn: Optional[Annotated[str, _aws_pattern("WorkspacesThinClient", "Arn")]] = None
+    desktopEndpoint: Optional[Annotated[str, _aws_pattern("WorkspacesThinClient", "DesktopEndpoint")]] = None
     softwareSetUpdateSchedule: Optional[SoftwareSetUpdateScheduleType] = None
     maintenanceWindow: Optional[MaintenanceWindowUnionTypeDef] = None
     softwareSetUpdateMode: Optional[SoftwareSetUpdateModeType] = None
-    desiredSoftwareSetId: Optional[str] = None
+    desiredSoftwareSetId: Optional[
+        Annotated[str, _aws_pattern("WorkspacesThinClient", "SoftwareSetIdOrEmptyString")]
+    ] = None
     deviceCreationTags: Optional[Dict[str, str]] = None
 
 

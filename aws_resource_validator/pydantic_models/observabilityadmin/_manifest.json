@@ -41,6 +41,7 @@
     "ListTelemetryRulesInputTypeDef",
     "LogDeliveryParametersOutputTypeDef",
     "LogDeliveryParametersTypeDef",
+    "MskMonitoringParametersTypeDef",
     "PipelineOutputErrorTypeDef",
     "RecordTypeDef",
     "StartTelemetryEvaluationForOrganizationInputTypeDef",

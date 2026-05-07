@@ -3,6 +3,7 @@
 from datetime import datetime
 from decimal import Decimal
 from typing import (
+    Annotated,
     Any,
     Callable,
     Dict,
@@ -24,6 +25,7 @@ from botocore.response import StreamingBody
 from pydantic import Field
 
 from aws_resource_validator.core.base_validator_model import BaseValidatorModel, EventStream
+from aws_resource_validator.core.pattern_validation import aws_field_pattern as _aws_pattern
 from aws_resource_validator.pydantic_models.athena.athena_constants import *  # noqa: F401,F403
 
 # Optional boto3 symbols — imported lazily so services that don't need them
@@ -56,7 +58,7 @@ class AthenaErrorTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'batch_get_named_query' function.
 class BatchGetNamedQueryInputTypeDef(BaseValidatorModel):
-    NamedQueryIds: List[str]
+    NamedQueryIds: List[Annotated[str, _aws_pattern("Athena", "NamedQueryId")]]
 
 
 class NamedQueryTypeDef(BaseValidatorModel):
@@ -64,8 +66,8 @@ class NamedQueryTypeDef(BaseValidatorModel):
     Database: str
     QueryString: str
     Description: Optional[str] = None
-    NamedQueryId: Optional[str] = None
-    WorkGroup: Optional[str] = None
+    NamedQueryId: Optional[Annotated[str, _aws_pattern("Athena", "NamedQueryId")]] = None
+    WorkGroup: Optional[Annotated[str, _aws_pattern("Athena", "WorkGroupName")]] = None
 
 
 class ResponseMetadataTypeDef(BaseValidatorModel):
@@ -77,38 +79,38 @@ class ResponseMetadataTypeDef(BaseValidatorModel):
 
 
 class UnprocessedNamedQueryIdTypeDef(BaseValidatorModel):
-    NamedQueryId: Optional[str] = None
+    NamedQueryId: Optional[Annotated[str, _aws_pattern("Athena", "NamedQueryId")]] = None
     ErrorCode: Optional[str] = None
     ErrorMessage: Optional[str] = None
 
 
 # This class is the input for the 'batch_get_prepared_statement' function.
 class BatchGetPreparedStatementInputTypeDef(BaseValidatorModel):
-    PreparedStatementNames: List[str]
-    WorkGroup: str
+    PreparedStatementNames: List[Annotated[str, _aws_pattern("Athena", "StatementName")]]
+    WorkGroup: Annotated[str, _aws_pattern("Athena", "WorkGroupName")]
 
 
 class PreparedStatementTypeDef(BaseValidatorModel):
-    StatementName: Optional[str] = None
+    StatementName: Optional[Annotated[str, _aws_pattern("Athena", "StatementName")]] = None
     QueryStatement: Optional[str] = None
-    WorkGroupName: Optional[str] = None
+    WorkGroupName: Optional[Annotated[str, _aws_pattern("Athena", "WorkGroupName")]] = None
     Description: Optional[str] = None
     LastModifiedTime: Optional[datetime] = None
 
 
 class UnprocessedPreparedStatementNameTypeDef(BaseValidatorModel):
-    StatementName: Optional[str] = None
+    StatementName: Optional[Annotated[str, _aws_pattern("Athena", "StatementName")]] = None
     ErrorCode: Optional[str] = None
     ErrorMessage: Optional[str] = None
 
 
 # This class is the input for the 'batch_get_query_execution' function.
 class BatchGetQueryExecutionInputTypeDef(BaseValidatorModel):
-    QueryExecutionIds: List[str]
+    QueryExecutionIds: List[Annotated[str, _aws_pattern("Athena", "QueryExecutionId")]]
 
 
 class UnprocessedQueryExecutionIdTypeDef(BaseValidatorModel):
-    QueryExecutionId: Optional[str] = None
+    QueryExecutionId: Optional[Annotated[str, _aws_pattern("Athena", "QueryExecutionId")]] = None
     ErrorCode: Optional[str] = None
     ErrorMessage: Optional[str] = None
 
@@ -118,10 +120,10 @@ class CalculationConfigurationTypeDef(BaseValidatorModel):
 
 
 class CalculationResultTypeDef(BaseValidatorModel):
-    StdOutS3Uri: Optional[str] = None
-    StdErrorS3Uri: Optional[str] = None
-    ResultS3Uri: Optional[str] = None
-    ResultType: Optional[str] = None
+    StdOutS3Uri: Optional[Annotated[str, _aws_pattern("Athena", "S3Uri")]] = None
+    StdErrorS3Uri: Optional[Annotated[str, _aws_pattern("Athena", "S3Uri")]] = None
+    ResultS3Uri: Optional[Annotated[str, _aws_pattern("Athena", "S3Uri")]] = None
+    ResultType: Optional[Annotated[str, _aws_pattern("Athena", "CalculationResultType")]] = None
 
 
 class CalculationStatisticsTypeDef(BaseValidatorModel):
@@ -137,7 +139,7 @@ class CalculationStatusTypeDef(BaseValidatorModel):
 
 
 class CancelCapacityReservationInputTypeDef(BaseValidatorModel):
-    Name: str
+    Name: Annotated[str, _aws_pattern("Athena", "CapacityReservationName")]
 
 
 class CapacityAllocationTypeDef(BaseValidatorModel):
@@ -152,7 +154,7 @@ class CapacityAssignmentOutputTypeDef(BaseValidatorModel):
 
 
 class CapacityAssignmentTypeDef(BaseValidatorModel):
-    WorkGroupNames: Optional[List[str]] = None
+    WorkGroupNames: Optional[List[Annotated[str, _aws_pattern("Athena", "WorkGroupName")]]] = None
 
 
 class ClassificationOutputTypeDef(BaseValidatorModel):
@@ -174,8 +176,8 @@ class CloudWatchLoggingConfigurationOutputTypeDef(BaseValidatorModel):
 
 class CloudWatchLoggingConfigurationTypeDef(BaseValidatorModel):
     Enabled: bool
-    LogGroup: Optional[str] = None
-    LogStreamNamePrefix: Optional[str] = None
+    LogGroup: Optional[Annotated[str, _aws_pattern("Athena", "LogGroupName")]] = None
+    LogStreamNamePrefix: Optional[Annotated[str, _aws_pattern("Athena", "LogStreamNamePrefix")]] = None
     LogTypes: Optional[Dict[str, List[str]]] = None
 
 
@@ -194,8 +196,8 @@ class ColumnInfoTypeDef(BaseValidatorModel):
 
 class ColumnTypeDef(BaseValidatorModel):
     Name: str
-    Type: Optional[str] = None
-    Comment: Optional[str] = None
+    Type: Optional[Annotated[str, _aws_pattern("Athena", "TypeString")]] = None
+    Comment: Optional[Annotated[str, _aws_pattern("Athena", "CommentString")]] = None
 
 
 class TagTypeDef(BaseValidatorModel):
@@ -204,7 +206,7 @@ class TagTypeDef(BaseValidatorModel):
 
 
 class DataCatalogTypeDef(BaseValidatorModel):
-    Name: str
+    Name: Annotated[str, _aws_pattern("Athena", "CatalogNameString")]
     Type: DataCatalogTypeType
     Description: Optional[str] = None
     Parameters: Optional[Dict[str, str]] = None
@@ -220,19 +222,19 @@ class CreateNamedQueryInputTypeDef(BaseValidatorModel):
     QueryString: str
     Description: Optional[str] = None
     ClientRequestToken: Optional[str] = None
-    WorkGroup: Optional[str] = None
+    WorkGroup: Optional[Annotated[str, _aws_pattern("Athena", "WorkGroupName")]] = None
 
 
 # This class is the input for the 'create_notebook' function.
 class CreateNotebookInputTypeDef(BaseValidatorModel):
-    WorkGroup: str
-    Name: str
-    ClientRequestToken: Optional[str] = None
+    WorkGroup: Annotated[str, _aws_pattern("Athena", "WorkGroupName")]
+    Name: Annotated[str, _aws_pattern("Athena", "NotebookName")]
+    ClientRequestToken: Optional[Annotated[str, _aws_pattern("Athena", "ClientRequestToken")]] = None
 
 
 class CreatePreparedStatementInputTypeDef(BaseValidatorModel):
-    StatementName: str
-    WorkGroup: str
+    StatementName: Annotated[str, _aws_pattern("Athena", "StatementName")]
+    WorkGroup: Annotated[str, _aws_pattern("Athena", "WorkGroupName")]
     QueryStatement: str
     Description: Optional[str] = None
 
@@ -243,11 +245,11 @@ class CreatePresignedNotebookUrlRequestTypeDef(BaseValidatorModel):
 
 
 class CustomerContentEncryptionConfigurationTypeDef(BaseValidatorModel):
-    KmsKey: str
+    KmsKey: Annotated[str, _aws_pattern("Athena", "KmsKey")]
 
 
 class DataCatalogSummaryTypeDef(BaseValidatorModel):
-    CatalogName: Optional[str] = None
+    CatalogName: Optional[Annotated[str, _aws_pattern("Athena", "CatalogNameString")]] = None
     Type: Optional[DataCatalogTypeType] = None
     Status: Optional[DataCatalogStatusType] = None
     ConnectionType: Optional[ConnectionTypeType] = None
@@ -265,30 +267,30 @@ class DatumTypeDef(BaseValidatorModel):
 
 
 class DeleteCapacityReservationInputTypeDef(BaseValidatorModel):
-    Name: str
+    Name: Annotated[str, _aws_pattern("Athena", "CapacityReservationName")]
 
 
 # This class is the input for the 'delete_data_catalog' function.
 class DeleteDataCatalogInputTypeDef(BaseValidatorModel):
-    Name: str
+    Name: Annotated[str, _aws_pattern("Athena", "CatalogNameString")]
     DeleteCatalogOnly: Optional[bool] = None
 
 
 class DeleteNamedQueryInputTypeDef(BaseValidatorModel):
-    NamedQueryId: str
+    NamedQueryId: Annotated[str, _aws_pattern("Athena", "NamedQueryId")]
 
 
 class DeleteNotebookInputTypeDef(BaseValidatorModel):
-    NotebookId: str
+    NotebookId: Annotated[str, _aws_pattern("Athena", "NotebookId")]
 
 
 class DeletePreparedStatementInputTypeDef(BaseValidatorModel):
-    StatementName: str
-    WorkGroup: str
+    StatementName: Annotated[str, _aws_pattern("Athena", "StatementName")]
+    WorkGroup: Annotated[str, _aws_pattern("Athena", "WorkGroupName")]
 
 
 class DeleteWorkGroupInputTypeDef(BaseValidatorModel):
-    WorkGroup: str
+    WorkGroup: Annotated[str, _aws_pattern("Athena", "WorkGroupName")]
     RecursiveDeleteOption: Optional[bool] = None
 
 
@@ -303,7 +305,7 @@ class EngineVersionTypeDef(BaseValidatorModel):
 
 
 class ExecutorsSummaryTypeDef(BaseValidatorModel):
-    ExecutorId: str
+    ExecutorId: Annotated[str, _aws_pattern("Athena", "ExecutorId")]
     ExecutorType: Optional[ExecutorTypeType] = None
     StartDateTime: Optional[int] = None
     TerminationDateTime: Optional[int] = None
@@ -313,20 +315,20 @@ class ExecutorsSummaryTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'export_notebook' function.
 class ExportNotebookInputTypeDef(BaseValidatorModel):
-    NotebookId: str
+    NotebookId: Annotated[str, _aws_pattern("Athena", "NotebookId")]
 
 
 class NotebookMetadataTypeDef(BaseValidatorModel):
-    NotebookId: Optional[str] = None
-    Name: Optional[str] = None
-    WorkGroup: Optional[str] = None
+    NotebookId: Optional[Annotated[str, _aws_pattern("Athena", "NotebookId")]] = None
+    Name: Optional[Annotated[str, _aws_pattern("Athena", "NotebookName")]] = None
+    WorkGroup: Optional[Annotated[str, _aws_pattern("Athena", "WorkGroupName")]] = None
     CreationTime: Optional[datetime] = None
     Type: Optional[Literal["IPYNB"]] = None
     LastModifiedTime: Optional[datetime] = None
 
 
 class FilterDefinitionTypeDef(BaseValidatorModel):
-    Name: Optional[str] = None
+    Name: Optional[Annotated[str, _aws_pattern("Athena", "NotebookName")]] = None
 
 
 # This class is the input for the 'get_calculation_execution_code' function.
@@ -346,46 +348,46 @@ class GetCalculationExecutionStatusRequestTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'get_capacity_assignment_configuration' function.
 class GetCapacityAssignmentConfigurationInputTypeDef(BaseValidatorModel):
-    CapacityReservationName: str
+    CapacityReservationName: Annotated[str, _aws_pattern("Athena", "CapacityReservationName")]
 
 
 # This class is the input for the 'get_capacity_reservation' function.
 class GetCapacityReservationInputTypeDef(BaseValidatorModel):
-    Name: str
+    Name: Annotated[str, _aws_pattern("Athena", "CapacityReservationName")]
 
 
 # This class is the input for the 'get_data_catalog' function.
 class GetDataCatalogInputTypeDef(BaseValidatorModel):
-    Name: str
-    WorkGroup: Optional[str] = None
+    Name: Annotated[str, _aws_pattern("Athena", "CatalogNameString")]
+    WorkGroup: Optional[Annotated[str, _aws_pattern("Athena", "WorkGroupName")]] = None
 
 
 # This class is the input for the 'get_database' function.
 class GetDatabaseInputTypeDef(BaseValidatorModel):
-    CatalogName: str
+    CatalogName: Annotated[str, _aws_pattern("Athena", "CatalogNameString")]
     DatabaseName: str
-    WorkGroup: Optional[str] = None
+    WorkGroup: Optional[Annotated[str, _aws_pattern("Athena", "WorkGroupName")]] = None
 
 
 # This class is the input for the 'get_named_query' function.
 class GetNamedQueryInputTypeDef(BaseValidatorModel):
-    NamedQueryId: str
+    NamedQueryId: Annotated[str, _aws_pattern("Athena", "NamedQueryId")]
 
 
 # This class is the input for the 'get_notebook_metadata' function.
 class GetNotebookMetadataInputTypeDef(BaseValidatorModel):
-    NotebookId: str
+    NotebookId: Annotated[str, _aws_pattern("Athena", "NotebookId")]
 
 
 # This class is the input for the 'get_prepared_statement' function.
 class GetPreparedStatementInputTypeDef(BaseValidatorModel):
-    StatementName: str
-    WorkGroup: str
+    StatementName: Annotated[str, _aws_pattern("Athena", "StatementName")]
+    WorkGroup: Annotated[str, _aws_pattern("Athena", "WorkGroupName")]
 
 
 # This class is the input for the 'get_query_execution' function.
 class GetQueryExecutionInputTypeDef(BaseValidatorModel):
-    QueryExecutionId: str
+    QueryExecutionId: Annotated[str, _aws_pattern("Athena", "QueryExecutionId")]
 
 
 class PaginatorConfigTypeDef(BaseValidatorModel):
@@ -396,7 +398,7 @@ class PaginatorConfigTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'get_query_results' function.
 class GetQueryResultsInputTypeDef(BaseValidatorModel):
-    QueryExecutionId: str
+    QueryExecutionId: Annotated[str, _aws_pattern("Athena", "QueryExecutionId")]
     NextToken: Optional[str] = None
     MaxResults: Optional[int] = None
     QueryResultType: Optional[QueryResultTypeType] = None
@@ -404,7 +406,7 @@ class GetQueryResultsInputTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'get_query_runtime_statistics' function.
 class GetQueryRuntimeStatisticsInputTypeDef(BaseValidatorModel):
-    QueryExecutionId: str
+    QueryExecutionId: Annotated[str, _aws_pattern("Athena", "QueryExecutionId")]
 
 
 # This class is the input for the 'get_resource_dashboard' function.
@@ -442,30 +444,30 @@ class GetSessionStatusRequestTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'get_table_metadata' function.
 class GetTableMetadataInputTypeDef(BaseValidatorModel):
-    CatalogName: str
+    CatalogName: Annotated[str, _aws_pattern("Athena", "CatalogNameString")]
     DatabaseName: str
     TableName: str
-    WorkGroup: Optional[str] = None
+    WorkGroup: Optional[Annotated[str, _aws_pattern("Athena", "WorkGroupName")]] = None
 
 
 # This class is the input for the 'get_work_group' function.
 class GetWorkGroupInputTypeDef(BaseValidatorModel):
-    WorkGroup: str
+    WorkGroup: Annotated[str, _aws_pattern("Athena", "WorkGroupName")]
 
 
 class IdentityCenterConfigurationTypeDef(BaseValidatorModel):
     EnableIdentityCenter: Optional[bool] = None
-    IdentityCenterInstanceArn: Optional[str] = None
+    IdentityCenterInstanceArn: Optional[Annotated[str, _aws_pattern("Athena", "IdentityCenterInstanceArn")]] = None
 
 
 # This class is the input for the 'import_notebook' function.
 class ImportNotebookInputTypeDef(BaseValidatorModel):
-    WorkGroup: str
-    Name: str
+    WorkGroup: Annotated[str, _aws_pattern("Athena", "WorkGroupName")]
+    Name: Annotated[str, _aws_pattern("Athena", "NotebookName")]
     Type: Literal["IPYNB"]
     Payload: Optional[str] = None
-    NotebookS3LocationUri: Optional[str] = None
-    ClientRequestToken: Optional[str] = None
+    NotebookS3LocationUri: Optional[Annotated[str, _aws_pattern("Athena", "S3Uri")]] = None
+    ClientRequestToken: Optional[Annotated[str, _aws_pattern("Athena", "ClientRequestToken")]] = None
 
 
 # This class is the input for the 'list_application_dpu_sizes' function.
@@ -492,15 +494,15 @@ class ListCapacityReservationsInputTypeDef(BaseValidatorModel):
 class ListDataCatalogsInputTypeDef(BaseValidatorModel):
     NextToken: Optional[str] = None
     MaxResults: Optional[int] = None
-    WorkGroup: Optional[str] = None
+    WorkGroup: Optional[Annotated[str, _aws_pattern("Athena", "WorkGroupName")]] = None
 
 
 # This class is the input for the 'list_databases' function.
 class ListDatabasesInputTypeDef(BaseValidatorModel):
-    CatalogName: str
+    CatalogName: Annotated[str, _aws_pattern("Athena", "CatalogNameString")]
     NextToken: Optional[str] = None
     MaxResults: Optional[int] = None
-    WorkGroup: Optional[str] = None
+    WorkGroup: Optional[Annotated[str, _aws_pattern("Athena", "WorkGroupName")]] = None
 
 
 # This class is the input for the 'list_engine_versions' function.
@@ -521,12 +523,12 @@ class ListExecutorsRequestTypeDef(BaseValidatorModel):
 class ListNamedQueriesInputTypeDef(BaseValidatorModel):
     NextToken: Optional[str] = None
     MaxResults: Optional[int] = None
-    WorkGroup: Optional[str] = None
+    WorkGroup: Optional[Annotated[str, _aws_pattern("Athena", "WorkGroupName")]] = None
 
 
 # This class is the input for the 'list_notebook_sessions' function.
 class ListNotebookSessionsRequestTypeDef(BaseValidatorModel):
-    NotebookId: str
+    NotebookId: Annotated[str, _aws_pattern("Athena", "NotebookId")]
     MaxResults: Optional[int] = None
     NextToken: Optional[str] = None
 
@@ -538,13 +540,13 @@ class NotebookSessionSummaryTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'list_prepared_statements' function.
 class ListPreparedStatementsInputTypeDef(BaseValidatorModel):
-    WorkGroup: str
+    WorkGroup: Annotated[str, _aws_pattern("Athena", "WorkGroupName")]
     NextToken: Optional[str] = None
     MaxResults: Optional[int] = None
 
 
 class PreparedStatementSummaryTypeDef(BaseValidatorModel):
-    StatementName: Optional[str] = None
+    StatementName: Optional[Annotated[str, _aws_pattern("Athena", "StatementName")]] = None
     LastModifiedTime: Optional[datetime] = None
 
 
@@ -552,12 +554,12 @@ class PreparedStatementSummaryTypeDef(BaseValidatorModel):
 class ListQueryExecutionsInputTypeDef(BaseValidatorModel):
     NextToken: Optional[str] = None
     MaxResults: Optional[int] = None
-    WorkGroup: Optional[str] = None
+    WorkGroup: Optional[Annotated[str, _aws_pattern("Athena", "WorkGroupName")]] = None
 
 
 # This class is the input for the 'list_sessions' function.
 class ListSessionsRequestTypeDef(BaseValidatorModel):
-    WorkGroup: str
+    WorkGroup: Annotated[str, _aws_pattern("Athena", "WorkGroupName")]
     StateFilter: Optional[SessionStateType] = None
     MaxResults: Optional[int] = None
     NextToken: Optional[str] = None
@@ -565,12 +567,12 @@ class ListSessionsRequestTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'list_table_metadata' function.
 class ListTableMetadataInputTypeDef(BaseValidatorModel):
-    CatalogName: str
+    CatalogName: Annotated[str, _aws_pattern("Athena", "CatalogNameString")]
     DatabaseName: str
     Expression: Optional[str] = None
     NextToken: Optional[str] = None
     MaxResults: Optional[int] = None
-    WorkGroup: Optional[str] = None
+    WorkGroup: Optional[Annotated[str, _aws_pattern("Athena", "WorkGroupName")]] = None
 
 
 # This class is the input for the 'list_tags_for_resource' function.
@@ -588,22 +590,22 @@ class ListWorkGroupsInputTypeDef(BaseValidatorModel):
 
 class ManagedLoggingConfigurationTypeDef(BaseValidatorModel):
     Enabled: bool
-    KmsKey: Optional[str] = None
+    KmsKey: Optional[Annotated[str, _aws_pattern("Athena", "KmsKey")]] = None
 
 
 class ManagedQueryResultsEncryptionConfigurationTypeDef(BaseValidatorModel):
-    KmsKey: str
+    KmsKey: Annotated[str, _aws_pattern("Athena", "KmsKey")]
 
 
 class S3LoggingConfigurationTypeDef(BaseValidatorModel):
     Enabled: bool
-    KmsKey: Optional[str] = None
-    LogLocation: Optional[str] = None
+    KmsKey: Optional[Annotated[str, _aws_pattern("Athena", "KmsKey")]] = None
+    LogLocation: Optional[Annotated[str, _aws_pattern("Athena", "S3OutputLocation")]] = None
 
 
 class QueryExecutionContextTypeDef(BaseValidatorModel):
     Database: Optional[str] = None
-    Catalog: Optional[str] = None
+    Catalog: Optional[Annotated[str, _aws_pattern("Athena", "CatalogNameString")]] = None
 
 
 class ResultReuseInformationTypeDef(BaseValidatorModel):
@@ -650,7 +652,7 @@ class StopCalculationExecutionRequestTypeDef(BaseValidatorModel):
 
 
 class StopQueryExecutionInputTypeDef(BaseValidatorModel):
-    QueryExecutionId: str
+    QueryExecutionId: Annotated[str, _aws_pattern("Athena", "QueryExecutionId")]
 
 
 # This class is the input for the 'terminate_session' function.
@@ -665,40 +667,40 @@ class UntagResourceInputTypeDef(BaseValidatorModel):
 
 class UpdateCapacityReservationInputTypeDef(BaseValidatorModel):
     TargetDpus: int
-    Name: str
+    Name: Annotated[str, _aws_pattern("Athena", "CapacityReservationName")]
 
 
 class UpdateDataCatalogInputTypeDef(BaseValidatorModel):
-    Name: str
+    Name: Annotated[str, _aws_pattern("Athena", "CatalogNameString")]
     Type: DataCatalogTypeType
     Description: Optional[str] = None
     Parameters: Optional[Dict[str, str]] = None
 
 
 class UpdateNamedQueryInputTypeDef(BaseValidatorModel):
-    NamedQueryId: str
+    NamedQueryId: Annotated[str, _aws_pattern("Athena", "NamedQueryId")]
     Name: str
     QueryString: str
     Description: Optional[str] = None
 
 
 class UpdateNotebookInputTypeDef(BaseValidatorModel):
-    NotebookId: str
+    NotebookId: Annotated[str, _aws_pattern("Athena", "NotebookId")]
     Payload: str
     Type: Literal["IPYNB"]
     SessionId: Optional[str] = None
-    ClientRequestToken: Optional[str] = None
+    ClientRequestToken: Optional[Annotated[str, _aws_pattern("Athena", "ClientRequestToken")]] = None
 
 
 class UpdateNotebookMetadataInputTypeDef(BaseValidatorModel):
-    NotebookId: str
-    Name: str
-    ClientRequestToken: Optional[str] = None
+    NotebookId: Annotated[str, _aws_pattern("Athena", "NotebookId")]
+    Name: Annotated[str, _aws_pattern("Athena", "NotebookName")]
+    ClientRequestToken: Optional[Annotated[str, _aws_pattern("Athena", "ClientRequestToken")]] = None
 
 
 class UpdatePreparedStatementInputTypeDef(BaseValidatorModel):
-    StatementName: str
-    WorkGroup: str
+    StatementName: Annotated[str, _aws_pattern("Athena", "StatementName")]
+    WorkGroup: Annotated[str, _aws_pattern("Athena", "WorkGroupName")]
     QueryStatement: str
     Description: Optional[str] = None
 
@@ -713,13 +715,13 @@ class QueryExecutionStatusTypeDef(BaseValidatorModel):
 
 # This class is the output for the 'create_named_query' function.
 class CreateNamedQueryOutputTypeDef(BaseValidatorModel):
-    NamedQueryId: str
+    NamedQueryId: Annotated[str, _aws_pattern("Athena", "NamedQueryId")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 # This class is the output for the 'create_notebook' function.
 class CreateNotebookOutputTypeDef(BaseValidatorModel):
-    NotebookId: str
+    NotebookId: Annotated[str, _aws_pattern("Athena", "NotebookId")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
@@ -759,7 +761,7 @@ class GetSessionEndpointResponseTypeDef(BaseValidatorModel):
 
 # This class is the output for the 'import_notebook' function.
 class ImportNotebookOutputTypeDef(BaseValidatorModel):
-    NotebookId: str
+    NotebookId: Annotated[str, _aws_pattern("Athena", "NotebookId")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
@@ -772,14 +774,14 @@ class ListApplicationDPUSizesOutputTypeDef(BaseValidatorModel):
 
 # This class is the output for the 'list_named_queries' function.
 class ListNamedQueriesOutputTypeDef(BaseValidatorModel):
-    NamedQueryIds: List[str]
+    NamedQueryIds: List[Annotated[str, _aws_pattern("Athena", "NamedQueryId")]]
     ResponseMetadata: ResponseMetadataTypeDef
     NextToken: Optional[str] = None
 
 
 # This class is the output for the 'list_query_executions' function.
 class ListQueryExecutionsOutputTypeDef(BaseValidatorModel):
-    QueryExecutionIds: List[str]
+    QueryExecutionIds: List[Annotated[str, _aws_pattern("Athena", "QueryExecutionId")]]
     ResponseMetadata: ResponseMetadataTypeDef
     NextToken: Optional[str] = None
 
@@ -793,7 +795,7 @@ class StartCalculationExecutionResponseTypeDef(BaseValidatorModel):
 
 # This class is the output for the 'start_query_execution' function.
 class StartQueryExecutionOutputTypeDef(BaseValidatorModel):
-    QueryExecutionId: str
+    QueryExecutionId: Annotated[str, _aws_pattern("Athena", "QueryExecutionId")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
@@ -856,7 +858,7 @@ class GetCalculationExecutionResponseTypeDef(BaseValidatorModel):
     CalculationExecutionId: str
     SessionId: str
     Description: str
-    WorkingDirectory: str
+    WorkingDirectory: Annotated[str, _aws_pattern("Athena", "S3Uri")]
     Status: CalculationStatusTypeDef
     Statistics: CalculationStatisticsTypeDef
     Result: CalculationResultTypeDef
@@ -871,7 +873,7 @@ class GetCalculationExecutionStatusResponseTypeDef(BaseValidatorModel):
 
 
 class CapacityReservationTypeDef(BaseValidatorModel):
-    Name: str
+    Name: Annotated[str, _aws_pattern("Athena", "CapacityReservationName")]
     Status: CapacityReservationStatusType
     TargetDpus: int
     AllocatedDpus: int
@@ -881,7 +883,7 @@ class CapacityReservationTypeDef(BaseValidatorModel):
 
 
 class CapacityAssignmentConfigurationTypeDef(BaseValidatorModel):
-    CapacityReservationName: Optional[str] = None
+    CapacityReservationName: Optional[Annotated[str, _aws_pattern("Athena", "CapacityReservationName")]] = None
     CapacityAssignments: Optional[List[CapacityAssignmentOutputTypeDef]] = None
 
 
@@ -920,13 +922,13 @@ class TableMetadataTypeDef(BaseValidatorModel):
 
 class CreateCapacityReservationInputTypeDef(BaseValidatorModel):
     TargetDpus: int
-    Name: str
+    Name: Annotated[str, _aws_pattern("Athena", "CapacityReservationName")]
     Tags: Optional[List[TagTypeDef]] = None
 
 
 # This class is the input for the 'create_data_catalog' function.
 class CreateDataCatalogInputTypeDef(BaseValidatorModel):
-    Name: str
+    Name: Annotated[str, _aws_pattern("Athena", "CatalogNameString")]
     Type: DataCatalogTypeType
     Description: Optional[str] = None
     Parameters: Optional[Dict[str, str]] = None
@@ -990,7 +992,7 @@ class RowTypeDef(BaseValidatorModel):
 class ResultConfigurationTypeDef(BaseValidatorModel):
     OutputLocation: Optional[str] = None
     EncryptionConfiguration: Optional[EncryptionConfigurationTypeDef] = None
-    ExpectedBucketOwner: Optional[str] = None
+    ExpectedBucketOwner: Optional[Annotated[str, _aws_pattern("Athena", "AwsAccountId")]] = None
     AclConfiguration: Optional[AclConfigurationTypeDef] = None
 
 
@@ -999,14 +1001,14 @@ class ResultConfigurationUpdatesTypeDef(BaseValidatorModel):
     RemoveOutputLocation: Optional[bool] = None
     EncryptionConfiguration: Optional[EncryptionConfigurationTypeDef] = None
     RemoveEncryptionConfiguration: Optional[bool] = None
-    ExpectedBucketOwner: Optional[str] = None
+    ExpectedBucketOwner: Optional[Annotated[str, _aws_pattern("Athena", "AwsAccountId")]] = None
     RemoveExpectedBucketOwner: Optional[bool] = None
     AclConfiguration: Optional[AclConfigurationTypeDef] = None
     RemoveAclConfiguration: Optional[bool] = None
 
 
 class SessionConfigurationTypeDef(BaseValidatorModel):
-    ExecutionRole: Optional[str] = None
+    ExecutionRole: Optional[Annotated[str, _aws_pattern("Athena", "RoleArn")]] = None
     WorkingDirectory: Optional[str] = None
     IdleTimeoutSeconds: Optional[int] = None
     SessionIdleTimeoutInMinutes: Optional[int] = None
@@ -1021,12 +1023,14 @@ class ListEngineVersionsOutputTypeDef(BaseValidatorModel):
 
 
 class WorkGroupSummaryTypeDef(BaseValidatorModel):
-    Name: Optional[str] = None
+    Name: Optional[Annotated[str, _aws_pattern("Athena", "WorkGroupName")]] = None
     State: Optional[WorkGroupStateType] = None
     Description: Optional[str] = None
     CreationTime: Optional[datetime] = None
     EngineVersion: Optional[EngineVersionTypeDef] = None
-    IdentityCenterApplicationArn: Optional[str] = None
+    IdentityCenterApplicationArn: Optional[Annotated[str, _aws_pattern("Athena", "IdentityCenterApplicationArn")]] = (
+        None
+    )
 
 
 # This class is the output for the 'list_executors' function.
@@ -1059,7 +1063,7 @@ class ListNotebookMetadataOutputTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'list_notebook_metadata' function.
 class ListNotebookMetadataInputTypeDef(BaseValidatorModel):
-    WorkGroup: str
+    WorkGroup: Annotated[str, _aws_pattern("Athena", "WorkGroupName")]
     Filters: Optional[FilterDefinitionTypeDef] = None
     NextToken: Optional[str] = None
     MaxResults: Optional[int] = None
@@ -1207,7 +1211,7 @@ class GetCapacityAssignmentConfigurationOutputTypeDef(BaseValidatorModel):
 
 
 class PutCapacityAssignmentConfigurationInputTypeDef(BaseValidatorModel):
-    CapacityReservationName: str
+    CapacityReservationName: Annotated[str, _aws_pattern("Athena", "CapacityReservationName")]
     CapacityAssignments: List[CapacityAssignmentUnionTypeDef]
 
 
@@ -1262,7 +1266,7 @@ class ListSessionsResponseTypeDef(BaseValidatorModel):
 class GetSessionResponseTypeDef(BaseValidatorModel):
     SessionId: str
     Description: str
-    WorkGroup: str
+    WorkGroup: Annotated[str, _aws_pattern("Athena", "WorkGroupName")]
     EngineVersion: str
     EngineConfiguration: EngineConfigurationOutputTypeDef
     NotebookVersion: str
@@ -1298,7 +1302,7 @@ class QueryRuntimeStatisticsTypeDef(BaseValidatorModel):
 
 
 class QueryExecutionTypeDef(BaseValidatorModel):
-    QueryExecutionId: Optional[str] = None
+    QueryExecutionId: Optional[Annotated[str, _aws_pattern("Athena", "QueryExecutionId")]] = None
     Query: Optional[str] = None
     StatementType: Optional[StatementTypeType] = None
     ManagedQueryResultsConfiguration: Optional[ManagedQueryResultsConfigurationTypeDef] = None
@@ -1307,7 +1311,7 @@ class QueryExecutionTypeDef(BaseValidatorModel):
     QueryExecutionContext: Optional[QueryExecutionContextTypeDef] = None
     Status: Optional[QueryExecutionStatusTypeDef] = None
     Statistics: Optional[QueryExecutionStatisticsTypeDef] = None
-    WorkGroup: Optional[str] = None
+    WorkGroup: Optional[Annotated[str, _aws_pattern("Athena", "WorkGroupName")]] = None
     EngineVersion: Optional[EngineVersionTypeDef] = None
     ExecutionParameters: Optional[List[str]] = None
     SubstatementType: Optional[str] = None
@@ -1328,7 +1332,7 @@ class WorkGroupConfigurationTypeDef(BaseValidatorModel):
     RequesterPaysEnabled: Optional[bool] = None
     EngineVersion: Optional[EngineVersionTypeDef] = None
     AdditionalConfiguration: Optional[str] = None
-    ExecutionRole: Optional[str] = None
+    ExecutionRole: Optional[Annotated[str, _aws_pattern("Athena", "RoleArn")]] = None
     MonitoringConfiguration: Optional[MonitoringConfigurationTypeDef] = None
     EngineConfiguration: Optional[EngineConfigurationTypeDef] = None
     CustomerContentEncryptionConfiguration: Optional[CustomerContentEncryptionConfigurationTypeDef] = None
@@ -1346,12 +1350,14 @@ class GetQueryResultsOutputTypeDef(BaseValidatorModel):
 
 
 class WorkGroupTypeDef(BaseValidatorModel):
-    Name: str
+    Name: Annotated[str, _aws_pattern("Athena", "WorkGroupName")]
     State: Optional[WorkGroupStateType] = None
     Configuration: Optional[WorkGroupConfigurationOutputTypeDef] = None
     Description: Optional[str] = None
     CreationTime: Optional[datetime] = None
-    IdentityCenterApplicationArn: Optional[str] = None
+    IdentityCenterApplicationArn: Optional[Annotated[str, _aws_pattern("Athena", "IdentityCenterApplicationArn")]] = (
+        None
+    )
 
 
 # This class is the output for the 'get_query_runtime_statistics' function.
@@ -1379,7 +1385,7 @@ class StartQueryExecutionInputTypeDef(BaseValidatorModel):
     ClientRequestToken: Optional[str] = None
     QueryExecutionContext: Optional[QueryExecutionContextTypeDef] = None
     ResultConfiguration: Optional[ResultConfigurationTypeDef] = None
-    WorkGroup: Optional[str] = None
+    WorkGroup: Optional[Annotated[str, _aws_pattern("Athena", "WorkGroupName")]] = None
     ExecutionParameters: Optional[List[str]] = None
     ResultReuseConfiguration: Optional[ResultReuseConfigurationTypeDef] = None
     EngineConfiguration: Optional[EngineConfigurationUnionTypeDef] = None
@@ -1387,10 +1393,10 @@ class StartQueryExecutionInputTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'start_session' function.
 class StartSessionRequestTypeDef(BaseValidatorModel):
-    WorkGroup: str
+    WorkGroup: Annotated[str, _aws_pattern("Athena", "WorkGroupName")]
     EngineConfiguration: EngineConfigurationUnionTypeDef
     Description: Optional[str] = None
-    ExecutionRole: Optional[str] = None
+    ExecutionRole: Optional[Annotated[str, _aws_pattern("Athena", "RoleArn")]] = None
     MonitoringConfiguration: Optional[MonitoringConfigurationUnionTypeDef] = None
     NotebookVersion: Optional[str] = None
     SessionIdleTimeoutInMinutes: Optional[int] = None
@@ -1410,7 +1416,7 @@ class WorkGroupConfigurationUpdatesTypeDef(BaseValidatorModel):
     EngineVersion: Optional[EngineVersionTypeDef] = None
     RemoveCustomerContentEncryptionConfiguration: Optional[bool] = None
     AdditionalConfiguration: Optional[str] = None
-    ExecutionRole: Optional[str] = None
+    ExecutionRole: Optional[Annotated[str, _aws_pattern("Athena", "RoleArn")]] = None
     CustomerContentEncryptionConfiguration: Optional[CustomerContentEncryptionConfigurationTypeDef] = None
     EnableMinimumEncryptionConfiguration: Optional[bool] = None
     QueryResultsS3AccessGrantsConfiguration: Optional[QueryResultsS3AccessGrantsConfigurationTypeDef] = None
@@ -1428,14 +1434,14 @@ class GetWorkGroupOutputTypeDef(BaseValidatorModel):
 
 
 class UpdateWorkGroupInputTypeDef(BaseValidatorModel):
-    WorkGroup: str
+    WorkGroup: Annotated[str, _aws_pattern("Athena", "WorkGroupName")]
     Description: Optional[str] = None
     ConfigurationUpdates: Optional[WorkGroupConfigurationUpdatesTypeDef] = None
     State: Optional[WorkGroupStateType] = None
 
 
 class CreateWorkGroupInputTypeDef(BaseValidatorModel):
-    Name: str
+    Name: Annotated[str, _aws_pattern("Athena", "WorkGroupName")]
     Configuration: Optional[WorkGroupConfigurationUnionTypeDef] = None
     Description: Optional[str] = None
     Tags: Optional[List[TagTypeDef]] = None

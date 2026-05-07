@@ -3,6 +3,7 @@
 from datetime import datetime
 from decimal import Decimal
 from typing import (
+    Annotated,
     Any,
     Callable,
     Dict,
@@ -24,6 +25,7 @@ from botocore.response import StreamingBody
 from pydantic import Field
 
 from aws_resource_validator.core.base_validator_model import BaseValidatorModel, EventStream
+from aws_resource_validator.core.pattern_validation import aws_field_pattern as _aws_pattern
 from aws_resource_validator.pydantic_models.healthlake.healthlake_constants import *  # noqa: F401,F403
 
 # Optional boto3 symbols — imported lazily so services that don't need them
@@ -42,7 +44,7 @@ class IdentityProviderConfigurationTypeDef(BaseValidatorModel):
     AuthorizationStrategy: AuthorizationStrategyType
     FineGrainedAuthorizationEnabled: Optional[bool] = None
     Metadata: Optional[str] = None
-    IdpLambdaArn: Optional[str] = None
+    IdpLambdaArn: Optional[Annotated[str, _aws_pattern("Healthlake", "LambdaArn")]] = None
 
 
 class PreloadDataConfigTypeDef(BaseValidatorModel):
@@ -50,8 +52,8 @@ class PreloadDataConfigTypeDef(BaseValidatorModel):
 
 
 class TagTypeDef(BaseValidatorModel):
-    Key: str
-    Value: str
+    Key: Annotated[str, _aws_pattern("Healthlake", "TagKey")]
+    Value: Annotated[str, _aws_pattern("Healthlake", "TagValue")]
 
 
 class ResponseMetadataTypeDef(BaseValidatorModel):
@@ -72,12 +74,12 @@ class ErrorCauseTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'delete_fhir_datastore' function.
 class DeleteFHIRDatastoreRequestTypeDef(BaseValidatorModel):
-    DatastoreId: str
+    DatastoreId: Annotated[str, _aws_pattern("Healthlake", "DatastoreId")]
 
 
 # This class is the input for the 'describe_fhir_datastore' function.
 class DescribeFHIRDatastoreRequestTypeDef(BaseValidatorModel):
-    DatastoreId: str
+    DatastoreId: Annotated[str, _aws_pattern("Healthlake", "DatastoreId")]
 
 
 class WaiterConfigTypeDef(BaseValidatorModel):
@@ -87,18 +89,18 @@ class WaiterConfigTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'describe_fhir_export_job' function.
 class DescribeFHIRExportJobRequestTypeDef(BaseValidatorModel):
-    DatastoreId: str
-    JobId: str
+    DatastoreId: Annotated[str, _aws_pattern("Healthlake", "DatastoreId")]
+    JobId: Annotated[str, _aws_pattern("Healthlake", "JobId")]
 
 
 # This class is the input for the 'describe_fhir_import_job' function.
 class DescribeFHIRImportJobRequestTypeDef(BaseValidatorModel):
-    DatastoreId: str
-    JobId: str
+    DatastoreId: Annotated[str, _aws_pattern("Healthlake", "DatastoreId")]
+    JobId: Annotated[str, _aws_pattern("Healthlake", "JobId")]
 
 
 class InputDataConfigTypeDef(BaseValidatorModel):
-    S3Uri: Optional[str] = None
+    S3Uri: Optional[Annotated[str, _aws_pattern("Healthlake", "S3Uri")]] = None
 
 
 class JobProgressReportTypeDef(BaseValidatorModel):
@@ -114,44 +116,44 @@ class JobProgressReportTypeDef(BaseValidatorModel):
 
 class KmsEncryptionConfigTypeDef(BaseValidatorModel):
     CmkType: CmkTypeType
-    KmsKeyId: Optional[str] = None
+    KmsKeyId: Optional[Annotated[str, _aws_pattern("Healthlake", "EncryptionKeyID")]] = None
 
 
 # This class is the input for the 'list_tags_for_resource' function.
 class ListTagsForResourceRequestTypeDef(BaseValidatorModel):
-    ResourceARN: str
+    ResourceARN: Annotated[str, _aws_pattern("Healthlake", "AmazonResourceName")]
 
 
 class S3ConfigurationTypeDef(BaseValidatorModel):
-    S3Uri: str
-    KmsKeyId: str
+    S3Uri: Annotated[str, _aws_pattern("Healthlake", "S3Uri")]
+    KmsKeyId: Annotated[str, _aws_pattern("Healthlake", "EncryptionKeyID")]
 
 
 class UntagResourceRequestTypeDef(BaseValidatorModel):
-    ResourceARN: str
-    TagKeys: List[str]
+    ResourceARN: Annotated[str, _aws_pattern("Healthlake", "AmazonResourceName")]
+    TagKeys: List[Annotated[str, _aws_pattern("Healthlake", "TagKey")]]
 
 
 class TagResourceRequestTypeDef(BaseValidatorModel):
-    ResourceARN: str
+    ResourceARN: Annotated[str, _aws_pattern("Healthlake", "AmazonResourceName")]
     Tags: List[TagTypeDef]
 
 
 # This class is the output for the 'create_fhir_datastore' function.
 class CreateFHIRDatastoreResponseTypeDef(BaseValidatorModel):
-    DatastoreId: str
-    DatastoreArn: str
+    DatastoreId: Annotated[str, _aws_pattern("Healthlake", "DatastoreId")]
+    DatastoreArn: Annotated[str, _aws_pattern("Healthlake", "DatastoreArn")]
     DatastoreStatus: DatastoreStatusType
-    DatastoreEndpoint: str
+    DatastoreEndpoint: Annotated[str, _aws_pattern("Healthlake", "BoundedLengthString")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 # This class is the output for the 'delete_fhir_datastore' function.
 class DeleteFHIRDatastoreResponseTypeDef(BaseValidatorModel):
-    DatastoreId: str
-    DatastoreArn: str
+    DatastoreId: Annotated[str, _aws_pattern("Healthlake", "DatastoreId")]
+    DatastoreArn: Annotated[str, _aws_pattern("Healthlake", "DatastoreArn")]
     DatastoreStatus: DatastoreStatusType
-    DatastoreEndpoint: str
+    DatastoreEndpoint: Annotated[str, _aws_pattern("Healthlake", "BoundedLengthString")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
@@ -163,22 +165,22 @@ class ListTagsForResourceResponseTypeDef(BaseValidatorModel):
 
 # This class is the output for the 'start_fhir_export_job' function.
 class StartFHIRExportJobResponseTypeDef(BaseValidatorModel):
-    JobId: str
+    JobId: Annotated[str, _aws_pattern("Healthlake", "JobId")]
     JobStatus: JobStatusType
-    DatastoreId: str
+    DatastoreId: Annotated[str, _aws_pattern("Healthlake", "DatastoreId")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 # This class is the output for the 'start_fhir_import_job' function.
 class StartFHIRImportJobResponseTypeDef(BaseValidatorModel):
-    JobId: str
+    JobId: Annotated[str, _aws_pattern("Healthlake", "JobId")]
     JobStatus: JobStatusType
-    DatastoreId: str
+    DatastoreId: Annotated[str, _aws_pattern("Healthlake", "DatastoreId")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 class DatastoreFilterTypeDef(BaseValidatorModel):
-    DatastoreName: Optional[str] = None
+    DatastoreName: Optional[Annotated[str, _aws_pattern("Healthlake", "DatastoreName")]] = None
     DatastoreStatus: Optional[DatastoreStatusType] = None
     CreatedBefore: Optional[TimestampTypeDef] = None
     CreatedAfter: Optional[TimestampTypeDef] = None
@@ -186,10 +188,10 @@ class DatastoreFilterTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'list_fhir_export_jobs' function.
 class ListFHIRExportJobsRequestTypeDef(BaseValidatorModel):
-    DatastoreId: str
-    NextToken: Optional[str] = None
+    DatastoreId: Annotated[str, _aws_pattern("Healthlake", "DatastoreId")]
+    NextToken: Optional[Annotated[str, _aws_pattern("Healthlake", "NextToken")]] = None
     MaxResults: Optional[int] = None
-    JobName: Optional[str] = None
+    JobName: Optional[Annotated[str, _aws_pattern("Healthlake", "JobName")]] = None
     JobStatus: Optional[JobStatusType] = None
     SubmittedBefore: Optional[TimestampTypeDef] = None
     SubmittedAfter: Optional[TimestampTypeDef] = None
@@ -197,10 +199,10 @@ class ListFHIRExportJobsRequestTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'list_fhir_import_jobs' function.
 class ListFHIRImportJobsRequestTypeDef(BaseValidatorModel):
-    DatastoreId: str
-    NextToken: Optional[str] = None
+    DatastoreId: Annotated[str, _aws_pattern("Healthlake", "DatastoreId")]
+    NextToken: Optional[Annotated[str, _aws_pattern("Healthlake", "NextToken")]] = None
     MaxResults: Optional[int] = None
-    JobName: Optional[str] = None
+    JobName: Optional[Annotated[str, _aws_pattern("Healthlake", "JobName")]] = None
     JobStatus: Optional[JobStatusType] = None
     SubmittedBefore: Optional[TimestampTypeDef] = None
     SubmittedAfter: Optional[TimestampTypeDef] = None
@@ -239,28 +241,28 @@ class OutputDataConfigTypeDef(BaseValidatorModel):
 # This class is the input for the 'list_fhir_datastores' function.
 class ListFHIRDatastoresRequestTypeDef(BaseValidatorModel):
     Filter: Optional[DatastoreFilterTypeDef] = None
-    NextToken: Optional[str] = None
+    NextToken: Optional[Annotated[str, _aws_pattern("Healthlake", "NextToken")]] = None
     MaxResults: Optional[int] = None
 
 
 # This class is the input for the 'create_fhir_datastore' function.
 class CreateFHIRDatastoreRequestTypeDef(BaseValidatorModel):
     DatastoreTypeVersion: Literal["R4"]
-    DatastoreName: Optional[str] = None
+    DatastoreName: Optional[Annotated[str, _aws_pattern("Healthlake", "DatastoreName")]] = None
     SseConfiguration: Optional[SseConfigurationTypeDef] = None
     PreloadDataConfig: Optional[PreloadDataConfigTypeDef] = None
-    ClientToken: Optional[str] = None
+    ClientToken: Optional[Annotated[str, _aws_pattern("Healthlake", "ClientTokenString")]] = None
     Tags: Optional[List[TagTypeDef]] = None
     IdentityProviderConfiguration: Optional[IdentityProviderConfigurationTypeDef] = None
 
 
 class DatastorePropertiesTypeDef(BaseValidatorModel):
-    DatastoreId: str
-    DatastoreArn: str
+    DatastoreId: Annotated[str, _aws_pattern("Healthlake", "DatastoreId")]
+    DatastoreArn: Annotated[str, _aws_pattern("Healthlake", "DatastoreArn")]
     DatastoreStatus: DatastoreStatusType
     DatastoreTypeVersion: Literal["R4"]
-    DatastoreEndpoint: str
-    DatastoreName: Optional[str] = None
+    DatastoreEndpoint: Annotated[str, _aws_pattern("Healthlake", "String")]
+    DatastoreName: Optional[Annotated[str, _aws_pattern("Healthlake", "DatastoreName")]] = None
     CreatedAt: Optional[datetime] = None
     SseConfiguration: Optional[SseConfigurationTypeDef] = None
     PreloadDataConfig: Optional[PreloadDataConfigTypeDef] = None
@@ -269,49 +271,49 @@ class DatastorePropertiesTypeDef(BaseValidatorModel):
 
 
 class ExportJobPropertiesTypeDef(BaseValidatorModel):
-    JobId: str
+    JobId: Annotated[str, _aws_pattern("Healthlake", "JobId")]
     JobStatus: JobStatusType
     SubmitTime: datetime
-    DatastoreId: str
+    DatastoreId: Annotated[str, _aws_pattern("Healthlake", "DatastoreId")]
     OutputDataConfig: OutputDataConfigTypeDef
-    JobName: Optional[str] = None
+    JobName: Optional[Annotated[str, _aws_pattern("Healthlake", "JobName")]] = None
     EndTime: Optional[datetime] = None
-    DataAccessRoleArn: Optional[str] = None
-    Message: Optional[str] = None
+    DataAccessRoleArn: Optional[Annotated[str, _aws_pattern("Healthlake", "IamRoleArn")]] = None
+    Message: Optional[Annotated[str, _aws_pattern("Healthlake", "Message")]] = None
 
 
 class ImportJobPropertiesTypeDef(BaseValidatorModel):
-    JobId: str
+    JobId: Annotated[str, _aws_pattern("Healthlake", "JobId")]
     JobStatus: JobStatusType
     SubmitTime: datetime
-    DatastoreId: str
+    DatastoreId: Annotated[str, _aws_pattern("Healthlake", "DatastoreId")]
     InputDataConfig: InputDataConfigTypeDef
-    JobName: Optional[str] = None
+    JobName: Optional[Annotated[str, _aws_pattern("Healthlake", "JobName")]] = None
     EndTime: Optional[datetime] = None
     JobOutputDataConfig: Optional[OutputDataConfigTypeDef] = None
     JobProgressReport: Optional[JobProgressReportTypeDef] = None
-    DataAccessRoleArn: Optional[str] = None
-    Message: Optional[str] = None
+    DataAccessRoleArn: Optional[Annotated[str, _aws_pattern("Healthlake", "IamRoleArn")]] = None
+    Message: Optional[Annotated[str, _aws_pattern("Healthlake", "Message")]] = None
     ValidationLevel: Optional[ValidationLevelType] = None
 
 
 # This class is the input for the 'start_fhir_export_job' function.
 class StartFHIRExportJobRequestTypeDef(BaseValidatorModel):
     OutputDataConfig: OutputDataConfigTypeDef
-    DatastoreId: str
-    DataAccessRoleArn: str
-    JobName: Optional[str] = None
-    ClientToken: Optional[str] = None
+    DatastoreId: Annotated[str, _aws_pattern("Healthlake", "DatastoreId")]
+    DataAccessRoleArn: Annotated[str, _aws_pattern("Healthlake", "IamRoleArn")]
+    JobName: Optional[Annotated[str, _aws_pattern("Healthlake", "JobName")]] = None
+    ClientToken: Optional[Annotated[str, _aws_pattern("Healthlake", "ClientTokenString")]] = None
 
 
 # This class is the input for the 'start_fhir_import_job' function.
 class StartFHIRImportJobRequestTypeDef(BaseValidatorModel):
     InputDataConfig: InputDataConfigTypeDef
     JobOutputDataConfig: OutputDataConfigTypeDef
-    DatastoreId: str
-    DataAccessRoleArn: str
-    JobName: Optional[str] = None
-    ClientToken: Optional[str] = None
+    DatastoreId: Annotated[str, _aws_pattern("Healthlake", "DatastoreId")]
+    DataAccessRoleArn: Annotated[str, _aws_pattern("Healthlake", "IamRoleArn")]
+    JobName: Optional[Annotated[str, _aws_pattern("Healthlake", "JobName")]] = None
+    ClientToken: Optional[Annotated[str, _aws_pattern("Healthlake", "ClientTokenString")]] = None
     ValidationLevel: Optional[ValidationLevelType] = None
 
 
@@ -325,7 +327,7 @@ class DescribeFHIRDatastoreResponseTypeDef(BaseValidatorModel):
 class ListFHIRDatastoresResponseTypeDef(BaseValidatorModel):
     DatastorePropertiesList: List[DatastorePropertiesTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
-    NextToken: Optional[str] = None
+    NextToken: Optional[Annotated[str, _aws_pattern("Healthlake", "NextToken")]] = None
 
 
 # This class is the output for the 'describe_fhir_export_job' function.
@@ -338,7 +340,7 @@ class DescribeFHIRExportJobResponseTypeDef(BaseValidatorModel):
 class ListFHIRExportJobsResponseTypeDef(BaseValidatorModel):
     ExportJobPropertiesList: List[ExportJobPropertiesTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
-    NextToken: Optional[str] = None
+    NextToken: Optional[Annotated[str, _aws_pattern("Healthlake", "NextToken")]] = None
 
 
 # This class is the output for the 'describe_fhir_import_job' function.
@@ -351,4 +353,4 @@ class DescribeFHIRImportJobResponseTypeDef(BaseValidatorModel):
 class ListFHIRImportJobsResponseTypeDef(BaseValidatorModel):
     ImportJobPropertiesList: List[ImportJobPropertiesTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
-    NextToken: Optional[str] = None
+    NextToken: Optional[Annotated[str, _aws_pattern("Healthlake", "NextToken")]] = None

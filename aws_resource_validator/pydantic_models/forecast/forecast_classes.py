@@ -3,6 +3,7 @@
 from datetime import datetime
 from decimal import Decimal
 from typing import (
+    Annotated,
     Any,
     Callable,
     Dict,
@@ -24,6 +25,7 @@ from botocore.response import StreamingBody
 from pydantic import Field
 
 from aws_resource_validator.core.base_validator_model import BaseValidatorModel, EventStream
+from aws_resource_validator.core.pattern_validation import aws_field_pattern as _aws_pattern
 from aws_resource_validator.pydantic_models.forecast.forecast_constants import *  # noqa: F401,F403
 
 # Optional boto3 symbols — imported lazily so services that don't need them
@@ -39,7 +41,7 @@ except ImportError:  # pragma: no cover
 
 
 class ActionTypeDef(BaseValidatorModel):
-    AttributeName: str
+    AttributeName: Annotated[str, _aws_pattern("Forecast", "Name")]
     Operation: OperationType
     Value: float
 
@@ -50,7 +52,7 @@ class AdditionalDatasetOutputTypeDef(BaseValidatorModel):
 
 
 class AdditionalDatasetTypeDef(BaseValidatorModel):
-    Name: str
+    Name: Annotated[str, _aws_pattern("Forecast", "Name")]
     Configuration: Optional[Dict[str, List[str]]] = None
 
 
@@ -60,12 +62,12 @@ class AttributeConfigOutputTypeDef(BaseValidatorModel):
 
 
 class AttributeConfigTypeDef(BaseValidatorModel):
-    AttributeName: str
+    AttributeName: Annotated[str, _aws_pattern("Forecast", "Name")]
     Transformations: Dict[str, str]
 
 
 class BaselineMetricTypeDef(BaseValidatorModel):
-    Name: Optional[str] = None
+    Name: Optional[Annotated[str, _aws_pattern("Forecast", "Name")]] = None
     Value: Optional[float] = None
 
 
@@ -75,29 +77,29 @@ class CategoricalParameterRangeOutputTypeDef(BaseValidatorModel):
 
 
 class CategoricalParameterRangeTypeDef(BaseValidatorModel):
-    Name: str
-    Values: List[str]
+    Name: Annotated[str, _aws_pattern("Forecast", "Name")]
+    Values: List[Annotated[str, _aws_pattern("Forecast", "Value")]]
 
 
 class ContinuousParameterRangeTypeDef(BaseValidatorModel):
-    Name: str
+    Name: Annotated[str, _aws_pattern("Forecast", "Name")]
     MaxValue: float
     MinValue: float
     ScalingType: Optional[ScalingTypeType] = None
 
 
 class EncryptionConfigTypeDef(BaseValidatorModel):
-    RoleArn: str
-    KMSKeyArn: str
+    RoleArn: Annotated[str, _aws_pattern("Forecast", "Arn")]
+    KMSKeyArn: Annotated[str, _aws_pattern("Forecast", "KMSKeyArn")]
 
 
 class MonitorConfigTypeDef(BaseValidatorModel):
-    MonitorName: str
+    MonitorName: Annotated[str, _aws_pattern("Forecast", "Name")]
 
 
 class TagTypeDef(BaseValidatorModel):
-    Key: str
-    Value: str
+    Key: Annotated[str, _aws_pattern("Forecast", "TagKey")]
+    Value: Annotated[str, _aws_pattern("Forecast", "TagValue")]
 
 
 class TimeAlignmentBoundaryTypeDef(BaseValidatorModel):
@@ -126,21 +128,21 @@ class EvaluationParametersTypeDef(BaseValidatorModel):
 
 
 class S3ConfigTypeDef(BaseValidatorModel):
-    Path: str
-    RoleArn: str
-    KMSKeyArn: Optional[str] = None
+    Path: Annotated[str, _aws_pattern("Forecast", "S3Path")]
+    RoleArn: Annotated[str, _aws_pattern("Forecast", "Arn")]
+    KMSKeyArn: Optional[Annotated[str, _aws_pattern("Forecast", "KMSKeyArn")]] = None
 
 
 class DatasetGroupSummaryTypeDef(BaseValidatorModel):
-    DatasetGroupArn: Optional[str] = None
-    DatasetGroupName: Optional[str] = None
+    DatasetGroupArn: Optional[Annotated[str, _aws_pattern("Forecast", "Arn")]] = None
+    DatasetGroupName: Optional[Annotated[str, _aws_pattern("Forecast", "Name")]] = None
     CreationTime: Optional[datetime] = None
     LastModificationTime: Optional[datetime] = None
 
 
 class DatasetSummaryTypeDef(BaseValidatorModel):
-    DatasetArn: Optional[str] = None
-    DatasetName: Optional[str] = None
+    DatasetArn: Optional[Annotated[str, _aws_pattern("Forecast", "Arn")]] = None
+    DatasetName: Optional[Annotated[str, _aws_pattern("Forecast", "Name")]] = None
     DatasetType: Optional[DatasetTypeType] = None
     Domain: Optional[DomainType] = None
     CreationTime: Optional[datetime] = None
@@ -149,102 +151,102 @@ class DatasetSummaryTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'delete_dataset_group' function.
 class DeleteDatasetGroupRequestTypeDef(BaseValidatorModel):
-    DatasetGroupArn: str
+    DatasetGroupArn: Annotated[str, _aws_pattern("Forecast", "Arn")]
 
 
 # This class is the input for the 'delete_dataset_import_job' function.
 class DeleteDatasetImportJobRequestTypeDef(BaseValidatorModel):
-    DatasetImportJobArn: str
+    DatasetImportJobArn: Annotated[str, _aws_pattern("Forecast", "Arn")]
 
 
 # This class is the input for the 'delete_dataset' function.
 class DeleteDatasetRequestTypeDef(BaseValidatorModel):
-    DatasetArn: str
+    DatasetArn: Annotated[str, _aws_pattern("Forecast", "Arn")]
 
 
 # This class is the input for the 'delete_explainability_export' function.
 class DeleteExplainabilityExportRequestTypeDef(BaseValidatorModel):
-    ExplainabilityExportArn: str
+    ExplainabilityExportArn: Annotated[str, _aws_pattern("Forecast", "Arn")]
 
 
 # This class is the input for the 'delete_explainability' function.
 class DeleteExplainabilityRequestTypeDef(BaseValidatorModel):
-    ExplainabilityArn: str
+    ExplainabilityArn: Annotated[str, _aws_pattern("Forecast", "Arn")]
 
 
 # This class is the input for the 'delete_forecast_export_job' function.
 class DeleteForecastExportJobRequestTypeDef(BaseValidatorModel):
-    ForecastExportJobArn: str
+    ForecastExportJobArn: Annotated[str, _aws_pattern("Forecast", "Arn")]
 
 
 # This class is the input for the 'delete_forecast' function.
 class DeleteForecastRequestTypeDef(BaseValidatorModel):
-    ForecastArn: str
+    ForecastArn: Annotated[str, _aws_pattern("Forecast", "Arn")]
 
 
 # This class is the input for the 'delete_monitor' function.
 class DeleteMonitorRequestTypeDef(BaseValidatorModel):
-    MonitorArn: str
+    MonitorArn: Annotated[str, _aws_pattern("Forecast", "Arn")]
 
 
 # This class is the input for the 'delete_predictor_backtest_export_job' function.
 class DeletePredictorBacktestExportJobRequestTypeDef(BaseValidatorModel):
-    PredictorBacktestExportJobArn: str
+    PredictorBacktestExportJobArn: Annotated[str, _aws_pattern("Forecast", "Arn")]
 
 
 # This class is the input for the 'delete_predictor' function.
 class DeletePredictorRequestTypeDef(BaseValidatorModel):
-    PredictorArn: str
+    PredictorArn: Annotated[str, _aws_pattern("Forecast", "Arn")]
 
 
 # This class is the input for the 'delete_resource_tree' function.
 class DeleteResourceTreeRequestTypeDef(BaseValidatorModel):
-    ResourceArn: str
+    ResourceArn: Annotated[str, _aws_pattern("Forecast", "Arn")]
 
 
 # This class is the input for the 'delete_what_if_analysis' function.
 class DeleteWhatIfAnalysisRequestTypeDef(BaseValidatorModel):
-    WhatIfAnalysisArn: str
+    WhatIfAnalysisArn: Annotated[str, _aws_pattern("Forecast", "Arn")]
 
 
 # This class is the input for the 'delete_what_if_forecast_export' function.
 class DeleteWhatIfForecastExportRequestTypeDef(BaseValidatorModel):
-    WhatIfForecastExportArn: str
+    WhatIfForecastExportArn: Annotated[str, _aws_pattern("Forecast", "LongArn")]
 
 
 # This class is the input for the 'delete_what_if_forecast' function.
 class DeleteWhatIfForecastRequestTypeDef(BaseValidatorModel):
-    WhatIfForecastArn: str
+    WhatIfForecastArn: Annotated[str, _aws_pattern("Forecast", "LongArn")]
 
 
 # This class is the input for the 'describe_auto_predictor' function.
 class DescribeAutoPredictorRequestTypeDef(BaseValidatorModel):
-    PredictorArn: str
+    PredictorArn: Annotated[str, _aws_pattern("Forecast", "Arn")]
 
 
 class ExplainabilityInfoTypeDef(BaseValidatorModel):
-    ExplainabilityArn: Optional[str] = None
+    ExplainabilityArn: Optional[Annotated[str, _aws_pattern("Forecast", "Arn")]] = None
     Status: Optional[str] = None
 
 
 class MonitorInfoTypeDef(BaseValidatorModel):
-    MonitorArn: Optional[str] = None
+    MonitorArn: Optional[Annotated[str, _aws_pattern("Forecast", "Arn")]] = None
     Status: Optional[str] = None
 
 
 class ReferencePredictorSummaryTypeDef(BaseValidatorModel):
-    Arn: Optional[str] = None
+    Arn: Optional[Annotated[str, _aws_pattern("Forecast", "Arn")]] = None
     State: Optional[StateType] = None
 
 
 # This class is the input for the 'describe_dataset_group' function.
 class DescribeDatasetGroupRequestTypeDef(BaseValidatorModel):
-    DatasetGroupArn: str
+    DatasetGroupArn: Annotated[str, _aws_pattern("Forecast", "Arn")]
 
 
 # This class is the input for the 'describe_dataset_import_job' function.
 class DescribeDatasetImportJobRequestTypeDef(BaseValidatorModel):
-    DatasetImportJobArn: str
+    DatasetImportJobArn: Annotated[str, _aws_pattern("Forecast", "Arn")]
 
 
 class StatisticsTypeDef(BaseValidatorModel):
@@ -252,8 +254,8 @@ class StatisticsTypeDef(BaseValidatorModel):
     CountDistinct: Optional[int] = None
     CountNull: Optional[int] = None
     CountNan: Optional[int] = None
-    Min: Optional[str] = None
-    Max: Optional[str] = None
+    Min: Optional[Annotated[str, _aws_pattern("Forecast", "String")]] = None
+    Max: Optional[Annotated[str, _aws_pattern("Forecast", "String")]] = None
     Avg: Optional[float] = None
     Stddev: Optional[float] = None
     CountLong: Optional[int] = None
@@ -264,61 +266,61 @@ class StatisticsTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'describe_dataset' function.
 class DescribeDatasetRequestTypeDef(BaseValidatorModel):
-    DatasetArn: str
+    DatasetArn: Annotated[str, _aws_pattern("Forecast", "Arn")]
 
 
 # This class is the input for the 'describe_explainability_export' function.
 class DescribeExplainabilityExportRequestTypeDef(BaseValidatorModel):
-    ExplainabilityExportArn: str
+    ExplainabilityExportArn: Annotated[str, _aws_pattern("Forecast", "Arn")]
 
 
 # This class is the input for the 'describe_explainability' function.
 class DescribeExplainabilityRequestTypeDef(BaseValidatorModel):
-    ExplainabilityArn: str
+    ExplainabilityArn: Annotated[str, _aws_pattern("Forecast", "Arn")]
 
 
 # This class is the input for the 'describe_forecast_export_job' function.
 class DescribeForecastExportJobRequestTypeDef(BaseValidatorModel):
-    ForecastExportJobArn: str
+    ForecastExportJobArn: Annotated[str, _aws_pattern("Forecast", "Arn")]
 
 
 # This class is the input for the 'describe_forecast' function.
 class DescribeForecastRequestTypeDef(BaseValidatorModel):
-    ForecastArn: str
+    ForecastArn: Annotated[str, _aws_pattern("Forecast", "Arn")]
 
 
 # This class is the input for the 'describe_monitor' function.
 class DescribeMonitorRequestTypeDef(BaseValidatorModel):
-    MonitorArn: str
+    MonitorArn: Annotated[str, _aws_pattern("Forecast", "Arn")]
 
 
 # This class is the input for the 'describe_predictor_backtest_export_job' function.
 class DescribePredictorBacktestExportJobRequestTypeDef(BaseValidatorModel):
-    PredictorBacktestExportJobArn: str
+    PredictorBacktestExportJobArn: Annotated[str, _aws_pattern("Forecast", "Arn")]
 
 
 # This class is the input for the 'describe_predictor' function.
 class DescribePredictorRequestTypeDef(BaseValidatorModel):
-    PredictorArn: str
+    PredictorArn: Annotated[str, _aws_pattern("Forecast", "Arn")]
 
 
 # This class is the input for the 'describe_what_if_analysis' function.
 class DescribeWhatIfAnalysisRequestTypeDef(BaseValidatorModel):
-    WhatIfAnalysisArn: str
+    WhatIfAnalysisArn: Annotated[str, _aws_pattern("Forecast", "Arn")]
 
 
 # This class is the input for the 'describe_what_if_forecast_export' function.
 class DescribeWhatIfForecastExportRequestTypeDef(BaseValidatorModel):
-    WhatIfForecastExportArn: str
+    WhatIfForecastExportArn: Annotated[str, _aws_pattern("Forecast", "LongArn")]
 
 
 # This class is the input for the 'describe_what_if_forecast' function.
 class DescribeWhatIfForecastRequestTypeDef(BaseValidatorModel):
-    WhatIfForecastArn: str
+    WhatIfForecastArn: Annotated[str, _aws_pattern("Forecast", "LongArn")]
 
 
 class ErrorMetricTypeDef(BaseValidatorModel):
-    ForecastType: Optional[str] = None
+    ForecastType: Optional[Annotated[str, _aws_pattern("Forecast", "ForecastType")]] = None
     WAPE: Optional[float] = None
     RMSE: Optional[float] = None
     MASE: Optional[float] = None
@@ -336,17 +338,17 @@ class FeaturizationMethodTypeDef(BaseValidatorModel):
 
 
 class FilterTypeDef(BaseValidatorModel):
-    Key: str
-    Value: str
+    Key: Annotated[str, _aws_pattern("Forecast", "String")]
+    Value: Annotated[str, _aws_pattern("Forecast", "Arn")]
     Condition: FilterConditionStringType
 
 
 class ForecastSummaryTypeDef(BaseValidatorModel):
-    ForecastArn: Optional[str] = None
-    ForecastName: Optional[str] = None
-    PredictorArn: Optional[str] = None
+    ForecastArn: Optional[Annotated[str, _aws_pattern("Forecast", "Arn")]] = None
+    ForecastName: Optional[Annotated[str, _aws_pattern("Forecast", "Name")]] = None
+    PredictorArn: Optional[Annotated[str, _aws_pattern("Forecast", "String")]] = None
     CreatedUsingAutoPredictor: Optional[bool] = None
-    DatasetGroupArn: Optional[str] = None
+    DatasetGroupArn: Optional[Annotated[str, _aws_pattern("Forecast", "String")]] = None
     Status: Optional[str] = None
     Message: Optional[str] = None
     CreationTime: Optional[datetime] = None
@@ -355,16 +357,16 @@ class ForecastSummaryTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'get_accuracy_metrics' function.
 class GetAccuracyMetricsRequestTypeDef(BaseValidatorModel):
-    PredictorArn: str
+    PredictorArn: Annotated[str, _aws_pattern("Forecast", "Arn")]
 
 
 class SupplementaryFeatureTypeDef(BaseValidatorModel):
-    Name: str
-    Value: str
+    Name: Annotated[str, _aws_pattern("Forecast", "Name")]
+    Value: Annotated[str, _aws_pattern("Forecast", "Value")]
 
 
 class IntegerParameterRangeTypeDef(BaseValidatorModel):
-    Name: str
+    Name: Annotated[str, _aws_pattern("Forecast", "Name")]
     MaxValue: int
     MinValue: int
     ScalingType: Optional[ScalingTypeType] = None
@@ -378,20 +380,20 @@ class PaginatorConfigTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'list_dataset_groups' function.
 class ListDatasetGroupsRequestTypeDef(BaseValidatorModel):
-    NextToken: Optional[str] = None
+    NextToken: Optional[Annotated[str, _aws_pattern("Forecast", "NextToken")]] = None
     MaxResults: Optional[int] = None
 
 
 # This class is the input for the 'list_datasets' function.
 class ListDatasetsRequestTypeDef(BaseValidatorModel):
-    NextToken: Optional[str] = None
+    NextToken: Optional[Annotated[str, _aws_pattern("Forecast", "NextToken")]] = None
     MaxResults: Optional[int] = None
 
 
 class MonitorSummaryTypeDef(BaseValidatorModel):
-    MonitorArn: Optional[str] = None
-    MonitorName: Optional[str] = None
-    ResourceArn: Optional[str] = None
+    MonitorArn: Optional[Annotated[str, _aws_pattern("Forecast", "Arn")]] = None
+    MonitorName: Optional[Annotated[str, _aws_pattern("Forecast", "Name")]] = None
+    ResourceArn: Optional[Annotated[str, _aws_pattern("Forecast", "Arn")]] = None
     Status: Optional[str] = None
     CreationTime: Optional[datetime] = None
     LastModificationTime: Optional[datetime] = None
@@ -399,13 +401,13 @@ class MonitorSummaryTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'list_tags_for_resource' function.
 class ListTagsForResourceRequestTypeDef(BaseValidatorModel):
-    ResourceArn: str
+    ResourceArn: Annotated[str, _aws_pattern("Forecast", "Arn")]
 
 
 class WhatIfAnalysisSummaryTypeDef(BaseValidatorModel):
-    WhatIfAnalysisArn: Optional[str] = None
-    WhatIfAnalysisName: Optional[str] = None
-    ForecastArn: Optional[str] = None
+    WhatIfAnalysisArn: Optional[Annotated[str, _aws_pattern("Forecast", "Arn")]] = None
+    WhatIfAnalysisName: Optional[Annotated[str, _aws_pattern("Forecast", "Name")]] = None
+    ForecastArn: Optional[Annotated[str, _aws_pattern("Forecast", "Arn")]] = None
     Status: Optional[str] = None
     Message: Optional[str] = None
     CreationTime: Optional[datetime] = None
@@ -413,9 +415,9 @@ class WhatIfAnalysisSummaryTypeDef(BaseValidatorModel):
 
 
 class WhatIfForecastSummaryTypeDef(BaseValidatorModel):
-    WhatIfForecastArn: Optional[str] = None
-    WhatIfForecastName: Optional[str] = None
-    WhatIfAnalysisArn: Optional[str] = None
+    WhatIfForecastArn: Optional[Annotated[str, _aws_pattern("Forecast", "LongArn")]] = None
+    WhatIfForecastName: Optional[Annotated[str, _aws_pattern("Forecast", "Name")]] = None
+    WhatIfAnalysisArn: Optional[Annotated[str, _aws_pattern("Forecast", "Arn")]] = None
     Status: Optional[str] = None
     Message: Optional[str] = None
     CreationTime: Optional[datetime] = None
@@ -433,9 +435,9 @@ class WeightedQuantileLossTypeDef(BaseValidatorModel):
 
 
 class MonitorDataSourceTypeDef(BaseValidatorModel):
-    DatasetImportJobArn: Optional[str] = None
-    ForecastArn: Optional[str] = None
-    PredictorArn: Optional[str] = None
+    DatasetImportJobArn: Optional[Annotated[str, _aws_pattern("Forecast", "Arn")]] = None
+    ForecastArn: Optional[Annotated[str, _aws_pattern("Forecast", "Arn")]] = None
+    PredictorArn: Optional[Annotated[str, _aws_pattern("Forecast", "Arn")]] = None
 
 
 class PredictorEventTypeDef(BaseValidatorModel):
@@ -452,33 +454,33 @@ class TestWindowSummaryTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'resume_resource' function.
 class ResumeResourceRequestTypeDef(BaseValidatorModel):
-    ResourceArn: str
+    ResourceArn: Annotated[str, _aws_pattern("Forecast", "Arn")]
 
 
 class SchemaAttributeTypeDef(BaseValidatorModel):
-    AttributeName: Optional[str] = None
+    AttributeName: Optional[Annotated[str, _aws_pattern("Forecast", "Name")]] = None
     AttributeType: Optional[AttributeTypeType] = None
 
 
 # This class is the input for the 'stop_resource' function.
 class StopResourceRequestTypeDef(BaseValidatorModel):
-    ResourceArn: str
+    ResourceArn: Annotated[str, _aws_pattern("Forecast", "Arn")]
 
 
 class TimeSeriesConditionTypeDef(BaseValidatorModel):
-    AttributeName: str
-    AttributeValue: str
+    AttributeName: Annotated[str, _aws_pattern("Forecast", "Name")]
+    AttributeValue: Annotated[str, _aws_pattern("Forecast", "AttributeValue")]
     Condition: ConditionType
 
 
 class UntagResourceRequestTypeDef(BaseValidatorModel):
-    ResourceArn: str
-    TagKeys: List[str]
+    ResourceArn: Annotated[str, _aws_pattern("Forecast", "Arn")]
+    TagKeys: List[Annotated[str, _aws_pattern("Forecast", "TagKey")]]
 
 
 class UpdateDatasetGroupRequestTypeDef(BaseValidatorModel):
-    DatasetGroupArn: str
-    DatasetArns: List[str]
+    DatasetGroupArn: Annotated[str, _aws_pattern("Forecast", "Arn")]
+    DatasetArns: List[Annotated[str, _aws_pattern("Forecast", "Arn")]]
 
 
 class DataConfigOutputTypeDef(BaseValidatorModel):
@@ -488,7 +490,7 @@ class DataConfigOutputTypeDef(BaseValidatorModel):
 
 
 class DataConfigTypeDef(BaseValidatorModel):
-    DatasetGroupArn: str
+    DatasetGroupArn: Annotated[str, _aws_pattern("Forecast", "Arn")]
     AttributeConfigs: Optional[List[AttributeConfigTypeDef]] = None
     AdditionalDatasets: Optional[List[AdditionalDatasetTypeDef]] = None
 
@@ -499,113 +501,113 @@ class PredictorBaselineTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'create_dataset_group' function.
 class CreateDatasetGroupRequestTypeDef(BaseValidatorModel):
-    DatasetGroupName: str
+    DatasetGroupName: Annotated[str, _aws_pattern("Forecast", "Name")]
     Domain: DomainType
-    DatasetArns: Optional[List[str]] = None
+    DatasetArns: Optional[List[Annotated[str, _aws_pattern("Forecast", "Arn")]]] = None
     Tags: Optional[List[TagTypeDef]] = None
 
 
 # This class is the input for the 'create_monitor' function.
 class CreateMonitorRequestTypeDef(BaseValidatorModel):
-    MonitorName: str
-    ResourceArn: str
+    MonitorName: Annotated[str, _aws_pattern("Forecast", "Name")]
+    ResourceArn: Annotated[str, _aws_pattern("Forecast", "Arn")]
     Tags: Optional[List[TagTypeDef]] = None
 
 
 class TagResourceRequestTypeDef(BaseValidatorModel):
-    ResourceArn: str
+    ResourceArn: Annotated[str, _aws_pattern("Forecast", "Arn")]
     Tags: List[TagTypeDef]
 
 
 # This class is the output for the 'create_auto_predictor' function.
 class CreateAutoPredictorResponseTypeDef(BaseValidatorModel):
-    PredictorArn: str
+    PredictorArn: Annotated[str, _aws_pattern("Forecast", "Arn")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 # This class is the output for the 'create_dataset_group' function.
 class CreateDatasetGroupResponseTypeDef(BaseValidatorModel):
-    DatasetGroupArn: str
+    DatasetGroupArn: Annotated[str, _aws_pattern("Forecast", "Arn")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 # This class is the output for the 'create_dataset_import_job' function.
 class CreateDatasetImportJobResponseTypeDef(BaseValidatorModel):
-    DatasetImportJobArn: str
+    DatasetImportJobArn: Annotated[str, _aws_pattern("Forecast", "Arn")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 # This class is the output for the 'create_dataset' function.
 class CreateDatasetResponseTypeDef(BaseValidatorModel):
-    DatasetArn: str
+    DatasetArn: Annotated[str, _aws_pattern("Forecast", "Arn")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 # This class is the output for the 'create_explainability_export' function.
 class CreateExplainabilityExportResponseTypeDef(BaseValidatorModel):
-    ExplainabilityExportArn: str
+    ExplainabilityExportArn: Annotated[str, _aws_pattern("Forecast", "Arn")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 # This class is the output for the 'create_explainability' function.
 class CreateExplainabilityResponseTypeDef(BaseValidatorModel):
-    ExplainabilityArn: str
+    ExplainabilityArn: Annotated[str, _aws_pattern("Forecast", "Arn")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 # This class is the output for the 'create_forecast_export_job' function.
 class CreateForecastExportJobResponseTypeDef(BaseValidatorModel):
-    ForecastExportJobArn: str
+    ForecastExportJobArn: Annotated[str, _aws_pattern("Forecast", "Arn")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 # This class is the output for the 'create_forecast' function.
 class CreateForecastResponseTypeDef(BaseValidatorModel):
-    ForecastArn: str
+    ForecastArn: Annotated[str, _aws_pattern("Forecast", "Arn")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 # This class is the output for the 'create_monitor' function.
 class CreateMonitorResponseTypeDef(BaseValidatorModel):
-    MonitorArn: str
+    MonitorArn: Annotated[str, _aws_pattern("Forecast", "Arn")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 # This class is the output for the 'create_predictor_backtest_export_job' function.
 class CreatePredictorBacktestExportJobResponseTypeDef(BaseValidatorModel):
-    PredictorBacktestExportJobArn: str
+    PredictorBacktestExportJobArn: Annotated[str, _aws_pattern("Forecast", "Arn")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 # This class is the output for the 'create_predictor' function.
 class CreatePredictorResponseTypeDef(BaseValidatorModel):
-    PredictorArn: str
+    PredictorArn: Annotated[str, _aws_pattern("Forecast", "Arn")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 # This class is the output for the 'create_what_if_analysis' function.
 class CreateWhatIfAnalysisResponseTypeDef(BaseValidatorModel):
-    WhatIfAnalysisArn: str
+    WhatIfAnalysisArn: Annotated[str, _aws_pattern("Forecast", "Arn")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 # This class is the output for the 'create_what_if_forecast_export' function.
 class CreateWhatIfForecastExportResponseTypeDef(BaseValidatorModel):
-    WhatIfForecastExportArn: str
+    WhatIfForecastExportArn: Annotated[str, _aws_pattern("Forecast", "LongArn")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 # This class is the output for the 'create_what_if_forecast' function.
 class CreateWhatIfForecastResponseTypeDef(BaseValidatorModel):
-    WhatIfForecastArn: str
+    WhatIfForecastArn: Annotated[str, _aws_pattern("Forecast", "LongArn")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 # This class is the output for the 'describe_dataset_group' function.
 class DescribeDatasetGroupResponseTypeDef(BaseValidatorModel):
-    DatasetGroupName: str
-    DatasetGroupArn: str
-    DatasetArns: List[str]
+    DatasetGroupName: Annotated[str, _aws_pattern("Forecast", "Name")]
+    DatasetGroupArn: Annotated[str, _aws_pattern("Forecast", "Arn")]
+    DatasetArns: List[Annotated[str, _aws_pattern("Forecast", "Arn")]]
     Domain: DomainType
     Status: str
     CreationTime: datetime
@@ -625,9 +627,9 @@ class ListTagsForResourceResponseTypeDef(BaseValidatorModel):
 
 
 class ExplainabilitySummaryTypeDef(BaseValidatorModel):
-    ExplainabilityArn: Optional[str] = None
-    ExplainabilityName: Optional[str] = None
-    ResourceArn: Optional[str] = None
+    ExplainabilityArn: Optional[Annotated[str, _aws_pattern("Forecast", "Arn")]] = None
+    ExplainabilityName: Optional[Annotated[str, _aws_pattern("Forecast", "Name")]] = None
+    ResourceArn: Optional[Annotated[str, _aws_pattern("Forecast", "Arn")]] = None
     ExplainabilityConfig: Optional[ExplainabilityConfigTypeDef] = None
     Status: Optional[str] = None
     Message: Optional[str] = None
@@ -647,20 +649,20 @@ class DataSourceTypeDef(BaseValidatorModel):
 class ListDatasetGroupsResponseTypeDef(BaseValidatorModel):
     DatasetGroups: List[DatasetGroupSummaryTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
-    NextToken: Optional[str] = None
+    NextToken: Optional[Annotated[str, _aws_pattern("Forecast", "NextToken")]] = None
 
 
 # This class is the output for the 'list_datasets' function.
 class ListDatasetsResponseTypeDef(BaseValidatorModel):
     Datasets: List[DatasetSummaryTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
-    NextToken: Optional[str] = None
+    NextToken: Optional[Annotated[str, _aws_pattern("Forecast", "NextToken")]] = None
 
 
 class PredictorSummaryTypeDef(BaseValidatorModel):
-    PredictorArn: Optional[str] = None
-    PredictorName: Optional[str] = None
-    DatasetGroupArn: Optional[str] = None
+    PredictorArn: Optional[Annotated[str, _aws_pattern("Forecast", "Arn")]] = None
+    PredictorName: Optional[Annotated[str, _aws_pattern("Forecast", "Name")]] = None
+    DatasetGroupArn: Optional[Annotated[str, _aws_pattern("Forecast", "Arn")]] = None
     IsAutoPredictor: Optional[bool] = None
     ReferencePredictorSummary: Optional[ReferencePredictorSummaryTypeDef] = None
     Status: Optional[str] = None
@@ -675,91 +677,91 @@ class FeaturizationOutputTypeDef(BaseValidatorModel):
 
 
 class FeaturizationTypeDef(BaseValidatorModel):
-    AttributeName: str
+    AttributeName: Annotated[str, _aws_pattern("Forecast", "Name")]
     FeaturizationPipeline: Optional[List[FeaturizationMethodTypeDef]] = None
 
 
 # This class is the input for the 'list_dataset_import_jobs' function.
 class ListDatasetImportJobsRequestTypeDef(BaseValidatorModel):
-    NextToken: Optional[str] = None
+    NextToken: Optional[Annotated[str, _aws_pattern("Forecast", "NextToken")]] = None
     MaxResults: Optional[int] = None
     Filters: Optional[List[FilterTypeDef]] = None
 
 
 # This class is the input for the 'list_explainabilities' function.
 class ListExplainabilitiesRequestTypeDef(BaseValidatorModel):
-    NextToken: Optional[str] = None
+    NextToken: Optional[Annotated[str, _aws_pattern("Forecast", "NextToken")]] = None
     MaxResults: Optional[int] = None
     Filters: Optional[List[FilterTypeDef]] = None
 
 
 # This class is the input for the 'list_explainability_exports' function.
 class ListExplainabilityExportsRequestTypeDef(BaseValidatorModel):
-    NextToken: Optional[str] = None
+    NextToken: Optional[Annotated[str, _aws_pattern("Forecast", "NextToken")]] = None
     MaxResults: Optional[int] = None
     Filters: Optional[List[FilterTypeDef]] = None
 
 
 # This class is the input for the 'list_forecast_export_jobs' function.
 class ListForecastExportJobsRequestTypeDef(BaseValidatorModel):
-    NextToken: Optional[str] = None
+    NextToken: Optional[Annotated[str, _aws_pattern("Forecast", "NextToken")]] = None
     MaxResults: Optional[int] = None
     Filters: Optional[List[FilterTypeDef]] = None
 
 
 # This class is the input for the 'list_forecasts' function.
 class ListForecastsRequestTypeDef(BaseValidatorModel):
-    NextToken: Optional[str] = None
+    NextToken: Optional[Annotated[str, _aws_pattern("Forecast", "NextToken")]] = None
     MaxResults: Optional[int] = None
     Filters: Optional[List[FilterTypeDef]] = None
 
 
 # This class is the input for the 'list_monitor_evaluations' function.
 class ListMonitorEvaluationsRequestTypeDef(BaseValidatorModel):
-    MonitorArn: str
-    NextToken: Optional[str] = None
+    MonitorArn: Annotated[str, _aws_pattern("Forecast", "Arn")]
+    NextToken: Optional[Annotated[str, _aws_pattern("Forecast", "NextToken")]] = None
     MaxResults: Optional[int] = None
     Filters: Optional[List[FilterTypeDef]] = None
 
 
 # This class is the input for the 'list_monitors' function.
 class ListMonitorsRequestTypeDef(BaseValidatorModel):
-    NextToken: Optional[str] = None
+    NextToken: Optional[Annotated[str, _aws_pattern("Forecast", "NextToken")]] = None
     MaxResults: Optional[int] = None
     Filters: Optional[List[FilterTypeDef]] = None
 
 
 # This class is the input for the 'list_predictor_backtest_export_jobs' function.
 class ListPredictorBacktestExportJobsRequestTypeDef(BaseValidatorModel):
-    NextToken: Optional[str] = None
+    NextToken: Optional[Annotated[str, _aws_pattern("Forecast", "NextToken")]] = None
     MaxResults: Optional[int] = None
     Filters: Optional[List[FilterTypeDef]] = None
 
 
 # This class is the input for the 'list_predictors' function.
 class ListPredictorsRequestTypeDef(BaseValidatorModel):
-    NextToken: Optional[str] = None
+    NextToken: Optional[Annotated[str, _aws_pattern("Forecast", "NextToken")]] = None
     MaxResults: Optional[int] = None
     Filters: Optional[List[FilterTypeDef]] = None
 
 
 # This class is the input for the 'list_what_if_analyses' function.
 class ListWhatIfAnalysesRequestTypeDef(BaseValidatorModel):
-    NextToken: Optional[str] = None
+    NextToken: Optional[Annotated[str, _aws_pattern("Forecast", "NextToken")]] = None
     MaxResults: Optional[int] = None
     Filters: Optional[List[FilterTypeDef]] = None
 
 
 # This class is the input for the 'list_what_if_forecast_exports' function.
 class ListWhatIfForecastExportsRequestTypeDef(BaseValidatorModel):
-    NextToken: Optional[str] = None
+    NextToken: Optional[Annotated[str, _aws_pattern("Forecast", "NextToken")]] = None
     MaxResults: Optional[int] = None
     Filters: Optional[List[FilterTypeDef]] = None
 
 
 # This class is the input for the 'list_what_if_forecasts' function.
 class ListWhatIfForecastsRequestTypeDef(BaseValidatorModel):
-    NextToken: Optional[str] = None
+    NextToken: Optional[Annotated[str, _aws_pattern("Forecast", "NextToken")]] = None
     MaxResults: Optional[int] = None
     Filters: Optional[List[FilterTypeDef]] = None
 
@@ -768,7 +770,7 @@ class ListWhatIfForecastsRequestTypeDef(BaseValidatorModel):
 class ListForecastsResponseTypeDef(BaseValidatorModel):
     Forecasts: List[ForecastSummaryTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
-    NextToken: Optional[str] = None
+    NextToken: Optional[Annotated[str, _aws_pattern("Forecast", "NextToken")]] = None
 
 
 class InputDataConfigOutputTypeDef(BaseValidatorModel):
@@ -777,7 +779,7 @@ class InputDataConfigOutputTypeDef(BaseValidatorModel):
 
 
 class InputDataConfigTypeDef(BaseValidatorModel):
-    DatasetGroupArn: str
+    DatasetGroupArn: Annotated[str, _aws_pattern("Forecast", "Arn")]
     SupplementaryFeatures: Optional[List[SupplementaryFeatureTypeDef]] = None
 
 
@@ -866,21 +868,21 @@ class ListWhatIfForecastsRequestPaginateTypeDef(BaseValidatorModel):
 class ListMonitorsResponseTypeDef(BaseValidatorModel):
     Monitors: List[MonitorSummaryTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
-    NextToken: Optional[str] = None
+    NextToken: Optional[Annotated[str, _aws_pattern("Forecast", "NextToken")]] = None
 
 
 # This class is the output for the 'list_what_if_analyses' function.
 class ListWhatIfAnalysesResponseTypeDef(BaseValidatorModel):
     WhatIfAnalyses: List[WhatIfAnalysisSummaryTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
-    NextToken: Optional[str] = None
+    NextToken: Optional[Annotated[str, _aws_pattern("Forecast", "NextToken")]] = None
 
 
 # This class is the output for the 'list_what_if_forecasts' function.
 class ListWhatIfForecastsResponseTypeDef(BaseValidatorModel):
     WhatIfForecasts: List[WhatIfForecastSummaryTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
-    NextToken: Optional[str] = None
+    NextToken: Optional[Annotated[str, _aws_pattern("Forecast", "NextToken")]] = None
 
 
 class MetricsTypeDef(BaseValidatorModel):
@@ -891,8 +893,8 @@ class MetricsTypeDef(BaseValidatorModel):
 
 
 class PredictorMonitorEvaluationTypeDef(BaseValidatorModel):
-    ResourceArn: Optional[str] = None
-    MonitorArn: Optional[str] = None
+    ResourceArn: Optional[Annotated[str, _aws_pattern("Forecast", "Arn")]] = None
+    MonitorArn: Optional[Annotated[str, _aws_pattern("Forecast", "Arn")]] = None
     EvaluationTime: Optional[datetime] = None
     EvaluationState: Optional[str] = None
     WindowStartDatetime: Optional[datetime] = None
@@ -905,7 +907,7 @@ class PredictorMonitorEvaluationTypeDef(BaseValidatorModel):
 
 
 class PredictorExecutionTypeDef(BaseValidatorModel):
-    AlgorithmArn: Optional[str] = None
+    AlgorithmArn: Optional[Annotated[str, _aws_pattern("Forecast", "Arn")]] = None
     TestWindows: Optional[List[TestWindowSummaryTypeDef]] = None
 
 
@@ -929,13 +931,13 @@ class TimeSeriesTransformationTypeDef(BaseValidatorModel):
 
 # This class is the output for the 'describe_auto_predictor' function.
 class DescribeAutoPredictorResponseTypeDef(BaseValidatorModel):
-    PredictorArn: str
-    PredictorName: str
+    PredictorArn: Annotated[str, _aws_pattern("Forecast", "Arn")]
+    PredictorName: Annotated[str, _aws_pattern("Forecast", "Name")]
     ForecastHorizon: int
-    ForecastTypes: List[str]
-    ForecastFrequency: str
-    ForecastDimensions: List[str]
-    DatasetImportJobArns: List[str]
+    ForecastTypes: List[Annotated[str, _aws_pattern("Forecast", "ForecastType")]]
+    ForecastFrequency: Annotated[str, _aws_pattern("Forecast", "Frequency")]
+    ForecastDimensions: List[Annotated[str, _aws_pattern("Forecast", "Name")]]
+    DatasetImportJobArns: List[Annotated[str, _aws_pattern("Forecast", "Arn")]]
     DataConfig: DataConfigOutputTypeDef
     EncryptionConfig: EncryptionConfigTypeDef
     ReferencePredictorSummary: ReferencePredictorSummaryTypeDef
@@ -962,105 +964,105 @@ class BaselineTypeDef(BaseValidatorModel):
 class ListExplainabilitiesResponseTypeDef(BaseValidatorModel):
     Explainabilities: List[ExplainabilitySummaryTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
-    NextToken: Optional[str] = None
+    NextToken: Optional[Annotated[str, _aws_pattern("Forecast", "NextToken")]] = None
 
 
 # This class is the input for the 'create_explainability_export' function.
 class CreateExplainabilityExportRequestTypeDef(BaseValidatorModel):
-    ExplainabilityExportName: str
-    ExplainabilityArn: str
+    ExplainabilityExportName: Annotated[str, _aws_pattern("Forecast", "Name")]
+    ExplainabilityArn: Annotated[str, _aws_pattern("Forecast", "Arn")]
     Destination: DataDestinationTypeDef
     Tags: Optional[List[TagTypeDef]] = None
-    Format: Optional[str] = None
+    Format: Optional[Annotated[str, _aws_pattern("Forecast", "Format")]] = None
 
 
 # This class is the input for the 'create_forecast_export_job' function.
 class CreateForecastExportJobRequestTypeDef(BaseValidatorModel):
-    ForecastExportJobName: str
-    ForecastArn: str
+    ForecastExportJobName: Annotated[str, _aws_pattern("Forecast", "Name")]
+    ForecastArn: Annotated[str, _aws_pattern("Forecast", "Arn")]
     Destination: DataDestinationTypeDef
     Tags: Optional[List[TagTypeDef]] = None
-    Format: Optional[str] = None
+    Format: Optional[Annotated[str, _aws_pattern("Forecast", "Format")]] = None
 
 
 # This class is the input for the 'create_predictor_backtest_export_job' function.
 class CreatePredictorBacktestExportJobRequestTypeDef(BaseValidatorModel):
-    PredictorBacktestExportJobName: str
-    PredictorArn: str
+    PredictorBacktestExportJobName: Annotated[str, _aws_pattern("Forecast", "Name")]
+    PredictorArn: Annotated[str, _aws_pattern("Forecast", "Arn")]
     Destination: DataDestinationTypeDef
     Tags: Optional[List[TagTypeDef]] = None
-    Format: Optional[str] = None
+    Format: Optional[Annotated[str, _aws_pattern("Forecast", "Format")]] = None
 
 
 # This class is the input for the 'create_what_if_forecast_export' function.
 class CreateWhatIfForecastExportRequestTypeDef(BaseValidatorModel):
-    WhatIfForecastExportName: str
-    WhatIfForecastArns: List[str]
+    WhatIfForecastExportName: Annotated[str, _aws_pattern("Forecast", "Name")]
+    WhatIfForecastArns: List[Annotated[str, _aws_pattern("Forecast", "LongArn")]]
     Destination: DataDestinationTypeDef
     Tags: Optional[List[TagTypeDef]] = None
-    Format: Optional[str] = None
+    Format: Optional[Annotated[str, _aws_pattern("Forecast", "Format")]] = None
 
 
 # This class is the output for the 'describe_explainability_export' function.
 class DescribeExplainabilityExportResponseTypeDef(BaseValidatorModel):
-    ExplainabilityExportArn: str
-    ExplainabilityExportName: str
-    ExplainabilityArn: str
+    ExplainabilityExportArn: Annotated[str, _aws_pattern("Forecast", "Arn")]
+    ExplainabilityExportName: Annotated[str, _aws_pattern("Forecast", "Name")]
+    ExplainabilityArn: Annotated[str, _aws_pattern("Forecast", "Arn")]
     Destination: DataDestinationTypeDef
     Message: str
     Status: str
     CreationTime: datetime
     LastModificationTime: datetime
-    Format: str
+    Format: Annotated[str, _aws_pattern("Forecast", "Format")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 # This class is the output for the 'describe_forecast_export_job' function.
 class DescribeForecastExportJobResponseTypeDef(BaseValidatorModel):
-    ForecastExportJobArn: str
-    ForecastExportJobName: str
-    ForecastArn: str
+    ForecastExportJobArn: Annotated[str, _aws_pattern("Forecast", "Arn")]
+    ForecastExportJobName: Annotated[str, _aws_pattern("Forecast", "Name")]
+    ForecastArn: Annotated[str, _aws_pattern("Forecast", "Arn")]
     Destination: DataDestinationTypeDef
     Message: str
     Status: str
     CreationTime: datetime
     LastModificationTime: datetime
-    Format: str
+    Format: Annotated[str, _aws_pattern("Forecast", "Format")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 # This class is the output for the 'describe_predictor_backtest_export_job' function.
 class DescribePredictorBacktestExportJobResponseTypeDef(BaseValidatorModel):
-    PredictorBacktestExportJobArn: str
-    PredictorBacktestExportJobName: str
-    PredictorArn: str
+    PredictorBacktestExportJobArn: Annotated[str, _aws_pattern("Forecast", "Arn")]
+    PredictorBacktestExportJobName: Annotated[str, _aws_pattern("Forecast", "Name")]
+    PredictorArn: Annotated[str, _aws_pattern("Forecast", "Arn")]
     Destination: DataDestinationTypeDef
     Message: str
     Status: str
     CreationTime: datetime
     LastModificationTime: datetime
-    Format: str
+    Format: Annotated[str, _aws_pattern("Forecast", "Format")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 # This class is the output for the 'describe_what_if_forecast_export' function.
 class DescribeWhatIfForecastExportResponseTypeDef(BaseValidatorModel):
-    WhatIfForecastExportArn: str
-    WhatIfForecastExportName: str
-    WhatIfForecastArns: List[str]
+    WhatIfForecastExportArn: Annotated[str, _aws_pattern("Forecast", "LongArn")]
+    WhatIfForecastExportName: Annotated[str, _aws_pattern("Forecast", "Name")]
+    WhatIfForecastArns: List[Annotated[str, _aws_pattern("Forecast", "LongArn")]]
     Destination: DataDestinationTypeDef
     Message: str
     Status: str
     CreationTime: datetime
     EstimatedTimeRemainingInMinutes: int
     LastModificationTime: datetime
-    Format: str
+    Format: Annotated[str, _aws_pattern("Forecast", "Format")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 class ExplainabilityExportSummaryTypeDef(BaseValidatorModel):
-    ExplainabilityExportArn: Optional[str] = None
-    ExplainabilityExportName: Optional[str] = None
+    ExplainabilityExportArn: Optional[Annotated[str, _aws_pattern("Forecast", "Arn")]] = None
+    ExplainabilityExportName: Optional[Annotated[str, _aws_pattern("Forecast", "Name")]] = None
     Destination: Optional[DataDestinationTypeDef] = None
     Status: Optional[str] = None
     Message: Optional[str] = None
@@ -1069,8 +1071,8 @@ class ExplainabilityExportSummaryTypeDef(BaseValidatorModel):
 
 
 class ForecastExportJobSummaryTypeDef(BaseValidatorModel):
-    ForecastExportJobArn: Optional[str] = None
-    ForecastExportJobName: Optional[str] = None
+    ForecastExportJobArn: Optional[Annotated[str, _aws_pattern("Forecast", "Arn")]] = None
+    ForecastExportJobName: Optional[Annotated[str, _aws_pattern("Forecast", "Name")]] = None
     Destination: Optional[DataDestinationTypeDef] = None
     Status: Optional[str] = None
     Message: Optional[str] = None
@@ -1079,8 +1081,8 @@ class ForecastExportJobSummaryTypeDef(BaseValidatorModel):
 
 
 class PredictorBacktestExportJobSummaryTypeDef(BaseValidatorModel):
-    PredictorBacktestExportJobArn: Optional[str] = None
-    PredictorBacktestExportJobName: Optional[str] = None
+    PredictorBacktestExportJobArn: Optional[Annotated[str, _aws_pattern("Forecast", "Arn")]] = None
+    PredictorBacktestExportJobName: Optional[Annotated[str, _aws_pattern("Forecast", "Name")]] = None
     Destination: Optional[DataDestinationTypeDef] = None
     Status: Optional[str] = None
     Message: Optional[str] = None
@@ -1089,9 +1091,9 @@ class PredictorBacktestExportJobSummaryTypeDef(BaseValidatorModel):
 
 
 class WhatIfForecastExportSummaryTypeDef(BaseValidatorModel):
-    WhatIfForecastExportArn: Optional[str] = None
-    WhatIfForecastArns: Optional[List[str]] = None
-    WhatIfForecastExportName: Optional[str] = None
+    WhatIfForecastExportArn: Optional[Annotated[str, _aws_pattern("Forecast", "LongArn")]] = None
+    WhatIfForecastArns: Optional[List[Annotated[str, _aws_pattern("Forecast", "LongArn")]]] = None
+    WhatIfForecastExportName: Optional[Annotated[str, _aws_pattern("Forecast", "Name")]] = None
     Destination: Optional[DataDestinationTypeDef] = None
     Status: Optional[str] = None
     Message: Optional[str] = None
@@ -1101,21 +1103,21 @@ class WhatIfForecastExportSummaryTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'create_dataset_import_job' function.
 class CreateDatasetImportJobRequestTypeDef(BaseValidatorModel):
-    DatasetImportJobName: str
-    DatasetArn: str
+    DatasetImportJobName: Annotated[str, _aws_pattern("Forecast", "Name")]
+    DatasetArn: Annotated[str, _aws_pattern("Forecast", "Arn")]
     DataSource: DataSourceTypeDef
-    TimestampFormat: Optional[str] = None
-    TimeZone: Optional[str] = None
+    TimestampFormat: Optional[Annotated[str, _aws_pattern("Forecast", "TimestampFormat")]] = None
+    TimeZone: Optional[Annotated[str, _aws_pattern("Forecast", "TimeZone")]] = None
     UseGeolocationForTimeZone: Optional[bool] = None
-    GeolocationFormat: Optional[str] = None
+    GeolocationFormat: Optional[Annotated[str, _aws_pattern("Forecast", "GeolocationFormat")]] = None
     Tags: Optional[List[TagTypeDef]] = None
-    Format: Optional[str] = None
+    Format: Optional[Annotated[str, _aws_pattern("Forecast", "Format")]] = None
     ImportMode: Optional[ImportModeType] = None
 
 
 class DatasetImportJobSummaryTypeDef(BaseValidatorModel):
-    DatasetImportJobArn: Optional[str] = None
-    DatasetImportJobName: Optional[str] = None
+    DatasetImportJobArn: Optional[Annotated[str, _aws_pattern("Forecast", "Arn")]] = None
+    DatasetImportJobName: Optional[Annotated[str, _aws_pattern("Forecast", "Name")]] = None
     DataSource: Optional[DataSourceTypeDef] = None
     Status: Optional[str] = None
     Message: Optional[str] = None
@@ -1126,13 +1128,13 @@ class DatasetImportJobSummaryTypeDef(BaseValidatorModel):
 
 # This class is the output for the 'describe_dataset_import_job' function.
 class DescribeDatasetImportJobResponseTypeDef(BaseValidatorModel):
-    DatasetImportJobName: str
-    DatasetImportJobArn: str
-    DatasetArn: str
-    TimestampFormat: str
-    TimeZone: str
+    DatasetImportJobName: Annotated[str, _aws_pattern("Forecast", "Name")]
+    DatasetImportJobArn: Annotated[str, _aws_pattern("Forecast", "Arn")]
+    DatasetArn: Annotated[str, _aws_pattern("Forecast", "Arn")]
+    TimestampFormat: Annotated[str, _aws_pattern("Forecast", "TimestampFormat")]
+    TimeZone: Annotated[str, _aws_pattern("Forecast", "TimeZone")]
     UseGeolocationForTimeZone: bool
-    GeolocationFormat: str
+    GeolocationFormat: Annotated[str, _aws_pattern("Forecast", "GeolocationFormat")]
     DataSource: DataSourceTypeDef
     EstimatedTimeRemainingInMinutes: int
     FieldStatistics: Dict[str, StatisticsTypeDef]
@@ -1141,7 +1143,7 @@ class DescribeDatasetImportJobResponseTypeDef(BaseValidatorModel):
     Message: str
     CreationTime: datetime
     LastModificationTime: datetime
-    Format: str
+    Format: Annotated[str, _aws_pattern("Forecast", "Format")]
     ImportMode: ImportModeType
     ResponseMetadata: ResponseMetadataTypeDef
 
@@ -1150,7 +1152,7 @@ class DescribeDatasetImportJobResponseTypeDef(BaseValidatorModel):
 class ListPredictorsResponseTypeDef(BaseValidatorModel):
     Predictors: List[PredictorSummaryTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
-    NextToken: Optional[str] = None
+    NextToken: Optional[Annotated[str, _aws_pattern("Forecast", "NextToken")]] = None
 
 
 class FeaturizationConfigOutputTypeDef(BaseValidatorModel):
@@ -1160,8 +1162,8 @@ class FeaturizationConfigOutputTypeDef(BaseValidatorModel):
 
 
 class FeaturizationConfigTypeDef(BaseValidatorModel):
-    ForecastFrequency: str
-    ForecastDimensions: Optional[List[str]] = None
+    ForecastFrequency: Annotated[str, _aws_pattern("Forecast", "Frequency")]
+    ForecastDimensions: Optional[List[Annotated[str, _aws_pattern("Forecast", "Name")]]] = None
     Featurizations: Optional[List[FeaturizationTypeDef]] = None
 
 
@@ -1188,7 +1190,7 @@ class WindowSummaryTypeDef(BaseValidatorModel):
 class ListMonitorEvaluationsResponseTypeDef(BaseValidatorModel):
     PredictorMonitorEvaluations: List[PredictorMonitorEvaluationTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
-    NextToken: Optional[str] = None
+    NextToken: Optional[Annotated[str, _aws_pattern("Forecast", "NextToken")]] = None
 
 
 class PredictorExecutionDetailsTypeDef(BaseValidatorModel):
@@ -1197,11 +1199,11 @@ class PredictorExecutionDetailsTypeDef(BaseValidatorModel):
 
 # This class is the output for the 'describe_dataset' function.
 class DescribeDatasetResponseTypeDef(BaseValidatorModel):
-    DatasetArn: str
-    DatasetName: str
+    DatasetArn: Annotated[str, _aws_pattern("Forecast", "Arn")]
+    DatasetName: Annotated[str, _aws_pattern("Forecast", "Name")]
     Domain: DomainType
     DatasetType: DatasetTypeType
-    DataFrequency: str
+    DataFrequency: Annotated[str, _aws_pattern("Forecast", "Frequency")]
     Schema: SchemaOutputTypeDef
     EncryptionConfig: EncryptionConfigTypeDef
     Status: str
@@ -1212,15 +1214,15 @@ class DescribeDatasetResponseTypeDef(BaseValidatorModel):
 
 # This class is the output for the 'describe_explainability' function.
 class DescribeExplainabilityResponseTypeDef(BaseValidatorModel):
-    ExplainabilityArn: str
-    ExplainabilityName: str
-    ResourceArn: str
+    ExplainabilityArn: Annotated[str, _aws_pattern("Forecast", "Arn")]
+    ExplainabilityName: Annotated[str, _aws_pattern("Forecast", "Name")]
+    ResourceArn: Annotated[str, _aws_pattern("Forecast", "Arn")]
     ExplainabilityConfig: ExplainabilityConfigTypeDef
     EnableVisualization: bool
     DataSource: DataSourceTypeDef
     Schema: SchemaOutputTypeDef
-    StartDateTime: str
-    EndDateTime: str
+    StartDateTime: Annotated[str, _aws_pattern("Forecast", "LocalDateTime")]
+    EndDateTime: Annotated[str, _aws_pattern("Forecast", "LocalDateTime")]
     EstimatedTimeRemainingInMinutes: int
     Message: str
     Status: str
@@ -1248,14 +1250,14 @@ SchemaUnionTypeDef = Union[SchemaOutputTypeDef, SchemaTypeDef]
 class TimeSeriesIdentifiersTypeDef(BaseValidatorModel):
     DataSource: Optional[DataSourceTypeDef] = None
     Schema: Optional[SchemaTypeDef] = None
-    Format: Optional[str] = None
+    Format: Optional[Annotated[str, _aws_pattern("Forecast", "Format")]] = None
 
 
 class TimeSeriesReplacementsDataSourceTypeDef(BaseValidatorModel):
     S3Config: S3ConfigTypeDef
     Schema: SchemaTypeDef
-    Format: Optional[str] = None
-    TimestampFormat: Optional[str] = None
+    Format: Optional[Annotated[str, _aws_pattern("Forecast", "Format")]] = None
+    TimestampFormat: Optional[Annotated[str, _aws_pattern("Forecast", "TimestampFormat")]] = None
 
 
 TimeSeriesTransformationUnionTypeDef = Union[TimeSeriesTransformationOutputTypeDef, TimeSeriesTransformationTypeDef]
@@ -1263,14 +1265,14 @@ TimeSeriesTransformationUnionTypeDef = Union[TimeSeriesTransformationOutputTypeD
 
 # This class is the input for the 'create_auto_predictor' function.
 class CreateAutoPredictorRequestTypeDef(BaseValidatorModel):
-    PredictorName: str
+    PredictorName: Annotated[str, _aws_pattern("Forecast", "Name")]
     ForecastHorizon: Optional[int] = None
-    ForecastTypes: Optional[List[str]] = None
-    ForecastDimensions: Optional[List[str]] = None
-    ForecastFrequency: Optional[str] = None
+    ForecastTypes: Optional[List[Annotated[str, _aws_pattern("Forecast", "ForecastType")]]] = None
+    ForecastDimensions: Optional[List[Annotated[str, _aws_pattern("Forecast", "Name")]]] = None
+    ForecastFrequency: Optional[Annotated[str, _aws_pattern("Forecast", "Frequency")]] = None
     DataConfig: Optional[DataConfigUnionTypeDef] = None
     EncryptionConfig: Optional[EncryptionConfigTypeDef] = None
-    ReferencePredictorArn: Optional[str] = None
+    ReferencePredictorArn: Optional[Annotated[str, _aws_pattern("Forecast", "Arn")]] = None
     OptimizationMetric: Optional[OptimizationMetricType] = None
     ExplainPredictor: Optional[bool] = None
     Tags: Optional[List[TagTypeDef]] = None
@@ -1280,9 +1282,9 @@ class CreateAutoPredictorRequestTypeDef(BaseValidatorModel):
 
 # This class is the output for the 'describe_monitor' function.
 class DescribeMonitorResponseTypeDef(BaseValidatorModel):
-    MonitorName: str
-    MonitorArn: str
-    ResourceArn: str
+    MonitorName: Annotated[str, _aws_pattern("Forecast", "Name")]
+    MonitorArn: Annotated[str, _aws_pattern("Forecast", "Arn")]
+    ResourceArn: Annotated[str, _aws_pattern("Forecast", "Arn")]
     Status: str
     LastEvaluationTime: datetime
     LastEvaluationState: str
@@ -1298,35 +1300,35 @@ class DescribeMonitorResponseTypeDef(BaseValidatorModel):
 class ListExplainabilityExportsResponseTypeDef(BaseValidatorModel):
     ExplainabilityExports: List[ExplainabilityExportSummaryTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
-    NextToken: Optional[str] = None
+    NextToken: Optional[Annotated[str, _aws_pattern("Forecast", "NextToken")]] = None
 
 
 # This class is the output for the 'list_forecast_export_jobs' function.
 class ListForecastExportJobsResponseTypeDef(BaseValidatorModel):
     ForecastExportJobs: List[ForecastExportJobSummaryTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
-    NextToken: Optional[str] = None
+    NextToken: Optional[Annotated[str, _aws_pattern("Forecast", "NextToken")]] = None
 
 
 # This class is the output for the 'list_predictor_backtest_export_jobs' function.
 class ListPredictorBacktestExportJobsResponseTypeDef(BaseValidatorModel):
     PredictorBacktestExportJobs: List[PredictorBacktestExportJobSummaryTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
-    NextToken: Optional[str] = None
+    NextToken: Optional[Annotated[str, _aws_pattern("Forecast", "NextToken")]] = None
 
 
 # This class is the output for the 'list_what_if_forecast_exports' function.
 class ListWhatIfForecastExportsResponseTypeDef(BaseValidatorModel):
     WhatIfForecastExports: List[WhatIfForecastExportSummaryTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
-    NextToken: Optional[str] = None
+    NextToken: Optional[Annotated[str, _aws_pattern("Forecast", "NextToken")]] = None
 
 
 # This class is the output for the 'list_dataset_import_jobs' function.
 class ListDatasetImportJobsResponseTypeDef(BaseValidatorModel):
     DatasetImportJobs: List[DatasetImportJobSummaryTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
-    NextToken: Optional[str] = None
+    NextToken: Optional[Annotated[str, _aws_pattern("Forecast", "NextToken")]] = None
 
 
 FeaturizationConfigUnionTypeDef = Union[FeaturizationConfigOutputTypeDef, FeaturizationConfigTypeDef]
@@ -1337,18 +1339,18 @@ HyperParameterTuningJobConfigUnionTypeDef = Union[
 
 
 class EvaluationResultTypeDef(BaseValidatorModel):
-    AlgorithmArn: Optional[str] = None
+    AlgorithmArn: Optional[Annotated[str, _aws_pattern("Forecast", "Arn")]] = None
     TestWindows: Optional[List[WindowSummaryTypeDef]] = None
 
 
 # This class is the output for the 'describe_predictor' function.
 class DescribePredictorResponseTypeDef(BaseValidatorModel):
-    PredictorArn: str
-    PredictorName: str
-    AlgorithmArn: str
-    AutoMLAlgorithmArns: List[str]
+    PredictorArn: Annotated[str, _aws_pattern("Forecast", "Name")]
+    PredictorName: Annotated[str, _aws_pattern("Forecast", "Name")]
+    AlgorithmArn: Annotated[str, _aws_pattern("Forecast", "Arn")]
+    AutoMLAlgorithmArns: List[Annotated[str, _aws_pattern("Forecast", "Arn")]]
     ForecastHorizon: int
-    ForecastTypes: List[str]
+    ForecastTypes: List[Annotated[str, _aws_pattern("Forecast", "ForecastType")]]
     PerformAutoML: bool
     AutoMLOverrideStrategy: AutoMLOverrideStrategyType
     PerformHPO: bool
@@ -1361,7 +1363,7 @@ class DescribePredictorResponseTypeDef(BaseValidatorModel):
     PredictorExecutionDetails: PredictorExecutionDetailsTypeDef
     EstimatedTimeRemainingInMinutes: int
     IsAutoPredictor: bool
-    DatasetImportJobArns: List[str]
+    DatasetImportJobArns: List[Annotated[str, _aws_pattern("Forecast", "Arn")]]
     Status: str
     Message: str
     CreationTime: datetime
@@ -1376,41 +1378,41 @@ class TimeSeriesSelectorOutputTypeDef(BaseValidatorModel):
 
 # This class is the output for the 'describe_what_if_forecast' function.
 class DescribeWhatIfForecastResponseTypeDef(BaseValidatorModel):
-    WhatIfForecastName: str
-    WhatIfForecastArn: str
-    WhatIfAnalysisArn: str
+    WhatIfForecastName: Annotated[str, _aws_pattern("Forecast", "Name")]
+    WhatIfForecastArn: Annotated[str, _aws_pattern("Forecast", "LongArn")]
+    WhatIfAnalysisArn: Annotated[str, _aws_pattern("Forecast", "Arn")]
     EstimatedTimeRemainingInMinutes: int
-    Status: str
+    Status: Annotated[str, _aws_pattern("Forecast", "String")]
     Message: str
     CreationTime: datetime
     LastModificationTime: datetime
     TimeSeriesTransformations: List[TimeSeriesTransformationOutputTypeDef]
     TimeSeriesReplacementsDataSource: TimeSeriesReplacementsDataSourceOutputTypeDef
-    ForecastTypes: List[str]
+    ForecastTypes: List[Annotated[str, _aws_pattern("Forecast", "ForecastType")]]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 # This class is the input for the 'create_dataset' function.
 class CreateDatasetRequestTypeDef(BaseValidatorModel):
-    DatasetName: str
+    DatasetName: Annotated[str, _aws_pattern("Forecast", "Name")]
     Domain: DomainType
     DatasetType: DatasetTypeType
     Schema: SchemaUnionTypeDef
-    DataFrequency: Optional[str] = None
+    DataFrequency: Optional[Annotated[str, _aws_pattern("Forecast", "Frequency")]] = None
     EncryptionConfig: Optional[EncryptionConfigTypeDef] = None
     Tags: Optional[List[TagTypeDef]] = None
 
 
 # This class is the input for the 'create_explainability' function.
 class CreateExplainabilityRequestTypeDef(BaseValidatorModel):
-    ExplainabilityName: str
-    ResourceArn: str
+    ExplainabilityName: Annotated[str, _aws_pattern("Forecast", "Name")]
+    ResourceArn: Annotated[str, _aws_pattern("Forecast", "Arn")]
     ExplainabilityConfig: ExplainabilityConfigTypeDef
     DataSource: Optional[DataSourceTypeDef] = None
     Schema: Optional[SchemaUnionTypeDef] = None
     EnableVisualization: Optional[bool] = None
-    StartDateTime: Optional[str] = None
-    EndDateTime: Optional[str] = None
+    StartDateTime: Optional[Annotated[str, _aws_pattern("Forecast", "LocalDateTime")]] = None
+    EndDateTime: Optional[Annotated[str, _aws_pattern("Forecast", "LocalDateTime")]] = None
     Tags: Optional[List[TagTypeDef]] = None
 
 
@@ -1425,12 +1427,12 @@ TimeSeriesReplacementsDataSourceUnionTypeDef = Union[
 
 # This class is the input for the 'create_predictor' function.
 class CreatePredictorRequestTypeDef(BaseValidatorModel):
-    PredictorName: str
+    PredictorName: Annotated[str, _aws_pattern("Forecast", "Name")]
     ForecastHorizon: int
     InputDataConfig: InputDataConfigUnionTypeDef
     FeaturizationConfig: FeaturizationConfigUnionTypeDef
-    AlgorithmArn: Optional[str] = None
-    ForecastTypes: Optional[List[str]] = None
+    AlgorithmArn: Optional[Annotated[str, _aws_pattern("Forecast", "Arn")]] = None
+    ForecastTypes: Optional[List[Annotated[str, _aws_pattern("Forecast", "ForecastType")]]] = None
     PerformAutoML: Optional[bool] = None
     AutoMLOverrideStrategy: Optional[AutoMLOverrideStrategyType] = None
     PerformHPO: Optional[bool] = None
@@ -1453,13 +1455,13 @@ class GetAccuracyMetricsResponseTypeDef(BaseValidatorModel):
 
 # This class is the output for the 'describe_forecast' function.
 class DescribeForecastResponseTypeDef(BaseValidatorModel):
-    ForecastArn: str
-    ForecastName: str
-    ForecastTypes: List[str]
-    PredictorArn: str
-    DatasetGroupArn: str
+    ForecastArn: Annotated[str, _aws_pattern("Forecast", "Arn")]
+    ForecastName: Annotated[str, _aws_pattern("Forecast", "Name")]
+    ForecastTypes: List[Annotated[str, _aws_pattern("Forecast", "ForecastType")]]
+    PredictorArn: Annotated[str, _aws_pattern("Forecast", "Arn")]
+    DatasetGroupArn: Annotated[str, _aws_pattern("Forecast", "Arn")]
     EstimatedTimeRemainingInMinutes: int
-    Status: str
+    Status: Annotated[str, _aws_pattern("Forecast", "String")]
     Message: str
     CreationTime: datetime
     LastModificationTime: datetime
@@ -1469,11 +1471,11 @@ class DescribeForecastResponseTypeDef(BaseValidatorModel):
 
 # This class is the output for the 'describe_what_if_analysis' function.
 class DescribeWhatIfAnalysisResponseTypeDef(BaseValidatorModel):
-    WhatIfAnalysisName: str
-    WhatIfAnalysisArn: str
-    ForecastArn: str
+    WhatIfAnalysisName: Annotated[str, _aws_pattern("Forecast", "Name")]
+    WhatIfAnalysisArn: Annotated[str, _aws_pattern("Forecast", "Arn")]
+    ForecastArn: Annotated[str, _aws_pattern("Forecast", "Arn")]
     EstimatedTimeRemainingInMinutes: int
-    Status: str
+    Status: Annotated[str, _aws_pattern("Forecast", "String")]
     Message: str
     CreationTime: datetime
     LastModificationTime: datetime
@@ -1486,8 +1488,8 @@ TimeSeriesSelectorUnionTypeDef = Union[TimeSeriesSelectorOutputTypeDef, TimeSeri
 
 # This class is the input for the 'create_what_if_forecast' function.
 class CreateWhatIfForecastRequestTypeDef(BaseValidatorModel):
-    WhatIfForecastName: str
-    WhatIfAnalysisArn: str
+    WhatIfForecastName: Annotated[str, _aws_pattern("Forecast", "Name")]
+    WhatIfAnalysisArn: Annotated[str, _aws_pattern("Forecast", "Arn")]
     TimeSeriesTransformations: Optional[List[TimeSeriesTransformationUnionTypeDef]] = None
     TimeSeriesReplacementsDataSource: Optional[TimeSeriesReplacementsDataSourceUnionTypeDef] = None
     Tags: Optional[List[TagTypeDef]] = None
@@ -1495,16 +1497,16 @@ class CreateWhatIfForecastRequestTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'create_forecast' function.
 class CreateForecastRequestTypeDef(BaseValidatorModel):
-    ForecastName: str
-    PredictorArn: str
-    ForecastTypes: Optional[List[str]] = None
+    ForecastName: Annotated[str, _aws_pattern("Forecast", "Name")]
+    PredictorArn: Annotated[str, _aws_pattern("Forecast", "Arn")]
+    ForecastTypes: Optional[List[Annotated[str, _aws_pattern("Forecast", "ForecastType")]]] = None
     Tags: Optional[List[TagTypeDef]] = None
     TimeSeriesSelector: Optional[TimeSeriesSelectorUnionTypeDef] = None
 
 
 # This class is the input for the 'create_what_if_analysis' function.
 class CreateWhatIfAnalysisRequestTypeDef(BaseValidatorModel):
-    WhatIfAnalysisName: str
-    ForecastArn: str
+    WhatIfAnalysisName: Annotated[str, _aws_pattern("Forecast", "Name")]
+    ForecastArn: Annotated[str, _aws_pattern("Forecast", "Arn")]
     TimeSeriesSelector: Optional[TimeSeriesSelectorUnionTypeDef] = None
     Tags: Optional[List[TagTypeDef]] = None

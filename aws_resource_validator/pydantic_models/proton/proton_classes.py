@@ -3,6 +3,7 @@
 from datetime import datetime
 from decimal import Decimal
 from typing import (
+    Annotated,
     Any,
     Callable,
     Dict,
@@ -24,6 +25,7 @@ from botocore.response import StreamingBody
 from pydantic import Field
 
 from aws_resource_validator.core.base_validator_model import BaseValidatorModel, EventStream
+from aws_resource_validator.core.pattern_validation import aws_field_pattern as _aws_pattern
 from aws_resource_validator.pydantic_models.proton.proton_constants import *  # noqa: F401,F403
 
 # Optional boto3 symbols — imported lazily so services that don't need them
@@ -40,21 +42,21 @@ except ImportError:  # pragma: no cover
 
 # This class is the input for the 'accept_environment_account_connection' function.
 class AcceptEnvironmentAccountConnectionInputTypeDef(BaseValidatorModel):
-    id: str
+    id: Annotated[str, _aws_pattern("Proton", "EnvironmentAccountConnectionId")]
 
 
 class EnvironmentAccountConnectionTypeDef(BaseValidatorModel):
     arn: str
-    environmentAccountId: str
-    environmentName: str
-    id: str
+    environmentAccountId: Annotated[str, _aws_pattern("Proton", "AwsAccountId")]
+    environmentName: Annotated[str, _aws_pattern("Proton", "ResourceName")]
+    id: Annotated[str, _aws_pattern("Proton", "EnvironmentAccountConnectionId")]
     lastModifiedAt: datetime
-    managementAccountId: str
+    managementAccountId: Annotated[str, _aws_pattern("Proton", "AwsAccountId")]
     requestedAt: datetime
-    roleArn: str
+    roleArn: Annotated[str, _aws_pattern("Proton", "Arn")]
     status: EnvironmentAccountConnectionStatusType
-    codebuildRoleArn: Optional[str] = None
-    componentRoleArn: Optional[str] = None
+    codebuildRoleArn: Optional[Annotated[str, _aws_pattern("Proton", "RoleArn")]] = None
+    componentRoleArn: Optional[Annotated[str, _aws_pattern("Proton", "RoleArn")]] = None
 
 
 class ResponseMetadataTypeDef(BaseValidatorModel):
@@ -68,97 +70,97 @@ class ResponseMetadataTypeDef(BaseValidatorModel):
 class RepositoryBranchTypeDef(BaseValidatorModel):
     arn: str
     branch: str
-    name: str
+    name: Annotated[str, _aws_pattern("Proton", "RepositoryName")]
     provider: RepositoryProviderType
 
 
 # This class is the input for the 'cancel_component_deployment' function.
 class CancelComponentDeploymentInputTypeDef(BaseValidatorModel):
-    componentName: str
+    componentName: Annotated[str, _aws_pattern("Proton", "ResourceName")]
 
 
 class ComponentTypeDef(BaseValidatorModel):
     arn: str
     createdAt: datetime
     deploymentStatus: DeploymentStatusType
-    environmentName: str
+    environmentName: Annotated[str, _aws_pattern("Proton", "ResourceName")]
     lastModifiedAt: datetime
-    name: str
+    name: Annotated[str, _aws_pattern("Proton", "ResourceName")]
     deploymentStatusMessage: Optional[str] = None
     description: Optional[str] = None
-    lastAttemptedDeploymentId: Optional[str] = None
+    lastAttemptedDeploymentId: Optional[Annotated[str, _aws_pattern("Proton", "DeploymentId")]] = None
     lastClientRequestToken: Optional[str] = None
     lastDeploymentAttemptedAt: Optional[datetime] = None
     lastDeploymentSucceededAt: Optional[datetime] = None
-    lastSucceededDeploymentId: Optional[str] = None
-    serviceInstanceName: Optional[str] = None
-    serviceName: Optional[str] = None
+    lastSucceededDeploymentId: Optional[Annotated[str, _aws_pattern("Proton", "DeploymentId")]] = None
+    serviceInstanceName: Optional[Annotated[str, _aws_pattern("Proton", "ResourceName")]] = None
+    serviceName: Optional[Annotated[str, _aws_pattern("Proton", "ResourceName")]] = None
     serviceSpec: Optional[str] = None
 
 
 # This class is the input for the 'cancel_environment_deployment' function.
 class CancelEnvironmentDeploymentInputTypeDef(BaseValidatorModel):
-    environmentName: str
+    environmentName: Annotated[str, _aws_pattern("Proton", "ResourceName")]
 
 
 # This class is the input for the 'cancel_service_instance_deployment' function.
 class CancelServiceInstanceDeploymentInputTypeDef(BaseValidatorModel):
-    serviceInstanceName: str
-    serviceName: str
+    serviceInstanceName: Annotated[str, _aws_pattern("Proton", "ResourceName")]
+    serviceName: Annotated[str, _aws_pattern("Proton", "ResourceName")]
 
 
 class ServiceInstanceTypeDef(BaseValidatorModel):
     arn: str
     createdAt: datetime
     deploymentStatus: DeploymentStatusType
-    environmentName: str
+    environmentName: Annotated[str, _aws_pattern("Proton", "ResourceName")]
     lastDeploymentAttemptedAt: datetime
     lastDeploymentSucceededAt: datetime
-    name: str
-    serviceName: str
-    templateMajorVersion: str
-    templateMinorVersion: str
-    templateName: str
+    name: Annotated[str, _aws_pattern("Proton", "ResourceName")]
+    serviceName: Annotated[str, _aws_pattern("Proton", "ResourceName")]
+    templateMajorVersion: Annotated[str, _aws_pattern("Proton", "TemplateVersionPart")]
+    templateMinorVersion: Annotated[str, _aws_pattern("Proton", "TemplateVersionPart")]
+    templateName: Annotated[str, _aws_pattern("Proton", "ResourceName")]
     deploymentStatusMessage: Optional[str] = None
-    lastAttemptedDeploymentId: Optional[str] = None
+    lastAttemptedDeploymentId: Optional[Annotated[str, _aws_pattern("Proton", "DeploymentId")]] = None
     lastClientRequestToken: Optional[str] = None
-    lastSucceededDeploymentId: Optional[str] = None
+    lastSucceededDeploymentId: Optional[Annotated[str, _aws_pattern("Proton", "DeploymentId")]] = None
     spec: Optional[str] = None
 
 
 # This class is the input for the 'cancel_service_pipeline_deployment' function.
 class CancelServicePipelineDeploymentInputTypeDef(BaseValidatorModel):
-    serviceName: str
+    serviceName: Annotated[str, _aws_pattern("Proton", "ResourceName")]
 
 
 class ServicePipelineTypeDef(BaseValidatorModel):
-    arn: str
+    arn: Annotated[str, _aws_pattern("Proton", "Arn")]
     createdAt: datetime
     deploymentStatus: DeploymentStatusType
     lastDeploymentAttemptedAt: datetime
     lastDeploymentSucceededAt: datetime
-    templateMajorVersion: str
-    templateMinorVersion: str
-    templateName: str
+    templateMajorVersion: Annotated[str, _aws_pattern("Proton", "TemplateVersionPart")]
+    templateMinorVersion: Annotated[str, _aws_pattern("Proton", "TemplateVersionPart")]
+    templateName: Annotated[str, _aws_pattern("Proton", "ResourceName")]
     deploymentStatusMessage: Optional[str] = None
-    lastAttemptedDeploymentId: Optional[str] = None
-    lastSucceededDeploymentId: Optional[str] = None
+    lastAttemptedDeploymentId: Optional[Annotated[str, _aws_pattern("Proton", "DeploymentId")]] = None
+    lastSucceededDeploymentId: Optional[Annotated[str, _aws_pattern("Proton", "DeploymentId")]] = None
     spec: Optional[str] = None
 
 
 class CompatibleEnvironmentTemplateInputTypeDef(BaseValidatorModel):
-    majorVersion: str
-    templateName: str
+    majorVersion: Annotated[str, _aws_pattern("Proton", "TemplateVersionPart")]
+    templateName: Annotated[str, _aws_pattern("Proton", "ResourceName")]
 
 
 class CompatibleEnvironmentTemplateTypeDef(BaseValidatorModel):
-    majorVersion: str
-    templateName: str
+    majorVersion: Annotated[str, _aws_pattern("Proton", "TemplateVersionPart")]
+    templateName: Annotated[str, _aws_pattern("Proton", "ResourceName")]
 
 
 class ComponentStateTypeDef(BaseValidatorModel):
-    serviceInstanceName: Optional[str] = None
-    serviceName: Optional[str] = None
+    serviceInstanceName: Optional[Annotated[str, _aws_pattern("Proton", "ResourceNameOrEmpty")]] = None
+    serviceName: Optional[Annotated[str, _aws_pattern("Proton", "ResourceNameOrEmpty")]] = None
     serviceSpec: Optional[str] = None
     templateFile: Optional[str] = None
 
@@ -167,16 +169,16 @@ class ComponentSummaryTypeDef(BaseValidatorModel):
     arn: str
     createdAt: datetime
     deploymentStatus: DeploymentStatusType
-    environmentName: str
+    environmentName: Annotated[str, _aws_pattern("Proton", "ResourceName")]
     lastModifiedAt: datetime
-    name: str
+    name: Annotated[str, _aws_pattern("Proton", "ResourceName")]
     deploymentStatusMessage: Optional[str] = None
-    lastAttemptedDeploymentId: Optional[str] = None
+    lastAttemptedDeploymentId: Optional[Annotated[str, _aws_pattern("Proton", "DeploymentId")]] = None
     lastDeploymentAttemptedAt: Optional[datetime] = None
     lastDeploymentSucceededAt: Optional[datetime] = None
-    lastSucceededDeploymentId: Optional[str] = None
-    serviceInstanceName: Optional[str] = None
-    serviceName: Optional[str] = None
+    lastSucceededDeploymentId: Optional[Annotated[str, _aws_pattern("Proton", "DeploymentId")]] = None
+    serviceInstanceName: Optional[Annotated[str, _aws_pattern("Proton", "ResourceName")]] = None
+    serviceName: Optional[Annotated[str, _aws_pattern("Proton", "ResourceName")]] = None
 
 
 class ResourceCountsSummaryTypeDef(BaseValidatorModel):
@@ -194,7 +196,7 @@ class TagTypeDef(BaseValidatorModel):
 
 class RepositoryBranchInputTypeDef(BaseValidatorModel):
     branch: str
-    name: str
+    name: Annotated[str, _aws_pattern("Proton", "RepositoryName")]
     provider: RepositoryProviderType
 
 
@@ -202,171 +204,171 @@ class EnvironmentTemplateTypeDef(BaseValidatorModel):
     arn: str
     createdAt: datetime
     lastModifiedAt: datetime
-    name: str
+    name: Annotated[str, _aws_pattern("Proton", "ResourceName")]
     description: Optional[str] = None
     displayName: Optional[str] = None
-    encryptionKey: Optional[str] = None
+    encryptionKey: Optional[Annotated[str, _aws_pattern("Proton", "Arn")]] = None
     provisioning: Optional[Literal["CUSTOMER_MANAGED"]] = None
-    recommendedVersion: Optional[str] = None
+    recommendedVersion: Optional[Annotated[str, _aws_pattern("Proton", "FullTemplateVersionNumber")]] = None
 
 
 class EnvironmentTemplateVersionTypeDef(BaseValidatorModel):
     arn: str
     createdAt: datetime
     lastModifiedAt: datetime
-    majorVersion: str
-    minorVersion: str
+    majorVersion: Annotated[str, _aws_pattern("Proton", "TemplateVersionPart")]
+    minorVersion: Annotated[str, _aws_pattern("Proton", "TemplateVersionPart")]
     status: TemplateVersionStatusType
-    templateName: str
+    templateName: Annotated[str, _aws_pattern("Proton", "ResourceName")]
     description: Optional[str] = None
-    recommendedMinorVersion: Optional[str] = None
+    recommendedMinorVersion: Optional[Annotated[str, _aws_pattern("Proton", "TemplateVersionPart")]] = None
     schema: Optional[str] = None
     statusMessage: Optional[str] = None
 
 
 class RepositoryTypeDef(BaseValidatorModel):
     arn: str
-    connectionArn: str
-    name: str
+    connectionArn: Annotated[str, _aws_pattern("Proton", "Arn")]
+    name: Annotated[str, _aws_pattern("Proton", "RepositoryName")]
     provider: RepositoryProviderType
-    encryptionKey: Optional[str] = None
+    encryptionKey: Optional[Annotated[str, _aws_pattern("Proton", "Arn")]] = None
 
 
 # This class is the input for the 'create_service_sync_config' function.
 class CreateServiceSyncConfigInputTypeDef(BaseValidatorModel):
     branch: str
     filePath: str
-    repositoryName: str
+    repositoryName: Annotated[str, _aws_pattern("Proton", "RepositoryName")]
     repositoryProvider: RepositoryProviderType
-    serviceName: str
+    serviceName: Annotated[str, _aws_pattern("Proton", "ResourceName")]
 
 
 class ServiceSyncConfigTypeDef(BaseValidatorModel):
     branch: str
     filePath: str
-    repositoryName: str
+    repositoryName: Annotated[str, _aws_pattern("Proton", "RepositoryName")]
     repositoryProvider: RepositoryProviderType
-    serviceName: str
+    serviceName: Annotated[str, _aws_pattern("Proton", "ResourceName")]
 
 
 class ServiceTemplateTypeDef(BaseValidatorModel):
     arn: str
     createdAt: datetime
     lastModifiedAt: datetime
-    name: str
+    name: Annotated[str, _aws_pattern("Proton", "ResourceName")]
     description: Optional[str] = None
     displayName: Optional[str] = None
-    encryptionKey: Optional[str] = None
+    encryptionKey: Optional[Annotated[str, _aws_pattern("Proton", "Arn")]] = None
     pipelineProvisioning: Optional[Literal["CUSTOMER_MANAGED"]] = None
-    recommendedVersion: Optional[str] = None
+    recommendedVersion: Optional[Annotated[str, _aws_pattern("Proton", "FullTemplateVersionNumber")]] = None
 
 
 # This class is the input for the 'create_template_sync_config' function.
 class CreateTemplateSyncConfigInputTypeDef(BaseValidatorModel):
     branch: str
-    repositoryName: str
+    repositoryName: Annotated[str, _aws_pattern("Proton", "RepositoryName")]
     repositoryProvider: RepositoryProviderType
-    templateName: str
+    templateName: Annotated[str, _aws_pattern("Proton", "ResourceName")]
     templateType: TemplateTypeType
     subdirectory: Optional[str] = None
 
 
 class TemplateSyncConfigTypeDef(BaseValidatorModel):
     branch: str
-    repositoryName: str
+    repositoryName: Annotated[str, _aws_pattern("Proton", "RepositoryName")]
     repositoryProvider: RepositoryProviderType
-    templateName: str
+    templateName: Annotated[str, _aws_pattern("Proton", "ResourceName")]
     templateType: TemplateTypeType
     subdirectory: Optional[str] = None
 
 
 # This class is the input for the 'delete_component' function.
 class DeleteComponentInputTypeDef(BaseValidatorModel):
-    name: str
+    name: Annotated[str, _aws_pattern("Proton", "ResourceName")]
 
 
 # This class is the input for the 'delete_deployment' function.
 class DeleteDeploymentInputTypeDef(BaseValidatorModel):
-    id: str
+    id: Annotated[str, _aws_pattern("Proton", "DeploymentId")]
 
 
 # This class is the input for the 'delete_environment_account_connection' function.
 class DeleteEnvironmentAccountConnectionInputTypeDef(BaseValidatorModel):
-    id: str
+    id: Annotated[str, _aws_pattern("Proton", "EnvironmentAccountConnectionId")]
 
 
 # This class is the input for the 'delete_environment' function.
 class DeleteEnvironmentInputTypeDef(BaseValidatorModel):
-    name: str
+    name: Annotated[str, _aws_pattern("Proton", "ResourceName")]
 
 
 # This class is the input for the 'delete_environment_template' function.
 class DeleteEnvironmentTemplateInputTypeDef(BaseValidatorModel):
-    name: str
+    name: Annotated[str, _aws_pattern("Proton", "ResourceName")]
 
 
 # This class is the input for the 'delete_environment_template_version' function.
 class DeleteEnvironmentTemplateVersionInputTypeDef(BaseValidatorModel):
-    majorVersion: str
-    minorVersion: str
-    templateName: str
+    majorVersion: Annotated[str, _aws_pattern("Proton", "TemplateVersionPart")]
+    minorVersion: Annotated[str, _aws_pattern("Proton", "TemplateVersionPart")]
+    templateName: Annotated[str, _aws_pattern("Proton", "ResourceName")]
 
 
 # This class is the input for the 'delete_repository' function.
 class DeleteRepositoryInputTypeDef(BaseValidatorModel):
-    name: str
+    name: Annotated[str, _aws_pattern("Proton", "RepositoryName")]
     provider: RepositoryProviderType
 
 
 # This class is the input for the 'delete_service' function.
 class DeleteServiceInputTypeDef(BaseValidatorModel):
-    name: str
+    name: Annotated[str, _aws_pattern("Proton", "ResourceName")]
 
 
 # This class is the input for the 'delete_service_sync_config' function.
 class DeleteServiceSyncConfigInputTypeDef(BaseValidatorModel):
-    serviceName: str
+    serviceName: Annotated[str, _aws_pattern("Proton", "ResourceName")]
 
 
 # This class is the input for the 'delete_service_template' function.
 class DeleteServiceTemplateInputTypeDef(BaseValidatorModel):
-    name: str
+    name: Annotated[str, _aws_pattern("Proton", "ResourceName")]
 
 
 # This class is the input for the 'delete_service_template_version' function.
 class DeleteServiceTemplateVersionInputTypeDef(BaseValidatorModel):
-    majorVersion: str
-    minorVersion: str
-    templateName: str
+    majorVersion: Annotated[str, _aws_pattern("Proton", "TemplateVersionPart")]
+    minorVersion: Annotated[str, _aws_pattern("Proton", "TemplateVersionPart")]
+    templateName: Annotated[str, _aws_pattern("Proton", "ResourceName")]
 
 
 # This class is the input for the 'delete_template_sync_config' function.
 class DeleteTemplateSyncConfigInputTypeDef(BaseValidatorModel):
-    templateName: str
+    templateName: Annotated[str, _aws_pattern("Proton", "ResourceName")]
     templateType: TemplateTypeType
 
 
 class EnvironmentStateTypeDef(BaseValidatorModel):
-    templateMajorVersion: str
-    templateMinorVersion: str
-    templateName: str
+    templateMajorVersion: Annotated[str, _aws_pattern("Proton", "TemplateVersionPart")]
+    templateMinorVersion: Annotated[str, _aws_pattern("Proton", "TemplateVersionPart")]
+    templateName: Annotated[str, _aws_pattern("Proton", "ResourceName")]
     spec: Optional[str] = None
 
 
 class ServiceInstanceStateTypeDef(BaseValidatorModel):
     spec: str
-    templateMajorVersion: str
-    templateMinorVersion: str
-    templateName: str
-    lastSuccessfulComponentDeploymentIds: Optional[List[str]] = None
-    lastSuccessfulEnvironmentDeploymentId: Optional[str] = None
-    lastSuccessfulServicePipelineDeploymentId: Optional[str] = None
+    templateMajorVersion: Annotated[str, _aws_pattern("Proton", "TemplateVersionPart")]
+    templateMinorVersion: Annotated[str, _aws_pattern("Proton", "TemplateVersionPart")]
+    templateName: Annotated[str, _aws_pattern("Proton", "ResourceName")]
+    lastSuccessfulComponentDeploymentIds: Optional[List[Annotated[str, _aws_pattern("Proton", "DeploymentId")]]] = None
+    lastSuccessfulEnvironmentDeploymentId: Optional[Annotated[str, _aws_pattern("Proton", "DeploymentId")]] = None
+    lastSuccessfulServicePipelineDeploymentId: Optional[Annotated[str, _aws_pattern("Proton", "DeploymentId")]] = None
 
 
 class ServicePipelineStateTypeDef(BaseValidatorModel):
-    templateMajorVersion: str
-    templateMinorVersion: str
-    templateName: str
+    templateMajorVersion: Annotated[str, _aws_pattern("Proton", "TemplateVersionPart")]
+    templateMinorVersion: Annotated[str, _aws_pattern("Proton", "TemplateVersionPart")]
+    templateName: Annotated[str, _aws_pattern("Proton", "ResourceName")]
     spec: Optional[str] = None
 
 
@@ -374,31 +376,31 @@ class DeploymentSummaryTypeDef(BaseValidatorModel):
     arn: str
     createdAt: datetime
     deploymentStatus: DeploymentStatusType
-    environmentName: str
-    id: str
+    environmentName: Annotated[str, _aws_pattern("Proton", "ResourceName")]
+    id: Annotated[str, _aws_pattern("Proton", "DeploymentId")]
     lastModifiedAt: datetime
-    targetArn: str
+    targetArn: Annotated[str, _aws_pattern("Proton", "Arn")]
     targetResourceCreatedAt: datetime
     targetResourceType: DeploymentTargetResourceTypeType
     completedAt: Optional[datetime] = None
-    componentName: Optional[str] = None
-    lastAttemptedDeploymentId: Optional[str] = None
-    lastSucceededDeploymentId: Optional[str] = None
-    serviceInstanceName: Optional[str] = None
-    serviceName: Optional[str] = None
+    componentName: Optional[Annotated[str, _aws_pattern("Proton", "ResourceName")]] = None
+    lastAttemptedDeploymentId: Optional[Annotated[str, _aws_pattern("Proton", "DeploymentId")]] = None
+    lastSucceededDeploymentId: Optional[Annotated[str, _aws_pattern("Proton", "DeploymentId")]] = None
+    serviceInstanceName: Optional[Annotated[str, _aws_pattern("Proton", "ResourceName")]] = None
+    serviceName: Optional[Annotated[str, _aws_pattern("Proton", "ResourceName")]] = None
 
 
 class EnvironmentAccountConnectionSummaryTypeDef(BaseValidatorModel):
     arn: str
-    environmentAccountId: str
-    environmentName: str
-    id: str
+    environmentAccountId: Annotated[str, _aws_pattern("Proton", "AwsAccountId")]
+    environmentName: Annotated[str, _aws_pattern("Proton", "ResourceName")]
+    id: Annotated[str, _aws_pattern("Proton", "EnvironmentAccountConnectionId")]
     lastModifiedAt: datetime
-    managementAccountId: str
+    managementAccountId: Annotated[str, _aws_pattern("Proton", "AwsAccountId")]
     requestedAt: datetime
-    roleArn: str
+    roleArn: Annotated[str, _aws_pattern("Proton", "Arn")]
     status: EnvironmentAccountConnectionStatusType
-    componentRoleArn: Optional[str] = None
+    componentRoleArn: Optional[Annotated[str, _aws_pattern("Proton", "Arn")]] = None
 
 
 class EnvironmentSummaryTypeDef(BaseValidatorModel):
@@ -407,53 +409,55 @@ class EnvironmentSummaryTypeDef(BaseValidatorModel):
     deploymentStatus: DeploymentStatusType
     lastDeploymentAttemptedAt: datetime
     lastDeploymentSucceededAt: datetime
-    name: str
-    templateMajorVersion: str
-    templateMinorVersion: str
-    templateName: str
-    componentRoleArn: Optional[str] = None
+    name: Annotated[str, _aws_pattern("Proton", "ResourceName")]
+    templateMajorVersion: Annotated[str, _aws_pattern("Proton", "TemplateVersionPart")]
+    templateMinorVersion: Annotated[str, _aws_pattern("Proton", "TemplateVersionPart")]
+    templateName: Annotated[str, _aws_pattern("Proton", "ResourceName")]
+    componentRoleArn: Optional[Annotated[str, _aws_pattern("Proton", "Arn")]] = None
     deploymentStatusMessage: Optional[str] = None
     description: Optional[str] = None
-    environmentAccountConnectionId: Optional[str] = None
-    environmentAccountId: Optional[str] = None
-    lastAttemptedDeploymentId: Optional[str] = None
-    lastSucceededDeploymentId: Optional[str] = None
-    protonServiceRoleArn: Optional[str] = None
+    environmentAccountConnectionId: Optional[
+        Annotated[str, _aws_pattern("Proton", "EnvironmentAccountConnectionId")]
+    ] = None
+    environmentAccountId: Optional[Annotated[str, _aws_pattern("Proton", "AwsAccountId")]] = None
+    lastAttemptedDeploymentId: Optional[Annotated[str, _aws_pattern("Proton", "DeploymentId")]] = None
+    lastSucceededDeploymentId: Optional[Annotated[str, _aws_pattern("Proton", "DeploymentId")]] = None
+    protonServiceRoleArn: Optional[Annotated[str, _aws_pattern("Proton", "Arn")]] = None
     provisioning: Optional[Literal["CUSTOMER_MANAGED"]] = None
 
 
 class EnvironmentTemplateFilterTypeDef(BaseValidatorModel):
-    majorVersion: str
-    templateName: str
+    majorVersion: Annotated[str, _aws_pattern("Proton", "TemplateVersionPart")]
+    templateName: Annotated[str, _aws_pattern("Proton", "ResourceName")]
 
 
 class EnvironmentTemplateSummaryTypeDef(BaseValidatorModel):
     arn: str
     createdAt: datetime
     lastModifiedAt: datetime
-    name: str
+    name: Annotated[str, _aws_pattern("Proton", "ResourceName")]
     description: Optional[str] = None
     displayName: Optional[str] = None
     provisioning: Optional[Literal["CUSTOMER_MANAGED"]] = None
-    recommendedVersion: Optional[str] = None
+    recommendedVersion: Optional[Annotated[str, _aws_pattern("Proton", "FullTemplateVersionNumber")]] = None
 
 
 class EnvironmentTemplateVersionSummaryTypeDef(BaseValidatorModel):
     arn: str
     createdAt: datetime
     lastModifiedAt: datetime
-    majorVersion: str
-    minorVersion: str
+    majorVersion: Annotated[str, _aws_pattern("Proton", "TemplateVersionPart")]
+    minorVersion: Annotated[str, _aws_pattern("Proton", "TemplateVersionPart")]
     status: TemplateVersionStatusType
-    templateName: str
+    templateName: Annotated[str, _aws_pattern("Proton", "ResourceName")]
     description: Optional[str] = None
-    recommendedMinorVersion: Optional[str] = None
+    recommendedMinorVersion: Optional[Annotated[str, _aws_pattern("Proton", "TemplateVersionPart")]] = None
     statusMessage: Optional[str] = None
 
 
 # This class is the input for the 'get_component' function.
 class GetComponentInputTypeDef(BaseValidatorModel):
-    name: str
+    name: Annotated[str, _aws_pattern("Proton", "ResourceName")]
 
 
 class WaiterConfigTypeDef(BaseValidatorModel):
@@ -463,108 +467,108 @@ class WaiterConfigTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'get_deployment' function.
 class GetDeploymentInputTypeDef(BaseValidatorModel):
-    id: str
-    componentName: Optional[str] = None
-    environmentName: Optional[str] = None
-    serviceInstanceName: Optional[str] = None
-    serviceName: Optional[str] = None
+    id: Annotated[str, _aws_pattern("Proton", "DeploymentId")]
+    componentName: Optional[Annotated[str, _aws_pattern("Proton", "ResourceName")]] = None
+    environmentName: Optional[Annotated[str, _aws_pattern("Proton", "ResourceName")]] = None
+    serviceInstanceName: Optional[Annotated[str, _aws_pattern("Proton", "ResourceName")]] = None
+    serviceName: Optional[Annotated[str, _aws_pattern("Proton", "ResourceName")]] = None
 
 
 # This class is the input for the 'get_environment_account_connection' function.
 class GetEnvironmentAccountConnectionInputTypeDef(BaseValidatorModel):
-    id: str
+    id: Annotated[str, _aws_pattern("Proton", "EnvironmentAccountConnectionId")]
 
 
 # This class is the input for the 'get_environment' function.
 class GetEnvironmentInputTypeDef(BaseValidatorModel):
-    name: str
+    name: Annotated[str, _aws_pattern("Proton", "ResourceName")]
 
 
 # This class is the input for the 'get_environment_template' function.
 class GetEnvironmentTemplateInputTypeDef(BaseValidatorModel):
-    name: str
+    name: Annotated[str, _aws_pattern("Proton", "ResourceName")]
 
 
 # This class is the input for the 'get_environment_template_version' function.
 class GetEnvironmentTemplateVersionInputTypeDef(BaseValidatorModel):
-    majorVersion: str
-    minorVersion: str
-    templateName: str
+    majorVersion: Annotated[str, _aws_pattern("Proton", "TemplateVersionPart")]
+    minorVersion: Annotated[str, _aws_pattern("Proton", "TemplateVersionPart")]
+    templateName: Annotated[str, _aws_pattern("Proton", "ResourceName")]
 
 
 # This class is the input for the 'get_repository' function.
 class GetRepositoryInputTypeDef(BaseValidatorModel):
-    name: str
+    name: Annotated[str, _aws_pattern("Proton", "RepositoryName")]
     provider: RepositoryProviderType
 
 
 # This class is the input for the 'get_repository_sync_status' function.
 class GetRepositorySyncStatusInputTypeDef(BaseValidatorModel):
     branch: str
-    repositoryName: str
+    repositoryName: Annotated[str, _aws_pattern("Proton", "RepositoryName")]
     repositoryProvider: RepositoryProviderType
     syncType: SyncTypeType
 
 
 # This class is the input for the 'get_service' function.
 class GetServiceInputTypeDef(BaseValidatorModel):
-    name: str
+    name: Annotated[str, _aws_pattern("Proton", "ResourceName")]
 
 
 # This class is the input for the 'get_service_instance' function.
 class GetServiceInstanceInputTypeDef(BaseValidatorModel):
-    name: str
-    serviceName: str
+    name: Annotated[str, _aws_pattern("Proton", "ResourceName")]
+    serviceName: Annotated[str, _aws_pattern("Proton", "ResourceName")]
 
 
 # This class is the input for the 'get_service_instance_sync_status' function.
 class GetServiceInstanceSyncStatusInputTypeDef(BaseValidatorModel):
-    serviceInstanceName: str
-    serviceName: str
+    serviceInstanceName: Annotated[str, _aws_pattern("Proton", "ResourceName")]
+    serviceName: Annotated[str, _aws_pattern("Proton", "ResourceName")]
 
 
 class RevisionTypeDef(BaseValidatorModel):
     branch: str
     directory: str
-    repositoryName: str
+    repositoryName: Annotated[str, _aws_pattern("Proton", "RepositoryName")]
     repositoryProvider: RepositoryProviderType
     sha: str
 
 
 # This class is the input for the 'get_service_sync_blocker_summary' function.
 class GetServiceSyncBlockerSummaryInputTypeDef(BaseValidatorModel):
-    serviceName: str
-    serviceInstanceName: Optional[str] = None
+    serviceName: Annotated[str, _aws_pattern("Proton", "ResourceName")]
+    serviceInstanceName: Optional[Annotated[str, _aws_pattern("Proton", "ResourceName")]] = None
 
 
 # This class is the input for the 'get_service_sync_config' function.
 class GetServiceSyncConfigInputTypeDef(BaseValidatorModel):
-    serviceName: str
+    serviceName: Annotated[str, _aws_pattern("Proton", "ResourceName")]
 
 
 # This class is the input for the 'get_service_template' function.
 class GetServiceTemplateInputTypeDef(BaseValidatorModel):
-    name: str
+    name: Annotated[str, _aws_pattern("Proton", "ResourceName")]
 
 
 # This class is the input for the 'get_service_template_version' function.
 class GetServiceTemplateVersionInputTypeDef(BaseValidatorModel):
-    majorVersion: str
-    minorVersion: str
-    templateName: str
+    majorVersion: Annotated[str, _aws_pattern("Proton", "TemplateVersionPart")]
+    minorVersion: Annotated[str, _aws_pattern("Proton", "TemplateVersionPart")]
+    templateName: Annotated[str, _aws_pattern("Proton", "ResourceName")]
 
 
 # This class is the input for the 'get_template_sync_config' function.
 class GetTemplateSyncConfigInputTypeDef(BaseValidatorModel):
-    templateName: str
+    templateName: Annotated[str, _aws_pattern("Proton", "ResourceName")]
     templateType: TemplateTypeType
 
 
 # This class is the input for the 'get_template_sync_status' function.
 class GetTemplateSyncStatusInputTypeDef(BaseValidatorModel):
-    templateName: str
+    templateName: Annotated[str, _aws_pattern("Proton", "ResourceName")]
     templateType: TemplateTypeType
-    templateVersion: str
+    templateVersion: Annotated[str, _aws_pattern("Proton", "TemplateVersionPart")]
 
 
 class PaginatorConfigTypeDef(BaseValidatorModel):
@@ -575,8 +579,8 @@ class PaginatorConfigTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'list_component_outputs' function.
 class ListComponentOutputsInputTypeDef(BaseValidatorModel):
-    componentName: str
-    deploymentId: Optional[str] = None
+    componentName: Annotated[str, _aws_pattern("Proton", "ResourceName")]
+    deploymentId: Optional[Annotated[str, _aws_pattern("Proton", "DeploymentId")]] = None
     nextToken: Optional[str] = None
 
 
@@ -587,7 +591,7 @@ class OutputTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'list_component_provisioned_resources' function.
 class ListComponentProvisionedResourcesInputTypeDef(BaseValidatorModel):
-    componentName: str
+    componentName: Annotated[str, _aws_pattern("Proton", "ResourceName")]
     nextToken: Optional[str] = None
 
 
@@ -599,75 +603,75 @@ class ProvisionedResourceTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'list_components' function.
 class ListComponentsInputTypeDef(BaseValidatorModel):
-    environmentName: Optional[str] = None
+    environmentName: Optional[Annotated[str, _aws_pattern("Proton", "ResourceName")]] = None
     maxResults: Optional[int] = None
-    nextToken: Optional[str] = None
-    serviceInstanceName: Optional[str] = None
-    serviceName: Optional[str] = None
+    nextToken: Optional[Annotated[str, _aws_pattern("Proton", "NextToken")]] = None
+    serviceInstanceName: Optional[Annotated[str, _aws_pattern("Proton", "ResourceName")]] = None
+    serviceName: Optional[Annotated[str, _aws_pattern("Proton", "ResourceName")]] = None
 
 
 # This class is the input for the 'list_deployments' function.
 class ListDeploymentsInputTypeDef(BaseValidatorModel):
-    componentName: Optional[str] = None
-    environmentName: Optional[str] = None
+    componentName: Optional[Annotated[str, _aws_pattern("Proton", "ResourceName")]] = None
+    environmentName: Optional[Annotated[str, _aws_pattern("Proton", "ResourceName")]] = None
     maxResults: Optional[int] = None
-    nextToken: Optional[str] = None
-    serviceInstanceName: Optional[str] = None
-    serviceName: Optional[str] = None
+    nextToken: Optional[Annotated[str, _aws_pattern("Proton", "NextToken")]] = None
+    serviceInstanceName: Optional[Annotated[str, _aws_pattern("Proton", "ResourceName")]] = None
+    serviceName: Optional[Annotated[str, _aws_pattern("Proton", "ResourceName")]] = None
 
 
 # This class is the input for the 'list_environment_account_connections' function.
 class ListEnvironmentAccountConnectionsInputTypeDef(BaseValidatorModel):
     requestedBy: EnvironmentAccountConnectionRequesterAccountTypeType
-    environmentName: Optional[str] = None
+    environmentName: Optional[Annotated[str, _aws_pattern("Proton", "ResourceName")]] = None
     maxResults: Optional[int] = None
-    nextToken: Optional[str] = None
+    nextToken: Optional[Annotated[str, _aws_pattern("Proton", "NextToken")]] = None
     statuses: Optional[List[EnvironmentAccountConnectionStatusType]] = None
 
 
 # This class is the input for the 'list_environment_outputs' function.
 class ListEnvironmentOutputsInputTypeDef(BaseValidatorModel):
-    environmentName: str
-    deploymentId: Optional[str] = None
+    environmentName: Annotated[str, _aws_pattern("Proton", "ResourceName")]
+    deploymentId: Optional[Annotated[str, _aws_pattern("Proton", "DeploymentId")]] = None
     nextToken: Optional[str] = None
 
 
 # This class is the input for the 'list_environment_provisioned_resources' function.
 class ListEnvironmentProvisionedResourcesInputTypeDef(BaseValidatorModel):
-    environmentName: str
+    environmentName: Annotated[str, _aws_pattern("Proton", "ResourceName")]
     nextToken: Optional[str] = None
 
 
 # This class is the input for the 'list_environment_template_versions' function.
 class ListEnvironmentTemplateVersionsInputTypeDef(BaseValidatorModel):
-    templateName: str
-    majorVersion: Optional[str] = None
+    templateName: Annotated[str, _aws_pattern("Proton", "ResourceName")]
+    majorVersion: Optional[Annotated[str, _aws_pattern("Proton", "TemplateVersionPart")]] = None
     maxResults: Optional[int] = None
-    nextToken: Optional[str] = None
+    nextToken: Optional[Annotated[str, _aws_pattern("Proton", "NextToken")]] = None
 
 
 # This class is the input for the 'list_environment_templates' function.
 class ListEnvironmentTemplatesInputTypeDef(BaseValidatorModel):
     maxResults: Optional[int] = None
-    nextToken: Optional[str] = None
+    nextToken: Optional[Annotated[str, _aws_pattern("Proton", "NextToken")]] = None
 
 
 # This class is the input for the 'list_repositories' function.
 class ListRepositoriesInputTypeDef(BaseValidatorModel):
     maxResults: Optional[int] = None
-    nextToken: Optional[str] = None
+    nextToken: Optional[Annotated[str, _aws_pattern("Proton", "NextToken")]] = None
 
 
 class RepositorySummaryTypeDef(BaseValidatorModel):
     arn: str
-    connectionArn: str
-    name: str
+    connectionArn: Annotated[str, _aws_pattern("Proton", "Arn")]
+    name: Annotated[str, _aws_pattern("Proton", "RepositoryName")]
     provider: RepositoryProviderType
 
 
 # This class is the input for the 'list_repository_sync_definitions' function.
 class ListRepositorySyncDefinitionsInputTypeDef(BaseValidatorModel):
-    repositoryName: str
+    repositoryName: Annotated[str, _aws_pattern("Proton", "RepositoryName")]
     repositoryProvider: RepositoryProviderType
     syncType: SyncTypeType
     nextToken: Optional[str] = None
@@ -682,16 +686,16 @@ class RepositorySyncDefinitionTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'list_service_instance_outputs' function.
 class ListServiceInstanceOutputsInputTypeDef(BaseValidatorModel):
-    serviceInstanceName: str
-    serviceName: str
-    deploymentId: Optional[str] = None
+    serviceInstanceName: Annotated[str, _aws_pattern("Proton", "ResourceName")]
+    serviceName: Annotated[str, _aws_pattern("Proton", "ResourceName")]
+    deploymentId: Optional[Annotated[str, _aws_pattern("Proton", "DeploymentId")]] = None
     nextToken: Optional[str] = None
 
 
 # This class is the input for the 'list_service_instance_provisioned_resources' function.
 class ListServiceInstanceProvisionedResourcesInputTypeDef(BaseValidatorModel):
-    serviceInstanceName: str
-    serviceName: str
+    serviceInstanceName: Annotated[str, _aws_pattern("Proton", "ResourceName")]
+    serviceName: Annotated[str, _aws_pattern("Proton", "ResourceName")]
     nextToken: Optional[str] = None
 
 
@@ -704,97 +708,97 @@ class ServiceInstanceSummaryTypeDef(BaseValidatorModel):
     arn: str
     createdAt: datetime
     deploymentStatus: DeploymentStatusType
-    environmentName: str
+    environmentName: Annotated[str, _aws_pattern("Proton", "ResourceName")]
     lastDeploymentAttemptedAt: datetime
     lastDeploymentSucceededAt: datetime
-    name: str
-    serviceName: str
-    templateMajorVersion: str
-    templateMinorVersion: str
-    templateName: str
+    name: Annotated[str, _aws_pattern("Proton", "ResourceName")]
+    serviceName: Annotated[str, _aws_pattern("Proton", "ResourceName")]
+    templateMajorVersion: Annotated[str, _aws_pattern("Proton", "TemplateVersionPart")]
+    templateMinorVersion: Annotated[str, _aws_pattern("Proton", "TemplateVersionPart")]
+    templateName: Annotated[str, _aws_pattern("Proton", "ResourceName")]
     deploymentStatusMessage: Optional[str] = None
-    lastAttemptedDeploymentId: Optional[str] = None
-    lastSucceededDeploymentId: Optional[str] = None
+    lastAttemptedDeploymentId: Optional[Annotated[str, _aws_pattern("Proton", "DeploymentId")]] = None
+    lastSucceededDeploymentId: Optional[Annotated[str, _aws_pattern("Proton", "DeploymentId")]] = None
 
 
 # This class is the input for the 'list_service_pipeline_outputs' function.
 class ListServicePipelineOutputsInputTypeDef(BaseValidatorModel):
-    serviceName: str
-    deploymentId: Optional[str] = None
+    serviceName: Annotated[str, _aws_pattern("Proton", "ResourceName")]
+    deploymentId: Optional[Annotated[str, _aws_pattern("Proton", "DeploymentId")]] = None
     nextToken: Optional[str] = None
 
 
 # This class is the input for the 'list_service_pipeline_provisioned_resources' function.
 class ListServicePipelineProvisionedResourcesInputTypeDef(BaseValidatorModel):
-    serviceName: str
+    serviceName: Annotated[str, _aws_pattern("Proton", "ResourceName")]
     nextToken: Optional[str] = None
 
 
 # This class is the input for the 'list_service_template_versions' function.
 class ListServiceTemplateVersionsInputTypeDef(BaseValidatorModel):
-    templateName: str
-    majorVersion: Optional[str] = None
+    templateName: Annotated[str, _aws_pattern("Proton", "ResourceName")]
+    majorVersion: Optional[Annotated[str, _aws_pattern("Proton", "TemplateVersionPart")]] = None
     maxResults: Optional[int] = None
-    nextToken: Optional[str] = None
+    nextToken: Optional[Annotated[str, _aws_pattern("Proton", "NextToken")]] = None
 
 
 class ServiceTemplateVersionSummaryTypeDef(BaseValidatorModel):
     arn: str
     createdAt: datetime
     lastModifiedAt: datetime
-    majorVersion: str
-    minorVersion: str
+    majorVersion: Annotated[str, _aws_pattern("Proton", "TemplateVersionPart")]
+    minorVersion: Annotated[str, _aws_pattern("Proton", "TemplateVersionPart")]
     status: TemplateVersionStatusType
-    templateName: str
+    templateName: Annotated[str, _aws_pattern("Proton", "ResourceName")]
     description: Optional[str] = None
-    recommendedMinorVersion: Optional[str] = None
+    recommendedMinorVersion: Optional[Annotated[str, _aws_pattern("Proton", "TemplateVersionPart")]] = None
     statusMessage: Optional[str] = None
 
 
 # This class is the input for the 'list_service_templates' function.
 class ListServiceTemplatesInputTypeDef(BaseValidatorModel):
     maxResults: Optional[int] = None
-    nextToken: Optional[str] = None
+    nextToken: Optional[Annotated[str, _aws_pattern("Proton", "NextToken")]] = None
 
 
 class ServiceTemplateSummaryTypeDef(BaseValidatorModel):
     arn: str
     createdAt: datetime
     lastModifiedAt: datetime
-    name: str
+    name: Annotated[str, _aws_pattern("Proton", "ResourceName")]
     description: Optional[str] = None
     displayName: Optional[str] = None
     pipelineProvisioning: Optional[Literal["CUSTOMER_MANAGED"]] = None
-    recommendedVersion: Optional[str] = None
+    recommendedVersion: Optional[Annotated[str, _aws_pattern("Proton", "FullTemplateVersionNumber")]] = None
 
 
 # This class is the input for the 'list_services' function.
 class ListServicesInputTypeDef(BaseValidatorModel):
     maxResults: Optional[int] = None
-    nextToken: Optional[str] = None
+    nextToken: Optional[Annotated[str, _aws_pattern("Proton", "NextToken")]] = None
 
 
 class ServiceSummaryTypeDef(BaseValidatorModel):
     arn: str
     createdAt: datetime
     lastModifiedAt: datetime
-    name: str
+    name: Annotated[str, _aws_pattern("Proton", "ResourceName")]
     status: ServiceStatusType
-    templateName: str
+    templateName: Annotated[str, _aws_pattern("Proton", "ResourceName")]
     description: Optional[str] = None
     statusMessage: Optional[str] = None
 
 
 # This class is the input for the 'list_tags_for_resource' function.
 class ListTagsForResourceInputTypeDef(BaseValidatorModel):
-    resourceArn: str
+    resourceArn: Annotated[str, _aws_pattern("Proton", "Arn")]
     maxResults: Optional[int] = None
     nextToken: Optional[str] = None
 
 
 # This class is the input for the 'reject_environment_account_connection' function.
 class RejectEnvironmentAccountConnectionInputTypeDef(BaseValidatorModel):
-    id: str
+    id: Annotated[str, _aws_pattern("Proton", "EnvironmentAccountConnectionId")]
 
 
 class RepositorySyncEventTypeDef(BaseValidatorModel):
@@ -812,7 +816,7 @@ class ResourceSyncEventTypeDef(BaseValidatorModel):
 
 
 class S3ObjectSourceTypeDef(BaseValidatorModel):
-    bucket: str
+    bucket: Annotated[str, _aws_pattern("Proton", "S3Bucket")]
     key: str
 
 
@@ -822,49 +826,49 @@ class SyncBlockerContextTypeDef(BaseValidatorModel):
 
 
 class UntagResourceInputTypeDef(BaseValidatorModel):
-    resourceArn: str
+    resourceArn: Annotated[str, _aws_pattern("Proton", "Arn")]
     tagKeys: List[str]
 
 
 # This class is the input for the 'update_component' function.
 class UpdateComponentInputTypeDef(BaseValidatorModel):
     deploymentType: ComponentDeploymentUpdateTypeType
-    name: str
-    clientToken: Optional[str] = None
+    name: Annotated[str, _aws_pattern("Proton", "ResourceName")]
+    clientToken: Optional[Annotated[str, _aws_pattern("Proton", "ClientToken")]] = None
     description: Optional[str] = None
-    serviceInstanceName: Optional[str] = None
-    serviceName: Optional[str] = None
+    serviceInstanceName: Optional[Annotated[str, _aws_pattern("Proton", "ResourceNameOrEmpty")]] = None
+    serviceName: Optional[Annotated[str, _aws_pattern("Proton", "ResourceNameOrEmpty")]] = None
     serviceSpec: Optional[str] = None
     templateFile: Optional[str] = None
 
 
 # This class is the input for the 'update_environment_account_connection' function.
 class UpdateEnvironmentAccountConnectionInputTypeDef(BaseValidatorModel):
-    id: str
-    codebuildRoleArn: Optional[str] = None
-    componentRoleArn: Optional[str] = None
-    roleArn: Optional[str] = None
+    id: Annotated[str, _aws_pattern("Proton", "EnvironmentAccountConnectionId")]
+    codebuildRoleArn: Optional[Annotated[str, _aws_pattern("Proton", "RoleArn")]] = None
+    componentRoleArn: Optional[Annotated[str, _aws_pattern("Proton", "RoleArn")]] = None
+    roleArn: Optional[Annotated[str, _aws_pattern("Proton", "RoleArn")]] = None
 
 
 # This class is the input for the 'update_environment_template' function.
 class UpdateEnvironmentTemplateInputTypeDef(BaseValidatorModel):
-    name: str
+    name: Annotated[str, _aws_pattern("Proton", "ResourceName")]
     description: Optional[str] = None
     displayName: Optional[str] = None
 
 
 # This class is the input for the 'update_environment_template_version' function.
 class UpdateEnvironmentTemplateVersionInputTypeDef(BaseValidatorModel):
-    majorVersion: str
-    minorVersion: str
-    templateName: str
+    majorVersion: Annotated[str, _aws_pattern("Proton", "TemplateVersionPart")]
+    minorVersion: Annotated[str, _aws_pattern("Proton", "TemplateVersionPart")]
+    templateName: Annotated[str, _aws_pattern("Proton", "ResourceName")]
     description: Optional[str] = None
     status: Optional[TemplateVersionStatusType] = None
 
 
 # This class is the input for the 'update_service' function.
 class UpdateServiceInputTypeDef(BaseValidatorModel):
-    name: str
+    name: Annotated[str, _aws_pattern("Proton", "ResourceName")]
     description: Optional[str] = None
     spec: Optional[str] = None
 
@@ -872,21 +876,21 @@ class UpdateServiceInputTypeDef(BaseValidatorModel):
 # This class is the input for the 'update_service_instance' function.
 class UpdateServiceInstanceInputTypeDef(BaseValidatorModel):
     deploymentType: DeploymentUpdateTypeType
-    name: str
-    serviceName: str
-    clientToken: Optional[str] = None
+    name: Annotated[str, _aws_pattern("Proton", "ResourceName")]
+    serviceName: Annotated[str, _aws_pattern("Proton", "ResourceName")]
+    clientToken: Optional[Annotated[str, _aws_pattern("Proton", "ClientToken")]] = None
     spec: Optional[str] = None
-    templateMajorVersion: Optional[str] = None
-    templateMinorVersion: Optional[str] = None
+    templateMajorVersion: Optional[Annotated[str, _aws_pattern("Proton", "TemplateVersionPart")]] = None
+    templateMinorVersion: Optional[Annotated[str, _aws_pattern("Proton", "TemplateVersionPart")]] = None
 
 
 # This class is the input for the 'update_service_pipeline' function.
 class UpdateServicePipelineInputTypeDef(BaseValidatorModel):
     deploymentType: DeploymentUpdateTypeType
-    serviceName: str
+    serviceName: Annotated[str, _aws_pattern("Proton", "ResourceName")]
     spec: str
-    templateMajorVersion: Optional[str] = None
-    templateMinorVersion: Optional[str] = None
+    templateMajorVersion: Optional[Annotated[str, _aws_pattern("Proton", "TemplateVersionPart")]] = None
+    templateMinorVersion: Optional[Annotated[str, _aws_pattern("Proton", "TemplateVersionPart")]] = None
 
 
 # This class is the input for the 'update_service_sync_blocker' function.
@@ -899,14 +903,14 @@ class UpdateServiceSyncBlockerInputTypeDef(BaseValidatorModel):
 class UpdateServiceSyncConfigInputTypeDef(BaseValidatorModel):
     branch: str
     filePath: str
-    repositoryName: str
+    repositoryName: Annotated[str, _aws_pattern("Proton", "RepositoryName")]
     repositoryProvider: RepositoryProviderType
-    serviceName: str
+    serviceName: Annotated[str, _aws_pattern("Proton", "ResourceName")]
 
 
 # This class is the input for the 'update_service_template' function.
 class UpdateServiceTemplateInputTypeDef(BaseValidatorModel):
-    name: str
+    name: Annotated[str, _aws_pattern("Proton", "ResourceName")]
     description: Optional[str] = None
     displayName: Optional[str] = None
 
@@ -914,9 +918,9 @@ class UpdateServiceTemplateInputTypeDef(BaseValidatorModel):
 # This class is the input for the 'update_template_sync_config' function.
 class UpdateTemplateSyncConfigInputTypeDef(BaseValidatorModel):
     branch: str
-    repositoryName: str
+    repositoryName: Annotated[str, _aws_pattern("Proton", "RepositoryName")]
     repositoryProvider: RepositoryProviderType
-    templateName: str
+    templateName: Annotated[str, _aws_pattern("Proton", "ResourceName")]
     templateType: TemplateTypeType
     subdirectory: Optional[str] = None
 
@@ -958,9 +962,9 @@ class UpdateEnvironmentAccountConnectionOutputTypeDef(BaseValidatorModel):
 
 
 class AccountSettingsTypeDef(BaseValidatorModel):
-    pipelineCodebuildRoleArn: Optional[str] = None
+    pipelineCodebuildRoleArn: Optional[Annotated[str, _aws_pattern("Proton", "RoleArnOrEmptyString")]] = None
     pipelineProvisioningRepository: Optional[RepositoryBranchTypeDef] = None
-    pipelineServiceRoleArn: Optional[str] = None
+    pipelineServiceRoleArn: Optional[Annotated[str, _aws_pattern("Proton", "RoleArnOrEmptyString")]] = None
 
 
 class EnvironmentTypeDef(BaseValidatorModel):
@@ -969,19 +973,21 @@ class EnvironmentTypeDef(BaseValidatorModel):
     deploymentStatus: DeploymentStatusType
     lastDeploymentAttemptedAt: datetime
     lastDeploymentSucceededAt: datetime
-    name: str
-    templateMajorVersion: str
-    templateMinorVersion: str
-    templateName: str
-    codebuildRoleArn: Optional[str] = None
-    componentRoleArn: Optional[str] = None
+    name: Annotated[str, _aws_pattern("Proton", "ResourceName")]
+    templateMajorVersion: Annotated[str, _aws_pattern("Proton", "TemplateVersionPart")]
+    templateMinorVersion: Annotated[str, _aws_pattern("Proton", "TemplateVersionPart")]
+    templateName: Annotated[str, _aws_pattern("Proton", "ResourceName")]
+    codebuildRoleArn: Optional[Annotated[str, _aws_pattern("Proton", "RoleArn")]] = None
+    componentRoleArn: Optional[Annotated[str, _aws_pattern("Proton", "RoleArn")]] = None
     deploymentStatusMessage: Optional[str] = None
     description: Optional[str] = None
-    environmentAccountConnectionId: Optional[str] = None
-    environmentAccountId: Optional[str] = None
-    lastAttemptedDeploymentId: Optional[str] = None
-    lastSucceededDeploymentId: Optional[str] = None
-    protonServiceRoleArn: Optional[str] = None
+    environmentAccountConnectionId: Optional[
+        Annotated[str, _aws_pattern("Proton", "EnvironmentAccountConnectionId")]
+    ] = None
+    environmentAccountId: Optional[Annotated[str, _aws_pattern("Proton", "AwsAccountId")]] = None
+    lastAttemptedDeploymentId: Optional[Annotated[str, _aws_pattern("Proton", "DeploymentId")]] = None
+    lastSucceededDeploymentId: Optional[Annotated[str, _aws_pattern("Proton", "DeploymentId")]] = None
+    protonServiceRoleArn: Optional[Annotated[str, _aws_pattern("Proton", "Arn")]] = None
     provisioning: Optional[Literal["CUSTOMER_MANAGED"]] = None
     provisioningRepository: Optional[RepositoryBranchTypeDef] = None
     spec: Optional[str] = None
@@ -1051,14 +1057,14 @@ class ServiceTypeDef(BaseValidatorModel):
     arn: str
     createdAt: datetime
     lastModifiedAt: datetime
-    name: str
+    name: Annotated[str, _aws_pattern("Proton", "ResourceName")]
     spec: str
     status: ServiceStatusType
-    templateName: str
+    templateName: Annotated[str, _aws_pattern("Proton", "ResourceName")]
     branchName: Optional[str] = None
     description: Optional[str] = None
     pipeline: Optional[ServicePipelineTypeDef] = None
-    repositoryConnectionArn: Optional[str] = None
+    repositoryConnectionArn: Optional[Annotated[str, _aws_pattern("Proton", "Arn")]] = None
     repositoryId: Optional[str] = None
     statusMessage: Optional[str] = None
 
@@ -1071,9 +1077,9 @@ class UpdateServicePipelineOutputTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'update_service_template_version' function.
 class UpdateServiceTemplateVersionInputTypeDef(BaseValidatorModel):
-    majorVersion: str
-    minorVersion: str
-    templateName: str
+    majorVersion: Annotated[str, _aws_pattern("Proton", "TemplateVersionPart")]
+    minorVersion: Annotated[str, _aws_pattern("Proton", "TemplateVersionPart")]
+    templateName: Annotated[str, _aws_pattern("Proton", "ResourceName")]
     compatibleEnvironmentTemplates: Optional[List[CompatibleEnvironmentTemplateInputTypeDef]] = None
     description: Optional[str] = None
     status: Optional[TemplateVersionStatusType] = None
@@ -1085,12 +1091,12 @@ class ServiceTemplateVersionTypeDef(BaseValidatorModel):
     compatibleEnvironmentTemplates: List[CompatibleEnvironmentTemplateTypeDef]
     createdAt: datetime
     lastModifiedAt: datetime
-    majorVersion: str
-    minorVersion: str
+    majorVersion: Annotated[str, _aws_pattern("Proton", "TemplateVersionPart")]
+    minorVersion: Annotated[str, _aws_pattern("Proton", "TemplateVersionPart")]
     status: TemplateVersionStatusType
-    templateName: str
+    templateName: Annotated[str, _aws_pattern("Proton", "ResourceName")]
     description: Optional[str] = None
-    recommendedMinorVersion: Optional[str] = None
+    recommendedMinorVersion: Optional[Annotated[str, _aws_pattern("Proton", "TemplateVersionPart")]] = None
     schema: Optional[str] = None
     statusMessage: Optional[str] = None
     supportedComponentSources: Optional[List[Literal["DIRECTLY_DEFINED"]]] = None
@@ -1100,7 +1106,7 @@ class ServiceTemplateVersionTypeDef(BaseValidatorModel):
 class ListComponentsOutputTypeDef(BaseValidatorModel):
     components: List[ComponentSummaryTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
-    nextToken: Optional[str] = None
+    nextToken: Optional[Annotated[str, _aws_pattern("Proton", "NextToken")]] = None
 
 
 class CountsSummaryTypeDef(BaseValidatorModel):
@@ -1116,78 +1122,78 @@ class CountsSummaryTypeDef(BaseValidatorModel):
 # This class is the input for the 'create_component' function.
 class CreateComponentInputTypeDef(BaseValidatorModel):
     manifest: str
-    name: str
+    name: Annotated[str, _aws_pattern("Proton", "ResourceName")]
     templateFile: str
-    clientToken: Optional[str] = None
+    clientToken: Optional[Annotated[str, _aws_pattern("Proton", "ClientToken")]] = None
     description: Optional[str] = None
-    environmentName: Optional[str] = None
-    serviceInstanceName: Optional[str] = None
-    serviceName: Optional[str] = None
+    environmentName: Optional[Annotated[str, _aws_pattern("Proton", "ResourceName")]] = None
+    serviceInstanceName: Optional[Annotated[str, _aws_pattern("Proton", "ResourceName")]] = None
+    serviceName: Optional[Annotated[str, _aws_pattern("Proton", "ResourceName")]] = None
     serviceSpec: Optional[str] = None
     tags: Optional[List[TagTypeDef]] = None
 
 
 # This class is the input for the 'create_environment_account_connection' function.
 class CreateEnvironmentAccountConnectionInputTypeDef(BaseValidatorModel):
-    environmentName: str
-    managementAccountId: str
-    clientToken: Optional[str] = None
-    codebuildRoleArn: Optional[str] = None
-    componentRoleArn: Optional[str] = None
-    roleArn: Optional[str] = None
+    environmentName: Annotated[str, _aws_pattern("Proton", "ResourceName")]
+    managementAccountId: Annotated[str, _aws_pattern("Proton", "AwsAccountId")]
+    clientToken: Optional[Annotated[str, _aws_pattern("Proton", "ClientToken")]] = None
+    codebuildRoleArn: Optional[Annotated[str, _aws_pattern("Proton", "RoleArn")]] = None
+    componentRoleArn: Optional[Annotated[str, _aws_pattern("Proton", "RoleArn")]] = None
+    roleArn: Optional[Annotated[str, _aws_pattern("Proton", "RoleArn")]] = None
     tags: Optional[List[TagTypeDef]] = None
 
 
 # This class is the input for the 'create_environment_template' function.
 class CreateEnvironmentTemplateInputTypeDef(BaseValidatorModel):
-    name: str
+    name: Annotated[str, _aws_pattern("Proton", "ResourceName")]
     description: Optional[str] = None
     displayName: Optional[str] = None
-    encryptionKey: Optional[str] = None
+    encryptionKey: Optional[Annotated[str, _aws_pattern("Proton", "Arn")]] = None
     provisioning: Optional[Literal["CUSTOMER_MANAGED"]] = None
     tags: Optional[List[TagTypeDef]] = None
 
 
 # This class is the input for the 'create_repository' function.
 class CreateRepositoryInputTypeDef(BaseValidatorModel):
-    connectionArn: str
-    name: str
+    connectionArn: Annotated[str, _aws_pattern("Proton", "Arn")]
+    name: Annotated[str, _aws_pattern("Proton", "RepositoryName")]
     provider: RepositoryProviderType
-    encryptionKey: Optional[str] = None
+    encryptionKey: Optional[Annotated[str, _aws_pattern("Proton", "Arn")]] = None
     tags: Optional[List[TagTypeDef]] = None
 
 
 # This class is the input for the 'create_service' function.
 class CreateServiceInputTypeDef(BaseValidatorModel):
-    name: str
+    name: Annotated[str, _aws_pattern("Proton", "ResourceName")]
     spec: str
-    templateMajorVersion: str
-    templateName: str
+    templateMajorVersion: Annotated[str, _aws_pattern("Proton", "TemplateVersionPart")]
+    templateName: Annotated[str, _aws_pattern("Proton", "ResourceName")]
     branchName: Optional[str] = None
     description: Optional[str] = None
-    repositoryConnectionArn: Optional[str] = None
+    repositoryConnectionArn: Optional[Annotated[str, _aws_pattern("Proton", "Arn")]] = None
     repositoryId: Optional[str] = None
     tags: Optional[List[TagTypeDef]] = None
-    templateMinorVersion: Optional[str] = None
+    templateMinorVersion: Optional[Annotated[str, _aws_pattern("Proton", "TemplateVersionPart")]] = None
 
 
 # This class is the input for the 'create_service_instance' function.
 class CreateServiceInstanceInputTypeDef(BaseValidatorModel):
-    name: str
-    serviceName: str
+    name: Annotated[str, _aws_pattern("Proton", "ResourceName")]
+    serviceName: Annotated[str, _aws_pattern("Proton", "ResourceName")]
     spec: str
-    clientToken: Optional[str] = None
+    clientToken: Optional[Annotated[str, _aws_pattern("Proton", "ClientToken")]] = None
     tags: Optional[List[TagTypeDef]] = None
-    templateMajorVersion: Optional[str] = None
-    templateMinorVersion: Optional[str] = None
+    templateMajorVersion: Optional[Annotated[str, _aws_pattern("Proton", "TemplateVersionPart")]] = None
+    templateMinorVersion: Optional[Annotated[str, _aws_pattern("Proton", "TemplateVersionPart")]] = None
 
 
 # This class is the input for the 'create_service_template' function.
 class CreateServiceTemplateInputTypeDef(BaseValidatorModel):
-    name: str
+    name: Annotated[str, _aws_pattern("Proton", "ResourceName")]
     description: Optional[str] = None
     displayName: Optional[str] = None
-    encryptionKey: Optional[str] = None
+    encryptionKey: Optional[Annotated[str, _aws_pattern("Proton", "Arn")]] = None
     pipelineProvisioning: Optional[Literal["CUSTOMER_MANAGED"]] = None
     tags: Optional[List[TagTypeDef]] = None
 
@@ -1200,47 +1206,51 @@ class ListTagsForResourceOutputTypeDef(BaseValidatorModel):
 
 
 class TagResourceInputTypeDef(BaseValidatorModel):
-    resourceArn: str
+    resourceArn: Annotated[str, _aws_pattern("Proton", "Arn")]
     tags: List[TagTypeDef]
 
 
 # This class is the input for the 'create_environment' function.
 class CreateEnvironmentInputTypeDef(BaseValidatorModel):
-    name: str
+    name: Annotated[str, _aws_pattern("Proton", "ResourceName")]
     spec: str
-    templateMajorVersion: str
-    templateName: str
-    codebuildRoleArn: Optional[str] = None
-    componentRoleArn: Optional[str] = None
+    templateMajorVersion: Annotated[str, _aws_pattern("Proton", "TemplateVersionPart")]
+    templateName: Annotated[str, _aws_pattern("Proton", "ResourceName")]
+    codebuildRoleArn: Optional[Annotated[str, _aws_pattern("Proton", "RoleArn")]] = None
+    componentRoleArn: Optional[Annotated[str, _aws_pattern("Proton", "RoleArn")]] = None
     description: Optional[str] = None
-    environmentAccountConnectionId: Optional[str] = None
-    protonServiceRoleArn: Optional[str] = None
+    environmentAccountConnectionId: Optional[
+        Annotated[str, _aws_pattern("Proton", "EnvironmentAccountConnectionId")]
+    ] = None
+    protonServiceRoleArn: Optional[Annotated[str, _aws_pattern("Proton", "Arn")]] = None
     provisioningRepository: Optional[RepositoryBranchInputTypeDef] = None
     tags: Optional[List[TagTypeDef]] = None
-    templateMinorVersion: Optional[str] = None
+    templateMinorVersion: Optional[Annotated[str, _aws_pattern("Proton", "TemplateVersionPart")]] = None
 
 
 # This class is the input for the 'update_account_settings' function.
 class UpdateAccountSettingsInputTypeDef(BaseValidatorModel):
     deletePipelineProvisioningRepository: Optional[bool] = None
-    pipelineCodebuildRoleArn: Optional[str] = None
+    pipelineCodebuildRoleArn: Optional[Annotated[str, _aws_pattern("Proton", "RoleArnOrEmptyString")]] = None
     pipelineProvisioningRepository: Optional[RepositoryBranchInputTypeDef] = None
-    pipelineServiceRoleArn: Optional[str] = None
+    pipelineServiceRoleArn: Optional[Annotated[str, _aws_pattern("Proton", "RoleArnOrEmptyString")]] = None
 
 
 # This class is the input for the 'update_environment' function.
 class UpdateEnvironmentInputTypeDef(BaseValidatorModel):
     deploymentType: DeploymentUpdateTypeType
-    name: str
-    codebuildRoleArn: Optional[str] = None
-    componentRoleArn: Optional[str] = None
+    name: Annotated[str, _aws_pattern("Proton", "ResourceName")]
+    codebuildRoleArn: Optional[Annotated[str, _aws_pattern("Proton", "RoleArn")]] = None
+    componentRoleArn: Optional[Annotated[str, _aws_pattern("Proton", "RoleArn")]] = None
     description: Optional[str] = None
-    environmentAccountConnectionId: Optional[str] = None
-    protonServiceRoleArn: Optional[str] = None
+    environmentAccountConnectionId: Optional[
+        Annotated[str, _aws_pattern("Proton", "EnvironmentAccountConnectionId")]
+    ] = None
+    protonServiceRoleArn: Optional[Annotated[str, _aws_pattern("Proton", "Arn")]] = None
     provisioningRepository: Optional[RepositoryBranchInputTypeDef] = None
     spec: Optional[str] = None
-    templateMajorVersion: Optional[str] = None
-    templateMinorVersion: Optional[str] = None
+    templateMajorVersion: Optional[Annotated[str, _aws_pattern("Proton", "TemplateVersionPart")]] = None
+    templateMinorVersion: Optional[Annotated[str, _aws_pattern("Proton", "TemplateVersionPart")]] = None
 
 
 # This class is the output for the 'create_environment_template' function.
@@ -1392,42 +1402,42 @@ class DeploymentStateTypeDef(BaseValidatorModel):
 class ListDeploymentsOutputTypeDef(BaseValidatorModel):
     deployments: List[DeploymentSummaryTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
-    nextToken: Optional[str] = None
+    nextToken: Optional[Annotated[str, _aws_pattern("Proton", "NextToken")]] = None
 
 
 # This class is the output for the 'list_environment_account_connections' function.
 class ListEnvironmentAccountConnectionsOutputTypeDef(BaseValidatorModel):
     environmentAccountConnections: List[EnvironmentAccountConnectionSummaryTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
-    nextToken: Optional[str] = None
+    nextToken: Optional[Annotated[str, _aws_pattern("Proton", "NextToken")]] = None
 
 
 # This class is the output for the 'list_environments' function.
 class ListEnvironmentsOutputTypeDef(BaseValidatorModel):
     environments: List[EnvironmentSummaryTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
-    nextToken: Optional[str] = None
+    nextToken: Optional[Annotated[str, _aws_pattern("Proton", "NextToken")]] = None
 
 
 # This class is the input for the 'list_environments' function.
 class ListEnvironmentsInputTypeDef(BaseValidatorModel):
     environmentTemplates: Optional[List[EnvironmentTemplateFilterTypeDef]] = None
     maxResults: Optional[int] = None
-    nextToken: Optional[str] = None
+    nextToken: Optional[Annotated[str, _aws_pattern("Proton", "NextToken")]] = None
 
 
 # This class is the output for the 'list_environment_templates' function.
 class ListEnvironmentTemplatesOutputTypeDef(BaseValidatorModel):
     templates: List[EnvironmentTemplateSummaryTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
-    nextToken: Optional[str] = None
+    nextToken: Optional[Annotated[str, _aws_pattern("Proton", "NextToken")]] = None
 
 
 # This class is the output for the 'list_environment_template_versions' function.
 class ListEnvironmentTemplateVersionsOutputTypeDef(BaseValidatorModel):
     templateVersions: List[EnvironmentTemplateVersionSummaryTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
-    nextToken: Optional[str] = None
+    nextToken: Optional[Annotated[str, _aws_pattern("Proton", "NextToken")]] = None
 
 
 class GetComponentInputWaitExtraTypeDef(BaseValidatorModel):
@@ -1627,8 +1637,8 @@ class ListServicePipelineOutputsOutputTypeDef(BaseValidatorModel):
 
 
 class NotifyResourceDeploymentStatusChangeInputTypeDef(BaseValidatorModel):
-    resourceArn: str
-    deploymentId: Optional[str] = None
+    resourceArn: Annotated[str, _aws_pattern("Proton", "Arn")]
+    deploymentId: Optional[Annotated[str, _aws_pattern("Proton", "DeploymentId")]] = None
     outputs: Optional[List[OutputTypeDef]] = None
     status: Optional[ResourceDeploymentStatusType] = None
     statusMessage: Optional[str] = None
@@ -1666,7 +1676,7 @@ class ListServicePipelineProvisionedResourcesOutputTypeDef(BaseValidatorModel):
 class ListRepositoriesOutputTypeDef(BaseValidatorModel):
     repositories: List[RepositorySummaryTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
-    nextToken: Optional[str] = None
+    nextToken: Optional[Annotated[str, _aws_pattern("Proton", "NextToken")]] = None
 
 
 # This class is the output for the 'list_repository_sync_definitions' function.
@@ -1688,8 +1698,8 @@ class ListServiceInstancesInputPaginateTypeDef(BaseValidatorModel):
 class ListServiceInstancesInputTypeDef(BaseValidatorModel):
     filters: Optional[List[ListServiceInstancesFilterTypeDef]] = None
     maxResults: Optional[int] = None
-    nextToken: Optional[str] = None
-    serviceName: Optional[str] = None
+    nextToken: Optional[Annotated[str, _aws_pattern("Proton", "NextToken")]] = None
+    serviceName: Optional[Annotated[str, _aws_pattern("Proton", "ResourceName")]] = None
     sortBy: Optional[ListServiceInstancesSortByType] = None
     sortOrder: Optional[SortOrderType] = None
 
@@ -1698,28 +1708,28 @@ class ListServiceInstancesInputTypeDef(BaseValidatorModel):
 class ListServiceInstancesOutputTypeDef(BaseValidatorModel):
     serviceInstances: List[ServiceInstanceSummaryTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
-    nextToken: Optional[str] = None
+    nextToken: Optional[Annotated[str, _aws_pattern("Proton", "NextToken")]] = None
 
 
 # This class is the output for the 'list_service_template_versions' function.
 class ListServiceTemplateVersionsOutputTypeDef(BaseValidatorModel):
     templateVersions: List[ServiceTemplateVersionSummaryTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
-    nextToken: Optional[str] = None
+    nextToken: Optional[Annotated[str, _aws_pattern("Proton", "NextToken")]] = None
 
 
 # This class is the output for the 'list_service_templates' function.
 class ListServiceTemplatesOutputTypeDef(BaseValidatorModel):
     templates: List[ServiceTemplateSummaryTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
-    nextToken: Optional[str] = None
+    nextToken: Optional[Annotated[str, _aws_pattern("Proton", "NextToken")]] = None
 
 
 # This class is the output for the 'list_services' function.
 class ListServicesOutputTypeDef(BaseValidatorModel):
     services: List[ServiceSummaryTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
-    nextToken: Optional[str] = None
+    nextToken: Optional[Annotated[str, _aws_pattern("Proton", "NextToken")]] = None
 
 
 class RepositorySyncAttemptTypeDef(BaseValidatorModel):
@@ -1850,20 +1860,20 @@ class DeploymentTypeDef(BaseValidatorModel):
     arn: str
     createdAt: datetime
     deploymentStatus: DeploymentStatusType
-    environmentName: str
-    id: str
+    environmentName: Annotated[str, _aws_pattern("Proton", "ResourceName")]
+    id: Annotated[str, _aws_pattern("Proton", "DeploymentId")]
     lastModifiedAt: datetime
-    targetArn: str
+    targetArn: Annotated[str, _aws_pattern("Proton", "Arn")]
     targetResourceCreatedAt: datetime
     targetResourceType: DeploymentTargetResourceTypeType
     completedAt: Optional[datetime] = None
-    componentName: Optional[str] = None
+    componentName: Optional[Annotated[str, _aws_pattern("Proton", "ResourceName")]] = None
     deploymentStatusMessage: Optional[str] = None
     initialState: Optional[DeploymentStateTypeDef] = None
-    lastAttemptedDeploymentId: Optional[str] = None
-    lastSucceededDeploymentId: Optional[str] = None
-    serviceInstanceName: Optional[str] = None
-    serviceName: Optional[str] = None
+    lastAttemptedDeploymentId: Optional[Annotated[str, _aws_pattern("Proton", "DeploymentId")]] = None
+    lastSucceededDeploymentId: Optional[Annotated[str, _aws_pattern("Proton", "DeploymentId")]] = None
+    serviceInstanceName: Optional[Annotated[str, _aws_pattern("Proton", "ResourceName")]] = None
+    serviceName: Optional[Annotated[str, _aws_pattern("Proton", "ResourceName")]] = None
     targetState: Optional[DeploymentStateTypeDef] = None
 
 
@@ -1892,10 +1902,10 @@ class GetTemplateSyncStatusOutputTypeDef(BaseValidatorModel):
 # This class is the input for the 'create_environment_template_version' function.
 class CreateEnvironmentTemplateVersionInputTypeDef(BaseValidatorModel):
     source: TemplateVersionSourceInputTypeDef
-    templateName: str
-    clientToken: Optional[str] = None
+    templateName: Annotated[str, _aws_pattern("Proton", "ResourceName")]
+    clientToken: Optional[Annotated[str, _aws_pattern("Proton", "ClientToken")]] = None
     description: Optional[str] = None
-    majorVersion: Optional[str] = None
+    majorVersion: Optional[Annotated[str, _aws_pattern("Proton", "TemplateVersionPart")]] = None
     tags: Optional[List[TagTypeDef]] = None
 
 
@@ -1903,10 +1913,10 @@ class CreateEnvironmentTemplateVersionInputTypeDef(BaseValidatorModel):
 class CreateServiceTemplateVersionInputTypeDef(BaseValidatorModel):
     compatibleEnvironmentTemplates: List[CompatibleEnvironmentTemplateInputTypeDef]
     source: TemplateVersionSourceInputTypeDef
-    templateName: str
-    clientToken: Optional[str] = None
+    templateName: Annotated[str, _aws_pattern("Proton", "ResourceName")]
+    clientToken: Optional[Annotated[str, _aws_pattern("Proton", "ClientToken")]] = None
     description: Optional[str] = None
-    majorVersion: Optional[str] = None
+    majorVersion: Optional[Annotated[str, _aws_pattern("Proton", "TemplateVersionPart")]] = None
     supportedComponentSources: Optional[List[Literal["DIRECTLY_DEFINED"]]] = None
     tags: Optional[List[TagTypeDef]] = None
 
@@ -1919,8 +1929,8 @@ class ServiceSyncBlockerSummaryTypeDef(BaseValidatorModel):
 
 # This class is the output for the 'update_service_sync_blocker' function.
 class UpdateServiceSyncBlockerOutputTypeDef(BaseValidatorModel):
-    serviceInstanceName: str
-    serviceName: str
+    serviceInstanceName: Annotated[str, _aws_pattern("Proton", "ResourceName")]
+    serviceName: Annotated[str, _aws_pattern("Proton", "ResourceName")]
     serviceSyncBlocker: SyncBlockerTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 

@@ -3,6 +3,7 @@
 from datetime import datetime
 from decimal import Decimal
 from typing import (
+    Annotated,
     Any,
     Callable,
     Dict,
@@ -24,6 +25,7 @@ from botocore.response import StreamingBody
 from pydantic import Field
 
 from aws_resource_validator.core.base_validator_model import BaseValidatorModel, EventStream
+from aws_resource_validator.core.pattern_validation import aws_field_pattern as _aws_pattern
 from aws_resource_validator.pydantic_models.s3tables.s3tables_constants import *  # noqa: F401,F403
 
 # Optional boto3 symbols — imported lazily so services that don't need them
@@ -40,8 +42,8 @@ except ImportError:  # pragma: no cover
 
 # This class is the input for the 'create_namespace' function.
 class CreateNamespaceRequestTypeDef(BaseValidatorModel):
-    tableBucketARN: str
-    namespace: List[str]
+    tableBucketARN: Annotated[str, _aws_pattern("S3tables", "TableBucketARN")]
+    namespace: List[Annotated[str, _aws_pattern("S3tables", "NamespaceName")]]
 
 
 class ResponseMetadataTypeDef(BaseValidatorModel):
@@ -54,7 +56,7 @@ class ResponseMetadataTypeDef(BaseValidatorModel):
 
 class EncryptionConfigurationTypeDef(BaseValidatorModel):
     sseAlgorithm: SSEAlgorithmType
-    kmsKeyArn: Optional[str] = None
+    kmsKeyArn: Optional[Annotated[str, _aws_pattern("S3tables", "EncryptionConfigurationKmsKeyArnString")]] = None
 
 
 class StorageClassConfigurationTypeDef(BaseValidatorModel):
@@ -63,117 +65,117 @@ class StorageClassConfigurationTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'delete_namespace' function.
 class DeleteNamespaceRequestTypeDef(BaseValidatorModel):
-    tableBucketARN: str
-    namespace: str
+    tableBucketARN: Annotated[str, _aws_pattern("S3tables", "TableBucketARN")]
+    namespace: Annotated[str, _aws_pattern("S3tables", "NamespaceName")]
 
 
 # This class is the input for the 'delete_table_bucket_encryption' function.
 class DeleteTableBucketEncryptionRequestTypeDef(BaseValidatorModel):
-    tableBucketARN: str
+    tableBucketARN: Annotated[str, _aws_pattern("S3tables", "TableBucketARN")]
 
 
 # This class is the input for the 'delete_table_bucket_metrics_configuration' function.
 class DeleteTableBucketMetricsConfigurationRequestTypeDef(BaseValidatorModel):
-    tableBucketARN: str
+    tableBucketARN: Annotated[str, _aws_pattern("S3tables", "TableBucketARN")]
 
 
 # This class is the input for the 'delete_table_bucket_policy' function.
 class DeleteTableBucketPolicyRequestTypeDef(BaseValidatorModel):
-    tableBucketARN: str
+    tableBucketARN: Annotated[str, _aws_pattern("S3tables", "TableBucketARN")]
 
 
 # This class is the input for the 'delete_table_bucket_replication' function.
 class DeleteTableBucketReplicationRequestTypeDef(BaseValidatorModel):
-    tableBucketARN: str
+    tableBucketARN: Annotated[str, _aws_pattern("S3tables", "TableBucketARN")]
     versionToken: Optional[str] = None
 
 
 # This class is the input for the 'delete_table_bucket' function.
 class DeleteTableBucketRequestTypeDef(BaseValidatorModel):
-    tableBucketARN: str
+    tableBucketARN: Annotated[str, _aws_pattern("S3tables", "TableBucketARN")]
 
 
 # This class is the input for the 'delete_table_policy' function.
 class DeleteTablePolicyRequestTypeDef(BaseValidatorModel):
-    tableBucketARN: str
-    namespace: str
-    name: str
+    tableBucketARN: Annotated[str, _aws_pattern("S3tables", "TableBucketARN")]
+    namespace: Annotated[str, _aws_pattern("S3tables", "NamespaceName")]
+    name: Annotated[str, _aws_pattern("S3tables", "TableName")]
 
 
 # This class is the input for the 'delete_table_replication' function.
 class DeleteTableReplicationRequestTypeDef(BaseValidatorModel):
-    tableArn: str
+    tableArn: Annotated[str, _aws_pattern("S3tables", "TableARN")]
     versionToken: str
 
 
 # This class is the input for the 'delete_table' function.
 class DeleteTableRequestTypeDef(BaseValidatorModel):
-    tableBucketARN: str
-    namespace: str
-    name: str
+    tableBucketARN: Annotated[str, _aws_pattern("S3tables", "TableBucketARN")]
+    namespace: Annotated[str, _aws_pattern("S3tables", "NamespaceName")]
+    name: Annotated[str, _aws_pattern("S3tables", "TableName")]
     versionToken: Optional[str] = None
 
 
 # This class is the input for the 'get_namespace' function.
 class GetNamespaceRequestTypeDef(BaseValidatorModel):
-    tableBucketARN: str
-    namespace: str
+    tableBucketARN: Annotated[str, _aws_pattern("S3tables", "TableBucketARN")]
+    namespace: Annotated[str, _aws_pattern("S3tables", "NamespaceName")]
 
 
 # This class is the input for the 'get_table_bucket_encryption' function.
 class GetTableBucketEncryptionRequestTypeDef(BaseValidatorModel):
-    tableBucketARN: str
+    tableBucketARN: Annotated[str, _aws_pattern("S3tables", "TableBucketARN")]
 
 
 # This class is the input for the 'get_table_bucket_maintenance_configuration' function.
 class GetTableBucketMaintenanceConfigurationRequestTypeDef(BaseValidatorModel):
-    tableBucketARN: str
+    tableBucketARN: Annotated[str, _aws_pattern("S3tables", "TableBucketARN")]
 
 
 # This class is the input for the 'get_table_bucket_metrics_configuration' function.
 class GetTableBucketMetricsConfigurationRequestTypeDef(BaseValidatorModel):
-    tableBucketARN: str
+    tableBucketARN: Annotated[str, _aws_pattern("S3tables", "TableBucketARN")]
 
 
 # This class is the input for the 'get_table_bucket_policy' function.
 class GetTableBucketPolicyRequestTypeDef(BaseValidatorModel):
-    tableBucketARN: str
+    tableBucketARN: Annotated[str, _aws_pattern("S3tables", "TableBucketARN")]
 
 
 # This class is the input for the 'get_table_bucket_replication' function.
 class GetTableBucketReplicationRequestTypeDef(BaseValidatorModel):
-    tableBucketARN: str
+    tableBucketARN: Annotated[str, _aws_pattern("S3tables", "TableBucketARN")]
 
 
 # This class is the input for the 'get_table_bucket' function.
 class GetTableBucketRequestTypeDef(BaseValidatorModel):
-    tableBucketARN: str
+    tableBucketARN: Annotated[str, _aws_pattern("S3tables", "TableBucketARN")]
 
 
 # This class is the input for the 'get_table_bucket_storage_class' function.
 class GetTableBucketStorageClassRequestTypeDef(BaseValidatorModel):
-    tableBucketARN: str
+    tableBucketARN: Annotated[str, _aws_pattern("S3tables", "TableBucketARN")]
 
 
 # This class is the input for the 'get_table_encryption' function.
 class GetTableEncryptionRequestTypeDef(BaseValidatorModel):
-    tableBucketARN: str
-    namespace: str
-    name: str
+    tableBucketARN: Annotated[str, _aws_pattern("S3tables", "TableBucketARN")]
+    namespace: Annotated[str, _aws_pattern("S3tables", "NamespaceName")]
+    name: Annotated[str, _aws_pattern("S3tables", "TableName")]
 
 
 # This class is the input for the 'get_table_maintenance_configuration' function.
 class GetTableMaintenanceConfigurationRequestTypeDef(BaseValidatorModel):
-    tableBucketARN: str
-    namespace: str
-    name: str
+    tableBucketARN: Annotated[str, _aws_pattern("S3tables", "TableBucketARN")]
+    namespace: Annotated[str, _aws_pattern("S3tables", "NamespaceName")]
+    name: Annotated[str, _aws_pattern("S3tables", "TableName")]
 
 
 # This class is the input for the 'get_table_maintenance_job_status' function.
 class GetTableMaintenanceJobStatusRequestTypeDef(BaseValidatorModel):
-    tableBucketARN: str
-    namespace: str
-    name: str
+    tableBucketARN: Annotated[str, _aws_pattern("S3tables", "TableBucketARN")]
+    namespace: Annotated[str, _aws_pattern("S3tables", "NamespaceName")]
+    name: Annotated[str, _aws_pattern("S3tables", "TableName")]
 
 
 class TableMaintenanceJobStatusValueTypeDef(BaseValidatorModel):
@@ -184,26 +186,26 @@ class TableMaintenanceJobStatusValueTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'get_table_metadata_location' function.
 class GetTableMetadataLocationRequestTypeDef(BaseValidatorModel):
-    tableBucketARN: str
-    namespace: str
-    name: str
+    tableBucketARN: Annotated[str, _aws_pattern("S3tables", "TableBucketARN")]
+    namespace: Annotated[str, _aws_pattern("S3tables", "NamespaceName")]
+    name: Annotated[str, _aws_pattern("S3tables", "TableName")]
 
 
 # This class is the input for the 'get_table_policy' function.
 class GetTablePolicyRequestTypeDef(BaseValidatorModel):
-    tableBucketARN: str
-    namespace: str
-    name: str
+    tableBucketARN: Annotated[str, _aws_pattern("S3tables", "TableBucketARN")]
+    namespace: Annotated[str, _aws_pattern("S3tables", "NamespaceName")]
+    name: Annotated[str, _aws_pattern("S3tables", "TableName")]
 
 
 # This class is the input for the 'get_table_record_expiration_configuration' function.
 class GetTableRecordExpirationConfigurationRequestTypeDef(BaseValidatorModel):
-    tableArn: str
+    tableArn: Annotated[str, _aws_pattern("S3tables", "TableARN")]
 
 
 # This class is the input for the 'get_table_record_expiration_job_status' function.
 class GetTableRecordExpirationJobStatusRequestTypeDef(BaseValidatorModel):
-    tableArn: str
+    tableArn: Annotated[str, _aws_pattern("S3tables", "TableARN")]
 
 
 class TableRecordExpirationJobMetricsTypeDef(BaseValidatorModel):
@@ -214,27 +216,27 @@ class TableRecordExpirationJobMetricsTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'get_table_replication' function.
 class GetTableReplicationRequestTypeDef(BaseValidatorModel):
-    tableArn: str
+    tableArn: Annotated[str, _aws_pattern("S3tables", "TableARN")]
 
 
 # This class is the input for the 'get_table_replication_status' function.
 class GetTableReplicationStatusRequestTypeDef(BaseValidatorModel):
-    tableArn: str
+    tableArn: Annotated[str, _aws_pattern("S3tables", "TableARN")]
 
 
 # This class is the input for the 'get_table' function.
 class GetTableRequestTypeDef(BaseValidatorModel):
-    tableBucketARN: Optional[str] = None
-    namespace: Optional[str] = None
-    name: Optional[str] = None
-    tableArn: Optional[str] = None
+    tableBucketARN: Optional[Annotated[str, _aws_pattern("S3tables", "TableBucketARN")]] = None
+    namespace: Optional[Annotated[str, _aws_pattern("S3tables", "NamespaceName")]] = None
+    name: Optional[Annotated[str, _aws_pattern("S3tables", "TableName")]] = None
+    tableArn: Optional[Annotated[str, _aws_pattern("S3tables", "TableARN")]] = None
 
 
 # This class is the input for the 'get_table_storage_class' function.
 class GetTableStorageClassRequestTypeDef(BaseValidatorModel):
-    tableBucketARN: str
-    namespace: str
-    name: str
+    tableBucketARN: Annotated[str, _aws_pattern("S3tables", "TableBucketARN")]
+    namespace: Annotated[str, _aws_pattern("S3tables", "NamespaceName")]
+    name: Annotated[str, _aws_pattern("S3tables", "TableName")]
 
 
 class IcebergCompactionSettingsTypeDef(BaseValidatorModel):
@@ -294,17 +296,17 @@ class PaginatorConfigTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'list_namespaces' function.
 class ListNamespacesRequestTypeDef(BaseValidatorModel):
-    tableBucketARN: str
+    tableBucketARN: Annotated[str, _aws_pattern("S3tables", "TableBucketARN")]
     prefix: Optional[str] = None
     continuationToken: Optional[str] = None
     maxNamespaces: Optional[int] = None
 
 
 class NamespaceSummaryTypeDef(BaseValidatorModel):
-    namespace: List[str]
+    namespace: List[Annotated[str, _aws_pattern("S3tables", "NamespaceName")]]
     createdAt: datetime
-    createdBy: str
-    ownerAccountId: str
+    createdBy: Annotated[str, _aws_pattern("S3tables", "AccountId")]
+    ownerAccountId: Annotated[str, _aws_pattern("S3tables", "AccountId")]
     namespaceId: Optional[str] = None
     tableBucketId: Optional[str] = None
 
@@ -318,9 +320,9 @@ class ListTableBucketsRequestTypeDef(BaseValidatorModel):
 
 
 class TableBucketSummaryTypeDef(BaseValidatorModel):
-    arn: str
-    name: str
-    ownerAccountId: str
+    arn: Annotated[str, _aws_pattern("S3tables", "TableBucketARN")]
+    name: Annotated[str, _aws_pattern("S3tables", "TableBucketName")]
+    ownerAccountId: Annotated[str, _aws_pattern("S3tables", "AccountId")]
     createdAt: datetime
     tableBucketId: Optional[str] = None
     type: Optional[TableBucketTypeType] = None
@@ -328,18 +330,18 @@ class TableBucketSummaryTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'list_tables' function.
 class ListTablesRequestTypeDef(BaseValidatorModel):
-    tableBucketARN: str
-    namespace: Optional[str] = None
+    tableBucketARN: Annotated[str, _aws_pattern("S3tables", "TableBucketARN")]
+    namespace: Optional[Annotated[str, _aws_pattern("S3tables", "NamespaceName")]] = None
     prefix: Optional[str] = None
     continuationToken: Optional[str] = None
     maxTables: Optional[int] = None
 
 
 class TableSummaryTypeDef(BaseValidatorModel):
-    namespace: List[str]
-    name: str
+    namespace: List[Annotated[str, _aws_pattern("S3tables", "NamespaceName")]]
+    name: Annotated[str, _aws_pattern("S3tables", "TableName")]
     type: TableTypeType
-    tableARN: str
+    tableARN: Annotated[str, _aws_pattern("S3tables", "TableARN")]
     createdAt: datetime
     modifiedAt: datetime
     managedByService: Optional[str] = None
@@ -349,44 +351,44 @@ class TableSummaryTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'list_tags_for_resource' function.
 class ListTagsForResourceRequestTypeDef(BaseValidatorModel):
-    resourceArn: str
+    resourceArn: Annotated[str, _aws_pattern("S3tables", "ResourceArn")]
 
 
 class ReplicationInformationTypeDef(BaseValidatorModel):
-    sourceTableARN: str
+    sourceTableARN: Annotated[str, _aws_pattern("S3tables", "TableARN")]
 
 
 # This class is the input for the 'put_table_bucket_metrics_configuration' function.
 class PutTableBucketMetricsConfigurationRequestTypeDef(BaseValidatorModel):
-    tableBucketARN: str
+    tableBucketARN: Annotated[str, _aws_pattern("S3tables", "TableBucketARN")]
 
 
 # This class is the input for the 'put_table_bucket_policy' function.
 class PutTableBucketPolicyRequestTypeDef(BaseValidatorModel):
-    tableBucketARN: str
+    tableBucketARN: Annotated[str, _aws_pattern("S3tables", "TableBucketARN")]
     resourcePolicy: str
 
 
 # This class is the input for the 'put_table_policy' function.
 class PutTablePolicyRequestTypeDef(BaseValidatorModel):
-    tableBucketARN: str
-    namespace: str
-    name: str
+    tableBucketARN: Annotated[str, _aws_pattern("S3tables", "TableBucketARN")]
+    namespace: Annotated[str, _aws_pattern("S3tables", "NamespaceName")]
+    name: Annotated[str, _aws_pattern("S3tables", "TableName")]
     resourcePolicy: str
 
 
 # This class is the input for the 'rename_table' function.
 class RenameTableRequestTypeDef(BaseValidatorModel):
-    tableBucketARN: str
-    namespace: str
-    name: str
-    newNamespaceName: Optional[str] = None
-    newName: Optional[str] = None
+    tableBucketARN: Annotated[str, _aws_pattern("S3tables", "TableBucketARN")]
+    namespace: Annotated[str, _aws_pattern("S3tables", "NamespaceName")]
+    name: Annotated[str, _aws_pattern("S3tables", "TableName")]
+    newNamespaceName: Optional[Annotated[str, _aws_pattern("S3tables", "NamespaceName")]] = None
+    newName: Optional[Annotated[str, _aws_pattern("S3tables", "TableName")]] = None
     versionToken: Optional[str] = None
 
 
 class ReplicationDestinationTypeDef(BaseValidatorModel):
-    destinationTableBucketARN: str
+    destinationTableBucketARN: Annotated[str, _aws_pattern("S3tables", "TableBucketARN")]
 
 
 class TableRecordExpirationSettingsTypeDef(BaseValidatorModel):
@@ -394,40 +396,40 @@ class TableRecordExpirationSettingsTypeDef(BaseValidatorModel):
 
 
 class TagResourceRequestTypeDef(BaseValidatorModel):
-    resourceArn: str
+    resourceArn: Annotated[str, _aws_pattern("S3tables", "ResourceArn")]
     tags: Dict[str, str]
 
 
 class UntagResourceRequestTypeDef(BaseValidatorModel):
-    resourceArn: str
+    resourceArn: Annotated[str, _aws_pattern("S3tables", "ResourceArn")]
     tagKeys: List[str]
 
 
 # This class is the input for the 'update_table_metadata_location' function.
 class UpdateTableMetadataLocationRequestTypeDef(BaseValidatorModel):
-    tableBucketARN: str
-    namespace: str
-    name: str
+    tableBucketARN: Annotated[str, _aws_pattern("S3tables", "TableBucketARN")]
+    namespace: Annotated[str, _aws_pattern("S3tables", "NamespaceName")]
+    name: Annotated[str, _aws_pattern("S3tables", "TableName")]
     versionToken: str
     metadataLocation: str
 
 
 # This class is the output for the 'create_namespace' function.
 class CreateNamespaceResponseTypeDef(BaseValidatorModel):
-    tableBucketARN: str
-    namespace: List[str]
+    tableBucketARN: Annotated[str, _aws_pattern("S3tables", "TableBucketARN")]
+    namespace: List[Annotated[str, _aws_pattern("S3tables", "NamespaceName")]]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 # This class is the output for the 'create_table_bucket' function.
 class CreateTableBucketResponseTypeDef(BaseValidatorModel):
-    arn: str
+    arn: Annotated[str, _aws_pattern("S3tables", "TableBucketARN")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 # This class is the output for the 'create_table' function.
 class CreateTableResponseTypeDef(BaseValidatorModel):
-    tableARN: str
+    tableARN: Annotated[str, _aws_pattern("S3tables", "TableARN")]
     versionToken: str
     ResponseMetadata: ResponseMetadataTypeDef
 
@@ -439,10 +441,10 @@ class EmptyResponseMetadataTypeDef(BaseValidatorModel):
 
 # This class is the output for the 'get_namespace' function.
 class GetNamespaceResponseTypeDef(BaseValidatorModel):
-    namespace: List[str]
+    namespace: List[Annotated[str, _aws_pattern("S3tables", "NamespaceName")]]
     createdAt: datetime
-    createdBy: str
-    ownerAccountId: str
+    createdBy: Annotated[str, _aws_pattern("S3tables", "AccountId")]
+    ownerAccountId: Annotated[str, _aws_pattern("S3tables", "AccountId")]
     namespaceId: str
     tableBucketId: str
     ResponseMetadata: ResponseMetadataTypeDef
@@ -450,7 +452,7 @@ class GetNamespaceResponseTypeDef(BaseValidatorModel):
 
 # This class is the output for the 'get_table_bucket_metrics_configuration' function.
 class GetTableBucketMetricsConfigurationResponseTypeDef(BaseValidatorModel):
-    tableBucketARN: str
+    tableBucketARN: Annotated[str, _aws_pattern("S3tables", "TableBucketARN")]
     id: str
     ResponseMetadata: ResponseMetadataTypeDef
 
@@ -463,9 +465,9 @@ class GetTableBucketPolicyResponseTypeDef(BaseValidatorModel):
 
 # This class is the output for the 'get_table_bucket' function.
 class GetTableBucketResponseTypeDef(BaseValidatorModel):
-    arn: str
-    name: str
-    ownerAccountId: str
+    arn: Annotated[str, _aws_pattern("S3tables", "TableBucketARN")]
+    name: Annotated[str, _aws_pattern("S3tables", "TableBucketName")]
+    ownerAccountId: Annotated[str, _aws_pattern("S3tables", "AccountId")]
     createdAt: datetime
     tableBucketId: str
     type: TableBucketTypeType
@@ -508,9 +510,9 @@ class PutTableReplicationResponseTypeDef(BaseValidatorModel):
 
 # This class is the output for the 'update_table_metadata_location' function.
 class UpdateTableMetadataLocationResponseTypeDef(BaseValidatorModel):
-    name: str
-    tableARN: str
-    namespace: List[str]
+    name: Annotated[str, _aws_pattern("S3tables", "TableName")]
+    tableARN: Annotated[str, _aws_pattern("S3tables", "TableARN")]
+    namespace: List[Annotated[str, _aws_pattern("S3tables", "NamespaceName")]]
     versionToken: str
     metadataLocation: str
     ResponseMetadata: ResponseMetadataTypeDef
@@ -530,13 +532,13 @@ class GetTableEncryptionResponseTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'put_table_bucket_encryption' function.
 class PutTableBucketEncryptionRequestTypeDef(BaseValidatorModel):
-    tableBucketARN: str
+    tableBucketARN: Annotated[str, _aws_pattern("S3tables", "TableBucketARN")]
     encryptionConfiguration: EncryptionConfigurationTypeDef
 
 
 # This class is the input for the 'create_table_bucket' function.
 class CreateTableBucketRequestTypeDef(BaseValidatorModel):
-    name: str
+    name: Annotated[str, _aws_pattern("S3tables", "TableBucketName")]
     encryptionConfiguration: Optional[EncryptionConfigurationTypeDef] = None
     storageClassConfiguration: Optional[StorageClassConfigurationTypeDef] = None
     tags: Optional[Dict[str, str]] = None
@@ -556,13 +558,13 @@ class GetTableStorageClassResponseTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'put_table_bucket_storage_class' function.
 class PutTableBucketStorageClassRequestTypeDef(BaseValidatorModel):
-    tableBucketARN: str
+    tableBucketARN: Annotated[str, _aws_pattern("S3tables", "TableBucketARN")]
     storageClassConfiguration: StorageClassConfigurationTypeDef
 
 
 # This class is the output for the 'get_table_maintenance_job_status' function.
 class GetTableMaintenanceJobStatusResponseTypeDef(BaseValidatorModel):
-    tableARN: str
+    tableARN: Annotated[str, _aws_pattern("S3tables", "TableARN")]
     status: Dict[TableMaintenanceJobTypeType, TableMaintenanceJobStatusValueTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
 
@@ -608,8 +610,8 @@ class TableBucketMaintenanceSettingsTypeDef(BaseValidatorModel):
 
 class ReplicationDestinationStatusModelTypeDef(BaseValidatorModel):
     replicationStatus: ReplicationStatusType
-    destinationTableBucketArn: str
-    destinationTableArn: Optional[str] = None
+    destinationTableBucketArn: Annotated[str, _aws_pattern("S3tables", "TableBucketARN")]
+    destinationTableArn: Optional[Annotated[str, _aws_pattern("S3tables", "TableARN")]] = None
     lastSuccessfulReplicatedUpdate: Optional[LastSuccessfulReplicatedUpdateTypeDef] = None
     failureMessage: Optional[str] = None
 
@@ -699,27 +701,27 @@ class TableBucketMaintenanceConfigurationValueTypeDef(BaseValidatorModel):
 
 # This class is the output for the 'get_table_replication_status' function.
 class GetTableReplicationStatusResponseTypeDef(BaseValidatorModel):
-    sourceTableArn: str
+    sourceTableArn: Annotated[str, _aws_pattern("S3tables", "TableARN")]
     destinations: List[ReplicationDestinationStatusModelTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 # This class is the output for the 'get_table' function.
 class GetTableResponseTypeDef(BaseValidatorModel):
-    name: str
+    name: Annotated[str, _aws_pattern("S3tables", "TableName")]
     type: TableTypeType
-    tableARN: str
-    namespace: List[str]
+    tableARN: Annotated[str, _aws_pattern("S3tables", "TableARN")]
+    namespace: List[Annotated[str, _aws_pattern("S3tables", "NamespaceName")]]
     namespaceId: str
     versionToken: str
     metadataLocation: str
     warehouseLocation: str
     createdAt: datetime
-    createdBy: str
+    createdBy: Annotated[str, _aws_pattern("S3tables", "AccountId")]
     managedByService: str
     modifiedAt: datetime
-    modifiedBy: str
-    ownerAccountId: str
+    modifiedBy: Annotated[str, _aws_pattern("S3tables", "AccountId")]
+    ownerAccountId: Annotated[str, _aws_pattern("S3tables", "AccountId")]
     format: Literal["ICEBERG"]
     tableBucketId: str
     managedTableInformation: ManagedTableInformationTypeDef
@@ -732,7 +734,7 @@ class TableBucketReplicationConfigurationOutputTypeDef(BaseValidatorModel):
 
 
 class TableBucketReplicationConfigurationTypeDef(BaseValidatorModel):
-    role: str
+    role: Annotated[str, _aws_pattern("S3tables", "IAMRole")]
     rules: List[TableBucketReplicationRuleTypeDef]
 
 
@@ -742,7 +744,7 @@ class TableReplicationConfigurationOutputTypeDef(BaseValidatorModel):
 
 
 class TableReplicationConfigurationTypeDef(BaseValidatorModel):
-    role: str
+    role: Annotated[str, _aws_pattern("S3tables", "IAMRole")]
     rules: List[TableReplicationRuleTypeDef]
 
 
@@ -754,22 +756,22 @@ class GetTableRecordExpirationConfigurationResponseTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'put_table_record_expiration_configuration' function.
 class PutTableRecordExpirationConfigurationRequestTypeDef(BaseValidatorModel):
-    tableArn: str
+    tableArn: Annotated[str, _aws_pattern("S3tables", "TableARN")]
     value: TableRecordExpirationConfigurationValueTypeDef
 
 
 # This class is the output for the 'get_table_maintenance_configuration' function.
 class GetTableMaintenanceConfigurationResponseTypeDef(BaseValidatorModel):
-    tableARN: str
+    tableARN: Annotated[str, _aws_pattern("S3tables", "TableARN")]
     configuration: Dict[TableMaintenanceTypeType, TableMaintenanceConfigurationValueTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 # This class is the input for the 'put_table_maintenance_configuration' function.
 class PutTableMaintenanceConfigurationRequestTypeDef(BaseValidatorModel):
-    tableBucketARN: str
-    namespace: str
-    name: str
+    tableBucketARN: Annotated[str, _aws_pattern("S3tables", "TableBucketARN")]
+    namespace: Annotated[str, _aws_pattern("S3tables", "NamespaceName")]
+    name: Annotated[str, _aws_pattern("S3tables", "TableName")]
     type: TableMaintenanceTypeType
     value: TableMaintenanceConfigurationValueTypeDef
 
@@ -780,14 +782,14 @@ class TableMetadataTypeDef(BaseValidatorModel):
 
 # This class is the output for the 'get_table_bucket_maintenance_configuration' function.
 class GetTableBucketMaintenanceConfigurationResponseTypeDef(BaseValidatorModel):
-    tableBucketARN: str
+    tableBucketARN: Annotated[str, _aws_pattern("S3tables", "TableBucketARN")]
     configuration: Dict[Literal["icebergUnreferencedFileRemoval"], TableBucketMaintenanceConfigurationValueTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 # This class is the input for the 'put_table_bucket_maintenance_configuration' function.
 class PutTableBucketMaintenanceConfigurationRequestTypeDef(BaseValidatorModel):
-    tableBucketARN: str
+    tableBucketARN: Annotated[str, _aws_pattern("S3tables", "TableBucketARN")]
     type: Literal["icebergUnreferencedFileRemoval"]
     value: TableBucketMaintenanceConfigurationValueTypeDef
 
@@ -818,9 +820,9 @@ TableReplicationConfigurationUnionTypeDef = Union[
 
 # This class is the input for the 'create_table' function.
 class CreateTableRequestTypeDef(BaseValidatorModel):
-    tableBucketARN: str
-    namespace: str
-    name: str
+    tableBucketARN: Annotated[str, _aws_pattern("S3tables", "TableBucketARN")]
+    namespace: Annotated[str, _aws_pattern("S3tables", "NamespaceName")]
+    name: Annotated[str, _aws_pattern("S3tables", "TableName")]
     format: Literal["ICEBERG"]
     metadata: Optional[TableMetadataTypeDef] = None
     encryptionConfiguration: Optional[EncryptionConfigurationTypeDef] = None
@@ -830,13 +832,13 @@ class CreateTableRequestTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'put_table_bucket_replication' function.
 class PutTableBucketReplicationRequestTypeDef(BaseValidatorModel):
-    tableBucketARN: str
+    tableBucketARN: Annotated[str, _aws_pattern("S3tables", "TableBucketARN")]
     configuration: TableBucketReplicationConfigurationUnionTypeDef
     versionToken: Optional[str] = None
 
 
 # This class is the input for the 'put_table_replication' function.
 class PutTableReplicationRequestTypeDef(BaseValidatorModel):
-    tableArn: str
+    tableArn: Annotated[str, _aws_pattern("S3tables", "TableARN")]
     configuration: TableReplicationConfigurationUnionTypeDef
     versionToken: Optional[str] = None

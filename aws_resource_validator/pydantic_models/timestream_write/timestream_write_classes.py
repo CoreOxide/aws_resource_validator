@@ -3,6 +3,7 @@
 from datetime import datetime
 from decimal import Decimal
 from typing import (
+    Annotated,
     Any,
     Callable,
     Dict,
@@ -24,6 +25,7 @@ from botocore.response import StreamingBody
 from pydantic import Field
 
 from aws_resource_validator.core.base_validator_model import BaseValidatorModel, EventStream
+from aws_resource_validator.core.pattern_validation import aws_field_pattern as _aws_pattern
 from aws_resource_validator.pydantic_models.timestream_write.timestream_write_constants import *  # noqa: F401,F403
 
 # Optional boto3 symbols — imported lazily so services that don't need them
@@ -48,7 +50,7 @@ class BatchLoadProgressReportTypeDef(BaseValidatorModel):
 
 
 class BatchLoadTaskTypeDef(BaseValidatorModel):
-    TaskId: Optional[str] = None
+    TaskId: Optional[Annotated[str, _aws_pattern("TimestreamWrite", "BatchLoadTaskId")]] = None
     TaskStatus: Optional[BatchLoadStatusType] = None
     DatabaseName: Optional[str] = None
     TableName: Optional[str] = None
@@ -93,8 +95,8 @@ class CsvConfigurationTypeDef(BaseValidatorModel):
 
 
 class DataModelS3ConfigurationTypeDef(BaseValidatorModel):
-    BucketName: Optional[str] = None
-    ObjectKey: Optional[str] = None
+    BucketName: Optional[Annotated[str, _aws_pattern("TimestreamWrite", "S3BucketName")]] = None
+    ObjectKey: Optional[Annotated[str, _aws_pattern("TimestreamWrite", "S3ObjectKey")]] = None
 
 
 class DimensionMappingTypeDef(BaseValidatorModel):
@@ -103,8 +105,8 @@ class DimensionMappingTypeDef(BaseValidatorModel):
 
 
 class DataSourceS3ConfigurationTypeDef(BaseValidatorModel):
-    BucketName: str
-    ObjectKeyPrefix: Optional[str] = None
+    BucketName: Annotated[str, _aws_pattern("TimestreamWrite", "S3BucketName")]
+    ObjectKeyPrefix: Optional[Annotated[str, _aws_pattern("TimestreamWrite", "S3ObjectKey")]] = None
 
 
 # This class is the input for the 'delete_database' function.
@@ -120,7 +122,7 @@ class DeleteTableRequestTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'describe_batch_load_task' function.
 class DescribeBatchLoadTaskRequestTypeDef(BaseValidatorModel):
-    TaskId: str
+    TaskId: Annotated[str, _aws_pattern("TimestreamWrite", "BatchLoadTaskId")]
 
 
 # This class is the input for the 'describe_database' function.
@@ -171,8 +173,8 @@ class ListTagsForResourceRequestTypeDef(BaseValidatorModel):
 
 
 class S3ConfigurationTypeDef(BaseValidatorModel):
-    BucketName: Optional[str] = None
-    ObjectKeyPrefix: Optional[str] = None
+    BucketName: Optional[Annotated[str, _aws_pattern("TimestreamWrite", "S3BucketName")]] = None
+    ObjectKeyPrefix: Optional[Annotated[str, _aws_pattern("TimestreamWrite", "S3ObjectKeyPrefix")]] = None
     EncryptionOption: Optional[S3EncryptionOptionType] = None
     KmsKeyId: Optional[str] = None
 
@@ -202,14 +204,14 @@ class RecordsIngestedTypeDef(BaseValidatorModel):
 
 
 class ReportS3ConfigurationTypeDef(BaseValidatorModel):
-    BucketName: str
-    ObjectKeyPrefix: Optional[str] = None
+    BucketName: Annotated[str, _aws_pattern("TimestreamWrite", "S3BucketName")]
+    ObjectKeyPrefix: Optional[Annotated[str, _aws_pattern("TimestreamWrite", "S3ObjectKeyPrefix")]] = None
     EncryptionOption: Optional[S3EncryptionOptionType] = None
     KmsKeyId: Optional[str] = None
 
 
 class ResumeBatchLoadTaskRequestTypeDef(BaseValidatorModel):
-    TaskId: str
+    TaskId: Annotated[str, _aws_pattern("TimestreamWrite", "BatchLoadTaskId")]
 
 
 class UntagResourceRequestTypeDef(BaseValidatorModel):
@@ -225,7 +227,7 @@ class UpdateDatabaseRequestTypeDef(BaseValidatorModel):
 
 # This class is the output for the 'create_batch_load_task' function.
 class CreateBatchLoadTaskResponseTypeDef(BaseValidatorModel):
-    TaskId: str
+    TaskId: Annotated[str, _aws_pattern("TimestreamWrite", "BatchLoadTaskId")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
@@ -243,7 +245,7 @@ class ListBatchLoadTasksResponseTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'create_database' function.
 class CreateDatabaseRequestTypeDef(BaseValidatorModel):
-    DatabaseName: str
+    DatabaseName: Annotated[str, _aws_pattern("TimestreamWrite", "ResourceCreateAPIName")]
     KmsKeyId: Optional[str] = None
     Tags: Optional[List[TagTypeDef]] = None
 
@@ -412,8 +414,8 @@ class DataModelConfigurationTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'create_table' function.
 class CreateTableRequestTypeDef(BaseValidatorModel):
-    DatabaseName: str
-    TableName: str
+    DatabaseName: Annotated[str, _aws_pattern("TimestreamWrite", "ResourceCreateAPIName")]
+    TableName: Annotated[str, _aws_pattern("TimestreamWrite", "ResourceCreateAPIName")]
     RetentionProperties: Optional[RetentionPropertiesTypeDef] = None
     Tags: Optional[List[TagTypeDef]] = None
     MagneticStoreWriteProperties: Optional[MagneticStoreWritePropertiesTypeDef] = None
@@ -455,7 +457,7 @@ class UpdateTableResponseTypeDef(BaseValidatorModel):
 
 
 class BatchLoadTaskDescriptionTypeDef(BaseValidatorModel):
-    TaskId: Optional[str] = None
+    TaskId: Optional[Annotated[str, _aws_pattern("TimestreamWrite", "BatchLoadTaskId")]] = None
     ErrorMessage: Optional[str] = None
     DataSourceConfiguration: Optional[DataSourceConfigurationTypeDef] = None
     ProgressReport: Optional[BatchLoadProgressReportTypeDef] = None
@@ -483,8 +485,8 @@ class DescribeBatchLoadTaskResponseTypeDef(BaseValidatorModel):
 class CreateBatchLoadTaskRequestTypeDef(BaseValidatorModel):
     DataSourceConfiguration: DataSourceConfigurationTypeDef
     ReportConfiguration: ReportConfigurationTypeDef
-    TargetDatabaseName: str
-    TargetTableName: str
+    TargetDatabaseName: Annotated[str, _aws_pattern("TimestreamWrite", "ResourceCreateAPIName")]
+    TargetTableName: Annotated[str, _aws_pattern("TimestreamWrite", "ResourceCreateAPIName")]
     ClientToken: Optional[str] = None
     DataModelConfiguration: Optional[DataModelConfigurationUnionTypeDef] = None
     RecordVersion: Optional[int] = None

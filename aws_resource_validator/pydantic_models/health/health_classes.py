@@ -3,6 +3,7 @@
 from datetime import datetime
 from decimal import Decimal
 from typing import (
+    Annotated,
     Any,
     Callable,
     Dict,
@@ -24,6 +25,7 @@ from botocore.response import StreamingBody
 from pydantic import Field
 
 from aws_resource_validator.core.base_validator_model import BaseValidatorModel, EventStream
+from aws_resource_validator.core.pattern_validation import aws_field_pattern as _aws_pattern
 from aws_resource_validator.pydantic_models.health.health_constants import *  # noqa: F401,F403
 
 # Optional boto3 symbols — imported lazily so services that don't need them
@@ -39,17 +41,17 @@ except ImportError:  # pragma: no cover
 
 
 class AccountEntityAggregateTypeDef(BaseValidatorModel):
-    accountId: Optional[str] = None
+    accountId: Optional[Annotated[str, _aws_pattern("Health", "eventArn")]] = None
     count: Optional[int] = None
     statuses: Optional[Dict[EntityStatusCodeType, int]] = None
 
 
 class AffectedEntityTypeDef(BaseValidatorModel):
-    entityArn: Optional[str] = None
-    eventArn: Optional[str] = None
-    entityValue: Optional[str] = None
+    entityArn: Optional[Annotated[str, _aws_pattern("Health", "entityArn")]] = None
+    eventArn: Optional[Annotated[str, _aws_pattern("Health", "eventArn")]] = None
+    entityValue: Optional[Annotated[str, _aws_pattern("Health", "entityValue")]] = None
     entityUrl: Optional[str] = None
-    awsAccountId: Optional[str] = None
+    awsAccountId: Optional[Annotated[str, _aws_pattern("Health", "accountId")]] = None
     lastUpdatedTime: Optional[datetime] = None
     statusCode: Optional[EntityStatusCodeType] = None
     tags: Optional[Dict[str, str]] = None
@@ -67,8 +69,8 @@ class PaginatorConfigTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'describe_affected_accounts_for_organization' function.
 class DescribeAffectedAccountsForOrganizationRequestTypeDef(BaseValidatorModel):
-    eventArn: str
-    nextToken: Optional[str] = None
+    eventArn: Annotated[str, _aws_pattern("Health", "eventArn")]
+    nextToken: Optional[Annotated[str, _aws_pattern("Health", "nextToken")]] = None
     maxResults: Optional[int] = None
 
 
@@ -81,36 +83,36 @@ class ResponseMetadataTypeDef(BaseValidatorModel):
 
 
 class EntityAccountFilterTypeDef(BaseValidatorModel):
-    eventArn: str
-    awsAccountId: Optional[str] = None
+    eventArn: Annotated[str, _aws_pattern("Health", "eventArn")]
+    awsAccountId: Optional[Annotated[str, _aws_pattern("Health", "accountId")]] = None
     statusCodes: Optional[List[EntityStatusCodeType]] = None
 
 
 class EventAccountFilterTypeDef(BaseValidatorModel):
-    eventArn: str
-    awsAccountId: Optional[str] = None
+    eventArn: Annotated[str, _aws_pattern("Health", "eventArn")]
+    awsAccountId: Optional[Annotated[str, _aws_pattern("Health", "accountId")]] = None
 
 
 class OrganizationAffectedEntitiesErrorItemTypeDef(BaseValidatorModel):
-    awsAccountId: Optional[str] = None
-    eventArn: Optional[str] = None
+    awsAccountId: Optional[Annotated[str, _aws_pattern("Health", "accountId")]] = None
+    eventArn: Optional[Annotated[str, _aws_pattern("Health", "eventArn")]] = None
     errorName: Optional[str] = None
     errorMessage: Optional[str] = None
 
 
 # This class is the input for the 'describe_entity_aggregates_for_organization' function.
 class DescribeEntityAggregatesForOrganizationRequestTypeDef(BaseValidatorModel):
-    eventArns: List[str]
-    awsAccountIds: Optional[List[str]] = None
+    eventArns: List[Annotated[str, _aws_pattern("Health", "eventArn")]]
+    awsAccountIds: Optional[List[Annotated[str, _aws_pattern("Health", "accountId")]]] = None
 
 
 # This class is the input for the 'describe_entity_aggregates' function.
 class DescribeEntityAggregatesRequestTypeDef(BaseValidatorModel):
-    eventArns: Optional[List[str]] = None
+    eventArns: Optional[List[Annotated[str, _aws_pattern("Health", "eventArn")]]] = None
 
 
 class EntityAggregateTypeDef(BaseValidatorModel):
-    eventArn: Optional[str] = None
+    eventArn: Optional[Annotated[str, _aws_pattern("Health", "eventArn")]] = None
     count: Optional[int] = None
     statuses: Optional[Dict[EntityStatusCodeType, int]] = None
 
@@ -121,47 +123,47 @@ class EventAggregateTypeDef(BaseValidatorModel):
 
 
 class OrganizationEventDetailsErrorItemTypeDef(BaseValidatorModel):
-    awsAccountId: Optional[str] = None
-    eventArn: Optional[str] = None
+    awsAccountId: Optional[Annotated[str, _aws_pattern("Health", "accountId")]] = None
+    eventArn: Optional[Annotated[str, _aws_pattern("Health", "eventArn")]] = None
     errorName: Optional[str] = None
     errorMessage: Optional[str] = None
 
 
 # This class is the input for the 'describe_event_details' function.
 class DescribeEventDetailsRequestTypeDef(BaseValidatorModel):
-    eventArns: List[str]
-    locale: Optional[str] = None
+    eventArns: List[Annotated[str, _aws_pattern("Health", "eventArn")]]
+    locale: Optional[Annotated[str, _aws_pattern("Health", "locale")]] = None
 
 
 class EventDetailsErrorItemTypeDef(BaseValidatorModel):
-    eventArn: Optional[str] = None
+    eventArn: Optional[Annotated[str, _aws_pattern("Health", "eventArn")]] = None
     errorName: Optional[str] = None
     errorMessage: Optional[str] = None
 
 
 class EventTypeFilterTypeDef(BaseValidatorModel):
-    eventTypeCodes: Optional[List[str]] = None
-    services: Optional[List[str]] = None
+    eventTypeCodes: Optional[List[Annotated[str, _aws_pattern("Health", "eventTypeCode")]]] = None
+    services: Optional[List[Annotated[str, _aws_pattern("Health", "service")]]] = None
     eventTypeCategories: Optional[List[EventTypeCategoryType]] = None
     actionabilities: Optional[List[EventTypeActionabilityType]] = None
     personas: Optional[List[EventTypePersonaType]] = None
 
 
 class EventTypeTypeDef(BaseValidatorModel):
-    service: Optional[str] = None
-    code: Optional[str] = None
+    service: Optional[Annotated[str, _aws_pattern("Health", "service")]] = None
+    code: Optional[Annotated[str, _aws_pattern("Health", "eventTypeCode")]] = None
     category: Optional[EventTypeCategoryType] = None
     actionability: Optional[EventTypeActionabilityType] = None
     personas: Optional[List[EventTypePersonaType]] = None
 
 
 class OrganizationEventTypeDef(BaseValidatorModel):
-    arn: Optional[str] = None
-    service: Optional[str] = None
-    eventTypeCode: Optional[str] = None
+    arn: Optional[Annotated[str, _aws_pattern("Health", "eventArn")]] = None
+    service: Optional[Annotated[str, _aws_pattern("Health", "service")]] = None
+    eventTypeCode: Optional[Annotated[str, _aws_pattern("Health", "eventTypeCode")]] = None
     eventTypeCategory: Optional[EventTypeCategoryType] = None
     eventScopeCode: Optional[EventScopeCodeType] = None
-    region: Optional[str] = None
+    region: Optional[Annotated[str, _aws_pattern("Health", "region")]] = None
     startTime: Optional[datetime] = None
     endTime: Optional[datetime] = None
     lastUpdatedTime: Optional[datetime] = None
@@ -171,12 +173,12 @@ class OrganizationEventTypeDef(BaseValidatorModel):
 
 
 class EventTypeDef(BaseValidatorModel):
-    arn: Optional[str] = None
-    service: Optional[str] = None
-    eventTypeCode: Optional[str] = None
+    arn: Optional[Annotated[str, _aws_pattern("Health", "eventArn")]] = None
+    service: Optional[Annotated[str, _aws_pattern("Health", "service")]] = None
+    eventTypeCode: Optional[Annotated[str, _aws_pattern("Health", "eventTypeCode")]] = None
     eventTypeCategory: Optional[EventTypeCategoryType] = None
-    region: Optional[str] = None
-    availabilityZone: Optional[str] = None
+    region: Optional[Annotated[str, _aws_pattern("Health", "region")]] = None
+    availabilityZone: Optional[Annotated[str, _aws_pattern("Health", "availabilityZone")]] = None
     startTime: Optional[datetime] = None
     endTime: Optional[datetime] = None
     lastUpdatedTime: Optional[datetime] = None
@@ -191,7 +193,7 @@ class EventDescriptionTypeDef(BaseValidatorModel):
 
 
 class OrganizationEntityAggregateTypeDef(BaseValidatorModel):
-    eventArn: Optional[str] = None
+    eventArn: Optional[Annotated[str, _aws_pattern("Health", "eventArn")]] = None
     count: Optional[int] = None
     statuses: Optional[Dict[EntityStatusCodeType, int]] = None
     accounts: Optional[List[AccountEntityAggregateTypeDef]] = None
@@ -209,17 +211,17 @@ class DescribeAffectedAccountsForOrganizationRequestPaginateTypeDef(BaseValidato
 
 # This class is the output for the 'describe_affected_accounts_for_organization' function.
 class DescribeAffectedAccountsForOrganizationResponseTypeDef(BaseValidatorModel):
-    affectedAccounts: List[str]
+    affectedAccounts: List[Annotated[str, _aws_pattern("Health", "accountId")]]
     eventScopeCode: EventScopeCodeType
     ResponseMetadata: ResponseMetadataTypeDef
-    nextToken: Optional[str] = None
+    nextToken: Optional[Annotated[str, _aws_pattern("Health", "nextToken")]] = None
 
 
 # This class is the output for the 'describe_affected_entities' function.
 class DescribeAffectedEntitiesResponseTypeDef(BaseValidatorModel):
     entities: List[AffectedEntityTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
-    nextToken: Optional[str] = None
+    nextToken: Optional[Annotated[str, _aws_pattern("Health", "nextToken")]] = None
 
 
 class DescribeHealthServiceStatusForOrganizationResponseTypeDef(BaseValidatorModel):
@@ -241,8 +243,8 @@ class DescribeAffectedEntitiesForOrganizationRequestPaginateTypeDef(BaseValidato
 # This class is the input for the 'describe_affected_entities_for_organization' function.
 class DescribeAffectedEntitiesForOrganizationRequestTypeDef(BaseValidatorModel):
     organizationEntityFilters: Optional[List[EventAccountFilterTypeDef]] = None
-    locale: Optional[str] = None
-    nextToken: Optional[str] = None
+    locale: Optional[Annotated[str, _aws_pattern("Health", "locale")]] = None
+    nextToken: Optional[Annotated[str, _aws_pattern("Health", "nextToken")]] = None
     maxResults: Optional[int] = None
     organizationEntityAccountFilters: Optional[List[EntityAccountFilterTypeDef]] = None
 
@@ -250,7 +252,7 @@ class DescribeAffectedEntitiesForOrganizationRequestTypeDef(BaseValidatorModel):
 # This class is the input for the 'describe_event_details_for_organization' function.
 class DescribeEventDetailsForOrganizationRequestTypeDef(BaseValidatorModel):
     organizationEventDetailFilters: List[EventAccountFilterTypeDef]
-    locale: Optional[str] = None
+    locale: Optional[Annotated[str, _aws_pattern("Health", "locale")]] = None
 
 
 # This class is the output for the 'describe_affected_entities_for_organization' function.
@@ -258,7 +260,7 @@ class DescribeAffectedEntitiesForOrganizationResponseTypeDef(BaseValidatorModel)
     entities: List[AffectedEntityTypeDef]
     failedSet: List[OrganizationAffectedEntitiesErrorItemTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
-    nextToken: Optional[str] = None
+    nextToken: Optional[Annotated[str, _aws_pattern("Health", "nextToken")]] = None
 
 
 # This class is the output for the 'describe_entity_aggregates' function.
@@ -271,7 +273,7 @@ class DescribeEntityAggregatesResponseTypeDef(BaseValidatorModel):
 class DescribeEventAggregatesResponseTypeDef(BaseValidatorModel):
     eventAggregates: List[EventAggregateTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
-    nextToken: Optional[str] = None
+    nextToken: Optional[Annotated[str, _aws_pattern("Health", "nextToken")]] = None
 
 
 class DescribeEventTypesRequestPaginateTypeDef(BaseValidatorModel):
@@ -283,8 +285,8 @@ class DescribeEventTypesRequestPaginateTypeDef(BaseValidatorModel):
 # This class is the input for the 'describe_event_types' function.
 class DescribeEventTypesRequestTypeDef(BaseValidatorModel):
     filter: Optional[EventTypeFilterTypeDef] = None
-    locale: Optional[str] = None
-    nextToken: Optional[str] = None
+    locale: Optional[Annotated[str, _aws_pattern("Health", "locale")]] = None
+    nextToken: Optional[Annotated[str, _aws_pattern("Health", "nextToken")]] = None
     maxResults: Optional[int] = None
 
 
@@ -292,21 +294,21 @@ class DescribeEventTypesRequestTypeDef(BaseValidatorModel):
 class DescribeEventTypesResponseTypeDef(BaseValidatorModel):
     eventTypes: List[EventTypeTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
-    nextToken: Optional[str] = None
+    nextToken: Optional[Annotated[str, _aws_pattern("Health", "nextToken")]] = None
 
 
 # This class is the output for the 'describe_events_for_organization' function.
 class DescribeEventsForOrganizationResponseTypeDef(BaseValidatorModel):
     events: List[OrganizationEventTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
-    nextToken: Optional[str] = None
+    nextToken: Optional[Annotated[str, _aws_pattern("Health", "nextToken")]] = None
 
 
 # This class is the output for the 'describe_events' function.
 class DescribeEventsResponseTypeDef(BaseValidatorModel):
     events: List[EventTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
-    nextToken: Optional[str] = None
+    nextToken: Optional[Annotated[str, _aws_pattern("Health", "nextToken")]] = None
 
 
 class EventDetailsTypeDef(BaseValidatorModel):
@@ -316,7 +318,7 @@ class EventDetailsTypeDef(BaseValidatorModel):
 
 
 class OrganizationEventDetailsTypeDef(BaseValidatorModel):
-    awsAccountId: Optional[str] = None
+    awsAccountId: Optional[Annotated[str, _aws_pattern("Health", "accountId")]] = None
     event: Optional[EventTypeDef] = None
     eventDescription: Optional[EventDescriptionTypeDef] = None
     eventMetadata: Optional[Dict[str, str]] = None
@@ -329,9 +331,9 @@ class DescribeEntityAggregatesForOrganizationResponseTypeDef(BaseValidatorModel)
 
 
 class EntityFilterTypeDef(BaseValidatorModel):
-    eventArns: List[str]
-    entityArns: Optional[List[str]] = None
-    entityValues: Optional[List[str]] = None
+    eventArns: List[Annotated[str, _aws_pattern("Health", "eventArn")]]
+    entityArns: Optional[List[Annotated[str, _aws_pattern("Health", "entityArn")]]] = None
+    entityValues: Optional[List[Annotated[str, _aws_pattern("Health", "entityValue")]]] = None
     lastUpdatedTimes: Optional[List[DateTimeRangeTypeDef]] = None
     tags: Optional[List[Dict[str, str]]] = None
     statusCodes: Optional[List[EntityStatusCodeType]] = None
@@ -339,16 +341,16 @@ class EntityFilterTypeDef(BaseValidatorModel):
 
 class EventFilterTypeDef(BaseValidatorModel):
     actionabilities: Optional[List[EventActionabilityType]] = None
-    eventArns: Optional[List[str]] = None
-    eventTypeCodes: Optional[List[str]] = None
-    services: Optional[List[str]] = None
-    regions: Optional[List[str]] = None
-    availabilityZones: Optional[List[str]] = None
+    eventArns: Optional[List[Annotated[str, _aws_pattern("Health", "eventArn")]]] = None
+    eventTypeCodes: Optional[List[Annotated[str, _aws_pattern("Health", "eventType")]]] = None
+    services: Optional[List[Annotated[str, _aws_pattern("Health", "service")]]] = None
+    regions: Optional[List[Annotated[str, _aws_pattern("Health", "region")]]] = None
+    availabilityZones: Optional[List[Annotated[str, _aws_pattern("Health", "availabilityZone")]]] = None
     startTimes: Optional[List[DateTimeRangeTypeDef]] = None
     endTimes: Optional[List[DateTimeRangeTypeDef]] = None
     lastUpdatedTimes: Optional[List[DateTimeRangeTypeDef]] = None
-    entityArns: Optional[List[str]] = None
-    entityValues: Optional[List[str]] = None
+    entityArns: Optional[List[Annotated[str, _aws_pattern("Health", "entityArn")]]] = None
+    entityValues: Optional[List[Annotated[str, _aws_pattern("Health", "entityValue")]]] = None
     eventTypeCategories: Optional[List[EventTypeCategoryType]] = None
     tags: Optional[List[Dict[str, str]]] = None
     eventStatusCodes: Optional[List[EventStatusCodeType]] = None
@@ -357,15 +359,15 @@ class EventFilterTypeDef(BaseValidatorModel):
 
 class OrganizationEventFilterTypeDef(BaseValidatorModel):
     actionabilities: Optional[List[EventActionabilityType]] = None
-    eventTypeCodes: Optional[List[str]] = None
-    awsAccountIds: Optional[List[str]] = None
-    services: Optional[List[str]] = None
-    regions: Optional[List[str]] = None
+    eventTypeCodes: Optional[List[Annotated[str, _aws_pattern("Health", "eventType")]]] = None
+    awsAccountIds: Optional[List[Annotated[str, _aws_pattern("Health", "accountId")]]] = None
+    services: Optional[List[Annotated[str, _aws_pattern("Health", "service")]]] = None
+    regions: Optional[List[Annotated[str, _aws_pattern("Health", "region")]]] = None
     startTime: Optional[DateTimeRangeTypeDef] = None
     endTime: Optional[DateTimeRangeTypeDef] = None
     lastUpdatedTime: Optional[DateTimeRangeTypeDef] = None
-    entityArns: Optional[List[str]] = None
-    entityValues: Optional[List[str]] = None
+    entityArns: Optional[List[Annotated[str, _aws_pattern("Health", "entityArn")]]] = None
+    entityValues: Optional[List[Annotated[str, _aws_pattern("Health", "entityValue")]]] = None
     eventTypeCategories: Optional[List[EventTypeCategoryType]] = None
     eventStatusCodes: Optional[List[EventStatusCodeType]] = None
     personas: Optional[List[EventPersonaType]] = None
@@ -394,8 +396,8 @@ class DescribeAffectedEntitiesRequestPaginateTypeDef(BaseValidatorModel):
 # This class is the input for the 'describe_affected_entities' function.
 class DescribeAffectedEntitiesRequestTypeDef(BaseValidatorModel):
     filter: EntityFilterTypeDef
-    locale: Optional[str] = None
-    nextToken: Optional[str] = None
+    locale: Optional[Annotated[str, _aws_pattern("Health", "locale")]] = None
+    nextToken: Optional[Annotated[str, _aws_pattern("Health", "nextToken")]] = None
     maxResults: Optional[int] = None
 
 
@@ -410,7 +412,7 @@ class DescribeEventAggregatesRequestTypeDef(BaseValidatorModel):
     aggregateField: Literal["eventTypeCategory"]
     filter: Optional[EventFilterTypeDef] = None
     maxResults: Optional[int] = None
-    nextToken: Optional[str] = None
+    nextToken: Optional[Annotated[str, _aws_pattern("Health", "nextToken")]] = None
 
 
 class DescribeEventsRequestPaginateTypeDef(BaseValidatorModel):
@@ -422,9 +424,9 @@ class DescribeEventsRequestPaginateTypeDef(BaseValidatorModel):
 # This class is the input for the 'describe_events' function.
 class DescribeEventsRequestTypeDef(BaseValidatorModel):
     filter: Optional[EventFilterTypeDef] = None
-    nextToken: Optional[str] = None
+    nextToken: Optional[Annotated[str, _aws_pattern("Health", "nextToken")]] = None
     maxResults: Optional[int] = None
-    locale: Optional[str] = None
+    locale: Optional[Annotated[str, _aws_pattern("Health", "locale")]] = None
 
 
 class DescribeEventsForOrganizationRequestPaginateTypeDef(BaseValidatorModel):
@@ -436,6 +438,6 @@ class DescribeEventsForOrganizationRequestPaginateTypeDef(BaseValidatorModel):
 # This class is the input for the 'describe_events_for_organization' function.
 class DescribeEventsForOrganizationRequestTypeDef(BaseValidatorModel):
     filter: Optional[OrganizationEventFilterTypeDef] = None
-    nextToken: Optional[str] = None
+    nextToken: Optional[Annotated[str, _aws_pattern("Health", "nextToken")]] = None
     maxResults: Optional[int] = None
-    locale: Optional[str] = None
+    locale: Optional[Annotated[str, _aws_pattern("Health", "locale")]] = None

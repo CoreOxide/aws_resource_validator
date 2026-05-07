@@ -3,6 +3,7 @@
 from datetime import datetime
 from decimal import Decimal
 from typing import (
+    Annotated,
     Any,
     Callable,
     Dict,
@@ -24,6 +25,7 @@ from botocore.response import StreamingBody
 from pydantic import Field
 
 from aws_resource_validator.core.base_validator_model import BaseValidatorModel, EventStream
+from aws_resource_validator.core.pattern_validation import aws_field_pattern as _aws_pattern
 from aws_resource_validator.pydantic_models.pca_connector_scep.pca_connector_scep_constants import *  # noqa: F401,F403
 
 # Optional boto3 symbols — imported lazily so services that don't need them
@@ -39,22 +41,22 @@ except ImportError:  # pragma: no cover
 
 
 class ChallengeMetadataSummaryTypeDef(BaseValidatorModel):
-    Arn: Optional[str] = None
-    ConnectorArn: Optional[str] = None
+    Arn: Optional[Annotated[str, _aws_pattern("PcaConnectorScep", "ChallengeArn")]] = None
+    ConnectorArn: Optional[Annotated[str, _aws_pattern("PcaConnectorScep", "ConnectorArn")]] = None
     CreatedAt: Optional[datetime] = None
     UpdatedAt: Optional[datetime] = None
 
 
 class ChallengeMetadataTypeDef(BaseValidatorModel):
-    Arn: Optional[str] = None
-    ConnectorArn: Optional[str] = None
+    Arn: Optional[Annotated[str, _aws_pattern("PcaConnectorScep", "ChallengeArn")]] = None
+    ConnectorArn: Optional[Annotated[str, _aws_pattern("PcaConnectorScep", "ConnectorArn")]] = None
     CreatedAt: Optional[datetime] = None
     UpdatedAt: Optional[datetime] = None
 
 
 class ChallengeTypeDef(BaseValidatorModel):
-    Arn: Optional[str] = None
-    ConnectorArn: Optional[str] = None
+    Arn: Optional[Annotated[str, _aws_pattern("PcaConnectorScep", "ChallengeArn")]] = None
+    ConnectorArn: Optional[Annotated[str, _aws_pattern("PcaConnectorScep", "ConnectorArn")]] = None
     CreatedAt: Optional[datetime] = None
     UpdatedAt: Optional[datetime] = None
     Password: Optional[str] = None
@@ -68,8 +70,8 @@ class OpenIdConfigurationTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'create_challenge' function.
 class CreateChallengeRequestTypeDef(BaseValidatorModel):
-    ConnectorArn: str
-    ClientToken: Optional[str] = None
+    ConnectorArn: Annotated[str, _aws_pattern("PcaConnectorScep", "ConnectorArn")]
+    ClientToken: Optional[Annotated[str, _aws_pattern("PcaConnectorScep", "ClientToken")]] = None
     Tags: Optional[Dict[str, str]] = None
 
 
@@ -83,32 +85,32 @@ class ResponseMetadataTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'delete_challenge' function.
 class DeleteChallengeRequestTypeDef(BaseValidatorModel):
-    ChallengeArn: str
+    ChallengeArn: Annotated[str, _aws_pattern("PcaConnectorScep", "ChallengeArn")]
 
 
 # This class is the input for the 'delete_connector' function.
 class DeleteConnectorRequestTypeDef(BaseValidatorModel):
-    ConnectorArn: str
+    ConnectorArn: Annotated[str, _aws_pattern("PcaConnectorScep", "ConnectorArn")]
 
 
 # This class is the input for the 'get_challenge_metadata' function.
 class GetChallengeMetadataRequestTypeDef(BaseValidatorModel):
-    ChallengeArn: str
+    ChallengeArn: Annotated[str, _aws_pattern("PcaConnectorScep", "ChallengeArn")]
 
 
 # This class is the input for the 'get_challenge_password' function.
 class GetChallengePasswordRequestTypeDef(BaseValidatorModel):
-    ChallengeArn: str
+    ChallengeArn: Annotated[str, _aws_pattern("PcaConnectorScep", "ChallengeArn")]
 
 
 # This class is the input for the 'get_connector' function.
 class GetConnectorRequestTypeDef(BaseValidatorModel):
-    ConnectorArn: str
+    ConnectorArn: Annotated[str, _aws_pattern("PcaConnectorScep", "ConnectorArn")]
 
 
 class IntuneConfigurationTypeDef(BaseValidatorModel):
-    AzureApplicationId: str
-    Domain: str
+    AzureApplicationId: Annotated[str, _aws_pattern("PcaConnectorScep", "AzureApplicationId")]
+    Domain: Annotated[str, _aws_pattern("PcaConnectorScep", "AzureDomain")]
 
 
 class PaginatorConfigTypeDef(BaseValidatorModel):
@@ -119,15 +121,15 @@ class PaginatorConfigTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'list_challenge_metadata' function.
 class ListChallengeMetadataRequestTypeDef(BaseValidatorModel):
-    ConnectorArn: str
+    ConnectorArn: Annotated[str, _aws_pattern("PcaConnectorScep", "ConnectorArn")]
     MaxResults: Optional[int] = None
-    NextToken: Optional[str] = None
+    NextToken: Optional[Annotated[str, _aws_pattern("PcaConnectorScep", "NextToken")]] = None
 
 
 # This class is the input for the 'list_connectors' function.
 class ListConnectorsRequestTypeDef(BaseValidatorModel):
     MaxResults: Optional[int] = None
-    NextToken: Optional[str] = None
+    NextToken: Optional[Annotated[str, _aws_pattern("PcaConnectorScep", "NextToken")]] = None
 
 
 # This class is the input for the 'list_tags_for_resource' function.
@@ -155,7 +157,7 @@ class CreateChallengeResponseTypeDef(BaseValidatorModel):
 
 # This class is the output for the 'create_connector' function.
 class CreateConnectorResponseTypeDef(BaseValidatorModel):
-    ConnectorArn: str
+    ConnectorArn: Annotated[str, _aws_pattern("PcaConnectorScep", "ConnectorArn")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
@@ -180,7 +182,7 @@ class GetChallengePasswordResponseTypeDef(BaseValidatorModel):
 class ListChallengeMetadataResponseTypeDef(BaseValidatorModel):
     Challenges: List[ChallengeMetadataSummaryTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
-    NextToken: Optional[str] = None
+    NextToken: Optional[Annotated[str, _aws_pattern("PcaConnectorScep", "NextToken")]] = None
 
 
 # This class is the output for the 'list_tags_for_resource' function.
@@ -203,8 +205,10 @@ class ListConnectorsRequestPaginateTypeDef(BaseValidatorModel):
 
 
 class ConnectorSummaryTypeDef(BaseValidatorModel):
-    Arn: Optional[str] = None
-    CertificateAuthorityArn: Optional[str] = None
+    Arn: Optional[Annotated[str, _aws_pattern("PcaConnectorScep", "ConnectorArn")]] = None
+    CertificateAuthorityArn: Optional[Annotated[str, _aws_pattern("PcaConnectorScep", "CertificateAuthorityArn")]] = (
+        None
+    )
     Type: Optional[ConnectorTypeType] = None
     MobileDeviceManagement: Optional[MobileDeviceManagementTypeDef] = None
     OpenIdConfiguration: Optional[OpenIdConfigurationTypeDef] = None
@@ -216,8 +220,10 @@ class ConnectorSummaryTypeDef(BaseValidatorModel):
 
 
 class ConnectorTypeDef(BaseValidatorModel):
-    Arn: Optional[str] = None
-    CertificateAuthorityArn: Optional[str] = None
+    Arn: Optional[Annotated[str, _aws_pattern("PcaConnectorScep", "ConnectorArn")]] = None
+    CertificateAuthorityArn: Optional[Annotated[str, _aws_pattern("PcaConnectorScep", "CertificateAuthorityArn")]] = (
+        None
+    )
     Type: Optional[ConnectorTypeType] = None
     MobileDeviceManagement: Optional[MobileDeviceManagementTypeDef] = None
     OpenIdConfiguration: Optional[OpenIdConfigurationTypeDef] = None
@@ -230,10 +236,10 @@ class ConnectorTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'create_connector' function.
 class CreateConnectorRequestTypeDef(BaseValidatorModel):
-    CertificateAuthorityArn: str
+    CertificateAuthorityArn: Annotated[str, _aws_pattern("PcaConnectorScep", "CertificateAuthorityArn")]
     MobileDeviceManagement: Optional[MobileDeviceManagementTypeDef] = None
-    VpcEndpointId: Optional[str] = None
-    ClientToken: Optional[str] = None
+    VpcEndpointId: Optional[Annotated[str, _aws_pattern("PcaConnectorScep", "VpcEndpointId")]] = None
+    ClientToken: Optional[Annotated[str, _aws_pattern("PcaConnectorScep", "ClientToken")]] = None
     Tags: Optional[Dict[str, str]] = None
 
 
@@ -241,7 +247,7 @@ class CreateConnectorRequestTypeDef(BaseValidatorModel):
 class ListConnectorsResponseTypeDef(BaseValidatorModel):
     Connectors: List[ConnectorSummaryTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
-    NextToken: Optional[str] = None
+    NextToken: Optional[Annotated[str, _aws_pattern("PcaConnectorScep", "NextToken")]] = None
 
 
 # This class is the output for the 'get_connector' function.

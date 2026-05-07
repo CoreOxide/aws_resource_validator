@@ -3,6 +3,7 @@
 from datetime import datetime
 from decimal import Decimal
 from typing import (
+    Annotated,
     Any,
     Callable,
     Dict,
@@ -24,6 +25,7 @@ from botocore.response import StreamingBody
 from pydantic import Field
 
 from aws_resource_validator.core.base_validator_model import BaseValidatorModel, EventStream
+from aws_resource_validator.core.pattern_validation import aws_field_pattern as _aws_pattern
 from aws_resource_validator.pydantic_models.neptune_graph.neptune_graph_constants import *  # noqa: F401,F403
 
 # Optional boto3 symbols — imported lazily so services that don't need them
@@ -40,7 +42,7 @@ except ImportError:  # pragma: no cover
 
 # This class is the input for the 'cancel_export_task' function.
 class CancelExportTaskInputTypeDef(BaseValidatorModel):
-    taskIdentifier: str
+    taskIdentifier: Annotated[str, _aws_pattern("NeptuneGraph", "ExportTaskId")]
 
 
 class ResponseMetadataTypeDef(BaseValidatorModel):
@@ -53,12 +55,12 @@ class ResponseMetadataTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'cancel_import_task' function.
 class CancelImportTaskInputTypeDef(BaseValidatorModel):
-    taskIdentifier: str
+    taskIdentifier: Annotated[str, _aws_pattern("NeptuneGraph", "TaskId")]
 
 
 # This class is the input for the 'cancel_query' function.
 class CancelQueryInputTypeDef(BaseValidatorModel):
-    graphIdentifier: str
+    graphIdentifier: Annotated[str, _aws_pattern("NeptuneGraph", "GraphIdentifier")]
     queryId: str
 
 
@@ -68,34 +70,34 @@ class VectorSearchConfigurationTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'create_graph_snapshot' function.
 class CreateGraphSnapshotInputTypeDef(BaseValidatorModel):
-    graphIdentifier: str
-    snapshotName: str
+    graphIdentifier: Annotated[str, _aws_pattern("NeptuneGraph", "GraphIdentifier")]
+    snapshotName: Annotated[str, _aws_pattern("NeptuneGraph", "SnapshotName")]
     tags: Optional[Dict[str, str]] = None
 
 
 # This class is the input for the 'create_private_graph_endpoint' function.
 class CreatePrivateGraphEndpointInputTypeDef(BaseValidatorModel):
-    graphIdentifier: str
-    vpcId: Optional[str] = None
-    subnetIds: Optional[List[str]] = None
-    vpcSecurityGroupIds: Optional[List[str]] = None
+    graphIdentifier: Annotated[str, _aws_pattern("NeptuneGraph", "GraphIdentifier")]
+    vpcId: Optional[Annotated[str, _aws_pattern("NeptuneGraph", "VpcId")]] = None
+    subnetIds: Optional[List[Annotated[str, _aws_pattern("NeptuneGraph", "SubnetId")]]] = None
+    vpcSecurityGroupIds: Optional[List[Annotated[str, _aws_pattern("NeptuneGraph", "SecurityGroupId")]]] = None
 
 
 # This class is the input for the 'delete_graph' function.
 class DeleteGraphInputTypeDef(BaseValidatorModel):
-    graphIdentifier: str
+    graphIdentifier: Annotated[str, _aws_pattern("NeptuneGraph", "GraphIdentifier")]
     skipSnapshot: bool
 
 
 # This class is the input for the 'delete_graph_snapshot' function.
 class DeleteGraphSnapshotInputTypeDef(BaseValidatorModel):
-    snapshotIdentifier: str
+    snapshotIdentifier: Annotated[str, _aws_pattern("NeptuneGraph", "SnapshotIdentifier")]
 
 
 # This class is the input for the 'delete_private_graph_endpoint' function.
 class DeletePrivateGraphEndpointInputTypeDef(BaseValidatorModel):
-    graphIdentifier: str
-    vpcId: str
+    graphIdentifier: Annotated[str, _aws_pattern("NeptuneGraph", "GraphIdentifier")]
+    vpcId: Annotated[str, _aws_pattern("NeptuneGraph", "VpcId")]
 
 
 class EdgeStructureTypeDef(BaseValidatorModel):
@@ -105,7 +107,7 @@ class EdgeStructureTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'execute_query' function.
 class ExecuteQueryInputTypeDef(BaseValidatorModel):
-    graphIdentifier: str
+    graphIdentifier: Annotated[str, _aws_pattern("NeptuneGraph", "GraphIdentifier")]
     queryString: str
     language: Literal["OPEN_CYPHER"]
     parameters: Optional[Dict[str, Dict[str, Any]]] = None
@@ -115,7 +117,7 @@ class ExecuteQueryInputTypeDef(BaseValidatorModel):
 
 
 class ExportFilterPropertyAttributesTypeDef(BaseValidatorModel):
-    outputType: Optional[str] = None
+    outputType: Optional[Annotated[str, _aws_pattern("NeptuneGraph", "ExportFilterOutputDataType")]] = None
     sourcePropertyName: Optional[str] = None
     multiValueHandling: Optional[MultiValueHandlingTypeType] = None
 
@@ -129,20 +131,20 @@ class ExportTaskDetailsTypeDef(BaseValidatorModel):
 
 
 class ExportTaskSummaryTypeDef(BaseValidatorModel):
-    graphId: str
-    roleArn: str
-    taskId: str
+    graphId: Annotated[str, _aws_pattern("NeptuneGraph", "GraphId")]
+    roleArn: Annotated[str, _aws_pattern("NeptuneGraph", "RoleArn")]
+    taskId: Annotated[str, _aws_pattern("NeptuneGraph", "ExportTaskId")]
     status: ExportTaskStatusType
     format: ExportFormatType
     destination: str
-    kmsKeyIdentifier: str
+    kmsKeyIdentifier: Annotated[str, _aws_pattern("NeptuneGraph", "KmsKeyArn")]
     parquetType: Optional[Literal["COLUMNAR"]] = None
     statusReason: Optional[str] = None
 
 
 # This class is the input for the 'get_export_task' function.
 class GetExportTaskInputTypeDef(BaseValidatorModel):
-    taskIdentifier: str
+    taskIdentifier: Annotated[str, _aws_pattern("NeptuneGraph", "ExportTaskId")]
 
 
 class WaiterConfigTypeDef(BaseValidatorModel):
@@ -152,23 +154,23 @@ class WaiterConfigTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'get_graph' function.
 class GetGraphInputTypeDef(BaseValidatorModel):
-    graphIdentifier: str
+    graphIdentifier: Annotated[str, _aws_pattern("NeptuneGraph", "GraphIdentifier")]
 
 
 # This class is the input for the 'get_graph_snapshot' function.
 class GetGraphSnapshotInputTypeDef(BaseValidatorModel):
-    snapshotIdentifier: str
+    snapshotIdentifier: Annotated[str, _aws_pattern("NeptuneGraph", "SnapshotIdentifier")]
 
 
 # This class is the input for the 'get_graph_summary' function.
 class GetGraphSummaryInputTypeDef(BaseValidatorModel):
-    graphIdentifier: str
+    graphIdentifier: Annotated[str, _aws_pattern("NeptuneGraph", "GraphIdentifier")]
     mode: Optional[GraphSummaryModeType] = None
 
 
 # This class is the input for the 'get_import_task' function.
 class GetImportTaskInputTypeDef(BaseValidatorModel):
-    taskIdentifier: str
+    taskIdentifier: Annotated[str, _aws_pattern("NeptuneGraph", "TaskId")]
 
 
 class ImportTaskDetailsTypeDef(BaseValidatorModel):
@@ -184,13 +186,13 @@ class ImportTaskDetailsTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'get_private_graph_endpoint' function.
 class GetPrivateGraphEndpointInputTypeDef(BaseValidatorModel):
-    graphIdentifier: str
-    vpcId: str
+    graphIdentifier: Annotated[str, _aws_pattern("NeptuneGraph", "GraphIdentifier")]
+    vpcId: Annotated[str, _aws_pattern("NeptuneGraph", "VpcId")]
 
 
 # This class is the input for the 'get_query' function.
 class GetQueryInputTypeDef(BaseValidatorModel):
-    graphIdentifier: str
+    graphIdentifier: Annotated[str, _aws_pattern("NeptuneGraph", "GraphIdentifier")]
     queryId: str
 
 
@@ -201,18 +203,18 @@ class NodeStructureTypeDef(BaseValidatorModel):
 
 
 class GraphSnapshotSummaryTypeDef(BaseValidatorModel):
-    id: str
-    name: str
+    id: Annotated[str, _aws_pattern("NeptuneGraph", "SnapshotId")]
+    name: Annotated[str, _aws_pattern("NeptuneGraph", "SnapshotName")]
     arn: str
-    sourceGraphId: Optional[str] = None
+    sourceGraphId: Optional[Annotated[str, _aws_pattern("NeptuneGraph", "GraphId")]] = None
     snapshotCreateTime: Optional[datetime] = None
     status: Optional[SnapshotStatusType] = None
-    kmsKeyIdentifier: Optional[str] = None
+    kmsKeyIdentifier: Optional[Annotated[str, _aws_pattern("NeptuneGraph", "KmsKeyArn")]] = None
 
 
 class GraphSummaryTypeDef(BaseValidatorModel):
-    id: str
-    name: str
+    id: Annotated[str, _aws_pattern("NeptuneGraph", "GraphId")]
+    name: Annotated[str, _aws_pattern("NeptuneGraph", "GraphName")]
     arn: str
     status: Optional[GraphStatusType] = None
     provisionedMemory: Optional[int] = None
@@ -231,11 +233,11 @@ class NeptuneImportOptionsTypeDef(BaseValidatorModel):
 
 
 class ImportTaskSummaryTypeDef(BaseValidatorModel):
-    taskId: str
+    taskId: Annotated[str, _aws_pattern("NeptuneGraph", "TaskId")]
     source: str
-    roleArn: str
+    roleArn: Annotated[str, _aws_pattern("NeptuneGraph", "RoleArn")]
     status: ImportTaskStatusType
-    graphId: Optional[str] = None
+    graphId: Optional[Annotated[str, _aws_pattern("NeptuneGraph", "GraphId")]] = None
     format: Optional[FormatType] = None
     parquetType: Optional[Literal["COLUMNAR"]] = None
 
@@ -248,14 +250,14 @@ class PaginatorConfigTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'list_export_tasks' function.
 class ListExportTasksInputTypeDef(BaseValidatorModel):
-    graphIdentifier: Optional[str] = None
+    graphIdentifier: Optional[Annotated[str, _aws_pattern("NeptuneGraph", "GraphIdentifier")]] = None
     nextToken: Optional[str] = None
     maxResults: Optional[int] = None
 
 
 # This class is the input for the 'list_graph_snapshots' function.
 class ListGraphSnapshotsInputTypeDef(BaseValidatorModel):
-    graphIdentifier: Optional[str] = None
+    graphIdentifier: Optional[Annotated[str, _aws_pattern("NeptuneGraph", "GraphIdentifier")]] = None
     nextToken: Optional[str] = None
     maxResults: Optional[int] = None
 
@@ -274,21 +276,21 @@ class ListImportTasksInputTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'list_private_graph_endpoints' function.
 class ListPrivateGraphEndpointsInputTypeDef(BaseValidatorModel):
-    graphIdentifier: str
+    graphIdentifier: Annotated[str, _aws_pattern("NeptuneGraph", "GraphIdentifier")]
     nextToken: Optional[str] = None
     maxResults: Optional[int] = None
 
 
 class PrivateGraphEndpointSummaryTypeDef(BaseValidatorModel):
-    vpcId: str
-    subnetIds: List[str]
+    vpcId: Annotated[str, _aws_pattern("NeptuneGraph", "VpcId")]
+    subnetIds: List[Annotated[str, _aws_pattern("NeptuneGraph", "SubnetId")]]
     status: PrivateGraphEndpointStatusType
-    vpcEndpointId: Optional[str] = None
+    vpcEndpointId: Optional[Annotated[str, _aws_pattern("NeptuneGraph", "VpcEndpointId")]] = None
 
 
 # This class is the input for the 'list_queries' function.
 class ListQueriesInputTypeDef(BaseValidatorModel):
-    graphIdentifier: str
+    graphIdentifier: Annotated[str, _aws_pattern("NeptuneGraph", "GraphIdentifier")]
     maxResults: int
     state: Optional[QueryStateInputType] = None
 
@@ -303,19 +305,19 @@ class QuerySummaryTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'list_tags_for_resource' function.
 class ListTagsForResourceInputTypeDef(BaseValidatorModel):
-    resourceArn: str
+    resourceArn: Annotated[str, _aws_pattern("NeptuneGraph", "Arn")]
 
 
 # This class is the input for the 'reset_graph' function.
 class ResetGraphInputTypeDef(BaseValidatorModel):
-    graphIdentifier: str
+    graphIdentifier: Annotated[str, _aws_pattern("NeptuneGraph", "GraphIdentifier")]
     skipSnapshot: bool
 
 
 # This class is the input for the 'restore_graph_from_snapshot' function.
 class RestoreGraphFromSnapshotInputTypeDef(BaseValidatorModel):
-    snapshotIdentifier: str
-    graphName: str
+    snapshotIdentifier: Annotated[str, _aws_pattern("NeptuneGraph", "SnapshotIdentifier")]
+    graphName: Annotated[str, _aws_pattern("NeptuneGraph", "GraphName")]
     provisionedMemory: Optional[int] = None
     deletionProtection: Optional[bool] = None
     tags: Optional[Dict[str, str]] = None
@@ -325,27 +327,27 @@ class RestoreGraphFromSnapshotInputTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'start_graph' function.
 class StartGraphInputTypeDef(BaseValidatorModel):
-    graphIdentifier: str
+    graphIdentifier: Annotated[str, _aws_pattern("NeptuneGraph", "GraphIdentifier")]
 
 
 # This class is the input for the 'stop_graph' function.
 class StopGraphInputTypeDef(BaseValidatorModel):
-    graphIdentifier: str
+    graphIdentifier: Annotated[str, _aws_pattern("NeptuneGraph", "GraphIdentifier")]
 
 
 class TagResourceInputTypeDef(BaseValidatorModel):
-    resourceArn: str
+    resourceArn: Annotated[str, _aws_pattern("NeptuneGraph", "Arn")]
     tags: Dict[str, str]
 
 
 class UntagResourceInputTypeDef(BaseValidatorModel):
-    resourceArn: str
-    tagKeys: List[str]
+    resourceArn: Annotated[str, _aws_pattern("NeptuneGraph", "Arn")]
+    tagKeys: List[Annotated[str, _aws_pattern("NeptuneGraph", "TagKey")]]
 
 
 # This class is the input for the 'update_graph' function.
 class UpdateGraphInputTypeDef(BaseValidatorModel):
-    graphIdentifier: str
+    graphIdentifier: Annotated[str, _aws_pattern("NeptuneGraph", "GraphIdentifier")]
     publicConnectivity: Optional[bool] = None
     provisionedMemory: Optional[int] = None
     deletionProtection: Optional[bool] = None
@@ -353,13 +355,13 @@ class UpdateGraphInputTypeDef(BaseValidatorModel):
 
 # This class is the output for the 'cancel_export_task' function.
 class CancelExportTaskOutputTypeDef(BaseValidatorModel):
-    graphId: str
-    roleArn: str
-    taskId: str
+    graphId: Annotated[str, _aws_pattern("NeptuneGraph", "GraphId")]
+    roleArn: Annotated[str, _aws_pattern("NeptuneGraph", "RoleArn")]
+    taskId: Annotated[str, _aws_pattern("NeptuneGraph", "ExportTaskId")]
     status: ExportTaskStatusType
     format: ExportFormatType
     destination: str
-    kmsKeyIdentifier: str
+    kmsKeyIdentifier: Annotated[str, _aws_pattern("NeptuneGraph", "KmsKeyArn")]
     parquetType: Literal["COLUMNAR"]
     statusReason: str
     ResponseMetadata: ResponseMetadataTypeDef
@@ -367,55 +369,55 @@ class CancelExportTaskOutputTypeDef(BaseValidatorModel):
 
 # This class is the output for the 'cancel_import_task' function.
 class CancelImportTaskOutputTypeDef(BaseValidatorModel):
-    graphId: str
-    taskId: str
+    graphId: Annotated[str, _aws_pattern("NeptuneGraph", "GraphId")]
+    taskId: Annotated[str, _aws_pattern("NeptuneGraph", "TaskId")]
     source: str
     format: FormatType
     parquetType: Literal["COLUMNAR"]
-    roleArn: str
+    roleArn: Annotated[str, _aws_pattern("NeptuneGraph", "RoleArn")]
     status: ImportTaskStatusType
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 # This class is the output for the 'create_graph_snapshot' function.
 class CreateGraphSnapshotOutputTypeDef(BaseValidatorModel):
-    id: str
-    name: str
+    id: Annotated[str, _aws_pattern("NeptuneGraph", "SnapshotId")]
+    name: Annotated[str, _aws_pattern("NeptuneGraph", "SnapshotName")]
     arn: str
-    sourceGraphId: str
+    sourceGraphId: Annotated[str, _aws_pattern("NeptuneGraph", "GraphId")]
     snapshotCreateTime: datetime
     status: SnapshotStatusType
-    kmsKeyIdentifier: str
+    kmsKeyIdentifier: Annotated[str, _aws_pattern("NeptuneGraph", "KmsKeyArn")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 # This class is the output for the 'create_private_graph_endpoint' function.
 class CreatePrivateGraphEndpointOutputTypeDef(BaseValidatorModel):
-    vpcId: str
-    subnetIds: List[str]
+    vpcId: Annotated[str, _aws_pattern("NeptuneGraph", "VpcId")]
+    subnetIds: List[Annotated[str, _aws_pattern("NeptuneGraph", "SubnetId")]]
     status: PrivateGraphEndpointStatusType
-    vpcEndpointId: str
+    vpcEndpointId: Annotated[str, _aws_pattern("NeptuneGraph", "VpcEndpointId")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 # This class is the output for the 'delete_graph_snapshot' function.
 class DeleteGraphSnapshotOutputTypeDef(BaseValidatorModel):
-    id: str
-    name: str
+    id: Annotated[str, _aws_pattern("NeptuneGraph", "SnapshotId")]
+    name: Annotated[str, _aws_pattern("NeptuneGraph", "SnapshotName")]
     arn: str
-    sourceGraphId: str
+    sourceGraphId: Annotated[str, _aws_pattern("NeptuneGraph", "GraphId")]
     snapshotCreateTime: datetime
     status: SnapshotStatusType
-    kmsKeyIdentifier: str
+    kmsKeyIdentifier: Annotated[str, _aws_pattern("NeptuneGraph", "KmsKeyArn")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 # This class is the output for the 'delete_private_graph_endpoint' function.
 class DeletePrivateGraphEndpointOutputTypeDef(BaseValidatorModel):
-    vpcId: str
-    subnetIds: List[str]
+    vpcId: Annotated[str, _aws_pattern("NeptuneGraph", "VpcId")]
+    subnetIds: List[Annotated[str, _aws_pattern("NeptuneGraph", "SubnetId")]]
     status: PrivateGraphEndpointStatusType
-    vpcEndpointId: str
+    vpcEndpointId: Annotated[str, _aws_pattern("NeptuneGraph", "VpcEndpointId")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
@@ -432,22 +434,22 @@ class ExecuteQueryOutputTypeDef(BaseValidatorModel):
 
 # This class is the output for the 'get_graph_snapshot' function.
 class GetGraphSnapshotOutputTypeDef(BaseValidatorModel):
-    id: str
-    name: str
+    id: Annotated[str, _aws_pattern("NeptuneGraph", "SnapshotId")]
+    name: Annotated[str, _aws_pattern("NeptuneGraph", "SnapshotName")]
     arn: str
-    sourceGraphId: str
+    sourceGraphId: Annotated[str, _aws_pattern("NeptuneGraph", "GraphId")]
     snapshotCreateTime: datetime
     status: SnapshotStatusType
-    kmsKeyIdentifier: str
+    kmsKeyIdentifier: Annotated[str, _aws_pattern("NeptuneGraph", "KmsKeyArn")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 # This class is the output for the 'get_private_graph_endpoint' function.
 class GetPrivateGraphEndpointOutputTypeDef(BaseValidatorModel):
-    vpcId: str
-    subnetIds: List[str]
+    vpcId: Annotated[str, _aws_pattern("NeptuneGraph", "VpcId")]
+    subnetIds: List[Annotated[str, _aws_pattern("NeptuneGraph", "SubnetId")]]
     status: PrivateGraphEndpointStatusType
-    vpcEndpointId: str
+    vpcEndpointId: Annotated[str, _aws_pattern("NeptuneGraph", "VpcEndpointId")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
@@ -469,11 +471,11 @@ class ListTagsForResourceOutputTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'create_graph' function.
 class CreateGraphInputTypeDef(BaseValidatorModel):
-    graphName: str
+    graphName: Annotated[str, _aws_pattern("NeptuneGraph", "GraphName")]
     provisionedMemory: int
     tags: Optional[Dict[str, str]] = None
     publicConnectivity: Optional[bool] = None
-    kmsKeyIdentifier: Optional[str] = None
+    kmsKeyIdentifier: Optional[Annotated[str, _aws_pattern("NeptuneGraph", "KmsKeyArn")]] = None
     vectorSearchConfiguration: Optional[VectorSearchConfigurationTypeDef] = None
     replicaCount: Optional[int] = None
     deletionProtection: Optional[bool] = None
@@ -481,8 +483,8 @@ class CreateGraphInputTypeDef(BaseValidatorModel):
 
 # This class is the output for the 'create_graph' function.
 class CreateGraphOutputTypeDef(BaseValidatorModel):
-    id: str
-    name: str
+    id: Annotated[str, _aws_pattern("NeptuneGraph", "GraphId")]
+    name: Annotated[str, _aws_pattern("NeptuneGraph", "GraphName")]
     arn: str
     status: GraphStatusType
     statusReason: str
@@ -492,8 +494,8 @@ class CreateGraphOutputTypeDef(BaseValidatorModel):
     publicConnectivity: bool
     vectorSearchConfiguration: VectorSearchConfigurationTypeDef
     replicaCount: int
-    kmsKeyIdentifier: str
-    sourceSnapshotId: str
+    kmsKeyIdentifier: Annotated[str, _aws_pattern("NeptuneGraph", "KmsKeyArn")]
+    sourceSnapshotId: Annotated[str, _aws_pattern("NeptuneGraph", "SnapshotId")]
     deletionProtection: bool
     buildNumber: str
     ResponseMetadata: ResponseMetadataTypeDef
@@ -501,8 +503,8 @@ class CreateGraphOutputTypeDef(BaseValidatorModel):
 
 # This class is the output for the 'delete_graph' function.
 class DeleteGraphOutputTypeDef(BaseValidatorModel):
-    id: str
-    name: str
+    id: Annotated[str, _aws_pattern("NeptuneGraph", "GraphId")]
+    name: Annotated[str, _aws_pattern("NeptuneGraph", "GraphName")]
     arn: str
     status: GraphStatusType
     statusReason: str
@@ -512,8 +514,8 @@ class DeleteGraphOutputTypeDef(BaseValidatorModel):
     publicConnectivity: bool
     vectorSearchConfiguration: VectorSearchConfigurationTypeDef
     replicaCount: int
-    kmsKeyIdentifier: str
-    sourceSnapshotId: str
+    kmsKeyIdentifier: Annotated[str, _aws_pattern("NeptuneGraph", "KmsKeyArn")]
+    sourceSnapshotId: Annotated[str, _aws_pattern("NeptuneGraph", "SnapshotId")]
     deletionProtection: bool
     buildNumber: str
     ResponseMetadata: ResponseMetadataTypeDef
@@ -521,8 +523,8 @@ class DeleteGraphOutputTypeDef(BaseValidatorModel):
 
 # This class is the output for the 'get_graph' function.
 class GetGraphOutputTypeDef(BaseValidatorModel):
-    id: str
-    name: str
+    id: Annotated[str, _aws_pattern("NeptuneGraph", "GraphId")]
+    name: Annotated[str, _aws_pattern("NeptuneGraph", "GraphName")]
     arn: str
     status: GraphStatusType
     statusReason: str
@@ -532,8 +534,8 @@ class GetGraphOutputTypeDef(BaseValidatorModel):
     publicConnectivity: bool
     vectorSearchConfiguration: VectorSearchConfigurationTypeDef
     replicaCount: int
-    kmsKeyIdentifier: str
-    sourceSnapshotId: str
+    kmsKeyIdentifier: Annotated[str, _aws_pattern("NeptuneGraph", "KmsKeyArn")]
+    sourceSnapshotId: Annotated[str, _aws_pattern("NeptuneGraph", "SnapshotId")]
     deletionProtection: bool
     buildNumber: str
     ResponseMetadata: ResponseMetadataTypeDef
@@ -541,8 +543,8 @@ class GetGraphOutputTypeDef(BaseValidatorModel):
 
 # This class is the output for the 'reset_graph' function.
 class ResetGraphOutputTypeDef(BaseValidatorModel):
-    id: str
-    name: str
+    id: Annotated[str, _aws_pattern("NeptuneGraph", "GraphId")]
+    name: Annotated[str, _aws_pattern("NeptuneGraph", "GraphName")]
     arn: str
     status: GraphStatusType
     statusReason: str
@@ -552,8 +554,8 @@ class ResetGraphOutputTypeDef(BaseValidatorModel):
     publicConnectivity: bool
     vectorSearchConfiguration: VectorSearchConfigurationTypeDef
     replicaCount: int
-    kmsKeyIdentifier: str
-    sourceSnapshotId: str
+    kmsKeyIdentifier: Annotated[str, _aws_pattern("NeptuneGraph", "KmsKeyArn")]
+    sourceSnapshotId: Annotated[str, _aws_pattern("NeptuneGraph", "SnapshotId")]
     deletionProtection: bool
     buildNumber: str
     ResponseMetadata: ResponseMetadataTypeDef
@@ -561,8 +563,8 @@ class ResetGraphOutputTypeDef(BaseValidatorModel):
 
 # This class is the output for the 'restore_graph_from_snapshot' function.
 class RestoreGraphFromSnapshotOutputTypeDef(BaseValidatorModel):
-    id: str
-    name: str
+    id: Annotated[str, _aws_pattern("NeptuneGraph", "GraphId")]
+    name: Annotated[str, _aws_pattern("NeptuneGraph", "GraphName")]
     arn: str
     status: GraphStatusType
     statusReason: str
@@ -572,8 +574,8 @@ class RestoreGraphFromSnapshotOutputTypeDef(BaseValidatorModel):
     publicConnectivity: bool
     vectorSearchConfiguration: VectorSearchConfigurationTypeDef
     replicaCount: int
-    kmsKeyIdentifier: str
-    sourceSnapshotId: str
+    kmsKeyIdentifier: Annotated[str, _aws_pattern("NeptuneGraph", "KmsKeyArn")]
+    sourceSnapshotId: Annotated[str, _aws_pattern("NeptuneGraph", "SnapshotId")]
     deletionProtection: bool
     buildNumber: str
     ResponseMetadata: ResponseMetadataTypeDef
@@ -581,8 +583,8 @@ class RestoreGraphFromSnapshotOutputTypeDef(BaseValidatorModel):
 
 # This class is the output for the 'start_graph' function.
 class StartGraphOutputTypeDef(BaseValidatorModel):
-    id: str
-    name: str
+    id: Annotated[str, _aws_pattern("NeptuneGraph", "GraphId")]
+    name: Annotated[str, _aws_pattern("NeptuneGraph", "GraphName")]
     arn: str
     status: GraphStatusType
     statusReason: str
@@ -592,8 +594,8 @@ class StartGraphOutputTypeDef(BaseValidatorModel):
     publicConnectivity: bool
     vectorSearchConfiguration: VectorSearchConfigurationTypeDef
     replicaCount: int
-    kmsKeyIdentifier: str
-    sourceSnapshotId: str
+    kmsKeyIdentifier: Annotated[str, _aws_pattern("NeptuneGraph", "KmsKeyArn")]
+    sourceSnapshotId: Annotated[str, _aws_pattern("NeptuneGraph", "SnapshotId")]
     deletionProtection: bool
     buildNumber: str
     ResponseMetadata: ResponseMetadataTypeDef
@@ -601,8 +603,8 @@ class StartGraphOutputTypeDef(BaseValidatorModel):
 
 # This class is the output for the 'stop_graph' function.
 class StopGraphOutputTypeDef(BaseValidatorModel):
-    id: str
-    name: str
+    id: Annotated[str, _aws_pattern("NeptuneGraph", "GraphId")]
+    name: Annotated[str, _aws_pattern("NeptuneGraph", "GraphName")]
     arn: str
     status: GraphStatusType
     statusReason: str
@@ -612,8 +614,8 @@ class StopGraphOutputTypeDef(BaseValidatorModel):
     publicConnectivity: bool
     vectorSearchConfiguration: VectorSearchConfigurationTypeDef
     replicaCount: int
-    kmsKeyIdentifier: str
-    sourceSnapshotId: str
+    kmsKeyIdentifier: Annotated[str, _aws_pattern("NeptuneGraph", "KmsKeyArn")]
+    sourceSnapshotId: Annotated[str, _aws_pattern("NeptuneGraph", "SnapshotId")]
     deletionProtection: bool
     buildNumber: str
     ResponseMetadata: ResponseMetadataTypeDef
@@ -621,8 +623,8 @@ class StopGraphOutputTypeDef(BaseValidatorModel):
 
 # This class is the output for the 'update_graph' function.
 class UpdateGraphOutputTypeDef(BaseValidatorModel):
-    id: str
-    name: str
+    id: Annotated[str, _aws_pattern("NeptuneGraph", "GraphId")]
+    name: Annotated[str, _aws_pattern("NeptuneGraph", "GraphName")]
     arn: str
     status: GraphStatusType
     statusReason: str
@@ -632,8 +634,8 @@ class UpdateGraphOutputTypeDef(BaseValidatorModel):
     publicConnectivity: bool
     vectorSearchConfiguration: VectorSearchConfigurationTypeDef
     replicaCount: int
-    kmsKeyIdentifier: str
-    sourceSnapshotId: str
+    kmsKeyIdentifier: Annotated[str, _aws_pattern("NeptuneGraph", "KmsKeyArn")]
+    sourceSnapshotId: Annotated[str, _aws_pattern("NeptuneGraph", "SnapshotId")]
     deletionProtection: bool
     buildNumber: str
     ResponseMetadata: ResponseMetadataTypeDef
@@ -809,12 +811,12 @@ class GetGraphSummaryOutputTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'create_graph_using_import_task' function.
 class CreateGraphUsingImportTaskInputTypeDef(BaseValidatorModel):
-    graphName: str
+    graphName: Annotated[str, _aws_pattern("NeptuneGraph", "GraphName")]
     source: str
-    roleArn: str
+    roleArn: Annotated[str, _aws_pattern("NeptuneGraph", "RoleArn")]
     tags: Optional[Dict[str, str]] = None
     publicConnectivity: Optional[bool] = None
-    kmsKeyIdentifier: Optional[str] = None
+    kmsKeyIdentifier: Optional[Annotated[str, _aws_pattern("NeptuneGraph", "KmsKeyArn")]] = None
     vectorSearchConfiguration: Optional[VectorSearchConfigurationTypeDef] = None
     replicaCount: Optional[int] = None
     deletionProtection: Optional[bool] = None
@@ -829,12 +831,12 @@ class CreateGraphUsingImportTaskInputTypeDef(BaseValidatorModel):
 
 # This class is the output for the 'create_graph_using_import_task' function.
 class CreateGraphUsingImportTaskOutputTypeDef(BaseValidatorModel):
-    graphId: str
-    taskId: str
+    graphId: Annotated[str, _aws_pattern("NeptuneGraph", "GraphId")]
+    taskId: Annotated[str, _aws_pattern("NeptuneGraph", "TaskId")]
     source: str
     format: FormatType
     parquetType: Literal["COLUMNAR"]
-    roleArn: str
+    roleArn: Annotated[str, _aws_pattern("NeptuneGraph", "RoleArn")]
     status: ImportTaskStatusType
     importOptions: ImportOptionsTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
@@ -842,12 +844,12 @@ class CreateGraphUsingImportTaskOutputTypeDef(BaseValidatorModel):
 
 # This class is the output for the 'get_import_task' function.
 class GetImportTaskOutputTypeDef(BaseValidatorModel):
-    graphId: str
-    taskId: str
+    graphId: Annotated[str, _aws_pattern("NeptuneGraph", "GraphId")]
+    taskId: Annotated[str, _aws_pattern("NeptuneGraph", "TaskId")]
     source: str
     format: FormatType
     parquetType: Literal["COLUMNAR"]
-    roleArn: str
+    roleArn: Annotated[str, _aws_pattern("NeptuneGraph", "RoleArn")]
     status: ImportTaskStatusType
     importOptions: ImportOptionsTypeDef
     importTaskDetails: ImportTaskDetailsTypeDef
@@ -859,8 +861,8 @@ class GetImportTaskOutputTypeDef(BaseValidatorModel):
 # This class is the input for the 'start_import_task' function.
 class StartImportTaskInputTypeDef(BaseValidatorModel):
     source: str
-    graphIdentifier: str
-    roleArn: str
+    graphIdentifier: Annotated[str, _aws_pattern("NeptuneGraph", "GraphIdentifier")]
+    roleArn: Annotated[str, _aws_pattern("NeptuneGraph", "RoleArn")]
     importOptions: Optional[ImportOptionsTypeDef] = None
     failOnError: Optional[bool] = None
     format: Optional[FormatType] = None
@@ -870,12 +872,12 @@ class StartImportTaskInputTypeDef(BaseValidatorModel):
 
 # This class is the output for the 'start_import_task' function.
 class StartImportTaskOutputTypeDef(BaseValidatorModel):
-    graphId: str
-    taskId: str
+    graphId: Annotated[str, _aws_pattern("NeptuneGraph", "GraphId")]
+    taskId: Annotated[str, _aws_pattern("NeptuneGraph", "TaskId")]
     source: str
     format: FormatType
     parquetType: Literal["COLUMNAR"]
-    roleArn: str
+    roleArn: Annotated[str, _aws_pattern("NeptuneGraph", "RoleArn")]
     status: ImportTaskStatusType
     importOptions: ImportOptionsTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
@@ -883,13 +885,13 @@ class StartImportTaskOutputTypeDef(BaseValidatorModel):
 
 # This class is the output for the 'get_export_task' function.
 class GetExportTaskOutputTypeDef(BaseValidatorModel):
-    graphId: str
-    roleArn: str
-    taskId: str
+    graphId: Annotated[str, _aws_pattern("NeptuneGraph", "GraphId")]
+    roleArn: Annotated[str, _aws_pattern("NeptuneGraph", "RoleArn")]
+    taskId: Annotated[str, _aws_pattern("NeptuneGraph", "ExportTaskId")]
     status: ExportTaskStatusType
     format: ExportFormatType
     destination: str
-    kmsKeyIdentifier: str
+    kmsKeyIdentifier: Annotated[str, _aws_pattern("NeptuneGraph", "KmsKeyArn")]
     parquetType: Literal["COLUMNAR"]
     statusReason: str
     exportTaskDetails: ExportTaskDetailsTypeDef
@@ -899,13 +901,13 @@ class GetExportTaskOutputTypeDef(BaseValidatorModel):
 
 # This class is the output for the 'start_export_task' function.
 class StartExportTaskOutputTypeDef(BaseValidatorModel):
-    graphId: str
-    roleArn: str
-    taskId: str
+    graphId: Annotated[str, _aws_pattern("NeptuneGraph", "GraphId")]
+    roleArn: Annotated[str, _aws_pattern("NeptuneGraph", "RoleArn")]
+    taskId: Annotated[str, _aws_pattern("NeptuneGraph", "ExportTaskId")]
     status: ExportTaskStatusType
     format: ExportFormatType
     destination: str
-    kmsKeyIdentifier: str
+    kmsKeyIdentifier: Annotated[str, _aws_pattern("NeptuneGraph", "KmsKeyArn")]
     parquetType: Literal["COLUMNAR"]
     statusReason: str
     exportFilter: ExportFilterOutputTypeDef
@@ -917,11 +919,11 @@ ExportFilterUnionTypeDef = Union[ExportFilterOutputTypeDef, ExportFilterTypeDef]
 
 # This class is the input for the 'start_export_task' function.
 class StartExportTaskInputTypeDef(BaseValidatorModel):
-    graphIdentifier: str
-    roleArn: str
+    graphIdentifier: Annotated[str, _aws_pattern("NeptuneGraph", "GraphIdentifier")]
+    roleArn: Annotated[str, _aws_pattern("NeptuneGraph", "RoleArn")]
     format: ExportFormatType
     destination: str
-    kmsKeyIdentifier: str
+    kmsKeyIdentifier: Annotated[str, _aws_pattern("NeptuneGraph", "KmsKeyArn")]
     parquetType: Optional[Literal["COLUMNAR"]] = None
     exportFilter: Optional[ExportFilterUnionTypeDef] = None
     tags: Optional[Dict[str, str]] = None

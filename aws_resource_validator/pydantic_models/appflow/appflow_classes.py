@@ -3,6 +3,7 @@
 from datetime import datetime
 from decimal import Decimal
 from typing import (
+    Annotated,
     Any,
     Callable,
     Dict,
@@ -24,6 +25,7 @@ from botocore.response import StreamingBody
 from pydantic import Field
 
 from aws_resource_validator.core.base_validator_model import BaseValidatorModel, EventStream
+from aws_resource_validator.core.pattern_validation import aws_field_pattern as _aws_pattern
 from aws_resource_validator.pydantic_models.appflow.appflow_constants import *  # noqa: F401,F403
 
 # Optional boto3 symbols — imported lazily so services that don't need them
@@ -44,37 +46,37 @@ class AggregationConfigTypeDef(BaseValidatorModel):
 
 
 class AmplitudeConnectorProfileCredentialsTypeDef(BaseValidatorModel):
-    apiKey: str
-    secretKey: str
+    apiKey: Annotated[str, _aws_pattern("Appflow", "ApiKey")]
+    secretKey: Annotated[str, _aws_pattern("Appflow", "SecretKey")]
 
 
 class AmplitudeSourcePropertiesTypeDef(BaseValidatorModel):
-    object: str
+    object: Annotated[str, _aws_pattern("Appflow", "Object")]
 
 
 class ApiKeyCredentialsTypeDef(BaseValidatorModel):
-    apiKey: str
-    apiSecretKey: Optional[str] = None
+    apiKey: Annotated[str, _aws_pattern("Appflow", "ApiKey")]
+    apiSecretKey: Optional[Annotated[str, _aws_pattern("Appflow", "ApiSecretKey")]] = None
 
 
 class AuthParameterTypeDef(BaseValidatorModel):
-    key: Optional[str] = None
+    key: Optional[Annotated[str, _aws_pattern("Appflow", "Key")]] = None
     isRequired: Optional[bool] = None
-    label: Optional[str] = None
-    description: Optional[str] = None
+    label: Optional[Annotated[str, _aws_pattern("Appflow", "Label")]] = None
+    description: Optional[Annotated[str, _aws_pattern("Appflow", "Description")]] = None
     isSensitiveField: Optional[bool] = None
-    connectorSuppliedValues: Optional[List[str]] = None
+    connectorSuppliedValues: Optional[List[Annotated[str, _aws_pattern("Appflow", "ConnectorSuppliedValue")]]] = None
 
 
 class BasicAuthCredentialsTypeDef(BaseValidatorModel):
-    username: str
-    password: str
+    username: Annotated[str, _aws_pattern("Appflow", "Username")]
+    password: Annotated[str, _aws_pattern("Appflow", "Password")]
 
 
 # This class is the input for the 'cancel_flow_executions' function.
 class CancelFlowExecutionsRequestTypeDef(BaseValidatorModel):
-    flowName: str
-    executionIds: Optional[List[str]] = None
+    flowName: Annotated[str, _aws_pattern("Appflow", "FlowName")]
+    executionIds: Optional[List[Annotated[str, _aws_pattern("Appflow", "ExecutionId")]]] = None
 
 
 class ResponseMetadataTypeDef(BaseValidatorModel):
@@ -86,32 +88,34 @@ class ResponseMetadataTypeDef(BaseValidatorModel):
 
 
 class ConnectorRuntimeSettingTypeDef(BaseValidatorModel):
-    key: Optional[str] = None
-    dataType: Optional[str] = None
+    key: Optional[Annotated[str, _aws_pattern("Appflow", "Key")]] = None
+    dataType: Optional[Annotated[str, _aws_pattern("Appflow", "ConnectorRuntimeSettingDataType")]] = None
     isRequired: Optional[bool] = None
-    label: Optional[str] = None
-    description: Optional[str] = None
-    scope: Optional[str] = None
-    connectorSuppliedValueOptions: Optional[List[str]] = None
+    label: Optional[Annotated[str, _aws_pattern("Appflow", "Label")]] = None
+    description: Optional[Annotated[str, _aws_pattern("Appflow", "Description")]] = None
+    scope: Optional[Annotated[str, _aws_pattern("Appflow", "ConnectorRuntimeSettingScope")]] = None
+    connectorSuppliedValueOptions: Optional[List[Annotated[str, _aws_pattern("Appflow", "ConnectorSuppliedValue")]]] = (
+        None
+    )
 
 
 class DataTransferApiTypeDef(BaseValidatorModel):
-    Name: Optional[str] = None
+    Name: Optional[Annotated[str, _aws_pattern("Appflow", "DataTransferApiTypeName")]] = None
     Type: Optional[DataTransferApiTypeType] = None
 
 
 class ConnectorDetailTypeDef(BaseValidatorModel):
-    connectorDescription: Optional[str] = None
-    connectorName: Optional[str] = None
-    connectorOwner: Optional[str] = None
-    connectorVersion: Optional[str] = None
-    applicationType: Optional[str] = None
+    connectorDescription: Optional[Annotated[str, _aws_pattern("Appflow", "ConnectorDescription")]] = None
+    connectorName: Optional[Annotated[str, _aws_pattern("Appflow", "ConnectorName")]] = None
+    connectorOwner: Optional[Annotated[str, _aws_pattern("Appflow", "ConnectorOwner")]] = None
+    connectorVersion: Optional[Annotated[str, _aws_pattern("Appflow", "ConnectorVersion")]] = None
+    applicationType: Optional[Annotated[str, _aws_pattern("Appflow", "ApplicationType")]] = None
     connectorType: Optional[ConnectorTypeType] = None
-    connectorLabel: Optional[str] = None
+    connectorLabel: Optional[Annotated[str, _aws_pattern("Appflow", "ConnectorLabel")]] = None
     registeredAt: Optional[datetime] = None
-    registeredBy: Optional[str] = None
+    registeredBy: Optional[Annotated[str, _aws_pattern("Appflow", "RegisteredBy")]] = None
     connectorProvisioningType: Optional[Literal["LAMBDA"]] = None
-    connectorModes: Optional[List[str]] = None
+    connectorModes: Optional[List[Annotated[str, _aws_pattern("Appflow", "ConnectorMode")]]] = None
     supportedDataTransferTypes: Optional[List[SupportedDataTransferTypeType]] = None
 
 
@@ -131,40 +135,40 @@ class SourceFieldPropertiesTypeDef(BaseValidatorModel):
 
 
 class ConnectorEntityTypeDef(BaseValidatorModel):
-    name: str
-    label: Optional[str] = None
+    name: Annotated[str, _aws_pattern("Appflow", "Name")]
+    label: Optional[Annotated[str, _aws_pattern("Appflow", "Label")]] = None
     hasNestedEntities: Optional[bool] = None
 
 
 class GoogleAnalyticsMetadataTypeDef(BaseValidatorModel):
-    oAuthScopes: Optional[List[str]] = None
+    oAuthScopes: Optional[List[Annotated[str, _aws_pattern("Appflow", "OAuthScope")]]] = None
 
 
 class HoneycodeMetadataTypeDef(BaseValidatorModel):
-    oAuthScopes: Optional[List[str]] = None
+    oAuthScopes: Optional[List[Annotated[str, _aws_pattern("Appflow", "OAuthScope")]]] = None
 
 
 class SalesforceMetadataTypeDef(BaseValidatorModel):
-    oAuthScopes: Optional[List[str]] = None
+    oAuthScopes: Optional[List[Annotated[str, _aws_pattern("Appflow", "OAuthScope")]]] = None
     dataTransferApis: Optional[List[SalesforceDataTransferApiType]] = None
     oauth2GrantTypesSupported: Optional[List[OAuth2GrantTypeType]] = None
 
 
 class SlackMetadataTypeDef(BaseValidatorModel):
-    oAuthScopes: Optional[List[str]] = None
+    oAuthScopes: Optional[List[Annotated[str, _aws_pattern("Appflow", "OAuthScope")]]] = None
 
 
 class SnowflakeMetadataTypeDef(BaseValidatorModel):
-    supportedRegions: Optional[List[str]] = None
+    supportedRegions: Optional[List[Annotated[str, _aws_pattern("Appflow", "Region")]]] = None
 
 
 class ZendeskMetadataTypeDef(BaseValidatorModel):
-    oAuthScopes: Optional[List[str]] = None
+    oAuthScopes: Optional[List[Annotated[str, _aws_pattern("Appflow", "OAuthScope")]]] = None
 
 
 class ConnectorOAuthRequestTypeDef(BaseValidatorModel):
-    authCode: Optional[str] = None
-    redirectUri: Optional[str] = None
+    authCode: Optional[Annotated[str, _aws_pattern("Appflow", "AuthCode")]] = None
+    redirectUri: Optional[Annotated[str, _aws_pattern("Appflow", "RedirectUri")]] = None
 
 
 class ConnectorOperatorTypeDef(BaseValidatorModel):
@@ -188,129 +192,131 @@ class ConnectorOperatorTypeDef(BaseValidatorModel):
 
 
 class DatadogConnectorProfileCredentialsTypeDef(BaseValidatorModel):
-    apiKey: str
-    applicationKey: str
+    apiKey: Annotated[str, _aws_pattern("Appflow", "ApiKey")]
+    applicationKey: Annotated[str, _aws_pattern("Appflow", "ApplicationKey")]
 
 
 class DynatraceConnectorProfileCredentialsTypeDef(BaseValidatorModel):
-    apiToken: str
+    apiToken: Annotated[str, _aws_pattern("Appflow", "ApiToken")]
 
 
 class InforNexusConnectorProfileCredentialsTypeDef(BaseValidatorModel):
-    accessKeyId: str
-    userId: str
-    secretAccessKey: str
-    datakey: str
+    accessKeyId: Annotated[str, _aws_pattern("Appflow", "AccessKeyId")]
+    userId: Annotated[str, _aws_pattern("Appflow", "Username")]
+    secretAccessKey: Annotated[str, _aws_pattern("Appflow", "Key")]
+    datakey: Annotated[str, _aws_pattern("Appflow", "Key")]
 
 
 class RedshiftConnectorProfileCredentialsTypeDef(BaseValidatorModel):
-    username: Optional[str] = None
-    password: Optional[str] = None
+    username: Optional[Annotated[str, _aws_pattern("Appflow", "String")]] = None
+    password: Optional[Annotated[str, _aws_pattern("Appflow", "Password")]] = None
 
 
 class SingularConnectorProfileCredentialsTypeDef(BaseValidatorModel):
-    apiKey: str
+    apiKey: Annotated[str, _aws_pattern("Appflow", "ApiKey")]
 
 
 class SnowflakeConnectorProfileCredentialsTypeDef(BaseValidatorModel):
-    username: str
-    password: str
+    username: Annotated[str, _aws_pattern("Appflow", "Username")]
+    password: Annotated[str, _aws_pattern("Appflow", "Password")]
 
 
 class TrendmicroConnectorProfileCredentialsTypeDef(BaseValidatorModel):
-    apiSecretKey: str
+    apiSecretKey: Annotated[str, _aws_pattern("Appflow", "ApiSecretKey")]
 
 
 class VeevaConnectorProfileCredentialsTypeDef(BaseValidatorModel):
-    username: str
-    password: str
+    username: Annotated[str, _aws_pattern("Appflow", "Username")]
+    password: Annotated[str, _aws_pattern("Appflow", "Password")]
 
 
 class DatadogConnectorProfilePropertiesTypeDef(BaseValidatorModel):
-    instanceUrl: str
+    instanceUrl: Annotated[str, _aws_pattern("Appflow", "InstanceUrl")]
 
 
 class DynatraceConnectorProfilePropertiesTypeDef(BaseValidatorModel):
-    instanceUrl: str
+    instanceUrl: Annotated[str, _aws_pattern("Appflow", "InstanceUrl")]
 
 
 class InforNexusConnectorProfilePropertiesTypeDef(BaseValidatorModel):
-    instanceUrl: str
+    instanceUrl: Annotated[str, _aws_pattern("Appflow", "InstanceUrl")]
 
 
 class MarketoConnectorProfilePropertiesTypeDef(BaseValidatorModel):
-    instanceUrl: str
+    instanceUrl: Annotated[str, _aws_pattern("Appflow", "InstanceUrl")]
 
 
 class PardotConnectorProfilePropertiesTypeDef(BaseValidatorModel):
-    instanceUrl: Optional[str] = None
+    instanceUrl: Optional[Annotated[str, _aws_pattern("Appflow", "InstanceUrl")]] = None
     isSandboxEnvironment: Optional[bool] = None
-    businessUnitId: Optional[str] = None
+    businessUnitId: Optional[Annotated[str, _aws_pattern("Appflow", "BusinessUnitId")]] = None
 
 
 class RedshiftConnectorProfilePropertiesTypeDef(BaseValidatorModel):
-    bucketName: str
-    roleArn: str
-    databaseUrl: Optional[str] = None
-    bucketPrefix: Optional[str] = None
-    dataApiRoleArn: Optional[str] = None
+    bucketName: Annotated[str, _aws_pattern("Appflow", "BucketName")]
+    roleArn: Annotated[str, _aws_pattern("Appflow", "RoleArn")]
+    databaseUrl: Optional[Annotated[str, _aws_pattern("Appflow", "DatabaseUrl")]] = None
+    bucketPrefix: Optional[Annotated[str, _aws_pattern("Appflow", "BucketPrefix")]] = None
+    dataApiRoleArn: Optional[Annotated[str, _aws_pattern("Appflow", "DataApiRoleArn")]] = None
     isRedshiftServerless: Optional[bool] = None
-    clusterIdentifier: Optional[str] = None
-    workgroupName: Optional[str] = None
-    databaseName: Optional[str] = None
+    clusterIdentifier: Optional[Annotated[str, _aws_pattern("Appflow", "ClusterIdentifier")]] = None
+    workgroupName: Optional[Annotated[str, _aws_pattern("Appflow", "WorkgroupName")]] = None
+    databaseName: Optional[Annotated[str, _aws_pattern("Appflow", "DatabaseName")]] = None
 
 
 class SalesforceConnectorProfilePropertiesTypeDef(BaseValidatorModel):
-    instanceUrl: Optional[str] = None
+    instanceUrl: Optional[Annotated[str, _aws_pattern("Appflow", "InstanceUrl")]] = None
     isSandboxEnvironment: Optional[bool] = None
     usePrivateLinkForMetadataAndAuthorization: Optional[bool] = None
 
 
 class ServiceNowConnectorProfilePropertiesTypeDef(BaseValidatorModel):
-    instanceUrl: str
+    instanceUrl: Annotated[str, _aws_pattern("Appflow", "InstanceUrl")]
 
 
 class SlackConnectorProfilePropertiesTypeDef(BaseValidatorModel):
-    instanceUrl: str
+    instanceUrl: Annotated[str, _aws_pattern("Appflow", "InstanceUrl")]
 
 
 class SnowflakeConnectorProfilePropertiesTypeDef(BaseValidatorModel):
-    warehouse: str
-    stage: str
-    bucketName: str
-    bucketPrefix: Optional[str] = None
-    privateLinkServiceName: Optional[str] = None
-    accountName: Optional[str] = None
-    region: Optional[str] = None
+    warehouse: Annotated[str, _aws_pattern("Appflow", "Warehouse")]
+    stage: Annotated[str, _aws_pattern("Appflow", "Stage")]
+    bucketName: Annotated[str, _aws_pattern("Appflow", "BucketName")]
+    bucketPrefix: Optional[Annotated[str, _aws_pattern("Appflow", "BucketPrefix")]] = None
+    privateLinkServiceName: Optional[Annotated[str, _aws_pattern("Appflow", "PrivateLinkServiceName")]] = None
+    accountName: Optional[Annotated[str, _aws_pattern("Appflow", "AccountName")]] = None
+    region: Optional[Annotated[str, _aws_pattern("Appflow", "Region")]] = None
 
 
 class VeevaConnectorProfilePropertiesTypeDef(BaseValidatorModel):
-    instanceUrl: str
+    instanceUrl: Annotated[str, _aws_pattern("Appflow", "InstanceUrl")]
 
 
 class ZendeskConnectorProfilePropertiesTypeDef(BaseValidatorModel):
-    instanceUrl: str
+    instanceUrl: Annotated[str, _aws_pattern("Appflow", "InstanceUrl")]
 
 
 class PrivateConnectionProvisioningStateTypeDef(BaseValidatorModel):
     status: Optional[PrivateConnectionProvisioningStatusType] = None
-    failureMessage: Optional[str] = None
+    failureMessage: Optional[Annotated[str, _aws_pattern("Appflow", "PrivateConnectionProvisioningFailureMessage")]] = (
+        None
+    )
     failureCause: Optional[PrivateConnectionProvisioningFailureCauseType] = None
 
 
 class LambdaConnectorProvisioningConfigTypeDef(BaseValidatorModel):
-    lambdaArn: str
+    lambdaArn: Annotated[str, _aws_pattern("Appflow", "ARN")]
 
 
 class CustomAuthCredentialsTypeDef(BaseValidatorModel):
-    customAuthenticationType: str
+    customAuthenticationType: Annotated[str, _aws_pattern("Appflow", "CustomAuthenticationType")]
     credentialsMap: Optional[Dict[str, str]] = None
 
 
 class ErrorHandlingConfigTypeDef(BaseValidatorModel):
     failOnFirstDestinationError: Optional[bool] = None
-    bucketPrefix: Optional[str] = None
-    bucketName: Optional[str] = None
+    bucketPrefix: Optional[Annotated[str, _aws_pattern("Appflow", "BucketPrefix")]] = None
+    bucketName: Optional[Annotated[str, _aws_pattern("Appflow", "BucketName")]] = None
 
 
 class OAuth2PropertiesOutputTypeDef(BaseValidatorModel):
@@ -320,79 +326,79 @@ class OAuth2PropertiesOutputTypeDef(BaseValidatorModel):
 
 
 class CustomerProfilesDestinationPropertiesTypeDef(BaseValidatorModel):
-    domainName: str
-    objectTypeName: Optional[str] = None
+    domainName: Annotated[str, _aws_pattern("Appflow", "DomainName")]
+    objectTypeName: Optional[Annotated[str, _aws_pattern("Appflow", "ObjectTypeName")]] = None
 
 
 class DatadogSourcePropertiesTypeDef(BaseValidatorModel):
-    object: str
+    object: Annotated[str, _aws_pattern("Appflow", "Object")]
 
 
 class DeleteConnectorProfileRequestTypeDef(BaseValidatorModel):
-    connectorProfileName: str
+    connectorProfileName: Annotated[str, _aws_pattern("Appflow", "ConnectorProfileName")]
     forceDelete: Optional[bool] = None
 
 
 class DeleteFlowRequestTypeDef(BaseValidatorModel):
-    flowName: str
+    flowName: Annotated[str, _aws_pattern("Appflow", "FlowName")]
     forceDelete: Optional[bool] = None
 
 
 # This class is the input for the 'describe_connector_entity' function.
 class DescribeConnectorEntityRequestTypeDef(BaseValidatorModel):
-    connectorEntityName: str
+    connectorEntityName: Annotated[str, _aws_pattern("Appflow", "EntityName")]
     connectorType: Optional[ConnectorTypeType] = None
-    connectorProfileName: Optional[str] = None
-    apiVersion: Optional[str] = None
+    connectorProfileName: Optional[Annotated[str, _aws_pattern("Appflow", "ConnectorProfileName")]] = None
+    apiVersion: Optional[Annotated[str, _aws_pattern("Appflow", "ApiVersion")]] = None
 
 
 # This class is the input for the 'describe_connector_profiles' function.
 class DescribeConnectorProfilesRequestTypeDef(BaseValidatorModel):
-    connectorProfileNames: Optional[List[str]] = None
+    connectorProfileNames: Optional[List[Annotated[str, _aws_pattern("Appflow", "ConnectorProfileName")]]] = None
     connectorType: Optional[ConnectorTypeType] = None
-    connectorLabel: Optional[str] = None
+    connectorLabel: Optional[Annotated[str, _aws_pattern("Appflow", "ConnectorLabel")]] = None
     maxResults: Optional[int] = None
-    nextToken: Optional[str] = None
+    nextToken: Optional[Annotated[str, _aws_pattern("Appflow", "NextToken")]] = None
 
 
 # This class is the input for the 'describe_connector' function.
 class DescribeConnectorRequestTypeDef(BaseValidatorModel):
     connectorType: ConnectorTypeType
-    connectorLabel: Optional[str] = None
+    connectorLabel: Optional[Annotated[str, _aws_pattern("Appflow", "ConnectorLabel")]] = None
 
 
 # This class is the input for the 'describe_connectors' function.
 class DescribeConnectorsRequestTypeDef(BaseValidatorModel):
     connectorTypes: Optional[List[ConnectorTypeType]] = None
     maxResults: Optional[int] = None
-    nextToken: Optional[str] = None
+    nextToken: Optional[Annotated[str, _aws_pattern("Appflow", "NextToken")]] = None
 
 
 # This class is the input for the 'describe_flow_execution_records' function.
 class DescribeFlowExecutionRecordsRequestTypeDef(BaseValidatorModel):
-    flowName: str
+    flowName: Annotated[str, _aws_pattern("Appflow", "FlowName")]
     maxResults: Optional[int] = None
-    nextToken: Optional[str] = None
+    nextToken: Optional[Annotated[str, _aws_pattern("Appflow", "NextToken")]] = None
 
 
 # This class is the input for the 'describe_flow' function.
 class DescribeFlowRequestTypeDef(BaseValidatorModel):
-    flowName: str
+    flowName: Annotated[str, _aws_pattern("Appflow", "FlowName")]
 
 
 class ExecutionDetailsTypeDef(BaseValidatorModel):
-    mostRecentExecutionMessage: Optional[str] = None
+    mostRecentExecutionMessage: Optional[Annotated[str, _aws_pattern("Appflow", "MostRecentExecutionMessage")]] = None
     mostRecentExecutionTime: Optional[datetime] = None
     mostRecentExecutionStatus: Optional[ExecutionStatusType] = None
 
 
 class DynatraceSourcePropertiesTypeDef(BaseValidatorModel):
-    object: str
+    object: Annotated[str, _aws_pattern("Appflow", "Object")]
 
 
 class ErrorInfoTypeDef(BaseValidatorModel):
     putFailuresCount: Optional[int] = None
-    executionMessage: Optional[str] = None
+    executionMessage: Optional[Annotated[str, _aws_pattern("Appflow", "ExecutionMessage")]] = None
 
 
 class RangeTypeDef(BaseValidatorModel):
@@ -401,72 +407,72 @@ class RangeTypeDef(BaseValidatorModel):
 
 
 class GlueDataCatalogConfigTypeDef(BaseValidatorModel):
-    roleArn: str
-    databaseName: str
-    tablePrefix: str
+    roleArn: Annotated[str, _aws_pattern("Appflow", "GlueDataCatalogIAMRole")]
+    databaseName: Annotated[str, _aws_pattern("Appflow", "GlueDataCatalogDatabaseName")]
+    tablePrefix: Annotated[str, _aws_pattern("Appflow", "GlueDataCatalogTablePrefix")]
 
 
 class GoogleAnalyticsSourcePropertiesTypeDef(BaseValidatorModel):
-    object: str
+    object: Annotated[str, _aws_pattern("Appflow", "Object")]
 
 
 class IncrementalPullConfigTypeDef(BaseValidatorModel):
-    datetimeTypeFieldName: Optional[str] = None
+    datetimeTypeFieldName: Optional[Annotated[str, _aws_pattern("Appflow", "DatetimeTypeFieldName")]] = None
 
 
 class InforNexusSourcePropertiesTypeDef(BaseValidatorModel):
-    object: str
+    object: Annotated[str, _aws_pattern("Appflow", "Object")]
 
 
 # This class is the input for the 'list_connector_entities' function.
 class ListConnectorEntitiesRequestTypeDef(BaseValidatorModel):
-    connectorProfileName: Optional[str] = None
+    connectorProfileName: Optional[Annotated[str, _aws_pattern("Appflow", "ConnectorProfileName")]] = None
     connectorType: Optional[ConnectorTypeType] = None
-    entitiesPath: Optional[str] = None
-    apiVersion: Optional[str] = None
+    entitiesPath: Optional[Annotated[str, _aws_pattern("Appflow", "EntitiesPath")]] = None
+    apiVersion: Optional[Annotated[str, _aws_pattern("Appflow", "ApiVersion")]] = None
     maxResults: Optional[int] = None
-    nextToken: Optional[str] = None
+    nextToken: Optional[Annotated[str, _aws_pattern("Appflow", "NextToken")]] = None
 
 
 # This class is the input for the 'list_connectors' function.
 class ListConnectorsRequestTypeDef(BaseValidatorModel):
     maxResults: Optional[int] = None
-    nextToken: Optional[str] = None
+    nextToken: Optional[Annotated[str, _aws_pattern("Appflow", "NextToken")]] = None
 
 
 # This class is the input for the 'list_flows' function.
 class ListFlowsRequestTypeDef(BaseValidatorModel):
     maxResults: Optional[int] = None
-    nextToken: Optional[str] = None
+    nextToken: Optional[Annotated[str, _aws_pattern("Appflow", "NextToken")]] = None
 
 
 # This class is the input for the 'list_tags_for_resource' function.
 class ListTagsForResourceRequestTypeDef(BaseValidatorModel):
-    resourceArn: str
+    resourceArn: Annotated[str, _aws_pattern("Appflow", "ARN")]
 
 
 class MarketoSourcePropertiesTypeDef(BaseValidatorModel):
-    object: str
+    object: Annotated[str, _aws_pattern("Appflow", "Object")]
 
 
 class RegistrationOutputTypeDef(BaseValidatorModel):
-    message: Optional[str] = None
-    result: Optional[str] = None
+    message: Optional[Annotated[str, _aws_pattern("Appflow", "String")]] = None
+    result: Optional[Annotated[str, _aws_pattern("Appflow", "String")]] = None
     status: Optional[ExecutionStatusType] = None
 
 
 class OAuth2CustomParameterTypeDef(BaseValidatorModel):
-    key: Optional[str] = None
+    key: Optional[Annotated[str, _aws_pattern("Appflow", "Key")]] = None
     isRequired: Optional[bool] = None
-    label: Optional[str] = None
-    description: Optional[str] = None
+    label: Optional[Annotated[str, _aws_pattern("Appflow", "Label")]] = None
+    description: Optional[Annotated[str, _aws_pattern("Appflow", "Description")]] = None
     isSensitiveField: Optional[bool] = None
-    connectorSuppliedValues: Optional[List[str]] = None
+    connectorSuppliedValues: Optional[List[Annotated[str, _aws_pattern("Appflow", "ConnectorSuppliedValue")]]] = None
     type: Optional[OAuth2CustomPropTypeType] = None
 
 
 class OAuth2PropertiesTypeDef(BaseValidatorModel):
-    tokenUrl: str
+    tokenUrl: Annotated[str, _aws_pattern("Appflow", "TokenUrl")]
     oAuth2GrantType: OAuth2GrantTypeType
     tokenUrlCustomProperties: Optional[Dict[str, str]] = None
 
@@ -478,13 +484,13 @@ class OAuthPropertiesOutputTypeDef(BaseValidatorModel):
 
 
 class OAuthPropertiesTypeDef(BaseValidatorModel):
-    tokenUrl: str
-    authCodeUrl: str
-    oAuthScopes: List[str]
+    tokenUrl: Annotated[str, _aws_pattern("Appflow", "TokenUrl")]
+    authCodeUrl: Annotated[str, _aws_pattern("Appflow", "AuthCodeUrl")]
+    oAuthScopes: List[Annotated[str, _aws_pattern("Appflow", "OAuthScope")]]
 
 
 class PardotSourcePropertiesTypeDef(BaseValidatorModel):
-    object: str
+    object: Annotated[str, _aws_pattern("Appflow", "Object")]
 
 
 class PrefixConfigOutputTypeDef(BaseValidatorModel):
@@ -500,11 +506,11 @@ class PrefixConfigTypeDef(BaseValidatorModel):
 
 
 class ResetConnectorMetadataCacheRequestTypeDef(BaseValidatorModel):
-    connectorProfileName: Optional[str] = None
+    connectorProfileName: Optional[Annotated[str, _aws_pattern("Appflow", "ConnectorProfileName")]] = None
     connectorType: Optional[ConnectorTypeType] = None
-    connectorEntityName: Optional[str] = None
-    entitiesPath: Optional[str] = None
-    apiVersion: Optional[str] = None
+    connectorEntityName: Optional[Annotated[str, _aws_pattern("Appflow", "EntityName")]] = None
+    entitiesPath: Optional[Annotated[str, _aws_pattern("Appflow", "EntitiesPath")]] = None
+    apiVersion: Optional[Annotated[str, _aws_pattern("Appflow", "ApiVersion")]] = None
 
 
 class S3InputFormatConfigTypeDef(BaseValidatorModel):
@@ -512,8 +518,8 @@ class S3InputFormatConfigTypeDef(BaseValidatorModel):
 
 
 class SuccessResponseHandlingConfigTypeDef(BaseValidatorModel):
-    bucketPrefix: Optional[str] = None
-    bucketName: Optional[str] = None
+    bucketPrefix: Optional[Annotated[str, _aws_pattern("Appflow", "BucketPrefix")]] = None
+    bucketName: Optional[Annotated[str, _aws_pattern("Appflow", "BucketName")]] = None
 
 
 class SAPODataPaginationConfigTypeDef(BaseValidatorModel):
@@ -525,7 +531,7 @@ class SAPODataParallelismConfigTypeDef(BaseValidatorModel):
 
 
 class SalesforceSourcePropertiesTypeDef(BaseValidatorModel):
-    object: str
+    object: Annotated[str, _aws_pattern("Appflow", "Object")]
     enableDynamicFieldUpdate: Optional[bool] = None
     includeDeletedRecords: Optional[bool] = None
     dataTransferApi: Optional[SalesforceDataTransferApiType] = None
@@ -546,79 +552,79 @@ TimestampTypeDef = Union[datetime, str]
 
 
 class ServiceNowSourcePropertiesTypeDef(BaseValidatorModel):
-    object: str
+    object: Annotated[str, _aws_pattern("Appflow", "Object")]
 
 
 class SingularSourcePropertiesTypeDef(BaseValidatorModel):
-    object: str
+    object: Annotated[str, _aws_pattern("Appflow", "Object")]
 
 
 class SlackSourcePropertiesTypeDef(BaseValidatorModel):
-    object: str
+    object: Annotated[str, _aws_pattern("Appflow", "Object")]
 
 
 class TrendmicroSourcePropertiesTypeDef(BaseValidatorModel):
-    object: str
+    object: Annotated[str, _aws_pattern("Appflow", "Object")]
 
 
 class VeevaSourcePropertiesTypeDef(BaseValidatorModel):
-    object: str
-    documentType: Optional[str] = None
+    object: Annotated[str, _aws_pattern("Appflow", "Object")]
+    documentType: Optional[Annotated[str, _aws_pattern("Appflow", "DocumentType")]] = None
     includeSourceFiles: Optional[bool] = None
     includeRenditions: Optional[bool] = None
     includeAllVersions: Optional[bool] = None
 
 
 class ZendeskSourcePropertiesTypeDef(BaseValidatorModel):
-    object: str
+    object: Annotated[str, _aws_pattern("Appflow", "Object")]
 
 
 # This class is the input for the 'start_flow' function.
 class StartFlowRequestTypeDef(BaseValidatorModel):
-    flowName: str
-    clientToken: Optional[str] = None
+    flowName: Annotated[str, _aws_pattern("Appflow", "FlowName")]
+    clientToken: Optional[Annotated[str, _aws_pattern("Appflow", "ClientToken")]] = None
 
 
 # This class is the input for the 'stop_flow' function.
 class StopFlowRequestTypeDef(BaseValidatorModel):
-    flowName: str
+    flowName: Annotated[str, _aws_pattern("Appflow", "FlowName")]
 
 
 class TagResourceRequestTypeDef(BaseValidatorModel):
-    resourceArn: str
+    resourceArn: Annotated[str, _aws_pattern("Appflow", "ARN")]
     tags: Dict[str, str]
 
 
 class UnregisterConnectorRequestTypeDef(BaseValidatorModel):
-    connectorLabel: str
+    connectorLabel: Annotated[str, _aws_pattern("Appflow", "ConnectorLabel")]
     forceDelete: Optional[bool] = None
 
 
 class UntagResourceRequestTypeDef(BaseValidatorModel):
-    resourceArn: str
-    tagKeys: List[str]
+    resourceArn: Annotated[str, _aws_pattern("Appflow", "ARN")]
+    tagKeys: List[Annotated[str, _aws_pattern("Appflow", "TagKey")]]
 
 
 class CustomAuthConfigTypeDef(BaseValidatorModel):
-    customAuthenticationType: Optional[str] = None
+    customAuthenticationType: Optional[Annotated[str, _aws_pattern("Appflow", "CustomAuthenticationType")]] = None
     authParameters: Optional[List[AuthParameterTypeDef]] = None
 
 
 # This class is the output for the 'cancel_flow_executions' function.
 class CancelFlowExecutionsResponseTypeDef(BaseValidatorModel):
-    invalidExecutions: List[str]
+    invalidExecutions: List[Annotated[str, _aws_pattern("Appflow", "ExecutionId")]]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 # This class is the output for the 'create_connector_profile' function.
 class CreateConnectorProfileResponseTypeDef(BaseValidatorModel):
-    connectorProfileArn: str
+    connectorProfileArn: Annotated[str, _aws_pattern("Appflow", "ConnectorProfileArn")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 # This class is the output for the 'create_flow' function.
 class CreateFlowResponseTypeDef(BaseValidatorModel):
-    flowArn: str
+    flowArn: Annotated[str, _aws_pattern("Appflow", "FlowArn")]
     flowStatus: FlowStatusType
     ResponseMetadata: ResponseMetadataTypeDef
 
@@ -631,34 +637,34 @@ class ListTagsForResourceResponseTypeDef(BaseValidatorModel):
 
 # This class is the output for the 'register_connector' function.
 class RegisterConnectorResponseTypeDef(BaseValidatorModel):
-    connectorArn: str
+    connectorArn: Annotated[str, _aws_pattern("Appflow", "ARN")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 # This class is the output for the 'start_flow' function.
 class StartFlowResponseTypeDef(BaseValidatorModel):
-    flowArn: str
+    flowArn: Annotated[str, _aws_pattern("Appflow", "FlowArn")]
     flowStatus: FlowStatusType
-    executionId: str
+    executionId: Annotated[str, _aws_pattern("Appflow", "ExecutionId")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 # This class is the output for the 'stop_flow' function.
 class StopFlowResponseTypeDef(BaseValidatorModel):
-    flowArn: str
+    flowArn: Annotated[str, _aws_pattern("Appflow", "FlowArn")]
     flowStatus: FlowStatusType
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 # This class is the output for the 'update_connector_profile' function.
 class UpdateConnectorProfileResponseTypeDef(BaseValidatorModel):
-    connectorProfileArn: str
+    connectorProfileArn: Annotated[str, _aws_pattern("Appflow", "ConnectorProfileArn")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 # This class is the output for the 'update_connector_registration' function.
 class UpdateConnectorRegistrationResponseTypeDef(BaseValidatorModel):
-    connectorArn: str
+    connectorArn: Annotated[str, _aws_pattern("Appflow", "ARN")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
@@ -675,7 +681,7 @@ class CustomConnectorSourcePropertiesOutputTypeDef(BaseValidatorModel):
 
 
 class CustomConnectorSourcePropertiesTypeDef(BaseValidatorModel):
-    entityName: str
+    entityName: Annotated[str, _aws_pattern("Appflow", "EntityName")]
     customProperties: Optional[Dict[str, str]] = None
     dataTransferApi: Optional[DataTransferApiTypeDef] = None
 
@@ -684,14 +690,14 @@ class CustomConnectorSourcePropertiesTypeDef(BaseValidatorModel):
 class ListConnectorsResponseTypeDef(BaseValidatorModel):
     connectors: List[ConnectorDetailTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
-    nextToken: Optional[str] = None
+    nextToken: Optional[Annotated[str, _aws_pattern("Appflow", "NextToken")]] = None
 
 
 # This class is the output for the 'list_connector_entities' function.
 class ListConnectorEntitiesResponseTypeDef(BaseValidatorModel):
     connectorEntityMap: Dict[str, List[ConnectorEntityTypeDef]]
     ResponseMetadata: ResponseMetadataTypeDef
-    nextToken: Optional[str] = None
+    nextToken: Optional[Annotated[str, _aws_pattern("Appflow", "NextToken")]] = None
 
 
 class ConnectorMetadataTypeDef(BaseValidatorModel):
@@ -720,69 +726,69 @@ class ConnectorMetadataTypeDef(BaseValidatorModel):
 
 
 class GoogleAnalyticsConnectorProfileCredentialsTypeDef(BaseValidatorModel):
-    clientId: str
-    clientSecret: str
-    accessToken: Optional[str] = None
-    refreshToken: Optional[str] = None
+    clientId: Annotated[str, _aws_pattern("Appflow", "ClientId")]
+    clientSecret: Annotated[str, _aws_pattern("Appflow", "ClientSecret")]
+    accessToken: Optional[Annotated[str, _aws_pattern("Appflow", "AccessToken")]] = None
+    refreshToken: Optional[Annotated[str, _aws_pattern("Appflow", "RefreshToken")]] = None
     oAuthRequest: Optional[ConnectorOAuthRequestTypeDef] = None
 
 
 class HoneycodeConnectorProfileCredentialsTypeDef(BaseValidatorModel):
-    accessToken: Optional[str] = None
-    refreshToken: Optional[str] = None
+    accessToken: Optional[Annotated[str, _aws_pattern("Appflow", "AccessToken")]] = None
+    refreshToken: Optional[Annotated[str, _aws_pattern("Appflow", "RefreshToken")]] = None
     oAuthRequest: Optional[ConnectorOAuthRequestTypeDef] = None
 
 
 class MarketoConnectorProfileCredentialsTypeDef(BaseValidatorModel):
-    clientId: str
-    clientSecret: str
-    accessToken: Optional[str] = None
+    clientId: Annotated[str, _aws_pattern("Appflow", "ClientId")]
+    clientSecret: Annotated[str, _aws_pattern("Appflow", "ClientSecret")]
+    accessToken: Optional[Annotated[str, _aws_pattern("Appflow", "AccessToken")]] = None
     oAuthRequest: Optional[ConnectorOAuthRequestTypeDef] = None
 
 
 class OAuth2CredentialsTypeDef(BaseValidatorModel):
-    clientId: Optional[str] = None
-    clientSecret: Optional[str] = None
-    accessToken: Optional[str] = None
-    refreshToken: Optional[str] = None
+    clientId: Optional[Annotated[str, _aws_pattern("Appflow", "ClientId")]] = None
+    clientSecret: Optional[Annotated[str, _aws_pattern("Appflow", "ClientSecret")]] = None
+    accessToken: Optional[Annotated[str, _aws_pattern("Appflow", "AccessToken")]] = None
+    refreshToken: Optional[Annotated[str, _aws_pattern("Appflow", "RefreshToken")]] = None
     oAuthRequest: Optional[ConnectorOAuthRequestTypeDef] = None
 
 
 class OAuthCredentialsTypeDef(BaseValidatorModel):
-    clientId: str
-    clientSecret: str
-    accessToken: Optional[str] = None
-    refreshToken: Optional[str] = None
+    clientId: Annotated[str, _aws_pattern("Appflow", "ClientId")]
+    clientSecret: Annotated[str, _aws_pattern("Appflow", "ClientSecret")]
+    accessToken: Optional[Annotated[str, _aws_pattern("Appflow", "AccessToken")]] = None
+    refreshToken: Optional[Annotated[str, _aws_pattern("Appflow", "RefreshToken")]] = None
     oAuthRequest: Optional[ConnectorOAuthRequestTypeDef] = None
 
 
 class PardotConnectorProfileCredentialsTypeDef(BaseValidatorModel):
-    accessToken: Optional[str] = None
-    refreshToken: Optional[str] = None
+    accessToken: Optional[Annotated[str, _aws_pattern("Appflow", "AccessToken")]] = None
+    refreshToken: Optional[Annotated[str, _aws_pattern("Appflow", "RefreshToken")]] = None
     oAuthRequest: Optional[ConnectorOAuthRequestTypeDef] = None
-    clientCredentialsArn: Optional[str] = None
+    clientCredentialsArn: Optional[Annotated[str, _aws_pattern("Appflow", "ClientCredentialsArn")]] = None
 
 
 class SalesforceConnectorProfileCredentialsTypeDef(BaseValidatorModel):
-    accessToken: Optional[str] = None
-    refreshToken: Optional[str] = None
+    accessToken: Optional[Annotated[str, _aws_pattern("Appflow", "AccessToken")]] = None
+    refreshToken: Optional[Annotated[str, _aws_pattern("Appflow", "RefreshToken")]] = None
     oAuthRequest: Optional[ConnectorOAuthRequestTypeDef] = None
-    clientCredentialsArn: Optional[str] = None
+    clientCredentialsArn: Optional[Annotated[str, _aws_pattern("Appflow", "ClientCredentialsArn")]] = None
     oAuth2GrantType: Optional[OAuth2GrantTypeType] = None
-    jwtToken: Optional[str] = None
+    jwtToken: Optional[Annotated[str, _aws_pattern("Appflow", "JwtToken")]] = None
 
 
 class SlackConnectorProfileCredentialsTypeDef(BaseValidatorModel):
-    clientId: str
-    clientSecret: str
-    accessToken: Optional[str] = None
+    clientId: Annotated[str, _aws_pattern("Appflow", "ClientId")]
+    clientSecret: Annotated[str, _aws_pattern("Appflow", "ClientSecret")]
+    accessToken: Optional[Annotated[str, _aws_pattern("Appflow", "AccessToken")]] = None
     oAuthRequest: Optional[ConnectorOAuthRequestTypeDef] = None
 
 
 class ZendeskConnectorProfileCredentialsTypeDef(BaseValidatorModel):
-    clientId: str
-    clientSecret: str
-    accessToken: Optional[str] = None
+    clientId: Annotated[str, _aws_pattern("Appflow", "ClientId")]
+    clientSecret: Annotated[str, _aws_pattern("Appflow", "ClientSecret")]
+    accessToken: Optional[Annotated[str, _aws_pattern("Appflow", "AccessToken")]] = None
     oAuthRequest: Optional[ConnectorOAuthRequestTypeDef] = None
 
 
@@ -795,10 +801,10 @@ class TaskOutputTypeDef(BaseValidatorModel):
 
 
 class TaskTypeDef(BaseValidatorModel):
-    sourceFields: List[str]
+    sourceFields: List[Annotated[str, _aws_pattern("Appflow", "String")]]
     taskType: TaskTypeType
     connectorOperator: Optional[ConnectorOperatorTypeDef] = None
-    destinationField: Optional[str] = None
+    destinationField: Optional[Annotated[str, _aws_pattern("Appflow", "DestinationField")]] = None
     taskProperties: Optional[Dict[OperatorPropertiesKeysType, str]] = None
 
 
@@ -815,32 +821,32 @@ class CustomConnectorDestinationPropertiesOutputTypeDef(BaseValidatorModel):
 
 
 class CustomConnectorDestinationPropertiesTypeDef(BaseValidatorModel):
-    entityName: str
+    entityName: Annotated[str, _aws_pattern("Appflow", "EntityName")]
     errorHandlingConfig: Optional[ErrorHandlingConfigTypeDef] = None
     writeOperationType: Optional[WriteOperationTypeType] = None
-    idFieldNames: Optional[List[str]] = None
+    idFieldNames: Optional[List[Annotated[str, _aws_pattern("Appflow", "Name")]]] = None
     customProperties: Optional[Dict[str, str]] = None
 
 
 class EventBridgeDestinationPropertiesTypeDef(BaseValidatorModel):
-    object: str
+    object: Annotated[str, _aws_pattern("Appflow", "Object")]
     errorHandlingConfig: Optional[ErrorHandlingConfigTypeDef] = None
 
 
 class HoneycodeDestinationPropertiesTypeDef(BaseValidatorModel):
-    object: str
+    object: Annotated[str, _aws_pattern("Appflow", "Object")]
     errorHandlingConfig: Optional[ErrorHandlingConfigTypeDef] = None
 
 
 class MarketoDestinationPropertiesTypeDef(BaseValidatorModel):
-    object: str
+    object: Annotated[str, _aws_pattern("Appflow", "Object")]
     errorHandlingConfig: Optional[ErrorHandlingConfigTypeDef] = None
 
 
 class RedshiftDestinationPropertiesTypeDef(BaseValidatorModel):
-    object: str
-    intermediateBucketName: str
-    bucketPrefix: Optional[str] = None
+    object: Annotated[str, _aws_pattern("Appflow", "Object")]
+    intermediateBucketName: Annotated[str, _aws_pattern("Appflow", "BucketName")]
+    bucketPrefix: Optional[Annotated[str, _aws_pattern("Appflow", "BucketPrefix")]] = None
     errorHandlingConfig: Optional[ErrorHandlingConfigTypeDef] = None
 
 
@@ -853,17 +859,17 @@ class SalesforceDestinationPropertiesOutputTypeDef(BaseValidatorModel):
 
 
 class SalesforceDestinationPropertiesTypeDef(BaseValidatorModel):
-    object: str
-    idFieldNames: Optional[List[str]] = None
+    object: Annotated[str, _aws_pattern("Appflow", "Object")]
+    idFieldNames: Optional[List[Annotated[str, _aws_pattern("Appflow", "Name")]]] = None
     errorHandlingConfig: Optional[ErrorHandlingConfigTypeDef] = None
     writeOperationType: Optional[WriteOperationTypeType] = None
     dataTransferApi: Optional[SalesforceDataTransferApiType] = None
 
 
 class SnowflakeDestinationPropertiesTypeDef(BaseValidatorModel):
-    object: str
-    intermediateBucketName: str
-    bucketPrefix: Optional[str] = None
+    object: Annotated[str, _aws_pattern("Appflow", "Object")]
+    intermediateBucketName: Annotated[str, _aws_pattern("Appflow", "BucketName")]
+    bucketPrefix: Optional[Annotated[str, _aws_pattern("Appflow", "BucketPrefix")]] = None
     errorHandlingConfig: Optional[ErrorHandlingConfigTypeDef] = None
 
 
@@ -875,8 +881,8 @@ class ZendeskDestinationPropertiesOutputTypeDef(BaseValidatorModel):
 
 
 class ZendeskDestinationPropertiesTypeDef(BaseValidatorModel):
-    object: str
-    idFieldNames: Optional[List[str]] = None
+    object: Annotated[str, _aws_pattern("Appflow", "Object")]
+    idFieldNames: Optional[List[Annotated[str, _aws_pattern("Appflow", "Name")]]] = None
     errorHandlingConfig: Optional[ErrorHandlingConfigTypeDef] = None
     writeOperationType: Optional[WriteOperationTypeType] = None
 
@@ -887,19 +893,19 @@ class CustomConnectorProfilePropertiesOutputTypeDef(BaseValidatorModel):
 
 
 class FlowDefinitionTypeDef(BaseValidatorModel):
-    flowArn: Optional[str] = None
-    description: Optional[str] = None
-    flowName: Optional[str] = None
+    flowArn: Optional[Annotated[str, _aws_pattern("Appflow", "FlowArn")]] = None
+    description: Optional[Annotated[str, _aws_pattern("Appflow", "FlowDescription")]] = None
+    flowName: Optional[Annotated[str, _aws_pattern("Appflow", "FlowName")]] = None
     flowStatus: Optional[FlowStatusType] = None
     sourceConnectorType: Optional[ConnectorTypeType] = None
-    sourceConnectorLabel: Optional[str] = None
+    sourceConnectorLabel: Optional[Annotated[str, _aws_pattern("Appflow", "ConnectorLabel")]] = None
     destinationConnectorType: Optional[ConnectorTypeType] = None
-    destinationConnectorLabel: Optional[str] = None
+    destinationConnectorLabel: Optional[Annotated[str, _aws_pattern("Appflow", "ConnectorLabel")]] = None
     triggerType: Optional[TriggerTypeType] = None
     createdAt: Optional[datetime] = None
     lastUpdatedAt: Optional[datetime] = None
-    createdBy: Optional[str] = None
-    lastUpdatedBy: Optional[str] = None
+    createdBy: Optional[Annotated[str, _aws_pattern("Appflow", "CreatedBy")]] = None
+    lastUpdatedBy: Optional[Annotated[str, _aws_pattern("Appflow", "UpdatedBy")]] = None
     tags: Optional[Dict[str, str]] = None
     lastRunExecutionDetails: Optional[ExecutionDetailsTypeDef] = None
 
@@ -916,9 +922,9 @@ class ExecutionResultTypeDef(BaseValidatorModel):
 class FieldTypeDetailsTypeDef(BaseValidatorModel):
     fieldType: str
     filterOperators: List[OperatorType]
-    supportedValues: Optional[List[str]] = None
-    valueRegexPattern: Optional[str] = None
-    supportedDateFormat: Optional[str] = None
+    supportedValues: Optional[List[Annotated[str, _aws_pattern("Appflow", "Value")]]] = None
+    valueRegexPattern: Optional[Annotated[str, _aws_pattern("Appflow", "String")]] = None
+    supportedDateFormat: Optional[Annotated[str, _aws_pattern("Appflow", "String")]] = None
     fieldValueRange: Optional[RangeTypeDef] = None
     fieldLengthRange: Optional[RangeTypeDef] = None
 
@@ -929,15 +935,15 @@ class MetadataCatalogConfigTypeDef(BaseValidatorModel):
 
 class MetadataCatalogDetailTypeDef(BaseValidatorModel):
     catalogType: Optional[Literal["GLUE"]] = None
-    tableName: Optional[str] = None
+    tableName: Optional[Annotated[str, _aws_pattern("Appflow", "String")]] = None
     tableRegistrationOutput: Optional[RegistrationOutputTypeDef] = None
     partitionRegistrationOutput: Optional[RegistrationOutputTypeDef] = None
 
 
 class OAuth2DefaultsTypeDef(BaseValidatorModel):
-    oauthScopes: Optional[List[str]] = None
-    tokenUrls: Optional[List[str]] = None
-    authCodeUrls: Optional[List[str]] = None
+    oauthScopes: Optional[List[Annotated[str, _aws_pattern("Appflow", "OAuthScope")]]] = None
+    tokenUrls: Optional[List[Annotated[str, _aws_pattern("Appflow", "TokenUrl")]]] = None
+    authCodeUrls: Optional[List[Annotated[str, _aws_pattern("Appflow", "AuthCodeUrl")]]] = None
     oauth2GrantTypesSupported: Optional[List[OAuth2GrantTypeType]] = None
     oauth2CustomProperties: Optional[List[OAuth2CustomParameterTypeDef]] = None
 
@@ -976,8 +982,8 @@ PrefixConfigUnionTypeDef = Union[PrefixConfigOutputTypeDef, PrefixConfigTypeDef]
 
 
 class S3SourcePropertiesTypeDef(BaseValidatorModel):
-    bucketName: str
-    bucketPrefix: Optional[str] = None
+    bucketName: Annotated[str, _aws_pattern("Appflow", "BucketName")]
+    bucketPrefix: Optional[Annotated[str, _aws_pattern("Appflow", "BucketPrefix")]] = None
     s3InputFormatConfig: Optional[S3InputFormatConfigTypeDef] = None
 
 
@@ -990,15 +996,15 @@ class SAPODataDestinationPropertiesOutputTypeDef(BaseValidatorModel):
 
 
 class SAPODataDestinationPropertiesTypeDef(BaseValidatorModel):
-    objectPath: str
+    objectPath: Annotated[str, _aws_pattern("Appflow", "Object")]
     successResponseHandlingConfig: Optional[SuccessResponseHandlingConfigTypeDef] = None
-    idFieldNames: Optional[List[str]] = None
+    idFieldNames: Optional[List[Annotated[str, _aws_pattern("Appflow", "Name")]]] = None
     errorHandlingConfig: Optional[ErrorHandlingConfigTypeDef] = None
     writeOperationType: Optional[WriteOperationTypeType] = None
 
 
 class SAPODataSourcePropertiesTypeDef(BaseValidatorModel):
-    objectPath: Optional[str] = None
+    objectPath: Optional[Annotated[str, _aws_pattern("Appflow", "Object")]] = None
     parallelismConfig: Optional[SAPODataParallelismConfigTypeDef] = None
     paginationConfig: Optional[SAPODataPaginationConfigTypeDef] = None
 
@@ -1008,11 +1014,11 @@ class TriggerPropertiesOutputTypeDef(BaseValidatorModel):
 
 
 class ScheduledTriggerPropertiesTypeDef(BaseValidatorModel):
-    scheduleExpression: str
+    scheduleExpression: Annotated[str, _aws_pattern("Appflow", "ScheduleExpression")]
     dataPullMode: Optional[DataPullModeType] = None
     scheduleStartTime: Optional[TimestampTypeDef] = None
     scheduleEndTime: Optional[TimestampTypeDef] = None
-    timezone: Optional[str] = None
+    timezone: Optional[Annotated[str, _aws_pattern("Appflow", "Timezone")]] = None
     scheduleOffset: Optional[int] = None
     firstExecutionFrom: Optional[TimestampTypeDef] = None
     flowErrorDeactivationThreshold: Optional[int] = None
@@ -1027,8 +1033,8 @@ class CustomConnectorProfileCredentialsTypeDef(BaseValidatorModel):
 
 
 class ServiceNowConnectorProfileCredentialsTypeDef(BaseValidatorModel):
-    username: Optional[str] = None
-    password: Optional[str] = None
+    username: Optional[Annotated[str, _aws_pattern("Appflow", "Username")]] = None
+    password: Optional[Annotated[str, _aws_pattern("Appflow", "Password")]] = None
     oAuth2Credentials: Optional[OAuth2CredentialsTypeDef] = None
 
 
@@ -1042,19 +1048,19 @@ TaskUnionTypeDef = Union[TaskOutputTypeDef, TaskTypeDef]
 
 # This class is the input for the 'register_connector' function.
 class RegisterConnectorRequestTypeDef(BaseValidatorModel):
-    connectorLabel: Optional[str] = None
-    description: Optional[str] = None
+    connectorLabel: Optional[Annotated[str, _aws_pattern("Appflow", "ConnectorLabel")]] = None
+    description: Optional[Annotated[str, _aws_pattern("Appflow", "Description")]] = None
     connectorProvisioningType: Optional[Literal["LAMBDA"]] = None
     connectorProvisioningConfig: Optional[ConnectorProvisioningConfigTypeDef] = None
-    clientToken: Optional[str] = None
+    clientToken: Optional[Annotated[str, _aws_pattern("Appflow", "ClientToken")]] = None
 
 
 # This class is the input for the 'update_connector_registration' function.
 class UpdateConnectorRegistrationRequestTypeDef(BaseValidatorModel):
-    connectorLabel: str
-    description: Optional[str] = None
+    connectorLabel: Annotated[str, _aws_pattern("Appflow", "ConnectorLabel")]
+    description: Optional[Annotated[str, _aws_pattern("Appflow", "Description")]] = None
     connectorProvisioningConfig: Optional[ConnectorProvisioningConfigTypeDef] = None
-    clientToken: Optional[str] = None
+    clientToken: Optional[Annotated[str, _aws_pattern("Appflow", "ClientToken")]] = None
 
 
 CustomConnectorDestinationPropertiesUnionTypeDef = Union[
@@ -1074,7 +1080,7 @@ ZendeskDestinationPropertiesUnionTypeDef = Union[
 class ListFlowsResponseTypeDef(BaseValidatorModel):
     flows: List[FlowDefinitionTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
-    nextToken: Optional[str] = None
+    nextToken: Optional[Annotated[str, _aws_pattern("Appflow", "NextToken")]] = None
 
 
 class SupportedFieldTypeDetailsTypeDef(BaseValidatorModel):
@@ -1082,7 +1088,7 @@ class SupportedFieldTypeDetailsTypeDef(BaseValidatorModel):
 
 
 class ExecutionRecordTypeDef(BaseValidatorModel):
-    executionId: Optional[str] = None
+    executionId: Optional[Annotated[str, _aws_pattern("Appflow", "ExecutionId")]] = None
     executionStatus: Optional[ExecutionStatusType] = None
     executionResult: Optional[ExecutionResultTypeDef] = None
     startedAt: Optional[datetime] = None
@@ -1129,12 +1135,12 @@ class ConnectorProfilePropertiesOutputTypeDef(BaseValidatorModel):
 
 
 class SAPODataConnectorProfilePropertiesTypeDef(BaseValidatorModel):
-    applicationHostUrl: str
-    applicationServicePath: str
+    applicationHostUrl: Annotated[str, _aws_pattern("Appflow", "ApplicationHostUrl")]
+    applicationServicePath: Annotated[str, _aws_pattern("Appflow", "ApplicationServicePath")]
     portNumber: int
-    clientNumber: str
-    logonLanguage: Optional[str] = None
-    privateLinkServiceName: Optional[str] = None
+    clientNumber: Annotated[str, _aws_pattern("Appflow", "ClientNumber")]
+    logonLanguage: Optional[Annotated[str, _aws_pattern("Appflow", "LogonLanguage")]] = None
+    privateLinkServiceName: Optional[Annotated[str, _aws_pattern("Appflow", "PrivateLinkServiceName")]] = None
     oAuthProperties: Optional[OAuthPropertiesUnionTypeDef] = None
     disableSSO: Optional[bool] = None
 
@@ -1241,14 +1247,14 @@ class ConnectorProfileCredentialsTypeDef(BaseValidatorModel):
 
 
 class ConnectorEntityFieldTypeDef(BaseValidatorModel):
-    identifier: str
-    parentIdentifier: Optional[str] = None
-    label: Optional[str] = None
+    identifier: Annotated[str, _aws_pattern("Appflow", "Identifier")]
+    parentIdentifier: Optional[Annotated[str, _aws_pattern("Appflow", "Identifier")]] = None
+    label: Optional[Annotated[str, _aws_pattern("Appflow", "Label")]] = None
     isPrimaryKey: Optional[bool] = None
-    defaultValue: Optional[str] = None
+    defaultValue: Optional[Annotated[str, _aws_pattern("Appflow", "String")]] = None
     isDeprecated: Optional[bool] = None
     supportedFieldTypeDetails: Optional[SupportedFieldTypeDetailsTypeDef] = None
-    description: Optional[str] = None
+    description: Optional[Annotated[str, _aws_pattern("Appflow", "Description")]] = None
     sourceProperties: Optional[SourceFieldPropertiesTypeDef] = None
     destinationProperties: Optional[DestinationFieldPropertiesTypeDef] = None
     customProperties: Optional[Dict[str, str]] = None
@@ -1258,7 +1264,7 @@ class ConnectorEntityFieldTypeDef(BaseValidatorModel):
 class DescribeFlowExecutionRecordsResponseTypeDef(BaseValidatorModel):
     flowExecutions: List[ExecutionRecordTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
-    nextToken: Optional[str] = None
+    nextToken: Optional[Annotated[str, _aws_pattern("Appflow", "NextToken")]] = None
 
 
 class ConnectorConfigurationTypeDef(BaseValidatorModel):
@@ -1271,23 +1277,23 @@ class ConnectorConfigurationTypeDef(BaseValidatorModel):
     supportedTriggerTypes: Optional[List[TriggerTypeType]] = None
     connectorMetadata: Optional[ConnectorMetadataTypeDef] = None
     connectorType: Optional[ConnectorTypeType] = None
-    connectorLabel: Optional[str] = None
-    connectorDescription: Optional[str] = None
-    connectorOwner: Optional[str] = None
-    connectorName: Optional[str] = None
-    connectorVersion: Optional[str] = None
-    connectorArn: Optional[str] = None
-    connectorModes: Optional[List[str]] = None
+    connectorLabel: Optional[Annotated[str, _aws_pattern("Appflow", "ConnectorLabel")]] = None
+    connectorDescription: Optional[Annotated[str, _aws_pattern("Appflow", "ConnectorDescription")]] = None
+    connectorOwner: Optional[Annotated[str, _aws_pattern("Appflow", "ConnectorOwner")]] = None
+    connectorName: Optional[Annotated[str, _aws_pattern("Appflow", "ConnectorName")]] = None
+    connectorVersion: Optional[Annotated[str, _aws_pattern("Appflow", "ConnectorVersion")]] = None
+    connectorArn: Optional[Annotated[str, _aws_pattern("Appflow", "ARN")]] = None
+    connectorModes: Optional[List[Annotated[str, _aws_pattern("Appflow", "ConnectorMode")]]] = None
     authenticationConfig: Optional[AuthenticationConfigTypeDef] = None
     connectorRuntimeSettings: Optional[List[ConnectorRuntimeSettingTypeDef]] = None
-    supportedApiVersions: Optional[List[str]] = None
+    supportedApiVersions: Optional[List[Annotated[str, _aws_pattern("Appflow", "SupportedApiVersion")]]] = None
     supportedOperators: Optional[List[OperatorsType]] = None
     supportedWriteOperations: Optional[List[WriteOperationTypeType]] = None
     connectorProvisioningType: Optional[Literal["LAMBDA"]] = None
     connectorProvisioningConfig: Optional[ConnectorProvisioningConfigTypeDef] = None
-    logoURL: Optional[str] = None
+    logoURL: Optional[Annotated[str, _aws_pattern("Appflow", "LogoURL")]] = None
     registeredAt: Optional[datetime] = None
-    registeredBy: Optional[str] = None
+    registeredBy: Optional[Annotated[str, _aws_pattern("Appflow", "RegisteredBy")]] = None
     supportedDataTransferTypes: Optional[List[SupportedDataTransferTypeType]] = None
     supportedDataTransferApis: Optional[List[DataTransferApiTypeDef]] = None
 
@@ -1298,12 +1304,12 @@ CustomConnectorProfilePropertiesUnionTypeDef = Union[
 
 
 class ConnectorProfileTypeDef(BaseValidatorModel):
-    connectorProfileArn: Optional[str] = None
-    connectorProfileName: Optional[str] = None
+    connectorProfileArn: Optional[Annotated[str, _aws_pattern("Appflow", "ConnectorProfileArn")]] = None
+    connectorProfileName: Optional[Annotated[str, _aws_pattern("Appflow", "ConnectorProfileName")]] = None
     connectorType: Optional[ConnectorTypeType] = None
-    connectorLabel: Optional[str] = None
+    connectorLabel: Optional[Annotated[str, _aws_pattern("Appflow", "ConnectorLabel")]] = None
     connectionMode: Optional[ConnectionModeType] = None
-    credentialsArn: Optional[str] = None
+    credentialsArn: Optional[Annotated[str, _aws_pattern("Appflow", "ARN")]] = None
     connectorProfileProperties: Optional[ConnectorProfilePropertiesOutputTypeDef] = None
     createdAt: Optional[datetime] = None
     lastUpdatedAt: Optional[datetime] = None
@@ -1349,8 +1355,8 @@ class SourceFlowConfigOutputTypeDef(BaseValidatorModel):
 class SourceFlowConfigTypeDef(BaseValidatorModel):
     connectorType: ConnectorTypeType
     sourceConnectorProperties: SourceConnectorPropertiesTypeDef
-    apiVersion: Optional[str] = None
-    connectorProfileName: Optional[str] = None
+    apiVersion: Optional[Annotated[str, _aws_pattern("Appflow", "ApiVersion")]] = None
+    connectorProfileName: Optional[Annotated[str, _aws_pattern("Appflow", "ConnectorProfileName")]] = None
     incrementalPullConfig: Optional[IncrementalPullConfigTypeDef] = None
 
 
@@ -1376,14 +1382,14 @@ class DescribeConnectorsResponseTypeDef(BaseValidatorModel):
     connectorConfigurations: Dict[ConnectorTypeType, ConnectorConfigurationTypeDef]
     connectors: List[ConnectorDetailTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
-    nextToken: Optional[str] = None
+    nextToken: Optional[Annotated[str, _aws_pattern("Appflow", "NextToken")]] = None
 
 
 # This class is the output for the 'describe_connector_profiles' function.
 class DescribeConnectorProfilesResponseTypeDef(BaseValidatorModel):
     connectorProfileDetails: List[ConnectorProfileTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
-    nextToken: Optional[str] = None
+    nextToken: Optional[Annotated[str, _aws_pattern("Appflow", "NextToken")]] = None
 
 
 class ConnectorProfilePropertiesTypeDef(BaseValidatorModel):
@@ -1416,15 +1422,15 @@ class DestinationFlowConfigOutputTypeDef(BaseValidatorModel):
 
 
 class S3DestinationPropertiesTypeDef(BaseValidatorModel):
-    bucketName: str
-    bucketPrefix: Optional[str] = None
+    bucketName: Annotated[str, _aws_pattern("Appflow", "BucketName")]
+    bucketPrefix: Optional[Annotated[str, _aws_pattern("Appflow", "BucketPrefix")]] = None
     s3OutputFormatConfig: Optional[S3OutputFormatConfigUnionTypeDef] = None
 
 
 class UpsolverDestinationPropertiesTypeDef(BaseValidatorModel):
-    bucketName: str
+    bucketName: Annotated[str, _aws_pattern("Appflow", "UpsolverBucketName")]
     s3OutputFormatConfig: UpsolverS3OutputFormatConfigUnionTypeDef
-    bucketPrefix: Optional[str] = None
+    bucketPrefix: Optional[Annotated[str, _aws_pattern("Appflow", "BucketPrefix")]] = None
 
 
 SourceFlowConfigUnionTypeDef = Union[SourceFlowConfigOutputTypeDef, SourceFlowConfigTypeDef]
@@ -1438,12 +1444,12 @@ ConnectorProfilePropertiesUnionTypeDef = Union[
 
 # This class is the output for the 'describe_flow' function.
 class DescribeFlowResponseTypeDef(BaseValidatorModel):
-    flowArn: str
-    description: str
-    flowName: str
-    kmsArn: str
+    flowArn: Annotated[str, _aws_pattern("Appflow", "FlowArn")]
+    description: Annotated[str, _aws_pattern("Appflow", "FlowDescription")]
+    flowName: Annotated[str, _aws_pattern("Appflow", "FlowName")]
+    kmsArn: Annotated[str, _aws_pattern("Appflow", "KMSArn")]
     flowStatus: FlowStatusType
-    flowStatusMessage: str
+    flowStatusMessage: Annotated[str, _aws_pattern("Appflow", "FlowStatusMessage")]
     sourceFlowConfig: SourceFlowConfigOutputTypeDef
     destinationFlowConfigList: List[DestinationFlowConfigOutputTypeDef]
     lastRunExecutionDetails: ExecutionDetailsTypeDef
@@ -1451,8 +1457,8 @@ class DescribeFlowResponseTypeDef(BaseValidatorModel):
     tasks: List[TaskOutputTypeDef]
     createdAt: datetime
     lastUpdatedAt: datetime
-    createdBy: str
-    lastUpdatedBy: str
+    createdBy: Annotated[str, _aws_pattern("Appflow", "CreatedBy")]
+    lastUpdatedBy: Annotated[str, _aws_pattern("Appflow", "UpdatedBy")]
     tags: Dict[str, str]
     metadataCatalogConfig: MetadataCatalogConfigTypeDef
     lastRunMetadataCatalogDetails: List[MetadataCatalogDetailTypeDef]
@@ -1490,21 +1496,21 @@ class DestinationConnectorPropertiesTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'create_connector_profile' function.
 class CreateConnectorProfileRequestTypeDef(BaseValidatorModel):
-    connectorProfileName: str
+    connectorProfileName: Annotated[str, _aws_pattern("Appflow", "ConnectorProfileName")]
     connectorType: ConnectorTypeType
     connectionMode: ConnectionModeType
     connectorProfileConfig: ConnectorProfileConfigTypeDef
-    kmsArn: Optional[str] = None
-    connectorLabel: Optional[str] = None
-    clientToken: Optional[str] = None
+    kmsArn: Optional[Annotated[str, _aws_pattern("Appflow", "KMSArn")]] = None
+    connectorLabel: Optional[Annotated[str, _aws_pattern("Appflow", "ConnectorLabel")]] = None
+    clientToken: Optional[Annotated[str, _aws_pattern("Appflow", "ClientToken")]] = None
 
 
 # This class is the input for the 'update_connector_profile' function.
 class UpdateConnectorProfileRequestTypeDef(BaseValidatorModel):
-    connectorProfileName: str
+    connectorProfileName: Annotated[str, _aws_pattern("Appflow", "ConnectorProfileName")]
     connectionMode: ConnectionModeType
     connectorProfileConfig: ConnectorProfileConfigTypeDef
-    clientToken: Optional[str] = None
+    clientToken: Optional[Annotated[str, _aws_pattern("Appflow", "ClientToken")]] = None
 
 
 DestinationConnectorPropertiesUnionTypeDef = Union[
@@ -1515,8 +1521,8 @@ DestinationConnectorPropertiesUnionTypeDef = Union[
 class DestinationFlowConfigTypeDef(BaseValidatorModel):
     connectorType: ConnectorTypeType
     destinationConnectorProperties: DestinationConnectorPropertiesUnionTypeDef
-    apiVersion: Optional[str] = None
-    connectorProfileName: Optional[str] = None
+    apiVersion: Optional[Annotated[str, _aws_pattern("Appflow", "ApiVersion")]] = None
+    connectorProfileName: Optional[Annotated[str, _aws_pattern("Appflow", "ConnectorProfileName")]] = None
 
 
 DestinationFlowConfigUnionTypeDef = Union[DestinationFlowConfigOutputTypeDef, DestinationFlowConfigTypeDef]
@@ -1524,25 +1530,25 @@ DestinationFlowConfigUnionTypeDef = Union[DestinationFlowConfigOutputTypeDef, De
 
 # This class is the input for the 'create_flow' function.
 class CreateFlowRequestTypeDef(BaseValidatorModel):
-    flowName: str
+    flowName: Annotated[str, _aws_pattern("Appflow", "FlowName")]
     triggerConfig: TriggerConfigUnionTypeDef
     sourceFlowConfig: SourceFlowConfigUnionTypeDef
     destinationFlowConfigList: List[DestinationFlowConfigUnionTypeDef]
     tasks: List[TaskUnionTypeDef]
-    description: Optional[str] = None
-    kmsArn: Optional[str] = None
+    description: Optional[Annotated[str, _aws_pattern("Appflow", "FlowDescription")]] = None
+    kmsArn: Optional[Annotated[str, _aws_pattern("Appflow", "KMSArn")]] = None
     tags: Optional[Dict[str, str]] = None
     metadataCatalogConfig: Optional[MetadataCatalogConfigTypeDef] = None
-    clientToken: Optional[str] = None
+    clientToken: Optional[Annotated[str, _aws_pattern("Appflow", "ClientToken")]] = None
 
 
 # This class is the input for the 'update_flow' function.
 class UpdateFlowRequestTypeDef(BaseValidatorModel):
-    flowName: str
+    flowName: Annotated[str, _aws_pattern("Appflow", "FlowName")]
     triggerConfig: TriggerConfigUnionTypeDef
     sourceFlowConfig: SourceFlowConfigUnionTypeDef
     destinationFlowConfigList: List[DestinationFlowConfigUnionTypeDef]
     tasks: List[TaskUnionTypeDef]
-    description: Optional[str] = None
+    description: Optional[Annotated[str, _aws_pattern("Appflow", "FlowDescription")]] = None
     metadataCatalogConfig: Optional[MetadataCatalogConfigTypeDef] = None
-    clientToken: Optional[str] = None
+    clientToken: Optional[Annotated[str, _aws_pattern("Appflow", "ClientToken")]] = None

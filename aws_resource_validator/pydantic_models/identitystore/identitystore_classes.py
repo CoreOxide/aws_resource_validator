@@ -3,6 +3,7 @@
 from datetime import datetime
 from decimal import Decimal
 from typing import (
+    Annotated,
     Any,
     Callable,
     Dict,
@@ -24,6 +25,7 @@ from botocore.response import StreamingBody
 from pydantic import Field
 
 from aws_resource_validator.core.base_validator_model import BaseValidatorModel, EventStream
+from aws_resource_validator.core.pattern_validation import aws_field_pattern as _aws_pattern
 from aws_resource_validator.pydantic_models.identitystore.identitystore_constants import *  # noqa: F401,F403
 
 # Optional boto3 symbols — imported lazily so services that don't need them
@@ -39,33 +41,33 @@ except ImportError:  # pragma: no cover
 
 
 class AddressTypeDef(BaseValidatorModel):
-    StreetAddress: Optional[str] = None
-    Locality: Optional[str] = None
-    Region: Optional[str] = None
-    PostalCode: Optional[str] = None
-    Country: Optional[str] = None
-    Formatted: Optional[str] = None
-    Type: Optional[str] = None
+    StreetAddress: Optional[Annotated[str, _aws_pattern("Identitystore", "SensitiveStringType")]] = None
+    Locality: Optional[Annotated[str, _aws_pattern("Identitystore", "SensitiveStringType")]] = None
+    Region: Optional[Annotated[str, _aws_pattern("Identitystore", "SensitiveStringType")]] = None
+    PostalCode: Optional[Annotated[str, _aws_pattern("Identitystore", "SensitiveStringType")]] = None
+    Country: Optional[Annotated[str, _aws_pattern("Identitystore", "SensitiveStringType")]] = None
+    Formatted: Optional[Annotated[str, _aws_pattern("Identitystore", "SensitiveStringType")]] = None
+    Type: Optional[Annotated[str, _aws_pattern("Identitystore", "SensitiveStringType")]] = None
     Primary: Optional[bool] = None
 
 
 class ExternalIdTypeDef(BaseValidatorModel):
-    Issuer: str
-    Id: str
+    Issuer: Annotated[str, _aws_pattern("Identitystore", "ExternalIdIssuer")]
+    Id: Annotated[str, _aws_pattern("Identitystore", "ExternalIdIdentifier")]
 
 
 class UniqueAttributeTypeDef(BaseValidatorModel):
-    AttributePath: str
+    AttributePath: Annotated[str, _aws_pattern("Identitystore", "AttributePath")]
     AttributeValue: Dict[str, Any]
 
 
 class AttributeOperationTypeDef(BaseValidatorModel):
-    AttributePath: str
+    AttributePath: Annotated[str, _aws_pattern("Identitystore", "AttributePath")]
     AttributeValue: Optional[Dict[str, Any]] = None
 
 
 class MemberIdTypeDef(BaseValidatorModel):
-    UserId: Optional[str] = None
+    UserId: Optional[Annotated[str, _aws_pattern("Identitystore", "ResourceId")]] = None
 
 
 class ResponseMetadataTypeDef(BaseValidatorModel):
@@ -78,82 +80,82 @@ class ResponseMetadataTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'create_group' function.
 class CreateGroupRequestTypeDef(BaseValidatorModel):
-    IdentityStoreId: str
-    DisplayName: Optional[str] = None
-    Description: Optional[str] = None
+    IdentityStoreId: Annotated[str, _aws_pattern("Identitystore", "IdentityStoreId")]
+    DisplayName: Optional[Annotated[str, _aws_pattern("Identitystore", "GroupDisplayName")]] = None
+    Description: Optional[Annotated[str, _aws_pattern("Identitystore", "SensitiveStringType")]] = None
 
 
 class EmailTypeDef(BaseValidatorModel):
-    Value: Optional[str] = None
-    Type: Optional[str] = None
+    Value: Optional[Annotated[str, _aws_pattern("Identitystore", "SensitiveStringType")]] = None
+    Type: Optional[Annotated[str, _aws_pattern("Identitystore", "SensitiveStringType")]] = None
     Primary: Optional[bool] = None
 
 
 class NameTypeDef(BaseValidatorModel):
-    Formatted: Optional[str] = None
-    FamilyName: Optional[str] = None
-    GivenName: Optional[str] = None
-    MiddleName: Optional[str] = None
-    HonorificPrefix: Optional[str] = None
-    HonorificSuffix: Optional[str] = None
+    Formatted: Optional[Annotated[str, _aws_pattern("Identitystore", "SensitiveStringType")]] = None
+    FamilyName: Optional[Annotated[str, _aws_pattern("Identitystore", "SensitiveStringType")]] = None
+    GivenName: Optional[Annotated[str, _aws_pattern("Identitystore", "SensitiveStringType")]] = None
+    MiddleName: Optional[Annotated[str, _aws_pattern("Identitystore", "SensitiveStringType")]] = None
+    HonorificPrefix: Optional[Annotated[str, _aws_pattern("Identitystore", "SensitiveStringType")]] = None
+    HonorificSuffix: Optional[Annotated[str, _aws_pattern("Identitystore", "SensitiveStringType")]] = None
 
 
 class PhoneNumberTypeDef(BaseValidatorModel):
-    Value: Optional[str] = None
-    Type: Optional[str] = None
+    Value: Optional[Annotated[str, _aws_pattern("Identitystore", "SensitiveStringType")]] = None
+    Type: Optional[Annotated[str, _aws_pattern("Identitystore", "SensitiveStringType")]] = None
     Primary: Optional[bool] = None
 
 
 class PhotoTypeDef(BaseValidatorModel):
-    Value: str
-    Type: Optional[str] = None
-    Display: Optional[str] = None
+    Value: Annotated[str, _aws_pattern("Identitystore", "SensitiveStringType")]
+    Type: Optional[Annotated[str, _aws_pattern("Identitystore", "SensitiveStringType")]] = None
+    Display: Optional[Annotated[str, _aws_pattern("Identitystore", "SensitiveStringType")]] = None
     Primary: Optional[bool] = None
 
 
 class RoleTypeDef(BaseValidatorModel):
-    Value: Optional[str] = None
-    Type: Optional[str] = None
+    Value: Optional[Annotated[str, _aws_pattern("Identitystore", "SensitiveStringType")]] = None
+    Type: Optional[Annotated[str, _aws_pattern("Identitystore", "SensitiveStringType")]] = None
     Primary: Optional[bool] = None
 
 
 class DeleteGroupMembershipRequestTypeDef(BaseValidatorModel):
-    IdentityStoreId: str
-    MembershipId: str
+    IdentityStoreId: Annotated[str, _aws_pattern("Identitystore", "IdentityStoreId")]
+    MembershipId: Annotated[str, _aws_pattern("Identitystore", "ResourceId")]
 
 
 class DeleteGroupRequestTypeDef(BaseValidatorModel):
-    IdentityStoreId: str
-    GroupId: str
+    IdentityStoreId: Annotated[str, _aws_pattern("Identitystore", "IdentityStoreId")]
+    GroupId: Annotated[str, _aws_pattern("Identitystore", "ResourceId")]
 
 
 class DeleteUserRequestTypeDef(BaseValidatorModel):
-    IdentityStoreId: str
-    UserId: str
+    IdentityStoreId: Annotated[str, _aws_pattern("Identitystore", "IdentityStoreId")]
+    UserId: Annotated[str, _aws_pattern("Identitystore", "ResourceId")]
 
 
 # This class is the input for the 'describe_group_membership' function.
 class DescribeGroupMembershipRequestTypeDef(BaseValidatorModel):
-    IdentityStoreId: str
-    MembershipId: str
+    IdentityStoreId: Annotated[str, _aws_pattern("Identitystore", "IdentityStoreId")]
+    MembershipId: Annotated[str, _aws_pattern("Identitystore", "ResourceId")]
 
 
 # This class is the input for the 'describe_group' function.
 class DescribeGroupRequestTypeDef(BaseValidatorModel):
-    IdentityStoreId: str
-    GroupId: str
+    IdentityStoreId: Annotated[str, _aws_pattern("Identitystore", "IdentityStoreId")]
+    GroupId: Annotated[str, _aws_pattern("Identitystore", "ResourceId")]
 
 
 # This class is the input for the 'describe_user' function.
 class DescribeUserRequestTypeDef(BaseValidatorModel):
-    IdentityStoreId: str
-    UserId: str
-    Extensions: Optional[List[str]] = None
+    IdentityStoreId: Annotated[str, _aws_pattern("Identitystore", "IdentityStoreId")]
+    UserId: Annotated[str, _aws_pattern("Identitystore", "ResourceId")]
+    Extensions: Optional[List[Annotated[str, _aws_pattern("Identitystore", "ExtensionName")]]] = None
 
 
 class FilterTypeDef(BaseValidatorModel):
-    AttributePath: str
-    AttributeValue: str
+    AttributePath: Annotated[str, _aws_pattern("Identitystore", "AttributePath")]
+    AttributeValue: Annotated[str, _aws_pattern("Identitystore", "SensitiveStringType")]
 
 
 class PaginatorConfigTypeDef(BaseValidatorModel):
@@ -164,18 +166,18 @@ class PaginatorConfigTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'list_group_memberships' function.
 class ListGroupMembershipsRequestTypeDef(BaseValidatorModel):
-    IdentityStoreId: str
-    GroupId: str
+    IdentityStoreId: Annotated[str, _aws_pattern("Identitystore", "IdentityStoreId")]
+    GroupId: Annotated[str, _aws_pattern("Identitystore", "ResourceId")]
     MaxResults: Optional[int] = None
-    NextToken: Optional[str] = None
+    NextToken: Optional[Annotated[str, _aws_pattern("Identitystore", "NextToken")]] = None
 
 
 class GroupTypeDef(BaseValidatorModel):
-    GroupId: str
-    IdentityStoreId: str
-    DisplayName: Optional[str] = None
+    GroupId: Annotated[str, _aws_pattern("Identitystore", "ResourceId")]
+    IdentityStoreId: Annotated[str, _aws_pattern("Identitystore", "IdentityStoreId")]
+    DisplayName: Optional[Annotated[str, _aws_pattern("Identitystore", "GroupDisplayName")]] = None
     ExternalIds: Optional[List[ExternalIdTypeDef]] = None
-    Description: Optional[str] = None
+    Description: Optional[Annotated[str, _aws_pattern("Identitystore", "SensitiveStringType")]] = None
     CreatedAt: Optional[datetime] = None
     UpdatedAt: Optional[datetime] = None
     CreatedBy: Optional[str] = None
@@ -188,41 +190,41 @@ class AlternateIdentifierTypeDef(BaseValidatorModel):
 
 
 class UpdateGroupRequestTypeDef(BaseValidatorModel):
-    IdentityStoreId: str
-    GroupId: str
+    IdentityStoreId: Annotated[str, _aws_pattern("Identitystore", "IdentityStoreId")]
+    GroupId: Annotated[str, _aws_pattern("Identitystore", "ResourceId")]
     Operations: List[AttributeOperationTypeDef]
 
 
 class UpdateUserRequestTypeDef(BaseValidatorModel):
-    IdentityStoreId: str
-    UserId: str
+    IdentityStoreId: Annotated[str, _aws_pattern("Identitystore", "IdentityStoreId")]
+    UserId: Annotated[str, _aws_pattern("Identitystore", "ResourceId")]
     Operations: List[AttributeOperationTypeDef]
 
 
 # This class is the input for the 'create_group_membership' function.
 class CreateGroupMembershipRequestTypeDef(BaseValidatorModel):
-    IdentityStoreId: str
-    GroupId: str
+    IdentityStoreId: Annotated[str, _aws_pattern("Identitystore", "IdentityStoreId")]
+    GroupId: Annotated[str, _aws_pattern("Identitystore", "ResourceId")]
     MemberId: MemberIdTypeDef
 
 
 # This class is the input for the 'get_group_membership_id' function.
 class GetGroupMembershipIdRequestTypeDef(BaseValidatorModel):
-    IdentityStoreId: str
-    GroupId: str
+    IdentityStoreId: Annotated[str, _aws_pattern("Identitystore", "IdentityStoreId")]
+    GroupId: Annotated[str, _aws_pattern("Identitystore", "ResourceId")]
     MemberId: MemberIdTypeDef
 
 
 class GroupMembershipExistenceResultTypeDef(BaseValidatorModel):
-    GroupId: Optional[str] = None
+    GroupId: Optional[Annotated[str, _aws_pattern("Identitystore", "ResourceId")]] = None
     MemberId: Optional[MemberIdTypeDef] = None
     MembershipExists: Optional[bool] = None
 
 
 class GroupMembershipTypeDef(BaseValidatorModel):
-    IdentityStoreId: str
-    MembershipId: Optional[str] = None
-    GroupId: Optional[str] = None
+    IdentityStoreId: Annotated[str, _aws_pattern("Identitystore", "IdentityStoreId")]
+    MembershipId: Optional[Annotated[str, _aws_pattern("Identitystore", "ResourceId")]] = None
+    GroupId: Optional[Annotated[str, _aws_pattern("Identitystore", "ResourceId")]] = None
     MemberId: Optional[MemberIdTypeDef] = None
     CreatedAt: Optional[datetime] = None
     UpdatedAt: Optional[datetime] = None
@@ -232,45 +234,45 @@ class GroupMembershipTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'is_member_in_groups' function.
 class IsMemberInGroupsRequestTypeDef(BaseValidatorModel):
-    IdentityStoreId: str
+    IdentityStoreId: Annotated[str, _aws_pattern("Identitystore", "IdentityStoreId")]
     MemberId: MemberIdTypeDef
-    GroupIds: List[str]
+    GroupIds: List[Annotated[str, _aws_pattern("Identitystore", "ResourceId")]]
 
 
 # This class is the input for the 'list_group_memberships_for_member' function.
 class ListGroupMembershipsForMemberRequestTypeDef(BaseValidatorModel):
-    IdentityStoreId: str
+    IdentityStoreId: Annotated[str, _aws_pattern("Identitystore", "IdentityStoreId")]
     MemberId: MemberIdTypeDef
     MaxResults: Optional[int] = None
-    NextToken: Optional[str] = None
+    NextToken: Optional[Annotated[str, _aws_pattern("Identitystore", "NextToken")]] = None
 
 
 # This class is the output for the 'create_group_membership' function.
 class CreateGroupMembershipResponseTypeDef(BaseValidatorModel):
-    MembershipId: str
-    IdentityStoreId: str
+    MembershipId: Annotated[str, _aws_pattern("Identitystore", "ResourceId")]
+    IdentityStoreId: Annotated[str, _aws_pattern("Identitystore", "IdentityStoreId")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 # This class is the output for the 'create_group' function.
 class CreateGroupResponseTypeDef(BaseValidatorModel):
-    GroupId: str
-    IdentityStoreId: str
+    GroupId: Annotated[str, _aws_pattern("Identitystore", "ResourceId")]
+    IdentityStoreId: Annotated[str, _aws_pattern("Identitystore", "IdentityStoreId")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 # This class is the output for the 'create_user' function.
 class CreateUserResponseTypeDef(BaseValidatorModel):
-    IdentityStoreId: str
-    UserId: str
+    IdentityStoreId: Annotated[str, _aws_pattern("Identitystore", "IdentityStoreId")]
+    UserId: Annotated[str, _aws_pattern("Identitystore", "ResourceId")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 # This class is the output for the 'describe_group_membership' function.
 class DescribeGroupMembershipResponseTypeDef(BaseValidatorModel):
-    IdentityStoreId: str
-    MembershipId: str
-    GroupId: str
+    IdentityStoreId: Annotated[str, _aws_pattern("Identitystore", "IdentityStoreId")]
+    MembershipId: Annotated[str, _aws_pattern("Identitystore", "ResourceId")]
+    GroupId: Annotated[str, _aws_pattern("Identitystore", "ResourceId")]
     MemberId: MemberIdTypeDef
     CreatedAt: datetime
     UpdatedAt: datetime
@@ -281,84 +283,84 @@ class DescribeGroupMembershipResponseTypeDef(BaseValidatorModel):
 
 # This class is the output for the 'describe_group' function.
 class DescribeGroupResponseTypeDef(BaseValidatorModel):
-    GroupId: str
-    DisplayName: str
+    GroupId: Annotated[str, _aws_pattern("Identitystore", "ResourceId")]
+    DisplayName: Annotated[str, _aws_pattern("Identitystore", "GroupDisplayName")]
     ExternalIds: List[ExternalIdTypeDef]
-    Description: str
+    Description: Annotated[str, _aws_pattern("Identitystore", "SensitiveStringType")]
     CreatedAt: datetime
     UpdatedAt: datetime
     CreatedBy: str
     UpdatedBy: str
-    IdentityStoreId: str
+    IdentityStoreId: Annotated[str, _aws_pattern("Identitystore", "IdentityStoreId")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 # This class is the output for the 'get_group_id' function.
 class GetGroupIdResponseTypeDef(BaseValidatorModel):
-    GroupId: str
-    IdentityStoreId: str
+    GroupId: Annotated[str, _aws_pattern("Identitystore", "ResourceId")]
+    IdentityStoreId: Annotated[str, _aws_pattern("Identitystore", "IdentityStoreId")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 # This class is the output for the 'get_group_membership_id' function.
 class GetGroupMembershipIdResponseTypeDef(BaseValidatorModel):
-    MembershipId: str
-    IdentityStoreId: str
+    MembershipId: Annotated[str, _aws_pattern("Identitystore", "ResourceId")]
+    IdentityStoreId: Annotated[str, _aws_pattern("Identitystore", "IdentityStoreId")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 # This class is the output for the 'get_user_id' function.
 class GetUserIdResponseTypeDef(BaseValidatorModel):
-    IdentityStoreId: str
-    UserId: str
+    IdentityStoreId: Annotated[str, _aws_pattern("Identitystore", "IdentityStoreId")]
+    UserId: Annotated[str, _aws_pattern("Identitystore", "ResourceId")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 # This class is the input for the 'create_user' function.
 class CreateUserRequestTypeDef(BaseValidatorModel):
-    IdentityStoreId: str
-    UserName: Optional[str] = None
+    IdentityStoreId: Annotated[str, _aws_pattern("Identitystore", "IdentityStoreId")]
+    UserName: Optional[Annotated[str, _aws_pattern("Identitystore", "UserName")]] = None
     Name: Optional[NameTypeDef] = None
-    DisplayName: Optional[str] = None
-    NickName: Optional[str] = None
-    ProfileUrl: Optional[str] = None
+    DisplayName: Optional[Annotated[str, _aws_pattern("Identitystore", "SensitiveStringType")]] = None
+    NickName: Optional[Annotated[str, _aws_pattern("Identitystore", "SensitiveStringType")]] = None
+    ProfileUrl: Optional[Annotated[str, _aws_pattern("Identitystore", "SensitiveStringType")]] = None
     Emails: Optional[List[EmailTypeDef]] = None
     Addresses: Optional[List[AddressTypeDef]] = None
     PhoneNumbers: Optional[List[PhoneNumberTypeDef]] = None
-    UserType: Optional[str] = None
-    Title: Optional[str] = None
-    PreferredLanguage: Optional[str] = None
-    Locale: Optional[str] = None
-    Timezone: Optional[str] = None
+    UserType: Optional[Annotated[str, _aws_pattern("Identitystore", "SensitiveStringType")]] = None
+    Title: Optional[Annotated[str, _aws_pattern("Identitystore", "SensitiveStringType")]] = None
+    PreferredLanguage: Optional[Annotated[str, _aws_pattern("Identitystore", "SensitiveStringType")]] = None
+    Locale: Optional[Annotated[str, _aws_pattern("Identitystore", "SensitiveStringType")]] = None
+    Timezone: Optional[Annotated[str, _aws_pattern("Identitystore", "SensitiveStringType")]] = None
     Photos: Optional[List[PhotoTypeDef]] = None
-    Website: Optional[str] = None
-    Birthdate: Optional[str] = None
+    Website: Optional[Annotated[str, _aws_pattern("Identitystore", "SensitiveStringType")]] = None
+    Birthdate: Optional[Annotated[str, _aws_pattern("Identitystore", "SensitiveStringType")]] = None
     Roles: Optional[List[RoleTypeDef]] = None
     Extensions: Optional[Dict[str, Dict[str, Any]]] = None
 
 
 # This class is the output for the 'describe_user' function.
 class DescribeUserResponseTypeDef(BaseValidatorModel):
-    IdentityStoreId: str
-    UserId: str
-    UserName: str
+    IdentityStoreId: Annotated[str, _aws_pattern("Identitystore", "IdentityStoreId")]
+    UserId: Annotated[str, _aws_pattern("Identitystore", "ResourceId")]
+    UserName: Annotated[str, _aws_pattern("Identitystore", "UserName")]
     ExternalIds: List[ExternalIdTypeDef]
     Name: NameTypeDef
-    DisplayName: str
-    NickName: str
-    ProfileUrl: str
+    DisplayName: Annotated[str, _aws_pattern("Identitystore", "SensitiveStringType")]
+    NickName: Annotated[str, _aws_pattern("Identitystore", "SensitiveStringType")]
+    ProfileUrl: Annotated[str, _aws_pattern("Identitystore", "SensitiveStringType")]
     Emails: List[EmailTypeDef]
     Addresses: List[AddressTypeDef]
     PhoneNumbers: List[PhoneNumberTypeDef]
-    UserType: str
-    Title: str
-    PreferredLanguage: str
-    Locale: str
-    Timezone: str
+    UserType: Annotated[str, _aws_pattern("Identitystore", "SensitiveStringType")]
+    Title: Annotated[str, _aws_pattern("Identitystore", "SensitiveStringType")]
+    PreferredLanguage: Annotated[str, _aws_pattern("Identitystore", "SensitiveStringType")]
+    Locale: Annotated[str, _aws_pattern("Identitystore", "SensitiveStringType")]
+    Timezone: Annotated[str, _aws_pattern("Identitystore", "SensitiveStringType")]
     UserStatus: UserStatusType
     Photos: List[PhotoTypeDef]
-    Website: str
-    Birthdate: str
+    Website: Annotated[str, _aws_pattern("Identitystore", "SensitiveStringType")]
+    Birthdate: Annotated[str, _aws_pattern("Identitystore", "SensitiveStringType")]
     Roles: List[RoleTypeDef]
     CreatedAt: datetime
     CreatedBy: str
@@ -369,26 +371,26 @@ class DescribeUserResponseTypeDef(BaseValidatorModel):
 
 
 class UserTypeDef(BaseValidatorModel):
-    IdentityStoreId: str
-    UserId: str
-    UserName: Optional[str] = None
+    IdentityStoreId: Annotated[str, _aws_pattern("Identitystore", "IdentityStoreId")]
+    UserId: Annotated[str, _aws_pattern("Identitystore", "ResourceId")]
+    UserName: Optional[Annotated[str, _aws_pattern("Identitystore", "UserName")]] = None
     ExternalIds: Optional[List[ExternalIdTypeDef]] = None
     Name: Optional[NameTypeDef] = None
-    DisplayName: Optional[str] = None
-    NickName: Optional[str] = None
-    ProfileUrl: Optional[str] = None
+    DisplayName: Optional[Annotated[str, _aws_pattern("Identitystore", "SensitiveStringType")]] = None
+    NickName: Optional[Annotated[str, _aws_pattern("Identitystore", "SensitiveStringType")]] = None
+    ProfileUrl: Optional[Annotated[str, _aws_pattern("Identitystore", "SensitiveStringType")]] = None
     Emails: Optional[List[EmailTypeDef]] = None
     Addresses: Optional[List[AddressTypeDef]] = None
     PhoneNumbers: Optional[List[PhoneNumberTypeDef]] = None
-    UserType: Optional[str] = None
-    Title: Optional[str] = None
-    PreferredLanguage: Optional[str] = None
-    Locale: Optional[str] = None
-    Timezone: Optional[str] = None
+    UserType: Optional[Annotated[str, _aws_pattern("Identitystore", "SensitiveStringType")]] = None
+    Title: Optional[Annotated[str, _aws_pattern("Identitystore", "SensitiveStringType")]] = None
+    PreferredLanguage: Optional[Annotated[str, _aws_pattern("Identitystore", "SensitiveStringType")]] = None
+    Locale: Optional[Annotated[str, _aws_pattern("Identitystore", "SensitiveStringType")]] = None
+    Timezone: Optional[Annotated[str, _aws_pattern("Identitystore", "SensitiveStringType")]] = None
     UserStatus: Optional[UserStatusType] = None
     Photos: Optional[List[PhotoTypeDef]] = None
-    Website: Optional[str] = None
-    Birthdate: Optional[str] = None
+    Website: Optional[Annotated[str, _aws_pattern("Identitystore", "SensitiveStringType")]] = None
+    Birthdate: Optional[Annotated[str, _aws_pattern("Identitystore", "SensitiveStringType")]] = None
     Roles: Optional[List[RoleTypeDef]] = None
     CreatedAt: Optional[datetime] = None
     CreatedBy: Optional[str] = None
@@ -399,18 +401,18 @@ class UserTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'list_groups' function.
 class ListGroupsRequestTypeDef(BaseValidatorModel):
-    IdentityStoreId: str
+    IdentityStoreId: Annotated[str, _aws_pattern("Identitystore", "IdentityStoreId")]
     MaxResults: Optional[int] = None
-    NextToken: Optional[str] = None
+    NextToken: Optional[Annotated[str, _aws_pattern("Identitystore", "NextToken")]] = None
     Filters: Optional[List[FilterTypeDef]] = None
 
 
 # This class is the input for the 'list_users' function.
 class ListUsersRequestTypeDef(BaseValidatorModel):
-    IdentityStoreId: str
-    Extensions: Optional[List[str]] = None
+    IdentityStoreId: Annotated[str, _aws_pattern("Identitystore", "IdentityStoreId")]
+    Extensions: Optional[List[Annotated[str, _aws_pattern("Identitystore", "ExtensionName")]]] = None
     MaxResults: Optional[int] = None
-    NextToken: Optional[str] = None
+    NextToken: Optional[Annotated[str, _aws_pattern("Identitystore", "NextToken")]] = None
     Filters: Optional[List[FilterTypeDef]] = None
 
 
@@ -443,18 +445,18 @@ class ListUsersRequestPaginateTypeDef(BaseValidatorModel):
 class ListGroupsResponseTypeDef(BaseValidatorModel):
     Groups: List[GroupTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
-    NextToken: Optional[str] = None
+    NextToken: Optional[Annotated[str, _aws_pattern("Identitystore", "NextToken")]] = None
 
 
 # This class is the input for the 'get_group_id' function.
 class GetGroupIdRequestTypeDef(BaseValidatorModel):
-    IdentityStoreId: str
+    IdentityStoreId: Annotated[str, _aws_pattern("Identitystore", "IdentityStoreId")]
     AlternateIdentifier: AlternateIdentifierTypeDef
 
 
 # This class is the input for the 'get_user_id' function.
 class GetUserIdRequestTypeDef(BaseValidatorModel):
-    IdentityStoreId: str
+    IdentityStoreId: Annotated[str, _aws_pattern("Identitystore", "IdentityStoreId")]
     AlternateIdentifier: AlternateIdentifierTypeDef
 
 
@@ -468,18 +470,18 @@ class IsMemberInGroupsResponseTypeDef(BaseValidatorModel):
 class ListGroupMembershipsForMemberResponseTypeDef(BaseValidatorModel):
     GroupMemberships: List[GroupMembershipTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
-    NextToken: Optional[str] = None
+    NextToken: Optional[Annotated[str, _aws_pattern("Identitystore", "NextToken")]] = None
 
 
 # This class is the output for the 'list_group_memberships' function.
 class ListGroupMembershipsResponseTypeDef(BaseValidatorModel):
     GroupMemberships: List[GroupMembershipTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
-    NextToken: Optional[str] = None
+    NextToken: Optional[Annotated[str, _aws_pattern("Identitystore", "NextToken")]] = None
 
 
 # This class is the output for the 'list_users' function.
 class ListUsersResponseTypeDef(BaseValidatorModel):
     Users: List[UserTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
-    NextToken: Optional[str] = None
+    NextToken: Optional[Annotated[str, _aws_pattern("Identitystore", "NextToken")]] = None

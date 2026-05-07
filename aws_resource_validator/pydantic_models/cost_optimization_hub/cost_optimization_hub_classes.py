@@ -3,6 +3,7 @@
 from datetime import datetime
 from decimal import Decimal
 from typing import (
+    Annotated,
     Any,
     Callable,
     Dict,
@@ -24,6 +25,7 @@ from botocore.response import StreamingBody
 from pydantic import Field
 
 from aws_resource_validator.core.base_validator_model import BaseValidatorModel, EventStream
+from aws_resource_validator.core.pattern_validation import aws_field_pattern as _aws_pattern
 from aws_resource_validator.pydantic_models.cost_optimization_hub.cost_optimization_hub_constants import *  # noqa: F401,F403
 
 # Optional boto3 symbols — imported lazily so services that don't need them
@@ -39,7 +41,7 @@ except ImportError:  # pragma: no cover
 
 
 class AccountEnrollmentStatusTypeDef(BaseValidatorModel):
-    accountId: Optional[str] = None
+    accountId: Optional[Annotated[str, _aws_pattern("CostOptimizationHub", "AccountId")]] = None
     status: Optional[EnrollmentStatusType] = None
     lastUpdatedTimestamp: Optional[datetime] = None
     createdTimestamp: Optional[datetime] = None
@@ -196,7 +198,7 @@ class TimePeriodTypeDef(BaseValidatorModel):
 # This class is the input for the 'list_enrollment_statuses' function.
 class ListEnrollmentStatusesRequestTypeDef(BaseValidatorModel):
     includeOrganizationInfo: Optional[bool] = None
-    accountId: Optional[str] = None
+    accountId: Optional[Annotated[str, _aws_pattern("CostOptimizationHub", "AccountId")]] = None
     nextToken: Optional[str] = None
     maxResults: Optional[int] = None
 
@@ -372,7 +374,7 @@ class FilterTypeDef(BaseValidatorModel):
     restartNeeded: Optional[bool] = None
     rollbackPossible: Optional[bool] = None
     implementationEfforts: Optional[List[ImplementationEffortType]] = None
-    accountIds: Optional[List[str]] = None
+    accountIds: Optional[List[Annotated[str, _aws_pattern("CostOptimizationHub", "AccountId")]]] = None
     regions: Optional[List[str]] = None
     resourceTypes: Optional[List[ResourceTypeType]] = None
     actionTypes: Optional[List[ActionTypeType]] = None

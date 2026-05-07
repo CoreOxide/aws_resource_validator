@@ -3,6 +3,7 @@
 from datetime import datetime
 from decimal import Decimal
 from typing import (
+    Annotated,
     Any,
     Callable,
     Dict,
@@ -24,6 +25,7 @@ from botocore.response import StreamingBody
 from pydantic import Field
 
 from aws_resource_validator.core.base_validator_model import BaseValidatorModel, EventStream
+from aws_resource_validator.core.pattern_validation import aws_field_pattern as _aws_pattern
 from aws_resource_validator.pydantic_models.outposts.outposts_constants import *  # noqa: F401,F403
 
 # Optional boto3 symbols — imported lazily so services that don't need them
@@ -39,17 +41,17 @@ except ImportError:  # pragma: no cover
 
 
 class AddressTypeDef(BaseValidatorModel):
-    ContactName: str
-    ContactPhoneNumber: str
-    AddressLine1: str
-    City: str
-    StateOrRegion: str
-    PostalCode: str
-    CountryCode: str
-    AddressLine2: Optional[str] = None
-    AddressLine3: Optional[str] = None
-    DistrictOrCounty: Optional[str] = None
-    Municipality: Optional[str] = None
+    ContactName: Annotated[str, _aws_pattern("Outposts", "ContactName")]
+    ContactPhoneNumber: Annotated[str, _aws_pattern("Outposts", "ContactPhoneNumber")]
+    AddressLine1: Annotated[str, _aws_pattern("Outposts", "AddressLine1")]
+    City: Annotated[str, _aws_pattern("Outposts", "City")]
+    StateOrRegion: Annotated[str, _aws_pattern("Outposts", "StateOrRegion")]
+    PostalCode: Annotated[str, _aws_pattern("Outposts", "PostalCode")]
+    CountryCode: Annotated[str, _aws_pattern("Outposts", "CountryCode")]
+    AddressLine2: Optional[Annotated[str, _aws_pattern("Outposts", "AddressLine2")]] = None
+    AddressLine3: Optional[Annotated[str, _aws_pattern("Outposts", "AddressLine3")]] = None
+    DistrictOrCounty: Optional[Annotated[str, _aws_pattern("Outposts", "DistrictOrCounty")]] = None
+    Municipality: Optional[Annotated[str, _aws_pattern("Outposts", "Municipality")]] = None
 
 
 class AssetLocationTypeDef(BaseValidatorModel):
@@ -57,31 +59,31 @@ class AssetLocationTypeDef(BaseValidatorModel):
 
 
 class AssetInstanceTypeCapacityTypeDef(BaseValidatorModel):
-    InstanceType: str
+    InstanceType: Annotated[str, _aws_pattern("Outposts", "InstanceTypeName")]
     Count: int
 
 
 class AssetInstanceTypeDef(BaseValidatorModel):
-    InstanceId: Optional[str] = None
-    InstanceType: Optional[str] = None
-    AssetId: Optional[str] = None
-    AccountId: Optional[str] = None
+    InstanceId: Optional[Annotated[str, _aws_pattern("Outposts", "InstanceId")]] = None
+    InstanceType: Optional[Annotated[str, _aws_pattern("Outposts", "OutpostInstanceType")]] = None
+    AssetId: Optional[Annotated[str, _aws_pattern("Outposts", "AssetId")]] = None
+    AccountId: Optional[Annotated[str, _aws_pattern("Outposts", "AccountId")]] = None
     AwsServiceName: Optional[AWSServiceNameType] = None
 
 
 class BlockingInstanceTypeDef(BaseValidatorModel):
-    InstanceId: Optional[str] = None
-    AccountId: Optional[str] = None
+    InstanceId: Optional[Annotated[str, _aws_pattern("Outposts", "InstanceId")]] = None
+    AccountId: Optional[Annotated[str, _aws_pattern("Outposts", "AccountId")]] = None
     AwsServiceName: Optional[AWSServiceNameType] = None
 
 
 class CancelCapacityTaskInputTypeDef(BaseValidatorModel):
-    CapacityTaskId: str
-    OutpostIdentifier: str
+    CapacityTaskId: Annotated[str, _aws_pattern("Outposts", "CapacityTaskId")]
+    OutpostIdentifier: Annotated[str, _aws_pattern("Outposts", "OutpostIdentifier")]
 
 
 class CancelOrderInputTypeDef(BaseValidatorModel):
-    OrderId: str
+    OrderId: Annotated[str, _aws_pattern("Outposts", "OrderId")]
 
 
 class CapacityTaskFailureTypeDef(BaseValidatorModel):
@@ -90,10 +92,10 @@ class CapacityTaskFailureTypeDef(BaseValidatorModel):
 
 
 class CapacityTaskSummaryTypeDef(BaseValidatorModel):
-    CapacityTaskId: Optional[str] = None
-    OutpostId: Optional[str] = None
-    OrderId: Optional[str] = None
-    AssetId: Optional[str] = None
+    CapacityTaskId: Optional[Annotated[str, _aws_pattern("Outposts", "CapacityTaskId")]] = None
+    OutpostId: Optional[Annotated[str, _aws_pattern("Outposts", "OutpostId")]] = None
+    OrderId: Optional[Annotated[str, _aws_pattern("Outposts", "OrderId")]] = None
+    AssetId: Optional[Annotated[str, _aws_pattern("Outposts", "AssetId")]] = None
     CapacityTaskStatus: Optional[CapacityTaskStatusType] = None
     CreationDate: Optional[datetime] = None
     CompletionDate: Optional[datetime] = None
@@ -101,22 +103,22 @@ class CapacityTaskSummaryTypeDef(BaseValidatorModel):
 
 
 class EC2CapacityTypeDef(BaseValidatorModel):
-    Family: Optional[str] = None
+    Family: Optional[Annotated[str, _aws_pattern("Outposts", "Family")]] = None
     MaxSize: Optional[str] = None
     Quantity: Optional[str] = None
 
 
 class ConnectionDetailsTypeDef(BaseValidatorModel):
-    ClientPublicKey: Optional[str] = None
-    ServerPublicKey: Optional[str] = None
-    ServerEndpoint: Optional[str] = None
-    ClientTunnelAddress: Optional[str] = None
-    ServerTunnelAddress: Optional[str] = None
-    AllowedIps: Optional[List[str]] = None
+    ClientPublicKey: Optional[Annotated[str, _aws_pattern("Outposts", "WireGuardPublicKey")]] = None
+    ServerPublicKey: Optional[Annotated[str, _aws_pattern("Outposts", "WireGuardPublicKey")]] = None
+    ServerEndpoint: Optional[Annotated[str, _aws_pattern("Outposts", "ServerEndpoint")]] = None
+    ClientTunnelAddress: Optional[Annotated[str, _aws_pattern("Outposts", "CIDR")]] = None
+    ServerTunnelAddress: Optional[Annotated[str, _aws_pattern("Outposts", "CIDR")]] = None
+    AllowedIps: Optional[List[Annotated[str, _aws_pattern("Outposts", "CIDR")]]] = None
 
 
 class LineItemRequestTypeDef(BaseValidatorModel):
-    CatalogItemId: Optional[str] = None
+    CatalogItemId: Optional[Annotated[str, _aws_pattern("Outposts", "SkuCode")]] = None
     Quantity: Optional[int] = None
 
 
@@ -130,27 +132,27 @@ class ResponseMetadataTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'create_outpost' function.
 class CreateOutpostInputTypeDef(BaseValidatorModel):
-    Name: str
-    SiteId: str
-    Description: Optional[str] = None
-    AvailabilityZone: Optional[str] = None
-    AvailabilityZoneId: Optional[str] = None
+    Name: Annotated[str, _aws_pattern("Outposts", "OutpostName")]
+    SiteId: Annotated[str, _aws_pattern("Outposts", "SiteId")]
+    Description: Optional[Annotated[str, _aws_pattern("Outposts", "OutpostDescription")]] = None
+    AvailabilityZone: Optional[Annotated[str, _aws_pattern("Outposts", "AvailabilityZone")]] = None
+    AvailabilityZoneId: Optional[Annotated[str, _aws_pattern("Outposts", "AvailabilityZoneId")]] = None
     Tags: Optional[Dict[str, str]] = None
     SupportedHardwareType: Optional[SupportedHardwareTypeType] = None
 
 
 class OutpostTypeDef(BaseValidatorModel):
-    OutpostId: Optional[str] = None
-    OwnerId: Optional[str] = None
-    OutpostArn: Optional[str] = None
-    SiteId: Optional[str] = None
-    Name: Optional[str] = None
-    Description: Optional[str] = None
-    LifeCycleStatus: Optional[str] = None
-    AvailabilityZone: Optional[str] = None
-    AvailabilityZoneId: Optional[str] = None
+    OutpostId: Optional[Annotated[str, _aws_pattern("Outposts", "OutpostId")]] = None
+    OwnerId: Optional[Annotated[str, _aws_pattern("Outposts", "OwnerId")]] = None
+    OutpostArn: Optional[Annotated[str, _aws_pattern("Outposts", "OutpostArn")]] = None
+    SiteId: Optional[Annotated[str, _aws_pattern("Outposts", "SiteId")]] = None
+    Name: Optional[Annotated[str, _aws_pattern("Outposts", "OutpostName")]] = None
+    Description: Optional[Annotated[str, _aws_pattern("Outposts", "OutpostDescription")]] = None
+    LifeCycleStatus: Optional[Annotated[str, _aws_pattern("Outposts", "LifeCycleStatus")]] = None
+    AvailabilityZone: Optional[Annotated[str, _aws_pattern("Outposts", "AvailabilityZone")]] = None
+    AvailabilityZoneId: Optional[Annotated[str, _aws_pattern("Outposts", "AvailabilityZoneId")]] = None
     Tags: Optional[Dict[str, str]] = None
-    SiteArn: Optional[str] = None
+    SiteArn: Optional[Annotated[str, _aws_pattern("Outposts", "SiteArn")]] = None
     SupportedHardwareType: Optional[SupportedHardwareTypeType] = None
 
 
@@ -158,8 +160,8 @@ class OutpostTypeDef(BaseValidatorModel):
 class CreateRenewalInputTypeDef(BaseValidatorModel):
     PaymentOption: PaymentOptionType
     PaymentTerm: PaymentTermType
-    OutpostIdentifier: str
-    ClientToken: Optional[str] = None
+    OutpostIdentifier: Annotated[str, _aws_pattern("Outposts", "OutpostIdentifier")]
+    ClientToken: Optional[Annotated[str, _aws_pattern("Outposts", "AutoFillIdempotencyToken")]] = None
 
 
 class RackPhysicalPropertiesTypeDef(BaseValidatorModel):
@@ -175,21 +177,21 @@ class RackPhysicalPropertiesTypeDef(BaseValidatorModel):
 
 
 class DeleteOutpostInputTypeDef(BaseValidatorModel):
-    OutpostId: str
+    OutpostId: Annotated[str, _aws_pattern("Outposts", "OutpostId")]
 
 
 class DeleteSiteInputTypeDef(BaseValidatorModel):
-    SiteId: str
+    SiteId: Annotated[str, _aws_pattern("Outposts", "SiteId")]
 
 
 # This class is the input for the 'get_capacity_task' function.
 class GetCapacityTaskInputTypeDef(BaseValidatorModel):
-    CapacityTaskId: str
-    OutpostIdentifier: str
+    CapacityTaskId: Annotated[str, _aws_pattern("Outposts", "CapacityTaskId")]
+    OutpostIdentifier: Annotated[str, _aws_pattern("Outposts", "OutpostIdentifier")]
 
 
 class InstanceTypeCapacityTypeDef(BaseValidatorModel):
-    InstanceType: str
+    InstanceType: Annotated[str, _aws_pattern("Outposts", "InstanceTypeName")]
     Count: int
 
 
@@ -201,17 +203,17 @@ class InstancesToExcludeOutputTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'get_catalog_item' function.
 class GetCatalogItemInputTypeDef(BaseValidatorModel):
-    CatalogItemId: str
+    CatalogItemId: Annotated[str, _aws_pattern("Outposts", "SkuCode")]
 
 
 # This class is the input for the 'get_connection' function.
 class GetConnectionRequestTypeDef(BaseValidatorModel):
-    ConnectionId: str
+    ConnectionId: Annotated[str, _aws_pattern("Outposts", "ConnectionId")]
 
 
 # This class is the input for the 'get_order' function.
 class GetOrderInputTypeDef(BaseValidatorModel):
-    OrderId: str
+    OrderId: Annotated[str, _aws_pattern("Outposts", "OrderId")]
 
 
 class PaginatorConfigTypeDef(BaseValidatorModel):
@@ -222,16 +224,16 @@ class PaginatorConfigTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'get_outpost_billing_information' function.
 class GetOutpostBillingInformationInputTypeDef(BaseValidatorModel):
-    OutpostIdentifier: str
-    NextToken: Optional[str] = None
+    OutpostIdentifier: Annotated[str, _aws_pattern("Outposts", "OutpostIdentifier")]
+    NextToken: Optional[Annotated[str, _aws_pattern("Outposts", "Token")]] = None
     MaxResults: Optional[int] = None
 
 
 class SubscriptionTypeDef(BaseValidatorModel):
-    SubscriptionId: Optional[str] = None
+    SubscriptionId: Optional[Annotated[str, _aws_pattern("Outposts", "String")]] = None
     SubscriptionType: Optional[SubscriptionTypeType] = None
     SubscriptionStatus: Optional[SubscriptionStatusType] = None
-    OrderIds: Optional[List[str]] = None
+    OrderIds: Optional[List[Annotated[str, _aws_pattern("Outposts", "String")]]] = None
     BeginDate: Optional[datetime] = None
     EndDate: Optional[datetime] = None
     MonthlyRecurringPrice: Optional[float] = None
@@ -240,13 +242,13 @@ class SubscriptionTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'get_outpost' function.
 class GetOutpostInputTypeDef(BaseValidatorModel):
-    OutpostId: str
+    OutpostId: Annotated[str, _aws_pattern("Outposts", "OutpostId")]
 
 
 # This class is the input for the 'get_outpost_instance_types' function.
 class GetOutpostInstanceTypesInputTypeDef(BaseValidatorModel):
-    OutpostId: str
-    NextToken: Optional[str] = None
+    OutpostId: Annotated[str, _aws_pattern("Outposts", "OutpostId")]
+    NextToken: Optional[Annotated[str, _aws_pattern("Outposts", "Token")]] = None
     MaxResults: Optional[int] = None
 
 
@@ -257,101 +259,101 @@ class InstanceTypeItemTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'get_outpost_supported_instance_types' function.
 class GetOutpostSupportedInstanceTypesInputTypeDef(BaseValidatorModel):
-    OutpostIdentifier: str
-    OrderId: Optional[str] = None
-    AssetId: Optional[str] = None
+    OutpostIdentifier: Annotated[str, _aws_pattern("Outposts", "OutpostIdentifier")]
+    OrderId: Optional[Annotated[str, _aws_pattern("Outposts", "OrderId")]] = None
+    AssetId: Optional[Annotated[str, _aws_pattern("Outposts", "AssetIdInput")]] = None
     MaxResults: Optional[int] = None
-    NextToken: Optional[str] = None
+    NextToken: Optional[Annotated[str, _aws_pattern("Outposts", "Token")]] = None
 
 
 # This class is the input for the 'get_renewal_pricing' function.
 class GetRenewalPricingInputTypeDef(BaseValidatorModel):
-    OutpostIdentifier: str
+    OutpostIdentifier: Annotated[str, _aws_pattern("Outposts", "OutpostIdentifier")]
 
 
 # This class is the input for the 'get_site_address' function.
 class GetSiteAddressInputTypeDef(BaseValidatorModel):
-    SiteId: str
+    SiteId: Annotated[str, _aws_pattern("Outposts", "SiteId")]
     AddressType: AddressTypeType
 
 
 # This class is the input for the 'get_site' function.
 class GetSiteInputTypeDef(BaseValidatorModel):
-    SiteId: str
+    SiteId: Annotated[str, _aws_pattern("Outposts", "SiteId")]
 
 
 class InstancesToExcludeTypeDef(BaseValidatorModel):
-    Instances: Optional[List[str]] = None
-    AccountIds: Optional[List[str]] = None
+    Instances: Optional[List[Annotated[str, _aws_pattern("Outposts", "InstanceId")]]] = None
+    AccountIds: Optional[List[Annotated[str, _aws_pattern("Outposts", "AccountId")]]] = None
     Services: Optional[List[AWSServiceNameType]] = None
 
 
 class LineItemAssetInformationTypeDef(BaseValidatorModel):
-    AssetId: Optional[str] = None
-    MacAddressList: Optional[List[str]] = None
+    AssetId: Optional[Annotated[str, _aws_pattern("Outposts", "AssetId")]] = None
+    MacAddressList: Optional[List[Annotated[str, _aws_pattern("Outposts", "MacAddress")]]] = None
 
 
 class ShipmentInformationTypeDef(BaseValidatorModel):
-    ShipmentTrackingNumber: Optional[str] = None
+    ShipmentTrackingNumber: Optional[Annotated[str, _aws_pattern("Outposts", "TrackingId")]] = None
     ShipmentCarrier: Optional[ShipmentCarrierType] = None
 
 
 # This class is the input for the 'list_asset_instances' function.
 class ListAssetInstancesInputTypeDef(BaseValidatorModel):
-    OutpostIdentifier: str
-    AssetIdFilter: Optional[List[str]] = None
-    InstanceTypeFilter: Optional[List[str]] = None
-    AccountIdFilter: Optional[List[str]] = None
+    OutpostIdentifier: Annotated[str, _aws_pattern("Outposts", "OutpostIdentifier")]
+    AssetIdFilter: Optional[List[Annotated[str, _aws_pattern("Outposts", "AssetId")]]] = None
+    InstanceTypeFilter: Optional[List[Annotated[str, _aws_pattern("Outposts", "OutpostInstanceType")]]] = None
+    AccountIdFilter: Optional[List[Annotated[str, _aws_pattern("Outposts", "AccountId")]]] = None
     AwsServiceFilter: Optional[List[AWSServiceNameType]] = None
     MaxResults: Optional[int] = None
-    NextToken: Optional[str] = None
+    NextToken: Optional[Annotated[str, _aws_pattern("Outposts", "Token")]] = None
 
 
 # This class is the input for the 'list_assets' function.
 class ListAssetsInputTypeDef(BaseValidatorModel):
-    OutpostIdentifier: str
-    HostIdFilter: Optional[List[str]] = None
+    OutpostIdentifier: Annotated[str, _aws_pattern("Outposts", "OutpostIdentifier")]
+    HostIdFilter: Optional[List[Annotated[str, _aws_pattern("Outposts", "HostId")]]] = None
     MaxResults: Optional[int] = None
-    NextToken: Optional[str] = None
+    NextToken: Optional[Annotated[str, _aws_pattern("Outposts", "Token")]] = None
     StatusFilter: Optional[List[AssetStateType]] = None
     AssetTypeFilter: Optional[List[AssetTypeType]] = None
 
 
 # This class is the input for the 'list_blocking_instances_for_capacity_task' function.
 class ListBlockingInstancesForCapacityTaskInputTypeDef(BaseValidatorModel):
-    OutpostIdentifier: str
-    CapacityTaskId: str
+    OutpostIdentifier: Annotated[str, _aws_pattern("Outposts", "OutpostIdentifier")]
+    CapacityTaskId: Annotated[str, _aws_pattern("Outposts", "CapacityTaskId")]
     MaxResults: Optional[int] = None
-    NextToken: Optional[str] = None
+    NextToken: Optional[Annotated[str, _aws_pattern("Outposts", "Token")]] = None
 
 
 # This class is the input for the 'list_capacity_tasks' function.
 class ListCapacityTasksInputTypeDef(BaseValidatorModel):
-    OutpostIdentifierFilter: Optional[str] = None
+    OutpostIdentifierFilter: Optional[Annotated[str, _aws_pattern("Outposts", "OutpostIdentifier")]] = None
     MaxResults: Optional[int] = None
-    NextToken: Optional[str] = None
+    NextToken: Optional[Annotated[str, _aws_pattern("Outposts", "Token")]] = None
     CapacityTaskStatusFilter: Optional[List[CapacityTaskStatusType]] = None
 
 
 # This class is the input for the 'list_catalog_items' function.
 class ListCatalogItemsInputTypeDef(BaseValidatorModel):
-    NextToken: Optional[str] = None
+    NextToken: Optional[Annotated[str, _aws_pattern("Outposts", "Token")]] = None
     MaxResults: Optional[int] = None
     ItemClassFilter: Optional[List[CatalogItemClassType]] = None
     SupportedStorageFilter: Optional[List[SupportedStorageEnumType]] = None
-    EC2FamilyFilter: Optional[List[str]] = None
+    EC2FamilyFilter: Optional[List[Annotated[str, _aws_pattern("Outposts", "Family")]]] = None
 
 
 # This class is the input for the 'list_orders' function.
 class ListOrdersInputTypeDef(BaseValidatorModel):
-    OutpostIdentifierFilter: Optional[str] = None
-    NextToken: Optional[str] = None
+    OutpostIdentifierFilter: Optional[Annotated[str, _aws_pattern("Outposts", "OutpostIdentifier")]] = None
+    NextToken: Optional[Annotated[str, _aws_pattern("Outposts", "Token")]] = None
     MaxResults: Optional[int] = None
 
 
 class OrderSummaryTypeDef(BaseValidatorModel):
-    OutpostId: Optional[str] = None
-    OrderId: Optional[str] = None
+    OutpostId: Optional[Annotated[str, _aws_pattern("Outposts", "OutpostIdOnly")]] = None
+    OrderId: Optional[Annotated[str, _aws_pattern("Outposts", "OrderId")]] = None
     OrderType: Optional[OrderTypeType] = None
     Status: Optional[OrderStatusType] = None
     LineItemCountsByStatus: Optional[Dict[LineItemStatusType, int]] = None
@@ -361,25 +363,27 @@ class OrderSummaryTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'list_outposts' function.
 class ListOutpostsInputTypeDef(BaseValidatorModel):
-    NextToken: Optional[str] = None
+    NextToken: Optional[Annotated[str, _aws_pattern("Outposts", "Token")]] = None
     MaxResults: Optional[int] = None
-    LifeCycleStatusFilter: Optional[List[str]] = None
-    AvailabilityZoneFilter: Optional[List[str]] = None
-    AvailabilityZoneIdFilter: Optional[List[str]] = None
+    LifeCycleStatusFilter: Optional[List[Annotated[str, _aws_pattern("Outposts", "LifeCycleStatus")]]] = None
+    AvailabilityZoneFilter: Optional[List[Annotated[str, _aws_pattern("Outposts", "AvailabilityZone")]]] = None
+    AvailabilityZoneIdFilter: Optional[List[Annotated[str, _aws_pattern("Outposts", "AvailabilityZoneId")]]] = None
 
 
 # This class is the input for the 'list_sites' function.
 class ListSitesInputTypeDef(BaseValidatorModel):
-    NextToken: Optional[str] = None
+    NextToken: Optional[Annotated[str, _aws_pattern("Outposts", "Token")]] = None
     MaxResults: Optional[int] = None
-    OperatingAddressCountryCodeFilter: Optional[List[str]] = None
-    OperatingAddressStateOrRegionFilter: Optional[List[str]] = None
-    OperatingAddressCityFilter: Optional[List[str]] = None
+    OperatingAddressCountryCodeFilter: Optional[List[Annotated[str, _aws_pattern("Outposts", "CountryCode")]]] = None
+    OperatingAddressStateOrRegionFilter: Optional[List[Annotated[str, _aws_pattern("Outposts", "StateOrRegion")]]] = (
+        None
+    )
+    OperatingAddressCityFilter: Optional[List[Annotated[str, _aws_pattern("Outposts", "City")]]] = None
 
 
 # This class is the input for the 'list_tags_for_resource' function.
 class ListTagsForResourceRequestTypeDef(BaseValidatorModel):
-    ResourceArn: str
+    ResourceArn: Annotated[str, _aws_pattern("Outposts", "Arn")]
 
 
 class SubscriptionPricingDetailsTypeDef(BaseValidatorModel):
@@ -391,47 +395,47 @@ class SubscriptionPricingDetailsTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'start_connection' function.
 class StartConnectionRequestTypeDef(BaseValidatorModel):
-    AssetId: str
-    ClientPublicKey: str
+    AssetId: Annotated[str, _aws_pattern("Outposts", "AssetId")]
+    ClientPublicKey: Annotated[str, _aws_pattern("Outposts", "WireGuardPublicKey")]
     NetworkInterfaceDeviceIndex: int
-    DeviceSerialNumber: Optional[str] = None
+    DeviceSerialNumber: Optional[Annotated[str, _aws_pattern("Outposts", "DeviceSerialNumber")]] = None
 
 
 # This class is the input for the 'start_outpost_decommission' function.
 class StartOutpostDecommissionInputTypeDef(BaseValidatorModel):
-    OutpostIdentifier: str
+    OutpostIdentifier: Annotated[str, _aws_pattern("Outposts", "OutpostIdentifier")]
     ValidateOnly: Optional[bool] = None
 
 
 class TagResourceRequestTypeDef(BaseValidatorModel):
-    ResourceArn: str
+    ResourceArn: Annotated[str, _aws_pattern("Outposts", "Arn")]
     Tags: Dict[str, str]
 
 
 class UntagResourceRequestTypeDef(BaseValidatorModel):
-    ResourceArn: str
-    TagKeys: List[str]
+    ResourceArn: Annotated[str, _aws_pattern("Outposts", "Arn")]
+    TagKeys: List[Annotated[str, _aws_pattern("Outposts", "TagKey")]]
 
 
 # This class is the input for the 'update_outpost' function.
 class UpdateOutpostInputTypeDef(BaseValidatorModel):
-    OutpostId: str
-    Name: Optional[str] = None
-    Description: Optional[str] = None
+    OutpostId: Annotated[str, _aws_pattern("Outposts", "OutpostId")]
+    Name: Optional[Annotated[str, _aws_pattern("Outposts", "OutpostName")]] = None
+    Description: Optional[Annotated[str, _aws_pattern("Outposts", "OutpostDescription")]] = None
     SupportedHardwareType: Optional[SupportedHardwareTypeType] = None
 
 
 # This class is the input for the 'update_site' function.
 class UpdateSiteInputTypeDef(BaseValidatorModel):
-    SiteId: str
-    Name: Optional[str] = None
-    Description: Optional[str] = None
-    Notes: Optional[str] = None
+    SiteId: Annotated[str, _aws_pattern("Outposts", "SiteId")]
+    Name: Optional[Annotated[str, _aws_pattern("Outposts", "SiteName")]] = None
+    Description: Optional[Annotated[str, _aws_pattern("Outposts", "SiteDescription")]] = None
+    Notes: Optional[Annotated[str, _aws_pattern("Outposts", "SiteNotes")]] = None
 
 
 # This class is the input for the 'update_site_rack_physical_properties' function.
 class UpdateSiteRackPhysicalPropertiesInputTypeDef(BaseValidatorModel):
-    SiteId: str
+    SiteId: Annotated[str, _aws_pattern("Outposts", "SiteId")]
     PowerDrawKva: Optional[PowerDrawKvaType] = None
     PowerPhase: Optional[PowerPhaseType] = None
     PowerConnector: Optional[PowerConnectorType] = None
@@ -445,21 +449,21 @@ class UpdateSiteRackPhysicalPropertiesInputTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'update_site_address' function.
 class UpdateSiteAddressInputTypeDef(BaseValidatorModel):
-    SiteId: str
+    SiteId: Annotated[str, _aws_pattern("Outposts", "SiteId")]
     AddressType: AddressTypeType
     Address: AddressTypeDef
 
 
 class ComputeAttributesTypeDef(BaseValidatorModel):
-    HostId: Optional[str] = None
+    HostId: Optional[Annotated[str, _aws_pattern("Outposts", "HostId")]] = None
     State: Optional[ComputeAssetStateType] = None
-    InstanceFamilies: Optional[List[str]] = None
+    InstanceFamilies: Optional[List[Annotated[str, _aws_pattern("Outposts", "InstanceFamilyName")]]] = None
     InstanceTypeCapacities: Optional[List[AssetInstanceTypeCapacityTypeDef]] = None
     MaxVcpus: Optional[int] = None
 
 
 class CatalogItemTypeDef(BaseValidatorModel):
-    CatalogItemId: Optional[str] = None
+    CatalogItemId: Optional[Annotated[str, _aws_pattern("Outposts", "SkuCode")]] = None
     ItemStatus: Optional[CatalogItemStatusType] = None
     EC2Capacities: Optional[List[EC2CapacityTypeDef]] = None
     PowerKva: Optional[float] = None
@@ -470,7 +474,7 @@ class CatalogItemTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'create_order' function.
 class CreateOrderInputTypeDef(BaseValidatorModel):
-    OutpostIdentifier: str
+    OutpostIdentifier: Annotated[str, _aws_pattern("Outposts", "OutpostIdentifier")]
     PaymentOption: PaymentOptionType
     LineItems: Optional[List[LineItemRequestTypeDef]] = None
     PaymentTerm: Optional[PaymentTermType] = None
@@ -480,7 +484,7 @@ class CreateOrderInputTypeDef(BaseValidatorModel):
 class CreateRenewalOutputTypeDef(BaseValidatorModel):
     PaymentOption: PaymentOptionType
     PaymentTerm: PaymentTermType
-    OutpostId: str
+    OutpostId: Annotated[str, _aws_pattern("Outposts", "OutpostIdOnly")]
     UpfrontPrice: float
     MonthlyRecurringPrice: float
     ResponseMetadata: ResponseMetadataTypeDef
@@ -488,14 +492,14 @@ class CreateRenewalOutputTypeDef(BaseValidatorModel):
 
 # This class is the output for the 'get_connection' function.
 class GetConnectionResponseTypeDef(BaseValidatorModel):
-    ConnectionId: str
+    ConnectionId: Annotated[str, _aws_pattern("Outposts", "ConnectionId")]
     ConnectionDetails: ConnectionDetailsTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 # This class is the output for the 'get_site_address' function.
 class GetSiteAddressOutputTypeDef(BaseValidatorModel):
-    SiteId: str
+    SiteId: Annotated[str, _aws_pattern("Outposts", "SiteId")]
     AddressType: AddressTypeType
     Address: AddressTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
@@ -505,21 +509,21 @@ class GetSiteAddressOutputTypeDef(BaseValidatorModel):
 class ListAssetInstancesOutputTypeDef(BaseValidatorModel):
     AssetInstances: List[AssetInstanceTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
-    NextToken: Optional[str] = None
+    NextToken: Optional[Annotated[str, _aws_pattern("Outposts", "Token")]] = None
 
 
 # This class is the output for the 'list_blocking_instances_for_capacity_task' function.
 class ListBlockingInstancesForCapacityTaskOutputTypeDef(BaseValidatorModel):
     BlockingInstances: List[BlockingInstanceTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
-    NextToken: Optional[str] = None
+    NextToken: Optional[Annotated[str, _aws_pattern("Outposts", "Token")]] = None
 
 
 # This class is the output for the 'list_capacity_tasks' function.
 class ListCapacityTasksOutputTypeDef(BaseValidatorModel):
     CapacityTasks: List[CapacityTaskSummaryTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
-    NextToken: Optional[str] = None
+    NextToken: Optional[Annotated[str, _aws_pattern("Outposts", "Token")]] = None
 
 
 # This class is the output for the 'list_tags_for_resource' function.
@@ -530,8 +534,8 @@ class ListTagsForResourceResponseTypeDef(BaseValidatorModel):
 
 # This class is the output for the 'start_connection' function.
 class StartConnectionResponseTypeDef(BaseValidatorModel):
-    ConnectionId: str
-    UnderlayIpAddress: str
+    ConnectionId: Annotated[str, _aws_pattern("Outposts", "ConnectionId")]
+    UnderlayIpAddress: Annotated[str, _aws_pattern("Outposts", "UnderlayIpAddress")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
@@ -565,7 +569,7 @@ class GetOutpostOutputTypeDef(BaseValidatorModel):
 class ListOutpostsOutputTypeDef(BaseValidatorModel):
     Outposts: List[OutpostTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
-    NextToken: Optional[str] = None
+    NextToken: Optional[Annotated[str, _aws_pattern("Outposts", "Token")]] = None
 
 
 # This class is the output for the 'update_outpost' function.
@@ -576,9 +580,9 @@ class UpdateOutpostOutputTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'create_site' function.
 class CreateSiteInputTypeDef(BaseValidatorModel):
-    Name: str
-    Description: Optional[str] = None
-    Notes: Optional[str] = None
+    Name: Annotated[str, _aws_pattern("Outposts", "SiteName")]
+    Description: Optional[Annotated[str, _aws_pattern("Outposts", "SiteDescription")]] = None
+    Notes: Optional[Annotated[str, _aws_pattern("Outposts", "SiteNotes")]] = None
     Tags: Optional[Dict[str, str]] = None
     OperatingAddress: Optional[AddressTypeDef] = None
     ShippingAddress: Optional[AddressTypeDef] = None
@@ -586,25 +590,25 @@ class CreateSiteInputTypeDef(BaseValidatorModel):
 
 
 class SiteTypeDef(BaseValidatorModel):
-    SiteId: Optional[str] = None
-    AccountId: Optional[str] = None
-    Name: Optional[str] = None
-    Description: Optional[str] = None
+    SiteId: Optional[Annotated[str, _aws_pattern("Outposts", "SiteId")]] = None
+    AccountId: Optional[Annotated[str, _aws_pattern("Outposts", "AccountId")]] = None
+    Name: Optional[Annotated[str, _aws_pattern("Outposts", "SiteName")]] = None
+    Description: Optional[Annotated[str, _aws_pattern("Outposts", "SiteDescription")]] = None
     Tags: Optional[Dict[str, str]] = None
-    SiteArn: Optional[str] = None
-    Notes: Optional[str] = None
-    OperatingAddressCountryCode: Optional[str] = None
-    OperatingAddressStateOrRegion: Optional[str] = None
-    OperatingAddressCity: Optional[str] = None
+    SiteArn: Optional[Annotated[str, _aws_pattern("Outposts", "SiteArn")]] = None
+    Notes: Optional[Annotated[str, _aws_pattern("Outposts", "SiteNotes")]] = None
+    OperatingAddressCountryCode: Optional[Annotated[str, _aws_pattern("Outposts", "CountryCode")]] = None
+    OperatingAddressStateOrRegion: Optional[Annotated[str, _aws_pattern("Outposts", "StateOrRegion")]] = None
+    OperatingAddressCity: Optional[Annotated[str, _aws_pattern("Outposts", "City")]] = None
     RackPhysicalProperties: Optional[RackPhysicalPropertiesTypeDef] = None
 
 
 # This class is the output for the 'get_capacity_task' function.
 class GetCapacityTaskOutputTypeDef(BaseValidatorModel):
-    CapacityTaskId: str
-    OutpostId: str
-    OrderId: str
-    AssetId: str
+    CapacityTaskId: Annotated[str, _aws_pattern("Outposts", "CapacityTaskId")]
+    OutpostId: Annotated[str, _aws_pattern("Outposts", "OutpostId")]
+    OrderId: Annotated[str, _aws_pattern("Outposts", "OrderId")]
+    AssetId: Annotated[str, _aws_pattern("Outposts", "AssetId")]
     RequestedInstancePools: List[InstanceTypeCapacityTypeDef]
     InstancesToExclude: InstancesToExcludeOutputTypeDef
     DryRun: bool
@@ -619,10 +623,10 @@ class GetCapacityTaskOutputTypeDef(BaseValidatorModel):
 
 # This class is the output for the 'start_capacity_task' function.
 class StartCapacityTaskOutputTypeDef(BaseValidatorModel):
-    CapacityTaskId: str
-    OutpostId: str
-    OrderId: str
-    AssetId: str
+    CapacityTaskId: Annotated[str, _aws_pattern("Outposts", "CapacityTaskId")]
+    OutpostId: Annotated[str, _aws_pattern("Outposts", "OutpostId")]
+    OrderId: Annotated[str, _aws_pattern("Outposts", "OrderId")]
+    AssetId: Annotated[str, _aws_pattern("Outposts", "AssetId")]
     RequestedInstancePools: List[InstanceTypeCapacityTypeDef]
     InstancesToExclude: InstancesToExcludeOutputTypeDef
     DryRun: bool
@@ -710,48 +714,48 @@ class ListSitesInputPaginateTypeDef(BaseValidatorModel):
 # This class is the output for the 'get_outpost_billing_information' function.
 class GetOutpostBillingInformationOutputTypeDef(BaseValidatorModel):
     Subscriptions: List[SubscriptionTypeDef]
-    ContractEndDate: str
+    ContractEndDate: Annotated[str, _aws_pattern("Outposts", "String")]
     PaymentTerm: PaymentTermType
     PaymentOption: PaymentOptionType
     ResponseMetadata: ResponseMetadataTypeDef
-    NextToken: Optional[str] = None
+    NextToken: Optional[Annotated[str, _aws_pattern("Outposts", "Token")]] = None
 
 
 # This class is the output for the 'get_outpost_instance_types' function.
 class GetOutpostInstanceTypesOutputTypeDef(BaseValidatorModel):
     InstanceTypes: List[InstanceTypeItemTypeDef]
-    OutpostId: str
-    OutpostArn: str
+    OutpostId: Annotated[str, _aws_pattern("Outposts", "OutpostId")]
+    OutpostArn: Annotated[str, _aws_pattern("Outposts", "OutpostArn")]
     ResponseMetadata: ResponseMetadataTypeDef
-    NextToken: Optional[str] = None
+    NextToken: Optional[Annotated[str, _aws_pattern("Outposts", "Token")]] = None
 
 
 # This class is the output for the 'get_outpost_supported_instance_types' function.
 class GetOutpostSupportedInstanceTypesOutputTypeDef(BaseValidatorModel):
     InstanceTypes: List[InstanceTypeItemTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
-    NextToken: Optional[str] = None
+    NextToken: Optional[Annotated[str, _aws_pattern("Outposts", "Token")]] = None
 
 
 InstancesToExcludeUnionTypeDef = Union[InstancesToExcludeOutputTypeDef, InstancesToExcludeTypeDef]
 
 
 class LineItemTypeDef(BaseValidatorModel):
-    CatalogItemId: Optional[str] = None
-    LineItemId: Optional[str] = None
+    CatalogItemId: Optional[Annotated[str, _aws_pattern("Outposts", "SkuCode")]] = None
+    LineItemId: Optional[Annotated[str, _aws_pattern("Outposts", "LineItemId")]] = None
     Quantity: Optional[int] = None
     Status: Optional[LineItemStatusType] = None
     ShipmentInformation: Optional[ShipmentInformationTypeDef] = None
     AssetInformationList: Optional[List[LineItemAssetInformationTypeDef]] = None
-    PreviousLineItemId: Optional[str] = None
-    PreviousOrderId: Optional[str] = None
+    PreviousLineItemId: Optional[Annotated[str, _aws_pattern("Outposts", "LineItemId")]] = None
+    PreviousOrderId: Optional[Annotated[str, _aws_pattern("Outposts", "OrderId")]] = None
 
 
 # This class is the output for the 'list_orders' function.
 class ListOrdersOutputTypeDef(BaseValidatorModel):
     Orders: List[OrderSummaryTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
-    NextToken: Optional[str] = None
+    NextToken: Optional[Annotated[str, _aws_pattern("Outposts", "Token")]] = None
 
 
 class PricingOptionTypeDef(BaseValidatorModel):
@@ -760,8 +764,8 @@ class PricingOptionTypeDef(BaseValidatorModel):
 
 
 class AssetInfoTypeDef(BaseValidatorModel):
-    AssetId: Optional[str] = None
-    RackId: Optional[str] = None
+    AssetId: Optional[Annotated[str, _aws_pattern("Outposts", "AssetId")]] = None
+    RackId: Optional[Annotated[str, _aws_pattern("Outposts", "RackId")]] = None
     AssetType: Optional[AssetTypeType] = None
     ComputeAttributes: Optional[ComputeAttributesTypeDef] = None
     AssetLocation: Optional[AssetLocationTypeDef] = None
@@ -777,7 +781,7 @@ class GetCatalogItemOutputTypeDef(BaseValidatorModel):
 class ListCatalogItemsOutputTypeDef(BaseValidatorModel):
     CatalogItems: List[CatalogItemTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
-    NextToken: Optional[str] = None
+    NextToken: Optional[Annotated[str, _aws_pattern("Outposts", "Token")]] = None
 
 
 # This class is the output for the 'create_site' function.
@@ -796,7 +800,7 @@ class GetSiteOutputTypeDef(BaseValidatorModel):
 class ListSitesOutputTypeDef(BaseValidatorModel):
     Sites: List[SiteTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
-    NextToken: Optional[str] = None
+    NextToken: Optional[Annotated[str, _aws_pattern("Outposts", "Token")]] = None
 
 
 # This class is the output for the 'update_site' function.
@@ -813,18 +817,18 @@ class UpdateSiteRackPhysicalPropertiesOutputTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'start_capacity_task' function.
 class StartCapacityTaskInputTypeDef(BaseValidatorModel):
-    OutpostIdentifier: str
+    OutpostIdentifier: Annotated[str, _aws_pattern("Outposts", "OutpostIdentifier")]
     InstancePools: List[InstanceTypeCapacityTypeDef]
-    OrderId: Optional[str] = None
-    AssetId: Optional[str] = None
+    OrderId: Optional[Annotated[str, _aws_pattern("Outposts", "OrderId")]] = None
+    AssetId: Optional[Annotated[str, _aws_pattern("Outposts", "AssetIdInput")]] = None
     InstancesToExclude: Optional[InstancesToExcludeUnionTypeDef] = None
     DryRun: Optional[bool] = None
     TaskActionOnBlockingInstances: Optional[TaskActionOnBlockingInstancesType] = None
 
 
 class OrderTypeDef(BaseValidatorModel):
-    OutpostId: Optional[str] = None
-    OrderId: Optional[str] = None
+    OutpostId: Optional[Annotated[str, _aws_pattern("Outposts", "OutpostIdOnly")]] = None
+    OrderId: Optional[Annotated[str, _aws_pattern("Outposts", "OrderId")]] = None
     Status: Optional[OrderStatusType] = None
     LineItems: Optional[List[LineItemTypeDef]] = None
     PaymentOption: Optional[PaymentOptionType] = None
@@ -845,7 +849,7 @@ class GetRenewalPricingOutputTypeDef(BaseValidatorModel):
 class ListAssetsOutputTypeDef(BaseValidatorModel):
     Assets: List[AssetInfoTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
-    NextToken: Optional[str] = None
+    NextToken: Optional[Annotated[str, _aws_pattern("Outposts", "Token")]] = None
 
 
 # This class is the output for the 'create_order' function.

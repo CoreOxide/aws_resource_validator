@@ -3,6 +3,7 @@
 from datetime import datetime
 from decimal import Decimal
 from typing import (
+    Annotated,
     Any,
     Callable,
     Dict,
@@ -24,6 +25,7 @@ from botocore.response import StreamingBody
 from pydantic import Field
 
 from aws_resource_validator.core.base_validator_model import BaseValidatorModel, EventStream
+from aws_resource_validator.core.pattern_validation import aws_field_pattern as _aws_pattern
 from aws_resource_validator.pydantic_models.bcm_dashboards.bcm_dashboards_constants import *  # noqa: F401,F403
 
 # Optional boto3 symbols — imported lazily so services that don't need them
@@ -39,7 +41,7 @@ except ImportError:  # pragma: no cover
 
 
 class GroupDefinitionTypeDef(BaseValidatorModel):
-    key: str
+    key: Annotated[str, _aws_pattern("BcmDashboards", "GroupDefinitionKeyString")]
     type: Optional[GroupDefinitionTypeType] = None
 
 
@@ -56,8 +58,8 @@ class CostCategoryValuesTypeDef(BaseValidatorModel):
 
 
 class ResourceTagTypeDef(BaseValidatorModel):
-    key: str
-    value: str
+    key: Annotated[str, _aws_pattern("BcmDashboards", "ResourceTagKey")]
+    value: Annotated[str, _aws_pattern("BcmDashboards", "ResourceTagValue")]
 
 
 class ResponseMetadataTypeDef(BaseValidatorModel):
@@ -69,27 +71,27 @@ class ResponseMetadataTypeDef(BaseValidatorModel):
 
 
 class DashboardReferenceTypeDef(BaseValidatorModel):
-    arn: str
-    name: str
+    arn: Annotated[str, _aws_pattern("BcmDashboards", "DashboardArn")]
+    name: Annotated[str, _aws_pattern("BcmDashboards", "DashboardName")]
     type: Literal["CUSTOM"]
     createdAt: datetime
     updatedAt: datetime
-    description: Optional[str] = None
+    description: Optional[Annotated[str, _aws_pattern("BcmDashboards", "Description")]] = None
 
 
 class DateTimeValueTypeDef(BaseValidatorModel):
     type: DateTimeTypeType
-    value: str
+    value: Annotated[str, _aws_pattern("BcmDashboards", "GenericString")]
 
 
 # This class is the input for the 'delete_dashboard' function.
 class DeleteDashboardRequestTypeDef(BaseValidatorModel):
-    arn: str
+    arn: Annotated[str, _aws_pattern("BcmDashboards", "DashboardArn")]
 
 
 # This class is the input for the 'delete_scheduled_report' function.
 class DeleteScheduledReportRequestTypeDef(BaseValidatorModel):
-    arn: str
+    arn: Annotated[str, _aws_pattern("BcmDashboards", "ScheduledReportArn")]
 
 
 class DimensionValuesOutputTypeDef(BaseValidatorModel):
@@ -110,8 +112,8 @@ class GraphDisplayConfigTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'execute_scheduled_report' function.
 class ExecuteScheduledReportRequestTypeDef(BaseValidatorModel):
-    arn: str
-    clientToken: Optional[str] = None
+    arn: Annotated[str, _aws_pattern("BcmDashboards", "ScheduledReportArn")]
+    clientToken: Optional[Annotated[str, _aws_pattern("BcmDashboards", "ClientToken")]] = None
     dryRun: Optional[bool] = None
 
 
@@ -129,17 +131,17 @@ class TagValuesOutputTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'get_dashboard' function.
 class GetDashboardRequestTypeDef(BaseValidatorModel):
-    arn: str
+    arn: Annotated[str, _aws_pattern("BcmDashboards", "DashboardArn")]
 
 
 # This class is the input for the 'get_resource_policy' function.
 class GetResourcePolicyRequestTypeDef(BaseValidatorModel):
-    resourceArn: str
+    resourceArn: Annotated[str, _aws_pattern("BcmDashboards", "DashboardArn")]
 
 
 # This class is the input for the 'get_scheduled_report' function.
 class GetScheduledReportRequestTypeDef(BaseValidatorModel):
-    arn: str
+    arn: Annotated[str, _aws_pattern("BcmDashboards", "ScheduledReportArn")]
 
 
 class PaginatorConfigTypeDef(BaseValidatorModel):
@@ -151,18 +153,18 @@ class PaginatorConfigTypeDef(BaseValidatorModel):
 # This class is the input for the 'list_dashboards' function.
 class ListDashboardsRequestTypeDef(BaseValidatorModel):
     maxResults: Optional[int] = None
-    nextToken: Optional[str] = None
+    nextToken: Optional[Annotated[str, _aws_pattern("BcmDashboards", "NextPageToken")]] = None
 
 
 # This class is the input for the 'list_scheduled_reports' function.
 class ListScheduledReportsRequestTypeDef(BaseValidatorModel):
-    nextToken: Optional[str] = None
+    nextToken: Optional[Annotated[str, _aws_pattern("BcmDashboards", "NextPageToken")]] = None
     maxResults: Optional[int] = None
 
 
 # This class is the input for the 'list_tags_for_resource' function.
 class ListTagsForResourceRequestTypeDef(BaseValidatorModel):
-    resourceArn: str
+    resourceArn: Annotated[str, _aws_pattern("BcmDashboards", "ResourceArn")]
 
 
 class SchedulePeriodOutputTypeDef(BaseValidatorModel):
@@ -180,46 +182,46 @@ class TagValuesTypeDef(BaseValidatorModel):
 
 
 class UntagResourceRequestTypeDef(BaseValidatorModel):
-    resourceArn: str
-    resourceTagKeys: List[str]
+    resourceArn: Annotated[str, _aws_pattern("BcmDashboards", "ResourceArn")]
+    resourceTagKeys: List[Annotated[str, _aws_pattern("BcmDashboards", "ResourceTagKey")]]
 
 
 CostCategoryValuesUnionTypeDef = Union[CostCategoryValuesOutputTypeDef, CostCategoryValuesTypeDef]
 
 
 class TagResourceRequestTypeDef(BaseValidatorModel):
-    resourceArn: str
+    resourceArn: Annotated[str, _aws_pattern("BcmDashboards", "ResourceArn")]
     resourceTags: List[ResourceTagTypeDef]
 
 
 # This class is the output for the 'create_dashboard' function.
 class CreateDashboardResponseTypeDef(BaseValidatorModel):
-    arn: str
+    arn: Annotated[str, _aws_pattern("BcmDashboards", "DashboardArn")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 # This class is the output for the 'create_scheduled_report' function.
 class CreateScheduledReportResponseTypeDef(BaseValidatorModel):
-    arn: str
+    arn: Annotated[str, _aws_pattern("BcmDashboards", "ScheduledReportArn")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 # This class is the output for the 'delete_dashboard' function.
 class DeleteDashboardResponseTypeDef(BaseValidatorModel):
-    arn: str
+    arn: Annotated[str, _aws_pattern("BcmDashboards", "DashboardArn")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 # This class is the output for the 'delete_scheduled_report' function.
 class DeleteScheduledReportResponseTypeDef(BaseValidatorModel):
-    arn: str
+    arn: Annotated[str, _aws_pattern("BcmDashboards", "ScheduledReportArn")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 # This class is the output for the 'get_resource_policy' function.
 class GetResourcePolicyResponseTypeDef(BaseValidatorModel):
-    resourceArn: str
-    policyDocument: str
+    resourceArn: Annotated[str, _aws_pattern("BcmDashboards", "DashboardArn")]
+    policyDocument: Annotated[str, _aws_pattern("BcmDashboards", "GenericString")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
@@ -231,13 +233,13 @@ class ListTagsForResourceResponseTypeDef(BaseValidatorModel):
 
 # This class is the output for the 'update_dashboard' function.
 class UpdateDashboardResponseTypeDef(BaseValidatorModel):
-    arn: str
+    arn: Annotated[str, _aws_pattern("BcmDashboards", "DashboardArn")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 # This class is the output for the 'update_scheduled_report' function.
 class UpdateScheduledReportResponseTypeDef(BaseValidatorModel):
-    arn: str
+    arn: Annotated[str, _aws_pattern("BcmDashboards", "ScheduledReportArn")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
@@ -245,7 +247,7 @@ class UpdateScheduledReportResponseTypeDef(BaseValidatorModel):
 class ListDashboardsResponseTypeDef(BaseValidatorModel):
     dashboards: List[DashboardReferenceTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
-    nextToken: Optional[str] = None
+    nextToken: Optional[Annotated[str, _aws_pattern("BcmDashboards", "NextPageToken")]] = None
 
 
 class DateTimeRangeTypeDef(BaseValidatorModel):
@@ -274,13 +276,13 @@ class ExecuteScheduledReportResponseTypeDef(BaseValidatorModel):
 
 
 class ScheduledReportSummaryTypeDef(BaseValidatorModel):
-    arn: str
-    name: str
-    dashboardArn: str
-    scheduleExpression: str
+    arn: Annotated[str, _aws_pattern("BcmDashboards", "ScheduledReportArn")]
+    name: Annotated[str, _aws_pattern("BcmDashboards", "ScheduledReportName")]
+    dashboardArn: Annotated[str, _aws_pattern("BcmDashboards", "DashboardArn")]
+    scheduleExpression: Annotated[str, _aws_pattern("BcmDashboards", "GenericString")]
     state: ScheduleStateType
     healthStatus: HealthStatusTypeDef
-    scheduleExpressionTimeZone: Optional[str] = None
+    scheduleExpressionTimeZone: Optional[Annotated[str, _aws_pattern("BcmDashboards", "GenericString")]] = None
     widgetIds: Optional[List[str]] = None
 
 
@@ -322,7 +324,7 @@ DisplayConfigUnionTypeDef = Union[DisplayConfigOutputTypeDef, DisplayConfigTypeD
 class ListScheduledReportsResponseTypeDef(BaseValidatorModel):
     scheduledReports: List[ScheduledReportSummaryTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
-    nextToken: Optional[str] = None
+    nextToken: Optional[Annotated[str, _aws_pattern("BcmDashboards", "NextPageToken")]] = None
 
 
 class CostAndUsageQueryOutputTypeDef(BaseValidatorModel):
@@ -363,12 +365,12 @@ class SavingsPlansUtilizationQueryOutputTypeDef(BaseValidatorModel):
 
 
 class ScheduledReportTypeDef(BaseValidatorModel):
-    name: str
-    dashboardArn: str
-    scheduledReportExecutionRoleArn: str
+    name: Annotated[str, _aws_pattern("BcmDashboards", "ScheduledReportName")]
+    dashboardArn: Annotated[str, _aws_pattern("BcmDashboards", "DashboardArn")]
+    scheduledReportExecutionRoleArn: Annotated[str, _aws_pattern("BcmDashboards", "ServiceRoleArn")]
     scheduleConfig: ScheduleConfigOutputTypeDef
-    arn: Optional[str] = None
-    description: Optional[str] = None
+    arn: Optional[Annotated[str, _aws_pattern("BcmDashboards", "ScheduledReportArn")]] = None
+    description: Optional[Annotated[str, _aws_pattern("BcmDashboards", "Description")]] = None
     widgetIds: Optional[List[str]] = None
     widgetDateRangeOverride: Optional[DateTimeRangeTypeDef] = None
     createdAt: Optional[datetime] = None
@@ -404,8 +406,8 @@ class GetScheduledReportResponseTypeDef(BaseValidatorModel):
 
 
 class ScheduleConfigTypeDef(BaseValidatorModel):
-    scheduleExpression: Optional[str] = None
-    scheduleExpressionTimeZone: Optional[str] = None
+    scheduleExpression: Optional[Annotated[str, _aws_pattern("BcmDashboards", "GenericString")]] = None
+    scheduleExpressionTimeZone: Optional[Annotated[str, _aws_pattern("BcmDashboards", "GenericString")]] = None
     schedulePeriod: Optional[SchedulePeriodUnionTypeDef] = None
     state: Optional[ScheduleStateType] = None
 
@@ -469,22 +471,22 @@ class WidgetOutputTypeDef(BaseValidatorModel):
 
 
 class ScheduledReportInputTypeDef(BaseValidatorModel):
-    name: str
-    dashboardArn: str
-    scheduledReportExecutionRoleArn: str
+    name: Annotated[str, _aws_pattern("BcmDashboards", "ScheduledReportName")]
+    dashboardArn: Annotated[str, _aws_pattern("BcmDashboards", "DashboardArn")]
+    scheduledReportExecutionRoleArn: Annotated[str, _aws_pattern("BcmDashboards", "ServiceRoleArn")]
     scheduleConfig: ScheduleConfigUnionTypeDef
-    description: Optional[str] = None
+    description: Optional[Annotated[str, _aws_pattern("BcmDashboards", "Description")]] = None
     widgetIds: Optional[List[str]] = None
     widgetDateRangeOverride: Optional[DateTimeRangeTypeDef] = None
 
 
 # This class is the input for the 'update_scheduled_report' function.
 class UpdateScheduledReportRequestTypeDef(BaseValidatorModel):
-    arn: str
-    name: Optional[str] = None
-    description: Optional[str] = None
-    dashboardArn: Optional[str] = None
-    scheduledReportExecutionRoleArn: Optional[str] = None
+    arn: Annotated[str, _aws_pattern("BcmDashboards", "ScheduledReportArn")]
+    name: Optional[Annotated[str, _aws_pattern("BcmDashboards", "ScheduledReportName")]] = None
+    description: Optional[Annotated[str, _aws_pattern("BcmDashboards", "Description")]] = None
+    dashboardArn: Optional[Annotated[str, _aws_pattern("BcmDashboards", "DashboardArn")]] = None
+    scheduledReportExecutionRoleArn: Optional[Annotated[str, _aws_pattern("BcmDashboards", "ServiceRoleArn")]] = None
     scheduleConfig: Optional[ScheduleConfigUnionTypeDef] = None
     widgetIds: Optional[List[str]] = None
     widgetDateRangeOverride: Optional[DateTimeRangeTypeDef] = None
@@ -509,9 +511,9 @@ SavingsPlansUtilizationQueryUnionTypeDef = Union[
 
 # This class is the output for the 'get_dashboard' function.
 class GetDashboardResponseTypeDef(BaseValidatorModel):
-    arn: str
-    name: str
-    description: str
+    arn: Annotated[str, _aws_pattern("BcmDashboards", "DashboardArn")]
+    name: Annotated[str, _aws_pattern("BcmDashboards", "DashboardName")]
+    description: Annotated[str, _aws_pattern("BcmDashboards", "Description")]
     type: Literal["CUSTOM"]
     widgets: List[WidgetOutputTypeDef]
     createdAt: datetime
@@ -523,7 +525,7 @@ class GetDashboardResponseTypeDef(BaseValidatorModel):
 class CreateScheduledReportRequestTypeDef(BaseValidatorModel):
     scheduledReport: ScheduledReportInputTypeDef
     resourceTags: Optional[List[ResourceTagTypeDef]] = None
-    clientToken: Optional[str] = None
+    clientToken: Optional[Annotated[str, _aws_pattern("BcmDashboards", "ClientToken")]] = None
 
 
 class QueryParametersTypeDef(BaseValidatorModel):
@@ -546,10 +548,10 @@ WidgetConfigUnionTypeDef = Union[WidgetConfigOutputTypeDef, WidgetConfigTypeDef]
 
 
 class WidgetTypeDef(BaseValidatorModel):
-    title: str
+    title: Annotated[str, _aws_pattern("BcmDashboards", "WidgetTitle")]
     configs: List[WidgetConfigUnionTypeDef]
-    id: Optional[str] = None
-    description: Optional[str] = None
+    id: Optional[Annotated[str, _aws_pattern("BcmDashboards", "WidgetId")]] = None
+    description: Optional[Annotated[str, _aws_pattern("BcmDashboards", "Description")]] = None
     width: Optional[int] = None
     height: Optional[int] = None
     horizontalOffset: Optional[int] = None
@@ -560,15 +562,15 @@ WidgetUnionTypeDef = Union[WidgetOutputTypeDef, WidgetTypeDef]
 
 # This class is the input for the 'create_dashboard' function.
 class CreateDashboardRequestTypeDef(BaseValidatorModel):
-    name: str
+    name: Annotated[str, _aws_pattern("BcmDashboards", "DashboardName")]
     widgets: List[WidgetUnionTypeDef]
-    description: Optional[str] = None
+    description: Optional[Annotated[str, _aws_pattern("BcmDashboards", "Description")]] = None
     resourceTags: Optional[List[ResourceTagTypeDef]] = None
 
 
 # This class is the input for the 'update_dashboard' function.
 class UpdateDashboardRequestTypeDef(BaseValidatorModel):
-    arn: str
-    name: str
-    description: Optional[str] = None
+    arn: Annotated[str, _aws_pattern("BcmDashboards", "DashboardArn")]
+    name: Annotated[str, _aws_pattern("BcmDashboards", "DashboardName")]
+    description: Optional[Annotated[str, _aws_pattern("BcmDashboards", "Description")]] = None
     widgets: Optional[List[WidgetUnionTypeDef]] = None

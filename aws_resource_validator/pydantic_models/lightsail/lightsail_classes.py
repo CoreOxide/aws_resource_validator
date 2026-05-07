@@ -3,6 +3,7 @@
 from datetime import datetime
 from decimal import Decimal
 from typing import (
+    Annotated,
     Any,
     Callable,
     Dict,
@@ -24,6 +25,7 @@ from botocore.response import StreamingBody
 from pydantic import Field
 
 from aws_resource_validator.core.base_validator_model import BaseValidatorModel, EventStream
+from aws_resource_validator.core.pattern_validation import aws_field_pattern as _aws_pattern
 from aws_resource_validator.pydantic_models.lightsail.lightsail_constants import *  # noqa: F401,F403
 
 # Optional boto3 symbols — imported lazily so services that don't need them
@@ -57,7 +59,7 @@ class AccountLevelBpaSyncTypeDef(BaseValidatorModel):
 
 
 class AutoSnapshotAddOnRequestTypeDef(BaseValidatorModel):
-    snapshotTimeOfDay: Optional[str] = None
+    snapshotTimeOfDay: Optional[Annotated[str, _aws_pattern("Lightsail", "TimeOfDay")]] = None
 
 
 class StopInstanceOnIdleRequestTypeDef(BaseValidatorModel):
@@ -68,15 +70,15 @@ class StopInstanceOnIdleRequestTypeDef(BaseValidatorModel):
 class AddOnTypeDef(BaseValidatorModel):
     name: Optional[str] = None
     status: Optional[str] = None
-    snapshotTimeOfDay: Optional[str] = None
-    nextSnapshotTimeOfDay: Optional[str] = None
+    snapshotTimeOfDay: Optional[Annotated[str, _aws_pattern("Lightsail", "TimeOfDay")]] = None
+    nextSnapshotTimeOfDay: Optional[Annotated[str, _aws_pattern("Lightsail", "TimeOfDay")]] = None
     threshold: Optional[str] = None
     duration: Optional[str] = None
 
 
 class MonitoredResourceInfoTypeDef(BaseValidatorModel):
-    arn: Optional[str] = None
-    name: Optional[str] = None
+    arn: Optional[Annotated[str, _aws_pattern("Lightsail", "ResourceArn")]] = None
+    name: Optional[Annotated[str, _aws_pattern("Lightsail", "ResourceName")]] = None
     resourceType: Optional[ResourceTypeType] = None
 
 
@@ -92,7 +94,7 @@ class TagTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'allocate_static_ip' function.
 class AllocateStaticIpRequestTypeDef(BaseValidatorModel):
-    staticIpName: str
+    staticIpName: Annotated[str, _aws_pattern("Lightsail", "ResourceName")]
 
 
 class ResponseMetadataTypeDef(BaseValidatorModel):
@@ -105,34 +107,34 @@ class ResponseMetadataTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'attach_certificate_to_distribution' function.
 class AttachCertificateToDistributionRequestTypeDef(BaseValidatorModel):
-    distributionName: str
-    certificateName: str
+    distributionName: Annotated[str, _aws_pattern("Lightsail", "ResourceName")]
+    certificateName: Annotated[str, _aws_pattern("Lightsail", "ResourceName")]
 
 
 # This class is the input for the 'attach_disk' function.
 class AttachDiskRequestTypeDef(BaseValidatorModel):
-    diskName: str
-    instanceName: str
-    diskPath: str
+    diskName: Annotated[str, _aws_pattern("Lightsail", "ResourceName")]
+    instanceName: Annotated[str, _aws_pattern("Lightsail", "ResourceName")]
+    diskPath: Annotated[str, _aws_pattern("Lightsail", "NonEmptyString")]
     autoMounting: Optional[bool] = None
 
 
 # This class is the input for the 'attach_instances_to_load_balancer' function.
 class AttachInstancesToLoadBalancerRequestTypeDef(BaseValidatorModel):
-    loadBalancerName: str
-    instanceNames: List[str]
+    loadBalancerName: Annotated[str, _aws_pattern("Lightsail", "ResourceName")]
+    instanceNames: List[Annotated[str, _aws_pattern("Lightsail", "ResourceName")]]
 
 
 # This class is the input for the 'attach_load_balancer_tls_certificate' function.
 class AttachLoadBalancerTlsCertificateRequestTypeDef(BaseValidatorModel):
-    loadBalancerName: str
-    certificateName: str
+    loadBalancerName: Annotated[str, _aws_pattern("Lightsail", "ResourceName")]
+    certificateName: Annotated[str, _aws_pattern("Lightsail", "ResourceName")]
 
 
 # This class is the input for the 'attach_static_ip' function.
 class AttachStaticIpRequestTypeDef(BaseValidatorModel):
-    staticIpName: str
-    instanceName: str
+    staticIpName: Annotated[str, _aws_pattern("Lightsail", "ResourceName")]
+    instanceName: Annotated[str, _aws_pattern("Lightsail", "ResourceName")]
 
 
 class AttachedDiskTypeDef(BaseValidatorModel):
@@ -141,14 +143,14 @@ class AttachedDiskTypeDef(BaseValidatorModel):
 
 
 class AvailabilityZoneTypeDef(BaseValidatorModel):
-    zoneName: Optional[str] = None
-    state: Optional[str] = None
+    zoneName: Optional[Annotated[str, _aws_pattern("Lightsail", "NonEmptyString")]] = None
+    state: Optional[Annotated[str, _aws_pattern("Lightsail", "NonEmptyString")]] = None
 
 
 class BlueprintTypeDef(BaseValidatorModel):
-    blueprintId: Optional[str] = None
-    name: Optional[str] = None
-    group: Optional[str] = None
+    blueprintId: Optional[Annotated[str, _aws_pattern("Lightsail", "NonEmptyString")]] = None
+    name: Optional[Annotated[str, _aws_pattern("Lightsail", "ResourceName")]] = None
+    group: Optional[Annotated[str, _aws_pattern("Lightsail", "NonEmptyString")]] = None
     type: Optional[BlueprintTypeType] = None
     description: Optional[str] = None
     isActive: Optional[bool] = None
@@ -163,13 +165,13 @@ class BlueprintTypeDef(BaseValidatorModel):
 
 class BucketAccessLogConfigTypeDef(BaseValidatorModel):
     enabled: bool
-    destination: Optional[str] = None
-    prefix: Optional[str] = None
+    destination: Optional[Annotated[str, _aws_pattern("Lightsail", "BucketName")]] = None
+    prefix: Optional[Annotated[str, _aws_pattern("Lightsail", "BucketAccessLogPrefix")]] = None
 
 
 class BucketBundleTypeDef(BaseValidatorModel):
-    bundleId: Optional[str] = None
-    name: Optional[str] = None
+    bundleId: Optional[Annotated[str, _aws_pattern("Lightsail", "NonEmptyString")]] = None
+    name: Optional[Annotated[str, _aws_pattern("Lightsail", "NonEmptyString")]] = None
     price: Optional[float] = None
     storagePerMonthInGb: Optional[int] = None
     transferPerMonthInGb: Optional[int] = None
@@ -186,7 +188,7 @@ class BucketCorsRuleOutputTypeDef(BaseValidatorModel):
 
 
 class BucketCorsRuleTypeDef(BaseValidatorModel):
-    allowedMethods: List[str]
+    allowedMethods: List[Annotated[str, _aws_pattern("Lightsail", "BucketCorsAllowedMethod")]]
     allowedOrigins: List[str]
     id: Optional[str] = None
     allowedHeaders: Optional[List[str]] = None
@@ -195,20 +197,20 @@ class BucketCorsRuleTypeDef(BaseValidatorModel):
 
 
 class BucketStateTypeDef(BaseValidatorModel):
-    code: Optional[str] = None
+    code: Optional[Annotated[str, _aws_pattern("Lightsail", "NonEmptyString")]] = None
     message: Optional[str] = None
 
 
 class ResourceReceivingAccessTypeDef(BaseValidatorModel):
-    name: Optional[str] = None
-    resourceType: Optional[str] = None
+    name: Optional[Annotated[str, _aws_pattern("Lightsail", "NonEmptyString")]] = None
+    resourceType: Optional[Annotated[str, _aws_pattern("Lightsail", "NonEmptyString")]] = None
 
 
 class BundleTypeDef(BaseValidatorModel):
     price: Optional[float] = None
     cpuCount: Optional[int] = None
     diskSizeInGb: Optional[int] = None
-    bundleId: Optional[str] = None
+    bundleId: Optional[Annotated[str, _aws_pattern("Lightsail", "NonEmptyString")]] = None
     instanceType: Optional[str] = None
     isActive: Optional[bool] = None
     name: Optional[str] = None
@@ -270,13 +272,13 @@ class PortInfoTypeDef(BaseValidatorModel):
 
 class CloudFormationStackRecordSourceInfoTypeDef(BaseValidatorModel):
     resourceType: Optional[Literal["ExportSnapshotRecord"]] = None
-    name: Optional[str] = None
-    arn: Optional[str] = None
+    name: Optional[Annotated[str, _aws_pattern("Lightsail", "NonEmptyString")]] = None
+    arn: Optional[Annotated[str, _aws_pattern("Lightsail", "NonEmptyString")]] = None
 
 
 class DestinationInfoTypeDef(BaseValidatorModel):
-    id: Optional[str] = None
-    service: Optional[str] = None
+    id: Optional[Annotated[str, _aws_pattern("Lightsail", "NonEmptyString")]] = None
+    service: Optional[Annotated[str, _aws_pattern("Lightsail", "NonEmptyString")]] = None
 
 
 class ContainerImageTypeDef(BaseValidatorModel):
@@ -345,9 +347,9 @@ class ContainerTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'copy_snapshot' function.
 class CopySnapshotRequestTypeDef(BaseValidatorModel):
-    targetSnapshotName: str
+    targetSnapshotName: Annotated[str, _aws_pattern("Lightsail", "ResourceName")]
     sourceRegion: RegionNameType
-    sourceSnapshotName: Optional[str] = None
+    sourceSnapshotName: Optional[Annotated[str, _aws_pattern("Lightsail", "ResourceName")]] = None
     sourceResourceName: Optional[str] = None
     restoreDate: Optional[str] = None
     useLatestRestorableAutoSnapshot: Optional[bool] = None
@@ -355,19 +357,19 @@ class CopySnapshotRequestTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'create_bucket_access_key' function.
 class CreateBucketAccessKeyRequestTypeDef(BaseValidatorModel):
-    bucketName: str
+    bucketName: Annotated[str, _aws_pattern("Lightsail", "BucketName")]
 
 
 class InstanceEntryTypeDef(BaseValidatorModel):
-    sourceName: str
-    instanceType: str
+    sourceName: Annotated[str, _aws_pattern("Lightsail", "ResourceName")]
+    instanceType: Annotated[str, _aws_pattern("Lightsail", "NonEmptyString")]
     portInfoSource: PortInfoSourceTypeType
     availabilityZone: str
     userData: Optional[str] = None
 
 
 class InputOriginTypeDef(BaseValidatorModel):
-    name: Optional[str] = None
+    name: Optional[Annotated[str, _aws_pattern("Lightsail", "ResourceName")]] = None
     regionName: Optional[RegionNameType] = None
     protocolPolicy: Optional[OriginProtocolPolicyEnumType] = None
     responseTimeout: Optional[int] = None
@@ -375,18 +377,18 @@ class InputOriginTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'create_gui_session_access_details' function.
 class CreateGUISessionAccessDetailsRequestTypeDef(BaseValidatorModel):
-    resourceName: str
+    resourceName: Annotated[str, _aws_pattern("Lightsail", "ResourceName")]
 
 
 class SessionTypeDef(BaseValidatorModel):
-    name: Optional[str] = None
-    url: Optional[str] = None
+    name: Optional[Annotated[str, _aws_pattern("Lightsail", "NonEmptyString")]] = None
+    url: Optional[Annotated[str, _aws_pattern("Lightsail", "SensitiveNonEmptyString")]] = None
     isPrimary: Optional[bool] = None
 
 
 class DiskMapTypeDef(BaseValidatorModel):
-    originalDiskPath: Optional[str] = None
-    newDiskName: Optional[str] = None
+    originalDiskPath: Optional[Annotated[str, _aws_pattern("Lightsail", "NonEmptyString")]] = None
+    newDiskName: Optional[Annotated[str, _aws_pattern("Lightsail", "ResourceName")]] = None
 
 
 TimestampTypeDef = Union[datetime, str]
@@ -394,24 +396,24 @@ TimestampTypeDef = Union[datetime, str]
 
 # This class is the input for the 'delete_alarm' function.
 class DeleteAlarmRequestTypeDef(BaseValidatorModel):
-    alarmName: str
+    alarmName: Annotated[str, _aws_pattern("Lightsail", "ResourceName")]
 
 
 # This class is the input for the 'delete_auto_snapshot' function.
 class DeleteAutoSnapshotRequestTypeDef(BaseValidatorModel):
-    resourceName: str
-    date: str
+    resourceName: Annotated[str, _aws_pattern("Lightsail", "ResourceName")]
+    date: Annotated[str, _aws_pattern("Lightsail", "AutoSnapshotDate")]
 
 
 # This class is the input for the 'delete_bucket_access_key' function.
 class DeleteBucketAccessKeyRequestTypeDef(BaseValidatorModel):
-    bucketName: str
-    accessKeyId: str
+    bucketName: Annotated[str, _aws_pattern("Lightsail", "BucketName")]
+    accessKeyId: Annotated[str, _aws_pattern("Lightsail", "NonEmptyString")]
 
 
 # This class is the input for the 'delete_bucket' function.
 class DeleteBucketRequestTypeDef(BaseValidatorModel):
-    bucketName: str
+    bucketName: Annotated[str, _aws_pattern("Lightsail", "BucketName")]
     forceDelete: Optional[bool] = None
 
 
@@ -426,28 +428,28 @@ class DeleteContactMethodRequestTypeDef(BaseValidatorModel):
 
 
 class DeleteContainerImageRequestTypeDef(BaseValidatorModel):
-    serviceName: str
+    serviceName: Annotated[str, _aws_pattern("Lightsail", "ContainerServiceName")]
     image: str
 
 
 class DeleteContainerServiceRequestTypeDef(BaseValidatorModel):
-    serviceName: str
+    serviceName: Annotated[str, _aws_pattern("Lightsail", "ContainerServiceName")]
 
 
 # This class is the input for the 'delete_disk' function.
 class DeleteDiskRequestTypeDef(BaseValidatorModel):
-    diskName: str
+    diskName: Annotated[str, _aws_pattern("Lightsail", "ResourceName")]
     forceDeleteAddOns: Optional[bool] = None
 
 
 # This class is the input for the 'delete_disk_snapshot' function.
 class DeleteDiskSnapshotRequestTypeDef(BaseValidatorModel):
-    diskSnapshotName: str
+    diskSnapshotName: Annotated[str, _aws_pattern("Lightsail", "ResourceName")]
 
 
 # This class is the input for the 'delete_distribution' function.
 class DeleteDistributionRequestTypeDef(BaseValidatorModel):
-    distributionName: Optional[str] = None
+    distributionName: Optional[Annotated[str, _aws_pattern("Lightsail", "ResourceName")]] = None
 
 
 # This class is the input for the 'delete_domain' function.
@@ -457,80 +459,80 @@ class DeleteDomainRequestTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'delete_instance' function.
 class DeleteInstanceRequestTypeDef(BaseValidatorModel):
-    instanceName: str
+    instanceName: Annotated[str, _aws_pattern("Lightsail", "ResourceName")]
     forceDeleteAddOns: Optional[bool] = None
 
 
 # This class is the input for the 'delete_instance_snapshot' function.
 class DeleteInstanceSnapshotRequestTypeDef(BaseValidatorModel):
-    instanceSnapshotName: str
+    instanceSnapshotName: Annotated[str, _aws_pattern("Lightsail", "ResourceName")]
 
 
 # This class is the input for the 'delete_key_pair' function.
 class DeleteKeyPairRequestTypeDef(BaseValidatorModel):
-    keyPairName: str
+    keyPairName: Annotated[str, _aws_pattern("Lightsail", "ResourceName")]
     expectedFingerprint: Optional[str] = None
 
 
 # This class is the input for the 'delete_known_host_keys' function.
 class DeleteKnownHostKeysRequestTypeDef(BaseValidatorModel):
-    instanceName: str
+    instanceName: Annotated[str, _aws_pattern("Lightsail", "ResourceName")]
 
 
 # This class is the input for the 'delete_load_balancer' function.
 class DeleteLoadBalancerRequestTypeDef(BaseValidatorModel):
-    loadBalancerName: str
+    loadBalancerName: Annotated[str, _aws_pattern("Lightsail", "ResourceName")]
 
 
 # This class is the input for the 'delete_load_balancer_tls_certificate' function.
 class DeleteLoadBalancerTlsCertificateRequestTypeDef(BaseValidatorModel):
-    loadBalancerName: str
-    certificateName: str
+    loadBalancerName: Annotated[str, _aws_pattern("Lightsail", "ResourceName")]
+    certificateName: Annotated[str, _aws_pattern("Lightsail", "ResourceName")]
     force: Optional[bool] = None
 
 
 # This class is the input for the 'delete_relational_database' function.
 class DeleteRelationalDatabaseRequestTypeDef(BaseValidatorModel):
-    relationalDatabaseName: str
+    relationalDatabaseName: Annotated[str, _aws_pattern("Lightsail", "ResourceName")]
     skipFinalSnapshot: Optional[bool] = None
-    finalRelationalDatabaseSnapshotName: Optional[str] = None
+    finalRelationalDatabaseSnapshotName: Optional[Annotated[str, _aws_pattern("Lightsail", "ResourceName")]] = None
 
 
 # This class is the input for the 'delete_relational_database_snapshot' function.
 class DeleteRelationalDatabaseSnapshotRequestTypeDef(BaseValidatorModel):
-    relationalDatabaseSnapshotName: str
+    relationalDatabaseSnapshotName: Annotated[str, _aws_pattern("Lightsail", "ResourceName")]
 
 
 # This class is the input for the 'detach_certificate_from_distribution' function.
 class DetachCertificateFromDistributionRequestTypeDef(BaseValidatorModel):
-    distributionName: str
+    distributionName: Annotated[str, _aws_pattern("Lightsail", "ResourceName")]
 
 
 # This class is the input for the 'detach_disk' function.
 class DetachDiskRequestTypeDef(BaseValidatorModel):
-    diskName: str
+    diskName: Annotated[str, _aws_pattern("Lightsail", "ResourceName")]
 
 
 # This class is the input for the 'detach_instances_from_load_balancer' function.
 class DetachInstancesFromLoadBalancerRequestTypeDef(BaseValidatorModel):
-    loadBalancerName: str
-    instanceNames: List[str]
+    loadBalancerName: Annotated[str, _aws_pattern("Lightsail", "ResourceName")]
+    instanceNames: List[Annotated[str, _aws_pattern("Lightsail", "ResourceName")]]
 
 
 # This class is the input for the 'detach_static_ip' function.
 class DetachStaticIpRequestTypeDef(BaseValidatorModel):
-    staticIpName: str
+    staticIpName: Annotated[str, _aws_pattern("Lightsail", "ResourceName")]
 
 
 # This class is the input for the 'disable_add_on' function.
 class DisableAddOnRequestTypeDef(BaseValidatorModel):
     addOnType: AddOnTypeType
-    resourceName: str
+    resourceName: Annotated[str, _aws_pattern("Lightsail", "ResourceName")]
 
 
 class DiskInfoTypeDef(BaseValidatorModel):
     name: Optional[str] = None
-    path: Optional[str] = None
+    path: Optional[Annotated[str, _aws_pattern("Lightsail", "NonEmptyString")]] = None
     sizeInGb: Optional[int] = None
     isSystemDisk: Optional[bool] = None
 
@@ -562,7 +564,7 @@ class DomainEntryOutputTypeDef(BaseValidatorModel):
 
 
 class DomainEntryTypeDef(BaseValidatorModel):
-    id: Optional[str] = None
+    id: Optional[Annotated[str, _aws_pattern("Lightsail", "NonEmptyString")]] = None
     name: Optional[str] = None
     target: Optional[str] = None
     isAlias: Optional[bool] = None
@@ -583,7 +585,7 @@ class TimePeriodTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'export_snapshot' function.
 class ExportSnapshotRequestTypeDef(BaseValidatorModel):
-    sourceSnapshotName: str
+    sourceSnapshotName: Annotated[str, _aws_pattern("Lightsail", "ResourceName")]
 
 
 class PaginatorConfigTypeDef(BaseValidatorModel):
@@ -599,14 +601,14 @@ class GetActiveNamesRequestTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'get_alarms' function.
 class GetAlarmsRequestTypeDef(BaseValidatorModel):
-    alarmName: Optional[str] = None
+    alarmName: Optional[Annotated[str, _aws_pattern("Lightsail", "ResourceName")]] = None
     pageToken: Optional[str] = None
-    monitoredResourceName: Optional[str] = None
+    monitoredResourceName: Optional[Annotated[str, _aws_pattern("Lightsail", "ResourceName")]] = None
 
 
 # This class is the input for the 'get_auto_snapshots' function.
 class GetAutoSnapshotsRequestTypeDef(BaseValidatorModel):
-    resourceName: str
+    resourceName: Annotated[str, _aws_pattern("Lightsail", "ResourceName")]
 
 
 # This class is the input for the 'get_blueprints' function.
@@ -618,7 +620,7 @@ class GetBlueprintsRequestTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'get_bucket_access_keys' function.
 class GetBucketAccessKeysRequestTypeDef(BaseValidatorModel):
-    bucketName: str
+    bucketName: Annotated[str, _aws_pattern("Lightsail", "BucketName")]
 
 
 # This class is the input for the 'get_bucket_bundles' function.
@@ -638,7 +640,7 @@ class MetricDatapointTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'get_buckets' function.
 class GetBucketsRequestTypeDef(BaseValidatorModel):
-    bucketName: Optional[str] = None
+    bucketName: Optional[Annotated[str, _aws_pattern("Lightsail", "BucketName")]] = None
     pageToken: Optional[str] = None
     includeConnectedResources: Optional[bool] = None
     includeCors: Optional[bool] = None
@@ -671,27 +673,27 @@ class GetContactMethodsRequestTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'get_container_images' function.
 class GetContainerImagesRequestTypeDef(BaseValidatorModel):
-    serviceName: str
+    serviceName: Annotated[str, _aws_pattern("Lightsail", "ContainerServiceName")]
 
 
 # This class is the input for the 'get_container_service_deployments' function.
 class GetContainerServiceDeploymentsRequestTypeDef(BaseValidatorModel):
-    serviceName: str
+    serviceName: Annotated[str, _aws_pattern("Lightsail", "ContainerServiceName")]
 
 
 # This class is the input for the 'get_container_services' function.
 class GetContainerServicesRequestTypeDef(BaseValidatorModel):
-    serviceName: Optional[str] = None
+    serviceName: Optional[Annotated[str, _aws_pattern("Lightsail", "ContainerServiceName")]] = None
 
 
 # This class is the input for the 'get_disk' function.
 class GetDiskRequestTypeDef(BaseValidatorModel):
-    diskName: str
+    diskName: Annotated[str, _aws_pattern("Lightsail", "ResourceName")]
 
 
 # This class is the input for the 'get_disk_snapshot' function.
 class GetDiskSnapshotRequestTypeDef(BaseValidatorModel):
-    diskSnapshotName: str
+    diskSnapshotName: Annotated[str, _aws_pattern("Lightsail", "ResourceName")]
 
 
 # This class is the input for the 'get_disk_snapshots' function.
@@ -706,12 +708,12 @@ class GetDisksRequestTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'get_distribution_latest_cache_reset' function.
 class GetDistributionLatestCacheResetRequestTypeDef(BaseValidatorModel):
-    distributionName: Optional[str] = None
+    distributionName: Optional[Annotated[str, _aws_pattern("Lightsail", "ResourceName")]] = None
 
 
 # This class is the input for the 'get_distributions' function.
 class GetDistributionsRequestTypeDef(BaseValidatorModel):
-    distributionName: Optional[str] = None
+    distributionName: Optional[Annotated[str, _aws_pattern("Lightsail", "ResourceName")]] = None
     pageToken: Optional[str] = None
 
 
@@ -732,13 +734,13 @@ class GetExportSnapshotRecordsRequestTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'get_instance_access_details' function.
 class GetInstanceAccessDetailsRequestTypeDef(BaseValidatorModel):
-    instanceName: str
+    instanceName: Annotated[str, _aws_pattern("Lightsail", "ResourceName")]
     protocol: Optional[InstanceAccessProtocolType] = None
 
 
 # This class is the input for the 'get_instance_port_states' function.
 class GetInstancePortStatesRequestTypeDef(BaseValidatorModel):
-    instanceName: str
+    instanceName: Annotated[str, _aws_pattern("Lightsail", "ResourceName")]
 
 
 class InstancePortStateTypeDef(BaseValidatorModel):
@@ -753,12 +755,12 @@ class InstancePortStateTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'get_instance' function.
 class GetInstanceRequestTypeDef(BaseValidatorModel):
-    instanceName: str
+    instanceName: Annotated[str, _aws_pattern("Lightsail", "ResourceName")]
 
 
 # This class is the input for the 'get_instance_snapshot' function.
 class GetInstanceSnapshotRequestTypeDef(BaseValidatorModel):
-    instanceSnapshotName: str
+    instanceSnapshotName: Annotated[str, _aws_pattern("Lightsail", "ResourceName")]
 
 
 # This class is the input for the 'get_instance_snapshots' function.
@@ -768,7 +770,7 @@ class GetInstanceSnapshotsRequestTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'get_instance_state' function.
 class GetInstanceStateRequestTypeDef(BaseValidatorModel):
-    instanceName: str
+    instanceName: Annotated[str, _aws_pattern("Lightsail", "ResourceName")]
 
 
 class InstanceStateTypeDef(BaseValidatorModel):
@@ -783,7 +785,7 @@ class GetInstancesRequestTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'get_key_pair' function.
 class GetKeyPairRequestTypeDef(BaseValidatorModel):
-    keyPairName: str
+    keyPairName: Annotated[str, _aws_pattern("Lightsail", "ResourceName")]
 
 
 # This class is the input for the 'get_key_pairs' function.
@@ -794,12 +796,12 @@ class GetKeyPairsRequestTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'get_load_balancer' function.
 class GetLoadBalancerRequestTypeDef(BaseValidatorModel):
-    loadBalancerName: str
+    loadBalancerName: Annotated[str, _aws_pattern("Lightsail", "ResourceName")]
 
 
 # This class is the input for the 'get_load_balancer_tls_certificates' function.
 class GetLoadBalancerTlsCertificatesRequestTypeDef(BaseValidatorModel):
-    loadBalancerName: str
+    loadBalancerName: Annotated[str, _aws_pattern("Lightsail", "ResourceName")]
 
 
 # This class is the input for the 'get_load_balancer_tls_policies' function.
@@ -808,7 +810,7 @@ class GetLoadBalancerTlsPoliciesRequestTypeDef(BaseValidatorModel):
 
 
 class LoadBalancerTlsPolicyTypeDef(BaseValidatorModel):
-    name: Optional[str] = None
+    name: Optional[Annotated[str, _aws_pattern("Lightsail", "ResourceName")]] = None
     isDefault: Optional[bool] = None
     description: Optional[str] = None
     protocols: Optional[List[str]] = None
@@ -822,12 +824,12 @@ class GetLoadBalancersRequestTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'get_operation' function.
 class GetOperationRequestTypeDef(BaseValidatorModel):
-    operationId: str
+    operationId: Annotated[str, _aws_pattern("Lightsail", "NonEmptyString")]
 
 
 # This class is the input for the 'get_operations_for_resource' function.
 class GetOperationsForResourceRequestTypeDef(BaseValidatorModel):
-    resourceName: str
+    resourceName: Annotated[str, _aws_pattern("Lightsail", "ResourceName")]
     pageToken: Optional[str] = None
 
 
@@ -876,13 +878,13 @@ class RelationalDatabaseBundleTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'get_relational_database_events' function.
 class GetRelationalDatabaseEventsRequestTypeDef(BaseValidatorModel):
-    relationalDatabaseName: str
+    relationalDatabaseName: Annotated[str, _aws_pattern("Lightsail", "ResourceName")]
     durationInMinutes: Optional[int] = None
     pageToken: Optional[str] = None
 
 
 class RelationalDatabaseEventTypeDef(BaseValidatorModel):
-    resource: Optional[str] = None
+    resource: Optional[Annotated[str, _aws_pattern("Lightsail", "ResourceName")]] = None
     createdAt: Optional[datetime] = None
     message: Optional[str] = None
     eventCategories: Optional[List[str]] = None
@@ -895,18 +897,18 @@ class LogEventTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'get_relational_database_log_streams' function.
 class GetRelationalDatabaseLogStreamsRequestTypeDef(BaseValidatorModel):
-    relationalDatabaseName: str
+    relationalDatabaseName: Annotated[str, _aws_pattern("Lightsail", "ResourceName")]
 
 
 # This class is the input for the 'get_relational_database_master_user_password' function.
 class GetRelationalDatabaseMasterUserPasswordRequestTypeDef(BaseValidatorModel):
-    relationalDatabaseName: str
+    relationalDatabaseName: Annotated[str, _aws_pattern("Lightsail", "ResourceName")]
     passwordVersion: Optional[RelationalDatabasePasswordVersionType] = None
 
 
 # This class is the input for the 'get_relational_database_parameters' function.
 class GetRelationalDatabaseParametersRequestTypeDef(BaseValidatorModel):
-    relationalDatabaseName: str
+    relationalDatabaseName: Annotated[str, _aws_pattern("Lightsail", "ResourceName")]
     pageToken: Optional[str] = None
 
 
@@ -923,12 +925,12 @@ class RelationalDatabaseParameterTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'get_relational_database' function.
 class GetRelationalDatabaseRequestTypeDef(BaseValidatorModel):
-    relationalDatabaseName: str
+    relationalDatabaseName: Annotated[str, _aws_pattern("Lightsail", "ResourceName")]
 
 
 # This class is the input for the 'get_relational_database_snapshot' function.
 class GetRelationalDatabaseSnapshotRequestTypeDef(BaseValidatorModel):
-    relationalDatabaseSnapshotName: str
+    relationalDatabaseSnapshotName: Annotated[str, _aws_pattern("Lightsail", "ResourceName")]
 
 
 # This class is the input for the 'get_relational_database_snapshots' function.
@@ -943,13 +945,13 @@ class GetRelationalDatabasesRequestTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'get_setup_history' function.
 class GetSetupHistoryRequestTypeDef(BaseValidatorModel):
-    resourceName: str
-    pageToken: Optional[str] = None
+    resourceName: Annotated[str, _aws_pattern("Lightsail", "ResourceName")]
+    pageToken: Optional[Annotated[str, _aws_pattern("Lightsail", "SetupHistoryPageToken")]] = None
 
 
 # This class is the input for the 'get_static_ip' function.
 class GetStaticIpRequestTypeDef(BaseValidatorModel):
-    staticIpName: str
+    staticIpName: Annotated[str, _aws_pattern("Lightsail", "ResourceName")]
 
 
 # This class is the input for the 'get_static_ips' function.
@@ -969,17 +971,17 @@ class HostKeyAttributesTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'import_key_pair' function.
 class ImportKeyPairRequestTypeDef(BaseValidatorModel):
-    keyPairName: str
+    keyPairName: Annotated[str, _aws_pattern("Lightsail", "ResourceName")]
     publicKeyBase64: str
 
 
 class PasswordDataTypeDef(BaseValidatorModel):
     ciphertext: Optional[str] = None
-    keyPairName: Optional[str] = None
+    keyPairName: Optional[Annotated[str, _aws_pattern("Lightsail", "ResourceName")]] = None
 
 
 class InstanceHealthSummaryTypeDef(BaseValidatorModel):
-    instanceName: Optional[str] = None
+    instanceName: Optional[Annotated[str, _aws_pattern("Lightsail", "ResourceName")]] = None
     instanceHealth: Optional[InstanceHealthStateType] = None
     instanceHealthReason: Optional[InstanceHealthReasonType] = None
 
@@ -1010,7 +1012,7 @@ class MonthlyTransferTypeDef(BaseValidatorModel):
 
 
 class OriginTypeDef(BaseValidatorModel):
-    name: Optional[str] = None
+    name: Optional[Annotated[str, _aws_pattern("Lightsail", "ResourceName")]] = None
     resourceType: Optional[ResourceTypeType] = None
     regionName: Optional[RegionNameType] = None
     protocolPolicy: Optional[OriginProtocolPolicyEnumType] = None
@@ -1028,7 +1030,7 @@ class LoadBalancerTlsCertificateDomainValidationOptionTypeDef(BaseValidatorModel
 
 
 class LoadBalancerTlsCertificateSummaryTypeDef(BaseValidatorModel):
-    name: Optional[str] = None
+    name: Optional[Annotated[str, _aws_pattern("Lightsail", "ResourceName")]] = None
     isAttached: Optional[bool] = None
 
 
@@ -1038,8 +1040,8 @@ class NameServersUpdateStateTypeDef(BaseValidatorModel):
 
 
 class PendingMaintenanceActionTypeDef(BaseValidatorModel):
-    action: Optional[str] = None
-    description: Optional[str] = None
+    action: Optional[Annotated[str, _aws_pattern("Lightsail", "NonEmptyString")]] = None
+    description: Optional[Annotated[str, _aws_pattern("Lightsail", "NonEmptyString")]] = None
     currentApplyDate: Optional[datetime] = None
 
 
@@ -1056,24 +1058,24 @@ class R53HostedZoneDeletionStateTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'reboot_instance' function.
 class RebootInstanceRequestTypeDef(BaseValidatorModel):
-    instanceName: str
+    instanceName: Annotated[str, _aws_pattern("Lightsail", "ResourceName")]
 
 
 # This class is the input for the 'reboot_relational_database' function.
 class RebootRelationalDatabaseRequestTypeDef(BaseValidatorModel):
-    relationalDatabaseName: str
+    relationalDatabaseName: Annotated[str, _aws_pattern("Lightsail", "ResourceName")]
 
 
 # This class is the input for the 'register_container_image' function.
 class RegisterContainerImageRequestTypeDef(BaseValidatorModel):
-    serviceName: str
-    label: str
+    serviceName: Annotated[str, _aws_pattern("Lightsail", "ContainerServiceName")]
+    label: Annotated[str, _aws_pattern("Lightsail", "ContainerLabel")]
     digest: str
 
 
 class RelationalDatabaseEndpointTypeDef(BaseValidatorModel):
     port: Optional[int] = None
-    address: Optional[str] = None
+    address: Optional[Annotated[str, _aws_pattern("Lightsail", "NonEmptyString")]] = None
 
 
 class RelationalDatabaseHardwareTypeDef(BaseValidatorModel):
@@ -1084,12 +1086,12 @@ class RelationalDatabaseHardwareTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'release_static_ip' function.
 class ReleaseStaticIpRequestTypeDef(BaseValidatorModel):
-    staticIpName: str
+    staticIpName: Annotated[str, _aws_pattern("Lightsail", "ResourceName")]
 
 
 # This class is the input for the 'reset_distribution_cache' function.
 class ResetDistributionCacheRequestTypeDef(BaseValidatorModel):
-    distributionName: Optional[str] = None
+    distributionName: Optional[Annotated[str, _aws_pattern("Lightsail", "ResourceName")]] = None
 
 
 # This class is the input for the 'send_contact_method_verification' function.
@@ -1100,22 +1102,22 @@ class SendContactMethodVerificationRequestTypeDef(BaseValidatorModel):
 # This class is the input for the 'set_ip_address_type' function.
 class SetIpAddressTypeRequestTypeDef(BaseValidatorModel):
     resourceType: ResourceTypeType
-    resourceName: str
+    resourceName: Annotated[str, _aws_pattern("Lightsail", "ResourceName")]
     ipAddressType: IpAddressTypeType
     acceptBundleUpdate: Optional[bool] = None
 
 
 # This class is the input for the 'set_resource_access_for_bucket' function.
 class SetResourceAccessForBucketRequestTypeDef(BaseValidatorModel):
-    resourceName: str
-    bucketName: str
+    resourceName: Annotated[str, _aws_pattern("Lightsail", "ResourceName")]
+    bucketName: Annotated[str, _aws_pattern("Lightsail", "BucketName")]
     access: ResourceBucketAccessType
 
 
 class SetupExecutionDetailsTypeDef(BaseValidatorModel):
     command: Optional[str] = None
     dateTime: Optional[datetime] = None
-    name: Optional[str] = None
+    name: Optional[Annotated[str, _aws_pattern("Lightsail", "NonEmptyString")]] = None
     status: Optional[SetupStatusType] = None
     standardError: Optional[str] = None
     standardOutput: Optional[str] = None
@@ -1123,79 +1125,79 @@ class SetupExecutionDetailsTypeDef(BaseValidatorModel):
 
 
 class SetupRequestTypeDef(BaseValidatorModel):
-    instanceName: Optional[str] = None
-    domainNames: Optional[List[str]] = None
+    instanceName: Optional[Annotated[str, _aws_pattern("Lightsail", "ResourceName")]] = None
+    domainNames: Optional[List[Annotated[str, _aws_pattern("Lightsail", "SetupDomainName")]]] = None
     certificateProvider: Optional[Literal["LetsEncrypt"]] = None
 
 
 # This class is the input for the 'setup_instance_https' function.
 class SetupInstanceHttpsRequestTypeDef(BaseValidatorModel):
-    instanceName: str
-    emailAddress: str
-    domainNames: List[str]
+    instanceName: Annotated[str, _aws_pattern("Lightsail", "ResourceName")]
+    emailAddress: Annotated[str, _aws_pattern("Lightsail", "EmailAddress")]
+    domainNames: List[Annotated[str, _aws_pattern("Lightsail", "SetupDomainName")]]
     certificateProvider: Literal["LetsEncrypt"]
 
 
 # This class is the input for the 'start_gui_session' function.
 class StartGUISessionRequestTypeDef(BaseValidatorModel):
-    resourceName: str
+    resourceName: Annotated[str, _aws_pattern("Lightsail", "ResourceName")]
 
 
 # This class is the input for the 'start_instance' function.
 class StartInstanceRequestTypeDef(BaseValidatorModel):
-    instanceName: str
+    instanceName: Annotated[str, _aws_pattern("Lightsail", "ResourceName")]
 
 
 # This class is the input for the 'start_relational_database' function.
 class StartRelationalDatabaseRequestTypeDef(BaseValidatorModel):
-    relationalDatabaseName: str
+    relationalDatabaseName: Annotated[str, _aws_pattern("Lightsail", "ResourceName")]
 
 
 # This class is the input for the 'stop_gui_session' function.
 class StopGUISessionRequestTypeDef(BaseValidatorModel):
-    resourceName: str
+    resourceName: Annotated[str, _aws_pattern("Lightsail", "ResourceName")]
 
 
 # This class is the input for the 'stop_instance' function.
 class StopInstanceRequestTypeDef(BaseValidatorModel):
-    instanceName: str
+    instanceName: Annotated[str, _aws_pattern("Lightsail", "ResourceName")]
     force: Optional[bool] = None
 
 
 # This class is the input for the 'stop_relational_database' function.
 class StopRelationalDatabaseRequestTypeDef(BaseValidatorModel):
-    relationalDatabaseName: str
-    relationalDatabaseSnapshotName: Optional[str] = None
+    relationalDatabaseName: Annotated[str, _aws_pattern("Lightsail", "ResourceName")]
+    relationalDatabaseSnapshotName: Optional[Annotated[str, _aws_pattern("Lightsail", "ResourceName")]] = None
 
 
 # This class is the input for the 'test_alarm' function.
 class TestAlarmRequestTypeDef(BaseValidatorModel):
-    alarmName: str
+    alarmName: Annotated[str, _aws_pattern("Lightsail", "ResourceName")]
     state: AlarmStateType
 
 
 # This class is the input for the 'untag_resource' function.
 class UntagResourceRequestTypeDef(BaseValidatorModel):
-    resourceName: str
+    resourceName: Annotated[str, _aws_pattern("Lightsail", "ResourceName")]
     tagKeys: List[str]
-    resourceArn: Optional[str] = None
+    resourceArn: Optional[Annotated[str, _aws_pattern("Lightsail", "ResourceArn")]] = None
 
 
 # This class is the input for the 'update_bucket_bundle' function.
 class UpdateBucketBundleRequestTypeDef(BaseValidatorModel):
-    bucketName: str
-    bundleId: str
+    bucketName: Annotated[str, _aws_pattern("Lightsail", "BucketName")]
+    bundleId: Annotated[str, _aws_pattern("Lightsail", "NonEmptyString")]
 
 
 # This class is the input for the 'update_distribution_bundle' function.
 class UpdateDistributionBundleRequestTypeDef(BaseValidatorModel):
-    distributionName: Optional[str] = None
+    distributionName: Optional[Annotated[str, _aws_pattern("Lightsail", "ResourceName")]] = None
     bundleId: Optional[str] = None
 
 
 # This class is the input for the 'update_instance_metadata_options' function.
 class UpdateInstanceMetadataOptionsRequestTypeDef(BaseValidatorModel):
-    instanceName: str
+    instanceName: Annotated[str, _aws_pattern("Lightsail", "ResourceName")]
     httpTokens: Optional[HttpTokensType] = None
     httpEndpoint: Optional[HttpEndpointType] = None
     httpPutResponseHopLimit: Optional[int] = None
@@ -1204,14 +1206,14 @@ class UpdateInstanceMetadataOptionsRequestTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'update_load_balancer_attribute' function.
 class UpdateLoadBalancerAttributeRequestTypeDef(BaseValidatorModel):
-    loadBalancerName: str
+    loadBalancerName: Annotated[str, _aws_pattern("Lightsail", "ResourceName")]
     attributeName: LoadBalancerAttributeNameType
     attributeValue: str
 
 
 # This class is the input for the 'update_relational_database' function.
 class UpdateRelationalDatabaseRequestTypeDef(BaseValidatorModel):
-    relationalDatabaseName: str
+    relationalDatabaseName: Annotated[str, _aws_pattern("Lightsail", "ResourceName")]
     masterUserPassword: Optional[str] = None
     rotateMasterUserPassword: Optional[bool] = None
     preferredBackupWindow: Optional[str] = None
@@ -1225,8 +1227,8 @@ class UpdateRelationalDatabaseRequestTypeDef(BaseValidatorModel):
 
 
 class AccessKeyTypeDef(BaseValidatorModel):
-    accessKeyId: Optional[str] = None
-    secretAccessKey: Optional[str] = None
+    accessKeyId: Optional[Annotated[str, _aws_pattern("Lightsail", "IAMAccessKeyId")]] = None
+    secretAccessKey: Optional[Annotated[str, _aws_pattern("Lightsail", "NonEmptyString")]] = None
     status: Optional[StatusTypeType] = None
     createdAt: Optional[datetime] = None
     lastUsed: Optional[AccessKeyLastUsedTypeDef] = None
@@ -1239,8 +1241,8 @@ class AddOnRequestTypeDef(BaseValidatorModel):
 
 
 class OperationTypeDef(BaseValidatorModel):
-    id: Optional[str] = None
-    resourceName: Optional[str] = None
+    id: Optional[Annotated[str, _aws_pattern("Lightsail", "NonEmptyString")]] = None
+    resourceName: Optional[Annotated[str, _aws_pattern("Lightsail", "ResourceName")]] = None
     resourceType: Optional[ResourceTypeType] = None
     createdAt: Optional[datetime] = None
     location: Optional[ResourceLocationTypeDef] = None
@@ -1254,28 +1256,28 @@ class OperationTypeDef(BaseValidatorModel):
 
 
 class SetupHistoryResourceTypeDef(BaseValidatorModel):
-    name: Optional[str] = None
-    arn: Optional[str] = None
+    name: Optional[Annotated[str, _aws_pattern("Lightsail", "ResourceName")]] = None
+    arn: Optional[Annotated[str, _aws_pattern("Lightsail", "NonEmptyString")]] = None
     createdAt: Optional[datetime] = None
     location: Optional[ResourceLocationTypeDef] = None
     resourceType: Optional[ResourceTypeType] = None
 
 
 class StaticIpTypeDef(BaseValidatorModel):
-    name: Optional[str] = None
-    arn: Optional[str] = None
+    name: Optional[Annotated[str, _aws_pattern("Lightsail", "ResourceName")]] = None
+    arn: Optional[Annotated[str, _aws_pattern("Lightsail", "NonEmptyString")]] = None
     supportCode: Optional[str] = None
     createdAt: Optional[datetime] = None
     location: Optional[ResourceLocationTypeDef] = None
     resourceType: Optional[ResourceTypeType] = None
-    ipAddress: Optional[str] = None
-    attachedTo: Optional[str] = None
+    ipAddress: Optional[Annotated[str, _aws_pattern("Lightsail", "IpAddress")]] = None
+    attachedTo: Optional[Annotated[str, _aws_pattern("Lightsail", "ResourceName")]] = None
     isAttached: Optional[bool] = None
 
 
 class AlarmTypeDef(BaseValidatorModel):
-    name: Optional[str] = None
-    arn: Optional[str] = None
+    name: Optional[Annotated[str, _aws_pattern("Lightsail", "ResourceName")]] = None
+    arn: Optional[Annotated[str, _aws_pattern("Lightsail", "NonEmptyString")]] = None
     createdAt: Optional[datetime] = None
     location: Optional[ResourceLocationTypeDef] = None
     resourceType: Optional[ResourceTypeType] = None
@@ -1298,11 +1300,11 @@ class AlarmTypeDef(BaseValidatorModel):
 
 
 class ContactMethodTypeDef(BaseValidatorModel):
-    contactEndpoint: Optional[str] = None
+    contactEndpoint: Optional[Annotated[str, _aws_pattern("Lightsail", "NonEmptyString")]] = None
     status: Optional[ContactMethodStatusType] = None
     protocol: Optional[ContactProtocolType] = None
-    name: Optional[str] = None
-    arn: Optional[str] = None
+    name: Optional[Annotated[str, _aws_pattern("Lightsail", "ResourceName")]] = None
+    arn: Optional[Annotated[str, _aws_pattern("Lightsail", "NonEmptyString")]] = None
     createdAt: Optional[datetime] = None
     location: Optional[ResourceLocationTypeDef] = None
     resourceType: Optional[ResourceTypeType] = None
@@ -1312,8 +1314,8 @@ class ContactMethodTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'create_bucket' function.
 class CreateBucketRequestTypeDef(BaseValidatorModel):
-    bucketName: str
-    bundleId: str
+    bucketName: Annotated[str, _aws_pattern("Lightsail", "BucketName")]
+    bundleId: Annotated[str, _aws_pattern("Lightsail", "NonEmptyString")]
     tags: Optional[List[TagTypeDef]] = None
     enableObjectVersioning: Optional[bool] = None
 
@@ -1335,9 +1337,9 @@ class CreateContactMethodRequestTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'create_disk_snapshot' function.
 class CreateDiskSnapshotRequestTypeDef(BaseValidatorModel):
-    diskSnapshotName: str
-    diskName: Optional[str] = None
-    instanceName: Optional[str] = None
+    diskSnapshotName: Annotated[str, _aws_pattern("Lightsail", "ResourceName")]
+    diskName: Optional[Annotated[str, _aws_pattern("Lightsail", "ResourceName")]] = None
+    instanceName: Optional[Annotated[str, _aws_pattern("Lightsail", "ResourceName")]] = None
     tags: Optional[List[TagTypeDef]] = None
 
 
@@ -1349,23 +1351,23 @@ class CreateDomainRequestTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'create_instance_snapshot' function.
 class CreateInstanceSnapshotRequestTypeDef(BaseValidatorModel):
-    instanceSnapshotName: str
-    instanceName: str
+    instanceSnapshotName: Annotated[str, _aws_pattern("Lightsail", "ResourceName")]
+    instanceName: Annotated[str, _aws_pattern("Lightsail", "ResourceName")]
     tags: Optional[List[TagTypeDef]] = None
 
 
 # This class is the input for the 'create_key_pair' function.
 class CreateKeyPairRequestTypeDef(BaseValidatorModel):
-    keyPairName: str
+    keyPairName: Annotated[str, _aws_pattern("Lightsail", "ResourceName")]
     tags: Optional[List[TagTypeDef]] = None
 
 
 # This class is the input for the 'create_load_balancer' function.
 class CreateLoadBalancerRequestTypeDef(BaseValidatorModel):
-    loadBalancerName: str
+    loadBalancerName: Annotated[str, _aws_pattern("Lightsail", "ResourceName")]
     instancePort: int
     healthCheckPath: Optional[str] = None
-    certificateName: Optional[str] = None
+    certificateName: Optional[Annotated[str, _aws_pattern("Lightsail", "ResourceName")]] = None
     certificateDomainName: Optional[str] = None
     certificateAlternativeNames: Optional[List[str]] = None
     tags: Optional[List[TagTypeDef]] = None
@@ -1375,8 +1377,8 @@ class CreateLoadBalancerRequestTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'create_load_balancer_tls_certificate' function.
 class CreateLoadBalancerTlsCertificateRequestTypeDef(BaseValidatorModel):
-    loadBalancerName: str
-    certificateName: str
+    loadBalancerName: Annotated[str, _aws_pattern("Lightsail", "ResourceName")]
+    certificateName: Annotated[str, _aws_pattern("Lightsail", "ResourceName")]
     certificateDomainName: str
     certificateAlternativeNames: Optional[List[str]] = None
     tags: Optional[List[TagTypeDef]] = None
@@ -1384,7 +1386,7 @@ class CreateLoadBalancerTlsCertificateRequestTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'create_relational_database' function.
 class CreateRelationalDatabaseRequestTypeDef(BaseValidatorModel):
-    relationalDatabaseName: str
+    relationalDatabaseName: Annotated[str, _aws_pattern("Lightsail", "ResourceName")]
     relationalDatabaseBlueprintId: str
     relationalDatabaseBundleId: str
     masterDatabaseName: str
@@ -1399,14 +1401,14 @@ class CreateRelationalDatabaseRequestTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'create_relational_database_snapshot' function.
 class CreateRelationalDatabaseSnapshotRequestTypeDef(BaseValidatorModel):
-    relationalDatabaseName: str
-    relationalDatabaseSnapshotName: str
+    relationalDatabaseName: Annotated[str, _aws_pattern("Lightsail", "ResourceName")]
+    relationalDatabaseSnapshotName: Annotated[str, _aws_pattern("Lightsail", "ResourceName")]
     tags: Optional[List[TagTypeDef]] = None
 
 
 class DiskSnapshotTypeDef(BaseValidatorModel):
-    name: Optional[str] = None
-    arn: Optional[str] = None
+    name: Optional[Annotated[str, _aws_pattern("Lightsail", "ResourceName")]] = None
+    arn: Optional[Annotated[str, _aws_pattern("Lightsail", "NonEmptyString")]] = None
     supportCode: Optional[str] = None
     createdAt: Optional[datetime] = None
     location: Optional[ResourceLocationTypeDef] = None
@@ -1415,16 +1417,16 @@ class DiskSnapshotTypeDef(BaseValidatorModel):
     sizeInGb: Optional[int] = None
     state: Optional[DiskSnapshotStateType] = None
     progress: Optional[str] = None
-    fromDiskName: Optional[str] = None
-    fromDiskArn: Optional[str] = None
-    fromInstanceName: Optional[str] = None
-    fromInstanceArn: Optional[str] = None
+    fromDiskName: Optional[Annotated[str, _aws_pattern("Lightsail", "ResourceName")]] = None
+    fromDiskArn: Optional[Annotated[str, _aws_pattern("Lightsail", "NonEmptyString")]] = None
+    fromInstanceName: Optional[Annotated[str, _aws_pattern("Lightsail", "ResourceName")]] = None
+    fromInstanceArn: Optional[Annotated[str, _aws_pattern("Lightsail", "NonEmptyString")]] = None
     isFromAutoSnapshot: Optional[bool] = None
 
 
 class DiskTypeDef(BaseValidatorModel):
-    name: Optional[str] = None
-    arn: Optional[str] = None
+    name: Optional[Annotated[str, _aws_pattern("Lightsail", "ResourceName")]] = None
+    arn: Optional[Annotated[str, _aws_pattern("Lightsail", "NonEmptyString")]] = None
     supportCode: Optional[str] = None
     createdAt: Optional[datetime] = None
     location: Optional[ResourceLocationTypeDef] = None
@@ -1436,7 +1438,7 @@ class DiskTypeDef(BaseValidatorModel):
     iops: Optional[int] = None
     path: Optional[str] = None
     state: Optional[DiskStateType] = None
-    attachedTo: Optional[str] = None
+    attachedTo: Optional[Annotated[str, _aws_pattern("Lightsail", "ResourceName")]] = None
     isAttached: Optional[bool] = None
     attachmentState: Optional[str] = None
     gbInUse: Optional[int] = None
@@ -1444,8 +1446,8 @@ class DiskTypeDef(BaseValidatorModel):
 
 
 class KeyPairTypeDef(BaseValidatorModel):
-    name: Optional[str] = None
-    arn: Optional[str] = None
+    name: Optional[Annotated[str, _aws_pattern("Lightsail", "ResourceName")]] = None
+    arn: Optional[Annotated[str, _aws_pattern("Lightsail", "NonEmptyString")]] = None
     supportCode: Optional[str] = None
     createdAt: Optional[datetime] = None
     location: Optional[ResourceLocationTypeDef] = None
@@ -1456,9 +1458,9 @@ class KeyPairTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'put_alarm' function.
 class PutAlarmRequestTypeDef(BaseValidatorModel):
-    alarmName: str
+    alarmName: Annotated[str, _aws_pattern("Lightsail", "ResourceName")]
     metricName: MetricNameType
-    monitoredResourceName: str
+    monitoredResourceName: Annotated[str, _aws_pattern("Lightsail", "ResourceName")]
     comparisonOperator: ComparisonOperatorType
     threshold: float
     evaluationPeriods: int
@@ -1471,28 +1473,28 @@ class PutAlarmRequestTypeDef(BaseValidatorModel):
 
 
 class RelationalDatabaseSnapshotTypeDef(BaseValidatorModel):
-    name: Optional[str] = None
-    arn: Optional[str] = None
+    name: Optional[Annotated[str, _aws_pattern("Lightsail", "ResourceName")]] = None
+    arn: Optional[Annotated[str, _aws_pattern("Lightsail", "NonEmptyString")]] = None
     supportCode: Optional[str] = None
     createdAt: Optional[datetime] = None
     location: Optional[ResourceLocationTypeDef] = None
     resourceType: Optional[ResourceTypeType] = None
     tags: Optional[List[TagTypeDef]] = None
-    engine: Optional[str] = None
-    engineVersion: Optional[str] = None
+    engine: Optional[Annotated[str, _aws_pattern("Lightsail", "NonEmptyString")]] = None
+    engineVersion: Optional[Annotated[str, _aws_pattern("Lightsail", "NonEmptyString")]] = None
     sizeInGb: Optional[int] = None
-    state: Optional[str] = None
-    fromRelationalDatabaseName: Optional[str] = None
-    fromRelationalDatabaseArn: Optional[str] = None
+    state: Optional[Annotated[str, _aws_pattern("Lightsail", "NonEmptyString")]] = None
+    fromRelationalDatabaseName: Optional[Annotated[str, _aws_pattern("Lightsail", "NonEmptyString")]] = None
+    fromRelationalDatabaseArn: Optional[Annotated[str, _aws_pattern("Lightsail", "NonEmptyString")]] = None
     fromRelationalDatabaseBundleId: Optional[str] = None
     fromRelationalDatabaseBlueprintId: Optional[str] = None
 
 
 # This class is the input for the 'tag_resource' function.
 class TagResourceRequestTypeDef(BaseValidatorModel):
-    resourceName: str
+    resourceName: Annotated[str, _aws_pattern("Lightsail", "ResourceName")]
     tags: List[TagTypeDef]
-    resourceArn: Optional[str] = None
+    resourceArn: Optional[Annotated[str, _aws_pattern("Lightsail", "ResourceArn")]] = None
 
 
 class DownloadDefaultKeyPairResultTypeDef(BaseValidatorModel):
@@ -1598,8 +1600,8 @@ class CacheSettingsTypeDef(BaseValidatorModel):
     defaultTTL: Optional[int] = None
     minimumTTL: Optional[int] = None
     maximumTTL: Optional[int] = None
-    allowedHTTPMethods: Optional[str] = None
-    cachedHTTPMethods: Optional[str] = None
+    allowedHTTPMethods: Optional[Annotated[str, _aws_pattern("Lightsail", "NonEmptyString")]] = None
+    cachedHTTPMethods: Optional[Annotated[str, _aws_pattern("Lightsail", "NonEmptyString")]] = None
     forwardedCookies: Optional[CookieObjectTypeDef] = None
     forwardedHeaders: Optional[HeaderObjectTypeDef] = None
     forwardedQueryStrings: Optional[QueryStringObjectTypeDef] = None
@@ -1608,24 +1610,24 @@ class CacheSettingsTypeDef(BaseValidatorModel):
 # This class is the input for the 'close_instance_public_ports' function.
 class CloseInstancePublicPortsRequestTypeDef(BaseValidatorModel):
     portInfo: PortInfoTypeDef
-    instanceName: str
+    instanceName: Annotated[str, _aws_pattern("Lightsail", "ResourceName")]
 
 
 # This class is the input for the 'open_instance_public_ports' function.
 class OpenInstancePublicPortsRequestTypeDef(BaseValidatorModel):
     portInfo: PortInfoTypeDef
-    instanceName: str
+    instanceName: Annotated[str, _aws_pattern("Lightsail", "ResourceName")]
 
 
 # This class is the input for the 'put_instance_public_ports' function.
 class PutInstancePublicPortsRequestTypeDef(BaseValidatorModel):
     portInfos: List[PortInfoTypeDef]
-    instanceName: str
+    instanceName: Annotated[str, _aws_pattern("Lightsail", "ResourceName")]
 
 
 class CloudFormationStackRecordTypeDef(BaseValidatorModel):
-    name: Optional[str] = None
-    arn: Optional[str] = None
+    name: Optional[Annotated[str, _aws_pattern("Lightsail", "ResourceName")]] = None
+    arn: Optional[Annotated[str, _aws_pattern("Lightsail", "NonEmptyString")]] = None
     createdAt: Optional[datetime] = None
     location: Optional[ResourceLocationTypeDef] = None
     resourceType: Optional[ResourceTypeType] = None
@@ -1693,7 +1695,7 @@ class CreateCloudFormationStackRequestTypeDef(BaseValidatorModel):
 
 # This class is the output for the 'create_gui_session_access_details' function.
 class CreateGUISessionAccessDetailsResultTypeDef(BaseValidatorModel):
-    resourceName: str
+    resourceName: Annotated[str, _aws_pattern("Lightsail", "ResourceName")]
     status: StatusType
     percentageComplete: int
     failureReason: str
@@ -1703,12 +1705,12 @@ class CreateGUISessionAccessDetailsResultTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'create_relational_database_from_snapshot' function.
 class CreateRelationalDatabaseFromSnapshotRequestTypeDef(BaseValidatorModel):
-    relationalDatabaseName: str
+    relationalDatabaseName: Annotated[str, _aws_pattern("Lightsail", "ResourceName")]
     availabilityZone: Optional[str] = None
     publiclyAccessible: Optional[bool] = None
-    relationalDatabaseSnapshotName: Optional[str] = None
+    relationalDatabaseSnapshotName: Optional[Annotated[str, _aws_pattern("Lightsail", "ResourceName")]] = None
     relationalDatabaseBundleId: Optional[str] = None
-    sourceRelationalDatabaseName: Optional[str] = None
+    sourceRelationalDatabaseName: Optional[Annotated[str, _aws_pattern("Lightsail", "ResourceName")]] = None
     restoreTime: Optional[TimestampTypeDef] = None
     useLatestRestorableTime: Optional[bool] = None
     tags: Optional[List[TagTypeDef]] = None
@@ -1716,7 +1718,7 @@ class CreateRelationalDatabaseFromSnapshotRequestTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'get_bucket_metric_data' function.
 class GetBucketMetricDataRequestTypeDef(BaseValidatorModel):
-    bucketName: str
+    bucketName: Annotated[str, _aws_pattern("Lightsail", "BucketName")]
     metricName: BucketMetricNameType
     startTime: TimestampTypeDef
     endTime: TimestampTypeDef
@@ -1727,7 +1729,7 @@ class GetBucketMetricDataRequestTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'get_container_log' function.
 class GetContainerLogRequestTypeDef(BaseValidatorModel):
-    serviceName: str
+    serviceName: Annotated[str, _aws_pattern("Lightsail", "ContainerServiceName")]
     containerName: str
     startTime: Optional[TimestampTypeDef] = None
     endTime: Optional[TimestampTypeDef] = None
@@ -1737,7 +1739,7 @@ class GetContainerLogRequestTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'get_container_service_metric_data' function.
 class GetContainerServiceMetricDataRequestTypeDef(BaseValidatorModel):
-    serviceName: str
+    serviceName: Annotated[str, _aws_pattern("Lightsail", "ContainerServiceName")]
     metricName: ContainerServiceMetricNameType
     startTime: TimestampTypeDef
     endTime: TimestampTypeDef
@@ -1747,14 +1749,14 @@ class GetContainerServiceMetricDataRequestTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'get_cost_estimate' function.
 class GetCostEstimateRequestTypeDef(BaseValidatorModel):
-    resourceName: str
+    resourceName: Annotated[str, _aws_pattern("Lightsail", "ResourceName")]
     startTime: TimestampTypeDef
     endTime: TimestampTypeDef
 
 
 # This class is the input for the 'get_distribution_metric_data' function.
 class GetDistributionMetricDataRequestTypeDef(BaseValidatorModel):
-    distributionName: str
+    distributionName: Annotated[str, _aws_pattern("Lightsail", "ResourceName")]
     metricName: DistributionMetricNameType
     startTime: TimestampTypeDef
     endTime: TimestampTypeDef
@@ -1765,7 +1767,7 @@ class GetDistributionMetricDataRequestTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'get_instance_metric_data' function.
 class GetInstanceMetricDataRequestTypeDef(BaseValidatorModel):
-    instanceName: str
+    instanceName: Annotated[str, _aws_pattern("Lightsail", "ResourceName")]
     metricName: InstanceMetricNameType
     period: int
     startTime: TimestampTypeDef
@@ -1776,7 +1778,7 @@ class GetInstanceMetricDataRequestTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'get_load_balancer_metric_data' function.
 class GetLoadBalancerMetricDataRequestTypeDef(BaseValidatorModel):
-    loadBalancerName: str
+    loadBalancerName: Annotated[str, _aws_pattern("Lightsail", "ResourceName")]
     metricName: LoadBalancerMetricNameType
     period: int
     startTime: TimestampTypeDef
@@ -1787,7 +1789,7 @@ class GetLoadBalancerMetricDataRequestTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'get_relational_database_log_events' function.
 class GetRelationalDatabaseLogEventsRequestTypeDef(BaseValidatorModel):
-    relationalDatabaseName: str
+    relationalDatabaseName: Annotated[str, _aws_pattern("Lightsail", "ResourceName")]
     logStreamName: str
     startTime: Optional[TimestampTypeDef] = None
     endTime: Optional[TimestampTypeDef] = None
@@ -1797,7 +1799,7 @@ class GetRelationalDatabaseLogEventsRequestTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'get_relational_database_metric_data' function.
 class GetRelationalDatabaseMetricDataRequestTypeDef(BaseValidatorModel):
-    relationalDatabaseName: str
+    relationalDatabaseName: Annotated[str, _aws_pattern("Lightsail", "ResourceName")]
     metricName: RelationalDatabaseMetricNameType
     period: int
     startTime: TimestampTypeDef
@@ -1807,8 +1809,8 @@ class GetRelationalDatabaseMetricDataRequestTypeDef(BaseValidatorModel):
 
 
 class InstanceSnapshotInfoTypeDef(BaseValidatorModel):
-    fromBundleId: Optional[str] = None
-    fromBlueprintId: Optional[str] = None
+    fromBundleId: Optional[Annotated[str, _aws_pattern("Lightsail", "NonEmptyString")]] = None
+    fromBlueprintId: Optional[Annotated[str, _aws_pattern("Lightsail", "NonEmptyString")]] = None
     fromDiskInfo: Optional[List[DiskInfoTypeDef]] = None
 
 
@@ -2023,20 +2025,20 @@ class GetRelationalDatabaseParametersResultTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'update_relational_database_parameters' function.
 class UpdateRelationalDatabaseParametersRequestTypeDef(BaseValidatorModel):
-    relationalDatabaseName: str
+    relationalDatabaseName: Annotated[str, _aws_pattern("Lightsail", "ResourceName")]
     parameters: List[RelationalDatabaseParameterTypeDef]
 
 
 class InstanceAccessDetailsTypeDef(BaseValidatorModel):
     certKey: Optional[str] = None
     expiresAt: Optional[datetime] = None
-    ipAddress: Optional[str] = None
-    ipv6Addresses: Optional[List[str]] = None
+    ipAddress: Optional[Annotated[str, _aws_pattern("Lightsail", "IpAddress")]] = None
+    ipv6Addresses: Optional[List[Annotated[str, _aws_pattern("Lightsail", "Ipv6Address")]]] = None
     password: Optional[str] = None
     passwordData: Optional[PasswordDataTypeDef] = None
     privateKey: Optional[str] = None
     protocol: Optional[InstanceAccessProtocolType] = None
-    instanceName: Optional[str] = None
+    instanceName: Optional[Annotated[str, _aws_pattern("Lightsail", "ResourceName")]] = None
     username: Optional[str] = None
     hostKeys: Optional[List[HostKeyAttributesTypeDef]] = None
 
@@ -2047,9 +2049,9 @@ class InstanceNetworkingTypeDef(BaseValidatorModel):
 
 
 class LoadBalancerTlsCertificateDomainValidationRecordTypeDef(BaseValidatorModel):
-    name: Optional[str] = None
-    type: Optional[str] = None
-    value: Optional[str] = None
+    name: Optional[Annotated[str, _aws_pattern("Lightsail", "NonEmptyString")]] = None
+    type: Optional[Annotated[str, _aws_pattern("Lightsail", "NonEmptyString")]] = None
+    value: Optional[Annotated[str, _aws_pattern("Lightsail", "NonEmptyString")]] = None
     validationStatus: Optional[LoadBalancerTlsCertificateDomainStatusType] = None
     domainName: Optional[str] = None
     dnsRecordCreationState: Optional[LoadBalancerTlsCertificateDnsRecordCreationStateTypeDef] = None
@@ -2061,25 +2063,25 @@ class LoadBalancerTlsCertificateRenewalSummaryTypeDef(BaseValidatorModel):
 
 
 class LoadBalancerTypeDef(BaseValidatorModel):
-    name: Optional[str] = None
-    arn: Optional[str] = None
+    name: Optional[Annotated[str, _aws_pattern("Lightsail", "ResourceName")]] = None
+    arn: Optional[Annotated[str, _aws_pattern("Lightsail", "NonEmptyString")]] = None
     supportCode: Optional[str] = None
     createdAt: Optional[datetime] = None
     location: Optional[ResourceLocationTypeDef] = None
     resourceType: Optional[ResourceTypeType] = None
     tags: Optional[List[TagTypeDef]] = None
-    dnsName: Optional[str] = None
+    dnsName: Optional[Annotated[str, _aws_pattern("Lightsail", "NonEmptyString")]] = None
     state: Optional[LoadBalancerStateType] = None
     protocol: Optional[LoadBalancerProtocolType] = None
     publicPorts: Optional[List[int]] = None
-    healthCheckPath: Optional[str] = None
+    healthCheckPath: Optional[Annotated[str, _aws_pattern("Lightsail", "NonEmptyString")]] = None
     instancePort: Optional[int] = None
     instanceHealthSummary: Optional[List[InstanceHealthSummaryTypeDef]] = None
     tlsCertificateSummaries: Optional[List[LoadBalancerTlsCertificateSummaryTypeDef]] = None
     configurationOptions: Optional[Dict[LoadBalancerAttributeNameType, str]] = None
     ipAddressType: Optional[IpAddressTypeType] = None
     httpsRedirectionEnabled: Optional[bool] = None
-    tlsPolicyName: Optional[str] = None
+    tlsPolicyName: Optional[Annotated[str, _aws_pattern("Lightsail", "ResourceName")]] = None
 
 
 class RegisteredDomainDelegationInfoTypeDef(BaseValidatorModel):
@@ -2088,28 +2090,28 @@ class RegisteredDomainDelegationInfoTypeDef(BaseValidatorModel):
 
 
 class RelationalDatabaseTypeDef(BaseValidatorModel):
-    name: Optional[str] = None
-    arn: Optional[str] = None
+    name: Optional[Annotated[str, _aws_pattern("Lightsail", "ResourceName")]] = None
+    arn: Optional[Annotated[str, _aws_pattern("Lightsail", "NonEmptyString")]] = None
     supportCode: Optional[str] = None
     createdAt: Optional[datetime] = None
     location: Optional[ResourceLocationTypeDef] = None
     resourceType: Optional[ResourceTypeType] = None
     tags: Optional[List[TagTypeDef]] = None
-    relationalDatabaseBlueprintId: Optional[str] = None
-    relationalDatabaseBundleId: Optional[str] = None
+    relationalDatabaseBlueprintId: Optional[Annotated[str, _aws_pattern("Lightsail", "NonEmptyString")]] = None
+    relationalDatabaseBundleId: Optional[Annotated[str, _aws_pattern("Lightsail", "NonEmptyString")]] = None
     masterDatabaseName: Optional[str] = None
     hardware: Optional[RelationalDatabaseHardwareTypeDef] = None
-    state: Optional[str] = None
+    state: Optional[Annotated[str, _aws_pattern("Lightsail", "NonEmptyString")]] = None
     secondaryAvailabilityZone: Optional[str] = None
     backupRetentionEnabled: Optional[bool] = None
     pendingModifiedValues: Optional[PendingModifiedRelationalDatabaseValuesTypeDef] = None
-    engine: Optional[str] = None
-    engineVersion: Optional[str] = None
+    engine: Optional[Annotated[str, _aws_pattern("Lightsail", "NonEmptyString")]] = None
+    engineVersion: Optional[Annotated[str, _aws_pattern("Lightsail", "NonEmptyString")]] = None
     latestRestorableTime: Optional[datetime] = None
-    masterUsername: Optional[str] = None
-    parameterApplyStatus: Optional[str] = None
-    preferredBackupWindow: Optional[str] = None
-    preferredMaintenanceWindow: Optional[str] = None
+    masterUsername: Optional[Annotated[str, _aws_pattern("Lightsail", "NonEmptyString")]] = None
+    parameterApplyStatus: Optional[Annotated[str, _aws_pattern("Lightsail", "NonEmptyString")]] = None
+    preferredBackupWindow: Optional[Annotated[str, _aws_pattern("Lightsail", "NonEmptyString")]] = None
+    preferredMaintenanceWindow: Optional[Annotated[str, _aws_pattern("Lightsail", "NonEmptyString")]] = None
     publiclyAccessible: Optional[bool] = None
     masterEndpoint: Optional[RelationalDatabaseEndpointTypeDef] = None
     pendingMaintenanceActions: Optional[List[PendingMaintenanceActionTypeDef]] = None
@@ -2124,10 +2126,10 @@ class GetBucketAccessKeysResultTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'create_disk_from_snapshot' function.
 class CreateDiskFromSnapshotRequestTypeDef(BaseValidatorModel):
-    diskName: str
-    availabilityZone: str
+    diskName: Annotated[str, _aws_pattern("Lightsail", "ResourceName")]
+    availabilityZone: Annotated[str, _aws_pattern("Lightsail", "NonEmptyString")]
     sizeInGb: int
-    diskSnapshotName: Optional[str] = None
+    diskSnapshotName: Optional[Annotated[str, _aws_pattern("Lightsail", "ResourceName")]] = None
     tags: Optional[List[TagTypeDef]] = None
     addOns: Optional[List[AddOnRequestTypeDef]] = None
     sourceDiskName: Optional[str] = None
@@ -2137,8 +2139,8 @@ class CreateDiskFromSnapshotRequestTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'create_disk' function.
 class CreateDiskRequestTypeDef(BaseValidatorModel):
-    diskName: str
-    availabilityZone: str
+    diskName: Annotated[str, _aws_pattern("Lightsail", "ResourceName")]
+    availabilityZone: Annotated[str, _aws_pattern("Lightsail", "NonEmptyString")]
     sizeInGb: int
     tags: Optional[List[TagTypeDef]] = None
     addOns: Optional[List[AddOnRequestTypeDef]] = None
@@ -2148,11 +2150,11 @@ class CreateDiskRequestTypeDef(BaseValidatorModel):
 class CreateInstancesFromSnapshotRequestTypeDef(BaseValidatorModel):
     instanceNames: List[str]
     availabilityZone: str
-    bundleId: str
+    bundleId: Annotated[str, _aws_pattern("Lightsail", "NonEmptyString")]
     attachedDiskMapping: Optional[Dict[str, List[DiskMapTypeDef]]] = None
-    instanceSnapshotName: Optional[str] = None
+    instanceSnapshotName: Optional[Annotated[str, _aws_pattern("Lightsail", "ResourceName")]] = None
     userData: Optional[str] = None
-    keyPairName: Optional[str] = None
+    keyPairName: Optional[Annotated[str, _aws_pattern("Lightsail", "ResourceName")]] = None
     tags: Optional[List[TagTypeDef]] = None
     addOns: Optional[List[AddOnRequestTypeDef]] = None
     ipAddressType: Optional[IpAddressTypeType] = None
@@ -2165,11 +2167,11 @@ class CreateInstancesFromSnapshotRequestTypeDef(BaseValidatorModel):
 class CreateInstancesRequestTypeDef(BaseValidatorModel):
     instanceNames: List[str]
     availabilityZone: str
-    blueprintId: str
-    bundleId: str
-    customImageName: Optional[str] = None
+    blueprintId: Annotated[str, _aws_pattern("Lightsail", "NonEmptyString")]
+    bundleId: Annotated[str, _aws_pattern("Lightsail", "NonEmptyString")]
+    customImageName: Optional[Annotated[str, _aws_pattern("Lightsail", "ResourceName")]] = None
     userData: Optional[str] = None
-    keyPairName: Optional[str] = None
+    keyPairName: Optional[Annotated[str, _aws_pattern("Lightsail", "ResourceName")]] = None
     tags: Optional[List[TagTypeDef]] = None
     addOns: Optional[List[AddOnRequestTypeDef]] = None
     ipAddressType: Optional[IpAddressTypeType] = None
@@ -2177,7 +2179,7 @@ class CreateInstancesRequestTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'enable_add_on' function.
 class EnableAddOnRequestTypeDef(BaseValidatorModel):
-    resourceName: str
+    resourceName: Annotated[str, _aws_pattern("Lightsail", "ResourceName")]
     addOnRequest: AddOnRequestTypeDef
 
 
@@ -2690,7 +2692,7 @@ class UpdateRelationalDatabaseResultTypeDef(BaseValidatorModel):
 
 
 class SetupHistoryTypeDef(BaseValidatorModel):
-    operationId: Optional[str] = None
+    operationId: Optional[Annotated[str, _aws_pattern("Lightsail", "NonEmptyString")]] = None
     request: Optional[SetupRequestTypeDef] = None
     resource: Optional[SetupHistoryResourceTypeDef] = None
     executionDetails: Optional[List[SetupExecutionDetailsTypeDef]] = None
@@ -2756,8 +2758,8 @@ class InstanceHardwareTypeDef(BaseValidatorModel):
 
 
 class InstanceSnapshotTypeDef(BaseValidatorModel):
-    name: Optional[str] = None
-    arn: Optional[str] = None
+    name: Optional[Annotated[str, _aws_pattern("Lightsail", "ResourceName")]] = None
+    arn: Optional[Annotated[str, _aws_pattern("Lightsail", "NonEmptyString")]] = None
     supportCode: Optional[str] = None
     createdAt: Optional[datetime] = None
     location: Optional[ResourceLocationTypeDef] = None
@@ -2766,8 +2768,8 @@ class InstanceSnapshotTypeDef(BaseValidatorModel):
     state: Optional[InstanceSnapshotStateType] = None
     progress: Optional[str] = None
     fromAttachedDisks: Optional[List[DiskTypeDef]] = None
-    fromInstanceName: Optional[str] = None
-    fromInstanceArn: Optional[str] = None
+    fromInstanceName: Optional[Annotated[str, _aws_pattern("Lightsail", "ResourceName")]] = None
+    fromInstanceArn: Optional[Annotated[str, _aws_pattern("Lightsail", "NonEmptyString")]] = None
     fromBlueprintId: Optional[str] = None
     fromBundleId: Optional[str] = None
     isFromAutoSnapshot: Optional[bool] = None
@@ -2811,7 +2813,7 @@ class GetRelationalDatabaseSnapshotsResultTypeDef(BaseValidatorModel):
 
 # This class is the output for the 'get_auto_snapshots' function.
 class GetAutoSnapshotsResultTypeDef(BaseValidatorModel):
-    resourceName: str
+    resourceName: Annotated[str, _aws_pattern("Lightsail", "ResourceName")]
     resourceType: ResourceTypeType
     autoSnapshots: List[AutoSnapshotDetailsTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
@@ -2824,19 +2826,19 @@ class GetRegionsResultTypeDef(BaseValidatorModel):
 
 
 class BucketTypeDef(BaseValidatorModel):
-    resourceType: Optional[str] = None
+    resourceType: Optional[Annotated[str, _aws_pattern("Lightsail", "NonEmptyString")]] = None
     accessRules: Optional[AccessRulesTypeDef] = None
-    arn: Optional[str] = None
-    bundleId: Optional[str] = None
+    arn: Optional[Annotated[str, _aws_pattern("Lightsail", "NonEmptyString")]] = None
+    bundleId: Optional[Annotated[str, _aws_pattern("Lightsail", "NonEmptyString")]] = None
     createdAt: Optional[datetime] = None
-    url: Optional[str] = None
+    url: Optional[Annotated[str, _aws_pattern("Lightsail", "NonEmptyString")]] = None
     location: Optional[ResourceLocationTypeDef] = None
-    name: Optional[str] = None
-    supportCode: Optional[str] = None
+    name: Optional[Annotated[str, _aws_pattern("Lightsail", "BucketName")]] = None
+    supportCode: Optional[Annotated[str, _aws_pattern("Lightsail", "NonEmptyString")]] = None
     tags: Optional[List[TagTypeDef]] = None
-    objectVersioning: Optional[str] = None
+    objectVersioning: Optional[Annotated[str, _aws_pattern("Lightsail", "NonEmptyString")]] = None
     ableToUpdateBundle: Optional[bool] = None
-    readonlyAccessAccounts: Optional[List[str]] = None
+    readonlyAccessAccounts: Optional[List[Annotated[str, _aws_pattern("Lightsail", "NonEmptyString")]]] = None
     resourcesReceivingAccess: Optional[List[ResourceReceivingAccessTypeDef]] = None
     state: Optional[BucketStateTypeDef] = None
     accessLogConfig: Optional[BucketAccessLogConfigTypeDef] = None
@@ -2847,8 +2849,8 @@ BucketCorsConfigUnionTypeDef = Union[BucketCorsConfigOutputTypeDef, BucketCorsCo
 
 
 class LightsailDistributionTypeDef(BaseValidatorModel):
-    name: Optional[str] = None
-    arn: Optional[str] = None
+    name: Optional[Annotated[str, _aws_pattern("Lightsail", "ResourceName")]] = None
+    arn: Optional[Annotated[str, _aws_pattern("Lightsail", "NonEmptyString")]] = None
     supportCode: Optional[str] = None
     createdAt: Optional[datetime] = None
     location: Optional[ResourceLocationTypeDef] = None
@@ -2858,7 +2860,7 @@ class LightsailDistributionTypeDef(BaseValidatorModel):
     isEnabled: Optional[bool] = None
     domainName: Optional[str] = None
     bundleId: Optional[str] = None
-    certificateName: Optional[str] = None
+    certificateName: Optional[Annotated[str, _aws_pattern("Lightsail", "ResourceName")]] = None
     origin: Optional[OriginTypeDef] = None
     originPublicDNS: Optional[str] = None
     defaultCacheBehavior: Optional[CacheBehaviorTypeDef] = None
@@ -2882,7 +2884,7 @@ class GetCloudFormationStackRecordsResultTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'update_container_service' function.
 class UpdateContainerServiceRequestTypeDef(BaseValidatorModel):
-    serviceName: str
+    serviceName: Annotated[str, _aws_pattern("Lightsail", "ContainerServiceName")]
     power: Optional[ContainerServicePowerNameType] = None
     scale: Optional[int] = None
     isDisabled: Optional[bool] = None
@@ -2905,7 +2907,7 @@ class ContainerServiceDeploymentRequestTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'create_container_service_deployment' function.
 class CreateContainerServiceDeploymentRequestTypeDef(BaseValidatorModel):
-    serviceName: str
+    serviceName: Annotated[str, _aws_pattern("Lightsail", "ContainerServiceName")]
     containers: Optional[Dict[str, ContainerUnionTypeDef]] = None
     publicEndpoint: Optional[EndpointRequestTypeDef] = None
 
@@ -2913,10 +2915,10 @@ class CreateContainerServiceDeploymentRequestTypeDef(BaseValidatorModel):
 class ExportSnapshotRecordSourceInfoTypeDef(BaseValidatorModel):
     resourceType: Optional[ExportSnapshotRecordSourceTypeType] = None
     createdAt: Optional[datetime] = None
-    name: Optional[str] = None
-    arn: Optional[str] = None
-    fromResourceName: Optional[str] = None
-    fromResourceArn: Optional[str] = None
+    name: Optional[Annotated[str, _aws_pattern("Lightsail", "NonEmptyString")]] = None
+    arn: Optional[Annotated[str, _aws_pattern("Lightsail", "NonEmptyString")]] = None
+    fromResourceName: Optional[Annotated[str, _aws_pattern("Lightsail", "NonEmptyString")]] = None
+    fromResourceArn: Optional[Annotated[str, _aws_pattern("Lightsail", "NonEmptyString")]] = None
     instanceSnapshotInfo: Optional[InstanceSnapshotInfoTypeDef] = None
     diskSnapshotInfo: Optional[DiskSnapshotInfoTypeDef] = None
 
@@ -2947,7 +2949,7 @@ class RenewalSummaryTypeDef(BaseValidatorModel):
 
 
 class CostEstimateTypeDef(BaseValidatorModel):
-    usageType: Optional[str] = None
+    usageType: Optional[Annotated[str, _aws_pattern("Lightsail", "NonEmptyString")]] = None
     resultsByTime: Optional[List[EstimateByTimeTypeDef]] = None
 
 
@@ -2958,30 +2960,30 @@ class GetInstanceAccessDetailsResultTypeDef(BaseValidatorModel):
 
 
 class LoadBalancerTlsCertificateTypeDef(BaseValidatorModel):
-    name: Optional[str] = None
-    arn: Optional[str] = None
+    name: Optional[Annotated[str, _aws_pattern("Lightsail", "ResourceName")]] = None
+    arn: Optional[Annotated[str, _aws_pattern("Lightsail", "NonEmptyString")]] = None
     supportCode: Optional[str] = None
     createdAt: Optional[datetime] = None
     location: Optional[ResourceLocationTypeDef] = None
     resourceType: Optional[ResourceTypeType] = None
     tags: Optional[List[TagTypeDef]] = None
-    loadBalancerName: Optional[str] = None
+    loadBalancerName: Optional[Annotated[str, _aws_pattern("Lightsail", "ResourceName")]] = None
     isAttached: Optional[bool] = None
     status: Optional[LoadBalancerTlsCertificateStatusType] = None
     domainName: Optional[str] = None
     domainValidationRecords: Optional[List[LoadBalancerTlsCertificateDomainValidationRecordTypeDef]] = None
     failureReason: Optional[LoadBalancerTlsCertificateFailureReasonType] = None
     issuedAt: Optional[datetime] = None
-    issuer: Optional[str] = None
-    keyAlgorithm: Optional[str] = None
+    issuer: Optional[Annotated[str, _aws_pattern("Lightsail", "NonEmptyString")]] = None
+    keyAlgorithm: Optional[Annotated[str, _aws_pattern("Lightsail", "NonEmptyString")]] = None
     notAfter: Optional[datetime] = None
     notBefore: Optional[datetime] = None
     renewalSummary: Optional[LoadBalancerTlsCertificateRenewalSummaryTypeDef] = None
     revocationReason: Optional[LoadBalancerTlsCertificateRevocationReasonType] = None
     revokedAt: Optional[datetime] = None
-    serial: Optional[str] = None
-    signatureAlgorithm: Optional[str] = None
-    subject: Optional[str] = None
+    serial: Optional[Annotated[str, _aws_pattern("Lightsail", "NonEmptyString")]] = None
+    signatureAlgorithm: Optional[Annotated[str, _aws_pattern("Lightsail", "NonEmptyString")]] = None
+    subject: Optional[Annotated[str, _aws_pattern("Lightsail", "NonEmptyString")]] = None
     subjectAlternativeNames: Optional[List[str]] = None
 
 
@@ -2999,8 +3001,8 @@ class GetLoadBalancersResultTypeDef(BaseValidatorModel):
 
 
 class DomainTypeDef(BaseValidatorModel):
-    name: Optional[str] = None
-    arn: Optional[str] = None
+    name: Optional[Annotated[str, _aws_pattern("Lightsail", "ResourceName")]] = None
+    arn: Optional[Annotated[str, _aws_pattern("Lightsail", "NonEmptyString")]] = None
     supportCode: Optional[str] = None
     createdAt: Optional[datetime] = None
     location: Optional[ResourceLocationTypeDef] = None
@@ -3026,32 +3028,32 @@ class GetRelationalDatabasesResultTypeDef(BaseValidatorModel):
 # This class is the output for the 'get_setup_history' function.
 class GetSetupHistoryResultTypeDef(BaseValidatorModel):
     setupHistory: List[SetupHistoryTypeDef]
-    nextPageToken: str
+    nextPageToken: Annotated[str, _aws_pattern("Lightsail", "SetupHistoryPageToken")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 class InstanceTypeDef(BaseValidatorModel):
-    name: Optional[str] = None
-    arn: Optional[str] = None
+    name: Optional[Annotated[str, _aws_pattern("Lightsail", "ResourceName")]] = None
+    arn: Optional[Annotated[str, _aws_pattern("Lightsail", "NonEmptyString")]] = None
     supportCode: Optional[str] = None
     createdAt: Optional[datetime] = None
     location: Optional[ResourceLocationTypeDef] = None
     resourceType: Optional[ResourceTypeType] = None
     tags: Optional[List[TagTypeDef]] = None
-    blueprintId: Optional[str] = None
-    blueprintName: Optional[str] = None
-    bundleId: Optional[str] = None
+    blueprintId: Optional[Annotated[str, _aws_pattern("Lightsail", "NonEmptyString")]] = None
+    blueprintName: Optional[Annotated[str, _aws_pattern("Lightsail", "NonEmptyString")]] = None
+    bundleId: Optional[Annotated[str, _aws_pattern("Lightsail", "NonEmptyString")]] = None
     addOns: Optional[List[AddOnTypeDef]] = None
     isStaticIp: Optional[bool] = None
-    privateIpAddress: Optional[str] = None
-    publicIpAddress: Optional[str] = None
-    ipv6Addresses: Optional[List[str]] = None
+    privateIpAddress: Optional[Annotated[str, _aws_pattern("Lightsail", "IpAddress")]] = None
+    publicIpAddress: Optional[Annotated[str, _aws_pattern("Lightsail", "IpAddress")]] = None
+    ipv6Addresses: Optional[List[Annotated[str, _aws_pattern("Lightsail", "Ipv6Address")]]] = None
     ipAddressType: Optional[IpAddressTypeType] = None
     hardware: Optional[InstanceHardwareTypeDef] = None
     networking: Optional[InstanceNetworkingTypeDef] = None
     state: Optional[InstanceStateTypeDef] = None
-    username: Optional[str] = None
-    sshKeyName: Optional[str] = None
+    username: Optional[Annotated[str, _aws_pattern("Lightsail", "NonEmptyString")]] = None
+    sshKeyName: Optional[Annotated[str, _aws_pattern("Lightsail", "ResourceName")]] = None
     metadataOptions: Optional[InstanceMetadataOptionsTypeDef] = None
 
 
@@ -3092,10 +3094,10 @@ class UpdateBucketResultTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'update_bucket' function.
 class UpdateBucketRequestTypeDef(BaseValidatorModel):
-    bucketName: str
+    bucketName: Annotated[str, _aws_pattern("Lightsail", "BucketName")]
     accessRules: Optional[AccessRulesTypeDef] = None
-    versioning: Optional[str] = None
-    readonlyAccessAccounts: Optional[List[str]] = None
+    versioning: Optional[Annotated[str, _aws_pattern("Lightsail", "NonEmptyString")]] = None
+    readonlyAccessAccounts: Optional[List[Annotated[str, _aws_pattern("Lightsail", "NonEmptyString")]]] = None
     accessLogConfig: Optional[BucketAccessLogConfigTypeDef] = None
     cors: Optional[BucketCorsConfigUnionTypeDef] = None
 
@@ -3116,7 +3118,7 @@ class GetDistributionsResultTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'create_distribution' function.
 class CreateDistributionRequestTypeDef(BaseValidatorModel):
-    distributionName: str
+    distributionName: Annotated[str, _aws_pattern("Lightsail", "ResourceName")]
     origin: InputOriginTypeDef
     defaultCacheBehavior: CacheBehaviorTypeDef
     bundleId: str
@@ -3124,26 +3126,26 @@ class CreateDistributionRequestTypeDef(BaseValidatorModel):
     cacheBehaviors: Optional[List[CacheBehaviorPerPathTypeDef]] = None
     ipAddressType: Optional[IpAddressTypeType] = None
     tags: Optional[List[TagTypeDef]] = None
-    certificateName: Optional[str] = None
+    certificateName: Optional[Annotated[str, _aws_pattern("Lightsail", "ResourceName")]] = None
     viewerMinimumTlsProtocolVersion: Optional[ViewerMinimumTlsProtocolVersionEnumType] = None
 
 
 # This class is the input for the 'update_distribution' function.
 class UpdateDistributionRequestTypeDef(BaseValidatorModel):
-    distributionName: str
+    distributionName: Annotated[str, _aws_pattern("Lightsail", "ResourceName")]
     origin: Optional[InputOriginTypeDef] = None
     defaultCacheBehavior: Optional[CacheBehaviorTypeDef] = None
     cacheBehaviorSettings: Optional[CacheSettingsUnionTypeDef] = None
     cacheBehaviors: Optional[List[CacheBehaviorPerPathTypeDef]] = None
     isEnabled: Optional[bool] = None
     viewerMinimumTlsProtocolVersion: Optional[ViewerMinimumTlsProtocolVersionEnumType] = None
-    certificateName: Optional[str] = None
+    certificateName: Optional[Annotated[str, _aws_pattern("Lightsail", "ResourceName")]] = None
     useDefaultCertificate: Optional[bool] = None
 
 
 class ContainerServiceTypeDef(BaseValidatorModel):
-    containerServiceName: Optional[str] = None
-    arn: Optional[str] = None
+    containerServiceName: Optional[Annotated[str, _aws_pattern("Lightsail", "ContainerServiceName")]] = None
+    arn: Optional[Annotated[str, _aws_pattern("Lightsail", "NonEmptyString")]] = None
     createdAt: Optional[datetime] = None
     location: Optional[ResourceLocationTypeDef] = None
     resourceType: Optional[ResourceTypeType] = None
@@ -3171,7 +3173,7 @@ class GetContainerServiceDeploymentsResultTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'create_container_service' function.
 class CreateContainerServiceRequestTypeDef(BaseValidatorModel):
-    serviceName: str
+    serviceName: Annotated[str, _aws_pattern("Lightsail", "ContainerServiceName")]
     power: ContainerServicePowerNameType
     scale: int
     tags: Optional[List[TagTypeDef]] = None
@@ -3181,8 +3183,8 @@ class CreateContainerServiceRequestTypeDef(BaseValidatorModel):
 
 
 class ExportSnapshotRecordTypeDef(BaseValidatorModel):
-    name: Optional[str] = None
-    arn: Optional[str] = None
+    name: Optional[Annotated[str, _aws_pattern("Lightsail", "ResourceName")]] = None
+    arn: Optional[Annotated[str, _aws_pattern("Lightsail", "NonEmptyString")]] = None
     createdAt: Optional[datetime] = None
     location: Optional[ResourceLocationTypeDef] = None
     resourceType: Optional[ResourceTypeType] = None
@@ -3192,7 +3194,7 @@ class ExportSnapshotRecordTypeDef(BaseValidatorModel):
 
 
 class CertificateTypeDef(BaseValidatorModel):
-    arn: Optional[str] = None
+    arn: Optional[Annotated[str, _aws_pattern("Lightsail", "NonEmptyString")]] = None
     name: Optional[str] = None
     domainName: Optional[str] = None
     status: Optional[CertificateStatusType] = None
@@ -3216,7 +3218,7 @@ class CertificateTypeDef(BaseValidatorModel):
 
 
 class ResourceBudgetEstimateTypeDef(BaseValidatorModel):
-    resourceName: Optional[str] = None
+    resourceName: Optional[Annotated[str, _aws_pattern("Lightsail", "ResourceName")]] = None
     resourceType: Optional[ResourceTypeType] = None
     costEstimates: Optional[List[CostEstimateTypeDef]] = None
     startTime: Optional[datetime] = None
@@ -3287,7 +3289,7 @@ class GetExportSnapshotRecordsResultTypeDef(BaseValidatorModel):
 
 
 class CertificateSummaryTypeDef(BaseValidatorModel):
-    certificateArn: Optional[str] = None
+    certificateArn: Optional[Annotated[str, _aws_pattern("Lightsail", "NonEmptyString")]] = None
     certificateName: Optional[str] = None
     domainName: Optional[str] = None
     certificateDetail: Optional[CertificateTypeDef] = None

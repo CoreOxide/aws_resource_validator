@@ -3,6 +3,7 @@
 from datetime import datetime
 from decimal import Decimal
 from typing import (
+    Annotated,
     Any,
     Callable,
     Dict,
@@ -24,6 +25,7 @@ from botocore.response import StreamingBody
 from pydantic import Field
 
 from aws_resource_validator.core.base_validator_model import BaseValidatorModel, EventStream
+from aws_resource_validator.core.pattern_validation import aws_field_pattern as _aws_pattern
 from aws_resource_validator.pydantic_models.servicediscovery.servicediscovery_constants import *  # noqa: F401,F403
 
 # Optional boto3 symbols — imported lazily so services that don't need them
@@ -83,8 +85,8 @@ class DeregisterInstanceRequestTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'discover_instances' function.
 class DiscoverInstancesRequestTypeDef(BaseValidatorModel):
-    NamespaceName: str
-    ServiceName: str
+    NamespaceName: Annotated[str, _aws_pattern("Servicediscovery", "NamespaceName")]
+    ServiceName: Annotated[str, _aws_pattern("Servicediscovery", "ServiceName")]
     MaxResults: Optional[int] = None
     QueryParameters: Optional[Dict[str, str]] = None
     OptionalParameters: Optional[Dict[str, str]] = None
@@ -94,16 +96,16 @@ class DiscoverInstancesRequestTypeDef(BaseValidatorModel):
 
 class HttpInstanceSummaryTypeDef(BaseValidatorModel):
     InstanceId: Optional[str] = None
-    NamespaceName: Optional[str] = None
-    ServiceName: Optional[str] = None
+    NamespaceName: Optional[Annotated[str, _aws_pattern("Servicediscovery", "NamespaceNameHttp")]] = None
+    ServiceName: Optional[Annotated[str, _aws_pattern("Servicediscovery", "ServiceName")]] = None
     HealthStatus: Optional[HealthStatusType] = None
     Attributes: Optional[Dict[str, str]] = None
 
 
 # This class is the input for the 'discover_instances_revision' function.
 class DiscoverInstancesRevisionRequestTypeDef(BaseValidatorModel):
-    NamespaceName: str
-    ServiceName: str
+    NamespaceName: Annotated[str, _aws_pattern("Servicediscovery", "NamespaceName")]
+    ServiceName: Annotated[str, _aws_pattern("Servicediscovery", "ServiceName")]
     OwnerAccount: Optional[str] = None
 
 
@@ -181,7 +183,7 @@ class HttpNamespaceChangeTypeDef(BaseValidatorModel):
 
 
 class HttpPropertiesTypeDef(BaseValidatorModel):
-    HttpName: Optional[str] = None
+    HttpName: Optional[Annotated[str, _aws_pattern("Servicediscovery", "NamespaceName")]] = None
 
 
 class InstanceSummaryTypeDef(BaseValidatorModel):
@@ -238,7 +240,7 @@ class SOAChangeTypeDef(BaseValidatorModel):
 # This class is the input for the 'register_instance' function.
 class RegisterInstanceRequestTypeDef(BaseValidatorModel):
     ServiceId: str
-    InstanceId: str
+    InstanceId: Annotated[str, _aws_pattern("Servicediscovery", "InstanceId")]
     Attributes: Dict[str, str]
     CreatorRequestId: Optional[str] = None
 
@@ -262,7 +264,7 @@ class UpdateServiceAttributesRequestTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'create_http_namespace' function.
 class CreateHttpNamespaceRequestTypeDef(BaseValidatorModel):
-    Name: str
+    Name: Annotated[str, _aws_pattern("Servicediscovery", "NamespaceNameHttp")]
     CreatorRequestId: Optional[str] = None
     Description: Optional[str] = None
     Tags: Optional[List[TagTypeDef]] = None
@@ -493,7 +495,7 @@ class ServiceSummaryTypeDef(BaseValidatorModel):
     Id: Optional[str] = None
     Arn: Optional[str] = None
     ResourceOwner: Optional[str] = None
-    Name: Optional[str] = None
+    Name: Optional[Annotated[str, _aws_pattern("Servicediscovery", "ServiceName")]] = None
     Type: Optional[ServiceTypeType] = None
     Description: Optional[str] = None
     InstanceCount: Optional[int] = None
@@ -508,7 +510,7 @@ class ServiceTypeDef(BaseValidatorModel):
     Id: Optional[str] = None
     Arn: Optional[str] = None
     ResourceOwner: Optional[str] = None
-    Name: Optional[str] = None
+    Name: Optional[Annotated[str, _aws_pattern("Servicediscovery", "ServiceName")]] = None
     NamespaceId: Optional[str] = None
     Description: Optional[str] = None
     InstanceCount: Optional[int] = None
@@ -572,7 +574,7 @@ class GetServiceResponseTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'create_service' function.
 class CreateServiceRequestTypeDef(BaseValidatorModel):
-    Name: str
+    Name: Annotated[str, _aws_pattern("Servicediscovery", "ServiceName")]
     NamespaceId: Optional[str] = None
     CreatorRequestId: Optional[str] = None
     Description: Optional[str] = None
@@ -587,7 +589,7 @@ class NamespaceSummaryTypeDef(BaseValidatorModel):
     Id: Optional[str] = None
     Arn: Optional[str] = None
     ResourceOwner: Optional[str] = None
-    Name: Optional[str] = None
+    Name: Optional[Annotated[str, _aws_pattern("Servicediscovery", "NamespaceName")]] = None
     Type: Optional[NamespaceTypeType] = None
     Description: Optional[str] = None
     ServiceCount: Optional[int] = None
@@ -599,7 +601,7 @@ class NamespaceTypeDef(BaseValidatorModel):
     Id: Optional[str] = None
     Arn: Optional[str] = None
     ResourceOwner: Optional[str] = None
-    Name: Optional[str] = None
+    Name: Optional[Annotated[str, _aws_pattern("Servicediscovery", "NamespaceName")]] = None
     Type: Optional[NamespaceTypeType] = None
     Description: Optional[str] = None
     ServiceCount: Optional[int] = None
@@ -610,7 +612,7 @@ class NamespaceTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'create_private_dns_namespace' function.
 class CreatePrivateDnsNamespaceRequestTypeDef(BaseValidatorModel):
-    Name: str
+    Name: Annotated[str, _aws_pattern("Servicediscovery", "NamespaceNamePrivate")]
     Vpc: str
     CreatorRequestId: Optional[str] = None
     Description: Optional[str] = None
@@ -620,7 +622,7 @@ class CreatePrivateDnsNamespaceRequestTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'create_public_dns_namespace' function.
 class CreatePublicDnsNamespaceRequestTypeDef(BaseValidatorModel):
-    Name: str
+    Name: Annotated[str, _aws_pattern("Servicediscovery", "NamespaceNamePublic")]
     CreatorRequestId: Optional[str] = None
     Description: Optional[str] = None
     Tags: Optional[List[TagTypeDef]] = None

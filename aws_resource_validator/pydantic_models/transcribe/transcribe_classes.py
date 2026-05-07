@@ -3,6 +3,7 @@
 from datetime import datetime
 from decimal import Decimal
 from typing import (
+    Annotated,
     Any,
     Callable,
     Dict,
@@ -24,6 +25,7 @@ from botocore.response import StreamingBody
 from pydantic import Field
 
 from aws_resource_validator.core.base_validator_model import BaseValidatorModel, EventStream
+from aws_resource_validator.core.pattern_validation import aws_field_pattern as _aws_pattern
 from aws_resource_validator.pydantic_models.transcribe.transcribe_constants import *  # noqa: F401,F403
 
 # Optional boto3 symbols — imported lazily so services that don't need them
@@ -58,9 +60,9 @@ class ContentRedactionOutputTypeDef(BaseValidatorModel):
 
 
 class LanguageIdSettingsTypeDef(BaseValidatorModel):
-    VocabularyName: Optional[str] = None
-    VocabularyFilterName: Optional[str] = None
-    LanguageModelName: Optional[str] = None
+    VocabularyName: Optional[Annotated[str, _aws_pattern("Transcribe", "VocabularyName")]] = None
+    VocabularyFilterName: Optional[Annotated[str, _aws_pattern("Transcribe", "VocabularyFilterName")]] = None
+    LanguageModelName: Optional[Annotated[str, _aws_pattern("Transcribe", "ModelName")]] = None
 
 
 class SummarizationTypeDef(BaseValidatorModel):
@@ -79,8 +81,8 @@ class ChannelDefinitionTypeDef(BaseValidatorModel):
 
 
 class MediaTypeDef(BaseValidatorModel):
-    MediaFileUri: Optional[str] = None
-    RedactedMediaFileUri: Optional[str] = None
+    MediaFileUri: Optional[Annotated[str, _aws_pattern("Transcribe", "Uri")]] = None
+    RedactedMediaFileUri: Optional[Annotated[str, _aws_pattern("Transcribe", "Uri")]] = None
 
 
 class TagTypeDef(BaseValidatorModel):
@@ -89,8 +91,8 @@ class TagTypeDef(BaseValidatorModel):
 
 
 class TranscriptTypeDef(BaseValidatorModel):
-    TranscriptFileUri: Optional[str] = None
-    RedactedTranscriptFileUri: Optional[str] = None
+    TranscriptFileUri: Optional[Annotated[str, _aws_pattern("Transcribe", "Uri")]] = None
+    RedactedTranscriptFileUri: Optional[Annotated[str, _aws_pattern("Transcribe", "Uri")]] = None
 
 
 class ClinicalNoteGenerationSettingsTypeDef(BaseValidatorModel):
@@ -106,57 +108,57 @@ class ResponseMetadataTypeDef(BaseValidatorModel):
 
 
 class InputDataConfigTypeDef(BaseValidatorModel):
-    S3Uri: str
-    DataAccessRoleArn: str
-    TuningDataS3Uri: Optional[str] = None
+    S3Uri: Annotated[str, _aws_pattern("Transcribe", "Uri")]
+    DataAccessRoleArn: Annotated[str, _aws_pattern("Transcribe", "DataAccessRoleArn")]
+    TuningDataS3Uri: Optional[Annotated[str, _aws_pattern("Transcribe", "Uri")]] = None
 
 
 class DeleteCallAnalyticsCategoryRequestTypeDef(BaseValidatorModel):
-    CategoryName: str
+    CategoryName: Annotated[str, _aws_pattern("Transcribe", "CategoryName")]
 
 
 class DeleteCallAnalyticsJobRequestTypeDef(BaseValidatorModel):
-    CallAnalyticsJobName: str
+    CallAnalyticsJobName: Annotated[str, _aws_pattern("Transcribe", "CallAnalyticsJobName")]
 
 
 # This class is the input for the 'delete_language_model' function.
 class DeleteLanguageModelRequestTypeDef(BaseValidatorModel):
-    ModelName: str
+    ModelName: Annotated[str, _aws_pattern("Transcribe", "ModelName")]
 
 
 # This class is the input for the 'delete_medical_scribe_job' function.
 class DeleteMedicalScribeJobRequestTypeDef(BaseValidatorModel):
-    MedicalScribeJobName: str
+    MedicalScribeJobName: Annotated[str, _aws_pattern("Transcribe", "TranscriptionJobName")]
 
 
 # This class is the input for the 'delete_medical_transcription_job' function.
 class DeleteMedicalTranscriptionJobRequestTypeDef(BaseValidatorModel):
-    MedicalTranscriptionJobName: str
+    MedicalTranscriptionJobName: Annotated[str, _aws_pattern("Transcribe", "TranscriptionJobName")]
 
 
 # This class is the input for the 'delete_medical_vocabulary' function.
 class DeleteMedicalVocabularyRequestTypeDef(BaseValidatorModel):
-    VocabularyName: str
+    VocabularyName: Annotated[str, _aws_pattern("Transcribe", "VocabularyName")]
 
 
 # This class is the input for the 'delete_transcription_job' function.
 class DeleteTranscriptionJobRequestTypeDef(BaseValidatorModel):
-    TranscriptionJobName: str
+    TranscriptionJobName: Annotated[str, _aws_pattern("Transcribe", "TranscriptionJobName")]
 
 
 # This class is the input for the 'delete_vocabulary_filter' function.
 class DeleteVocabularyFilterRequestTypeDef(BaseValidatorModel):
-    VocabularyFilterName: str
+    VocabularyFilterName: Annotated[str, _aws_pattern("Transcribe", "VocabularyFilterName")]
 
 
 # This class is the input for the 'delete_vocabulary' function.
 class DeleteVocabularyRequestTypeDef(BaseValidatorModel):
-    VocabularyName: str
+    VocabularyName: Annotated[str, _aws_pattern("Transcribe", "VocabularyName")]
 
 
 # This class is the input for the 'describe_language_model' function.
 class DescribeLanguageModelRequestTypeDef(BaseValidatorModel):
-    ModelName: str
+    ModelName: Annotated[str, _aws_pattern("Transcribe", "ModelName")]
 
 
 class WaiterConfigTypeDef(BaseValidatorModel):
@@ -166,42 +168,42 @@ class WaiterConfigTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'get_call_analytics_category' function.
 class GetCallAnalyticsCategoryRequestTypeDef(BaseValidatorModel):
-    CategoryName: str
+    CategoryName: Annotated[str, _aws_pattern("Transcribe", "CategoryName")]
 
 
 # This class is the input for the 'get_call_analytics_job' function.
 class GetCallAnalyticsJobRequestTypeDef(BaseValidatorModel):
-    CallAnalyticsJobName: str
+    CallAnalyticsJobName: Annotated[str, _aws_pattern("Transcribe", "CallAnalyticsJobName")]
 
 
 # This class is the input for the 'get_medical_scribe_job' function.
 class GetMedicalScribeJobRequestTypeDef(BaseValidatorModel):
-    MedicalScribeJobName: str
+    MedicalScribeJobName: Annotated[str, _aws_pattern("Transcribe", "TranscriptionJobName")]
 
 
 # This class is the input for the 'get_medical_transcription_job' function.
 class GetMedicalTranscriptionJobRequestTypeDef(BaseValidatorModel):
-    MedicalTranscriptionJobName: str
+    MedicalTranscriptionJobName: Annotated[str, _aws_pattern("Transcribe", "TranscriptionJobName")]
 
 
 # This class is the input for the 'get_medical_vocabulary' function.
 class GetMedicalVocabularyRequestTypeDef(BaseValidatorModel):
-    VocabularyName: str
+    VocabularyName: Annotated[str, _aws_pattern("Transcribe", "VocabularyName")]
 
 
 # This class is the input for the 'get_transcription_job' function.
 class GetTranscriptionJobRequestTypeDef(BaseValidatorModel):
-    TranscriptionJobName: str
+    TranscriptionJobName: Annotated[str, _aws_pattern("Transcribe", "TranscriptionJobName")]
 
 
 # This class is the input for the 'get_vocabulary_filter' function.
 class GetVocabularyFilterRequestTypeDef(BaseValidatorModel):
-    VocabularyFilterName: str
+    VocabularyFilterName: Annotated[str, _aws_pattern("Transcribe", "VocabularyFilterName")]
 
 
 # This class is the input for the 'get_vocabulary' function.
 class GetVocabularyRequestTypeDef(BaseValidatorModel):
-    VocabularyName: str
+    VocabularyName: Annotated[str, _aws_pattern("Transcribe", "VocabularyName")]
 
 
 class RelativeTimeRangeTypeDef(BaseValidatorModel):
@@ -213,7 +215,7 @@ class RelativeTimeRangeTypeDef(BaseValidatorModel):
 
 class JobExecutionSettingsTypeDef(BaseValidatorModel):
     AllowDeferredExecution: Optional[bool] = None
-    DataAccessRoleArn: Optional[str] = None
+    DataAccessRoleArn: Optional[Annotated[str, _aws_pattern("Transcribe", "DataAccessRoleArn")]] = None
 
 
 class LanguageCodeItemTypeDef(BaseValidatorModel):
@@ -223,36 +225,36 @@ class LanguageCodeItemTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'list_call_analytics_categories' function.
 class ListCallAnalyticsCategoriesRequestTypeDef(BaseValidatorModel):
-    NextToken: Optional[str] = None
+    NextToken: Optional[Annotated[str, _aws_pattern("Transcribe", "NextToken")]] = None
     MaxResults: Optional[int] = None
 
 
 # This class is the input for the 'list_call_analytics_jobs' function.
 class ListCallAnalyticsJobsRequestTypeDef(BaseValidatorModel):
     Status: Optional[CallAnalyticsJobStatusType] = None
-    JobNameContains: Optional[str] = None
-    NextToken: Optional[str] = None
+    JobNameContains: Optional[Annotated[str, _aws_pattern("Transcribe", "CallAnalyticsJobName")]] = None
+    NextToken: Optional[Annotated[str, _aws_pattern("Transcribe", "NextToken")]] = None
     MaxResults: Optional[int] = None
 
 
 # This class is the input for the 'list_language_models' function.
 class ListLanguageModelsRequestTypeDef(BaseValidatorModel):
     StatusEquals: Optional[ModelStatusType] = None
-    NameContains: Optional[str] = None
-    NextToken: Optional[str] = None
+    NameContains: Optional[Annotated[str, _aws_pattern("Transcribe", "ModelName")]] = None
+    NextToken: Optional[Annotated[str, _aws_pattern("Transcribe", "NextToken")]] = None
     MaxResults: Optional[int] = None
 
 
 # This class is the input for the 'list_medical_scribe_jobs' function.
 class ListMedicalScribeJobsRequestTypeDef(BaseValidatorModel):
     Status: Optional[MedicalScribeJobStatusType] = None
-    JobNameContains: Optional[str] = None
-    NextToken: Optional[str] = None
+    JobNameContains: Optional[Annotated[str, _aws_pattern("Transcribe", "TranscriptionJobName")]] = None
+    NextToken: Optional[Annotated[str, _aws_pattern("Transcribe", "NextToken")]] = None
     MaxResults: Optional[int] = None
 
 
 class MedicalScribeJobSummaryTypeDef(BaseValidatorModel):
-    MedicalScribeJobName: Optional[str] = None
+    MedicalScribeJobName: Optional[Annotated[str, _aws_pattern("Transcribe", "TranscriptionJobName")]] = None
     CreationTime: Optional[datetime] = None
     StartTime: Optional[datetime] = None
     CompletionTime: Optional[datetime] = None
@@ -264,13 +266,13 @@ class MedicalScribeJobSummaryTypeDef(BaseValidatorModel):
 # This class is the input for the 'list_medical_transcription_jobs' function.
 class ListMedicalTranscriptionJobsRequestTypeDef(BaseValidatorModel):
     Status: Optional[TranscriptionJobStatusType] = None
-    JobNameContains: Optional[str] = None
-    NextToken: Optional[str] = None
+    JobNameContains: Optional[Annotated[str, _aws_pattern("Transcribe", "TranscriptionJobName")]] = None
+    NextToken: Optional[Annotated[str, _aws_pattern("Transcribe", "NextToken")]] = None
     MaxResults: Optional[int] = None
 
 
 class MedicalTranscriptionJobSummaryTypeDef(BaseValidatorModel):
-    MedicalTranscriptionJobName: Optional[str] = None
+    MedicalTranscriptionJobName: Optional[Annotated[str, _aws_pattern("Transcribe", "TranscriptionJobName")]] = None
     CreationTime: Optional[datetime] = None
     StartTime: Optional[datetime] = None
     CompletionTime: Optional[datetime] = None
@@ -285,14 +287,14 @@ class MedicalTranscriptionJobSummaryTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'list_medical_vocabularies' function.
 class ListMedicalVocabulariesRequestTypeDef(BaseValidatorModel):
-    NextToken: Optional[str] = None
+    NextToken: Optional[Annotated[str, _aws_pattern("Transcribe", "NextToken")]] = None
     MaxResults: Optional[int] = None
     StateEquals: Optional[VocabularyStateType] = None
-    NameContains: Optional[str] = None
+    NameContains: Optional[Annotated[str, _aws_pattern("Transcribe", "VocabularyName")]] = None
 
 
 class VocabularyInfoTypeDef(BaseValidatorModel):
-    VocabularyName: Optional[str] = None
+    VocabularyName: Optional[Annotated[str, _aws_pattern("Transcribe", "VocabularyName")]] = None
     LanguageCode: Optional[LanguageCodeType] = None
     LastModifiedTime: Optional[datetime] = None
     VocabularyState: Optional[VocabularyStateType] = None
@@ -300,34 +302,34 @@ class VocabularyInfoTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'list_tags_for_resource' function.
 class ListTagsForResourceRequestTypeDef(BaseValidatorModel):
-    ResourceArn: str
+    ResourceArn: Annotated[str, _aws_pattern("Transcribe", "TranscribeArn")]
 
 
 # This class is the input for the 'list_transcription_jobs' function.
 class ListTranscriptionJobsRequestTypeDef(BaseValidatorModel):
     Status: Optional[TranscriptionJobStatusType] = None
-    JobNameContains: Optional[str] = None
-    NextToken: Optional[str] = None
+    JobNameContains: Optional[Annotated[str, _aws_pattern("Transcribe", "TranscriptionJobName")]] = None
+    NextToken: Optional[Annotated[str, _aws_pattern("Transcribe", "NextToken")]] = None
     MaxResults: Optional[int] = None
 
 
 # This class is the input for the 'list_vocabularies' function.
 class ListVocabulariesRequestTypeDef(BaseValidatorModel):
-    NextToken: Optional[str] = None
+    NextToken: Optional[Annotated[str, _aws_pattern("Transcribe", "NextToken")]] = None
     MaxResults: Optional[int] = None
     StateEquals: Optional[VocabularyStateType] = None
-    NameContains: Optional[str] = None
+    NameContains: Optional[Annotated[str, _aws_pattern("Transcribe", "VocabularyName")]] = None
 
 
 # This class is the input for the 'list_vocabulary_filters' function.
 class ListVocabularyFiltersRequestTypeDef(BaseValidatorModel):
-    NextToken: Optional[str] = None
+    NextToken: Optional[Annotated[str, _aws_pattern("Transcribe", "NextToken")]] = None
     MaxResults: Optional[int] = None
-    NameContains: Optional[str] = None
+    NameContains: Optional[Annotated[str, _aws_pattern("Transcribe", "VocabularyFilterName")]] = None
 
 
 class VocabularyFilterInfoTypeDef(BaseValidatorModel):
-    VocabularyFilterName: Optional[str] = None
+    VocabularyFilterName: Optional[Annotated[str, _aws_pattern("Transcribe", "VocabularyFilterName")]] = None
     LanguageCode: Optional[LanguageCodeType] = None
     LastModifiedTime: Optional[datetime] = None
 
@@ -342,12 +344,12 @@ class MedicalScribePatientContextTypeDef(BaseValidatorModel):
 
 
 class MedicalScribeOutputTypeDef(BaseValidatorModel):
-    TranscriptFileUri: str
-    ClinicalDocumentUri: str
+    TranscriptFileUri: Annotated[str, _aws_pattern("Transcribe", "Uri")]
+    ClinicalDocumentUri: Annotated[str, _aws_pattern("Transcribe", "Uri")]
 
 
 class MedicalTranscriptTypeDef(BaseValidatorModel):
-    TranscriptFileUri: Optional[str] = None
+    TranscriptFileUri: Optional[Annotated[str, _aws_pattern("Transcribe", "Uri")]] = None
 
 
 class MedicalTranscriptionSettingTypeDef(BaseValidatorModel):
@@ -356,21 +358,21 @@ class MedicalTranscriptionSettingTypeDef(BaseValidatorModel):
     ChannelIdentification: Optional[bool] = None
     ShowAlternatives: Optional[bool] = None
     MaxAlternatives: Optional[int] = None
-    VocabularyName: Optional[str] = None
+    VocabularyName: Optional[Annotated[str, _aws_pattern("Transcribe", "VocabularyName")]] = None
 
 
 class ModelSettingsTypeDef(BaseValidatorModel):
-    LanguageModelName: Optional[str] = None
+    LanguageModelName: Optional[Annotated[str, _aws_pattern("Transcribe", "ModelName")]] = None
 
 
 class SettingsTypeDef(BaseValidatorModel):
-    VocabularyName: Optional[str] = None
+    VocabularyName: Optional[Annotated[str, _aws_pattern("Transcribe", "VocabularyName")]] = None
     ShowSpeakerLabels: Optional[bool] = None
     MaxSpeakerLabels: Optional[int] = None
     ChannelIdentification: Optional[bool] = None
     ShowAlternatives: Optional[bool] = None
     MaxAlternatives: Optional[int] = None
-    VocabularyFilterName: Optional[str] = None
+    VocabularyFilterName: Optional[Annotated[str, _aws_pattern("Transcribe", "VocabularyFilterName")]] = None
     VocabularyFilterMethod: Optional[VocabularyFilterMethodType] = None
 
 
@@ -381,7 +383,7 @@ class SubtitlesTypeDef(BaseValidatorModel):
 
 class SubtitlesOutputTypeDef(BaseValidatorModel):
     Formats: Optional[List[SubtitleFormatType]] = None
-    SubtitleFileUris: Optional[List[str]] = None
+    SubtitleFileUris: Optional[List[Annotated[str, _aws_pattern("Transcribe", "Uri")]]] = None
     OutputStartIndex: Optional[int] = None
 
 
@@ -394,32 +396,32 @@ class ToxicityDetectionSettingsTypeDef(BaseValidatorModel):
 
 
 class UntagResourceRequestTypeDef(BaseValidatorModel):
-    ResourceArn: str
+    ResourceArn: Annotated[str, _aws_pattern("Transcribe", "TranscribeArn")]
     TagKeys: List[str]
 
 
 # This class is the input for the 'update_medical_vocabulary' function.
 class UpdateMedicalVocabularyRequestTypeDef(BaseValidatorModel):
-    VocabularyName: str
+    VocabularyName: Annotated[str, _aws_pattern("Transcribe", "VocabularyName")]
     LanguageCode: LanguageCodeType
-    VocabularyFileUri: str
+    VocabularyFileUri: Annotated[str, _aws_pattern("Transcribe", "Uri")]
 
 
 # This class is the input for the 'update_vocabulary_filter' function.
 class UpdateVocabularyFilterRequestTypeDef(BaseValidatorModel):
-    VocabularyFilterName: str
+    VocabularyFilterName: Annotated[str, _aws_pattern("Transcribe", "VocabularyFilterName")]
     Words: Optional[List[str]] = None
-    VocabularyFilterFileUri: Optional[str] = None
-    DataAccessRoleArn: Optional[str] = None
+    VocabularyFilterFileUri: Optional[Annotated[str, _aws_pattern("Transcribe", "Uri")]] = None
+    DataAccessRoleArn: Optional[Annotated[str, _aws_pattern("Transcribe", "DataAccessRoleArn")]] = None
 
 
 # This class is the input for the 'update_vocabulary' function.
 class UpdateVocabularyRequestTypeDef(BaseValidatorModel):
-    VocabularyName: str
+    VocabularyName: Annotated[str, _aws_pattern("Transcribe", "VocabularyName")]
     LanguageCode: LanguageCodeType
-    Phrases: Optional[List[str]] = None
-    VocabularyFileUri: Optional[str] = None
-    DataAccessRoleArn: Optional[str] = None
+    Phrases: Optional[List[Annotated[str, _aws_pattern("Transcribe", "Phrase")]]] = None
+    VocabularyFileUri: Optional[Annotated[str, _aws_pattern("Transcribe", "Uri")]] = None
+    DataAccessRoleArn: Optional[Annotated[str, _aws_pattern("Transcribe", "DataAccessRoleArn")]] = None
 
 
 class CallAnalyticsJobDetailsTypeDef(BaseValidatorModel):
@@ -438,10 +440,10 @@ class CallAnalyticsJobSettingsOutputTypeDef(BaseValidatorModel):
 
 
 class CallAnalyticsJobSettingsTypeDef(BaseValidatorModel):
-    VocabularyName: Optional[str] = None
-    VocabularyFilterName: Optional[str] = None
+    VocabularyName: Optional[Annotated[str, _aws_pattern("Transcribe", "VocabularyName")]] = None
+    VocabularyFilterName: Optional[Annotated[str, _aws_pattern("Transcribe", "VocabularyFilterName")]] = None
     VocabularyFilterMethod: Optional[VocabularyFilterMethodType] = None
-    LanguageModelName: Optional[str] = None
+    LanguageModelName: Optional[Annotated[str, _aws_pattern("Transcribe", "ModelName")]] = None
     ContentRedaction: Optional[ContentRedactionTypeDef] = None
     LanguageOptions: Optional[List[LanguageCodeType]] = None
     LanguageIdSettings: Optional[Dict[LanguageCodeType, LanguageIdSettingsTypeDef]] = None
@@ -453,34 +455,34 @@ ContentRedactionUnionTypeDef = Union[ContentRedactionOutputTypeDef, ContentRedac
 
 # This class is the input for the 'create_medical_vocabulary' function.
 class CreateMedicalVocabularyRequestTypeDef(BaseValidatorModel):
-    VocabularyName: str
+    VocabularyName: Annotated[str, _aws_pattern("Transcribe", "VocabularyName")]
     LanguageCode: LanguageCodeType
-    VocabularyFileUri: str
+    VocabularyFileUri: Annotated[str, _aws_pattern("Transcribe", "Uri")]
     Tags: Optional[List[TagTypeDef]] = None
 
 
 # This class is the input for the 'create_vocabulary_filter' function.
 class CreateVocabularyFilterRequestTypeDef(BaseValidatorModel):
-    VocabularyFilterName: str
+    VocabularyFilterName: Annotated[str, _aws_pattern("Transcribe", "VocabularyFilterName")]
     LanguageCode: LanguageCodeType
     Words: Optional[List[str]] = None
-    VocabularyFilterFileUri: Optional[str] = None
+    VocabularyFilterFileUri: Optional[Annotated[str, _aws_pattern("Transcribe", "Uri")]] = None
     Tags: Optional[List[TagTypeDef]] = None
-    DataAccessRoleArn: Optional[str] = None
+    DataAccessRoleArn: Optional[Annotated[str, _aws_pattern("Transcribe", "DataAccessRoleArn")]] = None
 
 
 # This class is the input for the 'create_vocabulary' function.
 class CreateVocabularyRequestTypeDef(BaseValidatorModel):
-    VocabularyName: str
+    VocabularyName: Annotated[str, _aws_pattern("Transcribe", "VocabularyName")]
     LanguageCode: LanguageCodeType
-    Phrases: Optional[List[str]] = None
-    VocabularyFileUri: Optional[str] = None
+    Phrases: Optional[List[Annotated[str, _aws_pattern("Transcribe", "Phrase")]]] = None
+    VocabularyFileUri: Optional[Annotated[str, _aws_pattern("Transcribe", "Uri")]] = None
     Tags: Optional[List[TagTypeDef]] = None
-    DataAccessRoleArn: Optional[str] = None
+    DataAccessRoleArn: Optional[Annotated[str, _aws_pattern("Transcribe", "DataAccessRoleArn")]] = None
 
 
 class TagResourceRequestTypeDef(BaseValidatorModel):
-    ResourceArn: str
+    ResourceArn: Annotated[str, _aws_pattern("Transcribe", "TranscribeArn")]
     Tags: List[TagTypeDef]
 
 
@@ -488,15 +490,15 @@ class MedicalScribeSettingsTypeDef(BaseValidatorModel):
     ShowSpeakerLabels: Optional[bool] = None
     MaxSpeakerLabels: Optional[int] = None
     ChannelIdentification: Optional[bool] = None
-    VocabularyName: Optional[str] = None
-    VocabularyFilterName: Optional[str] = None
+    VocabularyName: Optional[Annotated[str, _aws_pattern("Transcribe", "VocabularyName")]] = None
+    VocabularyFilterName: Optional[Annotated[str, _aws_pattern("Transcribe", "VocabularyFilterName")]] = None
     VocabularyFilterMethod: Optional[VocabularyFilterMethodType] = None
     ClinicalNoteGenerationSettings: Optional[ClinicalNoteGenerationSettingsTypeDef] = None
 
 
 # This class is the output for the 'create_medical_vocabulary' function.
 class CreateMedicalVocabularyResponseTypeDef(BaseValidatorModel):
-    VocabularyName: str
+    VocabularyName: Annotated[str, _aws_pattern("Transcribe", "VocabularyName")]
     LanguageCode: LanguageCodeType
     VocabularyState: VocabularyStateType
     LastModifiedTime: datetime
@@ -506,7 +508,7 @@ class CreateMedicalVocabularyResponseTypeDef(BaseValidatorModel):
 
 # This class is the output for the 'create_vocabulary_filter' function.
 class CreateVocabularyFilterResponseTypeDef(BaseValidatorModel):
-    VocabularyFilterName: str
+    VocabularyFilterName: Annotated[str, _aws_pattern("Transcribe", "VocabularyFilterName")]
     LanguageCode: LanguageCodeType
     LastModifiedTime: datetime
     ResponseMetadata: ResponseMetadataTypeDef
@@ -514,7 +516,7 @@ class CreateVocabularyFilterResponseTypeDef(BaseValidatorModel):
 
 # This class is the output for the 'create_vocabulary' function.
 class CreateVocabularyResponseTypeDef(BaseValidatorModel):
-    VocabularyName: str
+    VocabularyName: Annotated[str, _aws_pattern("Transcribe", "VocabularyName")]
     LanguageCode: LanguageCodeType
     VocabularyState: VocabularyStateType
     LastModifiedTime: datetime
@@ -529,45 +531,45 @@ class EmptyResponseMetadataTypeDef(BaseValidatorModel):
 
 # This class is the output for the 'get_medical_vocabulary' function.
 class GetMedicalVocabularyResponseTypeDef(BaseValidatorModel):
-    VocabularyName: str
+    VocabularyName: Annotated[str, _aws_pattern("Transcribe", "VocabularyName")]
     LanguageCode: LanguageCodeType
     VocabularyState: VocabularyStateType
     LastModifiedTime: datetime
     FailureReason: str
-    DownloadUri: str
+    DownloadUri: Annotated[str, _aws_pattern("Transcribe", "Uri")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 # This class is the output for the 'get_vocabulary_filter' function.
 class GetVocabularyFilterResponseTypeDef(BaseValidatorModel):
-    VocabularyFilterName: str
+    VocabularyFilterName: Annotated[str, _aws_pattern("Transcribe", "VocabularyFilterName")]
     LanguageCode: LanguageCodeType
     LastModifiedTime: datetime
-    DownloadUri: str
+    DownloadUri: Annotated[str, _aws_pattern("Transcribe", "Uri")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 # This class is the output for the 'get_vocabulary' function.
 class GetVocabularyResponseTypeDef(BaseValidatorModel):
-    VocabularyName: str
+    VocabularyName: Annotated[str, _aws_pattern("Transcribe", "VocabularyName")]
     LanguageCode: LanguageCodeType
     VocabularyState: VocabularyStateType
     LastModifiedTime: datetime
     FailureReason: str
-    DownloadUri: str
+    DownloadUri: Annotated[str, _aws_pattern("Transcribe", "Uri")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 # This class is the output for the 'list_tags_for_resource' function.
 class ListTagsForResourceResponseTypeDef(BaseValidatorModel):
-    ResourceArn: str
+    ResourceArn: Annotated[str, _aws_pattern("Transcribe", "TranscribeArn")]
     Tags: List[TagTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 # This class is the output for the 'update_medical_vocabulary' function.
 class UpdateMedicalVocabularyResponseTypeDef(BaseValidatorModel):
-    VocabularyName: str
+    VocabularyName: Annotated[str, _aws_pattern("Transcribe", "VocabularyName")]
     LanguageCode: LanguageCodeType
     LastModifiedTime: datetime
     VocabularyState: VocabularyStateType
@@ -576,7 +578,7 @@ class UpdateMedicalVocabularyResponseTypeDef(BaseValidatorModel):
 
 # This class is the output for the 'update_vocabulary_filter' function.
 class UpdateVocabularyFilterResponseTypeDef(BaseValidatorModel):
-    VocabularyFilterName: str
+    VocabularyFilterName: Annotated[str, _aws_pattern("Transcribe", "VocabularyFilterName")]
     LanguageCode: LanguageCodeType
     LastModifiedTime: datetime
     ResponseMetadata: ResponseMetadataTypeDef
@@ -584,7 +586,7 @@ class UpdateVocabularyFilterResponseTypeDef(BaseValidatorModel):
 
 # This class is the output for the 'update_vocabulary' function.
 class UpdateVocabularyResponseTypeDef(BaseValidatorModel):
-    VocabularyName: str
+    VocabularyName: Annotated[str, _aws_pattern("Transcribe", "VocabularyName")]
     LanguageCode: LanguageCodeType
     LastModifiedTime: datetime
     VocabularyState: VocabularyStateType
@@ -595,7 +597,7 @@ class UpdateVocabularyResponseTypeDef(BaseValidatorModel):
 class CreateLanguageModelRequestTypeDef(BaseValidatorModel):
     LanguageCode: CLMLanguageCodeType
     BaseModelName: BaseModelNameType
-    ModelName: str
+    ModelName: Annotated[str, _aws_pattern("Transcribe", "ModelName")]
     InputDataConfig: InputDataConfigTypeDef
     Tags: Optional[List[TagTypeDef]] = None
 
@@ -604,14 +606,14 @@ class CreateLanguageModelRequestTypeDef(BaseValidatorModel):
 class CreateLanguageModelResponseTypeDef(BaseValidatorModel):
     LanguageCode: CLMLanguageCodeType
     BaseModelName: BaseModelNameType
-    ModelName: str
+    ModelName: Annotated[str, _aws_pattern("Transcribe", "ModelName")]
     InputDataConfig: InputDataConfigTypeDef
     ModelStatus: ModelStatusType
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 class LanguageModelTypeDef(BaseValidatorModel):
-    ModelName: Optional[str] = None
+    ModelName: Optional[Annotated[str, _aws_pattern("Transcribe", "ModelName")]] = None
     CreateTime: Optional[datetime] = None
     LastModifiedTime: Optional[datetime] = None
     LanguageCode: Optional[CLMLanguageCodeType] = None
@@ -699,7 +701,7 @@ class TranscriptFilterOutputTypeDef(BaseValidatorModel):
 
 class TranscriptFilterTypeDef(BaseValidatorModel):
     TranscriptFilterType: Literal["EXACT"]
-    Targets: List[str]
+    Targets: List[Annotated[str, _aws_pattern("Transcribe", "NonEmptyString")]]
     AbsoluteTimeRange: Optional[AbsoluteTimeRangeTypeDef] = None
     RelativeTimeRange: Optional[RelativeTimeRangeTypeDef] = None
     ParticipantRole: Optional[ParticipantRoleType] = None
@@ -711,7 +713,7 @@ class ListMedicalScribeJobsResponseTypeDef(BaseValidatorModel):
     Status: MedicalScribeJobStatusType
     MedicalScribeJobSummaries: List[MedicalScribeJobSummaryTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
-    NextToken: Optional[str] = None
+    NextToken: Optional[Annotated[str, _aws_pattern("Transcribe", "NextToken")]] = None
 
 
 # This class is the output for the 'list_medical_transcription_jobs' function.
@@ -719,7 +721,7 @@ class ListMedicalTranscriptionJobsResponseTypeDef(BaseValidatorModel):
     Status: TranscriptionJobStatusType
     MedicalTranscriptionJobSummaries: List[MedicalTranscriptionJobSummaryTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
-    NextToken: Optional[str] = None
+    NextToken: Optional[Annotated[str, _aws_pattern("Transcribe", "NextToken")]] = None
 
 
 # This class is the output for the 'list_medical_vocabularies' function.
@@ -727,7 +729,7 @@ class ListMedicalVocabulariesResponseTypeDef(BaseValidatorModel):
     Status: VocabularyStateType
     Vocabularies: List[VocabularyInfoTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
-    NextToken: Optional[str] = None
+    NextToken: Optional[Annotated[str, _aws_pattern("Transcribe", "NextToken")]] = None
 
 
 # This class is the output for the 'list_vocabularies' function.
@@ -735,14 +737,14 @@ class ListVocabulariesResponseTypeDef(BaseValidatorModel):
     Status: VocabularyStateType
     Vocabularies: List[VocabularyInfoTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
-    NextToken: Optional[str] = None
+    NextToken: Optional[Annotated[str, _aws_pattern("Transcribe", "NextToken")]] = None
 
 
 # This class is the output for the 'list_vocabulary_filters' function.
 class ListVocabularyFiltersResponseTypeDef(BaseValidatorModel):
     VocabularyFilters: List[VocabularyFilterInfoTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
-    NextToken: Optional[str] = None
+    NextToken: Optional[Annotated[str, _aws_pattern("Transcribe", "NextToken")]] = None
 
 
 class MedicalScribeContextTypeDef(BaseValidatorModel):
@@ -750,7 +752,7 @@ class MedicalScribeContextTypeDef(BaseValidatorModel):
 
 
 class MedicalTranscriptionJobTypeDef(BaseValidatorModel):
-    MedicalTranscriptionJobName: Optional[str] = None
+    MedicalTranscriptionJobName: Optional[Annotated[str, _aws_pattern("Transcribe", "TranscriptionJobName")]] = None
     TranscriptionJobStatus: Optional[TranscriptionJobStatusType] = None
     LanguageCode: Optional[LanguageCodeType] = None
     MediaSampleRateHertz: Optional[int] = None
@@ -770,16 +772,16 @@ class MedicalTranscriptionJobTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'start_medical_transcription_job' function.
 class StartMedicalTranscriptionJobRequestTypeDef(BaseValidatorModel):
-    MedicalTranscriptionJobName: str
+    MedicalTranscriptionJobName: Annotated[str, _aws_pattern("Transcribe", "TranscriptionJobName")]
     LanguageCode: LanguageCodeType
     Media: MediaTypeDef
-    OutputBucketName: str
+    OutputBucketName: Annotated[str, _aws_pattern("Transcribe", "OutputBucketName")]
     Specialty: Literal["PRIMARYCARE"]
     Type: TypeType
     MediaSampleRateHertz: Optional[int] = None
     MediaFormat: Optional[MediaFormatType] = None
-    OutputKey: Optional[str] = None
-    OutputEncryptionKMSKeyId: Optional[str] = None
+    OutputKey: Optional[Annotated[str, _aws_pattern("Transcribe", "OutputKey")]] = None
+    OutputEncryptionKMSKeyId: Optional[Annotated[str, _aws_pattern("Transcribe", "KMSKeyId")]] = None
     KMSEncryptionContext: Optional[Dict[str, str]] = None
     Settings: Optional[MedicalTranscriptionSettingTypeDef] = None
     ContentIdentificationType: Optional[Literal["PHI"]] = None
@@ -787,7 +789,7 @@ class StartMedicalTranscriptionJobRequestTypeDef(BaseValidatorModel):
 
 
 class TranscriptionJobSummaryTypeDef(BaseValidatorModel):
-    TranscriptionJobName: Optional[str] = None
+    TranscriptionJobName: Optional[Annotated[str, _aws_pattern("Transcribe", "TranscriptionJobName")]] = None
     CreationTime: Optional[datetime] = None
     StartTime: Optional[datetime] = None
     CompletionTime: Optional[datetime] = None
@@ -805,7 +807,7 @@ class TranscriptionJobSummaryTypeDef(BaseValidatorModel):
 
 
 class TranscriptionJobTypeDef(BaseValidatorModel):
-    TranscriptionJobName: Optional[str] = None
+    TranscriptionJobName: Optional[Annotated[str, _aws_pattern("Transcribe", "TranscriptionJobName")]] = None
     TranscriptionJobStatus: Optional[TranscriptionJobStatusType] = None
     LanguageCode: Optional[LanguageCodeType] = None
     MediaSampleRateHertz: Optional[int] = None
@@ -835,7 +837,7 @@ ToxicityDetectionSettingsUnionTypeDef = Union[ToxicityDetectionSettingsOutputTyp
 
 
 class CallAnalyticsJobSummaryTypeDef(BaseValidatorModel):
-    CallAnalyticsJobName: Optional[str] = None
+    CallAnalyticsJobName: Optional[Annotated[str, _aws_pattern("Transcribe", "CallAnalyticsJobName")]] = None
     CreationTime: Optional[datetime] = None
     StartTime: Optional[datetime] = None
     CompletionTime: Optional[datetime] = None
@@ -846,7 +848,7 @@ class CallAnalyticsJobSummaryTypeDef(BaseValidatorModel):
 
 
 class CallAnalyticsJobTypeDef(BaseValidatorModel):
-    CallAnalyticsJobName: Optional[str] = None
+    CallAnalyticsJobName: Optional[Annotated[str, _aws_pattern("Transcribe", "CallAnalyticsJobName")]] = None
     CallAnalyticsJobStatus: Optional[CallAnalyticsJobStatusType] = None
     CallAnalyticsJobDetails: Optional[CallAnalyticsJobDetailsTypeDef] = None
     LanguageCode: Optional[LanguageCodeType] = None
@@ -858,7 +860,7 @@ class CallAnalyticsJobTypeDef(BaseValidatorModel):
     CreationTime: Optional[datetime] = None
     CompletionTime: Optional[datetime] = None
     FailureReason: Optional[str] = None
-    DataAccessRoleArn: Optional[str] = None
+    DataAccessRoleArn: Optional[Annotated[str, _aws_pattern("Transcribe", "DataAccessRoleArn")]] = None
     IdentifiedLanguageScore: Optional[float] = None
     Settings: Optional[CallAnalyticsJobSettingsOutputTypeDef] = None
     ChannelDefinitions: Optional[List[ChannelDefinitionTypeDef]] = None
@@ -869,7 +871,7 @@ CallAnalyticsJobSettingsUnionTypeDef = Union[CallAnalyticsJobSettingsOutputTypeD
 
 
 class MedicalScribeJobTypeDef(BaseValidatorModel):
-    MedicalScribeJobName: Optional[str] = None
+    MedicalScribeJobName: Optional[Annotated[str, _aws_pattern("Transcribe", "TranscriptionJobName")]] = None
     MedicalScribeJobStatus: Optional[MedicalScribeJobStatusType] = None
     LanguageCode: Optional[Literal["en-US"]] = None
     Media: Optional[MediaTypeDef] = None
@@ -879,7 +881,7 @@ class MedicalScribeJobTypeDef(BaseValidatorModel):
     CompletionTime: Optional[datetime] = None
     FailureReason: Optional[str] = None
     Settings: Optional[MedicalScribeSettingsTypeDef] = None
-    DataAccessRoleArn: Optional[str] = None
+    DataAccessRoleArn: Optional[Annotated[str, _aws_pattern("Transcribe", "DataAccessRoleArn")]] = None
     ChannelDefinitions: Optional[List[MedicalScribeChannelDefinitionTypeDef]] = None
     MedicalScribeContextProvided: Optional[bool] = None
     Tags: Optional[List[TagTypeDef]] = None
@@ -895,7 +897,7 @@ class DescribeLanguageModelResponseTypeDef(BaseValidatorModel):
 class ListLanguageModelsResponseTypeDef(BaseValidatorModel):
     Models: List[LanguageModelTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
-    NextToken: Optional[str] = None
+    NextToken: Optional[Annotated[str, _aws_pattern("Transcribe", "NextToken")]] = None
 
 
 SentimentFilterUnionTypeDef = Union[SentimentFilterOutputTypeDef, SentimentFilterTypeDef]
@@ -913,12 +915,12 @@ TranscriptFilterUnionTypeDef = Union[TranscriptFilterOutputTypeDef, TranscriptFi
 
 # This class is the input for the 'start_medical_scribe_job' function.
 class StartMedicalScribeJobRequestTypeDef(BaseValidatorModel):
-    MedicalScribeJobName: str
+    MedicalScribeJobName: Annotated[str, _aws_pattern("Transcribe", "TranscriptionJobName")]
     Media: MediaTypeDef
-    OutputBucketName: str
-    DataAccessRoleArn: str
+    OutputBucketName: Annotated[str, _aws_pattern("Transcribe", "OutputBucketName")]
+    DataAccessRoleArn: Annotated[str, _aws_pattern("Transcribe", "DataAccessRoleArn")]
     Settings: MedicalScribeSettingsTypeDef
-    OutputEncryptionKMSKeyId: Optional[str] = None
+    OutputEncryptionKMSKeyId: Optional[Annotated[str, _aws_pattern("Transcribe", "KMSKeyId")]] = None
     KMSEncryptionContext: Optional[Dict[str, str]] = None
     ChannelDefinitions: Optional[List[MedicalScribeChannelDefinitionTypeDef]] = None
     Tags: Optional[List[TagTypeDef]] = None
@@ -942,7 +944,7 @@ class ListTranscriptionJobsResponseTypeDef(BaseValidatorModel):
     Status: TranscriptionJobStatusType
     TranscriptionJobSummaries: List[TranscriptionJobSummaryTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
-    NextToken: Optional[str] = None
+    NextToken: Optional[Annotated[str, _aws_pattern("Transcribe", "NextToken")]] = None
 
 
 # This class is the output for the 'get_transcription_job' function.
@@ -959,14 +961,14 @@ class StartTranscriptionJobResponseTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'start_transcription_job' function.
 class StartTranscriptionJobRequestTypeDef(BaseValidatorModel):
-    TranscriptionJobName: str
+    TranscriptionJobName: Annotated[str, _aws_pattern("Transcribe", "TranscriptionJobName")]
     Media: MediaTypeDef
     LanguageCode: Optional[LanguageCodeType] = None
     MediaSampleRateHertz: Optional[int] = None
     MediaFormat: Optional[MediaFormatType] = None
-    OutputBucketName: Optional[str] = None
-    OutputKey: Optional[str] = None
-    OutputEncryptionKMSKeyId: Optional[str] = None
+    OutputBucketName: Optional[Annotated[str, _aws_pattern("Transcribe", "OutputBucketName")]] = None
+    OutputKey: Optional[Annotated[str, _aws_pattern("Transcribe", "OutputKey")]] = None
+    OutputEncryptionKMSKeyId: Optional[Annotated[str, _aws_pattern("Transcribe", "KMSKeyId")]] = None
     KMSEncryptionContext: Optional[Dict[str, str]] = None
     Settings: Optional[SettingsTypeDef] = None
     ModelSettings: Optional[ModelSettingsTypeDef] = None
@@ -986,7 +988,7 @@ class ListCallAnalyticsJobsResponseTypeDef(BaseValidatorModel):
     Status: CallAnalyticsJobStatusType
     CallAnalyticsJobSummaries: List[CallAnalyticsJobSummaryTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
-    NextToken: Optional[str] = None
+    NextToken: Optional[Annotated[str, _aws_pattern("Transcribe", "NextToken")]] = None
 
 
 # This class is the output for the 'get_call_analytics_job' function.
@@ -1003,11 +1005,11 @@ class StartCallAnalyticsJobResponseTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'start_call_analytics_job' function.
 class StartCallAnalyticsJobRequestTypeDef(BaseValidatorModel):
-    CallAnalyticsJobName: str
+    CallAnalyticsJobName: Annotated[str, _aws_pattern("Transcribe", "CallAnalyticsJobName")]
     Media: MediaTypeDef
-    OutputLocation: Optional[str] = None
-    OutputEncryptionKMSKeyId: Optional[str] = None
-    DataAccessRoleArn: Optional[str] = None
+    OutputLocation: Optional[Annotated[str, _aws_pattern("Transcribe", "Uri")]] = None
+    OutputEncryptionKMSKeyId: Optional[Annotated[str, _aws_pattern("Transcribe", "KMSKeyId")]] = None
+    DataAccessRoleArn: Optional[Annotated[str, _aws_pattern("Transcribe", "DataAccessRoleArn")]] = None
     Settings: Optional[CallAnalyticsJobSettingsUnionTypeDef] = None
     Tags: Optional[List[TagTypeDef]] = None
     ChannelDefinitions: Optional[List[ChannelDefinitionTypeDef]] = None
@@ -1026,7 +1028,7 @@ class StartMedicalScribeJobResponseTypeDef(BaseValidatorModel):
 
 
 class CategoryPropertiesTypeDef(BaseValidatorModel):
-    CategoryName: Optional[str] = None
+    CategoryName: Optional[Annotated[str, _aws_pattern("Transcribe", "CategoryName")]] = None
     Rules: Optional[List[RuleOutputTypeDef]] = None
     CreateTime: Optional[datetime] = None
     LastUpdateTime: Optional[datetime] = None
@@ -1057,7 +1059,7 @@ class GetCallAnalyticsCategoryResponseTypeDef(BaseValidatorModel):
 class ListCallAnalyticsCategoriesResponseTypeDef(BaseValidatorModel):
     Categories: List[CategoryPropertiesTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
-    NextToken: Optional[str] = None
+    NextToken: Optional[Annotated[str, _aws_pattern("Transcribe", "NextToken")]] = None
 
 
 # This class is the output for the 'update_call_analytics_category' function.
@@ -1071,7 +1073,7 @@ RuleUnionTypeDef = Union[RuleOutputTypeDef, RuleTypeDef]
 
 # This class is the input for the 'create_call_analytics_category' function.
 class CreateCallAnalyticsCategoryRequestTypeDef(BaseValidatorModel):
-    CategoryName: str
+    CategoryName: Annotated[str, _aws_pattern("Transcribe", "CategoryName")]
     Rules: List[RuleUnionTypeDef]
     Tags: Optional[List[TagTypeDef]] = None
     InputType: Optional[InputTypeType] = None
@@ -1079,6 +1081,6 @@ class CreateCallAnalyticsCategoryRequestTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'update_call_analytics_category' function.
 class UpdateCallAnalyticsCategoryRequestTypeDef(BaseValidatorModel):
-    CategoryName: str
+    CategoryName: Annotated[str, _aws_pattern("Transcribe", "CategoryName")]
     Rules: List[RuleUnionTypeDef]
     InputType: Optional[InputTypeType] = None

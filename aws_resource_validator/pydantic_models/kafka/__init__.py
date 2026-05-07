@@ -247,6 +247,7 @@ from aws_resource_validator.pydantic_models.kafka.kafka_classes import (
     VpcConnectivityScramTypeDef,
     VpcConnectivityTlsTypeDef,
     VpcConnectivityTypeDef,
+    ZookeeperAccessTypeDef,
     ZookeeperNodeInfoTypeDef,
 )
 
@@ -496,5 +497,6 @@ __all__ = [
     'VpcConnectivityScramTypeDef',
     'VpcConnectivityTlsTypeDef',
     'VpcConnectivityTypeDef',
+    'ZookeeperAccessTypeDef',
     'ZookeeperNodeInfoTypeDef',
 ]

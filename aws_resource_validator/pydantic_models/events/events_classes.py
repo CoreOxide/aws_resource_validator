@@ -3,6 +3,7 @@
 from datetime import datetime
 from decimal import Decimal
 from typing import (
+    Annotated,
     Any,
     Callable,
     Dict,
@@ -24,6 +25,7 @@ from botocore.response import StreamingBody
 from pydantic import Field
 
 from aws_resource_validator.core.base_validator_model import BaseValidatorModel, EventStream
+from aws_resource_validator.core.pattern_validation import aws_field_pattern as _aws_pattern
 from aws_resource_validator.pydantic_models.events.events_constants import *  # noqa: F401,F403
 
 # Optional boto3 symbols — imported lazily so services that don't need them
@@ -40,15 +42,15 @@ except ImportError:  # pragma: no cover
 
 # This class is the input for the 'activate_event_source' function.
 class ActivateEventSourceRequestTypeDef(BaseValidatorModel):
-    Name: str
+    Name: Annotated[str, _aws_pattern("Events", "EventSourceName")]
 
 
 class ApiDestinationTypeDef(BaseValidatorModel):
-    ApiDestinationArn: Optional[str] = None
-    Name: Optional[str] = None
+    ApiDestinationArn: Optional[Annotated[str, _aws_pattern("Events", "ApiDestinationArn")]] = None
+    Name: Optional[Annotated[str, _aws_pattern("Events", "ApiDestinationName")]] = None
     ApiDestinationState: Optional[ApiDestinationStateType] = None
-    ConnectionArn: Optional[str] = None
-    InvocationEndpoint: Optional[str] = None
+    ConnectionArn: Optional[Annotated[str, _aws_pattern("Events", "ConnectionArn")]] = None
+    InvocationEndpoint: Optional[Annotated[str, _aws_pattern("Events", "HttpsEndpoint")]] = None
     HttpMethod: Optional[ApiDestinationHttpMethodType] = None
     InvocationRateLimitPerSecond: Optional[int] = None
     CreationTime: Optional[datetime] = None
@@ -60,10 +62,10 @@ class AppSyncParametersTypeDef(BaseValidatorModel):
 
 
 class ArchiveTypeDef(BaseValidatorModel):
-    ArchiveName: Optional[str] = None
-    EventSourceArn: Optional[str] = None
+    ArchiveName: Optional[Annotated[str, _aws_pattern("Events", "ArchiveName")]] = None
+    EventSourceArn: Optional[Annotated[str, _aws_pattern("Events", "EventBusArn")]] = None
     State: Optional[ArchiveStateType] = None
-    StateReason: Optional[str] = None
+    StateReason: Optional[Annotated[str, _aws_pattern("Events", "ArchiveStateReason")]] = None
     RetentionDays: Optional[int] = None
     SizeBytes: Optional[int] = None
     EventCount: Optional[int] = None
@@ -92,7 +94,7 @@ class BatchRetryStrategyTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'cancel_replay' function.
 class CancelReplayRequestTypeDef(BaseValidatorModel):
-    ReplayName: str
+    ReplayName: Annotated[str, _aws_pattern("Events", "ReplayName")]
 
 
 class ResponseMetadataTypeDef(BaseValidatorModel):
@@ -116,11 +118,11 @@ class ConditionTypeDef(BaseValidatorModel):
 
 
 class ConnectionApiKeyAuthResponseParametersTypeDef(BaseValidatorModel):
-    ApiKeyName: Optional[str] = None
+    ApiKeyName: Optional[Annotated[str, _aws_pattern("Events", "AuthHeaderParameters")]] = None
 
 
 class ConnectionBasicAuthResponseParametersTypeDef(BaseValidatorModel):
-    Username: Optional[str] = None
+    Username: Optional[Annotated[str, _aws_pattern("Events", "AuthHeaderParameters")]] = None
 
 
 class ConnectionBodyParameterTypeDef(BaseValidatorModel):
@@ -130,26 +132,26 @@ class ConnectionBodyParameterTypeDef(BaseValidatorModel):
 
 
 class ConnectionHeaderParameterTypeDef(BaseValidatorModel):
-    Key: Optional[str] = None
-    Value: Optional[str] = None
+    Key: Optional[Annotated[str, _aws_pattern("Events", "HeaderKey")]] = None
+    Value: Optional[Annotated[str, _aws_pattern("Events", "HeaderValueSensitive")]] = None
     IsValueSecret: Optional[bool] = None
 
 
 class ConnectionQueryStringParameterTypeDef(BaseValidatorModel):
-    Key: Optional[str] = None
-    Value: Optional[str] = None
+    Key: Optional[Annotated[str, _aws_pattern("Events", "QueryStringKey")]] = None
+    Value: Optional[Annotated[str, _aws_pattern("Events", "QueryStringValueSensitive")]] = None
     IsValueSecret: Optional[bool] = None
 
 
 class ConnectionOAuthClientResponseParametersTypeDef(BaseValidatorModel):
-    ClientID: Optional[str] = None
+    ClientID: Optional[Annotated[str, _aws_pattern("Events", "AuthHeaderParameters")]] = None
 
 
 class ConnectionTypeDef(BaseValidatorModel):
-    ConnectionArn: Optional[str] = None
-    Name: Optional[str] = None
+    ConnectionArn: Optional[Annotated[str, _aws_pattern("Events", "ConnectionArn")]] = None
+    Name: Optional[Annotated[str, _aws_pattern("Events", "ConnectionName")]] = None
     ConnectionState: Optional[ConnectionStateType] = None
-    StateReason: Optional[str] = None
+    StateReason: Optional[Annotated[str, _aws_pattern("Events", "ConnectionStateReason")]] = None
     AuthorizationType: Optional[ConnectionAuthorizationTypeType] = None
     CreationTime: Optional[datetime] = None
     LastModifiedTime: Optional[datetime] = None
@@ -157,46 +159,46 @@ class ConnectionTypeDef(BaseValidatorModel):
 
 
 class ConnectivityResourceConfigurationArnTypeDef(BaseValidatorModel):
-    ResourceConfigurationArn: str
+    ResourceConfigurationArn: Annotated[str, _aws_pattern("Events", "ResourceConfigurationArn")]
 
 
 # This class is the input for the 'create_api_destination' function.
 class CreateApiDestinationRequestTypeDef(BaseValidatorModel):
-    Name: str
-    ConnectionArn: str
-    InvocationEndpoint: str
+    Name: Annotated[str, _aws_pattern("Events", "ApiDestinationName")]
+    ConnectionArn: Annotated[str, _aws_pattern("Events", "ConnectionArn")]
+    InvocationEndpoint: Annotated[str, _aws_pattern("Events", "HttpsEndpoint")]
     HttpMethod: ApiDestinationHttpMethodType
-    Description: Optional[str] = None
+    Description: Optional[Annotated[str, _aws_pattern("Events", "ApiDestinationDescription")]] = None
     InvocationRateLimitPerSecond: Optional[int] = None
 
 
 # This class is the input for the 'create_archive' function.
 class CreateArchiveRequestTypeDef(BaseValidatorModel):
-    ArchiveName: str
-    EventSourceArn: str
-    Description: Optional[str] = None
+    ArchiveName: Annotated[str, _aws_pattern("Events", "ArchiveName")]
+    EventSourceArn: Annotated[str, _aws_pattern("Events", "EventBusArn")]
+    Description: Optional[Annotated[str, _aws_pattern("Events", "ArchiveDescription")]] = None
     EventPattern: Optional[str] = None
     RetentionDays: Optional[int] = None
-    KmsKeyIdentifier: Optional[str] = None
+    KmsKeyIdentifier: Optional[Annotated[str, _aws_pattern("Events", "KmsKeyIdentifier")]] = None
 
 
 class CreateConnectionApiKeyAuthRequestParametersTypeDef(BaseValidatorModel):
-    ApiKeyName: str
-    ApiKeyValue: str
+    ApiKeyName: Annotated[str, _aws_pattern("Events", "AuthHeaderParameters")]
+    ApiKeyValue: Annotated[str, _aws_pattern("Events", "AuthHeaderParametersSensitive")]
 
 
 class CreateConnectionBasicAuthRequestParametersTypeDef(BaseValidatorModel):
-    Username: str
-    Password: str
+    Username: Annotated[str, _aws_pattern("Events", "AuthHeaderParameters")]
+    Password: Annotated[str, _aws_pattern("Events", "AuthHeaderParametersSensitive")]
 
 
 class CreateConnectionOAuthClientRequestParametersTypeDef(BaseValidatorModel):
-    ClientID: str
-    ClientSecret: str
+    ClientID: Annotated[str, _aws_pattern("Events", "AuthHeaderParameters")]
+    ClientSecret: Annotated[str, _aws_pattern("Events", "AuthHeaderParametersSensitive")]
 
 
 class EndpointEventBusTypeDef(BaseValidatorModel):
-    EventBusArn: str
+    EventBusArn: Annotated[str, _aws_pattern("Events", "NonPartnerEventBusArn")]
 
 
 class ReplicationConfigTypeDef(BaseValidatorModel):
@@ -219,99 +221,99 @@ class TagTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'create_partner_event_source' function.
 class CreatePartnerEventSourceRequestTypeDef(BaseValidatorModel):
-    Name: str
-    Account: str
+    Name: Annotated[str, _aws_pattern("Events", "EventSourceName")]
+    Account: Annotated[str, _aws_pattern("Events", "AccountId")]
 
 
 # This class is the input for the 'deactivate_event_source' function.
 class DeactivateEventSourceRequestTypeDef(BaseValidatorModel):
-    Name: str
+    Name: Annotated[str, _aws_pattern("Events", "EventSourceName")]
 
 
 # This class is the input for the 'deauthorize_connection' function.
 class DeauthorizeConnectionRequestTypeDef(BaseValidatorModel):
-    Name: str
+    Name: Annotated[str, _aws_pattern("Events", "ConnectionName")]
 
 
 class DeleteApiDestinationRequestTypeDef(BaseValidatorModel):
-    Name: str
+    Name: Annotated[str, _aws_pattern("Events", "ApiDestinationName")]
 
 
 class DeleteArchiveRequestTypeDef(BaseValidatorModel):
-    ArchiveName: str
+    ArchiveName: Annotated[str, _aws_pattern("Events", "ArchiveName")]
 
 
 # This class is the input for the 'delete_connection' function.
 class DeleteConnectionRequestTypeDef(BaseValidatorModel):
-    Name: str
+    Name: Annotated[str, _aws_pattern("Events", "ConnectionName")]
 
 
 class DeleteEndpointRequestTypeDef(BaseValidatorModel):
-    Name: str
+    Name: Annotated[str, _aws_pattern("Events", "EndpointName")]
 
 
 # This class is the input for the 'delete_event_bus' function.
 class DeleteEventBusRequestTypeDef(BaseValidatorModel):
-    Name: str
+    Name: Annotated[str, _aws_pattern("Events", "EventBusName")]
 
 
 # This class is the input for the 'delete_partner_event_source' function.
 class DeletePartnerEventSourceRequestTypeDef(BaseValidatorModel):
-    Name: str
-    Account: str
+    Name: Annotated[str, _aws_pattern("Events", "EventSourceName")]
+    Account: Annotated[str, _aws_pattern("Events", "AccountId")]
 
 
 # This class is the input for the 'delete_rule' function.
 class DeleteRuleRequestTypeDef(BaseValidatorModel):
-    Name: str
-    EventBusName: Optional[str] = None
+    Name: Annotated[str, _aws_pattern("Events", "RuleName")]
+    EventBusName: Optional[Annotated[str, _aws_pattern("Events", "EventBusNameOrArn")]] = None
     Force: Optional[bool] = None
 
 
 # This class is the input for the 'describe_api_destination' function.
 class DescribeApiDestinationRequestTypeDef(BaseValidatorModel):
-    Name: str
+    Name: Annotated[str, _aws_pattern("Events", "ApiDestinationName")]
 
 
 # This class is the input for the 'describe_archive' function.
 class DescribeArchiveRequestTypeDef(BaseValidatorModel):
-    ArchiveName: str
+    ArchiveName: Annotated[str, _aws_pattern("Events", "ArchiveName")]
 
 
 class DescribeConnectionResourceParametersTypeDef(BaseValidatorModel):
-    ResourceConfigurationArn: str
-    ResourceAssociationArn: str
+    ResourceConfigurationArn: Annotated[str, _aws_pattern("Events", "ResourceConfigurationArn")]
+    ResourceAssociationArn: Annotated[str, _aws_pattern("Events", "ResourceAssociationArn")]
 
 
 # This class is the input for the 'describe_connection' function.
 class DescribeConnectionRequestTypeDef(BaseValidatorModel):
-    Name: str
+    Name: Annotated[str, _aws_pattern("Events", "ConnectionName")]
 
 
 # This class is the input for the 'describe_endpoint' function.
 class DescribeEndpointRequestTypeDef(BaseValidatorModel):
-    Name: str
-    HomeRegion: Optional[str] = None
+    Name: Annotated[str, _aws_pattern("Events", "EndpointName")]
+    HomeRegion: Optional[Annotated[str, _aws_pattern("Events", "HomeRegion")]] = None
 
 
 # This class is the input for the 'describe_event_bus' function.
 class DescribeEventBusRequestTypeDef(BaseValidatorModel):
-    Name: Optional[str] = None
+    Name: Optional[Annotated[str, _aws_pattern("Events", "EventBusNameOrArn")]] = None
 
 
 # This class is the input for the 'describe_event_source' function.
 class DescribeEventSourceRequestTypeDef(BaseValidatorModel):
-    Name: str
+    Name: Annotated[str, _aws_pattern("Events", "EventSourceName")]
 
 
 # This class is the input for the 'describe_partner_event_source' function.
 class DescribePartnerEventSourceRequestTypeDef(BaseValidatorModel):
-    Name: str
+    Name: Annotated[str, _aws_pattern("Events", "EventSourceName")]
 
 
 # This class is the input for the 'describe_replay' function.
 class DescribeReplayRequestTypeDef(BaseValidatorModel):
-    ReplayName: str
+    ReplayName: Annotated[str, _aws_pattern("Events", "ReplayName")]
 
 
 class ReplayDestinationOutputTypeDef(BaseValidatorModel):
@@ -321,14 +323,14 @@ class ReplayDestinationOutputTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'describe_rule' function.
 class DescribeRuleRequestTypeDef(BaseValidatorModel):
-    Name: str
-    EventBusName: Optional[str] = None
+    Name: Annotated[str, _aws_pattern("Events", "RuleName")]
+    EventBusName: Optional[Annotated[str, _aws_pattern("Events", "EventBusNameOrArn")]] = None
 
 
 # This class is the input for the 'disable_rule' function.
 class DisableRuleRequestTypeDef(BaseValidatorModel):
-    Name: str
-    EventBusName: Optional[str] = None
+    Name: Annotated[str, _aws_pattern("Events", "RuleName")]
+    EventBusName: Optional[Annotated[str, _aws_pattern("Events", "EventBusNameOrArn")]] = None
 
 
 class PlacementConstraintTypeDef(BaseValidatorModel):
@@ -343,8 +345,8 @@ class PlacementStrategyTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'enable_rule' function.
 class EnableRuleRequestTypeDef(BaseValidatorModel):
-    Name: str
-    EventBusName: Optional[str] = None
+    Name: Annotated[str, _aws_pattern("Events", "RuleName")]
+    EventBusName: Optional[Annotated[str, _aws_pattern("Events", "EventBusNameOrArn")]] = None
 
 
 class EventBusTypeDef(BaseValidatorModel):
@@ -366,11 +368,11 @@ class EventSourceTypeDef(BaseValidatorModel):
 
 
 class PrimaryTypeDef(BaseValidatorModel):
-    HealthCheck: str
+    HealthCheck: Annotated[str, _aws_pattern("Events", "HealthCheck")]
 
 
 class SecondaryTypeDef(BaseValidatorModel):
-    Route: str
+    Route: Annotated[str, _aws_pattern("Events", "Route")]
 
 
 class HttpParametersOutputTypeDef(BaseValidatorModel):
@@ -380,7 +382,7 @@ class HttpParametersOutputTypeDef(BaseValidatorModel):
 
 
 class HttpParametersTypeDef(BaseValidatorModel):
-    PathParameterValues: Optional[List[str]] = None
+    PathParameterValues: Optional[List[Annotated[str, _aws_pattern("Events", "PathParameter")]]] = None
     HeaderParameters: Optional[Dict[str, str]] = None
     QueryStringParameters: Optional[Dict[str, str]] = None
 
@@ -401,16 +403,16 @@ class KinesisParametersTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'list_api_destinations' function.
 class ListApiDestinationsRequestTypeDef(BaseValidatorModel):
-    NamePrefix: Optional[str] = None
-    ConnectionArn: Optional[str] = None
+    NamePrefix: Optional[Annotated[str, _aws_pattern("Events", "ApiDestinationName")]] = None
+    ConnectionArn: Optional[Annotated[str, _aws_pattern("Events", "ConnectionArn")]] = None
     NextToken: Optional[str] = None
     Limit: Optional[int] = None
 
 
 # This class is the input for the 'list_archives' function.
 class ListArchivesRequestTypeDef(BaseValidatorModel):
-    NamePrefix: Optional[str] = None
-    EventSourceArn: Optional[str] = None
+    NamePrefix: Optional[Annotated[str, _aws_pattern("Events", "ArchiveName")]] = None
+    EventSourceArn: Optional[Annotated[str, _aws_pattern("Events", "EventBusArn")]] = None
     State: Optional[ArchiveStateType] = None
     NextToken: Optional[str] = None
     Limit: Optional[int] = None
@@ -418,7 +420,7 @@ class ListArchivesRequestTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'list_connections' function.
 class ListConnectionsRequestTypeDef(BaseValidatorModel):
-    NamePrefix: Optional[str] = None
+    NamePrefix: Optional[Annotated[str, _aws_pattern("Events", "ConnectionName")]] = None
     ConnectionState: Optional[ConnectionStateType] = None
     NextToken: Optional[str] = None
     Limit: Optional[int] = None
@@ -426,35 +428,35 @@ class ListConnectionsRequestTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'list_endpoints' function.
 class ListEndpointsRequestTypeDef(BaseValidatorModel):
-    NamePrefix: Optional[str] = None
-    HomeRegion: Optional[str] = None
+    NamePrefix: Optional[Annotated[str, _aws_pattern("Events", "EndpointName")]] = None
+    HomeRegion: Optional[Annotated[str, _aws_pattern("Events", "HomeRegion")]] = None
     NextToken: Optional[str] = None
     MaxResults: Optional[int] = None
 
 
 # This class is the input for the 'list_event_buses' function.
 class ListEventBusesRequestTypeDef(BaseValidatorModel):
-    NamePrefix: Optional[str] = None
+    NamePrefix: Optional[Annotated[str, _aws_pattern("Events", "EventBusName")]] = None
     NextToken: Optional[str] = None
     Limit: Optional[int] = None
 
 
 # This class is the input for the 'list_event_sources' function.
 class ListEventSourcesRequestTypeDef(BaseValidatorModel):
-    NamePrefix: Optional[str] = None
+    NamePrefix: Optional[Annotated[str, _aws_pattern("Events", "EventSourceNamePrefix")]] = None
     NextToken: Optional[str] = None
     Limit: Optional[int] = None
 
 
 # This class is the input for the 'list_partner_event_source_accounts' function.
 class ListPartnerEventSourceAccountsRequestTypeDef(BaseValidatorModel):
-    EventSourceName: str
+    EventSourceName: Annotated[str, _aws_pattern("Events", "EventSourceName")]
     NextToken: Optional[str] = None
     Limit: Optional[int] = None
 
 
 class PartnerEventSourceAccountTypeDef(BaseValidatorModel):
-    Account: Optional[str] = None
+    Account: Optional[Annotated[str, _aws_pattern("Events", "AccountId")]] = None
     CreationTime: Optional[datetime] = None
     ExpirationTime: Optional[datetime] = None
     State: Optional[EventSourceStateType] = None
@@ -462,7 +464,7 @@ class PartnerEventSourceAccountTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'list_partner_event_sources' function.
 class ListPartnerEventSourcesRequestTypeDef(BaseValidatorModel):
-    NamePrefix: str
+    NamePrefix: Annotated[str, _aws_pattern("Events", "PartnerEventSourceNamePrefix")]
     NextToken: Optional[str] = None
     Limit: Optional[int] = None
 
@@ -474,18 +476,18 @@ class PartnerEventSourceTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'list_replays' function.
 class ListReplaysRequestTypeDef(BaseValidatorModel):
-    NamePrefix: Optional[str] = None
+    NamePrefix: Optional[Annotated[str, _aws_pattern("Events", "ReplayName")]] = None
     State: Optional[ReplayStateType] = None
-    EventSourceArn: Optional[str] = None
+    EventSourceArn: Optional[Annotated[str, _aws_pattern("Events", "ArchiveArn")]] = None
     NextToken: Optional[str] = None
     Limit: Optional[int] = None
 
 
 class ReplayTypeDef(BaseValidatorModel):
-    ReplayName: Optional[str] = None
-    EventSourceArn: Optional[str] = None
+    ReplayName: Optional[Annotated[str, _aws_pattern("Events", "ReplayName")]] = None
+    EventSourceArn: Optional[Annotated[str, _aws_pattern("Events", "ArchiveArn")]] = None
     State: Optional[ReplayStateType] = None
-    StateReason: Optional[str] = None
+    StateReason: Optional[Annotated[str, _aws_pattern("Events", "ReplayStateReason")]] = None
     EventStartTime: Optional[datetime] = None
     EventEndTime: Optional[datetime] = None
     EventLastReplayedTime: Optional[datetime] = None
@@ -502,21 +504,21 @@ class PaginatorConfigTypeDef(BaseValidatorModel):
 # This class is the input for the 'list_rule_names_by_target' function.
 class ListRuleNamesByTargetRequestTypeDef(BaseValidatorModel):
     TargetArn: str
-    EventBusName: Optional[str] = None
+    EventBusName: Optional[Annotated[str, _aws_pattern("Events", "EventBusNameOrArn")]] = None
     NextToken: Optional[str] = None
     Limit: Optional[int] = None
 
 
 # This class is the input for the 'list_rules' function.
 class ListRulesRequestTypeDef(BaseValidatorModel):
-    NamePrefix: Optional[str] = None
-    EventBusName: Optional[str] = None
+    NamePrefix: Optional[Annotated[str, _aws_pattern("Events", "RuleName")]] = None
+    EventBusName: Optional[Annotated[str, _aws_pattern("Events", "EventBusNameOrArn")]] = None
     NextToken: Optional[str] = None
     Limit: Optional[int] = None
 
 
 class RuleTypeDef(BaseValidatorModel):
-    Name: Optional[str] = None
+    Name: Optional[Annotated[str, _aws_pattern("Events", "RuleName")]] = None
     Arn: Optional[str] = None
     EventPattern: Optional[str] = None
     State: Optional[RuleStateType] = None
@@ -524,7 +526,7 @@ class RuleTypeDef(BaseValidatorModel):
     ScheduleExpression: Optional[str] = None
     RoleArn: Optional[str] = None
     ManagedBy: Optional[str] = None
-    EventBusName: Optional[str] = None
+    EventBusName: Optional[Annotated[str, _aws_pattern("Events", "EventBusName")]] = None
 
 
 # This class is the input for the 'list_tags_for_resource' function.
@@ -534,8 +536,8 @@ class ListTagsForResourceRequestTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'list_targets_by_rule' function.
 class ListTargetsByRuleRequestTypeDef(BaseValidatorModel):
-    Rule: str
-    EventBusName: Optional[str] = None
+    Rule: Annotated[str, _aws_pattern("Events", "RuleName")]
+    EventBusName: Optional[Annotated[str, _aws_pattern("Events", "EventBusNameOrArn")]] = None
     NextToken: Optional[str] = None
     Limit: Optional[int] = None
 
@@ -556,7 +558,7 @@ class PutPartnerEventsResultEntryTypeDef(BaseValidatorModel):
 
 
 class PutTargetsResultEntryTypeDef(BaseValidatorModel):
-    TargetId: Optional[str] = None
+    TargetId: Optional[Annotated[str, _aws_pattern("Events", "TargetId")]] = None
     ErrorCode: Optional[str] = None
     ErrorMessage: Optional[str] = None
 
@@ -573,7 +575,7 @@ class RedshiftDataParametersOutputTypeDef(BaseValidatorModel):
 
 class RedshiftDataParametersTypeDef(BaseValidatorModel):
     Database: str
-    SecretManagerArn: Optional[str] = None
+    SecretManagerArn: Optional[Annotated[str, _aws_pattern("Events", "RedshiftSecretManagerArn")]] = None
     DbUser: Optional[str] = None
     Sql: Optional[str] = None
     StatementName: Optional[str] = None
@@ -583,21 +585,21 @@ class RedshiftDataParametersTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'remove_permission' function.
 class RemovePermissionRequestTypeDef(BaseValidatorModel):
-    StatementId: Optional[str] = None
+    StatementId: Optional[Annotated[str, _aws_pattern("Events", "StatementId")]] = None
     RemoveAllPermissions: Optional[bool] = None
-    EventBusName: Optional[str] = None
+    EventBusName: Optional[Annotated[str, _aws_pattern("Events", "NonPartnerEventBusName")]] = None
 
 
 # This class is the input for the 'remove_targets' function.
 class RemoveTargetsRequestTypeDef(BaseValidatorModel):
-    Rule: str
-    Ids: List[str]
-    EventBusName: Optional[str] = None
+    Rule: Annotated[str, _aws_pattern("Events", "RuleName")]
+    Ids: List[Annotated[str, _aws_pattern("Events", "TargetId")]]
+    EventBusName: Optional[Annotated[str, _aws_pattern("Events", "EventBusNameOrArn")]] = None
     Force: Optional[bool] = None
 
 
 class RemoveTargetsResultEntryTypeDef(BaseValidatorModel):
-    TargetId: Optional[str] = None
+    TargetId: Optional[Annotated[str, _aws_pattern("Events", "TargetId")]] = None
     ErrorCode: Optional[str] = None
     ErrorMessage: Optional[str] = None
 
@@ -618,12 +620,12 @@ class RunCommandTargetOutputTypeDef(BaseValidatorModel):
 
 
 class RunCommandTargetTypeDef(BaseValidatorModel):
-    Key: str
+    Key: Annotated[str, _aws_pattern("Events", "RunCommandTargetKey")]
     Values: List[str]
 
 
 class SageMakerPipelineParameterTypeDef(BaseValidatorModel):
-    Name: str
+    Name: Annotated[str, _aws_pattern("Events", "SageMakerPipelineParameterName")]
     Value: str
 
 
@@ -644,36 +646,36 @@ class UntagResourceRequestTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'update_api_destination' function.
 class UpdateApiDestinationRequestTypeDef(BaseValidatorModel):
-    Name: str
-    Description: Optional[str] = None
-    ConnectionArn: Optional[str] = None
-    InvocationEndpoint: Optional[str] = None
+    Name: Annotated[str, _aws_pattern("Events", "ApiDestinationName")]
+    Description: Optional[Annotated[str, _aws_pattern("Events", "ApiDestinationDescription")]] = None
+    ConnectionArn: Optional[Annotated[str, _aws_pattern("Events", "ConnectionArn")]] = None
+    InvocationEndpoint: Optional[Annotated[str, _aws_pattern("Events", "HttpsEndpoint")]] = None
     HttpMethod: Optional[ApiDestinationHttpMethodType] = None
     InvocationRateLimitPerSecond: Optional[int] = None
 
 
 # This class is the input for the 'update_archive' function.
 class UpdateArchiveRequestTypeDef(BaseValidatorModel):
-    ArchiveName: str
-    Description: Optional[str] = None
+    ArchiveName: Annotated[str, _aws_pattern("Events", "ArchiveName")]
+    Description: Optional[Annotated[str, _aws_pattern("Events", "ArchiveDescription")]] = None
     EventPattern: Optional[str] = None
     RetentionDays: Optional[int] = None
-    KmsKeyIdentifier: Optional[str] = None
+    KmsKeyIdentifier: Optional[Annotated[str, _aws_pattern("Events", "KmsKeyIdentifier")]] = None
 
 
 class UpdateConnectionApiKeyAuthRequestParametersTypeDef(BaseValidatorModel):
-    ApiKeyName: Optional[str] = None
-    ApiKeyValue: Optional[str] = None
+    ApiKeyName: Optional[Annotated[str, _aws_pattern("Events", "AuthHeaderParameters")]] = None
+    ApiKeyValue: Optional[Annotated[str, _aws_pattern("Events", "AuthHeaderParametersSensitive")]] = None
 
 
 class UpdateConnectionBasicAuthRequestParametersTypeDef(BaseValidatorModel):
-    Username: Optional[str] = None
-    Password: Optional[str] = None
+    Username: Optional[Annotated[str, _aws_pattern("Events", "AuthHeaderParameters")]] = None
+    Password: Optional[Annotated[str, _aws_pattern("Events", "AuthHeaderParametersSensitive")]] = None
 
 
 class UpdateConnectionOAuthClientRequestParametersTypeDef(BaseValidatorModel):
-    ClientID: Optional[str] = None
-    ClientSecret: Optional[str] = None
+    ClientID: Optional[Annotated[str, _aws_pattern("Events", "AuthHeaderParameters")]] = None
+    ClientSecret: Optional[Annotated[str, _aws_pattern("Events", "AuthHeaderParametersSensitive")]] = None
 
 
 class NetworkConfigurationOutputTypeDef(BaseValidatorModel):
@@ -692,15 +694,15 @@ class BatchParametersTypeDef(BaseValidatorModel):
 
 # This class is the output for the 'cancel_replay' function.
 class CancelReplayResponseTypeDef(BaseValidatorModel):
-    ReplayArn: str
+    ReplayArn: Annotated[str, _aws_pattern("Events", "ReplayArn")]
     State: ReplayStateType
-    StateReason: str
+    StateReason: Annotated[str, _aws_pattern("Events", "ReplayStateReason")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 # This class is the output for the 'create_api_destination' function.
 class CreateApiDestinationResponseTypeDef(BaseValidatorModel):
-    ApiDestinationArn: str
+    ApiDestinationArn: Annotated[str, _aws_pattern("Events", "ApiDestinationArn")]
     ApiDestinationState: ApiDestinationStateType
     CreationTime: datetime
     LastModifiedTime: datetime
@@ -709,16 +711,16 @@ class CreateApiDestinationResponseTypeDef(BaseValidatorModel):
 
 # This class is the output for the 'create_archive' function.
 class CreateArchiveResponseTypeDef(BaseValidatorModel):
-    ArchiveArn: str
+    ArchiveArn: Annotated[str, _aws_pattern("Events", "ArchiveArn")]
     State: ArchiveStateType
-    StateReason: str
+    StateReason: Annotated[str, _aws_pattern("Events", "ArchiveStateReason")]
     CreationTime: datetime
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 # This class is the output for the 'create_connection' function.
 class CreateConnectionResponseTypeDef(BaseValidatorModel):
-    ConnectionArn: str
+    ConnectionArn: Annotated[str, _aws_pattern("Events", "ConnectionArn")]
     ConnectionState: ConnectionStateType
     CreationTime: datetime
     LastModifiedTime: datetime
@@ -733,7 +735,7 @@ class CreatePartnerEventSourceResponseTypeDef(BaseValidatorModel):
 
 # This class is the output for the 'deauthorize_connection' function.
 class DeauthorizeConnectionResponseTypeDef(BaseValidatorModel):
-    ConnectionArn: str
+    ConnectionArn: Annotated[str, _aws_pattern("Events", "ConnectionArn")]
     ConnectionState: ConnectionStateType
     CreationTime: datetime
     LastModifiedTime: datetime
@@ -743,7 +745,7 @@ class DeauthorizeConnectionResponseTypeDef(BaseValidatorModel):
 
 # This class is the output for the 'delete_connection' function.
 class DeleteConnectionResponseTypeDef(BaseValidatorModel):
-    ConnectionArn: str
+    ConnectionArn: Annotated[str, _aws_pattern("Events", "ConnectionArn")]
     ConnectionState: ConnectionStateType
     CreationTime: datetime
     LastModifiedTime: datetime
@@ -753,12 +755,12 @@ class DeleteConnectionResponseTypeDef(BaseValidatorModel):
 
 # This class is the output for the 'describe_api_destination' function.
 class DescribeApiDestinationResponseTypeDef(BaseValidatorModel):
-    ApiDestinationArn: str
-    Name: str
-    Description: str
+    ApiDestinationArn: Annotated[str, _aws_pattern("Events", "ApiDestinationArn")]
+    Name: Annotated[str, _aws_pattern("Events", "ApiDestinationName")]
+    Description: Annotated[str, _aws_pattern("Events", "ApiDestinationDescription")]
     ApiDestinationState: ApiDestinationStateType
-    ConnectionArn: str
-    InvocationEndpoint: str
+    ConnectionArn: Annotated[str, _aws_pattern("Events", "ConnectionArn")]
+    InvocationEndpoint: Annotated[str, _aws_pattern("Events", "HttpsEndpoint")]
     HttpMethod: ApiDestinationHttpMethodType
     InvocationRateLimitPerSecond: int
     CreationTime: datetime
@@ -768,14 +770,14 @@ class DescribeApiDestinationResponseTypeDef(BaseValidatorModel):
 
 # This class is the output for the 'describe_archive' function.
 class DescribeArchiveResponseTypeDef(BaseValidatorModel):
-    ArchiveArn: str
-    ArchiveName: str
-    EventSourceArn: str
-    Description: str
+    ArchiveArn: Annotated[str, _aws_pattern("Events", "ArchiveArn")]
+    ArchiveName: Annotated[str, _aws_pattern("Events", "ArchiveName")]
+    EventSourceArn: Annotated[str, _aws_pattern("Events", "EventBusArn")]
+    Description: Annotated[str, _aws_pattern("Events", "ArchiveDescription")]
     EventPattern: str
     State: ArchiveStateType
-    StateReason: str
-    KmsKeyIdentifier: str
+    StateReason: Annotated[str, _aws_pattern("Events", "ArchiveStateReason")]
+    KmsKeyIdentifier: Annotated[str, _aws_pattern("Events", "KmsKeyIdentifier")]
     RetentionDays: int
     SizeBytes: int
     EventCount: int
@@ -803,7 +805,7 @@ class DescribePartnerEventSourceResponseTypeDef(BaseValidatorModel):
 
 # This class is the output for the 'describe_rule' function.
 class DescribeRuleResponseTypeDef(BaseValidatorModel):
-    Name: str
+    Name: Annotated[str, _aws_pattern("Events", "RuleName")]
     Arn: str
     EventPattern: str
     ScheduleExpression: str
@@ -811,7 +813,7 @@ class DescribeRuleResponseTypeDef(BaseValidatorModel):
     Description: str
     RoleArn: str
     ManagedBy: str
-    EventBusName: str
+    EventBusName: Annotated[str, _aws_pattern("Events", "EventBusName")]
     CreatedBy: str
     ResponseMetadata: ResponseMetadataTypeDef
 
@@ -837,7 +839,7 @@ class ListArchivesResponseTypeDef(BaseValidatorModel):
 
 # This class is the output for the 'list_rule_names_by_target' function.
 class ListRuleNamesByTargetResponseTypeDef(BaseValidatorModel):
-    RuleNames: List[str]
+    RuleNames: List[Annotated[str, _aws_pattern("Events", "RuleName")]]
     ResponseMetadata: ResponseMetadataTypeDef
     NextToken: Optional[str] = None
 
@@ -850,9 +852,9 @@ class PutRuleResponseTypeDef(BaseValidatorModel):
 
 # This class is the output for the 'start_replay' function.
 class StartReplayResponseTypeDef(BaseValidatorModel):
-    ReplayArn: str
+    ReplayArn: Annotated[str, _aws_pattern("Events", "ReplayArn")]
     State: ReplayStateType
-    StateReason: str
+    StateReason: Annotated[str, _aws_pattern("Events", "ReplayStateReason")]
     ReplayStartTime: datetime
     ResponseMetadata: ResponseMetadataTypeDef
 
@@ -865,7 +867,7 @@ class TestEventPatternResponseTypeDef(BaseValidatorModel):
 
 # This class is the output for the 'update_api_destination' function.
 class UpdateApiDestinationResponseTypeDef(BaseValidatorModel):
-    ApiDestinationArn: str
+    ApiDestinationArn: Annotated[str, _aws_pattern("Events", "ApiDestinationArn")]
     ApiDestinationState: ApiDestinationStateType
     CreationTime: datetime
     LastModifiedTime: datetime
@@ -874,16 +876,16 @@ class UpdateApiDestinationResponseTypeDef(BaseValidatorModel):
 
 # This class is the output for the 'update_archive' function.
 class UpdateArchiveResponseTypeDef(BaseValidatorModel):
-    ArchiveArn: str
+    ArchiveArn: Annotated[str, _aws_pattern("Events", "ArchiveArn")]
     State: ArchiveStateType
-    StateReason: str
+    StateReason: Annotated[str, _aws_pattern("Events", "ArchiveStateReason")]
     CreationTime: datetime
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 # This class is the output for the 'update_connection' function.
 class UpdateConnectionResponseTypeDef(BaseValidatorModel):
-    ConnectionArn: str
+    ConnectionArn: Annotated[str, _aws_pattern("Events", "ConnectionArn")]
     ConnectionState: ConnectionStateType
     CreationTime: datetime
     LastModifiedTime: datetime
@@ -893,10 +895,10 @@ class UpdateConnectionResponseTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'put_permission' function.
 class PutPermissionRequestTypeDef(BaseValidatorModel):
-    EventBusName: Optional[str] = None
-    Action: Optional[str] = None
-    Principal: Optional[str] = None
-    StatementId: Optional[str] = None
+    EventBusName: Optional[Annotated[str, _aws_pattern("Events", "NonPartnerEventBusName")]] = None
+    Action: Optional[Annotated[str, _aws_pattern("Events", "Action")]] = None
+    Principal: Optional[Annotated[str, _aws_pattern("Events", "Principal")]] = None
+    StatementId: Optional[Annotated[str, _aws_pattern("Events", "StatementId")]] = None
     Condition: Optional[ConditionTypeDef] = None
     Policy: Optional[str] = None
 
@@ -928,7 +930,7 @@ class ConnectivityResourceParametersTypeDef(BaseValidatorModel):
 class CreateEventBusResponseTypeDef(BaseValidatorModel):
     EventBusArn: str
     Description: str
-    KmsKeyIdentifier: str
+    KmsKeyIdentifier: Annotated[str, _aws_pattern("Events", "KmsKeyIdentifier")]
     DeadLetterConfig: DeadLetterConfigTypeDef
     LogConfig: LogConfigTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
@@ -939,7 +941,7 @@ class DescribeEventBusResponseTypeDef(BaseValidatorModel):
     Name: str
     Arn: str
     Description: str
-    KmsKeyIdentifier: str
+    KmsKeyIdentifier: Annotated[str, _aws_pattern("Events", "KmsKeyIdentifier")]
     DeadLetterConfig: DeadLetterConfigTypeDef
     Policy: str
     LogConfig: LogConfigTypeDef
@@ -950,8 +952,8 @@ class DescribeEventBusResponseTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'update_event_bus' function.
 class UpdateEventBusRequestTypeDef(BaseValidatorModel):
-    Name: Optional[str] = None
-    KmsKeyIdentifier: Optional[str] = None
+    Name: Optional[Annotated[str, _aws_pattern("Events", "EventBusName")]] = None
+    KmsKeyIdentifier: Optional[Annotated[str, _aws_pattern("Events", "KmsKeyIdentifier")]] = None
     Description: Optional[str] = None
     DeadLetterConfig: Optional[DeadLetterConfigTypeDef] = None
     LogConfig: Optional[LogConfigTypeDef] = None
@@ -960,8 +962,8 @@ class UpdateEventBusRequestTypeDef(BaseValidatorModel):
 # This class is the output for the 'update_event_bus' function.
 class UpdateEventBusResponseTypeDef(BaseValidatorModel):
     Arn: str
-    Name: str
-    KmsKeyIdentifier: str
+    Name: Annotated[str, _aws_pattern("Events", "EventBusName")]
+    KmsKeyIdentifier: Annotated[str, _aws_pattern("Events", "KmsKeyIdentifier")]
     Description: str
     DeadLetterConfig: DeadLetterConfigTypeDef
     LogConfig: LogConfigTypeDef
@@ -970,10 +972,10 @@ class UpdateEventBusResponseTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'create_event_bus' function.
 class CreateEventBusRequestTypeDef(BaseValidatorModel):
-    Name: str
-    EventSourceName: Optional[str] = None
+    Name: Annotated[str, _aws_pattern("Events", "EventBusName")]
+    EventSourceName: Optional[Annotated[str, _aws_pattern("Events", "EventSourceName")]] = None
     Description: Optional[str] = None
-    KmsKeyIdentifier: Optional[str] = None
+    KmsKeyIdentifier: Optional[Annotated[str, _aws_pattern("Events", "KmsKeyIdentifier")]] = None
     DeadLetterConfig: Optional[DeadLetterConfigTypeDef] = None
     LogConfig: Optional[LogConfigTypeDef] = None
     Tags: Optional[List[TagTypeDef]] = None
@@ -987,14 +989,14 @@ class ListTagsForResourceResponseTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'put_rule' function.
 class PutRuleRequestTypeDef(BaseValidatorModel):
-    Name: str
+    Name: Annotated[str, _aws_pattern("Events", "RuleName")]
     ScheduleExpression: Optional[str] = None
     EventPattern: Optional[str] = None
     State: Optional[RuleStateType] = None
     Description: Optional[str] = None
     RoleArn: Optional[str] = None
     Tags: Optional[List[TagTypeDef]] = None
-    EventBusName: Optional[str] = None
+    EventBusName: Optional[Annotated[str, _aws_pattern("Events", "EventBusNameOrArn")]] = None
 
 
 class TagResourceRequestTypeDef(BaseValidatorModel):
@@ -1008,12 +1010,12 @@ class DescribeConnectionConnectivityParametersTypeDef(BaseValidatorModel):
 
 # This class is the output for the 'describe_replay' function.
 class DescribeReplayResponseTypeDef(BaseValidatorModel):
-    ReplayName: str
-    ReplayArn: str
-    Description: str
+    ReplayName: Annotated[str, _aws_pattern("Events", "ReplayName")]
+    ReplayArn: Annotated[str, _aws_pattern("Events", "ReplayArn")]
+    Description: Annotated[str, _aws_pattern("Events", "ReplayDescription")]
     State: ReplayStateType
-    StateReason: str
-    EventSourceArn: str
+    StateReason: Annotated[str, _aws_pattern("Events", "ReplayStateReason")]
+    EventSourceArn: Annotated[str, _aws_pattern("Events", "ArchiveArn")]
     Destination: ReplayDestinationOutputTypeDef
     EventStartTime: datetime
     EventEndTime: datetime
@@ -1099,13 +1101,13 @@ class PutEventsRequestEntryTypeDef(BaseValidatorModel):
     Resources: Optional[List[str]] = None
     DetailType: Optional[str] = None
     Detail: Optional[str] = None
-    EventBusName: Optional[str] = None
+    EventBusName: Optional[Annotated[str, _aws_pattern("Events", "NonPartnerEventBusNameOrArn")]] = None
     TraceHeader: Optional[str] = None
 
 
 class PutPartnerEventsRequestEntryTypeDef(BaseValidatorModel):
     Time: Optional[TimestampTypeDef] = None
-    Source: Optional[str] = None
+    Source: Optional[Annotated[str, _aws_pattern("Events", "EventSourceName")]] = None
     Resources: Optional[List[str]] = None
     DetailType: Optional[str] = None
     Detail: Optional[str] = None
@@ -1183,7 +1185,7 @@ class NetworkConfigurationTypeDef(BaseValidatorModel):
 
 class ConnectionOAuthResponseParametersTypeDef(BaseValidatorModel):
     ClientParameters: Optional[ConnectionOAuthClientResponseParametersTypeDef] = None
-    AuthorizationEndpoint: Optional[str] = None
+    AuthorizationEndpoint: Optional[Annotated[str, _aws_pattern("Events", "HttpsEndpoint")]] = None
     HttpMethod: Optional[ConnectionOAuthHttpMethodType] = None
     OAuthHttpParameters: Optional[ConnectionHttpParametersOutputTypeDef] = None
 
@@ -1198,7 +1200,7 @@ class RoutingConfigTypeDef(BaseValidatorModel):
 # This class is the input for the 'put_events' function.
 class PutEventsRequestTypeDef(BaseValidatorModel):
     Entries: List[PutEventsRequestEntryTypeDef]
-    EndpointId: Optional[str] = None
+    EndpointId: Optional[Annotated[str, _aws_pattern("Events", "EndpointId")]] = None
 
 
 # This class is the input for the 'put_partner_events' function.
@@ -1208,12 +1210,12 @@ class PutPartnerEventsRequestTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'start_replay' function.
 class StartReplayRequestTypeDef(BaseValidatorModel):
-    ReplayName: str
-    EventSourceArn: str
+    ReplayName: Annotated[str, _aws_pattern("Events", "ReplayName")]
+    EventSourceArn: Annotated[str, _aws_pattern("Events", "ArchiveArn")]
     EventStartTime: TimestampTypeDef
     EventEndTime: TimestampTypeDef
     Destination: ReplayDestinationUnionTypeDef
-    Description: Optional[str] = None
+    Description: Optional[Annotated[str, _aws_pattern("Events", "ReplayDescription")]] = None
 
 
 class RunCommandParametersTypeDef(BaseValidatorModel):
@@ -1258,94 +1260,94 @@ class ConnectionAuthResponseParametersTypeDef(BaseValidatorModel):
 
 class CreateConnectionOAuthRequestParametersTypeDef(BaseValidatorModel):
     ClientParameters: CreateConnectionOAuthClientRequestParametersTypeDef
-    AuthorizationEndpoint: str
+    AuthorizationEndpoint: Annotated[str, _aws_pattern("Events", "HttpsEndpoint")]
     HttpMethod: ConnectionOAuthHttpMethodType
     OAuthHttpParameters: Optional[ConnectionHttpParametersUnionTypeDef] = None
 
 
 class UpdateConnectionOAuthRequestParametersTypeDef(BaseValidatorModel):
     ClientParameters: Optional[UpdateConnectionOAuthClientRequestParametersTypeDef] = None
-    AuthorizationEndpoint: Optional[str] = None
+    AuthorizationEndpoint: Optional[Annotated[str, _aws_pattern("Events", "HttpsEndpoint")]] = None
     HttpMethod: Optional[ConnectionOAuthHttpMethodType] = None
     OAuthHttpParameters: Optional[ConnectionHttpParametersUnionTypeDef] = None
 
 
 # This class is the input for the 'create_endpoint' function.
 class CreateEndpointRequestTypeDef(BaseValidatorModel):
-    Name: str
+    Name: Annotated[str, _aws_pattern("Events", "EndpointName")]
     RoutingConfig: RoutingConfigTypeDef
     EventBuses: List[EndpointEventBusTypeDef]
-    Description: Optional[str] = None
+    Description: Optional[Annotated[str, _aws_pattern("Events", "EndpointDescription")]] = None
     ReplicationConfig: Optional[ReplicationConfigTypeDef] = None
-    RoleArn: Optional[str] = None
+    RoleArn: Optional[Annotated[str, _aws_pattern("Events", "IamRoleArn")]] = None
 
 
 # This class is the output for the 'create_endpoint' function.
 class CreateEndpointResponseTypeDef(BaseValidatorModel):
-    Name: str
-    Arn: str
+    Name: Annotated[str, _aws_pattern("Events", "EndpointName")]
+    Arn: Annotated[str, _aws_pattern("Events", "EndpointArn")]
     RoutingConfig: RoutingConfigTypeDef
     ReplicationConfig: ReplicationConfigTypeDef
     EventBuses: List[EndpointEventBusTypeDef]
-    RoleArn: str
+    RoleArn: Annotated[str, _aws_pattern("Events", "IamRoleArn")]
     State: EndpointStateType
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 # This class is the output for the 'describe_endpoint' function.
 class DescribeEndpointResponseTypeDef(BaseValidatorModel):
-    Name: str
-    Description: str
-    Arn: str
+    Name: Annotated[str, _aws_pattern("Events", "EndpointName")]
+    Description: Annotated[str, _aws_pattern("Events", "EndpointDescription")]
+    Arn: Annotated[str, _aws_pattern("Events", "EndpointArn")]
     RoutingConfig: RoutingConfigTypeDef
     ReplicationConfig: ReplicationConfigTypeDef
     EventBuses: List[EndpointEventBusTypeDef]
-    RoleArn: str
-    EndpointId: str
-    EndpointUrl: str
+    RoleArn: Annotated[str, _aws_pattern("Events", "IamRoleArn")]
+    EndpointId: Annotated[str, _aws_pattern("Events", "EndpointId")]
+    EndpointUrl: Annotated[str, _aws_pattern("Events", "EndpointUrl")]
     State: EndpointStateType
-    StateReason: str
+    StateReason: Annotated[str, _aws_pattern("Events", "EndpointStateReason")]
     CreationTime: datetime
     LastModifiedTime: datetime
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 class EndpointTypeDef(BaseValidatorModel):
-    Name: Optional[str] = None
-    Description: Optional[str] = None
-    Arn: Optional[str] = None
+    Name: Optional[Annotated[str, _aws_pattern("Events", "EndpointName")]] = None
+    Description: Optional[Annotated[str, _aws_pattern("Events", "EndpointDescription")]] = None
+    Arn: Optional[Annotated[str, _aws_pattern("Events", "EndpointArn")]] = None
     RoutingConfig: Optional[RoutingConfigTypeDef] = None
     ReplicationConfig: Optional[ReplicationConfigTypeDef] = None
     EventBuses: Optional[List[EndpointEventBusTypeDef]] = None
-    RoleArn: Optional[str] = None
-    EndpointId: Optional[str] = None
-    EndpointUrl: Optional[str] = None
+    RoleArn: Optional[Annotated[str, _aws_pattern("Events", "IamRoleArn")]] = None
+    EndpointId: Optional[Annotated[str, _aws_pattern("Events", "EndpointId")]] = None
+    EndpointUrl: Optional[Annotated[str, _aws_pattern("Events", "EndpointUrl")]] = None
     State: Optional[EndpointStateType] = None
-    StateReason: Optional[str] = None
+    StateReason: Optional[Annotated[str, _aws_pattern("Events", "EndpointStateReason")]] = None
     CreationTime: Optional[datetime] = None
     LastModifiedTime: Optional[datetime] = None
 
 
 # This class is the input for the 'update_endpoint' function.
 class UpdateEndpointRequestTypeDef(BaseValidatorModel):
-    Name: str
-    Description: Optional[str] = None
+    Name: Annotated[str, _aws_pattern("Events", "EndpointName")]
+    Description: Optional[Annotated[str, _aws_pattern("Events", "EndpointDescription")]] = None
     RoutingConfig: Optional[RoutingConfigTypeDef] = None
     ReplicationConfig: Optional[ReplicationConfigTypeDef] = None
     EventBuses: Optional[List[EndpointEventBusTypeDef]] = None
-    RoleArn: Optional[str] = None
+    RoleArn: Optional[Annotated[str, _aws_pattern("Events", "IamRoleArn")]] = None
 
 
 # This class is the output for the 'update_endpoint' function.
 class UpdateEndpointResponseTypeDef(BaseValidatorModel):
-    Name: str
-    Arn: str
+    Name: Annotated[str, _aws_pattern("Events", "EndpointName")]
+    Arn: Annotated[str, _aws_pattern("Events", "EndpointArn")]
     RoutingConfig: RoutingConfigTypeDef
     ReplicationConfig: ReplicationConfigTypeDef
     EventBuses: List[EndpointEventBusTypeDef]
-    RoleArn: str
-    EndpointId: str
-    EndpointUrl: str
+    RoleArn: Annotated[str, _aws_pattern("Events", "IamRoleArn")]
+    EndpointId: Annotated[str, _aws_pattern("Events", "EndpointId")]
+    EndpointUrl: Annotated[str, _aws_pattern("Events", "EndpointUrl")]
     State: EndpointStateType
     ResponseMetadata: ResponseMetadataTypeDef
 
@@ -1379,15 +1381,15 @@ class EcsParametersTypeDef(BaseValidatorModel):
 
 # This class is the output for the 'describe_connection' function.
 class DescribeConnectionResponseTypeDef(BaseValidatorModel):
-    ConnectionArn: str
-    Name: str
-    Description: str
+    ConnectionArn: Annotated[str, _aws_pattern("Events", "ConnectionArn")]
+    Name: Annotated[str, _aws_pattern("Events", "ConnectionName")]
+    Description: Annotated[str, _aws_pattern("Events", "ConnectionDescription")]
     InvocationConnectivityParameters: DescribeConnectionConnectivityParametersTypeDef
     ConnectionState: ConnectionStateType
-    StateReason: str
+    StateReason: Annotated[str, _aws_pattern("Events", "ConnectionStateReason")]
     AuthorizationType: ConnectionAuthorizationTypeType
-    SecretArn: str
-    KmsKeyIdentifier: str
+    SecretArn: Annotated[str, _aws_pattern("Events", "SecretsManagerSecretArn")]
+    KmsKeyIdentifier: Annotated[str, _aws_pattern("Events", "KmsKeyIdentifier")]
     AuthParameters: ConnectionAuthResponseParametersTypeDef
     CreationTime: datetime
     LastModifiedTime: datetime
@@ -1423,26 +1425,26 @@ EcsParametersUnionTypeDef = Union[EcsParametersOutputTypeDef, EcsParametersTypeD
 
 # This class is the input for the 'create_connection' function.
 class CreateConnectionRequestTypeDef(BaseValidatorModel):
-    Name: str
+    Name: Annotated[str, _aws_pattern("Events", "ConnectionName")]
     AuthorizationType: ConnectionAuthorizationTypeType
     AuthParameters: CreateConnectionAuthRequestParametersTypeDef
-    Description: Optional[str] = None
+    Description: Optional[Annotated[str, _aws_pattern("Events", "ConnectionDescription")]] = None
     InvocationConnectivityParameters: Optional[ConnectivityResourceParametersTypeDef] = None
-    KmsKeyIdentifier: Optional[str] = None
+    KmsKeyIdentifier: Optional[Annotated[str, _aws_pattern("Events", "KmsKeyIdentifier")]] = None
 
 
 # This class is the input for the 'update_connection' function.
 class UpdateConnectionRequestTypeDef(BaseValidatorModel):
-    Name: str
-    Description: Optional[str] = None
+    Name: Annotated[str, _aws_pattern("Events", "ConnectionName")]
+    Description: Optional[Annotated[str, _aws_pattern("Events", "ConnectionDescription")]] = None
     AuthorizationType: Optional[ConnectionAuthorizationTypeType] = None
     AuthParameters: Optional[UpdateConnectionAuthRequestParametersTypeDef] = None
     InvocationConnectivityParameters: Optional[ConnectivityResourceParametersTypeDef] = None
-    KmsKeyIdentifier: Optional[str] = None
+    KmsKeyIdentifier: Optional[Annotated[str, _aws_pattern("Events", "KmsKeyIdentifier")]] = None
 
 
 class TargetTypeDef(BaseValidatorModel):
-    Id: str
+    Id: Annotated[str, _aws_pattern("Events", "TargetId")]
     Arn: str
     RoleArn: Optional[str] = None
     Input: Optional[str] = None
@@ -1466,6 +1468,6 @@ TargetUnionTypeDef = Union[TargetOutputTypeDef, TargetTypeDef]
 
 # This class is the input for the 'put_targets' function.
 class PutTargetsRequestTypeDef(BaseValidatorModel):
-    Rule: str
+    Rule: Annotated[str, _aws_pattern("Events", "RuleName")]
     Targets: List[TargetUnionTypeDef]
-    EventBusName: Optional[str] = None
+    EventBusName: Optional[Annotated[str, _aws_pattern("Events", "EventBusNameOrArn")]] = None

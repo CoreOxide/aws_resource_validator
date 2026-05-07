@@ -3,6 +3,7 @@
 from datetime import datetime
 from decimal import Decimal
 from typing import (
+    Annotated,
     Any,
     Callable,
     Dict,
@@ -24,6 +25,7 @@ from botocore.response import StreamingBody
 from pydantic import Field
 
 from aws_resource_validator.core.base_validator_model import BaseValidatorModel, EventStream
+from aws_resource_validator.core.pattern_validation import aws_field_pattern as _aws_pattern
 from aws_resource_validator.pydantic_models.elasticbeanstalk.elasticbeanstalk_constants import *  # noqa: F401,F403
 
 # Optional boto3 symbols — imported lazily so services that don't need them
@@ -78,7 +80,7 @@ class S3LocationTypeDef(BaseValidatorModel):
 class SourceBuildInformationTypeDef(BaseValidatorModel):
     SourceType: SourceTypeType
     SourceRepository: SourceRepositoryType
-    SourceLocation: str
+    SourceLocation: Annotated[str, _aws_pattern("Elasticbeanstalk", "SourceLocation")]
 
 
 class MaxAgeRuleTypeDef(BaseValidatorModel):
@@ -111,8 +113,8 @@ class AutoScalingGroupTypeDef(BaseValidatorModel):
 
 
 class BuildConfigurationTypeDef(BaseValidatorModel):
-    CodeBuildServiceRole: str
-    Image: str
+    CodeBuildServiceRole: Annotated[str, _aws_pattern("Elasticbeanstalk", "NonEmptyString")]
+    Image: Annotated[str, _aws_pattern("Elasticbeanstalk", "NonEmptyString")]
     ArtifactName: Optional[str] = None
     ComputeType: Optional[ComputeTypeType] = None
     TimeoutInMinutes: Optional[int] = None

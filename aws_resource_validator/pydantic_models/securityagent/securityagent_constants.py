@@ -10,7 +10,7 @@ CodeRemediationTaskStatusType = Literal["COMPLETED", "FAILED", "IN_PROGRESS"]
 ConfidenceLevelType = Literal["FALSE_POSITIVE", "HIGH", "LOW", "MEDIUM", "UNCONFIRMED"]
 ContextTypeType = Literal["CLIENT_ERROR", "ERROR", "INFO", "WARNING"]
 DNSRecordTypeType = Literal["TXT"]
-DomainVerificationMethodType = Literal["DNS_TXT", "HTTP_ROUTE"]
+DomainVerificationMethodType = Literal["DNS_TXT", "HTTP_ROUTE", "PRIVATE_VPC"]
 ErrorCodeType = Literal["CLIENT_ERROR", "INTERNAL_ERROR", "STOPPED_BY_USER"]
 FindingStatusType = Literal["ACCEPTED", "ACTIVE", "FALSE_POSITIVE", "RESOLVED"]
 JobStatusType = Literal["COMPLETED", "FAILED", "IN_PROGRESS", "STOPPED", "STOPPING"]
@@ -256,6 +256,7 @@ ServiceName = Literal[
     "inspector",
     "inspector-scan",
     "inspector2",
+    "interconnect",
     "internetmonitor",
     "invoicing",
     "iot",
@@ -312,6 +313,7 @@ ServiceName = Literal[
     "marketplace-agreement",
     "marketplace-catalog",
     "marketplace-deployment",
+    "marketplace-discovery",
     "marketplace-entitlement",
     "marketplace-reporting",
     "marketplacecommerceanalytics",
@@ -409,6 +411,7 @@ ServiceName = Literal[
     "rum",
     "s3",
     "s3control",
+    "s3files",
     "s3outposts",
     "s3tables",
     "s3vectors",

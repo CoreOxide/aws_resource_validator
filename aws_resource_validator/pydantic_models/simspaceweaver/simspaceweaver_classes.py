@@ -3,6 +3,7 @@
 from datetime import datetime
 from decimal import Decimal
 from typing import (
+    Annotated,
     Any,
     Callable,
     Dict,
@@ -24,6 +25,7 @@ from botocore.response import StreamingBody
 from pydantic import Field
 
 from aws_resource_validator.core.base_validator_model import BaseValidatorModel, EventStream
+from aws_resource_validator.core.pattern_validation import aws_field_pattern as _aws_pattern
 from aws_resource_validator.pydantic_models.simspaceweaver.simspaceweaver_constants import *  # noqa: F401,F403
 
 # Optional boto3 symbols — imported lazily so services that don't need them
@@ -39,7 +41,7 @@ except ImportError:  # pragma: no cover
 
 
 class CloudWatchLogsLogGroupTypeDef(BaseValidatorModel):
-    LogGroupArn: Optional[str] = None
+    LogGroupArn: Optional[Annotated[str, _aws_pattern("Simspaceweaver", "LogGroupArn")]] = None
 
 
 class S3DestinationTypeDef(BaseValidatorModel):
@@ -48,20 +50,20 @@ class S3DestinationTypeDef(BaseValidatorModel):
 
 
 class DeleteAppInputTypeDef(BaseValidatorModel):
-    App: str
-    Domain: str
-    Simulation: str
+    App: Annotated[str, _aws_pattern("Simspaceweaver", "SimSpaceWeaverResourceName")]
+    Domain: Annotated[str, _aws_pattern("Simspaceweaver", "SimSpaceWeaverResourceName")]
+    Simulation: Annotated[str, _aws_pattern("Simspaceweaver", "SimSpaceWeaverResourceName")]
 
 
 class DeleteSimulationInputTypeDef(BaseValidatorModel):
-    Simulation: str
+    Simulation: Annotated[str, _aws_pattern("Simspaceweaver", "SimSpaceWeaverResourceName")]
 
 
 # This class is the input for the 'describe_app' function.
 class DescribeAppInputTypeDef(BaseValidatorModel):
-    App: str
-    Domain: str
-    Simulation: str
+    App: Annotated[str, _aws_pattern("Simspaceweaver", "SimSpaceWeaverLongResourceName")]
+    Domain: Annotated[str, _aws_pattern("Simspaceweaver", "SimSpaceWeaverResourceName")]
+    Simulation: Annotated[str, _aws_pattern("Simspaceweaver", "SimSpaceWeaverResourceName")]
 
 
 class LaunchOverridesOutputTypeDef(BaseValidatorModel):
@@ -78,7 +80,7 @@ class ResponseMetadataTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'describe_simulation' function.
 class DescribeSimulationInputTypeDef(BaseValidatorModel):
-    Simulation: str
+    Simulation: Annotated[str, _aws_pattern("Simspaceweaver", "SimSpaceWeaverResourceName")]
 
 
 class S3LocationTypeDef(BaseValidatorModel):
@@ -88,7 +90,7 @@ class S3LocationTypeDef(BaseValidatorModel):
 
 class DomainTypeDef(BaseValidatorModel):
     Lifecycle: Optional[LifecycleManagementStrategyType] = None
-    Name: Optional[str] = None
+    Name: Optional[Annotated[str, _aws_pattern("Simspaceweaver", "SimSpaceWeaverResourceName")]] = None
 
 
 class LaunchOverridesTypeDef(BaseValidatorModel):
@@ -97,16 +99,16 @@ class LaunchOverridesTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'list_apps' function.
 class ListAppsInputTypeDef(BaseValidatorModel):
-    Simulation: str
-    Domain: Optional[str] = None
+    Simulation: Annotated[str, _aws_pattern("Simspaceweaver", "SimSpaceWeaverResourceName")]
+    Domain: Optional[Annotated[str, _aws_pattern("Simspaceweaver", "SimSpaceWeaverResourceName")]] = None
     MaxResults: Optional[int] = None
     NextToken: Optional[str] = None
 
 
 class SimulationAppMetadataTypeDef(BaseValidatorModel):
-    Domain: Optional[str] = None
-    Name: Optional[str] = None
-    Simulation: Optional[str] = None
+    Domain: Optional[Annotated[str, _aws_pattern("Simspaceweaver", "SimSpaceWeaverResourceName")]] = None
+    Name: Optional[Annotated[str, _aws_pattern("Simspaceweaver", "SimSpaceWeaverLongResourceName")]] = None
+    Simulation: Optional[Annotated[str, _aws_pattern("Simspaceweaver", "SimSpaceWeaverResourceName")]] = None
     Status: Optional[SimulationAppStatusType] = None
     TargetStatus: Optional[SimulationAppTargetStatusType] = None
 
@@ -118,16 +120,16 @@ class ListSimulationsInputTypeDef(BaseValidatorModel):
 
 
 class SimulationMetadataTypeDef(BaseValidatorModel):
-    Arn: Optional[str] = None
+    Arn: Optional[Annotated[str, _aws_pattern("Simspaceweaver", "SimSpaceWeaverArn")]] = None
     CreationTime: Optional[datetime] = None
-    Name: Optional[str] = None
+    Name: Optional[Annotated[str, _aws_pattern("Simspaceweaver", "SimSpaceWeaverResourceName")]] = None
     Status: Optional[SimulationStatusType] = None
     TargetStatus: Optional[SimulationTargetStatusType] = None
 
 
 # This class is the input for the 'list_tags_for_resource' function.
 class ListTagsForResourceInputTypeDef(BaseValidatorModel):
-    ResourceArn: str
+    ResourceArn: Annotated[str, _aws_pattern("Simspaceweaver", "SimSpaceWeaverArn")]
 
 
 class SimulationClockTypeDef(BaseValidatorModel):
@@ -141,30 +143,30 @@ class SimulationAppPortMappingTypeDef(BaseValidatorModel):
 
 
 class StartClockInputTypeDef(BaseValidatorModel):
-    Simulation: str
+    Simulation: Annotated[str, _aws_pattern("Simspaceweaver", "SimSpaceWeaverResourceName")]
 
 
 class StopAppInputTypeDef(BaseValidatorModel):
-    App: str
-    Domain: str
-    Simulation: str
+    App: Annotated[str, _aws_pattern("Simspaceweaver", "SimSpaceWeaverResourceName")]
+    Domain: Annotated[str, _aws_pattern("Simspaceweaver", "SimSpaceWeaverResourceName")]
+    Simulation: Annotated[str, _aws_pattern("Simspaceweaver", "SimSpaceWeaverResourceName")]
 
 
 class StopClockInputTypeDef(BaseValidatorModel):
-    Simulation: str
+    Simulation: Annotated[str, _aws_pattern("Simspaceweaver", "SimSpaceWeaverResourceName")]
 
 
 class StopSimulationInputTypeDef(BaseValidatorModel):
-    Simulation: str
+    Simulation: Annotated[str, _aws_pattern("Simspaceweaver", "SimSpaceWeaverResourceName")]
 
 
 class TagResourceInputTypeDef(BaseValidatorModel):
-    ResourceArn: str
+    ResourceArn: Annotated[str, _aws_pattern("Simspaceweaver", "SimSpaceWeaverArn")]
     Tags: Dict[str, str]
 
 
 class UntagResourceInputTypeDef(BaseValidatorModel):
-    ResourceArn: str
+    ResourceArn: Annotated[str, _aws_pattern("Simspaceweaver", "SimSpaceWeaverArn")]
     TagKeys: List[str]
 
 
@@ -174,7 +176,7 @@ class LogDestinationTypeDef(BaseValidatorModel):
 
 class CreateSnapshotInputTypeDef(BaseValidatorModel):
     Destination: S3DestinationTypeDef
-    Simulation: str
+    Simulation: Annotated[str, _aws_pattern("Simspaceweaver", "SimSpaceWeaverResourceName")]
 
 
 # This class is the output for the 'list_tags_for_resource' function.
@@ -185,27 +187,27 @@ class ListTagsForResourceOutputTypeDef(BaseValidatorModel):
 
 # This class is the output for the 'start_app' function.
 class StartAppOutputTypeDef(BaseValidatorModel):
-    Domain: str
-    Name: str
-    Simulation: str
+    Domain: Annotated[str, _aws_pattern("Simspaceweaver", "SimSpaceWeaverResourceName")]
+    Name: Annotated[str, _aws_pattern("Simspaceweaver", "SimSpaceWeaverResourceName")]
+    Simulation: Annotated[str, _aws_pattern("Simspaceweaver", "SimSpaceWeaverResourceName")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 # This class is the output for the 'start_simulation' function.
 class StartSimulationOutputTypeDef(BaseValidatorModel):
-    Arn: str
+    Arn: Annotated[str, _aws_pattern("Simspaceweaver", "SimSpaceWeaverArn")]
     CreationTime: datetime
-    ExecutionId: str
+    ExecutionId: Annotated[str, _aws_pattern("Simspaceweaver", "UUID")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 # This class is the input for the 'start_simulation' function.
 class StartSimulationInputTypeDef(BaseValidatorModel):
-    Name: str
-    RoleArn: str
-    ClientToken: Optional[str] = None
+    Name: Annotated[str, _aws_pattern("Simspaceweaver", "SimSpaceWeaverResourceName")]
+    RoleArn: Annotated[str, _aws_pattern("Simspaceweaver", "RoleArn")]
+    ClientToken: Optional[Annotated[str, _aws_pattern("Simspaceweaver", "ClientToken")]] = None
     Description: Optional[str] = None
-    MaximumDuration: Optional[str] = None
+    MaximumDuration: Optional[Annotated[str, _aws_pattern("Simspaceweaver", "TimeToLiveString")]] = None
     SchemaS3Location: Optional[S3LocationTypeDef] = None
     SnapshotS3Location: Optional[S3LocationTypeDef] = None
     Tags: Optional[Dict[str, str]] = None
@@ -244,10 +246,10 @@ class LoggingConfigurationTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'start_app' function.
 class StartAppInputTypeDef(BaseValidatorModel):
-    Domain: str
-    Name: str
-    Simulation: str
-    ClientToken: Optional[str] = None
+    Domain: Annotated[str, _aws_pattern("Simspaceweaver", "SimSpaceWeaverResourceName")]
+    Name: Annotated[str, _aws_pattern("Simspaceweaver", "SimSpaceWeaverResourceName")]
+    Simulation: Annotated[str, _aws_pattern("Simspaceweaver", "SimSpaceWeaverResourceName")]
+    ClientToken: Optional[Annotated[str, _aws_pattern("Simspaceweaver", "ClientToken")]] = None
     Description: Optional[str] = None
     LaunchOverrides: Optional[LaunchOverridesUnionTypeDef] = None
 
@@ -255,11 +257,11 @@ class StartAppInputTypeDef(BaseValidatorModel):
 # This class is the output for the 'describe_app' function.
 class DescribeAppOutputTypeDef(BaseValidatorModel):
     Description: str
-    Domain: str
+    Domain: Annotated[str, _aws_pattern("Simspaceweaver", "SimSpaceWeaverResourceName")]
     EndpointInfo: SimulationAppEndpointInfoTypeDef
     LaunchOverrides: LaunchOverridesOutputTypeDef
-    Name: str
-    Simulation: str
+    Name: Annotated[str, _aws_pattern("Simspaceweaver", "SimSpaceWeaverLongResourceName")]
+    Simulation: Annotated[str, _aws_pattern("Simspaceweaver", "SimSpaceWeaverResourceName")]
     Status: SimulationAppStatusType
     TargetStatus: SimulationAppTargetStatusType
     ResponseMetadata: ResponseMetadataTypeDef
@@ -267,15 +269,15 @@ class DescribeAppOutputTypeDef(BaseValidatorModel):
 
 # This class is the output for the 'describe_simulation' function.
 class DescribeSimulationOutputTypeDef(BaseValidatorModel):
-    Arn: str
+    Arn: Annotated[str, _aws_pattern("Simspaceweaver", "SimSpaceWeaverArn")]
     CreationTime: datetime
     Description: str
-    ExecutionId: str
+    ExecutionId: Annotated[str, _aws_pattern("Simspaceweaver", "UUID")]
     LiveSimulationState: LiveSimulationStateTypeDef
     LoggingConfiguration: LoggingConfigurationTypeDef
-    MaximumDuration: str
-    Name: str
-    RoleArn: str
+    MaximumDuration: Annotated[str, _aws_pattern("Simspaceweaver", "TimeToLiveString")]
+    Name: Annotated[str, _aws_pattern("Simspaceweaver", "SimSpaceWeaverResourceName")]
+    RoleArn: Annotated[str, _aws_pattern("Simspaceweaver", "RoleArn")]
     SchemaError: str
     SchemaS3Location: S3LocationTypeDef
     SnapshotS3Location: S3LocationTypeDef

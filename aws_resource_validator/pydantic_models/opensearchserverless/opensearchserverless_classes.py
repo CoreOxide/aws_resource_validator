@@ -3,6 +3,7 @@
 from datetime import datetime
 from decimal import Decimal
 from typing import (
+    Annotated,
     Any,
     Callable,
     Dict,
@@ -24,6 +25,7 @@ from botocore.response import StreamingBody
 from pydantic import Field
 
 from aws_resource_validator.core.base_validator_model import BaseValidatorModel, EventStream
+from aws_resource_validator.core.pattern_validation import aws_field_pattern as _aws_pattern
 from aws_resource_validator.pydantic_models.opensearchserverless.opensearchserverless_constants import *  # noqa: F401,F403
 
 # Optional boto3 symbols — imported lazily so services that don't need them
@@ -40,8 +42,8 @@ except ImportError:  # pragma: no cover
 
 class AccessPolicyDetailTypeDef(BaseValidatorModel):
     type: Optional[Literal["data"]] = None
-    name: Optional[str] = None
-    policyVersion: Optional[str] = None
+    name: Optional[Annotated[str, _aws_pattern("Opensearchserverless", "PolicyName")]] = None
+    policyVersion: Optional[Annotated[str, _aws_pattern("Opensearchserverless", "PolicyVersion")]] = None
     description: Optional[str] = None
     policy: Optional[Dict[str, Any]] = None
     createdDate: Optional[int] = None
@@ -54,8 +56,8 @@ class AccessPolicyStatsTypeDef(BaseValidatorModel):
 
 class AccessPolicySummaryTypeDef(BaseValidatorModel):
     type: Optional[Literal["data"]] = None
-    name: Optional[str] = None
-    policyVersion: Optional[str] = None
+    name: Optional[Annotated[str, _aws_pattern("Opensearchserverless", "PolicyName")]] = None
+    policyVersion: Optional[Annotated[str, _aws_pattern("Opensearchserverless", "PolicyVersion")]] = None
     description: Optional[str] = None
     createdDate: Optional[int] = None
     lastModifiedDate: Optional[int] = None
@@ -68,13 +70,13 @@ class CapacityLimitsTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'batch_get_collection_group' function.
 class BatchGetCollectionGroupRequestTypeDef(BaseValidatorModel):
-    ids: Optional[List[str]] = None
-    names: Optional[List[str]] = None
+    ids: Optional[List[Annotated[str, _aws_pattern("Opensearchserverless", "CollectionGroupId")]]] = None
+    names: Optional[List[Annotated[str, _aws_pattern("Opensearchserverless", "CollectionGroupName")]]] = None
 
 
 class CollectionGroupErrorDetailTypeDef(BaseValidatorModel):
-    id: Optional[str] = None
-    name: Optional[str] = None
+    id: Optional[Annotated[str, _aws_pattern("Opensearchserverless", "CollectionGroupId")]] = None
+    name: Optional[Annotated[str, _aws_pattern("Opensearchserverless", "CollectionGroupName")]] = None
     errorMessage: Optional[str] = None
     errorCode: Optional[str] = None
 
@@ -89,26 +91,26 @@ class ResponseMetadataTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'batch_get_collection' function.
 class BatchGetCollectionRequestTypeDef(BaseValidatorModel):
-    ids: Optional[List[str]] = None
-    names: Optional[List[str]] = None
+    ids: Optional[List[Annotated[str, _aws_pattern("Opensearchserverless", "CollectionId")]]] = None
+    names: Optional[List[Annotated[str, _aws_pattern("Opensearchserverless", "CollectionName")]]] = None
 
 
 class CollectionErrorDetailTypeDef(BaseValidatorModel):
-    id: Optional[str] = None
-    name: Optional[str] = None
+    id: Optional[Annotated[str, _aws_pattern("Opensearchserverless", "CollectionId")]] = None
+    name: Optional[Annotated[str, _aws_pattern("Opensearchserverless", "CollectionName")]] = None
     errorMessage: Optional[str] = None
     errorCode: Optional[str] = None
 
 
 class LifecyclePolicyResourceIdentifierTypeDef(BaseValidatorModel):
     type: Literal["retention"]
-    resource: str
+    resource: Annotated[str, _aws_pattern("Opensearchserverless", "ResourceName")]
 
 
 class EffectiveLifecyclePolicyDetailTypeDef(BaseValidatorModel):
     type: Optional[Literal["retention"]] = None
     resource: Optional[str] = None
-    policyName: Optional[str] = None
+    policyName: Optional[Annotated[str, _aws_pattern("Opensearchserverless", "PolicyName")]] = None
     resourceType: Optional[Literal["index"]] = None
     retentionPeriod: Optional[str] = None
     noMinRetentionPeriod: Optional[bool] = None
@@ -123,13 +125,13 @@ class EffectiveLifecyclePolicyErrorDetailTypeDef(BaseValidatorModel):
 
 class LifecyclePolicyIdentifierTypeDef(BaseValidatorModel):
     type: Literal["retention"]
-    name: str
+    name: Annotated[str, _aws_pattern("Opensearchserverless", "PolicyName")]
 
 
 class LifecyclePolicyDetailTypeDef(BaseValidatorModel):
     type: Optional[Literal["retention"]] = None
-    name: Optional[str] = None
-    policyVersion: Optional[str] = None
+    name: Optional[Annotated[str, _aws_pattern("Opensearchserverless", "PolicyName")]] = None
+    policyVersion: Optional[Annotated[str, _aws_pattern("Opensearchserverless", "PolicyVersion")]] = None
     description: Optional[str] = None
     policy: Optional[Dict[str, Any]] = None
     createdDate: Optional[int] = None
@@ -138,22 +140,22 @@ class LifecyclePolicyDetailTypeDef(BaseValidatorModel):
 
 class LifecyclePolicyErrorDetailTypeDef(BaseValidatorModel):
     type: Optional[Literal["retention"]] = None
-    name: Optional[str] = None
+    name: Optional[Annotated[str, _aws_pattern("Opensearchserverless", "PolicyName")]] = None
     errorMessage: Optional[str] = None
     errorCode: Optional[str] = None
 
 
 # This class is the input for the 'batch_get_vpc_endpoint' function.
 class BatchGetVpcEndpointRequestTypeDef(BaseValidatorModel):
-    ids: List[str]
+    ids: List[Annotated[str, _aws_pattern("Opensearchserverless", "VpcEndpointId")]]
 
 
 class VpcEndpointDetailTypeDef(BaseValidatorModel):
-    id: Optional[str] = None
-    name: Optional[str] = None
-    vpcId: Optional[str] = None
-    subnetIds: Optional[List[str]] = None
-    securityGroupIds: Optional[List[str]] = None
+    id: Optional[Annotated[str, _aws_pattern("Opensearchserverless", "VpcEndpointId")]] = None
+    name: Optional[Annotated[str, _aws_pattern("Opensearchserverless", "VpcEndpointName")]] = None
+    vpcId: Optional[Annotated[str, _aws_pattern("Opensearchserverless", "VpcId")]] = None
+    subnetIds: Optional[List[Annotated[str, _aws_pattern("Opensearchserverless", "SubnetId")]]] = None
+    securityGroupIds: Optional[List[Annotated[str, _aws_pattern("Opensearchserverless", "SecurityGroupId")]]] = None
     status: Optional[VpcEndpointStatusType] = None
     createdDate: Optional[int] = None
     failureCode: Optional[str] = None
@@ -161,7 +163,7 @@ class VpcEndpointDetailTypeDef(BaseValidatorModel):
 
 
 class VpcEndpointErrorDetailTypeDef(BaseValidatorModel):
-    id: Optional[str] = None
+    id: Optional[Annotated[str, _aws_pattern("Opensearchserverless", "VpcEndpointId")]] = None
     errorMessage: Optional[str] = None
     errorCode: Optional[str] = None
 
@@ -176,9 +178,9 @@ class VectorOptionsTypeDef(BaseValidatorModel):
 
 
 class CollectionFiltersTypeDef(BaseValidatorModel):
-    name: Optional[str] = None
+    name: Optional[Annotated[str, _aws_pattern("Opensearchserverless", "CollectionName")]] = None
     status: Optional[CollectionStatusType] = None
-    collectionGroupName: Optional[str] = None
+    collectionGroupName: Optional[Annotated[str, _aws_pattern("Opensearchserverless", "CollectionGroupName")]] = None
 
 
 class CollectionGroupCapacityLimitsTypeDef(BaseValidatorModel):
@@ -194,36 +196,36 @@ class TagTypeDef(BaseValidatorModel):
 
 
 class CollectionSummaryTypeDef(BaseValidatorModel):
-    id: Optional[str] = None
-    name: Optional[str] = None
+    id: Optional[Annotated[str, _aws_pattern("Opensearchserverless", "CollectionId")]] = None
+    name: Optional[Annotated[str, _aws_pattern("Opensearchserverless", "CollectionName")]] = None
     status: Optional[CollectionStatusType] = None
     arn: Optional[str] = None
     kmsKeyArn: Optional[str] = None
-    collectionGroupName: Optional[str] = None
+    collectionGroupName: Optional[Annotated[str, _aws_pattern("Opensearchserverless", "CollectionGroupName")]] = None
 
 
 # This class is the input for the 'create_access_policy' function.
 class CreateAccessPolicyRequestTypeDef(BaseValidatorModel):
     type: Literal["data"]
-    name: str
-    policy: str
+    name: Annotated[str, _aws_pattern("Opensearchserverless", "PolicyName")]
+    policy: Annotated[str, _aws_pattern("Opensearchserverless", "PolicyDocument")]
     description: Optional[str] = None
     clientToken: Optional[str] = None
 
 
 class EncryptionConfigTypeDef(BaseValidatorModel):
     aWSOwnedKey: Optional[bool] = None
-    kmsKeyArn: Optional[str] = None
+    kmsKeyArn: Optional[Annotated[str, _aws_pattern("Opensearchserverless", "EncryptionConfigKmsKeyArnString")]] = None
 
 
 class CreateIamIdentityCenterConfigOptionsTypeDef(BaseValidatorModel):
-    instanceArn: str
+    instanceArn: Annotated[str, _aws_pattern("Opensearchserverless", "IamIdentityCenterInstanceArn")]
     userAttribute: Optional[IamIdentityCenterUserAttributeType] = None
     groupAttribute: Optional[IamIdentityCenterGroupAttributeType] = None
 
 
 class CreateIndexRequestTypeDef(BaseValidatorModel):
-    id: str
+    id: Annotated[str, _aws_pattern("Opensearchserverless", "CollectionId")]
     indexName: str
     indexSchema: Optional[Dict[str, Any]] = None
 
@@ -231,38 +233,40 @@ class CreateIndexRequestTypeDef(BaseValidatorModel):
 # This class is the input for the 'create_lifecycle_policy' function.
 class CreateLifecyclePolicyRequestTypeDef(BaseValidatorModel):
     type: Literal["retention"]
-    name: str
-    policy: str
+    name: Annotated[str, _aws_pattern("Opensearchserverless", "PolicyName")]
+    policy: Annotated[str, _aws_pattern("Opensearchserverless", "PolicyDocument")]
     description: Optional[str] = None
     clientToken: Optional[str] = None
 
 
 class IamFederationConfigOptionsTypeDef(BaseValidatorModel):
-    groupAttribute: Optional[str] = None
-    userAttribute: Optional[str] = None
+    groupAttribute: Optional[Annotated[str, _aws_pattern("Opensearchserverless", "iamFederationGroupAttribute")]] = None
+    userAttribute: Optional[Annotated[str, _aws_pattern("Opensearchserverless", "iamFederationUserAttribute")]] = None
 
 
 class SamlConfigOptionsTypeDef(BaseValidatorModel):
-    metadata: str
-    userAttribute: Optional[str] = None
-    groupAttribute: Optional[str] = None
-    openSearchServerlessEntityId: Optional[str] = None
+    metadata: Annotated[str, _aws_pattern("Opensearchserverless", "samlMetadata")]
+    userAttribute: Optional[Annotated[str, _aws_pattern("Opensearchserverless", "samlUserAttribute")]] = None
+    groupAttribute: Optional[Annotated[str, _aws_pattern("Opensearchserverless", "samlGroupAttribute")]] = None
+    openSearchServerlessEntityId: Optional[
+        Annotated[str, _aws_pattern("Opensearchserverless", "openSearchServerlessEntityId")]
+    ] = None
     sessionTimeout: Optional[int] = None
 
 
 # This class is the input for the 'create_security_policy' function.
 class CreateSecurityPolicyRequestTypeDef(BaseValidatorModel):
     type: SecurityPolicyTypeType
-    name: str
-    policy: str
+    name: Annotated[str, _aws_pattern("Opensearchserverless", "PolicyName")]
+    policy: Annotated[str, _aws_pattern("Opensearchserverless", "PolicyDocument")]
     description: Optional[str] = None
     clientToken: Optional[str] = None
 
 
 class SecurityPolicyDetailTypeDef(BaseValidatorModel):
     type: Optional[SecurityPolicyTypeType] = None
-    name: Optional[str] = None
-    policyVersion: Optional[str] = None
+    name: Optional[Annotated[str, _aws_pattern("Opensearchserverless", "PolicyName")]] = None
+    policyVersion: Optional[Annotated[str, _aws_pattern("Opensearchserverless", "PolicyVersion")]] = None
     description: Optional[str] = None
     policy: Optional[Dict[str, Any]] = None
     createdDate: Optional[int] = None
@@ -270,51 +274,51 @@ class SecurityPolicyDetailTypeDef(BaseValidatorModel):
 
 
 class CreateVpcEndpointDetailTypeDef(BaseValidatorModel):
-    id: Optional[str] = None
-    name: Optional[str] = None
+    id: Optional[Annotated[str, _aws_pattern("Opensearchserverless", "VpcEndpointId")]] = None
+    name: Optional[Annotated[str, _aws_pattern("Opensearchserverless", "VpcEndpointName")]] = None
     status: Optional[VpcEndpointStatusType] = None
 
 
 # This class is the input for the 'create_vpc_endpoint' function.
 class CreateVpcEndpointRequestTypeDef(BaseValidatorModel):
-    name: str
-    vpcId: str
-    subnetIds: List[str]
-    securityGroupIds: Optional[List[str]] = None
+    name: Annotated[str, _aws_pattern("Opensearchserverless", "VpcEndpointName")]
+    vpcId: Annotated[str, _aws_pattern("Opensearchserverless", "VpcId")]
+    subnetIds: List[Annotated[str, _aws_pattern("Opensearchserverless", "SubnetId")]]
+    securityGroupIds: Optional[List[Annotated[str, _aws_pattern("Opensearchserverless", "SecurityGroupId")]]] = None
     clientToken: Optional[str] = None
 
 
 class DeleteAccessPolicyRequestTypeDef(BaseValidatorModel):
     type: Literal["data"]
-    name: str
+    name: Annotated[str, _aws_pattern("Opensearchserverless", "PolicyName")]
     clientToken: Optional[str] = None
 
 
 class DeleteCollectionDetailTypeDef(BaseValidatorModel):
-    id: Optional[str] = None
-    name: Optional[str] = None
+    id: Optional[Annotated[str, _aws_pattern("Opensearchserverless", "CollectionId")]] = None
+    name: Optional[Annotated[str, _aws_pattern("Opensearchserverless", "CollectionName")]] = None
     status: Optional[CollectionStatusType] = None
 
 
 class DeleteCollectionGroupRequestTypeDef(BaseValidatorModel):
-    id: str
+    id: Annotated[str, _aws_pattern("Opensearchserverless", "CollectionGroupId")]
     clientToken: Optional[str] = None
 
 
 # This class is the input for the 'delete_collection' function.
 class DeleteCollectionRequestTypeDef(BaseValidatorModel):
-    id: str
+    id: Annotated[str, _aws_pattern("Opensearchserverless", "CollectionId")]
     clientToken: Optional[str] = None
 
 
 class DeleteIndexRequestTypeDef(BaseValidatorModel):
-    id: str
+    id: Annotated[str, _aws_pattern("Opensearchserverless", "CollectionId")]
     indexName: str
 
 
 class DeleteLifecyclePolicyRequestTypeDef(BaseValidatorModel):
     type: Literal["retention"]
-    name: str
+    name: Annotated[str, _aws_pattern("Opensearchserverless", "PolicyName")]
     clientToken: Optional[str] = None
 
 
@@ -325,31 +329,31 @@ class DeleteSecurityConfigRequestTypeDef(BaseValidatorModel):
 
 class DeleteSecurityPolicyRequestTypeDef(BaseValidatorModel):
     type: SecurityPolicyTypeType
-    name: str
+    name: Annotated[str, _aws_pattern("Opensearchserverless", "PolicyName")]
     clientToken: Optional[str] = None
 
 
 class DeleteVpcEndpointDetailTypeDef(BaseValidatorModel):
-    id: Optional[str] = None
-    name: Optional[str] = None
+    id: Optional[Annotated[str, _aws_pattern("Opensearchserverless", "VpcEndpointId")]] = None
+    name: Optional[Annotated[str, _aws_pattern("Opensearchserverless", "VpcEndpointName")]] = None
     status: Optional[VpcEndpointStatusType] = None
 
 
 # This class is the input for the 'delete_vpc_endpoint' function.
 class DeleteVpcEndpointRequestTypeDef(BaseValidatorModel):
-    id: str
+    id: Annotated[str, _aws_pattern("Opensearchserverless", "VpcEndpointId")]
     clientToken: Optional[str] = None
 
 
 # This class is the input for the 'get_access_policy' function.
 class GetAccessPolicyRequestTypeDef(BaseValidatorModel):
     type: Literal["data"]
-    name: str
+    name: Annotated[str, _aws_pattern("Opensearchserverless", "PolicyName")]
 
 
 # This class is the input for the 'get_index' function.
 class GetIndexRequestTypeDef(BaseValidatorModel):
-    id: str
+    id: Annotated[str, _aws_pattern("Opensearchserverless", "CollectionId")]
     indexName: str
 
 
@@ -374,12 +378,14 @@ class GetSecurityConfigRequestTypeDef(BaseValidatorModel):
 # This class is the input for the 'get_security_policy' function.
 class GetSecurityPolicyRequestTypeDef(BaseValidatorModel):
     type: SecurityPolicyTypeType
-    name: str
+    name: Annotated[str, _aws_pattern("Opensearchserverless", "PolicyName")]
 
 
 class IamIdentityCenterConfigOptionsTypeDef(BaseValidatorModel):
-    instanceArn: Optional[str] = None
-    applicationArn: Optional[str] = None
+    instanceArn: Optional[Annotated[str, _aws_pattern("Opensearchserverless", "IamIdentityCenterInstanceArn")]] = None
+    applicationArn: Optional[
+        Annotated[str, _aws_pattern("Opensearchserverless", "IamIdentityCenterApplicationArn")]
+    ] = None
     applicationName: Optional[str] = None
     applicationDescription: Optional[str] = None
     userAttribute: Optional[IamIdentityCenterUserAttributeType] = None
@@ -388,8 +394,8 @@ class IamIdentityCenterConfigOptionsTypeDef(BaseValidatorModel):
 
 class LifecyclePolicySummaryTypeDef(BaseValidatorModel):
     type: Optional[Literal["retention"]] = None
-    name: Optional[str] = None
-    policyVersion: Optional[str] = None
+    name: Optional[Annotated[str, _aws_pattern("Opensearchserverless", "PolicyName")]] = None
+    policyVersion: Optional[Annotated[str, _aws_pattern("Opensearchserverless", "PolicyVersion")]] = None
     description: Optional[str] = None
     createdDate: Optional[int] = None
     lastModifiedDate: Optional[int] = None
@@ -427,7 +433,7 @@ class ListSecurityConfigsRequestTypeDef(BaseValidatorModel):
 class SecurityConfigSummaryTypeDef(BaseValidatorModel):
     id: Optional[str] = None
     type: Optional[SecurityConfigTypeType] = None
-    configVersion: Optional[str] = None
+    configVersion: Optional[Annotated[str, _aws_pattern("Opensearchserverless", "PolicyVersion")]] = None
     description: Optional[str] = None
     createdDate: Optional[int] = None
     lastModifiedDate: Optional[int] = None
@@ -443,8 +449,8 @@ class ListSecurityPoliciesRequestTypeDef(BaseValidatorModel):
 
 class SecurityPolicySummaryTypeDef(BaseValidatorModel):
     type: Optional[SecurityPolicyTypeType] = None
-    name: Optional[str] = None
-    policyVersion: Optional[str] = None
+    name: Optional[Annotated[str, _aws_pattern("Opensearchserverless", "PolicyName")]] = None
+    policyVersion: Optional[Annotated[str, _aws_pattern("Opensearchserverless", "PolicyVersion")]] = None
     description: Optional[str] = None
     createdDate: Optional[int] = None
     lastModifiedDate: Optional[int] = None
@@ -460,8 +466,8 @@ class VpcEndpointFiltersTypeDef(BaseValidatorModel):
 
 
 class VpcEndpointSummaryTypeDef(BaseValidatorModel):
-    id: Optional[str] = None
-    name: Optional[str] = None
+    id: Optional[Annotated[str, _aws_pattern("Opensearchserverless", "VpcEndpointId")]] = None
+    name: Optional[Annotated[str, _aws_pattern("Opensearchserverless", "VpcEndpointName")]] = None
     status: Optional[VpcEndpointStatusType] = None
 
 
@@ -473,10 +479,10 @@ class UntagResourceRequestTypeDef(BaseValidatorModel):
 # This class is the input for the 'update_access_policy' function.
 class UpdateAccessPolicyRequestTypeDef(BaseValidatorModel):
     type: Literal["data"]
-    name: str
-    policyVersion: str
+    name: Annotated[str, _aws_pattern("Opensearchserverless", "PolicyName")]
+    policyVersion: Annotated[str, _aws_pattern("Opensearchserverless", "PolicyVersion")]
     description: Optional[str] = None
-    policy: Optional[str] = None
+    policy: Optional[Annotated[str, _aws_pattern("Opensearchserverless", "PolicyDocument")]] = None
     clientToken: Optional[str] = None
 
 
@@ -486,7 +492,7 @@ class UpdateIamIdentityCenterConfigOptionsTypeDef(BaseValidatorModel):
 
 
 class UpdateIndexRequestTypeDef(BaseValidatorModel):
-    id: str
+    id: Annotated[str, _aws_pattern("Opensearchserverless", "CollectionId")]
     indexName: str
     indexSchema: Optional[Dict[str, Any]] = None
 
@@ -494,39 +500,41 @@ class UpdateIndexRequestTypeDef(BaseValidatorModel):
 # This class is the input for the 'update_lifecycle_policy' function.
 class UpdateLifecyclePolicyRequestTypeDef(BaseValidatorModel):
     type: Literal["retention"]
-    name: str
-    policyVersion: str
+    name: Annotated[str, _aws_pattern("Opensearchserverless", "PolicyName")]
+    policyVersion: Annotated[str, _aws_pattern("Opensearchserverless", "PolicyVersion")]
     description: Optional[str] = None
-    policy: Optional[str] = None
+    policy: Optional[Annotated[str, _aws_pattern("Opensearchserverless", "PolicyDocument")]] = None
     clientToken: Optional[str] = None
 
 
 # This class is the input for the 'update_security_policy' function.
 class UpdateSecurityPolicyRequestTypeDef(BaseValidatorModel):
     type: SecurityPolicyTypeType
-    name: str
-    policyVersion: str
+    name: Annotated[str, _aws_pattern("Opensearchserverless", "PolicyName")]
+    policyVersion: Annotated[str, _aws_pattern("Opensearchserverless", "PolicyVersion")]
     description: Optional[str] = None
-    policy: Optional[str] = None
+    policy: Optional[Annotated[str, _aws_pattern("Opensearchserverless", "PolicyDocument")]] = None
     clientToken: Optional[str] = None
 
 
 class UpdateVpcEndpointDetailTypeDef(BaseValidatorModel):
-    id: Optional[str] = None
-    name: Optional[str] = None
+    id: Optional[Annotated[str, _aws_pattern("Opensearchserverless", "VpcEndpointId")]] = None
+    name: Optional[Annotated[str, _aws_pattern("Opensearchserverless", "VpcEndpointName")]] = None
     status: Optional[VpcEndpointStatusType] = None
-    subnetIds: Optional[List[str]] = None
-    securityGroupIds: Optional[List[str]] = None
+    subnetIds: Optional[List[Annotated[str, _aws_pattern("Opensearchserverless", "SubnetId")]]] = None
+    securityGroupIds: Optional[List[Annotated[str, _aws_pattern("Opensearchserverless", "SecurityGroupId")]]] = None
     lastModifiedDate: Optional[int] = None
 
 
 # This class is the input for the 'update_vpc_endpoint' function.
 class UpdateVpcEndpointRequestTypeDef(BaseValidatorModel):
-    id: str
-    addSubnetIds: Optional[List[str]] = None
-    removeSubnetIds: Optional[List[str]] = None
-    addSecurityGroupIds: Optional[List[str]] = None
-    removeSecurityGroupIds: Optional[List[str]] = None
+    id: Annotated[str, _aws_pattern("Opensearchserverless", "VpcEndpointId")]
+    addSubnetIds: Optional[List[Annotated[str, _aws_pattern("Opensearchserverless", "SubnetId")]]] = None
+    removeSubnetIds: Optional[List[Annotated[str, _aws_pattern("Opensearchserverless", "SubnetId")]]] = None
+    addSecurityGroupIds: Optional[List[Annotated[str, _aws_pattern("Opensearchserverless", "SecurityGroupId")]]] = None
+    removeSecurityGroupIds: Optional[List[Annotated[str, _aws_pattern("Opensearchserverless", "SecurityGroupId")]]] = (
+        None
+    )
     clientToken: Optional[str] = None
 
 
@@ -614,8 +622,8 @@ class BatchGetVpcEndpointResponseTypeDef(BaseValidatorModel):
 
 
 class CollectionDetailTypeDef(BaseValidatorModel):
-    id: Optional[str] = None
-    name: Optional[str] = None
+    id: Optional[Annotated[str, _aws_pattern("Opensearchserverless", "CollectionId")]] = None
+    name: Optional[Annotated[str, _aws_pattern("Opensearchserverless", "CollectionName")]] = None
     status: Optional[CollectionStatusType] = None
     type: Optional[CollectionTypeType] = None
     description: Optional[str] = None
@@ -630,12 +638,12 @@ class CollectionDetailTypeDef(BaseValidatorModel):
     fipsEndpoints: Optional[FipsEndpointsTypeDef] = None
     failureCode: Optional[str] = None
     failureMessage: Optional[str] = None
-    collectionGroupName: Optional[str] = None
+    collectionGroupName: Optional[Annotated[str, _aws_pattern("Opensearchserverless", "CollectionGroupName")]] = None
 
 
 class CreateCollectionDetailTypeDef(BaseValidatorModel):
-    id: Optional[str] = None
-    name: Optional[str] = None
+    id: Optional[Annotated[str, _aws_pattern("Opensearchserverless", "CollectionId")]] = None
+    name: Optional[Annotated[str, _aws_pattern("Opensearchserverless", "CollectionName")]] = None
     status: Optional[CollectionStatusType] = None
     type: Optional[CollectionTypeType] = None
     description: Optional[str] = None
@@ -645,12 +653,12 @@ class CreateCollectionDetailTypeDef(BaseValidatorModel):
     vectorOptions: Optional[VectorOptionsTypeDef] = None
     createdDate: Optional[int] = None
     lastModifiedDate: Optional[int] = None
-    collectionGroupName: Optional[str] = None
+    collectionGroupName: Optional[Annotated[str, _aws_pattern("Opensearchserverless", "CollectionGroupName")]] = None
 
 
 class UpdateCollectionDetailTypeDef(BaseValidatorModel):
-    id: Optional[str] = None
-    name: Optional[str] = None
+    id: Optional[Annotated[str, _aws_pattern("Opensearchserverless", "CollectionId")]] = None
+    name: Optional[Annotated[str, _aws_pattern("Opensearchserverless", "CollectionName")]] = None
     status: Optional[CollectionStatusType] = None
     type: Optional[CollectionTypeType] = None
     description: Optional[str] = None
@@ -662,7 +670,7 @@ class UpdateCollectionDetailTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'update_collection' function.
 class UpdateCollectionRequestTypeDef(BaseValidatorModel):
-    id: str
+    id: Annotated[str, _aws_pattern("Opensearchserverless", "CollectionId")]
     description: Optional[str] = None
     vectorOptions: Optional[VectorOptionsTypeDef] = None
     clientToken: Optional[str] = None
@@ -676,18 +684,18 @@ class ListCollectionsRequestTypeDef(BaseValidatorModel):
 
 
 class CollectionGroupSummaryTypeDef(BaseValidatorModel):
-    id: Optional[str] = None
+    id: Optional[Annotated[str, _aws_pattern("Opensearchserverless", "CollectionGroupId")]] = None
     arn: Optional[str] = None
-    name: Optional[str] = None
+    name: Optional[Annotated[str, _aws_pattern("Opensearchserverless", "CollectionGroupName")]] = None
     numberOfCollections: Optional[int] = None
     createdDate: Optional[int] = None
     capacityLimits: Optional[CollectionGroupCapacityLimitsTypeDef] = None
 
 
 class UpdateCollectionGroupDetailTypeDef(BaseValidatorModel):
-    id: Optional[str] = None
+    id: Optional[Annotated[str, _aws_pattern("Opensearchserverless", "CollectionGroupId")]] = None
     arn: Optional[str] = None
-    name: Optional[str] = None
+    name: Optional[Annotated[str, _aws_pattern("Opensearchserverless", "CollectionGroupName")]] = None
     description: Optional[str] = None
     capacityLimits: Optional[CollectionGroupCapacityLimitsTypeDef] = None
     createdDate: Optional[int] = None
@@ -696,16 +704,16 @@ class UpdateCollectionGroupDetailTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'update_collection_group' function.
 class UpdateCollectionGroupRequestTypeDef(BaseValidatorModel):
-    id: str
+    id: Annotated[str, _aws_pattern("Opensearchserverless", "CollectionGroupId")]
     description: Optional[str] = None
     capacityLimits: Optional[CollectionGroupCapacityLimitsTypeDef] = None
     clientToken: Optional[str] = None
 
 
 class CollectionGroupDetailTypeDef(BaseValidatorModel):
-    id: Optional[str] = None
+    id: Optional[Annotated[str, _aws_pattern("Opensearchserverless", "CollectionGroupId")]] = None
     arn: Optional[str] = None
-    name: Optional[str] = None
+    name: Optional[Annotated[str, _aws_pattern("Opensearchserverless", "CollectionGroupName")]] = None
     standbyReplicas: Optional[StandbyReplicasType] = None
     description: Optional[str] = None
     tags: Optional[List[TagTypeDef]] = None
@@ -715,9 +723,9 @@ class CollectionGroupDetailTypeDef(BaseValidatorModel):
 
 
 class CreateCollectionGroupDetailTypeDef(BaseValidatorModel):
-    id: Optional[str] = None
+    id: Optional[Annotated[str, _aws_pattern("Opensearchserverless", "CollectionGroupId")]] = None
     arn: Optional[str] = None
-    name: Optional[str] = None
+    name: Optional[Annotated[str, _aws_pattern("Opensearchserverless", "CollectionGroupName")]] = None
     standbyReplicas: Optional[StandbyReplicasType] = None
     description: Optional[str] = None
     tags: Optional[List[TagTypeDef]] = None
@@ -727,7 +735,7 @@ class CreateCollectionGroupDetailTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'create_collection_group' function.
 class CreateCollectionGroupRequestTypeDef(BaseValidatorModel):
-    name: str
+    name: Annotated[str, _aws_pattern("Opensearchserverless", "CollectionGroupName")]
     standbyReplicas: StandbyReplicasType
     description: Optional[str] = None
     tags: Optional[List[TagTypeDef]] = None
@@ -755,13 +763,13 @@ class ListCollectionsResponseTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'create_collection' function.
 class CreateCollectionRequestTypeDef(BaseValidatorModel):
-    name: str
+    name: Annotated[str, _aws_pattern("Opensearchserverless", "CollectionName")]
     type: Optional[CollectionTypeType] = None
     description: Optional[str] = None
     tags: Optional[List[TagTypeDef]] = None
     standbyReplicas: Optional[StandbyReplicasType] = None
     vectorOptions: Optional[VectorOptionsTypeDef] = None
-    collectionGroupName: Optional[str] = None
+    collectionGroupName: Optional[Annotated[str, _aws_pattern("Opensearchserverless", "CollectionGroupName")]] = None
     encryptionConfig: Optional[EncryptionConfigTypeDef] = None
     clientToken: Optional[str] = None
 
@@ -769,7 +777,7 @@ class CreateCollectionRequestTypeDef(BaseValidatorModel):
 # This class is the input for the 'create_security_config' function.
 class CreateSecurityConfigRequestTypeDef(BaseValidatorModel):
     type: SecurityConfigTypeType
-    name: str
+    name: Annotated[str, _aws_pattern("Opensearchserverless", "ConfigName")]
     description: Optional[str] = None
     samlOptions: Optional[SamlConfigOptionsTypeDef] = None
     iamIdentityCenterOptions: Optional[CreateIamIdentityCenterConfigOptionsTypeDef] = None
@@ -825,7 +833,7 @@ class GetPoliciesStatsResponseTypeDef(BaseValidatorModel):
 class SecurityConfigDetailTypeDef(BaseValidatorModel):
     id: Optional[str] = None
     type: Optional[SecurityConfigTypeType] = None
-    configVersion: Optional[str] = None
+    configVersion: Optional[Annotated[str, _aws_pattern("Opensearchserverless", "PolicyVersion")]] = None
     description: Optional[str] = None
     samlOptions: Optional[SamlConfigOptionsTypeDef] = None
     iamIdentityCenterOptions: Optional[IamIdentityCenterConfigOptionsTypeDef] = None
@@ -872,7 +880,7 @@ class ListVpcEndpointsResponseTypeDef(BaseValidatorModel):
 # This class is the input for the 'update_security_config' function.
 class UpdateSecurityConfigRequestTypeDef(BaseValidatorModel):
     id: str
-    configVersion: str
+    configVersion: Annotated[str, _aws_pattern("Opensearchserverless", "PolicyVersion")]
     description: Optional[str] = None
     samlOptions: Optional[SamlConfigOptionsTypeDef] = None
     iamIdentityCenterOptionsUpdates: Optional[UpdateIamIdentityCenterConfigOptionsTypeDef] = None

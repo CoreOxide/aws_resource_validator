@@ -3,6 +3,7 @@
 from datetime import datetime
 from decimal import Decimal
 from typing import (
+    Annotated,
     Any,
     Callable,
     Dict,
@@ -24,6 +25,7 @@ from botocore.response import StreamingBody
 from pydantic import Field
 
 from aws_resource_validator.core.base_validator_model import BaseValidatorModel, EventStream
+from aws_resource_validator.core.pattern_validation import aws_field_pattern as _aws_pattern
 from aws_resource_validator.pydantic_models.migrationhuborchestrator.migrationhuborchestrator_constants import *  # noqa: F401,F403
 
 # Optional boto3 symbols — imported lazily so services that don't need them
@@ -54,14 +56,14 @@ class StepInputOutputTypeDef(BaseValidatorModel):
 
 
 class TemplateSourceTypeDef(BaseValidatorModel):
-    workflowId: Optional[str] = None
+    workflowId: Optional[Annotated[str, _aws_pattern("Migrationhuborchestrator", "MigrationWorkflowId")]] = None
 
 
 # This class is the input for the 'create_workflow_step_group' function.
 class CreateWorkflowStepGroupRequestTypeDef(BaseValidatorModel):
-    workflowId: str
-    name: str
-    description: Optional[str] = None
+    workflowId: Annotated[str, _aws_pattern("Migrationhuborchestrator", "MigrationWorkflowId")]
+    name: Annotated[str, _aws_pattern("Migrationhuborchestrator", "StepGroupName")]
+    description: Optional[Annotated[str, _aws_pattern("Migrationhuborchestrator", "StepGroupDescription")]] = None
     next: Optional[List[str]] = None
     previous: Optional[List[str]] = None
 
@@ -73,51 +75,51 @@ class ToolTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'delete_workflow' function.
 class DeleteMigrationWorkflowRequestTypeDef(BaseValidatorModel):
-    id: str
+    id: Annotated[str, _aws_pattern("Migrationhuborchestrator", "MigrationWorkflowId")]
 
 
 class DeleteTemplateRequestTypeDef(BaseValidatorModel):
-    id: str
+    id: Annotated[str, _aws_pattern("Migrationhuborchestrator", "TemplateId")]
 
 
 class DeleteWorkflowStepGroupRequestTypeDef(BaseValidatorModel):
-    workflowId: str
-    id: str
+    workflowId: Annotated[str, _aws_pattern("Migrationhuborchestrator", "MigrationWorkflowId")]
+    id: Annotated[str, _aws_pattern("Migrationhuborchestrator", "StepGroupId")]
 
 
 class DeleteWorkflowStepRequestTypeDef(BaseValidatorModel):
-    id: str
-    stepGroupId: str
-    workflowId: str
+    id: Annotated[str, _aws_pattern("Migrationhuborchestrator", "StepId")]
+    stepGroupId: Annotated[str, _aws_pattern("Migrationhuborchestrator", "StepGroupId")]
+    workflowId: Annotated[str, _aws_pattern("Migrationhuborchestrator", "MigrationWorkflowId")]
 
 
 # This class is the input for the 'get_workflow' function.
 class GetMigrationWorkflowRequestTypeDef(BaseValidatorModel):
-    id: str
+    id: Annotated[str, _aws_pattern("Migrationhuborchestrator", "MigrationWorkflowId")]
 
 
 # This class is the input for the 'get_template' function.
 class GetMigrationWorkflowTemplateRequestTypeDef(BaseValidatorModel):
-    id: str
+    id: Annotated[str, _aws_pattern("Migrationhuborchestrator", "TemplateId")]
 
 
 class TemplateInputTypeDef(BaseValidatorModel):
-    inputName: Optional[str] = None
+    inputName: Optional[Annotated[str, _aws_pattern("Migrationhuborchestrator", "TemplateInputName")]] = None
     dataType: Optional[DataTypeType] = None
     required: Optional[bool] = None
 
 
 # This class is the input for the 'get_template_step_group' function.
 class GetTemplateStepGroupRequestTypeDef(BaseValidatorModel):
-    templateId: str
-    id: str
+    templateId: Annotated[str, _aws_pattern("Migrationhuborchestrator", "TemplateId")]
+    id: Annotated[str, _aws_pattern("Migrationhuborchestrator", "StepGroupId")]
 
 
 # This class is the input for the 'get_template_step' function.
 class GetTemplateStepRequestTypeDef(BaseValidatorModel):
-    id: str
-    templateId: str
-    stepGroupId: str
+    id: Annotated[str, _aws_pattern("Migrationhuborchestrator", "StepId")]
+    templateId: Annotated[str, _aws_pattern("Migrationhuborchestrator", "TemplateId")]
+    stepGroupId: Annotated[str, _aws_pattern("Migrationhuborchestrator", "StepGroupId")]
 
 
 class StepOutputTypeDef(BaseValidatorModel):
@@ -128,15 +130,15 @@ class StepOutputTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'get_workflow_step_group' function.
 class GetWorkflowStepGroupRequestTypeDef(BaseValidatorModel):
-    id: str
-    workflowId: str
+    id: Annotated[str, _aws_pattern("Migrationhuborchestrator", "StepGroupId")]
+    workflowId: Annotated[str, _aws_pattern("Migrationhuborchestrator", "MigrationWorkflowId")]
 
 
 # This class is the input for the 'get_workflow_step' function.
 class GetWorkflowStepRequestTypeDef(BaseValidatorModel):
-    workflowId: str
-    stepGroupId: str
-    id: str
+    workflowId: Annotated[str, _aws_pattern("Migrationhuborchestrator", "MigrationWorkflowId")]
+    stepGroupId: Annotated[str, _aws_pattern("Migrationhuborchestrator", "StepGroupId")]
+    id: Annotated[str, _aws_pattern("Migrationhuborchestrator", "StepId")]
 
 
 class PaginatorConfigTypeDef(BaseValidatorModel):
@@ -148,8 +150,8 @@ class PaginatorConfigTypeDef(BaseValidatorModel):
 # This class is the input for the 'list_templates' function.
 class ListMigrationWorkflowTemplatesRequestTypeDef(BaseValidatorModel):
     maxResults: Optional[int] = None
-    nextToken: Optional[str] = None
-    name: Optional[str] = None
+    nextToken: Optional[Annotated[str, _aws_pattern("Migrationhuborchestrator", "NextToken")]] = None
+    name: Optional[Annotated[str, _aws_pattern("Migrationhuborchestrator", "TemplateName")]] = None
 
 
 class TemplateSummaryTypeDef(BaseValidatorModel):
@@ -162,15 +164,17 @@ class TemplateSummaryTypeDef(BaseValidatorModel):
 # This class is the input for the 'list_workflows' function.
 class ListMigrationWorkflowsRequestTypeDef(BaseValidatorModel):
     maxResults: Optional[int] = None
-    nextToken: Optional[str] = None
-    templateId: Optional[str] = None
-    adsApplicationConfigurationName: Optional[str] = None
+    nextToken: Optional[Annotated[str, _aws_pattern("Migrationhuborchestrator", "NextToken")]] = None
+    templateId: Optional[Annotated[str, _aws_pattern("Migrationhuborchestrator", "TemplateId")]] = None
+    adsApplicationConfigurationName: Optional[
+        Annotated[str, _aws_pattern("Migrationhuborchestrator", "ApplicationConfigurationName")]
+    ] = None
     status: Optional[MigrationWorkflowStatusEnumType] = None
     name: Optional[str] = None
 
 
 class MigrationWorkflowSummaryTypeDef(BaseValidatorModel):
-    id: Optional[str] = None
+    id: Optional[Annotated[str, _aws_pattern("Migrationhuborchestrator", "MigrationWorkflowId")]] = None
     name: Optional[str] = None
     templateId: Optional[str] = None
     adsApplicationConfigurationName: Optional[str] = None
@@ -185,28 +189,28 @@ class MigrationWorkflowSummaryTypeDef(BaseValidatorModel):
 # This class is the input for the 'list_plugins' function.
 class ListPluginsRequestTypeDef(BaseValidatorModel):
     maxResults: Optional[int] = None
-    nextToken: Optional[str] = None
+    nextToken: Optional[Annotated[str, _aws_pattern("Migrationhuborchestrator", "NextToken")]] = None
 
 
 class PluginSummaryTypeDef(BaseValidatorModel):
-    pluginId: Optional[str] = None
+    pluginId: Optional[Annotated[str, _aws_pattern("Migrationhuborchestrator", "PluginId")]] = None
     hostname: Optional[str] = None
     status: Optional[PluginHealthType] = None
-    ipAddress: Optional[str] = None
-    version: Optional[str] = None
+    ipAddress: Optional[Annotated[str, _aws_pattern("Migrationhuborchestrator", "IPAddress")]] = None
+    version: Optional[Annotated[str, _aws_pattern("Migrationhuborchestrator", "PluginVersion")]] = None
     registeredTime: Optional[str] = None
 
 
 # This class is the input for the 'list_tags_for_resource' function.
 class ListTagsForResourceRequestTypeDef(BaseValidatorModel):
-    resourceArn: str
+    resourceArn: Annotated[str, _aws_pattern("Migrationhuborchestrator", "ResourceArn")]
 
 
 # This class is the input for the 'list_template_step_groups' function.
 class ListTemplateStepGroupsRequestTypeDef(BaseValidatorModel):
-    templateId: str
+    templateId: Annotated[str, _aws_pattern("Migrationhuborchestrator", "TemplateId")]
     maxResults: Optional[int] = None
-    nextToken: Optional[str] = None
+    nextToken: Optional[Annotated[str, _aws_pattern("Migrationhuborchestrator", "NextToken")]] = None
 
 
 class TemplateStepGroupSummaryTypeDef(BaseValidatorModel):
@@ -218,10 +222,10 @@ class TemplateStepGroupSummaryTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'list_template_steps' function.
 class ListTemplateStepsRequestTypeDef(BaseValidatorModel):
-    templateId: str
-    stepGroupId: str
+    templateId: Annotated[str, _aws_pattern("Migrationhuborchestrator", "TemplateId")]
+    stepGroupId: Annotated[str, _aws_pattern("Migrationhuborchestrator", "StepGroupId")]
     maxResults: Optional[int] = None
-    nextToken: Optional[str] = None
+    nextToken: Optional[Annotated[str, _aws_pattern("Migrationhuborchestrator", "NextToken")]] = None
 
 
 class TemplateStepSummaryTypeDef(BaseValidatorModel):
@@ -238,8 +242,8 @@ class TemplateStepSummaryTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'list_workflow_step_groups' function.
 class ListWorkflowStepGroupsRequestTypeDef(BaseValidatorModel):
-    workflowId: str
-    nextToken: Optional[str] = None
+    workflowId: Annotated[str, _aws_pattern("Migrationhuborchestrator", "MigrationWorkflowId")]
+    nextToken: Optional[Annotated[str, _aws_pattern("Migrationhuborchestrator", "NextToken")]] = None
     maxResults: Optional[int] = None
 
 
@@ -254,9 +258,9 @@ class WorkflowStepGroupSummaryTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'list_workflow_steps' function.
 class ListWorkflowStepsRequestTypeDef(BaseValidatorModel):
-    workflowId: str
-    stepGroupId: str
-    nextToken: Optional[str] = None
+    workflowId: Annotated[str, _aws_pattern("Migrationhuborchestrator", "MigrationWorkflowId")]
+    stepGroupId: Annotated[str, _aws_pattern("Migrationhuborchestrator", "StepGroupId")]
+    nextToken: Optional[Annotated[str, _aws_pattern("Migrationhuborchestrator", "NextToken")]] = None
     maxResults: Optional[int] = None
 
 
@@ -288,14 +292,14 @@ class PlatformScriptKeyTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'retry_workflow_step' function.
 class RetryWorkflowStepRequestTypeDef(BaseValidatorModel):
-    workflowId: str
-    stepGroupId: str
-    id: str
+    workflowId: Annotated[str, _aws_pattern("Migrationhuborchestrator", "MigrationWorkflowId")]
+    stepGroupId: Annotated[str, _aws_pattern("Migrationhuborchestrator", "StepGroupId")]
+    id: Annotated[str, _aws_pattern("Migrationhuborchestrator", "StepId")]
 
 
 # This class is the input for the 'start_workflow' function.
 class StartMigrationWorkflowRequestTypeDef(BaseValidatorModel):
-    id: str
+    id: Annotated[str, _aws_pattern("Migrationhuborchestrator", "MigrationWorkflowId")]
 
 
 class StepInputTypeDef(BaseValidatorModel):
@@ -307,33 +311,37 @@ class StepInputTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'stop_workflow' function.
 class StopMigrationWorkflowRequestTypeDef(BaseValidatorModel):
-    id: str
+    id: Annotated[str, _aws_pattern("Migrationhuborchestrator", "MigrationWorkflowId")]
 
 
 class TagResourceRequestTypeDef(BaseValidatorModel):
-    resourceArn: str
+    resourceArn: Annotated[str, _aws_pattern("Migrationhuborchestrator", "ResourceArn")]
     tags: Dict[str, str]
 
 
 class UntagResourceRequestTypeDef(BaseValidatorModel):
-    resourceArn: str
-    tagKeys: List[str]
+    resourceArn: Annotated[str, _aws_pattern("Migrationhuborchestrator", "ResourceArn")]
+    tagKeys: List[Annotated[str, _aws_pattern("Migrationhuborchestrator", "TagKey")]]
 
 
 # This class is the input for the 'update_template' function.
 class UpdateTemplateRequestTypeDef(BaseValidatorModel):
-    id: str
-    templateName: Optional[str] = None
-    templateDescription: Optional[str] = None
-    clientToken: Optional[str] = None
+    id: Annotated[str, _aws_pattern("Migrationhuborchestrator", "TemplateId")]
+    templateName: Optional[
+        Annotated[str, _aws_pattern("Migrationhuborchestrator", "UpdateTemplateRequestTemplateNameString")]
+    ] = None
+    templateDescription: Optional[
+        Annotated[str, _aws_pattern("Migrationhuborchestrator", "UpdateTemplateRequestTemplateDescriptionString")]
+    ] = None
+    clientToken: Optional[Annotated[str, _aws_pattern("Migrationhuborchestrator", "ClientToken")]] = None
 
 
 # This class is the input for the 'update_workflow_step_group' function.
 class UpdateWorkflowStepGroupRequestTypeDef(BaseValidatorModel):
-    workflowId: str
-    id: str
-    name: Optional[str] = None
-    description: Optional[str] = None
+    workflowId: Annotated[str, _aws_pattern("Migrationhuborchestrator", "MigrationWorkflowId")]
+    id: Annotated[str, _aws_pattern("Migrationhuborchestrator", "StepGroupId")]
+    name: Optional[Annotated[str, _aws_pattern("Migrationhuborchestrator", "StepGroupName")]] = None
+    description: Optional[Annotated[str, _aws_pattern("Migrationhuborchestrator", "StepGroupDescription")]] = None
     next: Optional[List[str]] = None
     previous: Optional[List[str]] = None
 
@@ -369,7 +377,7 @@ class CreateWorkflowStepResponseTypeDef(BaseValidatorModel):
 
 # This class is the output for the 'delete_workflow' function.
 class DeleteMigrationWorkflowResponseTypeDef(BaseValidatorModel):
-    id: str
+    id: Annotated[str, _aws_pattern("Migrationhuborchestrator", "MigrationWorkflowId")]
     arn: str
     status: MigrationWorkflowStatusEnumType
     ResponseMetadata: ResponseMetadataTypeDef
@@ -392,7 +400,7 @@ class RetryWorkflowStepResponseTypeDef(BaseValidatorModel):
 
 # This class is the output for the 'start_workflow' function.
 class StartMigrationWorkflowResponseTypeDef(BaseValidatorModel):
-    id: str
+    id: Annotated[str, _aws_pattern("Migrationhuborchestrator", "MigrationWorkflowId")]
     arn: str
     status: MigrationWorkflowStatusEnumType
     statusMessage: str
@@ -402,7 +410,7 @@ class StartMigrationWorkflowResponseTypeDef(BaseValidatorModel):
 
 # This class is the output for the 'stop_workflow' function.
 class StopMigrationWorkflowResponseTypeDef(BaseValidatorModel):
-    id: str
+    id: Annotated[str, _aws_pattern("Migrationhuborchestrator", "MigrationWorkflowId")]
     arn: str
     status: MigrationWorkflowStatusEnumType
     statusMessage: str
@@ -420,7 +428,7 @@ class UpdateTemplateResponseTypeDef(BaseValidatorModel):
 
 # This class is the output for the 'update_workflow_step' function.
 class UpdateWorkflowStepResponseTypeDef(BaseValidatorModel):
-    id: str
+    id: Annotated[str, _aws_pattern("Migrationhuborchestrator", "StepId")]
     stepGroupId: str
     workflowId: str
     name: str
@@ -429,7 +437,7 @@ class UpdateWorkflowStepResponseTypeDef(BaseValidatorModel):
 
 # This class is the output for the 'create_workflow' function.
 class CreateMigrationWorkflowResponseTypeDef(BaseValidatorModel):
-    id: str
+    id: Annotated[str, _aws_pattern("Migrationhuborchestrator", "MigrationWorkflowId")]
     arn: str
     name: str
     description: str
@@ -445,7 +453,7 @@ class CreateMigrationWorkflowResponseTypeDef(BaseValidatorModel):
 
 # This class is the output for the 'update_workflow' function.
 class UpdateMigrationWorkflowResponseTypeDef(BaseValidatorModel):
-    id: str
+    id: Annotated[str, _aws_pattern("Migrationhuborchestrator", "MigrationWorkflowId")]
     arn: str
     name: str
     description: str
@@ -462,10 +470,12 @@ class UpdateMigrationWorkflowResponseTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'create_template' function.
 class CreateTemplateRequestTypeDef(BaseValidatorModel):
-    templateName: str
+    templateName: Annotated[str, _aws_pattern("Migrationhuborchestrator", "CreateTemplateRequestTemplateNameString")]
     templateSource: TemplateSourceTypeDef
-    templateDescription: Optional[str] = None
-    clientToken: Optional[str] = None
+    templateDescription: Optional[
+        Annotated[str, _aws_pattern("Migrationhuborchestrator", "CreateTemplateRequestTemplateDescriptionString")]
+    ] = None
+    clientToken: Optional[Annotated[str, _aws_pattern("Migrationhuborchestrator", "ClientToken")]] = None
     tags: Optional[Dict[str, str]] = None
 
 
@@ -484,7 +494,7 @@ class CreateWorkflowStepGroupResponseTypeDef(BaseValidatorModel):
 
 # This class is the output for the 'get_workflow' function.
 class GetMigrationWorkflowResponseTypeDef(BaseValidatorModel):
-    id: str
+    id: Annotated[str, _aws_pattern("Migrationhuborchestrator", "MigrationWorkflowId")]
     arn: str
     name: str
     description: str
@@ -524,7 +534,7 @@ class GetTemplateStepGroupResponseTypeDef(BaseValidatorModel):
 
 # This class is the output for the 'get_workflow_step_group' function.
 class GetWorkflowStepGroupResponseTypeDef(BaseValidatorModel):
-    id: str
+    id: Annotated[str, _aws_pattern("Migrationhuborchestrator", "StepGroupId")]
     workflowId: str
     name: str
     description: str
@@ -612,49 +622,49 @@ class ListWorkflowStepsRequestPaginateTypeDef(BaseValidatorModel):
 class ListMigrationWorkflowTemplatesResponseTypeDef(BaseValidatorModel):
     templateSummary: List[TemplateSummaryTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
-    nextToken: Optional[str] = None
+    nextToken: Optional[Annotated[str, _aws_pattern("Migrationhuborchestrator", "NextToken")]] = None
 
 
 # This class is the output for the 'list_workflows' function.
 class ListMigrationWorkflowsResponseTypeDef(BaseValidatorModel):
     migrationWorkflowSummary: List[MigrationWorkflowSummaryTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
-    nextToken: Optional[str] = None
+    nextToken: Optional[Annotated[str, _aws_pattern("Migrationhuborchestrator", "NextToken")]] = None
 
 
 # This class is the output for the 'list_plugins' function.
 class ListPluginsResponseTypeDef(BaseValidatorModel):
     plugins: List[PluginSummaryTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
-    nextToken: Optional[str] = None
+    nextToken: Optional[Annotated[str, _aws_pattern("Migrationhuborchestrator", "NextToken")]] = None
 
 
 # This class is the output for the 'list_template_step_groups' function.
 class ListTemplateStepGroupsResponseTypeDef(BaseValidatorModel):
     templateStepGroupSummary: List[TemplateStepGroupSummaryTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
-    nextToken: Optional[str] = None
+    nextToken: Optional[Annotated[str, _aws_pattern("Migrationhuborchestrator", "NextToken")]] = None
 
 
 # This class is the output for the 'list_template_steps' function.
 class ListTemplateStepsResponseTypeDef(BaseValidatorModel):
     templateStepSummaryList: List[TemplateStepSummaryTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
-    nextToken: Optional[str] = None
+    nextToken: Optional[Annotated[str, _aws_pattern("Migrationhuborchestrator", "NextToken")]] = None
 
 
 # This class is the output for the 'list_workflow_step_groups' function.
 class ListWorkflowStepGroupsResponseTypeDef(BaseValidatorModel):
     workflowStepGroupsSummary: List[WorkflowStepGroupSummaryTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
-    nextToken: Optional[str] = None
+    nextToken: Optional[Annotated[str, _aws_pattern("Migrationhuborchestrator", "NextToken")]] = None
 
 
 # This class is the output for the 'list_workflow_steps' function.
 class ListWorkflowStepsResponseTypeDef(BaseValidatorModel):
     workflowStepsSummary: List[WorkflowStepSummaryTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
-    nextToken: Optional[str] = None
+    nextToken: Optional[Annotated[str, _aws_pattern("Migrationhuborchestrator", "NextToken")]] = None
 
 
 class StepAutomationConfigurationTypeDef(BaseValidatorModel):
@@ -666,7 +676,7 @@ class StepAutomationConfigurationTypeDef(BaseValidatorModel):
 
 
 class WorkflowStepAutomationConfigurationTypeDef(BaseValidatorModel):
-    scriptLocationS3Bucket: Optional[str] = None
+    scriptLocationS3Bucket: Optional[Annotated[str, _aws_pattern("Migrationhuborchestrator", "S3Bucket")]] = None
     scriptLocationS3Key: Optional[PlatformScriptKeyTypeDef] = None
     command: Optional[PlatformCommandTypeDef] = None
     runEnvironment: Optional[RunEnvironmentType] = None
@@ -688,9 +698,9 @@ WorkflowStepOutputUnionUnionTypeDef = Union[WorkflowStepOutputUnionOutputTypeDef
 
 # This class is the output for the 'get_template_step' function.
 class GetTemplateStepResponseTypeDef(BaseValidatorModel):
-    id: str
-    stepGroupId: str
-    templateId: str
+    id: Annotated[str, _aws_pattern("Migrationhuborchestrator", "StepId")]
+    stepGroupId: Annotated[str, _aws_pattern("Migrationhuborchestrator", "StepGroupId")]
+    templateId: Annotated[str, _aws_pattern("Migrationhuborchestrator", "TemplateId")]
     name: str
     description: str
     stepActionType: StepActionTypeType
@@ -704,20 +714,33 @@ class GetTemplateStepResponseTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'create_workflow' function.
 class CreateMigrationWorkflowRequestTypeDef(BaseValidatorModel):
-    name: str
-    templateId: str
+    name: Annotated[str, _aws_pattern("Migrationhuborchestrator", "CreateMigrationWorkflowRequestNameString")]
+    templateId: Annotated[
+        str, _aws_pattern("Migrationhuborchestrator", "CreateMigrationWorkflowRequestTemplateIdString")
+    ]
     inputParameters: Dict[str, StepInputUnionTypeDef]
-    description: Optional[str] = None
-    applicationConfigurationId: Optional[str] = None
+    description: Optional[
+        Annotated[str, _aws_pattern("Migrationhuborchestrator", "CreateMigrationWorkflowRequestDescriptionString")]
+    ] = None
+    applicationConfigurationId: Optional[
+        Annotated[
+            str,
+            _aws_pattern("Migrationhuborchestrator", "CreateMigrationWorkflowRequestApplicationConfigurationIdString"),
+        ]
+    ] = None
     stepTargets: Optional[List[str]] = None
     tags: Optional[Dict[str, str]] = None
 
 
 # This class is the input for the 'update_workflow' function.
 class UpdateMigrationWorkflowRequestTypeDef(BaseValidatorModel):
-    id: str
-    name: Optional[str] = None
-    description: Optional[str] = None
+    id: Annotated[str, _aws_pattern("Migrationhuborchestrator", "MigrationWorkflowId")]
+    name: Optional[
+        Annotated[str, _aws_pattern("Migrationhuborchestrator", "UpdateMigrationWorkflowRequestNameString")]
+    ] = None
+    description: Optional[
+        Annotated[str, _aws_pattern("Migrationhuborchestrator", "UpdateMigrationWorkflowRequestDescriptionString")]
+    ] = None
     inputParameters: Optional[Dict[str, StepInputUnionTypeDef]] = None
     stepTargets: Optional[List[str]] = None
 
@@ -749,7 +772,7 @@ class GetWorkflowStepResponseTypeDef(BaseValidatorModel):
 
 
 class WorkflowStepOutputTypeDef(BaseValidatorModel):
-    name: Optional[str] = None
+    name: Optional[Annotated[str, _aws_pattern("Migrationhuborchestrator", "WorkflowStepOutputName")]] = None
     dataType: Optional[DataTypeType] = None
     required: Optional[bool] = None
     value: Optional[WorkflowStepOutputUnionUnionTypeDef] = None
@@ -760,11 +783,13 @@ WorkflowStepUnionTypeDef = Union[WorkflowStepExtraTypeDef, WorkflowStepOutputTyp
 
 # This class is the input for the 'create_workflow_step' function.
 class CreateWorkflowStepRequestTypeDef(BaseValidatorModel):
-    name: str
-    stepGroupId: str
-    workflowId: str
+    name: Annotated[str, _aws_pattern("Migrationhuborchestrator", "MigrationWorkflowName")]
+    stepGroupId: Annotated[str, _aws_pattern("Migrationhuborchestrator", "StepGroupId")]
+    workflowId: Annotated[str, _aws_pattern("Migrationhuborchestrator", "MigrationWorkflowId")]
     stepActionType: StepActionTypeType
-    description: Optional[str] = None
+    description: Optional[Annotated[str, _aws_pattern("Migrationhuborchestrator", "MigrationWorkflowDescription")]] = (
+        None
+    )
     workflowStepAutomationConfiguration: Optional[WorkflowStepAutomationConfigurationTypeDef] = None
     stepTarget: Optional[List[str]] = None
     outputs: Optional[List[WorkflowStepUnionTypeDef]] = None
@@ -774,11 +799,11 @@ class CreateWorkflowStepRequestTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'update_workflow_step' function.
 class UpdateWorkflowStepRequestTypeDef(BaseValidatorModel):
-    id: str
-    stepGroupId: str
-    workflowId: str
-    name: Optional[str] = None
-    description: Optional[str] = None
+    id: Annotated[str, _aws_pattern("Migrationhuborchestrator", "StepId")]
+    stepGroupId: Annotated[str, _aws_pattern("Migrationhuborchestrator", "StepGroupId")]
+    workflowId: Annotated[str, _aws_pattern("Migrationhuborchestrator", "MigrationWorkflowId")]
+    name: Optional[Annotated[str, _aws_pattern("Migrationhuborchestrator", "StepName")]] = None
+    description: Optional[Annotated[str, _aws_pattern("Migrationhuborchestrator", "StepDescription")]] = None
     stepActionType: Optional[StepActionTypeType] = None
     workflowStepAutomationConfiguration: Optional[WorkflowStepAutomationConfigurationTypeDef] = None
     stepTarget: Optional[List[str]] = None

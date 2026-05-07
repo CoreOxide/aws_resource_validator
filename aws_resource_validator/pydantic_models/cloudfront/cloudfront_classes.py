@@ -3,6 +3,7 @@
 from datetime import datetime
 from decimal import Decimal
 from typing import (
+    Annotated,
     Any,
     Callable,
     Dict,
@@ -24,6 +25,7 @@ from botocore.response import StreamingBody
 from pydantic import Field
 
 from aws_resource_validator.core.base_validator_model import BaseValidatorModel, EventStream
+from aws_resource_validator.core.pattern_validation import aws_field_pattern as _aws_pattern
 from aws_resource_validator.pydantic_models.cloudfront.cloudfront_constants import *  # noqa: F401,F403
 
 # Optional boto3 symbols — imported lazily so services that don't need them
@@ -92,7 +94,7 @@ BlobTypeDef = Union[IO[Any], StreamingBody, bytes, str]
 class CaCertificatesBundleS3LocationTypeDef(BaseValidatorModel):
     Bucket: str
     Key: str
-    Region: str
+    Region: Annotated[str, _aws_pattern("Cloudfront", "CaCertificatesBundleS3LocationRegionString")]
     Version: Optional[str] = None
 
 
@@ -140,6 +142,10 @@ class QueryStringNamesOutputTypeDef(BaseValidatorModel):
 class QueryStringNamesTypeDef(BaseValidatorModel):
     Quantity: int
     Items: Optional[List[str]] = None
+
+
+class CacheTagConfigTypeDef(BaseValidatorModel):
+    HeaderName: str
 
 
 class CachedMethodsTypeDef(BaseValidatorModel):
@@ -243,7 +249,7 @@ class ManagedCertificateRequestTypeDef(BaseValidatorModel):
 
 
 class ParameterTypeDef(BaseValidatorModel):
-    Name: str
+    Name: Annotated[str, _aws_pattern("Cloudfront", "ParameterName")]
     Value: str
 
 
@@ -384,7 +390,7 @@ class DeleteFieldLevelEncryptionProfileRequestTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'delete_function' function.
 class DeleteFunctionRequestTypeDef(BaseValidatorModel):
-    Name: str
+    Name: Annotated[str, _aws_pattern("Cloudfront", "FunctionName")]
     IfMatch: str
 
 
@@ -396,7 +402,7 @@ class DeleteKeyGroupRequestTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'delete_key_value_store' function.
 class DeleteKeyValueStoreRequestTypeDef(BaseValidatorModel):
-    Name: str
+    Name: Annotated[str, _aws_pattern("Cloudfront", "KeyValueStoreName")]
     IfMatch: str
 
 
@@ -465,13 +471,13 @@ class DescribeConnectionFunctionRequestTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'describe_function' function.
 class DescribeFunctionRequestTypeDef(BaseValidatorModel):
-    Name: str
+    Name: Annotated[str, _aws_pattern("Cloudfront", "FunctionName")]
     Stage: Optional[FunctionStageType] = None
 
 
 # This class is the input for the 'describe_key_value_store' function.
 class DescribeKeyValueStoreRequestTypeDef(BaseValidatorModel):
-    Name: str
+    Name: Annotated[str, _aws_pattern("Cloudfront", "KeyValueStoreName")]
 
 
 # This class is the input for the 'disassociate_distribution_tenant_web_acl' function.
@@ -566,7 +572,7 @@ class QueryStringCacheKeysOutputTypeDef(BaseValidatorModel):
 
 
 class FunctionAssociationTypeDef(BaseValidatorModel):
-    FunctionARN: str
+    FunctionARN: Annotated[str, _aws_pattern("Cloudfront", "FunctionARN")]
     EventType: EventTypeType
 
 
@@ -687,7 +693,7 @@ class GetFieldLevelEncryptionRequestTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'get_function' function.
 class GetFunctionRequestTypeDef(BaseValidatorModel):
-    Name: str
+    Name: Annotated[str, _aws_pattern("Cloudfront", "FunctionName")]
     Stage: Optional[FunctionStageType] = None
 
 
@@ -828,7 +834,7 @@ class KeyGroupConfigTypeDef(BaseValidatorModel):
 
 
 class KeyValueStoreAssociationTypeDef(BaseValidatorModel):
-    KeyValueStoreARN: str
+    KeyValueStoreARN: Annotated[str, _aws_pattern("Cloudfront", "KeyValueStoreARN")]
 
 
 class LambdaFunctionAssociationTypeDef(BaseValidatorModel):
@@ -1068,7 +1074,7 @@ class ListStreamingDistributionsRequestTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'list_tags_for_resource' function.
 class ListTagsForResourceRequestTypeDef(BaseValidatorModel):
-    Resource: str
+    Resource: Annotated[str, _aws_pattern("Cloudfront", "ResourceARN")]
 
 
 # This class is the input for the 'list_trust_stores' function.
@@ -1124,7 +1130,7 @@ class OriginGroupMemberTypeDef(BaseValidatorModel):
 
 class OriginShieldTypeDef(BaseValidatorModel):
     Enabled: bool
-    OriginShieldRegion: Optional[str] = None
+    OriginShieldRegion: Optional[Annotated[str, _aws_pattern("Cloudfront", "OriginShieldRegion")]] = None
 
 
 class S3OriginConfigTypeDef(BaseValidatorModel):
@@ -1166,7 +1172,7 @@ class PublishConnectionFunctionRequestTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'publish_function' function.
 class PublishFunctionRequestTypeDef(BaseValidatorModel):
-    Name: str
+    Name: Annotated[str, _aws_pattern("Cloudfront", "FunctionName")]
     IfMatch: str
 
 
@@ -1291,12 +1297,12 @@ class StreamingLoggingConfigTypeDef(BaseValidatorModel):
 
 
 class TagKeysTypeDef(BaseValidatorModel):
-    Items: Optional[List[str]] = None
+    Items: Optional[List[Annotated[str, _aws_pattern("Cloudfront", "TagKey")]]] = None
 
 
 class TagTypeDef(BaseValidatorModel):
-    Key: str
-    Value: Optional[str] = None
+    Key: Annotated[str, _aws_pattern("Cloudfront", "TagKey")]
+    Value: Optional[Annotated[str, _aws_pattern("Cloudfront", "TagValue")]] = None
 
 
 class TrustStoreConfigTypeDef(BaseValidatorModel):
@@ -1335,7 +1341,7 @@ class UpdateDistributionWithStagingConfigRequestTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'update_key_value_store' function.
 class UpdateKeyValueStoreRequestTypeDef(BaseValidatorModel):
-    Name: str
+    Name: Annotated[str, _aws_pattern("Cloudfront", "KeyValueStoreName")]
     Comment: str
     IfMatch: str
 
@@ -1448,7 +1454,7 @@ class TestConnectionFunctionRequestTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'test_function' function.
 class TestFunctionRequestTypeDef(BaseValidatorModel):
-    Name: str
+    Name: Annotated[str, _aws_pattern("Cloudfront", "FunctionName")]
     IfMatch: str
     EventObject: BlobTypeDef
     Stage: Optional[FunctionStageType] = None
@@ -1613,13 +1619,6 @@ class UpdateAnycastIpListRequestTypeDef(BaseValidatorModel):
     IfMatch: str
     IpAddressType: Optional[IpAddressTypeType] = None
     IpamCidrConfigs: Optional[List[IpamCidrConfigTypeDef]] = None
-
-
-# This class is the input for the 'create_key_value_store' function.
-class CreateKeyValueStoreRequestTypeDef(BaseValidatorModel):
-    Name: str
-    Comment: Optional[str] = None
-    ImportSource: Optional[ImportSourceTypeDef] = None
 
 
 # This class is the output for the 'create_key_value_store' function.
@@ -2205,7 +2204,7 @@ class StreamingDistributionConfigOutputTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'untag_resource' function.
 class UntagResourceRequestTypeDef(BaseValidatorModel):
-    Resource: str
+    Resource: Annotated[str, _aws_pattern("Cloudfront", "ResourceARN")]
     TagKeys: TagKeysTypeDef
 
 
@@ -2345,7 +2344,7 @@ class TrafficConfigTypeDef(BaseValidatorModel):
 
 class AnycastIpListSummaryTypeDef(BaseValidatorModel):
     Id: str
-    Name: str
+    Name: Annotated[str, _aws_pattern("Cloudfront", "AnycastIpListName")]
     Status: str
     Arn: str
     IpCount: int
@@ -2357,7 +2356,7 @@ class AnycastIpListSummaryTypeDef(BaseValidatorModel):
 
 class AnycastIpListTypeDef(BaseValidatorModel):
     Id: str
-    Name: str
+    Name: Annotated[str, _aws_pattern("Cloudfront", "AnycastIpListName")]
     Status: str
     Arn: str
     AnycastIps: List[str]
@@ -2657,7 +2656,7 @@ VpcOriginEndpointConfigUnionTypeDef = Union[VpcOriginEndpointConfigOutputTypeDef
 
 
 class ParameterDefinitionTypeDef(BaseValidatorModel):
-    Name: str
+    Name: Annotated[str, _aws_pattern("Cloudfront", "ParameterName")]
     Definition: ParameterDefinitionSchemaTypeDef
 
 
@@ -3068,7 +3067,7 @@ class StreamingDistributionTypeDef(BaseValidatorModel):
 
 
 class ConnectionFunctionSummaryTypeDef(BaseValidatorModel):
-    Name: str
+    Name: Annotated[str, _aws_pattern("Cloudfront", "FunctionName")]
     Id: str
     ConnectionFunctionConfig: FunctionConfigOutputTypeDef
     ConnectionFunctionArn: str
@@ -3079,7 +3078,7 @@ class ConnectionFunctionSummaryTypeDef(BaseValidatorModel):
 
 
 class FunctionSummaryTypeDef(BaseValidatorModel):
-    Name: str
+    Name: Annotated[str, _aws_pattern("Cloudfront", "FunctionName")]
     FunctionConfig: FunctionConfigOutputTypeDef
     FunctionMetadata: FunctionMetadataTypeDef
     Status: Optional[str] = None
@@ -3220,7 +3219,7 @@ class UpdateDistributionTenantResultTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'create_anycast_ip_list' function.
 class CreateAnycastIpListRequestTypeDef(BaseValidatorModel):
-    Name: str
+    Name: Annotated[str, _aws_pattern("Cloudfront", "AnycastIpListName")]
     IpCount: int
     Tags: Optional[TagsUnionTypeDef] = None
     IpAddressType: Optional[IpAddressTypeType] = None
@@ -3239,7 +3238,7 @@ class CreateConnectionGroupRequestTypeDef(BaseValidatorModel):
 # This class is the input for the 'create_distribution_tenant' function.
 class CreateDistributionTenantRequestTypeDef(BaseValidatorModel):
     DistributionId: str
-    Name: str
+    Name: Annotated[str, _aws_pattern("Cloudfront", "CreateDistributionTenantRequestNameString")]
     Domains: List[DomainItemTypeDef]
     Tags: Optional[TagsUnionTypeDef] = None
     Customizations: Optional[CustomizationsUnionTypeDef] = None
@@ -3247,6 +3246,14 @@ class CreateDistributionTenantRequestTypeDef(BaseValidatorModel):
     ConnectionGroupId: Optional[str] = None
     ManagedCertificateRequest: Optional[ManagedCertificateRequestTypeDef] = None
     Enabled: Optional[bool] = None
+
+
+# This class is the input for the 'create_key_value_store' function.
+class CreateKeyValueStoreRequestTypeDef(BaseValidatorModel):
+    Name: Annotated[str, _aws_pattern("Cloudfront", "KeyValueStoreName")]
+    Comment: Optional[str] = None
+    ImportSource: Optional[ImportSourceTypeDef] = None
+    Tags: Optional[TagsUnionTypeDef] = None
 
 
 # This class is the input for the 'create_trust_store' function.
@@ -3264,7 +3271,7 @@ class CreateVpcOriginRequestTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'tag_resource' function.
 class TagResourceRequestTypeDef(BaseValidatorModel):
-    Resource: str
+    Resource: Annotated[str, _aws_pattern("Cloudfront", "ResourceARN")]
     Tags: TagsUnionTypeDef
 
 
@@ -3519,7 +3526,7 @@ class UpdateFunctionResultTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'create_connection_function' function.
 class CreateConnectionFunctionRequestTypeDef(BaseValidatorModel):
-    Name: str
+    Name: Annotated[str, _aws_pattern("Cloudfront", "FunctionName")]
     ConnectionFunctionConfig: FunctionConfigUnionTypeDef
     ConnectionFunctionCode: BlobTypeDef
     Tags: Optional[TagsUnionTypeDef] = None
@@ -3527,9 +3534,10 @@ class CreateConnectionFunctionRequestTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'create_function' function.
 class CreateFunctionRequestTypeDef(BaseValidatorModel):
-    Name: str
+    Name: Annotated[str, _aws_pattern("Cloudfront", "FunctionName")]
     FunctionConfig: FunctionConfigUnionTypeDef
     FunctionCode: BlobTypeDef
+    Tags: Optional[TagsUnionTypeDef] = None
 
 
 # This class is the input for the 'update_connection_function' function.
@@ -3542,7 +3550,7 @@ class UpdateConnectionFunctionRequestTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'update_function' function.
 class UpdateFunctionRequestTypeDef(BaseValidatorModel):
-    Name: str
+    Name: Annotated[str, _aws_pattern("Cloudfront", "FunctionName")]
     IfMatch: str
     FunctionConfig: FunctionConfigUnionTypeDef
     FunctionCode: BlobTypeDef
@@ -3679,6 +3687,7 @@ class DistributionConfigOutputTypeDef(BaseValidatorModel):
     ConnectionMode: Optional[ConnectionModeType] = None
     ViewerMtlsConfig: Optional[ViewerMtlsConfigTypeDef] = None
     ConnectionFunctionAssociation: Optional[ConnectionFunctionAssociationTypeDef] = None
+    CacheTagConfig: Optional[CacheTagConfigTypeDef] = None
 
 
 class DistributionSummaryTypeDef(BaseValidatorModel):
@@ -4165,6 +4174,7 @@ class DistributionConfigTypeDef(BaseValidatorModel):
     ConnectionMode: Optional[ConnectionModeType] = None
     ViewerMtlsConfig: Optional[ViewerMtlsConfigTypeDef] = None
     ConnectionFunctionAssociation: Optional[ConnectionFunctionAssociationTypeDef] = None
+    CacheTagConfig: Optional[CacheTagConfigTypeDef] = None
 
 
 DistributionConfigUnionTypeDef = Union[DistributionConfigOutputTypeDef, DistributionConfigTypeDef]

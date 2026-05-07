@@ -3,6 +3,7 @@
 from datetime import datetime
 from decimal import Decimal
 from typing import (
+    Annotated,
     Any,
     Callable,
     Dict,
@@ -24,6 +25,7 @@ from botocore.response import StreamingBody
 from pydantic import Field
 
 from aws_resource_validator.core.base_validator_model import BaseValidatorModel, EventStream
+from aws_resource_validator.core.pattern_validation import aws_field_pattern as _aws_pattern
 from aws_resource_validator.pydantic_models.drs.drs_constants import *  # noqa: F401,F403
 
 # Optional boto3 symbols — imported lazily so services that don't need them
@@ -39,13 +41,13 @@ except ImportError:  # pragma: no cover
 
 
 class AccountTypeDef(BaseValidatorModel):
-    accountID: Optional[str] = None
+    accountID: Optional[Annotated[str, _aws_pattern("Drs", "AccountID")]] = None
 
 
 # This class is the input for the 'associate_source_network_stack' function.
 class AssociateSourceNetworkStackRequestTypeDef(BaseValidatorModel):
-    sourceNetworkID: str
-    cfnStackName: str
+    sourceNetworkID: Annotated[str, _aws_pattern("Drs", "SourceNetworkID")]
+    cfnStackName: Annotated[str, _aws_pattern("Drs", "CfnStackName")]
 
 
 class ResponseMetadataTypeDef(BaseValidatorModel):
@@ -62,13 +64,13 @@ class CPUTypeDef(BaseValidatorModel):
 
 
 class ProductCodeTypeDef(BaseValidatorModel):
-    productCodeId: Optional[str] = None
+    productCodeId: Optional[Annotated[str, _aws_pattern("Drs", "ProductCodeId")]] = None
     productCodeMode: Optional[ProductCodeModeType] = None
 
 
 # This class is the input for the 'create_extended_source_server' function.
 class CreateExtendedSourceServerRequestTypeDef(BaseValidatorModel):
-    sourceServerArn: str
+    sourceServerArn: Annotated[str, _aws_pattern("Drs", "SourceServerARN")]
     tags: Optional[Dict[str, str]] = None
 
 
@@ -86,9 +88,9 @@ class PITPolicyRuleTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'create_source_network' function.
 class CreateSourceNetworkRequestTypeDef(BaseValidatorModel):
-    vpcID: str
-    originAccountID: str
-    originRegion: str
+    vpcID: Annotated[str, _aws_pattern("Drs", "VpcID")]
+    originAccountID: Annotated[str, _aws_pattern("Drs", "AccountID")]
+    originRegion: Annotated[str, _aws_pattern("Drs", "AwsRegion")]
     tags: Optional[Dict[str, str]] = None
 
 
@@ -112,33 +114,33 @@ class DataReplicationInitiationStepTypeDef(BaseValidatorModel):
 
 
 class DeleteJobRequestTypeDef(BaseValidatorModel):
-    jobID: str
+    jobID: Annotated[str, _aws_pattern("Drs", "JobID")]
 
 
 class DeleteLaunchActionRequestTypeDef(BaseValidatorModel):
-    resourceId: str
-    actionId: str
+    resourceId: Annotated[str, _aws_pattern("Drs", "LaunchActionResourceId")]
+    actionId: Annotated[str, _aws_pattern("Drs", "LaunchActionId")]
 
 
 class DeleteLaunchConfigurationTemplateRequestTypeDef(BaseValidatorModel):
-    launchConfigurationTemplateID: str
+    launchConfigurationTemplateID: Annotated[str, _aws_pattern("Drs", "LaunchConfigurationTemplateID")]
 
 
 # This class is the input for the 'delete_recovery_instance' function.
 class DeleteRecoveryInstanceRequestTypeDef(BaseValidatorModel):
-    recoveryInstanceID: str
+    recoveryInstanceID: Annotated[str, _aws_pattern("Drs", "RecoveryInstanceID")]
 
 
 class DeleteReplicationConfigurationTemplateRequestTypeDef(BaseValidatorModel):
-    replicationConfigurationTemplateID: str
+    replicationConfigurationTemplateID: Annotated[str, _aws_pattern("Drs", "ReplicationConfigurationTemplateID")]
 
 
 class DeleteSourceNetworkRequestTypeDef(BaseValidatorModel):
-    sourceNetworkID: str
+    sourceNetworkID: Annotated[str, _aws_pattern("Drs", "SourceNetworkID")]
 
 
 class DeleteSourceServerRequestTypeDef(BaseValidatorModel):
-    sourceServerID: str
+    sourceServerID: Annotated[str, _aws_pattern("Drs", "SourceServerID")]
 
 
 class PaginatorConfigTypeDef(BaseValidatorModel):
@@ -149,69 +151,73 @@ class PaginatorConfigTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'describe_job_log_items' function.
 class DescribeJobLogItemsRequestTypeDef(BaseValidatorModel):
-    jobID: str
+    jobID: Annotated[str, _aws_pattern("Drs", "JobID")]
     maxResults: Optional[int] = None
     nextToken: Optional[str] = None
 
 
 class DescribeJobsRequestFiltersTypeDef(BaseValidatorModel):
-    jobIDs: Optional[List[str]] = None
-    fromDate: Optional[str] = None
-    toDate: Optional[str] = None
+    jobIDs: Optional[List[Annotated[str, _aws_pattern("Drs", "JobID")]]] = None
+    fromDate: Optional[Annotated[str, _aws_pattern("Drs", "ISO8601DatetimeString")]] = None
+    toDate: Optional[Annotated[str, _aws_pattern("Drs", "ISO8601DatetimeString")]] = None
 
 
 # This class is the input for the 'describe_launch_configuration_templates' function.
 class DescribeLaunchConfigurationTemplatesRequestTypeDef(BaseValidatorModel):
-    launchConfigurationTemplateIDs: Optional[List[str]] = None
+    launchConfigurationTemplateIDs: Optional[
+        List[Annotated[str, _aws_pattern("Drs", "LaunchConfigurationTemplateID")]]
+    ] = None
     maxResults: Optional[int] = None
     nextToken: Optional[str] = None
 
 
 class DescribeRecoveryInstancesRequestFiltersTypeDef(BaseValidatorModel):
-    recoveryInstanceIDs: Optional[List[str]] = None
-    sourceServerIDs: Optional[List[str]] = None
+    recoveryInstanceIDs: Optional[List[Annotated[str, _aws_pattern("Drs", "RecoveryInstanceID")]]] = None
+    sourceServerIDs: Optional[List[Annotated[str, _aws_pattern("Drs", "SourceServerID")]]] = None
 
 
 class DescribeRecoverySnapshotsRequestFiltersTypeDef(BaseValidatorModel):
-    fromDateTime: Optional[str] = None
-    toDateTime: Optional[str] = None
+    fromDateTime: Optional[Annotated[str, _aws_pattern("Drs", "ISO8601DatetimeString")]] = None
+    toDateTime: Optional[Annotated[str, _aws_pattern("Drs", "ISO8601DatetimeString")]] = None
 
 
 class RecoverySnapshotTypeDef(BaseValidatorModel):
-    snapshotID: str
-    sourceServerID: str
-    expectedTimestamp: str
-    timestamp: Optional[str] = None
-    ebsSnapshots: Optional[List[str]] = None
+    snapshotID: Annotated[str, _aws_pattern("Drs", "RecoverySnapshotID")]
+    sourceServerID: Annotated[str, _aws_pattern("Drs", "SourceServerID")]
+    expectedTimestamp: Annotated[str, _aws_pattern("Drs", "ISO8601DatetimeString")]
+    timestamp: Optional[Annotated[str, _aws_pattern("Drs", "ISO8601DatetimeString")]] = None
+    ebsSnapshots: Optional[List[Annotated[str, _aws_pattern("Drs", "EbsSnapshot")]]] = None
 
 
 # This class is the input for the 'describe_replication_configuration_templates' function.
 class DescribeReplicationConfigurationTemplatesRequestTypeDef(BaseValidatorModel):
-    replicationConfigurationTemplateIDs: Optional[List[str]] = None
+    replicationConfigurationTemplateIDs: Optional[
+        List[Annotated[str, _aws_pattern("Drs", "ReplicationConfigurationTemplateID")]]
+    ] = None
     maxResults: Optional[int] = None
     nextToken: Optional[str] = None
 
 
 class DescribeSourceNetworksRequestFiltersTypeDef(BaseValidatorModel):
-    sourceNetworkIDs: Optional[List[str]] = None
-    originAccountID: Optional[str] = None
-    originRegion: Optional[str] = None
+    sourceNetworkIDs: Optional[List[Annotated[str, _aws_pattern("Drs", "SourceNetworkID")]]] = None
+    originAccountID: Optional[Annotated[str, _aws_pattern("Drs", "AccountID")]] = None
+    originRegion: Optional[Annotated[str, _aws_pattern("Drs", "AwsRegion")]] = None
 
 
 class DescribeSourceServersRequestFiltersTypeDef(BaseValidatorModel):
-    sourceServerIDs: Optional[List[str]] = None
+    sourceServerIDs: Optional[List[Annotated[str, _aws_pattern("Drs", "SourceServerID")]]] = None
     hardwareId: Optional[str] = None
-    stagingAccountIDs: Optional[List[str]] = None
+    stagingAccountIDs: Optional[List[Annotated[str, _aws_pattern("Drs", "AccountID")]]] = None
 
 
 # This class is the input for the 'disconnect_recovery_instance' function.
 class DisconnectRecoveryInstanceRequestTypeDef(BaseValidatorModel):
-    recoveryInstanceID: str
+    recoveryInstanceID: Annotated[str, _aws_pattern("Drs", "RecoveryInstanceID")]
 
 
 # This class is the input for the 'disconnect_source_server' function.
 class DisconnectSourceServerRequestTypeDef(BaseValidatorModel):
-    sourceServerID: str
+    sourceServerID: Annotated[str, _aws_pattern("Drs", "SourceServerID")]
 
 
 class DiskTypeDef(BaseValidatorModel):
@@ -220,68 +226,68 @@ class DiskTypeDef(BaseValidatorModel):
 
 
 class SourceNetworkDataTypeDef(BaseValidatorModel):
-    sourceNetworkID: Optional[str] = None
-    sourceVpc: Optional[str] = None
-    targetVpc: Optional[str] = None
+    sourceNetworkID: Optional[Annotated[str, _aws_pattern("Drs", "SourceNetworkID")]] = None
+    sourceVpc: Optional[Annotated[str, _aws_pattern("Drs", "VpcID")]] = None
+    targetVpc: Optional[Annotated[str, _aws_pattern("Drs", "VpcID")]] = None
     stackName: Optional[str] = None
 
 
 # This class is the input for the 'export_source_network_cfn_template' function.
 class ExportSourceNetworkCfnTemplateRequestTypeDef(BaseValidatorModel):
-    sourceNetworkID: str
+    sourceNetworkID: Annotated[str, _aws_pattern("Drs", "SourceNetworkID")]
 
 
 # This class is the input for the 'get_failback_replication_configuration' function.
 class GetFailbackReplicationConfigurationRequestTypeDef(BaseValidatorModel):
-    recoveryInstanceID: str
+    recoveryInstanceID: Annotated[str, _aws_pattern("Drs", "RecoveryInstanceID")]
 
 
 # This class is the input for the 'get_launch_configuration' function.
 class GetLaunchConfigurationRequestTypeDef(BaseValidatorModel):
-    sourceServerID: str
+    sourceServerID: Annotated[str, _aws_pattern("Drs", "SourceServerID")]
 
 
 # This class is the input for the 'get_replication_configuration' function.
 class GetReplicationConfigurationRequestTypeDef(BaseValidatorModel):
-    sourceServerID: str
+    sourceServerID: Annotated[str, _aws_pattern("Drs", "SourceServerID")]
 
 
 class IdentificationHintsTypeDef(BaseValidatorModel):
     fqdn: Optional[str] = None
     hostname: Optional[str] = None
     vmWareUuid: Optional[str] = None
-    awsInstanceID: Optional[str] = None
+    awsInstanceID: Optional[Annotated[str, _aws_pattern("Drs", "EC2InstanceID")]] = None
 
 
 class LaunchActionParameterTypeDef(BaseValidatorModel):
-    value: Optional[str] = None
+    value: Optional[Annotated[str, _aws_pattern("Drs", "LaunchActionParameterValue")]] = None
     type: Optional[LaunchActionParameterTypeType] = None
 
 
 class LaunchActionsRequestFiltersTypeDef(BaseValidatorModel):
-    actionIds: Optional[List[str]] = None
+    actionIds: Optional[List[Annotated[str, _aws_pattern("Drs", "LaunchActionId")]]] = None
 
 
 class LaunchIntoInstancePropertiesTypeDef(BaseValidatorModel):
-    launchIntoEC2InstanceID: Optional[str] = None
+    launchIntoEC2InstanceID: Optional[Annotated[str, _aws_pattern("Drs", "EC2InstanceID")]] = None
 
 
 class LifeCycleLastLaunchInitiatedTypeDef(BaseValidatorModel):
-    apiCallDateTime: Optional[str] = None
-    jobID: Optional[str] = None
+    apiCallDateTime: Optional[Annotated[str, _aws_pattern("Drs", "ISO8601DatetimeString")]] = None
+    jobID: Optional[Annotated[str, _aws_pattern("Drs", "JobID")]] = None
     type: Optional[LastLaunchTypeType] = None
 
 
 # This class is the input for the 'list_extensible_source_servers' function.
 class ListExtensibleSourceServersRequestTypeDef(BaseValidatorModel):
-    stagingAccountID: str
+    stagingAccountID: Annotated[str, _aws_pattern("Drs", "AccountID")]
     maxResults: Optional[int] = None
     nextToken: Optional[str] = None
 
 
 class StagingSourceServerTypeDef(BaseValidatorModel):
     hostname: Optional[str] = None
-    arn: Optional[str] = None
+    arn: Optional[Annotated[str, _aws_pattern("Drs", "SourceServerARN")]] = None
     tags: Optional[Dict[str, str]] = None
 
 
@@ -293,7 +299,7 @@ class ListStagingAccountsRequestTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'list_tags_for_resource' function.
 class ListTagsForResourceRequestTypeDef(BaseValidatorModel):
-    resourceArn: str
+    resourceArn: Annotated[str, _aws_pattern("Drs", "ARN")]
 
 
 class NetworkInterfaceTypeDef(BaseValidatorModel):
@@ -307,7 +313,7 @@ class OSTypeDef(BaseValidatorModel):
 
 
 class ParticipatingResourceIDTypeDef(BaseValidatorModel):
-    sourceNetworkID: Optional[str] = None
+    sourceNetworkID: Optional[Annotated[str, _aws_pattern("Drs", "SourceNetworkID")]] = None
 
 
 class RecoveryInstanceDataReplicationErrorTypeDef(BaseValidatorModel):
@@ -331,25 +337,27 @@ class RecoveryInstanceDataReplicationInitiationStepTypeDef(BaseValidatorModel):
 class RecoveryInstanceDiskTypeDef(BaseValidatorModel):
     internalDeviceName: Optional[str] = None
     bytes: Optional[int] = None
-    ebsVolumeID: Optional[str] = None
+    ebsVolumeID: Optional[Annotated[str, _aws_pattern("Drs", "EbsVolumeID")]] = None
 
 
 class RecoveryInstanceFailbackTypeDef(BaseValidatorModel):
     failbackClientID: Optional[str] = None
-    failbackJobID: Optional[str] = None
-    failbackInitiationTime: Optional[str] = None
+    failbackJobID: Optional[Annotated[str, _aws_pattern("Drs", "JobID")]] = None
+    failbackInitiationTime: Optional[Annotated[str, _aws_pattern("Drs", "ISO8601DatetimeString")]] = None
     state: Optional[FailbackStateType] = None
-    agentLastSeenByServiceDateTime: Optional[str] = None
-    failbackClientLastSeenByServiceDateTime: Optional[str] = None
+    agentLastSeenByServiceDateTime: Optional[Annotated[str, _aws_pattern("Drs", "ISO8601DatetimeString")]] = None
+    failbackClientLastSeenByServiceDateTime: Optional[Annotated[str, _aws_pattern("Drs", "ISO8601DatetimeString")]] = (
+        None
+    )
     failbackToOriginalServer: Optional[bool] = None
-    firstByteDateTime: Optional[str] = None
-    elapsedReplicationDuration: Optional[str] = None
+    firstByteDateTime: Optional[Annotated[str, _aws_pattern("Drs", "ISO8601DatetimeString")]] = None
+    elapsedReplicationDuration: Optional[Annotated[str, _aws_pattern("Drs", "ISO8601DatetimeString")]] = None
     failbackLaunchType: Optional[FailbackLaunchTypeType] = None
 
 
 class RecoveryLifeCycleTypeDef(BaseValidatorModel):
     apiCallDateTime: Optional[datetime] = None
-    jobID: Optional[str] = None
+    jobID: Optional[Annotated[str, _aws_pattern("Drs", "JobID")]] = None
     lastRecoveryResult: Optional[RecoveryResultType] = None
 
 
@@ -364,89 +372,89 @@ class ReplicationConfigurationReplicatedDiskTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'retry_data_replication' function.
 class RetryDataReplicationRequestTypeDef(BaseValidatorModel):
-    sourceServerID: str
+    sourceServerID: Annotated[str, _aws_pattern("Drs", "SourceServerID")]
 
 
 # This class is the input for the 'reverse_replication' function.
 class ReverseReplicationRequestTypeDef(BaseValidatorModel):
-    recoveryInstanceID: str
+    recoveryInstanceID: Annotated[str, _aws_pattern("Drs", "RecoveryInstanceID")]
 
 
 class SourceCloudPropertiesTypeDef(BaseValidatorModel):
-    originAccountID: Optional[str] = None
-    originRegion: Optional[str] = None
-    originAvailabilityZone: Optional[str] = None
-    sourceOutpostArn: Optional[str] = None
+    originAccountID: Optional[Annotated[str, _aws_pattern("Drs", "AccountID")]] = None
+    originRegion: Optional[Annotated[str, _aws_pattern("Drs", "AwsRegion")]] = None
+    originAvailabilityZone: Optional[Annotated[str, _aws_pattern("Drs", "AwsAvailabilityZone")]] = None
+    sourceOutpostArn: Optional[Annotated[str, _aws_pattern("Drs", "OutpostARN")]] = None
 
 
 class StagingAreaTypeDef(BaseValidatorModel):
     status: Optional[ExtensionStatusType] = None
-    stagingAccountID: Optional[str] = None
-    stagingSourceServerArn: Optional[str] = None
+    stagingAccountID: Optional[Annotated[str, _aws_pattern("Drs", "AccountID")]] = None
+    stagingSourceServerArn: Optional[Annotated[str, _aws_pattern("Drs", "ARN")]] = None
     errorMessage: Optional[str] = None
 
 
 # This class is the input for the 'start_failback_launch' function.
 class StartFailbackLaunchRequestTypeDef(BaseValidatorModel):
-    recoveryInstanceIDs: List[str]
+    recoveryInstanceIDs: List[Annotated[str, _aws_pattern("Drs", "RecoveryInstanceID")]]
     tags: Optional[Dict[str, str]] = None
 
 
 class StartRecoveryRequestSourceServerTypeDef(BaseValidatorModel):
-    sourceServerID: str
-    recoverySnapshotID: Optional[str] = None
+    sourceServerID: Annotated[str, _aws_pattern("Drs", "SourceServerID")]
+    recoverySnapshotID: Optional[Annotated[str, _aws_pattern("Drs", "RecoverySnapshotID")]] = None
 
 
 # This class is the input for the 'start_replication' function.
 class StartReplicationRequestTypeDef(BaseValidatorModel):
-    sourceServerID: str
+    sourceServerID: Annotated[str, _aws_pattern("Drs", "SourceServerID")]
 
 
 class StartSourceNetworkRecoveryRequestNetworkEntryTypeDef(BaseValidatorModel):
-    sourceNetworkID: str
-    cfnStackName: Optional[str] = None
+    sourceNetworkID: Annotated[str, _aws_pattern("Drs", "SourceNetworkID")]
+    cfnStackName: Optional[Annotated[str, _aws_pattern("Drs", "CfnStackName")]] = None
 
 
 # This class is the input for the 'start_source_network_replication' function.
 class StartSourceNetworkReplicationRequestTypeDef(BaseValidatorModel):
-    sourceNetworkID: str
+    sourceNetworkID: Annotated[str, _aws_pattern("Drs", "SourceNetworkID")]
 
 
 # This class is the input for the 'stop_failback' function.
 class StopFailbackRequestTypeDef(BaseValidatorModel):
-    recoveryInstanceID: str
+    recoveryInstanceID: Annotated[str, _aws_pattern("Drs", "RecoveryInstanceID")]
 
 
 # This class is the input for the 'stop_replication' function.
 class StopReplicationRequestTypeDef(BaseValidatorModel):
-    sourceServerID: str
+    sourceServerID: Annotated[str, _aws_pattern("Drs", "SourceServerID")]
 
 
 # This class is the input for the 'stop_source_network_replication' function.
 class StopSourceNetworkReplicationRequestTypeDef(BaseValidatorModel):
-    sourceNetworkID: str
+    sourceNetworkID: Annotated[str, _aws_pattern("Drs", "SourceNetworkID")]
 
 
 # This class is the input for the 'tag_resource' function.
 class TagResourceRequestTypeDef(BaseValidatorModel):
-    resourceArn: str
+    resourceArn: Annotated[str, _aws_pattern("Drs", "ARN")]
     tags: Dict[str, str]
 
 
 # This class is the input for the 'terminate_recovery_instances' function.
 class TerminateRecoveryInstancesRequestTypeDef(BaseValidatorModel):
-    recoveryInstanceIDs: List[str]
+    recoveryInstanceIDs: List[Annotated[str, _aws_pattern("Drs", "RecoveryInstanceID")]]
 
 
 # This class is the input for the 'untag_resource' function.
 class UntagResourceRequestTypeDef(BaseValidatorModel):
-    resourceArn: str
+    resourceArn: Annotated[str, _aws_pattern("Drs", "ARN")]
     tagKeys: List[str]
 
 
 # This class is the input for the 'update_failback_replication_configuration' function.
 class UpdateFailbackReplicationConfigurationRequestTypeDef(BaseValidatorModel):
-    recoveryInstanceID: str
+    recoveryInstanceID: Annotated[str, _aws_pattern("Drs", "RecoveryInstanceID")]
     name: Optional[str] = None
     bandwidthThrottling: Optional[int] = None
     usePrivateIP: Optional[bool] = None
@@ -455,7 +463,7 @@ class UpdateFailbackReplicationConfigurationRequestTypeDef(BaseValidatorModel):
 
 # This class is the output for the 'create_source_network' function.
 class CreateSourceNetworkResponseTypeDef(BaseValidatorModel):
-    sourceNetworkID: str
+    sourceNetworkID: Annotated[str, _aws_pattern("Drs", "SourceNetworkID")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
@@ -472,7 +480,7 @@ class ExportSourceNetworkCfnTemplateResponseTypeDef(BaseValidatorModel):
 
 # This class is the output for the 'get_failback_replication_configuration' function.
 class GetFailbackReplicationConfigurationResponseTypeDef(BaseValidatorModel):
-    recoveryInstanceID: str
+    recoveryInstanceID: Annotated[str, _aws_pattern("Drs", "RecoveryInstanceID")]
     name: str
     bandwidthThrottling: int
     usePrivateIP: bool
@@ -495,7 +503,7 @@ class ListTagsForResourceResponseTypeDef(BaseValidatorModel):
 
 # This class is the output for the 'reverse_replication' function.
 class ReverseReplicationResponseTypeDef(BaseValidatorModel):
-    reversedDirectionSourceServerArn: str
+    reversedDirectionSourceServerArn: Annotated[str, _aws_pattern("Drs", "SourceServerARN")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
@@ -516,42 +524,42 @@ class CreateLaunchConfigurationTemplateRequestTypeDef(BaseValidatorModel):
     copyPrivateIp: Optional[bool] = None
     copyTags: Optional[bool] = None
     licensing: Optional[LicensingTypeDef] = None
-    exportBucketArn: Optional[str] = None
+    exportBucketArn: Optional[Annotated[str, _aws_pattern("Drs", "ARN")]] = None
     postLaunchEnabled: Optional[bool] = None
     launchIntoSourceInstance: Optional[bool] = None
 
 
 class LaunchConfigurationTemplateTypeDef(BaseValidatorModel):
-    launchConfigurationTemplateID: Optional[str] = None
-    arn: Optional[str] = None
+    launchConfigurationTemplateID: Optional[Annotated[str, _aws_pattern("Drs", "LaunchConfigurationTemplateID")]] = None
+    arn: Optional[Annotated[str, _aws_pattern("Drs", "ARN")]] = None
     tags: Optional[Dict[str, str]] = None
     launchDisposition: Optional[LaunchDispositionType] = None
     targetInstanceTypeRightSizingMethod: Optional[TargetInstanceTypeRightSizingMethodType] = None
     copyPrivateIp: Optional[bool] = None
     copyTags: Optional[bool] = None
     licensing: Optional[LicensingTypeDef] = None
-    exportBucketArn: Optional[str] = None
+    exportBucketArn: Optional[Annotated[str, _aws_pattern("Drs", "ARN")]] = None
     postLaunchEnabled: Optional[bool] = None
     launchIntoSourceInstance: Optional[bool] = None
 
 
 # This class is the input for the 'update_launch_configuration_template' function.
 class UpdateLaunchConfigurationTemplateRequestTypeDef(BaseValidatorModel):
-    launchConfigurationTemplateID: str
+    launchConfigurationTemplateID: Annotated[str, _aws_pattern("Drs", "LaunchConfigurationTemplateID")]
     launchDisposition: Optional[LaunchDispositionType] = None
     targetInstanceTypeRightSizingMethod: Optional[TargetInstanceTypeRightSizingMethodType] = None
     copyPrivateIp: Optional[bool] = None
     copyTags: Optional[bool] = None
     licensing: Optional[LicensingTypeDef] = None
-    exportBucketArn: Optional[str] = None
+    exportBucketArn: Optional[Annotated[str, _aws_pattern("Drs", "ARN")]] = None
     postLaunchEnabled: Optional[bool] = None
     launchIntoSourceInstance: Optional[bool] = None
 
 
 # This class is the input for the 'create_replication_configuration_template' function.
 class CreateReplicationConfigurationTemplateRequestTypeDef(BaseValidatorModel):
-    stagingAreaSubnetId: str
-    replicationServersSecurityGroupsIDs: List[str]
+    stagingAreaSubnetId: Annotated[str, _aws_pattern("Drs", "SubnetID")]
+    replicationServersSecurityGroupsIDs: List[Annotated[str, _aws_pattern("Drs", "SecurityGroupID")]]
     ebsEncryption: ReplicationConfigurationEbsEncryptionType
     bandwidthThrottling: int
     stagingAreaTags: Dict[str, str]
@@ -560,7 +568,7 @@ class CreateReplicationConfigurationTemplateRequestTypeDef(BaseValidatorModel):
     replicationServerInstanceType: Optional[str] = None
     useDedicatedReplicationServer: Optional[bool] = None
     defaultLargeStagingDiskType: Optional[ReplicationConfigurationDefaultLargeStagingDiskTypeType] = None
-    ebsEncryptionKeyArn: Optional[str] = None
+    ebsEncryptionKeyArn: Optional[Annotated[str, _aws_pattern("Drs", "ARN")]] = None
     dataPlaneRouting: Optional[ReplicationConfigurationDataPlaneRoutingType] = None
     createPublicIP: Optional[bool] = None
     tags: Optional[Dict[str, str]] = None
@@ -592,16 +600,16 @@ class ReplicationConfigurationTemplateResponseTypeDef(BaseValidatorModel):
 
 
 class ReplicationConfigurationTemplateTypeDef(BaseValidatorModel):
-    replicationConfigurationTemplateID: str
-    arn: Optional[str] = None
-    stagingAreaSubnetId: Optional[str] = None
+    replicationConfigurationTemplateID: Annotated[str, _aws_pattern("Drs", "ReplicationConfigurationTemplateID")]
+    arn: Optional[Annotated[str, _aws_pattern("Drs", "ARN")]] = None
+    stagingAreaSubnetId: Optional[Annotated[str, _aws_pattern("Drs", "SubnetID")]] = None
     associateDefaultSecurityGroup: Optional[bool] = None
-    replicationServersSecurityGroupsIDs: Optional[List[str]] = None
+    replicationServersSecurityGroupsIDs: Optional[List[Annotated[str, _aws_pattern("Drs", "SecurityGroupID")]]] = None
     replicationServerInstanceType: Optional[str] = None
     useDedicatedReplicationServer: Optional[bool] = None
     defaultLargeStagingDiskType: Optional[ReplicationConfigurationDefaultLargeStagingDiskTypeType] = None
     ebsEncryption: Optional[ReplicationConfigurationEbsEncryptionType] = None
-    ebsEncryptionKeyArn: Optional[str] = None
+    ebsEncryptionKeyArn: Optional[Annotated[str, _aws_pattern("Drs", "ARN")]] = None
     bandwidthThrottling: Optional[int] = None
     dataPlaneRouting: Optional[ReplicationConfigurationDataPlaneRoutingType] = None
     createPublicIP: Optional[bool] = None
@@ -614,16 +622,16 @@ class ReplicationConfigurationTemplateTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'update_replication_configuration_template' function.
 class UpdateReplicationConfigurationTemplateRequestTypeDef(BaseValidatorModel):
-    replicationConfigurationTemplateID: str
-    arn: Optional[str] = None
-    stagingAreaSubnetId: Optional[str] = None
+    replicationConfigurationTemplateID: Annotated[str, _aws_pattern("Drs", "ReplicationConfigurationTemplateID")]
+    arn: Optional[Annotated[str, _aws_pattern("Drs", "ARN")]] = None
+    stagingAreaSubnetId: Optional[Annotated[str, _aws_pattern("Drs", "SubnetID")]] = None
     associateDefaultSecurityGroup: Optional[bool] = None
-    replicationServersSecurityGroupsIDs: Optional[List[str]] = None
+    replicationServersSecurityGroupsIDs: Optional[List[Annotated[str, _aws_pattern("Drs", "SecurityGroupID")]]] = None
     replicationServerInstanceType: Optional[str] = None
     useDedicatedReplicationServer: Optional[bool] = None
     defaultLargeStagingDiskType: Optional[ReplicationConfigurationDefaultLargeStagingDiskTypeType] = None
     ebsEncryption: Optional[ReplicationConfigurationEbsEncryptionType] = None
-    ebsEncryptionKeyArn: Optional[str] = None
+    ebsEncryptionKeyArn: Optional[Annotated[str, _aws_pattern("Drs", "ARN")]] = None
     bandwidthThrottling: Optional[int] = None
     dataPlaneRouting: Optional[ReplicationConfigurationDataPlaneRoutingType] = None
     createPublicIP: Optional[bool] = None
@@ -634,8 +642,8 @@ class UpdateReplicationConfigurationTemplateRequestTypeDef(BaseValidatorModel):
 
 
 class DataReplicationInitiationTypeDef(BaseValidatorModel):
-    startDateTime: Optional[str] = None
-    nextAttemptDateTime: Optional[str] = None
+    startDateTime: Optional[Annotated[str, _aws_pattern("Drs", "ISO8601DatetimeString")]] = None
+    nextAttemptDateTime: Optional[Annotated[str, _aws_pattern("Drs", "ISO8601DatetimeString")]] = None
     steps: Optional[List[DataReplicationInitiationStepTypeDef]] = None
 
 
@@ -696,7 +704,7 @@ class DescribeRecoverySnapshotsRequestPaginateTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'describe_recovery_snapshots' function.
 class DescribeRecoverySnapshotsRequestTypeDef(BaseValidatorModel):
-    sourceServerID: str
+    sourceServerID: Annotated[str, _aws_pattern("Drs", "SourceServerID")]
     filters: Optional[DescribeRecoverySnapshotsRequestFiltersTypeDef] = None
     order: Optional[RecoverySnapshotsOrderType] = None
     maxResults: Optional[int] = None
@@ -739,47 +747,47 @@ class EventResourceDataTypeDef(BaseValidatorModel):
 
 
 class LaunchActionTypeDef(BaseValidatorModel):
-    actionId: Optional[str] = None
-    actionCode: Optional[str] = None
+    actionId: Optional[Annotated[str, _aws_pattern("Drs", "LaunchActionId")]] = None
+    actionCode: Optional[Annotated[str, _aws_pattern("Drs", "SsmDocumentName")]] = None
     type: Optional[LaunchActionTypeType] = None
-    name: Optional[str] = None
+    name: Optional[Annotated[str, _aws_pattern("Drs", "LaunchActionName")]] = None
     active: Optional[bool] = None
     order: Optional[int] = None
-    actionVersion: Optional[str] = None
+    actionVersion: Optional[Annotated[str, _aws_pattern("Drs", "LaunchActionVersion")]] = None
     optional: Optional[bool] = None
     parameters: Optional[Dict[str, LaunchActionParameterTypeDef]] = None
-    description: Optional[str] = None
+    description: Optional[Annotated[str, _aws_pattern("Drs", "LaunchActionDescription")]] = None
     category: Optional[LaunchActionCategoryType] = None
 
 
 # This class is the input for the 'put_launch_action' function.
 class PutLaunchActionRequestTypeDef(BaseValidatorModel):
-    resourceId: str
-    actionCode: str
+    resourceId: Annotated[str, _aws_pattern("Drs", "LaunchActionResourceId")]
+    actionCode: Annotated[str, _aws_pattern("Drs", "SsmDocumentName")]
     order: int
-    actionId: str
+    actionId: Annotated[str, _aws_pattern("Drs", "LaunchActionId")]
     optional: bool
     active: bool
-    name: str
-    actionVersion: str
+    name: Annotated[str, _aws_pattern("Drs", "LaunchActionName")]
+    actionVersion: Annotated[str, _aws_pattern("Drs", "LaunchActionVersion")]
     category: LaunchActionCategoryType
-    description: str
+    description: Annotated[str, _aws_pattern("Drs", "LaunchActionDescription")]
     parameters: Optional[Dict[str, LaunchActionParameterTypeDef]] = None
 
 
 # This class is the output for the 'put_launch_action' function.
 class PutLaunchActionResponseTypeDef(BaseValidatorModel):
-    resourceId: str
-    actionId: str
-    actionCode: str
+    resourceId: Annotated[str, _aws_pattern("Drs", "LaunchActionResourceId")]
+    actionId: Annotated[str, _aws_pattern("Drs", "LaunchActionId")]
+    actionCode: Annotated[str, _aws_pattern("Drs", "SsmDocumentName")]
     type: LaunchActionTypeType
-    name: str
+    name: Annotated[str, _aws_pattern("Drs", "LaunchActionName")]
     active: bool
     order: int
-    actionVersion: str
+    actionVersion: Annotated[str, _aws_pattern("Drs", "LaunchActionVersion")]
     optional: bool
     parameters: Dict[str, LaunchActionParameterTypeDef]
-    description: str
+    description: Annotated[str, _aws_pattern("Drs", "LaunchActionDescription")]
     category: LaunchActionCategoryType
     ResponseMetadata: ResponseMetadataTypeDef
 
@@ -792,7 +800,7 @@ class ListLaunchActionsRequestPaginateTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'list_launch_actions' function.
 class ListLaunchActionsRequestTypeDef(BaseValidatorModel):
-    resourceId: str
+    resourceId: Annotated[str, _aws_pattern("Drs", "LaunchActionResourceId")]
     filters: Optional[LaunchActionsRequestFiltersTypeDef] = None
     maxResults: Optional[int] = None
     nextToken: Optional[str] = None
@@ -800,7 +808,7 @@ class ListLaunchActionsRequestTypeDef(BaseValidatorModel):
 
 # This class is the output for the 'get_launch_configuration' function.
 class LaunchConfigurationTypeDef(BaseValidatorModel):
-    sourceServerID: str
+    sourceServerID: Annotated[str, _aws_pattern("Drs", "SourceServerID")]
     name: str
     ec2LaunchTemplateID: str
     launchDisposition: LaunchDispositionType
@@ -815,7 +823,7 @@ class LaunchConfigurationTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'update_launch_configuration' function.
 class UpdateLaunchConfigurationRequestTypeDef(BaseValidatorModel):
-    sourceServerID: str
+    sourceServerID: Annotated[str, _aws_pattern("Drs", "SourceServerID")]
     name: Optional[str] = None
     launchDisposition: Optional[LaunchDispositionType] = None
     targetInstanceTypeRightSizingMethod: Optional[TargetInstanceTypeRightSizingMethodType] = None
@@ -839,7 +847,7 @@ class ListExtensibleSourceServersResponseTypeDef(BaseValidatorModel):
 
 
 class SourcePropertiesTypeDef(BaseValidatorModel):
-    lastUpdatedDateTime: Optional[str] = None
+    lastUpdatedDateTime: Optional[Annotated[str, _aws_pattern("Drs", "ISO8601DatetimeString")]] = None
     recommendedInstanceType: Optional[str] = None
     identificationHints: Optional[IdentificationHintsTypeDef] = None
     networkInterfaces: Optional[List[NetworkInterfaceTypeDef]] = None
@@ -856,12 +864,12 @@ class ParticipatingResourceTypeDef(BaseValidatorModel):
 
 
 class RecoveryInstanceDataReplicationInitiationTypeDef(BaseValidatorModel):
-    startDateTime: Optional[str] = None
+    startDateTime: Optional[Annotated[str, _aws_pattern("Drs", "ISO8601DatetimeString")]] = None
     steps: Optional[List[RecoveryInstanceDataReplicationInitiationStepTypeDef]] = None
 
 
 class RecoveryInstancePropertiesTypeDef(BaseValidatorModel):
-    lastUpdatedDateTime: Optional[str] = None
+    lastUpdatedDateTime: Optional[Annotated[str, _aws_pattern("Drs", "ISO8601DatetimeString")]] = None
     identificationHints: Optional[IdentificationHintsTypeDef] = None
     networkInterfaces: Optional[List[NetworkInterfaceTypeDef]] = None
     disks: Optional[List[RecoveryInstanceDiskTypeDef]] = None
@@ -871,32 +879,32 @@ class RecoveryInstancePropertiesTypeDef(BaseValidatorModel):
 
 
 class SourceNetworkTypeDef(BaseValidatorModel):
-    sourceNetworkID: Optional[str] = None
-    sourceVpcID: Optional[str] = None
-    arn: Optional[str] = None
+    sourceNetworkID: Optional[Annotated[str, _aws_pattern("Drs", "SourceNetworkID")]] = None
+    sourceVpcID: Optional[Annotated[str, _aws_pattern("Drs", "VpcID")]] = None
+    arn: Optional[Annotated[str, _aws_pattern("Drs", "ARN")]] = None
     tags: Optional[Dict[str, str]] = None
     replicationStatus: Optional[ReplicationStatusType] = None
     replicationStatusDetails: Optional[str] = None
-    cfnStackName: Optional[str] = None
-    sourceRegion: Optional[str] = None
-    sourceAccountID: Optional[str] = None
+    cfnStackName: Optional[Annotated[str, _aws_pattern("Drs", "CfnStackName")]] = None
+    sourceRegion: Optional[Annotated[str, _aws_pattern("Drs", "AwsRegion")]] = None
+    sourceAccountID: Optional[Annotated[str, _aws_pattern("Drs", "AccountID")]] = None
     lastRecovery: Optional[RecoveryLifeCycleTypeDef] = None
-    launchedVpcID: Optional[str] = None
+    launchedVpcID: Optional[Annotated[str, _aws_pattern("Drs", "VpcID")]] = None
 
 
 # This class is the output for the 'get_replication_configuration' function.
 class ReplicationConfigurationTypeDef(BaseValidatorModel):
-    sourceServerID: str
+    sourceServerID: Annotated[str, _aws_pattern("Drs", "SourceServerID")]
     name: str
-    stagingAreaSubnetId: str
+    stagingAreaSubnetId: Annotated[str, _aws_pattern("Drs", "SubnetID")]
     associateDefaultSecurityGroup: bool
-    replicationServersSecurityGroupsIDs: List[str]
+    replicationServersSecurityGroupsIDs: List[Annotated[str, _aws_pattern("Drs", "SecurityGroupID")]]
     replicationServerInstanceType: str
     useDedicatedReplicationServer: bool
     defaultLargeStagingDiskType: ReplicationConfigurationDefaultLargeStagingDiskTypeType
     replicatedDisks: List[ReplicationConfigurationReplicatedDiskTypeDef]
     ebsEncryption: ReplicationConfigurationEbsEncryptionType
-    ebsEncryptionKeyArn: str
+    ebsEncryptionKeyArn: Annotated[str, _aws_pattern("Drs", "ARN")]
     bandwidthThrottling: int
     dataPlaneRouting: ReplicationConfigurationDataPlaneRoutingType
     createPublicIP: bool
@@ -909,17 +917,17 @@ class ReplicationConfigurationTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'update_replication_configuration' function.
 class UpdateReplicationConfigurationRequestTypeDef(BaseValidatorModel):
-    sourceServerID: str
+    sourceServerID: Annotated[str, _aws_pattern("Drs", "SourceServerID")]
     name: Optional[str] = None
-    stagingAreaSubnetId: Optional[str] = None
+    stagingAreaSubnetId: Optional[Annotated[str, _aws_pattern("Drs", "SubnetID")]] = None
     associateDefaultSecurityGroup: Optional[bool] = None
-    replicationServersSecurityGroupsIDs: Optional[List[str]] = None
+    replicationServersSecurityGroupsIDs: Optional[List[Annotated[str, _aws_pattern("Drs", "SecurityGroupID")]]] = None
     replicationServerInstanceType: Optional[str] = None
     useDedicatedReplicationServer: Optional[bool] = None
     defaultLargeStagingDiskType: Optional[ReplicationConfigurationDefaultLargeStagingDiskTypeType] = None
     replicatedDisks: Optional[List[ReplicationConfigurationReplicatedDiskTypeDef]] = None
     ebsEncryption: Optional[ReplicationConfigurationEbsEncryptionType] = None
-    ebsEncryptionKeyArn: Optional[str] = None
+    ebsEncryptionKeyArn: Optional[Annotated[str, _aws_pattern("Drs", "ARN")]] = None
     bandwidthThrottling: Optional[int] = None
     dataPlaneRouting: Optional[ReplicationConfigurationDataPlaneRoutingType] = None
     createPublicIP: Optional[bool] = None
@@ -971,19 +979,19 @@ class DescribeReplicationConfigurationTemplatesResponseTypeDef(BaseValidatorMode
 
 class DataReplicationInfoTypeDef(BaseValidatorModel):
     lagDuration: Optional[str] = None
-    etaDateTime: Optional[str] = None
+    etaDateTime: Optional[Annotated[str, _aws_pattern("Drs", "ISO8601DatetimeString")]] = None
     replicatedDisks: Optional[List[DataReplicationInfoReplicatedDiskTypeDef]] = None
     dataReplicationState: Optional[DataReplicationStateType] = None
     dataReplicationInitiation: Optional[DataReplicationInitiationTypeDef] = None
     dataReplicationError: Optional[DataReplicationErrorTypeDef] = None
-    stagingAvailabilityZone: Optional[str] = None
-    stagingOutpostArn: Optional[str] = None
+    stagingAvailabilityZone: Optional[Annotated[str, _aws_pattern("Drs", "AwsAvailabilityZone")]] = None
+    stagingOutpostArn: Optional[Annotated[str, _aws_pattern("Drs", "OutpostARN")]] = None
 
 
 class JobLogEventDataTypeDef(BaseValidatorModel):
-    sourceServerID: Optional[str] = None
-    conversionServerID: Optional[str] = None
-    targetInstanceID: Optional[str] = None
+    sourceServerID: Optional[Annotated[str, _aws_pattern("Drs", "SourceServerID")]] = None
+    conversionServerID: Optional[Annotated[str, _aws_pattern("Drs", "EC2InstanceID")]] = None
+    targetInstanceID: Optional[Annotated[str, _aws_pattern("Drs", "EC2InstanceID")]] = None
     rawError: Optional[str] = None
     conversionProperties: Optional[ConversionPropertiesTypeDef] = None
     eventResourceData: Optional[EventResourceDataTypeDef] = None
@@ -993,9 +1001,9 @@ class JobLogEventDataTypeDef(BaseValidatorModel):
 
 class LaunchActionRunTypeDef(BaseValidatorModel):
     action: Optional[LaunchActionTypeDef] = None
-    runId: Optional[str] = None
+    runId: Optional[Annotated[str, _aws_pattern("Drs", "LaunchActionRunId")]] = None
     status: Optional[LaunchActionRunStatusType] = None
-    failureReason: Optional[str] = None
+    failureReason: Optional[Annotated[str, _aws_pattern("Drs", "FailureReason")]] = None
 
 
 # This class is the output for the 'list_launch_actions' function.
@@ -1006,22 +1014,22 @@ class ListLaunchActionsResponseTypeDef(BaseValidatorModel):
 
 
 class LifeCycleTypeDef(BaseValidatorModel):
-    addedToServiceDateTime: Optional[str] = None
-    firstByteDateTime: Optional[str] = None
+    addedToServiceDateTime: Optional[Annotated[str, _aws_pattern("Drs", "ISO8601DatetimeString")]] = None
+    firstByteDateTime: Optional[Annotated[str, _aws_pattern("Drs", "ISO8601DatetimeString")]] = None
     elapsedReplicationDuration: Optional[str] = None
-    lastSeenByServiceDateTime: Optional[str] = None
+    lastSeenByServiceDateTime: Optional[Annotated[str, _aws_pattern("Drs", "ISO8601DatetimeString")]] = None
     lastLaunch: Optional[LifeCycleLastLaunchTypeDef] = None
 
 
 class RecoveryInstanceDataReplicationInfoTypeDef(BaseValidatorModel):
-    lagDuration: Optional[str] = None
-    etaDateTime: Optional[str] = None
+    lagDuration: Optional[Annotated[str, _aws_pattern("Drs", "ISO8601DatetimeString")]] = None
+    etaDateTime: Optional[Annotated[str, _aws_pattern("Drs", "ISO8601DatetimeString")]] = None
     replicatedDisks: Optional[List[RecoveryInstanceDataReplicationInfoReplicatedDiskTypeDef]] = None
     dataReplicationState: Optional[RecoveryInstanceDataReplicationStateType] = None
     dataReplicationInitiation: Optional[RecoveryInstanceDataReplicationInitiationTypeDef] = None
     dataReplicationError: Optional[RecoveryInstanceDataReplicationErrorTypeDef] = None
-    stagingAvailabilityZone: Optional[str] = None
-    stagingOutpostArn: Optional[str] = None
+    stagingAvailabilityZone: Optional[Annotated[str, _aws_pattern("Drs", "AwsAvailabilityZone")]] = None
+    stagingOutpostArn: Optional[Annotated[str, _aws_pattern("Drs", "OutpostARN")]] = None
 
 
 # This class is the output for the 'describe_source_networks' function.
@@ -1044,13 +1052,13 @@ class StopSourceNetworkReplicationResponseTypeDef(BaseValidatorModel):
 
 
 class JobLogTypeDef(BaseValidatorModel):
-    logDateTime: Optional[str] = None
+    logDateTime: Optional[Annotated[str, _aws_pattern("Drs", "ISO8601DatetimeString")]] = None
     event: Optional[JobLogEventType] = None
     eventData: Optional[JobLogEventDataTypeDef] = None
 
 
 class LaunchActionsStatusTypeDef(BaseValidatorModel):
-    ssmAgentDiscoveryDatetime: Optional[str] = None
+    ssmAgentDiscoveryDatetime: Optional[Annotated[str, _aws_pattern("Drs", "ISO8601DatetimeString")]] = None
     runs: Optional[List[LaunchActionRunTypeDef]] = None
 
 
@@ -1074,10 +1082,10 @@ class SourceServerResponseTypeDef(BaseValidatorModel):
 
 
 class SourceServerTypeDef(BaseValidatorModel):
-    sourceServerID: Optional[str] = None
-    arn: Optional[str] = None
+    sourceServerID: Optional[Annotated[str, _aws_pattern("Drs", "SourceServerID")]] = None
+    arn: Optional[Annotated[str, _aws_pattern("Drs", "ARN")]] = None
     tags: Optional[Dict[str, str]] = None
-    recoveryInstanceId: Optional[str] = None
+    recoveryInstanceId: Optional[Annotated[str, _aws_pattern("Drs", "RecoveryInstanceID")]] = None
     lastLaunchResult: Optional[LastLaunchResultType] = None
     dataReplicationInfo: Optional[DataReplicationInfoTypeDef] = None
     lifeCycle: Optional[LifeCycleTypeDef] = None
@@ -1085,28 +1093,28 @@ class SourceServerTypeDef(BaseValidatorModel):
     stagingArea: Optional[StagingAreaTypeDef] = None
     sourceCloudProperties: Optional[SourceCloudPropertiesTypeDef] = None
     replicationDirection: Optional[ReplicationDirectionType] = None
-    reversedDirectionSourceServerArn: Optional[str] = None
-    sourceNetworkID: Optional[str] = None
-    agentVersion: Optional[str] = None
+    reversedDirectionSourceServerArn: Optional[Annotated[str, _aws_pattern("Drs", "SourceServerARN")]] = None
+    sourceNetworkID: Optional[Annotated[str, _aws_pattern("Drs", "SourceNetworkID")]] = None
+    agentVersion: Optional[Annotated[str, _aws_pattern("Drs", "AgentVersion")]] = None
 
 
 class RecoveryInstanceTypeDef(BaseValidatorModel):
-    ec2InstanceID: Optional[str] = None
+    ec2InstanceID: Optional[Annotated[str, _aws_pattern("Drs", "EC2InstanceID")]] = None
     ec2InstanceState: Optional[EC2InstanceStateType] = None
-    jobID: Optional[str] = None
-    recoveryInstanceID: Optional[str] = None
-    sourceServerID: Optional[str] = None
-    arn: Optional[str] = None
+    jobID: Optional[Annotated[str, _aws_pattern("Drs", "JobID")]] = None
+    recoveryInstanceID: Optional[Annotated[str, _aws_pattern("Drs", "RecoveryInstanceID")]] = None
+    sourceServerID: Optional[Annotated[str, _aws_pattern("Drs", "SourceServerID")]] = None
+    arn: Optional[Annotated[str, _aws_pattern("Drs", "ARN")]] = None
     tags: Optional[Dict[str, str]] = None
     failback: Optional[RecoveryInstanceFailbackTypeDef] = None
     dataReplicationInfo: Optional[RecoveryInstanceDataReplicationInfoTypeDef] = None
     recoveryInstanceProperties: Optional[RecoveryInstancePropertiesTypeDef] = None
-    pointInTimeSnapshotDateTime: Optional[str] = None
+    pointInTimeSnapshotDateTime: Optional[Annotated[str, _aws_pattern("Drs", "ISO8601DatetimeString")]] = None
     isDrill: Optional[bool] = None
     originEnvironment: Optional[OriginEnvironmentType] = None
-    originAvailabilityZone: Optional[str] = None
-    agentVersion: Optional[str] = None
-    sourceOutpostArn: Optional[str] = None
+    originAvailabilityZone: Optional[Annotated[str, _aws_pattern("Drs", "AwsAvailabilityZone")]] = None
+    agentVersion: Optional[Annotated[str, _aws_pattern("Drs", "AgentVersion")]] = None
+    sourceOutpostArn: Optional[Annotated[str, _aws_pattern("Drs", "OutpostARN")]] = None
 
 
 # This class is the output for the 'describe_job_log_items' function.
@@ -1117,8 +1125,8 @@ class DescribeJobLogItemsResponseTypeDef(BaseValidatorModel):
 
 
 class ParticipatingServerTypeDef(BaseValidatorModel):
-    sourceServerID: Optional[str] = None
-    recoveryInstanceID: Optional[str] = None
+    sourceServerID: Optional[Annotated[str, _aws_pattern("Drs", "SourceServerID")]] = None
+    recoveryInstanceID: Optional[Annotated[str, _aws_pattern("Drs", "RecoveryInstanceID")]] = None
     launchStatus: Optional[LaunchStatusType] = None
     launchActionsStatus: Optional[LaunchActionsStatusTypeDef] = None
 
@@ -1156,12 +1164,12 @@ class DescribeRecoveryInstancesResponseTypeDef(BaseValidatorModel):
 
 
 class JobTypeDef(BaseValidatorModel):
-    jobID: str
-    arn: Optional[str] = None
+    jobID: Annotated[str, _aws_pattern("Drs", "JobID")]
+    arn: Optional[Annotated[str, _aws_pattern("Drs", "ARN")]] = None
     type: Optional[JobTypeType] = None
     initiatedBy: Optional[InitiatedByType] = None
-    creationDateTime: Optional[str] = None
-    endDateTime: Optional[str] = None
+    creationDateTime: Optional[Annotated[str, _aws_pattern("Drs", "ISO8601DatetimeString")]] = None
+    endDateTime: Optional[Annotated[str, _aws_pattern("Drs", "ISO8601DatetimeString")]] = None
     status: Optional[JobStatusType] = None
     participatingServers: Optional[List[ParticipatingServerTypeDef]] = None
     tags: Optional[Dict[str, str]] = None

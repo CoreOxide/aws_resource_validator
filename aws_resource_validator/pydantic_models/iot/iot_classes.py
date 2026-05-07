@@ -3,6 +3,7 @@
 from datetime import datetime
 from decimal import Decimal
 from typing import (
+    Annotated,
     Any,
     Callable,
     Dict,
@@ -24,6 +25,7 @@ from botocore.response import StreamingBody
 from pydantic import Field
 
 from aws_resource_validator.core.base_validator_model import BaseValidatorModel, EventStream
+from aws_resource_validator.core.pattern_validation import aws_field_pattern as _aws_pattern
 from aws_resource_validator.pydantic_models.iot.iot_constants import *  # noqa: F401,F403
 
 # Optional boto3 symbols — imported lazily so services that don't need them
@@ -47,7 +49,7 @@ class AbortCriteriaTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'accept_certificate_transfer' function.
 class AcceptCertificateTransferRequestTypeDef(BaseValidatorModel):
-    certificateId: str
+    certificateId: Annotated[str, _aws_pattern("Iot", "CertificateId")]
     setAsActive: Optional[bool] = None
 
 
@@ -88,7 +90,7 @@ class DynamoDBActionTypeDef(BaseValidatorModel):
 
 class ElasticsearchActionTypeDef(BaseValidatorModel):
     roleArn: str
-    endpoint: str
+    endpoint: Annotated[str, _aws_pattern("Iot", "ElasticsearchEndpoint")]
     index: str
     type: str
     id: str
@@ -97,7 +99,7 @@ class ElasticsearchActionTypeDef(BaseValidatorModel):
 class FirehoseActionTypeDef(BaseValidatorModel):
     roleArn: str
     deliveryStreamName: str
-    separator: Optional[str] = None
+    separator: Optional[Annotated[str, _aws_pattern("Iot", "FirehoseSeparator")]] = None
     batchMode: Optional[bool] = None
 
 
@@ -127,7 +129,7 @@ class LambdaActionTypeDef(BaseValidatorModel):
 
 class OpenSearchActionTypeDef(BaseValidatorModel):
     roleArn: str
-    endpoint: str
+    endpoint: Annotated[str, _aws_pattern("Iot", "ElasticsearchEndpoint")]
     index: str
     type: str
     id: str
@@ -142,7 +144,7 @@ class S3ActionTypeDef(BaseValidatorModel):
 
 class SalesforceActionTypeDef(BaseValidatorModel):
     token: str
-    url: str
+    url: Annotated[str, _aws_pattern("Iot", "SalesforceEndpoint")]
 
 
 class SnsActionTypeDef(BaseValidatorModel):
@@ -177,16 +179,16 @@ class ViolationEventAdditionalInfoTypeDef(BaseValidatorModel):
 
 
 class AddThingToBillingGroupRequestTypeDef(BaseValidatorModel):
-    billingGroupName: Optional[str] = None
+    billingGroupName: Optional[Annotated[str, _aws_pattern("Iot", "BillingGroupName")]] = None
     billingGroupArn: Optional[str] = None
-    thingName: Optional[str] = None
+    thingName: Optional[Annotated[str, _aws_pattern("Iot", "ThingName")]] = None
     thingArn: Optional[str] = None
 
 
 class AddThingToThingGroupRequestTypeDef(BaseValidatorModel):
-    thingGroupName: Optional[str] = None
+    thingGroupName: Optional[Annotated[str, _aws_pattern("Iot", "ThingGroupName")]] = None
     thingGroupArn: Optional[str] = None
-    thingName: Optional[str] = None
+    thingName: Optional[Annotated[str, _aws_pattern("Iot", "ThingName")]] = None
     thingArn: Optional[str] = None
     overrideDynamicGroups: Optional[bool] = None
 
@@ -197,7 +199,7 @@ class AddThingsToThingGroupParamsOutputTypeDef(BaseValidatorModel):
 
 
 class AddThingsToThingGroupParamsTypeDef(BaseValidatorModel):
-    thingGroupNames: List[str]
+    thingGroupNames: List[Annotated[str, _aws_pattern("Iot", "ThingGroupName")]]
     overrideDynamicGroups: Optional[bool] = None
 
 
@@ -208,7 +210,7 @@ class AggregationTypeOutputTypeDef(BaseValidatorModel):
 
 class AggregationTypeTypeDef(BaseValidatorModel):
     name: AggregationTypeNameType
-    values: Optional[List[str]] = None
+    values: Optional[List[Annotated[str, _aws_pattern("Iot", "AggregationTypeValue")]]] = None
 
 
 class AlertTargetTypeDef(BaseValidatorModel):
@@ -217,7 +219,7 @@ class AlertTargetTypeDef(BaseValidatorModel):
 
 
 class PolicyTypeDef(BaseValidatorModel):
-    policyName: Optional[str] = None
+    policyName: Optional[Annotated[str, _aws_pattern("Iot", "PolicyName")]] = None
     policyArn: Optional[str] = None
 
 
@@ -244,30 +246,30 @@ class ResponseMetadataTypeDef(BaseValidatorModel):
 # This class is the input for the 'associate_targets_with_job' function.
 class AssociateTargetsWithJobRequestTypeDef(BaseValidatorModel):
     targets: List[str]
-    jobId: str
-    comment: Optional[str] = None
-    namespaceId: Optional[str] = None
+    jobId: Annotated[str, _aws_pattern("Iot", "JobId")]
+    comment: Optional[Annotated[str, _aws_pattern("Iot", "Comment")]] = None
+    namespaceId: Optional[Annotated[str, _aws_pattern("Iot", "NamespaceId")]] = None
 
 
 # This class is the input for the 'attach_policy' function.
 class AttachPolicyRequestTypeDef(BaseValidatorModel):
-    policyName: str
+    policyName: Annotated[str, _aws_pattern("Iot", "PolicyName")]
     target: str
 
 
 # This class is the input for the 'attach_principal_policy' function.
 class AttachPrincipalPolicyRequestTypeDef(BaseValidatorModel):
-    policyName: str
+    policyName: Annotated[str, _aws_pattern("Iot", "PolicyName")]
     principal: str
 
 
 class AttachSecurityProfileRequestTypeDef(BaseValidatorModel):
-    securityProfileName: str
+    securityProfileName: Annotated[str, _aws_pattern("Iot", "SecurityProfileName")]
     securityProfileTargetArn: str
 
 
 class AttachThingPrincipalRequestTypeDef(BaseValidatorModel):
-    thingName: str
+    thingName: Annotated[str, _aws_pattern("Iot", "ThingName")]
     principal: str
     thingPrincipalType: Optional[ThingPrincipalTypeType] = None
 
@@ -303,9 +305,9 @@ class AuditCheckDetailsTypeDef(BaseValidatorModel):
 
 
 class AuditMitigationActionExecutionMetadataTypeDef(BaseValidatorModel):
-    taskId: Optional[str] = None
-    findingId: Optional[str] = None
-    actionName: Optional[str] = None
+    taskId: Optional[Annotated[str, _aws_pattern("Iot", "MitigationActionsTaskId")]] = None
+    findingId: Optional[Annotated[str, _aws_pattern("Iot", "FindingId")]] = None
+    actionName: Optional[Annotated[str, _aws_pattern("Iot", "MitigationActionName")]] = None
     actionId: Optional[str] = None
     status: Optional[AuditMitigationActionsExecutionStatusType] = None
     startTime: Optional[datetime] = None
@@ -315,7 +317,7 @@ class AuditMitigationActionExecutionMetadataTypeDef(BaseValidatorModel):
 
 
 class AuditMitigationActionsTaskMetadataTypeDef(BaseValidatorModel):
-    taskId: Optional[str] = None
+    taskId: Optional[Annotated[str, _aws_pattern("Iot", "MitigationActionsTaskId")]] = None
     startTime: Optional[datetime] = None
     taskStatus: Optional[AuditMitigationActionsTaskStatusType] = None
 
@@ -327,8 +329,8 @@ class AuditMitigationActionsTaskTargetOutputTypeDef(BaseValidatorModel):
 
 
 class AuditMitigationActionsTaskTargetTypeDef(BaseValidatorModel):
-    auditTaskId: Optional[str] = None
-    findingIds: Optional[List[str]] = None
+    auditTaskId: Optional[Annotated[str, _aws_pattern("Iot", "AuditTaskId")]] = None
+    findingIds: Optional[List[Annotated[str, _aws_pattern("Iot", "FindingId")]]] = None
     auditCheckToReasonCodeFilter: Optional[Dict[str, List[str]]] = None
 
 
@@ -339,7 +341,7 @@ class AuditNotificationTargetTypeDef(BaseValidatorModel):
 
 
 class AuditTaskMetadataTypeDef(BaseValidatorModel):
-    taskId: Optional[str] = None
+    taskId: Optional[Annotated[str, _aws_pattern("Iot", "AuditTaskId")]] = None
     taskStatus: Optional[AuditTaskStatusType] = None
     taskType: Optional[AuditTaskTypeType] = None
 
@@ -350,20 +352,20 @@ class AuthInfoOutputTypeDef(BaseValidatorModel):
 
 
 class AuthInfoTypeDef(BaseValidatorModel):
-    resources: List[str]
+    resources: List[Annotated[str, _aws_pattern("Iot", "Resource")]]
     actionType: Optional[ActionTypeType] = None
 
 
 class AuthorizerConfigTypeDef(BaseValidatorModel):
-    defaultAuthorizerName: Optional[str] = None
+    defaultAuthorizerName: Optional[Annotated[str, _aws_pattern("Iot", "AuthorizerName")]] = None
     allowAuthorizerOverride: Optional[bool] = None
 
 
 class AuthorizerDescriptionTypeDef(BaseValidatorModel):
-    authorizerName: Optional[str] = None
+    authorizerName: Optional[Annotated[str, _aws_pattern("Iot", "AuthorizerName")]] = None
     authorizerArn: Optional[str] = None
-    authorizerFunctionArn: Optional[str] = None
-    tokenKeyName: Optional[str] = None
+    authorizerFunctionArn: Optional[Annotated[str, _aws_pattern("Iot", "AuthorizerFunctionArn")]] = None
+    tokenKeyName: Optional[Annotated[str, _aws_pattern("Iot", "TokenKeyName")]] = None
     tokenSigningPublicKeys: Optional[Dict[str, str]] = None
     status: Optional[AuthorizerStatusType] = None
     creationDate: Optional[datetime] = None
@@ -373,7 +375,7 @@ class AuthorizerDescriptionTypeDef(BaseValidatorModel):
 
 
 class AuthorizerSummaryTypeDef(BaseValidatorModel):
-    authorizerName: Optional[str] = None
+    authorizerName: Optional[Annotated[str, _aws_pattern("Iot", "AuthorizerName")]] = None
     authorizerArn: Optional[str] = None
 
 
@@ -405,6 +407,7 @@ class BatchConfigTypeDef(BaseValidatorModel):
     maxBatchOpenMs: Optional[int] = None
     maxBatchSize: Optional[int] = None
     maxBatchSizeBytes: Optional[int] = None
+    batchAcrossTopics: Optional[bool] = None
 
 
 class MachineLearningDetectionConfigTypeDef(BaseValidatorModel):
@@ -412,12 +415,12 @@ class MachineLearningDetectionConfigTypeDef(BaseValidatorModel):
 
 
 class StatisticalThresholdTypeDef(BaseValidatorModel):
-    statistic: Optional[str] = None
+    statistic: Optional[Annotated[str, _aws_pattern("Iot", "EvaluationStatistic")]] = None
 
 
 class BehaviorModelTrainingSummaryTypeDef(BaseValidatorModel):
-    securityProfileName: Optional[str] = None
-    behaviorName: Optional[str] = None
+    securityProfileName: Optional[Annotated[str, _aws_pattern("Iot", "SecurityProfileName")]] = None
+    behaviorName: Optional[Annotated[str, _aws_pattern("Iot", "BehaviorName")]] = None
     trainingDataCollectionStartDate: Optional[datetime] = None
     modelStatus: Optional[ModelStatusType] = None
     datapointsCollectionPercentage: Optional[float] = None
@@ -425,7 +428,7 @@ class BehaviorModelTrainingSummaryTypeDef(BaseValidatorModel):
 
 
 class MetricDimensionTypeDef(BaseValidatorModel):
-    dimensionName: str
+    dimensionName: Annotated[str, _aws_pattern("Iot", "DimensionName")]
     operator: Optional[DimensionValueOperatorType] = None
 
 
@@ -434,7 +437,7 @@ class BillingGroupMetadataTypeDef(BaseValidatorModel):
 
 
 class BillingGroupPropertiesTypeDef(BaseValidatorModel):
-    billingGroupDescription: Optional[str] = None
+    billingGroupDescription: Optional[Annotated[str, _aws_pattern("Iot", "BillingGroupDescription")]] = None
 
 
 BlobTypeDef = Union[IO[Any], StreamingBody, bytes, str]
@@ -456,32 +459,32 @@ class CertificateValidityTypeDef(BaseValidatorModel):
 
 class CACertificateTypeDef(BaseValidatorModel):
     certificateArn: Optional[str] = None
-    certificateId: Optional[str] = None
+    certificateId: Optional[Annotated[str, _aws_pattern("Iot", "CertificateId")]] = None
     status: Optional[CACertificateStatusType] = None
     creationDate: Optional[datetime] = None
 
 
 class CancelAuditMitigationActionsTaskRequestTypeDef(BaseValidatorModel):
-    taskId: str
+    taskId: Annotated[str, _aws_pattern("Iot", "MitigationActionsTaskId")]
 
 
 class CancelAuditTaskRequestTypeDef(BaseValidatorModel):
-    taskId: str
+    taskId: Annotated[str, _aws_pattern("Iot", "AuditTaskId")]
 
 
 # This class is the input for the 'cancel_certificate_transfer' function.
 class CancelCertificateTransferRequestTypeDef(BaseValidatorModel):
-    certificateId: str
+    certificateId: Annotated[str, _aws_pattern("Iot", "CertificateId")]
 
 
 class CancelDetectMitigationActionsTaskRequestTypeDef(BaseValidatorModel):
-    taskId: str
+    taskId: Annotated[str, _aws_pattern("Iot", "MitigationActionsTaskId")]
 
 
 # This class is the input for the 'cancel_job_execution' function.
 class CancelJobExecutionRequestTypeDef(BaseValidatorModel):
-    jobId: str
-    thingName: str
+    jobId: Annotated[str, _aws_pattern("Iot", "JobId")]
+    thingName: Annotated[str, _aws_pattern("Iot", "ThingName")]
     force: Optional[bool] = None
     expectedVersion: Optional[int] = None
     statusDetails: Optional[Dict[str, str]] = None
@@ -489,35 +492,35 @@ class CancelJobExecutionRequestTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'cancel_job' function.
 class CancelJobRequestTypeDef(BaseValidatorModel):
-    jobId: str
-    reasonCode: Optional[str] = None
-    comment: Optional[str] = None
+    jobId: Annotated[str, _aws_pattern("Iot", "JobId")]
+    reasonCode: Optional[Annotated[str, _aws_pattern("Iot", "ReasonCode")]] = None
+    comment: Optional[Annotated[str, _aws_pattern("Iot", "Comment")]] = None
     force: Optional[bool] = None
 
 
 class TransferDataTypeDef(BaseValidatorModel):
-    transferMessage: Optional[str] = None
-    rejectReason: Optional[str] = None
+    transferMessage: Optional[Annotated[str, _aws_pattern("Iot", "Message")]] = None
+    rejectReason: Optional[Annotated[str, _aws_pattern("Iot", "Message")]] = None
     transferDate: Optional[datetime] = None
     acceptDate: Optional[datetime] = None
     rejectDate: Optional[datetime] = None
 
 
 class CertificateProviderSummaryTypeDef(BaseValidatorModel):
-    certificateProviderName: Optional[str] = None
+    certificateProviderName: Optional[Annotated[str, _aws_pattern("Iot", "CertificateProviderName")]] = None
     certificateProviderArn: Optional[str] = None
 
 
 class CertificateTypeDef(BaseValidatorModel):
     certificateArn: Optional[str] = None
-    certificateId: Optional[str] = None
+    certificateId: Optional[Annotated[str, _aws_pattern("Iot", "CertificateId")]] = None
     status: Optional[CertificateStatusType] = None
     certificateMode: Optional[CertificateModeType] = None
     creationDate: Optional[datetime] = None
 
 
 class ClientCertificateConfigTypeDef(BaseValidatorModel):
-    clientCertificateCallbackArn: Optional[str] = None
+    clientCertificateCallbackArn: Optional[Annotated[str, _aws_pattern("Iot", "ClientCertificateCallbackArn")]] = None
 
 
 class CodeSigningCertificateChainTypeDef(BaseValidatorModel):
@@ -537,7 +540,7 @@ class CommandExecutionResultTypeDef(BaseValidatorModel):
 
 class CommandExecutionSummaryTypeDef(BaseValidatorModel):
     commandArn: Optional[str] = None
-    executionId: Optional[str] = None
+    executionId: Optional[Annotated[str, _aws_pattern("Iot", "CommandExecutionId")]] = None
     targetArn: Optional[str] = None
     status: Optional[CommandExecutionStatusType] = None
     createdAt: Optional[datetime] = None
@@ -567,8 +570,8 @@ class CommandPayloadOutputTypeDef(BaseValidatorModel):
 
 class CommandSummaryTypeDef(BaseValidatorModel):
     commandArn: Optional[str] = None
-    commandId: Optional[str] = None
-    displayName: Optional[str] = None
+    commandId: Optional[Annotated[str, _aws_pattern("Iot", "CommandId")]] = None
+    displayName: Optional[Annotated[str, _aws_pattern("Iot", "DisplayName")]] = None
     deprecated: Optional[bool] = None
     createdAt: Optional[datetime] = None
     lastUpdatedAt: Optional[datetime] = None
@@ -593,24 +596,24 @@ TimestampTypeDef = Union[datetime, str]
 
 
 class TagTypeDef(BaseValidatorModel):
-    Key: str
+    Key: Annotated[str, _aws_pattern("Iot", "TagKey")]
     Value: Optional[str] = None
 
 
 # This class is the input for the 'create_certificate_from_csr' function.
 class CreateCertificateFromCsrRequestTypeDef(BaseValidatorModel):
-    certificateSigningRequest: str
+    certificateSigningRequest: Annotated[str, _aws_pattern("Iot", "CertificateSigningRequest")]
     setAsActive: Optional[bool] = None
 
 
 class ServerCertificateConfigTypeDef(BaseValidatorModel):
     enableOCSPCheck: Optional[bool] = None
     ocspLambdaArn: Optional[str] = None
-    ocspAuthorizedResponderArn: Optional[str] = None
+    ocspAuthorizedResponderArn: Optional[Annotated[str, _aws_pattern("Iot", "AcmCertificateArn")]] = None
 
 
 class TlsConfigTypeDef(BaseValidatorModel):
-    securityPolicy: Optional[str] = None
+    securityPolicy: Optional[Annotated[str, _aws_pattern("Iot", "SecurityPolicy")]] = None
 
 
 class PresignedUrlConfigTypeDef(BaseValidatorModel):
@@ -639,33 +642,33 @@ class KeyPairTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'create_package' function.
 class CreatePackageRequestTypeDef(BaseValidatorModel):
-    packageName: str
-    description: Optional[str] = None
+    packageName: Annotated[str, _aws_pattern("Iot", "PackageName")]
+    description: Optional[Annotated[str, _aws_pattern("Iot", "ResourceDescription")]] = None
     tags: Optional[Dict[str, str]] = None
-    clientToken: Optional[str] = None
+    clientToken: Optional[Annotated[str, _aws_pattern("Iot", "ClientToken")]] = None
 
 
 # This class is the input for the 'create_policy_version' function.
 class CreatePolicyVersionRequestTypeDef(BaseValidatorModel):
-    policyName: str
-    policyDocument: str
+    policyName: Annotated[str, _aws_pattern("Iot", "PolicyName")]
+    policyDocument: Annotated[str, _aws_pattern("Iot", "PolicyDocument")]
     setAsDefault: Optional[bool] = None
 
 
 # This class is the input for the 'create_provisioning_claim' function.
 class CreateProvisioningClaimRequestTypeDef(BaseValidatorModel):
-    templateName: str
+    templateName: Annotated[str, _aws_pattern("Iot", "TemplateName")]
 
 
 class ProvisioningHookTypeDef(BaseValidatorModel):
     targetArn: str
-    payloadVersion: Optional[str] = None
+    payloadVersion: Optional[Annotated[str, _aws_pattern("Iot", "PayloadVersion")]] = None
 
 
 # This class is the input for the 'create_provisioning_template_version' function.
 class CreateProvisioningTemplateVersionRequestTypeDef(BaseValidatorModel):
-    templateName: str
-    templateBody: str
+    templateName: Annotated[str, _aws_pattern("Iot", "TemplateName")]
+    templateBody: Annotated[str, _aws_pattern("Iot", "TemplateBody")]
     setAsDefault: Optional[bool] = None
 
 
@@ -679,152 +682,152 @@ class DeleteAccountAuditConfigurationRequestTypeDef(BaseValidatorModel):
 
 
 class DeleteAuthorizerRequestTypeDef(BaseValidatorModel):
-    authorizerName: str
+    authorizerName: Annotated[str, _aws_pattern("Iot", "AuthorizerName")]
 
 
 class DeleteBillingGroupRequestTypeDef(BaseValidatorModel):
-    billingGroupName: str
+    billingGroupName: Annotated[str, _aws_pattern("Iot", "BillingGroupName")]
     expectedVersion: Optional[int] = None
 
 
 class DeleteCACertificateRequestTypeDef(BaseValidatorModel):
-    certificateId: str
+    certificateId: Annotated[str, _aws_pattern("Iot", "CertificateId")]
 
 
 class DeleteCertificateProviderRequestTypeDef(BaseValidatorModel):
-    certificateProviderName: str
+    certificateProviderName: Annotated[str, _aws_pattern("Iot", "CertificateProviderName")]
 
 
 # This class is the input for the 'delete_certificate' function.
 class DeleteCertificateRequestTypeDef(BaseValidatorModel):
-    certificateId: str
+    certificateId: Annotated[str, _aws_pattern("Iot", "CertificateId")]
     forceDelete: Optional[bool] = None
 
 
 class DeleteCommandExecutionRequestTypeDef(BaseValidatorModel):
-    executionId: str
+    executionId: Annotated[str, _aws_pattern("Iot", "CommandExecutionId")]
     targetArn: str
 
 
 # This class is the input for the 'delete_command' function.
 class DeleteCommandRequestTypeDef(BaseValidatorModel):
-    commandId: str
+    commandId: Annotated[str, _aws_pattern("Iot", "CommandId")]
 
 
 class DeleteCustomMetricRequestTypeDef(BaseValidatorModel):
-    metricName: str
+    metricName: Annotated[str, _aws_pattern("Iot", "MetricName")]
 
 
 class DeleteDimensionRequestTypeDef(BaseValidatorModel):
-    name: str
+    name: Annotated[str, _aws_pattern("Iot", "DimensionName")]
 
 
 class DeleteDomainConfigurationRequestTypeDef(BaseValidatorModel):
-    domainConfigurationName: str
+    domainConfigurationName: Annotated[str, _aws_pattern("Iot", "DomainConfigurationName")]
 
 
 class DeleteDynamicThingGroupRequestTypeDef(BaseValidatorModel):
-    thingGroupName: str
+    thingGroupName: Annotated[str, _aws_pattern("Iot", "ThingGroupName")]
     expectedVersion: Optional[int] = None
 
 
 # This class is the input for the 'delete_fleet_metric' function.
 class DeleteFleetMetricRequestTypeDef(BaseValidatorModel):
-    metricName: str
+    metricName: Annotated[str, _aws_pattern("Iot", "FleetMetricName")]
     expectedVersion: Optional[int] = None
 
 
 # This class is the input for the 'delete_job_execution' function.
 class DeleteJobExecutionRequestTypeDef(BaseValidatorModel):
-    jobId: str
-    thingName: str
+    jobId: Annotated[str, _aws_pattern("Iot", "JobId")]
+    thingName: Annotated[str, _aws_pattern("Iot", "ThingName")]
     executionNumber: int
     force: Optional[bool] = None
-    namespaceId: Optional[str] = None
+    namespaceId: Optional[Annotated[str, _aws_pattern("Iot", "NamespaceId")]] = None
 
 
 # This class is the input for the 'delete_job' function.
 class DeleteJobRequestTypeDef(BaseValidatorModel):
-    jobId: str
+    jobId: Annotated[str, _aws_pattern("Iot", "JobId")]
     force: Optional[bool] = None
-    namespaceId: Optional[str] = None
+    namespaceId: Optional[Annotated[str, _aws_pattern("Iot", "NamespaceId")]] = None
 
 
 # This class is the input for the 'delete_job_template' function.
 class DeleteJobTemplateRequestTypeDef(BaseValidatorModel):
-    jobTemplateId: str
+    jobTemplateId: Annotated[str, _aws_pattern("Iot", "JobTemplateId")]
 
 
 class DeleteMitigationActionRequestTypeDef(BaseValidatorModel):
-    actionName: str
+    actionName: Annotated[str, _aws_pattern("Iot", "MitigationActionName")]
 
 
 class DeleteOTAUpdateRequestTypeDef(BaseValidatorModel):
-    otaUpdateId: str
+    otaUpdateId: Annotated[str, _aws_pattern("Iot", "OTAUpdateId")]
     deleteStream: Optional[bool] = None
     forceDeleteAWSJob: Optional[bool] = None
 
 
 class DeletePackageRequestTypeDef(BaseValidatorModel):
-    packageName: str
-    clientToken: Optional[str] = None
+    packageName: Annotated[str, _aws_pattern("Iot", "PackageName")]
+    clientToken: Optional[Annotated[str, _aws_pattern("Iot", "ClientToken")]] = None
 
 
 class DeletePackageVersionRequestTypeDef(BaseValidatorModel):
-    packageName: str
-    versionName: str
-    clientToken: Optional[str] = None
+    packageName: Annotated[str, _aws_pattern("Iot", "PackageName")]
+    versionName: Annotated[str, _aws_pattern("Iot", "VersionName")]
+    clientToken: Optional[Annotated[str, _aws_pattern("Iot", "ClientToken")]] = None
 
 
 # This class is the input for the 'delete_policy' function.
 class DeletePolicyRequestTypeDef(BaseValidatorModel):
-    policyName: str
+    policyName: Annotated[str, _aws_pattern("Iot", "PolicyName")]
 
 
 # This class is the input for the 'delete_policy_version' function.
 class DeletePolicyVersionRequestTypeDef(BaseValidatorModel):
-    policyName: str
-    policyVersionId: str
+    policyName: Annotated[str, _aws_pattern("Iot", "PolicyName")]
+    policyVersionId: Annotated[str, _aws_pattern("Iot", "PolicyVersionId")]
 
 
 class DeleteProvisioningTemplateRequestTypeDef(BaseValidatorModel):
-    templateName: str
+    templateName: Annotated[str, _aws_pattern("Iot", "TemplateName")]
 
 
 class DeleteProvisioningTemplateVersionRequestTypeDef(BaseValidatorModel):
-    templateName: str
+    templateName: Annotated[str, _aws_pattern("Iot", "TemplateName")]
     versionId: int
 
 
 class DeleteRoleAliasRequestTypeDef(BaseValidatorModel):
-    roleAlias: str
+    roleAlias: Annotated[str, _aws_pattern("Iot", "RoleAlias")]
 
 
 class DeleteScheduledAuditRequestTypeDef(BaseValidatorModel):
-    scheduledAuditName: str
+    scheduledAuditName: Annotated[str, _aws_pattern("Iot", "ScheduledAuditName")]
 
 
 class DeleteSecurityProfileRequestTypeDef(BaseValidatorModel):
-    securityProfileName: str
+    securityProfileName: Annotated[str, _aws_pattern("Iot", "SecurityProfileName")]
     expectedVersion: Optional[int] = None
 
 
 class DeleteStreamRequestTypeDef(BaseValidatorModel):
-    streamId: str
+    streamId: Annotated[str, _aws_pattern("Iot", "StreamId")]
 
 
 class DeleteThingGroupRequestTypeDef(BaseValidatorModel):
-    thingGroupName: str
+    thingGroupName: Annotated[str, _aws_pattern("Iot", "ThingGroupName")]
     expectedVersion: Optional[int] = None
 
 
 class DeleteThingRequestTypeDef(BaseValidatorModel):
-    thingName: str
+    thingName: Annotated[str, _aws_pattern("Iot", "ThingName")]
     expectedVersion: Optional[int] = None
 
 
 class DeleteThingTypeRequestTypeDef(BaseValidatorModel):
-    thingTypeName: str
+    thingTypeName: Annotated[str, _aws_pattern("Iot", "ThingTypeName")]
 
 
 class DeleteTopicRuleDestinationRequestTypeDef(BaseValidatorModel):
@@ -833,7 +836,7 @@ class DeleteTopicRuleDestinationRequestTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'delete_topic_rule' function.
 class DeleteTopicRuleRequestTypeDef(BaseValidatorModel):
-    ruleName: str
+    ruleName: Annotated[str, _aws_pattern("Iot", "RuleName")]
 
 
 # This class is the input for the 'delete_v2_logging_level' function.
@@ -843,18 +846,18 @@ class DeleteV2LoggingLevelRequestTypeDef(BaseValidatorModel):
 
 
 class DeprecateThingTypeRequestTypeDef(BaseValidatorModel):
-    thingTypeName: str
+    thingTypeName: Annotated[str, _aws_pattern("Iot", "ThingTypeName")]
     undoDeprecate: Optional[bool] = None
 
 
 # This class is the input for the 'describe_audit_finding' function.
 class DescribeAuditFindingRequestTypeDef(BaseValidatorModel):
-    findingId: str
+    findingId: Annotated[str, _aws_pattern("Iot", "FindingId")]
 
 
 # This class is the input for the 'describe_audit_mitigation_actions_task' function.
 class DescribeAuditMitigationActionsTaskRequestTypeDef(BaseValidatorModel):
-    taskId: str
+    taskId: Annotated[str, _aws_pattern("Iot", "MitigationActionsTaskId")]
 
 
 class TaskStatisticsForAuditCheckTypeDef(BaseValidatorModel):
@@ -867,7 +870,7 @@ class TaskStatisticsForAuditCheckTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'describe_audit_task' function.
 class DescribeAuditTaskRequestTypeDef(BaseValidatorModel):
-    taskId: str
+    taskId: Annotated[str, _aws_pattern("Iot", "AuditTaskId")]
 
 
 class TaskStatisticsTypeDef(BaseValidatorModel):
@@ -882,134 +885,134 @@ class TaskStatisticsTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'describe_authorizer' function.
 class DescribeAuthorizerRequestTypeDef(BaseValidatorModel):
-    authorizerName: str
+    authorizerName: Annotated[str, _aws_pattern("Iot", "AuthorizerName")]
 
 
 # This class is the input for the 'describe_billing_group' function.
 class DescribeBillingGroupRequestTypeDef(BaseValidatorModel):
-    billingGroupName: str
+    billingGroupName: Annotated[str, _aws_pattern("Iot", "BillingGroupName")]
 
 
 # This class is the input for the 'describe_ca_certificate' function.
 class DescribeCACertificateRequestTypeDef(BaseValidatorModel):
-    certificateId: str
+    certificateId: Annotated[str, _aws_pattern("Iot", "CertificateId")]
 
 
 class RegistrationConfigTypeDef(BaseValidatorModel):
-    templateBody: Optional[str] = None
+    templateBody: Optional[Annotated[str, _aws_pattern("Iot", "TemplateBody")]] = None
     roleArn: Optional[str] = None
-    templateName: Optional[str] = None
+    templateName: Optional[Annotated[str, _aws_pattern("Iot", "TemplateName")]] = None
 
 
 # This class is the input for the 'describe_certificate_provider' function.
 class DescribeCertificateProviderRequestTypeDef(BaseValidatorModel):
-    certificateProviderName: str
+    certificateProviderName: Annotated[str, _aws_pattern("Iot", "CertificateProviderName")]
 
 
 # This class is the input for the 'describe_certificate' function.
 class DescribeCertificateRequestTypeDef(BaseValidatorModel):
-    certificateId: str
+    certificateId: Annotated[str, _aws_pattern("Iot", "CertificateId")]
 
 
 # This class is the input for the 'describe_custom_metric' function.
 class DescribeCustomMetricRequestTypeDef(BaseValidatorModel):
-    metricName: str
+    metricName: Annotated[str, _aws_pattern("Iot", "MetricName")]
 
 
 # This class is the input for the 'describe_detect_mitigation_actions_task' function.
 class DescribeDetectMitigationActionsTaskRequestTypeDef(BaseValidatorModel):
-    taskId: str
+    taskId: Annotated[str, _aws_pattern("Iot", "MitigationActionsTaskId")]
 
 
 # This class is the input for the 'describe_dimension' function.
 class DescribeDimensionRequestTypeDef(BaseValidatorModel):
-    name: str
+    name: Annotated[str, _aws_pattern("Iot", "DimensionName")]
 
 
 # This class is the input for the 'describe_domain_configuration' function.
 class DescribeDomainConfigurationRequestTypeDef(BaseValidatorModel):
-    domainConfigurationName: str
+    domainConfigurationName: Annotated[str, _aws_pattern("Iot", "ReservedDomainConfigurationName")]
 
 
 class ServerCertificateSummaryTypeDef(BaseValidatorModel):
-    serverCertificateArn: Optional[str] = None
+    serverCertificateArn: Optional[Annotated[str, _aws_pattern("Iot", "AcmCertificateArn")]] = None
     serverCertificateStatus: Optional[ServerCertificateStatusType] = None
     serverCertificateStatusDetail: Optional[str] = None
 
 
 # This class is the input for the 'describe_endpoint' function.
 class DescribeEndpointRequestTypeDef(BaseValidatorModel):
-    endpointType: Optional[str] = None
+    endpointType: Optional[Annotated[str, _aws_pattern("Iot", "EndpointType")]] = None
 
 
 # This class is the input for the 'describe_fleet_metric' function.
 class DescribeFleetMetricRequestTypeDef(BaseValidatorModel):
-    metricName: str
+    metricName: Annotated[str, _aws_pattern("Iot", "FleetMetricName")]
 
 
 # This class is the input for the 'describe_index' function.
 class DescribeIndexRequestTypeDef(BaseValidatorModel):
-    indexName: str
+    indexName: Annotated[str, _aws_pattern("Iot", "IndexName")]
 
 
 # This class is the input for the 'describe_job_execution' function.
 class DescribeJobExecutionRequestTypeDef(BaseValidatorModel):
-    jobId: str
-    thingName: str
+    jobId: Annotated[str, _aws_pattern("Iot", "JobId")]
+    thingName: Annotated[str, _aws_pattern("Iot", "ThingName")]
     executionNumber: Optional[int] = None
 
 
 # This class is the input for the 'describe_job' function.
 class DescribeJobRequestTypeDef(BaseValidatorModel):
-    jobId: str
+    jobId: Annotated[str, _aws_pattern("Iot", "JobId")]
     beforeSubstitution: Optional[bool] = None
 
 
 # This class is the input for the 'describe_job_template' function.
 class DescribeJobTemplateRequestTypeDef(BaseValidatorModel):
-    jobTemplateId: str
+    jobTemplateId: Annotated[str, _aws_pattern("Iot", "JobTemplateId")]
 
 
 # This class is the input for the 'describe_managed_job_template' function.
 class DescribeManagedJobTemplateRequestTypeDef(BaseValidatorModel):
     templateName: str
-    templateVersion: Optional[str] = None
+    templateVersion: Optional[Annotated[str, _aws_pattern("Iot", "ManagedTemplateVersion")]] = None
 
 
 class DocumentParameterTypeDef(BaseValidatorModel):
-    key: Optional[str] = None
-    description: Optional[str] = None
+    key: Optional[Annotated[str, _aws_pattern("Iot", "ParameterKey")]] = None
+    description: Optional[Annotated[str, _aws_pattern("Iot", "JobDescription")]] = None
     regex: Optional[str] = None
-    example: Optional[str] = None
+    example: Optional[Annotated[str, _aws_pattern("Iot", "Example")]] = None
     optional: Optional[bool] = None
 
 
 # This class is the input for the 'describe_mitigation_action' function.
 class DescribeMitigationActionRequestTypeDef(BaseValidatorModel):
-    actionName: str
+    actionName: Annotated[str, _aws_pattern("Iot", "MitigationActionName")]
 
 
 # This class is the input for the 'describe_provisioning_template' function.
 class DescribeProvisioningTemplateRequestTypeDef(BaseValidatorModel):
-    templateName: str
+    templateName: Annotated[str, _aws_pattern("Iot", "TemplateName")]
 
 
 # This class is the input for the 'describe_provisioning_template_version' function.
 class DescribeProvisioningTemplateVersionRequestTypeDef(BaseValidatorModel):
-    templateName: str
+    templateName: Annotated[str, _aws_pattern("Iot", "TemplateName")]
     versionId: int
 
 
 # This class is the input for the 'describe_role_alias' function.
 class DescribeRoleAliasRequestTypeDef(BaseValidatorModel):
-    roleAlias: str
+    roleAlias: Annotated[str, _aws_pattern("Iot", "RoleAlias")]
 
 
 class RoleAliasDescriptionTypeDef(BaseValidatorModel):
-    roleAlias: Optional[str] = None
+    roleAlias: Optional[Annotated[str, _aws_pattern("Iot", "RoleAlias")]] = None
     roleAliasArn: Optional[str] = None
     roleArn: Optional[str] = None
-    owner: Optional[str] = None
+    owner: Optional[Annotated[str, _aws_pattern("Iot", "AwsAccountId")]] = None
     credentialDurationSeconds: Optional[int] = None
     creationDate: Optional[datetime] = None
     lastModifiedDate: Optional[datetime] = None
@@ -1017,22 +1020,22 @@ class RoleAliasDescriptionTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'describe_scheduled_audit' function.
 class DescribeScheduledAuditRequestTypeDef(BaseValidatorModel):
-    scheduledAuditName: str
+    scheduledAuditName: Annotated[str, _aws_pattern("Iot", "ScheduledAuditName")]
 
 
 # This class is the input for the 'describe_security_profile' function.
 class DescribeSecurityProfileRequestTypeDef(BaseValidatorModel):
-    securityProfileName: str
+    securityProfileName: Annotated[str, _aws_pattern("Iot", "SecurityProfileName")]
 
 
 # This class is the input for the 'describe_stream' function.
 class DescribeStreamRequestTypeDef(BaseValidatorModel):
-    streamId: str
+    streamId: Annotated[str, _aws_pattern("Iot", "StreamId")]
 
 
 # This class is the input for the 'describe_thing_group' function.
 class DescribeThingGroupRequestTypeDef(BaseValidatorModel):
-    thingGroupName: str
+    thingGroupName: Annotated[str, _aws_pattern("Iot", "ThingGroupName")]
 
 
 # This class is the input for the 'describe_thing_registration_task' function.
@@ -1042,12 +1045,12 @@ class DescribeThingRegistrationTaskRequestTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'describe_thing' function.
 class DescribeThingRequestTypeDef(BaseValidatorModel):
-    thingName: str
+    thingName: Annotated[str, _aws_pattern("Iot", "ThingName")]
 
 
 # This class is the input for the 'describe_thing_type' function.
 class DescribeThingTypeRequestTypeDef(BaseValidatorModel):
-    thingTypeName: str
+    thingTypeName: Annotated[str, _aws_pattern("Iot", "ThingTypeName")]
 
 
 class ThingTypeMetadataTypeDef(BaseValidatorModel):
@@ -1063,30 +1066,30 @@ class S3DestinationTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'detach_policy' function.
 class DetachPolicyRequestTypeDef(BaseValidatorModel):
-    policyName: str
+    policyName: Annotated[str, _aws_pattern("Iot", "PolicyName")]
     target: str
 
 
 # This class is the input for the 'detach_principal_policy' function.
 class DetachPrincipalPolicyRequestTypeDef(BaseValidatorModel):
-    policyName: str
+    policyName: Annotated[str, _aws_pattern("Iot", "PolicyName")]
     principal: str
 
 
 class DetachSecurityProfileRequestTypeDef(BaseValidatorModel):
-    securityProfileName: str
+    securityProfileName: Annotated[str, _aws_pattern("Iot", "SecurityProfileName")]
     securityProfileTargetArn: str
 
 
 class DetachThingPrincipalRequestTypeDef(BaseValidatorModel):
-    thingName: str
+    thingName: Annotated[str, _aws_pattern("Iot", "ThingName")]
     principal: str
 
 
 class DetectMitigationActionExecutionTypeDef(BaseValidatorModel):
-    taskId: Optional[str] = None
-    violationId: Optional[str] = None
-    actionName: Optional[str] = None
+    taskId: Optional[Annotated[str, _aws_pattern("Iot", "MitigationActionsTaskId")]] = None
+    violationId: Optional[Annotated[str, _aws_pattern("Iot", "ViolationId")]] = None
+    actionName: Optional[Annotated[str, _aws_pattern("Iot", "MitigationActionName")]] = None
     thingName: Optional[str] = None
     executionStartDate: Optional[datetime] = None
     executionEndDate: Optional[datetime] = None
@@ -1113,24 +1116,24 @@ class ViolationEventOccurrenceRangeOutputTypeDef(BaseValidatorModel):
 
 
 class DetectMitigationActionsTaskTargetTypeDef(BaseValidatorModel):
-    violationIds: Optional[List[str]] = None
-    securityProfileName: Optional[str] = None
-    behaviorName: Optional[str] = None
+    violationIds: Optional[List[Annotated[str, _aws_pattern("Iot", "ViolationId")]]] = None
+    securityProfileName: Optional[Annotated[str, _aws_pattern("Iot", "SecurityProfileName")]] = None
+    behaviorName: Optional[Annotated[str, _aws_pattern("Iot", "BehaviorName")]] = None
 
 
 # This class is the input for the 'disable_topic_rule' function.
 class DisableTopicRuleRequestTypeDef(BaseValidatorModel):
-    ruleName: str
+    ruleName: Annotated[str, _aws_pattern("Iot", "RuleName")]
 
 
 class DisassociateSbomFromPackageVersionRequestTypeDef(BaseValidatorModel):
-    packageName: str
-    versionName: str
-    clientToken: Optional[str] = None
+    packageName: Annotated[str, _aws_pattern("Iot", "PackageName")]
+    versionName: Annotated[str, _aws_pattern("Iot", "VersionName")]
+    clientToken: Optional[Annotated[str, _aws_pattern("Iot", "ClientToken")]] = None
 
 
 class DomainConfigurationSummaryTypeDef(BaseValidatorModel):
-    domainConfigurationName: Optional[str] = None
+    domainConfigurationName: Optional[Annotated[str, _aws_pattern("Iot", "ReservedDomainConfigurationName")]] = None
     domainConfigurationArn: Optional[str] = None
     serviceType: Optional[ServiceTypeType] = None
 
@@ -1140,9 +1143,9 @@ class PutItemInputTypeDef(BaseValidatorModel):
 
 
 class EffectivePolicyTypeDef(BaseValidatorModel):
-    policyName: Optional[str] = None
+    policyName: Optional[Annotated[str, _aws_pattern("Iot", "PolicyName")]] = None
     policyArn: Optional[str] = None
-    policyDocument: Optional[str] = None
+    policyDocument: Optional[Annotated[str, _aws_pattern("Iot", "PolicyDocument")]] = None
 
 
 class EnableIoTLoggingParamsTypeDef(BaseValidatorModel):
@@ -1152,7 +1155,7 @@ class EnableIoTLoggingParamsTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'enable_topic_rule' function.
 class EnableTopicRuleRequestTypeDef(BaseValidatorModel):
-    ruleName: str
+    ruleName: Annotated[str, _aws_pattern("Iot", "RuleName")]
 
 
 class ErrorInfoTypeDef(BaseValidatorModel):
@@ -1177,12 +1180,12 @@ class S3LocationTypeDef(BaseValidatorModel):
 
 
 class StreamTypeDef(BaseValidatorModel):
-    streamId: Optional[str] = None
+    streamId: Optional[Annotated[str, _aws_pattern("Iot", "StreamId")]] = None
     fileId: Optional[int] = None
 
 
 class FleetMetricNameAndArnTypeDef(BaseValidatorModel):
-    metricName: Optional[str] = None
+    metricName: Optional[Annotated[str, _aws_pattern("Iot", "FleetMetricName")]] = None
     metricArn: Optional[str] = None
 
 
@@ -1199,7 +1202,7 @@ class PaginatorConfigTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'get_behavior_model_training_summaries' function.
 class GetBehaviorModelTrainingSummariesRequestTypeDef(BaseValidatorModel):
-    securityProfileName: Optional[str] = None
+    securityProfileName: Optional[Annotated[str, _aws_pattern("Iot", "SecurityProfileName")]] = None
     maxResults: Optional[int] = None
     nextToken: Optional[str] = None
 
@@ -1207,44 +1210,44 @@ class GetBehaviorModelTrainingSummariesRequestTypeDef(BaseValidatorModel):
 # This class is the input for the 'get_cardinality' function.
 class GetCardinalityRequestTypeDef(BaseValidatorModel):
     queryString: str
-    indexName: Optional[str] = None
+    indexName: Optional[Annotated[str, _aws_pattern("Iot", "IndexName")]] = None
     aggregationField: Optional[str] = None
     queryVersion: Optional[str] = None
 
 
 # This class is the input for the 'get_command_execution' function.
 class GetCommandExecutionRequestTypeDef(BaseValidatorModel):
-    executionId: str
+    executionId: Annotated[str, _aws_pattern("Iot", "CommandExecutionId")]
     targetArn: str
     includeResult: Optional[bool] = None
 
 
 class StatusReasonTypeDef(BaseValidatorModel):
-    reasonCode: str
-    reasonDescription: Optional[str] = None
+    reasonCode: Annotated[str, _aws_pattern("Iot", "StatusReasonCode")]
+    reasonDescription: Optional[Annotated[str, _aws_pattern("Iot", "StatusReasonDescription")]] = None
 
 
 # This class is the input for the 'get_command' function.
 class GetCommandRequestTypeDef(BaseValidatorModel):
-    commandId: str
+    commandId: Annotated[str, _aws_pattern("Iot", "CommandId")]
 
 
 # This class is the input for the 'get_effective_policies' function.
 class GetEffectivePoliciesRequestTypeDef(BaseValidatorModel):
     principal: Optional[str] = None
     cognitoIdentityPoolId: Optional[str] = None
-    thingName: Optional[str] = None
+    thingName: Optional[Annotated[str, _aws_pattern("Iot", "ThingName")]] = None
 
 
 # This class is the input for the 'get_job_document' function.
 class GetJobDocumentRequestTypeDef(BaseValidatorModel):
-    jobId: str
+    jobId: Annotated[str, _aws_pattern("Iot", "JobId")]
     beforeSubstitution: Optional[bool] = None
 
 
 # This class is the input for the 'get_ota_update' function.
 class GetOTAUpdateRequestTypeDef(BaseValidatorModel):
-    otaUpdateId: str
+    otaUpdateId: Annotated[str, _aws_pattern("Iot", "OTAUpdateId")]
 
 
 class VersionUpdateByJobsConfigTypeDef(BaseValidatorModel):
@@ -1254,19 +1257,19 @@ class VersionUpdateByJobsConfigTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'get_package' function.
 class GetPackageRequestTypeDef(BaseValidatorModel):
-    packageName: str
+    packageName: Annotated[str, _aws_pattern("Iot", "PackageName")]
 
 
 # This class is the input for the 'get_package_version' function.
 class GetPackageVersionRequestTypeDef(BaseValidatorModel):
-    packageName: str
-    versionName: str
+    packageName: Annotated[str, _aws_pattern("Iot", "PackageName")]
+    versionName: Annotated[str, _aws_pattern("Iot", "VersionName")]
 
 
 # This class is the input for the 'get_percentiles' function.
 class GetPercentilesRequestTypeDef(BaseValidatorModel):
     queryString: str
-    indexName: Optional[str] = None
+    indexName: Optional[Annotated[str, _aws_pattern("Iot", "IndexName")]] = None
     aggregationField: Optional[str] = None
     queryVersion: Optional[str] = None
     percents: Optional[List[float]] = None
@@ -1279,19 +1282,19 @@ class PercentPairTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'get_policy' function.
 class GetPolicyRequestTypeDef(BaseValidatorModel):
-    policyName: str
+    policyName: Annotated[str, _aws_pattern("Iot", "PolicyName")]
 
 
 # This class is the input for the 'get_policy_version' function.
 class GetPolicyVersionRequestTypeDef(BaseValidatorModel):
-    policyName: str
-    policyVersionId: str
+    policyName: Annotated[str, _aws_pattern("Iot", "PolicyName")]
+    policyVersionId: Annotated[str, _aws_pattern("Iot", "PolicyVersionId")]
 
 
 # This class is the input for the 'get_statistics' function.
 class GetStatisticsRequestTypeDef(BaseValidatorModel):
     queryString: str
-    indexName: Optional[str] = None
+    indexName: Optional[Annotated[str, _aws_pattern("Iot", "IndexName")]] = None
     aggregationField: Optional[str] = None
     queryVersion: Optional[str] = None
 
@@ -1309,7 +1312,7 @@ class StatisticsTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'get_thing_connectivity_data' function.
 class GetThingConnectivityDataRequestTypeDef(BaseValidatorModel):
-    thingName: str
+    thingName: Annotated[str, _aws_pattern("Iot", "ConnectivityApiThingName")]
 
 
 # This class is the input for the 'get_topic_rule_destination' function.
@@ -1319,7 +1322,7 @@ class GetTopicRuleDestinationRequestTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'get_topic_rule' function.
 class GetTopicRuleRequestTypeDef(BaseValidatorModel):
-    ruleName: str
+    ruleName: Annotated[str, _aws_pattern("Iot", "RuleName")]
 
 
 # This class is the input for the 'get_v2_logging_options' function.
@@ -1330,11 +1333,11 @@ class GetV2LoggingOptionsRequestTypeDef(BaseValidatorModel):
 class LogEventConfigurationTypeDef(BaseValidatorModel):
     eventType: str
     logLevel: Optional[LogLevelType] = None
-    logDestination: Optional[str] = None
+    logDestination: Optional[Annotated[str, _aws_pattern("Iot", "LogDestination")]] = None
 
 
 class GroupNameAndArnTypeDef(BaseValidatorModel):
-    groupName: Optional[str] = None
+    groupName: Optional[Annotated[str, _aws_pattern("Iot", "ThingGroupName")]] = None
     groupArn: Optional[str] = None
 
 
@@ -1351,7 +1354,7 @@ class SigV4AuthorizationTypeDef(BaseValidatorModel):
 
 class HttpContextTypeDef(BaseValidatorModel):
     headers: Optional[Dict[str, str]] = None
-    queryString: Optional[str] = None
+    queryString: Optional[Annotated[str, _aws_pattern("Iot", "HttpQueryString")]] = None
 
 
 class HttpUrlDestinationConfigurationTypeDef(BaseValidatorModel):
@@ -1367,9 +1370,9 @@ class HttpUrlDestinationSummaryTypeDef(BaseValidatorModel):
 
 
 class IssuerCertificateIdentifierTypeDef(BaseValidatorModel):
-    issuerCertificateSubject: Optional[str] = None
-    issuerId: Optional[str] = None
-    issuerCertificateSerialNumber: Optional[str] = None
+    issuerCertificateSubject: Optional[Annotated[str, _aws_pattern("Iot", "IssuerCertificateSubject")]] = None
+    issuerId: Optional[Annotated[str, _aws_pattern("Iot", "IssuerId")]] = None
+    issuerCertificateSerialNumber: Optional[Annotated[str, _aws_pattern("Iot", "IssuerCertificateSerialNumber")]] = None
 
 
 class JobExecutionStatusDetailsTypeDef(BaseValidatorModel):
@@ -1404,8 +1407,8 @@ class JobProcessDetailsTypeDef(BaseValidatorModel):
 
 class JobSummaryTypeDef(BaseValidatorModel):
     jobArn: Optional[str] = None
-    jobId: Optional[str] = None
-    thingGroupId: Optional[str] = None
+    jobId: Optional[Annotated[str, _aws_pattern("Iot", "JobId")]] = None
+    thingGroupId: Optional[Annotated[str, _aws_pattern("Iot", "ThingGroupId")]] = None
     targetSelection: Optional[TargetSelectionType] = None
     status: Optional[JobStatusType] = None
     createdAt: Optional[datetime] = None
@@ -1415,9 +1418,9 @@ class JobSummaryTypeDef(BaseValidatorModel):
 
 
 class JobTemplateSummaryTypeDef(BaseValidatorModel):
-    jobTemplateArn: Optional[str] = None
-    jobTemplateId: Optional[str] = None
-    description: Optional[str] = None
+    jobTemplateArn: Optional[Annotated[str, _aws_pattern("Iot", "JobTemplateArn")]] = None
+    jobTemplateId: Optional[Annotated[str, _aws_pattern("Iot", "JobTemplateId")]] = None
+    description: Optional[Annotated[str, _aws_pattern("Iot", "JobDescription")]] = None
     createdAt: Optional[datetime] = None
 
 
@@ -1433,7 +1436,7 @@ class KafkaActionHeaderTypeDef(BaseValidatorModel):
 # This class is the input for the 'list_active_violations' function.
 class ListActiveViolationsRequestTypeDef(BaseValidatorModel):
     thingName: Optional[str] = None
-    securityProfileName: Optional[str] = None
+    securityProfileName: Optional[Annotated[str, _aws_pattern("Iot", "SecurityProfileName")]] = None
     behaviorCriteriaType: Optional[BehaviorCriteriaTypeType] = None
     listSuppressedAlerts: Optional[bool] = None
     verificationState: Optional[VerificationStateType] = None
@@ -1445,14 +1448,14 @@ class ListActiveViolationsRequestTypeDef(BaseValidatorModel):
 class ListAttachedPoliciesRequestTypeDef(BaseValidatorModel):
     target: str
     recursive: Optional[bool] = None
-    marker: Optional[str] = None
+    marker: Optional[Annotated[str, _aws_pattern("Iot", "Marker")]] = None
     pageSize: Optional[int] = None
 
 
 # This class is the input for the 'list_audit_mitigation_actions_executions' function.
 class ListAuditMitigationActionsExecutionsRequestTypeDef(BaseValidatorModel):
-    taskId: str
-    findingId: str
+    taskId: Annotated[str, _aws_pattern("Iot", "MitigationActionsTaskId")]
+    findingId: Annotated[str, _aws_pattern("Iot", "FindingId")]
     actionStatus: Optional[AuditMitigationActionsExecutionStatusType] = None
     maxResults: Optional[int] = None
     nextToken: Optional[str] = None
@@ -1461,7 +1464,7 @@ class ListAuditMitigationActionsExecutionsRequestTypeDef(BaseValidatorModel):
 # This class is the input for the 'list_authorizers' function.
 class ListAuthorizersRequestTypeDef(BaseValidatorModel):
     pageSize: Optional[int] = None
-    marker: Optional[str] = None
+    marker: Optional[Annotated[str, _aws_pattern("Iot", "Marker")]] = None
     ascendingOrder: Optional[bool] = None
     status: Optional[AuthorizerStatusType] = None
 
@@ -1470,35 +1473,35 @@ class ListAuthorizersRequestTypeDef(BaseValidatorModel):
 class ListBillingGroupsRequestTypeDef(BaseValidatorModel):
     nextToken: Optional[str] = None
     maxResults: Optional[int] = None
-    namePrefixFilter: Optional[str] = None
+    namePrefixFilter: Optional[Annotated[str, _aws_pattern("Iot", "BillingGroupName")]] = None
 
 
 # This class is the input for the 'list_ca_certificates' function.
 class ListCACertificatesRequestTypeDef(BaseValidatorModel):
     pageSize: Optional[int] = None
-    marker: Optional[str] = None
+    marker: Optional[Annotated[str, _aws_pattern("Iot", "Marker")]] = None
     ascendingOrder: Optional[bool] = None
-    templateName: Optional[str] = None
+    templateName: Optional[Annotated[str, _aws_pattern("Iot", "TemplateName")]] = None
 
 
 # This class is the input for the 'list_certificate_providers' function.
 class ListCertificateProvidersRequestTypeDef(BaseValidatorModel):
-    nextToken: Optional[str] = None
+    nextToken: Optional[Annotated[str, _aws_pattern("Iot", "Marker")]] = None
     ascendingOrder: Optional[bool] = None
 
 
 # This class is the input for the 'list_certificates_by_ca' function.
 class ListCertificatesByCARequestTypeDef(BaseValidatorModel):
-    caCertificateId: str
+    caCertificateId: Annotated[str, _aws_pattern("Iot", "CertificateId")]
     pageSize: Optional[int] = None
-    marker: Optional[str] = None
+    marker: Optional[Annotated[str, _aws_pattern("Iot", "Marker")]] = None
     ascendingOrder: Optional[bool] = None
 
 
 # This class is the input for the 'list_certificates' function.
 class ListCertificatesRequestTypeDef(BaseValidatorModel):
     pageSize: Optional[int] = None
-    marker: Optional[str] = None
+    marker: Optional[Annotated[str, _aws_pattern("Iot", "Marker")]] = None
     ascendingOrder: Optional[bool] = None
 
 
@@ -1512,7 +1515,7 @@ class ListCommandsRequestTypeDef(BaseValidatorModel):
     maxResults: Optional[int] = None
     nextToken: Optional[str] = None
     namespace: Optional[CommandNamespaceType] = None
-    commandParameterName: Optional[str] = None
+    commandParameterName: Optional[Annotated[str, _aws_pattern("Iot", "CommandParameterName")]] = None
     sortOrder: Optional[SortOrderType] = None
 
 
@@ -1530,7 +1533,7 @@ class ListDimensionsRequestTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'list_domain_configurations' function.
 class ListDomainConfigurationsRequestTypeDef(BaseValidatorModel):
-    marker: Optional[str] = None
+    marker: Optional[Annotated[str, _aws_pattern("Iot", "Marker")]] = None
     pageSize: Optional[int] = None
     serviceType: Optional[ServiceTypeType] = None
 
@@ -1549,7 +1552,7 @@ class ListIndicesRequestTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'list_job_executions_for_job' function.
 class ListJobExecutionsForJobRequestTypeDef(BaseValidatorModel):
-    jobId: str
+    jobId: Annotated[str, _aws_pattern("Iot", "JobId")]
     status: Optional[JobExecutionStatusType] = None
     maxResults: Optional[int] = None
     nextToken: Optional[str] = None
@@ -1557,12 +1560,12 @@ class ListJobExecutionsForJobRequestTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'list_job_executions_for_thing' function.
 class ListJobExecutionsForThingRequestTypeDef(BaseValidatorModel):
-    thingName: str
+    thingName: Annotated[str, _aws_pattern("Iot", "ThingName")]
     status: Optional[JobExecutionStatusType] = None
-    namespaceId: Optional[str] = None
+    namespaceId: Optional[Annotated[str, _aws_pattern("Iot", "NamespaceId")]] = None
     maxResults: Optional[int] = None
     nextToken: Optional[str] = None
-    jobId: Optional[str] = None
+    jobId: Optional[Annotated[str, _aws_pattern("Iot", "JobId")]] = None
 
 
 # This class is the input for the 'list_job_templates' function.
@@ -1577,9 +1580,9 @@ class ListJobsRequestTypeDef(BaseValidatorModel):
     targetSelection: Optional[TargetSelectionType] = None
     maxResults: Optional[int] = None
     nextToken: Optional[str] = None
-    thingGroupName: Optional[str] = None
-    thingGroupId: Optional[str] = None
-    namespaceId: Optional[str] = None
+    thingGroupName: Optional[Annotated[str, _aws_pattern("Iot", "ThingGroupName")]] = None
+    thingGroupId: Optional[Annotated[str, _aws_pattern("Iot", "ThingGroupId")]] = None
+    namespaceId: Optional[Annotated[str, _aws_pattern("Iot", "NamespaceId")]] = None
 
 
 # This class is the input for the 'list_managed_job_templates' function.
@@ -1590,11 +1593,11 @@ class ListManagedJobTemplatesRequestTypeDef(BaseValidatorModel):
 
 
 class ManagedJobTemplateSummaryTypeDef(BaseValidatorModel):
-    templateArn: Optional[str] = None
+    templateArn: Optional[Annotated[str, _aws_pattern("Iot", "JobTemplateArn")]] = None
     templateName: Optional[str] = None
-    description: Optional[str] = None
-    environments: Optional[List[str]] = None
-    templateVersion: Optional[str] = None
+    description: Optional[Annotated[str, _aws_pattern("Iot", "JobDescription")]] = None
+    environments: Optional[List[Annotated[str, _aws_pattern("Iot", "Environment")]]] = None
+    templateVersion: Optional[Annotated[str, _aws_pattern("Iot", "ManagedTemplateVersion")]] = None
 
 
 # This class is the input for the 'list_mitigation_actions' function.
@@ -1605,7 +1608,7 @@ class ListMitigationActionsRequestTypeDef(BaseValidatorModel):
 
 
 class MitigationActionIdentifierTypeDef(BaseValidatorModel):
-    actionName: Optional[str] = None
+    actionName: Optional[Annotated[str, _aws_pattern("Iot", "MitigationActionName")]] = None
     actionArn: Optional[str] = None
     creationDate: Optional[datetime] = None
 
@@ -1618,7 +1621,7 @@ class ListOTAUpdatesRequestTypeDef(BaseValidatorModel):
 
 
 class OTAUpdateSummaryTypeDef(BaseValidatorModel):
-    otaUpdateId: Optional[str] = None
+    otaUpdateId: Optional[Annotated[str, _aws_pattern("Iot", "OTAUpdateId")]] = None
     otaUpdateArn: Optional[str] = None
     creationDate: Optional[datetime] = None
 
@@ -1626,30 +1629,30 @@ class OTAUpdateSummaryTypeDef(BaseValidatorModel):
 # This class is the input for the 'list_outgoing_certificates' function.
 class ListOutgoingCertificatesRequestTypeDef(BaseValidatorModel):
     pageSize: Optional[int] = None
-    marker: Optional[str] = None
+    marker: Optional[Annotated[str, _aws_pattern("Iot", "Marker")]] = None
     ascendingOrder: Optional[bool] = None
 
 
 class OutgoingCertificateTypeDef(BaseValidatorModel):
     certificateArn: Optional[str] = None
-    certificateId: Optional[str] = None
-    transferredTo: Optional[str] = None
+    certificateId: Optional[Annotated[str, _aws_pattern("Iot", "CertificateId")]] = None
+    transferredTo: Optional[Annotated[str, _aws_pattern("Iot", "AwsAccountId")]] = None
     transferDate: Optional[datetime] = None
-    transferMessage: Optional[str] = None
+    transferMessage: Optional[Annotated[str, _aws_pattern("Iot", "Message")]] = None
     creationDate: Optional[datetime] = None
 
 
 # This class is the input for the 'list_package_versions' function.
 class ListPackageVersionsRequestTypeDef(BaseValidatorModel):
-    packageName: str
+    packageName: Annotated[str, _aws_pattern("Iot", "PackageName")]
     status: Optional[PackageVersionStatusType] = None
     maxResults: Optional[int] = None
     nextToken: Optional[str] = None
 
 
 class PackageVersionSummaryTypeDef(BaseValidatorModel):
-    packageName: Optional[str] = None
-    versionName: Optional[str] = None
+    packageName: Optional[Annotated[str, _aws_pattern("Iot", "PackageName")]] = None
+    versionName: Optional[Annotated[str, _aws_pattern("Iot", "VersionName")]] = None
     status: Optional[PackageVersionStatusType] = None
     creationDate: Optional[datetime] = None
     lastModifiedDate: Optional[datetime] = None
@@ -1662,34 +1665,34 @@ class ListPackagesRequestTypeDef(BaseValidatorModel):
 
 
 class PackageSummaryTypeDef(BaseValidatorModel):
-    packageName: Optional[str] = None
-    defaultVersionName: Optional[str] = None
+    packageName: Optional[Annotated[str, _aws_pattern("Iot", "PackageName")]] = None
+    defaultVersionName: Optional[Annotated[str, _aws_pattern("Iot", "VersionName")]] = None
     creationDate: Optional[datetime] = None
     lastModifiedDate: Optional[datetime] = None
 
 
 # This class is the input for the 'list_policies' function.
 class ListPoliciesRequestTypeDef(BaseValidatorModel):
-    marker: Optional[str] = None
+    marker: Optional[Annotated[str, _aws_pattern("Iot", "Marker")]] = None
     pageSize: Optional[int] = None
     ascendingOrder: Optional[bool] = None
 
 
 # This class is the input for the 'list_policy_principals' function.
 class ListPolicyPrincipalsRequestTypeDef(BaseValidatorModel):
-    policyName: str
-    marker: Optional[str] = None
+    policyName: Annotated[str, _aws_pattern("Iot", "PolicyName")]
+    marker: Optional[Annotated[str, _aws_pattern("Iot", "Marker")]] = None
     pageSize: Optional[int] = None
     ascendingOrder: Optional[bool] = None
 
 
 # This class is the input for the 'list_policy_versions' function.
 class ListPolicyVersionsRequestTypeDef(BaseValidatorModel):
-    policyName: str
+    policyName: Annotated[str, _aws_pattern("Iot", "PolicyName")]
 
 
 class PolicyVersionTypeDef(BaseValidatorModel):
-    versionId: Optional[str] = None
+    versionId: Optional[Annotated[str, _aws_pattern("Iot", "PolicyVersionId")]] = None
     isDefaultVersion: Optional[bool] = None
     createDate: Optional[datetime] = None
 
@@ -1697,7 +1700,7 @@ class PolicyVersionTypeDef(BaseValidatorModel):
 # This class is the input for the 'list_principal_policies' function.
 class ListPrincipalPoliciesRequestTypeDef(BaseValidatorModel):
     principal: str
-    marker: Optional[str] = None
+    marker: Optional[Annotated[str, _aws_pattern("Iot", "Marker")]] = None
     pageSize: Optional[int] = None
     ascendingOrder: Optional[bool] = None
 
@@ -1718,13 +1721,13 @@ class ListPrincipalThingsV2RequestTypeDef(BaseValidatorModel):
 
 
 class PrincipalThingObjectTypeDef(BaseValidatorModel):
-    thingName: str
+    thingName: Annotated[str, _aws_pattern("Iot", "ThingName")]
     thingPrincipalType: Optional[ThingPrincipalTypeType] = None
 
 
 # This class is the input for the 'list_provisioning_template_versions' function.
 class ListProvisioningTemplateVersionsRequestTypeDef(BaseValidatorModel):
-    templateName: str
+    templateName: Annotated[str, _aws_pattern("Iot", "TemplateName")]
     maxResults: Optional[int] = None
     nextToken: Optional[str] = None
 
@@ -1743,8 +1746,8 @@ class ListProvisioningTemplatesRequestTypeDef(BaseValidatorModel):
 
 class ProvisioningTemplateSummaryTypeDef(BaseValidatorModel):
     templateArn: Optional[str] = None
-    templateName: Optional[str] = None
-    description: Optional[str] = None
+    templateName: Optional[Annotated[str, _aws_pattern("Iot", "TemplateName")]] = None
+    description: Optional[Annotated[str, _aws_pattern("Iot", "TemplateDescription")]] = None
     creationDate: Optional[datetime] = None
     lastModifiedDate: Optional[datetime] = None
     enabled: Optional[bool] = None
@@ -1753,7 +1756,7 @@ class ProvisioningTemplateSummaryTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'list_related_resources_for_audit_finding' function.
 class ListRelatedResourcesForAuditFindingRequestTypeDef(BaseValidatorModel):
-    findingId: str
+    findingId: Annotated[str, _aws_pattern("Iot", "FindingId")]
     nextToken: Optional[str] = None
     maxResults: Optional[int] = None
 
@@ -1761,14 +1764,14 @@ class ListRelatedResourcesForAuditFindingRequestTypeDef(BaseValidatorModel):
 # This class is the input for the 'list_role_aliases' function.
 class ListRoleAliasesRequestTypeDef(BaseValidatorModel):
     pageSize: Optional[int] = None
-    marker: Optional[str] = None
+    marker: Optional[Annotated[str, _aws_pattern("Iot", "Marker")]] = None
     ascendingOrder: Optional[bool] = None
 
 
 # This class is the input for the 'list_sbom_validation_results' function.
 class ListSbomValidationResultsRequestTypeDef(BaseValidatorModel):
-    packageName: str
-    versionName: str
+    packageName: Annotated[str, _aws_pattern("Iot", "PackageName")]
+    versionName: Annotated[str, _aws_pattern("Iot", "VersionName")]
     validationResult: Optional[SbomValidationResultType] = None
     maxResults: Optional[int] = None
     nextToken: Optional[str] = None
@@ -1788,10 +1791,10 @@ class ListScheduledAuditsRequestTypeDef(BaseValidatorModel):
 
 
 class ScheduledAuditMetadataTypeDef(BaseValidatorModel):
-    scheduledAuditName: Optional[str] = None
+    scheduledAuditName: Optional[Annotated[str, _aws_pattern("Iot", "ScheduledAuditName")]] = None
     scheduledAuditArn: Optional[str] = None
     frequency: Optional[AuditFrequencyType] = None
-    dayOfMonth: Optional[str] = None
+    dayOfMonth: Optional[Annotated[str, _aws_pattern("Iot", "DayOfMonth")]] = None
     dayOfWeek: Optional[DayOfWeekType] = None
 
 
@@ -1807,12 +1810,12 @@ class ListSecurityProfilesForTargetRequestTypeDef(BaseValidatorModel):
 class ListSecurityProfilesRequestTypeDef(BaseValidatorModel):
     nextToken: Optional[str] = None
     maxResults: Optional[int] = None
-    dimensionName: Optional[str] = None
-    metricName: Optional[str] = None
+    dimensionName: Optional[Annotated[str, _aws_pattern("Iot", "DimensionName")]] = None
+    metricName: Optional[Annotated[str, _aws_pattern("Iot", "MetricName")]] = None
 
 
 class SecurityProfileIdentifierTypeDef(BaseValidatorModel):
-    name: str
+    name: Annotated[str, _aws_pattern("Iot", "SecurityProfileName")]
     arn: str
 
 
@@ -1824,10 +1827,10 @@ class ListStreamsRequestTypeDef(BaseValidatorModel):
 
 
 class StreamSummaryTypeDef(BaseValidatorModel):
-    streamId: Optional[str] = None
+    streamId: Optional[Annotated[str, _aws_pattern("Iot", "StreamId")]] = None
     streamArn: Optional[str] = None
     streamVersion: Optional[int] = None
-    description: Optional[str] = None
+    description: Optional[Annotated[str, _aws_pattern("Iot", "StreamDescription")]] = None
 
 
 # This class is the input for the 'list_tags_for_resource' function.
@@ -1838,14 +1841,14 @@ class ListTagsForResourceRequestTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'list_targets_for_policy' function.
 class ListTargetsForPolicyRequestTypeDef(BaseValidatorModel):
-    policyName: str
-    marker: Optional[str] = None
+    policyName: Annotated[str, _aws_pattern("Iot", "PolicyName")]
+    marker: Optional[Annotated[str, _aws_pattern("Iot", "Marker")]] = None
     pageSize: Optional[int] = None
 
 
 # This class is the input for the 'list_targets_for_security_profile' function.
 class ListTargetsForSecurityProfileRequestTypeDef(BaseValidatorModel):
-    securityProfileName: str
+    securityProfileName: Annotated[str, _aws_pattern("Iot", "SecurityProfileName")]
     nextToken: Optional[str] = None
     maxResults: Optional[int] = None
 
@@ -1856,7 +1859,7 @@ class SecurityProfileTargetTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'list_thing_groups_for_thing' function.
 class ListThingGroupsForThingRequestTypeDef(BaseValidatorModel):
-    thingName: str
+    thingName: Annotated[str, _aws_pattern("Iot", "ThingName")]
     nextToken: Optional[str] = None
     maxResults: Optional[int] = None
 
@@ -1865,21 +1868,21 @@ class ListThingGroupsForThingRequestTypeDef(BaseValidatorModel):
 class ListThingGroupsRequestTypeDef(BaseValidatorModel):
     nextToken: Optional[str] = None
     maxResults: Optional[int] = None
-    parentGroup: Optional[str] = None
-    namePrefixFilter: Optional[str] = None
+    parentGroup: Optional[Annotated[str, _aws_pattern("Iot", "ThingGroupName")]] = None
+    namePrefixFilter: Optional[Annotated[str, _aws_pattern("Iot", "ThingGroupName")]] = None
     recursive: Optional[bool] = None
 
 
 # This class is the input for the 'list_thing_principals' function.
 class ListThingPrincipalsRequestTypeDef(BaseValidatorModel):
-    thingName: str
+    thingName: Annotated[str, _aws_pattern("Iot", "ThingName")]
     nextToken: Optional[str] = None
     maxResults: Optional[int] = None
 
 
 # This class is the input for the 'list_thing_principals_v2' function.
 class ListThingPrincipalsV2RequestTypeDef(BaseValidatorModel):
-    thingName: str
+    thingName: Annotated[str, _aws_pattern("Iot", "ThingName")]
     nextToken: Optional[str] = None
     maxResults: Optional[int] = None
     thingPrincipalType: Optional[ThingPrincipalTypeType] = None
@@ -1909,19 +1912,19 @@ class ListThingRegistrationTasksRequestTypeDef(BaseValidatorModel):
 class ListThingTypesRequestTypeDef(BaseValidatorModel):
     nextToken: Optional[str] = None
     maxResults: Optional[int] = None
-    thingTypeName: Optional[str] = None
+    thingTypeName: Optional[Annotated[str, _aws_pattern("Iot", "ThingTypeName")]] = None
 
 
 # This class is the input for the 'list_things_in_billing_group' function.
 class ListThingsInBillingGroupRequestTypeDef(BaseValidatorModel):
-    billingGroupName: str
+    billingGroupName: Annotated[str, _aws_pattern("Iot", "BillingGroupName")]
     nextToken: Optional[str] = None
     maxResults: Optional[int] = None
 
 
 # This class is the input for the 'list_things_in_thing_group' function.
 class ListThingsInThingGroupRequestTypeDef(BaseValidatorModel):
-    thingGroupName: str
+    thingGroupName: Annotated[str, _aws_pattern("Iot", "ThingGroupName")]
     recursive: Optional[bool] = None
     nextToken: Optional[str] = None
     maxResults: Optional[int] = None
@@ -1931,15 +1934,15 @@ class ListThingsInThingGroupRequestTypeDef(BaseValidatorModel):
 class ListThingsRequestTypeDef(BaseValidatorModel):
     nextToken: Optional[str] = None
     maxResults: Optional[int] = None
-    attributeName: Optional[str] = None
-    attributeValue: Optional[str] = None
-    thingTypeName: Optional[str] = None
+    attributeName: Optional[Annotated[str, _aws_pattern("Iot", "AttributeName")]] = None
+    attributeValue: Optional[Annotated[str, _aws_pattern("Iot", "AttributeValue")]] = None
+    thingTypeName: Optional[Annotated[str, _aws_pattern("Iot", "ThingTypeName")]] = None
     usePrefixAttributeValue: Optional[bool] = None
 
 
 class ThingAttributeTypeDef(BaseValidatorModel):
-    thingName: Optional[str] = None
-    thingTypeName: Optional[str] = None
+    thingName: Optional[Annotated[str, _aws_pattern("Iot", "ThingName")]] = None
+    thingTypeName: Optional[Annotated[str, _aws_pattern("Iot", "ThingTypeName")]] = None
     thingArn: Optional[str] = None
     attributes: Optional[Dict[str, str]] = None
     version: Optional[int] = None
@@ -1961,7 +1964,7 @@ class ListTopicRulesRequestTypeDef(BaseValidatorModel):
 
 class TopicRuleListItemTypeDef(BaseValidatorModel):
     ruleArn: Optional[str] = None
-    ruleName: Optional[str] = None
+    ruleName: Optional[Annotated[str, _aws_pattern("Iot", "RuleName")]] = None
     topicPattern: Optional[str] = None
     createdAt: Optional[datetime] = None
     ruleDisabled: Optional[bool] = None
@@ -1991,7 +1994,7 @@ class LoggingOptionsPayloadTypeDef(BaseValidatorModel):
 
 class MetricValueTypeDef(BaseValidatorModel):
     count: Optional[int] = None
-    cidrs: Optional[List[str]] = None
+    cidrs: Optional[List[Annotated[str, _aws_pattern("Iot", "Cidr")]]] = None
     ports: Optional[List[int]] = None
     number: Optional[float] = None
     numbers: Optional[List[float]] = None
@@ -2015,9 +2018,9 @@ class UpdateDeviceCertificateParamsTypeDef(BaseValidatorModel):
 
 
 class PropagatingAttributeTypeDef(BaseValidatorModel):
-    userPropertyKey: Optional[str] = None
-    thingAttribute: Optional[str] = None
-    connectionAttribute: Optional[str] = None
+    userPropertyKey: Optional[Annotated[str, _aws_pattern("Iot", "UserPropertyKeyName")]] = None
+    thingAttribute: Optional[Annotated[str, _aws_pattern("Iot", "AttributeName")]] = None
+    connectionAttribute: Optional[Annotated[str, _aws_pattern("Iot", "ConnectionAttributeName")]] = None
 
 
 class UserPropertyTypeDef(BaseValidatorModel):
@@ -2026,82 +2029,82 @@ class UserPropertyTypeDef(BaseValidatorModel):
 
 
 class PolicyVersionIdentifierTypeDef(BaseValidatorModel):
-    policyName: Optional[str] = None
-    policyVersionId: Optional[str] = None
+    policyName: Optional[Annotated[str, _aws_pattern("Iot", "PolicyName")]] = None
+    policyVersionId: Optional[Annotated[str, _aws_pattern("Iot", "PolicyVersionId")]] = None
 
 
 class PutVerificationStateOnViolationRequestTypeDef(BaseValidatorModel):
-    violationId: str
+    violationId: Annotated[str, _aws_pattern("Iot", "ViolationId")]
     verificationState: VerificationStateType
-    verificationStateDescription: Optional[str] = None
+    verificationStateDescription: Optional[Annotated[str, _aws_pattern("Iot", "VerificationStateDescription")]] = None
 
 
 # This class is the input for the 'register_certificate' function.
 class RegisterCertificateRequestTypeDef(BaseValidatorModel):
-    certificatePem: str
-    caCertificatePem: Optional[str] = None
+    certificatePem: Annotated[str, _aws_pattern("Iot", "CertificatePem")]
+    caCertificatePem: Optional[Annotated[str, _aws_pattern("Iot", "CertificatePem")]] = None
     setAsActive: Optional[bool] = None
     status: Optional[CertificateStatusType] = None
 
 
 # This class is the input for the 'register_certificate_without_ca' function.
 class RegisterCertificateWithoutCARequestTypeDef(BaseValidatorModel):
-    certificatePem: str
+    certificatePem: Annotated[str, _aws_pattern("Iot", "CertificatePem")]
     status: Optional[CertificateStatusType] = None
 
 
 # This class is the input for the 'register_thing' function.
 class RegisterThingRequestTypeDef(BaseValidatorModel):
-    templateBody: str
+    templateBody: Annotated[str, _aws_pattern("Iot", "TemplateBody")]
     parameters: Optional[Dict[str, str]] = None
 
 
 # This class is the input for the 'reject_certificate_transfer' function.
 class RejectCertificateTransferRequestTypeDef(BaseValidatorModel):
-    certificateId: str
-    rejectReason: Optional[str] = None
+    certificateId: Annotated[str, _aws_pattern("Iot", "CertificateId")]
+    rejectReason: Optional[Annotated[str, _aws_pattern("Iot", "Message")]] = None
 
 
 class RemoveThingFromBillingGroupRequestTypeDef(BaseValidatorModel):
-    billingGroupName: Optional[str] = None
+    billingGroupName: Optional[Annotated[str, _aws_pattern("Iot", "BillingGroupName")]] = None
     billingGroupArn: Optional[str] = None
-    thingName: Optional[str] = None
+    thingName: Optional[Annotated[str, _aws_pattern("Iot", "ThingName")]] = None
     thingArn: Optional[str] = None
 
 
 class RemoveThingFromThingGroupRequestTypeDef(BaseValidatorModel):
-    thingGroupName: Optional[str] = None
+    thingGroupName: Optional[Annotated[str, _aws_pattern("Iot", "ThingGroupName")]] = None
     thingGroupArn: Optional[str] = None
-    thingName: Optional[str] = None
+    thingName: Optional[Annotated[str, _aws_pattern("Iot", "ThingName")]] = None
     thingArn: Optional[str] = None
 
 
 # This class is the input for the 'search_index' function.
 class SearchIndexRequestTypeDef(BaseValidatorModel):
     queryString: str
-    indexName: Optional[str] = None
+    indexName: Optional[Annotated[str, _aws_pattern("Iot", "IndexName")]] = None
     nextToken: Optional[str] = None
     maxResults: Optional[int] = None
     queryVersion: Optional[str] = None
 
 
 class ThingGroupDocumentTypeDef(BaseValidatorModel):
-    thingGroupName: Optional[str] = None
-    thingGroupId: Optional[str] = None
-    thingGroupDescription: Optional[str] = None
+    thingGroupName: Optional[Annotated[str, _aws_pattern("Iot", "ThingGroupName")]] = None
+    thingGroupId: Optional[Annotated[str, _aws_pattern("Iot", "ThingGroupId")]] = None
+    thingGroupDescription: Optional[Annotated[str, _aws_pattern("Iot", "ThingGroupDescription")]] = None
     attributes: Optional[Dict[str, str]] = None
-    parentGroupNames: Optional[List[str]] = None
+    parentGroupNames: Optional[List[Annotated[str, _aws_pattern("Iot", "ThingGroupName")]]] = None
 
 
 # This class is the input for the 'set_default_authorizer' function.
 class SetDefaultAuthorizerRequestTypeDef(BaseValidatorModel):
-    authorizerName: str
+    authorizerName: Annotated[str, _aws_pattern("Iot", "AuthorizerName")]
 
 
 # This class is the input for the 'set_default_policy_version' function.
 class SetDefaultPolicyVersionRequestTypeDef(BaseValidatorModel):
-    policyName: str
-    policyVersionId: str
+    policyName: Annotated[str, _aws_pattern("Iot", "PolicyName")]
+    policyVersionId: Annotated[str, _aws_pattern("Iot", "PolicyVersionId")]
 
 
 class SigningProfileParameterTypeDef(BaseValidatorModel):
@@ -2117,9 +2120,9 @@ class StartOnDemandAuditTaskRequestTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'start_thing_registration_task' function.
 class StartThingRegistrationTaskRequestTypeDef(BaseValidatorModel):
-    templateBody: str
-    inputFileBucket: str
-    inputFileKey: str
+    templateBody: Annotated[str, _aws_pattern("Iot", "TemplateBody")]
+    inputFileBucket: Annotated[str, _aws_pattern("Iot", "RegistryS3BucketName")]
+    inputFileKey: Annotated[str, _aws_pattern("Iot", "RegistryS3KeyName")]
     roleArn: str
 
 
@@ -2128,7 +2131,7 @@ class StopThingRegistrationTaskRequestTypeDef(BaseValidatorModel):
 
 
 class TlsContextTypeDef(BaseValidatorModel):
-    serverName: Optional[str] = None
+    serverName: Optional[Annotated[str, _aws_pattern("Iot", "ServerName")]] = None
 
 
 class ThingConnectivityTypeDef(BaseValidatorModel):
@@ -2170,21 +2173,21 @@ class VpcDestinationPropertiesTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'transfer_certificate' function.
 class TransferCertificateRequestTypeDef(BaseValidatorModel):
-    certificateId: str
-    targetAwsAccount: str
-    transferMessage: Optional[str] = None
+    certificateId: Annotated[str, _aws_pattern("Iot", "CertificateId")]
+    targetAwsAccount: Annotated[str, _aws_pattern("Iot", "AwsAccountId")]
+    transferMessage: Optional[Annotated[str, _aws_pattern("Iot", "Message")]] = None
 
 
 class UntagResourceRequestTypeDef(BaseValidatorModel):
     resourceArn: str
-    tagKeys: List[str]
+    tagKeys: List[Annotated[str, _aws_pattern("Iot", "TagKey")]]
 
 
 # This class is the input for the 'update_authorizer' function.
 class UpdateAuthorizerRequestTypeDef(BaseValidatorModel):
-    authorizerName: str
-    authorizerFunctionArn: Optional[str] = None
-    tokenKeyName: Optional[str] = None
+    authorizerName: Annotated[str, _aws_pattern("Iot", "AuthorizerName")]
+    authorizerFunctionArn: Optional[Annotated[str, _aws_pattern("Iot", "AuthorizerFunctionArn")]] = None
+    tokenKeyName: Optional[Annotated[str, _aws_pattern("Iot", "TokenKeyName")]] = None
     tokenSigningPublicKeys: Optional[Dict[str, str]] = None
     status: Optional[AuthorizerStatusType] = None
     enableCachingForHttp: Optional[bool] = None
@@ -2192,34 +2195,34 @@ class UpdateAuthorizerRequestTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'update_certificate_provider' function.
 class UpdateCertificateProviderRequestTypeDef(BaseValidatorModel):
-    certificateProviderName: str
-    lambdaFunctionArn: Optional[str] = None
+    certificateProviderName: Annotated[str, _aws_pattern("Iot", "CertificateProviderName")]
+    lambdaFunctionArn: Optional[Annotated[str, _aws_pattern("Iot", "CertificateProviderFunctionArn")]] = None
     accountDefaultForOperations: Optional[List[Literal["CreateCertificateFromCsr"]]] = None
 
 
 # This class is the input for the 'update_certificate' function.
 class UpdateCertificateRequestTypeDef(BaseValidatorModel):
-    certificateId: str
+    certificateId: Annotated[str, _aws_pattern("Iot", "CertificateId")]
     newStatus: CertificateStatusType
 
 
 # This class is the input for the 'update_command' function.
 class UpdateCommandRequestTypeDef(BaseValidatorModel):
-    commandId: str
-    displayName: Optional[str] = None
-    description: Optional[str] = None
+    commandId: Annotated[str, _aws_pattern("Iot", "CommandId")]
+    displayName: Optional[Annotated[str, _aws_pattern("Iot", "DisplayName")]] = None
+    description: Optional[Annotated[str, _aws_pattern("Iot", "CommandDescription")]] = None
     deprecated: Optional[bool] = None
 
 
 # This class is the input for the 'update_custom_metric' function.
 class UpdateCustomMetricRequestTypeDef(BaseValidatorModel):
-    metricName: str
-    displayName: str
+    metricName: Annotated[str, _aws_pattern("Iot", "MetricName")]
+    displayName: Annotated[str, _aws_pattern("Iot", "CustomMetricDisplayName")]
 
 
 # This class is the input for the 'update_dimension' function.
 class UpdateDimensionRequestTypeDef(BaseValidatorModel):
-    name: str
+    name: Annotated[str, _aws_pattern("Iot", "DimensionName")]
     stringValues: List[str]
 
 
@@ -2230,33 +2233,33 @@ class UpdateEncryptionConfigurationRequestTypeDef(BaseValidatorModel):
 
 
 class UpdatePackageRequestTypeDef(BaseValidatorModel):
-    packageName: str
-    description: Optional[str] = None
-    defaultVersionName: Optional[str] = None
+    packageName: Annotated[str, _aws_pattern("Iot", "PackageName")]
+    description: Optional[Annotated[str, _aws_pattern("Iot", "ResourceDescription")]] = None
+    defaultVersionName: Optional[Annotated[str, _aws_pattern("Iot", "VersionName")]] = None
     unsetDefaultVersion: Optional[bool] = None
-    clientToken: Optional[str] = None
+    clientToken: Optional[Annotated[str, _aws_pattern("Iot", "ClientToken")]] = None
 
 
 # This class is the input for the 'update_role_alias' function.
 class UpdateRoleAliasRequestTypeDef(BaseValidatorModel):
-    roleAlias: str
+    roleAlias: Annotated[str, _aws_pattern("Iot", "RoleAlias")]
     roleArn: Optional[str] = None
     credentialDurationSeconds: Optional[int] = None
 
 
 # This class is the input for the 'update_scheduled_audit' function.
 class UpdateScheduledAuditRequestTypeDef(BaseValidatorModel):
-    scheduledAuditName: str
+    scheduledAuditName: Annotated[str, _aws_pattern("Iot", "ScheduledAuditName")]
     frequency: Optional[AuditFrequencyType] = None
-    dayOfMonth: Optional[str] = None
+    dayOfMonth: Optional[Annotated[str, _aws_pattern("Iot", "DayOfMonth")]] = None
     dayOfWeek: Optional[DayOfWeekType] = None
     targetCheckNames: Optional[List[str]] = None
 
 
 class UpdateThingGroupsForThingRequestTypeDef(BaseValidatorModel):
-    thingName: Optional[str] = None
-    thingGroupsToAdd: Optional[List[str]] = None
-    thingGroupsToRemove: Optional[List[str]] = None
+    thingName: Optional[Annotated[str, _aws_pattern("Iot", "ThingName")]] = None
+    thingGroupsToAdd: Optional[List[Annotated[str, _aws_pattern("Iot", "ThingGroupName")]]] = None
+    thingGroupsToRemove: Optional[List[Annotated[str, _aws_pattern("Iot", "ThingGroupName")]]] = None
     overrideDynamicGroups: Optional[bool] = None
 
 
@@ -2306,83 +2309,83 @@ class AssetPropertyValueTypeDef(BaseValidatorModel):
 # This class is the output for the 'associate_targets_with_job' function.
 class AssociateTargetsWithJobResponseTypeDef(BaseValidatorModel):
     jobArn: str
-    jobId: str
-    description: str
+    jobId: Annotated[str, _aws_pattern("Iot", "JobId")]
+    description: Annotated[str, _aws_pattern("Iot", "JobDescription")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 # This class is the output for the 'cancel_job' function.
 class CancelJobResponseTypeDef(BaseValidatorModel):
     jobArn: str
-    jobId: str
-    description: str
+    jobId: Annotated[str, _aws_pattern("Iot", "JobId")]
+    description: Annotated[str, _aws_pattern("Iot", "JobDescription")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 # This class is the output for the 'create_authorizer' function.
 class CreateAuthorizerResponseTypeDef(BaseValidatorModel):
-    authorizerName: str
+    authorizerName: Annotated[str, _aws_pattern("Iot", "AuthorizerName")]
     authorizerArn: str
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 # This class is the output for the 'create_billing_group' function.
 class CreateBillingGroupResponseTypeDef(BaseValidatorModel):
-    billingGroupName: str
+    billingGroupName: Annotated[str, _aws_pattern("Iot", "BillingGroupName")]
     billingGroupArn: str
-    billingGroupId: str
+    billingGroupId: Annotated[str, _aws_pattern("Iot", "BillingGroupId")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 # This class is the output for the 'create_certificate_from_csr' function.
 class CreateCertificateFromCsrResponseTypeDef(BaseValidatorModel):
     certificateArn: str
-    certificateId: str
-    certificatePem: str
+    certificateId: Annotated[str, _aws_pattern("Iot", "CertificateId")]
+    certificatePem: Annotated[str, _aws_pattern("Iot", "CertificatePem")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 # This class is the output for the 'create_certificate_provider' function.
 class CreateCertificateProviderResponseTypeDef(BaseValidatorModel):
-    certificateProviderName: str
+    certificateProviderName: Annotated[str, _aws_pattern("Iot", "CertificateProviderName")]
     certificateProviderArn: str
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 # This class is the output for the 'create_command' function.
 class CreateCommandResponseTypeDef(BaseValidatorModel):
-    commandId: str
+    commandId: Annotated[str, _aws_pattern("Iot", "CommandId")]
     commandArn: str
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 # This class is the output for the 'create_custom_metric' function.
 class CreateCustomMetricResponseTypeDef(BaseValidatorModel):
-    metricName: str
+    metricName: Annotated[str, _aws_pattern("Iot", "MetricName")]
     metricArn: str
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 # This class is the output for the 'create_dimension' function.
 class CreateDimensionResponseTypeDef(BaseValidatorModel):
-    name: str
+    name: Annotated[str, _aws_pattern("Iot", "DimensionName")]
     arn: str
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 # This class is the output for the 'create_domain_configuration' function.
 class CreateDomainConfigurationResponseTypeDef(BaseValidatorModel):
-    domainConfigurationName: str
+    domainConfigurationName: Annotated[str, _aws_pattern("Iot", "DomainConfigurationName")]
     domainConfigurationArn: str
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 # This class is the output for the 'create_dynamic_thing_group' function.
 class CreateDynamicThingGroupResponseTypeDef(BaseValidatorModel):
-    thingGroupName: str
+    thingGroupName: Annotated[str, _aws_pattern("Iot", "ThingGroupName")]
     thingGroupArn: str
-    thingGroupId: str
-    indexName: str
+    thingGroupId: Annotated[str, _aws_pattern("Iot", "ThingGroupId")]
+    indexName: Annotated[str, _aws_pattern("Iot", "IndexName")]
     queryString: str
     queryVersion: str
     ResponseMetadata: ResponseMetadataTypeDef
@@ -2390,7 +2393,7 @@ class CreateDynamicThingGroupResponseTypeDef(BaseValidatorModel):
 
 # This class is the output for the 'create_fleet_metric' function.
 class CreateFleetMetricResponseTypeDef(BaseValidatorModel):
-    metricName: str
+    metricName: Annotated[str, _aws_pattern("Iot", "FleetMetricName")]
     metricArn: str
     ResponseMetadata: ResponseMetadataTypeDef
 
@@ -2398,15 +2401,15 @@ class CreateFleetMetricResponseTypeDef(BaseValidatorModel):
 # This class is the output for the 'create_job' function.
 class CreateJobResponseTypeDef(BaseValidatorModel):
     jobArn: str
-    jobId: str
-    description: str
+    jobId: Annotated[str, _aws_pattern("Iot", "JobId")]
+    description: Annotated[str, _aws_pattern("Iot", "JobDescription")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 # This class is the output for the 'create_job_template' function.
 class CreateJobTemplateResponseTypeDef(BaseValidatorModel):
-    jobTemplateArn: str
-    jobTemplateId: str
+    jobTemplateArn: Annotated[str, _aws_pattern("Iot", "JobTemplateArn")]
+    jobTemplateId: Annotated[str, _aws_pattern("Iot", "JobTemplateId")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
@@ -2419,7 +2422,7 @@ class CreateMitigationActionResponseTypeDef(BaseValidatorModel):
 
 # This class is the output for the 'create_ota_update' function.
 class CreateOTAUpdateResponseTypeDef(BaseValidatorModel):
-    otaUpdateId: str
+    otaUpdateId: Annotated[str, _aws_pattern("Iot", "OTAUpdateId")]
     awsIotJobId: str
     otaUpdateArn: str
     awsIotJobArn: str
@@ -2429,18 +2432,18 @@ class CreateOTAUpdateResponseTypeDef(BaseValidatorModel):
 
 # This class is the output for the 'create_package' function.
 class CreatePackageResponseTypeDef(BaseValidatorModel):
-    packageName: str
+    packageName: Annotated[str, _aws_pattern("Iot", "PackageName")]
     packageArn: str
-    description: str
+    description: Annotated[str, _aws_pattern("Iot", "ResourceDescription")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 # This class is the output for the 'create_package_version' function.
 class CreatePackageVersionResponseTypeDef(BaseValidatorModel):
-    packageVersionArn: str
-    packageName: str
-    versionName: str
-    description: str
+    packageVersionArn: Annotated[str, _aws_pattern("Iot", "PackageVersionArn")]
+    packageName: Annotated[str, _aws_pattern("Iot", "PackageName")]
+    versionName: Annotated[str, _aws_pattern("Iot", "VersionName")]
+    description: Annotated[str, _aws_pattern("Iot", "ResourceDescription")]
     attributes: Dict[str, str]
     status: PackageVersionStatusType
     errorReason: str
@@ -2449,18 +2452,18 @@ class CreatePackageVersionResponseTypeDef(BaseValidatorModel):
 
 # This class is the output for the 'create_policy' function.
 class CreatePolicyResponseTypeDef(BaseValidatorModel):
-    policyName: str
+    policyName: Annotated[str, _aws_pattern("Iot", "PolicyName")]
     policyArn: str
-    policyDocument: str
-    policyVersionId: str
+    policyDocument: Annotated[str, _aws_pattern("Iot", "PolicyDocument")]
+    policyVersionId: Annotated[str, _aws_pattern("Iot", "PolicyVersionId")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 # This class is the output for the 'create_policy_version' function.
 class CreatePolicyVersionResponseTypeDef(BaseValidatorModel):
     policyArn: str
-    policyDocument: str
-    policyVersionId: str
+    policyDocument: Annotated[str, _aws_pattern("Iot", "PolicyDocument")]
+    policyVersionId: Annotated[str, _aws_pattern("Iot", "PolicyVersionId")]
     isDefaultVersion: bool
     ResponseMetadata: ResponseMetadataTypeDef
 
@@ -2468,7 +2471,7 @@ class CreatePolicyVersionResponseTypeDef(BaseValidatorModel):
 # This class is the output for the 'create_provisioning_template' function.
 class CreateProvisioningTemplateResponseTypeDef(BaseValidatorModel):
     templateArn: str
-    templateName: str
+    templateName: Annotated[str, _aws_pattern("Iot", "TemplateName")]
     defaultVersionId: int
     ResponseMetadata: ResponseMetadataTypeDef
 
@@ -2476,7 +2479,7 @@ class CreateProvisioningTemplateResponseTypeDef(BaseValidatorModel):
 # This class is the output for the 'create_provisioning_template_version' function.
 class CreateProvisioningTemplateVersionResponseTypeDef(BaseValidatorModel):
     templateArn: str
-    templateName: str
+    templateName: Annotated[str, _aws_pattern("Iot", "TemplateName")]
     versionId: int
     isDefaultVersion: bool
     ResponseMetadata: ResponseMetadataTypeDef
@@ -2484,7 +2487,7 @@ class CreateProvisioningTemplateVersionResponseTypeDef(BaseValidatorModel):
 
 # This class is the output for the 'create_role_alias' function.
 class CreateRoleAliasResponseTypeDef(BaseValidatorModel):
-    roleAlias: str
+    roleAlias: Annotated[str, _aws_pattern("Iot", "RoleAlias")]
     roleAliasArn: str
     ResponseMetadata: ResponseMetadataTypeDef
 
@@ -2497,31 +2500,31 @@ class CreateScheduledAuditResponseTypeDef(BaseValidatorModel):
 
 # This class is the output for the 'create_security_profile' function.
 class CreateSecurityProfileResponseTypeDef(BaseValidatorModel):
-    securityProfileName: str
+    securityProfileName: Annotated[str, _aws_pattern("Iot", "SecurityProfileName")]
     securityProfileArn: str
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 # This class is the output for the 'create_stream' function.
 class CreateStreamResponseTypeDef(BaseValidatorModel):
-    streamId: str
+    streamId: Annotated[str, _aws_pattern("Iot", "StreamId")]
     streamArn: str
-    description: str
+    description: Annotated[str, _aws_pattern("Iot", "StreamDescription")]
     streamVersion: int
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 # This class is the output for the 'create_thing_group' function.
 class CreateThingGroupResponseTypeDef(BaseValidatorModel):
-    thingGroupName: str
+    thingGroupName: Annotated[str, _aws_pattern("Iot", "ThingGroupName")]
     thingGroupArn: str
-    thingGroupId: str
+    thingGroupId: Annotated[str, _aws_pattern("Iot", "ThingGroupId")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 # This class is the output for the 'create_thing' function.
 class CreateThingResponseTypeDef(BaseValidatorModel):
-    thingName: str
+    thingName: Annotated[str, _aws_pattern("Iot", "ThingName")]
     thingArn: str
     thingId: str
     ResponseMetadata: ResponseMetadataTypeDef
@@ -2529,7 +2532,7 @@ class CreateThingResponseTypeDef(BaseValidatorModel):
 
 # This class is the output for the 'create_thing_type' function.
 class CreateThingTypeResponseTypeDef(BaseValidatorModel):
-    thingTypeName: str
+    thingTypeName: Annotated[str, _aws_pattern("Iot", "ThingTypeName")]
     thingTypeArn: str
     thingTypeId: str
     ResponseMetadata: ResponseMetadataTypeDef
@@ -2543,9 +2546,9 @@ class DeleteCommandResponseTypeDef(BaseValidatorModel):
 
 # This class is the output for the 'describe_certificate_provider' function.
 class DescribeCertificateProviderResponseTypeDef(BaseValidatorModel):
-    certificateProviderName: str
+    certificateProviderName: Annotated[str, _aws_pattern("Iot", "CertificateProviderName")]
     certificateProviderArn: str
-    lambdaFunctionArn: str
+    lambdaFunctionArn: Annotated[str, _aws_pattern("Iot", "CertificateProviderFunctionArn")]
     accountDefaultForOperations: List[Literal["CreateCertificateFromCsr"]]
     creationDate: datetime
     lastModifiedDate: datetime
@@ -2554,10 +2557,10 @@ class DescribeCertificateProviderResponseTypeDef(BaseValidatorModel):
 
 # This class is the output for the 'describe_custom_metric' function.
 class DescribeCustomMetricResponseTypeDef(BaseValidatorModel):
-    metricName: str
+    metricName: Annotated[str, _aws_pattern("Iot", "MetricName")]
     metricArn: str
     metricType: CustomMetricTypeType
-    displayName: str
+    displayName: Annotated[str, _aws_pattern("Iot", "CustomMetricDisplayName")]
     creationDate: datetime
     lastModifiedDate: datetime
     ResponseMetadata: ResponseMetadataTypeDef
@@ -2565,7 +2568,7 @@ class DescribeCustomMetricResponseTypeDef(BaseValidatorModel):
 
 # This class is the output for the 'describe_dimension' function.
 class DescribeDimensionResponseTypeDef(BaseValidatorModel):
-    name: str
+    name: Annotated[str, _aws_pattern("Iot", "DimensionName")]
     arn: str
     type: Literal["TOPIC_FILTER"]
     stringValues: List[str]
@@ -2582,14 +2585,14 @@ class DescribeEndpointResponseTypeDef(BaseValidatorModel):
 
 # This class is the output for the 'describe_fleet_metric' function.
 class DescribeFleetMetricResponseTypeDef(BaseValidatorModel):
-    metricName: str
+    metricName: Annotated[str, _aws_pattern("Iot", "FleetMetricName")]
     queryString: str
     aggregationType: AggregationTypeOutputTypeDef
     period: int
     aggregationField: str
-    description: str
+    description: Annotated[str, _aws_pattern("Iot", "FleetMetricDescription")]
     queryVersion: str
-    indexName: str
+    indexName: Annotated[str, _aws_pattern("Iot", "IndexName")]
     creationDate: datetime
     lastModifiedDate: datetime
     unit: FleetMetricUnitType
@@ -2600,7 +2603,7 @@ class DescribeFleetMetricResponseTypeDef(BaseValidatorModel):
 
 # This class is the output for the 'describe_index' function.
 class DescribeIndexResponseTypeDef(BaseValidatorModel):
-    indexName: str
+    indexName: Annotated[str, _aws_pattern("Iot", "IndexName")]
     indexStatus: IndexStatusType
     schema: str
     ResponseMetadata: ResponseMetadataTypeDef
@@ -2610,7 +2613,7 @@ class DescribeIndexResponseTypeDef(BaseValidatorModel):
 class DescribeProvisioningTemplateVersionResponseTypeDef(BaseValidatorModel):
     versionId: int
     creationDate: datetime
-    templateBody: str
+    templateBody: Annotated[str, _aws_pattern("Iot", "TemplateBody")]
     isDefaultVersion: bool
     ResponseMetadata: ResponseMetadataTypeDef
 
@@ -2618,10 +2621,10 @@ class DescribeProvisioningTemplateVersionResponseTypeDef(BaseValidatorModel):
 # This class is the output for the 'describe_scheduled_audit' function.
 class DescribeScheduledAuditResponseTypeDef(BaseValidatorModel):
     frequency: AuditFrequencyType
-    dayOfMonth: str
+    dayOfMonth: Annotated[str, _aws_pattern("Iot", "DayOfMonth")]
     dayOfWeek: DayOfWeekType
     targetCheckNames: List[str]
-    scheduledAuditName: str
+    scheduledAuditName: Annotated[str, _aws_pattern("Iot", "ScheduledAuditName")]
     scheduledAuditArn: str
     ResponseMetadata: ResponseMetadataTypeDef
 
@@ -2631,9 +2634,9 @@ class DescribeThingRegistrationTaskResponseTypeDef(BaseValidatorModel):
     taskId: str
     creationDate: datetime
     lastModifiedDate: datetime
-    templateBody: str
-    inputFileBucket: str
-    inputFileKey: str
+    templateBody: Annotated[str, _aws_pattern("Iot", "TemplateBody")]
+    inputFileBucket: Annotated[str, _aws_pattern("Iot", "RegistryS3BucketName")]
+    inputFileKey: Annotated[str, _aws_pattern("Iot", "RegistryS3KeyName")]
     roleArn: str
     status: StatusType
     message: str
@@ -2646,13 +2649,13 @@ class DescribeThingRegistrationTaskResponseTypeDef(BaseValidatorModel):
 # This class is the output for the 'describe_thing' function.
 class DescribeThingResponseTypeDef(BaseValidatorModel):
     defaultClientId: str
-    thingName: str
+    thingName: Annotated[str, _aws_pattern("Iot", "ThingName")]
     thingId: str
     thingArn: str
-    thingTypeName: str
+    thingTypeName: Annotated[str, _aws_pattern("Iot", "ThingTypeName")]
     attributes: Dict[str, str]
     version: int
-    billingGroupName: str
+    billingGroupName: Annotated[str, _aws_pattern("Iot", "BillingGroupName")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
@@ -2681,10 +2684,10 @@ class GetLoggingOptionsResponseTypeDef(BaseValidatorModel):
 
 # This class is the output for the 'get_package' function.
 class GetPackageResponseTypeDef(BaseValidatorModel):
-    packageName: str
+    packageName: Annotated[str, _aws_pattern("Iot", "PackageName")]
     packageArn: str
-    description: str
-    defaultVersionName: str
+    description: Annotated[str, _aws_pattern("Iot", "ResourceDescription")]
+    defaultVersionName: Annotated[str, _aws_pattern("Iot", "VersionName")]
     creationDate: datetime
     lastModifiedDate: datetime
     ResponseMetadata: ResponseMetadataTypeDef
@@ -2692,10 +2695,10 @@ class GetPackageResponseTypeDef(BaseValidatorModel):
 
 # This class is the output for the 'get_policy' function.
 class GetPolicyResponseTypeDef(BaseValidatorModel):
-    policyName: str
+    policyName: Annotated[str, _aws_pattern("Iot", "PolicyName")]
     policyArn: str
-    policyDocument: str
-    defaultVersionId: str
+    policyDocument: Annotated[str, _aws_pattern("Iot", "PolicyDocument")]
+    defaultVersionId: Annotated[str, _aws_pattern("Iot", "PolicyVersionId")]
     creationDate: datetime
     lastModifiedDate: datetime
     generationId: str
@@ -2705,9 +2708,9 @@ class GetPolicyResponseTypeDef(BaseValidatorModel):
 # This class is the output for the 'get_policy_version' function.
 class GetPolicyVersionResponseTypeDef(BaseValidatorModel):
     policyArn: str
-    policyName: str
-    policyDocument: str
-    policyVersionId: str
+    policyName: Annotated[str, _aws_pattern("Iot", "PolicyName")]
+    policyDocument: Annotated[str, _aws_pattern("Iot", "PolicyDocument")]
+    policyVersionId: Annotated[str, _aws_pattern("Iot", "PolicyVersionId")]
     isDefaultVersion: bool
     creationDate: datetime
     lastModifiedDate: datetime
@@ -2716,13 +2719,13 @@ class GetPolicyVersionResponseTypeDef(BaseValidatorModel):
 
 
 class GetRegistrationCodeResponseTypeDef(BaseValidatorModel):
-    registrationCode: str
+    registrationCode: Annotated[str, _aws_pattern("Iot", "RegistrationCode")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 # This class is the output for the 'get_thing_connectivity_data' function.
 class GetThingConnectivityDataResponseTypeDef(BaseValidatorModel):
-    thingName: str
+    thingName: Annotated[str, _aws_pattern("Iot", "ConnectivityApiThingName")]
     connected: bool
     timestamp: datetime
     disconnectReason: DisconnectReasonValueType
@@ -2732,27 +2735,27 @@ class GetThingConnectivityDataResponseTypeDef(BaseValidatorModel):
 # This class is the output for the 'list_attached_policies' function.
 class ListAttachedPoliciesResponseTypeDef(BaseValidatorModel):
     policies: List[PolicyTypeDef]
-    nextMarker: str
+    nextMarker: Annotated[str, _aws_pattern("Iot", "Marker")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 # This class is the output for the 'list_custom_metrics' function.
 class ListCustomMetricsResponseTypeDef(BaseValidatorModel):
-    metricNames: List[str]
+    metricNames: List[Annotated[str, _aws_pattern("Iot", "MetricName")]]
     ResponseMetadata: ResponseMetadataTypeDef
     nextToken: Optional[str] = None
 
 
 # This class is the output for the 'list_dimensions' function.
 class ListDimensionsResponseTypeDef(BaseValidatorModel):
-    dimensionNames: List[str]
+    dimensionNames: List[Annotated[str, _aws_pattern("Iot", "DimensionName")]]
     ResponseMetadata: ResponseMetadataTypeDef
     nextToken: Optional[str] = None
 
 
 # This class is the output for the 'list_indices' function.
 class ListIndicesResponseTypeDef(BaseValidatorModel):
-    indexNames: List[str]
+    indexNames: List[Annotated[str, _aws_pattern("Iot", "IndexName")]]
     ResponseMetadata: ResponseMetadataTypeDef
     nextToken: Optional[str] = None
 
@@ -2760,42 +2763,42 @@ class ListIndicesResponseTypeDef(BaseValidatorModel):
 # This class is the output for the 'list_policies' function.
 class ListPoliciesResponseTypeDef(BaseValidatorModel):
     policies: List[PolicyTypeDef]
-    nextMarker: str
+    nextMarker: Annotated[str, _aws_pattern("Iot", "Marker")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 # This class is the output for the 'list_policy_principals' function.
 class ListPolicyPrincipalsResponseTypeDef(BaseValidatorModel):
     principals: List[str]
-    nextMarker: str
+    nextMarker: Annotated[str, _aws_pattern("Iot", "Marker")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 # This class is the output for the 'list_principal_policies' function.
 class ListPrincipalPoliciesResponseTypeDef(BaseValidatorModel):
     policies: List[PolicyTypeDef]
-    nextMarker: str
+    nextMarker: Annotated[str, _aws_pattern("Iot", "Marker")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 # This class is the output for the 'list_principal_things' function.
 class ListPrincipalThingsResponseTypeDef(BaseValidatorModel):
-    things: List[str]
+    things: List[Annotated[str, _aws_pattern("Iot", "ThingName")]]
     ResponseMetadata: ResponseMetadataTypeDef
     nextToken: Optional[str] = None
 
 
 # This class is the output for the 'list_role_aliases' function.
 class ListRoleAliasesResponseTypeDef(BaseValidatorModel):
-    roleAliases: List[str]
-    nextMarker: str
+    roleAliases: List[Annotated[str, _aws_pattern("Iot", "RoleAlias")]]
+    nextMarker: Annotated[str, _aws_pattern("Iot", "Marker")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 # This class is the output for the 'list_targets_for_policy' function.
 class ListTargetsForPolicyResponseTypeDef(BaseValidatorModel):
     targets: List[str]
-    nextMarker: str
+    nextMarker: Annotated[str, _aws_pattern("Iot", "Marker")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
@@ -2823,14 +2826,14 @@ class ListThingRegistrationTasksResponseTypeDef(BaseValidatorModel):
 
 # This class is the output for the 'list_things_in_billing_group' function.
 class ListThingsInBillingGroupResponseTypeDef(BaseValidatorModel):
-    things: List[str]
+    things: List[Annotated[str, _aws_pattern("Iot", "ThingName")]]
     ResponseMetadata: ResponseMetadataTypeDef
     nextToken: Optional[str] = None
 
 
 # This class is the output for the 'list_things_in_thing_group' function.
 class ListThingsInThingGroupResponseTypeDef(BaseValidatorModel):
-    things: List[str]
+    things: List[Annotated[str, _aws_pattern("Iot", "ThingName")]]
     ResponseMetadata: ResponseMetadataTypeDef
     nextToken: Optional[str] = None
 
@@ -2838,53 +2841,53 @@ class ListThingsInThingGroupResponseTypeDef(BaseValidatorModel):
 # This class is the output for the 'register_ca_certificate' function.
 class RegisterCACertificateResponseTypeDef(BaseValidatorModel):
     certificateArn: str
-    certificateId: str
+    certificateId: Annotated[str, _aws_pattern("Iot", "CertificateId")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 # This class is the output for the 'register_certificate' function.
 class RegisterCertificateResponseTypeDef(BaseValidatorModel):
     certificateArn: str
-    certificateId: str
+    certificateId: Annotated[str, _aws_pattern("Iot", "CertificateId")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 # This class is the output for the 'register_certificate_without_ca' function.
 class RegisterCertificateWithoutCAResponseTypeDef(BaseValidatorModel):
     certificateArn: str
-    certificateId: str
+    certificateId: Annotated[str, _aws_pattern("Iot", "CertificateId")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 # This class is the output for the 'register_thing' function.
 class RegisterThingResponseTypeDef(BaseValidatorModel):
-    certificatePem: str
+    certificatePem: Annotated[str, _aws_pattern("Iot", "CertificatePem")]
     resourceArns: Dict[str, str]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 # This class is the output for the 'set_default_authorizer' function.
 class SetDefaultAuthorizerResponseTypeDef(BaseValidatorModel):
-    authorizerName: str
+    authorizerName: Annotated[str, _aws_pattern("Iot", "AuthorizerName")]
     authorizerArn: str
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 # This class is the output for the 'start_audit_mitigation_actions_task' function.
 class StartAuditMitigationActionsTaskResponseTypeDef(BaseValidatorModel):
-    taskId: str
+    taskId: Annotated[str, _aws_pattern("Iot", "MitigationActionsTaskId")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 # This class is the output for the 'start_detect_mitigation_actions_task' function.
 class StartDetectMitigationActionsTaskResponseTypeDef(BaseValidatorModel):
-    taskId: str
+    taskId: Annotated[str, _aws_pattern("Iot", "MitigationActionsTaskId")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 # This class is the output for the 'start_on_demand_audit_task' function.
 class StartOnDemandAuditTaskResponseTypeDef(BaseValidatorModel):
-    taskId: str
+    taskId: Annotated[str, _aws_pattern("Iot", "AuditTaskId")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
@@ -2897,8 +2900,8 @@ class StartThingRegistrationTaskResponseTypeDef(BaseValidatorModel):
 # This class is the output for the 'test_invoke_authorizer' function.
 class TestInvokeAuthorizerResponseTypeDef(BaseValidatorModel):
     isAuthenticated: bool
-    principalId: str
-    policyDocuments: List[str]
+    principalId: Annotated[str, _aws_pattern("Iot", "PrincipalId")]
+    policyDocuments: List[Annotated[str, _aws_pattern("Iot", "PolicyDocument")]]
     refreshAfterInSeconds: int
     disconnectAfterInSeconds: int
     ResponseMetadata: ResponseMetadataTypeDef
@@ -2912,7 +2915,7 @@ class TransferCertificateResponseTypeDef(BaseValidatorModel):
 
 # This class is the output for the 'update_authorizer' function.
 class UpdateAuthorizerResponseTypeDef(BaseValidatorModel):
-    authorizerName: str
+    authorizerName: Annotated[str, _aws_pattern("Iot", "AuthorizerName")]
     authorizerArn: str
     ResponseMetadata: ResponseMetadataTypeDef
 
@@ -2925,16 +2928,16 @@ class UpdateBillingGroupResponseTypeDef(BaseValidatorModel):
 
 # This class is the output for the 'update_certificate_provider' function.
 class UpdateCertificateProviderResponseTypeDef(BaseValidatorModel):
-    certificateProviderName: str
+    certificateProviderName: Annotated[str, _aws_pattern("Iot", "CertificateProviderName")]
     certificateProviderArn: str
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 # This class is the output for the 'update_command' function.
 class UpdateCommandResponseTypeDef(BaseValidatorModel):
-    commandId: str
-    displayName: str
-    description: str
+    commandId: Annotated[str, _aws_pattern("Iot", "CommandId")]
+    displayName: Annotated[str, _aws_pattern("Iot", "DisplayName")]
+    description: Annotated[str, _aws_pattern("Iot", "CommandDescription")]
     deprecated: bool
     lastUpdatedAt: datetime
     ResponseMetadata: ResponseMetadataTypeDef
@@ -2942,10 +2945,10 @@ class UpdateCommandResponseTypeDef(BaseValidatorModel):
 
 # This class is the output for the 'update_custom_metric' function.
 class UpdateCustomMetricResponseTypeDef(BaseValidatorModel):
-    metricName: str
+    metricName: Annotated[str, _aws_pattern("Iot", "MetricName")]
     metricArn: str
     metricType: CustomMetricTypeType
-    displayName: str
+    displayName: Annotated[str, _aws_pattern("Iot", "CustomMetricDisplayName")]
     creationDate: datetime
     lastModifiedDate: datetime
     ResponseMetadata: ResponseMetadataTypeDef
@@ -2953,7 +2956,7 @@ class UpdateCustomMetricResponseTypeDef(BaseValidatorModel):
 
 # This class is the output for the 'update_dimension' function.
 class UpdateDimensionResponseTypeDef(BaseValidatorModel):
-    name: str
+    name: Annotated[str, _aws_pattern("Iot", "DimensionName")]
     arn: str
     type: Literal["TOPIC_FILTER"]
     stringValues: List[str]
@@ -2964,7 +2967,7 @@ class UpdateDimensionResponseTypeDef(BaseValidatorModel):
 
 # This class is the output for the 'update_domain_configuration' function.
 class UpdateDomainConfigurationResponseTypeDef(BaseValidatorModel):
-    domainConfigurationName: str
+    domainConfigurationName: Annotated[str, _aws_pattern("Iot", "ReservedDomainConfigurationName")]
     domainConfigurationArn: str
     ResponseMetadata: ResponseMetadataTypeDef
 
@@ -2984,7 +2987,7 @@ class UpdateMitigationActionResponseTypeDef(BaseValidatorModel):
 
 # This class is the output for the 'update_role_alias' function.
 class UpdateRoleAliasResponseTypeDef(BaseValidatorModel):
-    roleAlias: str
+    roleAlias: Annotated[str, _aws_pattern("Iot", "RoleAlias")]
     roleAliasArn: str
     ResponseMetadata: ResponseMetadataTypeDef
 
@@ -2997,9 +3000,9 @@ class UpdateScheduledAuditResponseTypeDef(BaseValidatorModel):
 
 # This class is the output for the 'update_stream' function.
 class UpdateStreamResponseTypeDef(BaseValidatorModel):
-    streamId: str
+    streamId: Annotated[str, _aws_pattern("Iot", "StreamId")]
     streamArn: str
-    description: str
+    description: Annotated[str, _aws_pattern("Iot", "StreamDescription")]
     streamVersion: int
     ResponseMetadata: ResponseMetadataTypeDef
 
@@ -3019,7 +3022,7 @@ AttributePayloadUnionTypeDef = Union[AttributePayloadOutputTypeDef, AttributePay
 
 
 class ThingGroupPropertiesTypeDef(BaseValidatorModel):
-    thingGroupDescription: Optional[str] = None
+    thingGroupDescription: Optional[Annotated[str, _aws_pattern("Iot", "ThingGroupDescription")]] = None
     attributePayload: Optional[AttributePayloadTypeDef] = None
 
 
@@ -3076,7 +3079,7 @@ class DescribeDefaultAuthorizerResponseTypeDef(BaseValidatorModel):
 # This class is the output for the 'list_authorizers' function.
 class ListAuthorizersResponseTypeDef(BaseValidatorModel):
     authorizers: List[AuthorizerSummaryTypeDef]
-    nextMarker: str
+    nextMarker: Annotated[str, _aws_pattern("Iot", "Marker")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
@@ -3119,8 +3122,8 @@ class MetricToRetainTypeDef(BaseValidatorModel):
 
 # This class is the output for the 'describe_billing_group' function.
 class DescribeBillingGroupResponseTypeDef(BaseValidatorModel):
-    billingGroupName: str
-    billingGroupId: str
+    billingGroupName: Annotated[str, _aws_pattern("Iot", "BillingGroupName")]
+    billingGroupId: Annotated[str, _aws_pattern("Iot", "BillingGroupId")]
     billingGroupArn: str
     version: int
     billingGroupProperties: BillingGroupPropertiesTypeDef
@@ -3130,7 +3133,7 @@ class DescribeBillingGroupResponseTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'update_billing_group' function.
 class UpdateBillingGroupRequestTypeDef(BaseValidatorModel):
-    billingGroupName: str
+    billingGroupName: Annotated[str, _aws_pattern("Iot", "BillingGroupName")]
     billingGroupProperties: BillingGroupPropertiesTypeDef
     expectedVersion: Optional[int] = None
 
@@ -3146,7 +3149,7 @@ class CommandParameterValueTypeDef(BaseValidatorModel):
     L: Optional[int] = None
     D: Optional[float] = None
     BIN: Optional[BlobTypeDef] = None
-    UL: Optional[str] = None
+    UL: Optional[Annotated[str, _aws_pattern("Iot", "UnsignedLongParameterValue")]] = None
 
 
 class CommandPayloadTypeDef(BaseValidatorModel):
@@ -3155,9 +3158,9 @@ class CommandPayloadTypeDef(BaseValidatorModel):
 
 
 class MqttContextTypeDef(BaseValidatorModel):
-    username: Optional[str] = None
+    username: Optional[Annotated[str, _aws_pattern("Iot", "MqttUsername")]] = None
     password: Optional[BlobTypeDef] = None
-    clientId: Optional[str] = None
+    clientId: Optional[Annotated[str, _aws_pattern("Iot", "MqttClientId")]] = None
 
 
 # This class is the output for the 'get_buckets_aggregation' function.
@@ -3173,10 +3176,10 @@ class BucketsAggregationTypeTypeDef(BaseValidatorModel):
 
 class CACertificateDescriptionTypeDef(BaseValidatorModel):
     certificateArn: Optional[str] = None
-    certificateId: Optional[str] = None
+    certificateId: Optional[Annotated[str, _aws_pattern("Iot", "CertificateId")]] = None
     status: Optional[CACertificateStatusType] = None
-    certificatePem: Optional[str] = None
-    ownedBy: Optional[str] = None
+    certificatePem: Optional[Annotated[str, _aws_pattern("Iot", "CertificatePem")]] = None
+    ownedBy: Optional[Annotated[str, _aws_pattern("Iot", "AwsAccountId")]] = None
     creationDate: Optional[datetime] = None
     autoRegistrationStatus: Optional[AutoRegistrationStatusType] = None
     lastModifiedDate: Optional[datetime] = None
@@ -3189,18 +3192,18 @@ class CACertificateDescriptionTypeDef(BaseValidatorModel):
 # This class is the output for the 'list_ca_certificates' function.
 class ListCACertificatesResponseTypeDef(BaseValidatorModel):
     certificates: List[CACertificateTypeDef]
-    nextMarker: str
+    nextMarker: Annotated[str, _aws_pattern("Iot", "Marker")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 class CertificateDescriptionTypeDef(BaseValidatorModel):
     certificateArn: Optional[str] = None
-    certificateId: Optional[str] = None
-    caCertificateId: Optional[str] = None
+    certificateId: Optional[Annotated[str, _aws_pattern("Iot", "CertificateId")]] = None
+    caCertificateId: Optional[Annotated[str, _aws_pattern("Iot", "CertificateId")]] = None
     status: Optional[CertificateStatusType] = None
-    certificatePem: Optional[str] = None
-    ownedBy: Optional[str] = None
-    previousOwnedBy: Optional[str] = None
+    certificatePem: Optional[Annotated[str, _aws_pattern("Iot", "CertificatePem")]] = None
+    ownedBy: Optional[Annotated[str, _aws_pattern("Iot", "AwsAccountId")]] = None
+    previousOwnedBy: Optional[Annotated[str, _aws_pattern("Iot", "AwsAccountId")]] = None
     creationDate: Optional[datetime] = None
     lastModifiedDate: Optional[datetime] = None
     customerVersion: Optional[int] = None
@@ -3214,20 +3217,20 @@ class CertificateDescriptionTypeDef(BaseValidatorModel):
 class ListCertificateProvidersResponseTypeDef(BaseValidatorModel):
     certificateProviders: List[CertificateProviderSummaryTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
-    nextToken: Optional[str] = None
+    nextToken: Optional[Annotated[str, _aws_pattern("Iot", "Marker")]] = None
 
 
 # This class is the output for the 'list_certificates_by_ca' function.
 class ListCertificatesByCAResponseTypeDef(BaseValidatorModel):
     certificates: List[CertificateTypeDef]
-    nextMarker: str
+    nextMarker: Annotated[str, _aws_pattern("Iot", "Marker")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 # This class is the output for the 'list_certificates' function.
 class ListCertificatesResponseTypeDef(BaseValidatorModel):
     certificates: List[CertificateTypeDef]
-    nextMarker: str
+    nextMarker: Annotated[str, _aws_pattern("Iot", "Marker")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
@@ -3292,8 +3295,8 @@ class UpdateEventConfigurationsRequestTypeDef(BaseValidatorModel):
 class ListAuditMitigationActionsTasksRequestTypeDef(BaseValidatorModel):
     startTime: TimestampTypeDef
     endTime: TimestampTypeDef
-    auditTaskId: Optional[str] = None
-    findingId: Optional[str] = None
+    auditTaskId: Optional[Annotated[str, _aws_pattern("Iot", "AuditTaskId")]] = None
+    findingId: Optional[Annotated[str, _aws_pattern("Iot", "FindingId")]] = None
     taskStatus: Optional[AuditMitigationActionsTaskStatusType] = None
     maxResults: Optional[int] = None
     nextToken: Optional[str] = None
@@ -3311,8 +3314,8 @@ class ListAuditTasksRequestTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'list_detect_mitigation_actions_executions' function.
 class ListDetectMitigationActionsExecutionsRequestTypeDef(BaseValidatorModel):
-    taskId: Optional[str] = None
-    violationId: Optional[str] = None
+    taskId: Optional[Annotated[str, _aws_pattern("Iot", "MitigationActionsTaskId")]] = None
+    violationId: Optional[Annotated[str, _aws_pattern("Iot", "ViolationId")]] = None
     thingName: Optional[str] = None
     startTime: Optional[TimestampTypeDef] = None
     endTime: Optional[TimestampTypeDef] = None
@@ -3334,7 +3337,7 @@ class ListMetricValuesRequestTypeDef(BaseValidatorModel):
     metricName: str
     startTime: TimestampTypeDef
     endTime: TimestampTypeDef
-    dimensionName: Optional[str] = None
+    dimensionName: Optional[Annotated[str, _aws_pattern("Iot", "DimensionName")]] = None
     dimensionValueOperator: Optional[DimensionValueOperatorType] = None
     maxResults: Optional[int] = None
     nextToken: Optional[str] = None
@@ -3345,7 +3348,7 @@ class ListViolationEventsRequestTypeDef(BaseValidatorModel):
     startTime: TimestampTypeDef
     endTime: TimestampTypeDef
     thingName: Optional[str] = None
-    securityProfileName: Optional[str] = None
+    securityProfileName: Optional[Annotated[str, _aws_pattern("Iot", "SecurityProfileName")]] = None
     behaviorCriteriaType: Optional[BehaviorCriteriaTypeType] = None
     listSuppressedAlerts: Optional[bool] = None
     verificationState: Optional[VerificationStateType] = None
@@ -3360,9 +3363,9 @@ class ViolationEventOccurrenceRangeTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'create_authorizer' function.
 class CreateAuthorizerRequestTypeDef(BaseValidatorModel):
-    authorizerName: str
-    authorizerFunctionArn: str
-    tokenKeyName: Optional[str] = None
+    authorizerName: Annotated[str, _aws_pattern("Iot", "AuthorizerName")]
+    authorizerFunctionArn: Annotated[str, _aws_pattern("Iot", "AuthorizerFunctionArn")]
+    tokenKeyName: Optional[Annotated[str, _aws_pattern("Iot", "TokenKeyName")]] = None
     tokenSigningPublicKeys: Optional[Dict[str, str]] = None
     status: Optional[AuthorizerStatusType] = None
     tags: Optional[List[TagTypeDef]] = None
@@ -3372,48 +3375,48 @@ class CreateAuthorizerRequestTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'create_billing_group' function.
 class CreateBillingGroupRequestTypeDef(BaseValidatorModel):
-    billingGroupName: str
+    billingGroupName: Annotated[str, _aws_pattern("Iot", "BillingGroupName")]
     billingGroupProperties: Optional[BillingGroupPropertiesTypeDef] = None
     tags: Optional[List[TagTypeDef]] = None
 
 
 # This class is the input for the 'create_certificate_provider' function.
 class CreateCertificateProviderRequestTypeDef(BaseValidatorModel):
-    certificateProviderName: str
-    lambdaFunctionArn: str
+    certificateProviderName: Annotated[str, _aws_pattern("Iot", "CertificateProviderName")]
+    lambdaFunctionArn: Annotated[str, _aws_pattern("Iot", "CertificateProviderFunctionArn")]
     accountDefaultForOperations: List[Literal["CreateCertificateFromCsr"]]
-    clientToken: Optional[str] = None
+    clientToken: Optional[Annotated[str, _aws_pattern("Iot", "ClientToken")]] = None
     tags: Optional[List[TagTypeDef]] = None
 
 
 # This class is the input for the 'create_custom_metric' function.
 class CreateCustomMetricRequestTypeDef(BaseValidatorModel):
-    metricName: str
+    metricName: Annotated[str, _aws_pattern("Iot", "MetricName")]
     metricType: CustomMetricTypeType
-    clientRequestToken: str
-    displayName: Optional[str] = None
+    clientRequestToken: Annotated[str, _aws_pattern("Iot", "ClientRequestToken")]
+    displayName: Optional[Annotated[str, _aws_pattern("Iot", "CustomMetricDisplayName")]] = None
     tags: Optional[List[TagTypeDef]] = None
 
 
 # This class is the input for the 'create_dimension' function.
 class CreateDimensionRequestTypeDef(BaseValidatorModel):
-    name: str
+    name: Annotated[str, _aws_pattern("Iot", "DimensionName")]
     type: Literal["TOPIC_FILTER"]
     stringValues: List[str]
-    clientRequestToken: str
+    clientRequestToken: Annotated[str, _aws_pattern("Iot", "ClientRequestToken")]
     tags: Optional[List[TagTypeDef]] = None
 
 
 # This class is the input for the 'create_policy' function.
 class CreatePolicyRequestTypeDef(BaseValidatorModel):
-    policyName: str
-    policyDocument: str
+    policyName: Annotated[str, _aws_pattern("Iot", "PolicyName")]
+    policyDocument: Annotated[str, _aws_pattern("Iot", "PolicyDocument")]
     tags: Optional[List[TagTypeDef]] = None
 
 
 # This class is the input for the 'create_role_alias' function.
 class CreateRoleAliasRequestTypeDef(BaseValidatorModel):
-    roleAlias: str
+    roleAlias: Annotated[str, _aws_pattern("Iot", "RoleAlias")]
     roleArn: str
     credentialDurationSeconds: Optional[int] = None
     tags: Optional[List[TagTypeDef]] = None
@@ -3423,8 +3426,8 @@ class CreateRoleAliasRequestTypeDef(BaseValidatorModel):
 class CreateScheduledAuditRequestTypeDef(BaseValidatorModel):
     frequency: AuditFrequencyType
     targetCheckNames: List[str]
-    scheduledAuditName: str
-    dayOfMonth: Optional[str] = None
+    scheduledAuditName: Annotated[str, _aws_pattern("Iot", "ScheduledAuditName")]
+    dayOfMonth: Optional[Annotated[str, _aws_pattern("Iot", "DayOfMonth")]] = None
     dayOfWeek: Optional[DayOfWeekType] = None
     tags: Optional[List[TagTypeDef]] = None
 
@@ -3443,10 +3446,10 @@ class TagResourceRequestTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'create_domain_configuration' function.
 class CreateDomainConfigurationRequestTypeDef(BaseValidatorModel):
-    domainConfigurationName: str
-    domainName: Optional[str] = None
-    serverCertificateArns: Optional[List[str]] = None
-    validationCertificateArn: Optional[str] = None
+    domainConfigurationName: Annotated[str, _aws_pattern("Iot", "DomainConfigurationName")]
+    domainName: Optional[Annotated[str, _aws_pattern("Iot", "DomainName")]] = None
+    serverCertificateArns: Optional[List[Annotated[str, _aws_pattern("Iot", "AcmCertificateArn")]]] = None
+    validationCertificateArn: Optional[Annotated[str, _aws_pattern("Iot", "AcmCertificateArn")]] = None
     authorizerConfig: Optional[AuthorizerConfigTypeDef] = None
     serviceType: Optional[ServiceTypeType] = None
     tags: Optional[List[TagTypeDef]] = None
@@ -3459,7 +3462,7 @@ class CreateDomainConfigurationRequestTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'update_domain_configuration' function.
 class UpdateDomainConfigurationRequestTypeDef(BaseValidatorModel):
-    domainConfigurationName: str
+    domainConfigurationName: Annotated[str, _aws_pattern("Iot", "ReservedDomainConfigurationName")]
     authorizerConfig: Optional[AuthorizerConfigTypeDef] = None
     domainConfigurationStatus: Optional[DomainConfigurationStatusType] = None
     removeAuthorizerConfig: Optional[bool] = None
@@ -3487,16 +3490,16 @@ class SchedulingConfigTypeDef(BaseValidatorModel):
 # This class is the output for the 'create_keys_and_certificate' function.
 class CreateKeysAndCertificateResponseTypeDef(BaseValidatorModel):
     certificateArn: str
-    certificateId: str
-    certificatePem: str
+    certificateId: Annotated[str, _aws_pattern("Iot", "CertificateId")]
+    certificatePem: Annotated[str, _aws_pattern("Iot", "CertificatePem")]
     keyPair: KeyPairTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 # This class is the output for the 'create_provisioning_claim' function.
 class CreateProvisioningClaimResponseTypeDef(BaseValidatorModel):
-    certificateId: str
-    certificatePem: str
+    certificateId: Annotated[str, _aws_pattern("Iot", "CertificateId")]
+    certificatePem: Annotated[str, _aws_pattern("Iot", "CertificatePem")]
     keyPair: KeyPairTypeDef
     expiration: datetime
     ResponseMetadata: ResponseMetadataTypeDef
@@ -3504,10 +3507,10 @@ class CreateProvisioningClaimResponseTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'create_provisioning_template' function.
 class CreateProvisioningTemplateRequestTypeDef(BaseValidatorModel):
-    templateName: str
-    templateBody: str
+    templateName: Annotated[str, _aws_pattern("Iot", "TemplateName")]
+    templateBody: Annotated[str, _aws_pattern("Iot", "TemplateBody")]
     provisioningRoleArn: str
-    description: Optional[str] = None
+    description: Optional[Annotated[str, _aws_pattern("Iot", "TemplateDescription")]] = None
     enabled: Optional[bool] = None
     preProvisioningHook: Optional[ProvisioningHookTypeDef] = None
     tags: Optional[List[TagTypeDef]] = None
@@ -3517,12 +3520,12 @@ class CreateProvisioningTemplateRequestTypeDef(BaseValidatorModel):
 # This class is the output for the 'describe_provisioning_template' function.
 class DescribeProvisioningTemplateResponseTypeDef(BaseValidatorModel):
     templateArn: str
-    templateName: str
-    description: str
+    templateName: Annotated[str, _aws_pattern("Iot", "TemplateName")]
+    description: Annotated[str, _aws_pattern("Iot", "TemplateDescription")]
     creationDate: datetime
     lastModifiedDate: datetime
     defaultVersionId: int
-    templateBody: str
+    templateBody: Annotated[str, _aws_pattern("Iot", "TemplateBody")]
     enabled: bool
     provisioningRoleArn: str
     preProvisioningHook: ProvisioningHookTypeDef
@@ -3531,8 +3534,8 @@ class DescribeProvisioningTemplateResponseTypeDef(BaseValidatorModel):
 
 
 class UpdateProvisioningTemplateRequestTypeDef(BaseValidatorModel):
-    templateName: str
-    description: Optional[str] = None
+    templateName: Annotated[str, _aws_pattern("Iot", "TemplateName")]
+    description: Optional[Annotated[str, _aws_pattern("Iot", "TemplateDescription")]] = None
     enabled: Optional[bool] = None
     defaultVersionId: Optional[int] = None
     provisioningRoleArn: Optional[str] = None
@@ -3546,15 +3549,15 @@ class DescribeAuditTaskResponseTypeDef(BaseValidatorModel):
     taskType: AuditTaskTypeType
     taskStartTime: datetime
     taskStatistics: TaskStatisticsTypeDef
-    scheduledAuditName: str
+    scheduledAuditName: Annotated[str, _aws_pattern("Iot", "ScheduledAuditName")]
     auditDetails: Dict[str, AuditCheckDetailsTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 # This class is the input for the 'register_ca_certificate' function.
 class RegisterCACertificateRequestTypeDef(BaseValidatorModel):
-    caCertificate: str
-    verificationCertificate: Optional[str] = None
+    caCertificate: Annotated[str, _aws_pattern("Iot", "CertificatePem")]
+    verificationCertificate: Optional[Annotated[str, _aws_pattern("Iot", "CertificatePem")]] = None
     setAsActive: Optional[bool] = None
     allowAutoRegistration: Optional[bool] = None
     registrationConfig: Optional[RegistrationConfigTypeDef] = None
@@ -3564,7 +3567,7 @@ class RegisterCACertificateRequestTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'update_ca_certificate' function.
 class UpdateCACertificateRequestTypeDef(BaseValidatorModel):
-    certificateId: str
+    certificateId: Annotated[str, _aws_pattern("Iot", "CertificateId")]
     newStatus: Optional[CACertificateStatusType] = None
     newAutoRegistrationStatus: Optional[AutoRegistrationStatusType] = None
     registrationConfig: Optional[RegistrationConfigTypeDef] = None
@@ -3573,9 +3576,9 @@ class UpdateCACertificateRequestTypeDef(BaseValidatorModel):
 
 # This class is the output for the 'describe_domain_configuration' function.
 class DescribeDomainConfigurationResponseTypeDef(BaseValidatorModel):
-    domainConfigurationName: str
+    domainConfigurationName: Annotated[str, _aws_pattern("Iot", "ReservedDomainConfigurationName")]
     domainConfigurationArn: str
-    domainName: str
+    domainName: Annotated[str, _aws_pattern("Iot", "DomainName")]
     serverCertificates: List[ServerCertificateSummaryTypeDef]
     authorizerConfig: AuthorizerConfigTypeDef
     domainConfigurationStatus: DomainConfigurationStatusType
@@ -3593,10 +3596,10 @@ class DescribeDomainConfigurationResponseTypeDef(BaseValidatorModel):
 # This class is the output for the 'describe_managed_job_template' function.
 class DescribeManagedJobTemplateResponseTypeDef(BaseValidatorModel):
     templateName: str
-    templateArn: str
-    description: str
-    templateVersion: str
-    environments: List[str]
+    templateArn: Annotated[str, _aws_pattern("Iot", "JobTemplateArn")]
+    description: Annotated[str, _aws_pattern("Iot", "JobDescription")]
+    templateVersion: Annotated[str, _aws_pattern("Iot", "ManagedTemplateVersion")]
+    environments: List[Annotated[str, _aws_pattern("Iot", "Environment")]]
     documentParameters: List[DocumentParameterTypeDef]
     document: str
     ResponseMetadata: ResponseMetadataTypeDef
@@ -3627,7 +3630,7 @@ DetectMitigationActionsTaskTargetUnionTypeDef = Union[
 # This class is the output for the 'list_domain_configurations' function.
 class ListDomainConfigurationsResponseTypeDef(BaseValidatorModel):
     domainConfigurations: List[DomainConfigurationSummaryTypeDef]
-    nextMarker: str
+    nextMarker: Annotated[str, _aws_pattern("Iot", "Marker")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
@@ -3691,7 +3694,7 @@ class IndexingFilterOutputTypeDef(BaseValidatorModel):
 
 
 class IndexingFilterTypeDef(BaseValidatorModel):
-    namedShadowNames: Optional[List[str]] = None
+    namedShadowNames: Optional[List[Annotated[str, _aws_pattern("Iot", "ShadowName")]]] = None
     geoLocations: Optional[List[GeoLocationTargetTypeDef]] = None
 
 
@@ -4053,7 +4056,7 @@ class ListViolationEventsRequestPaginateTypeDef(BaseValidatorModel):
 
 # This class is the output for the 'get_command_execution' function.
 class GetCommandExecutionResponseTypeDef(BaseValidatorModel):
-    executionId: str
+    executionId: Annotated[str, _aws_pattern("Iot", "CommandExecutionId")]
     commandArn: str
     targetArn: str
     status: CommandExecutionStatusType
@@ -4076,7 +4079,7 @@ class GetPackageConfigurationResponseTypeDef(BaseValidatorModel):
 
 class UpdatePackageConfigurationRequestTypeDef(BaseValidatorModel):
     versionUpdateByJobsConfig: Optional[VersionUpdateByJobsConfigTypeDef] = None
-    clientToken: Optional[str] = None
+    clientToken: Optional[Annotated[str, _aws_pattern("Iot", "ClientToken")]] = None
 
 
 # This class is the output for the 'get_percentiles' function.
@@ -4130,7 +4133,7 @@ class ListThingGroupsResponseTypeDef(BaseValidatorModel):
 
 
 class ThingGroupMetadataTypeDef(BaseValidatorModel):
-    parentGroupName: Optional[str] = None
+    parentGroupName: Optional[Annotated[str, _aws_pattern("Iot", "ThingGroupName")]] = None
     rootToParentThingGroups: Optional[List[GroupNameAndArnTypeDef]] = None
     creationDate: Optional[datetime] = None
 
@@ -4140,7 +4143,7 @@ class HttpAuthorizationTypeDef(BaseValidatorModel):
 
 
 class JobExecutionTypeDef(BaseValidatorModel):
-    jobId: Optional[str] = None
+    jobId: Optional[Annotated[str, _aws_pattern("Iot", "JobId")]] = None
     status: Optional[JobExecutionStatusType] = None
     forceCanceled: Optional[bool] = None
     statusDetails: Optional[JobExecutionStatusDetailsTypeDef] = None
@@ -4159,7 +4162,7 @@ class JobExecutionSummaryForJobTypeDef(BaseValidatorModel):
 
 
 class JobExecutionSummaryForThingTypeDef(BaseValidatorModel):
-    jobId: Optional[str] = None
+    jobId: Optional[Annotated[str, _aws_pattern("Iot", "JobId")]] = None
     jobExecutionSummary: Optional[JobExecutionSummaryTypeDef] = None
 
 
@@ -4251,7 +4254,7 @@ class ListOTAUpdatesResponseTypeDef(BaseValidatorModel):
 # This class is the output for the 'list_outgoing_certificates' function.
 class ListOutgoingCertificatesResponseTypeDef(BaseValidatorModel):
     outgoingCertificates: List[OutgoingCertificateTypeDef]
-    nextMarker: str
+    nextMarker: Annotated[str, _aws_pattern("Iot", "Marker")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
@@ -4430,12 +4433,12 @@ class MqttHeadersTypeDef(BaseValidatorModel):
 
 
 class ResourceIdentifierTypeDef(BaseValidatorModel):
-    deviceCertificateId: Optional[str] = None
-    caCertificateId: Optional[str] = None
+    deviceCertificateId: Optional[Annotated[str, _aws_pattern("Iot", "CertificateId")]] = None
+    caCertificateId: Optional[Annotated[str, _aws_pattern("Iot", "CertificateId")]] = None
     cognitoIdentityPoolId: Optional[str] = None
     clientId: Optional[str] = None
     policyVersionIdentifier: Optional[PolicyVersionIdentifierTypeDef] = None
-    account: Optional[str] = None
+    account: Optional[Annotated[str, _aws_pattern("Iot", "AwsAccountId")]] = None
     iamRoleArn: Optional[str] = None
     roleAliasArn: Optional[str] = None
     issuerCertificateIdentifier: Optional[IssuerCertificateIdentifierTypeDef] = None
@@ -4443,10 +4446,10 @@ class ResourceIdentifierTypeDef(BaseValidatorModel):
 
 
 class ThingDocumentTypeDef(BaseValidatorModel):
-    thingName: Optional[str] = None
+    thingName: Optional[Annotated[str, _aws_pattern("Iot", "ThingName")]] = None
     thingId: Optional[str] = None
-    thingTypeName: Optional[str] = None
-    thingGroupNames: Optional[List[str]] = None
+    thingTypeName: Optional[Annotated[str, _aws_pattern("Iot", "ThingTypeName")]] = None
+    thingGroupNames: Optional[List[Annotated[str, _aws_pattern("Iot", "ThingGroupName")]]] = None
     attributes: Optional[Dict[str, str]] = None
     shadow: Optional[str] = None
     deviceDefender: Optional[str] = None
@@ -4513,27 +4516,27 @@ class ListMetricValuesResponseTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'create_fleet_metric' function.
 class CreateFleetMetricRequestTypeDef(BaseValidatorModel):
-    metricName: str
+    metricName: Annotated[str, _aws_pattern("Iot", "FleetMetricName")]
     queryString: str
     aggregationType: AggregationTypeUnionTypeDef
     period: int
     aggregationField: str
-    description: Optional[str] = None
+    description: Optional[Annotated[str, _aws_pattern("Iot", "FleetMetricDescription")]] = None
     queryVersion: Optional[str] = None
-    indexName: Optional[str] = None
+    indexName: Optional[Annotated[str, _aws_pattern("Iot", "IndexName")]] = None
     unit: Optional[FleetMetricUnitType] = None
     tags: Optional[List[TagTypeDef]] = None
 
 
 # This class is the input for the 'update_fleet_metric' function.
 class UpdateFleetMetricRequestTypeDef(BaseValidatorModel):
-    metricName: str
-    indexName: str
+    metricName: Annotated[str, _aws_pattern("Iot", "FleetMetricName")]
+    indexName: Annotated[str, _aws_pattern("Iot", "IndexName")]
     queryString: Optional[str] = None
     aggregationType: Optional[AggregationTypeUnionTypeDef] = None
     period: Optional[int] = None
     aggregationField: Optional[str] = None
-    description: Optional[str] = None
+    description: Optional[Annotated[str, _aws_pattern("Iot", "FleetMetricDescription")]] = None
     queryVersion: Optional[str] = None
     unit: Optional[FleetMetricUnitType] = None
     expectedVersion: Optional[int] = None
@@ -4562,15 +4565,15 @@ class PutAssetPropertyValueEntryTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'create_thing' function.
 class CreateThingRequestTypeDef(BaseValidatorModel):
-    thingName: str
-    thingTypeName: Optional[str] = None
+    thingName: Annotated[str, _aws_pattern("Iot", "ThingName")]
+    thingTypeName: Optional[Annotated[str, _aws_pattern("Iot", "ThingTypeName")]] = None
     attributePayload: Optional[AttributePayloadUnionTypeDef] = None
-    billingGroupName: Optional[str] = None
+    billingGroupName: Optional[Annotated[str, _aws_pattern("Iot", "BillingGroupName")]] = None
 
 
 class UpdateThingRequestTypeDef(BaseValidatorModel):
-    thingName: str
-    thingTypeName: Optional[str] = None
+    thingName: Annotated[str, _aws_pattern("Iot", "ThingName")]
+    thingTypeName: Optional[Annotated[str, _aws_pattern("Iot", "ThingTypeName")]] = None
     attributePayload: Optional[AttributePayloadUnionTypeDef] = None
     expectedVersion: Optional[int] = None
     removeThingType: Optional[bool] = None
@@ -4587,10 +4590,10 @@ class UpdateAccountAuditConfigurationRequestTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'start_audit_mitigation_actions_task' function.
 class StartAuditMitigationActionsTaskRequestTypeDef(BaseValidatorModel):
-    taskId: str
+    taskId: Annotated[str, _aws_pattern("Iot", "MitigationActionsTaskId")]
     target: AuditMitigationActionsTaskTargetUnionTypeDef
     auditCheckToActionsMapping: Dict[str, List[str]]
-    clientRequestToken: str
+    clientRequestToken: Annotated[str, _aws_pattern("Iot", "ClientRequestToken")]
 
 
 # This class is the input for the 'test_authorization' function.
@@ -4599,8 +4602,8 @@ class TestAuthorizationRequestTypeDef(BaseValidatorModel):
     principal: Optional[str] = None
     cognitoIdentityPoolId: Optional[str] = None
     clientId: Optional[str] = None
-    policyNamesToAdd: Optional[List[str]] = None
-    policyNamesToSkip: Optional[List[str]] = None
+    policyNamesToAdd: Optional[List[Annotated[str, _aws_pattern("Iot", "PolicyName")]]] = None
+    policyNamesToSkip: Optional[List[Annotated[str, _aws_pattern("Iot", "PolicyName")]]] = None
 
 
 class AwsJobExecutionsRolloutConfigTypeDef(BaseValidatorModel):
@@ -4626,9 +4629,9 @@ CommandPayloadUnionTypeDef = Union[CommandPayloadOutputTypeDef, CommandPayloadTy
 
 # This class is the input for the 'test_invoke_authorizer' function.
 class TestInvokeAuthorizerRequestTypeDef(BaseValidatorModel):
-    authorizerName: str
-    token: Optional[str] = None
-    tokenSignature: Optional[str] = None
+    authorizerName: Annotated[str, _aws_pattern("Iot", "AuthorizerName")]
+    token: Optional[Annotated[str, _aws_pattern("Iot", "Token")]] = None
+    tokenSignature: Optional[Annotated[str, _aws_pattern("Iot", "TokenSignature")]] = None
     httpContext: Optional[HttpContextTypeDef] = None
     mqttContext: Optional[MqttContextTypeDef] = None
     tlsContext: Optional[TlsContextTypeDef] = None
@@ -4639,7 +4642,7 @@ class GetBucketsAggregationRequestTypeDef(BaseValidatorModel):
     queryString: str
     aggregationField: str
     bucketsAggregationType: BucketsAggregationTypeTypeDef
-    indexName: Optional[str] = None
+    indexName: Optional[Annotated[str, _aws_pattern("Iot", "IndexName")]] = None
     queryVersion: Optional[str] = None
 
 
@@ -4690,39 +4693,39 @@ ThingGroupIndexingConfigurationUnionTypeDef = Union[
 
 # This class is the input for the 'create_package_version' function.
 class CreatePackageVersionRequestTypeDef(BaseValidatorModel):
-    packageName: str
-    versionName: str
-    description: Optional[str] = None
+    packageName: Annotated[str, _aws_pattern("Iot", "PackageName")]
+    versionName: Annotated[str, _aws_pattern("Iot", "VersionName")]
+    description: Optional[Annotated[str, _aws_pattern("Iot", "ResourceDescription")]] = None
     attributes: Optional[Dict[str, str]] = None
     artifact: Optional[PackageVersionArtifactTypeDef] = None
     recipe: Optional[str] = None
     tags: Optional[Dict[str, str]] = None
-    clientToken: Optional[str] = None
+    clientToken: Optional[Annotated[str, _aws_pattern("Iot", "ClientToken")]] = None
 
 
 class UpdatePackageVersionRequestTypeDef(BaseValidatorModel):
-    packageName: str
-    versionName: str
-    description: Optional[str] = None
+    packageName: Annotated[str, _aws_pattern("Iot", "PackageName")]
+    versionName: Annotated[str, _aws_pattern("Iot", "VersionName")]
+    description: Optional[Annotated[str, _aws_pattern("Iot", "ResourceDescription")]] = None
     attributes: Optional[Dict[str, str]] = None
     artifact: Optional[PackageVersionArtifactTypeDef] = None
     action: Optional[PackageVersionActionType] = None
     recipe: Optional[str] = None
-    clientToken: Optional[str] = None
+    clientToken: Optional[Annotated[str, _aws_pattern("Iot", "ClientToken")]] = None
 
 
 # This class is the input for the 'associate_sbom_with_package_version' function.
 class AssociateSbomWithPackageVersionRequestTypeDef(BaseValidatorModel):
-    packageName: str
-    versionName: str
+    packageName: Annotated[str, _aws_pattern("Iot", "PackageName")]
+    versionName: Annotated[str, _aws_pattern("Iot", "VersionName")]
     sbom: SbomTypeDef
-    clientToken: Optional[str] = None
+    clientToken: Optional[Annotated[str, _aws_pattern("Iot", "ClientToken")]] = None
 
 
 # This class is the output for the 'associate_sbom_with_package_version' function.
 class AssociateSbomWithPackageVersionResponseTypeDef(BaseValidatorModel):
-    packageName: str
-    versionName: str
+    packageName: Annotated[str, _aws_pattern("Iot", "PackageName")]
+    versionName: Annotated[str, _aws_pattern("Iot", "VersionName")]
     sbom: SbomTypeDef
     sbomValidationStatus: SbomValidationStatusType
     ResponseMetadata: ResponseMetadataTypeDef
@@ -4730,10 +4733,10 @@ class AssociateSbomWithPackageVersionResponseTypeDef(BaseValidatorModel):
 
 # This class is the output for the 'get_package_version' function.
 class GetPackageVersionResponseTypeDef(BaseValidatorModel):
-    packageVersionArn: str
-    packageName: str
-    versionName: str
-    description: str
+    packageVersionArn: Annotated[str, _aws_pattern("Iot", "PackageVersionArn")]
+    packageName: Annotated[str, _aws_pattern("Iot", "PackageName")]
+    versionName: Annotated[str, _aws_pattern("Iot", "VersionName")]
+    description: Annotated[str, _aws_pattern("Iot", "ResourceDescription")]
     attributes: Dict[str, str]
     artifact: PackageVersionArtifactTypeDef
     status: PackageVersionStatusType
@@ -4748,18 +4751,18 @@ class GetPackageVersionResponseTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'create_stream' function.
 class CreateStreamRequestTypeDef(BaseValidatorModel):
-    streamId: str
+    streamId: Annotated[str, _aws_pattern("Iot", "StreamId")]
     files: List[StreamFileTypeDef]
     roleArn: str
-    description: Optional[str] = None
+    description: Optional[Annotated[str, _aws_pattern("Iot", "StreamDescription")]] = None
     tags: Optional[List[TagTypeDef]] = None
 
 
 class StreamInfoTypeDef(BaseValidatorModel):
-    streamId: Optional[str] = None
+    streamId: Optional[Annotated[str, _aws_pattern("Iot", "StreamId")]] = None
     streamArn: Optional[str] = None
     streamVersion: Optional[int] = None
-    description: Optional[str] = None
+    description: Optional[Annotated[str, _aws_pattern("Iot", "StreamDescription")]] = None
     files: Optional[List[StreamFileTypeDef]] = None
     createdAt: Optional[datetime] = None
     lastUpdatedAt: Optional[datetime] = None
@@ -4768,8 +4771,8 @@ class StreamInfoTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'update_stream' function.
 class UpdateStreamRequestTypeDef(BaseValidatorModel):
-    streamId: str
-    description: Optional[str] = None
+    streamId: Annotated[str, _aws_pattern("Iot", "StreamId")]
+    description: Optional[Annotated[str, _aws_pattern("Iot", "StreamDescription")]] = None
     files: Optional[List[StreamFileTypeDef]] = None
     roleArn: Optional[str] = None
 
@@ -4796,13 +4799,13 @@ class ThingIndexingConfigurationTypeDef(BaseValidatorModel):
 
 # This class is the output for the 'describe_thing_group' function.
 class DescribeThingGroupResponseTypeDef(BaseValidatorModel):
-    thingGroupName: str
-    thingGroupId: str
+    thingGroupName: Annotated[str, _aws_pattern("Iot", "ThingGroupName")]
+    thingGroupId: Annotated[str, _aws_pattern("Iot", "ThingGroupId")]
     thingGroupArn: str
     version: int
     thingGroupProperties: ThingGroupPropertiesOutputTypeDef
     thingGroupMetadata: ThingGroupMetadataTypeDef
-    indexName: str
+    indexName: Annotated[str, _aws_pattern("Iot", "IndexName")]
     queryString: str
     queryVersion: str
     status: DynamicGroupStatusType
@@ -4878,7 +4881,7 @@ class BehaviorCriteriaTypeDef(BaseValidatorModel):
 
 # This class is the output for the 'describe_mitigation_action' function.
 class DescribeMitigationActionResponseTypeDef(BaseValidatorModel):
-    actionName: str
+    actionName: Annotated[str, _aws_pattern("Iot", "MitigationActionName")]
     actionType: MitigationActionTypeType
     actionArn: str
     actionId: str
@@ -4890,7 +4893,7 @@ class DescribeMitigationActionResponseTypeDef(BaseValidatorModel):
 
 
 class MitigationActionTypeDef(BaseValidatorModel):
-    name: Optional[str] = None
+    name: Optional[Annotated[str, _aws_pattern("Iot", "MitigationActionName")]] = None
     id: Optional[str] = None
     roleArn: Optional[str] = None
     actionParams: Optional[MitigationActionParamsOutputTypeDef] = None
@@ -4906,8 +4909,8 @@ class ThingTypePropertiesOutputTypeDef(BaseValidatorModel):
 
 
 class ThingTypePropertiesTypeDef(BaseValidatorModel):
-    thingTypeDescription: Optional[str] = None
-    searchableAttributes: Optional[List[str]] = None
+    thingTypeDescription: Optional[Annotated[str, _aws_pattern("Iot", "ThingTypeDescription")]] = None
+    searchableAttributes: Optional[List[Annotated[str, _aws_pattern("Iot", "AttributeName")]]] = None
     mqtt5Configuration: Optional[Mqtt5ConfigurationTypeDef] = None
 
 
@@ -4926,16 +4929,16 @@ class AuditSuppressionTypeDef(BaseValidatorModel):
     resourceIdentifier: ResourceIdentifierTypeDef
     expirationDate: Optional[datetime] = None
     suppressIndefinitely: Optional[bool] = None
-    description: Optional[str] = None
+    description: Optional[Annotated[str, _aws_pattern("Iot", "AuditDescription")]] = None
 
 
 class CreateAuditSuppressionRequestTypeDef(BaseValidatorModel):
     checkName: str
     resourceIdentifier: ResourceIdentifierTypeDef
-    clientRequestToken: str
+    clientRequestToken: Annotated[str, _aws_pattern("Iot", "ClientRequestToken")]
     expirationDate: Optional[TimestampTypeDef] = None
     suppressIndefinitely: Optional[bool] = None
-    description: Optional[str] = None
+    description: Optional[Annotated[str, _aws_pattern("Iot", "AuditDescription")]] = None
 
 
 class DeleteAuditSuppressionRequestTypeDef(BaseValidatorModel):
@@ -4955,7 +4958,7 @@ class DescribeAuditSuppressionResponseTypeDef(BaseValidatorModel):
     resourceIdentifier: ResourceIdentifierTypeDef
     expirationDate: datetime
     suppressIndefinitely: bool
-    description: str
+    description: Annotated[str, _aws_pattern("Iot", "AuditDescription")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
@@ -4971,7 +4974,7 @@ class ListAuditFindingsRequestPaginateTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'list_audit_findings' function.
 class ListAuditFindingsRequestTypeDef(BaseValidatorModel):
-    taskId: Optional[str] = None
+    taskId: Optional[Annotated[str, _aws_pattern("Iot", "AuditTaskId")]] = None
     checkName: Optional[str] = None
     resourceIdentifier: Optional[ResourceIdentifierTypeDef] = None
     maxResults: Optional[int] = None
@@ -5014,7 +5017,7 @@ class UpdateAuditSuppressionRequestTypeDef(BaseValidatorModel):
     resourceIdentifier: ResourceIdentifierTypeDef
     expirationDate: Optional[TimestampTypeDef] = None
     suppressIndefinitely: Optional[bool] = None
-    description: Optional[str] = None
+    description: Optional[Annotated[str, _aws_pattern("Iot", "AuditDescription")]] = None
 
 
 # This class is the output for the 'search_index' function.
@@ -5072,57 +5075,57 @@ PutAssetPropertyValueEntryUnionTypeDef = Union[
 
 # This class is the input for the 'create_dynamic_thing_group' function.
 class CreateDynamicThingGroupRequestTypeDef(BaseValidatorModel):
-    thingGroupName: str
+    thingGroupName: Annotated[str, _aws_pattern("Iot", "ThingGroupName")]
     queryString: str
     thingGroupProperties: Optional[ThingGroupPropertiesUnionTypeDef] = None
-    indexName: Optional[str] = None
+    indexName: Optional[Annotated[str, _aws_pattern("Iot", "IndexName")]] = None
     queryVersion: Optional[str] = None
     tags: Optional[List[TagTypeDef]] = None
 
 
 # This class is the input for the 'create_thing_group' function.
 class CreateThingGroupRequestTypeDef(BaseValidatorModel):
-    thingGroupName: str
-    parentGroupName: Optional[str] = None
+    thingGroupName: Annotated[str, _aws_pattern("Iot", "ThingGroupName")]
+    parentGroupName: Optional[Annotated[str, _aws_pattern("Iot", "ThingGroupName")]] = None
     thingGroupProperties: Optional[ThingGroupPropertiesUnionTypeDef] = None
     tags: Optional[List[TagTypeDef]] = None
 
 
 # This class is the input for the 'update_dynamic_thing_group' function.
 class UpdateDynamicThingGroupRequestTypeDef(BaseValidatorModel):
-    thingGroupName: str
+    thingGroupName: Annotated[str, _aws_pattern("Iot", "ThingGroupName")]
     thingGroupProperties: ThingGroupPropertiesUnionTypeDef
     expectedVersion: Optional[int] = None
-    indexName: Optional[str] = None
+    indexName: Optional[Annotated[str, _aws_pattern("Iot", "IndexName")]] = None
     queryString: Optional[str] = None
     queryVersion: Optional[str] = None
 
 
 # This class is the input for the 'update_thing_group' function.
 class UpdateThingGroupRequestTypeDef(BaseValidatorModel):
-    thingGroupName: str
+    thingGroupName: Annotated[str, _aws_pattern("Iot", "ThingGroupName")]
     thingGroupProperties: ThingGroupPropertiesUnionTypeDef
     expectedVersion: Optional[int] = None
 
 
 class ActiveViolationTypeDef(BaseValidatorModel):
-    violationId: Optional[str] = None
+    violationId: Optional[Annotated[str, _aws_pattern("Iot", "ViolationId")]] = None
     thingName: Optional[str] = None
-    securityProfileName: Optional[str] = None
+    securityProfileName: Optional[Annotated[str, _aws_pattern("Iot", "SecurityProfileName")]] = None
     behavior: Optional[BehaviorOutputTypeDef] = None
     lastViolationValue: Optional[MetricValueOutputTypeDef] = None
     violationEventAdditionalInfo: Optional[ViolationEventAdditionalInfoTypeDef] = None
     verificationState: Optional[VerificationStateType] = None
-    verificationStateDescription: Optional[str] = None
+    verificationStateDescription: Optional[Annotated[str, _aws_pattern("Iot", "VerificationStateDescription")]] = None
     lastViolationTime: Optional[datetime] = None
     violationStartTime: Optional[datetime] = None
 
 
 # This class is the output for the 'describe_security_profile' function.
 class DescribeSecurityProfileResponseTypeDef(BaseValidatorModel):
-    securityProfileName: str
+    securityProfileName: Annotated[str, _aws_pattern("Iot", "SecurityProfileName")]
     securityProfileArn: str
-    securityProfileDescription: str
+    securityProfileDescription: Annotated[str, _aws_pattern("Iot", "SecurityProfileDescription")]
     behaviors: List[BehaviorOutputTypeDef]
     alertTargets: Dict[Literal["SNS"], AlertTargetTypeDef]
     additionalMetricsToRetain: List[str]
@@ -5136,9 +5139,9 @@ class DescribeSecurityProfileResponseTypeDef(BaseValidatorModel):
 
 # This class is the output for the 'update_security_profile' function.
 class UpdateSecurityProfileResponseTypeDef(BaseValidatorModel):
-    securityProfileName: str
+    securityProfileName: Annotated[str, _aws_pattern("Iot", "SecurityProfileName")]
     securityProfileArn: str
-    securityProfileDescription: str
+    securityProfileDescription: Annotated[str, _aws_pattern("Iot", "SecurityProfileDescription")]
     behaviors: List[BehaviorOutputTypeDef]
     alertTargets: Dict[Literal["SNS"], AlertTargetTypeDef]
     additionalMetricsToRetain: List[str]
@@ -5151,15 +5154,15 @@ class UpdateSecurityProfileResponseTypeDef(BaseValidatorModel):
 
 
 class ViolationEventTypeDef(BaseValidatorModel):
-    violationId: Optional[str] = None
+    violationId: Optional[Annotated[str, _aws_pattern("Iot", "ViolationId")]] = None
     thingName: Optional[str] = None
-    securityProfileName: Optional[str] = None
+    securityProfileName: Optional[Annotated[str, _aws_pattern("Iot", "SecurityProfileName")]] = None
     behavior: Optional[BehaviorOutputTypeDef] = None
     metricValue: Optional[MetricValueOutputTypeDef] = None
     violationEventAdditionalInfo: Optional[ViolationEventAdditionalInfoTypeDef] = None
     violationEventType: Optional[ViolationEventTypeType] = None
     verificationState: Optional[VerificationStateType] = None
-    verificationStateDescription: Optional[str] = None
+    verificationStateDescription: Optional[Annotated[str, _aws_pattern("Iot", "VerificationStateDescription")]] = None
     violationEventTime: Optional[datetime] = None
 
 
@@ -5186,10 +5189,10 @@ class CommandParameterValueConditionTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'start_detect_mitigation_actions_task' function.
 class StartDetectMitigationActionsTaskRequestTypeDef(BaseValidatorModel):
-    taskId: str
+    taskId: Annotated[str, _aws_pattern("Iot", "MitigationActionsTaskId")]
     target: DetectMitigationActionsTaskTargetUnionTypeDef
-    actions: List[str]
-    clientRequestToken: str
+    actions: List[Annotated[str, _aws_pattern("Iot", "MitigationActionName")]]
+    clientRequestToken: Annotated[str, _aws_pattern("Iot", "ClientRequestToken")]
     violationEventOccurrenceRange: Optional[ViolationEventOccurrenceRangeUnionTypeDef] = None
     includeOnlyActiveViolations: Optional[bool] = None
     includeSuppressedAlerts: Optional[bool] = None
@@ -5203,9 +5206,9 @@ class CodeSigningOutputTypeDef(BaseValidatorModel):
 
 # This class is the output for the 'describe_job_template' function.
 class DescribeJobTemplateResponseTypeDef(BaseValidatorModel):
-    jobTemplateArn: str
-    jobTemplateId: str
-    description: str
+    jobTemplateArn: Annotated[str, _aws_pattern("Iot", "JobTemplateArn")]
+    jobTemplateId: Annotated[str, _aws_pattern("Iot", "JobTemplateId")]
+    description: Annotated[str, _aws_pattern("Iot", "JobDescription")]
     documentSource: str
     document: str
     createdAt: datetime
@@ -5215,20 +5218,20 @@ class DescribeJobTemplateResponseTypeDef(BaseValidatorModel):
     timeoutConfig: TimeoutConfigTypeDef
     jobExecutionsRetryConfig: JobExecutionsRetryConfigOutputTypeDef
     maintenanceWindows: List[MaintenanceWindowTypeDef]
-    destinationPackageVersions: List[str]
+    destinationPackageVersions: List[Annotated[str, _aws_pattern("Iot", "PackageVersionArn")]]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 class JobTypeDef(BaseValidatorModel):
     jobArn: Optional[str] = None
-    jobId: Optional[str] = None
+    jobId: Optional[Annotated[str, _aws_pattern("Iot", "JobId")]] = None
     targetSelection: Optional[TargetSelectionType] = None
     status: Optional[JobStatusType] = None
     forceCanceled: Optional[bool] = None
-    reasonCode: Optional[str] = None
-    comment: Optional[str] = None
+    reasonCode: Optional[Annotated[str, _aws_pattern("Iot", "ReasonCode")]] = None
+    comment: Optional[Annotated[str, _aws_pattern("Iot", "Comment")]] = None
     targets: Optional[List[str]] = None
-    description: Optional[str] = None
+    description: Optional[Annotated[str, _aws_pattern("Iot", "JobDescription")]] = None
     presignedUrlConfig: Optional[PresignedUrlConfigTypeDef] = None
     jobExecutionsRolloutConfig: Optional[JobExecutionsRolloutConfigTypeDef] = None
     abortConfig: Optional[AbortConfigOutputTypeDef] = None
@@ -5237,14 +5240,14 @@ class JobTypeDef(BaseValidatorModel):
     completedAt: Optional[datetime] = None
     jobProcessDetails: Optional[JobProcessDetailsTypeDef] = None
     timeoutConfig: Optional[TimeoutConfigTypeDef] = None
-    namespaceId: Optional[str] = None
-    jobTemplateArn: Optional[str] = None
+    namespaceId: Optional[Annotated[str, _aws_pattern("Iot", "NamespaceId")]] = None
+    jobTemplateArn: Optional[Annotated[str, _aws_pattern("Iot", "JobTemplateArn")]] = None
     jobExecutionsRetryConfig: Optional[JobExecutionsRetryConfigOutputTypeDef] = None
     documentParameters: Optional[Dict[str, str]] = None
     isConcurrent: Optional[bool] = None
     schedulingConfig: Optional[SchedulingConfigOutputTypeDef] = None
     scheduledJobRollouts: Optional[List[ScheduledJobRolloutTypeDef]] = None
-    destinationPackageVersions: Optional[List[str]] = None
+    destinationPackageVersions: Optional[List[Annotated[str, _aws_pattern("Iot", "PackageVersionArn")]]] = None
 
 
 # This class is the output for the 'describe_stream' function.
@@ -5268,29 +5271,29 @@ HttpActionUnionTypeDef = Union[HttpActionOutputTypeDef, HttpActionTypeDef]
 
 # This class is the input for the 'create_job' function.
 class CreateJobRequestTypeDef(BaseValidatorModel):
-    jobId: str
+    jobId: Annotated[str, _aws_pattern("Iot", "JobId")]
     targets: List[str]
     documentSource: Optional[str] = None
     document: Optional[str] = None
-    description: Optional[str] = None
+    description: Optional[Annotated[str, _aws_pattern("Iot", "JobDescription")]] = None
     presignedUrlConfig: Optional[PresignedUrlConfigTypeDef] = None
     targetSelection: Optional[TargetSelectionType] = None
     jobExecutionsRolloutConfig: Optional[JobExecutionsRolloutConfigTypeDef] = None
     abortConfig: Optional[AbortConfigUnionTypeDef] = None
     timeoutConfig: Optional[TimeoutConfigTypeDef] = None
     tags: Optional[List[TagTypeDef]] = None
-    namespaceId: Optional[str] = None
-    jobTemplateArn: Optional[str] = None
+    namespaceId: Optional[Annotated[str, _aws_pattern("Iot", "NamespaceId")]] = None
+    jobTemplateArn: Optional[Annotated[str, _aws_pattern("Iot", "JobTemplateArn")]] = None
     jobExecutionsRetryConfig: Optional[JobExecutionsRetryConfigUnionTypeDef] = None
     documentParameters: Optional[Dict[str, str]] = None
     schedulingConfig: Optional[SchedulingConfigUnionTypeDef] = None
-    destinationPackageVersions: Optional[List[str]] = None
+    destinationPackageVersions: Optional[List[Annotated[str, _aws_pattern("Iot", "PackageVersionArn")]]] = None
 
 
 # This class is the input for the 'create_job_template' function.
 class CreateJobTemplateRequestTypeDef(BaseValidatorModel):
-    jobTemplateId: str
-    description: str
+    jobTemplateId: Annotated[str, _aws_pattern("Iot", "JobTemplateId")]
+    description: Annotated[str, _aws_pattern("Iot", "JobDescription")]
     jobArn: Optional[str] = None
     documentSource: Optional[str] = None
     document: Optional[str] = None
@@ -5301,18 +5304,18 @@ class CreateJobTemplateRequestTypeDef(BaseValidatorModel):
     tags: Optional[List[TagTypeDef]] = None
     jobExecutionsRetryConfig: Optional[JobExecutionsRetryConfigUnionTypeDef] = None
     maintenanceWindows: Optional[List[MaintenanceWindowTypeDef]] = None
-    destinationPackageVersions: Optional[List[str]] = None
+    destinationPackageVersions: Optional[List[Annotated[str, _aws_pattern("Iot", "PackageVersionArn")]]] = None
 
 
 # This class is the input for the 'update_job' function.
 class UpdateJobRequestTypeDef(BaseValidatorModel):
-    jobId: str
-    description: Optional[str] = None
+    jobId: Annotated[str, _aws_pattern("Iot", "JobId")]
+    description: Optional[Annotated[str, _aws_pattern("Iot", "JobDescription")]] = None
     presignedUrlConfig: Optional[PresignedUrlConfigTypeDef] = None
     jobExecutionsRolloutConfig: Optional[JobExecutionsRolloutConfigTypeDef] = None
     abortConfig: Optional[AbortConfigUnionTypeDef] = None
     timeoutConfig: Optional[TimeoutConfigTypeDef] = None
-    namespaceId: Optional[str] = None
+    namespaceId: Optional[Annotated[str, _aws_pattern("Iot", "NamespaceId")]] = None
     jobExecutionsRetryConfig: Optional[JobExecutionsRetryConfigUnionTypeDef] = None
 
 
@@ -5332,7 +5335,7 @@ class DescribeAuditMitigationActionsTaskResponseTypeDef(BaseValidatorModel):
 
 
 class DetectMitigationActionsTaskSummaryTypeDef(BaseValidatorModel):
-    taskId: Optional[str] = None
+    taskId: Optional[Annotated[str, _aws_pattern("Iot", "MitigationActionsTaskId")]] = None
     taskStatus: Optional[DetectMitigationActionsTaskStatusType] = None
     taskStartTime: Optional[datetime] = None
     taskEndTime: Optional[datetime] = None
@@ -5346,7 +5349,7 @@ class DetectMitigationActionsTaskSummaryTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'create_mitigation_action' function.
 class CreateMitigationActionRequestTypeDef(BaseValidatorModel):
-    actionName: str
+    actionName: Annotated[str, _aws_pattern("Iot", "MitigationActionName")]
     roleArn: str
     actionParams: MitigationActionParamsUnionTypeDef
     tags: Optional[List[TagTypeDef]] = None
@@ -5354,14 +5357,14 @@ class CreateMitigationActionRequestTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'update_mitigation_action' function.
 class UpdateMitigationActionRequestTypeDef(BaseValidatorModel):
-    actionName: str
+    actionName: Annotated[str, _aws_pattern("Iot", "MitigationActionName")]
     roleArn: Optional[str] = None
     actionParams: Optional[MitigationActionParamsUnionTypeDef] = None
 
 
 # This class is the output for the 'describe_thing_type' function.
 class DescribeThingTypeResponseTypeDef(BaseValidatorModel):
-    thingTypeName: str
+    thingTypeName: Annotated[str, _aws_pattern("Iot", "ThingTypeName")]
     thingTypeId: str
     thingTypeArn: str
     thingTypeProperties: ThingTypePropertiesOutputTypeDef
@@ -5370,7 +5373,7 @@ class DescribeThingTypeResponseTypeDef(BaseValidatorModel):
 
 
 class ThingTypeDefinitionTypeDef(BaseValidatorModel):
-    thingTypeName: Optional[str] = None
+    thingTypeName: Optional[Annotated[str, _aws_pattern("Iot", "ThingTypeName")]] = None
     thingTypeArn: Optional[str] = None
     thingTypeProperties: Optional[ThingTypePropertiesOutputTypeDef] = None
     thingTypeMetadata: Optional[ThingTypeMetadataTypeDef] = None
@@ -5394,8 +5397,8 @@ class ListAuditSuppressionsResponseTypeDef(BaseValidatorModel):
 
 
 class AuditFindingTypeDef(BaseValidatorModel):
-    findingId: Optional[str] = None
-    taskId: Optional[str] = None
+    findingId: Optional[Annotated[str, _aws_pattern("Iot", "FindingId")]] = None
+    taskId: Optional[Annotated[str, _aws_pattern("Iot", "AuditTaskId")]] = None
     checkName: Optional[str] = None
     taskStartTime: Optional[datetime] = None
     findingTime: Optional[datetime] = None
@@ -5470,11 +5473,11 @@ CustomCodeSigningUnionTypeDef = Union[CustomCodeSigningOutputTypeDef, CustomCode
 
 # This class is the output for the 'get_command' function.
 class GetCommandResponseTypeDef(BaseValidatorModel):
-    commandId: str
+    commandId: Annotated[str, _aws_pattern("Iot", "CommandId")]
     commandArn: str
     namespace: CommandNamespaceType
-    displayName: str
-    description: str
+    displayName: Annotated[str, _aws_pattern("Iot", "DisplayName")]
+    description: Annotated[str, _aws_pattern("Iot", "CommandDescription")]
     mandatoryParameters: List[CommandParameterOutputTypeDef]
     payload: CommandPayloadOutputTypeDef
     payloadTemplate: str
@@ -5514,7 +5517,7 @@ class UpdateIndexingConfigurationRequestTypeDef(BaseValidatorModel):
 
 
 class BehaviorTypeDef(BaseValidatorModel):
-    name: str
+    name: Annotated[str, _aws_pattern("Iot", "BehaviorName")]
     metric: Optional[str] = None
     metricDimension: Optional[MetricDimensionTypeDef] = None
     criteria: Optional[BehaviorCriteriaUnionTypeDef] = None
@@ -5544,13 +5547,13 @@ class ListThingTypesResponseTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'create_thing_type' function.
 class CreateThingTypeRequestTypeDef(BaseValidatorModel):
-    thingTypeName: str
+    thingTypeName: Annotated[str, _aws_pattern("Iot", "ThingTypeName")]
     thingTypeProperties: Optional[ThingTypePropertiesUnionTypeDef] = None
     tags: Optional[List[TagTypeDef]] = None
 
 
 class UpdateThingTypeRequestTypeDef(BaseValidatorModel):
-    thingTypeName: str
+    thingTypeName: Annotated[str, _aws_pattern("Iot", "ThingTypeName")]
     thingTypeProperties: Optional[ThingTypePropertiesUnionTypeDef] = None
 
 
@@ -5571,7 +5574,7 @@ class ListAuditFindingsResponseTypeDef(BaseValidatorModel):
 
 
 class TopicRuleTypeDef(BaseValidatorModel):
-    ruleName: Optional[str] = None
+    ruleName: Optional[Annotated[str, _aws_pattern("Iot", "RuleName")]] = None
     sql: Optional[str] = None
     description: Optional[str] = None
     createdAt: Optional[datetime] = None
@@ -5591,20 +5594,20 @@ class CodeSigningTypeDef(BaseValidatorModel):
 
 
 class CommandParameterTypeDef(BaseValidatorModel):
-    name: str
+    name: Annotated[str, _aws_pattern("Iot", "CommandParameterName")]
     type: Optional[CommandParameterTypeType] = None
     value: Optional[CommandParameterValueUnionTypeDef] = None
     defaultValue: Optional[CommandParameterValueUnionTypeDef] = None
     valueConditions: Optional[List[CommandParameterValueConditionUnionTypeDef]] = None
-    description: Optional[str] = None
+    description: Optional[Annotated[str, _aws_pattern("Iot", "CommandParameterDescription")]] = None
 
 
 class OTAUpdateInfoTypeDef(BaseValidatorModel):
-    otaUpdateId: Optional[str] = None
+    otaUpdateId: Optional[Annotated[str, _aws_pattern("Iot", "OTAUpdateId")]] = None
     otaUpdateArn: Optional[str] = None
     creationDate: Optional[datetime] = None
     lastModifiedDate: Optional[datetime] = None
-    description: Optional[str] = None
+    description: Optional[Annotated[str, _aws_pattern("Iot", "OTAUpdateDescription")]] = None
     targets: Optional[List[str]] = None
     protocols: Optional[List[ProtocolType]] = None
     awsJobExecutionsRolloutConfig: Optional[AwsJobExecutionsRolloutConfigTypeDef] = None
@@ -5667,8 +5670,8 @@ class GetOTAUpdateResponseTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'create_security_profile' function.
 class CreateSecurityProfileRequestTypeDef(BaseValidatorModel):
-    securityProfileName: str
-    securityProfileDescription: Optional[str] = None
+    securityProfileName: Annotated[str, _aws_pattern("Iot", "SecurityProfileName")]
+    securityProfileDescription: Optional[Annotated[str, _aws_pattern("Iot", "SecurityProfileDescription")]] = None
     behaviors: Optional[List[BehaviorUnionTypeDef]] = None
     alertTargets: Optional[Dict[Literal["SNS"], AlertTargetTypeDef]] = None
     additionalMetricsToRetain: Optional[List[str]] = None
@@ -5679,8 +5682,8 @@ class CreateSecurityProfileRequestTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'update_security_profile' function.
 class UpdateSecurityProfileRequestTypeDef(BaseValidatorModel):
-    securityProfileName: str
-    securityProfileDescription: Optional[str] = None
+    securityProfileName: Annotated[str, _aws_pattern("Iot", "SecurityProfileName")]
+    securityProfileDescription: Optional[Annotated[str, _aws_pattern("Iot", "SecurityProfileDescription")]] = None
     behaviors: Optional[List[BehaviorUnionTypeDef]] = None
     alertTargets: Optional[Dict[Literal["SNS"], AlertTargetTypeDef]] = None
     additionalMetricsToRetain: Optional[List[str]] = None
@@ -5712,10 +5715,10 @@ class OTAUpdateFileTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'create_command' function.
 class CreateCommandRequestTypeDef(BaseValidatorModel):
-    commandId: str
+    commandId: Annotated[str, _aws_pattern("Iot", "CommandId")]
     namespace: Optional[CommandNamespaceType] = None
-    displayName: Optional[str] = None
-    description: Optional[str] = None
+    displayName: Optional[Annotated[str, _aws_pattern("Iot", "DisplayName")]] = None
+    description: Optional[Annotated[str, _aws_pattern("Iot", "CommandDescription")]] = None
     payload: Optional[CommandPayloadUnionTypeDef] = None
     payloadTemplate: Optional[str] = None
     preprocessor: Optional[CommandPreprocessorTypeDef] = None
@@ -5738,24 +5741,24 @@ OTAUpdateFileUnionTypeDef = Union[OTAUpdateFileOutputTypeDef, OTAUpdateFileTypeD
 
 # This class is the input for the 'create_topic_rule' function.
 class CreateTopicRuleRequestTypeDef(BaseValidatorModel):
-    ruleName: str
+    ruleName: Annotated[str, _aws_pattern("Iot", "RuleName")]
     topicRulePayload: TopicRulePayloadTypeDef
     tags: Optional[str] = None
 
 
 # This class is the input for the 'replace_topic_rule' function.
 class ReplaceTopicRuleRequestTypeDef(BaseValidatorModel):
-    ruleName: str
+    ruleName: Annotated[str, _aws_pattern("Iot", "RuleName")]
     topicRulePayload: TopicRulePayloadTypeDef
 
 
 # This class is the input for the 'create_ota_update' function.
 class CreateOTAUpdateRequestTypeDef(BaseValidatorModel):
-    otaUpdateId: str
+    otaUpdateId: Annotated[str, _aws_pattern("Iot", "OTAUpdateId")]
     targets: List[str]
     files: List[OTAUpdateFileUnionTypeDef]
     roleArn: str
-    description: Optional[str] = None
+    description: Optional[Annotated[str, _aws_pattern("Iot", "OTAUpdateDescription")]] = None
     protocols: Optional[List[ProtocolType]] = None
     targetSelection: Optional[TargetSelectionType] = None
     awsJobExecutionsRolloutConfig: Optional[AwsJobExecutionsRolloutConfigTypeDef] = None

@@ -3,6 +3,7 @@
 from datetime import datetime
 from decimal import Decimal
 from typing import (
+    Annotated,
     Any,
     Callable,
     Dict,
@@ -24,6 +25,7 @@ from botocore.response import StreamingBody
 from pydantic import Field
 
 from aws_resource_validator.core.base_validator_model import BaseValidatorModel, EventStream
+from aws_resource_validator.core.pattern_validation import aws_field_pattern as _aws_pattern
 from aws_resource_validator.pydantic_models.iot_jobs_data.iot_jobs_data_constants import *  # noqa: F401,F403
 
 # Optional boto3 symbols — imported lazily so services that don't need them
@@ -42,15 +44,15 @@ BlobTypeDef = Union[IO[Any], StreamingBody, bytes, str]
 
 # This class is the input for the 'describe_job_execution' function.
 class DescribeJobExecutionRequestTypeDef(BaseValidatorModel):
-    jobId: str
-    thingName: str
+    jobId: Annotated[str, _aws_pattern("IotJobsData", "DescribeJobExecutionJobId")]
+    thingName: Annotated[str, _aws_pattern("IotJobsData", "ThingName")]
     includeJobDocument: Optional[bool] = None
     executionNumber: Optional[int] = None
 
 
 class JobExecutionTypeDef(BaseValidatorModel):
-    jobId: Optional[str] = None
-    thingName: Optional[str] = None
+    jobId: Optional[Annotated[str, _aws_pattern("IotJobsData", "JobId")]] = None
+    thingName: Optional[Annotated[str, _aws_pattern("IotJobsData", "ThingName")]] = None
     status: Optional[JobExecutionStatusType] = None
     statusDetails: Optional[Dict[str, str]] = None
     queuedAt: Optional[int] = None
@@ -72,11 +74,11 @@ class ResponseMetadataTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'get_pending_job_executions' function.
 class GetPendingJobExecutionsRequestTypeDef(BaseValidatorModel):
-    thingName: str
+    thingName: Annotated[str, _aws_pattern("IotJobsData", "ThingName")]
 
 
 class JobExecutionSummaryTypeDef(BaseValidatorModel):
-    jobId: Optional[str] = None
+    jobId: Optional[Annotated[str, _aws_pattern("IotJobsData", "JobId")]] = None
     queuedAt: Optional[int] = None
     startedAt: Optional[int] = None
     lastUpdatedAt: Optional[int] = None
@@ -92,15 +94,15 @@ class JobExecutionStateTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'start_next_pending_job_execution' function.
 class StartNextPendingJobExecutionRequestTypeDef(BaseValidatorModel):
-    thingName: str
+    thingName: Annotated[str, _aws_pattern("IotJobsData", "ThingName")]
     statusDetails: Optional[Dict[str, str]] = None
     stepTimeoutInMinutes: Optional[int] = None
 
 
 # This class is the input for the 'update_job_execution' function.
 class UpdateJobExecutionRequestTypeDef(BaseValidatorModel):
-    jobId: str
-    thingName: str
+    jobId: Annotated[str, _aws_pattern("IotJobsData", "JobId")]
+    thingName: Annotated[str, _aws_pattern("IotJobsData", "ThingName")]
     status: JobExecutionStatusType
     statusDetails: Optional[Dict[str, str]] = None
     stepTimeoutInMinutes: Optional[int] = None
@@ -117,7 +119,7 @@ class CommandParameterValueTypeDef(BaseValidatorModel):
     L: Optional[int] = None
     D: Optional[float] = None
     BIN: Optional[BlobTypeDef] = None
-    UL: Optional[str] = None
+    UL: Optional[Annotated[str, _aws_pattern("IotJobsData", "UnsignedLongParameterValue")]] = None
 
 
 # This class is the output for the 'describe_job_execution' function.
@@ -128,7 +130,7 @@ class DescribeJobExecutionResponseTypeDef(BaseValidatorModel):
 
 # This class is the output for the 'start_command_execution' function.
 class StartCommandExecutionResponseTypeDef(BaseValidatorModel):
-    executionId: str
+    executionId: Annotated[str, _aws_pattern("IotJobsData", "CommandExecutionId")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
@@ -158,4 +160,4 @@ class StartCommandExecutionRequestTypeDef(BaseValidatorModel):
     commandArn: str
     parameters: Optional[Dict[str, CommandParameterValueTypeDef]] = None
     executionTimeoutSeconds: Optional[int] = None
-    clientToken: Optional[str] = None
+    clientToken: Optional[Annotated[str, _aws_pattern("IotJobsData", "ClientRequestTokenV2")]] = None

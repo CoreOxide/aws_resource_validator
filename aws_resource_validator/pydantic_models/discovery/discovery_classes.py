@@ -3,6 +3,7 @@
 from datetime import datetime
 from decimal import Decimal
 from typing import (
+    Annotated,
     Any,
     Callable,
     Dict,
@@ -24,6 +25,7 @@ from botocore.response import StreamingBody
 from pydantic import Field
 
 from aws_resource_validator.core.base_validator_model import BaseValidatorModel, EventStream
+from aws_resource_validator.core.pattern_validation import aws_field_pattern as _aws_pattern
 from aws_resource_validator.pydantic_models.discovery.discovery_constants import *  # noqa: F401,F403
 
 # Optional boto3 symbols — imported lazily so services that don't need them
@@ -39,29 +41,29 @@ except ImportError:  # pragma: no cover
 
 
 class AgentConfigurationStatusTypeDef(BaseValidatorModel):
-    agentId: Optional[str] = None
+    agentId: Optional[Annotated[str, _aws_pattern("Discovery", "String")]] = None
     operationSucceeded: Optional[bool] = None
-    description: Optional[str] = None
+    description: Optional[Annotated[str, _aws_pattern("Discovery", "String")]] = None
 
 
 class AgentNetworkInfoTypeDef(BaseValidatorModel):
-    ipAddress: Optional[str] = None
-    macAddress: Optional[str] = None
+    ipAddress: Optional[Annotated[str, _aws_pattern("Discovery", "String")]] = None
+    macAddress: Optional[Annotated[str, _aws_pattern("Discovery", "String")]] = None
 
 
 class AssociateConfigurationItemsToApplicationRequestTypeDef(BaseValidatorModel):
-    applicationConfigurationId: str
-    configurationIds: List[str]
+    applicationConfigurationId: Annotated[str, _aws_pattern("Discovery", "ApplicationId")]
+    configurationIds: List[Annotated[str, _aws_pattern("Discovery", "ConfigurationId")]]
 
 
 class BatchDeleteAgentErrorTypeDef(BaseValidatorModel):
-    agentId: str
-    errorMessage: str
+    agentId: Annotated[str, _aws_pattern("Discovery", "AgentId")]
+    errorMessage: Annotated[str, _aws_pattern("Discovery", "String")]
     errorCode: DeleteAgentErrorCodeType
 
 
 class DeleteAgentTypeDef(BaseValidatorModel):
-    agentId: str
+    agentId: Annotated[str, _aws_pattern("Discovery", "AgentId")]
     force: Optional[bool] = None
 
 
@@ -74,41 +76,41 @@ class ResponseMetadataTypeDef(BaseValidatorModel):
 
 
 class DeletionWarningTypeDef(BaseValidatorModel):
-    configurationId: Optional[str] = None
+    configurationId: Optional[Annotated[str, _aws_pattern("Discovery", "ConfigurationId")]] = None
     warningCode: Optional[int] = None
     warningText: Optional[str] = None
 
 
 class FailedConfigurationTypeDef(BaseValidatorModel):
-    configurationId: Optional[str] = None
+    configurationId: Optional[Annotated[str, _aws_pattern("Discovery", "ConfigurationId")]] = None
     errorStatusCode: Optional[int] = None
     errorMessage: Optional[str] = None
 
 
 class BatchDeleteImportDataErrorTypeDef(BaseValidatorModel):
-    importTaskId: Optional[str] = None
+    importTaskId: Optional[Annotated[str, _aws_pattern("Discovery", "ImportTaskIdentifier")]] = None
     errorCode: Optional[BatchDeleteImportDataErrorCodeType] = None
     errorDescription: Optional[str] = None
 
 
 # This class is the input for the 'batch_delete_import_data' function.
 class BatchDeleteImportDataRequestTypeDef(BaseValidatorModel):
-    importTaskIds: List[str]
+    importTaskIds: List[Annotated[str, _aws_pattern("Discovery", "ImportTaskIdentifier")]]
     deleteHistory: Optional[bool] = None
 
 
 class ConfigurationTagTypeDef(BaseValidatorModel):
     configurationType: Optional[ConfigurationItemTypeType] = None
-    configurationId: Optional[str] = None
+    configurationId: Optional[Annotated[str, _aws_pattern("Discovery", "ConfigurationId")]] = None
     key: Optional[str] = None
     value: Optional[str] = None
     timeOfCreation: Optional[datetime] = None
 
 
 class ContinuousExportDescriptionTypeDef(BaseValidatorModel):
-    exportId: Optional[str] = None
+    exportId: Optional[Annotated[str, _aws_pattern("Discovery", "ConfigurationsExportId")]] = None
     status: Optional[ContinuousExportStatusType] = None
-    statusDetail: Optional[str] = None
+    statusDetail: Optional[Annotated[str, _aws_pattern("Discovery", "StringMax255")]] = None
     s3Bucket: Optional[str] = None
     startTime: Optional[datetime] = None
     stopTime: Optional[datetime] = None
@@ -118,9 +120,9 @@ class ContinuousExportDescriptionTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'create_application' function.
 class CreateApplicationRequestTypeDef(BaseValidatorModel):
-    name: str
-    description: Optional[str] = None
-    wave: Optional[str] = None
+    name: Annotated[str, _aws_pattern("Discovery", "ApplicationName")]
+    description: Optional[Annotated[str, _aws_pattern("Discovery", "ApplicationDescription")]] = None
+    wave: Optional[Annotated[str, _aws_pattern("Discovery", "ApplicationWave")]] = None
 
 
 class TagTypeDef(BaseValidatorModel):
@@ -169,13 +171,13 @@ class CustomerMeCollectorInfoTypeDef(BaseValidatorModel):
 
 
 class DeleteApplicationsRequestTypeDef(BaseValidatorModel):
-    configurationIds: List[str]
+    configurationIds: List[Annotated[str, _aws_pattern("Discovery", "ApplicationId")]]
 
 
 class FilterTypeDef(BaseValidatorModel):
-    name: str
-    values: List[str]
-    condition: str
+    name: Annotated[str, _aws_pattern("Discovery", "String")]
+    values: List[Annotated[str, _aws_pattern("Discovery", "FilterValue")]]
+    condition: Annotated[str, _aws_pattern("Discovery", "Condition")]
 
 
 class PaginatorConfigTypeDef(BaseValidatorModel):
@@ -186,30 +188,30 @@ class PaginatorConfigTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'describe_batch_delete_configuration_task' function.
 class DescribeBatchDeleteConfigurationTaskRequestTypeDef(BaseValidatorModel):
-    taskId: str
+    taskId: Annotated[str, _aws_pattern("Discovery", "UUID")]
 
 
 # This class is the input for the 'describe_configurations' function.
 class DescribeConfigurationsRequestTypeDef(BaseValidatorModel):
-    configurationIds: List[str]
+    configurationIds: List[Annotated[str, _aws_pattern("Discovery", "ConfigurationId")]]
 
 
 # This class is the input for the 'describe_continuous_exports' function.
 class DescribeContinuousExportsRequestTypeDef(BaseValidatorModel):
-    exportIds: Optional[List[str]] = None
+    exportIds: Optional[List[Annotated[str, _aws_pattern("Discovery", "ConfigurationsExportId")]]] = None
     maxResults: Optional[int] = None
     nextToken: Optional[str] = None
 
 
 # This class is the input for the 'describe_export_configurations' function.
 class DescribeExportConfigurationsRequestTypeDef(BaseValidatorModel):
-    exportIds: Optional[List[str]] = None
+    exportIds: Optional[List[Annotated[str, _aws_pattern("Discovery", "ConfigurationsExportId")]]] = None
     maxResults: Optional[int] = None
     nextToken: Optional[str] = None
 
 
 class ExportInfoTypeDef(BaseValidatorModel):
-    exportId: str
+    exportId: Annotated[str, _aws_pattern("Discovery", "ConfigurationsExportId")]
     exportStatus: ExportStatusType
     statusMessage: str
     exportRequestTime: datetime
@@ -220,9 +222,9 @@ class ExportInfoTypeDef(BaseValidatorModel):
 
 
 class ExportFilterTypeDef(BaseValidatorModel):
-    name: str
-    values: List[str]
-    condition: str
+    name: Annotated[str, _aws_pattern("Discovery", "FilterName")]
+    values: List[Annotated[str, _aws_pattern("Discovery", "FilterValue")]]
+    condition: Annotated[str, _aws_pattern("Discovery", "Condition")]
 
 
 class ImportTaskFilterTypeDef(BaseValidatorModel):
@@ -231,10 +233,10 @@ class ImportTaskFilterTypeDef(BaseValidatorModel):
 
 
 class ImportTaskTypeDef(BaseValidatorModel):
-    importTaskId: Optional[str] = None
+    importTaskId: Optional[Annotated[str, _aws_pattern("Discovery", "ImportTaskIdentifier")]] = None
     clientRequestToken: Optional[str] = None
-    name: Optional[str] = None
-    importUrl: Optional[str] = None
+    name: Optional[Annotated[str, _aws_pattern("Discovery", "ImportTaskName")]] = None
+    importUrl: Optional[Annotated[str, _aws_pattern("Discovery", "ImportURL")]] = None
     status: Optional[ImportStatusType] = None
     importRequestTime: Optional[datetime] = None
     importCompletionTime: Optional[datetime] = None
@@ -248,13 +250,13 @@ class ImportTaskTypeDef(BaseValidatorModel):
 
 
 class TagFilterTypeDef(BaseValidatorModel):
-    name: str
-    values: List[str]
+    name: Annotated[str, _aws_pattern("Discovery", "FilterName")]
+    values: List[Annotated[str, _aws_pattern("Discovery", "FilterValue")]]
 
 
 class DisassociateConfigurationItemsFromApplicationRequestTypeDef(BaseValidatorModel):
-    applicationConfigurationId: str
-    configurationIds: List[str]
+    applicationConfigurationId: Annotated[str, _aws_pattern("Discovery", "ApplicationId")]
+    configurationIds: List[Annotated[str, _aws_pattern("Discovery", "ConfigurationId")]]
 
 
 class ReservedInstanceOptionsTypeDef(BaseValidatorModel):
@@ -264,41 +266,41 @@ class ReservedInstanceOptionsTypeDef(BaseValidatorModel):
 
 
 class UsageMetricBasisTypeDef(BaseValidatorModel):
-    name: Optional[str] = None
+    name: Optional[Annotated[str, _aws_pattern("Discovery", "UsageMetricBasisName")]] = None
     percentageAdjust: Optional[float] = None
 
 
 class OrderByElementTypeDef(BaseValidatorModel):
-    fieldName: str
+    fieldName: Annotated[str, _aws_pattern("Discovery", "OrderByElementFieldName")]
     sortOrder: Optional[OrderStringType] = None
 
 
 # This class is the input for the 'list_server_neighbors' function.
 class ListServerNeighborsRequestTypeDef(BaseValidatorModel):
-    configurationId: str
+    configurationId: Annotated[str, _aws_pattern("Discovery", "ConfigurationId")]
     portInformationNeeded: Optional[bool] = None
-    neighborConfigurationIds: Optional[List[str]] = None
+    neighborConfigurationIds: Optional[List[Annotated[str, _aws_pattern("Discovery", "ConfigurationId")]]] = None
     maxResults: Optional[int] = None
-    nextToken: Optional[str] = None
+    nextToken: Optional[Annotated[str, _aws_pattern("Discovery", "String")]] = None
 
 
 class NeighborConnectionDetailTypeDef(BaseValidatorModel):
-    sourceServerId: str
-    destinationServerId: str
+    sourceServerId: Annotated[str, _aws_pattern("Discovery", "ConfigurationId")]
+    destinationServerId: Annotated[str, _aws_pattern("Discovery", "ConfigurationId")]
     connectionsCount: int
     destinationPort: Optional[int] = None
-    transportProtocol: Optional[str] = None
+    transportProtocol: Optional[Annotated[str, _aws_pattern("Discovery", "String")]] = None
 
 
 # This class is the input for the 'start_batch_delete_configuration_task' function.
 class StartBatchDeleteConfigurationTaskRequestTypeDef(BaseValidatorModel):
     configurationType: Literal["SERVER"]
-    configurationIds: List[str]
+    configurationIds: List[Annotated[str, _aws_pattern("Discovery", "ConfigurationId")]]
 
 
 # This class is the input for the 'start_data_collection_by_agent_ids' function.
 class StartDataCollectionByAgentIdsRequestTypeDef(BaseValidatorModel):
-    agentIds: List[str]
+    agentIds: List[Annotated[str, _aws_pattern("Discovery", "AgentId")]]
 
 
 TimestampTypeDef = Union[datetime, str]
@@ -306,39 +308,39 @@ TimestampTypeDef = Union[datetime, str]
 
 # This class is the input for the 'start_import_task' function.
 class StartImportTaskRequestTypeDef(BaseValidatorModel):
-    name: str
-    importUrl: str
+    name: Annotated[str, _aws_pattern("Discovery", "ImportTaskName")]
+    importUrl: Annotated[str, _aws_pattern("Discovery", "ImportURL")]
     clientRequestToken: Optional[str] = None
 
 
 # This class is the input for the 'stop_continuous_export' function.
 class StopContinuousExportRequestTypeDef(BaseValidatorModel):
-    exportId: str
+    exportId: Annotated[str, _aws_pattern("Discovery", "ConfigurationsExportId")]
 
 
 # This class is the input for the 'stop_data_collection_by_agent_ids' function.
 class StopDataCollectionByAgentIdsRequestTypeDef(BaseValidatorModel):
-    agentIds: List[str]
+    agentIds: List[Annotated[str, _aws_pattern("Discovery", "AgentId")]]
 
 
 class UpdateApplicationRequestTypeDef(BaseValidatorModel):
-    configurationId: str
-    name: Optional[str] = None
-    description: Optional[str] = None
-    wave: Optional[str] = None
+    configurationId: Annotated[str, _aws_pattern("Discovery", "ApplicationId")]
+    name: Optional[Annotated[str, _aws_pattern("Discovery", "ApplicationName")]] = None
+    description: Optional[Annotated[str, _aws_pattern("Discovery", "ApplicationDescription")]] = None
+    wave: Optional[Annotated[str, _aws_pattern("Discovery", "ApplicationWave")]] = None
 
 
 class AgentInfoTypeDef(BaseValidatorModel):
-    agentId: Optional[str] = None
-    hostName: Optional[str] = None
+    agentId: Optional[Annotated[str, _aws_pattern("Discovery", "AgentId")]] = None
+    hostName: Optional[Annotated[str, _aws_pattern("Discovery", "String")]] = None
     agentNetworkInfoList: Optional[List[AgentNetworkInfoTypeDef]] = None
-    connectorId: Optional[str] = None
-    version: Optional[str] = None
+    connectorId: Optional[Annotated[str, _aws_pattern("Discovery", "String")]] = None
+    version: Optional[Annotated[str, _aws_pattern("Discovery", "String")]] = None
     health: Optional[AgentStatusType] = None
-    lastHealthPingTime: Optional[str] = None
-    collectionStatus: Optional[str] = None
-    agentType: Optional[str] = None
-    registeredTime: Optional[str] = None
+    lastHealthPingTime: Optional[Annotated[str, _aws_pattern("Discovery", "String")]] = None
+    collectionStatus: Optional[Annotated[str, _aws_pattern("Discovery", "String")]] = None
+    agentType: Optional[Annotated[str, _aws_pattern("Discovery", "String")]] = None
+    registeredTime: Optional[Annotated[str, _aws_pattern("Discovery", "String")]] = None
 
 
 # This class is the input for the 'batch_delete_agents' function.
@@ -354,7 +356,7 @@ class BatchDeleteAgentsResponseTypeDef(BaseValidatorModel):
 
 # This class is the output for the 'create_application' function.
 class CreateApplicationResponseTypeDef(BaseValidatorModel):
-    configurationId: str
+    configurationId: Annotated[str, _aws_pattern("Discovery", "String")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
@@ -365,7 +367,7 @@ class DescribeConfigurationsResponseTypeDef(BaseValidatorModel):
 
 
 class ExportConfigurationsResponseTypeDef(BaseValidatorModel):
-    exportId: str
+    exportId: Annotated[str, _aws_pattern("Discovery", "ConfigurationsExportId")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
@@ -378,12 +380,12 @@ class ListConfigurationsResponseTypeDef(BaseValidatorModel):
 
 # This class is the output for the 'start_batch_delete_configuration_task' function.
 class StartBatchDeleteConfigurationTaskResponseTypeDef(BaseValidatorModel):
-    taskId: str
+    taskId: Annotated[str, _aws_pattern("Discovery", "UUID")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 class StartContinuousExportResponseTypeDef(BaseValidatorModel):
-    exportId: str
+    exportId: Annotated[str, _aws_pattern("Discovery", "ConfigurationsExportId")]
     s3Bucket: str
     startTime: datetime
     dataSource: Literal["AGENT"]
@@ -399,7 +401,7 @@ class StartDataCollectionByAgentIdsResponseTypeDef(BaseValidatorModel):
 
 # This class is the output for the 'start_export_task' function.
 class StartExportTaskResponseTypeDef(BaseValidatorModel):
-    exportId: str
+    exportId: Annotated[str, _aws_pattern("Discovery", "ConfigurationsExportId")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
@@ -417,13 +419,13 @@ class StopDataCollectionByAgentIdsResponseTypeDef(BaseValidatorModel):
 
 
 class BatchDeleteConfigurationTaskTypeDef(BaseValidatorModel):
-    taskId: Optional[str] = None
+    taskId: Optional[Annotated[str, _aws_pattern("Discovery", "UUID")]] = None
     status: Optional[BatchDeleteConfigurationTaskStatusType] = None
     startTime: Optional[datetime] = None
     endTime: Optional[datetime] = None
     configurationType: Optional[Literal["SERVER"]] = None
-    requestedConfigurations: Optional[List[str]] = None
-    deletedConfigurations: Optional[List[str]] = None
+    requestedConfigurations: Optional[List[Annotated[str, _aws_pattern("Discovery", "ConfigurationId")]]] = None
+    deletedConfigurations: Optional[List[Annotated[str, _aws_pattern("Discovery", "ConfigurationId")]]] = None
     failedConfigurations: Optional[List[FailedConfigurationTypeDef]] = None
     deletionWarnings: Optional[List[DeletionWarningTypeDef]] = None
 
@@ -449,12 +451,12 @@ class DescribeContinuousExportsResponseTypeDef(BaseValidatorModel):
 
 
 class CreateTagsRequestTypeDef(BaseValidatorModel):
-    configurationIds: List[str]
+    configurationIds: List[Annotated[str, _aws_pattern("Discovery", "ConfigurationId")]]
     tags: List[TagTypeDef]
 
 
 class DeleteTagsRequestTypeDef(BaseValidatorModel):
-    configurationIds: List[str]
+    configurationIds: List[Annotated[str, _aws_pattern("Discovery", "ConfigurationId")]]
     tags: Optional[List[TagTypeDef]] = None
 
 
@@ -472,7 +474,7 @@ class GetDiscoverySummaryResponseTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'describe_agents' function.
 class DescribeAgentsRequestTypeDef(BaseValidatorModel):
-    agentIds: Optional[List[str]] = None
+    agentIds: Optional[List[Annotated[str, _aws_pattern("Discovery", "AgentId")]]] = None
     filters: Optional[List[FilterTypeDef]] = None
     maxResults: Optional[int] = None
     nextToken: Optional[str] = None
@@ -516,7 +518,7 @@ class DescribeExportTasksRequestPaginateTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'describe_export_tasks' function.
 class DescribeExportTasksRequestTypeDef(BaseValidatorModel):
-    exportIds: Optional[List[str]] = None
+    exportIds: Optional[List[Annotated[str, _aws_pattern("Discovery", "ConfigurationsExportId")]]] = None
     filters: Optional[List[ExportFilterTypeDef]] = None
     maxResults: Optional[int] = None
     nextToken: Optional[str] = None
@@ -564,8 +566,8 @@ class Ec2RecommendationsExportPreferencesTypeDef(BaseValidatorModel):
     cpuPerformanceMetricBasis: Optional[UsageMetricBasisTypeDef] = None
     ramPerformanceMetricBasis: Optional[UsageMetricBasisTypeDef] = None
     tenancy: Optional[TenancyType] = None
-    excludedInstanceTypes: Optional[List[str]] = None
-    preferredRegion: Optional[str] = None
+    excludedInstanceTypes: Optional[List[Annotated[str, _aws_pattern("Discovery", "EC2InstanceType")]]] = None
+    preferredRegion: Optional[Annotated[str, _aws_pattern("Discovery", "UserPreferredRegion")]] = None
     reservedInstanceOptions: Optional[ReservedInstanceOptionsTypeDef] = None
 
 
@@ -590,7 +592,7 @@ class ListServerNeighborsResponseTypeDef(BaseValidatorModel):
     neighbors: List[NeighborConnectionDetailTypeDef]
     knownDependencyCount: int
     ResponseMetadata: ResponseMetadataTypeDef
-    nextToken: Optional[str] = None
+    nextToken: Optional[Annotated[str, _aws_pattern("Discovery", "String")]] = None
 
 
 # This class is the output for the 'describe_agents' function.

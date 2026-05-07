@@ -3,6 +3,7 @@
 from datetime import datetime
 from decimal import Decimal
 from typing import (
+    Annotated,
     Any,
     Callable,
     Dict,
@@ -24,6 +25,7 @@ from botocore.response import StreamingBody
 from pydantic import Field
 
 from aws_resource_validator.core.base_validator_model import BaseValidatorModel, EventStream
+from aws_resource_validator.core.pattern_validation import aws_field_pattern as _aws_pattern
 from aws_resource_validator.pydantic_models.chime_sdk_media_pipelines.chime_sdk_media_pipelines_constants import *  # noqa: F401,F403
 
 # Optional boto3 symbols — imported lazily so services that don't need them
@@ -43,31 +45,35 @@ class ActiveSpeakerOnlyConfigurationTypeDef(BaseValidatorModel):
 
 
 class PostCallAnalyticsSettingsTypeDef(BaseValidatorModel):
-    OutputLocation: str
-    DataAccessRoleArn: str
+    OutputLocation: Annotated[str, _aws_pattern("ChimeSdkMediaPipelines", "String")]
+    DataAccessRoleArn: Annotated[str, _aws_pattern("ChimeSdkMediaPipelines", "String")]
     ContentRedactionOutput: Optional[ContentRedactionOutputType] = None
-    OutputEncryptionKMSKeyId: Optional[str] = None
+    OutputEncryptionKMSKeyId: Optional[Annotated[str, _aws_pattern("ChimeSdkMediaPipelines", "String")]] = None
 
 
 class AmazonTranscribeProcessorConfigurationTypeDef(BaseValidatorModel):
     LanguageCode: Optional[CallAnalyticsLanguageCodeType] = None
-    VocabularyName: Optional[str] = None
-    VocabularyFilterName: Optional[str] = None
+    VocabularyName: Optional[Annotated[str, _aws_pattern("ChimeSdkMediaPipelines", "VocabularyName")]] = None
+    VocabularyFilterName: Optional[Annotated[str, _aws_pattern("ChimeSdkMediaPipelines", "VocabularyFilterName")]] = (
+        None
+    )
     VocabularyFilterMethod: Optional[VocabularyFilterMethodType] = None
     ShowSpeakerLabel: Optional[bool] = None
     EnablePartialResultsStabilization: Optional[bool] = None
     PartialResultsStability: Optional[PartialResultsStabilityType] = None
     ContentIdentificationType: Optional[Literal["PII"]] = None
     ContentRedactionType: Optional[Literal["PII"]] = None
-    PiiEntityTypes: Optional[str] = None
-    LanguageModelName: Optional[str] = None
+    PiiEntityTypes: Optional[Annotated[str, _aws_pattern("ChimeSdkMediaPipelines", "PiiEntityTypes")]] = None
+    LanguageModelName: Optional[Annotated[str, _aws_pattern("ChimeSdkMediaPipelines", "ModelName")]] = None
     FilterPartialResults: Optional[bool] = None
     IdentifyLanguage: Optional[bool] = None
     IdentifyMultipleLanguages: Optional[bool] = None
-    LanguageOptions: Optional[str] = None
+    LanguageOptions: Optional[Annotated[str, _aws_pattern("ChimeSdkMediaPipelines", "LanguageOptions")]] = None
     PreferredLanguage: Optional[CallAnalyticsLanguageCodeType] = None
-    VocabularyNames: Optional[str] = None
-    VocabularyFilterNames: Optional[str] = None
+    VocabularyNames: Optional[Annotated[str, _aws_pattern("ChimeSdkMediaPipelines", "VocabularyNames")]] = None
+    VocabularyFilterNames: Optional[Annotated[str, _aws_pattern("ChimeSdkMediaPipelines", "VocabularyFilterNames")]] = (
+        None
+    )
 
 
 class AudioConcatenationConfigurationTypeDef(BaseValidatorModel):
@@ -118,12 +124,12 @@ class ChannelDefinitionTypeDef(BaseValidatorModel):
 
 
 class S3BucketSinkConfigurationTypeDef(BaseValidatorModel):
-    Destination: str
+    Destination: Annotated[str, _aws_pattern("ChimeSdkMediaPipelines", "Arn")]
 
 
 class SseAwsKeyManagementParamsTypeDef(BaseValidatorModel):
-    AwsKmsKeyId: str
-    AwsKmsEncryptionContext: Optional[str] = None
+    AwsKmsKeyId: Annotated[str, _aws_pattern("ChimeSdkMediaPipelines", "String")]
+    AwsKmsEncryptionContext: Optional[Annotated[str, _aws_pattern("ChimeSdkMediaPipelines", "String")]] = None
 
 
 class TagTypeDef(BaseValidatorModel):
@@ -140,17 +146,17 @@ class ResponseMetadataTypeDef(BaseValidatorModel):
 
 
 class S3RecordingSinkRuntimeConfigurationTypeDef(BaseValidatorModel):
-    Destination: str
+    Destination: Annotated[str, _aws_pattern("ChimeSdkMediaPipelines", "Arn")]
     RecordingFileFormat: RecordingFileFormatType
 
 
 class KinesisVideoStreamConfigurationTypeDef(BaseValidatorModel):
-    Region: str
+    Region: Annotated[str, _aws_pattern("ChimeSdkMediaPipelines", "AwsRegion")]
     DataRetentionInHours: Optional[int] = None
 
 
 class MediaStreamSinkTypeDef(BaseValidatorModel):
-    SinkArn: str
+    SinkArn: Annotated[str, _aws_pattern("ChimeSdkMediaPipelines", "Arn")]
     SinkType: Literal["KinesisVideoStreamPool"]
     ReservedStreamCapacity: int
     MediaStreamType: MediaStreamTypeType
@@ -158,27 +164,27 @@ class MediaStreamSinkTypeDef(BaseValidatorModel):
 
 class MediaStreamSourceTypeDef(BaseValidatorModel):
     SourceType: Literal["ChimeSdkMeeting"]
-    SourceArn: str
+    SourceArn: Annotated[str, _aws_pattern("ChimeSdkMediaPipelines", "Arn")]
 
 
 # This class is the input for the 'delete_media_capture_pipeline' function.
 class DeleteMediaCapturePipelineRequestTypeDef(BaseValidatorModel):
-    MediaPipelineId: str
+    MediaPipelineId: Annotated[str, _aws_pattern("ChimeSdkMediaPipelines", "GuidString")]
 
 
 # This class is the input for the 'delete_media_insights_pipeline_configuration' function.
 class DeleteMediaInsightsPipelineConfigurationRequestTypeDef(BaseValidatorModel):
-    Identifier: str
+    Identifier: Annotated[str, _aws_pattern("ChimeSdkMediaPipelines", "NonEmptyString")]
 
 
 # This class is the input for the 'delete_media_pipeline_kinesis_video_stream_pool' function.
 class DeleteMediaPipelineKinesisVideoStreamPoolRequestTypeDef(BaseValidatorModel):
-    Identifier: str
+    Identifier: Annotated[str, _aws_pattern("ChimeSdkMediaPipelines", "NonEmptyString")]
 
 
 # This class is the input for the 'delete_media_pipeline' function.
 class DeleteMediaPipelineRequestTypeDef(BaseValidatorModel):
-    MediaPipelineId: str
+    MediaPipelineId: Annotated[str, _aws_pattern("ChimeSdkMediaPipelines", "GuidString")]
 
 
 class TimestampRangeOutputTypeDef(BaseValidatorModel):
@@ -188,32 +194,32 @@ class TimestampRangeOutputTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'get_media_capture_pipeline' function.
 class GetMediaCapturePipelineRequestTypeDef(BaseValidatorModel):
-    MediaPipelineId: str
+    MediaPipelineId: Annotated[str, _aws_pattern("ChimeSdkMediaPipelines", "GuidString")]
 
 
 # This class is the input for the 'get_media_insights_pipeline_configuration' function.
 class GetMediaInsightsPipelineConfigurationRequestTypeDef(BaseValidatorModel):
-    Identifier: str
+    Identifier: Annotated[str, _aws_pattern("ChimeSdkMediaPipelines", "NonEmptyString")]
 
 
 # This class is the input for the 'get_media_pipeline_kinesis_video_stream_pool' function.
 class GetMediaPipelineKinesisVideoStreamPoolRequestTypeDef(BaseValidatorModel):
-    Identifier: str
+    Identifier: Annotated[str, _aws_pattern("ChimeSdkMediaPipelines", "NonEmptyString")]
 
 
 # This class is the input for the 'get_media_pipeline' function.
 class GetMediaPipelineRequestTypeDef(BaseValidatorModel):
-    MediaPipelineId: str
+    MediaPipelineId: Annotated[str, _aws_pattern("ChimeSdkMediaPipelines", "GuidString")]
 
 
 # This class is the input for the 'get_speaker_search_task' function.
 class GetSpeakerSearchTaskRequestTypeDef(BaseValidatorModel):
-    Identifier: str
-    SpeakerSearchTaskId: str
+    Identifier: Annotated[str, _aws_pattern("ChimeSdkMediaPipelines", "NonEmptyString")]
+    SpeakerSearchTaskId: Annotated[str, _aws_pattern("ChimeSdkMediaPipelines", "GuidString")]
 
 
 class SpeakerSearchTaskTypeDef(BaseValidatorModel):
-    SpeakerSearchTaskId: Optional[str] = None
+    SpeakerSearchTaskId: Optional[Annotated[str, _aws_pattern("ChimeSdkMediaPipelines", "GuidString")]] = None
     SpeakerSearchTaskStatus: Optional[MediaPipelineTaskStatusType] = None
     CreatedTimestamp: Optional[datetime] = None
     UpdatedTimestamp: Optional[datetime] = None
@@ -221,12 +227,12 @@ class SpeakerSearchTaskTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'get_voice_tone_analysis_task' function.
 class GetVoiceToneAnalysisTaskRequestTypeDef(BaseValidatorModel):
-    Identifier: str
-    VoiceToneAnalysisTaskId: str
+    Identifier: Annotated[str, _aws_pattern("ChimeSdkMediaPipelines", "NonEmptyString")]
+    VoiceToneAnalysisTaskId: Annotated[str, _aws_pattern("ChimeSdkMediaPipelines", "GuidString")]
 
 
 class VoiceToneAnalysisTaskTypeDef(BaseValidatorModel):
-    VoiceToneAnalysisTaskId: Optional[str] = None
+    VoiceToneAnalysisTaskId: Optional[Annotated[str, _aws_pattern("ChimeSdkMediaPipelines", "GuidString")]] = None
     VoiceToneAnalysisTaskStatus: Optional[MediaPipelineTaskStatusType] = None
     CreatedTimestamp: Optional[datetime] = None
     UpdatedTimestamp: Optional[datetime] = None
@@ -236,7 +242,7 @@ class HorizontalLayoutConfigurationTypeDef(BaseValidatorModel):
     TileOrder: Optional[TileOrderType] = None
     TilePosition: Optional[HorizontalTilePositionType] = None
     TileCount: Optional[int] = None
-    TileAspectRatio: Optional[str] = None
+    TileAspectRatio: Optional[Annotated[str, _aws_pattern("ChimeSdkMediaPipelines", "TileAspectRatio")]] = None
 
 
 class PresenterOnlyConfigurationTypeDef(BaseValidatorModel):
@@ -247,7 +253,7 @@ class VerticalLayoutConfigurationTypeDef(BaseValidatorModel):
     TileOrder: Optional[TileOrderType] = None
     TilePosition: Optional[VerticalTilePositionType] = None
     TileCount: Optional[int] = None
-    TileAspectRatio: Optional[str] = None
+    TileAspectRatio: Optional[Annotated[str, _aws_pattern("ChimeSdkMediaPipelines", "TileAspectRatio")]] = None
 
 
 class VideoAttributeTypeDef(BaseValidatorModel):
@@ -258,7 +264,7 @@ class VideoAttributeTypeDef(BaseValidatorModel):
 
 
 class IssueDetectionConfigurationTypeDef(BaseValidatorModel):
-    RuleName: str
+    RuleName: Annotated[str, _aws_pattern("ChimeSdkMediaPipelines", "RuleName")]
 
 
 class KeywordMatchConfigurationOutputTypeDef(BaseValidatorModel):
@@ -268,13 +274,13 @@ class KeywordMatchConfigurationOutputTypeDef(BaseValidatorModel):
 
 
 class KeywordMatchConfigurationTypeDef(BaseValidatorModel):
-    RuleName: str
-    Keywords: List[str]
+    RuleName: Annotated[str, _aws_pattern("ChimeSdkMediaPipelines", "RuleName")]
+    Keywords: List[Annotated[str, _aws_pattern("ChimeSdkMediaPipelines", "Keyword")]]
     Negate: Optional[bool] = None
 
 
 class KinesisDataStreamSinkConfigurationTypeDef(BaseValidatorModel):
-    InsightsTarget: Optional[str] = None
+    InsightsTarget: Optional[Annotated[str, _aws_pattern("ChimeSdkMediaPipelines", "Arn")]] = None
 
 
 class KinesisVideoStreamConfigurationUpdateTypeDef(BaseValidatorModel):
@@ -282,87 +288,93 @@ class KinesisVideoStreamConfigurationUpdateTypeDef(BaseValidatorModel):
 
 
 class KinesisVideoStreamPoolSummaryTypeDef(BaseValidatorModel):
-    PoolName: Optional[str] = None
-    PoolId: Optional[str] = None
-    PoolArn: Optional[str] = None
+    PoolName: Optional[Annotated[str, _aws_pattern("ChimeSdkMediaPipelines", "KinesisVideoStreamPoolName")]] = None
+    PoolId: Optional[Annotated[str, _aws_pattern("ChimeSdkMediaPipelines", "KinesisVideoStreamPoolId")]] = None
+    PoolArn: Optional[Annotated[str, _aws_pattern("ChimeSdkMediaPipelines", "Arn")]] = None
 
 
 class RecordingStreamConfigurationTypeDef(BaseValidatorModel):
-    StreamArn: Optional[str] = None
+    StreamArn: Optional[Annotated[str, _aws_pattern("ChimeSdkMediaPipelines", "KinesisVideoStreamArn")]] = None
 
 
 class KinesisVideoStreamSourceTaskConfigurationTypeDef(BaseValidatorModel):
-    StreamArn: str
+    StreamArn: Annotated[str, _aws_pattern("ChimeSdkMediaPipelines", "KinesisVideoStreamArn")]
     ChannelId: int
-    FragmentNumber: Optional[str] = None
+    FragmentNumber: Optional[Annotated[str, _aws_pattern("ChimeSdkMediaPipelines", "FragmentNumberString")]] = None
 
 
 class LambdaFunctionSinkConfigurationTypeDef(BaseValidatorModel):
-    InsightsTarget: Optional[str] = None
+    InsightsTarget: Optional[Annotated[str, _aws_pattern("ChimeSdkMediaPipelines", "Arn")]] = None
 
 
 # This class is the input for the 'list_media_capture_pipelines' function.
 class ListMediaCapturePipelinesRequestTypeDef(BaseValidatorModel):
-    NextToken: Optional[str] = None
+    NextToken: Optional[Annotated[str, _aws_pattern("ChimeSdkMediaPipelines", "String")]] = None
     MaxResults: Optional[int] = None
 
 
 class MediaCapturePipelineSummaryTypeDef(BaseValidatorModel):
-    MediaPipelineId: Optional[str] = None
-    MediaPipelineArn: Optional[str] = None
+    MediaPipelineId: Optional[Annotated[str, _aws_pattern("ChimeSdkMediaPipelines", "GuidString")]] = None
+    MediaPipelineArn: Optional[Annotated[str, _aws_pattern("ChimeSdkMediaPipelines", "AmazonResourceName")]] = None
 
 
 # This class is the input for the 'list_media_insights_pipeline_configurations' function.
 class ListMediaInsightsPipelineConfigurationsRequestTypeDef(BaseValidatorModel):
-    NextToken: Optional[str] = None
+    NextToken: Optional[Annotated[str, _aws_pattern("ChimeSdkMediaPipelines", "String")]] = None
     MaxResults: Optional[int] = None
 
 
 class MediaInsightsPipelineConfigurationSummaryTypeDef(BaseValidatorModel):
-    MediaInsightsPipelineConfigurationName: Optional[str] = None
-    MediaInsightsPipelineConfigurationId: Optional[str] = None
-    MediaInsightsPipelineConfigurationArn: Optional[str] = None
+    MediaInsightsPipelineConfigurationName: Optional[
+        Annotated[str, _aws_pattern("ChimeSdkMediaPipelines", "MediaInsightsPipelineConfigurationNameString")]
+    ] = None
+    MediaInsightsPipelineConfigurationId: Optional[
+        Annotated[str, _aws_pattern("ChimeSdkMediaPipelines", "GuidString")]
+    ] = None
+    MediaInsightsPipelineConfigurationArn: Optional[Annotated[str, _aws_pattern("ChimeSdkMediaPipelines", "Arn")]] = (
+        None
+    )
 
 
 # This class is the input for the 'list_media_pipeline_kinesis_video_stream_pools' function.
 class ListMediaPipelineKinesisVideoStreamPoolsRequestTypeDef(BaseValidatorModel):
-    NextToken: Optional[str] = None
+    NextToken: Optional[Annotated[str, _aws_pattern("ChimeSdkMediaPipelines", "String")]] = None
     MaxResults: Optional[int] = None
 
 
 # This class is the input for the 'list_media_pipelines' function.
 class ListMediaPipelinesRequestTypeDef(BaseValidatorModel):
-    NextToken: Optional[str] = None
+    NextToken: Optional[Annotated[str, _aws_pattern("ChimeSdkMediaPipelines", "String")]] = None
     MaxResults: Optional[int] = None
 
 
 class MediaPipelineSummaryTypeDef(BaseValidatorModel):
-    MediaPipelineId: Optional[str] = None
-    MediaPipelineArn: Optional[str] = None
+    MediaPipelineId: Optional[Annotated[str, _aws_pattern("ChimeSdkMediaPipelines", "GuidString")]] = None
+    MediaPipelineArn: Optional[Annotated[str, _aws_pattern("ChimeSdkMediaPipelines", "AmazonResourceName")]] = None
 
 
 # This class is the input for the 'list_tags_for_resource' function.
 class ListTagsForResourceRequestTypeDef(BaseValidatorModel):
-    ResourceARN: str
+    ResourceARN: Annotated[str, _aws_pattern("ChimeSdkMediaPipelines", "AmazonResourceName")]
 
 
 class LiveConnectorRTMPConfigurationTypeDef(BaseValidatorModel):
     Url: str
     AudioChannels: Optional[AudioChannelsOptionType] = None
-    AudioSampleRate: Optional[str] = None
+    AudioSampleRate: Optional[Annotated[str, _aws_pattern("ChimeSdkMediaPipelines", "AudioSampleRateOption")]] = None
 
 
 class S3RecordingSinkConfigurationTypeDef(BaseValidatorModel):
-    Destination: Optional[str] = None
+    Destination: Optional[Annotated[str, _aws_pattern("ChimeSdkMediaPipelines", "Arn")]] = None
     RecordingFileFormat: Optional[RecordingFileFormatType] = None
 
 
 class SnsTopicSinkConfigurationTypeDef(BaseValidatorModel):
-    InsightsTarget: Optional[str] = None
+    InsightsTarget: Optional[Annotated[str, _aws_pattern("ChimeSdkMediaPipelines", "Arn")]] = None
 
 
 class SqsQueueSinkConfigurationTypeDef(BaseValidatorModel):
-    InsightsTarget: Optional[str] = None
+    InsightsTarget: Optional[Annotated[str, _aws_pattern("ChimeSdkMediaPipelines", "Arn")]] = None
 
 
 class VoiceAnalyticsProcessorConfigurationTypeDef(BaseValidatorModel):
@@ -380,7 +392,7 @@ class MediaInsightsPipelineElementStatusTypeDef(BaseValidatorModel):
 
 
 class SentimentConfigurationTypeDef(BaseValidatorModel):
-    RuleName: str
+    RuleName: Annotated[str, _aws_pattern("ChimeSdkMediaPipelines", "RuleName")]
     SentimentType: Literal["NEGATIVE"]
     TimePeriod: int
 
@@ -391,33 +403,33 @@ class SelectedVideoStreamsOutputTypeDef(BaseValidatorModel):
 
 
 class SelectedVideoStreamsTypeDef(BaseValidatorModel):
-    AttendeeIds: Optional[List[str]] = None
+    AttendeeIds: Optional[List[Annotated[str, _aws_pattern("ChimeSdkMediaPipelines", "GuidString")]]] = None
     ExternalUserIds: Optional[List[str]] = None
 
 
 # This class is the input for the 'stop_speaker_search_task' function.
 class StopSpeakerSearchTaskRequestTypeDef(BaseValidatorModel):
-    Identifier: str
-    SpeakerSearchTaskId: str
+    Identifier: Annotated[str, _aws_pattern("ChimeSdkMediaPipelines", "NonEmptyString")]
+    SpeakerSearchTaskId: Annotated[str, _aws_pattern("ChimeSdkMediaPipelines", "GuidString")]
 
 
 # This class is the input for the 'stop_voice_tone_analysis_task' function.
 class StopVoiceToneAnalysisTaskRequestTypeDef(BaseValidatorModel):
-    Identifier: str
-    VoiceToneAnalysisTaskId: str
+    Identifier: Annotated[str, _aws_pattern("ChimeSdkMediaPipelines", "NonEmptyString")]
+    VoiceToneAnalysisTaskId: Annotated[str, _aws_pattern("ChimeSdkMediaPipelines", "GuidString")]
 
 
 TimestampTypeDef = Union[datetime, str]
 
 
 class UntagResourceRequestTypeDef(BaseValidatorModel):
-    ResourceARN: str
+    ResourceARN: Annotated[str, _aws_pattern("ChimeSdkMediaPipelines", "AmazonResourceName")]
     TagKeys: List[str]
 
 
 # This class is the input for the 'update_media_insights_pipeline_status' function.
 class UpdateMediaInsightsPipelineStatusRequestTypeDef(BaseValidatorModel):
-    Identifier: str
+    Identifier: Annotated[str, _aws_pattern("ChimeSdkMediaPipelines", "NonEmptyString")]
     UpdateStatus: MediaPipelineStatusUpdateType
 
 
@@ -439,18 +451,22 @@ class AmazonTranscribeCallAnalyticsProcessorConfigurationOutputTypeDef(BaseValid
 
 class AmazonTranscribeCallAnalyticsProcessorConfigurationTypeDef(BaseValidatorModel):
     LanguageCode: CallAnalyticsLanguageCodeType
-    VocabularyName: Optional[str] = None
-    VocabularyFilterName: Optional[str] = None
+    VocabularyName: Optional[Annotated[str, _aws_pattern("ChimeSdkMediaPipelines", "VocabularyName")]] = None
+    VocabularyFilterName: Optional[Annotated[str, _aws_pattern("ChimeSdkMediaPipelines", "VocabularyFilterName")]] = (
+        None
+    )
     VocabularyFilterMethod: Optional[VocabularyFilterMethodType] = None
-    LanguageModelName: Optional[str] = None
+    LanguageModelName: Optional[Annotated[str, _aws_pattern("ChimeSdkMediaPipelines", "ModelName")]] = None
     EnablePartialResultsStabilization: Optional[bool] = None
     PartialResultsStability: Optional[PartialResultsStabilityType] = None
     ContentIdentificationType: Optional[Literal["PII"]] = None
     ContentRedactionType: Optional[Literal["PII"]] = None
-    PiiEntityTypes: Optional[str] = None
+    PiiEntityTypes: Optional[Annotated[str, _aws_pattern("ChimeSdkMediaPipelines", "PiiEntityTypes")]] = None
     FilterPartialResults: Optional[bool] = None
     PostCallAnalyticsSettings: Optional[PostCallAnalyticsSettingsTypeDef] = None
-    CallAnalyticsStreamCategories: Optional[List[str]] = None
+    CallAnalyticsStreamCategories: Optional[
+        List[Annotated[str, _aws_pattern("ChimeSdkMediaPipelines", "CategoryName")]]
+    ] = None
 
 
 class ArtifactsConcatenationConfigurationTypeDef(BaseValidatorModel):
@@ -479,7 +495,7 @@ class ConcatenationSinkTypeDef(BaseValidatorModel):
 
 
 class TagResourceRequestTypeDef(BaseValidatorModel):
-    ResourceARN: str
+    ResourceARN: Annotated[str, _aws_pattern("ChimeSdkMediaPipelines", "AmazonResourceName")]
     Tags: List[TagTypeDef]
 
 
@@ -497,15 +513,15 @@ class ListTagsForResourceResponseTypeDef(BaseValidatorModel):
 # This class is the input for the 'create_media_pipeline_kinesis_video_stream_pool' function.
 class CreateMediaPipelineKinesisVideoStreamPoolRequestTypeDef(BaseValidatorModel):
     StreamConfiguration: KinesisVideoStreamConfigurationTypeDef
-    PoolName: str
-    ClientRequestToken: Optional[str] = None
+    PoolName: Annotated[str, _aws_pattern("ChimeSdkMediaPipelines", "KinesisVideoStreamPoolName")]
+    ClientRequestToken: Optional[Annotated[str, _aws_pattern("ChimeSdkMediaPipelines", "ClientRequestToken")]] = None
     Tags: Optional[List[TagTypeDef]] = None
 
 
 class KinesisVideoStreamPoolConfigurationTypeDef(BaseValidatorModel):
-    PoolArn: Optional[str] = None
-    PoolName: Optional[str] = None
-    PoolId: Optional[str] = None
+    PoolArn: Optional[Annotated[str, _aws_pattern("ChimeSdkMediaPipelines", "Arn")]] = None
+    PoolName: Optional[Annotated[str, _aws_pattern("ChimeSdkMediaPipelines", "KinesisVideoStreamPoolName")]] = None
+    PoolId: Optional[Annotated[str, _aws_pattern("ChimeSdkMediaPipelines", "KinesisVideoStreamPoolId")]] = None
     PoolStatus: Optional[KinesisVideoStreamPoolStatusType] = None
     PoolSize: Optional[int] = None
     StreamConfiguration: Optional[KinesisVideoStreamConfigurationTypeDef] = None
@@ -517,13 +533,13 @@ class KinesisVideoStreamPoolConfigurationTypeDef(BaseValidatorModel):
 class CreateMediaStreamPipelineRequestTypeDef(BaseValidatorModel):
     Sources: List[MediaStreamSourceTypeDef]
     Sinks: List[MediaStreamSinkTypeDef]
-    ClientRequestToken: Optional[str] = None
+    ClientRequestToken: Optional[Annotated[str, _aws_pattern("ChimeSdkMediaPipelines", "ClientRequestToken")]] = None
     Tags: Optional[List[TagTypeDef]] = None
 
 
 class MediaStreamPipelineTypeDef(BaseValidatorModel):
-    MediaPipelineId: Optional[str] = None
-    MediaPipelineArn: Optional[str] = None
+    MediaPipelineId: Optional[Annotated[str, _aws_pattern("ChimeSdkMediaPipelines", "GuidString")]] = None
+    MediaPipelineArn: Optional[Annotated[str, _aws_pattern("ChimeSdkMediaPipelines", "AmazonResourceName")]] = None
     CreatedTimestamp: Optional[datetime] = None
     UpdatedTimestamp: Optional[datetime] = None
     Status: Optional[MediaPipelineStatusType] = None
@@ -572,7 +588,7 @@ class GridViewConfigurationTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'update_media_pipeline_kinesis_video_stream_pool' function.
 class UpdateMediaPipelineKinesisVideoStreamPoolRequestTypeDef(BaseValidatorModel):
-    Identifier: str
+    Identifier: Annotated[str, _aws_pattern("ChimeSdkMediaPipelines", "NonEmptyString")]
     StreamConfiguration: Optional[KinesisVideoStreamConfigurationUpdateTypeDef] = None
 
 
@@ -580,44 +596,44 @@ class UpdateMediaPipelineKinesisVideoStreamPoolRequestTypeDef(BaseValidatorModel
 class ListMediaPipelineKinesisVideoStreamPoolsResponseTypeDef(BaseValidatorModel):
     KinesisVideoStreamPools: List[KinesisVideoStreamPoolSummaryTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
-    NextToken: Optional[str] = None
+    NextToken: Optional[Annotated[str, _aws_pattern("ChimeSdkMediaPipelines", "String")]] = None
 
 
 # This class is the input for the 'start_speaker_search_task' function.
 class StartSpeakerSearchTaskRequestTypeDef(BaseValidatorModel):
-    Identifier: str
-    VoiceProfileDomainArn: str
+    Identifier: Annotated[str, _aws_pattern("ChimeSdkMediaPipelines", "NonEmptyString")]
+    VoiceProfileDomainArn: Annotated[str, _aws_pattern("ChimeSdkMediaPipelines", "Arn")]
     KinesisVideoStreamSourceTaskConfiguration: Optional[KinesisVideoStreamSourceTaskConfigurationTypeDef] = None
-    ClientRequestToken: Optional[str] = None
+    ClientRequestToken: Optional[Annotated[str, _aws_pattern("ChimeSdkMediaPipelines", "ClientRequestToken")]] = None
 
 
 # This class is the input for the 'start_voice_tone_analysis_task' function.
 class StartVoiceToneAnalysisTaskRequestTypeDef(BaseValidatorModel):
-    Identifier: str
+    Identifier: Annotated[str, _aws_pattern("ChimeSdkMediaPipelines", "NonEmptyString")]
     LanguageCode: Literal["en-US"]
     KinesisVideoStreamSourceTaskConfiguration: Optional[KinesisVideoStreamSourceTaskConfigurationTypeDef] = None
-    ClientRequestToken: Optional[str] = None
+    ClientRequestToken: Optional[Annotated[str, _aws_pattern("ChimeSdkMediaPipelines", "ClientRequestToken")]] = None
 
 
 # This class is the output for the 'list_media_capture_pipelines' function.
 class ListMediaCapturePipelinesResponseTypeDef(BaseValidatorModel):
     MediaCapturePipelines: List[MediaCapturePipelineSummaryTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
-    NextToken: Optional[str] = None
+    NextToken: Optional[Annotated[str, _aws_pattern("ChimeSdkMediaPipelines", "String")]] = None
 
 
 # This class is the output for the 'list_media_insights_pipeline_configurations' function.
 class ListMediaInsightsPipelineConfigurationsResponseTypeDef(BaseValidatorModel):
     MediaInsightsPipelineConfigurations: List[MediaInsightsPipelineConfigurationSummaryTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
-    NextToken: Optional[str] = None
+    NextToken: Optional[Annotated[str, _aws_pattern("ChimeSdkMediaPipelines", "String")]] = None
 
 
 # This class is the output for the 'list_media_pipelines' function.
 class ListMediaPipelinesResponseTypeDef(BaseValidatorModel):
     MediaPipelines: List[MediaPipelineSummaryTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
-    NextToken: Optional[str] = None
+    NextToken: Optional[Annotated[str, _aws_pattern("ChimeSdkMediaPipelines", "String")]] = None
 
 
 class LiveConnectorSinkConfigurationTypeDef(BaseValidatorModel):
@@ -683,9 +699,9 @@ class StreamConfigurationOutputTypeDef(BaseValidatorModel):
 
 
 class StreamConfigurationTypeDef(BaseValidatorModel):
-    StreamArn: str
+    StreamArn: Annotated[str, _aws_pattern("ChimeSdkMediaPipelines", "KinesisVideoStreamArn")]
     StreamChannelDefinition: StreamChannelDefinitionTypeDef
-    FragmentNumber: Optional[str] = None
+    FragmentNumber: Optional[Annotated[str, _aws_pattern("ChimeSdkMediaPipelines", "FragmentNumberString")]] = None
 
 
 # This class is the output for the 'create_media_pipeline_kinesis_video_stream_pool' function.
@@ -758,7 +774,7 @@ class MediaInsightsPipelineConfigurationElementTypeDef(BaseValidatorModel):
 
 
 class MediaCapturePipelineSourceConfigurationTypeDef(BaseValidatorModel):
-    MediaPipelineArn: str
+    MediaPipelineArn: Annotated[str, _aws_pattern("ChimeSdkMediaPipelines", "Arn")]
     ChimeSdkMeetingConfiguration: ChimeSdkMeetingConcatenationConfigurationTypeDef
 
 
@@ -789,12 +805,18 @@ class ChimeSdkMeetingLiveConnectorConfigurationOutputTypeDef(BaseValidatorModel)
 
 
 class MediaInsightsPipelineConfigurationTypeDef(BaseValidatorModel):
-    MediaInsightsPipelineConfigurationName: Optional[str] = None
-    MediaInsightsPipelineConfigurationArn: Optional[str] = None
-    ResourceAccessRoleArn: Optional[str] = None
+    MediaInsightsPipelineConfigurationName: Optional[
+        Annotated[str, _aws_pattern("ChimeSdkMediaPipelines", "MediaInsightsPipelineConfigurationNameString")]
+    ] = None
+    MediaInsightsPipelineConfigurationArn: Optional[Annotated[str, _aws_pattern("ChimeSdkMediaPipelines", "Arn")]] = (
+        None
+    )
+    ResourceAccessRoleArn: Optional[Annotated[str, _aws_pattern("ChimeSdkMediaPipelines", "Arn")]] = None
     RealTimeAlertConfiguration: Optional[RealTimeAlertConfigurationOutputTypeDef] = None
     Elements: Optional[List[MediaInsightsPipelineConfigurationElementOutputTypeDef]] = None
-    MediaInsightsPipelineConfigurationId: Optional[str] = None
+    MediaInsightsPipelineConfigurationId: Optional[
+        Annotated[str, _aws_pattern("ChimeSdkMediaPipelines", "GuidString")]
+    ] = None
     CreatedTimestamp: Optional[datetime] = None
     UpdatedTimestamp: Optional[datetime] = None
 
@@ -822,9 +844,11 @@ class ConcatenationSourceTypeDef(BaseValidatorModel):
 
 
 class MediaInsightsPipelineTypeDef(BaseValidatorModel):
-    MediaPipelineId: Optional[str] = None
-    MediaPipelineArn: Optional[str] = None
-    MediaInsightsPipelineConfigurationArn: Optional[str] = None
+    MediaPipelineId: Optional[Annotated[str, _aws_pattern("ChimeSdkMediaPipelines", "GuidString")]] = None
+    MediaPipelineArn: Optional[Annotated[str, _aws_pattern("ChimeSdkMediaPipelines", "Arn")]] = None
+    MediaInsightsPipelineConfigurationArn: Optional[Annotated[str, _aws_pattern("ChimeSdkMediaPipelines", "Arn")]] = (
+        None
+    )
     Status: Optional[MediaPipelineStatusType] = None
     KinesisVideoStreamSourceRuntimeConfiguration: Optional[
         KinesisVideoStreamSourceRuntimeConfigurationOutputTypeDef
@@ -877,7 +901,7 @@ class UpdateMediaInsightsPipelineConfigurationResponseTypeDef(BaseValidatorModel
 
 
 class ChimeSdkMeetingLiveConnectorConfigurationTypeDef(BaseValidatorModel):
-    Arn: str
+    Arn: Annotated[str, _aws_pattern("ChimeSdkMediaPipelines", "Arn")]
     MuxType: LiveConnectorMuxTypeType
     CompositedVideo: Optional[CompositedVideoArtifactsConfigurationTypeDef] = None
     SourceConfiguration: Optional[SourceConfigurationUnionTypeDef] = None
@@ -891,18 +915,20 @@ KinesisVideoStreamRecordingSourceRuntimeConfigurationUnionTypeDef = Union[
 
 # This class is the input for the 'create_media_insights_pipeline_configuration' function.
 class CreateMediaInsightsPipelineConfigurationRequestTypeDef(BaseValidatorModel):
-    MediaInsightsPipelineConfigurationName: str
-    ResourceAccessRoleArn: str
+    MediaInsightsPipelineConfigurationName: Annotated[
+        str, _aws_pattern("ChimeSdkMediaPipelines", "MediaInsightsPipelineConfigurationNameString")
+    ]
+    ResourceAccessRoleArn: Annotated[str, _aws_pattern("ChimeSdkMediaPipelines", "Arn")]
     Elements: List[MediaInsightsPipelineConfigurationElementUnionTypeDef]
     RealTimeAlertConfiguration: Optional[RealTimeAlertConfigurationUnionTypeDef] = None
     Tags: Optional[List[TagTypeDef]] = None
-    ClientRequestToken: Optional[str] = None
+    ClientRequestToken: Optional[Annotated[str, _aws_pattern("ChimeSdkMediaPipelines", "ClientRequestToken")]] = None
 
 
 # This class is the input for the 'update_media_insights_pipeline_configuration' function.
 class UpdateMediaInsightsPipelineConfigurationRequestTypeDef(BaseValidatorModel):
-    Identifier: str
-    ResourceAccessRoleArn: str
+    Identifier: Annotated[str, _aws_pattern("ChimeSdkMediaPipelines", "NonEmptyString")]
+    ResourceAccessRoleArn: Annotated[str, _aws_pattern("ChimeSdkMediaPipelines", "Arn")]
     Elements: List[MediaInsightsPipelineConfigurationElementUnionTypeDef]
     RealTimeAlertConfiguration: Optional[RealTimeAlertConfigurationUnionTypeDef] = None
 
@@ -911,13 +937,13 @@ class UpdateMediaInsightsPipelineConfigurationRequestTypeDef(BaseValidatorModel)
 class CreateMediaConcatenationPipelineRequestTypeDef(BaseValidatorModel):
     Sources: List[ConcatenationSourceTypeDef]
     Sinks: List[ConcatenationSinkTypeDef]
-    ClientRequestToken: Optional[str] = None
+    ClientRequestToken: Optional[Annotated[str, _aws_pattern("ChimeSdkMediaPipelines", "ClientRequestToken")]] = None
     Tags: Optional[List[TagTypeDef]] = None
 
 
 class MediaConcatenationPipelineTypeDef(BaseValidatorModel):
-    MediaPipelineId: Optional[str] = None
-    MediaPipelineArn: Optional[str] = None
+    MediaPipelineId: Optional[Annotated[str, _aws_pattern("ChimeSdkMediaPipelines", "GuidString")]] = None
+    MediaPipelineArn: Optional[Annotated[str, _aws_pattern("ChimeSdkMediaPipelines", "AmazonResourceName")]] = None
     Sources: Optional[List[ConcatenationSourceTypeDef]] = None
     Sinks: Optional[List[ConcatenationSinkTypeDef]] = None
     Status: Optional[MediaPipelineStatusType] = None
@@ -932,18 +958,18 @@ class CreateMediaInsightsPipelineResponseTypeDef(BaseValidatorModel):
 
 
 class MediaCapturePipelineTypeDef(BaseValidatorModel):
-    MediaPipelineId: Optional[str] = None
-    MediaPipelineArn: Optional[str] = None
+    MediaPipelineId: Optional[Annotated[str, _aws_pattern("ChimeSdkMediaPipelines", "GuidString")]] = None
+    MediaPipelineArn: Optional[Annotated[str, _aws_pattern("ChimeSdkMediaPipelines", "AmazonResourceName")]] = None
     SourceType: Optional[Literal["ChimeSdkMeeting"]] = None
-    SourceArn: Optional[str] = None
+    SourceArn: Optional[Annotated[str, _aws_pattern("ChimeSdkMediaPipelines", "Arn")]] = None
     Status: Optional[MediaPipelineStatusType] = None
     SinkType: Optional[Literal["S3Bucket"]] = None
-    SinkArn: Optional[str] = None
+    SinkArn: Optional[Annotated[str, _aws_pattern("ChimeSdkMediaPipelines", "Arn")]] = None
     CreatedTimestamp: Optional[datetime] = None
     UpdatedTimestamp: Optional[datetime] = None
     ChimeSdkMeetingConfiguration: Optional[ChimeSdkMeetingConfigurationOutputTypeDef] = None
     SseAwsKeyManagementParams: Optional[SseAwsKeyManagementParamsTypeDef] = None
-    SinkIamRoleArn: Optional[str] = None
+    SinkIamRoleArn: Optional[Annotated[str, _aws_pattern("ChimeSdkMediaPipelines", "Arn")]] = None
 
 
 ChimeSdkMeetingConfigurationUnionTypeDef = Union[
@@ -954,8 +980,8 @@ ChimeSdkMeetingConfigurationUnionTypeDef = Union[
 class MediaLiveConnectorPipelineTypeDef(BaseValidatorModel):
     Sources: Optional[List[LiveConnectorSourceConfigurationOutputTypeDef]] = None
     Sinks: Optional[List[LiveConnectorSinkConfigurationTypeDef]] = None
-    MediaPipelineId: Optional[str] = None
-    MediaPipelineArn: Optional[str] = None
+    MediaPipelineId: Optional[Annotated[str, _aws_pattern("ChimeSdkMediaPipelines", "GuidString")]] = None
+    MediaPipelineArn: Optional[Annotated[str, _aws_pattern("ChimeSdkMediaPipelines", "AmazonResourceName")]] = None
     Status: Optional[MediaPipelineStatusType] = None
     CreatedTimestamp: Optional[datetime] = None
     UpdatedTimestamp: Optional[datetime] = None
@@ -968,7 +994,7 @@ ChimeSdkMeetingLiveConnectorConfigurationUnionTypeDef = Union[
 
 # This class is the input for the 'create_media_insights_pipeline' function.
 class CreateMediaInsightsPipelineRequestTypeDef(BaseValidatorModel):
-    MediaInsightsPipelineConfigurationArn: str
+    MediaInsightsPipelineConfigurationArn: Annotated[str, _aws_pattern("ChimeSdkMediaPipelines", "Arn")]
     KinesisVideoStreamSourceRuntimeConfiguration: Optional[KinesisVideoStreamSourceRuntimeConfigurationUnionTypeDef] = (
         None
     )
@@ -978,7 +1004,7 @@ class CreateMediaInsightsPipelineRequestTypeDef(BaseValidatorModel):
     ] = None
     S3RecordingSinkRuntimeConfiguration: Optional[S3RecordingSinkRuntimeConfigurationTypeDef] = None
     Tags: Optional[List[TagTypeDef]] = None
-    ClientRequestToken: Optional[str] = None
+    ClientRequestToken: Optional[Annotated[str, _aws_pattern("ChimeSdkMediaPipelines", "ClientRequestToken")]] = None
 
 
 # This class is the output for the 'create_media_concatenation_pipeline' function.
@@ -1002,13 +1028,13 @@ class GetMediaCapturePipelineResponseTypeDef(BaseValidatorModel):
 # This class is the input for the 'create_media_capture_pipeline' function.
 class CreateMediaCapturePipelineRequestTypeDef(BaseValidatorModel):
     SourceType: Literal["ChimeSdkMeeting"]
-    SourceArn: str
+    SourceArn: Annotated[str, _aws_pattern("ChimeSdkMediaPipelines", "Arn")]
     SinkType: Literal["S3Bucket"]
-    SinkArn: str
-    ClientRequestToken: Optional[str] = None
+    SinkArn: Annotated[str, _aws_pattern("ChimeSdkMediaPipelines", "Arn")]
+    ClientRequestToken: Optional[Annotated[str, _aws_pattern("ChimeSdkMediaPipelines", "ClientRequestToken")]] = None
     ChimeSdkMeetingConfiguration: Optional[ChimeSdkMeetingConfigurationUnionTypeDef] = None
     SseAwsKeyManagementParams: Optional[SseAwsKeyManagementParamsTypeDef] = None
-    SinkIamRoleArn: Optional[str] = None
+    SinkIamRoleArn: Optional[Annotated[str, _aws_pattern("ChimeSdkMediaPipelines", "Arn")]] = None
     Tags: Optional[List[TagTypeDef]] = None
 
 
@@ -1046,5 +1072,5 @@ LiveConnectorSourceConfigurationUnionTypeDef = Union[
 class CreateMediaLiveConnectorPipelineRequestTypeDef(BaseValidatorModel):
     Sources: List[LiveConnectorSourceConfigurationUnionTypeDef]
     Sinks: List[LiveConnectorSinkConfigurationTypeDef]
-    ClientRequestToken: Optional[str] = None
+    ClientRequestToken: Optional[Annotated[str, _aws_pattern("ChimeSdkMediaPipelines", "ClientRequestToken")]] = None
     Tags: Optional[List[TagTypeDef]] = None

@@ -3,6 +3,7 @@
 from datetime import datetime
 from decimal import Decimal
 from typing import (
+    Annotated,
     Any,
     Callable,
     Dict,
@@ -24,6 +25,7 @@ from botocore.response import StreamingBody
 from pydantic import Field
 
 from aws_resource_validator.core.base_validator_model import BaseValidatorModel, EventStream
+from aws_resource_validator.core.pattern_validation import aws_field_pattern as _aws_pattern
 from aws_resource_validator.pydantic_models.deadline.deadline_constants import *  # noqa: F401,F403
 
 # Optional boto3 symbols — imported lazily so services that don't need them
@@ -54,20 +56,20 @@ class AcceleratorTotalMemoryMiBRangeTypeDef(BaseValidatorModel):
 
 
 class AcquiredLimitTypeDef(BaseValidatorModel):
-    limitId: str
+    limitId: Annotated[str, _aws_pattern("Deadline", "LimitId")]
     count: int
 
 
 class AssignedEnvironmentEnterSessionActionDefinitionTypeDef(BaseValidatorModel):
-    environmentId: str
+    environmentId: Annotated[str, _aws_pattern("Deadline", "EnvironmentId")]
 
 
 class AssignedEnvironmentExitSessionActionDefinitionTypeDef(BaseValidatorModel):
-    environmentId: str
+    environmentId: Annotated[str, _aws_pattern("Deadline", "EnvironmentId")]
 
 
 class AssignedSyncInputJobAttachmentsSessionActionDefinitionTypeDef(BaseValidatorModel):
-    stepId: Optional[str] = None
+    stepId: Optional[Annotated[str, _aws_pattern("Deadline", "StepId")]] = None
 
 
 class LogConfigurationTypeDef(BaseValidatorModel):
@@ -78,53 +80,53 @@ class LogConfigurationTypeDef(BaseValidatorModel):
 
 
 class TaskParameterValueTypeDef(BaseValidatorModel):
-    int: Optional[str] = None
-    float: Optional[str] = None
+    int: Optional[Annotated[str, _aws_pattern("Deadline", "IntString")]] = None
+    float: Optional[Annotated[str, _aws_pattern("Deadline", "FloatString")]] = None
     string: Optional[str] = None
     path: Optional[str] = None
     chunkInt: Optional[str] = None
 
 
 class AssociateMemberToFarmRequestTypeDef(BaseValidatorModel):
-    farmId: str
+    farmId: Annotated[str, _aws_pattern("Deadline", "FarmId")]
     principalType: PrincipalTypeType
-    identityStoreId: str
+    identityStoreId: Annotated[str, _aws_pattern("Deadline", "IdentityStoreId")]
     membershipLevel: MembershipLevelType
-    principalId: str
+    principalId: Annotated[str, _aws_pattern("Deadline", "IdentityCenterPrincipalId")]
 
 
 class AssociateMemberToFleetRequestTypeDef(BaseValidatorModel):
-    farmId: str
-    fleetId: str
+    farmId: Annotated[str, _aws_pattern("Deadline", "FarmId")]
+    fleetId: Annotated[str, _aws_pattern("Deadline", "FleetId")]
     principalType: PrincipalTypeType
-    identityStoreId: str
+    identityStoreId: Annotated[str, _aws_pattern("Deadline", "IdentityStoreId")]
     membershipLevel: MembershipLevelType
-    principalId: str
+    principalId: Annotated[str, _aws_pattern("Deadline", "IdentityCenterPrincipalId")]
 
 
 class AssociateMemberToJobRequestTypeDef(BaseValidatorModel):
-    farmId: str
-    queueId: str
-    jobId: str
+    farmId: Annotated[str, _aws_pattern("Deadline", "FarmId")]
+    queueId: Annotated[str, _aws_pattern("Deadline", "QueueId")]
+    jobId: Annotated[str, _aws_pattern("Deadline", "JobId")]
     principalType: PrincipalTypeType
-    identityStoreId: str
+    identityStoreId: Annotated[str, _aws_pattern("Deadline", "IdentityStoreId")]
     membershipLevel: MembershipLevelType
-    principalId: str
+    principalId: Annotated[str, _aws_pattern("Deadline", "IdentityCenterPrincipalId")]
 
 
 class AssociateMemberToQueueRequestTypeDef(BaseValidatorModel):
-    farmId: str
-    queueId: str
+    farmId: Annotated[str, _aws_pattern("Deadline", "FarmId")]
+    queueId: Annotated[str, _aws_pattern("Deadline", "QueueId")]
     principalType: PrincipalTypeType
-    identityStoreId: str
+    identityStoreId: Annotated[str, _aws_pattern("Deadline", "IdentityStoreId")]
     membershipLevel: MembershipLevelType
-    principalId: str
+    principalId: Annotated[str, _aws_pattern("Deadline", "IdentityCenterPrincipalId")]
 
 
 # This class is the input for the 'assume_fleet_role_for_read' function.
 class AssumeFleetRoleForReadRequestTypeDef(BaseValidatorModel):
-    farmId: str
-    fleetId: str
+    farmId: Annotated[str, _aws_pattern("Deadline", "FarmId")]
+    fleetId: Annotated[str, _aws_pattern("Deadline", "FleetId")]
 
 
 class AwsCredentialsTypeDef(BaseValidatorModel):
@@ -144,29 +146,29 @@ class ResponseMetadataTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'assume_fleet_role_for_worker' function.
 class AssumeFleetRoleForWorkerRequestTypeDef(BaseValidatorModel):
-    farmId: str
-    fleetId: str
-    workerId: str
+    farmId: Annotated[str, _aws_pattern("Deadline", "FarmId")]
+    fleetId: Annotated[str, _aws_pattern("Deadline", "FleetId")]
+    workerId: Annotated[str, _aws_pattern("Deadline", "WorkerId")]
 
 
 # This class is the input for the 'assume_queue_role_for_read' function.
 class AssumeQueueRoleForReadRequestTypeDef(BaseValidatorModel):
-    farmId: str
-    queueId: str
+    farmId: Annotated[str, _aws_pattern("Deadline", "FarmId")]
+    queueId: Annotated[str, _aws_pattern("Deadline", "QueueId")]
 
 
 # This class is the input for the 'assume_queue_role_for_user' function.
 class AssumeQueueRoleForUserRequestTypeDef(BaseValidatorModel):
-    farmId: str
-    queueId: str
+    farmId: Annotated[str, _aws_pattern("Deadline", "FarmId")]
+    queueId: Annotated[str, _aws_pattern("Deadline", "QueueId")]
 
 
 # This class is the input for the 'assume_queue_role_for_worker' function.
 class AssumeQueueRoleForWorkerRequestTypeDef(BaseValidatorModel):
-    farmId: str
-    fleetId: str
-    workerId: str
-    queueId: str
+    farmId: Annotated[str, _aws_pattern("Deadline", "FarmId")]
+    fleetId: Annotated[str, _aws_pattern("Deadline", "FleetId")]
+    workerId: Annotated[str, _aws_pattern("Deadline", "WorkerId")]
+    queueId: Annotated[str, _aws_pattern("Deadline", "QueueId")]
 
 
 class ManifestPropertiesOutputTypeDef(BaseValidatorModel):
@@ -181,47 +183,47 @@ class ManifestPropertiesOutputTypeDef(BaseValidatorModel):
 class ManifestPropertiesTypeDef(BaseValidatorModel):
     rootPath: str
     rootPathFormat: PathFormatType
-    fileSystemLocationName: Optional[str] = None
+    fileSystemLocationName: Optional[Annotated[str, _aws_pattern("Deadline", "FileSystemLocationName")]] = None
     outputRelativeDirectories: Optional[List[str]] = None
     inputManifestPath: Optional[str] = None
     inputManifestHash: Optional[str] = None
 
 
 class BatchGetJobErrorTypeDef(BaseValidatorModel):
-    farmId: str
-    queueId: str
-    jobId: str
+    farmId: Annotated[str, _aws_pattern("Deadline", "FarmId")]
+    queueId: Annotated[str, _aws_pattern("Deadline", "QueueId")]
+    jobId: Annotated[str, _aws_pattern("Deadline", "JobId")]
     code: BatchGetJobErrorCodeType
     message: str
 
 
 class BatchGetJobIdentifierTypeDef(BaseValidatorModel):
-    farmId: str
-    queueId: str
-    jobId: str
+    farmId: Annotated[str, _aws_pattern("Deadline", "FarmId")]
+    queueId: Annotated[str, _aws_pattern("Deadline", "QueueId")]
+    jobId: Annotated[str, _aws_pattern("Deadline", "JobId")]
 
 
 class JobParameterTypeDef(BaseValidatorModel):
-    int: Optional[str] = None
-    float: Optional[str] = None
+    int: Optional[Annotated[str, _aws_pattern("Deadline", "IntString")]] = None
+    float: Optional[Annotated[str, _aws_pattern("Deadline", "FloatString")]] = None
     string: Optional[str] = None
     path: Optional[str] = None
 
 
 class BatchGetSessionActionErrorTypeDef(BaseValidatorModel):
-    farmId: str
-    queueId: str
-    jobId: str
-    sessionActionId: str
+    farmId: Annotated[str, _aws_pattern("Deadline", "FarmId")]
+    queueId: Annotated[str, _aws_pattern("Deadline", "QueueId")]
+    jobId: Annotated[str, _aws_pattern("Deadline", "JobId")]
+    sessionActionId: Annotated[str, _aws_pattern("Deadline", "SessionActionId")]
     code: BatchGetSessionActionErrorCodeType
     message: str
 
 
 class BatchGetSessionActionIdentifierTypeDef(BaseValidatorModel):
-    farmId: str
-    queueId: str
-    jobId: str
-    sessionActionId: str
+    farmId: Annotated[str, _aws_pattern("Deadline", "FarmId")]
+    queueId: Annotated[str, _aws_pattern("Deadline", "QueueId")]
+    jobId: Annotated[str, _aws_pattern("Deadline", "JobId")]
+    sessionActionId: Annotated[str, _aws_pattern("Deadline", "SessionActionId")]
 
 
 class TaskRunManifestPropertiesResponseTypeDef(BaseValidatorModel):
@@ -230,35 +232,35 @@ class TaskRunManifestPropertiesResponseTypeDef(BaseValidatorModel):
 
 
 class BatchGetSessionErrorTypeDef(BaseValidatorModel):
-    farmId: str
-    queueId: str
-    jobId: str
-    sessionId: str
+    farmId: Annotated[str, _aws_pattern("Deadline", "FarmId")]
+    queueId: Annotated[str, _aws_pattern("Deadline", "QueueId")]
+    jobId: Annotated[str, _aws_pattern("Deadline", "JobId")]
+    sessionId: Annotated[str, _aws_pattern("Deadline", "SessionId")]
     code: BatchGetSessionErrorCodeType
     message: str
 
 
 class BatchGetSessionIdentifierTypeDef(BaseValidatorModel):
-    farmId: str
-    queueId: str
-    jobId: str
-    sessionId: str
+    farmId: Annotated[str, _aws_pattern("Deadline", "FarmId")]
+    queueId: Annotated[str, _aws_pattern("Deadline", "QueueId")]
+    jobId: Annotated[str, _aws_pattern("Deadline", "JobId")]
+    sessionId: Annotated[str, _aws_pattern("Deadline", "SessionId")]
 
 
 class BatchGetStepErrorTypeDef(BaseValidatorModel):
-    farmId: str
-    queueId: str
-    jobId: str
-    stepId: str
+    farmId: Annotated[str, _aws_pattern("Deadline", "FarmId")]
+    queueId: Annotated[str, _aws_pattern("Deadline", "QueueId")]
+    jobId: Annotated[str, _aws_pattern("Deadline", "JobId")]
+    stepId: Annotated[str, _aws_pattern("Deadline", "StepId")]
     code: BatchGetStepErrorCodeType
     message: str
 
 
 class BatchGetStepIdentifierTypeDef(BaseValidatorModel):
-    farmId: str
-    queueId: str
-    jobId: str
-    stepId: str
+    farmId: Annotated[str, _aws_pattern("Deadline", "FarmId")]
+    queueId: Annotated[str, _aws_pattern("Deadline", "QueueId")]
+    jobId: Annotated[str, _aws_pattern("Deadline", "JobId")]
+    stepId: Annotated[str, _aws_pattern("Deadline", "StepId")]
 
 
 class DependencyCountsTypeDef(BaseValidatorModel):
@@ -269,49 +271,49 @@ class DependencyCountsTypeDef(BaseValidatorModel):
 
 
 class BatchGetTaskErrorTypeDef(BaseValidatorModel):
-    farmId: str
-    queueId: str
-    jobId: str
-    stepId: str
-    taskId: str
+    farmId: Annotated[str, _aws_pattern("Deadline", "FarmId")]
+    queueId: Annotated[str, _aws_pattern("Deadline", "QueueId")]
+    jobId: Annotated[str, _aws_pattern("Deadline", "JobId")]
+    stepId: Annotated[str, _aws_pattern("Deadline", "StepId")]
+    taskId: Annotated[str, _aws_pattern("Deadline", "TaskId")]
     code: BatchGetTaskErrorCodeType
     message: str
 
 
 class BatchGetTaskIdentifierTypeDef(BaseValidatorModel):
-    farmId: str
-    queueId: str
-    jobId: str
-    stepId: str
-    taskId: str
+    farmId: Annotated[str, _aws_pattern("Deadline", "FarmId")]
+    queueId: Annotated[str, _aws_pattern("Deadline", "QueueId")]
+    jobId: Annotated[str, _aws_pattern("Deadline", "JobId")]
+    stepId: Annotated[str, _aws_pattern("Deadline", "StepId")]
+    taskId: Annotated[str, _aws_pattern("Deadline", "TaskId")]
 
 
 class BatchGetWorkerErrorTypeDef(BaseValidatorModel):
-    farmId: str
-    fleetId: str
-    workerId: str
+    farmId: Annotated[str, _aws_pattern("Deadline", "FarmId")]
+    fleetId: Annotated[str, _aws_pattern("Deadline", "FleetId")]
+    workerId: Annotated[str, _aws_pattern("Deadline", "WorkerId")]
     code: BatchGetWorkerErrorCodeType
     message: str
 
 
 class BatchGetWorkerIdentifierTypeDef(BaseValidatorModel):
-    farmId: str
-    fleetId: str
-    workerId: str
+    farmId: Annotated[str, _aws_pattern("Deadline", "FarmId")]
+    fleetId: Annotated[str, _aws_pattern("Deadline", "FleetId")]
+    workerId: Annotated[str, _aws_pattern("Deadline", "WorkerId")]
 
 
 class BatchUpdateJobErrorTypeDef(BaseValidatorModel):
-    farmId: str
-    queueId: str
-    jobId: str
+    farmId: Annotated[str, _aws_pattern("Deadline", "FarmId")]
+    queueId: Annotated[str, _aws_pattern("Deadline", "QueueId")]
+    jobId: Annotated[str, _aws_pattern("Deadline", "JobId")]
     code: BatchUpdateJobErrorCodeType
     message: str
 
 
 class BatchUpdateJobItemTypeDef(BaseValidatorModel):
-    farmId: str
-    queueId: str
-    jobId: str
+    farmId: Annotated[str, _aws_pattern("Deadline", "FarmId")]
+    queueId: Annotated[str, _aws_pattern("Deadline", "QueueId")]
+    jobId: Annotated[str, _aws_pattern("Deadline", "JobId")]
     targetTaskRunStatus: Optional[JobTargetTaskRunStatusType] = None
     priority: Optional[int] = None
     maxFailedTasksCount: Optional[int] = None
@@ -323,21 +325,21 @@ class BatchUpdateJobItemTypeDef(BaseValidatorModel):
 
 
 class BatchUpdateTaskErrorTypeDef(BaseValidatorModel):
-    farmId: str
-    queueId: str
-    jobId: str
-    stepId: str
-    taskId: str
+    farmId: Annotated[str, _aws_pattern("Deadline", "FarmId")]
+    queueId: Annotated[str, _aws_pattern("Deadline", "QueueId")]
+    jobId: Annotated[str, _aws_pattern("Deadline", "JobId")]
+    stepId: Annotated[str, _aws_pattern("Deadline", "StepId")]
+    taskId: Annotated[str, _aws_pattern("Deadline", "TaskId")]
     code: BatchUpdateTaskErrorCodeType
     message: str
 
 
 class BatchUpdateTaskItemTypeDef(BaseValidatorModel):
-    farmId: str
-    queueId: str
-    jobId: str
-    stepId: str
-    taskId: str
+    farmId: Annotated[str, _aws_pattern("Deadline", "FarmId")]
+    queueId: Annotated[str, _aws_pattern("Deadline", "QueueId")]
+    jobId: Annotated[str, _aws_pattern("Deadline", "JobId")]
+    stepId: Annotated[str, _aws_pattern("Deadline", "StepId")]
+    taskId: Annotated[str, _aws_pattern("Deadline", "TaskId")]
     targetRunStatus: TaskTargetRunStatusType
 
 
@@ -362,7 +364,7 @@ class ConsumedUsagesTypeDef(BaseValidatorModel):
 
 
 class UsageTrackingResourceTypeDef(BaseValidatorModel):
-    queueId: Optional[str] = None
+    queueId: Optional[Annotated[str, _aws_pattern("Deadline", "QueueId")]] = None
 
 
 class S3LocationTypeDef(BaseValidatorModel):
@@ -375,7 +377,7 @@ class CreateFarmRequestTypeDef(BaseValidatorModel):
     displayName: str
     clientToken: Optional[str] = None
     description: Optional[str] = None
-    kmsKeyArn: Optional[str] = None
+    kmsKeyArn: Optional[Annotated[str, _aws_pattern("Deadline", "KmsKeyArn")]] = None
     costScaleFactor: Optional[float] = None
     tags: Optional[Dict[str, str]] = None
 
@@ -387,16 +389,16 @@ class HostConfigurationTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'create_license_endpoint' function.
 class CreateLicenseEndpointRequestTypeDef(BaseValidatorModel):
-    vpcId: str
-    subnetIds: List[str]
-    securityGroupIds: List[str]
+    vpcId: Annotated[str, _aws_pattern("Deadline", "VpcId")]
+    subnetIds: List[Annotated[str, _aws_pattern("Deadline", "SubnetId")]]
+    securityGroupIds: List[Annotated[str, _aws_pattern("Deadline", "SecurityGroupId")]]
     clientToken: Optional[str] = None
     tags: Optional[Dict[str, str]] = None
 
 
 # This class is the input for the 'create_limit' function.
 class CreateLimitRequestTypeDef(BaseValidatorModel):
-    farmId: str
+    farmId: Annotated[str, _aws_pattern("Deadline", "FarmId")]
     displayName: str
     amountRequirementName: str
     maxCount: int
@@ -407,18 +409,18 @@ class CreateLimitRequestTypeDef(BaseValidatorModel):
 # This class is the input for the 'create_monitor' function.
 class CreateMonitorRequestTypeDef(BaseValidatorModel):
     displayName: str
-    identityCenterInstanceArn: str
-    subdomain: str
-    roleArn: str
+    identityCenterInstanceArn: Annotated[str, _aws_pattern("Deadline", "IdentityCenterInstanceArn")]
+    subdomain: Annotated[str, _aws_pattern("Deadline", "Subdomain")]
+    roleArn: Annotated[str, _aws_pattern("Deadline", "IamRoleArn")]
     clientToken: Optional[str] = None
-    identityCenterRegion: Optional[str] = None
+    identityCenterRegion: Optional[Annotated[str, _aws_pattern("Deadline", "Region")]] = None
     tags: Optional[Dict[str, str]] = None
 
 
 # This class is the input for the 'create_queue_environment' function.
 class CreateQueueEnvironmentRequestTypeDef(BaseValidatorModel):
-    farmId: str
-    queueId: str
+    farmId: Annotated[str, _aws_pattern("Deadline", "FarmId")]
+    queueId: Annotated[str, _aws_pattern("Deadline", "QueueId")]
     priority: int
     templateType: EnvironmentTemplateTypeType
     template: str
@@ -426,24 +428,24 @@ class CreateQueueEnvironmentRequestTypeDef(BaseValidatorModel):
 
 
 class CreateQueueFleetAssociationRequestTypeDef(BaseValidatorModel):
-    farmId: str
-    queueId: str
-    fleetId: str
+    farmId: Annotated[str, _aws_pattern("Deadline", "FarmId")]
+    queueId: Annotated[str, _aws_pattern("Deadline", "QueueId")]
+    fleetId: Annotated[str, _aws_pattern("Deadline", "FleetId")]
 
 
 class CreateQueueLimitAssociationRequestTypeDef(BaseValidatorModel):
-    farmId: str
-    queueId: str
-    limitId: str
+    farmId: Annotated[str, _aws_pattern("Deadline", "FarmId")]
+    queueId: Annotated[str, _aws_pattern("Deadline", "QueueId")]
+    limitId: Annotated[str, _aws_pattern("Deadline", "LimitId")]
 
 
 class JobAttachmentSettingsTypeDef(BaseValidatorModel):
     s3BucketName: str
-    rootPrefix: str
+    rootPrefix: Annotated[str, _aws_pattern("Deadline", "S3Prefix")]
 
 
 class FileSystemLocationTypeDef(BaseValidatorModel):
-    name: str
+    name: Annotated[str, _aws_pattern("Deadline", "FileSystemLocationName")]
     path: str
     type: FileSystemLocationTypeType
 
@@ -455,7 +457,7 @@ class CustomerManagedAutoScalingConfigurationTypeDef(BaseValidatorModel):
 
 
 class FleetAmountCapabilityTypeDef(BaseValidatorModel):
-    name: str
+    name: Annotated[str, _aws_pattern("Deadline", "AmountCapabilityName")]
     min: float
     max: Optional[float] = None
 
@@ -476,102 +478,102 @@ class VCpuCountRangeTypeDef(BaseValidatorModel):
 
 
 class FleetAttributeCapabilityTypeDef(BaseValidatorModel):
-    name: str
-    values: List[str]
+    name: Annotated[str, _aws_pattern("Deadline", "AttributeCapabilityName")]
+    values: List[Annotated[str, _aws_pattern("Deadline", "AttributeCapabilityValue")]]
 
 
 TimestampTypeDef = Union[datetime, str]
 
 
 class DeleteBudgetRequestTypeDef(BaseValidatorModel):
-    farmId: str
-    budgetId: str
+    farmId: Annotated[str, _aws_pattern("Deadline", "FarmId")]
+    budgetId: Annotated[str, _aws_pattern("Deadline", "BudgetId")]
 
 
 class DeleteFarmRequestTypeDef(BaseValidatorModel):
-    farmId: str
+    farmId: Annotated[str, _aws_pattern("Deadline", "FarmId")]
 
 
 class DeleteFleetRequestTypeDef(BaseValidatorModel):
-    farmId: str
-    fleetId: str
+    farmId: Annotated[str, _aws_pattern("Deadline", "FarmId")]
+    fleetId: Annotated[str, _aws_pattern("Deadline", "FleetId")]
     clientToken: Optional[str] = None
 
 
 class DeleteLicenseEndpointRequestTypeDef(BaseValidatorModel):
-    licenseEndpointId: str
+    licenseEndpointId: Annotated[str, _aws_pattern("Deadline", "LicenseEndpointId")]
 
 
 class DeleteLimitRequestTypeDef(BaseValidatorModel):
-    farmId: str
-    limitId: str
+    farmId: Annotated[str, _aws_pattern("Deadline", "FarmId")]
+    limitId: Annotated[str, _aws_pattern("Deadline", "LimitId")]
 
 
 class DeleteMeteredProductRequestTypeDef(BaseValidatorModel):
-    licenseEndpointId: str
-    productId: str
+    licenseEndpointId: Annotated[str, _aws_pattern("Deadline", "LicenseEndpointId")]
+    productId: Annotated[str, _aws_pattern("Deadline", "MeteredProductId")]
 
 
 class DeleteMonitorRequestTypeDef(BaseValidatorModel):
-    monitorId: str
+    monitorId: Annotated[str, _aws_pattern("Deadline", "MonitorId")]
 
 
 class DeleteQueueEnvironmentRequestTypeDef(BaseValidatorModel):
-    farmId: str
-    queueId: str
-    queueEnvironmentId: str
+    farmId: Annotated[str, _aws_pattern("Deadline", "FarmId")]
+    queueId: Annotated[str, _aws_pattern("Deadline", "QueueId")]
+    queueEnvironmentId: Annotated[str, _aws_pattern("Deadline", "QueueEnvironmentId")]
 
 
 class DeleteQueueFleetAssociationRequestTypeDef(BaseValidatorModel):
-    farmId: str
-    queueId: str
-    fleetId: str
+    farmId: Annotated[str, _aws_pattern("Deadline", "FarmId")]
+    queueId: Annotated[str, _aws_pattern("Deadline", "QueueId")]
+    fleetId: Annotated[str, _aws_pattern("Deadline", "FleetId")]
 
 
 class DeleteQueueLimitAssociationRequestTypeDef(BaseValidatorModel):
-    farmId: str
-    queueId: str
-    limitId: str
+    farmId: Annotated[str, _aws_pattern("Deadline", "FarmId")]
+    queueId: Annotated[str, _aws_pattern("Deadline", "QueueId")]
+    limitId: Annotated[str, _aws_pattern("Deadline", "LimitId")]
 
 
 class DeleteQueueRequestTypeDef(BaseValidatorModel):
-    farmId: str
-    queueId: str
+    farmId: Annotated[str, _aws_pattern("Deadline", "FarmId")]
+    queueId: Annotated[str, _aws_pattern("Deadline", "QueueId")]
 
 
 class DeleteStorageProfileRequestTypeDef(BaseValidatorModel):
-    farmId: str
-    storageProfileId: str
+    farmId: Annotated[str, _aws_pattern("Deadline", "FarmId")]
+    storageProfileId: Annotated[str, _aws_pattern("Deadline", "StorageProfileId")]
 
 
 class DeleteWorkerRequestTypeDef(BaseValidatorModel):
-    farmId: str
-    fleetId: str
-    workerId: str
+    farmId: Annotated[str, _aws_pattern("Deadline", "FarmId")]
+    fleetId: Annotated[str, _aws_pattern("Deadline", "FleetId")]
+    workerId: Annotated[str, _aws_pattern("Deadline", "WorkerId")]
 
 
 class DisassociateMemberFromFarmRequestTypeDef(BaseValidatorModel):
-    farmId: str
-    principalId: str
+    farmId: Annotated[str, _aws_pattern("Deadline", "FarmId")]
+    principalId: Annotated[str, _aws_pattern("Deadline", "IdentityCenterPrincipalId")]
 
 
 class DisassociateMemberFromFleetRequestTypeDef(BaseValidatorModel):
-    farmId: str
-    fleetId: str
-    principalId: str
+    farmId: Annotated[str, _aws_pattern("Deadline", "FarmId")]
+    fleetId: Annotated[str, _aws_pattern("Deadline", "FleetId")]
+    principalId: Annotated[str, _aws_pattern("Deadline", "IdentityCenterPrincipalId")]
 
 
 class DisassociateMemberFromJobRequestTypeDef(BaseValidatorModel):
-    farmId: str
-    queueId: str
-    jobId: str
-    principalId: str
+    farmId: Annotated[str, _aws_pattern("Deadline", "FarmId")]
+    queueId: Annotated[str, _aws_pattern("Deadline", "QueueId")]
+    jobId: Annotated[str, _aws_pattern("Deadline", "JobId")]
+    principalId: Annotated[str, _aws_pattern("Deadline", "IdentityCenterPrincipalId")]
 
 
 class DisassociateMemberFromQueueRequestTypeDef(BaseValidatorModel):
-    farmId: str
-    queueId: str
-    principalId: str
+    farmId: Annotated[str, _aws_pattern("Deadline", "FarmId")]
+    queueId: Annotated[str, _aws_pattern("Deadline", "QueueId")]
+    principalId: Annotated[str, _aws_pattern("Deadline", "IdentityCenterPrincipalId")]
 
 
 class Ec2EbsVolumeTypeDef(BaseValidatorModel):
@@ -581,54 +583,54 @@ class Ec2EbsVolumeTypeDef(BaseValidatorModel):
 
 
 class EnvironmentDetailsEntityTypeDef(BaseValidatorModel):
-    jobId: str
-    environmentId: str
+    jobId: Annotated[str, _aws_pattern("Deadline", "JobId")]
+    environmentId: Annotated[str, _aws_pattern("Deadline", "EnvironmentId")]
     schemaVersion: str
     template: Dict[str, Any]
 
 
 class EnvironmentDetailsErrorTypeDef(BaseValidatorModel):
-    jobId: str
-    environmentId: str
+    jobId: Annotated[str, _aws_pattern("Deadline", "JobId")]
+    environmentId: Annotated[str, _aws_pattern("Deadline", "EnvironmentId")]
     code: JobEntityErrorCodeType
     message: str
 
 
 class EnvironmentDetailsIdentifiersTypeDef(BaseValidatorModel):
-    jobId: str
-    environmentId: str
+    jobId: Annotated[str, _aws_pattern("Deadline", "JobId")]
+    environmentId: Annotated[str, _aws_pattern("Deadline", "EnvironmentId")]
 
 
 class EnvironmentEnterSessionActionDefinitionSummaryTypeDef(BaseValidatorModel):
-    environmentId: str
+    environmentId: Annotated[str, _aws_pattern("Deadline", "EnvironmentId")]
 
 
 class EnvironmentEnterSessionActionDefinitionTypeDef(BaseValidatorModel):
-    environmentId: str
+    environmentId: Annotated[str, _aws_pattern("Deadline", "EnvironmentId")]
 
 
 class EnvironmentExitSessionActionDefinitionSummaryTypeDef(BaseValidatorModel):
-    environmentId: str
+    environmentId: Annotated[str, _aws_pattern("Deadline", "EnvironmentId")]
 
 
 class EnvironmentExitSessionActionDefinitionTypeDef(BaseValidatorModel):
-    environmentId: str
+    environmentId: Annotated[str, _aws_pattern("Deadline", "EnvironmentId")]
 
 
 class FarmMemberTypeDef(BaseValidatorModel):
-    farmId: str
-    principalId: str
+    farmId: Annotated[str, _aws_pattern("Deadline", "FarmId")]
+    principalId: Annotated[str, _aws_pattern("Deadline", "IdentityCenterPrincipalId")]
     principalType: PrincipalTypeType
-    identityStoreId: str
+    identityStoreId: Annotated[str, _aws_pattern("Deadline", "IdentityStoreId")]
     membershipLevel: MembershipLevelType
 
 
 class FarmSummaryTypeDef(BaseValidatorModel):
-    farmId: str
+    farmId: Annotated[str, _aws_pattern("Deadline", "FarmId")]
     displayName: str
     createdAt: datetime
     createdBy: str
-    kmsKeyArn: Optional[str] = None
+    kmsKeyArn: Optional[Annotated[str, _aws_pattern("Deadline", "KmsKeyArn")]] = None
     updatedAt: Optional[datetime] = None
     updatedBy: Optional[str] = None
 
@@ -639,18 +641,18 @@ class FieldSortExpressionTypeDef(BaseValidatorModel):
 
 
 class FleetMemberTypeDef(BaseValidatorModel):
-    farmId: str
-    fleetId: str
-    principalId: str
+    farmId: Annotated[str, _aws_pattern("Deadline", "FarmId")]
+    fleetId: Annotated[str, _aws_pattern("Deadline", "FleetId")]
+    principalId: Annotated[str, _aws_pattern("Deadline", "IdentityCenterPrincipalId")]
     principalType: PrincipalTypeType
-    identityStoreId: str
+    identityStoreId: Annotated[str, _aws_pattern("Deadline", "IdentityStoreId")]
     membershipLevel: MembershipLevelType
 
 
 # This class is the input for the 'get_budget' function.
 class GetBudgetRequestTypeDef(BaseValidatorModel):
-    farmId: str
-    budgetId: str
+    farmId: Annotated[str, _aws_pattern("Deadline", "FarmId")]
+    budgetId: Annotated[str, _aws_pattern("Deadline", "BudgetId")]
 
 
 class ResponseBudgetActionTypeDef(BaseValidatorModel):
@@ -661,13 +663,13 @@ class ResponseBudgetActionTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'get_farm' function.
 class GetFarmRequestTypeDef(BaseValidatorModel):
-    farmId: str
+    farmId: Annotated[str, _aws_pattern("Deadline", "FarmId")]
 
 
 # This class is the input for the 'get_fleet' function.
 class GetFleetRequestTypeDef(BaseValidatorModel):
-    farmId: str
-    fleetId: str
+    farmId: Annotated[str, _aws_pattern("Deadline", "FarmId")]
+    fleetId: Annotated[str, _aws_pattern("Deadline", "FleetId")]
 
 
 class WaiterConfigTypeDef(BaseValidatorModel):
@@ -676,93 +678,93 @@ class WaiterConfigTypeDef(BaseValidatorModel):
 
 
 class JobAttachmentDetailsErrorTypeDef(BaseValidatorModel):
-    jobId: str
+    jobId: Annotated[str, _aws_pattern("Deadline", "JobId")]
     code: JobEntityErrorCodeType
     message: str
 
 
 class JobDetailsErrorTypeDef(BaseValidatorModel):
-    jobId: str
+    jobId: Annotated[str, _aws_pattern("Deadline", "JobId")]
     code: JobEntityErrorCodeType
     message: str
 
 
 class StepDetailsErrorTypeDef(BaseValidatorModel):
-    jobId: str
-    stepId: str
+    jobId: Annotated[str, _aws_pattern("Deadline", "JobId")]
+    stepId: Annotated[str, _aws_pattern("Deadline", "StepId")]
     code: JobEntityErrorCodeType
     message: str
 
 
 # This class is the input for the 'get_job' function.
 class GetJobRequestTypeDef(BaseValidatorModel):
-    farmId: str
-    queueId: str
-    jobId: str
+    farmId: Annotated[str, _aws_pattern("Deadline", "FarmId")]
+    queueId: Annotated[str, _aws_pattern("Deadline", "QueueId")]
+    jobId: Annotated[str, _aws_pattern("Deadline", "JobId")]
 
 
 # This class is the input for the 'get_license_endpoint' function.
 class GetLicenseEndpointRequestTypeDef(BaseValidatorModel):
-    licenseEndpointId: str
+    licenseEndpointId: Annotated[str, _aws_pattern("Deadline", "LicenseEndpointId")]
 
 
 # This class is the input for the 'get_limit' function.
 class GetLimitRequestTypeDef(BaseValidatorModel):
-    farmId: str
-    limitId: str
+    farmId: Annotated[str, _aws_pattern("Deadline", "FarmId")]
+    limitId: Annotated[str, _aws_pattern("Deadline", "LimitId")]
 
 
 # This class is the input for the 'get_monitor' function.
 class GetMonitorRequestTypeDef(BaseValidatorModel):
-    monitorId: str
+    monitorId: Annotated[str, _aws_pattern("Deadline", "MonitorId")]
 
 
 # This class is the input for the 'get_monitor_settings' function.
 class GetMonitorSettingsRequestTypeDef(BaseValidatorModel):
-    monitorId: str
+    monitorId: Annotated[str, _aws_pattern("Deadline", "MonitorId")]
 
 
 # This class is the input for the 'get_queue_environment' function.
 class GetQueueEnvironmentRequestTypeDef(BaseValidatorModel):
-    farmId: str
-    queueId: str
-    queueEnvironmentId: str
+    farmId: Annotated[str, _aws_pattern("Deadline", "FarmId")]
+    queueId: Annotated[str, _aws_pattern("Deadline", "QueueId")]
+    queueEnvironmentId: Annotated[str, _aws_pattern("Deadline", "QueueEnvironmentId")]
 
 
 # This class is the input for the 'get_queue_fleet_association' function.
 class GetQueueFleetAssociationRequestTypeDef(BaseValidatorModel):
-    farmId: str
-    queueId: str
-    fleetId: str
+    farmId: Annotated[str, _aws_pattern("Deadline", "FarmId")]
+    queueId: Annotated[str, _aws_pattern("Deadline", "QueueId")]
+    fleetId: Annotated[str, _aws_pattern("Deadline", "FleetId")]
 
 
 # This class is the input for the 'get_queue_limit_association' function.
 class GetQueueLimitAssociationRequestTypeDef(BaseValidatorModel):
-    farmId: str
-    queueId: str
-    limitId: str
+    farmId: Annotated[str, _aws_pattern("Deadline", "FarmId")]
+    queueId: Annotated[str, _aws_pattern("Deadline", "QueueId")]
+    limitId: Annotated[str, _aws_pattern("Deadline", "LimitId")]
 
 
 # This class is the input for the 'get_queue' function.
 class GetQueueRequestTypeDef(BaseValidatorModel):
-    farmId: str
-    queueId: str
+    farmId: Annotated[str, _aws_pattern("Deadline", "FarmId")]
+    queueId: Annotated[str, _aws_pattern("Deadline", "QueueId")]
 
 
 # This class is the input for the 'get_session_action' function.
 class GetSessionActionRequestTypeDef(BaseValidatorModel):
-    farmId: str
-    queueId: str
-    jobId: str
-    sessionActionId: str
+    farmId: Annotated[str, _aws_pattern("Deadline", "FarmId")]
+    queueId: Annotated[str, _aws_pattern("Deadline", "QueueId")]
+    jobId: Annotated[str, _aws_pattern("Deadline", "JobId")]
+    sessionActionId: Annotated[str, _aws_pattern("Deadline", "SessionActionId")]
 
 
 # This class is the input for the 'get_session' function.
 class GetSessionRequestTypeDef(BaseValidatorModel):
-    farmId: str
-    queueId: str
-    jobId: str
-    sessionId: str
+    farmId: Annotated[str, _aws_pattern("Deadline", "FarmId")]
+    queueId: Annotated[str, _aws_pattern("Deadline", "QueueId")]
+    jobId: Annotated[str, _aws_pattern("Deadline", "JobId")]
+    sessionId: Annotated[str, _aws_pattern("Deadline", "SessionId")]
 
 
 class PaginatorConfigTypeDef(BaseValidatorModel):
@@ -773,47 +775,47 @@ class PaginatorConfigTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'get_sessions_statistics_aggregation' function.
 class GetSessionsStatisticsAggregationRequestTypeDef(BaseValidatorModel):
-    farmId: str
-    aggregationId: str
+    farmId: Annotated[str, _aws_pattern("Deadline", "FarmId")]
+    aggregationId: Annotated[str, _aws_pattern("Deadline", "AggregationId")]
     nextToken: Optional[str] = None
     maxResults: Optional[int] = None
 
 
 # This class is the input for the 'get_step' function.
 class GetStepRequestTypeDef(BaseValidatorModel):
-    farmId: str
-    queueId: str
-    jobId: str
-    stepId: str
+    farmId: Annotated[str, _aws_pattern("Deadline", "FarmId")]
+    queueId: Annotated[str, _aws_pattern("Deadline", "QueueId")]
+    jobId: Annotated[str, _aws_pattern("Deadline", "JobId")]
+    stepId: Annotated[str, _aws_pattern("Deadline", "StepId")]
 
 
 # This class is the input for the 'get_storage_profile_for_queue' function.
 class GetStorageProfileForQueueRequestTypeDef(BaseValidatorModel):
-    farmId: str
-    queueId: str
-    storageProfileId: str
+    farmId: Annotated[str, _aws_pattern("Deadline", "FarmId")]
+    queueId: Annotated[str, _aws_pattern("Deadline", "QueueId")]
+    storageProfileId: Annotated[str, _aws_pattern("Deadline", "StorageProfileId")]
 
 
 # This class is the input for the 'get_storage_profile' function.
 class GetStorageProfileRequestTypeDef(BaseValidatorModel):
-    farmId: str
-    storageProfileId: str
+    farmId: Annotated[str, _aws_pattern("Deadline", "FarmId")]
+    storageProfileId: Annotated[str, _aws_pattern("Deadline", "StorageProfileId")]
 
 
 # This class is the input for the 'get_task' function.
 class GetTaskRequestTypeDef(BaseValidatorModel):
-    farmId: str
-    queueId: str
-    jobId: str
-    stepId: str
-    taskId: str
+    farmId: Annotated[str, _aws_pattern("Deadline", "FarmId")]
+    queueId: Annotated[str, _aws_pattern("Deadline", "QueueId")]
+    jobId: Annotated[str, _aws_pattern("Deadline", "JobId")]
+    stepId: Annotated[str, _aws_pattern("Deadline", "StepId")]
+    taskId: Annotated[str, _aws_pattern("Deadline", "TaskId")]
 
 
 # This class is the input for the 'get_worker' function.
 class GetWorkerRequestTypeDef(BaseValidatorModel):
-    farmId: str
-    fleetId: str
-    workerId: str
+    farmId: Annotated[str, _aws_pattern("Deadline", "FarmId")]
+    fleetId: Annotated[str, _aws_pattern("Deadline", "FleetId")]
+    workerId: Annotated[str, _aws_pattern("Deadline", "WorkerId")]
 
 
 class IpAddressesOutputTypeDef(BaseValidatorModel):
@@ -822,12 +824,12 @@ class IpAddressesOutputTypeDef(BaseValidatorModel):
 
 
 class IpAddressesTypeDef(BaseValidatorModel):
-    ipV4Addresses: Optional[List[str]] = None
-    ipV6Addresses: Optional[List[str]] = None
+    ipV4Addresses: Optional[List[Annotated[str, _aws_pattern("Deadline", "IpV4Address")]]] = None
+    ipV6Addresses: Optional[List[Annotated[str, _aws_pattern("Deadline", "IpV6Address")]]] = None
 
 
 class JobAttachmentDetailsIdentifiersTypeDef(BaseValidatorModel):
-    jobId: str
+    jobId: Annotated[str, _aws_pattern("Deadline", "JobId")]
 
 
 class PathMappingRuleTypeDef(BaseValidatorModel):
@@ -837,44 +839,44 @@ class PathMappingRuleTypeDef(BaseValidatorModel):
 
 
 class JobDetailsIdentifiersTypeDef(BaseValidatorModel):
-    jobId: str
+    jobId: Annotated[str, _aws_pattern("Deadline", "JobId")]
 
 
 class StepDetailsIdentifiersTypeDef(BaseValidatorModel):
-    jobId: str
-    stepId: str
+    jobId: Annotated[str, _aws_pattern("Deadline", "JobId")]
+    stepId: Annotated[str, _aws_pattern("Deadline", "StepId")]
 
 
 class StepDetailsEntityTypeDef(BaseValidatorModel):
-    jobId: str
-    stepId: str
+    jobId: Annotated[str, _aws_pattern("Deadline", "JobId")]
+    stepId: Annotated[str, _aws_pattern("Deadline", "StepId")]
     schemaVersion: str
     template: Dict[str, Any]
-    dependencies: List[str]
+    dependencies: List[Annotated[str, _aws_pattern("Deadline", "StepId")]]
 
 
 class JobMemberTypeDef(BaseValidatorModel):
-    farmId: str
-    queueId: str
-    jobId: str
-    principalId: str
+    farmId: Annotated[str, _aws_pattern("Deadline", "FarmId")]
+    queueId: Annotated[str, _aws_pattern("Deadline", "QueueId")]
+    jobId: Annotated[str, _aws_pattern("Deadline", "JobId")]
+    principalId: Annotated[str, _aws_pattern("Deadline", "IdentityCenterPrincipalId")]
     principalType: PrincipalTypeType
-    identityStoreId: str
+    identityStoreId: Annotated[str, _aws_pattern("Deadline", "IdentityStoreId")]
     membershipLevel: MembershipLevelType
 
 
 class PosixUserTypeDef(BaseValidatorModel):
-    user: str
-    group: str
+    user: Annotated[str, _aws_pattern("Deadline", "PosixUserUserString")]
+    group: Annotated[str, _aws_pattern("Deadline", "PosixUserGroupString")]
 
 
 class WindowsUserTypeDef(BaseValidatorModel):
-    user: str
-    passwordArn: str
+    user: Annotated[str, _aws_pattern("Deadline", "WindowsUserUserString")]
+    passwordArn: Annotated[str, _aws_pattern("Deadline", "WindowsUserPasswordArnString")]
 
 
 class JobSummaryTypeDef(BaseValidatorModel):
-    jobId: str
+    jobId: Annotated[str, _aws_pattern("Deadline", "JobId")]
     name: str
     lifecycleStatus: JobLifecycleStatusType
     lifecycleStatusMessage: str
@@ -892,19 +894,19 @@ class JobSummaryTypeDef(BaseValidatorModel):
     maxFailedTasksCount: Optional[int] = None
     maxRetriesPerTask: Optional[int] = None
     maxWorkerCount: Optional[int] = None
-    sourceJobId: Optional[str] = None
+    sourceJobId: Optional[Annotated[str, _aws_pattern("Deadline", "JobId")]] = None
 
 
 class LicenseEndpointSummaryTypeDef(BaseValidatorModel):
-    licenseEndpointId: Optional[str] = None
+    licenseEndpointId: Optional[Annotated[str, _aws_pattern("Deadline", "LicenseEndpointId")]] = None
     status: Optional[LicenseEndpointStatusType] = None
     statusMessage: Optional[str] = None
-    vpcId: Optional[str] = None
+    vpcId: Optional[Annotated[str, _aws_pattern("Deadline", "VpcId")]] = None
 
 
 class LimitSummaryTypeDef(BaseValidatorModel):
-    farmId: str
-    limitId: str
+    farmId: Annotated[str, _aws_pattern("Deadline", "FarmId")]
+    limitId: Annotated[str, _aws_pattern("Deadline", "LimitId")]
     currentCount: int
     createdAt: datetime
     createdBy: str
@@ -922,7 +924,7 @@ class ListAvailableMeteredProductsRequestTypeDef(BaseValidatorModel):
 
 
 class MeteredProductSummaryTypeDef(BaseValidatorModel):
-    productId: str
+    productId: Annotated[str, _aws_pattern("Deadline", "MeteredProductId")]
     family: str
     vendor: str
     port: int
@@ -930,7 +932,7 @@ class MeteredProductSummaryTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'list_budgets' function.
 class ListBudgetsRequestTypeDef(BaseValidatorModel):
-    farmId: str
+    farmId: Annotated[str, _aws_pattern("Deadline", "FarmId")]
     nextToken: Optional[str] = None
     maxResults: Optional[int] = None
     status: Optional[BudgetStatusType] = None
@@ -938,7 +940,7 @@ class ListBudgetsRequestTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'list_farm_members' function.
 class ListFarmMembersRequestTypeDef(BaseValidatorModel):
-    farmId: str
+    farmId: Annotated[str, _aws_pattern("Deadline", "FarmId")]
     nextToken: Optional[str] = None
     maxResults: Optional[int] = None
 
@@ -947,52 +949,52 @@ class ListFarmMembersRequestTypeDef(BaseValidatorModel):
 class ListFarmsRequestTypeDef(BaseValidatorModel):
     nextToken: Optional[str] = None
     maxResults: Optional[int] = None
-    principalId: Optional[str] = None
+    principalId: Optional[Annotated[str, _aws_pattern("Deadline", "IdentityCenterPrincipalId")]] = None
 
 
 # This class is the input for the 'list_fleet_members' function.
 class ListFleetMembersRequestTypeDef(BaseValidatorModel):
-    farmId: str
-    fleetId: str
+    farmId: Annotated[str, _aws_pattern("Deadline", "FarmId")]
+    fleetId: Annotated[str, _aws_pattern("Deadline", "FleetId")]
     nextToken: Optional[str] = None
     maxResults: Optional[int] = None
 
 
 # This class is the input for the 'list_fleets' function.
 class ListFleetsRequestTypeDef(BaseValidatorModel):
-    farmId: str
+    farmId: Annotated[str, _aws_pattern("Deadline", "FarmId")]
     nextToken: Optional[str] = None
     maxResults: Optional[int] = None
-    principalId: Optional[str] = None
+    principalId: Optional[Annotated[str, _aws_pattern("Deadline", "IdentityCenterPrincipalId")]] = None
     displayName: Optional[str] = None
     status: Optional[FleetStatusType] = None
 
 
 # This class is the input for the 'list_job_members' function.
 class ListJobMembersRequestTypeDef(BaseValidatorModel):
-    farmId: str
-    queueId: str
-    jobId: str
+    farmId: Annotated[str, _aws_pattern("Deadline", "FarmId")]
+    queueId: Annotated[str, _aws_pattern("Deadline", "QueueId")]
+    jobId: Annotated[str, _aws_pattern("Deadline", "JobId")]
     nextToken: Optional[str] = None
     maxResults: Optional[int] = None
 
 
 # This class is the input for the 'list_job_parameter_definitions' function.
 class ListJobParameterDefinitionsRequestTypeDef(BaseValidatorModel):
-    farmId: str
-    queueId: str
-    jobId: str
+    farmId: Annotated[str, _aws_pattern("Deadline", "FarmId")]
+    queueId: Annotated[str, _aws_pattern("Deadline", "QueueId")]
+    jobId: Annotated[str, _aws_pattern("Deadline", "JobId")]
     nextToken: Optional[str] = None
     maxResults: Optional[int] = None
 
 
 # This class is the input for the 'list_jobs' function.
 class ListJobsRequestTypeDef(BaseValidatorModel):
-    farmId: str
-    queueId: str
+    farmId: Annotated[str, _aws_pattern("Deadline", "FarmId")]
+    queueId: Annotated[str, _aws_pattern("Deadline", "QueueId")]
     nextToken: Optional[str] = None
     maxResults: Optional[int] = None
-    principalId: Optional[str] = None
+    principalId: Optional[Annotated[str, _aws_pattern("Deadline", "IdentityCenterPrincipalId")]] = None
 
 
 # This class is the input for the 'list_license_endpoints' function.
@@ -1003,14 +1005,14 @@ class ListLicenseEndpointsRequestTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'list_limits' function.
 class ListLimitsRequestTypeDef(BaseValidatorModel):
-    farmId: str
+    farmId: Annotated[str, _aws_pattern("Deadline", "FarmId")]
     nextToken: Optional[str] = None
     maxResults: Optional[int] = None
 
 
 # This class is the input for the 'list_metered_products' function.
 class ListMeteredProductsRequestTypeDef(BaseValidatorModel):
-    licenseEndpointId: str
+    licenseEndpointId: Annotated[str, _aws_pattern("Deadline", "LicenseEndpointId")]
     nextToken: Optional[str] = None
     maxResults: Optional[int] = None
 
@@ -1022,46 +1024,46 @@ class ListMonitorsRequestTypeDef(BaseValidatorModel):
 
 
 class MonitorSummaryTypeDef(BaseValidatorModel):
-    monitorId: str
+    monitorId: Annotated[str, _aws_pattern("Deadline", "MonitorId")]
     displayName: str
-    subdomain: str
+    subdomain: Annotated[str, _aws_pattern("Deadline", "Subdomain")]
     url: str
-    roleArn: str
-    identityCenterInstanceArn: str
+    roleArn: Annotated[str, _aws_pattern("Deadline", "IamRoleArn")]
+    identityCenterInstanceArn: Annotated[str, _aws_pattern("Deadline", "IdentityCenterInstanceArn")]
     identityCenterApplicationArn: str
     createdAt: datetime
     createdBy: str
-    identityCenterRegion: Optional[str] = None
+    identityCenterRegion: Optional[Annotated[str, _aws_pattern("Deadline", "Region")]] = None
     updatedAt: Optional[datetime] = None
     updatedBy: Optional[str] = None
 
 
 # This class is the input for the 'list_queue_environments' function.
 class ListQueueEnvironmentsRequestTypeDef(BaseValidatorModel):
-    farmId: str
-    queueId: str
+    farmId: Annotated[str, _aws_pattern("Deadline", "FarmId")]
+    queueId: Annotated[str, _aws_pattern("Deadline", "QueueId")]
     nextToken: Optional[str] = None
     maxResults: Optional[int] = None
 
 
 class QueueEnvironmentSummaryTypeDef(BaseValidatorModel):
-    queueEnvironmentId: str
+    queueEnvironmentId: Annotated[str, _aws_pattern("Deadline", "QueueEnvironmentId")]
     name: str
     priority: int
 
 
 # This class is the input for the 'list_queue_fleet_associations' function.
 class ListQueueFleetAssociationsRequestTypeDef(BaseValidatorModel):
-    farmId: str
+    farmId: Annotated[str, _aws_pattern("Deadline", "FarmId")]
     nextToken: Optional[str] = None
     maxResults: Optional[int] = None
-    queueId: Optional[str] = None
-    fleetId: Optional[str] = None
+    queueId: Optional[Annotated[str, _aws_pattern("Deadline", "QueueId")]] = None
+    fleetId: Optional[Annotated[str, _aws_pattern("Deadline", "FleetId")]] = None
 
 
 class QueueFleetAssociationSummaryTypeDef(BaseValidatorModel):
-    queueId: str
-    fleetId: str
+    queueId: Annotated[str, _aws_pattern("Deadline", "QueueId")]
+    fleetId: Annotated[str, _aws_pattern("Deadline", "FleetId")]
     status: QueueFleetAssociationStatusType
     createdAt: datetime
     createdBy: str
@@ -1071,16 +1073,16 @@ class QueueFleetAssociationSummaryTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'list_queue_limit_associations' function.
 class ListQueueLimitAssociationsRequestTypeDef(BaseValidatorModel):
-    farmId: str
+    farmId: Annotated[str, _aws_pattern("Deadline", "FarmId")]
     nextToken: Optional[str] = None
     maxResults: Optional[int] = None
-    queueId: Optional[str] = None
-    limitId: Optional[str] = None
+    queueId: Optional[Annotated[str, _aws_pattern("Deadline", "QueueId")]] = None
+    limitId: Optional[Annotated[str, _aws_pattern("Deadline", "LimitId")]] = None
 
 
 class QueueLimitAssociationSummaryTypeDef(BaseValidatorModel):
-    queueId: str
-    limitId: str
+    queueId: Annotated[str, _aws_pattern("Deadline", "QueueId")]
+    limitId: Annotated[str, _aws_pattern("Deadline", "LimitId")]
     status: QueueLimitAssociationStatusType
     createdAt: datetime
     createdBy: str
@@ -1090,33 +1092,33 @@ class QueueLimitAssociationSummaryTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'list_queue_members' function.
 class ListQueueMembersRequestTypeDef(BaseValidatorModel):
-    farmId: str
-    queueId: str
+    farmId: Annotated[str, _aws_pattern("Deadline", "FarmId")]
+    queueId: Annotated[str, _aws_pattern("Deadline", "QueueId")]
     nextToken: Optional[str] = None
     maxResults: Optional[int] = None
 
 
 class QueueMemberTypeDef(BaseValidatorModel):
-    farmId: str
-    queueId: str
-    principalId: str
+    farmId: Annotated[str, _aws_pattern("Deadline", "FarmId")]
+    queueId: Annotated[str, _aws_pattern("Deadline", "QueueId")]
+    principalId: Annotated[str, _aws_pattern("Deadline", "IdentityCenterPrincipalId")]
     principalType: PrincipalTypeType
-    identityStoreId: str
+    identityStoreId: Annotated[str, _aws_pattern("Deadline", "IdentityStoreId")]
     membershipLevel: MembershipLevelType
 
 
 # This class is the input for the 'list_queues' function.
 class ListQueuesRequestTypeDef(BaseValidatorModel):
-    farmId: str
+    farmId: Annotated[str, _aws_pattern("Deadline", "FarmId")]
     nextToken: Optional[str] = None
     maxResults: Optional[int] = None
-    principalId: Optional[str] = None
+    principalId: Optional[Annotated[str, _aws_pattern("Deadline", "IdentityCenterPrincipalId")]] = None
     status: Optional[QueueStatusType] = None
 
 
 class QueueSummaryTypeDef(BaseValidatorModel):
-    farmId: str
-    queueId: str
+    farmId: Annotated[str, _aws_pattern("Deadline", "FarmId")]
+    queueId: Annotated[str, _aws_pattern("Deadline", "QueueId")]
     displayName: str
     status: QueueStatusType
     defaultBudgetAction: DefaultQueueBudgetActionType
@@ -1129,28 +1131,28 @@ class QueueSummaryTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'list_session_actions' function.
 class ListSessionActionsRequestTypeDef(BaseValidatorModel):
-    farmId: str
-    queueId: str
-    jobId: str
+    farmId: Annotated[str, _aws_pattern("Deadline", "FarmId")]
+    queueId: Annotated[str, _aws_pattern("Deadline", "QueueId")]
+    jobId: Annotated[str, _aws_pattern("Deadline", "JobId")]
     nextToken: Optional[str] = None
     maxResults: Optional[int] = None
-    sessionId: Optional[str] = None
-    taskId: Optional[str] = None
+    sessionId: Optional[Annotated[str, _aws_pattern("Deadline", "SessionId")]] = None
+    taskId: Optional[Annotated[str, _aws_pattern("Deadline", "TaskId")]] = None
 
 
 # This class is the input for the 'list_sessions_for_worker' function.
 class ListSessionsForWorkerRequestTypeDef(BaseValidatorModel):
-    farmId: str
-    fleetId: str
-    workerId: str
+    farmId: Annotated[str, _aws_pattern("Deadline", "FarmId")]
+    fleetId: Annotated[str, _aws_pattern("Deadline", "FleetId")]
+    workerId: Annotated[str, _aws_pattern("Deadline", "WorkerId")]
     nextToken: Optional[str] = None
     maxResults: Optional[int] = None
 
 
 class WorkerSessionSummaryTypeDef(BaseValidatorModel):
-    sessionId: str
-    queueId: str
-    jobId: str
+    sessionId: Annotated[str, _aws_pattern("Deadline", "SessionId")]
+    queueId: Annotated[str, _aws_pattern("Deadline", "QueueId")]
+    jobId: Annotated[str, _aws_pattern("Deadline", "JobId")]
     startedAt: datetime
     lifecycleStatus: SessionLifecycleStatusType
     endedAt: Optional[datetime] = None
@@ -1159,17 +1161,17 @@ class WorkerSessionSummaryTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'list_sessions' function.
 class ListSessionsRequestTypeDef(BaseValidatorModel):
-    farmId: str
-    queueId: str
-    jobId: str
+    farmId: Annotated[str, _aws_pattern("Deadline", "FarmId")]
+    queueId: Annotated[str, _aws_pattern("Deadline", "QueueId")]
+    jobId: Annotated[str, _aws_pattern("Deadline", "JobId")]
     nextToken: Optional[str] = None
     maxResults: Optional[int] = None
 
 
 class SessionSummaryTypeDef(BaseValidatorModel):
-    sessionId: str
-    fleetId: str
-    workerId: str
+    sessionId: Annotated[str, _aws_pattern("Deadline", "SessionId")]
+    fleetId: Annotated[str, _aws_pattern("Deadline", "FleetId")]
+    workerId: Annotated[str, _aws_pattern("Deadline", "WorkerId")]
     startedAt: datetime
     lifecycleStatus: SessionLifecycleStatusType
     endedAt: Optional[datetime] = None
@@ -1180,60 +1182,60 @@ class SessionSummaryTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'list_step_consumers' function.
 class ListStepConsumersRequestTypeDef(BaseValidatorModel):
-    farmId: str
-    queueId: str
-    jobId: str
-    stepId: str
+    farmId: Annotated[str, _aws_pattern("Deadline", "FarmId")]
+    queueId: Annotated[str, _aws_pattern("Deadline", "QueueId")]
+    jobId: Annotated[str, _aws_pattern("Deadline", "JobId")]
+    stepId: Annotated[str, _aws_pattern("Deadline", "StepId")]
     nextToken: Optional[str] = None
     maxResults: Optional[int] = None
 
 
 class StepConsumerTypeDef(BaseValidatorModel):
-    stepId: str
+    stepId: Annotated[str, _aws_pattern("Deadline", "StepId")]
     status: DependencyConsumerResolutionStatusType
 
 
 # This class is the input for the 'list_step_dependencies' function.
 class ListStepDependenciesRequestTypeDef(BaseValidatorModel):
-    farmId: str
-    queueId: str
-    jobId: str
-    stepId: str
+    farmId: Annotated[str, _aws_pattern("Deadline", "FarmId")]
+    queueId: Annotated[str, _aws_pattern("Deadline", "QueueId")]
+    jobId: Annotated[str, _aws_pattern("Deadline", "JobId")]
+    stepId: Annotated[str, _aws_pattern("Deadline", "StepId")]
     nextToken: Optional[str] = None
     maxResults: Optional[int] = None
 
 
 class StepDependencyTypeDef(BaseValidatorModel):
-    stepId: str
+    stepId: Annotated[str, _aws_pattern("Deadline", "StepId")]
     status: DependencyConsumerResolutionStatusType
 
 
 # This class is the input for the 'list_steps' function.
 class ListStepsRequestTypeDef(BaseValidatorModel):
-    farmId: str
-    queueId: str
-    jobId: str
+    farmId: Annotated[str, _aws_pattern("Deadline", "FarmId")]
+    queueId: Annotated[str, _aws_pattern("Deadline", "QueueId")]
+    jobId: Annotated[str, _aws_pattern("Deadline", "JobId")]
     nextToken: Optional[str] = None
     maxResults: Optional[int] = None
 
 
 # This class is the input for the 'list_storage_profiles_for_queue' function.
 class ListStorageProfilesForQueueRequestTypeDef(BaseValidatorModel):
-    farmId: str
-    queueId: str
+    farmId: Annotated[str, _aws_pattern("Deadline", "FarmId")]
+    queueId: Annotated[str, _aws_pattern("Deadline", "QueueId")]
     nextToken: Optional[str] = None
     maxResults: Optional[int] = None
 
 
 class StorageProfileSummaryTypeDef(BaseValidatorModel):
-    storageProfileId: str
+    storageProfileId: Annotated[str, _aws_pattern("Deadline", "StorageProfileId")]
     displayName: str
     osFamily: StorageProfileOperatingSystemFamilyType
 
 
 # This class is the input for the 'list_storage_profiles' function.
 class ListStorageProfilesRequestTypeDef(BaseValidatorModel):
-    farmId: str
+    farmId: Annotated[str, _aws_pattern("Deadline", "FarmId")]
     nextToken: Optional[str] = None
     maxResults: Optional[int] = None
 
@@ -1245,18 +1247,18 @@ class ListTagsForResourceRequestTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'list_tasks' function.
 class ListTasksRequestTypeDef(BaseValidatorModel):
-    farmId: str
-    queueId: str
-    jobId: str
-    stepId: str
+    farmId: Annotated[str, _aws_pattern("Deadline", "FarmId")]
+    queueId: Annotated[str, _aws_pattern("Deadline", "QueueId")]
+    jobId: Annotated[str, _aws_pattern("Deadline", "JobId")]
+    stepId: Annotated[str, _aws_pattern("Deadline", "StepId")]
     nextToken: Optional[str] = None
     maxResults: Optional[int] = None
 
 
 # This class is the input for the 'list_workers' function.
 class ListWorkersRequestTypeDef(BaseValidatorModel):
-    farmId: str
-    fleetId: str
+    farmId: Annotated[str, _aws_pattern("Deadline", "FarmId")]
+    fleetId: Annotated[str, _aws_pattern("Deadline", "FleetId")]
     nextToken: Optional[str] = None
     maxResults: Optional[int] = None
 
@@ -1277,8 +1279,8 @@ class PriorityBalancedSchedulingConfigurationTypeDef(BaseValidatorModel):
 
 
 class PutMeteredProductRequestTypeDef(BaseValidatorModel):
-    licenseEndpointId: str
-    productId: str
+    licenseEndpointId: Annotated[str, _aws_pattern("Deadline", "LicenseEndpointId")]
+    productId: Annotated[str, _aws_pattern("Deadline", "MeteredProductId")]
 
 
 class SchedulingMaxPriorityOverrideOutputTypeDef(BaseValidatorModel):
@@ -1337,16 +1339,16 @@ class VpcConfigurationTypeDef(BaseValidatorModel):
 
 
 class SyncInputJobAttachmentsSessionActionDefinitionSummaryTypeDef(BaseValidatorModel):
-    stepId: Optional[str] = None
+    stepId: Optional[Annotated[str, _aws_pattern("Deadline", "StepId")]] = None
 
 
 class SyncInputJobAttachmentsSessionActionDefinitionTypeDef(BaseValidatorModel):
-    stepId: Optional[str] = None
+    stepId: Optional[Annotated[str, _aws_pattern("Deadline", "StepId")]] = None
 
 
 class SessionsStatisticsResourcesTypeDef(BaseValidatorModel):
-    queueIds: Optional[List[str]] = None
-    fleetIds: Optional[List[str]] = None
+    queueIds: Optional[List[Annotated[str, _aws_pattern("Deadline", "QueueId")]]] = None
+    fleetIds: Optional[List[Annotated[str, _aws_pattern("Deadline", "FleetId")]]] = None
 
 
 class StatsTypeDef(BaseValidatorModel):
@@ -1357,16 +1359,16 @@ class StatsTypeDef(BaseValidatorModel):
 
 
 class StepAmountCapabilityTypeDef(BaseValidatorModel):
-    name: str
+    name: Annotated[str, _aws_pattern("Deadline", "AmountCapabilityName")]
     min: Optional[float] = None
     max: Optional[float] = None
     value: Optional[float] = None
 
 
 class StepAttributeCapabilityTypeDef(BaseValidatorModel):
-    name: str
-    anyOf: Optional[List[str]] = None
-    allOf: Optional[List[str]] = None
+    name: Annotated[str, _aws_pattern("Deadline", "AttributeCapabilityName")]
+    anyOf: Optional[List[Annotated[str, _aws_pattern("Deadline", "AttributeCapabilityValue")]]] = None
+    allOf: Optional[List[Annotated[str, _aws_pattern("Deadline", "AttributeCapabilityValue")]]] = None
 
 
 class StepParameterChunksTypeDef(BaseValidatorModel):
@@ -1391,16 +1393,16 @@ class UntagResourceRequestTypeDef(BaseValidatorModel):
 
 
 class UpdateFarmRequestTypeDef(BaseValidatorModel):
-    farmId: str
+    farmId: Annotated[str, _aws_pattern("Deadline", "FarmId")]
     displayName: Optional[str] = None
     description: Optional[str] = None
     costScaleFactor: Optional[float] = None
 
 
 class UpdateJobRequestTypeDef(BaseValidatorModel):
-    farmId: str
-    queueId: str
-    jobId: str
+    farmId: Annotated[str, _aws_pattern("Deadline", "FarmId")]
+    queueId: Annotated[str, _aws_pattern("Deadline", "QueueId")]
+    jobId: Annotated[str, _aws_pattern("Deadline", "JobId")]
     clientToken: Optional[str] = None
     targetTaskRunStatus: Optional[JobTargetTaskRunStatusType] = None
     priority: Optional[int] = None
@@ -1413,29 +1415,29 @@ class UpdateJobRequestTypeDef(BaseValidatorModel):
 
 
 class UpdateLimitRequestTypeDef(BaseValidatorModel):
-    farmId: str
-    limitId: str
+    farmId: Annotated[str, _aws_pattern("Deadline", "FarmId")]
+    limitId: Annotated[str, _aws_pattern("Deadline", "LimitId")]
     displayName: Optional[str] = None
     description: Optional[str] = None
     maxCount: Optional[int] = None
 
 
 class UpdateMonitorRequestTypeDef(BaseValidatorModel):
-    monitorId: str
-    subdomain: Optional[str] = None
+    monitorId: Annotated[str, _aws_pattern("Deadline", "MonitorId")]
+    subdomain: Optional[Annotated[str, _aws_pattern("Deadline", "Subdomain")]] = None
     displayName: Optional[str] = None
-    roleArn: Optional[str] = None
+    roleArn: Optional[Annotated[str, _aws_pattern("Deadline", "IamRoleArn")]] = None
 
 
 class UpdateMonitorSettingsRequestTypeDef(BaseValidatorModel):
-    monitorId: str
+    monitorId: Annotated[str, _aws_pattern("Deadline", "MonitorId")]
     settings: Dict[str, str]
 
 
 class UpdateQueueEnvironmentRequestTypeDef(BaseValidatorModel):
-    farmId: str
-    queueId: str
-    queueEnvironmentId: str
+    farmId: Annotated[str, _aws_pattern("Deadline", "FarmId")]
+    queueId: Annotated[str, _aws_pattern("Deadline", "QueueId")]
+    queueEnvironmentId: Annotated[str, _aws_pattern("Deadline", "QueueEnvironmentId")]
     clientToken: Optional[str] = None
     priority: Optional[int] = None
     templateType: Optional[EnvironmentTemplateTypeType] = None
@@ -1443,55 +1445,55 @@ class UpdateQueueEnvironmentRequestTypeDef(BaseValidatorModel):
 
 
 class UpdateQueueFleetAssociationRequestTypeDef(BaseValidatorModel):
-    farmId: str
-    queueId: str
-    fleetId: str
+    farmId: Annotated[str, _aws_pattern("Deadline", "FarmId")]
+    queueId: Annotated[str, _aws_pattern("Deadline", "QueueId")]
+    fleetId: Annotated[str, _aws_pattern("Deadline", "FleetId")]
     status: UpdateQueueFleetAssociationStatusType
 
 
 class UpdateQueueLimitAssociationRequestTypeDef(BaseValidatorModel):
-    farmId: str
-    queueId: str
-    limitId: str
+    farmId: Annotated[str, _aws_pattern("Deadline", "FarmId")]
+    queueId: Annotated[str, _aws_pattern("Deadline", "QueueId")]
+    limitId: Annotated[str, _aws_pattern("Deadline", "LimitId")]
     status: UpdateQueueLimitAssociationStatusType
 
 
 class UpdateSessionRequestTypeDef(BaseValidatorModel):
-    farmId: str
-    queueId: str
-    jobId: str
-    sessionId: str
+    farmId: Annotated[str, _aws_pattern("Deadline", "FarmId")]
+    queueId: Annotated[str, _aws_pattern("Deadline", "QueueId")]
+    jobId: Annotated[str, _aws_pattern("Deadline", "JobId")]
+    sessionId: Annotated[str, _aws_pattern("Deadline", "SessionId")]
     targetLifecycleStatus: Literal["ENDED"]
     clientToken: Optional[str] = None
 
 
 class UpdateStepRequestTypeDef(BaseValidatorModel):
-    farmId: str
-    queueId: str
-    jobId: str
-    stepId: str
+    farmId: Annotated[str, _aws_pattern("Deadline", "FarmId")]
+    queueId: Annotated[str, _aws_pattern("Deadline", "QueueId")]
+    jobId: Annotated[str, _aws_pattern("Deadline", "JobId")]
+    stepId: Annotated[str, _aws_pattern("Deadline", "StepId")]
     targetTaskRunStatus: StepTargetTaskRunStatusType
     clientToken: Optional[str] = None
 
 
 class UpdateTaskRequestTypeDef(BaseValidatorModel):
-    farmId: str
-    queueId: str
-    jobId: str
-    stepId: str
-    taskId: str
+    farmId: Annotated[str, _aws_pattern("Deadline", "FarmId")]
+    queueId: Annotated[str, _aws_pattern("Deadline", "QueueId")]
+    jobId: Annotated[str, _aws_pattern("Deadline", "JobId")]
+    stepId: Annotated[str, _aws_pattern("Deadline", "StepId")]
+    taskId: Annotated[str, _aws_pattern("Deadline", "TaskId")]
     targetRunStatus: TaskTargetRunStatusType
     clientToken: Optional[str] = None
 
 
 class WorkerAmountCapabilityTypeDef(BaseValidatorModel):
-    name: str
+    name: Annotated[str, _aws_pattern("Deadline", "AmountCapabilityName")]
     value: float
 
 
 class WorkerAttributeCapabilityTypeDef(BaseValidatorModel):
-    name: str
-    values: List[str]
+    name: Annotated[str, _aws_pattern("Deadline", "AttributeCapabilityName")]
+    values: List[Annotated[str, _aws_pattern("Deadline", "AttributeCapabilityValue")]]
 
 
 class AcceleratorCapabilitiesOutputTypeDef(BaseValidatorModel):
@@ -1505,17 +1507,17 @@ class AcceleratorCapabilitiesTypeDef(BaseValidatorModel):
 
 
 class AssignedTaskRunSessionActionDefinitionTypeDef(BaseValidatorModel):
-    stepId: str
+    stepId: Annotated[str, _aws_pattern("Deadline", "StepId")]
     parameters: Dict[str, TaskParameterValueTypeDef]
-    taskId: Optional[str] = None
+    taskId: Optional[Annotated[str, _aws_pattern("Deadline", "TaskId")]] = None
 
 
 class BatchGetTaskItemTypeDef(BaseValidatorModel):
-    farmId: str
-    queueId: str
-    jobId: str
-    stepId: str
-    taskId: str
+    farmId: Annotated[str, _aws_pattern("Deadline", "FarmId")]
+    queueId: Annotated[str, _aws_pattern("Deadline", "QueueId")]
+    jobId: Annotated[str, _aws_pattern("Deadline", "JobId")]
+    stepId: Annotated[str, _aws_pattern("Deadline", "StepId")]
+    taskId: Annotated[str, _aws_pattern("Deadline", "TaskId")]
     createdAt: datetime
     createdBy: str
     runStatus: TaskRunStatusType
@@ -1525,27 +1527,27 @@ class BatchGetTaskItemTypeDef(BaseValidatorModel):
     endedAt: Optional[datetime] = None
     updatedAt: Optional[datetime] = None
     updatedBy: Optional[str] = None
-    latestSessionActionId: Optional[str] = None
+    latestSessionActionId: Optional[Annotated[str, _aws_pattern("Deadline", "SessionActionId")]] = None
     parameters: Optional[Dict[str, TaskParameterValueTypeDef]] = None
 
 
 class TaskRunSessionActionDefinitionSummaryTypeDef(BaseValidatorModel):
-    stepId: str
-    taskId: Optional[str] = None
+    stepId: Annotated[str, _aws_pattern("Deadline", "StepId")]
+    taskId: Optional[Annotated[str, _aws_pattern("Deadline", "TaskId")]] = None
     parameters: Optional[Dict[str, TaskParameterValueTypeDef]] = None
 
 
 class TaskRunSessionActionDefinitionTypeDef(BaseValidatorModel):
-    stepId: str
+    stepId: Annotated[str, _aws_pattern("Deadline", "StepId")]
     parameters: Dict[str, TaskParameterValueTypeDef]
-    taskId: Optional[str] = None
+    taskId: Optional[Annotated[str, _aws_pattern("Deadline", "TaskId")]] = None
 
 
 class TaskSearchSummaryTypeDef(BaseValidatorModel):
-    taskId: Optional[str] = None
-    stepId: Optional[str] = None
-    jobId: Optional[str] = None
-    queueId: Optional[str] = None
+    taskId: Optional[Annotated[str, _aws_pattern("Deadline", "TaskId")]] = None
+    stepId: Optional[Annotated[str, _aws_pattern("Deadline", "StepId")]] = None
+    jobId: Optional[Annotated[str, _aws_pattern("Deadline", "JobId")]] = None
+    queueId: Optional[Annotated[str, _aws_pattern("Deadline", "QueueId")]] = None
     runStatus: Optional[TaskRunStatusType] = None
     targetRunStatus: Optional[TaskTargetRunStatusType] = None
     parameters: Optional[Dict[str, TaskParameterValueTypeDef]] = None
@@ -1554,11 +1556,11 @@ class TaskSearchSummaryTypeDef(BaseValidatorModel):
     endedAt: Optional[datetime] = None
     updatedAt: Optional[datetime] = None
     updatedBy: Optional[str] = None
-    latestSessionActionId: Optional[str] = None
+    latestSessionActionId: Optional[Annotated[str, _aws_pattern("Deadline", "SessionActionId")]] = None
 
 
 class TaskSummaryTypeDef(BaseValidatorModel):
-    taskId: str
+    taskId: Annotated[str, _aws_pattern("Deadline", "TaskId")]
     createdAt: datetime
     createdBy: str
     runStatus: TaskRunStatusType
@@ -1568,7 +1570,7 @@ class TaskSummaryTypeDef(BaseValidatorModel):
     endedAt: Optional[datetime] = None
     updatedAt: Optional[datetime] = None
     updatedBy: Optional[str] = None
-    latestSessionActionId: Optional[str] = None
+    latestSessionActionId: Optional[Annotated[str, _aws_pattern("Deadline", "SessionActionId")]] = None
     parameters: Optional[Dict[str, TaskParameterValueTypeDef]] = None
 
 
@@ -1610,76 +1612,76 @@ class CopyJobTemplateResponseTypeDef(BaseValidatorModel):
 
 # This class is the output for the 'create_budget' function.
 class CreateBudgetResponseTypeDef(BaseValidatorModel):
-    budgetId: str
+    budgetId: Annotated[str, _aws_pattern("Deadline", "BudgetId")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 # This class is the output for the 'create_farm' function.
 class CreateFarmResponseTypeDef(BaseValidatorModel):
-    farmId: str
+    farmId: Annotated[str, _aws_pattern("Deadline", "FarmId")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 # This class is the output for the 'create_fleet' function.
 class CreateFleetResponseTypeDef(BaseValidatorModel):
-    fleetId: str
+    fleetId: Annotated[str, _aws_pattern("Deadline", "FleetId")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 # This class is the output for the 'create_job' function.
 class CreateJobResponseTypeDef(BaseValidatorModel):
-    jobId: str
+    jobId: Annotated[str, _aws_pattern("Deadline", "JobId")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 # This class is the output for the 'create_license_endpoint' function.
 class CreateLicenseEndpointResponseTypeDef(BaseValidatorModel):
-    licenseEndpointId: str
+    licenseEndpointId: Annotated[str, _aws_pattern("Deadline", "LicenseEndpointId")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 # This class is the output for the 'create_limit' function.
 class CreateLimitResponseTypeDef(BaseValidatorModel):
-    limitId: str
+    limitId: Annotated[str, _aws_pattern("Deadline", "LimitId")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 # This class is the output for the 'create_monitor' function.
 class CreateMonitorResponseTypeDef(BaseValidatorModel):
-    monitorId: str
+    monitorId: Annotated[str, _aws_pattern("Deadline", "MonitorId")]
     identityCenterApplicationArn: str
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 # This class is the output for the 'create_queue_environment' function.
 class CreateQueueEnvironmentResponseTypeDef(BaseValidatorModel):
-    queueEnvironmentId: str
+    queueEnvironmentId: Annotated[str, _aws_pattern("Deadline", "QueueEnvironmentId")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 # This class is the output for the 'create_queue' function.
 class CreateQueueResponseTypeDef(BaseValidatorModel):
-    queueId: str
+    queueId: Annotated[str, _aws_pattern("Deadline", "QueueId")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 # This class is the output for the 'create_storage_profile' function.
 class CreateStorageProfileResponseTypeDef(BaseValidatorModel):
-    storageProfileId: str
+    storageProfileId: Annotated[str, _aws_pattern("Deadline", "StorageProfileId")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 # This class is the output for the 'create_worker' function.
 class CreateWorkerResponseTypeDef(BaseValidatorModel):
-    workerId: str
+    workerId: Annotated[str, _aws_pattern("Deadline", "WorkerId")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 # This class is the output for the 'get_farm' function.
 class GetFarmResponseTypeDef(BaseValidatorModel):
-    farmId: str
+    farmId: Annotated[str, _aws_pattern("Deadline", "FarmId")]
     displayName: str
-    kmsKeyArn: str
+    kmsKeyArn: Annotated[str, _aws_pattern("Deadline", "KmsKeyArn")]
     createdAt: datetime
     createdBy: str
     updatedAt: datetime
@@ -1691,20 +1693,20 @@ class GetFarmResponseTypeDef(BaseValidatorModel):
 
 # This class is the output for the 'get_license_endpoint' function.
 class GetLicenseEndpointResponseTypeDef(BaseValidatorModel):
-    licenseEndpointId: str
+    licenseEndpointId: Annotated[str, _aws_pattern("Deadline", "LicenseEndpointId")]
     status: LicenseEndpointStatusType
     statusMessage: str
-    vpcId: str
+    vpcId: Annotated[str, _aws_pattern("Deadline", "VpcId")]
     dnsName: str
-    subnetIds: List[str]
-    securityGroupIds: List[str]
+    subnetIds: List[Annotated[str, _aws_pattern("Deadline", "SubnetId")]]
+    securityGroupIds: List[Annotated[str, _aws_pattern("Deadline", "SecurityGroupId")]]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 # This class is the output for the 'get_limit' function.
 class GetLimitResponseTypeDef(BaseValidatorModel):
-    farmId: str
-    limitId: str
+    farmId: Annotated[str, _aws_pattern("Deadline", "FarmId")]
+    limitId: Annotated[str, _aws_pattern("Deadline", "LimitId")]
     currentCount: int
     createdAt: datetime
     createdBy: str
@@ -1719,13 +1721,13 @@ class GetLimitResponseTypeDef(BaseValidatorModel):
 
 # This class is the output for the 'get_monitor' function.
 class GetMonitorResponseTypeDef(BaseValidatorModel):
-    monitorId: str
+    monitorId: Annotated[str, _aws_pattern("Deadline", "MonitorId")]
     displayName: str
-    subdomain: str
+    subdomain: Annotated[str, _aws_pattern("Deadline", "Subdomain")]
     url: str
-    roleArn: str
-    identityCenterInstanceArn: str
-    identityCenterRegion: str
+    roleArn: Annotated[str, _aws_pattern("Deadline", "IamRoleArn")]
+    identityCenterInstanceArn: Annotated[str, _aws_pattern("Deadline", "IdentityCenterInstanceArn")]
+    identityCenterRegion: Annotated[str, _aws_pattern("Deadline", "Region")]
     identityCenterApplicationArn: str
     createdAt: datetime
     createdBy: str
@@ -1742,7 +1744,7 @@ class GetMonitorSettingsResponseTypeDef(BaseValidatorModel):
 
 # This class is the output for the 'get_queue_environment' function.
 class GetQueueEnvironmentResponseTypeDef(BaseValidatorModel):
-    queueEnvironmentId: str
+    queueEnvironmentId: Annotated[str, _aws_pattern("Deadline", "QueueEnvironmentId")]
     name: str
     priority: int
     templateType: EnvironmentTemplateTypeType
@@ -1756,8 +1758,8 @@ class GetQueueEnvironmentResponseTypeDef(BaseValidatorModel):
 
 # This class is the output for the 'get_queue_fleet_association' function.
 class GetQueueFleetAssociationResponseTypeDef(BaseValidatorModel):
-    queueId: str
-    fleetId: str
+    queueId: Annotated[str, _aws_pattern("Deadline", "QueueId")]
+    fleetId: Annotated[str, _aws_pattern("Deadline", "FleetId")]
     status: QueueFleetAssociationStatusType
     createdAt: datetime
     createdBy: str
@@ -1768,8 +1770,8 @@ class GetQueueFleetAssociationResponseTypeDef(BaseValidatorModel):
 
 # This class is the output for the 'get_queue_limit_association' function.
 class GetQueueLimitAssociationResponseTypeDef(BaseValidatorModel):
-    queueId: str
-    limitId: str
+    queueId: Annotated[str, _aws_pattern("Deadline", "QueueId")]
+    limitId: Annotated[str, _aws_pattern("Deadline", "LimitId")]
     status: QueueLimitAssociationStatusType
     createdAt: datetime
     createdBy: str
@@ -1780,7 +1782,7 @@ class GetQueueLimitAssociationResponseTypeDef(BaseValidatorModel):
 
 # This class is the output for the 'get_task' function.
 class GetTaskResponseTypeDef(BaseValidatorModel):
-    taskId: str
+    taskId: Annotated[str, _aws_pattern("Deadline", "TaskId")]
     createdAt: datetime
     createdBy: str
     runStatus: TaskRunStatusType
@@ -1790,7 +1792,7 @@ class GetTaskResponseTypeDef(BaseValidatorModel):
     endedAt: datetime
     updatedAt: datetime
     updatedBy: str
-    latestSessionActionId: str
+    latestSessionActionId: Annotated[str, _aws_pattern("Deadline", "SessionActionId")]
     parameters: Dict[str, TaskParameterValueTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
 
@@ -1810,7 +1812,7 @@ class ListTagsForResourceResponseTypeDef(BaseValidatorModel):
 
 # This class is the output for the 'start_sessions_statistics_aggregation' function.
 class StartSessionsStatisticsAggregationResponseTypeDef(BaseValidatorModel):
-    aggregationId: str
+    aggregationId: Annotated[str, _aws_pattern("Deadline", "AggregationId")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
@@ -1830,8 +1832,8 @@ class BatchGetJobRequestTypeDef(BaseValidatorModel):
 
 
 class JobSearchSummaryTypeDef(BaseValidatorModel):
-    jobId: Optional[str] = None
-    queueId: Optional[str] = None
+    jobId: Optional[Annotated[str, _aws_pattern("Deadline", "JobId")]] = None
+    queueId: Optional[Annotated[str, _aws_pattern("Deadline", "QueueId")]] = None
     name: Optional[str] = None
     lifecycleStatus: Optional[JobLifecycleStatusType] = None
     lifecycleStatusMessage: Optional[str] = None
@@ -1850,7 +1852,7 @@ class JobSearchSummaryTypeDef(BaseValidatorModel):
     updatedBy: Optional[str] = None
     jobParameters: Optional[Dict[str, JobParameterTypeDef]] = None
     maxWorkerCount: Optional[int] = None
-    sourceJobId: Optional[str] = None
+    sourceJobId: Optional[Annotated[str, _aws_pattern("Deadline", "JobId")]] = None
 
 
 # This class is the input for the 'batch_get_session_action' function.
@@ -1869,7 +1871,7 @@ class BatchGetStepRequestTypeDef(BaseValidatorModel):
 
 
 class StepSummaryTypeDef(BaseValidatorModel):
-    stepId: str
+    stepId: Annotated[str, _aws_pattern("Deadline", "StepId")]
     name: str
     lifecycleStatus: StepLifecycleStatusType
     taskRunStatus: TaskRunStatusType
@@ -1925,7 +1927,7 @@ class BudgetScheduleOutputTypeDef(BaseValidatorModel):
 
 
 class BudgetSummaryTypeDef(BaseValidatorModel):
-    budgetId: str
+    budgetId: Annotated[str, _aws_pattern("Deadline", "BudgetId")]
     usageTrackingResource: UsageTrackingResourceTypeDef
     status: BudgetStatusType
     displayName: str
@@ -1940,9 +1942,9 @@ class BudgetSummaryTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'copy_job_template' function.
 class CopyJobTemplateRequestTypeDef(BaseValidatorModel):
-    farmId: str
-    queueId: str
-    jobId: str
+    farmId: Annotated[str, _aws_pattern("Deadline", "FarmId")]
+    queueId: Annotated[str, _aws_pattern("Deadline", "QueueId")]
+    jobId: Annotated[str, _aws_pattern("Deadline", "JobId")]
     targetS3Location: S3LocationTypeDef
 
 
@@ -1955,7 +1957,7 @@ class UpdateWorkerResponseTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'create_storage_profile' function.
 class CreateStorageProfileRequestTypeDef(BaseValidatorModel):
-    farmId: str
+    farmId: Annotated[str, _aws_pattern("Deadline", "FarmId")]
     displayName: str
     osFamily: StorageProfileOperatingSystemFamilyType
     clientToken: Optional[str] = None
@@ -1964,7 +1966,7 @@ class CreateStorageProfileRequestTypeDef(BaseValidatorModel):
 
 # This class is the output for the 'get_storage_profile_for_queue' function.
 class GetStorageProfileForQueueResponseTypeDef(BaseValidatorModel):
-    storageProfileId: str
+    storageProfileId: Annotated[str, _aws_pattern("Deadline", "StorageProfileId")]
     displayName: str
     osFamily: StorageProfileOperatingSystemFamilyType
     fileSystemLocations: List[FileSystemLocationTypeDef]
@@ -1973,7 +1975,7 @@ class GetStorageProfileForQueueResponseTypeDef(BaseValidatorModel):
 
 # This class is the output for the 'get_storage_profile' function.
 class GetStorageProfileResponseTypeDef(BaseValidatorModel):
-    storageProfileId: str
+    storageProfileId: Annotated[str, _aws_pattern("Deadline", "StorageProfileId")]
     displayName: str
     osFamily: StorageProfileOperatingSystemFamilyType
     createdAt: datetime
@@ -1985,8 +1987,8 @@ class GetStorageProfileResponseTypeDef(BaseValidatorModel):
 
 
 class UpdateStorageProfileRequestTypeDef(BaseValidatorModel):
-    farmId: str
-    storageProfileId: str
+    farmId: Annotated[str, _aws_pattern("Deadline", "FarmId")]
+    storageProfileId: Annotated[str, _aws_pattern("Deadline", "StorageProfileId")]
     clientToken: Optional[str] = None
     displayName: Optional[str] = None
     osFamily: Optional[StorageProfileOperatingSystemFamilyType] = None
@@ -2310,7 +2312,7 @@ class ListWorkersRequestPaginateTypeDef(BaseValidatorModel):
 
 class HostPropertiesResponseTypeDef(BaseValidatorModel):
     ipAddresses: Optional[IpAddressesOutputTypeDef] = None
-    hostName: Optional[str] = None
+    hostName: Optional[Annotated[str, _aws_pattern("Deadline", "HostName")]] = None
     ec2InstanceArn: Optional[str] = None
     ec2InstanceType: Optional[str] = None
 
@@ -2485,13 +2487,13 @@ class SearchSortExpressionTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'start_sessions_statistics_aggregation' function.
 class StartSessionsStatisticsAggregationRequestTypeDef(BaseValidatorModel):
-    farmId: str
+    farmId: Annotated[str, _aws_pattern("Deadline", "FarmId")]
     resourceIds: SessionsStatisticsResourcesTypeDef
     startTime: TimestampTypeDef
     endTime: TimestampTypeDef
     groupBy: List[UsageGroupByFieldType]
     statistics: List[UsageStatisticType]
-    timezone: Optional[str] = None
+    timezone: Optional[Annotated[str, _aws_pattern("Deadline", "Timezone")]] = None
     period: Optional[PeriodType] = None
 
 
@@ -2499,9 +2501,9 @@ class StatisticsTypeDef(BaseValidatorModel):
     count: int
     costInUsd: StatsTypeDef
     runtimeInSeconds: StatsTypeDef
-    queueId: Optional[str] = None
-    fleetId: Optional[str] = None
-    jobId: Optional[str] = None
+    queueId: Optional[Annotated[str, _aws_pattern("Deadline", "QueueId")]] = None
+    fleetId: Optional[Annotated[str, _aws_pattern("Deadline", "FleetId")]] = None
+    jobId: Optional[Annotated[str, _aws_pattern("Deadline", "JobId")]] = None
     jobName: Optional[str] = None
     userId: Optional[str] = None
     usageType: Optional[UsageTypeType] = None
@@ -2608,9 +2610,9 @@ class ListTasksResponseTypeDef(BaseValidatorModel):
 
 
 class BatchGetJobItemTypeDef(BaseValidatorModel):
-    farmId: str
-    queueId: str
-    jobId: str
+    farmId: Annotated[str, _aws_pattern("Deadline", "FarmId")]
+    queueId: Annotated[str, _aws_pattern("Deadline", "QueueId")]
+    jobId: Annotated[str, _aws_pattern("Deadline", "JobId")]
     name: str
     lifecycleStatus: JobLifecycleStatusType
     lifecycleStatusMessage: str
@@ -2625,19 +2627,19 @@ class BatchGetJobItemTypeDef(BaseValidatorModel):
     targetTaskRunStatus: Optional[JobTargetTaskRunStatusType] = None
     taskRunStatusCounts: Optional[Dict[TaskRunStatusType, int]] = None
     taskFailureRetryCount: Optional[int] = None
-    storageProfileId: Optional[str] = None
+    storageProfileId: Optional[Annotated[str, _aws_pattern("Deadline", "StorageProfileId")]] = None
     maxFailedTasksCount: Optional[int] = None
     maxRetriesPerTask: Optional[int] = None
     parameters: Optional[Dict[str, JobParameterTypeDef]] = None
     attachments: Optional[AttachmentsOutputTypeDef] = None
     description: Optional[str] = None
     maxWorkerCount: Optional[int] = None
-    sourceJobId: Optional[str] = None
+    sourceJobId: Optional[Annotated[str, _aws_pattern("Deadline", "JobId")]] = None
 
 
 # This class is the output for the 'get_job' function.
 class GetJobResponseTypeDef(BaseValidatorModel):
-    jobId: str
+    jobId: Annotated[str, _aws_pattern("Deadline", "JobId")]
     name: str
     lifecycleStatus: JobLifecycleStatusType
     lifecycleStatusMessage: str
@@ -2652,19 +2654,19 @@ class GetJobResponseTypeDef(BaseValidatorModel):
     targetTaskRunStatus: JobTargetTaskRunStatusType
     taskRunStatusCounts: Dict[TaskRunStatusType, int]
     taskFailureRetryCount: int
-    storageProfileId: str
+    storageProfileId: Annotated[str, _aws_pattern("Deadline", "StorageProfileId")]
     maxFailedTasksCount: int
     maxRetriesPerTask: int
     parameters: Dict[str, JobParameterTypeDef]
     attachments: AttachmentsOutputTypeDef
     description: str
     maxWorkerCount: int
-    sourceJobId: str
+    sourceJobId: Annotated[str, _aws_pattern("Deadline", "JobId")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 class JobAttachmentDetailsEntityTypeDef(BaseValidatorModel):
-    jobId: str
+    jobId: Annotated[str, _aws_pattern("Deadline", "JobId")]
     attachments: AttachmentsOutputTypeDef
 
 
@@ -2688,7 +2690,7 @@ class ListStepsResponseTypeDef(BaseValidatorModel):
 
 # This class is the output for the 'get_budget' function.
 class GetBudgetResponseTypeDef(BaseValidatorModel):
-    budgetId: str
+    budgetId: Annotated[str, _aws_pattern("Deadline", "BudgetId")]
     usageTrackingResource: UsageTrackingResourceTypeDef
     status: BudgetStatusType
     displayName: str
@@ -2724,7 +2726,7 @@ class CustomerManagedFleetConfigurationTypeDef(BaseValidatorModel):
     mode: AutoScalingModeType
     workerCapabilities: CustomerManagedWorkerCapabilitiesTypeDef
     autoScalingConfiguration: Optional[CustomerManagedAutoScalingConfigurationTypeDef] = None
-    storageProfileId: Optional[str] = None
+    storageProfileId: Optional[Annotated[str, _aws_pattern("Deadline", "StorageProfileId")]] = None
     tagPropagationMode: Optional[TagPropagationModeType] = None
 
 
@@ -2742,12 +2744,12 @@ class BudgetScheduleTypeDef(BaseValidatorModel):
 
 
 class BatchGetSessionItemTypeDef(BaseValidatorModel):
-    farmId: str
-    queueId: str
-    jobId: str
-    sessionId: str
-    fleetId: str
-    workerId: str
+    farmId: Annotated[str, _aws_pattern("Deadline", "FarmId")]
+    queueId: Annotated[str, _aws_pattern("Deadline", "QueueId")]
+    jobId: Annotated[str, _aws_pattern("Deadline", "JobId")]
+    sessionId: Annotated[str, _aws_pattern("Deadline", "SessionId")]
+    fleetId: Annotated[str, _aws_pattern("Deadline", "FleetId")]
+    workerId: Annotated[str, _aws_pattern("Deadline", "WorkerId")]
     startedAt: datetime
     lifecycleStatus: SessionLifecycleStatusType
     log: LogConfigurationTypeDef
@@ -2760,9 +2762,9 @@ class BatchGetSessionItemTypeDef(BaseValidatorModel):
 
 
 class BatchGetWorkerItemTypeDef(BaseValidatorModel):
-    farmId: str
-    fleetId: str
-    workerId: str
+    farmId: Annotated[str, _aws_pattern("Deadline", "FarmId")]
+    fleetId: Annotated[str, _aws_pattern("Deadline", "FleetId")]
+    workerId: Annotated[str, _aws_pattern("Deadline", "WorkerId")]
     status: WorkerStatusType
     createdAt: datetime
     createdBy: str
@@ -2774,9 +2776,9 @@ class BatchGetWorkerItemTypeDef(BaseValidatorModel):
 
 # This class is the output for the 'get_session' function.
 class GetSessionResponseTypeDef(BaseValidatorModel):
-    sessionId: str
-    fleetId: str
-    workerId: str
+    sessionId: Annotated[str, _aws_pattern("Deadline", "SessionId")]
+    fleetId: Annotated[str, _aws_pattern("Deadline", "FleetId")]
+    workerId: Annotated[str, _aws_pattern("Deadline", "WorkerId")]
     startedAt: datetime
     lifecycleStatus: SessionLifecycleStatusType
     endedAt: datetime
@@ -2791,9 +2793,9 @@ class GetSessionResponseTypeDef(BaseValidatorModel):
 
 # This class is the output for the 'get_worker' function.
 class GetWorkerResponseTypeDef(BaseValidatorModel):
-    farmId: str
-    fleetId: str
-    workerId: str
+    farmId: Annotated[str, _aws_pattern("Deadline", "FarmId")]
+    fleetId: Annotated[str, _aws_pattern("Deadline", "FleetId")]
+    workerId: Annotated[str, _aws_pattern("Deadline", "WorkerId")]
     hostProperties: HostPropertiesResponseTypeDef
     status: WorkerStatusType
     log: LogConfigurationTypeDef
@@ -2805,8 +2807,8 @@ class GetWorkerResponseTypeDef(BaseValidatorModel):
 
 
 class WorkerSearchSummaryTypeDef(BaseValidatorModel):
-    fleetId: Optional[str] = None
-    workerId: Optional[str] = None
+    fleetId: Optional[Annotated[str, _aws_pattern("Deadline", "FleetId")]] = None
+    workerId: Optional[Annotated[str, _aws_pattern("Deadline", "WorkerId")]] = None
     status: Optional[WorkerStatusType] = None
     hostProperties: Optional[HostPropertiesResponseTypeDef] = None
     createdBy: Optional[str] = None
@@ -2816,9 +2818,9 @@ class WorkerSearchSummaryTypeDef(BaseValidatorModel):
 
 
 class WorkerSummaryTypeDef(BaseValidatorModel):
-    farmId: str
-    fleetId: str
-    workerId: str
+    farmId: Annotated[str, _aws_pattern("Deadline", "FarmId")]
+    fleetId: Annotated[str, _aws_pattern("Deadline", "FleetId")]
+    workerId: Annotated[str, _aws_pattern("Deadline", "WorkerId")]
     status: WorkerStatusType
     createdAt: datetime
     createdBy: str
@@ -2830,24 +2832,24 @@ class WorkerSummaryTypeDef(BaseValidatorModel):
 
 class HostPropertiesRequestTypeDef(BaseValidatorModel):
     ipAddresses: Optional[IpAddressesUnionTypeDef] = None
-    hostName: Optional[str] = None
+    hostName: Optional[Annotated[str, _aws_pattern("Deadline", "HostName")]] = None
 
 
 # This class is the input for the 'batch_get_job_entity' function.
 class BatchGetJobEntityRequestTypeDef(BaseValidatorModel):
-    farmId: str
-    fleetId: str
-    workerId: str
+    farmId: Annotated[str, _aws_pattern("Deadline", "FarmId")]
+    fleetId: Annotated[str, _aws_pattern("Deadline", "FleetId")]
+    workerId: Annotated[str, _aws_pattern("Deadline", "WorkerId")]
     identifiers: List[JobEntityIdentifiersUnionTypeDef]
 
 
 class JobDetailsEntityTypeDef(BaseValidatorModel):
-    jobId: str
+    jobId: Annotated[str, _aws_pattern("Deadline", "JobId")]
     logGroupName: str
     schemaVersion: str
     jobAttachmentSettings: Optional[JobAttachmentSettingsTypeDef] = None
     jobRunAsUser: Optional[JobRunAsUserTypeDef] = None
-    queueRoleArn: Optional[str] = None
+    queueRoleArn: Optional[Annotated[str, _aws_pattern("Deadline", "IamRoleArn")]] = None
     parameters: Optional[Dict[str, JobParameterTypeDef]] = None
     pathMappingRules: Optional[List[PathMappingRuleTypeDef]] = None
 
@@ -2880,9 +2882,9 @@ class ParameterSpaceTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'update_worker_schedule' function.
 class UpdateWorkerScheduleRequestTypeDef(BaseValidatorModel):
-    farmId: str
-    fleetId: str
-    workerId: str
+    farmId: Annotated[str, _aws_pattern("Deadline", "FarmId")]
+    fleetId: Annotated[str, _aws_pattern("Deadline", "FleetId")]
+    workerId: Annotated[str, _aws_pattern("Deadline", "WorkerId")]
     updatedSessionActions: Optional[Dict[str, UpdatedSessionActionInfoTypeDef]] = None
 
 
@@ -2898,17 +2900,17 @@ class ServiceManagedEc2FleetConfigurationTypeDef(BaseValidatorModel):
     instanceCapabilities: ServiceManagedEc2InstanceCapabilitiesTypeDef
     instanceMarketOptions: ServiceManagedEc2InstanceMarketOptionsTypeDef
     vpcConfiguration: Optional[VpcConfigurationTypeDef] = None
-    storageProfileId: Optional[str] = None
+    storageProfileId: Optional[Annotated[str, _aws_pattern("Deadline", "StorageProfileId")]] = None
     autoScalingConfiguration: Optional[ServiceManagedEc2AutoScalingConfigurationTypeDef] = None
 
 
 class AssignedSessionActionTypeDef(BaseValidatorModel):
-    sessionActionId: str
+    sessionActionId: Annotated[str, _aws_pattern("Deadline", "SessionActionId")]
     definition: AssignedSessionActionDefinitionTypeDef
 
 
 class SessionActionSummaryTypeDef(BaseValidatorModel):
-    sessionActionId: str
+    sessionActionId: Annotated[str, _aws_pattern("Deadline", "SessionActionId")]
     status: SessionActionStatusType
     definition: SessionActionDefinitionSummaryTypeDef
     startedAt: Optional[datetime] = None
@@ -2919,12 +2921,12 @@ class SessionActionSummaryTypeDef(BaseValidatorModel):
 
 
 class BatchGetSessionActionItemTypeDef(BaseValidatorModel):
-    farmId: str
-    queueId: str
-    jobId: str
-    sessionActionId: str
+    farmId: Annotated[str, _aws_pattern("Deadline", "FarmId")]
+    queueId: Annotated[str, _aws_pattern("Deadline", "QueueId")]
+    jobId: Annotated[str, _aws_pattern("Deadline", "JobId")]
+    sessionActionId: Annotated[str, _aws_pattern("Deadline", "SessionActionId")]
     status: SessionActionStatusType
-    sessionId: str
+    sessionId: Annotated[str, _aws_pattern("Deadline", "SessionId")]
     definition: SessionActionDefinitionTypeDef
     startedAt: Optional[datetime] = None
     endedAt: Optional[datetime] = None
@@ -2938,14 +2940,14 @@ class BatchGetSessionActionItemTypeDef(BaseValidatorModel):
 
 # This class is the output for the 'get_session_action' function.
 class GetSessionActionResponseTypeDef(BaseValidatorModel):
-    sessionActionId: str
+    sessionActionId: Annotated[str, _aws_pattern("Deadline", "SessionActionId")]
     status: SessionActionStatusType
     startedAt: datetime
     endedAt: datetime
     workerUpdatedAt: datetime
     progressPercent: float
     manifests: List[TaskRunManifestPropertiesResponseTypeDef]
-    sessionId: str
+    sessionId: Annotated[str, _aws_pattern("Deadline", "SessionId")]
     processExitCode: int
     progressMessage: str
     acquiredLimits: List[AcquiredLimitTypeDef]
@@ -2962,20 +2964,20 @@ class BatchGetJobResponseTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'create_job' function.
 class CreateJobRequestTypeDef(BaseValidatorModel):
-    farmId: str
-    queueId: str
+    farmId: Annotated[str, _aws_pattern("Deadline", "FarmId")]
+    queueId: Annotated[str, _aws_pattern("Deadline", "QueueId")]
     priority: int
     clientToken: Optional[str] = None
     template: Optional[str] = None
     templateType: Optional[JobTemplateTypeType] = None
     parameters: Optional[Dict[str, JobParameterTypeDef]] = None
     attachments: Optional[AttachmentsUnionTypeDef] = None
-    storageProfileId: Optional[str] = None
+    storageProfileId: Optional[Annotated[str, _aws_pattern("Deadline", "StorageProfileId")]] = None
     targetTaskRunStatus: Optional[CreateJobTargetTaskRunStatusType] = None
     maxFailedTasksCount: Optional[int] = None
     maxRetriesPerTask: Optional[int] = None
     maxWorkerCount: Optional[int] = None
-    sourceJobId: Optional[str] = None
+    sourceJobId: Optional[Annotated[str, _aws_pattern("Deadline", "JobId")]] = None
     nameOverride: Optional[str] = None
     descriptionOverride: Optional[str] = None
     tags: Optional[Dict[str, str]] = None
@@ -3020,8 +3022,8 @@ class ListWorkersResponseTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'create_worker' function.
 class CreateWorkerRequestTypeDef(BaseValidatorModel):
-    farmId: str
-    fleetId: str
+    farmId: Annotated[str, _aws_pattern("Deadline", "FarmId")]
+    fleetId: Annotated[str, _aws_pattern("Deadline", "FleetId")]
     hostProperties: Optional[HostPropertiesRequestTypeDef] = None
     clientToken: Optional[str] = None
     tags: Optional[Dict[str, str]] = None
@@ -3029,9 +3031,9 @@ class CreateWorkerRequestTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'update_worker' function.
 class UpdateWorkerRequestTypeDef(BaseValidatorModel):
-    farmId: str
-    fleetId: str
-    workerId: str
+    farmId: Annotated[str, _aws_pattern("Deadline", "FarmId")]
+    fleetId: Annotated[str, _aws_pattern("Deadline", "FleetId")]
+    workerId: Annotated[str, _aws_pattern("Deadline", "WorkerId")]
     status: Optional[UpdatedWorkerStatusType] = None
     capabilities: Optional[WorkerCapabilitiesTypeDef] = None
     hostProperties: Optional[HostPropertiesRequestTypeDef] = None
@@ -3046,8 +3048,8 @@ class JobEntityTypeDef(BaseValidatorModel):
 
 # This class is the output for the 'get_queue' function.
 class GetQueueResponseTypeDef(BaseValidatorModel):
-    farmId: str
-    queueId: str
+    farmId: Annotated[str, _aws_pattern("Deadline", "FarmId")]
+    queueId: Annotated[str, _aws_pattern("Deadline", "QueueId")]
     displayName: str
     status: QueueStatusType
     defaultBudgetAction: DefaultQueueBudgetActionType
@@ -3058,9 +3060,9 @@ class GetQueueResponseTypeDef(BaseValidatorModel):
     updatedBy: str
     description: str
     jobAttachmentSettings: JobAttachmentSettingsTypeDef
-    roleArn: str
-    requiredFileSystemLocationNames: List[str]
-    allowedStorageProfileIds: List[str]
+    roleArn: Annotated[str, _aws_pattern("Deadline", "IamRoleArn")]
+    requiredFileSystemLocationNames: List[Annotated[str, _aws_pattern("Deadline", "FileSystemLocationName")]]
+    allowedStorageProfileIds: List[Annotated[str, _aws_pattern("Deadline", "StorageProfileId")]]
     jobRunAsUser: JobRunAsUserTypeDef
     schedulingConfiguration: SchedulingConfigurationOutputTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
@@ -3070,10 +3072,10 @@ SchedulingConfigurationUnionTypeDef = Union[SchedulingConfigurationOutputTypeDef
 
 
 class BatchGetStepItemTypeDef(BaseValidatorModel):
-    farmId: str
-    queueId: str
-    jobId: str
-    stepId: str
+    farmId: Annotated[str, _aws_pattern("Deadline", "FarmId")]
+    queueId: Annotated[str, _aws_pattern("Deadline", "QueueId")]
+    jobId: Annotated[str, _aws_pattern("Deadline", "JobId")]
+    stepId: Annotated[str, _aws_pattern("Deadline", "StepId")]
     name: str
     lifecycleStatus: StepLifecycleStatusType
     taskRunStatus: TaskRunStatusType
@@ -3095,7 +3097,7 @@ class BatchGetStepItemTypeDef(BaseValidatorModel):
 
 # This class is the output for the 'get_step' function.
 class GetStepResponseTypeDef(BaseValidatorModel):
-    stepId: str
+    stepId: Annotated[str, _aws_pattern("Deadline", "StepId")]
     name: str
     lifecycleStatus: StepLifecycleStatusType
     lifecycleStatusMessage: str
@@ -3117,9 +3119,9 @@ class GetStepResponseTypeDef(BaseValidatorModel):
 
 
 class StepSearchSummaryTypeDef(BaseValidatorModel):
-    stepId: Optional[str] = None
-    jobId: Optional[str] = None
-    queueId: Optional[str] = None
+    stepId: Optional[Annotated[str, _aws_pattern("Deadline", "StepId")]] = None
+    jobId: Optional[Annotated[str, _aws_pattern("Deadline", "JobId")]] = None
+    queueId: Optional[Annotated[str, _aws_pattern("Deadline", "QueueId")]] = None
     name: Optional[str] = None
     lifecycleStatus: Optional[StepLifecycleStatusType] = None
     lifecycleStatusMessage: Optional[str] = None
@@ -3147,8 +3149,8 @@ class FleetConfigurationTypeDef(BaseValidatorModel):
 
 
 class AssignedSessionTypeDef(BaseValidatorModel):
-    queueId: str
-    jobId: str
+    queueId: Annotated[str, _aws_pattern("Deadline", "QueueId")]
+    jobId: Annotated[str, _aws_pattern("Deadline", "JobId")]
     sessionActions: List[AssignedSessionActionTypeDef]
     logConfiguration: LogConfigurationTypeDef
 
@@ -3169,9 +3171,9 @@ class BatchGetSessionActionResponseTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'search_jobs' function.
 class SearchJobsRequestTypeDef(BaseValidatorModel):
-    farmId: str
+    farmId: Annotated[str, _aws_pattern("Deadline", "FarmId")]
     itemOffset: int
-    queueIds: List[str]
+    queueIds: List[Annotated[str, _aws_pattern("Deadline", "QueueId")]]
     filterExpressions: Optional[SearchGroupedFilterExpressionsTypeDef] = None
     sortExpressions: Optional[List[SearchSortExpressionTypeDef]] = None
     pageSize: Optional[int] = None
@@ -3179,31 +3181,31 @@ class SearchJobsRequestTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'search_steps' function.
 class SearchStepsRequestTypeDef(BaseValidatorModel):
-    farmId: str
+    farmId: Annotated[str, _aws_pattern("Deadline", "FarmId")]
     itemOffset: int
-    queueIds: List[str]
+    queueIds: List[Annotated[str, _aws_pattern("Deadline", "QueueId")]]
     filterExpressions: Optional[SearchGroupedFilterExpressionsTypeDef] = None
     sortExpressions: Optional[List[SearchSortExpressionTypeDef]] = None
     pageSize: Optional[int] = None
-    jobId: Optional[str] = None
+    jobId: Optional[Annotated[str, _aws_pattern("Deadline", "JobId")]] = None
 
 
 # This class is the input for the 'search_tasks' function.
 class SearchTasksRequestTypeDef(BaseValidatorModel):
-    farmId: str
+    farmId: Annotated[str, _aws_pattern("Deadline", "FarmId")]
     itemOffset: int
-    queueIds: List[str]
+    queueIds: List[Annotated[str, _aws_pattern("Deadline", "QueueId")]]
     filterExpressions: Optional[SearchGroupedFilterExpressionsTypeDef] = None
     sortExpressions: Optional[List[SearchSortExpressionTypeDef]] = None
     pageSize: Optional[int] = None
-    jobId: Optional[str] = None
+    jobId: Optional[Annotated[str, _aws_pattern("Deadline", "JobId")]] = None
 
 
 # This class is the input for the 'search_workers' function.
 class SearchWorkersRequestTypeDef(BaseValidatorModel):
-    farmId: str
+    farmId: Annotated[str, _aws_pattern("Deadline", "FarmId")]
     itemOffset: int
-    fleetIds: List[str]
+    fleetIds: List[Annotated[str, _aws_pattern("Deadline", "FleetId")]]
     filterExpressions: Optional[SearchGroupedFilterExpressionsTypeDef] = None
     sortExpressions: Optional[List[SearchSortExpressionTypeDef]] = None
     pageSize: Optional[int] = None
@@ -3211,7 +3213,7 @@ class SearchWorkersRequestTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'create_budget' function.
 class CreateBudgetRequestTypeDef(BaseValidatorModel):
-    farmId: str
+    farmId: Annotated[str, _aws_pattern("Deadline", "FarmId")]
     displayName: str
     usageTrackingResource: UsageTrackingResourceTypeDef
     approximateDollarLimit: float
@@ -3223,8 +3225,8 @@ class CreateBudgetRequestTypeDef(BaseValidatorModel):
 
 
 class UpdateBudgetRequestTypeDef(BaseValidatorModel):
-    farmId: str
-    budgetId: str
+    farmId: Annotated[str, _aws_pattern("Deadline", "FarmId")]
+    budgetId: Annotated[str, _aws_pattern("Deadline", "BudgetId")]
     clientToken: Optional[str] = None
     displayName: Optional[str] = None
     description: Optional[str] = None
@@ -3244,34 +3246,42 @@ class BatchGetJobEntityResponseTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'create_queue' function.
 class CreateQueueRequestTypeDef(BaseValidatorModel):
-    farmId: str
+    farmId: Annotated[str, _aws_pattern("Deadline", "FarmId")]
     displayName: str
     clientToken: Optional[str] = None
     description: Optional[str] = None
     defaultBudgetAction: Optional[DefaultQueueBudgetActionType] = None
     jobAttachmentSettings: Optional[JobAttachmentSettingsTypeDef] = None
-    roleArn: Optional[str] = None
+    roleArn: Optional[Annotated[str, _aws_pattern("Deadline", "IamRoleArn")]] = None
     jobRunAsUser: Optional[JobRunAsUserTypeDef] = None
-    requiredFileSystemLocationNames: Optional[List[str]] = None
-    allowedStorageProfileIds: Optional[List[str]] = None
+    requiredFileSystemLocationNames: Optional[
+        List[Annotated[str, _aws_pattern("Deadline", "FileSystemLocationName")]]
+    ] = None
+    allowedStorageProfileIds: Optional[List[Annotated[str, _aws_pattern("Deadline", "StorageProfileId")]]] = None
     tags: Optional[Dict[str, str]] = None
     schedulingConfiguration: Optional[SchedulingConfigurationUnionTypeDef] = None
 
 
 class UpdateQueueRequestTypeDef(BaseValidatorModel):
-    farmId: str
-    queueId: str
+    farmId: Annotated[str, _aws_pattern("Deadline", "FarmId")]
+    queueId: Annotated[str, _aws_pattern("Deadline", "QueueId")]
     clientToken: Optional[str] = None
     displayName: Optional[str] = None
     description: Optional[str] = None
     defaultBudgetAction: Optional[DefaultQueueBudgetActionType] = None
     jobAttachmentSettings: Optional[JobAttachmentSettingsTypeDef] = None
-    roleArn: Optional[str] = None
+    roleArn: Optional[Annotated[str, _aws_pattern("Deadline", "IamRoleArn")]] = None
     jobRunAsUser: Optional[JobRunAsUserTypeDef] = None
-    requiredFileSystemLocationNamesToAdd: Optional[List[str]] = None
-    requiredFileSystemLocationNamesToRemove: Optional[List[str]] = None
-    allowedStorageProfileIdsToAdd: Optional[List[str]] = None
-    allowedStorageProfileIdsToRemove: Optional[List[str]] = None
+    requiredFileSystemLocationNamesToAdd: Optional[
+        List[Annotated[str, _aws_pattern("Deadline", "FileSystemLocationName")]]
+    ] = None
+    requiredFileSystemLocationNamesToRemove: Optional[
+        List[Annotated[str, _aws_pattern("Deadline", "FileSystemLocationName")]]
+    ] = None
+    allowedStorageProfileIdsToAdd: Optional[List[Annotated[str, _aws_pattern("Deadline", "StorageProfileId")]]] = None
+    allowedStorageProfileIdsToRemove: Optional[List[Annotated[str, _aws_pattern("Deadline", "StorageProfileId")]]] = (
+        None
+    )
     schedulingConfiguration: Optional[SchedulingConfigurationUnionTypeDef] = None
 
 
@@ -3291,8 +3301,8 @@ class SearchStepsResponseTypeDef(BaseValidatorModel):
 
 
 class FleetSummaryTypeDef(BaseValidatorModel):
-    fleetId: str
-    farmId: str
+    fleetId: Annotated[str, _aws_pattern("Deadline", "FleetId")]
+    farmId: Annotated[str, _aws_pattern("Deadline", "FarmId")]
     displayName: str
     status: FleetStatusType
     workerCount: int
@@ -3310,8 +3320,8 @@ class FleetSummaryTypeDef(BaseValidatorModel):
 
 # This class is the output for the 'get_fleet' function.
 class GetFleetResponseTypeDef(BaseValidatorModel):
-    fleetId: str
-    farmId: str
+    fleetId: Annotated[str, _aws_pattern("Deadline", "FleetId")]
+    farmId: Annotated[str, _aws_pattern("Deadline", "FarmId")]
     displayName: str
     status: FleetStatusType
     statusMessage: str
@@ -3328,7 +3338,7 @@ class GetFleetResponseTypeDef(BaseValidatorModel):
     description: str
     hostConfiguration: HostConfigurationTypeDef
     capabilities: FleetCapabilitiesTypeDef
-    roleArn: str
+    roleArn: Annotated[str, _aws_pattern("Deadline", "IamRoleArn")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
@@ -3353,9 +3363,9 @@ class ListFleetsResponseTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'create_fleet' function.
 class CreateFleetRequestTypeDef(BaseValidatorModel):
-    farmId: str
+    farmId: Annotated[str, _aws_pattern("Deadline", "FarmId")]
     displayName: str
-    roleArn: str
+    roleArn: Annotated[str, _aws_pattern("Deadline", "IamRoleArn")]
     maxWorkerCount: int
     configuration: FleetConfigurationUnionTypeDef
     clientToken: Optional[str] = None
@@ -3366,12 +3376,12 @@ class CreateFleetRequestTypeDef(BaseValidatorModel):
 
 
 class UpdateFleetRequestTypeDef(BaseValidatorModel):
-    farmId: str
-    fleetId: str
+    farmId: Annotated[str, _aws_pattern("Deadline", "FarmId")]
+    fleetId: Annotated[str, _aws_pattern("Deadline", "FleetId")]
     clientToken: Optional[str] = None
     displayName: Optional[str] = None
     description: Optional[str] = None
-    roleArn: Optional[str] = None
+    roleArn: Optional[Annotated[str, _aws_pattern("Deadline", "IamRoleArn")]] = None
     minWorkerCount: Optional[int] = None
     maxWorkerCount: Optional[int] = None
     configuration: Optional[FleetConfigurationUnionTypeDef] = None

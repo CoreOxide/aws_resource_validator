@@ -3,6 +3,7 @@
 from datetime import datetime
 from decimal import Decimal
 from typing import (
+    Annotated,
     Any,
     Callable,
     Dict,
@@ -24,6 +25,7 @@ from botocore.response import StreamingBody
 from pydantic import Field
 
 from aws_resource_validator.core.base_validator_model import BaseValidatorModel, EventStream
+from aws_resource_validator.core.pattern_validation import aws_field_pattern as _aws_pattern
 from aws_resource_validator.pydantic_models.rum.rum_constants import *  # noqa: F401,F403
 
 # Optional boto3 symbols — imported lazily so services that don't need them
@@ -51,12 +53,12 @@ class AppMonitorConfigurationOutputTypeDef(BaseValidatorModel):
 
 
 class AppMonitorConfigurationTypeDef(BaseValidatorModel):
-    IdentityPoolId: Optional[str] = None
-    ExcludedPages: Optional[List[str]] = None
-    IncludedPages: Optional[List[str]] = None
+    IdentityPoolId: Optional[Annotated[str, _aws_pattern("Rum", "IdentityPoolId")]] = None
+    ExcludedPages: Optional[List[Annotated[str, _aws_pattern("Rum", "Url")]]] = None
+    IncludedPages: Optional[List[Annotated[str, _aws_pattern("Rum", "Url")]]] = None
     FavoritePages: Optional[List[str]] = None
     SessionSampleRate: Optional[float] = None
-    GuestRoleArn: Optional[str] = None
+    GuestRoleArn: Optional[Annotated[str, _aws_pattern("Rum", "Arn")]] = None
     AllowCookies: Optional[bool] = None
     Telemetries: Optional[List[TelemetryType]] = None
     EnableXRay: Optional[bool] = None
@@ -69,8 +71,8 @@ class AppMonitorDetailsTypeDef(BaseValidatorModel):
 
 
 class AppMonitorSummaryTypeDef(BaseValidatorModel):
-    Name: Optional[str] = None
-    Id: Optional[str] = None
+    Name: Optional[Annotated[str, _aws_pattern("Rum", "AppMonitorName")]] = None
+    Id: Optional[Annotated[str, _aws_pattern("Rum", "AppMonitorId")]] = None
     Created: Optional[str] = None
     LastModified: Optional[str] = None
     State: Optional[StateEnumType] = None
@@ -97,7 +99,7 @@ class MetricDefinitionTypeDef(BaseValidatorModel):
     UnitLabel: Optional[str] = None
     DimensionKeys: Optional[Dict[str, str]] = None
     EventPattern: Optional[str] = None
-    Namespace: Optional[str] = None
+    Namespace: Optional[Annotated[str, _aws_pattern("Rum", "Namespace")]] = None
 
 
 class ResponseMetadataTypeDef(BaseValidatorModel):
@@ -116,10 +118,10 @@ class BatchDeleteRumMetricDefinitionsErrorTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'batch_delete_rum_metric_definitions' function.
 class BatchDeleteRumMetricDefinitionsRequestTypeDef(BaseValidatorModel):
-    AppMonitorName: str
+    AppMonitorName: Annotated[str, _aws_pattern("Rum", "AppMonitorName")]
     Destination: MetricDestinationType
     MetricDefinitionIds: List[str]
-    DestinationArn: Optional[str] = None
+    DestinationArn: Optional[Annotated[str, _aws_pattern("Rum", "DestinationArn")]] = None
 
 
 class PaginatorConfigTypeDef(BaseValidatorModel):
@@ -130,9 +132,9 @@ class PaginatorConfigTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'batch_get_rum_metric_definitions' function.
 class BatchGetRumMetricDefinitionsRequestTypeDef(BaseValidatorModel):
-    AppMonitorName: str
+    AppMonitorName: Annotated[str, _aws_pattern("Rum", "AppMonitorName")]
     Destination: MetricDestinationType
-    DestinationArn: Optional[str] = None
+    DestinationArn: Optional[Annotated[str, _aws_pattern("Rum", "DestinationArn")]] = None
     MaxResults: Optional[int] = None
     NextToken: Optional[str] = None
 
@@ -143,24 +145,24 @@ class CwLogTypeDef(BaseValidatorModel):
 
 
 class DeleteAppMonitorRequestTypeDef(BaseValidatorModel):
-    Name: str
+    Name: Annotated[str, _aws_pattern("Rum", "AppMonitorName")]
 
 
 # This class is the input for the 'delete_resource_policy' function.
 class DeleteResourcePolicyRequestTypeDef(BaseValidatorModel):
-    Name: str
+    Name: Annotated[str, _aws_pattern("Rum", "AppMonitorName")]
     PolicyRevisionId: Optional[str] = None
 
 
 class DeleteRumMetricsDestinationRequestTypeDef(BaseValidatorModel):
-    AppMonitorName: str
+    AppMonitorName: Annotated[str, _aws_pattern("Rum", "AppMonitorName")]
     Destination: MetricDestinationType
-    DestinationArn: Optional[str] = None
+    DestinationArn: Optional[Annotated[str, _aws_pattern("Rum", "DestinationArn")]] = None
 
 
 class JavaScriptSourceMapsTypeDef(BaseValidatorModel):
     Status: DeobfuscationStatusType
-    S3Uri: Optional[str] = None
+    S3Uri: Optional[Annotated[str, _aws_pattern("Rum", "DeobfuscationS3Uri")]] = None
 
 
 class QueryFilterTypeDef(BaseValidatorModel):
@@ -175,12 +177,12 @@ class TimeRangeTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'get_app_monitor' function.
 class GetAppMonitorRequestTypeDef(BaseValidatorModel):
-    Name: str
+    Name: Annotated[str, _aws_pattern("Rum", "AppMonitorName")]
 
 
 # This class is the input for the 'get_resource_policy' function.
 class GetResourcePolicyRequestTypeDef(BaseValidatorModel):
-    Name: str
+    Name: Annotated[str, _aws_pattern("Rum", "AppMonitorName")]
 
 
 # This class is the input for the 'list_app_monitors' function.
@@ -191,20 +193,20 @@ class ListAppMonitorsRequestTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'list_rum_metrics_destinations' function.
 class ListRumMetricsDestinationsRequestTypeDef(BaseValidatorModel):
-    AppMonitorName: str
+    AppMonitorName: Annotated[str, _aws_pattern("Rum", "AppMonitorName")]
     MaxResults: Optional[int] = None
     NextToken: Optional[str] = None
 
 
 class MetricDestinationSummaryTypeDef(BaseValidatorModel):
     Destination: Optional[MetricDestinationType] = None
-    DestinationArn: Optional[str] = None
-    IamRoleArn: Optional[str] = None
+    DestinationArn: Optional[Annotated[str, _aws_pattern("Rum", "DestinationArn")]] = None
+    IamRoleArn: Optional[Annotated[str, _aws_pattern("Rum", "IamRoleArn")]] = None
 
 
 # This class is the input for the 'list_tags_for_resource' function.
 class ListTagsForResourceRequestTypeDef(BaseValidatorModel):
-    ResourceArn: str
+    ResourceArn: Annotated[str, _aws_pattern("Rum", "Arn")]
 
 
 class MetricDefinitionRequestTypeDef(BaseValidatorModel):
@@ -213,39 +215,39 @@ class MetricDefinitionRequestTypeDef(BaseValidatorModel):
     UnitLabel: Optional[str] = None
     DimensionKeys: Optional[Dict[str, str]] = None
     EventPattern: Optional[str] = None
-    Namespace: Optional[str] = None
+    Namespace: Optional[Annotated[str, _aws_pattern("Rum", "Namespace")]] = None
 
 
 # This class is the input for the 'put_resource_policy' function.
 class PutResourcePolicyRequestTypeDef(BaseValidatorModel):
-    Name: str
+    Name: Annotated[str, _aws_pattern("Rum", "AppMonitorName")]
     PolicyDocument: str
     PolicyRevisionId: Optional[str] = None
 
 
 class UserDetailsTypeDef(BaseValidatorModel):
-    userId: Optional[str] = None
-    sessionId: Optional[str] = None
+    userId: Optional[Annotated[str, _aws_pattern("Rum", "UserDetailsUserIdString")]] = None
+    sessionId: Optional[Annotated[str, _aws_pattern("Rum", "UserDetailsSessionIdString")]] = None
 
 
 class PutRumMetricsDestinationRequestTypeDef(BaseValidatorModel):
-    AppMonitorName: str
+    AppMonitorName: Annotated[str, _aws_pattern("Rum", "AppMonitorName")]
     Destination: MetricDestinationType
-    DestinationArn: Optional[str] = None
-    IamRoleArn: Optional[str] = None
+    DestinationArn: Optional[Annotated[str, _aws_pattern("Rum", "DestinationArn")]] = None
+    IamRoleArn: Optional[Annotated[str, _aws_pattern("Rum", "IamRoleArn")]] = None
 
 
 TimestampTypeDef = Union[datetime, str]
 
 
 class TagResourceRequestTypeDef(BaseValidatorModel):
-    ResourceArn: str
+    ResourceArn: Annotated[str, _aws_pattern("Rum", "Arn")]
     Tags: Dict[str, str]
 
 
 class UntagResourceRequestTypeDef(BaseValidatorModel):
-    ResourceArn: str
-    TagKeys: List[str]
+    ResourceArn: Annotated[str, _aws_pattern("Rum", "Arn")]
+    TagKeys: List[Annotated[str, _aws_pattern("Rum", "TagKey")]]
 
 
 AppMonitorConfigurationUnionTypeDef = Union[AppMonitorConfigurationOutputTypeDef, AppMonitorConfigurationTypeDef]
@@ -266,7 +268,7 @@ class BatchGetRumMetricDefinitionsResponseTypeDef(BaseValidatorModel):
 
 # This class is the output for the 'create_app_monitor' function.
 class CreateAppMonitorResponseTypeDef(BaseValidatorModel):
-    Id: str
+    Id: Annotated[str, _aws_pattern("Rum", "AppMonitorId")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
@@ -299,7 +301,7 @@ class ListAppMonitorsResponseTypeDef(BaseValidatorModel):
 
 # This class is the output for the 'list_tags_for_resource' function.
 class ListTagsForResourceResponseTypeDef(BaseValidatorModel):
-    ResourceArn: str
+    ResourceArn: Annotated[str, _aws_pattern("Rum", "Arn")]
     Tags: Dict[str, str]
     ResponseMetadata: ResponseMetadataTypeDef
 
@@ -351,7 +353,7 @@ class GetAppMonitorDataRequestPaginateTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'get_app_monitor_data' function.
 class GetAppMonitorDataRequestTypeDef(BaseValidatorModel):
-    Name: str
+    Name: Annotated[str, _aws_pattern("Rum", "AppMonitorName")]
     TimeRange: TimeRangeTypeDef
     Filters: Optional[List[QueryFilterTypeDef]] = None
     MaxResults: Optional[int] = None
@@ -369,7 +371,7 @@ MetricDefinitionRequestUnionTypeDef = Union[MetricDefinitionRequestOutputTypeDef
 
 
 class RumEventTypeDef(BaseValidatorModel):
-    id: str
+    id: Annotated[str, _aws_pattern("Rum", "RumEventIdString")]
     timestamp: TimestampTypeDef
     type: str
     details: str
@@ -384,10 +386,10 @@ class BatchCreateRumMetricDefinitionsResponseTypeDef(BaseValidatorModel):
 
 
 class AppMonitorTypeDef(BaseValidatorModel):
-    Name: Optional[str] = None
-    Domain: Optional[str] = None
-    DomainList: Optional[List[str]] = None
-    Id: Optional[str] = None
+    Name: Optional[Annotated[str, _aws_pattern("Rum", "AppMonitorName")]] = None
+    Domain: Optional[Annotated[str, _aws_pattern("Rum", "AppMonitorDomain")]] = None
+    DomainList: Optional[List[Annotated[str, _aws_pattern("Rum", "AppMonitorDomain")]]] = None
+    Id: Optional[Annotated[str, _aws_pattern("Rum", "AppMonitorId")]] = None
     Created: Optional[str] = None
     LastModified: Optional[str] = None
     Tags: Optional[Dict[str, str]] = None
@@ -401,9 +403,9 @@ class AppMonitorTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'create_app_monitor' function.
 class CreateAppMonitorRequestTypeDef(BaseValidatorModel):
-    Name: str
-    Domain: Optional[str] = None
-    DomainList: Optional[List[str]] = None
+    Name: Annotated[str, _aws_pattern("Rum", "AppMonitorName")]
+    Domain: Optional[Annotated[str, _aws_pattern("Rum", "AppMonitorDomain")]] = None
+    DomainList: Optional[List[Annotated[str, _aws_pattern("Rum", "AppMonitorDomain")]]] = None
     Tags: Optional[Dict[str, str]] = None
     AppMonitorConfiguration: Optional[AppMonitorConfigurationUnionTypeDef] = None
     CwLogEnabled: Optional[bool] = None
@@ -413,9 +415,9 @@ class CreateAppMonitorRequestTypeDef(BaseValidatorModel):
 
 
 class UpdateAppMonitorRequestTypeDef(BaseValidatorModel):
-    Name: str
-    Domain: Optional[str] = None
-    DomainList: Optional[List[str]] = None
+    Name: Annotated[str, _aws_pattern("Rum", "AppMonitorName")]
+    Domain: Optional[Annotated[str, _aws_pattern("Rum", "AppMonitorDomain")]] = None
+    DomainList: Optional[List[Annotated[str, _aws_pattern("Rum", "AppMonitorDomain")]]] = None
     AppMonitorConfiguration: Optional[AppMonitorConfigurationUnionTypeDef] = None
     CwLogEnabled: Optional[bool] = None
     CustomEvents: Optional[CustomEventsTypeDef] = None
@@ -424,23 +426,23 @@ class UpdateAppMonitorRequestTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'batch_create_rum_metric_definitions' function.
 class BatchCreateRumMetricDefinitionsRequestTypeDef(BaseValidatorModel):
-    AppMonitorName: str
+    AppMonitorName: Annotated[str, _aws_pattern("Rum", "AppMonitorName")]
     Destination: MetricDestinationType
     MetricDefinitions: List[MetricDefinitionRequestUnionTypeDef]
-    DestinationArn: Optional[str] = None
+    DestinationArn: Optional[Annotated[str, _aws_pattern("Rum", "DestinationArn")]] = None
 
 
 class UpdateRumMetricDefinitionRequestTypeDef(BaseValidatorModel):
-    AppMonitorName: str
+    AppMonitorName: Annotated[str, _aws_pattern("Rum", "AppMonitorName")]
     Destination: MetricDestinationType
     MetricDefinition: MetricDefinitionRequestUnionTypeDef
     MetricDefinitionId: str
-    DestinationArn: Optional[str] = None
+    DestinationArn: Optional[Annotated[str, _aws_pattern("Rum", "DestinationArn")]] = None
 
 
 class PutRumEventsRequestTypeDef(BaseValidatorModel):
-    Id: str
-    BatchId: str
+    Id: Annotated[str, _aws_pattern("Rum", "PutRumEventsRequestIdString")]
+    BatchId: Annotated[str, _aws_pattern("Rum", "PutRumEventsRequestBatchIdString")]
     AppMonitorDetails: AppMonitorDetailsTypeDef
     UserDetails: UserDetailsTypeDef
     RumEvents: List[RumEventTypeDef]

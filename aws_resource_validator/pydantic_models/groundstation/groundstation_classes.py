@@ -3,6 +3,7 @@
 from datetime import datetime
 from decimal import Decimal
 from typing import (
+    Annotated,
     Any,
     Callable,
     Dict,
@@ -24,6 +25,7 @@ from botocore.response import StreamingBody
 from pydantic import Field
 
 from aws_resource_validator.core.base_validator_model import BaseValidatorModel, EventStream
+from aws_resource_validator.core.pattern_validation import aws_field_pattern as _aws_pattern
 from aws_resource_validator.pydantic_models.groundstation.groundstation_constants import *  # noqa: F401,F403
 
 # Optional boto3 symbols — imported lazily so services that don't need them
@@ -39,8 +41,8 @@ except ImportError:  # pragma: no cover
 
 
 class ComponentVersionTypeDef(BaseValidatorModel):
-    componentType: str
-    versions: List[str]
+    componentType: Annotated[str, _aws_pattern("Groundstation", "ComponentTypeString")]
+    versions: List[Annotated[str, _aws_pattern("Groundstation", "VersionString")]]
 
 
 class AggregateStatusTypeDef(BaseValidatorModel):
@@ -53,17 +55,17 @@ class AntennaDemodDecodeDetailsTypeDef(BaseValidatorModel):
 
 
 class DecodeConfigTypeDef(BaseValidatorModel):
-    unvalidatedJSON: str
+    unvalidatedJSON: Annotated[str, _aws_pattern("Groundstation", "JsonString")]
 
 
 class DemodulationConfigTypeDef(BaseValidatorModel):
-    unvalidatedJSON: str
+    unvalidatedJSON: Annotated[str, _aws_pattern("Groundstation", "JsonString")]
 
 
 class AntennaListItemTypeDef(BaseValidatorModel):
-    groundStationName: str
-    antennaName: str
-    region: str
+    groundStationName: Annotated[str, _aws_pattern("Groundstation", "GroundStationName")]
+    antennaName: Annotated[str, _aws_pattern("Groundstation", "AntennaName")]
+    region: Annotated[str, _aws_pattern("Groundstation", "AWSRegion")]
 
 
 class EirpTypeDef(BaseValidatorModel):
@@ -72,11 +74,11 @@ class EirpTypeDef(BaseValidatorModel):
 
 
 class AzElEphemerisFilterTypeDef(BaseValidatorModel):
-    id: str
+    id: Annotated[str, _aws_pattern("Groundstation", "Uuid")]
 
 
 class AzElProgramTrackSettingsTypeDef(BaseValidatorModel):
-    ephemerisId: str
+    ephemerisId: Annotated[str, _aws_pattern("Groundstation", "Uuid")]
 
 
 class TimeAzElTypeDef(BaseValidatorModel):
@@ -89,21 +91,21 @@ TimestampTypeDef = Union[datetime, str]
 
 
 class S3ObjectTypeDef(BaseValidatorModel):
-    bucket: Optional[str] = None
-    key: Optional[str] = None
-    version: Optional[str] = None
+    bucket: Optional[Annotated[str, _aws_pattern("Groundstation", "S3BucketName")]] = None
+    key: Optional[Annotated[str, _aws_pattern("Groundstation", "S3ObjectKey")]] = None
+    version: Optional[Annotated[str, _aws_pattern("Groundstation", "S3VersionId")]] = None
 
 
 # This class is the input for the 'cancel_contact' function.
 class CancelContactRequestTypeDef(BaseValidatorModel):
-    contactId: str
+    contactId: Annotated[str, _aws_pattern("Groundstation", "Uuid")]
 
 
 class ComponentStatusDataTypeDef(BaseValidatorModel):
-    componentType: str
+    componentType: Annotated[str, _aws_pattern("Groundstation", "ComponentTypeString")]
     capabilityArn: str
     status: AgentStatusType
-    dataflowId: str
+    dataflowId: Annotated[str, _aws_pattern("Groundstation", "Uuid")]
     bytesSent: Optional[int] = None
     bytesReceived: Optional[int] = None
     packetsDropped: Optional[int] = None
@@ -125,7 +127,7 @@ class ResponseMetadataTypeDef(BaseValidatorModel):
 class ConfigListItemTypeDef(BaseValidatorModel):
     configId: Optional[str] = None
     configType: Optional[ConfigCapabilityTypeType] = None
-    configArn: Optional[str] = None
+    configArn: Optional[Annotated[str, _aws_pattern("Groundstation", "ConfigArn")]] = None
     name: Optional[str] = None
 
 
@@ -136,8 +138,8 @@ class DataflowEndpointConfigTypeDef(BaseValidatorModel):
 
 class S3RecordingConfigTypeDef(BaseValidatorModel):
     bucketArn: str
-    roleArn: str
-    prefix: Optional[str] = None
+    roleArn: Annotated[str, _aws_pattern("Groundstation", "RoleArn")]
+    prefix: Optional[Annotated[str, _aws_pattern("Groundstation", "S3KeyPrefix")]] = None
 
 
 class TrackingConfigTypeDef(BaseValidatorModel):
@@ -146,7 +148,7 @@ class TrackingConfigTypeDef(BaseValidatorModel):
 
 class UplinkEchoConfigTypeDef(BaseValidatorModel):
     enabled: bool
-    antennaUplinkConfigArn: str
+    antennaUplinkConfigArn: Annotated[str, _aws_pattern("Groundstation", "ConfigArn")]
 
 
 class SocketAddressTypeDef(BaseValidatorModel):
@@ -172,48 +174,48 @@ class ElevationTypeDef(BaseValidatorModel):
 
 class EphemerisResponseDataTypeDef(BaseValidatorModel):
     ephemerisType: EphemerisTypeType
-    ephemerisId: Optional[str] = None
+    ephemerisId: Optional[Annotated[str, _aws_pattern("Groundstation", "Uuid")]] = None
 
 
 class ContactReservationDetailsTypeDef(BaseValidatorModel):
-    contactId: Optional[str] = None
+    contactId: Optional[Annotated[str, _aws_pattern("Groundstation", "Uuid")]] = None
 
 
 class KmsKeyTypeDef(BaseValidatorModel):
     kmsKeyArn: Optional[str] = None
-    kmsAliasArn: Optional[str] = None
-    kmsAliasName: Optional[str] = None
+    kmsAliasArn: Optional[Annotated[str, _aws_pattern("Groundstation", "KeyAliasArn")]] = None
+    kmsAliasName: Optional[Annotated[str, _aws_pattern("Groundstation", "KeyAliasName")]] = None
 
 
 class DataflowEndpointListItemTypeDef(BaseValidatorModel):
-    dataflowEndpointGroupId: Optional[str] = None
-    dataflowEndpointGroupArn: Optional[str] = None
+    dataflowEndpointGroupId: Optional[Annotated[str, _aws_pattern("Groundstation", "Uuid")]] = None
+    dataflowEndpointGroupArn: Optional[Annotated[str, _aws_pattern("Groundstation", "DataflowEndpointGroupArn")]] = None
 
 
 # This class is the input for the 'delete_config' function.
 class DeleteConfigRequestTypeDef(BaseValidatorModel):
-    configId: str
+    configId: Annotated[str, _aws_pattern("Groundstation", "Uuid")]
     configType: ConfigCapabilityTypeType
 
 
 # This class is the input for the 'delete_dataflow_endpoint_group' function.
 class DeleteDataflowEndpointGroupRequestTypeDef(BaseValidatorModel):
-    dataflowEndpointGroupId: str
+    dataflowEndpointGroupId: Annotated[str, _aws_pattern("Groundstation", "Uuid")]
 
 
 # This class is the input for the 'delete_ephemeris' function.
 class DeleteEphemerisRequestTypeDef(BaseValidatorModel):
-    ephemerisId: str
+    ephemerisId: Annotated[str, _aws_pattern("Groundstation", "Uuid")]
 
 
 # This class is the input for the 'delete_mission_profile' function.
 class DeleteMissionProfileRequestTypeDef(BaseValidatorModel):
-    missionProfileId: str
+    missionProfileId: Annotated[str, _aws_pattern("Groundstation", "Uuid")]
 
 
 # This class is the input for the 'describe_contact' function.
 class DescribeContactRequestTypeDef(BaseValidatorModel):
-    contactId: str
+    contactId: Annotated[str, _aws_pattern("Groundstation", "Uuid")]
 
 
 class WaiterConfigTypeDef(BaseValidatorModel):
@@ -223,13 +225,13 @@ class WaiterConfigTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'describe_contact_version' function.
 class DescribeContactVersionRequestTypeDef(BaseValidatorModel):
-    contactId: str
+    contactId: Annotated[str, _aws_pattern("Groundstation", "Uuid")]
     versionId: int
 
 
 # This class is the input for the 'describe_ephemeris' function.
 class DescribeEphemerisRequestTypeDef(BaseValidatorModel):
-    ephemerisId: str
+    ephemerisId: Annotated[str, _aws_pattern("Groundstation", "Uuid")]
 
 
 class EphemerisErrorReasonTypeDef(BaseValidatorModel):
@@ -238,8 +240,8 @@ class EphemerisErrorReasonTypeDef(BaseValidatorModel):
 
 
 class DiscoveryDataTypeDef(BaseValidatorModel):
-    publicIpAddresses: List[str]
-    privateIpAddresses: List[str]
+    publicIpAddresses: List[Annotated[str, _aws_pattern("Groundstation", "IpV4Address")]]
+    privateIpAddresses: List[Annotated[str, _aws_pattern("Groundstation", "IpV4Address")]]
     capabilityArns: List[str]
 
 
@@ -251,9 +253,9 @@ class SecurityDetailsOutputTypeDef(BaseValidatorModel):
 
 class EphemerisMetaDataTypeDef(BaseValidatorModel):
     source: EphemerisSourceType
-    ephemerisId: Optional[str] = None
+    ephemerisId: Optional[Annotated[str, _aws_pattern("Groundstation", "Uuid")]] = None
     epoch: Optional[datetime] = None
-    name: Optional[str] = None
+    name: Optional[Annotated[str, _aws_pattern("Groundstation", "SafeName")]] = None
 
 
 class FrequencyBandwidthTypeDef(BaseValidatorModel):
@@ -268,24 +270,24 @@ class FrequencyTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'get_agent_configuration' function.
 class GetAgentConfigurationRequestTypeDef(BaseValidatorModel):
-    agentId: str
+    agentId: Annotated[str, _aws_pattern("Groundstation", "Uuid")]
 
 
 # This class is the input for the 'get_agent_task_response_url' function.
 class GetAgentTaskResponseUrlRequestTypeDef(BaseValidatorModel):
-    agentId: str
-    taskId: str
+    agentId: Annotated[str, _aws_pattern("Groundstation", "Uuid")]
+    taskId: Annotated[str, _aws_pattern("Groundstation", "Uuid")]
 
 
 # This class is the input for the 'get_config' function.
 class GetConfigRequestTypeDef(BaseValidatorModel):
-    configId: str
+    configId: Annotated[str, _aws_pattern("Groundstation", "Uuid")]
     configType: ConfigCapabilityTypeType
 
 
 # This class is the input for the 'get_dataflow_endpoint_group' function.
 class GetDataflowEndpointGroupRequestTypeDef(BaseValidatorModel):
-    dataflowEndpointGroupId: str
+    dataflowEndpointGroupId: Annotated[str, _aws_pattern("Groundstation", "Uuid")]
 
 
 # This class is the input for the 'get_minute_usage' function.
@@ -296,18 +298,18 @@ class GetMinuteUsageRequestTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'get_mission_profile' function.
 class GetMissionProfileRequestTypeDef(BaseValidatorModel):
-    missionProfileId: str
+    missionProfileId: Annotated[str, _aws_pattern("Groundstation", "Uuid")]
 
 
 # This class is the input for the 'get_satellite' function.
 class GetSatelliteRequestTypeDef(BaseValidatorModel):
-    satelliteId: str
+    satelliteId: Annotated[str, _aws_pattern("Groundstation", "Uuid")]
 
 
 class GroundStationDataTypeDef(BaseValidatorModel):
-    groundStationId: Optional[str] = None
-    groundStationName: Optional[str] = None
-    region: Optional[str] = None
+    groundStationId: Optional[Annotated[str, _aws_pattern("Groundstation", "GroundStationName")]] = None
+    groundStationName: Optional[Annotated[str, _aws_pattern("Groundstation", "GroundStationName")]] = None
+    region: Optional[Annotated[str, _aws_pattern("Groundstation", "AWSRegion")]] = None
 
 
 class IntegerRangeTypeDef(BaseValidatorModel):
@@ -316,8 +318,8 @@ class IntegerRangeTypeDef(BaseValidatorModel):
 
 
 class KinesisDataStreamDataTypeDef(BaseValidatorModel):
-    kinesisRoleArn: str
-    kinesisDataStreamArn: str
+    kinesisRoleArn: Annotated[str, _aws_pattern("Groundstation", "RoleArn")]
+    kinesisDataStreamArn: Annotated[str, _aws_pattern("Groundstation", "KinesisDataStreamArn")]
 
 
 class PaginatorConfigTypeDef(BaseValidatorModel):
@@ -328,59 +330,59 @@ class PaginatorConfigTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'list_antennas' function.
 class ListAntennasRequestTypeDef(BaseValidatorModel):
-    groundStationId: str
+    groundStationId: Annotated[str, _aws_pattern("Groundstation", "GroundStationName")]
     maxResults: Optional[int] = None
-    nextToken: Optional[str] = None
+    nextToken: Optional[Annotated[str, _aws_pattern("Groundstation", "PaginationToken")]] = None
 
 
 # This class is the input for the 'list_configs' function.
 class ListConfigsRequestTypeDef(BaseValidatorModel):
     maxResults: Optional[int] = None
-    nextToken: Optional[str] = None
+    nextToken: Optional[Annotated[str, _aws_pattern("Groundstation", "PaginationToken")]] = None
 
 
 # This class is the input for the 'list_contact_versions' function.
 class ListContactVersionsRequestTypeDef(BaseValidatorModel):
-    contactId: str
+    contactId: Annotated[str, _aws_pattern("Groundstation", "Uuid")]
     maxResults: Optional[int] = None
-    nextToken: Optional[str] = None
+    nextToken: Optional[Annotated[str, _aws_pattern("Groundstation", "PaginationToken")]] = None
 
 
 # This class is the input for the 'list_dataflow_endpoint_groups' function.
 class ListDataflowEndpointGroupsRequestTypeDef(BaseValidatorModel):
     maxResults: Optional[int] = None
-    nextToken: Optional[str] = None
+    nextToken: Optional[Annotated[str, _aws_pattern("Groundstation", "PaginationToken")]] = None
 
 
 # This class is the input for the 'list_ground_stations' function.
 class ListGroundStationsRequestTypeDef(BaseValidatorModel):
-    satelliteId: Optional[str] = None
+    satelliteId: Optional[Annotated[str, _aws_pattern("Groundstation", "Uuid")]] = None
     maxResults: Optional[int] = None
-    nextToken: Optional[str] = None
+    nextToken: Optional[Annotated[str, _aws_pattern("Groundstation", "PaginationToken")]] = None
 
 
 # This class is the input for the 'list_mission_profiles' function.
 class ListMissionProfilesRequestTypeDef(BaseValidatorModel):
     maxResults: Optional[int] = None
-    nextToken: Optional[str] = None
+    nextToken: Optional[Annotated[str, _aws_pattern("Groundstation", "PaginationToken")]] = None
 
 
 class MissionProfileListItemTypeDef(BaseValidatorModel):
-    missionProfileId: Optional[str] = None
-    missionProfileArn: Optional[str] = None
-    region: Optional[str] = None
-    name: Optional[str] = None
+    missionProfileId: Optional[Annotated[str, _aws_pattern("Groundstation", "Uuid")]] = None
+    missionProfileArn: Optional[Annotated[str, _aws_pattern("Groundstation", "MissionProfileArn")]] = None
+    region: Optional[Annotated[str, _aws_pattern("Groundstation", "AWSRegion")]] = None
+    name: Optional[Annotated[str, _aws_pattern("Groundstation", "SafeName")]] = None
 
 
 # This class is the input for the 'list_satellites' function.
 class ListSatellitesRequestTypeDef(BaseValidatorModel):
     maxResults: Optional[int] = None
-    nextToken: Optional[str] = None
+    nextToken: Optional[Annotated[str, _aws_pattern("Groundstation", "PaginationToken")]] = None
 
 
 # This class is the input for the 'list_tags_for_resource' function.
 class ListTagsForResourceRequestTypeDef(BaseValidatorModel):
-    resourceArn: str
+    resourceArn: Annotated[str, _aws_pattern("Groundstation", "AnyArn")]
 
 
 class MaintenanceReservationDetailsTypeDef(BaseValidatorModel):
@@ -388,41 +390,41 @@ class MaintenanceReservationDetailsTypeDef(BaseValidatorModel):
 
 
 class OemProgramTrackSettingsTypeDef(BaseValidatorModel):
-    ephemerisId: str
+    ephemerisId: Annotated[str, _aws_pattern("Groundstation", "Uuid")]
 
 
 class TleProgramTrackSettingsTypeDef(BaseValidatorModel):
-    ephemerisId: str
+    ephemerisId: Annotated[str, _aws_pattern("Groundstation", "Uuid")]
 
 
 class SecurityDetailsTypeDef(BaseValidatorModel):
     subnetIds: List[str]
     securityGroupIds: List[str]
-    roleArn: str
+    roleArn: Annotated[str, _aws_pattern("Groundstation", "RoleArn")]
 
 
 class TagResourceRequestTypeDef(BaseValidatorModel):
-    resourceArn: str
+    resourceArn: Annotated[str, _aws_pattern("Groundstation", "AnyArn")]
     tags: Dict[str, str]
 
 
 class UntagResourceRequestTypeDef(BaseValidatorModel):
-    resourceArn: str
-    tagKeys: List[str]
+    resourceArn: Annotated[str, _aws_pattern("Groundstation", "AnyArn")]
+    tagKeys: List[Annotated[str, _aws_pattern("Groundstation", "UnboundedString")]]
 
 
 # This class is the input for the 'update_ephemeris' function.
 class UpdateEphemerisRequestTypeDef(BaseValidatorModel):
-    ephemerisId: str
+    ephemerisId: Annotated[str, _aws_pattern("Groundstation", "Uuid")]
     enabled: bool
-    name: Optional[str] = None
+    name: Optional[Annotated[str, _aws_pattern("Groundstation", "SafeName")]] = None
     priority: Optional[int] = None
 
 
 class AgentDetailsTypeDef(BaseValidatorModel):
-    agentVersion: str
-    instanceId: str
-    instanceType: str
+    agentVersion: Annotated[str, _aws_pattern("Groundstation", "VersionString")]
+    instanceId: Annotated[str, _aws_pattern("Groundstation", "InstanceId")]
+    instanceType: Annotated[str, _aws_pattern("Groundstation", "InstanceType")]
     componentVersions: List[ComponentVersionTypeDef]
     reservedCpuCores: Optional[List[int]] = None
     agentCpuCores: Optional[List[int]] = None
@@ -441,21 +443,21 @@ class ISO8601TimeRangeTypeDef(BaseValidatorModel):
 class ListEphemeridesRequestTypeDef(BaseValidatorModel):
     startTime: TimestampTypeDef
     endTime: TimestampTypeDef
-    satelliteId: Optional[str] = None
+    satelliteId: Optional[Annotated[str, _aws_pattern("Groundstation", "Uuid")]] = None
     ephemerisType: Optional[EphemerisTypeType] = None
     statusList: Optional[List[EphemerisStatusType]] = None
     maxResults: Optional[int] = None
-    nextToken: Optional[str] = None
+    nextToken: Optional[Annotated[str, _aws_pattern("Groundstation", "PaginationToken")]] = None
 
 
 # This class is the input for the 'list_ground_station_reservations' function.
 class ListGroundStationReservationsRequestTypeDef(BaseValidatorModel):
-    groundStationId: str
+    groundStationId: Annotated[str, _aws_pattern("Groundstation", "GroundStationName")]
     startTime: TimestampTypeDef
     endTime: TimestampTypeDef
     reservationTypes: Optional[List[ReservationTypeType]] = None
     maxResults: Optional[int] = None
-    nextToken: Optional[str] = None
+    nextToken: Optional[Annotated[str, _aws_pattern("Groundstation", "PaginationToken")]] = None
 
 
 class TimeRangeTypeDef(BaseValidatorModel):
@@ -465,29 +467,29 @@ class TimeRangeTypeDef(BaseValidatorModel):
 
 class EphemerisDescriptionTypeDef(BaseValidatorModel):
     sourceS3Object: Optional[S3ObjectTypeDef] = None
-    ephemerisData: Optional[str] = None
+    ephemerisData: Optional[Annotated[str, _aws_pattern("Groundstation", "UnboundedString")]] = None
 
 
 class EphemerisItemTypeDef(BaseValidatorModel):
-    ephemerisId: Optional[str] = None
+    ephemerisId: Optional[Annotated[str, _aws_pattern("Groundstation", "Uuid")]] = None
     ephemerisType: Optional[EphemerisTypeType] = None
     status: Optional[EphemerisStatusType] = None
     priority: Optional[int] = None
     enabled: Optional[bool] = None
     creationTime: Optional[datetime] = None
-    name: Optional[str] = None
+    name: Optional[Annotated[str, _aws_pattern("Groundstation", "SafeName")]] = None
     sourceS3Object: Optional[S3ObjectTypeDef] = None
 
 
 class OEMEphemerisTypeDef(BaseValidatorModel):
     s3Object: Optional[S3ObjectTypeDef] = None
-    oemData: Optional[str] = None
+    oemData: Optional[Annotated[str, _aws_pattern("Groundstation", "UnboundedString")]] = None
 
 
 # This class is the input for the 'update_agent_status' function.
 class UpdateAgentStatusRequestTypeDef(BaseValidatorModel):
-    agentId: str
-    taskId: str
+    agentId: Annotated[str, _aws_pattern("Groundstation", "Uuid")]
+    taskId: Annotated[str, _aws_pattern("Groundstation", "Uuid")]
     aggregateStatus: AggregateStatusTypeDef
     componentStatuses: List[ComponentStatusDataTypeDef]
 
@@ -496,46 +498,46 @@ class UpdateAgentStatusRequestTypeDef(BaseValidatorModel):
 class ConfigIdResponseTypeDef(BaseValidatorModel):
     configId: str
     configType: ConfigCapabilityTypeType
-    configArn: str
+    configArn: Annotated[str, _aws_pattern("Groundstation", "ConfigArn")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 # This class is the output for the 'cancel_contact' function.
 class ContactIdResponseTypeDef(BaseValidatorModel):
-    contactId: str
+    contactId: Annotated[str, _aws_pattern("Groundstation", "Uuid")]
     versionId: int
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 # This class is the output for the 'create_dataflow_endpoint_group_v2' function.
 class CreateDataflowEndpointGroupV2ResponseTypeDef(BaseValidatorModel):
-    dataflowEndpointGroupId: str
+    dataflowEndpointGroupId: Annotated[str, _aws_pattern("Groundstation", "Uuid")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 # This class is the output for the 'create_dataflow_endpoint_group' function.
 class DataflowEndpointGroupIdResponseTypeDef(BaseValidatorModel):
-    dataflowEndpointGroupId: str
+    dataflowEndpointGroupId: Annotated[str, _aws_pattern("Groundstation", "Uuid")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 # This class is the output for the 'create_ephemeris' function.
 class EphemerisIdResponseTypeDef(BaseValidatorModel):
-    ephemerisId: str
+    ephemerisId: Annotated[str, _aws_pattern("Groundstation", "Uuid")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 # This class is the output for the 'get_agent_configuration' function.
 class GetAgentConfigurationResponseTypeDef(BaseValidatorModel):
-    agentId: str
+    agentId: Annotated[str, _aws_pattern("Groundstation", "Uuid")]
     taskingDocument: str
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 # This class is the output for the 'get_agent_task_response_url' function.
 class GetAgentTaskResponseUrlResponseTypeDef(BaseValidatorModel):
-    agentId: str
-    taskId: str
+    agentId: Annotated[str, _aws_pattern("Groundstation", "Uuid")]
+    taskId: Annotated[str, _aws_pattern("Groundstation", "Uuid")]
     presignedLogUrl: str
     ResponseMetadata: ResponseMetadataTypeDef
 
@@ -554,7 +556,7 @@ class GetMinuteUsageResponseTypeDef(BaseValidatorModel):
 class ListAntennasResponseTypeDef(BaseValidatorModel):
     antennaList: List[AntennaListItemTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
-    nextToken: Optional[str] = None
+    nextToken: Optional[Annotated[str, _aws_pattern("Groundstation", "PaginationToken")]] = None
 
 
 # This class is the output for the 'list_tags_for_resource' function.
@@ -565,25 +567,25 @@ class ListTagsForResourceResponseTypeDef(BaseValidatorModel):
 
 # This class is the output for the 'create_mission_profile' function.
 class MissionProfileIdResponseTypeDef(BaseValidatorModel):
-    missionProfileId: str
+    missionProfileId: Annotated[str, _aws_pattern("Groundstation", "Uuid")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 # This class is the output for the 'register_agent' function.
 class RegisterAgentResponseTypeDef(BaseValidatorModel):
-    agentId: str
+    agentId: Annotated[str, _aws_pattern("Groundstation", "Uuid")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 # This class is the output for the 'update_agent_status' function.
 class UpdateAgentStatusResponseTypeDef(BaseValidatorModel):
-    agentId: str
+    agentId: Annotated[str, _aws_pattern("Groundstation", "Uuid")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 # This class is the output for the 'update_contact' function.
 class UpdateContactResponseTypeDef(BaseValidatorModel):
-    contactId: str
+    contactId: Annotated[str, _aws_pattern("Groundstation", "Uuid")]
     versionId: int
     ResponseMetadata: ResponseMetadataTypeDef
 
@@ -592,7 +594,7 @@ class UpdateContactResponseTypeDef(BaseValidatorModel):
 class ListConfigsResponseTypeDef(BaseValidatorModel):
     configList: List[ConfigListItemTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
-    nextToken: Optional[str] = None
+    nextToken: Optional[Annotated[str, _aws_pattern("Groundstation", "PaginationToken")]] = None
 
 
 class ConnectionDetailsTypeDef(BaseValidatorModel):
@@ -601,7 +603,7 @@ class ConnectionDetailsTypeDef(BaseValidatorModel):
 
 
 class DataflowEndpointTypeDef(BaseValidatorModel):
-    name: Optional[str] = None
+    name: Optional[Annotated[str, _aws_pattern("Groundstation", "SafeName")]] = None
     address: Optional[SocketAddressTypeDef] = None
     status: Optional[EndpointStatusType] = None
     mtu: Optional[int] = None
@@ -611,13 +613,13 @@ class DataflowEndpointTypeDef(BaseValidatorModel):
 class ListContactVersionsResponseTypeDef(BaseValidatorModel):
     contactVersionsList: List[ContactVersionTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
-    nextToken: Optional[str] = None
+    nextToken: Optional[Annotated[str, _aws_pattern("Groundstation", "PaginationToken")]] = None
 
 
 class ContactDataTypeDef(BaseValidatorModel):
-    contactId: Optional[str] = None
-    missionProfileArn: Optional[str] = None
-    satelliteArn: Optional[str] = None
+    contactId: Optional[Annotated[str, _aws_pattern("Groundstation", "Uuid")]] = None
+    missionProfileArn: Optional[Annotated[str, _aws_pattern("Groundstation", "MissionProfileArn")]] = None
+    satelliteArn: Optional[Annotated[str, _aws_pattern("Groundstation", "satelliteArn")]] = None
     startTime: Optional[datetime] = None
     endTime: Optional[datetime] = None
     prePassStartTime: Optional[datetime] = None
@@ -636,55 +638,55 @@ class ContactDataTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'create_mission_profile' function.
 class CreateMissionProfileRequestTypeDef(BaseValidatorModel):
-    name: str
+    name: Annotated[str, _aws_pattern("Groundstation", "SafeName")]
     minimumViableContactDurationSeconds: int
     dataflowEdges: List[List[str]]
-    trackingConfigArn: str
+    trackingConfigArn: Annotated[str, _aws_pattern("Groundstation", "ConfigArn")]
     contactPrePassDurationSeconds: Optional[int] = None
     contactPostPassDurationSeconds: Optional[int] = None
-    telemetrySinkConfigArn: Optional[str] = None
+    telemetrySinkConfigArn: Optional[Annotated[str, _aws_pattern("Groundstation", "ConfigArn")]] = None
     tags: Optional[Dict[str, str]] = None
     streamsKmsKey: Optional[KmsKeyTypeDef] = None
-    streamsKmsRole: Optional[str] = None
+    streamsKmsRole: Optional[Annotated[str, _aws_pattern("Groundstation", "RoleArn")]] = None
 
 
 # This class is the output for the 'get_mission_profile' function.
 class GetMissionProfileResponseTypeDef(BaseValidatorModel):
-    missionProfileId: str
-    missionProfileArn: str
-    name: str
-    region: str
+    missionProfileId: Annotated[str, _aws_pattern("Groundstation", "Uuid")]
+    missionProfileArn: Annotated[str, _aws_pattern("Groundstation", "MissionProfileArn")]
+    name: Annotated[str, _aws_pattern("Groundstation", "SafeName")]
+    region: Annotated[str, _aws_pattern("Groundstation", "AWSRegion")]
     contactPrePassDurationSeconds: int
     contactPostPassDurationSeconds: int
     minimumViableContactDurationSeconds: int
     dataflowEdges: List[List[str]]
-    trackingConfigArn: str
-    telemetrySinkConfigArn: str
+    trackingConfigArn: Annotated[str, _aws_pattern("Groundstation", "ConfigArn")]
+    telemetrySinkConfigArn: Annotated[str, _aws_pattern("Groundstation", "ConfigArn")]
     tags: Dict[str, str]
     streamsKmsKey: KmsKeyTypeDef
-    streamsKmsRole: str
+    streamsKmsRole: Annotated[str, _aws_pattern("Groundstation", "RoleArn")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 # This class is the input for the 'update_mission_profile' function.
 class UpdateMissionProfileRequestTypeDef(BaseValidatorModel):
-    missionProfileId: str
-    name: Optional[str] = None
+    missionProfileId: Annotated[str, _aws_pattern("Groundstation", "Uuid")]
+    name: Optional[Annotated[str, _aws_pattern("Groundstation", "SafeName")]] = None
     contactPrePassDurationSeconds: Optional[int] = None
     contactPostPassDurationSeconds: Optional[int] = None
     minimumViableContactDurationSeconds: Optional[int] = None
     dataflowEdges: Optional[List[List[str]]] = None
-    trackingConfigArn: Optional[str] = None
-    telemetrySinkConfigArn: Optional[str] = None
+    trackingConfigArn: Optional[Annotated[str, _aws_pattern("Groundstation", "ConfigArn")]] = None
+    telemetrySinkConfigArn: Optional[Annotated[str, _aws_pattern("Groundstation", "ConfigArn")]] = None
     streamsKmsKey: Optional[KmsKeyTypeDef] = None
-    streamsKmsRole: Optional[str] = None
+    streamsKmsRole: Optional[Annotated[str, _aws_pattern("Groundstation", "RoleArn")]] = None
 
 
 # This class is the output for the 'list_dataflow_endpoint_groups' function.
 class ListDataflowEndpointGroupsResponseTypeDef(BaseValidatorModel):
     dataflowEndpointGroupList: List[DataflowEndpointListItemTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
-    nextToken: Optional[str] = None
+    nextToken: Optional[Annotated[str, _aws_pattern("Groundstation", "PaginationToken")]] = None
 
 
 class DescribeContactRequestWaitTypeDef(BaseValidatorModel):
@@ -700,19 +702,19 @@ class DescribeContactVersionRequestWaitTypeDef(BaseValidatorModel):
 
 # This class is the output for the 'get_satellite' function.
 class GetSatelliteResponseTypeDef(BaseValidatorModel):
-    satelliteId: str
-    satelliteArn: str
+    satelliteId: Annotated[str, _aws_pattern("Groundstation", "Uuid")]
+    satelliteArn: Annotated[str, _aws_pattern("Groundstation", "satelliteArn")]
     noradSatelliteID: int
-    groundStations: List[str]
+    groundStations: List[Annotated[str, _aws_pattern("Groundstation", "GroundStationName")]]
     currentEphemeris: EphemerisMetaDataTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 class SatelliteListItemTypeDef(BaseValidatorModel):
-    satelliteId: Optional[str] = None
-    satelliteArn: Optional[str] = None
+    satelliteId: Optional[Annotated[str, _aws_pattern("Groundstation", "Uuid")]] = None
+    satelliteArn: Optional[Annotated[str, _aws_pattern("Groundstation", "satelliteArn")]] = None
     noradSatelliteID: Optional[int] = None
-    groundStations: Optional[List[str]] = None
+    groundStations: Optional[List[Annotated[str, _aws_pattern("Groundstation", "GroundStationName")]]] = None
     currentEphemeris: Optional[EphemerisMetaDataTypeDef] = None
 
 
@@ -731,11 +733,11 @@ class UplinkSpectrumConfigTypeDef(BaseValidatorModel):
 class ListGroundStationsResponseTypeDef(BaseValidatorModel):
     groundStationList: List[GroundStationDataTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
-    nextToken: Optional[str] = None
+    nextToken: Optional[Annotated[str, _aws_pattern("Groundstation", "PaginationToken")]] = None
 
 
 class RangedSocketAddressTypeDef(BaseValidatorModel):
-    name: str
+    name: Annotated[str, _aws_pattern("Groundstation", "IpV4Address")]
     portRange: IntegerRangeTypeDef
 
 
@@ -795,7 +797,7 @@ class ListSatellitesRequestPaginateTypeDef(BaseValidatorModel):
 class ListMissionProfilesResponseTypeDef(BaseValidatorModel):
     missionProfileList: List[MissionProfileListItemTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
-    nextToken: Optional[str] = None
+    nextToken: Optional[Annotated[str, _aws_pattern("Groundstation", "PaginationToken")]] = None
 
 
 class ReservationDetailsTypeDef(BaseValidatorModel):
@@ -836,10 +838,10 @@ class ListContactsRequestTypeDef(BaseValidatorModel):
     startTime: TimestampTypeDef
     endTime: TimestampTypeDef
     maxResults: Optional[int] = None
-    nextToken: Optional[str] = None
-    groundStation: Optional[str] = None
-    satelliteArn: Optional[str] = None
-    missionProfileArn: Optional[str] = None
+    nextToken: Optional[Annotated[str, _aws_pattern("Groundstation", "PaginationToken")]] = None
+    groundStation: Optional[Annotated[str, _aws_pattern("Groundstation", "GroundStationName")]] = None
+    satelliteArn: Optional[Annotated[str, _aws_pattern("Groundstation", "satelliteArn")]] = None
+    missionProfileArn: Optional[Annotated[str, _aws_pattern("Groundstation", "MissionProfileArn")]] = None
     ephemeris: Optional[EphemerisFilterTypeDef] = None
 
 
@@ -850,8 +852,8 @@ class AzElSegmentTypeDef(BaseValidatorModel):
 
 
 class TLEDataTypeDef(BaseValidatorModel):
-    tleLine1: str
-    tleLine2: str
+    tleLine1: Annotated[str, _aws_pattern("Groundstation", "TleLineOne")]
+    tleLine2: Annotated[str, _aws_pattern("Groundstation", "TleLineTwo")]
     validTimeRange: TimeRangeTypeDef
 
 
@@ -865,21 +867,21 @@ class EphemerisTypeDescriptionTypeDef(BaseValidatorModel):
 class ListEphemeridesResponseTypeDef(BaseValidatorModel):
     ephemerides: List[EphemerisItemTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
-    nextToken: Optional[str] = None
+    nextToken: Optional[Annotated[str, _aws_pattern("Groundstation", "PaginationToken")]] = None
 
 
 # This class is the output for the 'list_contacts' function.
 class ListContactsResponseTypeDef(BaseValidatorModel):
     contactList: List[ContactDataTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
-    nextToken: Optional[str] = None
+    nextToken: Optional[Annotated[str, _aws_pattern("Groundstation", "PaginationToken")]] = None
 
 
 # This class is the output for the 'list_satellites' function.
 class ListSatellitesResponseTypeDef(BaseValidatorModel):
     satellites: List[SatelliteListItemTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
-    nextToken: Optional[str] = None
+    nextToken: Optional[Annotated[str, _aws_pattern("Groundstation", "PaginationToken")]] = None
 
 
 class AntennaDownlinkConfigTypeDef(BaseValidatorModel):
@@ -910,8 +912,8 @@ class TelemetrySinkConfigTypeDef(BaseValidatorModel):
 
 class GroundStationReservationListItemTypeDef(BaseValidatorModel):
     reservationType: ReservationTypeType
-    groundStationId: str
-    antennaName: str
+    groundStationId: Annotated[str, _aws_pattern("Groundstation", "GroundStationName")]
+    antennaName: Annotated[str, _aws_pattern("Groundstation", "AntennaName")]
     startTime: datetime
     endTime: datetime
     reservationDetails: ReservationDetailsTypeDef
@@ -933,13 +935,13 @@ class TLEEphemerisTypeDef(BaseValidatorModel):
 
 # This class is the output for the 'describe_ephemeris' function.
 class DescribeEphemerisResponseTypeDef(BaseValidatorModel):
-    ephemerisId: str
-    satelliteId: str
+    ephemerisId: Annotated[str, _aws_pattern("Groundstation", "Uuid")]
+    satelliteId: Annotated[str, _aws_pattern("Groundstation", "Uuid")]
     status: EphemerisStatusType
     priority: int
     creationTime: datetime
     enabled: bool
-    name: str
+    name: Annotated[str, _aws_pattern("Groundstation", "SafeName")]
     tags: Dict[str, str]
     suppliedData: EphemerisTypeDescriptionTypeDef
     invalidReason: EphemerisInvalidReasonType
@@ -948,7 +950,7 @@ class DescribeEphemerisResponseTypeDef(BaseValidatorModel):
 
 
 class AwsGroundStationAgentEndpointTypeDef(BaseValidatorModel):
-    name: str
+    name: Annotated[str, _aws_pattern("Groundstation", "SafeName")]
     egressAddress: ConnectionDetailsTypeDef
     ingressAddress: RangedConnectionDetailsTypeDef
     agentStatus: Optional[AgentStatusType] = None
@@ -980,26 +982,26 @@ class ConfigTypeDataTypeDef(BaseValidatorModel):
 class ListGroundStationReservationsResponseTypeDef(BaseValidatorModel):
     reservationList: List[GroundStationReservationListItemTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
-    nextToken: Optional[str] = None
+    nextToken: Optional[Annotated[str, _aws_pattern("Groundstation", "PaginationToken")]] = None
 
 
 # This class is the input for the 'reserve_contact' function.
 class ReserveContactRequestTypeDef(BaseValidatorModel):
-    missionProfileArn: str
+    missionProfileArn: Annotated[str, _aws_pattern("Groundstation", "MissionProfileArn")]
     startTime: TimestampTypeDef
     endTime: TimestampTypeDef
-    groundStation: str
-    satelliteArn: Optional[str] = None
+    groundStation: Annotated[str, _aws_pattern("Groundstation", "GroundStationName")]
+    satelliteArn: Optional[Annotated[str, _aws_pattern("Groundstation", "satelliteArn")]] = None
     tags: Optional[Dict[str, str]] = None
     trackingOverrides: Optional[TrackingOverridesTypeDef] = None
 
 
 # This class is the input for the 'update_contact' function.
 class UpdateContactRequestTypeDef(BaseValidatorModel):
-    contactId: str
-    clientToken: Optional[str] = None
+    contactId: Annotated[str, _aws_pattern("Groundstation", "Uuid")]
+    clientToken: Optional[Annotated[str, _aws_pattern("Groundstation", "ClientToken")]] = None
     trackingOverrides: Optional[TrackingOverridesTypeDef] = None
-    satelliteArn: Optional[str] = None
+    satelliteArn: Optional[Annotated[str, _aws_pattern("Groundstation", "satelliteArn")]] = None
 
 
 class AzElSegmentsDataTypeDef(BaseValidatorModel):
@@ -1017,7 +1019,7 @@ class UplinkDataflowDetailsTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'create_config' function.
 class CreateConfigRequestTypeDef(BaseValidatorModel):
-    name: str
+    name: Annotated[str, _aws_pattern("Groundstation", "SafeName")]
     configData: ConfigTypeDataTypeDef
     tags: Optional[Dict[str, str]] = None
 
@@ -1025,7 +1027,7 @@ class CreateConfigRequestTypeDef(BaseValidatorModel):
 # This class is the output for the 'get_config' function.
 class GetConfigResponseTypeDef(BaseValidatorModel):
     configId: str
-    configArn: str
+    configArn: Annotated[str, _aws_pattern("Groundstation", "ConfigArn")]
     name: str
     configType: ConfigCapabilityTypeType
     configData: ConfigTypeDataTypeDef
@@ -1035,38 +1037,38 @@ class GetConfigResponseTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'update_config' function.
 class UpdateConfigRequestTypeDef(BaseValidatorModel):
-    configId: str
-    name: str
+    configId: Annotated[str, _aws_pattern("Groundstation", "Uuid")]
+    name: Annotated[str, _aws_pattern("Groundstation", "SafeName")]
     configType: ConfigCapabilityTypeType
     configData: ConfigTypeDataTypeDef
 
 
 class AzElEphemerisTypeDef(BaseValidatorModel):
-    groundStation: str
+    groundStation: Annotated[str, _aws_pattern("Groundstation", "GroundStationName")]
     data: AzElSegmentsDataTypeDef
 
 
 class DownlinkAwsGroundStationAgentEndpointDetailsTypeDef(BaseValidatorModel):
-    name: str
+    name: Annotated[str, _aws_pattern("Groundstation", "SafeName")]
     dataflowDetails: DownlinkDataflowDetailsTypeDef
     agentStatus: Optional[AgentStatusType] = None
     auditResults: Optional[AuditResultsType] = None
 
 
 class DownlinkAwsGroundStationAgentEndpointTypeDef(BaseValidatorModel):
-    name: str
+    name: Annotated[str, _aws_pattern("Groundstation", "SafeName")]
     dataflowDetails: DownlinkDataflowDetailsTypeDef
 
 
 class UplinkAwsGroundStationAgentEndpointDetailsTypeDef(BaseValidatorModel):
-    name: str
+    name: Annotated[str, _aws_pattern("Groundstation", "SafeName")]
     dataflowDetails: UplinkDataflowDetailsTypeDef
     agentStatus: Optional[AgentStatusType] = None
     auditResults: Optional[AuditResultsType] = None
 
 
 class UplinkAwsGroundStationAgentEndpointTypeDef(BaseValidatorModel):
-    name: str
+    name: Annotated[str, _aws_pattern("Groundstation", "SafeName")]
     dataflowDetails: UplinkDataflowDetailsTypeDef
 
 
@@ -1103,8 +1105,8 @@ class CreateEndpointDetailsTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'create_ephemeris' function.
 class CreateEphemerisRequestTypeDef(BaseValidatorModel):
-    name: str
-    satelliteId: Optional[str] = None
+    name: Annotated[str, _aws_pattern("Groundstation", "SafeName")]
+    satelliteId: Optional[Annotated[str, _aws_pattern("Groundstation", "Uuid")]] = None
     enabled: Optional[bool] = None
     priority: Optional[int] = None
     expirationTime: Optional[TimestampTypeDef] = None
@@ -1121,8 +1123,8 @@ class ConfigDetailsTypeDef(BaseValidatorModel):
 
 # This class is the output for the 'get_dataflow_endpoint_group' function.
 class GetDataflowEndpointGroupResponseTypeDef(BaseValidatorModel):
-    dataflowEndpointGroupId: str
-    dataflowEndpointGroupArn: str
+    dataflowEndpointGroupId: Annotated[str, _aws_pattern("Groundstation", "Uuid")]
+    dataflowEndpointGroupArn: Annotated[str, _aws_pattern("Groundstation", "DataflowEndpointGroupArn")]
     endpointsDetails: List[EndpointDetailsOutputTypeDef]
     tags: Dict[str, str]
     contactPrePassDurationSeconds: int
@@ -1143,7 +1145,7 @@ class CreateDataflowEndpointGroupV2RequestTypeDef(BaseValidatorModel):
 
 class DestinationTypeDef(BaseValidatorModel):
     configType: Optional[ConfigCapabilityTypeType] = None
-    configId: Optional[str] = None
+    configId: Optional[Annotated[str, _aws_pattern("Groundstation", "Uuid")]] = None
     configDetails: Optional[ConfigDetailsTypeDef] = None
     dataflowDestinationRegion: Optional[str] = None
 
@@ -1171,9 +1173,9 @@ class DataflowDetailTypeDef(BaseValidatorModel):
 
 # This class is the output for the 'describe_contact' function.
 class DescribeContactResponseTypeDef(BaseValidatorModel):
-    contactId: str
-    missionProfileArn: str
-    satelliteArn: str
+    contactId: Annotated[str, _aws_pattern("Groundstation", "Uuid")]
+    missionProfileArn: Annotated[str, _aws_pattern("Groundstation", "MissionProfileArn")]
+    satelliteArn: Annotated[str, _aws_pattern("Groundstation", "satelliteArn")]
     startTime: datetime
     endTime: datetime
     prePassStartTime: datetime
@@ -1195,9 +1197,9 @@ class DescribeContactResponseTypeDef(BaseValidatorModel):
 
 # This class is the output for the 'describe_contact_version' function.
 class DescribeContactVersionResponseTypeDef(BaseValidatorModel):
-    contactId: str
-    missionProfileArn: str
-    satelliteArn: str
+    contactId: Annotated[str, _aws_pattern("Groundstation", "Uuid")]
+    missionProfileArn: Annotated[str, _aws_pattern("Groundstation", "MissionProfileArn")]
+    satelliteArn: Annotated[str, _aws_pattern("Groundstation", "satelliteArn")]
     startTime: datetime
     endTime: datetime
     prePassStartTime: datetime

@@ -3,6 +3,7 @@
 from datetime import datetime
 from decimal import Decimal
 from typing import (
+    Annotated,
     Any,
     Callable,
     Dict,
@@ -24,6 +25,7 @@ from botocore.response import StreamingBody
 from pydantic import Field
 
 from aws_resource_validator.core.base_validator_model import BaseValidatorModel, EventStream
+from aws_resource_validator.core.pattern_validation import aws_field_pattern as _aws_pattern
 from aws_resource_validator.pydantic_models.managedblockchain.managedblockchain_constants import *  # noqa: F401,F403
 
 # Optional boto3 symbols — imported lazily so services that don't need them
@@ -43,7 +45,7 @@ class AccessorSummaryTypeDef(BaseValidatorModel):
     Type: Optional[Literal["BILLING_TOKEN"]] = None
     Status: Optional[AccessorStatusType] = None
     CreationDate: Optional[datetime] = None
-    Arn: Optional[str] = None
+    Arn: Optional[Annotated[str, _aws_pattern("Managedblockchain", "ArnString")]] = None
     NetworkType: Optional[AccessorNetworkTypeType] = None
 
 
@@ -53,7 +55,7 @@ class AccessorTypeDef(BaseValidatorModel):
     BillingToken: Optional[str] = None
     Status: Optional[AccessorStatusType] = None
     CreationDate: Optional[datetime] = None
-    Arn: Optional[str] = None
+    Arn: Optional[Annotated[str, _aws_pattern("Managedblockchain", "ArnString")]] = None
     Tags: Optional[Dict[str, str]] = None
     NetworkType: Optional[AccessorNetworkTypeType] = None
 
@@ -126,13 +128,13 @@ class GetProposalInputTypeDef(BaseValidatorModel):
 
 class NetworkSummaryTypeDef(BaseValidatorModel):
     Id: Optional[str] = None
-    Name: Optional[str] = None
+    Name: Optional[Annotated[str, _aws_pattern("Managedblockchain", "NameString")]] = None
     Description: Optional[str] = None
     Framework: Optional[FrameworkType] = None
     FrameworkVersion: Optional[str] = None
     Status: Optional[NetworkStatusType] = None
     CreationDate: Optional[datetime] = None
-    Arn: Optional[str] = None
+    Arn: Optional[Annotated[str, _aws_pattern("Managedblockchain", "ArnString")]] = None
 
 
 class InviteActionTypeDef(BaseValidatorModel):
@@ -170,12 +172,12 @@ class ListMembersInputTypeDef(BaseValidatorModel):
 
 class MemberSummaryTypeDef(BaseValidatorModel):
     Id: Optional[str] = None
-    Name: Optional[str] = None
+    Name: Optional[Annotated[str, _aws_pattern("Managedblockchain", "NetworkMemberNameString")]] = None
     Description: Optional[str] = None
     Status: Optional[MemberStatusType] = None
     CreationDate: Optional[datetime] = None
     IsOwned: Optional[bool] = None
-    Arn: Optional[str] = None
+    Arn: Optional[Annotated[str, _aws_pattern("Managedblockchain", "ArnString")]] = None
 
 
 # This class is the input for the 'list_networks' function.
@@ -202,7 +204,7 @@ class NodeSummaryTypeDef(BaseValidatorModel):
     CreationDate: Optional[datetime] = None
     AvailabilityZone: Optional[str] = None
     InstanceType: Optional[str] = None
-    Arn: Optional[str] = None
+    Arn: Optional[Annotated[str, _aws_pattern("Managedblockchain", "ArnString")]] = None
 
 
 # This class is the input for the 'list_proposal_votes' function.
@@ -215,7 +217,7 @@ class ListProposalVotesInputTypeDef(BaseValidatorModel):
 
 class VoteSummaryTypeDef(BaseValidatorModel):
     Vote: Optional[VoteValueType] = None
-    MemberName: Optional[str] = None
+    MemberName: Optional[Annotated[str, _aws_pattern("Managedblockchain", "NetworkMemberNameString")]] = None
     MemberId: Optional[str] = None
 
 
@@ -230,16 +232,16 @@ class ProposalSummaryTypeDef(BaseValidatorModel):
     ProposalId: Optional[str] = None
     Description: Optional[str] = None
     ProposedByMemberId: Optional[str] = None
-    ProposedByMemberName: Optional[str] = None
+    ProposedByMemberName: Optional[Annotated[str, _aws_pattern("Managedblockchain", "NetworkMemberNameString")]] = None
     Status: Optional[ProposalStatusType] = None
     CreationDate: Optional[datetime] = None
     ExpirationDate: Optional[datetime] = None
-    Arn: Optional[str] = None
+    Arn: Optional[Annotated[str, _aws_pattern("Managedblockchain", "ArnString")]] = None
 
 
 # This class is the input for the 'list_tags_for_resource' function.
 class ListTagsForResourceRequestTypeDef(BaseValidatorModel):
-    ResourceArn: str
+    ResourceArn: Annotated[str, _aws_pattern("Managedblockchain", "ArnString")]
 
 
 class LogConfigurationTypeDef(BaseValidatorModel):
@@ -247,13 +249,13 @@ class LogConfigurationTypeDef(BaseValidatorModel):
 
 
 class MemberFabricAttributesTypeDef(BaseValidatorModel):
-    AdminUsername: Optional[str] = None
+    AdminUsername: Optional[Annotated[str, _aws_pattern("Managedblockchain", "UsernameString")]] = None
     CaEndpoint: Optional[str] = None
 
 
 class MemberFabricConfigurationTypeDef(BaseValidatorModel):
-    AdminUsername: str
-    AdminPassword: str
+    AdminUsername: Annotated[str, _aws_pattern("Managedblockchain", "UsernameString")]
+    AdminPassword: Annotated[str, _aws_pattern("Managedblockchain", "PasswordString")]
 
 
 class NetworkEthereumAttributesTypeDef(BaseValidatorModel):
@@ -288,12 +290,12 @@ class RejectInvitationInputTypeDef(BaseValidatorModel):
 
 
 class TagResourceRequestTypeDef(BaseValidatorModel):
-    ResourceArn: str
+    ResourceArn: Annotated[str, _aws_pattern("Managedblockchain", "ArnString")]
     Tags: Dict[str, str]
 
 
 class UntagResourceRequestTypeDef(BaseValidatorModel):
-    ResourceArn: str
+    ResourceArn: Annotated[str, _aws_pattern("Managedblockchain", "ArnString")]
     TagKeys: List[str]
 
 
@@ -366,7 +368,7 @@ class InvitationTypeDef(BaseValidatorModel):
     ExpirationDate: Optional[datetime] = None
     Status: Optional[InvitationStatusType] = None
     NetworkSummary: Optional[NetworkSummaryTypeDef] = None
-    Arn: Optional[str] = None
+    Arn: Optional[Annotated[str, _aws_pattern("Managedblockchain", "ArnString")]] = None
 
 
 # This class is the output for the 'list_networks' function.
@@ -463,7 +465,7 @@ class NodeFabricLogPublishingConfigurationTypeDef(BaseValidatorModel):
 
 class NetworkTypeDef(BaseValidatorModel):
     Id: Optional[str] = None
-    Name: Optional[str] = None
+    Name: Optional[Annotated[str, _aws_pattern("Managedblockchain", "NameString")]] = None
     Description: Optional[str] = None
     Framework: Optional[FrameworkType] = None
     FrameworkVersion: Optional[str] = None
@@ -473,7 +475,7 @@ class NetworkTypeDef(BaseValidatorModel):
     Status: Optional[NetworkStatusType] = None
     CreationDate: Optional[datetime] = None
     Tags: Optional[Dict[str, str]] = None
-    Arn: Optional[str] = None
+    Arn: Optional[Annotated[str, _aws_pattern("Managedblockchain", "ArnString")]] = None
 
 
 class ProposalTypeDef(BaseValidatorModel):
@@ -482,7 +484,7 @@ class ProposalTypeDef(BaseValidatorModel):
     Description: Optional[str] = None
     Actions: Optional[ProposalActionsOutputTypeDef] = None
     ProposedByMemberId: Optional[str] = None
-    ProposedByMemberName: Optional[str] = None
+    ProposedByMemberName: Optional[Annotated[str, _aws_pattern("Managedblockchain", "NetworkMemberNameString")]] = None
     Status: Optional[ProposalStatusType] = None
     CreationDate: Optional[datetime] = None
     ExpirationDate: Optional[datetime] = None
@@ -490,7 +492,7 @@ class ProposalTypeDef(BaseValidatorModel):
     NoVoteCount: Optional[int] = None
     OutstandingVoteCount: Optional[int] = None
     Tags: Optional[Dict[str, str]] = None
-    Arn: Optional[str] = None
+    Arn: Optional[Annotated[str, _aws_pattern("Managedblockchain", "ArnString")]] = None
 
 
 ProposalActionsUnionTypeDef = Union[ProposalActionsOutputTypeDef, ProposalActionsTypeDef]
@@ -527,25 +529,25 @@ class CreateProposalInputTypeDef(BaseValidatorModel):
 
 
 class MemberConfigurationTypeDef(BaseValidatorModel):
-    Name: str
+    Name: Annotated[str, _aws_pattern("Managedblockchain", "NetworkMemberNameString")]
     FrameworkConfiguration: MemberFrameworkConfigurationTypeDef
     Description: Optional[str] = None
     LogPublishingConfiguration: Optional[MemberLogPublishingConfigurationTypeDef] = None
     Tags: Optional[Dict[str, str]] = None
-    KmsKeyArn: Optional[str] = None
+    KmsKeyArn: Optional[Annotated[str, _aws_pattern("Managedblockchain", "ArnString")]] = None
 
 
 class MemberTypeDef(BaseValidatorModel):
     NetworkId: Optional[str] = None
     Id: Optional[str] = None
-    Name: Optional[str] = None
+    Name: Optional[Annotated[str, _aws_pattern("Managedblockchain", "NetworkMemberNameString")]] = None
     Description: Optional[str] = None
     FrameworkAttributes: Optional[MemberFrameworkAttributesTypeDef] = None
     LogPublishingConfiguration: Optional[MemberLogPublishingConfigurationTypeDef] = None
     Status: Optional[MemberStatusType] = None
     CreationDate: Optional[datetime] = None
     Tags: Optional[Dict[str, str]] = None
-    Arn: Optional[str] = None
+    Arn: Optional[Annotated[str, _aws_pattern("Managedblockchain", "ArnString")]] = None
     KmsKeyArn: Optional[str] = None
 
 
@@ -574,7 +576,7 @@ class NodeTypeDef(BaseValidatorModel):
     Status: Optional[NodeStatusType] = None
     CreationDate: Optional[datetime] = None
     Tags: Optional[Dict[str, str]] = None
-    Arn: Optional[str] = None
+    Arn: Optional[Annotated[str, _aws_pattern("Managedblockchain", "ArnString")]] = None
     KmsKeyArn: Optional[str] = None
 
 
@@ -596,7 +598,7 @@ class CreateMemberInputTypeDef(BaseValidatorModel):
 # This class is the input for the 'create_network' function.
 class CreateNetworkInputTypeDef(BaseValidatorModel):
     ClientRequestToken: str
-    Name: str
+    Name: Annotated[str, _aws_pattern("Managedblockchain", "NameString")]
     Framework: FrameworkType
     FrameworkVersion: str
     VotingPolicy: VotingPolicyTypeDef

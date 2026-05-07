@@ -3,6 +3,7 @@
 from datetime import datetime
 from decimal import Decimal
 from typing import (
+    Annotated,
     Any,
     Callable,
     Dict,
@@ -24,6 +25,7 @@ from botocore.response import StreamingBody
 from pydantic import Field
 
 from aws_resource_validator.core.base_validator_model import BaseValidatorModel, EventStream
+from aws_resource_validator.core.pattern_validation import aws_field_pattern as _aws_pattern
 from aws_resource_validator.pydantic_models.wellarchitected.wellarchitected_constants import *  # noqa: F401,F403
 
 # Optional boto3 symbols — imported lazily so services that don't need them
@@ -41,7 +43,7 @@ except ImportError:  # pragma: no cover
 class AccountJiraConfigurationInputTypeDef(BaseValidatorModel):
     IssueManagementStatus: Optional[AccountJiraIssueManagementStatusType] = None
     IssueManagementType: Optional[IssueManagementTypeType] = None
-    JiraProjectKey: Optional[str] = None
+    JiraProjectKey: Optional[Annotated[str, _aws_pattern("Wellarchitected", "JiraProjectKey")]] = None
     IntegrationStatus: Optional[Literal["NOT_CONFIGURED"]] = None
 
 
@@ -50,7 +52,7 @@ class AccountJiraConfigurationOutputTypeDef(BaseValidatorModel):
     IssueManagementStatus: Optional[AccountJiraIssueManagementStatusType] = None
     IssueManagementType: Optional[IssueManagementTypeType] = None
     Subdomain: Optional[str] = None
-    JiraProjectKey: Optional[str] = None
+    JiraProjectKey: Optional[Annotated[str, _aws_pattern("Wellarchitected", "JiraProjectKey")]] = None
     StatusMessage: Optional[str] = None
 
 
@@ -79,14 +81,14 @@ class ChoiceAnswerTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'associate_lenses' function.
 class AssociateLensesInputTypeDef(BaseValidatorModel):
-    WorkloadId: str
+    WorkloadId: Annotated[str, _aws_pattern("Wellarchitected", "WorkloadId")]
     LensAliases: List[str]
 
 
 # This class is the input for the 'associate_profiles' function.
 class AssociateProfilesInputTypeDef(BaseValidatorModel):
-    WorkloadId: str
-    ProfileArns: List[str]
+    WorkloadId: Annotated[str, _aws_pattern("Wellarchitected", "WorkloadId")]
+    ProfileArns: List[Annotated[str, _aws_pattern("Wellarchitected", "ProfileArn")]]
 
 
 class BestPracticeTypeDef(BaseValidatorModel):
@@ -104,7 +106,7 @@ class CheckDetailTypeDef(BaseValidatorModel):
     QuestionId: Optional[str] = None
     ChoiceId: Optional[str] = None
     Status: Optional[CheckStatusType] = None
-    AccountId: Optional[str] = None
+    AccountId: Optional[Annotated[str, _aws_pattern("Wellarchitected", "AwsAccountId")]] = None
     FlaggedResources: Optional[int] = None
     Reason: Optional[CheckFailureReasonType] = None
     UpdatedAt: Optional[datetime] = None
@@ -161,7 +163,7 @@ class CreateLensVersionInputTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'create_milestone' function.
 class CreateMilestoneInputTypeDef(BaseValidatorModel):
-    WorkloadId: str
+    WorkloadId: Annotated[str, _aws_pattern("Wellarchitected", "WorkloadId")]
     MilestoneName: str
     ClientRequestToken: str
 
@@ -173,15 +175,15 @@ class ProfileQuestionUpdateTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'create_profile_share' function.
 class CreateProfileShareInputTypeDef(BaseValidatorModel):
-    ProfileArn: str
+    ProfileArn: Annotated[str, _aws_pattern("Wellarchitected", "ProfileArn")]
     SharedWith: str
     ClientRequestToken: str
 
 
 # This class is the input for the 'create_review_template' function.
 class CreateReviewTemplateInputTypeDef(BaseValidatorModel):
-    TemplateName: str
-    Description: str
+    TemplateName: Annotated[str, _aws_pattern("Wellarchitected", "TemplateName")]
+    Description: Annotated[str, _aws_pattern("Wellarchitected", "TemplateDescription")]
     Lenses: List[str]
     ClientRequestToken: str
     Notes: Optional[str] = None
@@ -190,7 +192,7 @@ class CreateReviewTemplateInputTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'create_template_share' function.
 class CreateTemplateShareInputTypeDef(BaseValidatorModel):
-    TemplateArn: str
+    TemplateArn: Annotated[str, _aws_pattern("Wellarchitected", "TemplateArn")]
     SharedWith: str
     ClientRequestToken: str
 
@@ -198,12 +200,12 @@ class CreateTemplateShareInputTypeDef(BaseValidatorModel):
 class WorkloadJiraConfigurationInputTypeDef(BaseValidatorModel):
     IssueManagementStatus: Optional[WorkloadIssueManagementStatusType] = None
     IssueManagementType: Optional[IssueManagementTypeType] = None
-    JiraProjectKey: Optional[str] = None
+    JiraProjectKey: Optional[Annotated[str, _aws_pattern("Wellarchitected", "JiraProjectKey")]] = None
 
 
 # This class is the input for the 'create_workload_share' function.
 class CreateWorkloadShareInputTypeDef(BaseValidatorModel):
-    WorkloadId: str
+    WorkloadId: Annotated[str, _aws_pattern("Wellarchitected", "WorkloadId")]
     SharedWith: str
     PermissionType: PermissionTypeType
     ClientRequestToken: str
@@ -218,60 +220,60 @@ class DeleteLensInputTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'delete_lens_share' function.
 class DeleteLensShareInputTypeDef(BaseValidatorModel):
-    ShareId: str
+    ShareId: Annotated[str, _aws_pattern("Wellarchitected", "ShareId")]
     LensAlias: str
     ClientRequestToken: str
 
 
 # This class is the input for the 'delete_profile' function.
 class DeleteProfileInputTypeDef(BaseValidatorModel):
-    ProfileArn: str
+    ProfileArn: Annotated[str, _aws_pattern("Wellarchitected", "ProfileArn")]
     ClientRequestToken: str
 
 
 # This class is the input for the 'delete_profile_share' function.
 class DeleteProfileShareInputTypeDef(BaseValidatorModel):
-    ShareId: str
-    ProfileArn: str
+    ShareId: Annotated[str, _aws_pattern("Wellarchitected", "ShareId")]
+    ProfileArn: Annotated[str, _aws_pattern("Wellarchitected", "ProfileArn")]
     ClientRequestToken: str
 
 
 # This class is the input for the 'delete_review_template' function.
 class DeleteReviewTemplateInputTypeDef(BaseValidatorModel):
-    TemplateArn: str
+    TemplateArn: Annotated[str, _aws_pattern("Wellarchitected", "TemplateArn")]
     ClientRequestToken: str
 
 
 # This class is the input for the 'delete_template_share' function.
 class DeleteTemplateShareInputTypeDef(BaseValidatorModel):
-    ShareId: str
-    TemplateArn: str
+    ShareId: Annotated[str, _aws_pattern("Wellarchitected", "ShareId")]
+    TemplateArn: Annotated[str, _aws_pattern("Wellarchitected", "TemplateArn")]
     ClientRequestToken: str
 
 
 # This class is the input for the 'delete_workload' function.
 class DeleteWorkloadInputTypeDef(BaseValidatorModel):
-    WorkloadId: str
+    WorkloadId: Annotated[str, _aws_pattern("Wellarchitected", "WorkloadId")]
     ClientRequestToken: str
 
 
 # This class is the input for the 'delete_workload_share' function.
 class DeleteWorkloadShareInputTypeDef(BaseValidatorModel):
-    ShareId: str
-    WorkloadId: str
+    ShareId: Annotated[str, _aws_pattern("Wellarchitected", "ShareId")]
+    WorkloadId: Annotated[str, _aws_pattern("Wellarchitected", "WorkloadId")]
     ClientRequestToken: str
 
 
 # This class is the input for the 'disassociate_lenses' function.
 class DisassociateLensesInputTypeDef(BaseValidatorModel):
-    WorkloadId: str
+    WorkloadId: Annotated[str, _aws_pattern("Wellarchitected", "WorkloadId")]
     LensAliases: List[str]
 
 
 # This class is the input for the 'disassociate_profiles' function.
 class DisassociateProfilesInputTypeDef(BaseValidatorModel):
-    WorkloadId: str
-    ProfileArns: List[str]
+    WorkloadId: Annotated[str, _aws_pattern("Wellarchitected", "WorkloadId")]
+    ProfileArns: List[Annotated[str, _aws_pattern("Wellarchitected", "ProfileArn")]]
 
 
 # This class is the input for the 'export_lens' function.
@@ -282,7 +284,7 @@ class ExportLensInputTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'get_answer' function.
 class GetAnswerInputTypeDef(BaseValidatorModel):
-    WorkloadId: str
+    WorkloadId: Annotated[str, _aws_pattern("Wellarchitected", "WorkloadId")]
     LensAlias: str
     QuestionId: str
     MilestoneNumber: Optional[int] = None
@@ -308,20 +310,20 @@ class LensTypeDef(BaseValidatorModel):
     Name: Optional[str] = None
     Description: Optional[str] = None
     Owner: Optional[str] = None
-    ShareInvitationId: Optional[str] = None
+    ShareInvitationId: Optional[Annotated[str, _aws_pattern("Wellarchitected", "ShareInvitationId")]] = None
     Tags: Optional[Dict[str, str]] = None
 
 
 # This class is the input for the 'get_lens_review' function.
 class GetLensReviewInputTypeDef(BaseValidatorModel):
-    WorkloadId: str
+    WorkloadId: Annotated[str, _aws_pattern("Wellarchitected", "WorkloadId")]
     LensAlias: str
     MilestoneNumber: Optional[int] = None
 
 
 # This class is the input for the 'get_lens_review_report' function.
 class GetLensReviewReportInputTypeDef(BaseValidatorModel):
-    WorkloadId: str
+    WorkloadId: Annotated[str, _aws_pattern("Wellarchitected", "WorkloadId")]
     LensAlias: str
     MilestoneNumber: Optional[int] = None
 
@@ -341,51 +343,51 @@ class GetLensVersionDifferenceInputTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'get_milestone' function.
 class GetMilestoneInputTypeDef(BaseValidatorModel):
-    WorkloadId: str
+    WorkloadId: Annotated[str, _aws_pattern("Wellarchitected", "WorkloadId")]
     MilestoneNumber: int
 
 
 # This class is the input for the 'get_profile' function.
 class GetProfileInputTypeDef(BaseValidatorModel):
-    ProfileArn: str
-    ProfileVersion: Optional[str] = None
+    ProfileArn: Annotated[str, _aws_pattern("Wellarchitected", "ProfileArn")]
+    ProfileVersion: Optional[Annotated[str, _aws_pattern("Wellarchitected", "ProfileVersion")]] = None
 
 
 # This class is the input for the 'get_review_template_answer' function.
 class GetReviewTemplateAnswerInputTypeDef(BaseValidatorModel):
-    TemplateArn: str
+    TemplateArn: Annotated[str, _aws_pattern("Wellarchitected", "TemplateArn")]
     LensAlias: str
     QuestionId: str
 
 
 # This class is the input for the 'get_review_template' function.
 class GetReviewTemplateInputTypeDef(BaseValidatorModel):
-    TemplateArn: str
+    TemplateArn: Annotated[str, _aws_pattern("Wellarchitected", "TemplateArn")]
 
 
 # This class is the input for the 'get_review_template_lens_review' function.
 class GetReviewTemplateLensReviewInputTypeDef(BaseValidatorModel):
-    TemplateArn: str
+    TemplateArn: Annotated[str, _aws_pattern("Wellarchitected", "TemplateArn")]
     LensAlias: str
 
 
 class ReviewTemplateTypeDef(BaseValidatorModel):
-    Description: Optional[str] = None
+    Description: Optional[Annotated[str, _aws_pattern("Wellarchitected", "TemplateDescription")]] = None
     Lenses: Optional[List[str]] = None
     Notes: Optional[str] = None
     QuestionCounts: Optional[Dict[QuestionType, int]] = None
-    Owner: Optional[str] = None
+    Owner: Optional[Annotated[str, _aws_pattern("Wellarchitected", "AwsAccountId")]] = None
     UpdatedAt: Optional[datetime] = None
-    TemplateArn: Optional[str] = None
-    TemplateName: Optional[str] = None
+    TemplateArn: Optional[Annotated[str, _aws_pattern("Wellarchitected", "TemplateArn")]] = None
+    TemplateName: Optional[Annotated[str, _aws_pattern("Wellarchitected", "TemplateName")]] = None
     Tags: Optional[Dict[str, str]] = None
     UpdateStatus: Optional[ReviewTemplateUpdateStatusType] = None
-    ShareInvitationId: Optional[str] = None
+    ShareInvitationId: Optional[Annotated[str, _aws_pattern("Wellarchitected", "ShareInvitationId")]] = None
 
 
 # This class is the input for the 'get_workload' function.
 class GetWorkloadInputTypeDef(BaseValidatorModel):
-    WorkloadId: str
+    WorkloadId: Annotated[str, _aws_pattern("Wellarchitected", "WorkloadId")]
 
 
 # This class is the input for the 'import_lens' function.
@@ -407,8 +409,8 @@ class SelectedPillarTypeDef(BaseValidatorModel):
 
 
 class WorkloadProfileTypeDef(BaseValidatorModel):
-    ProfileArn: Optional[str] = None
-    ProfileVersion: Optional[str] = None
+    ProfileArn: Optional[Annotated[str, _aws_pattern("Wellarchitected", "ProfileArn")]] = None
+    ProfileVersion: Optional[Annotated[str, _aws_pattern("Wellarchitected", "ProfileVersion")]] = None
 
 
 class PillarReviewSummaryTypeDef(BaseValidatorModel):
@@ -420,7 +422,7 @@ class PillarReviewSummaryTypeDef(BaseValidatorModel):
 
 
 class LensShareSummaryTypeDef(BaseValidatorModel):
-    ShareId: Optional[str] = None
+    ShareId: Optional[Annotated[str, _aws_pattern("Wellarchitected", "ShareId")]] = None
     SharedWith: Optional[str] = None
     Status: Optional[ShareStatusType] = None
     StatusMessage: Optional[str] = None
@@ -435,24 +437,24 @@ class LensSummaryTypeDef(BaseValidatorModel):
     CreatedAt: Optional[datetime] = None
     UpdatedAt: Optional[datetime] = None
     LensVersion: Optional[str] = None
-    Owner: Optional[str] = None
+    Owner: Optional[Annotated[str, _aws_pattern("Wellarchitected", "AwsAccountId")]] = None
     LensStatus: Optional[LensStatusType] = None
 
 
 class LensUpgradeSummaryTypeDef(BaseValidatorModel):
-    WorkloadId: Optional[str] = None
+    WorkloadId: Optional[Annotated[str, _aws_pattern("Wellarchitected", "WorkloadId")]] = None
     WorkloadName: Optional[str] = None
     LensAlias: Optional[str] = None
     LensArn: Optional[str] = None
     CurrentLensVersion: Optional[str] = None
     LatestLensVersion: Optional[str] = None
-    ResourceArn: Optional[str] = None
+    ResourceArn: Optional[Annotated[str, _aws_pattern("Wellarchitected", "ResourceArn")]] = None
     ResourceName: Optional[str] = None
 
 
 # This class is the input for the 'list_answers' function.
 class ListAnswersInputTypeDef(BaseValidatorModel):
-    WorkloadId: str
+    WorkloadId: Annotated[str, _aws_pattern("Wellarchitected", "WorkloadId")]
     LensAlias: str
     PillarId: Optional[str] = None
     MilestoneNumber: Optional[int] = None
@@ -463,7 +465,7 @@ class ListAnswersInputTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'list_check_details' function.
 class ListCheckDetailsInputTypeDef(BaseValidatorModel):
-    WorkloadId: str
+    WorkloadId: Annotated[str, _aws_pattern("Wellarchitected", "WorkloadId")]
     LensArn: str
     PillarId: str
     QuestionId: str
@@ -474,7 +476,7 @@ class ListCheckDetailsInputTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'list_check_summaries' function.
 class ListCheckSummariesInputTypeDef(BaseValidatorModel):
-    WorkloadId: str
+    WorkloadId: Annotated[str, _aws_pattern("Wellarchitected", "WorkloadId")]
     LensArn: str
     PillarId: str
     QuestionId: str
@@ -485,7 +487,7 @@ class ListCheckSummariesInputTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'list_lens_review_improvements' function.
 class ListLensReviewImprovementsInputTypeDef(BaseValidatorModel):
-    WorkloadId: str
+    WorkloadId: Annotated[str, _aws_pattern("Wellarchitected", "WorkloadId")]
     LensAlias: str
     PillarId: Optional[str] = None
     MilestoneNumber: Optional[int] = None
@@ -496,7 +498,7 @@ class ListLensReviewImprovementsInputTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'list_lens_reviews' function.
 class ListLensReviewsInputTypeDef(BaseValidatorModel):
-    WorkloadId: str
+    WorkloadId: Annotated[str, _aws_pattern("Wellarchitected", "WorkloadId")]
     MilestoneNumber: Optional[int] = None
     NextToken: Optional[str] = None
     MaxResults: Optional[int] = None
@@ -522,39 +524,39 @@ class ListLensesInputTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'list_milestones' function.
 class ListMilestonesInputTypeDef(BaseValidatorModel):
-    WorkloadId: str
+    WorkloadId: Annotated[str, _aws_pattern("Wellarchitected", "WorkloadId")]
     NextToken: Optional[str] = None
     MaxResults: Optional[int] = None
 
 
 # This class is the input for the 'list_notifications' function.
 class ListNotificationsInputTypeDef(BaseValidatorModel):
-    WorkloadId: Optional[str] = None
+    WorkloadId: Optional[Annotated[str, _aws_pattern("Wellarchitected", "WorkloadId")]] = None
     NextToken: Optional[str] = None
     MaxResults: Optional[int] = None
-    ResourceArn: Optional[str] = None
+    ResourceArn: Optional[Annotated[str, _aws_pattern("Wellarchitected", "ResourceArn")]] = None
 
 
 # This class is the input for the 'list_profile_notifications' function.
 class ListProfileNotificationsInputTypeDef(BaseValidatorModel):
-    WorkloadId: Optional[str] = None
+    WorkloadId: Optional[Annotated[str, _aws_pattern("Wellarchitected", "WorkloadId")]] = None
     NextToken: Optional[str] = None
     MaxResults: Optional[int] = None
 
 
 class ProfileNotificationSummaryTypeDef(BaseValidatorModel):
-    CurrentProfileVersion: Optional[str] = None
-    LatestProfileVersion: Optional[str] = None
+    CurrentProfileVersion: Optional[Annotated[str, _aws_pattern("Wellarchitected", "ProfileVersion")]] = None
+    LatestProfileVersion: Optional[Annotated[str, _aws_pattern("Wellarchitected", "ProfileVersion")]] = None
     Type: Optional[ProfileNotificationTypeType] = None
-    ProfileArn: Optional[str] = None
+    ProfileArn: Optional[Annotated[str, _aws_pattern("Wellarchitected", "ProfileArn")]] = None
     ProfileName: Optional[str] = None
-    WorkloadId: Optional[str] = None
+    WorkloadId: Optional[Annotated[str, _aws_pattern("Wellarchitected", "WorkloadId")]] = None
     WorkloadName: Optional[str] = None
 
 
 # This class is the input for the 'list_profile_shares' function.
 class ListProfileSharesInputTypeDef(BaseValidatorModel):
-    ProfileArn: str
+    ProfileArn: Annotated[str, _aws_pattern("Wellarchitected", "ProfileArn")]
     SharedWithPrefix: Optional[str] = None
     NextToken: Optional[str] = None
     MaxResults: Optional[int] = None
@@ -562,7 +564,7 @@ class ListProfileSharesInputTypeDef(BaseValidatorModel):
 
 
 class ProfileShareSummaryTypeDef(BaseValidatorModel):
-    ShareId: Optional[str] = None
+    ShareId: Optional[Annotated[str, _aws_pattern("Wellarchitected", "ShareId")]] = None
     SharedWith: Optional[str] = None
     Status: Optional[ShareStatusType] = None
     StatusMessage: Optional[str] = None
@@ -577,18 +579,18 @@ class ListProfilesInputTypeDef(BaseValidatorModel):
 
 
 class ProfileSummaryTypeDef(BaseValidatorModel):
-    ProfileArn: Optional[str] = None
-    ProfileVersion: Optional[str] = None
+    ProfileArn: Optional[Annotated[str, _aws_pattern("Wellarchitected", "ProfileArn")]] = None
+    ProfileVersion: Optional[Annotated[str, _aws_pattern("Wellarchitected", "ProfileVersion")]] = None
     ProfileName: Optional[str] = None
     ProfileDescription: Optional[str] = None
-    Owner: Optional[str] = None
+    Owner: Optional[Annotated[str, _aws_pattern("Wellarchitected", "AwsAccountId")]] = None
     CreatedAt: Optional[datetime] = None
     UpdatedAt: Optional[datetime] = None
 
 
 # This class is the input for the 'list_review_template_answers' function.
 class ListReviewTemplateAnswersInputTypeDef(BaseValidatorModel):
-    TemplateArn: str
+    TemplateArn: Annotated[str, _aws_pattern("Wellarchitected", "TemplateArn")]
     LensAlias: str
     PillarId: Optional[str] = None
     NextToken: Optional[str] = None
@@ -602,12 +604,12 @@ class ListReviewTemplatesInputTypeDef(BaseValidatorModel):
 
 
 class ReviewTemplateSummaryTypeDef(BaseValidatorModel):
-    Description: Optional[str] = None
+    Description: Optional[Annotated[str, _aws_pattern("Wellarchitected", "TemplateDescription")]] = None
     Lenses: Optional[List[str]] = None
-    Owner: Optional[str] = None
+    Owner: Optional[Annotated[str, _aws_pattern("Wellarchitected", "AwsAccountId")]] = None
     UpdatedAt: Optional[datetime] = None
-    TemplateArn: Optional[str] = None
-    TemplateName: Optional[str] = None
+    TemplateArn: Optional[Annotated[str, _aws_pattern("Wellarchitected", "TemplateArn")]] = None
+    TemplateName: Optional[Annotated[str, _aws_pattern("Wellarchitected", "TemplateName")]] = None
     UpdateStatus: Optional[ReviewTemplateUpdateStatusType] = None
 
 
@@ -619,23 +621,23 @@ class ListShareInvitationsInputTypeDef(BaseValidatorModel):
     NextToken: Optional[str] = None
     MaxResults: Optional[int] = None
     ProfileNamePrefix: Optional[str] = None
-    TemplateNamePrefix: Optional[str] = None
+    TemplateNamePrefix: Optional[Annotated[str, _aws_pattern("Wellarchitected", "TemplateNamePrefix")]] = None
 
 
 class ShareInvitationSummaryTypeDef(BaseValidatorModel):
-    ShareInvitationId: Optional[str] = None
-    SharedBy: Optional[str] = None
+    ShareInvitationId: Optional[Annotated[str, _aws_pattern("Wellarchitected", "ShareInvitationId")]] = None
+    SharedBy: Optional[Annotated[str, _aws_pattern("Wellarchitected", "AwsAccountId")]] = None
     SharedWith: Optional[str] = None
     PermissionType: Optional[PermissionTypeType] = None
     ShareResourceType: Optional[ShareResourceTypeType] = None
     WorkloadName: Optional[str] = None
-    WorkloadId: Optional[str] = None
+    WorkloadId: Optional[Annotated[str, _aws_pattern("Wellarchitected", "WorkloadId")]] = None
     LensName: Optional[str] = None
     LensArn: Optional[str] = None
     ProfileName: Optional[str] = None
-    ProfileArn: Optional[str] = None
-    TemplateName: Optional[str] = None
-    TemplateArn: Optional[str] = None
+    ProfileArn: Optional[Annotated[str, _aws_pattern("Wellarchitected", "ProfileArn")]] = None
+    TemplateName: Optional[Annotated[str, _aws_pattern("Wellarchitected", "TemplateName")]] = None
+    TemplateArn: Optional[Annotated[str, _aws_pattern("Wellarchitected", "TemplateArn")]] = None
 
 
 # This class is the input for the 'list_tags_for_resource' function.
@@ -645,7 +647,7 @@ class ListTagsForResourceInputTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'list_template_shares' function.
 class ListTemplateSharesInputTypeDef(BaseValidatorModel):
-    TemplateArn: str
+    TemplateArn: Annotated[str, _aws_pattern("Wellarchitected", "TemplateArn")]
     SharedWithPrefix: Optional[str] = None
     NextToken: Optional[str] = None
     MaxResults: Optional[int] = None
@@ -653,7 +655,7 @@ class ListTemplateSharesInputTypeDef(BaseValidatorModel):
 
 
 class TemplateShareSummaryTypeDef(BaseValidatorModel):
-    ShareId: Optional[str] = None
+    ShareId: Optional[Annotated[str, _aws_pattern("Wellarchitected", "ShareId")]] = None
     SharedWith: Optional[str] = None
     Status: Optional[ShareStatusType] = None
     StatusMessage: Optional[str] = None
@@ -661,7 +663,7 @@ class TemplateShareSummaryTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'list_workload_shares' function.
 class ListWorkloadSharesInputTypeDef(BaseValidatorModel):
-    WorkloadId: str
+    WorkloadId: Annotated[str, _aws_pattern("Wellarchitected", "WorkloadId")]
     SharedWithPrefix: Optional[str] = None
     NextToken: Optional[str] = None
     MaxResults: Optional[int] = None
@@ -669,7 +671,7 @@ class ListWorkloadSharesInputTypeDef(BaseValidatorModel):
 
 
 class WorkloadShareSummaryTypeDef(BaseValidatorModel):
-    ShareId: Optional[str] = None
+    ShareId: Optional[Annotated[str, _aws_pattern("Wellarchitected", "ShareId")]] = None
     SharedWith: Optional[str] = None
     PermissionType: Optional[PermissionTypeType] = None
     Status: Optional[ShareStatusType] = None
@@ -709,13 +711,13 @@ class ReviewTemplatePillarReviewSummaryTypeDef(BaseValidatorModel):
 
 
 class ShareInvitationTypeDef(BaseValidatorModel):
-    ShareInvitationId: Optional[str] = None
+    ShareInvitationId: Optional[Annotated[str, _aws_pattern("Wellarchitected", "ShareInvitationId")]] = None
     ShareResourceType: Optional[ShareResourceTypeType] = None
-    WorkloadId: Optional[str] = None
+    WorkloadId: Optional[Annotated[str, _aws_pattern("Wellarchitected", "WorkloadId")]] = None
     LensAlias: Optional[str] = None
     LensArn: Optional[str] = None
-    ProfileArn: Optional[str] = None
-    TemplateArn: Optional[str] = None
+    ProfileArn: Optional[Annotated[str, _aws_pattern("Wellarchitected", "ProfileArn")]] = None
+    TemplateArn: Optional[Annotated[str, _aws_pattern("Wellarchitected", "TemplateArn")]] = None
 
 
 class TagResourceInputTypeDef(BaseValidatorModel):
@@ -730,16 +732,16 @@ class UntagResourceInputTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'update_integration' function.
 class UpdateIntegrationInputTypeDef(BaseValidatorModel):
-    WorkloadId: str
+    WorkloadId: Annotated[str, _aws_pattern("Wellarchitected", "WorkloadId")]
     ClientRequestToken: str
     IntegratingService: Literal["JIRA"]
 
 
 # This class is the input for the 'update_review_template' function.
 class UpdateReviewTemplateInputTypeDef(BaseValidatorModel):
-    TemplateArn: str
-    TemplateName: Optional[str] = None
-    Description: Optional[str] = None
+    TemplateArn: Annotated[str, _aws_pattern("Wellarchitected", "TemplateArn")]
+    TemplateName: Optional[Annotated[str, _aws_pattern("Wellarchitected", "TemplateName")]] = None
+    Description: Optional[Annotated[str, _aws_pattern("Wellarchitected", "TemplateDescription")]] = None
     Notes: Optional[str] = None
     LensesToAssociate: Optional[List[str]] = None
     LensesToDisassociate: Optional[List[str]] = None
@@ -747,7 +749,7 @@ class UpdateReviewTemplateInputTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'update_review_template_lens_review' function.
 class UpdateReviewTemplateLensReviewInputTypeDef(BaseValidatorModel):
-    TemplateArn: str
+    TemplateArn: Annotated[str, _aws_pattern("Wellarchitected", "TemplateArn")]
     LensAlias: str
     LensNotes: Optional[str] = None
     PillarNotes: Optional[Dict[str, str]] = None
@@ -755,30 +757,30 @@ class UpdateReviewTemplateLensReviewInputTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'update_share_invitation' function.
 class UpdateShareInvitationInputTypeDef(BaseValidatorModel):
-    ShareInvitationId: str
+    ShareInvitationId: Annotated[str, _aws_pattern("Wellarchitected", "ShareInvitationId")]
     ShareInvitationAction: ShareInvitationActionType
 
 
 # This class is the input for the 'update_workload_share' function.
 class UpdateWorkloadShareInputTypeDef(BaseValidatorModel):
-    ShareId: str
-    WorkloadId: str
+    ShareId: Annotated[str, _aws_pattern("Wellarchitected", "ShareId")]
+    WorkloadId: Annotated[str, _aws_pattern("Wellarchitected", "WorkloadId")]
     PermissionType: PermissionTypeType
 
 
 class WorkloadShareTypeDef(BaseValidatorModel):
-    ShareId: Optional[str] = None
-    SharedBy: Optional[str] = None
+    ShareId: Optional[Annotated[str, _aws_pattern("Wellarchitected", "ShareId")]] = None
+    SharedBy: Optional[Annotated[str, _aws_pattern("Wellarchitected", "AwsAccountId")]] = None
     SharedWith: Optional[str] = None
     PermissionType: Optional[PermissionTypeType] = None
     Status: Optional[ShareStatusType] = None
     WorkloadName: Optional[str] = None
-    WorkloadId: Optional[str] = None
+    WorkloadId: Optional[Annotated[str, _aws_pattern("Wellarchitected", "WorkloadId")]] = None
 
 
 # This class is the input for the 'upgrade_lens_review' function.
 class UpgradeLensReviewInputTypeDef(BaseValidatorModel):
-    WorkloadId: str
+    WorkloadId: Annotated[str, _aws_pattern("Wellarchitected", "WorkloadId")]
     LensAlias: str
     MilestoneName: str
     ClientRequestToken: Optional[str] = None
@@ -786,15 +788,15 @@ class UpgradeLensReviewInputTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'upgrade_profile_version' function.
 class UpgradeProfileVersionInputTypeDef(BaseValidatorModel):
-    WorkloadId: str
-    ProfileArn: str
+    WorkloadId: Annotated[str, _aws_pattern("Wellarchitected", "WorkloadId")]
+    ProfileArn: Annotated[str, _aws_pattern("Wellarchitected", "ProfileArn")]
     MilestoneName: Optional[str] = None
     ClientRequestToken: Optional[str] = None
 
 
 # This class is the input for the 'upgrade_review_template_lens_review' function.
 class UpgradeReviewTemplateLensReviewInputTypeDef(BaseValidatorModel):
-    TemplateArn: str
+    TemplateArn: Annotated[str, _aws_pattern("Wellarchitected", "TemplateArn")]
     LensAlias: str
     ClientRequestToken: Optional[str] = None
 
@@ -812,7 +814,7 @@ class WorkloadDiscoveryConfigTypeDef(BaseValidatorModel):
 class WorkloadJiraConfigurationOutputTypeDef(BaseValidatorModel):
     IssueManagementStatus: Optional[WorkloadIssueManagementStatusType] = None
     IssueManagementType: Optional[IssueManagementTypeType] = None
-    JiraProjectKey: Optional[str] = None
+    JiraProjectKey: Optional[Annotated[str, _aws_pattern("Wellarchitected", "JiraProjectKey")]] = None
     StatusMessage: Optional[str] = None
 
 
@@ -846,7 +848,7 @@ class ImprovementSummaryTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'update_answer' function.
 class UpdateAnswerInputTypeDef(BaseValidatorModel):
-    WorkloadId: str
+    WorkloadId: Annotated[str, _aws_pattern("Wellarchitected", "WorkloadId")]
     LensAlias: str
     QuestionId: str
     SelectedChoices: Optional[List[str]] = None
@@ -858,7 +860,7 @@ class UpdateAnswerInputTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'update_review_template_answer' function.
 class UpdateReviewTemplateAnswerInputTypeDef(BaseValidatorModel):
-    TemplateArn: str
+    TemplateArn: Annotated[str, _aws_pattern("Wellarchitected", "TemplateArn")]
     LensAlias: str
     QuestionId: str
     SelectedChoices: Optional[List[str]] = None
@@ -870,7 +872,7 @@ class UpdateReviewTemplateAnswerInputTypeDef(BaseValidatorModel):
 
 # This class is the output for the 'create_lens_share' function.
 class CreateLensShareOutputTypeDef(BaseValidatorModel):
-    ShareId: str
+    ShareId: Annotated[str, _aws_pattern("Wellarchitected", "ShareId")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
@@ -883,49 +885,49 @@ class CreateLensVersionOutputTypeDef(BaseValidatorModel):
 
 # This class is the output for the 'create_milestone' function.
 class CreateMilestoneOutputTypeDef(BaseValidatorModel):
-    WorkloadId: str
+    WorkloadId: Annotated[str, _aws_pattern("Wellarchitected", "WorkloadId")]
     MilestoneNumber: int
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 # This class is the output for the 'create_profile' function.
 class CreateProfileOutputTypeDef(BaseValidatorModel):
-    ProfileArn: str
-    ProfileVersion: str
+    ProfileArn: Annotated[str, _aws_pattern("Wellarchitected", "ProfileArn")]
+    ProfileVersion: Annotated[str, _aws_pattern("Wellarchitected", "ProfileVersion")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 # This class is the output for the 'create_profile_share' function.
 class CreateProfileShareOutputTypeDef(BaseValidatorModel):
-    ShareId: str
-    ProfileArn: str
+    ShareId: Annotated[str, _aws_pattern("Wellarchitected", "ShareId")]
+    ProfileArn: Annotated[str, _aws_pattern("Wellarchitected", "ProfileArn")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 # This class is the output for the 'create_review_template' function.
 class CreateReviewTemplateOutputTypeDef(BaseValidatorModel):
-    TemplateArn: str
+    TemplateArn: Annotated[str, _aws_pattern("Wellarchitected", "TemplateArn")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 # This class is the output for the 'create_template_share' function.
 class CreateTemplateShareOutputTypeDef(BaseValidatorModel):
-    TemplateArn: str
-    ShareId: str
+    TemplateArn: Annotated[str, _aws_pattern("Wellarchitected", "TemplateArn")]
+    ShareId: Annotated[str, _aws_pattern("Wellarchitected", "ShareId")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 # This class is the output for the 'create_workload' function.
 class CreateWorkloadOutputTypeDef(BaseValidatorModel):
-    WorkloadId: str
+    WorkloadId: Annotated[str, _aws_pattern("Wellarchitected", "WorkloadId")]
     WorkloadArn: str
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 # This class is the output for the 'create_workload_share' function.
 class CreateWorkloadShareOutputTypeDef(BaseValidatorModel):
-    WorkloadId: str
-    ShareId: str
+    WorkloadId: Annotated[str, _aws_pattern("Wellarchitected", "WorkloadId")]
+    ShareId: Annotated[str, _aws_pattern("Wellarchitected", "ShareId")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
@@ -985,7 +987,7 @@ class CreateProfileInputTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'update_profile' function.
 class UpdateProfileInputTypeDef(BaseValidatorModel):
-    ProfileArn: str
+    ProfileArn: Annotated[str, _aws_pattern("Wellarchitected", "ProfileArn")]
     ProfileDescription: Optional[str] = None
     ProfileQuestions: Optional[List[ProfileQuestionUpdateTypeDef]] = None
 
@@ -998,7 +1000,7 @@ class GetLensOutputTypeDef(BaseValidatorModel):
 
 # This class is the output for the 'get_lens_review_report' function.
 class GetLensReviewReportOutputTypeDef(BaseValidatorModel):
-    WorkloadId: str
+    WorkloadId: Annotated[str, _aws_pattern("Wellarchitected", "WorkloadId")]
     MilestoneNumber: int
     LensReviewReport: LensReviewReportTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
@@ -1037,10 +1039,10 @@ class LensReviewSummaryTypeDef(BaseValidatorModel):
 
 
 class WorkloadSummaryTypeDef(BaseValidatorModel):
-    WorkloadId: Optional[str] = None
+    WorkloadId: Optional[Annotated[str, _aws_pattern("Wellarchitected", "WorkloadId")]] = None
     WorkloadArn: Optional[str] = None
     WorkloadName: Optional[str] = None
-    Owner: Optional[str] = None
+    Owner: Optional[Annotated[str, _aws_pattern("Wellarchitected", "AwsAccountId")]] = None
     UpdatedAt: Optional[datetime] = None
     Lenses: Optional[List[str]] = None
     RiskCounts: Optional[Dict[RiskType, int]] = None
@@ -1105,7 +1107,7 @@ class ListShareInvitationsOutputTypeDef(BaseValidatorModel):
 
 # This class is the output for the 'list_template_shares' function.
 class ListTemplateSharesOutputTypeDef(BaseValidatorModel):
-    TemplateArn: str
+    TemplateArn: Annotated[str, _aws_pattern("Wellarchitected", "TemplateArn")]
     TemplateShareSummaries: List[TemplateShareSummaryTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
     NextToken: Optional[str] = None
@@ -1113,7 +1115,7 @@ class ListTemplateSharesOutputTypeDef(BaseValidatorModel):
 
 # This class is the output for the 'list_workload_shares' function.
 class ListWorkloadSharesOutputTypeDef(BaseValidatorModel):
-    WorkloadId: str
+    WorkloadId: Annotated[str, _aws_pattern("Wellarchitected", "WorkloadId")]
     WorkloadShareSummaries: List[WorkloadShareSummaryTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
     NextToken: Optional[str] = None
@@ -1166,7 +1168,7 @@ class UpdateShareInvitationOutputTypeDef(BaseValidatorModel):
 
 # This class is the output for the 'update_workload_share' function.
 class UpdateWorkloadShareOutputTypeDef(BaseValidatorModel):
-    WorkloadId: str
+    WorkloadId: Annotated[str, _aws_pattern("Wellarchitected", "WorkloadId")]
     WorkloadShare: WorkloadShareTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
@@ -1175,16 +1177,16 @@ WorkloadDiscoveryConfigUnionTypeDef = Union[WorkloadDiscoveryConfigOutputTypeDef
 
 
 class WorkloadTypeDef(BaseValidatorModel):
-    WorkloadId: Optional[str] = None
+    WorkloadId: Optional[Annotated[str, _aws_pattern("Wellarchitected", "WorkloadId")]] = None
     WorkloadArn: Optional[str] = None
     WorkloadName: Optional[str] = None
     Description: Optional[str] = None
     Environment: Optional[WorkloadEnvironmentType] = None
     UpdatedAt: Optional[datetime] = None
-    AccountIds: Optional[List[str]] = None
+    AccountIds: Optional[List[Annotated[str, _aws_pattern("Wellarchitected", "AwsAccountId")]]] = None
     AwsRegions: Optional[List[str]] = None
     NonAwsRegions: Optional[List[str]] = None
-    ArchitecturalDesign: Optional[str] = None
+    ArchitecturalDesign: Optional[Annotated[str, _aws_pattern("Wellarchitected", "WorkloadArchitecturalDesign")]] = None
     ReviewOwner: Optional[str] = None
     ReviewRestrictionDate: Optional[datetime] = None
     IsReviewOwnerUpdateAcknowledged: Optional[bool] = None
@@ -1195,11 +1197,11 @@ class WorkloadTypeDef(BaseValidatorModel):
     RiskCounts: Optional[Dict[RiskType, int]] = None
     PillarPriorities: Optional[List[str]] = None
     Lenses: Optional[List[str]] = None
-    Owner: Optional[str] = None
-    ShareInvitationId: Optional[str] = None
+    Owner: Optional[Annotated[str, _aws_pattern("Wellarchitected", "AwsAccountId")]] = None
+    ShareInvitationId: Optional[Annotated[str, _aws_pattern("Wellarchitected", "ShareInvitationId")]] = None
     Tags: Optional[Dict[str, str]] = None
     DiscoveryConfig: Optional[WorkloadDiscoveryConfigOutputTypeDef] = None
-    Applications: Optional[List[str]] = None
+    Applications: Optional[List[Annotated[str, _aws_pattern("Wellarchitected", "ApplicationArn")]]] = None
     Profiles: Optional[List[WorkloadProfileTypeDef]] = None
     PrioritizedRiskCounts: Optional[Dict[RiskType, int]] = None
     JiraConfiguration: Optional[WorkloadJiraConfigurationOutputTypeDef] = None
@@ -1222,7 +1224,7 @@ class PillarMetricTypeDef(BaseValidatorModel):
 
 # This class is the output for the 'list_lens_review_improvements' function.
 class ListLensReviewImprovementsOutputTypeDef(BaseValidatorModel):
-    WorkloadId: str
+    WorkloadId: Annotated[str, _aws_pattern("Wellarchitected", "WorkloadId")]
     MilestoneNumber: int
     LensAlias: str
     LensArn: str
@@ -1254,7 +1256,7 @@ JiraSelectedQuestionConfigurationUnionTypeDef = Union[
 
 # This class is the output for the 'list_lens_reviews' function.
 class ListLensReviewsOutputTypeDef(BaseValidatorModel):
-    WorkloadId: str
+    WorkloadId: Annotated[str, _aws_pattern("Wellarchitected", "WorkloadId")]
     MilestoneNumber: int
     LensReviewSummaries: List[LensReviewSummaryTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
@@ -1287,15 +1289,15 @@ class VersionDifferencesTypeDef(BaseValidatorModel):
 
 
 class ProfileTypeDef(BaseValidatorModel):
-    ProfileArn: Optional[str] = None
-    ProfileVersion: Optional[str] = None
+    ProfileArn: Optional[Annotated[str, _aws_pattern("Wellarchitected", "ProfileArn")]] = None
+    ProfileVersion: Optional[Annotated[str, _aws_pattern("Wellarchitected", "ProfileVersion")]] = None
     ProfileName: Optional[str] = None
     ProfileDescription: Optional[str] = None
     ProfileQuestions: Optional[List[ProfileQuestionTypeDef]] = None
-    Owner: Optional[str] = None
+    Owner: Optional[Annotated[str, _aws_pattern("Wellarchitected", "AwsAccountId")]] = None
     CreatedAt: Optional[datetime] = None
     UpdatedAt: Optional[datetime] = None
-    ShareInvitationId: Optional[str] = None
+    ShareInvitationId: Optional[Annotated[str, _aws_pattern("Wellarchitected", "ShareInvitationId")]] = None
     Tags: Optional[Dict[str, str]] = None
 
 
@@ -1308,14 +1310,14 @@ class ProfileTemplateTypeDef(BaseValidatorModel):
 
 # This class is the output for the 'get_review_template_lens_review' function.
 class GetReviewTemplateLensReviewOutputTypeDef(BaseValidatorModel):
-    TemplateArn: str
+    TemplateArn: Annotated[str, _aws_pattern("Wellarchitected", "TemplateArn")]
     LensReview: ReviewTemplateLensReviewTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 # This class is the output for the 'update_review_template_lens_review' function.
 class UpdateReviewTemplateLensReviewOutputTypeDef(BaseValidatorModel):
-    TemplateArn: str
+    TemplateArn: Annotated[str, _aws_pattern("Wellarchitected", "TemplateArn")]
     LensReview: ReviewTemplateLensReviewTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
@@ -1327,34 +1329,34 @@ class CreateWorkloadInputTypeDef(BaseValidatorModel):
     Environment: WorkloadEnvironmentType
     Lenses: List[str]
     ClientRequestToken: str
-    AccountIds: Optional[List[str]] = None
+    AccountIds: Optional[List[Annotated[str, _aws_pattern("Wellarchitected", "AwsAccountId")]]] = None
     AwsRegions: Optional[List[str]] = None
     NonAwsRegions: Optional[List[str]] = None
     PillarPriorities: Optional[List[str]] = None
-    ArchitecturalDesign: Optional[str] = None
+    ArchitecturalDesign: Optional[Annotated[str, _aws_pattern("Wellarchitected", "WorkloadArchitecturalDesign")]] = None
     ReviewOwner: Optional[str] = None
     IndustryType: Optional[str] = None
     Industry: Optional[str] = None
     Notes: Optional[str] = None
     Tags: Optional[Dict[str, str]] = None
     DiscoveryConfig: Optional[WorkloadDiscoveryConfigUnionTypeDef] = None
-    Applications: Optional[List[str]] = None
-    ProfileArns: Optional[List[str]] = None
-    ReviewTemplateArns: Optional[List[str]] = None
+    Applications: Optional[List[Annotated[str, _aws_pattern("Wellarchitected", "ApplicationArn")]]] = None
+    ProfileArns: Optional[List[Annotated[str, _aws_pattern("Wellarchitected", "ProfileArn")]]] = None
+    ReviewTemplateArns: Optional[List[Annotated[str, _aws_pattern("Wellarchitected", "TemplateArn")]]] = None
     JiraConfiguration: Optional[WorkloadJiraConfigurationInputTypeDef] = None
 
 
 # This class is the input for the 'update_workload' function.
 class UpdateWorkloadInputTypeDef(BaseValidatorModel):
-    WorkloadId: str
+    WorkloadId: Annotated[str, _aws_pattern("Wellarchitected", "WorkloadId")]
     WorkloadName: Optional[str] = None
     Description: Optional[str] = None
     Environment: Optional[WorkloadEnvironmentType] = None
-    AccountIds: Optional[List[str]] = None
+    AccountIds: Optional[List[Annotated[str, _aws_pattern("Wellarchitected", "AwsAccountId")]]] = None
     AwsRegions: Optional[List[str]] = None
     NonAwsRegions: Optional[List[str]] = None
     PillarPriorities: Optional[List[str]] = None
-    ArchitecturalDesign: Optional[str] = None
+    ArchitecturalDesign: Optional[Annotated[str, _aws_pattern("Wellarchitected", "WorkloadArchitecturalDesign")]] = None
     ReviewOwner: Optional[str] = None
     IsReviewOwnerUpdateAcknowledged: Optional[bool] = None
     IndustryType: Optional[str] = None
@@ -1362,7 +1364,7 @@ class UpdateWorkloadInputTypeDef(BaseValidatorModel):
     Notes: Optional[str] = None
     ImprovementStatus: Optional[WorkloadImprovementStatusType] = None
     DiscoveryConfig: Optional[WorkloadDiscoveryConfigUnionTypeDef] = None
-    Applications: Optional[List[str]] = None
+    Applications: Optional[List[Annotated[str, _aws_pattern("Wellarchitected", "ApplicationArn")]]] = None
     JiraConfiguration: Optional[WorkloadJiraConfigurationInputTypeDef] = None
 
 
@@ -1455,7 +1457,7 @@ class LensMetricTypeDef(BaseValidatorModel):
 
 # This class is the output for the 'get_lens_review' function.
 class GetLensReviewOutputTypeDef(BaseValidatorModel):
-    WorkloadId: str
+    WorkloadId: Annotated[str, _aws_pattern("Wellarchitected", "WorkloadId")]
     MilestoneNumber: int
     LensReview: LensReviewTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
@@ -1463,14 +1465,14 @@ class GetLensReviewOutputTypeDef(BaseValidatorModel):
 
 # This class is the output for the 'update_lens_review' function.
 class UpdateLensReviewOutputTypeDef(BaseValidatorModel):
-    WorkloadId: str
+    WorkloadId: Annotated[str, _aws_pattern("Wellarchitected", "WorkloadId")]
     LensReview: LensReviewTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 # This class is the input for the 'update_lens_review' function.
 class UpdateLensReviewInputTypeDef(BaseValidatorModel):
-    WorkloadId: str
+    WorkloadId: Annotated[str, _aws_pattern("Wellarchitected", "WorkloadId")]
     LensAlias: str
     LensNotes: Optional[str] = None
     PillarNotes: Optional[Dict[str, str]] = None
@@ -1479,7 +1481,7 @@ class UpdateLensReviewInputTypeDef(BaseValidatorModel):
 
 # This class is the output for the 'list_milestones' function.
 class ListMilestonesOutputTypeDef(BaseValidatorModel):
-    WorkloadId: str
+    WorkloadId: Annotated[str, _aws_pattern("Wellarchitected", "WorkloadId")]
     MilestoneSummaries: List[MilestoneSummaryTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
     NextToken: Optional[str] = None
@@ -1515,14 +1517,14 @@ class GetProfileTemplateOutputTypeDef(BaseValidatorModel):
 
 # This class is the output for the 'get_milestone' function.
 class GetMilestoneOutputTypeDef(BaseValidatorModel):
-    WorkloadId: str
+    WorkloadId: Annotated[str, _aws_pattern("Wellarchitected", "WorkloadId")]
     Milestone: MilestoneTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 # This class is the output for the 'list_answers' function.
 class ListAnswersOutputTypeDef(BaseValidatorModel):
-    WorkloadId: str
+    WorkloadId: Annotated[str, _aws_pattern("Wellarchitected", "WorkloadId")]
     MilestoneNumber: int
     LensAlias: str
     LensArn: str
@@ -1533,7 +1535,7 @@ class ListAnswersOutputTypeDef(BaseValidatorModel):
 
 # This class is the output for the 'get_answer' function.
 class GetAnswerOutputTypeDef(BaseValidatorModel):
-    WorkloadId: str
+    WorkloadId: Annotated[str, _aws_pattern("Wellarchitected", "WorkloadId")]
     MilestoneNumber: int
     LensAlias: str
     LensArn: str
@@ -1543,7 +1545,7 @@ class GetAnswerOutputTypeDef(BaseValidatorModel):
 
 # This class is the output for the 'update_answer' function.
 class UpdateAnswerOutputTypeDef(BaseValidatorModel):
-    WorkloadId: str
+    WorkloadId: Annotated[str, _aws_pattern("Wellarchitected", "WorkloadId")]
     LensAlias: str
     LensArn: str
     Answer: AnswerTypeDef
@@ -1552,7 +1554,7 @@ class UpdateAnswerOutputTypeDef(BaseValidatorModel):
 
 # This class is the output for the 'list_review_template_answers' function.
 class ListReviewTemplateAnswersOutputTypeDef(BaseValidatorModel):
-    TemplateArn: str
+    TemplateArn: Annotated[str, _aws_pattern("Wellarchitected", "TemplateArn")]
     LensAlias: str
     AnswerSummaries: List[ReviewTemplateAnswerSummaryTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
@@ -1561,7 +1563,7 @@ class ListReviewTemplateAnswersOutputTypeDef(BaseValidatorModel):
 
 # This class is the output for the 'get_review_template_answer' function.
 class GetReviewTemplateAnswerOutputTypeDef(BaseValidatorModel):
-    TemplateArn: str
+    TemplateArn: Annotated[str, _aws_pattern("Wellarchitected", "TemplateArn")]
     LensAlias: str
     Answer: ReviewTemplateAnswerTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
@@ -1569,7 +1571,7 @@ class GetReviewTemplateAnswerOutputTypeDef(BaseValidatorModel):
 
 # This class is the output for the 'update_review_template_answer' function.
 class UpdateReviewTemplateAnswerOutputTypeDef(BaseValidatorModel):
-    TemplateArn: str
+    TemplateArn: Annotated[str, _aws_pattern("Wellarchitected", "TemplateArn")]
     LensAlias: str
     Answer: ReviewTemplateAnswerTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
@@ -1578,7 +1580,7 @@ class UpdateReviewTemplateAnswerOutputTypeDef(BaseValidatorModel):
 class ConsolidatedReportMetricTypeDef(BaseValidatorModel):
     MetricType: Optional[Literal["WORKLOAD"]] = None
     RiskCounts: Optional[Dict[RiskType, int]] = None
-    WorkloadId: Optional[str] = None
+    WorkloadId: Optional[Annotated[str, _aws_pattern("Wellarchitected", "WorkloadId")]] = None
     WorkloadName: Optional[str] = None
     WorkloadArn: Optional[str] = None
     UpdatedAt: Optional[datetime] = None

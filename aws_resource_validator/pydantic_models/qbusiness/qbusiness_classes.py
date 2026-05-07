@@ -3,6 +3,7 @@
 from datetime import datetime
 from decimal import Decimal
 from typing import (
+    Annotated,
     Any,
     Callable,
     Dict,
@@ -24,6 +25,7 @@ from botocore.response import StreamingBody
 from pydantic import Field
 
 from aws_resource_validator.core.base_validator_model import BaseValidatorModel, EventStream
+from aws_resource_validator.core.pattern_validation import aws_field_pattern as _aws_pattern
 from aws_resource_validator.pydantic_models.qbusiness.qbusiness_constants import *  # noqa: F401,F403
 
 # Optional boto3 symbols — imported lazily so services that don't need them
@@ -39,7 +41,7 @@ except ImportError:  # pragma: no cover
 
 
 class S3TypeDef(BaseValidatorModel):
-    bucket: str
+    bucket: Annotated[str, _aws_pattern("Qbusiness", "S3BucketName")]
     key: str
 
 
@@ -64,7 +66,7 @@ class ActionSummaryTypeDef(BaseValidatorModel):
 
 
 class QuickSightConfigurationTypeDef(BaseValidatorModel):
-    clientNamespace: str
+    clientNamespace: Annotated[str, _aws_pattern("Qbusiness", "ClientNamespace")]
 
 
 class AppliedAttachmentsConfigurationTypeDef(BaseValidatorModel):
@@ -81,8 +83,8 @@ class AppliedOrchestrationConfigurationTypeDef(BaseValidatorModel):
 
 class PermissionConditionTypeDef(BaseValidatorModel):
     conditionOperator: Literal["StringEquals"]
-    conditionKey: str
-    conditionValues: List[str]
+    conditionKey: Annotated[str, _aws_pattern("Qbusiness", "PermissionConditionKey")]
+    conditionValues: List[Annotated[str, _aws_pattern("Qbusiness", "PermissionConditionValue")]]
 
 
 class ResponseMetadataTypeDef(BaseValidatorModel):
@@ -94,7 +96,7 @@ class ResponseMetadataTypeDef(BaseValidatorModel):
 
 
 class AssociatedGroupTypeDef(BaseValidatorModel):
-    name: Optional[str] = None
+    name: Optional[Annotated[str, _aws_pattern("Qbusiness", "GroupName")]] = None
     type: Optional[MembershipTypeType] = None
 
 
@@ -107,7 +109,7 @@ BlobTypeDef = Union[IO[Any], StreamingBody, bytes, str]
 
 
 class ErrorDetailTypeDef(BaseValidatorModel):
-    errorMessage: Optional[str] = None
+    errorMessage: Optional[Annotated[str, _aws_pattern("Qbusiness", "ErrorMessage")]] = None
     errorCode: Optional[ErrorCodeType] = None
 
 
@@ -120,7 +122,7 @@ class AudioExtractionConfigurationTypeDef(BaseValidatorModel):
 
 
 class AudioSourceDetailsTypeDef(BaseValidatorModel):
-    mediaId: Optional[str] = None
+    mediaId: Optional[Annotated[str, _aws_pattern("Qbusiness", "MediaId")]] = None
     mediaMimeType: Optional[str] = None
     startTimeMilliseconds: Optional[int] = None
     endTimeMilliseconds: Optional[int] = None
@@ -128,11 +130,11 @@ class AudioSourceDetailsTypeDef(BaseValidatorModel):
 
 
 class AuthChallengeRequestEventTypeDef(BaseValidatorModel):
-    authorizationUrl: str
+    authorizationUrl: Annotated[str, _aws_pattern("Qbusiness", "Url")]
 
 
 class AuthChallengeRequestTypeDef(BaseValidatorModel):
-    authorizationUrl: str
+    authorizationUrl: Annotated[str, _aws_pattern("Qbusiness", "Url")]
 
 
 class AuthChallengeResponseEventTypeDef(BaseValidatorModel):
@@ -149,23 +151,23 @@ class AutoSubscriptionConfigurationTypeDef(BaseValidatorModel):
 
 
 class BasicAuthConfigurationTypeDef(BaseValidatorModel):
-    secretArn: str
-    roleArn: str
+    secretArn: Annotated[str, _aws_pattern("Qbusiness", "SecretArn")]
+    roleArn: Annotated[str, _aws_pattern("Qbusiness", "RoleArn")]
 
 
 class DeleteDocumentTypeDef(BaseValidatorModel):
-    documentId: str
+    documentId: Annotated[str, _aws_pattern("Qbusiness", "DocumentId")]
 
 
 class BlockedPhrasesConfigurationTypeDef(BaseValidatorModel):
-    blockedPhrases: Optional[List[str]] = None
-    systemMessageOverride: Optional[str] = None
+    blockedPhrases: Optional[List[Annotated[str, _aws_pattern("Qbusiness", "BlockedPhrase")]]] = None
+    systemMessageOverride: Optional[Annotated[str, _aws_pattern("Qbusiness", "SystemMessageOverride")]] = None
 
 
 class BlockedPhrasesConfigurationUpdateTypeDef(BaseValidatorModel):
-    blockedPhrasesToCreateOrUpdate: Optional[List[str]] = None
-    blockedPhrasesToDelete: Optional[List[str]] = None
-    systemMessageOverride: Optional[str] = None
+    blockedPhrasesToCreateOrUpdate: Optional[List[Annotated[str, _aws_pattern("Qbusiness", "BlockedPhrase")]]] = None
+    blockedPhrasesToDelete: Optional[List[Annotated[str, _aws_pattern("Qbusiness", "BlockedPhrase")]]] = None
+    systemMessageOverride: Optional[Annotated[str, _aws_pattern("Qbusiness", "SystemMessageOverride")]] = None
 
 
 class BrowserExtensionConfigurationOutputTypeDef(BaseValidatorModel):
@@ -178,7 +180,7 @@ class BrowserExtensionConfigurationTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'cancel_subscription' function.
 class CancelSubscriptionRequestTypeDef(BaseValidatorModel):
-    applicationId: str
+    applicationId: Annotated[str, _aws_pattern("Qbusiness", "ApplicationId")]
     subscriptionId: str
 
 
@@ -191,20 +193,20 @@ class TextInputEventTypeDef(BaseValidatorModel):
 
 
 class PluginConfigurationTypeDef(BaseValidatorModel):
-    pluginId: str
+    pluginId: Annotated[str, _aws_pattern("Qbusiness", "PluginId")]
 
 
 class TextOutputEventTypeDef(BaseValidatorModel):
     systemMessageType: Optional[SystemMessageTypeType] = None
-    conversationId: Optional[str] = None
-    userMessageId: Optional[str] = None
-    systemMessageId: Optional[str] = None
+    conversationId: Optional[Annotated[str, _aws_pattern("Qbusiness", "ConversationId")]] = None
+    userMessageId: Optional[Annotated[str, _aws_pattern("Qbusiness", "MessageId")]] = None
+    systemMessageId: Optional[Annotated[str, _aws_pattern("Qbusiness", "MessageId")]] = None
     systemMessage: Optional[str] = None
 
 
 class ChatResponseConfigurationTypeDef(BaseValidatorModel):
-    chatResponseConfigurationId: str
-    chatResponseConfigurationArn: str
+    chatResponseConfigurationId: Annotated[str, _aws_pattern("Qbusiness", "ChatResponseConfigurationId")]
+    chatResponseConfigurationArn: Annotated[str, _aws_pattern("Qbusiness", "ChatResponseConfigurationArn")]
     displayName: str
     status: ChatResponseConfigurationStatusType
     responseConfigurationSummary: Optional[str] = None
@@ -214,41 +216,41 @@ class ChatResponseConfigurationTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'check_document_access' function.
 class CheckDocumentAccessRequestTypeDef(BaseValidatorModel):
-    applicationId: str
-    indexId: str
+    applicationId: Annotated[str, _aws_pattern("Qbusiness", "ApplicationId")]
+    indexId: Annotated[str, _aws_pattern("Qbusiness", "IndexId")]
     userId: str
-    documentId: str
-    dataSourceId: Optional[str] = None
+    documentId: Annotated[str, _aws_pattern("Qbusiness", "DocumentId")]
+    dataSourceId: Optional[Annotated[str, _aws_pattern("Qbusiness", "DataSourceId")]] = None
 
 
 class ContentBlockerRuleTypeDef(BaseValidatorModel):
-    systemMessageOverride: Optional[str] = None
+    systemMessageOverride: Optional[Annotated[str, _aws_pattern("Qbusiness", "SystemMessageOverride")]] = None
 
 
 class EligibleDataSourceTypeDef(BaseValidatorModel):
-    indexId: Optional[str] = None
-    dataSourceId: Optional[str] = None
+    indexId: Optional[Annotated[str, _aws_pattern("Qbusiness", "IndexId")]] = None
+    dataSourceId: Optional[Annotated[str, _aws_pattern("Qbusiness", "DataSourceId")]] = None
 
 
 class RetrieverContentSourceTypeDef(BaseValidatorModel):
-    retrieverId: str
+    retrieverId: Annotated[str, _aws_pattern("Qbusiness", "RetrieverId")]
 
 
 class ConversationSourceTypeDef(BaseValidatorModel):
-    conversationId: str
-    attachmentId: str
+    conversationId: Annotated[str, _aws_pattern("Qbusiness", "ConversationId")]
+    attachmentId: Annotated[str, _aws_pattern("Qbusiness", "AttachmentId")]
 
 
 class ConversationTypeDef(BaseValidatorModel):
-    conversationId: Optional[str] = None
+    conversationId: Optional[Annotated[str, _aws_pattern("Qbusiness", "ConversationId")]] = None
     title: Optional[str] = None
     startTime: Optional[datetime] = None
 
 
 # This class is the input for the 'create_anonymous_web_experience_url' function.
 class CreateAnonymousWebExperienceUrlRequestTypeDef(BaseValidatorModel):
-    applicationId: str
-    webExperienceId: str
+    applicationId: Annotated[str, _aws_pattern("Qbusiness", "ApplicationId")]
+    webExperienceId: Annotated[str, _aws_pattern("Qbusiness", "WebExperienceId")]
     sessionDurationInMinutes: Optional[int] = None
 
 
@@ -274,21 +276,21 @@ class IndexCapacityConfigurationTypeDef(BaseValidatorModel):
 
 
 class SubscriptionPrincipalTypeDef(BaseValidatorModel):
-    user: Optional[str] = None
-    group: Optional[str] = None
+    user: Optional[Annotated[str, _aws_pattern("Qbusiness", "UserIdentifier")]] = None
+    group: Optional[Annotated[str, _aws_pattern("Qbusiness", "GroupIdentifier")]] = None
 
 
 class UserAliasTypeDef(BaseValidatorModel):
     userId: str
-    indexId: Optional[str] = None
-    dataSourceId: Optional[str] = None
+    indexId: Optional[Annotated[str, _aws_pattern("Qbusiness", "IndexId")]] = None
+    dataSourceId: Optional[Annotated[str, _aws_pattern("Qbusiness", "DataSourceId")]] = None
 
 
 class CustomizationConfigurationTypeDef(BaseValidatorModel):
-    customCSSUrl: Optional[str] = None
-    logoUrl: Optional[str] = None
-    fontUrl: Optional[str] = None
-    faviconUrl: Optional[str] = None
+    customCSSUrl: Optional[Annotated[str, _aws_pattern("Qbusiness", "CustomCSSUrl")]] = None
+    logoUrl: Optional[Annotated[str, _aws_pattern("Qbusiness", "LogoUrl")]] = None
+    fontUrl: Optional[Annotated[str, _aws_pattern("Qbusiness", "FontUrl")]] = None
+    faviconUrl: Optional[Annotated[str, _aws_pattern("Qbusiness", "FaviconUrl")]] = None
 
 
 class CreatorModeConfigurationTypeDef(BaseValidatorModel):
@@ -296,20 +298,20 @@ class CreatorModeConfigurationTypeDef(BaseValidatorModel):
 
 
 class DataAccessorIdcTrustedTokenIssuerConfigurationTypeDef(BaseValidatorModel):
-    idcTrustedTokenIssuerArn: str
+    idcTrustedTokenIssuerArn: Annotated[str, _aws_pattern("Qbusiness", "IdcTrustedTokenIssuerArn")]
 
 
 class DataSourceSyncJobMetricsTypeDef(BaseValidatorModel):
-    documentsAdded: Optional[str] = None
-    documentsModified: Optional[str] = None
-    documentsDeleted: Optional[str] = None
-    documentsFailed: Optional[str] = None
-    documentsScanned: Optional[str] = None
+    documentsAdded: Optional[Annotated[str, _aws_pattern("Qbusiness", "MetricValue")]] = None
+    documentsModified: Optional[Annotated[str, _aws_pattern("Qbusiness", "MetricValue")]] = None
+    documentsDeleted: Optional[Annotated[str, _aws_pattern("Qbusiness", "MetricValue")]] = None
+    documentsFailed: Optional[Annotated[str, _aws_pattern("Qbusiness", "MetricValue")]] = None
+    documentsScanned: Optional[Annotated[str, _aws_pattern("Qbusiness", "MetricValue")]] = None
 
 
 class DataSourceTypeDef(BaseValidatorModel):
-    displayName: Optional[str] = None
-    dataSourceId: Optional[str] = None
+    displayName: Optional[Annotated[str, _aws_pattern("Qbusiness", "DataSourceName")]] = None
+    dataSourceId: Optional[Annotated[str, _aws_pattern("Qbusiness", "DataSourceId")]] = None
     type: Optional[str] = None
     createdAt: Optional[datetime] = None
     updatedAt: Optional[datetime] = None
@@ -322,8 +324,8 @@ class DataSourceVpcConfigurationOutputTypeDef(BaseValidatorModel):
 
 
 class DataSourceVpcConfigurationTypeDef(BaseValidatorModel):
-    subnetIds: List[str]
-    securityGroupIds: List[str]
+    subnetIds: List[Annotated[str, _aws_pattern("Qbusiness", "SubnetId")]]
+    securityGroupIds: List[Annotated[str, _aws_pattern("Qbusiness", "SecurityGroupId")]]
 
 
 class DateAttributeBoostingConfigurationTypeDef(BaseValidatorModel):
@@ -332,81 +334,81 @@ class DateAttributeBoostingConfigurationTypeDef(BaseValidatorModel):
 
 
 class DeleteApplicationRequestTypeDef(BaseValidatorModel):
-    applicationId: str
+    applicationId: Annotated[str, _aws_pattern("Qbusiness", "ApplicationId")]
 
 
 class DeleteAttachmentRequestTypeDef(BaseValidatorModel):
-    applicationId: str
-    conversationId: str
-    attachmentId: str
-    userId: Optional[str] = None
+    applicationId: Annotated[str, _aws_pattern("Qbusiness", "ApplicationId")]
+    conversationId: Annotated[str, _aws_pattern("Qbusiness", "ConversationId")]
+    attachmentId: Annotated[str, _aws_pattern("Qbusiness", "AttachmentId")]
+    userId: Optional[Annotated[str, _aws_pattern("Qbusiness", "UserId")]] = None
 
 
 class DeleteChatControlsConfigurationRequestTypeDef(BaseValidatorModel):
-    applicationId: str
+    applicationId: Annotated[str, _aws_pattern("Qbusiness", "ApplicationId")]
 
 
 class DeleteChatResponseConfigurationRequestTypeDef(BaseValidatorModel):
-    applicationId: str
-    chatResponseConfigurationId: str
+    applicationId: Annotated[str, _aws_pattern("Qbusiness", "ApplicationId")]
+    chatResponseConfigurationId: Annotated[str, _aws_pattern("Qbusiness", "ChatResponseConfigurationId")]
 
 
 class DeleteConversationRequestTypeDef(BaseValidatorModel):
-    conversationId: str
-    applicationId: str
-    userId: Optional[str] = None
+    conversationId: Annotated[str, _aws_pattern("Qbusiness", "ConversationId")]
+    applicationId: Annotated[str, _aws_pattern("Qbusiness", "ApplicationId")]
+    userId: Optional[Annotated[str, _aws_pattern("Qbusiness", "UserId")]] = None
 
 
 class DeleteDataAccessorRequestTypeDef(BaseValidatorModel):
-    applicationId: str
-    dataAccessorId: str
+    applicationId: Annotated[str, _aws_pattern("Qbusiness", "ApplicationId")]
+    dataAccessorId: Annotated[str, _aws_pattern("Qbusiness", "DataAccessorId")]
 
 
 class DeleteDataSourceRequestTypeDef(BaseValidatorModel):
-    applicationId: str
-    indexId: str
-    dataSourceId: str
+    applicationId: Annotated[str, _aws_pattern("Qbusiness", "ApplicationId")]
+    indexId: Annotated[str, _aws_pattern("Qbusiness", "IndexId")]
+    dataSourceId: Annotated[str, _aws_pattern("Qbusiness", "DataSourceId")]
 
 
 class DeleteGroupRequestTypeDef(BaseValidatorModel):
-    applicationId: str
-    indexId: str
-    groupName: str
-    dataSourceId: Optional[str] = None
+    applicationId: Annotated[str, _aws_pattern("Qbusiness", "ApplicationId")]
+    indexId: Annotated[str, _aws_pattern("Qbusiness", "IndexId")]
+    groupName: Annotated[str, _aws_pattern("Qbusiness", "GroupName")]
+    dataSourceId: Optional[Annotated[str, _aws_pattern("Qbusiness", "DataSourceId")]] = None
 
 
 class DeleteIndexRequestTypeDef(BaseValidatorModel):
-    applicationId: str
-    indexId: str
+    applicationId: Annotated[str, _aws_pattern("Qbusiness", "ApplicationId")]
+    indexId: Annotated[str, _aws_pattern("Qbusiness", "IndexId")]
 
 
 class DeletePluginRequestTypeDef(BaseValidatorModel):
-    applicationId: str
-    pluginId: str
+    applicationId: Annotated[str, _aws_pattern("Qbusiness", "ApplicationId")]
+    pluginId: Annotated[str, _aws_pattern("Qbusiness", "PluginId")]
 
 
 class DeleteRetrieverRequestTypeDef(BaseValidatorModel):
-    applicationId: str
-    retrieverId: str
+    applicationId: Annotated[str, _aws_pattern("Qbusiness", "ApplicationId")]
+    retrieverId: Annotated[str, _aws_pattern("Qbusiness", "RetrieverId")]
 
 
 class DeleteUserRequestTypeDef(BaseValidatorModel):
-    applicationId: str
+    applicationId: Annotated[str, _aws_pattern("Qbusiness", "ApplicationId")]
     userId: str
 
 
 class DeleteWebExperienceRequestTypeDef(BaseValidatorModel):
-    applicationId: str
-    webExperienceId: str
+    applicationId: Annotated[str, _aws_pattern("Qbusiness", "ApplicationId")]
+    webExperienceId: Annotated[str, _aws_pattern("Qbusiness", "WebExperienceId")]
 
 
 class DisassociatePermissionRequestTypeDef(BaseValidatorModel):
-    applicationId: str
+    applicationId: Annotated[str, _aws_pattern("Qbusiness", "ApplicationId")]
     statementId: str
 
 
 class DocumentAclGroupTypeDef(BaseValidatorModel):
-    name: Optional[str] = None
+    name: Optional[Annotated[str, _aws_pattern("Qbusiness", "GroupName")]] = None
     type: Optional[MembershipTypeType] = None
 
 
@@ -442,7 +444,7 @@ class DocumentAttributeValueOutputTypeDef(BaseValidatorModel):
 
 
 class DocumentAttributeConfigurationTypeDef(BaseValidatorModel):
-    name: Optional[str] = None
+    name: Optional[Annotated[str, _aws_pattern("Qbusiness", "DocumentMetadataConfigurationName")]] = None
     type: Optional[AttributeTypeType] = None
     search: Optional[StatusType] = None
 
@@ -452,7 +454,7 @@ TimestampTypeDef = Union[datetime, str]
 
 # This class is the input for the 'get_application' function.
 class GetApplicationRequestTypeDef(BaseValidatorModel):
-    applicationId: str
+    applicationId: Annotated[str, _aws_pattern("Qbusiness", "ApplicationId")]
 
 
 class PaginatorConfigTypeDef(BaseValidatorModel):
@@ -463,7 +465,7 @@ class PaginatorConfigTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'get_chat_controls_configuration' function.
 class GetChatControlsConfigurationRequestTypeDef(BaseValidatorModel):
-    applicationId: str
+    applicationId: Annotated[str, _aws_pattern("Qbusiness", "ApplicationId")]
     maxResults: Optional[int] = None
     nextToken: Optional[str] = None
 
@@ -474,109 +476,109 @@ class HallucinationReductionConfigurationTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'get_chat_response_configuration' function.
 class GetChatResponseConfigurationRequestTypeDef(BaseValidatorModel):
-    applicationId: str
-    chatResponseConfigurationId: str
+    applicationId: Annotated[str, _aws_pattern("Qbusiness", "ApplicationId")]
+    chatResponseConfigurationId: Annotated[str, _aws_pattern("Qbusiness", "ChatResponseConfigurationId")]
 
 
 # This class is the input for the 'get_data_accessor' function.
 class GetDataAccessorRequestTypeDef(BaseValidatorModel):
-    applicationId: str
-    dataAccessorId: str
+    applicationId: Annotated[str, _aws_pattern("Qbusiness", "ApplicationId")]
+    dataAccessorId: Annotated[str, _aws_pattern("Qbusiness", "DataAccessorId")]
 
 
 # This class is the input for the 'get_data_source' function.
 class GetDataSourceRequestTypeDef(BaseValidatorModel):
-    applicationId: str
-    indexId: str
-    dataSourceId: str
+    applicationId: Annotated[str, _aws_pattern("Qbusiness", "ApplicationId")]
+    indexId: Annotated[str, _aws_pattern("Qbusiness", "IndexId")]
+    dataSourceId: Annotated[str, _aws_pattern("Qbusiness", "DataSourceId")]
 
 
 # This class is the input for the 'get_document_content' function.
 class GetDocumentContentRequestTypeDef(BaseValidatorModel):
-    applicationId: str
-    indexId: str
-    documentId: str
-    dataSourceId: Optional[str] = None
+    applicationId: Annotated[str, _aws_pattern("Qbusiness", "ApplicationId")]
+    indexId: Annotated[str, _aws_pattern("Qbusiness", "IndexId")]
+    documentId: Annotated[str, _aws_pattern("Qbusiness", "DocumentId")]
+    dataSourceId: Optional[Annotated[str, _aws_pattern("Qbusiness", "DataSourceId")]] = None
     outputFormat: Optional[OutputFormatType] = None
 
 
 # This class is the input for the 'get_group' function.
 class GetGroupRequestTypeDef(BaseValidatorModel):
-    applicationId: str
-    indexId: str
-    groupName: str
-    dataSourceId: Optional[str] = None
+    applicationId: Annotated[str, _aws_pattern("Qbusiness", "ApplicationId")]
+    indexId: Annotated[str, _aws_pattern("Qbusiness", "IndexId")]
+    groupName: Annotated[str, _aws_pattern("Qbusiness", "GroupName")]
+    dataSourceId: Optional[Annotated[str, _aws_pattern("Qbusiness", "DataSourceId")]] = None
 
 
 # This class is the input for the 'get_index' function.
 class GetIndexRequestTypeDef(BaseValidatorModel):
-    applicationId: str
-    indexId: str
+    applicationId: Annotated[str, _aws_pattern("Qbusiness", "ApplicationId")]
+    indexId: Annotated[str, _aws_pattern("Qbusiness", "IndexId")]
 
 
 # This class is the input for the 'get_media' function.
 class GetMediaRequestTypeDef(BaseValidatorModel):
-    applicationId: str
-    conversationId: str
-    messageId: str
-    mediaId: str
+    applicationId: Annotated[str, _aws_pattern("Qbusiness", "ApplicationId")]
+    conversationId: Annotated[str, _aws_pattern("Qbusiness", "ConversationId")]
+    messageId: Annotated[str, _aws_pattern("Qbusiness", "MessageId")]
+    mediaId: Annotated[str, _aws_pattern("Qbusiness", "MediaId")]
 
 
 # This class is the input for the 'get_plugin' function.
 class GetPluginRequestTypeDef(BaseValidatorModel):
-    applicationId: str
-    pluginId: str
+    applicationId: Annotated[str, _aws_pattern("Qbusiness", "ApplicationId")]
+    pluginId: Annotated[str, _aws_pattern("Qbusiness", "PluginId")]
 
 
 # This class is the input for the 'get_policy' function.
 class GetPolicyRequestTypeDef(BaseValidatorModel):
-    applicationId: str
+    applicationId: Annotated[str, _aws_pattern("Qbusiness", "ApplicationId")]
 
 
 # This class is the input for the 'get_retriever' function.
 class GetRetrieverRequestTypeDef(BaseValidatorModel):
-    applicationId: str
-    retrieverId: str
+    applicationId: Annotated[str, _aws_pattern("Qbusiness", "ApplicationId")]
+    retrieverId: Annotated[str, _aws_pattern("Qbusiness", "RetrieverId")]
 
 
 # This class is the input for the 'get_user' function.
 class GetUserRequestTypeDef(BaseValidatorModel):
-    applicationId: str
+    applicationId: Annotated[str, _aws_pattern("Qbusiness", "ApplicationId")]
     userId: str
 
 
 # This class is the input for the 'get_web_experience' function.
 class GetWebExperienceRequestTypeDef(BaseValidatorModel):
-    applicationId: str
-    webExperienceId: str
+    applicationId: Annotated[str, _aws_pattern("Qbusiness", "ApplicationId")]
+    webExperienceId: Annotated[str, _aws_pattern("Qbusiness", "WebExperienceId")]
 
 
 class MemberGroupTypeDef(BaseValidatorModel):
-    groupName: str
+    groupName: Annotated[str, _aws_pattern("Qbusiness", "GroupName")]
     type: Optional[MembershipTypeType] = None
 
 
 class MemberUserTypeDef(BaseValidatorModel):
-    userId: str
+    userId: Annotated[str, _aws_pattern("Qbusiness", "DataSourceUserId")]
     type: Optional[MembershipTypeType] = None
 
 
 class GroupSummaryTypeDef(BaseValidatorModel):
-    groupName: Optional[str] = None
+    groupName: Optional[Annotated[str, _aws_pattern("Qbusiness", "GroupName")]] = None
 
 
 class IdcAuthConfigurationTypeDef(BaseValidatorModel):
-    idcApplicationArn: str
-    roleArn: str
+    idcApplicationArn: Annotated[str, _aws_pattern("Qbusiness", "IdcApplicationArn")]
+    roleArn: Annotated[str, _aws_pattern("Qbusiness", "RoleArn")]
 
 
 class OpenIDConnectProviderConfigurationTypeDef(BaseValidatorModel):
-    secretsArn: str
-    secretsRole: str
+    secretsArn: Annotated[str, _aws_pattern("Qbusiness", "SecretArn")]
+    secretsRole: Annotated[str, _aws_pattern("Qbusiness", "RoleArn")]
 
 
 class SamlProviderConfigurationTypeDef(BaseValidatorModel):
-    authenticationUrl: str
+    authenticationUrl: Annotated[str, _aws_pattern("Qbusiness", "SamlAuthenticationUrl")]
 
 
 class ImageExtractionConfigurationTypeDef(BaseValidatorModel):
@@ -584,7 +586,7 @@ class ImageExtractionConfigurationTypeDef(BaseValidatorModel):
 
 
 class ImageSourceDetailsTypeDef(BaseValidatorModel):
-    mediaId: Optional[str] = None
+    mediaId: Optional[Annotated[str, _aws_pattern("Qbusiness", "MediaId")]] = None
     mediaMimeType: Optional[str] = None
 
 
@@ -594,26 +596,26 @@ class TextDocumentStatisticsTypeDef(BaseValidatorModel):
 
 
 class IndexTypeDef(BaseValidatorModel):
-    displayName: Optional[str] = None
-    indexId: Optional[str] = None
+    displayName: Optional[Annotated[str, _aws_pattern("Qbusiness", "IndexName")]] = None
+    indexId: Optional[Annotated[str, _aws_pattern("Qbusiness", "IndexId")]] = None
     createdAt: Optional[datetime] = None
     updatedAt: Optional[datetime] = None
     status: Optional[IndexStatusType] = None
 
 
 class InstructionCollectionTypeDef(BaseValidatorModel):
-    responseLength: Optional[str] = None
-    targetAudience: Optional[str] = None
-    perspective: Optional[str] = None
-    outputStyle: Optional[str] = None
-    identity: Optional[str] = None
-    tone: Optional[str] = None
-    customInstructions: Optional[str] = None
-    examples: Optional[str] = None
+    responseLength: Optional[Annotated[str, _aws_pattern("Qbusiness", "Instruction")]] = None
+    targetAudience: Optional[Annotated[str, _aws_pattern("Qbusiness", "Instruction")]] = None
+    perspective: Optional[Annotated[str, _aws_pattern("Qbusiness", "Instruction")]] = None
+    outputStyle: Optional[Annotated[str, _aws_pattern("Qbusiness", "Instruction")]] = None
+    identity: Optional[Annotated[str, _aws_pattern("Qbusiness", "Instruction")]] = None
+    tone: Optional[Annotated[str, _aws_pattern("Qbusiness", "Instruction")]] = None
+    customInstructions: Optional[Annotated[str, _aws_pattern("Qbusiness", "Instruction")]] = None
+    examples: Optional[Annotated[str, _aws_pattern("Qbusiness", "Instruction")]] = None
 
 
 class KendraIndexConfigurationTypeDef(BaseValidatorModel):
-    indexId: str
+    indexId: Annotated[str, _aws_pattern("Qbusiness", "KendraIndexId")]
 
 
 # This class is the input for the 'list_applications' function.
@@ -624,72 +626,72 @@ class ListApplicationsRequestTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'list_attachments' function.
 class ListAttachmentsRequestTypeDef(BaseValidatorModel):
-    applicationId: str
-    conversationId: Optional[str] = None
-    userId: Optional[str] = None
+    applicationId: Annotated[str, _aws_pattern("Qbusiness", "ApplicationId")]
+    conversationId: Optional[Annotated[str, _aws_pattern("Qbusiness", "ConversationId")]] = None
+    userId: Optional[Annotated[str, _aws_pattern("Qbusiness", "UserId")]] = None
     nextToken: Optional[str] = None
     maxResults: Optional[int] = None
 
 
 # This class is the input for the 'list_chat_response_configurations' function.
 class ListChatResponseConfigurationsRequestTypeDef(BaseValidatorModel):
-    applicationId: str
+    applicationId: Annotated[str, _aws_pattern("Qbusiness", "ApplicationId")]
     maxResults: Optional[int] = None
     nextToken: Optional[str] = None
 
 
 # This class is the input for the 'list_conversations' function.
 class ListConversationsRequestTypeDef(BaseValidatorModel):
-    applicationId: str
-    userId: Optional[str] = None
+    applicationId: Annotated[str, _aws_pattern("Qbusiness", "ApplicationId")]
+    userId: Optional[Annotated[str, _aws_pattern("Qbusiness", "UserId")]] = None
     nextToken: Optional[str] = None
     maxResults: Optional[int] = None
 
 
 # This class is the input for the 'list_data_accessors' function.
 class ListDataAccessorsRequestTypeDef(BaseValidatorModel):
-    applicationId: str
+    applicationId: Annotated[str, _aws_pattern("Qbusiness", "ApplicationId")]
     nextToken: Optional[str] = None
     maxResults: Optional[int] = None
 
 
 # This class is the input for the 'list_data_sources' function.
 class ListDataSourcesRequestTypeDef(BaseValidatorModel):
-    applicationId: str
-    indexId: str
+    applicationId: Annotated[str, _aws_pattern("Qbusiness", "ApplicationId")]
+    indexId: Annotated[str, _aws_pattern("Qbusiness", "IndexId")]
     nextToken: Optional[str] = None
     maxResults: Optional[int] = None
 
 
 # This class is the input for the 'list_documents' function.
 class ListDocumentsRequestTypeDef(BaseValidatorModel):
-    applicationId: str
-    indexId: str
-    dataSourceIds: Optional[List[str]] = None
+    applicationId: Annotated[str, _aws_pattern("Qbusiness", "ApplicationId")]
+    indexId: Annotated[str, _aws_pattern("Qbusiness", "IndexId")]
+    dataSourceIds: Optional[List[Annotated[str, _aws_pattern("Qbusiness", "DataSourceId")]]] = None
     nextToken: Optional[str] = None
     maxResults: Optional[int] = None
 
 
 # This class is the input for the 'list_indices' function.
 class ListIndicesRequestTypeDef(BaseValidatorModel):
-    applicationId: str
+    applicationId: Annotated[str, _aws_pattern("Qbusiness", "ApplicationId")]
     nextToken: Optional[str] = None
     maxResults: Optional[int] = None
 
 
 # This class is the input for the 'list_messages' function.
 class ListMessagesRequestTypeDef(BaseValidatorModel):
-    conversationId: str
-    applicationId: str
-    userId: Optional[str] = None
+    conversationId: Annotated[str, _aws_pattern("Qbusiness", "ConversationId")]
+    applicationId: Annotated[str, _aws_pattern("Qbusiness", "ApplicationId")]
+    userId: Optional[Annotated[str, _aws_pattern("Qbusiness", "UserId")]] = None
     nextToken: Optional[str] = None
     maxResults: Optional[int] = None
 
 
 # This class is the input for the 'list_plugin_actions' function.
 class ListPluginActionsRequestTypeDef(BaseValidatorModel):
-    applicationId: str
-    pluginId: str
+    applicationId: Annotated[str, _aws_pattern("Qbusiness", "ApplicationId")]
+    pluginId: Annotated[str, _aws_pattern("Qbusiness", "PluginId")]
     nextToken: Optional[str] = None
     maxResults: Optional[int] = None
 
@@ -715,16 +717,16 @@ class PluginTypeMetadataSummaryTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'list_plugins' function.
 class ListPluginsRequestTypeDef(BaseValidatorModel):
-    applicationId: str
+    applicationId: Annotated[str, _aws_pattern("Qbusiness", "ApplicationId")]
     nextToken: Optional[str] = None
     maxResults: Optional[int] = None
 
 
 class PluginTypeDef(BaseValidatorModel):
-    pluginId: Optional[str] = None
-    displayName: Optional[str] = None
+    pluginId: Optional[Annotated[str, _aws_pattern("Qbusiness", "PluginId")]] = None
+    displayName: Optional[Annotated[str, _aws_pattern("Qbusiness", "PluginName")]] = None
     type: Optional[PluginTypeType] = None
-    serverUrl: Optional[str] = None
+    serverUrl: Optional[Annotated[str, _aws_pattern("Qbusiness", "Url")]] = None
     state: Optional[PluginStateType] = None
     buildStatus: Optional[PluginBuildStatusType] = None
     createdAt: Optional[datetime] = None
@@ -733,22 +735,22 @@ class PluginTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'list_retrievers' function.
 class ListRetrieversRequestTypeDef(BaseValidatorModel):
-    applicationId: str
+    applicationId: Annotated[str, _aws_pattern("Qbusiness", "ApplicationId")]
     nextToken: Optional[str] = None
     maxResults: Optional[int] = None
 
 
 class RetrieverTypeDef(BaseValidatorModel):
-    applicationId: Optional[str] = None
-    retrieverId: Optional[str] = None
+    applicationId: Optional[Annotated[str, _aws_pattern("Qbusiness", "ApplicationId")]] = None
+    retrieverId: Optional[Annotated[str, _aws_pattern("Qbusiness", "RetrieverId")]] = None
     type: Optional[RetrieverTypeType] = None
     status: Optional[RetrieverStatusType] = None
-    displayName: Optional[str] = None
+    displayName: Optional[Annotated[str, _aws_pattern("Qbusiness", "RetrieverName")]] = None
 
 
 # This class is the input for the 'list_subscriptions' function.
 class ListSubscriptionsRequestTypeDef(BaseValidatorModel):
-    applicationId: str
+    applicationId: Annotated[str, _aws_pattern("Qbusiness", "ApplicationId")]
     nextToken: Optional[str] = None
     maxResults: Optional[int] = None
 
@@ -760,16 +762,16 @@ class ListTagsForResourceRequestTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'list_web_experiences' function.
 class ListWebExperiencesRequestTypeDef(BaseValidatorModel):
-    applicationId: str
+    applicationId: Annotated[str, _aws_pattern("Qbusiness", "ApplicationId")]
     nextToken: Optional[str] = None
     maxResults: Optional[int] = None
 
 
 class WebExperienceTypeDef(BaseValidatorModel):
-    webExperienceId: Optional[str] = None
+    webExperienceId: Optional[Annotated[str, _aws_pattern("Qbusiness", "WebExperienceId")]] = None
     createdAt: Optional[datetime] = None
     updatedAt: Optional[datetime] = None
-    defaultEndpoint: Optional[str] = None
+    defaultEndpoint: Optional[Annotated[str, _aws_pattern("Qbusiness", "Url")]] = None
     status: Optional[WebExperienceStatusType] = None
 
 
@@ -778,10 +780,10 @@ class VideoExtractionConfigurationTypeDef(BaseValidatorModel):
 
 
 class OAuth2ClientCredentialConfigurationTypeDef(BaseValidatorModel):
-    secretArn: str
-    roleArn: str
-    authorizationUrl: Optional[str] = None
-    tokenUrl: Optional[str] = None
+    secretArn: Annotated[str, _aws_pattern("Qbusiness", "SecretArn")]
+    roleArn: Annotated[str, _aws_pattern("Qbusiness", "RoleArn")]
+    authorizationUrl: Optional[Annotated[str, _aws_pattern("Qbusiness", "Url")]] = None
+    tokenUrl: Optional[Annotated[str, _aws_pattern("Qbusiness", "Url")]] = None
 
 
 class OrchestrationConfigurationTypeDef(BaseValidatorModel):
@@ -790,13 +792,13 @@ class OrchestrationConfigurationTypeDef(BaseValidatorModel):
 
 class PrincipalGroupTypeDef(BaseValidatorModel):
     access: ReadAccessTypeType
-    name: Optional[str] = None
+    name: Optional[Annotated[str, _aws_pattern("Qbusiness", "GroupName")]] = None
     membershipType: Optional[MembershipTypeType] = None
 
 
 class PrincipalUserTypeDef(BaseValidatorModel):
     access: ReadAccessTypeType
-    id: Optional[str] = None
+    id: Optional[Annotated[str, _aws_pattern("Qbusiness", "UserId")]] = None
     membershipType: Optional[MembershipTypeType] = None
 
 
@@ -810,8 +812,8 @@ class UsersAndGroupsOutputTypeDef(BaseValidatorModel):
 
 
 class SamlConfigurationTypeDef(BaseValidatorModel):
-    metadataXML: str
-    roleArn: str
+    metadataXML: Annotated[str, _aws_pattern("Qbusiness", "SamlMetadataXML")]
+    roleArn: Annotated[str, _aws_pattern("Qbusiness", "RoleArn")]
     userIdAttribute: str
     userGroupAttribute: Optional[str] = None
 
@@ -821,7 +823,7 @@ class SnippetExcerptTypeDef(BaseValidatorModel):
 
 
 class VideoSourceDetailsTypeDef(BaseValidatorModel):
-    mediaId: Optional[str] = None
+    mediaId: Optional[Annotated[str, _aws_pattern("Qbusiness", "MediaId")]] = None
     mediaMimeType: Optional[str] = None
     startTimeMilliseconds: Optional[int] = None
     endTimeMilliseconds: Optional[int] = None
@@ -830,15 +832,15 @@ class VideoSourceDetailsTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'start_data_source_sync_job' function.
 class StartDataSourceSyncJobRequestTypeDef(BaseValidatorModel):
-    dataSourceId: str
-    applicationId: str
-    indexId: str
+    dataSourceId: Annotated[str, _aws_pattern("Qbusiness", "DataSourceId")]
+    applicationId: Annotated[str, _aws_pattern("Qbusiness", "ApplicationId")]
+    indexId: Annotated[str, _aws_pattern("Qbusiness", "IndexId")]
 
 
 class StopDataSourceSyncJobRequestTypeDef(BaseValidatorModel):
-    dataSourceId: str
-    applicationId: str
-    indexId: str
+    dataSourceId: Annotated[str, _aws_pattern("Qbusiness", "DataSourceId")]
+    applicationId: Annotated[str, _aws_pattern("Qbusiness", "ApplicationId")]
+    indexId: Annotated[str, _aws_pattern("Qbusiness", "IndexId")]
 
 
 class UntagResourceRequestTypeDef(BaseValidatorModel):
@@ -848,7 +850,7 @@ class UntagResourceRequestTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'update_subscription' function.
 class UpdateSubscriptionRequestTypeDef(BaseValidatorModel):
-    applicationId: str
+    applicationId: Annotated[str, _aws_pattern("Qbusiness", "ApplicationId")]
     subscriptionId: str
     type: SubscriptionTypeType
 
@@ -875,7 +877,7 @@ ActionExecutionPayloadFieldUnionTypeDef = Union[
 
 
 class ActionExecutionTypeDef(BaseValidatorModel):
-    pluginId: str
+    pluginId: Annotated[str, _aws_pattern("Qbusiness", "PluginId")]
     payload: Dict[str, ActionExecutionPayloadFieldTypeDef]
     payloadFieldNameSeparator: str
 
@@ -893,8 +895,8 @@ class ActionReviewPayloadFieldTypeDef(BaseValidatorModel):
 
 
 class ApplicationTypeDef(BaseValidatorModel):
-    displayName: Optional[str] = None
-    applicationId: Optional[str] = None
+    displayName: Optional[Annotated[str, _aws_pattern("Qbusiness", "ApplicationName")]] = None
+    applicationId: Optional[Annotated[str, _aws_pattern("Qbusiness", "ApplicationId")]] = None
     createdAt: Optional[datetime] = None
     updatedAt: Optional[datetime] = None
     status: Optional[ApplicationStatusType] = None
@@ -904,10 +906,10 @@ class ApplicationTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'associate_permission' function.
 class AssociatePermissionRequestTypeDef(BaseValidatorModel):
-    applicationId: str
-    statementId: str
-    actions: List[str]
-    principal: str
+    applicationId: Annotated[str, _aws_pattern("Qbusiness", "ApplicationId")]
+    statementId: Annotated[str, _aws_pattern("Qbusiness", "StatementId")]
+    actions: List[Annotated[str, _aws_pattern("Qbusiness", "QIamAction")]]
+    principal: Annotated[str, _aws_pattern("Qbusiness", "PrincipalRoleArn")]
     conditions: Optional[List[PermissionConditionTypeDef]] = None
 
 
@@ -919,65 +921,65 @@ class AssociatePermissionResponseTypeDef(BaseValidatorModel):
 
 # This class is the output for the 'create_anonymous_web_experience_url' function.
 class CreateAnonymousWebExperienceUrlResponseTypeDef(BaseValidatorModel):
-    anonymousUrl: str
+    anonymousUrl: Annotated[str, _aws_pattern("Qbusiness", "Url")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 # This class is the output for the 'create_application' function.
 class CreateApplicationResponseTypeDef(BaseValidatorModel):
-    applicationId: str
-    applicationArn: str
+    applicationId: Annotated[str, _aws_pattern("Qbusiness", "ApplicationId")]
+    applicationArn: Annotated[str, _aws_pattern("Qbusiness", "ApplicationArn")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 # This class is the output for the 'create_chat_response_configuration' function.
 class CreateChatResponseConfigurationResponseTypeDef(BaseValidatorModel):
-    chatResponseConfigurationId: str
-    chatResponseConfigurationArn: str
+    chatResponseConfigurationId: Annotated[str, _aws_pattern("Qbusiness", "ChatResponseConfigurationId")]
+    chatResponseConfigurationArn: Annotated[str, _aws_pattern("Qbusiness", "ChatResponseConfigurationArn")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 # This class is the output for the 'create_data_accessor' function.
 class CreateDataAccessorResponseTypeDef(BaseValidatorModel):
-    dataAccessorId: str
-    idcApplicationArn: str
-    dataAccessorArn: str
+    dataAccessorId: Annotated[str, _aws_pattern("Qbusiness", "DataAccessorId")]
+    idcApplicationArn: Annotated[str, _aws_pattern("Qbusiness", "IdcApplicationArn")]
+    dataAccessorArn: Annotated[str, _aws_pattern("Qbusiness", "DataAccessorArn")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 # This class is the output for the 'create_data_source' function.
 class CreateDataSourceResponseTypeDef(BaseValidatorModel):
-    dataSourceId: str
-    dataSourceArn: str
+    dataSourceId: Annotated[str, _aws_pattern("Qbusiness", "DataSourceId")]
+    dataSourceArn: Annotated[str, _aws_pattern("Qbusiness", "DataSourceArn")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 # This class is the output for the 'create_index' function.
 class CreateIndexResponseTypeDef(BaseValidatorModel):
-    indexId: str
-    indexArn: str
+    indexId: Annotated[str, _aws_pattern("Qbusiness", "IndexId")]
+    indexArn: Annotated[str, _aws_pattern("Qbusiness", "IndexArn")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 # This class is the output for the 'create_plugin' function.
 class CreatePluginResponseTypeDef(BaseValidatorModel):
-    pluginId: str
-    pluginArn: str
+    pluginId: Annotated[str, _aws_pattern("Qbusiness", "PluginId")]
+    pluginArn: Annotated[str, _aws_pattern("Qbusiness", "PluginArn")]
     buildStatus: PluginBuildStatusType
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 # This class is the output for the 'create_retriever' function.
 class CreateRetrieverResponseTypeDef(BaseValidatorModel):
-    retrieverId: str
-    retrieverArn: str
+    retrieverId: Annotated[str, _aws_pattern("Qbusiness", "RetrieverId")]
+    retrieverArn: Annotated[str, _aws_pattern("Qbusiness", "RetrieverArn")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 # This class is the output for the 'create_web_experience' function.
 class CreateWebExperienceResponseTypeDef(BaseValidatorModel):
-    webExperienceId: str
-    webExperienceArn: str
+    webExperienceId: Annotated[str, _aws_pattern("Qbusiness", "WebExperienceId")]
+    webExperienceArn: Annotated[str, _aws_pattern("Qbusiness", "WebExperienceArn")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
@@ -1022,7 +1024,7 @@ class ListPluginTypeActionsResponseTypeDef(BaseValidatorModel):
 
 # This class is the output for the 'start_data_source_sync_job' function.
 class StartDataSourceSyncJobResponseTypeDef(BaseValidatorModel):
-    executionId: str
+    executionId: Annotated[str, _aws_pattern("Qbusiness", "ExecutionId")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
@@ -1032,15 +1034,15 @@ class DocumentContentTypeDef(BaseValidatorModel):
 
 
 class AttachmentOutputTypeDef(BaseValidatorModel):
-    name: Optional[str] = None
+    name: Optional[Annotated[str, _aws_pattern("Qbusiness", "AttachmentName")]] = None
     status: Optional[AttachmentStatusType] = None
     error: Optional[ErrorDetailTypeDef] = None
-    attachmentId: Optional[str] = None
-    conversationId: Optional[str] = None
+    attachmentId: Optional[Annotated[str, _aws_pattern("Qbusiness", "AttachmentId")]] = None
+    conversationId: Optional[Annotated[str, _aws_pattern("Qbusiness", "ConversationId")]] = None
 
 
 class DocumentDetailsTypeDef(BaseValidatorModel):
-    documentId: Optional[str] = None
+    documentId: Optional[Annotated[str, _aws_pattern("Qbusiness", "DocumentId")]] = None
     status: Optional[DocumentStatusType] = None
     error: Optional[ErrorDetailTypeDef] = None
     createdAt: Optional[datetime] = None
@@ -1048,9 +1050,9 @@ class DocumentDetailsTypeDef(BaseValidatorModel):
 
 
 class FailedDocumentTypeDef(BaseValidatorModel):
-    id: Optional[str] = None
+    id: Optional[Annotated[str, _aws_pattern("Qbusiness", "DocumentId")]] = None
     error: Optional[ErrorDetailTypeDef] = None
-    dataSourceId: Optional[str] = None
+    dataSourceId: Optional[Annotated[str, _aws_pattern("Qbusiness", "DataSourceId")]] = None
 
 
 class GroupStatusDetailTypeDef(BaseValidatorModel):
@@ -1061,10 +1063,10 @@ class GroupStatusDetailTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'batch_delete_document' function.
 class BatchDeleteDocumentRequestTypeDef(BaseValidatorModel):
-    applicationId: str
-    indexId: str
+    applicationId: Annotated[str, _aws_pattern("Qbusiness", "ApplicationId")]
+    indexId: Annotated[str, _aws_pattern("Qbusiness", "IndexId")]
     documents: List[DeleteDocumentTypeDef]
-    dataSourceSyncId: Optional[str] = None
+    dataSourceSyncId: Optional[Annotated[str, _aws_pattern("Qbusiness", "ExecutionId")]] = None
 
 
 BrowserExtensionConfigurationUnionTypeDef = Union[
@@ -1074,7 +1076,7 @@ BrowserExtensionConfigurationUnionTypeDef = Union[
 
 # This class is the output for the 'cancel_subscription' function.
 class CancelSubscriptionResponseTypeDef(BaseValidatorModel):
-    subscriptionArn: str
+    subscriptionArn: Annotated[str, _aws_pattern("Qbusiness", "SubscriptionArn")]
     currentSubscription: SubscriptionDetailsTypeDef
     nextSubscription: SubscriptionDetailsTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
@@ -1083,7 +1085,7 @@ class CancelSubscriptionResponseTypeDef(BaseValidatorModel):
 # This class is the output for the 'create_subscription' function.
 class CreateSubscriptionResponseTypeDef(BaseValidatorModel):
     subscriptionId: str
-    subscriptionArn: str
+    subscriptionArn: Annotated[str, _aws_pattern("Qbusiness", "SubscriptionArn")]
     currentSubscription: SubscriptionDetailsTypeDef
     nextSubscription: SubscriptionDetailsTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
@@ -1091,7 +1093,7 @@ class CreateSubscriptionResponseTypeDef(BaseValidatorModel):
 
 # This class is the output for the 'update_subscription' function.
 class UpdateSubscriptionResponseTypeDef(BaseValidatorModel):
-    subscriptionArn: str
+    subscriptionArn: Annotated[str, _aws_pattern("Qbusiness", "SubscriptionArn")]
     currentSubscription: SubscriptionDetailsTypeDef
     nextSubscription: SubscriptionDetailsTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
@@ -1133,15 +1135,15 @@ class ListConversationsResponseTypeDef(BaseValidatorModel):
 
 # This class is the output for the 'get_application' function.
 class GetApplicationResponseTypeDef(BaseValidatorModel):
-    displayName: str
-    applicationId: str
-    applicationArn: str
+    displayName: Annotated[str, _aws_pattern("Qbusiness", "ApplicationName")]
+    applicationId: Annotated[str, _aws_pattern("Qbusiness", "ApplicationId")]
+    applicationArn: Annotated[str, _aws_pattern("Qbusiness", "ApplicationArn")]
     identityType: IdentityTypeType
-    iamIdentityProviderArn: str
-    identityCenterApplicationArn: str
-    roleArn: str
+    iamIdentityProviderArn: Annotated[str, _aws_pattern("Qbusiness", "IAMIdentityProviderArn")]
+    identityCenterApplicationArn: Annotated[str, _aws_pattern("Qbusiness", "IdcApplicationArn")]
+    roleArn: Annotated[str, _aws_pattern("Qbusiness", "RoleArn")]
     status: ApplicationStatusType
-    description: str
+    description: Annotated[str, _aws_pattern("Qbusiness", "Description")]
     encryptionConfiguration: EncryptionConfigurationTypeDef
     createdAt: datetime
     updatedAt: datetime
@@ -1150,17 +1152,17 @@ class GetApplicationResponseTypeDef(BaseValidatorModel):
     qAppsConfiguration: QAppsConfigurationTypeDef
     personalizationConfiguration: PersonalizationConfigurationTypeDef
     autoSubscriptionConfiguration: AutoSubscriptionConfigurationTypeDef
-    clientIdsForOIDC: List[str]
+    clientIdsForOIDC: List[Annotated[str, _aws_pattern("Qbusiness", "ClientIdForOIDC")]]
     quickSightConfiguration: QuickSightConfigurationTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 class UpdateApplicationRequestTypeDef(BaseValidatorModel):
-    applicationId: str
-    identityCenterInstanceArn: Optional[str] = None
-    displayName: Optional[str] = None
-    description: Optional[str] = None
-    roleArn: Optional[str] = None
+    applicationId: Annotated[str, _aws_pattern("Qbusiness", "ApplicationId")]
+    identityCenterInstanceArn: Optional[Annotated[str, _aws_pattern("Qbusiness", "InstanceArn")]] = None
+    displayName: Optional[Annotated[str, _aws_pattern("Qbusiness", "ApplicationName")]] = None
+    description: Optional[Annotated[str, _aws_pattern("Qbusiness", "Description")]] = None
+    roleArn: Optional[Annotated[str, _aws_pattern("Qbusiness", "RoleArn")]] = None
     attachmentsConfiguration: Optional[AttachmentsConfigurationTypeDef] = None
     qAppsConfiguration: Optional[QAppsConfigurationTypeDef] = None
     personalizationConfiguration: Optional[PersonalizationConfigurationTypeDef] = None
@@ -1169,13 +1171,13 @@ class UpdateApplicationRequestTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'create_application' function.
 class CreateApplicationRequestTypeDef(BaseValidatorModel):
-    displayName: str
-    roleArn: Optional[str] = None
+    displayName: Annotated[str, _aws_pattern("Qbusiness", "ApplicationName")]
+    roleArn: Optional[Annotated[str, _aws_pattern("Qbusiness", "RoleArn")]] = None
     identityType: Optional[IdentityTypeType] = None
-    iamIdentityProviderArn: Optional[str] = None
-    identityCenterInstanceArn: Optional[str] = None
-    clientIdsForOIDC: Optional[List[str]] = None
-    description: Optional[str] = None
+    iamIdentityProviderArn: Optional[Annotated[str, _aws_pattern("Qbusiness", "IAMIdentityProviderArn")]] = None
+    identityCenterInstanceArn: Optional[Annotated[str, _aws_pattern("Qbusiness", "InstanceArn")]] = None
+    clientIdsForOIDC: Optional[List[Annotated[str, _aws_pattern("Qbusiness", "ClientIdForOIDC")]]] = None
+    description: Optional[Annotated[str, _aws_pattern("Qbusiness", "Description")]] = None
     encryptionConfiguration: Optional[EncryptionConfigurationTypeDef] = None
     tags: Optional[List[TagTypeDef]] = None
     clientToken: Optional[str] = None
@@ -1198,9 +1200,9 @@ class TagResourceRequestTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'create_index' function.
 class CreateIndexRequestTypeDef(BaseValidatorModel):
-    applicationId: str
-    displayName: str
-    description: Optional[str] = None
+    applicationId: Annotated[str, _aws_pattern("Qbusiness", "ApplicationId")]
+    displayName: Annotated[str, _aws_pattern("Qbusiness", "IndexName")]
+    description: Optional[Annotated[str, _aws_pattern("Qbusiness", "Description")]] = None
     type: Optional[IndexTypeType] = None
     tags: Optional[List[TagTypeDef]] = None
     capacityConfiguration: Optional[IndexCapacityConfigurationTypeDef] = None
@@ -1209,7 +1211,7 @@ class CreateIndexRequestTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'create_subscription' function.
 class CreateSubscriptionRequestTypeDef(BaseValidatorModel):
-    applicationId: str
+    applicationId: Annotated[str, _aws_pattern("Qbusiness", "ApplicationId")]
     principal: SubscriptionPrincipalTypeDef
     type: SubscriptionTypeType
     clientToken: Optional[str] = None
@@ -1217,14 +1219,14 @@ class CreateSubscriptionRequestTypeDef(BaseValidatorModel):
 
 class SubscriptionTypeDef(BaseValidatorModel):
     subscriptionId: Optional[str] = None
-    subscriptionArn: Optional[str] = None
+    subscriptionArn: Optional[Annotated[str, _aws_pattern("Qbusiness", "SubscriptionArn")]] = None
     principal: Optional[SubscriptionPrincipalTypeDef] = None
     currentSubscription: Optional[SubscriptionDetailsTypeDef] = None
     nextSubscription: Optional[SubscriptionDetailsTypeDef] = None
 
 
 class CreateUserRequestTypeDef(BaseValidatorModel):
-    applicationId: str
+    applicationId: Annotated[str, _aws_pattern("Qbusiness", "ApplicationId")]
     userId: str
     userAliases: Optional[List[UserAliasTypeDef]] = None
     clientToken: Optional[str] = None
@@ -1238,7 +1240,7 @@ class GetUserResponseTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'update_user' function.
 class UpdateUserRequestTypeDef(BaseValidatorModel):
-    applicationId: str
+    applicationId: Annotated[str, _aws_pattern("Qbusiness", "ApplicationId")]
     userId: str
     userAliasesToUpdate: Optional[List[UserAliasTypeDef]] = None
     userAliasesToDelete: Optional[List[UserAliasTypeDef]] = None
@@ -1257,7 +1259,7 @@ class DataAccessorAuthenticationConfigurationTypeDef(BaseValidatorModel):
 
 
 class DataSourceSyncJobTypeDef(BaseValidatorModel):
-    executionId: Optional[str] = None
+    executionId: Optional[Annotated[str, _aws_pattern("Qbusiness", "ExecutionId")]] = None
     startTime: Optional[datetime] = None
     endTime: Optional[datetime] = None
     status: Optional[DataSourceSyncJobStatusType] = None
@@ -1316,10 +1318,10 @@ class DocumentAttributeTargetOutputTypeDef(BaseValidatorModel):
 
 
 class UpdateIndexRequestTypeDef(BaseValidatorModel):
-    applicationId: str
-    indexId: str
-    displayName: Optional[str] = None
-    description: Optional[str] = None
+    applicationId: Annotated[str, _aws_pattern("Qbusiness", "ApplicationId")]
+    indexId: Annotated[str, _aws_pattern("Qbusiness", "IndexId")]
+    displayName: Optional[Annotated[str, _aws_pattern("Qbusiness", "ApplicationName")]] = None
+    description: Optional[Annotated[str, _aws_pattern("Qbusiness", "Description")]] = None
     capacityConfiguration: Optional[IndexCapacityConfigurationTypeDef] = None
     documentAttributeConfigurations: Optional[List[DocumentAttributeConfigurationTypeDef]] = None
 
@@ -1333,9 +1335,9 @@ class DocumentAttributeValueTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'list_data_source_sync_jobs' function.
 class ListDataSourceSyncJobsRequestTypeDef(BaseValidatorModel):
-    dataSourceId: str
-    applicationId: str
-    indexId: str
+    dataSourceId: Annotated[str, _aws_pattern("Qbusiness", "DataSourceId")]
+    applicationId: Annotated[str, _aws_pattern("Qbusiness", "ApplicationId")]
+    indexId: Annotated[str, _aws_pattern("Qbusiness", "IndexId")]
     nextToken: Optional[str] = None
     maxResults: Optional[int] = None
     startTime: Optional[TimestampTypeDef] = None
@@ -1345,10 +1347,10 @@ class ListDataSourceSyncJobsRequestTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'list_groups' function.
 class ListGroupsRequestTypeDef(BaseValidatorModel):
-    applicationId: str
-    indexId: str
+    applicationId: Annotated[str, _aws_pattern("Qbusiness", "ApplicationId")]
+    indexId: Annotated[str, _aws_pattern("Qbusiness", "IndexId")]
     updatedEarlierThan: TimestampTypeDef
-    dataSourceId: Optional[str] = None
+    dataSourceId: Optional[Annotated[str, _aws_pattern("Qbusiness", "DataSourceId")]] = None
     nextToken: Optional[str] = None
     maxResults: Optional[int] = None
 
@@ -1357,7 +1359,7 @@ class MessageUsefulnessFeedbackTypeDef(BaseValidatorModel):
     usefulness: MessageUsefulnessType
     submittedAt: TimestampTypeDef
     reason: Optional[MessageUsefulnessReasonType] = None
-    comment: Optional[str] = None
+    comment: Optional[Annotated[str, _aws_pattern("Qbusiness", "MessageUsefulnessComment")]] = None
 
 
 class GetChatControlsConfigurationRequestPaginateTypeDef(BaseValidatorModel):
@@ -1576,7 +1578,7 @@ class CustomPluginConfigurationTypeDef(BaseValidatorModel):
 
 
 class ActionExecutionEventTypeDef(BaseValidatorModel):
-    pluginId: str
+    pluginId: Annotated[str, _aws_pattern("Qbusiness", "PluginId")]
     payload: Dict[str, ActionExecutionPayloadFieldUnionTypeDef]
     payloadFieldNameSeparator: str
 
@@ -1585,17 +1587,17 @@ ActionExecutionUnionTypeDef = Union[ActionExecutionOutputTypeDef, ActionExecutio
 
 
 class ActionReviewEventTypeDef(BaseValidatorModel):
-    conversationId: Optional[str] = None
-    userMessageId: Optional[str] = None
-    systemMessageId: Optional[str] = None
-    pluginId: Optional[str] = None
+    conversationId: Optional[Annotated[str, _aws_pattern("Qbusiness", "ConversationId")]] = None
+    userMessageId: Optional[Annotated[str, _aws_pattern("Qbusiness", "MessageId")]] = None
+    systemMessageId: Optional[Annotated[str, _aws_pattern("Qbusiness", "MessageId")]] = None
+    pluginId: Optional[Annotated[str, _aws_pattern("Qbusiness", "PluginId")]] = None
     pluginType: Optional[PluginTypeType] = None
     payload: Optional[Dict[str, ActionReviewPayloadFieldTypeDef]] = None
     payloadFieldNameSeparator: Optional[str] = None
 
 
 class ActionReviewTypeDef(BaseValidatorModel):
-    pluginId: Optional[str] = None
+    pluginId: Optional[Annotated[str, _aws_pattern("Qbusiness", "PluginId")]] = None
     pluginType: Optional[PluginTypeType] = None
     payload: Optional[Dict[str, ActionReviewPayloadFieldTypeDef]] = None
     payloadFieldNameSeparator: Optional[str] = None
@@ -1609,9 +1611,9 @@ class ListApplicationsResponseTypeDef(BaseValidatorModel):
 
 
 class FailedAttachmentEventTypeDef(BaseValidatorModel):
-    conversationId: Optional[str] = None
-    userMessageId: Optional[str] = None
-    systemMessageId: Optional[str] = None
+    conversationId: Optional[Annotated[str, _aws_pattern("Qbusiness", "ConversationId")]] = None
+    userMessageId: Optional[Annotated[str, _aws_pattern("Qbusiness", "MessageId")]] = None
+    systemMessageId: Optional[Annotated[str, _aws_pattern("Qbusiness", "MessageId")]] = None
     attachment: Optional[AttachmentOutputTypeDef] = None
 
 
@@ -1651,14 +1653,14 @@ ContentRetrievalRuleUnionTypeDef = Union[ContentRetrievalRuleOutputTypeDef, Cont
 
 class AttachmentInputTypeDef(BaseValidatorModel):
     data: Optional[BlobTypeDef] = None
-    name: Optional[str] = None
+    name: Optional[Annotated[str, _aws_pattern("Qbusiness", "AttachmentName")]] = None
     copyFrom: Optional[CopyFromSourceTypeDef] = None
 
 
 class AttachmentTypeDef(BaseValidatorModel):
-    attachmentId: Optional[str] = None
-    conversationId: Optional[str] = None
-    name: Optional[str] = None
+    attachmentId: Optional[Annotated[str, _aws_pattern("Qbusiness", "AttachmentId")]] = None
+    conversationId: Optional[Annotated[str, _aws_pattern("Qbusiness", "ConversationId")]] = None
+    name: Optional[Annotated[str, _aws_pattern("Qbusiness", "AttachmentName")]] = None
     copyFrom: Optional[CopyFromSourceTypeDef] = None
     fileType: Optional[str] = None
     fileSize: Optional[int] = None
@@ -1684,7 +1686,7 @@ class DataAccessorAuthenticationDetailOutputTypeDef(BaseValidatorModel):
 class DataAccessorAuthenticationDetailTypeDef(BaseValidatorModel):
     authenticationType: DataAccessorAuthenticationTypeType
     authenticationConfiguration: Optional[DataAccessorAuthenticationConfigurationTypeDef] = None
-    externalIds: Optional[List[str]] = None
+    externalIds: Optional[List[Annotated[str, _aws_pattern("Qbusiness", "DataAccessorExternalId")]]] = None
 
 
 # This class is the output for the 'list_data_source_sync_jobs' function.
@@ -1706,7 +1708,7 @@ class NativeIndexConfigurationOutputTypeDef(BaseValidatorModel):
 
 
 class NativeIndexConfigurationTypeDef(BaseValidatorModel):
-    indexId: str
+    indexId: Annotated[str, _aws_pattern("Qbusiness", "IndexId")]
     version: Optional[int] = None
     boostingOverride: Optional[Dict[str, DocumentAttributeBoostingConfigurationTypeDef]] = None
 
@@ -1733,9 +1735,9 @@ class AttributeFilterOutputTypeDef(BaseValidatorModel):
 
 class RelevantContentTypeDef(BaseValidatorModel):
     content: Optional[str] = None
-    documentId: Optional[str] = None
+    documentId: Optional[Annotated[str, _aws_pattern("Qbusiness", "DocumentId")]] = None
     documentTitle: Optional[str] = None
-    documentUri: Optional[str] = None
+    documentUri: Optional[Annotated[str, _aws_pattern("Qbusiness", "Url")]] = None
     documentAttributes: Optional[List[DocumentAttributeOutputTypeDef]] = None
     scoreAttributes: Optional[ScoreAttributesTypeDef] = None
 
@@ -1751,33 +1753,33 @@ DocumentAttributeValueUnionTypeDef = Union[DocumentAttributeValueOutputTypeDef, 
 
 # This class is the input for the 'put_feedback' function.
 class PutFeedbackRequestTypeDef(BaseValidatorModel):
-    applicationId: str
-    conversationId: str
-    messageId: str
-    userId: Optional[str] = None
+    applicationId: Annotated[str, _aws_pattern("Qbusiness", "ApplicationId")]
+    conversationId: Annotated[str, _aws_pattern("Qbusiness", "ConversationId")]
+    messageId: Annotated[str, _aws_pattern("Qbusiness", "SystemMessageId")]
+    userId: Optional[Annotated[str, _aws_pattern("Qbusiness", "UserId")]] = None
     messageCopiedAt: Optional[TimestampTypeDef] = None
     messageUsefulness: Optional[MessageUsefulnessFeedbackTypeDef] = None
 
 
 class PutGroupRequestTypeDef(BaseValidatorModel):
-    applicationId: str
-    indexId: str
-    groupName: str
+    applicationId: Annotated[str, _aws_pattern("Qbusiness", "ApplicationId")]
+    indexId: Annotated[str, _aws_pattern("Qbusiness", "IndexId")]
+    groupName: Annotated[str, _aws_pattern("Qbusiness", "GroupName")]
     type: MembershipTypeType
     groupMembers: GroupMembersTypeDef
-    dataSourceId: Optional[str] = None
-    roleArn: Optional[str] = None
+    dataSourceId: Optional[Annotated[str, _aws_pattern("Qbusiness", "DataSourceId")]] = None
+    roleArn: Optional[Annotated[str, _aws_pattern("Qbusiness", "RoleArn")]] = None
 
 
 # This class is the input for the 'create_web_experience' function.
 class CreateWebExperienceRequestTypeDef(BaseValidatorModel):
-    applicationId: str
-    title: Optional[str] = None
-    subtitle: Optional[str] = None
+    applicationId: Annotated[str, _aws_pattern("Qbusiness", "ApplicationId")]
+    title: Optional[Annotated[str, _aws_pattern("Qbusiness", "WebExperienceTitle")]] = None
+    subtitle: Optional[Annotated[str, _aws_pattern("Qbusiness", "WebExperienceSubtitle")]] = None
     welcomeMessage: Optional[str] = None
     samplePromptsControlMode: Optional[WebExperienceSamplePromptsControlModeType] = None
-    origins: Optional[List[str]] = None
-    roleArn: Optional[str] = None
+    origins: Optional[List[Annotated[str, _aws_pattern("Qbusiness", "Origin")]]] = None
+    roleArn: Optional[Annotated[str, _aws_pattern("Qbusiness", "RoleArn")]] = None
     tags: Optional[List[TagTypeDef]] = None
     clientToken: Optional[str] = None
     identityProviderConfiguration: Optional[IdentityProviderConfigurationTypeDef] = None
@@ -1787,13 +1789,13 @@ class CreateWebExperienceRequestTypeDef(BaseValidatorModel):
 
 # This class is the output for the 'get_index' function.
 class GetIndexResponseTypeDef(BaseValidatorModel):
-    applicationId: str
-    indexId: str
-    displayName: str
-    indexArn: str
+    applicationId: Annotated[str, _aws_pattern("Qbusiness", "ApplicationId")]
+    indexId: Annotated[str, _aws_pattern("Qbusiness", "IndexId")]
+    displayName: Annotated[str, _aws_pattern("Qbusiness", "IndexName")]
+    indexArn: Annotated[str, _aws_pattern("Qbusiness", "IndexArn")]
     status: IndexStatusType
     type: IndexTypeType
-    description: str
+    description: Annotated[str, _aws_pattern("Qbusiness", "Description")]
     createdAt: datetime
     updatedAt: datetime
     capacityConfiguration: IndexCapacityConfigurationTypeDef
@@ -1813,7 +1815,7 @@ class ChatResponseConfigurationDetailTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'create_chat_response_configuration' function.
 class CreateChatResponseConfigurationRequestTypeDef(BaseValidatorModel):
-    applicationId: str
+    applicationId: Annotated[str, _aws_pattern("Qbusiness", "ApplicationId")]
     displayName: str
     responseConfigurations: Dict[Literal["ALL"], ResponseConfigurationTypeDef]
     clientToken: Optional[str] = None
@@ -1821,8 +1823,8 @@ class CreateChatResponseConfigurationRequestTypeDef(BaseValidatorModel):
 
 
 class UpdateChatResponseConfigurationRequestTypeDef(BaseValidatorModel):
-    applicationId: str
-    chatResponseConfigurationId: str
+    applicationId: Annotated[str, _aws_pattern("Qbusiness", "ApplicationId")]
+    chatResponseConfigurationId: Annotated[str, _aws_pattern("Qbusiness", "ChatResponseConfigurationId")]
     responseConfigurations: Dict[Literal["ALL"], ResponseConfigurationTypeDef]
     displayName: Optional[str] = None
     clientToken: Optional[str] = None
@@ -1838,19 +1840,19 @@ class AccessControlTypeDef(BaseValidatorModel):
 
 # This class is the output for the 'get_web_experience' function.
 class GetWebExperienceResponseTypeDef(BaseValidatorModel):
-    applicationId: str
-    webExperienceId: str
-    webExperienceArn: str
-    defaultEndpoint: str
+    applicationId: Annotated[str, _aws_pattern("Qbusiness", "ApplicationId")]
+    webExperienceId: Annotated[str, _aws_pattern("Qbusiness", "WebExperienceId")]
+    webExperienceArn: Annotated[str, _aws_pattern("Qbusiness", "WebExperienceArn")]
+    defaultEndpoint: Annotated[str, _aws_pattern("Qbusiness", "Url")]
     status: WebExperienceStatusType
     createdAt: datetime
     updatedAt: datetime
-    title: str
-    subtitle: str
+    title: Annotated[str, _aws_pattern("Qbusiness", "WebExperienceTitle")]
+    subtitle: Annotated[str, _aws_pattern("Qbusiness", "WebExperienceSubtitle")]
     welcomeMessage: str
     samplePromptsControlMode: WebExperienceSamplePromptsControlModeType
-    origins: List[str]
-    roleArn: str
+    origins: List[Annotated[str, _aws_pattern("Qbusiness", "Origin")]]
+    roleArn: Annotated[str, _aws_pattern("Qbusiness", "RoleArn")]
     identityProviderConfiguration: IdentityProviderConfigurationTypeDef
     authenticationConfiguration: WebExperienceAuthConfigurationTypeDef
     error: ErrorDetailTypeDef
@@ -1860,16 +1862,16 @@ class GetWebExperienceResponseTypeDef(BaseValidatorModel):
 
 
 class UpdateWebExperienceRequestTypeDef(BaseValidatorModel):
-    applicationId: str
-    webExperienceId: str
-    roleArn: Optional[str] = None
+    applicationId: Annotated[str, _aws_pattern("Qbusiness", "ApplicationId")]
+    webExperienceId: Annotated[str, _aws_pattern("Qbusiness", "WebExperienceId")]
+    roleArn: Optional[Annotated[str, _aws_pattern("Qbusiness", "RoleArn")]] = None
     authenticationConfiguration: Optional[WebExperienceAuthConfigurationTypeDef] = None
-    title: Optional[str] = None
-    subtitle: Optional[str] = None
+    title: Optional[Annotated[str, _aws_pattern("Qbusiness", "WebExperienceTitle")]] = None
+    subtitle: Optional[Annotated[str, _aws_pattern("Qbusiness", "WebExperienceSubtitle")]] = None
     welcomeMessage: Optional[str] = None
     samplePromptsControlMode: Optional[WebExperienceSamplePromptsControlModeType] = None
     identityProviderConfiguration: Optional[IdentityProviderConfigurationTypeDef] = None
-    origins: Optional[List[str]] = None
+    origins: Optional[List[Annotated[str, _aws_pattern("Qbusiness", "Origin")]]] = None
     browserExtensionConfiguration: Optional[BrowserExtensionConfigurationUnionTypeDef] = None
     customizationConfiguration: Optional[CustomizationConfigurationTypeDef] = None
 
@@ -1878,22 +1880,22 @@ class TextSegmentTypeDef(BaseValidatorModel):
     beginOffset: Optional[int] = None
     endOffset: Optional[int] = None
     snippetExcerpt: Optional[SnippetExcerptTypeDef] = None
-    mediaId: Optional[str] = None
+    mediaId: Optional[Annotated[str, _aws_pattern("Qbusiness", "SourceAttributionMediaId")]] = None
     mediaMimeType: Optional[str] = None
     sourceDetails: Optional[SourceDetailsTypeDef] = None
 
 
 # This class is the output for the 'get_plugin' function.
 class GetPluginResponseTypeDef(BaseValidatorModel):
-    applicationId: str
-    pluginId: str
-    displayName: str
+    applicationId: Annotated[str, _aws_pattern("Qbusiness", "ApplicationId")]
+    pluginId: Annotated[str, _aws_pattern("Qbusiness", "PluginId")]
+    displayName: Annotated[str, _aws_pattern("Qbusiness", "PluginName")]
     type: PluginTypeType
-    serverUrl: str
+    serverUrl: Annotated[str, _aws_pattern("Qbusiness", "Url")]
     authConfiguration: PluginAuthConfigurationOutputTypeDef
     customPluginConfiguration: CustomPluginConfigurationTypeDef
     buildStatus: PluginBuildStatusType
-    pluginArn: str
+    pluginArn: Annotated[str, _aws_pattern("Qbusiness", "PluginArn")]
     state: PluginStateType
     createdAt: datetime
     updatedAt: datetime
@@ -1924,11 +1926,11 @@ class ListAttachmentsResponseTypeDef(BaseValidatorModel):
 
 
 class DataAccessorTypeDef(BaseValidatorModel):
-    displayName: Optional[str] = None
-    dataAccessorId: Optional[str] = None
-    dataAccessorArn: Optional[str] = None
-    idcApplicationArn: Optional[str] = None
-    principal: Optional[str] = None
+    displayName: Optional[Annotated[str, _aws_pattern("Qbusiness", "DataAccessorName")]] = None
+    dataAccessorId: Optional[Annotated[str, _aws_pattern("Qbusiness", "DataAccessorId")]] = None
+    dataAccessorArn: Optional[Annotated[str, _aws_pattern("Qbusiness", "DataAccessorArn")]] = None
+    idcApplicationArn: Optional[Annotated[str, _aws_pattern("Qbusiness", "IdcApplicationArn")]] = None
+    principal: Optional[Annotated[str, _aws_pattern("Qbusiness", "PrincipalRoleArn")]] = None
     authenticationDetail: Optional[DataAccessorAuthenticationDetailOutputTypeDef] = None
     createdAt: Optional[datetime] = None
     updatedAt: Optional[datetime] = None
@@ -1972,26 +1974,26 @@ class DocumentEnrichmentConfigurationOutputTypeDef(BaseValidatorModel):
 
 
 class DocumentAttributeConditionTypeDef(BaseValidatorModel):
-    key: str
+    key: Annotated[str, _aws_pattern("Qbusiness", "DocumentAttributeKey")]
     operator: DocumentEnrichmentConditionOperatorType
     value: Optional[DocumentAttributeValueUnionTypeDef] = None
 
 
 class DocumentAttributeTargetTypeDef(BaseValidatorModel):
-    key: str
+    key: Annotated[str, _aws_pattern("Qbusiness", "DocumentAttributeKey")]
     value: Optional[DocumentAttributeValueUnionTypeDef] = None
     attributeValueOperator: Optional[Literal["DELETE"]] = None
 
 
 class DocumentAttributeTypeDef(BaseValidatorModel):
-    name: str
+    name: Annotated[str, _aws_pattern("Qbusiness", "DocumentAttributeKey")]
     value: DocumentAttributeValueUnionTypeDef
 
 
 # This class is the output for the 'get_chat_response_configuration' function.
 class GetChatResponseConfigurationResponseTypeDef(BaseValidatorModel):
-    chatResponseConfigurationId: str
-    chatResponseConfigurationArn: str
+    chatResponseConfigurationId: Annotated[str, _aws_pattern("Qbusiness", "ChatResponseConfigurationId")]
+    chatResponseConfigurationArn: Annotated[str, _aws_pattern("Qbusiness", "ChatResponseConfigurationArn")]
     displayName: str
     createdAt: datetime
     inUseConfiguration: ChatResponseConfigurationDetailTypeDef
@@ -2001,22 +2003,22 @@ class GetChatResponseConfigurationResponseTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'create_plugin' function.
 class CreatePluginRequestTypeDef(BaseValidatorModel):
-    applicationId: str
-    displayName: str
+    applicationId: Annotated[str, _aws_pattern("Qbusiness", "ApplicationId")]
+    displayName: Annotated[str, _aws_pattern("Qbusiness", "PluginName")]
     type: PluginTypeType
     authConfiguration: PluginAuthConfigurationUnionTypeDef
-    serverUrl: Optional[str] = None
+    serverUrl: Optional[Annotated[str, _aws_pattern("Qbusiness", "Url")]] = None
     customPluginConfiguration: Optional[CustomPluginConfigurationTypeDef] = None
     tags: Optional[List[TagTypeDef]] = None
     clientToken: Optional[str] = None
 
 
 class UpdatePluginRequestTypeDef(BaseValidatorModel):
-    applicationId: str
-    pluginId: str
-    displayName: Optional[str] = None
+    applicationId: Annotated[str, _aws_pattern("Qbusiness", "ApplicationId")]
+    pluginId: Annotated[str, _aws_pattern("Qbusiness", "PluginId")]
+    displayName: Optional[Annotated[str, _aws_pattern("Qbusiness", "PluginName")]] = None
     state: Optional[PluginStateType] = None
-    serverUrl: Optional[str] = None
+    serverUrl: Optional[Annotated[str, _aws_pattern("Qbusiness", "Url")]] = None
     customPluginConfiguration: Optional[CustomPluginConfigurationTypeDef] = None
     authConfiguration: Optional[PluginAuthConfigurationUnionTypeDef] = None
 
@@ -2066,14 +2068,14 @@ class CheckDocumentAccessResponseTypeDef(BaseValidatorModel):
 
 # This class is the output for the 'get_retriever' function.
 class GetRetrieverResponseTypeDef(BaseValidatorModel):
-    applicationId: str
-    retrieverId: str
-    retrieverArn: str
+    applicationId: Annotated[str, _aws_pattern("Qbusiness", "ApplicationId")]
+    retrieverId: Annotated[str, _aws_pattern("Qbusiness", "RetrieverId")]
+    retrieverArn: Annotated[str, _aws_pattern("Qbusiness", "RetrieverArn")]
     type: RetrieverTypeType
     status: RetrieverStatusType
-    displayName: str
+    displayName: Annotated[str, _aws_pattern("Qbusiness", "RetrieverName")]
     configuration: RetrieverConfigurationOutputTypeDef
-    roleArn: str
+    roleArn: Annotated[str, _aws_pattern("Qbusiness", "RoleArn")]
     createdAt: datetime
     updatedAt: datetime
     ResponseMetadata: ResponseMetadataTypeDef
@@ -2089,20 +2091,20 @@ class ActionConfigurationOutputTypeDef(BaseValidatorModel):
 
 # This class is the output for the 'get_data_source' function.
 class GetDataSourceResponseTypeDef(BaseValidatorModel):
-    applicationId: str
-    indexId: str
-    dataSourceId: str
-    dataSourceArn: str
-    displayName: str
+    applicationId: Annotated[str, _aws_pattern("Qbusiness", "ApplicationId")]
+    indexId: Annotated[str, _aws_pattern("Qbusiness", "IndexId")]
+    dataSourceId: Annotated[str, _aws_pattern("Qbusiness", "DataSourceId")]
+    dataSourceArn: Annotated[str, _aws_pattern("Qbusiness", "DataSourceArn")]
+    displayName: Annotated[str, _aws_pattern("Qbusiness", "DataSourceName")]
     type: str
     configuration: Dict[str, Any]
     vpcConfiguration: DataSourceVpcConfigurationOutputTypeDef
     createdAt: datetime
     updatedAt: datetime
-    description: str
+    description: Annotated[str, _aws_pattern("Qbusiness", "Description")]
     status: DataSourceStatusType
-    syncSchedule: str
-    roleArn: str
+    syncSchedule: Annotated[str, _aws_pattern("Qbusiness", "SyncSchedule")]
+    roleArn: Annotated[str, _aws_pattern("Qbusiness", "RoleArn")]
     error: ErrorDetailTypeDef
     documentEnrichmentConfiguration: DocumentEnrichmentConfigurationOutputTypeDef
     mediaExtractionConfiguration: MediaExtractionConfigurationTypeDef
@@ -2120,10 +2122,10 @@ DocumentAttributeUnionTypeDef = Union[DocumentAttributeOutputTypeDef, DocumentAt
 
 # This class is the output for the 'chat_sync' function.
 class ChatSyncOutputTypeDef(BaseValidatorModel):
-    conversationId: str
+    conversationId: Annotated[str, _aws_pattern("Qbusiness", "ConversationId")]
     systemMessage: str
-    systemMessageId: str
-    userMessageId: str
+    systemMessageId: Annotated[str, _aws_pattern("Qbusiness", "MessageId")]
+    userMessageId: Annotated[str, _aws_pattern("Qbusiness", "MessageId")]
     actionReview: ActionReviewTypeDef
     authChallengeRequest: AuthChallengeRequestTypeDef
     sourceAttributions: List[SourceAttributionTypeDef]
@@ -2133,7 +2135,7 @@ class ChatSyncOutputTypeDef(BaseValidatorModel):
 
 class MessageTypeDef(BaseValidatorModel):
     messageId: Optional[str] = None
-    body: Optional[str] = None
+    body: Optional[Annotated[str, _aws_pattern("Qbusiness", "MessageBody")]] = None
     time: Optional[datetime] = None
     type: Optional[MessageTypeType] = None
     attachments: Optional[List[AttachmentOutputTypeDef]] = None
@@ -2143,9 +2145,9 @@ class MessageTypeDef(BaseValidatorModel):
 
 
 class MetadataEventTypeDef(BaseValidatorModel):
-    conversationId: Optional[str] = None
-    userMessageId: Optional[str] = None
-    systemMessageId: Optional[str] = None
+    conversationId: Optional[Annotated[str, _aws_pattern("Qbusiness", "ConversationId")]] = None
+    userMessageId: Optional[Annotated[str, _aws_pattern("Qbusiness", "MessageId")]] = None
+    systemMessageId: Optional[Annotated[str, _aws_pattern("Qbusiness", "MessageId")]] = None
     sourceAttributions: Optional[List[SourceAttributionTypeDef]] = None
     finalTextMessage: Optional[str] = None
 
@@ -2171,31 +2173,31 @@ class RuleTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'create_retriever' function.
 class CreateRetrieverRequestTypeDef(BaseValidatorModel):
-    applicationId: str
+    applicationId: Annotated[str, _aws_pattern("Qbusiness", "ApplicationId")]
     type: RetrieverTypeType
-    displayName: str
+    displayName: Annotated[str, _aws_pattern("Qbusiness", "RetrieverName")]
     configuration: RetrieverConfigurationUnionTypeDef
-    roleArn: Optional[str] = None
+    roleArn: Optional[Annotated[str, _aws_pattern("Qbusiness", "RoleArn")]] = None
     clientToken: Optional[str] = None
     tags: Optional[List[TagTypeDef]] = None
 
 
 class UpdateRetrieverRequestTypeDef(BaseValidatorModel):
-    applicationId: str
-    retrieverId: str
+    applicationId: Annotated[str, _aws_pattern("Qbusiness", "ApplicationId")]
+    retrieverId: Annotated[str, _aws_pattern("Qbusiness", "RetrieverId")]
     configuration: Optional[RetrieverConfigurationUnionTypeDef] = None
-    displayName: Optional[str] = None
-    roleArn: Optional[str] = None
+    displayName: Optional[Annotated[str, _aws_pattern("Qbusiness", "RetrieverName")]] = None
+    roleArn: Optional[Annotated[str, _aws_pattern("Qbusiness", "RoleArn")]] = None
 
 
 # This class is the output for the 'get_data_accessor' function.
 class GetDataAccessorResponseTypeDef(BaseValidatorModel):
-    displayName: str
-    dataAccessorId: str
-    dataAccessorArn: str
-    applicationId: str
-    idcApplicationArn: str
-    principal: str
+    displayName: Annotated[str, _aws_pattern("Qbusiness", "DataAccessorName")]
+    dataAccessorId: Annotated[str, _aws_pattern("Qbusiness", "DataAccessorId")]
+    dataAccessorArn: Annotated[str, _aws_pattern("Qbusiness", "DataAccessorArn")]
+    applicationId: Annotated[str, _aws_pattern("Qbusiness", "ApplicationId")]
+    idcApplicationArn: Annotated[str, _aws_pattern("Qbusiness", "IdcApplicationArn")]
+    principal: Annotated[str, _aws_pattern("Qbusiness", "PrincipalRoleArn")]
     actionConfigurations: List[ActionConfigurationOutputTypeDef]
     authenticationDetail: DataAccessorAuthenticationDetailOutputTypeDef
     createdAt: datetime
@@ -2205,9 +2207,9 @@ class GetDataAccessorResponseTypeDef(BaseValidatorModel):
 
 class HookConfigurationTypeDef(BaseValidatorModel):
     invocationCondition: Optional[DocumentAttributeConditionUnionTypeDef] = None
-    lambdaArn: Optional[str] = None
-    s3BucketName: Optional[str] = None
-    roleArn: Optional[str] = None
+    lambdaArn: Optional[Annotated[str, _aws_pattern("Qbusiness", "LambdaArn")]] = None
+    s3BucketName: Optional[Annotated[str, _aws_pattern("Qbusiness", "S3BucketName")]] = None
+    roleArn: Optional[Annotated[str, _aws_pattern("Qbusiness", "RoleArn")]] = None
 
 
 class InlineDocumentEnrichmentConfigurationTypeDef(BaseValidatorModel):
@@ -2283,10 +2285,10 @@ class ChatOutputTypeDef(EventStream[ChatOutputStreamTypeDef]):
 
 
 class TopicConfigurationTypeDef(BaseValidatorModel):
-    name: str
+    name: Annotated[str, _aws_pattern("Qbusiness", "TopicConfigurationName")]
     rules: List[RuleUnionTypeDef]
-    description: Optional[str] = None
-    exampleChatMessages: Optional[List[str]] = None
+    description: Optional[Annotated[str, _aws_pattern("Qbusiness", "TopicDescription")]] = None
+    exampleChatMessages: Optional[List[Annotated[str, _aws_pattern("Qbusiness", "ExampleChatMessage")]]] = None
 
 
 class DocumentEnrichmentConfigurationTypeDef(BaseValidatorModel):
@@ -2301,15 +2303,15 @@ class ActionFilterConfigurationTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'chat_sync' function.
 class ChatSyncInputTypeDef(BaseValidatorModel):
-    applicationId: str
-    userId: Optional[str] = None
+    applicationId: Annotated[str, _aws_pattern("Qbusiness", "ApplicationId")]
+    userId: Optional[Annotated[str, _aws_pattern("Qbusiness", "UserId")]] = None
     userGroups: Optional[List[str]] = None
     userMessage: Optional[str] = None
     attachments: Optional[List[AttachmentInputTypeDef]] = None
     actionExecution: Optional[ActionExecutionUnionTypeDef] = None
     authChallengeResponse: Optional[AuthChallengeResponseTypeDef] = None
-    conversationId: Optional[str] = None
-    parentMessageId: Optional[str] = None
+    conversationId: Optional[Annotated[str, _aws_pattern("Qbusiness", "ConversationId")]] = None
+    parentMessageId: Optional[Annotated[str, _aws_pattern("Qbusiness", "MessageId")]] = None
     attributeFilter: Optional[AttributeFilterUnionTypeDef] = None
     chatMode: Optional[ChatModeType] = None
     chatModeConfiguration: Optional[ChatModeConfigurationTypeDef] = None
@@ -2324,7 +2326,7 @@ class ConfigurationEventTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'search_relevant_content' function.
 class SearchRelevantContentRequestTypeDef(BaseValidatorModel):
-    applicationId: str
+    applicationId: Annotated[str, _aws_pattern("Qbusiness", "ApplicationId")]
     queryText: str
     contentSource: ContentSourceTypeDef
     attributeFilter: Optional[AttributeFilterUnionTypeDef] = None
@@ -2351,7 +2353,7 @@ class ChatInputStreamTypeDef(BaseValidatorModel):
 
 
 class UpdateChatControlsConfigurationRequestTypeDef(BaseValidatorModel):
-    applicationId: str
+    applicationId: Annotated[str, _aws_pattern("Qbusiness", "ApplicationId")]
     clientToken: Optional[str] = None
     responseScope: Optional[ResponseScopeType] = None
     orchestrationConfiguration: Optional[OrchestrationConfigurationTypeDef] = None
@@ -2364,22 +2366,22 @@ class UpdateChatControlsConfigurationRequestTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'create_data_source' function.
 class CreateDataSourceRequestTypeDef(BaseValidatorModel):
-    applicationId: str
-    indexId: str
-    displayName: str
+    applicationId: Annotated[str, _aws_pattern("Qbusiness", "ApplicationId")]
+    indexId: Annotated[str, _aws_pattern("Qbusiness", "IndexId")]
+    displayName: Annotated[str, _aws_pattern("Qbusiness", "DataSourceName")]
     configuration: Dict[str, Any]
     vpcConfiguration: Optional[DataSourceVpcConfigurationUnionTypeDef] = None
-    description: Optional[str] = None
+    description: Optional[Annotated[str, _aws_pattern("Qbusiness", "Description")]] = None
     tags: Optional[List[TagTypeDef]] = None
-    syncSchedule: Optional[str] = None
-    roleArn: Optional[str] = None
+    syncSchedule: Optional[Annotated[str, _aws_pattern("Qbusiness", "SyncSchedule")]] = None
+    roleArn: Optional[Annotated[str, _aws_pattern("Qbusiness", "RoleArn")]] = None
     clientToken: Optional[str] = None
     documentEnrichmentConfiguration: Optional[DocumentEnrichmentConfigurationUnionTypeDef] = None
     mediaExtractionConfiguration: Optional[MediaExtractionConfigurationTypeDef] = None
 
 
 class DocumentTypeDef(BaseValidatorModel):
-    id: str
+    id: Annotated[str, _aws_pattern("Qbusiness", "DocumentId")]
     attributes: Optional[List[DocumentAttributeUnionTypeDef]] = None
     content: Optional[DocumentContentTypeDef] = None
     contentType: Optional[ContentTypeType] = None
@@ -2390,42 +2392,42 @@ class DocumentTypeDef(BaseValidatorModel):
 
 
 class UpdateDataSourceRequestTypeDef(BaseValidatorModel):
-    applicationId: str
-    indexId: str
-    dataSourceId: str
-    displayName: Optional[str] = None
+    applicationId: Annotated[str, _aws_pattern("Qbusiness", "ApplicationId")]
+    indexId: Annotated[str, _aws_pattern("Qbusiness", "IndexId")]
+    dataSourceId: Annotated[str, _aws_pattern("Qbusiness", "DataSourceId")]
+    displayName: Optional[Annotated[str, _aws_pattern("Qbusiness", "DataSourceName")]] = None
     configuration: Optional[Dict[str, Any]] = None
     vpcConfiguration: Optional[DataSourceVpcConfigurationUnionTypeDef] = None
-    description: Optional[str] = None
-    syncSchedule: Optional[str] = None
-    roleArn: Optional[str] = None
+    description: Optional[Annotated[str, _aws_pattern("Qbusiness", "Description")]] = None
+    syncSchedule: Optional[Annotated[str, _aws_pattern("Qbusiness", "SyncSchedule")]] = None
+    roleArn: Optional[Annotated[str, _aws_pattern("Qbusiness", "RoleArn")]] = None
     documentEnrichmentConfiguration: Optional[DocumentEnrichmentConfigurationUnionTypeDef] = None
     mediaExtractionConfiguration: Optional[MediaExtractionConfigurationTypeDef] = None
 
 
 class ActionConfigurationTypeDef(BaseValidatorModel):
-    action: str
+    action: Annotated[str, _aws_pattern("Qbusiness", "QIamAction")]
     filterConfiguration: Optional[ActionFilterConfigurationUnionTypeDef] = None
 
 
 # This class is the input for the 'chat' function.
 class ChatInputTypeDef(BaseValidatorModel):
-    applicationId: str
-    userId: Optional[str] = None
+    applicationId: Annotated[str, _aws_pattern("Qbusiness", "ApplicationId")]
+    userId: Optional[Annotated[str, _aws_pattern("Qbusiness", "UserId")]] = None
     userGroups: Optional[List[str]] = None
-    conversationId: Optional[str] = None
-    parentMessageId: Optional[str] = None
+    conversationId: Optional[Annotated[str, _aws_pattern("Qbusiness", "ConversationId")]] = None
+    parentMessageId: Optional[Annotated[str, _aws_pattern("Qbusiness", "MessageId")]] = None
     clientToken: Optional[str] = None
     inputStream: Optional[EventStream[ChatInputStreamTypeDef]] = None
 
 
 # This class is the input for the 'batch_put_document' function.
 class BatchPutDocumentRequestTypeDef(BaseValidatorModel):
-    applicationId: str
-    indexId: str
+    applicationId: Annotated[str, _aws_pattern("Qbusiness", "ApplicationId")]
+    indexId: Annotated[str, _aws_pattern("Qbusiness", "IndexId")]
     documents: List[DocumentTypeDef]
-    roleArn: Optional[str] = None
-    dataSourceSyncId: Optional[str] = None
+    roleArn: Optional[Annotated[str, _aws_pattern("Qbusiness", "RoleArn")]] = None
+    dataSourceSyncId: Optional[Annotated[str, _aws_pattern("Qbusiness", "ExecutionId")]] = None
 
 
 ActionConfigurationUnionTypeDef = Union[ActionConfigurationOutputTypeDef, ActionConfigurationTypeDef]
@@ -2433,18 +2435,18 @@ ActionConfigurationUnionTypeDef = Union[ActionConfigurationOutputTypeDef, Action
 
 # This class is the input for the 'create_data_accessor' function.
 class CreateDataAccessorRequestTypeDef(BaseValidatorModel):
-    applicationId: str
-    principal: str
+    applicationId: Annotated[str, _aws_pattern("Qbusiness", "ApplicationId")]
+    principal: Annotated[str, _aws_pattern("Qbusiness", "PrincipalRoleArn")]
     actionConfigurations: List[ActionConfigurationUnionTypeDef]
-    displayName: str
+    displayName: Annotated[str, _aws_pattern("Qbusiness", "DataAccessorName")]
     clientToken: Optional[str] = None
     authenticationDetail: Optional[DataAccessorAuthenticationDetailUnionTypeDef] = None
     tags: Optional[List[TagTypeDef]] = None
 
 
 class UpdateDataAccessorRequestTypeDef(BaseValidatorModel):
-    applicationId: str
-    dataAccessorId: str
+    applicationId: Annotated[str, _aws_pattern("Qbusiness", "ApplicationId")]
+    dataAccessorId: Annotated[str, _aws_pattern("Qbusiness", "DataAccessorId")]
     actionConfigurations: List[ActionConfigurationUnionTypeDef]
     authenticationDetail: Optional[DataAccessorAuthenticationDetailUnionTypeDef] = None
-    displayName: Optional[str] = None
+    displayName: Optional[Annotated[str, _aws_pattern("Qbusiness", "DataAccessorName")]] = None

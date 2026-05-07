@@ -3,6 +3,7 @@
 from datetime import datetime
 from decimal import Decimal
 from typing import (
+    Annotated,
     Any,
     Callable,
     Dict,
@@ -24,6 +25,7 @@ from botocore.response import StreamingBody
 from pydantic import Field
 
 from aws_resource_validator.core.base_validator_model import BaseValidatorModel, EventStream
+from aws_resource_validator.core.pattern_validation import aws_field_pattern as _aws_pattern
 from aws_resource_validator.pydantic_models.sso_admin.sso_admin_constants import *  # noqa: F401,F403
 
 # Optional boto3 symbols — imported lazily so services that don't need them
@@ -43,45 +45,45 @@ class AccessControlAttributeValueOutputTypeDef(BaseValidatorModel):
 
 
 class AccessControlAttributeValueTypeDef(BaseValidatorModel):
-    Source: List[str]
+    Source: List[Annotated[str, _aws_pattern("SsoAdmin", "AccessControlAttributeValueSource")]]
 
 
 class AccountAssignmentForPrincipalTypeDef(BaseValidatorModel):
-    AccountId: Optional[str] = None
-    PermissionSetArn: Optional[str] = None
-    PrincipalId: Optional[str] = None
+    AccountId: Optional[Annotated[str, _aws_pattern("SsoAdmin", "AccountId")]] = None
+    PermissionSetArn: Optional[Annotated[str, _aws_pattern("SsoAdmin", "PermissionSetArn")]] = None
+    PrincipalId: Optional[Annotated[str, _aws_pattern("SsoAdmin", "PrincipalId")]] = None
     PrincipalType: Optional[PrincipalTypeType] = None
 
 
 class AccountAssignmentOperationStatusMetadataTypeDef(BaseValidatorModel):
     Status: Optional[StatusValuesType] = None
-    RequestId: Optional[str] = None
+    RequestId: Optional[Annotated[str, _aws_pattern("SsoAdmin", "UUId")]] = None
     CreatedDate: Optional[datetime] = None
 
 
 class AccountAssignmentOperationStatusTypeDef(BaseValidatorModel):
     Status: Optional[StatusValuesType] = None
-    RequestId: Optional[str] = None
-    FailureReason: Optional[str] = None
-    TargetId: Optional[str] = None
+    RequestId: Optional[Annotated[str, _aws_pattern("SsoAdmin", "UUId")]] = None
+    FailureReason: Optional[Annotated[str, _aws_pattern("SsoAdmin", "Reason")]] = None
+    TargetId: Optional[Annotated[str, _aws_pattern("SsoAdmin", "TargetId")]] = None
     TargetType: Optional[Literal["AWS_ACCOUNT"]] = None
-    PermissionSetArn: Optional[str] = None
+    PermissionSetArn: Optional[Annotated[str, _aws_pattern("SsoAdmin", "PermissionSetArn")]] = None
     PrincipalType: Optional[PrincipalTypeType] = None
-    PrincipalId: Optional[str] = None
+    PrincipalId: Optional[Annotated[str, _aws_pattern("SsoAdmin", "PrincipalId")]] = None
     CreatedDate: Optional[datetime] = None
 
 
 class AccountAssignmentTypeDef(BaseValidatorModel):
-    AccountId: Optional[str] = None
-    PermissionSetArn: Optional[str] = None
+    AccountId: Optional[Annotated[str, _aws_pattern("SsoAdmin", "AccountId")]] = None
+    PermissionSetArn: Optional[Annotated[str, _aws_pattern("SsoAdmin", "PermissionSetArn")]] = None
     PrincipalType: Optional[PrincipalTypeType] = None
-    PrincipalId: Optional[str] = None
+    PrincipalId: Optional[Annotated[str, _aws_pattern("SsoAdmin", "PrincipalId")]] = None
 
 
 # This class is the input for the 'add_region' function.
 class AddRegionRequestTypeDef(BaseValidatorModel):
-    InstanceArn: str
-    RegionName: str
+    InstanceArn: Annotated[str, _aws_pattern("SsoAdmin", "InstanceArn")]
+    RegionName: Annotated[str, _aws_pattern("SsoAdmin", "RegionName")]
 
 
 class ResponseMetadataTypeDef(BaseValidatorModel):
@@ -93,37 +95,37 @@ class ResponseMetadataTypeDef(BaseValidatorModel):
 
 
 class ApplicationAssignmentForPrincipalTypeDef(BaseValidatorModel):
-    ApplicationArn: Optional[str] = None
-    PrincipalId: Optional[str] = None
+    ApplicationArn: Optional[Annotated[str, _aws_pattern("SsoAdmin", "ApplicationArn")]] = None
+    PrincipalId: Optional[Annotated[str, _aws_pattern("SsoAdmin", "PrincipalId")]] = None
     PrincipalType: Optional[PrincipalTypeType] = None
 
 
 class ApplicationAssignmentTypeDef(BaseValidatorModel):
-    ApplicationArn: str
-    PrincipalId: str
+    ApplicationArn: Annotated[str, _aws_pattern("SsoAdmin", "ApplicationArn")]
+    PrincipalId: Annotated[str, _aws_pattern("SsoAdmin", "PrincipalId")]
     PrincipalType: PrincipalTypeType
 
 
 class DisplayDataTypeDef(BaseValidatorModel):
     DisplayName: Optional[str] = None
-    IconUrl: Optional[str] = None
+    IconUrl: Optional[Annotated[str, _aws_pattern("SsoAdmin", "IconUrl")]] = None
     Description: Optional[str] = None
 
 
 class CustomerManagedPolicyReferenceTypeDef(BaseValidatorModel):
-    Name: str
-    Path: Optional[str] = None
+    Name: Annotated[str, _aws_pattern("SsoAdmin", "ManagedPolicyName")]
+    Path: Optional[Annotated[str, _aws_pattern("SsoAdmin", "ManagedPolicyPath")]] = None
 
 
 class AttachManagedPolicyToPermissionSetRequestTypeDef(BaseValidatorModel):
-    InstanceArn: str
-    PermissionSetArn: str
-    ManagedPolicyArn: str
+    InstanceArn: Annotated[str, _aws_pattern("SsoAdmin", "InstanceArn")]
+    PermissionSetArn: Annotated[str, _aws_pattern("SsoAdmin", "PermissionSetArn")]
+    ManagedPolicyArn: Annotated[str, _aws_pattern("SsoAdmin", "ManagedPolicyArn")]
 
 
 class AttachedManagedPolicyTypeDef(BaseValidatorModel):
     Name: Optional[str] = None
-    Arn: Optional[str] = None
+    Arn: Optional[Annotated[str, _aws_pattern("SsoAdmin", "ManagedPolicyArn")]] = None
 
 
 class IamAuthenticationMethodOutputTypeDef(BaseValidatorModel):
@@ -148,242 +150,242 @@ class AuthorizedTokenIssuerOutputTypeDef(BaseValidatorModel):
 
 
 class AuthorizedTokenIssuerTypeDef(BaseValidatorModel):
-    TrustedTokenIssuerArn: Optional[str] = None
+    TrustedTokenIssuerArn: Optional[Annotated[str, _aws_pattern("SsoAdmin", "TrustedTokenIssuerArn")]] = None
     AuthorizedAudiences: Optional[List[str]] = None
 
 
 # This class is the input for the 'create_account_assignment' function.
 class CreateAccountAssignmentRequestTypeDef(BaseValidatorModel):
-    InstanceArn: str
-    TargetId: str
+    InstanceArn: Annotated[str, _aws_pattern("SsoAdmin", "InstanceArn")]
+    TargetId: Annotated[str, _aws_pattern("SsoAdmin", "TargetId")]
     TargetType: Literal["AWS_ACCOUNT"]
-    PermissionSetArn: str
+    PermissionSetArn: Annotated[str, _aws_pattern("SsoAdmin", "PermissionSetArn")]
     PrincipalType: PrincipalTypeType
-    PrincipalId: str
+    PrincipalId: Annotated[str, _aws_pattern("SsoAdmin", "PrincipalId")]
 
 
 class CreateApplicationAssignmentRequestTypeDef(BaseValidatorModel):
-    ApplicationArn: str
-    PrincipalId: str
+    ApplicationArn: Annotated[str, _aws_pattern("SsoAdmin", "ApplicationArn")]
+    PrincipalId: Annotated[str, _aws_pattern("SsoAdmin", "PrincipalId")]
     PrincipalType: PrincipalTypeType
 
 
 class TagTypeDef(BaseValidatorModel):
-    Key: str
-    Value: str
+    Key: Annotated[str, _aws_pattern("SsoAdmin", "TagKey")]
+    Value: Annotated[str, _aws_pattern("SsoAdmin", "TagValue")]
 
 
 class PermissionSetTypeDef(BaseValidatorModel):
-    Name: Optional[str] = None
-    PermissionSetArn: Optional[str] = None
-    Description: Optional[str] = None
+    Name: Optional[Annotated[str, _aws_pattern("SsoAdmin", "PermissionSetName")]] = None
+    PermissionSetArn: Optional[Annotated[str, _aws_pattern("SsoAdmin", "PermissionSetArn")]] = None
+    Description: Optional[Annotated[str, _aws_pattern("SsoAdmin", "PermissionSetDescription")]] = None
     CreatedDate: Optional[datetime] = None
-    SessionDuration: Optional[str] = None
-    RelayState: Optional[str] = None
+    SessionDuration: Optional[Annotated[str, _aws_pattern("SsoAdmin", "Duration")]] = None
+    RelayState: Optional[Annotated[str, _aws_pattern("SsoAdmin", "RelayState")]] = None
 
 
 # This class is the input for the 'delete_account_assignment' function.
 class DeleteAccountAssignmentRequestTypeDef(BaseValidatorModel):
-    InstanceArn: str
-    TargetId: str
+    InstanceArn: Annotated[str, _aws_pattern("SsoAdmin", "InstanceArn")]
+    TargetId: Annotated[str, _aws_pattern("SsoAdmin", "TargetId")]
     TargetType: Literal["AWS_ACCOUNT"]
-    PermissionSetArn: str
+    PermissionSetArn: Annotated[str, _aws_pattern("SsoAdmin", "PermissionSetArn")]
     PrincipalType: PrincipalTypeType
-    PrincipalId: str
+    PrincipalId: Annotated[str, _aws_pattern("SsoAdmin", "PrincipalId")]
 
 
 # This class is the input for the 'delete_application_access_scope' function.
 class DeleteApplicationAccessScopeRequestTypeDef(BaseValidatorModel):
-    ApplicationArn: str
-    Scope: str
+    ApplicationArn: Annotated[str, _aws_pattern("SsoAdmin", "ApplicationArn")]
+    Scope: Annotated[str, _aws_pattern("SsoAdmin", "Scope")]
 
 
 class DeleteApplicationAssignmentRequestTypeDef(BaseValidatorModel):
-    ApplicationArn: str
-    PrincipalId: str
+    ApplicationArn: Annotated[str, _aws_pattern("SsoAdmin", "ApplicationArn")]
+    PrincipalId: Annotated[str, _aws_pattern("SsoAdmin", "PrincipalId")]
     PrincipalType: PrincipalTypeType
 
 
 # This class is the input for the 'delete_application_authentication_method' function.
 class DeleteApplicationAuthenticationMethodRequestTypeDef(BaseValidatorModel):
-    ApplicationArn: str
+    ApplicationArn: Annotated[str, _aws_pattern("SsoAdmin", "ApplicationArn")]
     AuthenticationMethodType: Literal["IAM"]
 
 
 # This class is the input for the 'delete_application_grant' function.
 class DeleteApplicationGrantRequestTypeDef(BaseValidatorModel):
-    ApplicationArn: str
+    ApplicationArn: Annotated[str, _aws_pattern("SsoAdmin", "ApplicationArn")]
     GrantType: GrantTypeType
 
 
 class DeleteApplicationRequestTypeDef(BaseValidatorModel):
-    ApplicationArn: str
+    ApplicationArn: Annotated[str, _aws_pattern("SsoAdmin", "ApplicationArn")]
 
 
 class DeleteInlinePolicyFromPermissionSetRequestTypeDef(BaseValidatorModel):
-    InstanceArn: str
-    PermissionSetArn: str
+    InstanceArn: Annotated[str, _aws_pattern("SsoAdmin", "InstanceArn")]
+    PermissionSetArn: Annotated[str, _aws_pattern("SsoAdmin", "PermissionSetArn")]
 
 
 class DeleteInstanceAccessControlAttributeConfigurationRequestTypeDef(BaseValidatorModel):
-    InstanceArn: str
+    InstanceArn: Annotated[str, _aws_pattern("SsoAdmin", "InstanceArn")]
 
 
 class DeleteInstanceRequestTypeDef(BaseValidatorModel):
-    InstanceArn: str
+    InstanceArn: Annotated[str, _aws_pattern("SsoAdmin", "InstanceArn")]
 
 
 class DeletePermissionSetRequestTypeDef(BaseValidatorModel):
-    InstanceArn: str
-    PermissionSetArn: str
+    InstanceArn: Annotated[str, _aws_pattern("SsoAdmin", "InstanceArn")]
+    PermissionSetArn: Annotated[str, _aws_pattern("SsoAdmin", "PermissionSetArn")]
 
 
 class DeletePermissionsBoundaryFromPermissionSetRequestTypeDef(BaseValidatorModel):
-    InstanceArn: str
-    PermissionSetArn: str
+    InstanceArn: Annotated[str, _aws_pattern("SsoAdmin", "InstanceArn")]
+    PermissionSetArn: Annotated[str, _aws_pattern("SsoAdmin", "PermissionSetArn")]
 
 
 class DeleteTrustedTokenIssuerRequestTypeDef(BaseValidatorModel):
-    TrustedTokenIssuerArn: str
+    TrustedTokenIssuerArn: Annotated[str, _aws_pattern("SsoAdmin", "TrustedTokenIssuerArn")]
 
 
 # This class is the input for the 'describe_account_assignment_creation_status' function.
 class DescribeAccountAssignmentCreationStatusRequestTypeDef(BaseValidatorModel):
-    InstanceArn: str
-    AccountAssignmentCreationRequestId: str
+    InstanceArn: Annotated[str, _aws_pattern("SsoAdmin", "InstanceArn")]
+    AccountAssignmentCreationRequestId: Annotated[str, _aws_pattern("SsoAdmin", "UUId")]
 
 
 # This class is the input for the 'describe_account_assignment_deletion_status' function.
 class DescribeAccountAssignmentDeletionStatusRequestTypeDef(BaseValidatorModel):
-    InstanceArn: str
-    AccountAssignmentDeletionRequestId: str
+    InstanceArn: Annotated[str, _aws_pattern("SsoAdmin", "InstanceArn")]
+    AccountAssignmentDeletionRequestId: Annotated[str, _aws_pattern("SsoAdmin", "UUId")]
 
 
 # This class is the input for the 'describe_application_assignment' function.
 class DescribeApplicationAssignmentRequestTypeDef(BaseValidatorModel):
-    ApplicationArn: str
-    PrincipalId: str
+    ApplicationArn: Annotated[str, _aws_pattern("SsoAdmin", "ApplicationArn")]
+    PrincipalId: Annotated[str, _aws_pattern("SsoAdmin", "PrincipalId")]
     PrincipalType: PrincipalTypeType
 
 
 # This class is the input for the 'describe_application_provider' function.
 class DescribeApplicationProviderRequestTypeDef(BaseValidatorModel):
-    ApplicationProviderArn: str
+    ApplicationProviderArn: Annotated[str, _aws_pattern("SsoAdmin", "ApplicationProviderArn")]
 
 
 # This class is the input for the 'describe_application' function.
 class DescribeApplicationRequestTypeDef(BaseValidatorModel):
-    ApplicationArn: str
+    ApplicationArn: Annotated[str, _aws_pattern("SsoAdmin", "ApplicationArn")]
 
 
 # This class is the input for the 'describe_instance_access_control_attribute_configuration' function.
 class DescribeInstanceAccessControlAttributeConfigurationRequestTypeDef(BaseValidatorModel):
-    InstanceArn: str
+    InstanceArn: Annotated[str, _aws_pattern("SsoAdmin", "InstanceArn")]
 
 
 # This class is the input for the 'describe_instance' function.
 class DescribeInstanceRequestTypeDef(BaseValidatorModel):
-    InstanceArn: str
+    InstanceArn: Annotated[str, _aws_pattern("SsoAdmin", "InstanceArn")]
 
 
 class EncryptionConfigurationDetailsTypeDef(BaseValidatorModel):
     KeyType: Optional[KmsKeyTypeType] = None
-    KmsKeyArn: Optional[str] = None
+    KmsKeyArn: Optional[Annotated[str, _aws_pattern("SsoAdmin", "KmsKeyArn")]] = None
     EncryptionStatus: Optional[KmsKeyStatusType] = None
-    EncryptionStatusReason: Optional[str] = None
+    EncryptionStatusReason: Optional[Annotated[str, _aws_pattern("SsoAdmin", "Reason")]] = None
 
 
 # This class is the input for the 'describe_permission_set_provisioning_status' function.
 class DescribePermissionSetProvisioningStatusRequestTypeDef(BaseValidatorModel):
-    InstanceArn: str
-    ProvisionPermissionSetRequestId: str
+    InstanceArn: Annotated[str, _aws_pattern("SsoAdmin", "InstanceArn")]
+    ProvisionPermissionSetRequestId: Annotated[str, _aws_pattern("SsoAdmin", "UUId")]
 
 
 class PermissionSetProvisioningStatusTypeDef(BaseValidatorModel):
     Status: Optional[StatusValuesType] = None
-    RequestId: Optional[str] = None
-    AccountId: Optional[str] = None
-    PermissionSetArn: Optional[str] = None
-    FailureReason: Optional[str] = None
+    RequestId: Optional[Annotated[str, _aws_pattern("SsoAdmin", "UUId")]] = None
+    AccountId: Optional[Annotated[str, _aws_pattern("SsoAdmin", "AccountId")]] = None
+    PermissionSetArn: Optional[Annotated[str, _aws_pattern("SsoAdmin", "PermissionSetArn")]] = None
+    FailureReason: Optional[Annotated[str, _aws_pattern("SsoAdmin", "Reason")]] = None
     CreatedDate: Optional[datetime] = None
 
 
 # This class is the input for the 'describe_permission_set' function.
 class DescribePermissionSetRequestTypeDef(BaseValidatorModel):
-    InstanceArn: str
-    PermissionSetArn: str
+    InstanceArn: Annotated[str, _aws_pattern("SsoAdmin", "InstanceArn")]
+    PermissionSetArn: Annotated[str, _aws_pattern("SsoAdmin", "PermissionSetArn")]
 
 
 # This class is the input for the 'describe_region' function.
 class DescribeRegionRequestTypeDef(BaseValidatorModel):
-    InstanceArn: str
-    RegionName: str
+    InstanceArn: Annotated[str, _aws_pattern("SsoAdmin", "InstanceArn")]
+    RegionName: Annotated[str, _aws_pattern("SsoAdmin", "RegionName")]
 
 
 # This class is the input for the 'describe_trusted_token_issuer' function.
 class DescribeTrustedTokenIssuerRequestTypeDef(BaseValidatorModel):
-    TrustedTokenIssuerArn: str
+    TrustedTokenIssuerArn: Annotated[str, _aws_pattern("SsoAdmin", "TrustedTokenIssuerArn")]
 
 
 class DetachManagedPolicyFromPermissionSetRequestTypeDef(BaseValidatorModel):
-    InstanceArn: str
-    PermissionSetArn: str
-    ManagedPolicyArn: str
+    InstanceArn: Annotated[str, _aws_pattern("SsoAdmin", "InstanceArn")]
+    PermissionSetArn: Annotated[str, _aws_pattern("SsoAdmin", "PermissionSetArn")]
+    ManagedPolicyArn: Annotated[str, _aws_pattern("SsoAdmin", "ManagedPolicyArn")]
 
 
 class EncryptionConfigurationTypeDef(BaseValidatorModel):
     KeyType: KmsKeyTypeType
-    KmsKeyArn: Optional[str] = None
+    KmsKeyArn: Optional[Annotated[str, _aws_pattern("SsoAdmin", "KmsKeyArn")]] = None
 
 
 # This class is the input for the 'get_application_access_scope' function.
 class GetApplicationAccessScopeRequestTypeDef(BaseValidatorModel):
-    ApplicationArn: str
-    Scope: str
+    ApplicationArn: Annotated[str, _aws_pattern("SsoAdmin", "ApplicationArn")]
+    Scope: Annotated[str, _aws_pattern("SsoAdmin", "Scope")]
 
 
 # This class is the input for the 'get_application_assignment_configuration' function.
 class GetApplicationAssignmentConfigurationRequestTypeDef(BaseValidatorModel):
-    ApplicationArn: str
+    ApplicationArn: Annotated[str, _aws_pattern("SsoAdmin", "ApplicationArn")]
 
 
 # This class is the input for the 'get_application_authentication_method' function.
 class GetApplicationAuthenticationMethodRequestTypeDef(BaseValidatorModel):
-    ApplicationArn: str
+    ApplicationArn: Annotated[str, _aws_pattern("SsoAdmin", "ApplicationArn")]
     AuthenticationMethodType: Literal["IAM"]
 
 
 # This class is the input for the 'get_application_grant' function.
 class GetApplicationGrantRequestTypeDef(BaseValidatorModel):
-    ApplicationArn: str
+    ApplicationArn: Annotated[str, _aws_pattern("SsoAdmin", "ApplicationArn")]
     GrantType: GrantTypeType
 
 
 # This class is the input for the 'get_application_session_configuration' function.
 class GetApplicationSessionConfigurationRequestTypeDef(BaseValidatorModel):
-    ApplicationArn: str
+    ApplicationArn: Annotated[str, _aws_pattern("SsoAdmin", "ApplicationArn")]
 
 
 # This class is the input for the 'get_inline_policy_for_permission_set' function.
 class GetInlinePolicyForPermissionSetRequestTypeDef(BaseValidatorModel):
-    InstanceArn: str
-    PermissionSetArn: str
+    InstanceArn: Annotated[str, _aws_pattern("SsoAdmin", "InstanceArn")]
+    PermissionSetArn: Annotated[str, _aws_pattern("SsoAdmin", "PermissionSetArn")]
 
 
 # This class is the input for the 'get_permissions_boundary_for_permission_set' function.
 class GetPermissionsBoundaryForPermissionSetRequestTypeDef(BaseValidatorModel):
-    InstanceArn: str
-    PermissionSetArn: str
+    InstanceArn: Annotated[str, _aws_pattern("SsoAdmin", "InstanceArn")]
+    PermissionSetArn: Annotated[str, _aws_pattern("SsoAdmin", "PermissionSetArn")]
 
 
 class InstanceMetadataTypeDef(BaseValidatorModel):
-    InstanceArn: Optional[str] = None
-    IdentityStoreId: Optional[str] = None
-    OwnerAccountId: Optional[str] = None
-    Name: Optional[str] = None
+    InstanceArn: Optional[Annotated[str, _aws_pattern("SsoAdmin", "InstanceArn")]] = None
+    IdentityStoreId: Optional[Annotated[str, _aws_pattern("SsoAdmin", "Id")]] = None
+    OwnerAccountId: Optional[Annotated[str, _aws_pattern("SsoAdmin", "AccountId")]] = None
+    Name: Optional[Annotated[str, _aws_pattern("SsoAdmin", "NameType")]] = None
     CreatedDate: Optional[datetime] = None
     Status: Optional[InstanceStatusType] = None
-    StatusReason: Optional[str] = None
+    StatusReason: Optional[Annotated[str, _aws_pattern("SsoAdmin", "Reason")]] = None
 
 
 class OperationStatusFilterTypeDef(BaseValidatorModel):
@@ -397,126 +399,126 @@ class PaginatorConfigTypeDef(BaseValidatorModel):
 
 
 class ListAccountAssignmentsFilterTypeDef(BaseValidatorModel):
-    AccountId: Optional[str] = None
+    AccountId: Optional[Annotated[str, _aws_pattern("SsoAdmin", "AccountId")]] = None
 
 
 # This class is the input for the 'list_account_assignments' function.
 class ListAccountAssignmentsRequestTypeDef(BaseValidatorModel):
-    InstanceArn: str
-    AccountId: str
-    PermissionSetArn: str
+    InstanceArn: Annotated[str, _aws_pattern("SsoAdmin", "InstanceArn")]
+    AccountId: Annotated[str, _aws_pattern("SsoAdmin", "TargetId")]
+    PermissionSetArn: Annotated[str, _aws_pattern("SsoAdmin", "PermissionSetArn")]
     MaxResults: Optional[int] = None
-    NextToken: Optional[str] = None
+    NextToken: Optional[Annotated[str, _aws_pattern("SsoAdmin", "Token")]] = None
 
 
 # This class is the input for the 'list_accounts_for_provisioned_permission_set' function.
 class ListAccountsForProvisionedPermissionSetRequestTypeDef(BaseValidatorModel):
-    InstanceArn: str
-    PermissionSetArn: str
+    InstanceArn: Annotated[str, _aws_pattern("SsoAdmin", "InstanceArn")]
+    PermissionSetArn: Annotated[str, _aws_pattern("SsoAdmin", "PermissionSetArn")]
     ProvisioningStatus: Optional[ProvisioningStatusType] = None
     MaxResults: Optional[int] = None
-    NextToken: Optional[str] = None
+    NextToken: Optional[Annotated[str, _aws_pattern("SsoAdmin", "Token")]] = None
 
 
 # This class is the input for the 'list_application_access_scopes' function.
 class ListApplicationAccessScopesRequestTypeDef(BaseValidatorModel):
-    ApplicationArn: str
+    ApplicationArn: Annotated[str, _aws_pattern("SsoAdmin", "ApplicationArn")]
     MaxResults: Optional[int] = None
-    NextToken: Optional[str] = None
+    NextToken: Optional[Annotated[str, _aws_pattern("SsoAdmin", "Token")]] = None
 
 
 class ScopeDetailsTypeDef(BaseValidatorModel):
-    Scope: str
-    AuthorizedTargets: Optional[List[str]] = None
+    Scope: Annotated[str, _aws_pattern("SsoAdmin", "Scope")]
+    AuthorizedTargets: Optional[List[Annotated[str, _aws_pattern("SsoAdmin", "ScopeTarget")]]] = None
 
 
 class ListApplicationAssignmentsFilterTypeDef(BaseValidatorModel):
-    ApplicationArn: Optional[str] = None
+    ApplicationArn: Optional[Annotated[str, _aws_pattern("SsoAdmin", "ApplicationArn")]] = None
 
 
 # This class is the input for the 'list_application_assignments' function.
 class ListApplicationAssignmentsRequestTypeDef(BaseValidatorModel):
-    ApplicationArn: str
+    ApplicationArn: Annotated[str, _aws_pattern("SsoAdmin", "ApplicationArn")]
     MaxResults: Optional[int] = None
-    NextToken: Optional[str] = None
+    NextToken: Optional[Annotated[str, _aws_pattern("SsoAdmin", "Token")]] = None
 
 
 # This class is the input for the 'list_application_authentication_methods' function.
 class ListApplicationAuthenticationMethodsRequestTypeDef(BaseValidatorModel):
-    ApplicationArn: str
-    NextToken: Optional[str] = None
+    ApplicationArn: Annotated[str, _aws_pattern("SsoAdmin", "ApplicationArn")]
+    NextToken: Optional[Annotated[str, _aws_pattern("SsoAdmin", "Token")]] = None
 
 
 # This class is the input for the 'list_application_grants' function.
 class ListApplicationGrantsRequestTypeDef(BaseValidatorModel):
-    ApplicationArn: str
-    NextToken: Optional[str] = None
+    ApplicationArn: Annotated[str, _aws_pattern("SsoAdmin", "ApplicationArn")]
+    NextToken: Optional[Annotated[str, _aws_pattern("SsoAdmin", "Token")]] = None
 
 
 # This class is the input for the 'list_application_providers' function.
 class ListApplicationProvidersRequestTypeDef(BaseValidatorModel):
     MaxResults: Optional[int] = None
-    NextToken: Optional[str] = None
+    NextToken: Optional[Annotated[str, _aws_pattern("SsoAdmin", "Token")]] = None
 
 
 class ListApplicationsFilterTypeDef(BaseValidatorModel):
-    ApplicationAccount: Optional[str] = None
-    ApplicationProvider: Optional[str] = None
+    ApplicationAccount: Optional[Annotated[str, _aws_pattern("SsoAdmin", "AccountId")]] = None
+    ApplicationProvider: Optional[Annotated[str, _aws_pattern("SsoAdmin", "ApplicationProviderArn")]] = None
 
 
 # This class is the input for the 'list_customer_managed_policy_references_in_permission_set' function.
 class ListCustomerManagedPolicyReferencesInPermissionSetRequestTypeDef(BaseValidatorModel):
-    InstanceArn: str
-    PermissionSetArn: str
+    InstanceArn: Annotated[str, _aws_pattern("SsoAdmin", "InstanceArn")]
+    PermissionSetArn: Annotated[str, _aws_pattern("SsoAdmin", "PermissionSetArn")]
     MaxResults: Optional[int] = None
-    NextToken: Optional[str] = None
+    NextToken: Optional[Annotated[str, _aws_pattern("SsoAdmin", "Token")]] = None
 
 
 # This class is the input for the 'list_instances' function.
 class ListInstancesRequestTypeDef(BaseValidatorModel):
     MaxResults: Optional[int] = None
-    NextToken: Optional[str] = None
+    NextToken: Optional[Annotated[str, _aws_pattern("SsoAdmin", "Token")]] = None
 
 
 # This class is the input for the 'list_managed_policies_in_permission_set' function.
 class ListManagedPoliciesInPermissionSetRequestTypeDef(BaseValidatorModel):
-    InstanceArn: str
-    PermissionSetArn: str
+    InstanceArn: Annotated[str, _aws_pattern("SsoAdmin", "InstanceArn")]
+    PermissionSetArn: Annotated[str, _aws_pattern("SsoAdmin", "PermissionSetArn")]
     MaxResults: Optional[int] = None
-    NextToken: Optional[str] = None
+    NextToken: Optional[Annotated[str, _aws_pattern("SsoAdmin", "Token")]] = None
 
 
 class PermissionSetProvisioningStatusMetadataTypeDef(BaseValidatorModel):
     Status: Optional[StatusValuesType] = None
-    RequestId: Optional[str] = None
+    RequestId: Optional[Annotated[str, _aws_pattern("SsoAdmin", "UUId")]] = None
     CreatedDate: Optional[datetime] = None
 
 
 # This class is the input for the 'list_permission_sets_provisioned_to_account' function.
 class ListPermissionSetsProvisionedToAccountRequestTypeDef(BaseValidatorModel):
-    InstanceArn: str
-    AccountId: str
+    InstanceArn: Annotated[str, _aws_pattern("SsoAdmin", "InstanceArn")]
+    AccountId: Annotated[str, _aws_pattern("SsoAdmin", "AccountId")]
     ProvisioningStatus: Optional[ProvisioningStatusType] = None
     MaxResults: Optional[int] = None
-    NextToken: Optional[str] = None
+    NextToken: Optional[Annotated[str, _aws_pattern("SsoAdmin", "Token")]] = None
 
 
 # This class is the input for the 'list_permission_sets' function.
 class ListPermissionSetsRequestTypeDef(BaseValidatorModel):
-    InstanceArn: str
-    NextToken: Optional[str] = None
+    InstanceArn: Annotated[str, _aws_pattern("SsoAdmin", "InstanceArn")]
+    NextToken: Optional[Annotated[str, _aws_pattern("SsoAdmin", "Token")]] = None
     MaxResults: Optional[int] = None
 
 
 # This class is the input for the 'list_regions' function.
 class ListRegionsRequestTypeDef(BaseValidatorModel):
-    InstanceArn: str
+    InstanceArn: Annotated[str, _aws_pattern("SsoAdmin", "InstanceArn")]
     MaxResults: Optional[int] = None
-    NextToken: Optional[str] = None
+    NextToken: Optional[Annotated[str, _aws_pattern("SsoAdmin", "Token")]] = None
 
 
 class RegionMetadataTypeDef(BaseValidatorModel):
-    RegionName: Optional[str] = None
+    RegionName: Optional[Annotated[str, _aws_pattern("SsoAdmin", "RegionName")]] = None
     Status: Optional[RegionStatusType] = None
     AddedDate: Optional[datetime] = None
     IsPrimaryRegion: Optional[bool] = None
@@ -524,77 +526,77 @@ class RegionMetadataTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'list_tags_for_resource' function.
 class ListTagsForResourceRequestTypeDef(BaseValidatorModel):
-    ResourceArn: str
-    InstanceArn: Optional[str] = None
-    NextToken: Optional[str] = None
+    ResourceArn: Annotated[str, _aws_pattern("SsoAdmin", "TaggableResourceArn")]
+    InstanceArn: Optional[Annotated[str, _aws_pattern("SsoAdmin", "InstanceArn")]] = None
+    NextToken: Optional[Annotated[str, _aws_pattern("SsoAdmin", "Token")]] = None
 
 
 # This class is the input for the 'list_trusted_token_issuers' function.
 class ListTrustedTokenIssuersRequestTypeDef(BaseValidatorModel):
-    InstanceArn: str
+    InstanceArn: Annotated[str, _aws_pattern("SsoAdmin", "InstanceArn")]
     MaxResults: Optional[int] = None
-    NextToken: Optional[str] = None
+    NextToken: Optional[Annotated[str, _aws_pattern("SsoAdmin", "Token")]] = None
 
 
 class TrustedTokenIssuerMetadataTypeDef(BaseValidatorModel):
-    TrustedTokenIssuerArn: Optional[str] = None
-    Name: Optional[str] = None
+    TrustedTokenIssuerArn: Optional[Annotated[str, _aws_pattern("SsoAdmin", "TrustedTokenIssuerArn")]] = None
+    Name: Optional[Annotated[str, _aws_pattern("SsoAdmin", "TrustedTokenIssuerName")]] = None
     TrustedTokenIssuerType: Optional[Literal["OIDC_JWT"]] = None
 
 
 class OidcJwtConfigurationTypeDef(BaseValidatorModel):
-    IssuerUrl: str
-    ClaimAttributePath: str
-    IdentityStoreAttributePath: str
+    IssuerUrl: Annotated[str, _aws_pattern("SsoAdmin", "TrustedTokenIssuerUrl")]
+    ClaimAttributePath: Annotated[str, _aws_pattern("SsoAdmin", "ClaimAttributePath")]
+    IdentityStoreAttributePath: Annotated[str, _aws_pattern("SsoAdmin", "JMESPath")]
     JwksRetrievalOption: Literal["OPEN_ID_DISCOVERY"]
 
 
 class OidcJwtUpdateConfigurationTypeDef(BaseValidatorModel):
-    ClaimAttributePath: Optional[str] = None
-    IdentityStoreAttributePath: Optional[str] = None
+    ClaimAttributePath: Optional[Annotated[str, _aws_pattern("SsoAdmin", "ClaimAttributePath")]] = None
+    IdentityStoreAttributePath: Optional[Annotated[str, _aws_pattern("SsoAdmin", "JMESPath")]] = None
     JwksRetrievalOption: Optional[Literal["OPEN_ID_DISCOVERY"]] = None
 
 
 class SignInOptionsTypeDef(BaseValidatorModel):
     Origin: SignInOriginType
-    ApplicationUrl: Optional[str] = None
+    ApplicationUrl: Optional[Annotated[str, _aws_pattern("SsoAdmin", "ApplicationUrl")]] = None
 
 
 # This class is the input for the 'provision_permission_set' function.
 class ProvisionPermissionSetRequestTypeDef(BaseValidatorModel):
-    InstanceArn: str
-    PermissionSetArn: str
+    InstanceArn: Annotated[str, _aws_pattern("SsoAdmin", "InstanceArn")]
+    PermissionSetArn: Annotated[str, _aws_pattern("SsoAdmin", "PermissionSetArn")]
     TargetType: ProvisionTargetTypeType
-    TargetId: Optional[str] = None
+    TargetId: Optional[Annotated[str, _aws_pattern("SsoAdmin", "TargetId")]] = None
 
 
 # This class is the input for the 'put_application_access_scope' function.
 class PutApplicationAccessScopeRequestTypeDef(BaseValidatorModel):
-    Scope: str
-    ApplicationArn: str
-    AuthorizedTargets: Optional[List[str]] = None
+    Scope: Annotated[str, _aws_pattern("SsoAdmin", "Scope")]
+    ApplicationArn: Annotated[str, _aws_pattern("SsoAdmin", "ApplicationArn")]
+    AuthorizedTargets: Optional[List[Annotated[str, _aws_pattern("SsoAdmin", "ScopeTarget")]]] = None
 
 
 class PutApplicationAssignmentConfigurationRequestTypeDef(BaseValidatorModel):
-    ApplicationArn: str
+    ApplicationArn: Annotated[str, _aws_pattern("SsoAdmin", "ApplicationArn")]
     AssignmentRequired: bool
 
 
 class PutApplicationSessionConfigurationRequestTypeDef(BaseValidatorModel):
-    ApplicationArn: str
+    ApplicationArn: Annotated[str, _aws_pattern("SsoAdmin", "ApplicationArn")]
     UserBackgroundSessionApplicationStatus: Optional[UserBackgroundSessionApplicationStatusType] = None
 
 
 class PutInlinePolicyToPermissionSetRequestTypeDef(BaseValidatorModel):
-    InstanceArn: str
-    PermissionSetArn: str
-    InlinePolicy: str
+    InstanceArn: Annotated[str, _aws_pattern("SsoAdmin", "InstanceArn")]
+    PermissionSetArn: Annotated[str, _aws_pattern("SsoAdmin", "PermissionSetArn")]
+    InlinePolicy: Annotated[str, _aws_pattern("SsoAdmin", "PermissionSetPolicyDocument")]
 
 
 # This class is the input for the 'remove_region' function.
 class RemoveRegionRequestTypeDef(BaseValidatorModel):
-    InstanceArn: str
-    RegionName: str
+    InstanceArn: Annotated[str, _aws_pattern("SsoAdmin", "InstanceArn")]
+    RegionName: Annotated[str, _aws_pattern("SsoAdmin", "RegionName")]
 
 
 class ResourceServerScopeDetailsTypeDef(BaseValidatorModel):
@@ -603,17 +605,17 @@ class ResourceServerScopeDetailsTypeDef(BaseValidatorModel):
 
 
 class UntagResourceRequestTypeDef(BaseValidatorModel):
-    ResourceArn: str
-    TagKeys: List[str]
-    InstanceArn: Optional[str] = None
+    ResourceArn: Annotated[str, _aws_pattern("SsoAdmin", "TaggableResourceArn")]
+    TagKeys: List[Annotated[str, _aws_pattern("SsoAdmin", "TagKey")]]
+    InstanceArn: Optional[Annotated[str, _aws_pattern("SsoAdmin", "InstanceArn")]] = None
 
 
 class UpdatePermissionSetRequestTypeDef(BaseValidatorModel):
-    InstanceArn: str
-    PermissionSetArn: str
-    Description: Optional[str] = None
-    SessionDuration: Optional[str] = None
-    RelayState: Optional[str] = None
+    InstanceArn: Annotated[str, _aws_pattern("SsoAdmin", "InstanceArn")]
+    PermissionSetArn: Annotated[str, _aws_pattern("SsoAdmin", "PermissionSetArn")]
+    Description: Optional[Annotated[str, _aws_pattern("SsoAdmin", "PermissionSetDescription")]] = None
+    SessionDuration: Optional[Annotated[str, _aws_pattern("SsoAdmin", "Duration")]] = None
+    RelayState: Optional[Annotated[str, _aws_pattern("SsoAdmin", "RelayState")]] = None
 
 
 class AccessControlAttributeOutputTypeDef(BaseValidatorModel):
@@ -622,7 +624,7 @@ class AccessControlAttributeOutputTypeDef(BaseValidatorModel):
 
 
 class AccessControlAttributeTypeDef(BaseValidatorModel):
-    Key: str
+    Key: Annotated[str, _aws_pattern("SsoAdmin", "AccessControlAttributeKey")]
     Value: AccessControlAttributeValueTypeDef
 
 
@@ -640,19 +642,21 @@ class CreateAccountAssignmentResponseTypeDef(BaseValidatorModel):
 
 # This class is the output for the 'create_application' function.
 class CreateApplicationResponseTypeDef(BaseValidatorModel):
-    ApplicationArn: str
+    ApplicationArn: Annotated[str, _aws_pattern("SsoAdmin", "ApplicationArn")]
+    InstanceArn: Annotated[str, _aws_pattern("SsoAdmin", "InstanceArn")]
+    IdentityStoreArn: str
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 # This class is the output for the 'create_instance' function.
 class CreateInstanceResponseTypeDef(BaseValidatorModel):
-    InstanceArn: str
+    InstanceArn: Annotated[str, _aws_pattern("SsoAdmin", "InstanceArn")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 # This class is the output for the 'create_trusted_token_issuer' function.
 class CreateTrustedTokenIssuerResponseTypeDef(BaseValidatorModel):
-    TrustedTokenIssuerArn: str
+    TrustedTokenIssuerArn: Annotated[str, _aws_pattern("SsoAdmin", "TrustedTokenIssuerArn")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
@@ -677,14 +681,14 @@ class DescribeAccountAssignmentDeletionStatusResponseTypeDef(BaseValidatorModel)
 # This class is the output for the 'describe_application_assignment' function.
 class DescribeApplicationAssignmentResponseTypeDef(BaseValidatorModel):
     PrincipalType: PrincipalTypeType
-    PrincipalId: str
-    ApplicationArn: str
+    PrincipalId: Annotated[str, _aws_pattern("SsoAdmin", "PrincipalId")]
+    ApplicationArn: Annotated[str, _aws_pattern("SsoAdmin", "ApplicationArn")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 # This class is the output for the 'describe_region' function.
 class DescribeRegionResponseTypeDef(BaseValidatorModel):
-    RegionName: str
+    RegionName: Annotated[str, _aws_pattern("SsoAdmin", "RegionName")]
     Status: RegionStatusType
     AddedDate: datetime
     IsPrimaryRegion: bool
@@ -698,8 +702,8 @@ class EmptyResponseMetadataTypeDef(BaseValidatorModel):
 
 # This class is the output for the 'get_application_access_scope' function.
 class GetApplicationAccessScopeResponseTypeDef(BaseValidatorModel):
-    Scope: str
-    AuthorizedTargets: List[str]
+    Scope: Annotated[str, _aws_pattern("SsoAdmin", "Scope")]
+    AuthorizedTargets: List[Annotated[str, _aws_pattern("SsoAdmin", "ScopeTarget")]]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
@@ -717,7 +721,7 @@ class GetApplicationSessionConfigurationResponseTypeDef(BaseValidatorModel):
 
 # This class is the output for the 'get_inline_policy_for_permission_set' function.
 class GetInlinePolicyForPermissionSetResponseTypeDef(BaseValidatorModel):
-    InlinePolicy: str
+    InlinePolicy: Annotated[str, _aws_pattern("SsoAdmin", "PermissionSetPolicyDocument")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
@@ -725,49 +729,49 @@ class GetInlinePolicyForPermissionSetResponseTypeDef(BaseValidatorModel):
 class ListAccountAssignmentCreationStatusResponseTypeDef(BaseValidatorModel):
     AccountAssignmentsCreationStatus: List[AccountAssignmentOperationStatusMetadataTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
-    NextToken: Optional[str] = None
+    NextToken: Optional[Annotated[str, _aws_pattern("SsoAdmin", "Token")]] = None
 
 
 # This class is the output for the 'list_account_assignment_deletion_status' function.
 class ListAccountAssignmentDeletionStatusResponseTypeDef(BaseValidatorModel):
     AccountAssignmentsDeletionStatus: List[AccountAssignmentOperationStatusMetadataTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
-    NextToken: Optional[str] = None
+    NextToken: Optional[Annotated[str, _aws_pattern("SsoAdmin", "Token")]] = None
 
 
 # This class is the output for the 'list_account_assignments_for_principal' function.
 class ListAccountAssignmentsForPrincipalResponseTypeDef(BaseValidatorModel):
     AccountAssignments: List[AccountAssignmentForPrincipalTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
-    NextToken: Optional[str] = None
+    NextToken: Optional[Annotated[str, _aws_pattern("SsoAdmin", "Token")]] = None
 
 
 # This class is the output for the 'list_account_assignments' function.
 class ListAccountAssignmentsResponseTypeDef(BaseValidatorModel):
     AccountAssignments: List[AccountAssignmentTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
-    NextToken: Optional[str] = None
+    NextToken: Optional[Annotated[str, _aws_pattern("SsoAdmin", "Token")]] = None
 
 
 # This class is the output for the 'list_accounts_for_provisioned_permission_set' function.
 class ListAccountsForProvisionedPermissionSetResponseTypeDef(BaseValidatorModel):
-    AccountIds: List[str]
+    AccountIds: List[Annotated[str, _aws_pattern("SsoAdmin", "AccountId")]]
     ResponseMetadata: ResponseMetadataTypeDef
-    NextToken: Optional[str] = None
+    NextToken: Optional[Annotated[str, _aws_pattern("SsoAdmin", "Token")]] = None
 
 
 # This class is the output for the 'list_permission_sets_provisioned_to_account' function.
 class ListPermissionSetsProvisionedToAccountResponseTypeDef(BaseValidatorModel):
-    PermissionSets: List[str]
+    PermissionSets: List[Annotated[str, _aws_pattern("SsoAdmin", "PermissionSetArn")]]
     ResponseMetadata: ResponseMetadataTypeDef
-    NextToken: Optional[str] = None
+    NextToken: Optional[Annotated[str, _aws_pattern("SsoAdmin", "Token")]] = None
 
 
 # This class is the output for the 'list_permission_sets' function.
 class ListPermissionSetsResponseTypeDef(BaseValidatorModel):
-    PermissionSets: List[str]
+    PermissionSets: List[Annotated[str, _aws_pattern("SsoAdmin", "PermissionSetArn")]]
     ResponseMetadata: ResponseMetadataTypeDef
-    NextToken: Optional[str] = None
+    NextToken: Optional[Annotated[str, _aws_pattern("SsoAdmin", "Token")]] = None
 
 
 # This class is the output for the 'remove_region' function.
@@ -780,25 +784,25 @@ class RemoveRegionResponseTypeDef(BaseValidatorModel):
 class ListApplicationAssignmentsForPrincipalResponseTypeDef(BaseValidatorModel):
     ApplicationAssignments: List[ApplicationAssignmentForPrincipalTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
-    NextToken: Optional[str] = None
+    NextToken: Optional[Annotated[str, _aws_pattern("SsoAdmin", "Token")]] = None
 
 
 # This class is the output for the 'list_application_assignments' function.
 class ListApplicationAssignmentsResponseTypeDef(BaseValidatorModel):
     ApplicationAssignments: List[ApplicationAssignmentTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
-    NextToken: Optional[str] = None
+    NextToken: Optional[Annotated[str, _aws_pattern("SsoAdmin", "Token")]] = None
 
 
 class AttachCustomerManagedPolicyReferenceToPermissionSetRequestTypeDef(BaseValidatorModel):
-    InstanceArn: str
-    PermissionSetArn: str
+    InstanceArn: Annotated[str, _aws_pattern("SsoAdmin", "InstanceArn")]
+    PermissionSetArn: Annotated[str, _aws_pattern("SsoAdmin", "PermissionSetArn")]
     CustomerManagedPolicyReference: CustomerManagedPolicyReferenceTypeDef
 
 
 class DetachCustomerManagedPolicyReferenceFromPermissionSetRequestTypeDef(BaseValidatorModel):
-    InstanceArn: str
-    PermissionSetArn: str
+    InstanceArn: Annotated[str, _aws_pattern("SsoAdmin", "InstanceArn")]
+    PermissionSetArn: Annotated[str, _aws_pattern("SsoAdmin", "PermissionSetArn")]
     CustomerManagedPolicyReference: CustomerManagedPolicyReferenceTypeDef
 
 
@@ -806,19 +810,19 @@ class DetachCustomerManagedPolicyReferenceFromPermissionSetRequestTypeDef(BaseVa
 class ListCustomerManagedPolicyReferencesInPermissionSetResponseTypeDef(BaseValidatorModel):
     CustomerManagedPolicyReferences: List[CustomerManagedPolicyReferenceTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
-    NextToken: Optional[str] = None
+    NextToken: Optional[Annotated[str, _aws_pattern("SsoAdmin", "Token")]] = None
 
 
 class PermissionsBoundaryTypeDef(BaseValidatorModel):
     CustomerManagedPolicyReference: Optional[CustomerManagedPolicyReferenceTypeDef] = None
-    ManagedPolicyArn: Optional[str] = None
+    ManagedPolicyArn: Optional[Annotated[str, _aws_pattern("SsoAdmin", "ManagedPolicyArn")]] = None
 
 
 # This class is the output for the 'list_managed_policies_in_permission_set' function.
 class ListManagedPoliciesInPermissionSetResponseTypeDef(BaseValidatorModel):
     AttachedManagedPolicies: List[AttachedManagedPolicyTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
-    NextToken: Optional[str] = None
+    NextToken: Optional[Annotated[str, _aws_pattern("SsoAdmin", "Token")]] = None
 
 
 class AuthenticationMethodOutputTypeDef(BaseValidatorModel):
@@ -839,18 +843,18 @@ class JwtBearerGrantTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'create_instance' function.
 class CreateInstanceRequestTypeDef(BaseValidatorModel):
-    Name: Optional[str] = None
-    ClientToken: Optional[str] = None
+    Name: Optional[Annotated[str, _aws_pattern("SsoAdmin", "NameType")]] = None
+    ClientToken: Optional[Annotated[str, _aws_pattern("SsoAdmin", "ClientToken")]] = None
     Tags: Optional[List[TagTypeDef]] = None
 
 
 # This class is the input for the 'create_permission_set' function.
 class CreatePermissionSetRequestTypeDef(BaseValidatorModel):
-    Name: str
-    InstanceArn: str
-    Description: Optional[str] = None
-    SessionDuration: Optional[str] = None
-    RelayState: Optional[str] = None
+    Name: Annotated[str, _aws_pattern("SsoAdmin", "PermissionSetName")]
+    InstanceArn: Annotated[str, _aws_pattern("SsoAdmin", "InstanceArn")]
+    Description: Optional[Annotated[str, _aws_pattern("SsoAdmin", "PermissionSetDescription")]] = None
+    SessionDuration: Optional[Annotated[str, _aws_pattern("SsoAdmin", "Duration")]] = None
+    RelayState: Optional[Annotated[str, _aws_pattern("SsoAdmin", "RelayState")]] = None
     Tags: Optional[List[TagTypeDef]] = None
 
 
@@ -858,13 +862,13 @@ class CreatePermissionSetRequestTypeDef(BaseValidatorModel):
 class ListTagsForResourceResponseTypeDef(BaseValidatorModel):
     Tags: List[TagTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
-    NextToken: Optional[str] = None
+    NextToken: Optional[Annotated[str, _aws_pattern("SsoAdmin", "Token")]] = None
 
 
 class TagResourceRequestTypeDef(BaseValidatorModel):
-    ResourceArn: str
+    ResourceArn: Annotated[str, _aws_pattern("SsoAdmin", "TaggableResourceArn")]
     Tags: List[TagTypeDef]
-    InstanceArn: Optional[str] = None
+    InstanceArn: Optional[Annotated[str, _aws_pattern("SsoAdmin", "InstanceArn")]] = None
 
 
 # This class is the output for the 'create_permission_set' function.
@@ -881,13 +885,13 @@ class DescribePermissionSetResponseTypeDef(BaseValidatorModel):
 
 # This class is the output for the 'describe_instance' function.
 class DescribeInstanceResponseTypeDef(BaseValidatorModel):
-    InstanceArn: str
-    IdentityStoreId: str
-    OwnerAccountId: str
-    Name: str
+    InstanceArn: Annotated[str, _aws_pattern("SsoAdmin", "InstanceArn")]
+    IdentityStoreId: Annotated[str, _aws_pattern("SsoAdmin", "Id")]
+    OwnerAccountId: Annotated[str, _aws_pattern("SsoAdmin", "AccountId")]
+    Name: Annotated[str, _aws_pattern("SsoAdmin", "NameType")]
     CreatedDate: datetime
     Status: InstanceStatusType
-    StatusReason: str
+    StatusReason: Annotated[str, _aws_pattern("SsoAdmin", "Reason")]
     EncryptionConfigurationDetails: EncryptionConfigurationDetailsTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
@@ -905,8 +909,8 @@ class ProvisionPermissionSetResponseTypeDef(BaseValidatorModel):
 
 
 class UpdateInstanceRequestTypeDef(BaseValidatorModel):
-    InstanceArn: str
-    Name: Optional[str] = None
+    InstanceArn: Annotated[str, _aws_pattern("SsoAdmin", "InstanceArn")]
+    Name: Optional[Annotated[str, _aws_pattern("SsoAdmin", "NameType")]] = None
     EncryptionConfiguration: Optional[EncryptionConfigurationTypeDef] = None
 
 
@@ -914,30 +918,30 @@ class UpdateInstanceRequestTypeDef(BaseValidatorModel):
 class ListInstancesResponseTypeDef(BaseValidatorModel):
     Instances: List[InstanceMetadataTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
-    NextToken: Optional[str] = None
+    NextToken: Optional[Annotated[str, _aws_pattern("SsoAdmin", "Token")]] = None
 
 
 # This class is the input for the 'list_account_assignment_creation_status' function.
 class ListAccountAssignmentCreationStatusRequestTypeDef(BaseValidatorModel):
-    InstanceArn: str
+    InstanceArn: Annotated[str, _aws_pattern("SsoAdmin", "InstanceArn")]
     MaxResults: Optional[int] = None
-    NextToken: Optional[str] = None
+    NextToken: Optional[Annotated[str, _aws_pattern("SsoAdmin", "Token")]] = None
     Filter: Optional[OperationStatusFilterTypeDef] = None
 
 
 # This class is the input for the 'list_account_assignment_deletion_status' function.
 class ListAccountAssignmentDeletionStatusRequestTypeDef(BaseValidatorModel):
-    InstanceArn: str
+    InstanceArn: Annotated[str, _aws_pattern("SsoAdmin", "InstanceArn")]
     MaxResults: Optional[int] = None
-    NextToken: Optional[str] = None
+    NextToken: Optional[Annotated[str, _aws_pattern("SsoAdmin", "Token")]] = None
     Filter: Optional[OperationStatusFilterTypeDef] = None
 
 
 # This class is the input for the 'list_permission_set_provisioning_status' function.
 class ListPermissionSetProvisioningStatusRequestTypeDef(BaseValidatorModel):
-    InstanceArn: str
+    InstanceArn: Annotated[str, _aws_pattern("SsoAdmin", "InstanceArn")]
     MaxResults: Optional[int] = None
-    NextToken: Optional[str] = None
+    NextToken: Optional[Annotated[str, _aws_pattern("SsoAdmin", "Token")]] = None
     Filter: Optional[OperationStatusFilterTypeDef] = None
 
 
@@ -1051,11 +1055,11 @@ class ListAccountAssignmentsForPrincipalRequestPaginateTypeDef(BaseValidatorMode
 
 # This class is the input for the 'list_account_assignments_for_principal' function.
 class ListAccountAssignmentsForPrincipalRequestTypeDef(BaseValidatorModel):
-    InstanceArn: str
-    PrincipalId: str
+    InstanceArn: Annotated[str, _aws_pattern("SsoAdmin", "InstanceArn")]
+    PrincipalId: Annotated[str, _aws_pattern("SsoAdmin", "PrincipalId")]
     PrincipalType: PrincipalTypeType
     Filter: Optional[ListAccountAssignmentsFilterTypeDef] = None
-    NextToken: Optional[str] = None
+    NextToken: Optional[Annotated[str, _aws_pattern("SsoAdmin", "Token")]] = None
     MaxResults: Optional[int] = None
 
 
@@ -1063,7 +1067,7 @@ class ListAccountAssignmentsForPrincipalRequestTypeDef(BaseValidatorModel):
 class ListApplicationAccessScopesResponseTypeDef(BaseValidatorModel):
     Scopes: List[ScopeDetailsTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
-    NextToken: Optional[str] = None
+    NextToken: Optional[Annotated[str, _aws_pattern("SsoAdmin", "Token")]] = None
 
 
 class ListApplicationAssignmentsForPrincipalRequestPaginateTypeDef(BaseValidatorModel):
@@ -1076,11 +1080,11 @@ class ListApplicationAssignmentsForPrincipalRequestPaginateTypeDef(BaseValidator
 
 # This class is the input for the 'list_application_assignments_for_principal' function.
 class ListApplicationAssignmentsForPrincipalRequestTypeDef(BaseValidatorModel):
-    InstanceArn: str
-    PrincipalId: str
+    InstanceArn: Annotated[str, _aws_pattern("SsoAdmin", "InstanceArn")]
+    PrincipalId: Annotated[str, _aws_pattern("SsoAdmin", "PrincipalId")]
     PrincipalType: PrincipalTypeType
     Filter: Optional[ListApplicationAssignmentsFilterTypeDef] = None
-    NextToken: Optional[str] = None
+    NextToken: Optional[Annotated[str, _aws_pattern("SsoAdmin", "Token")]] = None
     MaxResults: Optional[int] = None
 
 
@@ -1092,9 +1096,9 @@ class ListApplicationsRequestPaginateTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'list_applications' function.
 class ListApplicationsRequestTypeDef(BaseValidatorModel):
-    InstanceArn: str
+    InstanceArn: Annotated[str, _aws_pattern("SsoAdmin", "InstanceArn")]
     MaxResults: Optional[int] = None
-    NextToken: Optional[str] = None
+    NextToken: Optional[Annotated[str, _aws_pattern("SsoAdmin", "Token")]] = None
     Filter: Optional[ListApplicationsFilterTypeDef] = None
 
 
@@ -1102,21 +1106,21 @@ class ListApplicationsRequestTypeDef(BaseValidatorModel):
 class ListPermissionSetProvisioningStatusResponseTypeDef(BaseValidatorModel):
     PermissionSetsProvisioningStatus: List[PermissionSetProvisioningStatusMetadataTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
-    NextToken: Optional[str] = None
+    NextToken: Optional[Annotated[str, _aws_pattern("SsoAdmin", "Token")]] = None
 
 
 # This class is the output for the 'list_regions' function.
 class ListRegionsResponseTypeDef(BaseValidatorModel):
     Regions: List[RegionMetadataTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
-    NextToken: Optional[str] = None
+    NextToken: Optional[Annotated[str, _aws_pattern("SsoAdmin", "Token")]] = None
 
 
 # This class is the output for the 'list_trusted_token_issuers' function.
 class ListTrustedTokenIssuersResponseTypeDef(BaseValidatorModel):
     TrustedTokenIssuers: List[TrustedTokenIssuerMetadataTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
-    NextToken: Optional[str] = None
+    NextToken: Optional[Annotated[str, _aws_pattern("SsoAdmin", "Token")]] = None
 
 
 class TrustedTokenIssuerConfigurationTypeDef(BaseValidatorModel):
@@ -1155,8 +1159,8 @@ class GetPermissionsBoundaryForPermissionSetResponseTypeDef(BaseValidatorModel):
 
 
 class PutPermissionsBoundaryToPermissionSetRequestTypeDef(BaseValidatorModel):
-    InstanceArn: str
-    PermissionSetArn: str
+    InstanceArn: Annotated[str, _aws_pattern("SsoAdmin", "InstanceArn")]
+    PermissionSetArn: Annotated[str, _aws_pattern("SsoAdmin", "PermissionSetArn")]
     PermissionsBoundary: PermissionsBoundaryTypeDef
 
 
@@ -1190,79 +1194,81 @@ class GrantTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'create_trusted_token_issuer' function.
 class CreateTrustedTokenIssuerRequestTypeDef(BaseValidatorModel):
-    InstanceArn: str
-    Name: str
+    InstanceArn: Annotated[str, _aws_pattern("SsoAdmin", "InstanceArn")]
+    Name: Annotated[str, _aws_pattern("SsoAdmin", "TrustedTokenIssuerName")]
     TrustedTokenIssuerType: Literal["OIDC_JWT"]
     TrustedTokenIssuerConfiguration: TrustedTokenIssuerConfigurationTypeDef
-    ClientToken: Optional[str] = None
+    ClientToken: Optional[Annotated[str, _aws_pattern("SsoAdmin", "ClientToken")]] = None
     Tags: Optional[List[TagTypeDef]] = None
 
 
 # This class is the output for the 'describe_trusted_token_issuer' function.
 class DescribeTrustedTokenIssuerResponseTypeDef(BaseValidatorModel):
-    TrustedTokenIssuerArn: str
-    Name: str
+    TrustedTokenIssuerArn: Annotated[str, _aws_pattern("SsoAdmin", "TrustedTokenIssuerArn")]
+    Name: Annotated[str, _aws_pattern("SsoAdmin", "TrustedTokenIssuerName")]
     TrustedTokenIssuerType: Literal["OIDC_JWT"]
     TrustedTokenIssuerConfiguration: TrustedTokenIssuerConfigurationTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 class UpdateTrustedTokenIssuerRequestTypeDef(BaseValidatorModel):
-    TrustedTokenIssuerArn: str
-    Name: Optional[str] = None
+    TrustedTokenIssuerArn: Annotated[str, _aws_pattern("SsoAdmin", "TrustedTokenIssuerArn")]
+    Name: Optional[Annotated[str, _aws_pattern("SsoAdmin", "TrustedTokenIssuerName")]] = None
     TrustedTokenIssuerConfiguration: Optional[TrustedTokenIssuerUpdateConfigurationTypeDef] = None
 
 
 class ApplicationTypeDef(BaseValidatorModel):
-    ApplicationArn: Optional[str] = None
-    ApplicationProviderArn: Optional[str] = None
-    Name: Optional[str] = None
-    ApplicationAccount: Optional[str] = None
-    InstanceArn: Optional[str] = None
+    ApplicationArn: Optional[Annotated[str, _aws_pattern("SsoAdmin", "ApplicationArn")]] = None
+    ApplicationProviderArn: Optional[Annotated[str, _aws_pattern("SsoAdmin", "ApplicationProviderArn")]] = None
+    Name: Optional[Annotated[str, _aws_pattern("SsoAdmin", "ApplicationNameType")]] = None
+    ApplicationAccount: Optional[Annotated[str, _aws_pattern("SsoAdmin", "AccountId")]] = None
+    InstanceArn: Optional[Annotated[str, _aws_pattern("SsoAdmin", "InstanceArn")]] = None
+    IdentityStoreArn: Optional[str] = None
     Status: Optional[ApplicationStatusType] = None
     PortalOptions: Optional[PortalOptionsTypeDef] = None
     Description: Optional[str] = None
     CreatedDate: Optional[datetime] = None
-    CreatedFrom: Optional[str] = None
+    CreatedFrom: Optional[Annotated[str, _aws_pattern("SsoAdmin", "RegionName")]] = None
 
 
 # This class is the input for the 'create_application' function.
 class CreateApplicationRequestTypeDef(BaseValidatorModel):
-    InstanceArn: str
-    ApplicationProviderArn: str
-    Name: str
+    InstanceArn: Annotated[str, _aws_pattern("SsoAdmin", "InstanceArn")]
+    ApplicationProviderArn: Annotated[str, _aws_pattern("SsoAdmin", "ApplicationProviderArn")]
+    Name: Annotated[str, _aws_pattern("SsoAdmin", "ApplicationNameType")]
     Description: Optional[str] = None
     PortalOptions: Optional[PortalOptionsTypeDef] = None
     Tags: Optional[List[TagTypeDef]] = None
     Status: Optional[ApplicationStatusType] = None
-    ClientToken: Optional[str] = None
+    ClientToken: Optional[Annotated[str, _aws_pattern("SsoAdmin", "ClientToken")]] = None
 
 
 # This class is the output for the 'describe_application' function.
 class DescribeApplicationResponseTypeDef(BaseValidatorModel):
-    ApplicationArn: str
-    ApplicationProviderArn: str
-    Name: str
-    ApplicationAccount: str
-    InstanceArn: str
+    ApplicationArn: Annotated[str, _aws_pattern("SsoAdmin", "ApplicationArn")]
+    ApplicationProviderArn: Annotated[str, _aws_pattern("SsoAdmin", "ApplicationProviderArn")]
+    Name: Annotated[str, _aws_pattern("SsoAdmin", "ApplicationNameType")]
+    ApplicationAccount: Annotated[str, _aws_pattern("SsoAdmin", "AccountId")]
+    InstanceArn: Annotated[str, _aws_pattern("SsoAdmin", "InstanceArn")]
+    IdentityStoreArn: str
     Status: ApplicationStatusType
     PortalOptions: PortalOptionsTypeDef
     Description: str
     CreatedDate: datetime
-    CreatedFrom: str
+    CreatedFrom: Annotated[str, _aws_pattern("SsoAdmin", "RegionName")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 class UpdateApplicationRequestTypeDef(BaseValidatorModel):
-    ApplicationArn: str
-    Name: Optional[str] = None
+    ApplicationArn: Annotated[str, _aws_pattern("SsoAdmin", "ApplicationArn")]
+    Name: Optional[Annotated[str, _aws_pattern("SsoAdmin", "ApplicationNameType")]] = None
     Description: Optional[str] = None
     Status: Optional[ApplicationStatusType] = None
     PortalOptions: Optional[UpdateApplicationPortalOptionsTypeDef] = None
 
 
 class ApplicationProviderTypeDef(BaseValidatorModel):
-    ApplicationProviderArn: str
+    ApplicationProviderArn: Annotated[str, _aws_pattern("SsoAdmin", "ApplicationProviderArn")]
     FederationProtocol: Optional[FederationProtocolType] = None
     DisplayData: Optional[DisplayDataTypeDef] = None
     ResourceServerConfig: Optional[ResourceServerConfigTypeDef] = None
@@ -1270,7 +1276,7 @@ class ApplicationProviderTypeDef(BaseValidatorModel):
 
 # This class is the output for the 'describe_application_provider' function.
 class DescribeApplicationProviderResponseTypeDef(BaseValidatorModel):
-    ApplicationProviderArn: str
+    ApplicationProviderArn: Annotated[str, _aws_pattern("SsoAdmin", "ApplicationProviderArn")]
     FederationProtocol: FederationProtocolType
     DisplayData: DisplayDataTypeDef
     ResourceServerConfig: ResourceServerConfigTypeDef
@@ -1294,12 +1300,12 @@ InstanceAccessControlAttributeConfigurationUnionTypeDef = Union[
 class ListApplicationAuthenticationMethodsResponseTypeDef(BaseValidatorModel):
     AuthenticationMethods: List[AuthenticationMethodItemTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
-    NextToken: Optional[str] = None
+    NextToken: Optional[Annotated[str, _aws_pattern("SsoAdmin", "Token")]] = None
 
 
 # This class is the input for the 'put_application_authentication_method' function.
 class PutApplicationAuthenticationMethodRequestTypeDef(BaseValidatorModel):
-    ApplicationArn: str
+    ApplicationArn: Annotated[str, _aws_pattern("SsoAdmin", "ApplicationArn")]
     AuthenticationMethodType: Literal["IAM"]
     AuthenticationMethod: AuthenticationMethodUnionTypeDef
 
@@ -1322,23 +1328,23 @@ GrantUnionTypeDef = Union[GrantOutputTypeDef, GrantTypeDef]
 class ListApplicationsResponseTypeDef(BaseValidatorModel):
     Applications: List[ApplicationTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
-    NextToken: Optional[str] = None
+    NextToken: Optional[Annotated[str, _aws_pattern("SsoAdmin", "Token")]] = None
 
 
 # This class is the output for the 'list_application_providers' function.
 class ListApplicationProvidersResponseTypeDef(BaseValidatorModel):
     ApplicationProviders: List[ApplicationProviderTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
-    NextToken: Optional[str] = None
+    NextToken: Optional[Annotated[str, _aws_pattern("SsoAdmin", "Token")]] = None
 
 
 class CreateInstanceAccessControlAttributeConfigurationRequestTypeDef(BaseValidatorModel):
-    InstanceArn: str
+    InstanceArn: Annotated[str, _aws_pattern("SsoAdmin", "InstanceArn")]
     InstanceAccessControlAttributeConfiguration: InstanceAccessControlAttributeConfigurationUnionTypeDef
 
 
 class UpdateInstanceAccessControlAttributeConfigurationRequestTypeDef(BaseValidatorModel):
-    InstanceArn: str
+    InstanceArn: Annotated[str, _aws_pattern("SsoAdmin", "InstanceArn")]
     InstanceAccessControlAttributeConfiguration: InstanceAccessControlAttributeConfigurationUnionTypeDef
 
 
@@ -1346,11 +1352,11 @@ class UpdateInstanceAccessControlAttributeConfigurationRequestTypeDef(BaseValida
 class ListApplicationGrantsResponseTypeDef(BaseValidatorModel):
     Grants: List[GrantItemTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
-    NextToken: Optional[str] = None
+    NextToken: Optional[Annotated[str, _aws_pattern("SsoAdmin", "Token")]] = None
 
 
 # This class is the input for the 'put_application_grant' function.
 class PutApplicationGrantRequestTypeDef(BaseValidatorModel):
-    ApplicationArn: str
+    ApplicationArn: Annotated[str, _aws_pattern("SsoAdmin", "ApplicationArn")]
     GrantType: GrantTypeType
     Grant: GrantUnionTypeDef

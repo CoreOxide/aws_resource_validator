@@ -3,6 +3,7 @@
 from datetime import datetime
 from decimal import Decimal
 from typing import (
+    Annotated,
     Any,
     Callable,
     Dict,
@@ -24,6 +25,7 @@ from botocore.response import StreamingBody
 from pydantic import Field
 
 from aws_resource_validator.core.base_validator_model import BaseValidatorModel, EventStream
+from aws_resource_validator.core.pattern_validation import aws_field_pattern as _aws_pattern
 from aws_resource_validator.pydantic_models.ds_data.ds_data_constants import *  # noqa: F401,F403
 
 # Optional boto3 symbols — imported lazily so services that don't need them
@@ -39,11 +41,11 @@ except ImportError:  # pragma: no cover
 
 
 class AddGroupMemberRequestTypeDef(BaseValidatorModel):
-    DirectoryId: str
-    GroupName: str
-    MemberName: str
-    ClientToken: Optional[str] = None
-    MemberRealm: Optional[str] = None
+    DirectoryId: Annotated[str, _aws_pattern("DsData", "DirectoryId")]
+    GroupName: Annotated[str, _aws_pattern("DsData", "GroupName")]
+    MemberName: Annotated[str, _aws_pattern("DsData", "MemberName")]
+    ClientToken: Optional[Annotated[str, _aws_pattern("DsData", "ClientToken")]] = None
+    MemberRealm: Optional[Annotated[str, _aws_pattern("DsData", "Realm")]] = None
 
 
 class AttributeValueOutputTypeDef(BaseValidatorModel):
@@ -69,43 +71,43 @@ class ResponseMetadataTypeDef(BaseValidatorModel):
 
 
 class DeleteGroupRequestTypeDef(BaseValidatorModel):
-    DirectoryId: str
-    SAMAccountName: str
-    ClientToken: Optional[str] = None
+    DirectoryId: Annotated[str, _aws_pattern("DsData", "DirectoryId")]
+    SAMAccountName: Annotated[str, _aws_pattern("DsData", "GroupName")]
+    ClientToken: Optional[Annotated[str, _aws_pattern("DsData", "ClientToken")]] = None
 
 
 class DeleteUserRequestTypeDef(BaseValidatorModel):
-    DirectoryId: str
-    SAMAccountName: str
-    ClientToken: Optional[str] = None
+    DirectoryId: Annotated[str, _aws_pattern("DsData", "DirectoryId")]
+    SAMAccountName: Annotated[str, _aws_pattern("DsData", "UserName")]
+    ClientToken: Optional[Annotated[str, _aws_pattern("DsData", "ClientToken")]] = None
 
 
 # This class is the input for the 'describe_group' function.
 class DescribeGroupRequestTypeDef(BaseValidatorModel):
-    DirectoryId: str
-    SAMAccountName: str
-    OtherAttributes: Optional[List[str]] = None
-    Realm: Optional[str] = None
+    DirectoryId: Annotated[str, _aws_pattern("DsData", "DirectoryId")]
+    SAMAccountName: Annotated[str, _aws_pattern("DsData", "GroupName")]
+    OtherAttributes: Optional[List[Annotated[str, _aws_pattern("DsData", "LdapDisplayName")]]] = None
+    Realm: Optional[Annotated[str, _aws_pattern("DsData", "Realm")]] = None
 
 
 # This class is the input for the 'describe_user' function.
 class DescribeUserRequestTypeDef(BaseValidatorModel):
-    DirectoryId: str
-    SAMAccountName: str
-    OtherAttributes: Optional[List[str]] = None
-    Realm: Optional[str] = None
+    DirectoryId: Annotated[str, _aws_pattern("DsData", "DirectoryId")]
+    SAMAccountName: Annotated[str, _aws_pattern("DsData", "UserName")]
+    OtherAttributes: Optional[List[Annotated[str, _aws_pattern("DsData", "LdapDisplayName")]]] = None
+    Realm: Optional[Annotated[str, _aws_pattern("DsData", "Realm")]] = None
 
 
 class DisableUserRequestTypeDef(BaseValidatorModel):
-    DirectoryId: str
-    SAMAccountName: str
-    ClientToken: Optional[str] = None
+    DirectoryId: Annotated[str, _aws_pattern("DsData", "DirectoryId")]
+    SAMAccountName: Annotated[str, _aws_pattern("DsData", "UserName")]
+    ClientToken: Optional[Annotated[str, _aws_pattern("DsData", "ClientToken")]] = None
 
 
 class GroupSummaryTypeDef(BaseValidatorModel):
     GroupScope: GroupScopeType
     GroupType: GroupTypeType
-    SAMAccountName: str
+    SAMAccountName: Annotated[str, _aws_pattern("DsData", "GroupName")]
     SID: str
 
 
@@ -117,84 +119,84 @@ class PaginatorConfigTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'list_group_members' function.
 class ListGroupMembersRequestTypeDef(BaseValidatorModel):
-    DirectoryId: str
-    SAMAccountName: str
+    DirectoryId: Annotated[str, _aws_pattern("DsData", "DirectoryId")]
+    SAMAccountName: Annotated[str, _aws_pattern("DsData", "GroupName")]
     MaxResults: Optional[int] = None
-    MemberRealm: Optional[str] = None
+    MemberRealm: Optional[Annotated[str, _aws_pattern("DsData", "Realm")]] = None
     NextToken: Optional[str] = None
-    Realm: Optional[str] = None
+    Realm: Optional[Annotated[str, _aws_pattern("DsData", "Realm")]] = None
 
 
 class MemberTypeDef(BaseValidatorModel):
     MemberType: MemberTypeType
-    SAMAccountName: str
+    SAMAccountName: Annotated[str, _aws_pattern("DsData", "MemberName")]
     SID: str
 
 
 # This class is the input for the 'list_groups_for_member' function.
 class ListGroupsForMemberRequestTypeDef(BaseValidatorModel):
-    DirectoryId: str
-    SAMAccountName: str
+    DirectoryId: Annotated[str, _aws_pattern("DsData", "DirectoryId")]
+    SAMAccountName: Annotated[str, _aws_pattern("DsData", "MemberName")]
     MaxResults: Optional[int] = None
-    MemberRealm: Optional[str] = None
+    MemberRealm: Optional[Annotated[str, _aws_pattern("DsData", "Realm")]] = None
     NextToken: Optional[str] = None
-    Realm: Optional[str] = None
+    Realm: Optional[Annotated[str, _aws_pattern("DsData", "Realm")]] = None
 
 
 # This class is the input for the 'list_groups' function.
 class ListGroupsRequestTypeDef(BaseValidatorModel):
-    DirectoryId: str
+    DirectoryId: Annotated[str, _aws_pattern("DsData", "DirectoryId")]
     MaxResults: Optional[int] = None
     NextToken: Optional[str] = None
-    Realm: Optional[str] = None
+    Realm: Optional[Annotated[str, _aws_pattern("DsData", "Realm")]] = None
 
 
 # This class is the input for the 'list_users' function.
 class ListUsersRequestTypeDef(BaseValidatorModel):
-    DirectoryId: str
+    DirectoryId: Annotated[str, _aws_pattern("DsData", "DirectoryId")]
     MaxResults: Optional[int] = None
     NextToken: Optional[str] = None
-    Realm: Optional[str] = None
+    Realm: Optional[Annotated[str, _aws_pattern("DsData", "Realm")]] = None
 
 
 class UserSummaryTypeDef(BaseValidatorModel):
     Enabled: bool
-    SAMAccountName: str
+    SAMAccountName: Annotated[str, _aws_pattern("DsData", "UserName")]
     SID: str
     GivenName: Optional[str] = None
     Surname: Optional[str] = None
 
 
 class RemoveGroupMemberRequestTypeDef(BaseValidatorModel):
-    DirectoryId: str
-    GroupName: str
-    MemberName: str
-    ClientToken: Optional[str] = None
-    MemberRealm: Optional[str] = None
+    DirectoryId: Annotated[str, _aws_pattern("DsData", "DirectoryId")]
+    GroupName: Annotated[str, _aws_pattern("DsData", "GroupName")]
+    MemberName: Annotated[str, _aws_pattern("DsData", "MemberName")]
+    ClientToken: Optional[Annotated[str, _aws_pattern("DsData", "ClientToken")]] = None
+    MemberRealm: Optional[Annotated[str, _aws_pattern("DsData", "Realm")]] = None
 
 
 # This class is the input for the 'search_groups' function.
 class SearchGroupsRequestTypeDef(BaseValidatorModel):
-    DirectoryId: str
-    SearchAttributes: List[str]
+    DirectoryId: Annotated[str, _aws_pattern("DsData", "DirectoryId")]
+    SearchAttributes: List[Annotated[str, _aws_pattern("DsData", "LdapDisplayName")]]
     SearchString: str
     MaxResults: Optional[int] = None
     NextToken: Optional[str] = None
-    Realm: Optional[str] = None
+    Realm: Optional[Annotated[str, _aws_pattern("DsData", "Realm")]] = None
 
 
 # This class is the input for the 'search_users' function.
 class SearchUsersRequestTypeDef(BaseValidatorModel):
-    DirectoryId: str
-    SearchAttributes: List[str]
+    DirectoryId: Annotated[str, _aws_pattern("DsData", "DirectoryId")]
+    SearchAttributes: List[Annotated[str, _aws_pattern("DsData", "LdapDisplayName")]]
     SearchString: str
     MaxResults: Optional[int] = None
     NextToken: Optional[str] = None
-    Realm: Optional[str] = None
+    Realm: Optional[Annotated[str, _aws_pattern("DsData", "Realm")]] = None
 
 
 class GroupTypeDef(BaseValidatorModel):
-    SAMAccountName: str
+    SAMAccountName: Annotated[str, _aws_pattern("DsData", "GroupName")]
     DistinguishedName: Optional[str] = None
     GroupScope: Optional[GroupScopeType] = None
     GroupType: Optional[GroupTypeType] = None
@@ -203,7 +205,7 @@ class GroupTypeDef(BaseValidatorModel):
 
 
 class UserTypeDef(BaseValidatorModel):
-    SAMAccountName: str
+    SAMAccountName: Annotated[str, _aws_pattern("DsData", "UserName")]
     DistinguishedName: Optional[str] = None
     EmailAddress: Optional[str] = None
     Enabled: Optional[bool] = None
@@ -219,43 +221,43 @@ AttributeValueUnionTypeDef = Union[AttributeValueOutputTypeDef, AttributeValueTy
 
 # This class is the output for the 'create_group' function.
 class CreateGroupResultTypeDef(BaseValidatorModel):
-    DirectoryId: str
-    SAMAccountName: str
+    DirectoryId: Annotated[str, _aws_pattern("DsData", "DirectoryId")]
+    SAMAccountName: Annotated[str, _aws_pattern("DsData", "GroupName")]
     SID: str
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 # This class is the output for the 'create_user' function.
 class CreateUserResultTypeDef(BaseValidatorModel):
-    DirectoryId: str
-    SAMAccountName: str
+    DirectoryId: Annotated[str, _aws_pattern("DsData", "DirectoryId")]
+    SAMAccountName: Annotated[str, _aws_pattern("DsData", "UserName")]
     SID: str
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 # This class is the output for the 'describe_group' function.
 class DescribeGroupResultTypeDef(BaseValidatorModel):
-    DirectoryId: str
+    DirectoryId: Annotated[str, _aws_pattern("DsData", "DirectoryId")]
     DistinguishedName: str
     GroupScope: GroupScopeType
     GroupType: GroupTypeType
     OtherAttributes: Dict[str, AttributeValueOutputTypeDef]
-    Realm: str
-    SAMAccountName: str
+    Realm: Annotated[str, _aws_pattern("DsData", "Realm")]
+    SAMAccountName: Annotated[str, _aws_pattern("DsData", "GroupName")]
     SID: str
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 # This class is the output for the 'describe_user' function.
 class DescribeUserResultTypeDef(BaseValidatorModel):
-    DirectoryId: str
+    DirectoryId: Annotated[str, _aws_pattern("DsData", "DirectoryId")]
     DistinguishedName: str
     EmailAddress: str
     Enabled: bool
     GivenName: str
     OtherAttributes: Dict[str, AttributeValueOutputTypeDef]
-    Realm: str
-    SAMAccountName: str
+    Realm: Annotated[str, _aws_pattern("DsData", "Realm")]
+    SAMAccountName: Annotated[str, _aws_pattern("DsData", "UserName")]
     SID: str
     Surname: str
     UserPrincipalName: str
@@ -264,19 +266,19 @@ class DescribeUserResultTypeDef(BaseValidatorModel):
 
 # This class is the output for the 'list_groups_for_member' function.
 class ListGroupsForMemberResultTypeDef(BaseValidatorModel):
-    DirectoryId: str
+    DirectoryId: Annotated[str, _aws_pattern("DsData", "DirectoryId")]
     Groups: List[GroupSummaryTypeDef]
-    MemberRealm: str
-    Realm: str
+    MemberRealm: Annotated[str, _aws_pattern("DsData", "Realm")]
+    Realm: Annotated[str, _aws_pattern("DsData", "Realm")]
     ResponseMetadata: ResponseMetadataTypeDef
     NextToken: Optional[str] = None
 
 
 # This class is the output for the 'list_groups' function.
 class ListGroupsResultTypeDef(BaseValidatorModel):
-    DirectoryId: str
+    DirectoryId: Annotated[str, _aws_pattern("DsData", "DirectoryId")]
     Groups: List[GroupSummaryTypeDef]
-    Realm: str
+    Realm: Annotated[str, _aws_pattern("DsData", "Realm")]
     ResponseMetadata: ResponseMetadataTypeDef
     NextToken: Optional[str] = None
 
@@ -327,18 +329,18 @@ class SearchUsersRequestPaginateTypeDef(BaseValidatorModel):
 
 # This class is the output for the 'list_group_members' function.
 class ListGroupMembersResultTypeDef(BaseValidatorModel):
-    DirectoryId: str
-    MemberRealm: str
+    DirectoryId: Annotated[str, _aws_pattern("DsData", "DirectoryId")]
+    MemberRealm: Annotated[str, _aws_pattern("DsData", "Realm")]
     Members: List[MemberTypeDef]
-    Realm: str
+    Realm: Annotated[str, _aws_pattern("DsData", "Realm")]
     ResponseMetadata: ResponseMetadataTypeDef
     NextToken: Optional[str] = None
 
 
 # This class is the output for the 'list_users' function.
 class ListUsersResultTypeDef(BaseValidatorModel):
-    DirectoryId: str
-    Realm: str
+    DirectoryId: Annotated[str, _aws_pattern("DsData", "DirectoryId")]
+    Realm: Annotated[str, _aws_pattern("DsData", "Realm")]
     Users: List[UserSummaryTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
     NextToken: Optional[str] = None
@@ -346,17 +348,17 @@ class ListUsersResultTypeDef(BaseValidatorModel):
 
 # This class is the output for the 'search_groups' function.
 class SearchGroupsResultTypeDef(BaseValidatorModel):
-    DirectoryId: str
+    DirectoryId: Annotated[str, _aws_pattern("DsData", "DirectoryId")]
     Groups: List[GroupTypeDef]
-    Realm: str
+    Realm: Annotated[str, _aws_pattern("DsData", "Realm")]
     ResponseMetadata: ResponseMetadataTypeDef
     NextToken: Optional[str] = None
 
 
 # This class is the output for the 'search_users' function.
 class SearchUsersResultTypeDef(BaseValidatorModel):
-    DirectoryId: str
-    Realm: str
+    DirectoryId: Annotated[str, _aws_pattern("DsData", "DirectoryId")]
+    Realm: Annotated[str, _aws_pattern("DsData", "Realm")]
     Users: List[UserTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
     NextToken: Optional[str] = None
@@ -364,9 +366,9 @@ class SearchUsersResultTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'create_group' function.
 class CreateGroupRequestTypeDef(BaseValidatorModel):
-    DirectoryId: str
-    SAMAccountName: str
-    ClientToken: Optional[str] = None
+    DirectoryId: Annotated[str, _aws_pattern("DsData", "DirectoryId")]
+    SAMAccountName: Annotated[str, _aws_pattern("DsData", "GroupName")]
+    ClientToken: Optional[Annotated[str, _aws_pattern("DsData", "ClientToken")]] = None
     GroupScope: Optional[GroupScopeType] = None
     GroupType: Optional[GroupTypeType] = None
     OtherAttributes: Optional[Dict[str, AttributeValueUnionTypeDef]] = None
@@ -374,9 +376,9 @@ class CreateGroupRequestTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'create_user' function.
 class CreateUserRequestTypeDef(BaseValidatorModel):
-    DirectoryId: str
-    SAMAccountName: str
-    ClientToken: Optional[str] = None
+    DirectoryId: Annotated[str, _aws_pattern("DsData", "DirectoryId")]
+    SAMAccountName: Annotated[str, _aws_pattern("DsData", "UserName")]
+    ClientToken: Optional[Annotated[str, _aws_pattern("DsData", "ClientToken")]] = None
     EmailAddress: Optional[str] = None
     GivenName: Optional[str] = None
     OtherAttributes: Optional[Dict[str, AttributeValueUnionTypeDef]] = None
@@ -384,9 +386,9 @@ class CreateUserRequestTypeDef(BaseValidatorModel):
 
 
 class UpdateGroupRequestTypeDef(BaseValidatorModel):
-    DirectoryId: str
-    SAMAccountName: str
-    ClientToken: Optional[str] = None
+    DirectoryId: Annotated[str, _aws_pattern("DsData", "DirectoryId")]
+    SAMAccountName: Annotated[str, _aws_pattern("DsData", "GroupName")]
+    ClientToken: Optional[Annotated[str, _aws_pattern("DsData", "ClientToken")]] = None
     GroupScope: Optional[GroupScopeType] = None
     GroupType: Optional[GroupTypeType] = None
     OtherAttributes: Optional[Dict[str, AttributeValueUnionTypeDef]] = None
@@ -394,9 +396,9 @@ class UpdateGroupRequestTypeDef(BaseValidatorModel):
 
 
 class UpdateUserRequestTypeDef(BaseValidatorModel):
-    DirectoryId: str
-    SAMAccountName: str
-    ClientToken: Optional[str] = None
+    DirectoryId: Annotated[str, _aws_pattern("DsData", "DirectoryId")]
+    SAMAccountName: Annotated[str, _aws_pattern("DsData", "UserName")]
+    ClientToken: Optional[Annotated[str, _aws_pattern("DsData", "ClientToken")]] = None
     EmailAddress: Optional[str] = None
     GivenName: Optional[str] = None
     OtherAttributes: Optional[Dict[str, AttributeValueUnionTypeDef]] = None

@@ -3,6 +3,7 @@
 from datetime import datetime
 from decimal import Decimal
 from typing import (
+    Annotated,
     Any,
     Callable,
     Dict,
@@ -24,6 +25,7 @@ from botocore.response import StreamingBody
 from pydantic import Field
 
 from aws_resource_validator.core.base_validator_model import BaseValidatorModel, EventStream
+from aws_resource_validator.core.pattern_validation import aws_field_pattern as _aws_pattern
 from aws_resource_validator.pydantic_models.amplifyuibuilder.amplifyuibuilder_constants import *  # noqa: F401,F403
 
 # Optional boto3 symbols — imported lazily so services that don't need them
@@ -95,7 +97,7 @@ class CodegenJobAssetTypeDef(BaseValidatorModel):
 
 
 class CodegenJobSummaryTypeDef(BaseValidatorModel):
-    appId: str
+    appId: Annotated[str, _aws_pattern("Amplifyuibuilder", "AppId")]
     environmentName: str
     id: str
     createdAt: Optional[datetime] = None
@@ -304,7 +306,7 @@ class FormStyleConfigTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'get_codegen_job' function.
 class GetCodegenJobRequestTypeDef(BaseValidatorModel):
-    appId: str
+    appId: Annotated[str, _aws_pattern("Amplifyuibuilder", "AppId")]
     environmentName: str
     id: str
 
@@ -338,7 +340,7 @@ class GetThemeRequestTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'list_codegen_jobs' function.
 class ListCodegenJobsRequestTypeDef(BaseValidatorModel):
-    appId: str
+    appId: Annotated[str, _aws_pattern("Amplifyuibuilder", "AppId")]
     environmentName: str
     nextToken: Optional[str] = None
     maxResults: Optional[int] = None
@@ -386,7 +388,7 @@ class PredicateTypeDef(BaseValidatorModel):
     field: Optional[str] = None
     operator: Optional[str] = None
     operand: Optional[str] = None
-    operandType: Optional[str] = None
+    operandType: Optional[Annotated[str, _aws_pattern("Amplifyuibuilder", "OperandType")]] = None
 
 
 class PutMetadataFlagBodyTypeDef(BaseValidatorModel):
@@ -420,7 +422,7 @@ class ThemeValueTypeDef(BaseValidatorModel):
 
 class UntagResourceRequestTypeDef(BaseValidatorModel):
     resourceArn: str
-    tagKeys: List[str]
+    tagKeys: List[Annotated[str, _aws_pattern("Amplifyuibuilder", "TagKey")]]
 
 
 class ApiConfigurationOutputTypeDef(BaseValidatorModel):
@@ -990,7 +992,7 @@ ReactStartCodegenJobDataUnionTypeDef = Union[ReactStartCodegenJobDataOutputTypeD
 
 class CodegenJobTypeDef(BaseValidatorModel):
     id: str
-    appId: str
+    appId: Annotated[str, _aws_pattern("Amplifyuibuilder", "AppId")]
     environmentName: str
     renderConfig: Optional[CodegenJobRenderConfigOutputTypeDef] = None
     genericDataSchema: Optional[CodegenJobGenericDataSchemaOutputTypeDef] = None
@@ -1380,7 +1382,7 @@ FieldInputConfigUnionTypeDef = Union[FieldInputConfigOutputTypeDef, FieldInputCo
 
 # This class is the input for the 'start_codegen_job' function.
 class StartCodegenJobRequestTypeDef(BaseValidatorModel):
-    appId: str
+    appId: Annotated[str, _aws_pattern("Amplifyuibuilder", "AppId")]
     environmentName: str
     codegenJobToCreate: StartCodegenJobDataTypeDef
     clientToken: Optional[str] = None

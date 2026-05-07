@@ -3,6 +3,7 @@
 from datetime import datetime
 from decimal import Decimal
 from typing import (
+    Annotated,
     Any,
     Callable,
     Dict,
@@ -24,6 +25,7 @@ from botocore.response import StreamingBody
 from pydantic import Field
 
 from aws_resource_validator.core.base_validator_model import BaseValidatorModel, EventStream
+from aws_resource_validator.core.pattern_validation import aws_field_pattern as _aws_pattern
 from aws_resource_validator.pydantic_models.application_insights.application_insights_constants import *  # noqa: F401,F403
 
 # Optional boto3 symbols — imported lazily so services that don't need them
@@ -39,9 +41,9 @@ except ImportError:  # pragma: no cover
 
 
 class WorkloadConfigurationTypeDef(BaseValidatorModel):
-    WorkloadName: Optional[str] = None
+    WorkloadName: Optional[Annotated[str, _aws_pattern("ApplicationInsights", "WorkloadName")]] = None
     Tier: Optional[TierType] = None
-    Configuration: Optional[str] = None
+    Configuration: Optional[Annotated[str, _aws_pattern("ApplicationInsights", "ComponentConfiguration")]] = None
 
 
 class ResponseMetadataTypeDef(BaseValidatorModel):
@@ -53,9 +55,9 @@ class ResponseMetadataTypeDef(BaseValidatorModel):
 
 
 class ApplicationComponentTypeDef(BaseValidatorModel):
-    ComponentName: Optional[str] = None
+    ComponentName: Optional[Annotated[str, _aws_pattern("ApplicationInsights", "ComponentName")]] = None
     ComponentRemarks: Optional[str] = None
-    ResourceType: Optional[str] = None
+    ResourceType: Optional[Annotated[str, _aws_pattern("ApplicationInsights", "ResourceType")]] = None
     OsType: Optional[OsTypeType] = None
     Tier: Optional[TierType] = None
     Monitor: Optional[bool] = None
@@ -63,11 +65,11 @@ class ApplicationComponentTypeDef(BaseValidatorModel):
 
 
 class ApplicationInfoTypeDef(BaseValidatorModel):
-    AccountId: Optional[str] = None
-    ResourceGroupName: Optional[str] = None
+    AccountId: Optional[Annotated[str, _aws_pattern("ApplicationInsights", "AccountId")]] = None
+    ResourceGroupName: Optional[Annotated[str, _aws_pattern("ApplicationInsights", "ResourceGroupName")]] = None
     LifeCycle: Optional[str] = None
-    OpsItemSNSTopicArn: Optional[str] = None
-    SNSNotificationArn: Optional[str] = None
+    OpsItemSNSTopicArn: Optional[Annotated[str, _aws_pattern("ApplicationInsights", "OpsItemSNSTopicArn")]] = None
+    SNSNotificationArn: Optional[Annotated[str, _aws_pattern("ApplicationInsights", "SNSNotificationArn")]] = None
     OpsCenterEnabled: Optional[bool] = None
     CWEMonitorEnabled: Optional[bool] = None
     Remarks: Optional[str] = None
@@ -77,8 +79,8 @@ class ApplicationInfoTypeDef(BaseValidatorModel):
 
 
 class ConfigurationEventTypeDef(BaseValidatorModel):
-    ResourceGroupName: Optional[str] = None
-    AccountId: Optional[str] = None
+    ResourceGroupName: Optional[Annotated[str, _aws_pattern("ApplicationInsights", "ResourceGroupName")]] = None
+    AccountId: Optional[Annotated[str, _aws_pattern("ApplicationInsights", "AccountId")]] = None
     MonitoredResourceARN: Optional[str] = None
     EventStatus: Optional[ConfigurationEventStatusType] = None
     EventResourceType: Optional[ConfigurationEventResourceTypeType] = None
@@ -88,92 +90,92 @@ class ConfigurationEventTypeDef(BaseValidatorModel):
 
 
 class TagTypeDef(BaseValidatorModel):
-    Key: str
-    Value: str
+    Key: Annotated[str, _aws_pattern("ApplicationInsights", "TagKey")]
+    Value: Annotated[str, _aws_pattern("ApplicationInsights", "TagValue")]
 
 
 class CreateComponentRequestTypeDef(BaseValidatorModel):
-    ResourceGroupName: str
-    ComponentName: str
-    ResourceList: List[str]
+    ResourceGroupName: Annotated[str, _aws_pattern("ApplicationInsights", "ResourceGroupName")]
+    ComponentName: Annotated[str, _aws_pattern("ApplicationInsights", "CustomComponentName")]
+    ResourceList: List[Annotated[str, _aws_pattern("ApplicationInsights", "ResourceARN")]]
 
 
 # This class is the input for the 'create_log_pattern' function.
 class CreateLogPatternRequestTypeDef(BaseValidatorModel):
-    ResourceGroupName: str
-    PatternSetName: str
-    PatternName: str
-    Pattern: str
+    ResourceGroupName: Annotated[str, _aws_pattern("ApplicationInsights", "ResourceGroupName")]
+    PatternSetName: Annotated[str, _aws_pattern("ApplicationInsights", "LogPatternSetName")]
+    PatternName: Annotated[str, _aws_pattern("ApplicationInsights", "LogPatternName")]
+    Pattern: Annotated[str, _aws_pattern("ApplicationInsights", "LogPatternRegex")]
     Rank: int
 
 
 class LogPatternTypeDef(BaseValidatorModel):
-    PatternSetName: Optional[str] = None
-    PatternName: Optional[str] = None
-    Pattern: Optional[str] = None
+    PatternSetName: Optional[Annotated[str, _aws_pattern("ApplicationInsights", "LogPatternSetName")]] = None
+    PatternName: Optional[Annotated[str, _aws_pattern("ApplicationInsights", "LogPatternName")]] = None
+    Pattern: Optional[Annotated[str, _aws_pattern("ApplicationInsights", "LogPatternRegex")]] = None
     Rank: Optional[int] = None
 
 
 class DeleteApplicationRequestTypeDef(BaseValidatorModel):
-    ResourceGroupName: str
+    ResourceGroupName: Annotated[str, _aws_pattern("ApplicationInsights", "ResourceGroupName")]
 
 
 class DeleteComponentRequestTypeDef(BaseValidatorModel):
-    ResourceGroupName: str
-    ComponentName: str
+    ResourceGroupName: Annotated[str, _aws_pattern("ApplicationInsights", "ResourceGroupName")]
+    ComponentName: Annotated[str, _aws_pattern("ApplicationInsights", "CustomComponentName")]
 
 
 class DeleteLogPatternRequestTypeDef(BaseValidatorModel):
-    ResourceGroupName: str
-    PatternSetName: str
-    PatternName: str
+    ResourceGroupName: Annotated[str, _aws_pattern("ApplicationInsights", "ResourceGroupName")]
+    PatternSetName: Annotated[str, _aws_pattern("ApplicationInsights", "LogPatternSetName")]
+    PatternName: Annotated[str, _aws_pattern("ApplicationInsights", "LogPatternName")]
 
 
 # This class is the input for the 'describe_application' function.
 class DescribeApplicationRequestTypeDef(BaseValidatorModel):
-    ResourceGroupName: str
-    AccountId: Optional[str] = None
+    ResourceGroupName: Annotated[str, _aws_pattern("ApplicationInsights", "ResourceGroupName")]
+    AccountId: Optional[Annotated[str, _aws_pattern("ApplicationInsights", "AccountId")]] = None
 
 
 # This class is the input for the 'describe_component_configuration_recommendation' function.
 class DescribeComponentConfigurationRecommendationRequestTypeDef(BaseValidatorModel):
-    ResourceGroupName: str
-    ComponentName: str
+    ResourceGroupName: Annotated[str, _aws_pattern("ApplicationInsights", "ResourceGroupName")]
+    ComponentName: Annotated[str, _aws_pattern("ApplicationInsights", "ComponentName")]
     Tier: TierType
-    WorkloadName: Optional[str] = None
+    WorkloadName: Optional[Annotated[str, _aws_pattern("ApplicationInsights", "WorkloadName")]] = None
     RecommendationType: Optional[RecommendationTypeType] = None
 
 
 # This class is the input for the 'describe_component_configuration' function.
 class DescribeComponentConfigurationRequestTypeDef(BaseValidatorModel):
-    ResourceGroupName: str
-    ComponentName: str
-    AccountId: Optional[str] = None
+    ResourceGroupName: Annotated[str, _aws_pattern("ApplicationInsights", "ResourceGroupName")]
+    ComponentName: Annotated[str, _aws_pattern("ApplicationInsights", "ComponentName")]
+    AccountId: Optional[Annotated[str, _aws_pattern("ApplicationInsights", "AccountId")]] = None
 
 
 # This class is the input for the 'describe_component' function.
 class DescribeComponentRequestTypeDef(BaseValidatorModel):
-    ResourceGroupName: str
-    ComponentName: str
-    AccountId: Optional[str] = None
+    ResourceGroupName: Annotated[str, _aws_pattern("ApplicationInsights", "ResourceGroupName")]
+    ComponentName: Annotated[str, _aws_pattern("ApplicationInsights", "ComponentName")]
+    AccountId: Optional[Annotated[str, _aws_pattern("ApplicationInsights", "AccountId")]] = None
 
 
 # This class is the input for the 'describe_log_pattern' function.
 class DescribeLogPatternRequestTypeDef(BaseValidatorModel):
-    ResourceGroupName: str
-    PatternSetName: str
-    PatternName: str
-    AccountId: Optional[str] = None
+    ResourceGroupName: Annotated[str, _aws_pattern("ApplicationInsights", "ResourceGroupName")]
+    PatternSetName: Annotated[str, _aws_pattern("ApplicationInsights", "LogPatternSetName")]
+    PatternName: Annotated[str, _aws_pattern("ApplicationInsights", "LogPatternName")]
+    AccountId: Optional[Annotated[str, _aws_pattern("ApplicationInsights", "AccountId")]] = None
 
 
 # This class is the input for the 'describe_observation' function.
 class DescribeObservationRequestTypeDef(BaseValidatorModel):
-    ObservationId: str
-    AccountId: Optional[str] = None
+    ObservationId: Annotated[str, _aws_pattern("ApplicationInsights", "ObservationId")]
+    AccountId: Optional[Annotated[str, _aws_pattern("ApplicationInsights", "AccountId")]] = None
 
 
 class ObservationTypeDef(BaseValidatorModel):
-    Id: Optional[str] = None
+    Id: Optional[Annotated[str, _aws_pattern("ApplicationInsights", "ObservationId")]] = None
     StartTime: Optional[datetime] = None
     EndTime: Optional[datetime] = None
     SourceType: Optional[str] = None
@@ -222,18 +224,18 @@ class ObservationTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'describe_problem_observations' function.
 class DescribeProblemObservationsRequestTypeDef(BaseValidatorModel):
-    ProblemId: str
-    AccountId: Optional[str] = None
+    ProblemId: Annotated[str, _aws_pattern("ApplicationInsights", "ProblemId")]
+    AccountId: Optional[Annotated[str, _aws_pattern("ApplicationInsights", "AccountId")]] = None
 
 
 # This class is the input for the 'describe_problem' function.
 class DescribeProblemRequestTypeDef(BaseValidatorModel):
-    ProblemId: str
-    AccountId: Optional[str] = None
+    ProblemId: Annotated[str, _aws_pattern("ApplicationInsights", "ProblemId")]
+    AccountId: Optional[Annotated[str, _aws_pattern("ApplicationInsights", "AccountId")]] = None
 
 
 class ProblemTypeDef(BaseValidatorModel):
-    Id: Optional[str] = None
+    Id: Optional[Annotated[str, _aws_pattern("ApplicationInsights", "ProblemId")]] = None
     Title: Optional[str] = None
     ShortName: Optional[str] = None
     Insights: Optional[str] = None
@@ -242,8 +244,8 @@ class ProblemTypeDef(BaseValidatorModel):
     StartTime: Optional[datetime] = None
     EndTime: Optional[datetime] = None
     SeverityLevel: Optional[SeverityLevelType] = None
-    AccountId: Optional[str] = None
-    ResourceGroupName: Optional[str] = None
+    AccountId: Optional[Annotated[str, _aws_pattern("ApplicationInsights", "AccountId")]] = None
+    ResourceGroupName: Optional[Annotated[str, _aws_pattern("ApplicationInsights", "ResourceGroupName")]] = None
     Feedback: Optional[Dict[Literal["INSIGHTS_FEEDBACK"], FeedbackValueType]] = None
     RecurringCount: Optional[int] = None
     LastRecurrenceTime: Optional[datetime] = None
@@ -253,25 +255,25 @@ class ProblemTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'describe_workload' function.
 class DescribeWorkloadRequestTypeDef(BaseValidatorModel):
-    ResourceGroupName: str
-    ComponentName: str
-    WorkloadId: str
-    AccountId: Optional[str] = None
+    ResourceGroupName: Annotated[str, _aws_pattern("ApplicationInsights", "ResourceGroupName")]
+    ComponentName: Annotated[str, _aws_pattern("ApplicationInsights", "ComponentName")]
+    WorkloadId: Annotated[str, _aws_pattern("ApplicationInsights", "WorkloadId")]
+    AccountId: Optional[Annotated[str, _aws_pattern("ApplicationInsights", "AccountId")]] = None
 
 
 # This class is the input for the 'list_applications' function.
 class ListApplicationsRequestTypeDef(BaseValidatorModel):
     MaxResults: Optional[int] = None
-    NextToken: Optional[str] = None
-    AccountId: Optional[str] = None
+    NextToken: Optional[Annotated[str, _aws_pattern("ApplicationInsights", "PaginationToken")]] = None
+    AccountId: Optional[Annotated[str, _aws_pattern("ApplicationInsights", "AccountId")]] = None
 
 
 # This class is the input for the 'list_components' function.
 class ListComponentsRequestTypeDef(BaseValidatorModel):
-    ResourceGroupName: str
+    ResourceGroupName: Annotated[str, _aws_pattern("ApplicationInsights", "ResourceGroupName")]
     MaxResults: Optional[int] = None
-    NextToken: Optional[str] = None
-    AccountId: Optional[str] = None
+    NextToken: Optional[Annotated[str, _aws_pattern("ApplicationInsights", "PaginationToken")]] = None
+    AccountId: Optional[Annotated[str, _aws_pattern("ApplicationInsights", "AccountId")]] = None
 
 
 TimestampTypeDef = Union[datetime, str]
@@ -279,123 +281,125 @@ TimestampTypeDef = Union[datetime, str]
 
 # This class is the input for the 'list_log_pattern_sets' function.
 class ListLogPatternSetsRequestTypeDef(BaseValidatorModel):
-    ResourceGroupName: str
+    ResourceGroupName: Annotated[str, _aws_pattern("ApplicationInsights", "ResourceGroupName")]
     MaxResults: Optional[int] = None
-    NextToken: Optional[str] = None
-    AccountId: Optional[str] = None
+    NextToken: Optional[Annotated[str, _aws_pattern("ApplicationInsights", "PaginationToken")]] = None
+    AccountId: Optional[Annotated[str, _aws_pattern("ApplicationInsights", "AccountId")]] = None
 
 
 # This class is the input for the 'list_log_patterns' function.
 class ListLogPatternsRequestTypeDef(BaseValidatorModel):
-    ResourceGroupName: str
-    PatternSetName: Optional[str] = None
+    ResourceGroupName: Annotated[str, _aws_pattern("ApplicationInsights", "ResourceGroupName")]
+    PatternSetName: Optional[Annotated[str, _aws_pattern("ApplicationInsights", "LogPatternSetName")]] = None
     MaxResults: Optional[int] = None
-    NextToken: Optional[str] = None
-    AccountId: Optional[str] = None
+    NextToken: Optional[Annotated[str, _aws_pattern("ApplicationInsights", "PaginationToken")]] = None
+    AccountId: Optional[Annotated[str, _aws_pattern("ApplicationInsights", "AccountId")]] = None
 
 
 # This class is the input for the 'list_tags_for_resource' function.
 class ListTagsForResourceRequestTypeDef(BaseValidatorModel):
-    ResourceARN: str
+    ResourceARN: Annotated[str, _aws_pattern("ApplicationInsights", "AmazonResourceName")]
 
 
 # This class is the input for the 'list_workloads' function.
 class ListWorkloadsRequestTypeDef(BaseValidatorModel):
-    ResourceGroupName: str
-    ComponentName: str
+    ResourceGroupName: Annotated[str, _aws_pattern("ApplicationInsights", "ResourceGroupName")]
+    ComponentName: Annotated[str, _aws_pattern("ApplicationInsights", "ComponentName")]
     MaxResults: Optional[int] = None
-    NextToken: Optional[str] = None
-    AccountId: Optional[str] = None
+    NextToken: Optional[Annotated[str, _aws_pattern("ApplicationInsights", "PaginationToken")]] = None
+    AccountId: Optional[Annotated[str, _aws_pattern("ApplicationInsights", "AccountId")]] = None
 
 
 class WorkloadTypeDef(BaseValidatorModel):
-    WorkloadId: Optional[str] = None
-    ComponentName: Optional[str] = None
-    WorkloadName: Optional[str] = None
+    WorkloadId: Optional[Annotated[str, _aws_pattern("ApplicationInsights", "WorkloadId")]] = None
+    ComponentName: Optional[Annotated[str, _aws_pattern("ApplicationInsights", "ComponentName")]] = None
+    WorkloadName: Optional[Annotated[str, _aws_pattern("ApplicationInsights", "WorkloadName")]] = None
     Tier: Optional[TierType] = None
     WorkloadRemarks: Optional[str] = None
     MissingWorkloadConfig: Optional[bool] = None
 
 
 class RemoveWorkloadRequestTypeDef(BaseValidatorModel):
-    ResourceGroupName: str
-    ComponentName: str
-    WorkloadId: str
+    ResourceGroupName: Annotated[str, _aws_pattern("ApplicationInsights", "ResourceGroupName")]
+    ComponentName: Annotated[str, _aws_pattern("ApplicationInsights", "ComponentName")]
+    WorkloadId: Annotated[str, _aws_pattern("ApplicationInsights", "WorkloadId")]
 
 
 class UntagResourceRequestTypeDef(BaseValidatorModel):
-    ResourceARN: str
-    TagKeys: List[str]
+    ResourceARN: Annotated[str, _aws_pattern("ApplicationInsights", "AmazonResourceName")]
+    TagKeys: List[Annotated[str, _aws_pattern("ApplicationInsights", "TagKey")]]
 
 
 # This class is the input for the 'update_application' function.
 class UpdateApplicationRequestTypeDef(BaseValidatorModel):
-    ResourceGroupName: str
+    ResourceGroupName: Annotated[str, _aws_pattern("ApplicationInsights", "ResourceGroupName")]
     OpsCenterEnabled: Optional[bool] = None
     CWEMonitorEnabled: Optional[bool] = None
-    OpsItemSNSTopicArn: Optional[str] = None
-    SNSNotificationArn: Optional[str] = None
+    OpsItemSNSTopicArn: Optional[Annotated[str, _aws_pattern("ApplicationInsights", "OpsItemSNSTopicArn")]] = None
+    SNSNotificationArn: Optional[Annotated[str, _aws_pattern("ApplicationInsights", "SNSNotificationArn")]] = None
     RemoveSNSTopic: Optional[bool] = None
     AutoConfigEnabled: Optional[bool] = None
     AttachMissingPermission: Optional[bool] = None
 
 
 class UpdateComponentConfigurationRequestTypeDef(BaseValidatorModel):
-    ResourceGroupName: str
-    ComponentName: str
+    ResourceGroupName: Annotated[str, _aws_pattern("ApplicationInsights", "ResourceGroupName")]
+    ComponentName: Annotated[str, _aws_pattern("ApplicationInsights", "ComponentName")]
     Monitor: Optional[bool] = None
     Tier: Optional[TierType] = None
-    ComponentConfiguration: Optional[str] = None
+    ComponentConfiguration: Optional[Annotated[str, _aws_pattern("ApplicationInsights", "ComponentConfiguration")]] = (
+        None
+    )
     AutoConfigEnabled: Optional[bool] = None
 
 
 class UpdateComponentRequestTypeDef(BaseValidatorModel):
-    ResourceGroupName: str
-    ComponentName: str
-    NewComponentName: Optional[str] = None
-    ResourceList: Optional[List[str]] = None
+    ResourceGroupName: Annotated[str, _aws_pattern("ApplicationInsights", "ResourceGroupName")]
+    ComponentName: Annotated[str, _aws_pattern("ApplicationInsights", "CustomComponentName")]
+    NewComponentName: Optional[Annotated[str, _aws_pattern("ApplicationInsights", "CustomComponentName")]] = None
+    ResourceList: Optional[List[Annotated[str, _aws_pattern("ApplicationInsights", "ResourceARN")]]] = None
 
 
 # This class is the input for the 'update_log_pattern' function.
 class UpdateLogPatternRequestTypeDef(BaseValidatorModel):
-    ResourceGroupName: str
-    PatternSetName: str
-    PatternName: str
-    Pattern: Optional[str] = None
+    ResourceGroupName: Annotated[str, _aws_pattern("ApplicationInsights", "ResourceGroupName")]
+    PatternSetName: Annotated[str, _aws_pattern("ApplicationInsights", "LogPatternSetName")]
+    PatternName: Annotated[str, _aws_pattern("ApplicationInsights", "LogPatternName")]
+    Pattern: Optional[Annotated[str, _aws_pattern("ApplicationInsights", "LogPatternRegex")]] = None
     Rank: Optional[int] = None
 
 
 class UpdateProblemRequestTypeDef(BaseValidatorModel):
-    ProblemId: str
+    ProblemId: Annotated[str, _aws_pattern("ApplicationInsights", "ProblemId")]
     UpdateStatus: Optional[Literal["RESOLVED"]] = None
     Visibility: Optional[VisibilityType] = None
 
 
 # This class is the input for the 'add_workload' function.
 class AddWorkloadRequestTypeDef(BaseValidatorModel):
-    ResourceGroupName: str
-    ComponentName: str
+    ResourceGroupName: Annotated[str, _aws_pattern("ApplicationInsights", "ResourceGroupName")]
+    ComponentName: Annotated[str, _aws_pattern("ApplicationInsights", "ComponentName")]
     WorkloadConfiguration: WorkloadConfigurationTypeDef
 
 
 # This class is the input for the 'update_workload' function.
 class UpdateWorkloadRequestTypeDef(BaseValidatorModel):
-    ResourceGroupName: str
-    ComponentName: str
+    ResourceGroupName: Annotated[str, _aws_pattern("ApplicationInsights", "ResourceGroupName")]
+    ComponentName: Annotated[str, _aws_pattern("ApplicationInsights", "ComponentName")]
     WorkloadConfiguration: WorkloadConfigurationTypeDef
-    WorkloadId: Optional[str] = None
+    WorkloadId: Optional[Annotated[str, _aws_pattern("ApplicationInsights", "WorkloadId")]] = None
 
 
 # This class is the output for the 'add_workload' function.
 class AddWorkloadResponseTypeDef(BaseValidatorModel):
-    WorkloadId: str
+    WorkloadId: Annotated[str, _aws_pattern("ApplicationInsights", "WorkloadId")]
     WorkloadConfiguration: WorkloadConfigurationTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 # This class is the output for the 'describe_component_configuration_recommendation' function.
 class DescribeComponentConfigurationRecommendationResponseTypeDef(BaseValidatorModel):
-    ComponentConfiguration: str
+    ComponentConfiguration: Annotated[str, _aws_pattern("ApplicationInsights", "ComponentConfiguration")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
@@ -403,13 +407,13 @@ class DescribeComponentConfigurationRecommendationResponseTypeDef(BaseValidatorM
 class DescribeComponentConfigurationResponseTypeDef(BaseValidatorModel):
     Monitor: bool
     Tier: TierType
-    ComponentConfiguration: str
+    ComponentConfiguration: Annotated[str, _aws_pattern("ApplicationInsights", "ComponentConfiguration")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 # This class is the output for the 'describe_workload' function.
 class DescribeWorkloadResponseTypeDef(BaseValidatorModel):
-    WorkloadId: str
+    WorkloadId: Annotated[str, _aws_pattern("ApplicationInsights", "WorkloadId")]
     WorkloadRemarks: str
     WorkloadConfiguration: WorkloadConfigurationTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
@@ -417,16 +421,16 @@ class DescribeWorkloadResponseTypeDef(BaseValidatorModel):
 
 # This class is the output for the 'list_log_pattern_sets' function.
 class ListLogPatternSetsResponseTypeDef(BaseValidatorModel):
-    ResourceGroupName: str
-    AccountId: str
-    LogPatternSets: List[str]
+    ResourceGroupName: Annotated[str, _aws_pattern("ApplicationInsights", "ResourceGroupName")]
+    AccountId: Annotated[str, _aws_pattern("ApplicationInsights", "AccountId")]
+    LogPatternSets: List[Annotated[str, _aws_pattern("ApplicationInsights", "LogPatternSetName")]]
     ResponseMetadata: ResponseMetadataTypeDef
-    NextToken: Optional[str] = None
+    NextToken: Optional[Annotated[str, _aws_pattern("ApplicationInsights", "PaginationToken")]] = None
 
 
 # This class is the output for the 'update_workload' function.
 class UpdateWorkloadResponseTypeDef(BaseValidatorModel):
-    WorkloadId: str
+    WorkloadId: Annotated[str, _aws_pattern("ApplicationInsights", "WorkloadId")]
     WorkloadConfiguration: WorkloadConfigurationTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
@@ -434,7 +438,7 @@ class UpdateWorkloadResponseTypeDef(BaseValidatorModel):
 # This class is the output for the 'describe_component' function.
 class DescribeComponentResponseTypeDef(BaseValidatorModel):
     ApplicationComponent: ApplicationComponentTypeDef
-    ResourceList: List[str]
+    ResourceList: List[Annotated[str, _aws_pattern("ApplicationInsights", "ResourceARN")]]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
@@ -442,7 +446,7 @@ class DescribeComponentResponseTypeDef(BaseValidatorModel):
 class ListComponentsResponseTypeDef(BaseValidatorModel):
     ApplicationComponentList: List[ApplicationComponentTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
-    NextToken: Optional[str] = None
+    NextToken: Optional[Annotated[str, _aws_pattern("ApplicationInsights", "PaginationToken")]] = None
 
 
 # This class is the output for the 'create_application' function.
@@ -461,7 +465,7 @@ class DescribeApplicationResponseTypeDef(BaseValidatorModel):
 class ListApplicationsResponseTypeDef(BaseValidatorModel):
     ApplicationInfoList: List[ApplicationInfoTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
-    NextToken: Optional[str] = None
+    NextToken: Optional[Annotated[str, _aws_pattern("ApplicationInsights", "PaginationToken")]] = None
 
 
 # This class is the output for the 'update_application' function.
@@ -474,16 +478,16 @@ class UpdateApplicationResponseTypeDef(BaseValidatorModel):
 class ListConfigurationHistoryResponseTypeDef(BaseValidatorModel):
     EventList: List[ConfigurationEventTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
-    NextToken: Optional[str] = None
+    NextToken: Optional[Annotated[str, _aws_pattern("ApplicationInsights", "PaginationToken")]] = None
 
 
 # This class is the input for the 'create_application' function.
 class CreateApplicationRequestTypeDef(BaseValidatorModel):
-    ResourceGroupName: Optional[str] = None
+    ResourceGroupName: Optional[Annotated[str, _aws_pattern("ApplicationInsights", "ResourceGroupName")]] = None
     OpsCenterEnabled: Optional[bool] = None
     CWEMonitorEnabled: Optional[bool] = None
-    OpsItemSNSTopicArn: Optional[str] = None
-    SNSNotificationArn: Optional[str] = None
+    OpsItemSNSTopicArn: Optional[Annotated[str, _aws_pattern("ApplicationInsights", "OpsItemSNSTopicArn")]] = None
+    SNSNotificationArn: Optional[Annotated[str, _aws_pattern("ApplicationInsights", "SNSNotificationArn")]] = None
     Tags: Optional[List[TagTypeDef]] = None
     AutoConfigEnabled: Optional[bool] = None
     AutoCreate: Optional[bool] = None
@@ -498,37 +502,37 @@ class ListTagsForResourceResponseTypeDef(BaseValidatorModel):
 
 
 class TagResourceRequestTypeDef(BaseValidatorModel):
-    ResourceARN: str
+    ResourceARN: Annotated[str, _aws_pattern("ApplicationInsights", "AmazonResourceName")]
     Tags: List[TagTypeDef]
 
 
 # This class is the output for the 'create_log_pattern' function.
 class CreateLogPatternResponseTypeDef(BaseValidatorModel):
     LogPattern: LogPatternTypeDef
-    ResourceGroupName: str
+    ResourceGroupName: Annotated[str, _aws_pattern("ApplicationInsights", "ResourceGroupName")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 # This class is the output for the 'describe_log_pattern' function.
 class DescribeLogPatternResponseTypeDef(BaseValidatorModel):
-    ResourceGroupName: str
-    AccountId: str
+    ResourceGroupName: Annotated[str, _aws_pattern("ApplicationInsights", "ResourceGroupName")]
+    AccountId: Annotated[str, _aws_pattern("ApplicationInsights", "AccountId")]
     LogPattern: LogPatternTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 # This class is the output for the 'list_log_patterns' function.
 class ListLogPatternsResponseTypeDef(BaseValidatorModel):
-    ResourceGroupName: str
-    AccountId: str
+    ResourceGroupName: Annotated[str, _aws_pattern("ApplicationInsights", "ResourceGroupName")]
+    AccountId: Annotated[str, _aws_pattern("ApplicationInsights", "AccountId")]
     LogPatterns: List[LogPatternTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
-    NextToken: Optional[str] = None
+    NextToken: Optional[Annotated[str, _aws_pattern("ApplicationInsights", "PaginationToken")]] = None
 
 
 # This class is the output for the 'update_log_pattern' function.
 class UpdateLogPatternResponseTypeDef(BaseValidatorModel):
-    ResourceGroupName: str
+    ResourceGroupName: Annotated[str, _aws_pattern("ApplicationInsights", "ResourceGroupName")]
     LogPattern: LogPatternTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
@@ -546,39 +550,39 @@ class RelatedObservationsTypeDef(BaseValidatorModel):
 # This class is the output for the 'describe_problem' function.
 class DescribeProblemResponseTypeDef(BaseValidatorModel):
     Problem: ProblemTypeDef
-    SNSNotificationArn: str
+    SNSNotificationArn: Annotated[str, _aws_pattern("ApplicationInsights", "SNSNotificationArn")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 # This class is the output for the 'list_problems' function.
 class ListProblemsResponseTypeDef(BaseValidatorModel):
     ProblemList: List[ProblemTypeDef]
-    ResourceGroupName: str
-    AccountId: str
+    ResourceGroupName: Annotated[str, _aws_pattern("ApplicationInsights", "ResourceGroupName")]
+    AccountId: Annotated[str, _aws_pattern("ApplicationInsights", "AccountId")]
     ResponseMetadata: ResponseMetadataTypeDef
-    NextToken: Optional[str] = None
+    NextToken: Optional[Annotated[str, _aws_pattern("ApplicationInsights", "PaginationToken")]] = None
 
 
 # This class is the input for the 'list_configuration_history' function.
 class ListConfigurationHistoryRequestTypeDef(BaseValidatorModel):
-    ResourceGroupName: Optional[str] = None
+    ResourceGroupName: Optional[Annotated[str, _aws_pattern("ApplicationInsights", "ResourceGroupName")]] = None
     StartTime: Optional[TimestampTypeDef] = None
     EndTime: Optional[TimestampTypeDef] = None
     EventStatus: Optional[ConfigurationEventStatusType] = None
     MaxResults: Optional[int] = None
-    NextToken: Optional[str] = None
-    AccountId: Optional[str] = None
+    NextToken: Optional[Annotated[str, _aws_pattern("ApplicationInsights", "PaginationToken")]] = None
+    AccountId: Optional[Annotated[str, _aws_pattern("ApplicationInsights", "AccountId")]] = None
 
 
 # This class is the input for the 'list_problems' function.
 class ListProblemsRequestTypeDef(BaseValidatorModel):
-    AccountId: Optional[str] = None
-    ResourceGroupName: Optional[str] = None
+    AccountId: Optional[Annotated[str, _aws_pattern("ApplicationInsights", "AccountId")]] = None
+    ResourceGroupName: Optional[Annotated[str, _aws_pattern("ApplicationInsights", "ResourceGroupName")]] = None
     StartTime: Optional[TimestampTypeDef] = None
     EndTime: Optional[TimestampTypeDef] = None
     MaxResults: Optional[int] = None
-    NextToken: Optional[str] = None
-    ComponentName: Optional[str] = None
+    NextToken: Optional[Annotated[str, _aws_pattern("ApplicationInsights", "PaginationToken")]] = None
+    ComponentName: Optional[Annotated[str, _aws_pattern("ApplicationInsights", "ComponentName")]] = None
     Visibility: Optional[VisibilityType] = None
 
 
@@ -586,7 +590,7 @@ class ListProblemsRequestTypeDef(BaseValidatorModel):
 class ListWorkloadsResponseTypeDef(BaseValidatorModel):
     WorkloadList: List[WorkloadTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
-    NextToken: Optional[str] = None
+    NextToken: Optional[Annotated[str, _aws_pattern("ApplicationInsights", "PaginationToken")]] = None
 
 
 # This class is the output for the 'describe_problem_observations' function.

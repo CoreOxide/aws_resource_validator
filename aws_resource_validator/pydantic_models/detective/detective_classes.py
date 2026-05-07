@@ -3,6 +3,7 @@
 from datetime import datetime
 from decimal import Decimal
 from typing import (
+    Annotated,
     Any,
     Callable,
     Dict,
@@ -24,6 +25,7 @@ from botocore.response import StreamingBody
 from pydantic import Field
 
 from aws_resource_validator.core.base_validator_model import BaseValidatorModel, EventStream
+from aws_resource_validator.core.pattern_validation import aws_field_pattern as _aws_pattern
 from aws_resource_validator.pydantic_models.detective.detective_constants import *  # noqa: F401,F403
 
 # Optional boto3 symbols — imported lazily so services that don't need them
@@ -40,24 +42,24 @@ except ImportError:  # pragma: no cover
 
 # This class is the input for the 'accept_invitation' function.
 class AcceptInvitationRequestTypeDef(BaseValidatorModel):
-    GraphArn: str
+    GraphArn: Annotated[str, _aws_pattern("Detective", "GraphArn")]
 
 
 class AccountTypeDef(BaseValidatorModel):
-    AccountId: str
-    EmailAddress: str
+    AccountId: Annotated[str, _aws_pattern("Detective", "AccountId")]
+    EmailAddress: Annotated[str, _aws_pattern("Detective", "EmailAddress")]
 
 
 class AdministratorTypeDef(BaseValidatorModel):
-    AccountId: Optional[str] = None
-    GraphArn: Optional[str] = None
+    AccountId: Optional[Annotated[str, _aws_pattern("Detective", "AccountId")]] = None
+    GraphArn: Optional[Annotated[str, _aws_pattern("Detective", "GraphArn")]] = None
     DelegationTime: Optional[datetime] = None
 
 
 # This class is the input for the 'batch_get_graph_member_datasources' function.
 class BatchGetGraphMemberDatasourcesRequestTypeDef(BaseValidatorModel):
-    GraphArn: str
-    AccountIds: List[str]
+    GraphArn: Annotated[str, _aws_pattern("Detective", "GraphArn")]
+    AccountIds: List[Annotated[str, _aws_pattern("Detective", "AccountId")]]
 
 
 class ResponseMetadataTypeDef(BaseValidatorModel):
@@ -69,17 +71,17 @@ class ResponseMetadataTypeDef(BaseValidatorModel):
 
 
 class UnprocessedAccountTypeDef(BaseValidatorModel):
-    AccountId: Optional[str] = None
+    AccountId: Optional[Annotated[str, _aws_pattern("Detective", "AccountId")]] = None
     Reason: Optional[str] = None
 
 
 # This class is the input for the 'batch_get_membership_datasources' function.
 class BatchGetMembershipDatasourcesRequestTypeDef(BaseValidatorModel):
-    GraphArns: List[str]
+    GraphArns: List[Annotated[str, _aws_pattern("Detective", "GraphArn")]]
 
 
 class UnprocessedGraphTypeDef(BaseValidatorModel):
-    GraphArn: Optional[str] = None
+    GraphArn: Optional[Annotated[str, _aws_pattern("Detective", "GraphArn")]] = None
     Reason: Optional[str] = None
 
 
@@ -102,28 +104,28 @@ TimestampTypeDef = Union[datetime, str]
 
 # This class is the input for the 'delete_graph' function.
 class DeleteGraphRequestTypeDef(BaseValidatorModel):
-    GraphArn: str
+    GraphArn: Annotated[str, _aws_pattern("Detective", "GraphArn")]
 
 
 # This class is the input for the 'delete_members' function.
 class DeleteMembersRequestTypeDef(BaseValidatorModel):
-    GraphArn: str
-    AccountIds: List[str]
+    GraphArn: Annotated[str, _aws_pattern("Detective", "GraphArn")]
+    AccountIds: List[Annotated[str, _aws_pattern("Detective", "AccountId")]]
 
 
 # This class is the input for the 'describe_organization_configuration' function.
 class DescribeOrganizationConfigurationRequestTypeDef(BaseValidatorModel):
-    GraphArn: str
+    GraphArn: Annotated[str, _aws_pattern("Detective", "GraphArn")]
 
 
 # This class is the input for the 'disassociate_membership' function.
 class DisassociateMembershipRequestTypeDef(BaseValidatorModel):
-    GraphArn: str
+    GraphArn: Annotated[str, _aws_pattern("Detective", "GraphArn")]
 
 
 # This class is the input for the 'enable_organization_admin_account' function.
 class EnableOrganizationAdminAccountRequestTypeDef(BaseValidatorModel):
-    AccountId: str
+    AccountId: Annotated[str, _aws_pattern("Detective", "AccountId")]
 
 
 class StringFilterTypeDef(BaseValidatorModel):
@@ -137,18 +139,18 @@ class FlaggedIpAddressDetailTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'get_investigation' function.
 class GetInvestigationRequestTypeDef(BaseValidatorModel):
-    GraphArn: str
-    InvestigationId: str
+    GraphArn: Annotated[str, _aws_pattern("Detective", "GraphArn")]
+    InvestigationId: Annotated[str, _aws_pattern("Detective", "InvestigationId")]
 
 
 # This class is the input for the 'get_members' function.
 class GetMembersRequestTypeDef(BaseValidatorModel):
-    GraphArn: str
-    AccountIds: List[str]
+    GraphArn: Annotated[str, _aws_pattern("Detective", "GraphArn")]
+    AccountIds: List[Annotated[str, _aws_pattern("Detective", "AccountId")]]
 
 
 class GraphTypeDef(BaseValidatorModel):
-    Arn: Optional[str] = None
+    Arn: Optional[Annotated[str, _aws_pattern("Detective", "GraphArn")]] = None
     CreatedTime: Optional[datetime] = None
 
 
@@ -177,7 +179,7 @@ class NewUserAgentDetailTypeDef(BaseValidatorModel):
 
 
 class RelatedFindingDetailTypeDef(BaseValidatorModel):
-    Arn: Optional[str] = None
+    Arn: Optional[Annotated[str, _aws_pattern("Detective", "EntityArn")]] = None
     Type: Optional[str] = None
     IpAddress: Optional[str] = None
 
@@ -197,18 +199,18 @@ class TTPsObservedDetailTypeDef(BaseValidatorModel):
 
 
 class InvestigationDetailTypeDef(BaseValidatorModel):
-    InvestigationId: Optional[str] = None
+    InvestigationId: Optional[Annotated[str, _aws_pattern("Detective", "InvestigationId")]] = None
     Severity: Optional[SeverityType] = None
     Status: Optional[StatusType] = None
     State: Optional[StateType] = None
     CreatedTime: Optional[datetime] = None
-    EntityArn: Optional[str] = None
+    EntityArn: Optional[Annotated[str, _aws_pattern("Detective", "EntityArn")]] = None
     EntityType: Optional[EntityTypeType] = None
 
 
 # This class is the input for the 'list_datasource_packages' function.
 class ListDatasourcePackagesRequestTypeDef(BaseValidatorModel):
-    GraphArn: str
+    GraphArn: Annotated[str, _aws_pattern("Detective", "GraphArn")]
     NextToken: Optional[str] = None
     MaxResults: Optional[int] = None
 
@@ -221,8 +223,8 @@ class ListGraphsRequestTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'list_indicators' function.
 class ListIndicatorsRequestTypeDef(BaseValidatorModel):
-    GraphArn: str
-    InvestigationId: str
+    GraphArn: Annotated[str, _aws_pattern("Detective", "GraphArn")]
+    InvestigationId: Annotated[str, _aws_pattern("Detective", "InvestigationId")]
     IndicatorType: Optional[IndicatorTypeType] = None
     NextToken: Optional[str] = None
     MaxResults: Optional[int] = None
@@ -241,7 +243,7 @@ class ListInvitationsRequestTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'list_members' function.
 class ListMembersRequestTypeDef(BaseValidatorModel):
-    GraphArn: str
+    GraphArn: Annotated[str, _aws_pattern("Detective", "GraphArn")]
     NextToken: Optional[str] = None
     MaxResults: Optional[int] = None
 
@@ -254,52 +256,52 @@ class ListOrganizationAdminAccountsRequestTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'list_tags_for_resource' function.
 class ListTagsForResourceRequestTypeDef(BaseValidatorModel):
-    ResourceArn: str
+    ResourceArn: Annotated[str, _aws_pattern("Detective", "GraphArn")]
 
 
 # This class is the input for the 'reject_invitation' function.
 class RejectInvitationRequestTypeDef(BaseValidatorModel):
-    GraphArn: str
+    GraphArn: Annotated[str, _aws_pattern("Detective", "GraphArn")]
 
 
 # This class is the input for the 'start_monitoring_member' function.
 class StartMonitoringMemberRequestTypeDef(BaseValidatorModel):
-    GraphArn: str
-    AccountId: str
+    GraphArn: Annotated[str, _aws_pattern("Detective", "GraphArn")]
+    AccountId: Annotated[str, _aws_pattern("Detective", "AccountId")]
 
 
 class TagResourceRequestTypeDef(BaseValidatorModel):
-    ResourceArn: str
+    ResourceArn: Annotated[str, _aws_pattern("Detective", "GraphArn")]
     Tags: Dict[str, str]
 
 
 class UntagResourceRequestTypeDef(BaseValidatorModel):
-    ResourceArn: str
-    TagKeys: List[str]
+    ResourceArn: Annotated[str, _aws_pattern("Detective", "GraphArn")]
+    TagKeys: List[Annotated[str, _aws_pattern("Detective", "TagKey")]]
 
 
 # This class is the input for the 'update_datasource_packages' function.
 class UpdateDatasourcePackagesRequestTypeDef(BaseValidatorModel):
-    GraphArn: str
+    GraphArn: Annotated[str, _aws_pattern("Detective", "GraphArn")]
     DatasourcePackages: List[DatasourcePackageType]
 
 
 # This class is the input for the 'update_investigation_state' function.
 class UpdateInvestigationStateRequestTypeDef(BaseValidatorModel):
-    GraphArn: str
-    InvestigationId: str
+    GraphArn: Annotated[str, _aws_pattern("Detective", "GraphArn")]
+    InvestigationId: Annotated[str, _aws_pattern("Detective", "InvestigationId")]
     State: StateType
 
 
 # This class is the input for the 'update_organization_configuration' function.
 class UpdateOrganizationConfigurationRequestTypeDef(BaseValidatorModel):
-    GraphArn: str
+    GraphArn: Annotated[str, _aws_pattern("Detective", "GraphArn")]
     AutoEnable: Optional[bool] = None
 
 
 # This class is the input for the 'create_members' function.
 class CreateMembersRequestTypeDef(BaseValidatorModel):
-    GraphArn: str
+    GraphArn: Annotated[str, _aws_pattern("Detective", "GraphArn")]
     Accounts: List[AccountTypeDef]
     Message: Optional[str] = None
     DisableEmailNotification: Optional[bool] = None
@@ -307,7 +309,7 @@ class CreateMembersRequestTypeDef(BaseValidatorModel):
 
 # This class is the output for the 'create_graph' function.
 class CreateGraphResponseTypeDef(BaseValidatorModel):
-    GraphArn: str
+    GraphArn: Annotated[str, _aws_pattern("Detective", "GraphArn")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
@@ -324,9 +326,9 @@ class EmptyResponseMetadataTypeDef(BaseValidatorModel):
 
 # This class is the output for the 'get_investigation' function.
 class GetInvestigationResponseTypeDef(BaseValidatorModel):
-    GraphArn: str
-    InvestigationId: str
-    EntityArn: str
+    GraphArn: Annotated[str, _aws_pattern("Detective", "GraphArn")]
+    InvestigationId: Annotated[str, _aws_pattern("Detective", "InvestigationId")]
+    EntityArn: Annotated[str, _aws_pattern("Detective", "EntityArn")]
     EntityType: EntityTypeType
     CreatedTime: datetime
     ScopeStartTime: datetime
@@ -352,13 +354,13 @@ class ListTagsForResourceResponseTypeDef(BaseValidatorModel):
 
 # This class is the output for the 'start_investigation' function.
 class StartInvestigationResponseTypeDef(BaseValidatorModel):
-    InvestigationId: str
+    InvestigationId: Annotated[str, _aws_pattern("Detective", "InvestigationId")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 # This class is the output for the 'delete_members' function.
 class DeleteMembersResponseTypeDef(BaseValidatorModel):
-    AccountIds: List[str]
+    AccountIds: List[Annotated[str, _aws_pattern("Detective", "AccountId")]]
     UnprocessedAccounts: List[UnprocessedAccountTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
 
@@ -369,19 +371,19 @@ class DatasourcePackageIngestDetailTypeDef(BaseValidatorModel):
 
 
 class MembershipDatasourcesTypeDef(BaseValidatorModel):
-    AccountId: Optional[str] = None
-    GraphArn: Optional[str] = None
+    AccountId: Optional[Annotated[str, _aws_pattern("Detective", "AccountId")]] = None
+    GraphArn: Optional[Annotated[str, _aws_pattern("Detective", "GraphArn")]] = None
     DatasourcePackageIngestHistory: Optional[
         Dict[DatasourcePackageType, Dict[DatasourcePackageIngestStateType, TimestampForCollectionTypeDef]]
     ] = None
 
 
 class MemberDetailTypeDef(BaseValidatorModel):
-    AccountId: Optional[str] = None
-    EmailAddress: Optional[str] = None
-    GraphArn: Optional[str] = None
-    MasterId: Optional[str] = None
-    AdministratorId: Optional[str] = None
+    AccountId: Optional[Annotated[str, _aws_pattern("Detective", "AccountId")]] = None
+    EmailAddress: Optional[Annotated[str, _aws_pattern("Detective", "EmailAddress")]] = None
+    GraphArn: Optional[Annotated[str, _aws_pattern("Detective", "GraphArn")]] = None
+    MasterId: Optional[Annotated[str, _aws_pattern("Detective", "AccountId")]] = None
+    AdministratorId: Optional[Annotated[str, _aws_pattern("Detective", "AccountId")]] = None
     Status: Optional[MemberStatusType] = None
     DisabledReason: Optional[MemberDisabledReasonType] = None
     InvitedTime: Optional[datetime] = None
@@ -402,8 +404,8 @@ class DateFilterTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'start_investigation' function.
 class StartInvestigationRequestTypeDef(BaseValidatorModel):
-    GraphArn: str
-    EntityArn: str
+    GraphArn: Annotated[str, _aws_pattern("Detective", "GraphArn")]
+    EntityArn: Annotated[str, _aws_pattern("Detective", "EntityArn")]
     ScopeStartTime: TimestampTypeDef
     ScopeEndTime: TimestampTypeDef
 
@@ -497,7 +499,7 @@ class IndicatorTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'list_investigations' function.
 class ListInvestigationsRequestTypeDef(BaseValidatorModel):
-    GraphArn: str
+    GraphArn: Annotated[str, _aws_pattern("Detective", "GraphArn")]
     NextToken: Optional[str] = None
     MaxResults: Optional[int] = None
     FilterCriteria: Optional[FilterCriteriaTypeDef] = None
@@ -506,8 +508,8 @@ class ListInvestigationsRequestTypeDef(BaseValidatorModel):
 
 # This class is the output for the 'list_indicators' function.
 class ListIndicatorsResponseTypeDef(BaseValidatorModel):
-    GraphArn: str
-    InvestigationId: str
+    GraphArn: Annotated[str, _aws_pattern("Detective", "GraphArn")]
+    InvestigationId: Annotated[str, _aws_pattern("Detective", "InvestigationId")]
     Indicators: List[IndicatorTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
     NextToken: Optional[str] = None

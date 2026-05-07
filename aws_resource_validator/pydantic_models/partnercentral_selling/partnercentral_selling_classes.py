@@ -3,6 +3,7 @@
 from datetime import datetime
 from decimal import Decimal
 from typing import (
+    Annotated,
     Any,
     Callable,
     Dict,
@@ -24,6 +25,7 @@ from botocore.response import StreamingBody
 from pydantic import Field
 
 from aws_resource_validator.core.base_validator_model import BaseValidatorModel, EventStream
+from aws_resource_validator.core.pattern_validation import aws_field_pattern as _aws_pattern
 from aws_resource_validator.pydantic_models.partnercentral_selling.partnercentral_selling_constants import *  # noqa: F401,F403
 
 # Optional boto3 symbols — imported lazily so services that don't need them
@@ -40,52 +42,54 @@ except ImportError:  # pragma: no cover
 
 # This class is the input for the 'accept_engagement_invitation' function.
 class AcceptEngagementInvitationRequestTypeDef(BaseValidatorModel):
-    Catalog: str
-    Identifier: str
+    Catalog: Annotated[str, _aws_pattern("PartnercentralSelling", "CatalogIdentifier")]
+    Identifier: Annotated[str, _aws_pattern("PartnercentralSelling", "EngagementInvitationArnOrIdentifier")]
 
 
 class AccountReceiverTypeDef(BaseValidatorModel):
-    AwsAccountId: str
-    Alias: Optional[str] = None
+    AwsAccountId: Annotated[str, _aws_pattern("PartnercentralSelling", "AwsAccount")]
+    Alias: Optional[Annotated[str, _aws_pattern("PartnercentralSelling", "Alias")]] = None
 
 
 class AddressSummaryTypeDef(BaseValidatorModel):
-    City: Optional[str] = None
-    PostalCode: Optional[str] = None
+    City: Optional[Annotated[str, _aws_pattern("PartnercentralSelling", "AddressSummaryCityString")]] = None
+    PostalCode: Optional[Annotated[str, _aws_pattern("PartnercentralSelling", "AddressSummaryPostalCodeString")]] = None
     StateOrRegion: Optional[str] = None
     CountryCode: Optional[CountryCodeType] = None
 
 
 class AddressTypeDef(BaseValidatorModel):
-    City: Optional[str] = None
-    PostalCode: Optional[str] = None
+    City: Optional[Annotated[str, _aws_pattern("PartnercentralSelling", "AddressCityString")]] = None
+    PostalCode: Optional[Annotated[str, _aws_pattern("PartnercentralSelling", "AddressPostalCodeString")]] = None
     StateOrRegion: Optional[str] = None
     CountryCode: Optional[CountryCodeType] = None
-    StreetAddress: Optional[str] = None
+    StreetAddress: Optional[Annotated[str, _aws_pattern("PartnercentralSelling", "AddressStreetAddressString")]] = None
 
 
 class AssigneeContactTypeDef(BaseValidatorModel):
-    Email: str
-    FirstName: str
-    LastName: str
-    BusinessTitle: str
-    Phone: Optional[str] = None
+    Email: Annotated[str, _aws_pattern("PartnercentralSelling", "Email")]
+    FirstName: Annotated[str, _aws_pattern("PartnercentralSelling", "AssigneeContactFirstNameString")]
+    LastName: Annotated[str, _aws_pattern("PartnercentralSelling", "AssigneeContactLastNameString")]
+    BusinessTitle: Annotated[str, _aws_pattern("PartnercentralSelling", "JobTitle")]
+    Phone: Optional[Annotated[str, _aws_pattern("PartnercentralSelling", "PhoneNumber")]] = None
 
 
 # This class is the input for the 'associate_opportunity' function.
 class AssociateOpportunityRequestTypeDef(BaseValidatorModel):
-    Catalog: str
-    OpportunityIdentifier: str
+    Catalog: Annotated[str, _aws_pattern("PartnercentralSelling", "CatalogIdentifier")]
+    OpportunityIdentifier: Annotated[str, _aws_pattern("PartnercentralSelling", "OpportunityIdentifier")]
     RelatedEntityType: RelatedEntityTypeType
-    RelatedEntityIdentifier: str
+    RelatedEntityIdentifier: Annotated[
+        str, _aws_pattern("PartnercentralSelling", "AssociateOpportunityRequestRelatedEntityIdentifierString")
+    ]
 
 
 class ContactTypeDef(BaseValidatorModel):
-    Email: Optional[str] = None
-    FirstName: Optional[str] = None
-    LastName: Optional[str] = None
-    BusinessTitle: Optional[str] = None
-    Phone: Optional[str] = None
+    Email: Optional[Annotated[str, _aws_pattern("PartnercentralSelling", "Email")]] = None
+    FirstName: Optional[Annotated[str, _aws_pattern("PartnercentralSelling", "ContactFirstNameString")]] = None
+    LastName: Optional[Annotated[str, _aws_pattern("PartnercentralSelling", "ContactLastNameString")]] = None
+    BusinessTitle: Optional[Annotated[str, _aws_pattern("PartnercentralSelling", "JobTitle")]] = None
+    Phone: Optional[Annotated[str, _aws_pattern("PartnercentralSelling", "PhoneNumber")]] = None
 
 
 class ProfileNextStepsHistoryTypeDef(BaseValidatorModel):
@@ -96,26 +100,26 @@ class ProfileNextStepsHistoryTypeDef(BaseValidatorModel):
 class ExpectedCustomerSpendTypeDef(BaseValidatorModel):
     CurrencyCode: CurrencyCodeType
     Frequency: Literal["Monthly"]
-    TargetCompany: str
-    Amount: Optional[str] = None
-    EstimationUrl: Optional[str] = None
+    TargetCompany: Annotated[str, _aws_pattern("PartnercentralSelling", "ExpectedCustomerSpendTargetCompanyString")]
+    Amount: Optional[Annotated[str, _aws_pattern("PartnercentralSelling", "Amount")]] = None
+    EstimationUrl: Optional[Annotated[str, _aws_pattern("PartnercentralSelling", "EstimationUrl")]] = None
 
 
 class AwsOpportunityRelatedEntitiesTypeDef(BaseValidatorModel):
     AwsProducts: Optional[List[str]] = None
-    Solutions: Optional[List[str]] = None
+    Solutions: Optional[List[Annotated[str, _aws_pattern("PartnercentralSelling", "SolutionIdentifier")]]] = None
 
 
 class AwsTeamMemberTypeDef(BaseValidatorModel):
-    Email: Optional[str] = None
-    FirstName: Optional[str] = None
-    LastName: Optional[str] = None
+    Email: Optional[Annotated[str, _aws_pattern("PartnercentralSelling", "Email")]] = None
+    FirstName: Optional[Annotated[str, _aws_pattern("PartnercentralSelling", "AwsTeamMemberFirstNameString")]] = None
+    LastName: Optional[Annotated[str, _aws_pattern("PartnercentralSelling", "AwsTeamMemberLastNameString")]] = None
     BusinessTitle: Optional[AwsMemberBusinessTitleType] = None
 
 
 class AwsProductOptimizationTypeDef(BaseValidatorModel):
     Description: str
-    SavingsAmount: str
+    SavingsAmount: Annotated[str, _aws_pattern("PartnercentralSelling", "MonetaryAmount")]
 
 
 class AwsSubmissionTypeDef(BaseValidatorModel):
@@ -132,67 +136,73 @@ class ResponseMetadataTypeDef(BaseValidatorModel):
 
 
 class TagTypeDef(BaseValidatorModel):
-    Key: str
-    Value: str
+    Key: Annotated[str, _aws_pattern("PartnercentralSelling", "TagKey")]
+    Value: Annotated[str, _aws_pattern("PartnercentralSelling", "TagValue")]
 
 
 # This class is the input for the 'create_resource_snapshot' function.
 class CreateResourceSnapshotRequestTypeDef(BaseValidatorModel):
-    Catalog: str
-    EngagementIdentifier: str
+    Catalog: Annotated[str, _aws_pattern("PartnercentralSelling", "CatalogIdentifier")]
+    EngagementIdentifier: Annotated[str, _aws_pattern("PartnercentralSelling", "EngagementIdentifier")]
     ResourceType: Literal["Opportunity"]
-    ResourceIdentifier: str
-    ResourceSnapshotTemplateIdentifier: str
-    ClientToken: str
+    ResourceIdentifier: Annotated[str, _aws_pattern("PartnercentralSelling", "ResourceIdentifier")]
+    ResourceSnapshotTemplateIdentifier: Annotated[str, _aws_pattern("PartnercentralSelling", "ResourceTemplateName")]
+    ClientToken: Annotated[str, _aws_pattern("PartnercentralSelling", "ClientToken")]
 
 
 TimestampTypeDef = Union[datetime, str]
 
 
 class EngagementCustomerProjectDetailsTypeDef(BaseValidatorModel):
-    Title: str
-    BusinessProblem: str
-    TargetCompletionDate: str
+    Title: Annotated[str, _aws_pattern("PartnercentralSelling", "EngagementCustomerProjectTitle")]
+    BusinessProblem: Annotated[str, _aws_pattern("PartnercentralSelling", "EngagementCustomerBusinessProblem")]
+    TargetCompletionDate: Annotated[
+        str, _aws_pattern("PartnercentralSelling", "EngagementCustomerProjectDetailsTargetCompletionDateString")
+    ]
 
 
 class EngagementCustomerTypeDef(BaseValidatorModel):
     Industry: IndustryType
-    CompanyName: str
-    WebsiteUrl: str
+    CompanyName: Annotated[str, _aws_pattern("PartnercentralSelling", "CompanyName")]
+    WebsiteUrl: Annotated[str, _aws_pattern("PartnercentralSelling", "CompanyWebsiteUrl")]
     CountryCode: CountryCodeType
 
 
 # This class is the input for the 'delete_resource_snapshot_job' function.
 class DeleteResourceSnapshotJobRequestTypeDef(BaseValidatorModel):
-    Catalog: str
-    ResourceSnapshotJobIdentifier: str
+    Catalog: Annotated[str, _aws_pattern("PartnercentralSelling", "CatalogIdentifier")]
+    ResourceSnapshotJobIdentifier: Annotated[
+        str, _aws_pattern("PartnercentralSelling", "ResourceSnapshotJobIdentifier")
+    ]
 
 
 # This class is the input for the 'disassociate_opportunity' function.
 class DisassociateOpportunityRequestTypeDef(BaseValidatorModel):
-    Catalog: str
-    OpportunityIdentifier: str
+    Catalog: Annotated[str, _aws_pattern("PartnercentralSelling", "CatalogIdentifier")]
+    OpportunityIdentifier: Annotated[str, _aws_pattern("PartnercentralSelling", "OpportunityIdentifier")]
     RelatedEntityType: RelatedEntityTypeType
-    RelatedEntityIdentifier: str
+    RelatedEntityIdentifier: Annotated[
+        str, _aws_pattern("PartnercentralSelling", "DisassociateOpportunityRequestRelatedEntityIdentifierString")
+    ]
 
 
 class EngagementMemberSummaryTypeDef(BaseValidatorModel):
-    CompanyName: Optional[str] = None
+    CompanyName: Optional[Annotated[str, _aws_pattern("PartnercentralSelling", "MemberCompanyName")]] = None
     WebsiteUrl: Optional[str] = None
 
 
 class EngagementMemberTypeDef(BaseValidatorModel):
-    CompanyName: Optional[str] = None
+    CompanyName: Optional[Annotated[str, _aws_pattern("PartnercentralSelling", "MemberCompanyName")]] = None
     WebsiteUrl: Optional[str] = None
-    AccountId: Optional[str] = None
+    AccountId: Optional[Annotated[str, _aws_pattern("PartnercentralSelling", "AwsAccount")]] = None
 
 
 class EngagementResourceAssociationSummaryTypeDef(BaseValidatorModel):
-    Catalog: str
-    EngagementId: Optional[str] = None
+    Catalog: Annotated[str, _aws_pattern("PartnercentralSelling", "CatalogIdentifier")]
+    EngagementId: Optional[Annotated[str, _aws_pattern("PartnercentralSelling", "EngagementIdentifier")]] = None
     ResourceType: Optional[Literal["Opportunity"]] = None
-    ResourceId: Optional[str] = None
-    CreatedBy: Optional[str] = None
+    ResourceId: Optional[Annotated[str, _aws_pattern("PartnercentralSelling", "ResourceIdentifier")]] = None
+    CreatedBy: Optional[Annotated[str, _aws_pattern("PartnercentralSelling", "AwsAccount")]] = None
 
 
 class EngagementSortTypeDef(BaseValidatorModel):
@@ -201,39 +211,39 @@ class EngagementSortTypeDef(BaseValidatorModel):
 
 
 class EngagementSummaryTypeDef(BaseValidatorModel):
-    Arn: Optional[str] = None
-    Id: Optional[str] = None
-    Title: Optional[str] = None
+    Arn: Optional[Annotated[str, _aws_pattern("PartnercentralSelling", "EngagementArn")]] = None
+    Id: Optional[Annotated[str, _aws_pattern("PartnercentralSelling", "EngagementIdentifier")]] = None
+    Title: Optional[Annotated[str, _aws_pattern("PartnercentralSelling", "EngagementTitle")]] = None
     CreatedAt: Optional[datetime] = None
-    CreatedBy: Optional[str] = None
+    CreatedBy: Optional[Annotated[str, _aws_pattern("PartnercentralSelling", "AwsAccount")]] = None
     MemberCount: Optional[int] = None
     ModifiedAt: Optional[datetime] = None
-    ModifiedBy: Optional[str] = None
+    ModifiedBy: Optional[Annotated[str, _aws_pattern("PartnercentralSelling", "AwsAccount")]] = None
     ContextTypes: Optional[List[EngagementContextTypeType]] = None
 
 
 # This class is the input for the 'get_aws_opportunity_summary' function.
 class GetAwsOpportunitySummaryRequestTypeDef(BaseValidatorModel):
-    Catalog: str
-    RelatedOpportunityIdentifier: str
+    Catalog: Annotated[str, _aws_pattern("PartnercentralSelling", "CatalogIdentifier")]
+    RelatedOpportunityIdentifier: Annotated[str, _aws_pattern("PartnercentralSelling", "OpportunityIdentifier")]
 
 
 # This class is the input for the 'get_engagement_invitation' function.
 class GetEngagementInvitationRequestTypeDef(BaseValidatorModel):
-    Catalog: str
-    Identifier: str
+    Catalog: Annotated[str, _aws_pattern("PartnercentralSelling", "CatalogIdentifier")]
+    Identifier: Annotated[str, _aws_pattern("PartnercentralSelling", "EngagementInvitationArnOrIdentifier")]
 
 
 # This class is the input for the 'get_engagement' function.
 class GetEngagementRequestTypeDef(BaseValidatorModel):
-    Catalog: str
-    Identifier: str
+    Catalog: Annotated[str, _aws_pattern("PartnercentralSelling", "CatalogIdentifier")]
+    Identifier: Annotated[str, _aws_pattern("PartnercentralSelling", "EngagementArnOrIdentifier")]
 
 
 # This class is the input for the 'get_opportunity' function.
 class GetOpportunityRequestTypeDef(BaseValidatorModel):
-    Catalog: str
-    Identifier: str
+    Catalog: Annotated[str, _aws_pattern("PartnercentralSelling", "CatalogIdentifier")]
+    Identifier: Annotated[str, _aws_pattern("PartnercentralSelling", "OpportunityIdentifier")]
 
 
 class MarketingOutputTypeDef(BaseValidatorModel):
@@ -245,63 +255,69 @@ class MarketingOutputTypeDef(BaseValidatorModel):
 
 
 class RelatedEntityIdentifiersTypeDef(BaseValidatorModel):
-    AwsMarketplaceOffers: Optional[List[str]] = None
-    AwsMarketplaceOfferSets: Optional[List[str]] = None
-    Solutions: Optional[List[str]] = None
+    AwsMarketplaceOffers: Optional[
+        List[Annotated[str, _aws_pattern("PartnercentralSelling", "AwsMarketplaceOfferIdentifier")]]
+    ] = None
+    AwsMarketplaceOfferSets: Optional[
+        List[Annotated[str, _aws_pattern("PartnercentralSelling", "AwsMarketplaceOfferSetIdentifier")]]
+    ] = None
+    Solutions: Optional[List[Annotated[str, _aws_pattern("PartnercentralSelling", "SolutionIdentifier")]]] = None
     AwsProducts: Optional[List[str]] = None
 
 
 # This class is the input for the 'get_resource_snapshot_job' function.
 class GetResourceSnapshotJobRequestTypeDef(BaseValidatorModel):
-    Catalog: str
-    ResourceSnapshotJobIdentifier: str
+    Catalog: Annotated[str, _aws_pattern("PartnercentralSelling", "CatalogIdentifier")]
+    ResourceSnapshotJobIdentifier: Annotated[
+        str, _aws_pattern("PartnercentralSelling", "ResourceSnapshotJobIdentifier")
+    ]
 
 
 # This class is the input for the 'get_resource_snapshot' function.
 class GetResourceSnapshotRequestTypeDef(BaseValidatorModel):
-    Catalog: str
-    EngagementIdentifier: str
+    Catalog: Annotated[str, _aws_pattern("PartnercentralSelling", "CatalogIdentifier")]
+    EngagementIdentifier: Annotated[str, _aws_pattern("PartnercentralSelling", "EngagementIdentifier")]
     ResourceType: Literal["Opportunity"]
-    ResourceIdentifier: str
-    ResourceSnapshotTemplateIdentifier: str
+    ResourceIdentifier: Annotated[str, _aws_pattern("PartnercentralSelling", "ResourceIdentifier")]
+    ResourceSnapshotTemplateIdentifier: Annotated[str, _aws_pattern("PartnercentralSelling", "ResourceTemplateName")]
     Revision: Optional[int] = None
 
 
 # This class is the input for the 'get_selling_system_settings' function.
 class GetSellingSystemSettingsRequestTypeDef(BaseValidatorModel):
-    Catalog: str
+    Catalog: Annotated[str, _aws_pattern("PartnercentralSelling", "CatalogIdentifier")]
 
 
 class LeadContactTypeDef(BaseValidatorModel):
-    BusinessTitle: str
-    Email: str
-    FirstName: str
-    LastName: str
-    Phone: Optional[str] = None
+    BusinessTitle: Annotated[str, _aws_pattern("PartnercentralSelling", "JobTitle")]
+    Email: Annotated[str, _aws_pattern("PartnercentralSelling", "Email")]
+    FirstName: Annotated[str, _aws_pattern("PartnercentralSelling", "Name")]
+    LastName: Annotated[str, _aws_pattern("PartnercentralSelling", "Name")]
+    Phone: Optional[Annotated[str, _aws_pattern("PartnercentralSelling", "PhoneNumber")]] = None
 
 
 class LeadInvitationCustomerTypeDef(BaseValidatorModel):
-    CompanyName: str
+    CompanyName: Annotated[str, _aws_pattern("PartnercentralSelling", "CompanyName")]
     CountryCode: CountryCodeType
     Industry: Optional[IndustryType] = None
-    WebsiteUrl: Optional[str] = None
-    AwsMaturity: Optional[str] = None
+    WebsiteUrl: Optional[Annotated[str, _aws_pattern("PartnercentralSelling", "CompanyWebsiteUrl")]] = None
+    AwsMaturity: Optional[Annotated[str, _aws_pattern("PartnercentralSelling", "AwsMaturity")]] = None
     MarketSegment: Optional[MarketSegmentType] = None
 
 
 class LeadInvitationInteractionTypeDef(BaseValidatorModel):
-    SourceType: str
-    SourceId: str
-    SourceName: str
-    ContactBusinessTitle: str
-    Usecase: Optional[str] = None
+    SourceType: Annotated[str, _aws_pattern("PartnercentralSelling", "LeadSourceType")]
+    SourceId: Annotated[str, _aws_pattern("PartnercentralSelling", "LeadSourceId")]
+    SourceName: Annotated[str, _aws_pattern("PartnercentralSelling", "LeadSourceName")]
+    ContactBusinessTitle: Annotated[str, _aws_pattern("PartnercentralSelling", "JobTitle")]
+    Usecase: Optional[Annotated[str, _aws_pattern("PartnercentralSelling", "EngagementUseCase")]] = None
 
 
 class LifeCycleForViewTypeDef(BaseValidatorModel):
-    TargetCloseDate: Optional[str] = None
+    TargetCloseDate: Optional[Annotated[str, _aws_pattern("PartnercentralSelling", "Date")]] = None
     ReviewStatus: Optional[ReviewStatusType] = None
     Stage: Optional[StageType] = None
-    NextSteps: Optional[str] = None
+    NextSteps: Optional[Annotated[str, _aws_pattern("PartnercentralSelling", "LifeCycleForViewNextStepsString")]] = None
 
 
 class NextStepsHistoryOutputTypeDef(BaseValidatorModel):
@@ -312,23 +328,27 @@ class NextStepsHistoryOutputTypeDef(BaseValidatorModel):
 class LifeCycleSummaryTypeDef(BaseValidatorModel):
     Stage: Optional[StageType] = None
     ClosedLostReason: Optional[ClosedLostReasonType] = None
-    NextSteps: Optional[str] = None
-    TargetCloseDate: Optional[str] = None
+    NextSteps: Optional[Annotated[str, _aws_pattern("PartnercentralSelling", "LifeCycleSummaryNextStepsString")]] = None
+    TargetCloseDate: Optional[Annotated[str, _aws_pattern("PartnercentralSelling", "Date")]] = None
     ReviewStatus: Optional[ReviewStatusType] = None
     ReviewComments: Optional[str] = None
     ReviewStatusReason: Optional[str] = None
 
 
 class ListEngagementByAcceptingInvitationTaskSummaryTypeDef(BaseValidatorModel):
-    TaskId: Optional[str] = None
-    TaskArn: Optional[str] = None
+    TaskId: Optional[Annotated[str, _aws_pattern("PartnercentralSelling", "TaskIdentifier")]] = None
+    TaskArn: Optional[Annotated[str, _aws_pattern("PartnercentralSelling", "TaskArn")]] = None
     StartTime: Optional[datetime] = None
     TaskStatus: Optional[TaskStatusType] = None
     Message: Optional[str] = None
     ReasonCode: Optional[ReasonCodeType] = None
-    OpportunityId: Optional[str] = None
-    ResourceSnapshotJobId: Optional[str] = None
-    EngagementInvitationId: Optional[str] = None
+    OpportunityId: Optional[Annotated[str, _aws_pattern("PartnercentralSelling", "OpportunityIdentifier")]] = None
+    ResourceSnapshotJobId: Optional[
+        Annotated[str, _aws_pattern("PartnercentralSelling", "ResourceSnapshotJobIdentifier")]
+    ] = None
+    EngagementInvitationId: Optional[
+        Annotated[str, _aws_pattern("PartnercentralSelling", "EngagementInvitationIdentifier")]
+    ] = None
 
 
 class ListTasksSortBaseTypeDef(BaseValidatorModel):
@@ -343,16 +363,20 @@ class PaginatorConfigTypeDef(BaseValidatorModel):
 
 
 class ListEngagementFromOpportunityTaskSummaryTypeDef(BaseValidatorModel):
-    TaskId: Optional[str] = None
-    TaskArn: Optional[str] = None
+    TaskId: Optional[Annotated[str, _aws_pattern("PartnercentralSelling", "TaskIdentifier")]] = None
+    TaskArn: Optional[Annotated[str, _aws_pattern("PartnercentralSelling", "TaskArn")]] = None
     StartTime: Optional[datetime] = None
     TaskStatus: Optional[TaskStatusType] = None
     Message: Optional[str] = None
     ReasonCode: Optional[ReasonCodeType] = None
-    OpportunityId: Optional[str] = None
-    ResourceSnapshotJobId: Optional[str] = None
-    EngagementId: Optional[str] = None
-    EngagementInvitationId: Optional[str] = None
+    OpportunityId: Optional[Annotated[str, _aws_pattern("PartnercentralSelling", "OpportunityIdentifier")]] = None
+    ResourceSnapshotJobId: Optional[
+        Annotated[str, _aws_pattern("PartnercentralSelling", "ResourceSnapshotJobIdentifier")]
+    ] = None
+    EngagementId: Optional[Annotated[str, _aws_pattern("PartnercentralSelling", "EngagementIdentifier")]] = None
+    EngagementInvitationId: Optional[
+        Annotated[str, _aws_pattern("PartnercentralSelling", "EngagementInvitationIdentifier")]
+    ] = None
 
 
 class OpportunityEngagementInvitationSortTypeDef(BaseValidatorModel):
@@ -362,21 +386,21 @@ class OpportunityEngagementInvitationSortTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'list_engagement_members' function.
 class ListEngagementMembersRequestTypeDef(BaseValidatorModel):
-    Catalog: str
-    Identifier: str
+    Catalog: Annotated[str, _aws_pattern("PartnercentralSelling", "CatalogIdentifier")]
+    Identifier: Annotated[str, _aws_pattern("PartnercentralSelling", "EngagementArnOrIdentifier")]
     MaxResults: Optional[int] = None
     NextToken: Optional[str] = None
 
 
 # This class is the input for the 'list_engagement_resource_associations' function.
 class ListEngagementResourceAssociationsRequestTypeDef(BaseValidatorModel):
-    Catalog: str
+    Catalog: Annotated[str, _aws_pattern("PartnercentralSelling", "CatalogIdentifier")]
     MaxResults: Optional[int] = None
     NextToken: Optional[str] = None
-    EngagementIdentifier: Optional[str] = None
+    EngagementIdentifier: Optional[Annotated[str, _aws_pattern("PartnercentralSelling", "EngagementIdentifier")]] = None
     ResourceType: Optional[Literal["Opportunity"]] = None
-    ResourceIdentifier: Optional[str] = None
-    CreatedBy: Optional[str] = None
+    ResourceIdentifier: Optional[Annotated[str, _aws_pattern("PartnercentralSelling", "ResourceIdentifier")]] = None
+    CreatedBy: Optional[Annotated[str, _aws_pattern("PartnercentralSelling", "AwsAccount")]] = None
 
 
 class OpportunitySortTypeDef(BaseValidatorModel):
@@ -385,21 +409,23 @@ class OpportunitySortTypeDef(BaseValidatorModel):
 
 
 class TargetCloseDateFilterTypeDef(BaseValidatorModel):
-    AfterTargetCloseDate: Optional[str] = None
-    BeforeTargetCloseDate: Optional[str] = None
+    AfterTargetCloseDate: Optional[Annotated[str, _aws_pattern("PartnercentralSelling", "Date")]] = None
+    BeforeTargetCloseDate: Optional[Annotated[str, _aws_pattern("PartnercentralSelling", "Date")]] = None
 
 
 class ListOpportunityFromEngagementTaskSummaryTypeDef(BaseValidatorModel):
-    TaskId: Optional[str] = None
-    TaskArn: Optional[str] = None
+    TaskId: Optional[Annotated[str, _aws_pattern("PartnercentralSelling", "TaskIdentifier")]] = None
+    TaskArn: Optional[Annotated[str, _aws_pattern("PartnercentralSelling", "TaskArn")]] = None
     StartTime: Optional[datetime] = None
     TaskStatus: Optional[TaskStatusType] = None
     Message: Optional[str] = None
     ReasonCode: Optional[ReasonCodeType] = None
-    OpportunityId: Optional[str] = None
-    ResourceSnapshotJobId: Optional[str] = None
-    EngagementId: Optional[str] = None
-    ContextId: Optional[str] = None
+    OpportunityId: Optional[Annotated[str, _aws_pattern("PartnercentralSelling", "OpportunityIdentifier")]] = None
+    ResourceSnapshotJobId: Optional[
+        Annotated[str, _aws_pattern("PartnercentralSelling", "ResourceSnapshotJobIdentifier")]
+    ] = None
+    EngagementId: Optional[Annotated[str, _aws_pattern("PartnercentralSelling", "EngagementIdentifier")]] = None
+    ContextId: Optional[Annotated[str, _aws_pattern("PartnercentralSelling", "ContextIdentifier")]] = None
 
 
 class SortObjectTypeDef(BaseValidatorModel):
@@ -408,31 +434,35 @@ class SortObjectTypeDef(BaseValidatorModel):
 
 
 class ResourceSnapshotJobSummaryTypeDef(BaseValidatorModel):
-    Id: Optional[str] = None
-    Arn: Optional[str] = None
-    EngagementId: Optional[str] = None
+    Id: Optional[Annotated[str, _aws_pattern("PartnercentralSelling", "ResourceSnapshotJobIdentifier")]] = None
+    Arn: Optional[Annotated[str, _aws_pattern("PartnercentralSelling", "ResourceSnapshotJobArn")]] = None
+    EngagementId: Optional[Annotated[str, _aws_pattern("PartnercentralSelling", "EngagementIdentifier")]] = None
     Status: Optional[ResourceSnapshotJobStatusType] = None
 
 
 # This class is the input for the 'list_resource_snapshots' function.
 class ListResourceSnapshotsRequestTypeDef(BaseValidatorModel):
-    Catalog: str
-    EngagementIdentifier: str
+    Catalog: Annotated[str, _aws_pattern("PartnercentralSelling", "CatalogIdentifier")]
+    EngagementIdentifier: Annotated[str, _aws_pattern("PartnercentralSelling", "EngagementIdentifier")]
     MaxResults: Optional[int] = None
     NextToken: Optional[str] = None
     ResourceType: Optional[Literal["Opportunity"]] = None
-    ResourceIdentifier: Optional[str] = None
-    ResourceSnapshotTemplateIdentifier: Optional[str] = None
-    CreatedBy: Optional[str] = None
+    ResourceIdentifier: Optional[Annotated[str, _aws_pattern("PartnercentralSelling", "ResourceIdentifier")]] = None
+    ResourceSnapshotTemplateIdentifier: Optional[
+        Annotated[str, _aws_pattern("PartnercentralSelling", "ResourceTemplateName")]
+    ] = None
+    CreatedBy: Optional[Annotated[str, _aws_pattern("PartnercentralSelling", "AwsAccount")]] = None
 
 
 class ResourceSnapshotSummaryTypeDef(BaseValidatorModel):
-    Arn: Optional[str] = None
+    Arn: Optional[Annotated[str, _aws_pattern("PartnercentralSelling", "ResourceSnapshotArn")]] = None
     Revision: Optional[int] = None
     ResourceType: Optional[Literal["Opportunity"]] = None
-    ResourceId: Optional[str] = None
-    ResourceSnapshotTemplateName: Optional[str] = None
-    CreatedBy: Optional[str] = None
+    ResourceId: Optional[Annotated[str, _aws_pattern("PartnercentralSelling", "ResourceIdentifier")]] = None
+    ResourceSnapshotTemplateName: Optional[
+        Annotated[str, _aws_pattern("PartnercentralSelling", "ResourceTemplateName")]
+    ] = None
+    CreatedBy: Optional[Annotated[str, _aws_pattern("PartnercentralSelling", "AwsAccount")]] = None
 
 
 class SolutionSortTypeDef(BaseValidatorModel):
@@ -441,18 +471,18 @@ class SolutionSortTypeDef(BaseValidatorModel):
 
 
 class SolutionBaseTypeDef(BaseValidatorModel):
-    Catalog: str
-    Id: str
+    Catalog: Annotated[str, _aws_pattern("PartnercentralSelling", "CatalogIdentifier")]
+    Id: Annotated[str, _aws_pattern("PartnercentralSelling", "SolutionIdentifier")]
     Name: str
     Status: SolutionStatusType
     Category: str
     CreatedDate: datetime
-    Arn: Optional[str] = None
+    Arn: Optional[Annotated[str, _aws_pattern("PartnercentralSelling", "SolutionArn")]] = None
 
 
 # This class is the input for the 'list_tags_for_resource' function.
 class ListTagsForResourceRequestTypeDef(BaseValidatorModel):
-    ResourceArn: str
+    ResourceArn: Annotated[str, _aws_pattern("PartnercentralSelling", "TaggableResourceArn")]
 
 
 class MarketingTypeDef(BaseValidatorModel):
@@ -464,54 +494,60 @@ class MarketingTypeDef(BaseValidatorModel):
 
 
 class MonetaryValueTypeDef(BaseValidatorModel):
-    Amount: str
+    Amount: Annotated[str, _aws_pattern("PartnercentralSelling", "MonetaryValueAmountString")]
     CurrencyCode: CurrencyCodeType
 
 
 class SenderContactTypeDef(BaseValidatorModel):
-    Email: str
-    FirstName: Optional[str] = None
-    LastName: Optional[str] = None
-    BusinessTitle: Optional[str] = None
-    Phone: Optional[str] = None
+    Email: Annotated[str, _aws_pattern("PartnercentralSelling", "SenderContactEmail")]
+    FirstName: Optional[Annotated[str, _aws_pattern("PartnercentralSelling", "Name")]] = None
+    LastName: Optional[Annotated[str, _aws_pattern("PartnercentralSelling", "Name")]] = None
+    BusinessTitle: Optional[Annotated[str, _aws_pattern("PartnercentralSelling", "JobTitle")]] = None
+    Phone: Optional[Annotated[str, _aws_pattern("PartnercentralSelling", "PhoneNumber")]] = None
 
 
 # This class is the input for the 'put_selling_system_settings' function.
 class PutSellingSystemSettingsRequestTypeDef(BaseValidatorModel):
-    Catalog: str
-    ResourceSnapshotJobRoleIdentifier: Optional[str] = None
+    Catalog: Annotated[str, _aws_pattern("PartnercentralSelling", "CatalogIdentifier")]
+    ResourceSnapshotJobRoleIdentifier: Optional[
+        Annotated[str, _aws_pattern("PartnercentralSelling", "ResourceSnapshotJobRoleIdentifier")]
+    ] = None
 
 
 # This class is the input for the 'reject_engagement_invitation' function.
 class RejectEngagementInvitationRequestTypeDef(BaseValidatorModel):
-    Catalog: str
-    Identifier: str
-    RejectionReason: Optional[str] = None
+    Catalog: Annotated[str, _aws_pattern("PartnercentralSelling", "CatalogIdentifier")]
+    Identifier: Annotated[str, _aws_pattern("PartnercentralSelling", "EngagementInvitationArnOrIdentifier")]
+    RejectionReason: Optional[Annotated[str, _aws_pattern("PartnercentralSelling", "RejectionReasonString")]] = None
 
 
 # This class is the input for the 'start_resource_snapshot_job' function.
 class StartResourceSnapshotJobRequestTypeDef(BaseValidatorModel):
-    Catalog: str
-    ResourceSnapshotJobIdentifier: str
+    Catalog: Annotated[str, _aws_pattern("PartnercentralSelling", "CatalogIdentifier")]
+    ResourceSnapshotJobIdentifier: Annotated[
+        str, _aws_pattern("PartnercentralSelling", "ResourceSnapshotJobIdentifier")
+    ]
 
 
 # This class is the input for the 'stop_resource_snapshot_job' function.
 class StopResourceSnapshotJobRequestTypeDef(BaseValidatorModel):
-    Catalog: str
-    ResourceSnapshotJobIdentifier: str
+    Catalog: Annotated[str, _aws_pattern("PartnercentralSelling", "CatalogIdentifier")]
+    ResourceSnapshotJobIdentifier: Annotated[
+        str, _aws_pattern("PartnercentralSelling", "ResourceSnapshotJobIdentifier")
+    ]
 
 
 # This class is the input for the 'submit_opportunity' function.
 class SubmitOpportunityRequestTypeDef(BaseValidatorModel):
-    Catalog: str
-    Identifier: str
+    Catalog: Annotated[str, _aws_pattern("PartnercentralSelling", "CatalogIdentifier")]
+    Identifier: Annotated[str, _aws_pattern("PartnercentralSelling", "OpportunityIdentifier")]
     InvolvementType: SalesInvolvementTypeType
     Visibility: Optional[VisibilityType] = None
 
 
 class UntagResourceRequestTypeDef(BaseValidatorModel):
-    ResourceArn: str
-    TagKeys: List[str]
+    ResourceArn: Annotated[str, _aws_pattern("PartnercentralSelling", "TaggableResourceArn")]
+    TagKeys: List[Annotated[str, _aws_pattern("PartnercentralSelling", "TagKey")]]
 
 
 class ReceiverTypeDef(BaseValidatorModel):
@@ -519,36 +555,38 @@ class ReceiverTypeDef(BaseValidatorModel):
 
 
 class AccountSummaryTypeDef(BaseValidatorModel):
-    CompanyName: str
+    CompanyName: Annotated[str, _aws_pattern("PartnercentralSelling", "AccountSummaryCompanyNameString")]
     Industry: Optional[IndustryType] = None
-    OtherIndustry: Optional[str] = None
-    WebsiteUrl: Optional[str] = None
+    OtherIndustry: Optional[
+        Annotated[str, _aws_pattern("PartnercentralSelling", "AccountSummaryOtherIndustryString")]
+    ] = None
+    WebsiteUrl: Optional[Annotated[str, _aws_pattern("PartnercentralSelling", "WebsiteUrl")]] = None
     Address: Optional[AddressSummaryTypeDef] = None
 
 
 class LeadCustomerTypeDef(BaseValidatorModel):
-    CompanyName: str
+    CompanyName: Annotated[str, _aws_pattern("PartnercentralSelling", "CompanyName")]
     Address: AddressSummaryTypeDef
     Industry: Optional[IndustryType] = None
-    WebsiteUrl: Optional[str] = None
-    AwsMaturity: Optional[str] = None
+    WebsiteUrl: Optional[Annotated[str, _aws_pattern("PartnercentralSelling", "CompanyWebsiteUrl")]] = None
+    AwsMaturity: Optional[Annotated[str, _aws_pattern("PartnercentralSelling", "AwsMaturity")]] = None
     MarketSegment: Optional[MarketSegmentType] = None
 
 
 class AccountTypeDef(BaseValidatorModel):
-    CompanyName: str
+    CompanyName: Annotated[str, _aws_pattern("PartnercentralSelling", "AccountCompanyNameString")]
     Industry: Optional[IndustryType] = None
-    OtherIndustry: Optional[str] = None
-    WebsiteUrl: Optional[str] = None
-    AwsAccountId: Optional[str] = None
+    OtherIndustry: Optional[Annotated[str, _aws_pattern("PartnercentralSelling", "AccountOtherIndustryString")]] = None
+    WebsiteUrl: Optional[Annotated[str, _aws_pattern("PartnercentralSelling", "WebsiteUrl")]] = None
+    AwsAccountId: Optional[Annotated[str, _aws_pattern("PartnercentralSelling", "AwsAccount")]] = None
     Address: Optional[AddressTypeDef] = None
-    Duns: Optional[str] = None
+    Duns: Optional[Annotated[str, _aws_pattern("PartnercentralSelling", "DunsNumber")]] = None
 
 
 # This class is the input for the 'assign_opportunity' function.
 class AssignOpportunityRequestTypeDef(BaseValidatorModel):
-    Catalog: str
-    Identifier: str
+    Catalog: Annotated[str, _aws_pattern("PartnercentralSelling", "CatalogIdentifier")]
+    Identifier: Annotated[str, _aws_pattern("PartnercentralSelling", "OpportunityIdentifier")]
     Assignee: AssigneeContactTypeDef
 
 
@@ -557,10 +595,12 @@ class AwsOpportunityCustomerTypeDef(BaseValidatorModel):
 
 
 class AwsOpportunityLifeCycleTypeDef(BaseValidatorModel):
-    TargetCloseDate: Optional[str] = None
+    TargetCloseDate: Optional[Annotated[str, _aws_pattern("PartnercentralSelling", "Date")]] = None
     ClosedLostReason: Optional[AwsClosedLostReasonType] = None
     Stage: Optional[AwsOpportunityStageType] = None
-    NextSteps: Optional[str] = None
+    NextSteps: Optional[
+        Annotated[str, _aws_pattern("PartnercentralSelling", "AwsOpportunityLifeCycleNextStepsString")]
+    ] = None
     NextStepsHistory: Optional[List[ProfileNextStepsHistoryTypeDef]] = None
 
 
@@ -577,9 +617,9 @@ class ProjectDetailsOutputTypeDef(BaseValidatorModel):
 
 
 class ProjectDetailsTypeDef(BaseValidatorModel):
-    BusinessProblem: str
-    Title: str
-    TargetCompletionDate: str
+    BusinessProblem: Annotated[str, _aws_pattern("PartnercentralSelling", "EngagementCustomerBusinessProblem")]
+    Title: Annotated[str, _aws_pattern("PartnercentralSelling", "ProjectDetailsTitleString")]
+    TargetCompletionDate: Annotated[str, _aws_pattern("PartnercentralSelling", "Date")]
     ExpectedCustomerSpend: List[ExpectedCustomerSpendTypeDef]
 
 
@@ -607,16 +647,26 @@ class ProjectSummaryTypeDef(BaseValidatorModel):
 class ProjectTypeDef(BaseValidatorModel):
     DeliveryModels: Optional[List[DeliveryModelType]] = None
     ExpectedCustomerSpend: Optional[List[ExpectedCustomerSpendTypeDef]] = None
-    Title: Optional[str] = None
+    Title: Optional[Annotated[str, _aws_pattern("PartnercentralSelling", "ProjectTitleString")]] = None
     ApnPrograms: Optional[List[str]] = None
-    CustomerBusinessProblem: Optional[str] = None
+    CustomerBusinessProblem: Optional[
+        Annotated[str, _aws_pattern("PartnercentralSelling", "ProjectCustomerBusinessProblemString")]
+    ] = None
     CustomerUseCase: Optional[str] = None
-    RelatedOpportunityIdentifier: Optional[str] = None
+    RelatedOpportunityIdentifier: Optional[
+        Annotated[str, _aws_pattern("PartnercentralSelling", "OpportunityIdentifier")]
+    ] = None
     SalesActivities: Optional[List[SalesActivityType]] = None
     CompetitorName: Optional[CompetitorNameType] = None
-    OtherCompetitorNames: Optional[str] = None
-    OtherSolutionDescription: Optional[str] = None
-    AdditionalComments: Optional[str] = None
+    OtherCompetitorNames: Optional[
+        Annotated[str, _aws_pattern("PartnercentralSelling", "ProjectOtherCompetitorNamesString")]
+    ] = None
+    OtherSolutionDescription: Optional[
+        Annotated[str, _aws_pattern("PartnercentralSelling", "ProjectOtherSolutionDescriptionString")]
+    ] = None
+    AdditionalComments: Optional[
+        Annotated[str, _aws_pattern("PartnercentralSelling", "ProjectAdditionalCommentsString")]
+    ] = None
     AwsPartition: Optional[Literal["aws-eusc"]] = None
 
 
@@ -625,7 +675,9 @@ class ProjectViewTypeDef(BaseValidatorModel):
     ExpectedCustomerSpend: Optional[List[ExpectedCustomerSpendTypeDef]] = None
     CustomerUseCase: Optional[str] = None
     SalesActivities: Optional[List[SalesActivityType]] = None
-    OtherSolutionDescription: Optional[str] = None
+    OtherSolutionDescription: Optional[
+        Annotated[str, _aws_pattern("PartnercentralSelling", "ProjectViewOtherSolutionDescriptionString")]
+    ] = None
 
 
 class AwsProductDetailsTypeDef(BaseValidatorModel):
@@ -633,38 +685,38 @@ class AwsProductDetailsTypeDef(BaseValidatorModel):
     Categories: List[str]
     Optimizations: List[AwsProductOptimizationTypeDef]
     ServiceCode: Optional[str] = None
-    Amount: Optional[str] = None
-    OptimizedAmount: Optional[str] = None
-    PotentialSavingsAmount: Optional[str] = None
+    Amount: Optional[Annotated[str, _aws_pattern("PartnercentralSelling", "MonetaryAmount")]] = None
+    OptimizedAmount: Optional[Annotated[str, _aws_pattern("PartnercentralSelling", "MonetaryAmount")]] = None
+    PotentialSavingsAmount: Optional[Annotated[str, _aws_pattern("PartnercentralSelling", "MonetaryAmount")]] = None
 
 
 # This class is the output for the 'create_engagement_context' function.
 class CreateEngagementContextResponseTypeDef(BaseValidatorModel):
-    EngagementId: str
-    EngagementArn: str
+    EngagementId: Annotated[str, _aws_pattern("PartnercentralSelling", "EngagementIdentifier")]
+    EngagementArn: Annotated[str, _aws_pattern("PartnercentralSelling", "EngagementArn")]
     EngagementLastModifiedAt: datetime
-    ContextId: str
+    ContextId: Annotated[str, _aws_pattern("PartnercentralSelling", "EngagementContextIdentifier")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 # This class is the output for the 'create_engagement_invitation' function.
 class CreateEngagementInvitationResponseTypeDef(BaseValidatorModel):
-    Id: str
-    Arn: str
+    Id: Annotated[str, _aws_pattern("PartnercentralSelling", "EngagementInvitationIdentifier")]
+    Arn: Annotated[str, _aws_pattern("PartnercentralSelling", "EngagementInvitationArn")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 # This class is the output for the 'create_engagement' function.
 class CreateEngagementResponseTypeDef(BaseValidatorModel):
-    Id: str
-    Arn: str
+    Id: Annotated[str, _aws_pattern("PartnercentralSelling", "EngagementIdentifier")]
+    Arn: Annotated[str, _aws_pattern("PartnercentralSelling", "EngagementArn")]
     ModifiedAt: datetime
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 # This class is the output for the 'create_opportunity' function.
 class CreateOpportunityResponseTypeDef(BaseValidatorModel):
-    Id: str
+    Id: Annotated[str, _aws_pattern("PartnercentralSelling", "OpportunityIdentifier")]
     PartnerOpportunityIdentifier: str
     LastModifiedDate: datetime
     ResponseMetadata: ResponseMetadataTypeDef
@@ -672,14 +724,14 @@ class CreateOpportunityResponseTypeDef(BaseValidatorModel):
 
 # This class is the output for the 'create_resource_snapshot_job' function.
 class CreateResourceSnapshotJobResponseTypeDef(BaseValidatorModel):
-    Id: str
-    Arn: str
+    Id: Annotated[str, _aws_pattern("PartnercentralSelling", "ResourceSnapshotJobIdentifier")]
+    Arn: Annotated[str, _aws_pattern("PartnercentralSelling", "ResourceSnapshotJobArn")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 # This class is the output for the 'create_resource_snapshot' function.
 class CreateResourceSnapshotResponseTypeDef(BaseValidatorModel):
-    Arn: str
+    Arn: Annotated[str, _aws_pattern("PartnercentralSelling", "ResourceArn")]
     Revision: int
     ResponseMetadata: ResponseMetadataTypeDef
 
@@ -691,14 +743,14 @@ class EmptyResponseMetadataTypeDef(BaseValidatorModel):
 
 # This class is the output for the 'get_resource_snapshot_job' function.
 class GetResourceSnapshotJobResponseTypeDef(BaseValidatorModel):
-    Catalog: str
-    Id: str
-    Arn: str
-    EngagementId: str
+    Catalog: Annotated[str, _aws_pattern("PartnercentralSelling", "CatalogIdentifier")]
+    Id: Annotated[str, _aws_pattern("PartnercentralSelling", "ResourceSnapshotJobIdentifier")]
+    Arn: Annotated[str, _aws_pattern("PartnercentralSelling", "ResourceSnapshotJobArn")]
+    EngagementId: Annotated[str, _aws_pattern("PartnercentralSelling", "EngagementIdentifier")]
     ResourceType: Literal["Opportunity"]
-    ResourceId: str
-    ResourceArn: str
-    ResourceSnapshotTemplateName: str
+    ResourceId: Annotated[str, _aws_pattern("PartnercentralSelling", "ResourceIdentifier")]
+    ResourceArn: Annotated[str, _aws_pattern("PartnercentralSelling", "ResourceArn")]
+    ResourceSnapshotTemplateName: Annotated[str, _aws_pattern("PartnercentralSelling", "ResourceTemplateName")]
     CreatedAt: datetime
     Status: ResourceSnapshotJobStatusType
     LastSuccessfulExecutionDate: datetime
@@ -708,86 +760,86 @@ class GetResourceSnapshotJobResponseTypeDef(BaseValidatorModel):
 
 # This class is the output for the 'get_selling_system_settings' function.
 class GetSellingSystemSettingsResponseTypeDef(BaseValidatorModel):
-    Catalog: str
-    ResourceSnapshotJobRoleArn: str
+    Catalog: Annotated[str, _aws_pattern("PartnercentralSelling", "CatalogIdentifier")]
+    ResourceSnapshotJobRoleArn: Annotated[str, _aws_pattern("PartnercentralSelling", "ResourceSnapshotJobRoleArn")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 # This class is the output for the 'put_selling_system_settings' function.
 class PutSellingSystemSettingsResponseTypeDef(BaseValidatorModel):
-    Catalog: str
-    ResourceSnapshotJobRoleArn: str
+    Catalog: Annotated[str, _aws_pattern("PartnercentralSelling", "CatalogIdentifier")]
+    ResourceSnapshotJobRoleArn: Annotated[str, _aws_pattern("PartnercentralSelling", "ResourceSnapshotJobRoleArn")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 # This class is the output for the 'start_engagement_by_accepting_invitation_task' function.
 class StartEngagementByAcceptingInvitationTaskResponseTypeDef(BaseValidatorModel):
-    TaskId: str
-    TaskArn: str
+    TaskId: Annotated[str, _aws_pattern("PartnercentralSelling", "TaskIdentifier")]
+    TaskArn: Annotated[str, _aws_pattern("PartnercentralSelling", "TaskArn")]
     StartTime: datetime
     TaskStatus: TaskStatusType
     Message: str
     ReasonCode: ReasonCodeType
-    OpportunityId: str
-    ResourceSnapshotJobId: str
-    EngagementInvitationId: str
+    OpportunityId: Annotated[str, _aws_pattern("PartnercentralSelling", "OpportunityIdentifier")]
+    ResourceSnapshotJobId: Annotated[str, _aws_pattern("PartnercentralSelling", "ResourceSnapshotJobIdentifier")]
+    EngagementInvitationId: Annotated[str, _aws_pattern("PartnercentralSelling", "EngagementInvitationIdentifier")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 # This class is the output for the 'start_engagement_from_opportunity_task' function.
 class StartEngagementFromOpportunityTaskResponseTypeDef(BaseValidatorModel):
-    TaskId: str
-    TaskArn: str
+    TaskId: Annotated[str, _aws_pattern("PartnercentralSelling", "TaskIdentifier")]
+    TaskArn: Annotated[str, _aws_pattern("PartnercentralSelling", "TaskArn")]
     StartTime: datetime
     TaskStatus: TaskStatusType
     Message: str
     ReasonCode: ReasonCodeType
-    OpportunityId: str
-    ResourceSnapshotJobId: str
-    EngagementId: str
-    EngagementInvitationId: str
+    OpportunityId: Annotated[str, _aws_pattern("PartnercentralSelling", "OpportunityIdentifier")]
+    ResourceSnapshotJobId: Annotated[str, _aws_pattern("PartnercentralSelling", "ResourceSnapshotJobIdentifier")]
+    EngagementId: Annotated[str, _aws_pattern("PartnercentralSelling", "EngagementIdentifier")]
+    EngagementInvitationId: Annotated[str, _aws_pattern("PartnercentralSelling", "EngagementInvitationIdentifier")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 # This class is the output for the 'start_opportunity_from_engagement_task' function.
 class StartOpportunityFromEngagementTaskResponseTypeDef(BaseValidatorModel):
-    TaskId: str
-    TaskArn: str
+    TaskId: Annotated[str, _aws_pattern("PartnercentralSelling", "TaskIdentifier")]
+    TaskArn: Annotated[str, _aws_pattern("PartnercentralSelling", "TaskArn")]
     StartTime: datetime
     TaskStatus: TaskStatusType
     Message: str
     ReasonCode: ReasonCodeType
-    OpportunityId: str
-    ResourceSnapshotJobId: str
-    EngagementId: str
-    ContextId: str
+    OpportunityId: Annotated[str, _aws_pattern("PartnercentralSelling", "OpportunityIdentifier")]
+    ResourceSnapshotJobId: Annotated[str, _aws_pattern("PartnercentralSelling", "ResourceSnapshotJobIdentifier")]
+    EngagementId: Annotated[str, _aws_pattern("PartnercentralSelling", "EngagementIdentifier")]
+    ContextId: Annotated[str, _aws_pattern("PartnercentralSelling", "ContextIdentifier")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 # This class is the output for the 'update_engagement_context' function.
 class UpdateEngagementContextResponseTypeDef(BaseValidatorModel):
-    EngagementId: str
-    EngagementArn: str
+    EngagementId: Annotated[str, _aws_pattern("PartnercentralSelling", "EngagementIdentifier")]
+    EngagementArn: Annotated[str, _aws_pattern("PartnercentralSelling", "EngagementArn")]
     EngagementLastModifiedAt: datetime
-    ContextId: str
+    ContextId: Annotated[str, _aws_pattern("PartnercentralSelling", "EngagementContextIdentifier")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 # This class is the output for the 'update_opportunity' function.
 class UpdateOpportunityResponseTypeDef(BaseValidatorModel):
-    Id: str
+    Id: Annotated[str, _aws_pattern("PartnercentralSelling", "OpportunityIdentifier")]
     LastModifiedDate: datetime
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 # This class is the input for the 'create_resource_snapshot_job' function.
 class CreateResourceSnapshotJobRequestTypeDef(BaseValidatorModel):
-    Catalog: str
-    ClientToken: str
-    EngagementIdentifier: str
+    Catalog: Annotated[str, _aws_pattern("PartnercentralSelling", "CatalogIdentifier")]
+    ClientToken: Annotated[str, _aws_pattern("PartnercentralSelling", "ClientToken")]
+    EngagementIdentifier: Annotated[str, _aws_pattern("PartnercentralSelling", "EngagementIdentifier")]
     ResourceType: Literal["Opportunity"]
-    ResourceIdentifier: str
-    ResourceSnapshotTemplateIdentifier: str
+    ResourceIdentifier: Annotated[str, _aws_pattern("PartnercentralSelling", "ResourceIdentifier")]
+    ResourceSnapshotTemplateIdentifier: Annotated[str, _aws_pattern("PartnercentralSelling", "ResourceTemplateName")]
     Tags: Optional[List[TagTypeDef]] = None
 
 
@@ -799,32 +851,32 @@ class ListTagsForResourceResponseTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'start_engagement_by_accepting_invitation_task' function.
 class StartEngagementByAcceptingInvitationTaskRequestTypeDef(BaseValidatorModel):
-    Catalog: str
-    ClientToken: str
-    Identifier: str
+    Catalog: Annotated[str, _aws_pattern("PartnercentralSelling", "CatalogIdentifier")]
+    ClientToken: Annotated[str, _aws_pattern("PartnercentralSelling", "ClientToken")]
+    Identifier: Annotated[str, _aws_pattern("PartnercentralSelling", "EngagementInvitationArnOrIdentifier")]
     Tags: Optional[List[TagTypeDef]] = None
 
 
 # This class is the input for the 'start_engagement_from_opportunity_task' function.
 class StartEngagementFromOpportunityTaskRequestTypeDef(BaseValidatorModel):
-    Catalog: str
-    ClientToken: str
-    Identifier: str
+    Catalog: Annotated[str, _aws_pattern("PartnercentralSelling", "CatalogIdentifier")]
+    ClientToken: Annotated[str, _aws_pattern("PartnercentralSelling", "ClientToken")]
+    Identifier: Annotated[str, _aws_pattern("PartnercentralSelling", "OpportunityIdentifier")]
     AwsSubmission: AwsSubmissionTypeDef
     Tags: Optional[List[TagTypeDef]] = None
 
 
 # This class is the input for the 'start_opportunity_from_engagement_task' function.
 class StartOpportunityFromEngagementTaskRequestTypeDef(BaseValidatorModel):
-    Catalog: str
-    ClientToken: str
-    Identifier: str
-    ContextIdentifier: str
+    Catalog: Annotated[str, _aws_pattern("PartnercentralSelling", "CatalogIdentifier")]
+    ClientToken: Annotated[str, _aws_pattern("PartnercentralSelling", "ClientToken")]
+    Identifier: Annotated[str, _aws_pattern("PartnercentralSelling", "EngagementArnOrIdentifier")]
+    ContextIdentifier: Annotated[str, _aws_pattern("PartnercentralSelling", "ContextIdentifier")]
     Tags: Optional[List[TagTypeDef]] = None
 
 
 class TagResourceRequestTypeDef(BaseValidatorModel):
-    ResourceArn: str
+    ResourceArn: Annotated[str, _aws_pattern("PartnercentralSelling", "TaggableResourceArn")]
     Tags: List[TagTypeDef]
 
 
@@ -864,15 +916,17 @@ class ListEngagementResourceAssociationsResponseTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'list_engagements' function.
 class ListEngagementsRequestTypeDef(BaseValidatorModel):
-    Catalog: str
-    CreatedBy: Optional[List[str]] = None
-    ExcludeCreatedBy: Optional[List[str]] = None
+    Catalog: Annotated[str, _aws_pattern("PartnercentralSelling", "CatalogIdentifier")]
+    CreatedBy: Optional[List[Annotated[str, _aws_pattern("PartnercentralSelling", "AwsAccount")]]] = None
+    ExcludeCreatedBy: Optional[List[Annotated[str, _aws_pattern("PartnercentralSelling", "AwsAccount")]]] = None
     ContextTypes: Optional[List[EngagementContextTypeType]] = None
     ExcludeContextTypes: Optional[List[EngagementContextTypeType]] = None
     Sort: Optional[EngagementSortTypeDef] = None
     MaxResults: Optional[int] = None
     NextToken: Optional[str] = None
-    EngagementIdentifier: Optional[List[str]] = None
+    EngagementIdentifier: Optional[
+        List[Annotated[str, _aws_pattern("PartnercentralSelling", "EngagementArnOrIdentifier")]]
+    ] = None
 
 
 # This class is the output for the 'list_engagements' function.
@@ -894,14 +948,16 @@ class LeadInteractionOutputTypeDef(BaseValidatorModel):
 
 
 class LeadInteractionTypeDef(BaseValidatorModel):
-    SourceType: str
-    SourceId: str
-    SourceName: str
-    CustomerAction: str
+    SourceType: Annotated[str, _aws_pattern("PartnercentralSelling", "LeadSourceType")]
+    SourceId: Annotated[str, _aws_pattern("PartnercentralSelling", "LeadSourceId")]
+    SourceName: Annotated[str, _aws_pattern("PartnercentralSelling", "LeadSourceName")]
+    CustomerAction: Annotated[str, _aws_pattern("PartnercentralSelling", "CustomerAction")]
     Contact: LeadContactTypeDef
-    Usecase: Optional[str] = None
+    Usecase: Optional[Annotated[str, _aws_pattern("PartnercentralSelling", "EngagementUseCase")]] = None
     InteractionDate: Optional[TimestampTypeDef] = None
-    BusinessProblem: Optional[str] = None
+    BusinessProblem: Optional[
+        Annotated[str, _aws_pattern("PartnercentralSelling", "EngagementCustomerBusinessProblem")]
+    ] = None
 
 
 class LeadInvitationPayloadTypeDef(BaseValidatorModel):
@@ -929,39 +985,63 @@ class ListEngagementByAcceptingInvitationTasksResponseTypeDef(BaseValidatorModel
 
 # This class is the input for the 'list_engagement_by_accepting_invitation_tasks' function.
 class ListEngagementByAcceptingInvitationTasksRequestTypeDef(BaseValidatorModel):
-    Catalog: str
+    Catalog: Annotated[str, _aws_pattern("PartnercentralSelling", "CatalogIdentifier")]
     MaxResults: Optional[int] = None
-    NextToken: Optional[str] = None
+    NextToken: Optional[
+        Annotated[
+            str, _aws_pattern("PartnercentralSelling", "ListEngagementByAcceptingInvitationTasksRequestNextTokenString")
+        ]
+    ] = None
     Sort: Optional[ListTasksSortBaseTypeDef] = None
     TaskStatus: Optional[List[TaskStatusType]] = None
-    OpportunityIdentifier: Optional[List[str]] = None
-    EngagementInvitationIdentifier: Optional[List[str]] = None
-    TaskIdentifier: Optional[List[str]] = None
+    OpportunityIdentifier: Optional[
+        List[Annotated[str, _aws_pattern("PartnercentralSelling", "OpportunityIdentifier")]]
+    ] = None
+    EngagementInvitationIdentifier: Optional[
+        List[Annotated[str, _aws_pattern("PartnercentralSelling", "EngagementInvitationArnOrIdentifier")]]
+    ] = None
+    TaskIdentifier: Optional[List[Annotated[str, _aws_pattern("PartnercentralSelling", "TaskArnOrIdentifier")]]] = None
 
 
 # This class is the input for the 'list_engagement_from_opportunity_tasks' function.
 class ListEngagementFromOpportunityTasksRequestTypeDef(BaseValidatorModel):
-    Catalog: str
+    Catalog: Annotated[str, _aws_pattern("PartnercentralSelling", "CatalogIdentifier")]
     MaxResults: Optional[int] = None
-    NextToken: Optional[str] = None
+    NextToken: Optional[
+        Annotated[
+            str, _aws_pattern("PartnercentralSelling", "ListEngagementFromOpportunityTasksRequestNextTokenString")
+        ]
+    ] = None
     Sort: Optional[ListTasksSortBaseTypeDef] = None
     TaskStatus: Optional[List[TaskStatusType]] = None
-    TaskIdentifier: Optional[List[str]] = None
-    OpportunityIdentifier: Optional[List[str]] = None
-    EngagementIdentifier: Optional[List[str]] = None
+    TaskIdentifier: Optional[List[Annotated[str, _aws_pattern("PartnercentralSelling", "TaskArnOrIdentifier")]]] = None
+    OpportunityIdentifier: Optional[
+        List[Annotated[str, _aws_pattern("PartnercentralSelling", "OpportunityIdentifier")]]
+    ] = None
+    EngagementIdentifier: Optional[
+        List[Annotated[str, _aws_pattern("PartnercentralSelling", "EngagementArnOrIdentifier")]]
+    ] = None
 
 
 # This class is the input for the 'list_opportunity_from_engagement_tasks' function.
 class ListOpportunityFromEngagementTasksRequestTypeDef(BaseValidatorModel):
-    Catalog: str
+    Catalog: Annotated[str, _aws_pattern("PartnercentralSelling", "CatalogIdentifier")]
     MaxResults: Optional[int] = None
-    NextToken: Optional[str] = None
+    NextToken: Optional[
+        Annotated[
+            str, _aws_pattern("PartnercentralSelling", "ListOpportunityFromEngagementTasksRequestNextTokenString")
+        ]
+    ] = None
     Sort: Optional[ListTasksSortBaseTypeDef] = None
     TaskStatus: Optional[List[TaskStatusType]] = None
-    TaskIdentifier: Optional[List[str]] = None
-    OpportunityIdentifier: Optional[List[str]] = None
-    EngagementIdentifier: Optional[List[str]] = None
-    ContextIdentifier: Optional[List[str]] = None
+    TaskIdentifier: Optional[List[Annotated[str, _aws_pattern("PartnercentralSelling", "TaskArnOrIdentifier")]]] = None
+    OpportunityIdentifier: Optional[
+        List[Annotated[str, _aws_pattern("PartnercentralSelling", "OpportunityIdentifier")]]
+    ] = None
+    EngagementIdentifier: Optional[
+        List[Annotated[str, _aws_pattern("PartnercentralSelling", "EngagementArnOrIdentifier")]]
+    ] = None
+    ContextIdentifier: Optional[List[Annotated[str, _aws_pattern("PartnercentralSelling", "ContextIdentifier")]]] = None
 
 
 class ListEngagementByAcceptingInvitationTasksRequestPaginateTypeDef(BaseValidatorModel):
@@ -1051,15 +1131,17 @@ class ListEngagementInvitationsRequestPaginateTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'list_engagement_invitations' function.
 class ListEngagementInvitationsRequestTypeDef(BaseValidatorModel):
-    Catalog: str
+    Catalog: Annotated[str, _aws_pattern("PartnercentralSelling", "CatalogIdentifier")]
     ParticipantType: ParticipantTypeType
     MaxResults: Optional[int] = None
     NextToken: Optional[str] = None
     Sort: Optional[OpportunityEngagementInvitationSortTypeDef] = None
     PayloadType: Optional[List[EngagementInvitationPayloadTypeType]] = None
     Status: Optional[List[InvitationStatusType]] = None
-    EngagementIdentifier: Optional[List[str]] = None
-    SenderAwsAccountId: Optional[List[str]] = None
+    EngagementIdentifier: Optional[
+        List[Annotated[str, _aws_pattern("PartnercentralSelling", "EngagementArnOrIdentifier")]]
+    ] = None
+    SenderAwsAccountId: Optional[List[Annotated[str, _aws_pattern("PartnercentralSelling", "AwsAccount")]]] = None
 
 
 # This class is the output for the 'list_opportunity_from_engagement_tasks' function.
@@ -1079,10 +1161,10 @@ class ListResourceSnapshotJobsRequestPaginateTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'list_resource_snapshot_jobs' function.
 class ListResourceSnapshotJobsRequestTypeDef(BaseValidatorModel):
-    Catalog: str
+    Catalog: Annotated[str, _aws_pattern("PartnercentralSelling", "CatalogIdentifier")]
     MaxResults: Optional[int] = None
     NextToken: Optional[str] = None
-    EngagementIdentifier: Optional[str] = None
+    EngagementIdentifier: Optional[Annotated[str, _aws_pattern("PartnercentralSelling", "EngagementIdentifier")]] = None
     Status: Optional[ResourceSnapshotJobStatusType] = None
     Sort: Optional[SortObjectTypeDef] = None
 
@@ -1112,12 +1194,12 @@ class ListSolutionsRequestPaginateTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'list_solutions' function.
 class ListSolutionsRequestTypeDef(BaseValidatorModel):
-    Catalog: str
+    Catalog: Annotated[str, _aws_pattern("PartnercentralSelling", "CatalogIdentifier")]
     MaxResults: Optional[int] = None
     NextToken: Optional[str] = None
     Sort: Optional[SolutionSortTypeDef] = None
     Status: Optional[List[SolutionStatusType]] = None
-    Identifier: Optional[List[str]] = None
+    Identifier: Optional[List[Annotated[str, _aws_pattern("PartnercentralSelling", "SolutionIdentifier")]]] = None
     Category: Optional[List[str]] = None
 
 
@@ -1134,22 +1216,24 @@ MarketingUnionTypeDef = Union[MarketingOutputTypeDef, MarketingTypeDef]
 class SoftwareRevenueTypeDef(BaseValidatorModel):
     DeliveryModel: Optional[RevenueModelType] = None
     Value: Optional[MonetaryValueTypeDef] = None
-    EffectiveDate: Optional[str] = None
-    ExpirationDate: Optional[str] = None
+    EffectiveDate: Optional[Annotated[str, _aws_pattern("PartnercentralSelling", "Date")]] = None
+    ExpirationDate: Optional[Annotated[str, _aws_pattern("PartnercentralSelling", "Date")]] = None
 
 
 class EngagementInvitationSummaryTypeDef(BaseValidatorModel):
-    Id: str
-    Catalog: str
+    Id: Annotated[str, _aws_pattern("PartnercentralSelling", "EngagementInvitationArnOrIdentifier")]
+    Catalog: Annotated[str, _aws_pattern("PartnercentralSelling", "CatalogIdentifier")]
     Arn: Optional[str] = None
     PayloadType: Optional[EngagementInvitationPayloadTypeType] = None
-    EngagementId: Optional[str] = None
-    EngagementTitle: Optional[str] = None
+    EngagementId: Optional[Annotated[str, _aws_pattern("PartnercentralSelling", "EngagementIdentifier")]] = None
+    EngagementTitle: Optional[Annotated[str, _aws_pattern("PartnercentralSelling", "EngagementTitle")]] = None
     Status: Optional[InvitationStatusType] = None
     InvitationDate: Optional[datetime] = None
     ExpirationDate: Optional[datetime] = None
-    SenderAwsAccountId: Optional[str] = None
-    SenderCompanyName: Optional[str] = None
+    SenderAwsAccountId: Optional[Annotated[str, _aws_pattern("PartnercentralSelling", "AwsAccount")]] = None
+    SenderCompanyName: Optional[
+        Annotated[str, _aws_pattern("PartnercentralSelling", "EngagementInvitationSummarySenderCompanyNameString")]
+    ] = None
     Receiver: Optional[ReceiverTypeDef] = None
     ParticipantType: Optional[ParticipantTypeType] = None
 
@@ -1185,9 +1269,11 @@ class AwsProductInsightsTypeDef(BaseValidatorModel):
     Frequency: Literal["Monthly"]
     TotalAmountByCategory: Dict[str, str]
     AwsProducts: List[AwsProductDetailsTypeDef]
-    TotalAmount: Optional[str] = None
-    TotalOptimizedAmount: Optional[str] = None
-    TotalPotentialSavingsAmount: Optional[str] = None
+    TotalAmount: Optional[Annotated[str, _aws_pattern("PartnercentralSelling", "MonetaryAmount")]] = None
+    TotalOptimizedAmount: Optional[Annotated[str, _aws_pattern("PartnercentralSelling", "MonetaryAmount")]] = None
+    TotalPotentialSavingsAmount: Optional[Annotated[str, _aws_pattern("PartnercentralSelling", "MonetaryAmount")]] = (
+        None
+    )
 
 
 class ListOpportunitiesRequestPaginateTypeDef(BaseValidatorModel):
@@ -1205,12 +1291,12 @@ class ListOpportunitiesRequestPaginateTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'list_opportunities' function.
 class ListOpportunitiesRequestTypeDef(BaseValidatorModel):
-    Catalog: str
+    Catalog: Annotated[str, _aws_pattern("PartnercentralSelling", "CatalogIdentifier")]
     MaxResults: Optional[int] = None
     NextToken: Optional[str] = None
     Sort: Optional[OpportunitySortTypeDef] = None
     LastModifiedDate: Optional[LastModifiedDateTypeDef] = None
-    Identifier: Optional[List[str]] = None
+    Identifier: Optional[List[Annotated[str, _aws_pattern("PartnercentralSelling", "OpportunityIdentifier")]]] = None
     LifeCycleStage: Optional[List[StageType]] = None
     LifeCycleReviewStatus: Optional[List[ReviewStatusType]] = None
     CustomerCompanyName: Optional[List[str]] = None
@@ -1221,8 +1307,8 @@ class ListOpportunitiesRequestTypeDef(BaseValidatorModel):
 class LifeCycleTypeDef(BaseValidatorModel):
     Stage: Optional[StageType] = None
     ClosedLostReason: Optional[ClosedLostReasonType] = None
-    NextSteps: Optional[str] = None
-    TargetCloseDate: Optional[str] = None
+    NextSteps: Optional[Annotated[str, _aws_pattern("PartnercentralSelling", "LifeCycleNextStepsString")]] = None
+    TargetCloseDate: Optional[Annotated[str, _aws_pattern("PartnercentralSelling", "Date")]] = None
     ReviewStatus: Optional[ReviewStatusType] = None
     ReviewComments: Optional[str] = None
     ReviewStatusReason: Optional[str] = None
@@ -1246,9 +1332,9 @@ class ListEngagementInvitationsResponseTypeDef(BaseValidatorModel):
 
 
 class OpportunitySummaryTypeDef(BaseValidatorModel):
-    Catalog: str
-    Id: Optional[str] = None
-    Arn: Optional[str] = None
+    Catalog: Annotated[str, _aws_pattern("PartnercentralSelling", "CatalogIdentifier")]
+    Id: Optional[Annotated[str, _aws_pattern("PartnercentralSelling", "OpportunityIdentifier")]] = None
+    Arn: Optional[Annotated[str, _aws_pattern("PartnercentralSelling", "OpportunityArn")]] = None
     PartnerOpportunityIdentifier: Optional[str] = None
     OpportunityType: Optional[OpportunityTypeType] = None
     LastModifiedDate: Optional[datetime] = None
@@ -1260,17 +1346,19 @@ class OpportunitySummaryTypeDef(BaseValidatorModel):
 
 # This class is the output for the 'get_opportunity' function.
 class GetOpportunityResponseTypeDef(BaseValidatorModel):
-    Catalog: str
+    Catalog: Annotated[str, _aws_pattern("PartnercentralSelling", "CatalogIdentifier")]
     PrimaryNeedsFromAws: List[PrimaryNeedFromAwsType]
     NationalSecurity: NationalSecurityType
-    PartnerOpportunityIdentifier: str
+    PartnerOpportunityIdentifier: Annotated[
+        str, _aws_pattern("PartnercentralSelling", "GetOpportunityResponsePartnerOpportunityIdentifierString")
+    ]
     Customer: CustomerOutputTypeDef
     Project: ProjectOutputTypeDef
     OpportunityType: OpportunityTypeType
     Marketing: MarketingOutputTypeDef
     SoftwareRevenue: SoftwareRevenueTypeDef
-    Id: str
-    Arn: str
+    Id: Annotated[str, _aws_pattern("PartnercentralSelling", "OpportunityIdentifier")]
+    Arn: Annotated[str, _aws_pattern("PartnercentralSelling", "OpportunityArn")]
     LastModifiedDate: datetime
     CreatedDate: datetime
     RelatedEntityIdentifiers: RelatedEntityIdentifiersTypeDef
@@ -1320,12 +1408,16 @@ class EngagementContextPayloadOutputTypeDef(BaseValidatorModel):
 class LeadContextTypeDef(BaseValidatorModel):
     Customer: LeadCustomerTypeDef
     Interactions: List[LeadInteractionUnionTypeDef]
-    QualificationStatus: Optional[str] = None
+    QualificationStatus: Optional[Annotated[str, _aws_pattern("PartnercentralSelling", "LeadQualificationStatus")]] = (
+        None
+    )
 
 
 class UpdateLeadContextTypeDef(BaseValidatorModel):
     Customer: LeadCustomerTypeDef
-    QualificationStatus: Optional[str] = None
+    QualificationStatus: Optional[Annotated[str, _aws_pattern("PartnercentralSelling", "LeadQualificationStatus")]] = (
+        None
+    )
     Interaction: Optional[LeadInteractionUnionTypeDef] = None
 
 
@@ -1340,20 +1432,22 @@ class ListOpportunitiesResponseTypeDef(BaseValidatorModel):
 class GetEngagementInvitationResponseTypeDef(BaseValidatorModel):
     Arn: str
     PayloadType: EngagementInvitationPayloadTypeType
-    Id: str
-    EngagementId: str
-    EngagementTitle: str
+    Id: Annotated[str, _aws_pattern("PartnercentralSelling", "EngagementInvitationArnOrIdentifier")]
+    EngagementId: Annotated[str, _aws_pattern("PartnercentralSelling", "EngagementIdentifier")]
+    EngagementTitle: Annotated[str, _aws_pattern("PartnercentralSelling", "EngagementTitle")]
     Status: InvitationStatusType
     InvitationDate: datetime
     ExpirationDate: datetime
-    SenderAwsAccountId: str
-    SenderCompanyName: str
+    SenderAwsAccountId: Annotated[str, _aws_pattern("PartnercentralSelling", "AwsAccount")]
+    SenderCompanyName: Annotated[
+        str, _aws_pattern("PartnercentralSelling", "GetEngagementInvitationResponseSenderCompanyNameString")
+    ]
     Receiver: ReceiverTypeDef
-    Catalog: str
-    RejectionReason: str
+    Catalog: Annotated[str, _aws_pattern("PartnercentralSelling", "CatalogIdentifier")]
+    RejectionReason: Annotated[str, _aws_pattern("PartnercentralSelling", "RejectionReasonString")]
     Payload: PayloadOutputTypeDef
-    InvitationMessage: str
-    EngagementDescription: str
+    InvitationMessage: Annotated[str, _aws_pattern("PartnercentralSelling", "InvitationMessage")]
+    EngagementDescription: Annotated[str, _aws_pattern("PartnercentralSelling", "EngagementDescription")]
     ExistingMembers: List[EngagementMemberSummaryTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
 
@@ -1371,11 +1465,15 @@ class AwsOpportunityInsightsTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'create_opportunity' function.
 class CreateOpportunityRequestTypeDef(BaseValidatorModel):
-    Catalog: str
-    ClientToken: str
+    Catalog: Annotated[str, _aws_pattern("PartnercentralSelling", "CatalogIdentifier")]
+    ClientToken: Annotated[str, _aws_pattern("PartnercentralSelling", "ClientToken")]
     PrimaryNeedsFromAws: Optional[List[PrimaryNeedFromAwsType]] = None
     NationalSecurity: Optional[NationalSecurityType] = None
-    PartnerOpportunityIdentifier: Optional[str] = None
+    PartnerOpportunityIdentifier: Optional[
+        Annotated[
+            str, _aws_pattern("PartnercentralSelling", "CreateOpportunityRequestPartnerOpportunityIdentifierString")
+        ]
+    ] = None
     Customer: Optional[CustomerUnionTypeDef] = None
     Project: Optional[ProjectUnionTypeDef] = None
     OpportunityType: Optional[OpportunityTypeType] = None
@@ -1389,12 +1487,16 @@ class CreateOpportunityRequestTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'update_opportunity' function.
 class UpdateOpportunityRequestTypeDef(BaseValidatorModel):
-    Catalog: str
+    Catalog: Annotated[str, _aws_pattern("PartnercentralSelling", "CatalogIdentifier")]
     LastModifiedDate: TimestampTypeDef
-    Identifier: str
+    Identifier: Annotated[str, _aws_pattern("PartnercentralSelling", "OpportunityIdentifier")]
     PrimaryNeedsFromAws: Optional[List[PrimaryNeedFromAwsType]] = None
     NationalSecurity: Optional[NationalSecurityType] = None
-    PartnerOpportunityIdentifier: Optional[str] = None
+    PartnerOpportunityIdentifier: Optional[
+        Annotated[
+            str, _aws_pattern("PartnercentralSelling", "UpdateOpportunityRequestPartnerOpportunityIdentifierString")
+        ]
+    ] = None
     Customer: Optional[CustomerUnionTypeDef] = None
     Project: Optional[ProjectUnionTypeDef] = None
     OpportunityType: Optional[OpportunityTypeType] = None
@@ -1423,7 +1525,9 @@ class PayloadTypeDef(BaseValidatorModel):
 
 
 class AwsOpportunitySummaryFullViewTypeDef(BaseValidatorModel):
-    RelatedOpportunityId: Optional[str] = None
+    RelatedOpportunityId: Optional[Annotated[str, _aws_pattern("PartnercentralSelling", "OpportunityIdentifier")]] = (
+        None
+    )
     Origin: Optional[OpportunityOriginType] = None
     InvolvementType: Optional[SalesInvolvementTypeType] = None
     Visibility: Optional[VisibilityType] = None
@@ -1438,7 +1542,7 @@ class AwsOpportunitySummaryFullViewTypeDef(BaseValidatorModel):
 
 # This class is the output for the 'get_aws_opportunity_summary' function.
 class GetAwsOpportunitySummaryResponseTypeDef(BaseValidatorModel):
-    RelatedOpportunityId: str
+    RelatedOpportunityId: Annotated[str, _aws_pattern("PartnercentralSelling", "OpportunityIdentifier")]
     Origin: OpportunityOriginType
     InvolvementType: SalesInvolvementTypeType
     Visibility: VisibilityType
@@ -1449,21 +1553,21 @@ class GetAwsOpportunitySummaryResponseTypeDef(BaseValidatorModel):
     RelatedEntityIds: AwsOpportunityRelatedEntitiesTypeDef
     Customer: AwsOpportunityCustomerTypeDef
     Project: AwsOpportunityProjectTypeDef
-    Catalog: str
+    Catalog: Annotated[str, _aws_pattern("PartnercentralSelling", "CatalogIdentifier")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 # This class is the output for the 'get_engagement' function.
 class GetEngagementResponseTypeDef(BaseValidatorModel):
-    Id: str
-    Arn: str
-    Title: str
-    Description: str
+    Id: Annotated[str, _aws_pattern("PartnercentralSelling", "EngagementIdentifier")]
+    Arn: Annotated[str, _aws_pattern("PartnercentralSelling", "EngagementArn")]
+    Title: Annotated[str, _aws_pattern("PartnercentralSelling", "EngagementTitle")]
+    Description: Annotated[str, _aws_pattern("PartnercentralSelling", "EngagementDescription")]
     CreatedAt: datetime
-    CreatedBy: str
+    CreatedBy: Annotated[str, _aws_pattern("PartnercentralSelling", "AwsAccount")]
     MemberCount: int
     ModifiedAt: datetime
-    ModifiedBy: str
+    ModifiedBy: Annotated[str, _aws_pattern("PartnercentralSelling", "AwsAccount")]
     Contexts: List[EngagementContextDetailsOutputTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
 
@@ -1475,9 +1579,9 @@ class EngagementContextPayloadTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'update_engagement_context' function.
 class UpdateEngagementContextRequestTypeDef(BaseValidatorModel):
-    Catalog: str
-    EngagementIdentifier: str
-    ContextIdentifier: str
+    Catalog: Annotated[str, _aws_pattern("PartnercentralSelling", "CatalogIdentifier")]
+    EngagementIdentifier: Annotated[str, _aws_pattern("PartnercentralSelling", "EngagementArnOrIdentifier")]
+    ContextIdentifier: Annotated[str, _aws_pattern("PartnercentralSelling", "EngagementContextIdentifier")]
     EngagementLastModifiedAt: TimestampTypeDef
     Type: EngagementContextTypeType
     Payload: UpdateEngagementContextPayloadTypeDef
@@ -1495,47 +1599,47 @@ EngagementContextPayloadUnionTypeDef = Union[EngagementContextPayloadOutputTypeD
 
 
 class InvitationTypeDef(BaseValidatorModel):
-    Message: str
+    Message: Annotated[str, _aws_pattern("PartnercentralSelling", "InvitationMessage")]
     Receiver: ReceiverTypeDef
     Payload: PayloadUnionTypeDef
 
 
 # This class is the output for the 'get_resource_snapshot' function.
 class GetResourceSnapshotResponseTypeDef(BaseValidatorModel):
-    Catalog: str
-    Arn: str
-    CreatedBy: str
+    Catalog: Annotated[str, _aws_pattern("PartnercentralSelling", "CatalogIdentifier")]
+    Arn: Annotated[str, _aws_pattern("PartnercentralSelling", "ResourceArn")]
+    CreatedBy: Annotated[str, _aws_pattern("PartnercentralSelling", "AwsAccount")]
     CreatedAt: datetime
-    EngagementId: str
+    EngagementId: Annotated[str, _aws_pattern("PartnercentralSelling", "EngagementIdentifier")]
     ResourceType: Literal["Opportunity"]
-    ResourceId: str
-    ResourceSnapshotTemplateName: str
+    ResourceId: Annotated[str, _aws_pattern("PartnercentralSelling", "ResourceIdentifier")]
+    ResourceSnapshotTemplateName: Annotated[str, _aws_pattern("PartnercentralSelling", "ResourceTemplateName")]
     Revision: int
     Payload: ResourceSnapshotPayloadTypeDef
-    TargetMemberAccounts: List[str]
+    TargetMemberAccounts: List[Annotated[str, _aws_pattern("PartnercentralSelling", "AwsAccount")]]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 # This class is the input for the 'create_engagement_context' function.
 class CreateEngagementContextRequestTypeDef(BaseValidatorModel):
-    Catalog: str
-    EngagementIdentifier: str
-    ClientToken: str
+    Catalog: Annotated[str, _aws_pattern("PartnercentralSelling", "CatalogIdentifier")]
+    EngagementIdentifier: Annotated[str, _aws_pattern("PartnercentralSelling", "EngagementArnOrIdentifier")]
+    ClientToken: Annotated[str, _aws_pattern("PartnercentralSelling", "ClientToken")]
     Type: EngagementContextTypeType
     Payload: EngagementContextPayloadUnionTypeDef
 
 
 class EngagementContextDetailsTypeDef(BaseValidatorModel):
     Type: EngagementContextTypeType
-    Id: Optional[str] = None
+    Id: Optional[Annotated[str, _aws_pattern("PartnercentralSelling", "EngagementContextIdentifier")]] = None
     Payload: Optional[EngagementContextPayloadUnionTypeDef] = None
 
 
 # This class is the input for the 'create_engagement_invitation' function.
 class CreateEngagementInvitationRequestTypeDef(BaseValidatorModel):
-    Catalog: str
-    ClientToken: str
-    EngagementIdentifier: str
+    Catalog: Annotated[str, _aws_pattern("PartnercentralSelling", "CatalogIdentifier")]
+    ClientToken: Annotated[str, _aws_pattern("PartnercentralSelling", "ClientToken")]
+    EngagementIdentifier: Annotated[str, _aws_pattern("PartnercentralSelling", "EngagementIdentifier")]
     Invitation: InvitationTypeDef
 
 
@@ -1544,8 +1648,8 @@ EngagementContextDetailsUnionTypeDef = Union[EngagementContextDetailsOutputTypeD
 
 # This class is the input for the 'create_engagement' function.
 class CreateEngagementRequestTypeDef(BaseValidatorModel):
-    Catalog: str
-    ClientToken: str
-    Title: str
-    Description: str
+    Catalog: Annotated[str, _aws_pattern("PartnercentralSelling", "CatalogIdentifier")]
+    ClientToken: Annotated[str, _aws_pattern("PartnercentralSelling", "ClientToken")]
+    Title: Annotated[str, _aws_pattern("PartnercentralSelling", "EngagementTitle")]
+    Description: Annotated[str, _aws_pattern("PartnercentralSelling", "EngagementDescription")]
     Contexts: Optional[List[EngagementContextDetailsUnionTypeDef]] = None

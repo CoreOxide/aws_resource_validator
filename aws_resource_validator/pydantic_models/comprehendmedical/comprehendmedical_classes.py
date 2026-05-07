@@ -3,6 +3,7 @@
 from datetime import datetime
 from decimal import Decimal
 from typing import (
+    Annotated,
     Any,
     Callable,
     Dict,
@@ -24,6 +25,7 @@ from botocore.response import StreamingBody
 from pydantic import Field
 
 from aws_resource_validator.core.base_validator_model import BaseValidatorModel, EventStream
+from aws_resource_validator.core.pattern_validation import aws_field_pattern as _aws_pattern
 from aws_resource_validator.pydantic_models.comprehendmedical.comprehendmedical_constants import *  # noqa: F401,F403
 
 # Optional boto3 symbols — imported lazily so services that don't need them
@@ -51,18 +53,18 @@ TimestampTypeDef = Union[datetime, str]
 
 
 class InputDataConfigTypeDef(BaseValidatorModel):
-    S3Bucket: str
-    S3Key: Optional[str] = None
+    S3Bucket: Annotated[str, _aws_pattern("Comprehendmedical", "S3Bucket")]
+    S3Key: Optional[Annotated[str, _aws_pattern("Comprehendmedical", "S3Key")]] = None
 
 
 class OutputDataConfigTypeDef(BaseValidatorModel):
-    S3Bucket: str
-    S3Key: Optional[str] = None
+    S3Bucket: Annotated[str, _aws_pattern("Comprehendmedical", "S3Bucket")]
+    S3Key: Optional[Annotated[str, _aws_pattern("Comprehendmedical", "S3Key")]] = None
 
 
 # This class is the input for the 'describe_entities_detection_v2_job' function.
 class DescribeEntitiesDetectionV2JobRequestTypeDef(BaseValidatorModel):
-    JobId: str
+    JobId: Annotated[str, _aws_pattern("Comprehendmedical", "JobId")]
 
 
 class ResponseMetadataTypeDef(BaseValidatorModel):
@@ -75,22 +77,22 @@ class ResponseMetadataTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'describe_icd10_cm_inference_job' function.
 class DescribeICD10CMInferenceJobRequestTypeDef(BaseValidatorModel):
-    JobId: str
+    JobId: Annotated[str, _aws_pattern("Comprehendmedical", "JobId")]
 
 
 # This class is the input for the 'describe_phi_detection_job' function.
 class DescribePHIDetectionJobRequestTypeDef(BaseValidatorModel):
-    JobId: str
+    JobId: Annotated[str, _aws_pattern("Comprehendmedical", "JobId")]
 
 
 # This class is the input for the 'describe_rx_norm_inference_job' function.
 class DescribeRxNormInferenceJobRequestTypeDef(BaseValidatorModel):
-    JobId: str
+    JobId: Annotated[str, _aws_pattern("Comprehendmedical", "JobId")]
 
 
 # This class is the input for the 'describe_snomedct_inference_job' function.
 class DescribeSNOMEDCTInferenceJobRequestTypeDef(BaseValidatorModel):
-    JobId: str
+    JobId: Annotated[str, _aws_pattern("Comprehendmedical", "JobId")]
 
 
 # This class is the input for the 'detect_entities' function.
@@ -164,27 +166,27 @@ class SNOMEDCTTraitTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'stop_entities_detection_v2_job' function.
 class StopEntitiesDetectionV2JobRequestTypeDef(BaseValidatorModel):
-    JobId: str
+    JobId: Annotated[str, _aws_pattern("Comprehendmedical", "JobId")]
 
 
 # This class is the input for the 'stop_icd10_cm_inference_job' function.
 class StopICD10CMInferenceJobRequestTypeDef(BaseValidatorModel):
-    JobId: str
+    JobId: Annotated[str, _aws_pattern("Comprehendmedical", "JobId")]
 
 
 # This class is the input for the 'stop_phi_detection_job' function.
 class StopPHIDetectionJobRequestTypeDef(BaseValidatorModel):
-    JobId: str
+    JobId: Annotated[str, _aws_pattern("Comprehendmedical", "JobId")]
 
 
 # This class is the input for the 'stop_rx_norm_inference_job' function.
 class StopRxNormInferenceJobRequestTypeDef(BaseValidatorModel):
-    JobId: str
+    JobId: Annotated[str, _aws_pattern("Comprehendmedical", "JobId")]
 
 
 # This class is the input for the 'stop_snomedct_inference_job' function.
 class StopSNOMEDCTInferenceJobRequestTypeDef(BaseValidatorModel):
-    JobId: str
+    JobId: Annotated[str, _aws_pattern("Comprehendmedical", "JobId")]
 
 
 class AttributeTypeDef(BaseValidatorModel):
@@ -201,15 +203,15 @@ class AttributeTypeDef(BaseValidatorModel):
 
 
 class ComprehendMedicalAsyncJobFilterTypeDef(BaseValidatorModel):
-    JobName: Optional[str] = None
+    JobName: Optional[Annotated[str, _aws_pattern("Comprehendmedical", "JobName")]] = None
     JobStatus: Optional[JobStatusType] = None
     SubmitTimeBefore: Optional[TimestampTypeDef] = None
     SubmitTimeAfter: Optional[TimestampTypeDef] = None
 
 
 class ComprehendMedicalAsyncJobPropertiesTypeDef(BaseValidatorModel):
-    JobId: Optional[str] = None
-    JobName: Optional[str] = None
+    JobId: Optional[Annotated[str, _aws_pattern("Comprehendmedical", "JobId")]] = None
+    JobName: Optional[Annotated[str, _aws_pattern("Comprehendmedical", "JobName")]] = None
     JobStatus: Optional[JobStatusType] = None
     Message: Optional[str] = None
     SubmitTime: Optional[datetime] = None
@@ -218,9 +220,9 @@ class ComprehendMedicalAsyncJobPropertiesTypeDef(BaseValidatorModel):
     InputDataConfig: Optional[InputDataConfigTypeDef] = None
     OutputDataConfig: Optional[OutputDataConfigTypeDef] = None
     LanguageCode: Optional[Literal["en"]] = None
-    DataAccessRoleArn: Optional[str] = None
+    DataAccessRoleArn: Optional[Annotated[str, _aws_pattern("Comprehendmedical", "IamRoleArn")]] = None
     ManifestFilePath: Optional[str] = None
-    KMSKey: Optional[str] = None
+    KMSKey: Optional[Annotated[str, _aws_pattern("Comprehendmedical", "KMSKey")]] = None
     ModelVersion: Optional[str] = None
 
 
@@ -228,114 +230,114 @@ class ComprehendMedicalAsyncJobPropertiesTypeDef(BaseValidatorModel):
 class StartEntitiesDetectionV2JobRequestTypeDef(BaseValidatorModel):
     InputDataConfig: InputDataConfigTypeDef
     OutputDataConfig: OutputDataConfigTypeDef
-    DataAccessRoleArn: str
+    DataAccessRoleArn: Annotated[str, _aws_pattern("Comprehendmedical", "IamRoleArn")]
     LanguageCode: Literal["en"]
-    JobName: Optional[str] = None
-    ClientRequestToken: Optional[str] = None
-    KMSKey: Optional[str] = None
+    JobName: Optional[Annotated[str, _aws_pattern("Comprehendmedical", "JobName")]] = None
+    ClientRequestToken: Optional[Annotated[str, _aws_pattern("Comprehendmedical", "ClientRequestTokenString")]] = None
+    KMSKey: Optional[Annotated[str, _aws_pattern("Comprehendmedical", "KMSKey")]] = None
 
 
 # This class is the input for the 'start_icd10_cm_inference_job' function.
 class StartICD10CMInferenceJobRequestTypeDef(BaseValidatorModel):
     InputDataConfig: InputDataConfigTypeDef
     OutputDataConfig: OutputDataConfigTypeDef
-    DataAccessRoleArn: str
+    DataAccessRoleArn: Annotated[str, _aws_pattern("Comprehendmedical", "IamRoleArn")]
     LanguageCode: Literal["en"]
-    JobName: Optional[str] = None
-    ClientRequestToken: Optional[str] = None
-    KMSKey: Optional[str] = None
+    JobName: Optional[Annotated[str, _aws_pattern("Comprehendmedical", "JobName")]] = None
+    ClientRequestToken: Optional[Annotated[str, _aws_pattern("Comprehendmedical", "ClientRequestTokenString")]] = None
+    KMSKey: Optional[Annotated[str, _aws_pattern("Comprehendmedical", "KMSKey")]] = None
 
 
 # This class is the input for the 'start_phi_detection_job' function.
 class StartPHIDetectionJobRequestTypeDef(BaseValidatorModel):
     InputDataConfig: InputDataConfigTypeDef
     OutputDataConfig: OutputDataConfigTypeDef
-    DataAccessRoleArn: str
+    DataAccessRoleArn: Annotated[str, _aws_pattern("Comprehendmedical", "IamRoleArn")]
     LanguageCode: Literal["en"]
-    JobName: Optional[str] = None
-    ClientRequestToken: Optional[str] = None
-    KMSKey: Optional[str] = None
+    JobName: Optional[Annotated[str, _aws_pattern("Comprehendmedical", "JobName")]] = None
+    ClientRequestToken: Optional[Annotated[str, _aws_pattern("Comprehendmedical", "ClientRequestTokenString")]] = None
+    KMSKey: Optional[Annotated[str, _aws_pattern("Comprehendmedical", "KMSKey")]] = None
 
 
 # This class is the input for the 'start_rx_norm_inference_job' function.
 class StartRxNormInferenceJobRequestTypeDef(BaseValidatorModel):
     InputDataConfig: InputDataConfigTypeDef
     OutputDataConfig: OutputDataConfigTypeDef
-    DataAccessRoleArn: str
+    DataAccessRoleArn: Annotated[str, _aws_pattern("Comprehendmedical", "IamRoleArn")]
     LanguageCode: Literal["en"]
-    JobName: Optional[str] = None
-    ClientRequestToken: Optional[str] = None
-    KMSKey: Optional[str] = None
+    JobName: Optional[Annotated[str, _aws_pattern("Comprehendmedical", "JobName")]] = None
+    ClientRequestToken: Optional[Annotated[str, _aws_pattern("Comprehendmedical", "ClientRequestTokenString")]] = None
+    KMSKey: Optional[Annotated[str, _aws_pattern("Comprehendmedical", "KMSKey")]] = None
 
 
 # This class is the input for the 'start_snomedct_inference_job' function.
 class StartSNOMEDCTInferenceJobRequestTypeDef(BaseValidatorModel):
     InputDataConfig: InputDataConfigTypeDef
     OutputDataConfig: OutputDataConfigTypeDef
-    DataAccessRoleArn: str
+    DataAccessRoleArn: Annotated[str, _aws_pattern("Comprehendmedical", "IamRoleArn")]
     LanguageCode: Literal["en"]
-    JobName: Optional[str] = None
-    ClientRequestToken: Optional[str] = None
-    KMSKey: Optional[str] = None
+    JobName: Optional[Annotated[str, _aws_pattern("Comprehendmedical", "JobName")]] = None
+    ClientRequestToken: Optional[Annotated[str, _aws_pattern("Comprehendmedical", "ClientRequestTokenString")]] = None
+    KMSKey: Optional[Annotated[str, _aws_pattern("Comprehendmedical", "KMSKey")]] = None
 
 
 # This class is the output for the 'start_entities_detection_v2_job' function.
 class StartEntitiesDetectionV2JobResponseTypeDef(BaseValidatorModel):
-    JobId: str
+    JobId: Annotated[str, _aws_pattern("Comprehendmedical", "JobId")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 # This class is the output for the 'start_icd10_cm_inference_job' function.
 class StartICD10CMInferenceJobResponseTypeDef(BaseValidatorModel):
-    JobId: str
+    JobId: Annotated[str, _aws_pattern("Comprehendmedical", "JobId")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 # This class is the output for the 'start_phi_detection_job' function.
 class StartPHIDetectionJobResponseTypeDef(BaseValidatorModel):
-    JobId: str
+    JobId: Annotated[str, _aws_pattern("Comprehendmedical", "JobId")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 # This class is the output for the 'start_rx_norm_inference_job' function.
 class StartRxNormInferenceJobResponseTypeDef(BaseValidatorModel):
-    JobId: str
+    JobId: Annotated[str, _aws_pattern("Comprehendmedical", "JobId")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 # This class is the output for the 'start_snomedct_inference_job' function.
 class StartSNOMEDCTInferenceJobResponseTypeDef(BaseValidatorModel):
-    JobId: str
+    JobId: Annotated[str, _aws_pattern("Comprehendmedical", "JobId")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 # This class is the output for the 'stop_entities_detection_v2_job' function.
 class StopEntitiesDetectionV2JobResponseTypeDef(BaseValidatorModel):
-    JobId: str
+    JobId: Annotated[str, _aws_pattern("Comprehendmedical", "JobId")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 # This class is the output for the 'stop_icd10_cm_inference_job' function.
 class StopICD10CMInferenceJobResponseTypeDef(BaseValidatorModel):
-    JobId: str
+    JobId: Annotated[str, _aws_pattern("Comprehendmedical", "JobId")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 # This class is the output for the 'stop_phi_detection_job' function.
 class StopPHIDetectionJobResponseTypeDef(BaseValidatorModel):
-    JobId: str
+    JobId: Annotated[str, _aws_pattern("Comprehendmedical", "JobId")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 # This class is the output for the 'stop_rx_norm_inference_job' function.
 class StopRxNormInferenceJobResponseTypeDef(BaseValidatorModel):
-    JobId: str
+    JobId: Annotated[str, _aws_pattern("Comprehendmedical", "JobId")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 # This class is the output for the 'stop_snomedct_inference_job' function.
 class StopSNOMEDCTInferenceJobResponseTypeDef(BaseValidatorModel):
-    JobId: str
+    JobId: Annotated[str, _aws_pattern("Comprehendmedical", "JobId")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 

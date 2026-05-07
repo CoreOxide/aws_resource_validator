@@ -3,6 +3,7 @@
 from datetime import datetime
 from decimal import Decimal
 from typing import (
+    Annotated,
     Any,
     Callable,
     Dict,
@@ -24,6 +25,7 @@ from botocore.response import StreamingBody
 from pydantic import Field
 
 from aws_resource_validator.core.base_validator_model import BaseValidatorModel, EventStream
+from aws_resource_validator.core.pattern_validation import aws_field_pattern as _aws_pattern
 from aws_resource_validator.pydantic_models.ec2_instance_connect.ec2_instance_connect_constants import *  # noqa: F401,F403
 
 # Optional boto3 symbols — imported lazily so services that don't need them
@@ -48,15 +50,15 @@ class ResponseMetadataTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'send_ssh_public_key' function.
 class SendSSHPublicKeyRequestTypeDef(BaseValidatorModel):
-    InstanceId: str
-    InstanceOSUser: str
+    InstanceId: Annotated[str, _aws_pattern("Ec2InstanceConnect", "InstanceId")]
+    InstanceOSUser: Annotated[str, _aws_pattern("Ec2InstanceConnect", "InstanceOSUser")]
     SSHPublicKey: str
-    AvailabilityZone: Optional[str] = None
+    AvailabilityZone: Optional[Annotated[str, _aws_pattern("Ec2InstanceConnect", "AvailabilityZone")]] = None
 
 
 # This class is the input for the 'send_serial_console_ssh_public_key' function.
 class SendSerialConsoleSSHPublicKeyRequestTypeDef(BaseValidatorModel):
-    InstanceId: str
+    InstanceId: Annotated[str, _aws_pattern("Ec2InstanceConnect", "InstanceId")]
     SSHPublicKey: str
     SerialPort: Optional[int] = None
 

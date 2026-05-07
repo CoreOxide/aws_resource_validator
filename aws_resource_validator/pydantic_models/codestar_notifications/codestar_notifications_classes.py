@@ -3,6 +3,7 @@
 from datetime import datetime
 from decimal import Decimal
 from typing import (
+    Annotated,
     Any,
     Callable,
     Dict,
@@ -24,6 +25,7 @@ from botocore.response import StreamingBody
 from pydantic import Field
 
 from aws_resource_validator.core.base_validator_model import BaseValidatorModel, EventStream
+from aws_resource_validator.core.pattern_validation import aws_field_pattern as _aws_pattern
 from aws_resource_validator.pydantic_models.codestar_notifications.codestar_notifications_constants import *  # noqa: F401,F403
 
 # Optional boto3 symbols — imported lazily so services that don't need them
@@ -39,7 +41,7 @@ except ImportError:  # pragma: no cover
 
 
 class TargetTypeDef(BaseValidatorModel):
-    TargetType: Optional[str] = None
+    TargetType: Optional[Annotated[str, _aws_pattern("CodestarNotifications", "TargetType")]] = None
     TargetAddress: Optional[str] = None
 
 
@@ -53,7 +55,7 @@ class ResponseMetadataTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'delete_notification_rule' function.
 class DeleteNotificationRuleRequestTypeDef(BaseValidatorModel):
-    Arn: str
+    Arn: Annotated[str, _aws_pattern("CodestarNotifications", "NotificationRuleArn")]
 
 
 class DeleteTargetRequestTypeDef(BaseValidatorModel):
@@ -63,19 +65,19 @@ class DeleteTargetRequestTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'describe_notification_rule' function.
 class DescribeNotificationRuleRequestTypeDef(BaseValidatorModel):
-    Arn: str
+    Arn: Annotated[str, _aws_pattern("CodestarNotifications", "NotificationRuleArn")]
 
 
 class EventTypeSummaryTypeDef(BaseValidatorModel):
     EventTypeId: Optional[str] = None
     ServiceName: Optional[str] = None
     EventTypeName: Optional[str] = None
-    ResourceType: Optional[str] = None
+    ResourceType: Optional[Annotated[str, _aws_pattern("CodestarNotifications", "ResourceType")]] = None
 
 
 class TargetSummaryTypeDef(BaseValidatorModel):
     TargetAddress: Optional[str] = None
-    TargetType: Optional[str] = None
+    TargetType: Optional[Annotated[str, _aws_pattern("CodestarNotifications", "TargetType")]] = None
     TargetStatus: Optional[TargetStatusType] = None
 
 
@@ -97,12 +99,12 @@ class ListNotificationRulesFilterTypeDef(BaseValidatorModel):
 
 class NotificationRuleSummaryTypeDef(BaseValidatorModel):
     Id: Optional[str] = None
-    Arn: Optional[str] = None
+    Arn: Optional[Annotated[str, _aws_pattern("CodestarNotifications", "NotificationRuleArn")]] = None
 
 
 # This class is the input for the 'list_tags_for_resource' function.
 class ListTagsForResourceRequestTypeDef(BaseValidatorModel):
-    Arn: str
+    Arn: Annotated[str, _aws_pattern("CodestarNotifications", "NotificationRuleArn")]
 
 
 class ListTargetsFilterTypeDef(BaseValidatorModel):
@@ -112,43 +114,43 @@ class ListTargetsFilterTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'tag_resource' function.
 class TagResourceRequestTypeDef(BaseValidatorModel):
-    Arn: str
+    Arn: Annotated[str, _aws_pattern("CodestarNotifications", "NotificationRuleArn")]
     Tags: Dict[str, str]
 
 
 # This class is the input for the 'unsubscribe' function.
 class UnsubscribeRequestTypeDef(BaseValidatorModel):
-    Arn: str
+    Arn: Annotated[str, _aws_pattern("CodestarNotifications", "NotificationRuleArn")]
     TargetAddress: str
 
 
 class UntagResourceRequestTypeDef(BaseValidatorModel):
-    Arn: str
-    TagKeys: List[str]
+    Arn: Annotated[str, _aws_pattern("CodestarNotifications", "NotificationRuleArn")]
+    TagKeys: List[Annotated[str, _aws_pattern("CodestarNotifications", "TagKey")]]
 
 
 # This class is the input for the 'create_notification_rule' function.
 class CreateNotificationRuleRequestTypeDef(BaseValidatorModel):
-    Name: str
+    Name: Annotated[str, _aws_pattern("CodestarNotifications", "NotificationRuleName")]
     EventTypeIds: List[str]
-    Resource: str
+    Resource: Annotated[str, _aws_pattern("CodestarNotifications", "NotificationRuleResource")]
     Targets: List[TargetTypeDef]
     DetailType: DetailTypeType
-    ClientRequestToken: Optional[str] = None
+    ClientRequestToken: Optional[Annotated[str, _aws_pattern("CodestarNotifications", "ClientRequestToken")]] = None
     Tags: Optional[Dict[str, str]] = None
     Status: Optional[NotificationRuleStatusType] = None
 
 
 # This class is the input for the 'subscribe' function.
 class SubscribeRequestTypeDef(BaseValidatorModel):
-    Arn: str
+    Arn: Annotated[str, _aws_pattern("CodestarNotifications", "NotificationRuleArn")]
     Target: TargetTypeDef
-    ClientRequestToken: Optional[str] = None
+    ClientRequestToken: Optional[Annotated[str, _aws_pattern("CodestarNotifications", "ClientRequestToken")]] = None
 
 
 class UpdateNotificationRuleRequestTypeDef(BaseValidatorModel):
-    Arn: str
-    Name: Optional[str] = None
+    Arn: Annotated[str, _aws_pattern("CodestarNotifications", "NotificationRuleArn")]
+    Name: Optional[Annotated[str, _aws_pattern("CodestarNotifications", "NotificationRuleName")]] = None
     Status: Optional[NotificationRuleStatusType] = None
     EventTypeIds: Optional[List[str]] = None
     Targets: Optional[List[TargetTypeDef]] = None
@@ -157,13 +159,13 @@ class UpdateNotificationRuleRequestTypeDef(BaseValidatorModel):
 
 # This class is the output for the 'create_notification_rule' function.
 class CreateNotificationRuleResultTypeDef(BaseValidatorModel):
-    Arn: str
+    Arn: Annotated[str, _aws_pattern("CodestarNotifications", "NotificationRuleArn")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 # This class is the output for the 'delete_notification_rule' function.
 class DeleteNotificationRuleResultTypeDef(BaseValidatorModel):
-    Arn: str
+    Arn: Annotated[str, _aws_pattern("CodestarNotifications", "NotificationRuleArn")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
@@ -175,7 +177,7 @@ class ListTagsForResourceResultTypeDef(BaseValidatorModel):
 
 # This class is the output for the 'subscribe' function.
 class SubscribeResultTypeDef(BaseValidatorModel):
-    Arn: str
+    Arn: Annotated[str, _aws_pattern("CodestarNotifications", "NotificationRuleArn")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
@@ -187,7 +189,7 @@ class TagResourceResultTypeDef(BaseValidatorModel):
 
 # This class is the output for the 'unsubscribe' function.
 class UnsubscribeResultTypeDef(BaseValidatorModel):
-    Arn: str
+    Arn: Annotated[str, _aws_pattern("CodestarNotifications", "NotificationRuleArn")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
@@ -195,15 +197,15 @@ class UnsubscribeResultTypeDef(BaseValidatorModel):
 class ListEventTypesResultTypeDef(BaseValidatorModel):
     EventTypes: List[EventTypeSummaryTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
-    NextToken: Optional[str] = None
+    NextToken: Optional[Annotated[str, _aws_pattern("CodestarNotifications", "NextToken")]] = None
 
 
 # This class is the output for the 'describe_notification_rule' function.
 class DescribeNotificationRuleResultTypeDef(BaseValidatorModel):
-    Arn: str
-    Name: str
+    Arn: Annotated[str, _aws_pattern("CodestarNotifications", "NotificationRuleArn")]
+    Name: Annotated[str, _aws_pattern("CodestarNotifications", "NotificationRuleName")]
     EventTypes: List[EventTypeSummaryTypeDef]
-    Resource: str
+    Resource: Annotated[str, _aws_pattern("CodestarNotifications", "NotificationRuleResource")]
     Targets: List[TargetSummaryTypeDef]
     DetailType: DetailTypeType
     CreatedBy: str
@@ -218,13 +220,13 @@ class DescribeNotificationRuleResultTypeDef(BaseValidatorModel):
 class ListTargetsResultTypeDef(BaseValidatorModel):
     Targets: List[TargetSummaryTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
-    NextToken: Optional[str] = None
+    NextToken: Optional[Annotated[str, _aws_pattern("CodestarNotifications", "NextToken")]] = None
 
 
 # This class is the input for the 'list_event_types' function.
 class ListEventTypesRequestTypeDef(BaseValidatorModel):
     Filters: Optional[List[ListEventTypesFilterTypeDef]] = None
-    NextToken: Optional[str] = None
+    NextToken: Optional[Annotated[str, _aws_pattern("CodestarNotifications", "NextToken")]] = None
     MaxResults: Optional[int] = None
 
 
@@ -241,7 +243,7 @@ class ListNotificationRulesRequestPaginateTypeDef(BaseValidatorModel):
 # This class is the input for the 'list_notification_rules' function.
 class ListNotificationRulesRequestTypeDef(BaseValidatorModel):
     Filters: Optional[List[ListNotificationRulesFilterTypeDef]] = None
-    NextToken: Optional[str] = None
+    NextToken: Optional[Annotated[str, _aws_pattern("CodestarNotifications", "NextToken")]] = None
     MaxResults: Optional[int] = None
 
 
@@ -249,7 +251,7 @@ class ListNotificationRulesRequestTypeDef(BaseValidatorModel):
 class ListNotificationRulesResultTypeDef(BaseValidatorModel):
     NotificationRules: List[NotificationRuleSummaryTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
-    NextToken: Optional[str] = None
+    NextToken: Optional[Annotated[str, _aws_pattern("CodestarNotifications", "NextToken")]] = None
 
 
 class ListTargetsRequestPaginateTypeDef(BaseValidatorModel):
@@ -260,5 +262,5 @@ class ListTargetsRequestPaginateTypeDef(BaseValidatorModel):
 # This class is the input for the 'list_targets' function.
 class ListTargetsRequestTypeDef(BaseValidatorModel):
     Filters: Optional[List[ListTargetsFilterTypeDef]] = None
-    NextToken: Optional[str] = None
+    NextToken: Optional[Annotated[str, _aws_pattern("CodestarNotifications", "NextToken")]] = None
     MaxResults: Optional[int] = None

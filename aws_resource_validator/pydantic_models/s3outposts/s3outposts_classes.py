@@ -3,6 +3,7 @@
 from datetime import datetime
 from decimal import Decimal
 from typing import (
+    Annotated,
     Any,
     Callable,
     Dict,
@@ -24,6 +25,7 @@ from botocore.response import StreamingBody
 from pydantic import Field
 
 from aws_resource_validator.core.base_validator_model import BaseValidatorModel, EventStream
+from aws_resource_validator.core.pattern_validation import aws_field_pattern as _aws_pattern
 from aws_resource_validator.pydantic_models.s3outposts.s3outposts_constants import *  # noqa: F401,F403
 
 # Optional boto3 symbols — imported lazily so services that don't need them
@@ -40,11 +42,11 @@ except ImportError:  # pragma: no cover
 
 # This class is the input for the 'create_endpoint' function.
 class CreateEndpointRequestTypeDef(BaseValidatorModel):
-    OutpostId: str
-    SubnetId: str
-    SecurityGroupId: str
+    OutpostId: Annotated[str, _aws_pattern("S3outposts", "OutpostId")]
+    SubnetId: Annotated[str, _aws_pattern("S3outposts", "SubnetId")]
+    SecurityGroupId: Annotated[str, _aws_pattern("S3outposts", "SecurityGroupId")]
     AccessType: Optional[EndpointAccessTypeType] = None
-    CustomerOwnedIpv4Pool: Optional[str] = None
+    CustomerOwnedIpv4Pool: Optional[Annotated[str, _aws_pattern("S3outposts", "CustomerOwnedIpv4Pool")]] = None
 
 
 class ResponseMetadataTypeDef(BaseValidatorModel):
@@ -57,8 +59,8 @@ class ResponseMetadataTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'delete_endpoint' function.
 class DeleteEndpointRequestTypeDef(BaseValidatorModel):
-    EndpointId: str
-    OutpostId: str
+    EndpointId: Annotated[str, _aws_pattern("S3outposts", "EndpointId")]
+    OutpostId: Annotated[str, _aws_pattern("S3outposts", "OutpostId")]
 
 
 class FailedReasonTypeDef(BaseValidatorModel):
@@ -78,34 +80,34 @@ class PaginatorConfigTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'list_endpoints' function.
 class ListEndpointsRequestTypeDef(BaseValidatorModel):
-    NextToken: Optional[str] = None
+    NextToken: Optional[Annotated[str, _aws_pattern("S3outposts", "NextToken")]] = None
     MaxResults: Optional[int] = None
 
 
 # This class is the input for the 'list_outposts_with_s3' function.
 class ListOutpostsWithS3RequestTypeDef(BaseValidatorModel):
-    NextToken: Optional[str] = None
+    NextToken: Optional[Annotated[str, _aws_pattern("S3outposts", "NextToken")]] = None
     MaxResults: Optional[int] = None
 
 
 class OutpostTypeDef(BaseValidatorModel):
-    OutpostArn: Optional[str] = None
-    S3OutpostArn: Optional[str] = None
-    OutpostId: Optional[str] = None
-    OwnerId: Optional[str] = None
+    OutpostArn: Optional[Annotated[str, _aws_pattern("S3outposts", "OutpostArn")]] = None
+    S3OutpostArn: Optional[Annotated[str, _aws_pattern("S3outposts", "S3OutpostArn")]] = None
+    OutpostId: Optional[Annotated[str, _aws_pattern("S3outposts", "OutpostId")]] = None
+    OwnerId: Optional[Annotated[str, _aws_pattern("S3outposts", "AwsAccountId")]] = None
     CapacityInBytes: Optional[int] = None
 
 
 # This class is the input for the 'list_shared_endpoints' function.
 class ListSharedEndpointsRequestTypeDef(BaseValidatorModel):
-    OutpostId: str
-    NextToken: Optional[str] = None
+    OutpostId: Annotated[str, _aws_pattern("S3outposts", "OutpostId")]
+    NextToken: Optional[Annotated[str, _aws_pattern("S3outposts", "NextToken")]] = None
     MaxResults: Optional[int] = None
 
 
 # This class is the output for the 'create_endpoint' function.
 class CreateEndpointResultTypeDef(BaseValidatorModel):
-    EndpointArn: str
+    EndpointArn: Annotated[str, _aws_pattern("S3outposts", "EndpointArn")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
@@ -115,17 +117,17 @@ class EmptyResponseMetadataTypeDef(BaseValidatorModel):
 
 
 class EndpointTypeDef(BaseValidatorModel):
-    EndpointArn: Optional[str] = None
-    OutpostsId: Optional[str] = None
+    EndpointArn: Optional[Annotated[str, _aws_pattern("S3outposts", "EndpointArn")]] = None
+    OutpostsId: Optional[Annotated[str, _aws_pattern("S3outposts", "OutpostId")]] = None
     CidrBlock: Optional[str] = None
     Status: Optional[EndpointStatusType] = None
     CreationTime: Optional[datetime] = None
     NetworkInterfaces: Optional[List[NetworkInterfaceTypeDef]] = None
     VpcId: Optional[str] = None
-    SubnetId: Optional[str] = None
-    SecurityGroupId: Optional[str] = None
+    SubnetId: Optional[Annotated[str, _aws_pattern("S3outposts", "SubnetId")]] = None
+    SecurityGroupId: Optional[Annotated[str, _aws_pattern("S3outposts", "SecurityGroupId")]] = None
     AccessType: Optional[EndpointAccessTypeType] = None
-    CustomerOwnedIpv4Pool: Optional[str] = None
+    CustomerOwnedIpv4Pool: Optional[Annotated[str, _aws_pattern("S3outposts", "CustomerOwnedIpv4Pool")]] = None
     FailedReason: Optional[FailedReasonTypeDef] = None
 
 
@@ -146,18 +148,18 @@ class ListSharedEndpointsRequestPaginateTypeDef(BaseValidatorModel):
 class ListOutpostsWithS3ResultTypeDef(BaseValidatorModel):
     Outposts: List[OutpostTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
-    NextToken: Optional[str] = None
+    NextToken: Optional[Annotated[str, _aws_pattern("S3outposts", "NextToken")]] = None
 
 
 # This class is the output for the 'list_endpoints' function.
 class ListEndpointsResultTypeDef(BaseValidatorModel):
     Endpoints: List[EndpointTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
-    NextToken: Optional[str] = None
+    NextToken: Optional[Annotated[str, _aws_pattern("S3outposts", "NextToken")]] = None
 
 
 # This class is the output for the 'list_shared_endpoints' function.
 class ListSharedEndpointsResultTypeDef(BaseValidatorModel):
     Endpoints: List[EndpointTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
-    NextToken: Optional[str] = None
+    NextToken: Optional[Annotated[str, _aws_pattern("S3outposts", "NextToken")]] = None

@@ -3,6 +3,7 @@
 from datetime import datetime
 from decimal import Decimal
 from typing import (
+    Annotated,
     Any,
     Callable,
     Dict,
@@ -24,6 +25,7 @@ from botocore.response import StreamingBody
 from pydantic import Field
 
 from aws_resource_validator.core.base_validator_model import BaseValidatorModel, EventStream
+from aws_resource_validator.core.pattern_validation import aws_field_pattern as _aws_pattern
 from aws_resource_validator.pydantic_models.iotsitewise.iotsitewise_constants import *  # noqa: F401,F403
 
 # Optional boto3 symbols — imported lazily so services that don't need them
@@ -43,22 +45,22 @@ class AccessDeniedExceptionTypeDef(BaseValidatorModel):
 
 
 class ActionDefinitionTypeDef(BaseValidatorModel):
-    actionDefinitionId: str
-    actionName: str
-    actionType: str
+    actionDefinitionId: Annotated[str, _aws_pattern("Iotsitewise", "ID")]
+    actionName: Annotated[str, _aws_pattern("Iotsitewise", "Name")]
+    actionType: Annotated[str, _aws_pattern("Iotsitewise", "Name")]
 
 
 class ActionPayloadTypeDef(BaseValidatorModel):
-    stringValue: str
+    stringValue: Annotated[str, _aws_pattern("Iotsitewise", "ActionPayloadString")]
 
 
 class ResolveToTypeDef(BaseValidatorModel):
-    assetId: str
+    assetId: Annotated[str, _aws_pattern("Iotsitewise", "ID")]
 
 
 class TargetResourceTypeDef(BaseValidatorModel):
-    assetId: Optional[str] = None
-    computationModelId: Optional[str] = None
+    assetId: Optional[Annotated[str, _aws_pattern("Iotsitewise", "ID")]] = None
+    computationModelId: Optional[Annotated[str, _aws_pattern("Iotsitewise", "ID")]] = None
 
 
 class AggregatesTypeDef(BaseValidatorModel):
@@ -71,92 +73,92 @@ class AggregatesTypeDef(BaseValidatorModel):
 
 
 class AlarmsTypeDef(BaseValidatorModel):
-    alarmRoleArn: str
-    notificationLambdaArn: Optional[str] = None
+    alarmRoleArn: Annotated[str, _aws_pattern("Iotsitewise", "IamArn")]
+    notificationLambdaArn: Optional[Annotated[str, _aws_pattern("Iotsitewise", "ARN")]] = None
 
 
 class AssetBindingValueFilterTypeDef(BaseValidatorModel):
-    assetId: str
+    assetId: Annotated[str, _aws_pattern("Iotsitewise", "ID")]
 
 
 class AssetCompositeModelPathSegmentTypeDef(BaseValidatorModel):
-    id: Optional[str] = None
-    name: Optional[str] = None
+    id: Optional[Annotated[str, _aws_pattern("Iotsitewise", "ID")]] = None
+    name: Optional[Annotated[str, _aws_pattern("Iotsitewise", "Name")]] = None
 
 
 class AssetErrorDetailsTypeDef(BaseValidatorModel):
-    assetId: str
+    assetId: Annotated[str, _aws_pattern("Iotsitewise", "ID")]
     code: Literal["INTERNAL_FAILURE"]
     message: str
 
 
 class AssetHierarchyInfoTypeDef(BaseValidatorModel):
-    parentAssetId: Optional[str] = None
-    childAssetId: Optional[str] = None
+    parentAssetId: Optional[Annotated[str, _aws_pattern("Iotsitewise", "ID")]] = None
+    childAssetId: Optional[Annotated[str, _aws_pattern("Iotsitewise", "ID")]] = None
 
 
 class AssetHierarchyTypeDef(BaseValidatorModel):
-    name: str
-    id: Optional[str] = None
-    externalId: Optional[str] = None
+    name: Annotated[str, _aws_pattern("Iotsitewise", "Name")]
+    id: Optional[Annotated[str, _aws_pattern("Iotsitewise", "ID")]] = None
+    externalId: Optional[Annotated[str, _aws_pattern("Iotsitewise", "ExternalId")]] = None
 
 
 class AssetModelBindingValueFilterTypeDef(BaseValidatorModel):
-    assetModelId: str
+    assetModelId: Annotated[str, _aws_pattern("Iotsitewise", "ID")]
 
 
 class AssetModelCompositeModelPathSegmentTypeDef(BaseValidatorModel):
-    id: Optional[str] = None
-    name: Optional[str] = None
+    id: Optional[Annotated[str, _aws_pattern("Iotsitewise", "ID")]] = None
+    name: Optional[Annotated[str, _aws_pattern("Iotsitewise", "Name")]] = None
 
 
 class AssetModelHierarchyDefinitionTypeDef(BaseValidatorModel):
-    name: str
-    childAssetModelId: str
-    id: Optional[str] = None
-    externalId: Optional[str] = None
+    name: Annotated[str, _aws_pattern("Iotsitewise", "Name")]
+    childAssetModelId: Annotated[str, _aws_pattern("Iotsitewise", "CustomID")]
+    id: Optional[Annotated[str, _aws_pattern("Iotsitewise", "ID")]] = None
+    externalId: Optional[Annotated[str, _aws_pattern("Iotsitewise", "ExternalId")]] = None
 
 
 class AssetModelHierarchyTypeDef(BaseValidatorModel):
-    name: str
-    childAssetModelId: str
-    id: Optional[str] = None
-    externalId: Optional[str] = None
+    name: Annotated[str, _aws_pattern("Iotsitewise", "Name")]
+    childAssetModelId: Annotated[str, _aws_pattern("Iotsitewise", "CustomID")]
+    id: Optional[Annotated[str, _aws_pattern("Iotsitewise", "CustomID")]] = None
+    externalId: Optional[Annotated[str, _aws_pattern("Iotsitewise", "ExternalId")]] = None
 
 
 class AssetModelPropertyBindingValueFilterTypeDef(BaseValidatorModel):
-    assetModelId: str
-    propertyId: str
+    assetModelId: Annotated[str, _aws_pattern("Iotsitewise", "ID")]
+    propertyId: Annotated[str, _aws_pattern("Iotsitewise", "ID")]
 
 
 class AssetModelPropertyBindingValueTypeDef(BaseValidatorModel):
-    assetModelId: str
-    propertyId: str
+    assetModelId: Annotated[str, _aws_pattern("Iotsitewise", "ID")]
+    propertyId: Annotated[str, _aws_pattern("Iotsitewise", "ID")]
 
 
 class AssetModelPropertyPathSegmentTypeDef(BaseValidatorModel):
-    id: Optional[str] = None
-    name: Optional[str] = None
+    id: Optional[Annotated[str, _aws_pattern("Iotsitewise", "ID")]] = None
+    name: Optional[Annotated[str, _aws_pattern("Iotsitewise", "Name")]] = None
 
 
 class InterfaceSummaryTypeDef(BaseValidatorModel):
-    interfaceAssetModelId: str
-    interfaceAssetModelPropertyId: str
+    interfaceAssetModelId: Annotated[str, _aws_pattern("Iotsitewise", "ID")]
+    interfaceAssetModelPropertyId: Annotated[str, _aws_pattern("Iotsitewise", "ID")]
 
 
 class AssetPropertyBindingValueFilterTypeDef(BaseValidatorModel):
-    assetId: str
-    propertyId: str
+    assetId: Annotated[str, _aws_pattern("Iotsitewise", "ID")]
+    propertyId: Annotated[str, _aws_pattern("Iotsitewise", "ID")]
 
 
 class AssetPropertyBindingValueTypeDef(BaseValidatorModel):
-    assetId: str
-    propertyId: str
+    assetId: Annotated[str, _aws_pattern("Iotsitewise", "ID")]
+    propertyId: Annotated[str, _aws_pattern("Iotsitewise", "ID")]
 
 
 class AssetPropertyPathSegmentTypeDef(BaseValidatorModel):
-    id: Optional[str] = None
-    name: Optional[str] = None
+    id: Optional[Annotated[str, _aws_pattern("Iotsitewise", "ID")]] = None
+    name: Optional[Annotated[str, _aws_pattern("Iotsitewise", "Name")]] = None
 
 
 class PropertyNotificationTypeDef(BaseValidatorModel):
@@ -171,29 +173,29 @@ class TimeInNanosTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'associate_assets' function.
 class AssociateAssetsRequestTypeDef(BaseValidatorModel):
-    assetId: str
-    hierarchyId: str
-    childAssetId: str
-    clientToken: Optional[str] = None
+    assetId: Annotated[str, _aws_pattern("Iotsitewise", "CustomID")]
+    hierarchyId: Annotated[str, _aws_pattern("Iotsitewise", "CustomID")]
+    childAssetId: Annotated[str, _aws_pattern("Iotsitewise", "CustomID")]
+    clientToken: Optional[Annotated[str, _aws_pattern("Iotsitewise", "ClientToken")]] = None
 
 
 # This class is the input for the 'associate_time_series_to_asset_property' function.
 class AssociateTimeSeriesToAssetPropertyRequestTypeDef(BaseValidatorModel):
-    alias: str
-    assetId: str
-    propertyId: str
-    clientToken: Optional[str] = None
+    alias: Annotated[str, _aws_pattern("Iotsitewise", "PropertyAlias")]
+    assetId: Annotated[str, _aws_pattern("Iotsitewise", "CustomID")]
+    propertyId: Annotated[str, _aws_pattern("Iotsitewise", "CustomID")]
+    clientToken: Optional[Annotated[str, _aws_pattern("Iotsitewise", "ClientToken")]] = None
 
 
 class AttributeTypeDef(BaseValidatorModel):
-    defaultValue: Optional[str] = None
+    defaultValue: Optional[Annotated[str, _aws_pattern("Iotsitewise", "DefaultValue")]] = None
 
 
 # This class is the input for the 'batch_associate_project_assets' function.
 class BatchAssociateProjectAssetsRequestTypeDef(BaseValidatorModel):
-    projectId: str
-    assetIds: List[str]
-    clientToken: Optional[str] = None
+    projectId: Annotated[str, _aws_pattern("Iotsitewise", "ID")]
+    assetIds: List[Annotated[str, _aws_pattern("Iotsitewise", "ID")]]
+    clientToken: Optional[Annotated[str, _aws_pattern("Iotsitewise", "ClientToken")]] = None
 
 
 class ResponseMetadataTypeDef(BaseValidatorModel):
@@ -206,9 +208,9 @@ class ResponseMetadataTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'batch_disassociate_project_assets' function.
 class BatchDisassociateProjectAssetsRequestTypeDef(BaseValidatorModel):
-    projectId: str
-    assetIds: List[str]
-    clientToken: Optional[str] = None
+    projectId: Annotated[str, _aws_pattern("Iotsitewise", "ID")]
+    assetIds: List[Annotated[str, _aws_pattern("Iotsitewise", "ID")]]
+    clientToken: Optional[Annotated[str, _aws_pattern("Iotsitewise", "ClientToken")]] = None
 
 
 TimestampTypeDef = Union[datetime, str]
@@ -217,7 +219,7 @@ TimestampTypeDef = Union[datetime, str]
 class BatchGetAssetPropertyAggregatesErrorEntryTypeDef(BaseValidatorModel):
     errorCode: BatchGetAssetPropertyAggregatesErrorCodeType
     errorMessage: str
-    entryId: str
+    entryId: Annotated[str, _aws_pattern("Iotsitewise", "EntryId")]
 
 
 class BatchGetAssetPropertyAggregatesErrorInfoTypeDef(BaseValidatorModel):
@@ -226,16 +228,16 @@ class BatchGetAssetPropertyAggregatesErrorInfoTypeDef(BaseValidatorModel):
 
 
 class BatchGetAssetPropertyValueEntryTypeDef(BaseValidatorModel):
-    entryId: str
-    assetId: Optional[str] = None
-    propertyId: Optional[str] = None
-    propertyAlias: Optional[str] = None
+    entryId: Annotated[str, _aws_pattern("Iotsitewise", "EntryId")]
+    assetId: Optional[Annotated[str, _aws_pattern("Iotsitewise", "ID")]] = None
+    propertyId: Optional[Annotated[str, _aws_pattern("Iotsitewise", "ID")]] = None
+    propertyAlias: Optional[Annotated[str, _aws_pattern("Iotsitewise", "AssetPropertyAlias")]] = None
 
 
 class BatchGetAssetPropertyValueErrorEntryTypeDef(BaseValidatorModel):
     errorCode: BatchGetAssetPropertyValueErrorCodeType
     errorMessage: str
-    entryId: str
+    entryId: Annotated[str, _aws_pattern("Iotsitewise", "EntryId")]
 
 
 class BatchGetAssetPropertyValueErrorInfoTypeDef(BaseValidatorModel):
@@ -246,7 +248,7 @@ class BatchGetAssetPropertyValueErrorInfoTypeDef(BaseValidatorModel):
 class BatchGetAssetPropertyValueHistoryErrorEntryTypeDef(BaseValidatorModel):
     errorCode: BatchGetAssetPropertyValueHistoryErrorCodeType
     errorMessage: str
-    entryId: str
+    entryId: Annotated[str, _aws_pattern("Iotsitewise", "EntryId")]
 
 
 class BatchGetAssetPropertyValueHistoryErrorInfoTypeDef(BaseValidatorModel):
@@ -266,18 +268,18 @@ class ColumnTypeTypeDef(BaseValidatorModel):
 
 
 class CompositionRelationshipItemTypeDef(BaseValidatorModel):
-    id: Optional[str] = None
+    id: Optional[Annotated[str, _aws_pattern("Iotsitewise", "ID")]] = None
 
 
 class CompositionRelationshipSummaryTypeDef(BaseValidatorModel):
-    assetModelId: str
-    assetModelCompositeModelId: str
-    assetModelCompositeModelType: str
+    assetModelId: Annotated[str, _aws_pattern("Iotsitewise", "ID")]
+    assetModelCompositeModelId: Annotated[str, _aws_pattern("Iotsitewise", "ID")]
+    assetModelCompositeModelType: Annotated[str, _aws_pattern("Iotsitewise", "Name")]
 
 
 class ComputationModelAnomalyDetectionConfigurationTypeDef(BaseValidatorModel):
-    inputProperties: str
-    resultProperty: str
+    inputProperties: Annotated[str, _aws_pattern("Iotsitewise", "InputProperties")]
+    resultProperty: Annotated[str, _aws_pattern("Iotsitewise", "ResultProperty")]
 
 
 class ConfigurationErrorDetailsTypeDef(BaseValidatorModel):
@@ -293,13 +295,13 @@ class ConflictingOperationExceptionTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'create_asset' function.
 class CreateAssetRequestTypeDef(BaseValidatorModel):
-    assetName: str
-    assetModelId: str
-    assetId: Optional[str] = None
-    assetExternalId: Optional[str] = None
-    clientToken: Optional[str] = None
+    assetName: Annotated[str, _aws_pattern("Iotsitewise", "Name")]
+    assetModelId: Annotated[str, _aws_pattern("Iotsitewise", "CustomID")]
+    assetId: Optional[Annotated[str, _aws_pattern("Iotsitewise", "ID")]] = None
+    assetExternalId: Optional[Annotated[str, _aws_pattern("Iotsitewise", "ExternalId")]] = None
+    clientToken: Optional[Annotated[str, _aws_pattern("Iotsitewise", "ClientToken")]] = None
     tags: Optional[Dict[str, str]] = None
-    assetDescription: Optional[str] = None
+    assetDescription: Optional[Annotated[str, _aws_pattern("Iotsitewise", "Description")]] = None
 
 
 class ErrorReportLocationTypeDef(BaseValidatorModel):
@@ -315,20 +317,20 @@ class FileTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'create_dashboard' function.
 class CreateDashboardRequestTypeDef(BaseValidatorModel):
-    projectId: str
-    dashboardName: str
-    dashboardDefinition: str
-    dashboardDescription: Optional[str] = None
-    clientToken: Optional[str] = None
+    projectId: Annotated[str, _aws_pattern("Iotsitewise", "ID")]
+    dashboardName: Annotated[str, _aws_pattern("Iotsitewise", "Name")]
+    dashboardDefinition: Annotated[str, _aws_pattern("Iotsitewise", "DashboardDefinition")]
+    dashboardDescription: Optional[Annotated[str, _aws_pattern("Iotsitewise", "Description")]] = None
+    clientToken: Optional[Annotated[str, _aws_pattern("Iotsitewise", "ClientToken")]] = None
     tags: Optional[Dict[str, str]] = None
 
 
 # This class is the input for the 'create_project' function.
 class CreateProjectRequestTypeDef(BaseValidatorModel):
-    portalId: str
-    projectName: str
-    projectDescription: Optional[str] = None
-    clientToken: Optional[str] = None
+    portalId: Annotated[str, _aws_pattern("Iotsitewise", "ID")]
+    projectName: Annotated[str, _aws_pattern("Iotsitewise", "Name")]
+    projectDescription: Optional[Annotated[str, _aws_pattern("Iotsitewise", "Description")]] = None
+    clientToken: Optional[Annotated[str, _aws_pattern("Iotsitewise", "ClientToken")]] = None
     tags: Optional[Dict[str, str]] = None
 
 
@@ -341,14 +343,14 @@ class CsvTypeDef(BaseValidatorModel):
 
 
 class CustomerManagedS3StorageTypeDef(BaseValidatorModel):
-    s3ResourceArn: str
-    roleArn: str
+    s3ResourceArn: Annotated[str, _aws_pattern("Iotsitewise", "ARN")]
+    roleArn: Annotated[str, _aws_pattern("Iotsitewise", "ARN")]
 
 
 class DashboardSummaryTypeDef(BaseValidatorModel):
-    id: str
-    name: str
-    description: Optional[str] = None
+    id: Annotated[str, _aws_pattern("Iotsitewise", "ID")]
+    name: Annotated[str, _aws_pattern("Iotsitewise", "Name")]
+    description: Optional[Annotated[str, _aws_pattern("Iotsitewise", "Description")]] = None
     creationDate: Optional[datetime] = None
     lastUpdateDate: Optional[datetime] = None
 
@@ -375,127 +377,127 @@ class DatumWaiterTypeDef(BaseValidatorModel):
 
 
 class DeleteAccessPolicyRequestTypeDef(BaseValidatorModel):
-    accessPolicyId: str
-    clientToken: Optional[str] = None
+    accessPolicyId: Annotated[str, _aws_pattern("Iotsitewise", "ID")]
+    clientToken: Optional[Annotated[str, _aws_pattern("Iotsitewise", "ClientToken")]] = None
 
 
 # This class is the input for the 'delete_asset_model_composite_model' function.
 class DeleteAssetModelCompositeModelRequestTypeDef(BaseValidatorModel):
-    assetModelId: str
-    assetModelCompositeModelId: str
-    clientToken: Optional[str] = None
-    ifMatch: Optional[str] = None
-    ifNoneMatch: Optional[str] = None
+    assetModelId: Annotated[str, _aws_pattern("Iotsitewise", "CustomID")]
+    assetModelCompositeModelId: Annotated[str, _aws_pattern("Iotsitewise", "CustomID")]
+    clientToken: Optional[Annotated[str, _aws_pattern("Iotsitewise", "ClientToken")]] = None
+    ifMatch: Optional[Annotated[str, _aws_pattern("Iotsitewise", "ETag")]] = None
+    ifNoneMatch: Optional[Annotated[str, _aws_pattern("Iotsitewise", "SelectAll")]] = None
     matchForVersionType: Optional[AssetModelVersionTypeType] = None
 
 
 # This class is the input for the 'delete_asset_model_interface_relationship' function.
 class DeleteAssetModelInterfaceRelationshipRequestTypeDef(BaseValidatorModel):
-    assetModelId: str
-    interfaceAssetModelId: str
-    clientToken: Optional[str] = None
+    assetModelId: Annotated[str, _aws_pattern("Iotsitewise", "CustomID")]
+    interfaceAssetModelId: Annotated[str, _aws_pattern("Iotsitewise", "CustomID")]
+    clientToken: Optional[Annotated[str, _aws_pattern("Iotsitewise", "ClientToken")]] = None
 
 
 # This class is the input for the 'delete_asset_model' function.
 class DeleteAssetModelRequestTypeDef(BaseValidatorModel):
-    assetModelId: str
-    clientToken: Optional[str] = None
-    ifMatch: Optional[str] = None
-    ifNoneMatch: Optional[str] = None
+    assetModelId: Annotated[str, _aws_pattern("Iotsitewise", "CustomID")]
+    clientToken: Optional[Annotated[str, _aws_pattern("Iotsitewise", "ClientToken")]] = None
+    ifMatch: Optional[Annotated[str, _aws_pattern("Iotsitewise", "ETag")]] = None
+    ifNoneMatch: Optional[Annotated[str, _aws_pattern("Iotsitewise", "SelectAll")]] = None
     matchForVersionType: Optional[AssetModelVersionTypeType] = None
 
 
 # This class is the input for the 'delete_asset' function.
 class DeleteAssetRequestTypeDef(BaseValidatorModel):
-    assetId: str
-    clientToken: Optional[str] = None
+    assetId: Annotated[str, _aws_pattern("Iotsitewise", "CustomID")]
+    clientToken: Optional[Annotated[str, _aws_pattern("Iotsitewise", "ClientToken")]] = None
 
 
 # This class is the input for the 'delete_computation_model' function.
 class DeleteComputationModelRequestTypeDef(BaseValidatorModel):
-    computationModelId: str
-    clientToken: Optional[str] = None
+    computationModelId: Annotated[str, _aws_pattern("Iotsitewise", "ID")]
+    clientToken: Optional[Annotated[str, _aws_pattern("Iotsitewise", "ClientToken")]] = None
 
 
 class DeleteDashboardRequestTypeDef(BaseValidatorModel):
-    dashboardId: str
-    clientToken: Optional[str] = None
+    dashboardId: Annotated[str, _aws_pattern("Iotsitewise", "ID")]
+    clientToken: Optional[Annotated[str, _aws_pattern("Iotsitewise", "ClientToken")]] = None
 
 
 # This class is the input for the 'delete_dataset' function.
 class DeleteDatasetRequestTypeDef(BaseValidatorModel):
-    datasetId: str
-    clientToken: Optional[str] = None
+    datasetId: Annotated[str, _aws_pattern("Iotsitewise", "ID")]
+    clientToken: Optional[Annotated[str, _aws_pattern("Iotsitewise", "ClientToken")]] = None
 
 
 # This class is the input for the 'delete_gateway' function.
 class DeleteGatewayRequestTypeDef(BaseValidatorModel):
-    gatewayId: str
+    gatewayId: Annotated[str, _aws_pattern("Iotsitewise", "ID")]
 
 
 # This class is the input for the 'delete_portal' function.
 class DeletePortalRequestTypeDef(BaseValidatorModel):
-    portalId: str
-    clientToken: Optional[str] = None
+    portalId: Annotated[str, _aws_pattern("Iotsitewise", "ID")]
+    clientToken: Optional[Annotated[str, _aws_pattern("Iotsitewise", "ClientToken")]] = None
 
 
 class DeleteProjectRequestTypeDef(BaseValidatorModel):
-    projectId: str
-    clientToken: Optional[str] = None
+    projectId: Annotated[str, _aws_pattern("Iotsitewise", "ID")]
+    clientToken: Optional[Annotated[str, _aws_pattern("Iotsitewise", "ClientToken")]] = None
 
 
 # This class is the input for the 'delete_time_series' function.
 class DeleteTimeSeriesRequestTypeDef(BaseValidatorModel):
-    alias: Optional[str] = None
-    assetId: Optional[str] = None
-    propertyId: Optional[str] = None
-    clientToken: Optional[str] = None
+    alias: Optional[Annotated[str, _aws_pattern("Iotsitewise", "PropertyAlias")]] = None
+    assetId: Optional[Annotated[str, _aws_pattern("Iotsitewise", "CustomID")]] = None
+    propertyId: Optional[Annotated[str, _aws_pattern("Iotsitewise", "CustomID")]] = None
+    clientToken: Optional[Annotated[str, _aws_pattern("Iotsitewise", "ClientToken")]] = None
 
 
 # This class is the input for the 'describe_access_policy' function.
 class DescribeAccessPolicyRequestTypeDef(BaseValidatorModel):
-    accessPolicyId: str
+    accessPolicyId: Annotated[str, _aws_pattern("Iotsitewise", "ID")]
 
 
 # This class is the input for the 'describe_action' function.
 class DescribeActionRequestTypeDef(BaseValidatorModel):
-    actionId: str
+    actionId: Annotated[str, _aws_pattern("Iotsitewise", "ID")]
 
 
 # This class is the input for the 'describe_asset_composite_model' function.
 class DescribeAssetCompositeModelRequestTypeDef(BaseValidatorModel):
-    assetId: str
-    assetCompositeModelId: str
+    assetId: Annotated[str, _aws_pattern("Iotsitewise", "CustomID")]
+    assetCompositeModelId: Annotated[str, _aws_pattern("Iotsitewise", "CustomID")]
 
 
 # This class is the input for the 'describe_asset_model_composite_model' function.
 class DescribeAssetModelCompositeModelRequestTypeDef(BaseValidatorModel):
-    assetModelId: str
-    assetModelCompositeModelId: str
-    assetModelVersion: Optional[str] = None
+    assetModelId: Annotated[str, _aws_pattern("Iotsitewise", "CustomID")]
+    assetModelCompositeModelId: Annotated[str, _aws_pattern("Iotsitewise", "CustomID")]
+    assetModelVersion: Optional[Annotated[str, _aws_pattern("Iotsitewise", "AssetModelVersionFilter")]] = None
 
 
 # This class is the input for the 'describe_asset_model_interface_relationship' function.
 class DescribeAssetModelInterfaceRelationshipRequestTypeDef(BaseValidatorModel):
-    assetModelId: str
-    interfaceAssetModelId: str
+    assetModelId: Annotated[str, _aws_pattern("Iotsitewise", "CustomID")]
+    interfaceAssetModelId: Annotated[str, _aws_pattern("Iotsitewise", "CustomID")]
 
 
 class HierarchyMappingTypeDef(BaseValidatorModel):
-    assetModelHierarchyId: str
-    interfaceAssetModelHierarchyId: str
+    assetModelHierarchyId: Annotated[str, _aws_pattern("Iotsitewise", "ID")]
+    interfaceAssetModelHierarchyId: Annotated[str, _aws_pattern("Iotsitewise", "ID")]
 
 
 class PropertyMappingTypeDef(BaseValidatorModel):
-    assetModelPropertyId: str
-    interfaceAssetModelPropertyId: str
+    assetModelPropertyId: Annotated[str, _aws_pattern("Iotsitewise", "CustomID")]
+    interfaceAssetModelPropertyId: Annotated[str, _aws_pattern("Iotsitewise", "CustomID")]
 
 
 # This class is the input for the 'describe_asset_model' function.
 class DescribeAssetModelRequestTypeDef(BaseValidatorModel):
-    assetModelId: str
+    assetModelId: Annotated[str, _aws_pattern("Iotsitewise", "CustomID")]
     excludeProperties: Optional[bool] = None
-    assetModelVersion: Optional[str] = None
+    assetModelVersion: Optional[Annotated[str, _aws_pattern("Iotsitewise", "AssetModelVersionFilter")]] = None
 
 
 class WaiterConfigTypeDef(BaseValidatorModel):
@@ -504,52 +506,54 @@ class WaiterConfigTypeDef(BaseValidatorModel):
 
 
 class InterfaceRelationshipTypeDef(BaseValidatorModel):
-    id: str
+    id: Annotated[str, _aws_pattern("Iotsitewise", "ID")]
 
 
 # This class is the input for the 'describe_asset_property' function.
 class DescribeAssetPropertyRequestTypeDef(BaseValidatorModel):
-    assetId: str
-    propertyId: str
+    assetId: Annotated[str, _aws_pattern("Iotsitewise", "CustomID")]
+    propertyId: Annotated[str, _aws_pattern("Iotsitewise", "CustomID")]
 
 
 # This class is the input for the 'describe_asset' function.
 class DescribeAssetRequestTypeDef(BaseValidatorModel):
-    assetId: str
+    assetId: Annotated[str, _aws_pattern("Iotsitewise", "CustomID")]
     excludeProperties: Optional[bool] = None
 
 
 # This class is the input for the 'describe_bulk_import_job' function.
 class DescribeBulkImportJobRequestTypeDef(BaseValidatorModel):
-    jobId: str
+    jobId: Annotated[str, _aws_pattern("Iotsitewise", "ID")]
 
 
 # This class is the input for the 'describe_computation_model_execution_summary' function.
 class DescribeComputationModelExecutionSummaryRequestTypeDef(BaseValidatorModel):
-    computationModelId: str
+    computationModelId: Annotated[str, _aws_pattern("Iotsitewise", "ID")]
     resolveToResourceType: Optional[Literal["ASSET"]] = None
-    resolveToResourceId: Optional[str] = None
+    resolveToResourceId: Optional[Annotated[str, _aws_pattern("Iotsitewise", "ID")]] = None
 
 
 # This class is the input for the 'describe_computation_model' function.
 class DescribeComputationModelRequestTypeDef(BaseValidatorModel):
-    computationModelId: str
-    computationModelVersion: Optional[str] = None
+    computationModelId: Annotated[str, _aws_pattern("Iotsitewise", "ID")]
+    computationModelVersion: Optional[Annotated[str, _aws_pattern("Iotsitewise", "ComputationModelVersionFilter")]] = (
+        None
+    )
 
 
 # This class is the input for the 'describe_dashboard' function.
 class DescribeDashboardRequestTypeDef(BaseValidatorModel):
-    dashboardId: str
+    dashboardId: Annotated[str, _aws_pattern("Iotsitewise", "ID")]
 
 
 # This class is the input for the 'describe_dataset' function.
 class DescribeDatasetRequestTypeDef(BaseValidatorModel):
-    datasetId: str
+    datasetId: Annotated[str, _aws_pattern("Iotsitewise", "ID")]
 
 
 # This class is the input for the 'describe_execution' function.
 class DescribeExecutionRequestTypeDef(BaseValidatorModel):
-    executionId: str
+    executionId: Annotated[str, _aws_pattern("Iotsitewise", "ID")]
 
 
 class ExecutionStatusTypeDef(BaseValidatorModel):
@@ -558,17 +562,17 @@ class ExecutionStatusTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'describe_gateway_capability_configuration' function.
 class DescribeGatewayCapabilityConfigurationRequestTypeDef(BaseValidatorModel):
-    gatewayId: str
-    capabilityNamespace: str
+    gatewayId: Annotated[str, _aws_pattern("Iotsitewise", "ID")]
+    capabilityNamespace: Annotated[str, _aws_pattern("Iotsitewise", "CapabilityNamespace")]
 
 
 # This class is the input for the 'describe_gateway' function.
 class DescribeGatewayRequestTypeDef(BaseValidatorModel):
-    gatewayId: str
+    gatewayId: Annotated[str, _aws_pattern("Iotsitewise", "ID")]
 
 
 class GatewayCapabilitySummaryTypeDef(BaseValidatorModel):
-    capabilityNamespace: str
+    capabilityNamespace: Annotated[str, _aws_pattern("Iotsitewise", "CapabilityNamespace")]
     capabilitySyncStatus: CapabilitySyncStatusType
 
 
@@ -578,12 +582,12 @@ class LoggingOptionsTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'describe_portal' function.
 class DescribePortalRequestTypeDef(BaseValidatorModel):
-    portalId: str
+    portalId: Annotated[str, _aws_pattern("Iotsitewise", "ID")]
 
 
 class ImageLocationTypeDef(BaseValidatorModel):
-    id: str
-    url: str
+    id: Annotated[str, _aws_pattern("Iotsitewise", "ID")]
+    url: Annotated[str, _aws_pattern("Iotsitewise", "Url")]
 
 
 class PortalTypeEntryOutputTypeDef(BaseValidatorModel):
@@ -592,7 +596,7 @@ class PortalTypeEntryOutputTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'describe_project' function.
 class DescribeProjectRequestTypeDef(BaseValidatorModel):
-    projectId: str
+    projectId: Annotated[str, _aws_pattern("Iotsitewise", "ID")]
 
 
 class RetentionPeriodTypeDef(BaseValidatorModel):
@@ -607,9 +611,9 @@ class WarmTierRetentionPeriodTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'describe_time_series' function.
 class DescribeTimeSeriesRequestTypeDef(BaseValidatorModel):
-    alias: Optional[str] = None
-    assetId: Optional[str] = None
-    propertyId: Optional[str] = None
+    alias: Optional[Annotated[str, _aws_pattern("Iotsitewise", "PropertyAlias")]] = None
+    assetId: Optional[Annotated[str, _aws_pattern("Iotsitewise", "CustomID")]] = None
+    propertyId: Optional[Annotated[str, _aws_pattern("Iotsitewise", "CustomID")]] = None
 
 
 class DetailedErrorTypeDef(BaseValidatorModel):
@@ -619,18 +623,18 @@ class DetailedErrorTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'disassociate_assets' function.
 class DisassociateAssetsRequestTypeDef(BaseValidatorModel):
-    assetId: str
-    hierarchyId: str
-    childAssetId: str
-    clientToken: Optional[str] = None
+    assetId: Annotated[str, _aws_pattern("Iotsitewise", "CustomID")]
+    hierarchyId: Annotated[str, _aws_pattern("Iotsitewise", "CustomID")]
+    childAssetId: Annotated[str, _aws_pattern("Iotsitewise", "CustomID")]
+    clientToken: Optional[Annotated[str, _aws_pattern("Iotsitewise", "ClientToken")]] = None
 
 
 # This class is the input for the 'disassociate_time_series_from_asset_property' function.
 class DisassociateTimeSeriesFromAssetPropertyRequestTypeDef(BaseValidatorModel):
-    alias: str
-    assetId: str
-    propertyId: str
-    clientToken: Optional[str] = None
+    alias: Annotated[str, _aws_pattern("Iotsitewise", "PropertyAlias")]
+    assetId: Annotated[str, _aws_pattern("Iotsitewise", "CustomID")]
+    propertyId: Annotated[str, _aws_pattern("Iotsitewise", "CustomID")]
+    clientToken: Optional[Annotated[str, _aws_pattern("Iotsitewise", "ClientToken")]] = None
 
 
 class PaginatorConfigTypeDef(BaseValidatorModel):
@@ -641,10 +645,10 @@ class PaginatorConfigTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'execute_query' function.
 class ExecuteQueryRequestTypeDef(BaseValidatorModel):
-    queryStatement: str
+    queryStatement: Annotated[str, _aws_pattern("Iotsitewise", "QueryStatement")]
     nextToken: Optional[str] = None
     maxResults: Optional[int] = None
-    clientToken: Optional[str] = None
+    clientToken: Optional[Annotated[str, _aws_pattern("Iotsitewise", "ClientToken")]] = None
 
 
 class ForwardingConfigTypeDef(BaseValidatorModel):
@@ -652,23 +656,23 @@ class ForwardingConfigTypeDef(BaseValidatorModel):
 
 
 class GreengrassTypeDef(BaseValidatorModel):
-    groupArn: str
+    groupArn: Annotated[str, _aws_pattern("Iotsitewise", "ARN")]
 
 
 class GreengrassV2TypeDef(BaseValidatorModel):
-    coreDeviceThingName: str
+    coreDeviceThingName: Annotated[str, _aws_pattern("Iotsitewise", "CoreDeviceThingName")]
     coreDeviceOperatingSystem: Optional[CoreDeviceOperatingSystemType] = None
 
 
 class SiemensIETypeDef(BaseValidatorModel):
-    iotCoreThingName: str
+    iotCoreThingName: Annotated[str, _aws_pattern("Iotsitewise", "IotCoreThingName")]
 
 
 # This class is the input for the 'get_asset_property_value' function.
 class GetAssetPropertyValueRequestTypeDef(BaseValidatorModel):
-    assetId: Optional[str] = None
-    propertyId: Optional[str] = None
-    propertyAlias: Optional[str] = None
+    assetId: Optional[Annotated[str, _aws_pattern("Iotsitewise", "ID")]] = None
+    propertyId: Optional[Annotated[str, _aws_pattern("Iotsitewise", "ID")]] = None
+    propertyAlias: Optional[Annotated[str, _aws_pattern("Iotsitewise", "AssetPropertyAlias")]] = None
 
 
 # This class is the input for the 'get_interpolated_asset_property_values' function.
@@ -678,34 +682,34 @@ class GetInterpolatedAssetPropertyValuesRequestTypeDef(BaseValidatorModel):
     quality: QualityType
     intervalInSeconds: int
     type: str
-    assetId: Optional[str] = None
-    propertyId: Optional[str] = None
-    propertyAlias: Optional[str] = None
+    assetId: Optional[Annotated[str, _aws_pattern("Iotsitewise", "ID")]] = None
+    propertyId: Optional[Annotated[str, _aws_pattern("Iotsitewise", "ID")]] = None
+    propertyAlias: Optional[Annotated[str, _aws_pattern("Iotsitewise", "AssetPropertyAlias")]] = None
     startTimeOffsetInNanos: Optional[int] = None
     endTimeOffsetInNanos: Optional[int] = None
-    nextToken: Optional[str] = None
+    nextToken: Optional[Annotated[str, _aws_pattern("Iotsitewise", "NextToken")]] = None
     maxResults: Optional[int] = None
     intervalWindowInSeconds: Optional[int] = None
 
 
 class GroupIdentityTypeDef(BaseValidatorModel):
-    id: str
+    id: Annotated[str, _aws_pattern("Iotsitewise", "IdentityId")]
 
 
 class IAMRoleIdentityTypeDef(BaseValidatorModel):
-    arn: str
+    arn: Annotated[str, _aws_pattern("Iotsitewise", "IamArn")]
 
 
 class IAMUserIdentityTypeDef(BaseValidatorModel):
-    arn: str
+    arn: Annotated[str, _aws_pattern("Iotsitewise", "IamArn")]
 
 
 class UserIdentityTypeDef(BaseValidatorModel):
-    id: str
+    id: Annotated[str, _aws_pattern("Iotsitewise", "IdentityId")]
 
 
 class InterfaceRelationshipSummaryTypeDef(BaseValidatorModel):
-    id: str
+    id: Annotated[str, _aws_pattern("Iotsitewise", "ID")]
 
 
 class InternalFailureExceptionTypeDef(BaseValidatorModel):
@@ -719,19 +723,19 @@ class InvalidRequestExceptionTypeDef(BaseValidatorModel):
 # This class is the input for the 'invoke_assistant' function.
 class InvokeAssistantRequestTypeDef(BaseValidatorModel):
     message: str
-    conversationId: Optional[str] = None
+    conversationId: Optional[Annotated[str, _aws_pattern("Iotsitewise", "ConversationId")]] = None
     enableTrace: Optional[bool] = None
 
 
 class JobSummaryTypeDef(BaseValidatorModel):
-    id: str
-    name: str
+    id: Annotated[str, _aws_pattern("Iotsitewise", "ID")]
+    name: Annotated[str, _aws_pattern("Iotsitewise", "Name")]
     status: JobStatusType
 
 
 class KendraSourceDetailTypeDef(BaseValidatorModel):
-    knowledgeBaseArn: str
-    roleArn: str
+    knowledgeBaseArn: Annotated[str, _aws_pattern("Iotsitewise", "ARN")]
+    roleArn: Annotated[str, _aws_pattern("Iotsitewise", "ARN")]
 
 
 class LimitExceededExceptionTypeDef(BaseValidatorModel):
@@ -741,172 +745,172 @@ class LimitExceededExceptionTypeDef(BaseValidatorModel):
 # This class is the input for the 'list_access_policies' function.
 class ListAccessPoliciesRequestTypeDef(BaseValidatorModel):
     identityType: Optional[IdentityTypeType] = None
-    identityId: Optional[str] = None
+    identityId: Optional[Annotated[str, _aws_pattern("Iotsitewise", "IdentityId")]] = None
     resourceType: Optional[ResourceTypeType] = None
-    resourceId: Optional[str] = None
-    iamArn: Optional[str] = None
-    nextToken: Optional[str] = None
+    resourceId: Optional[Annotated[str, _aws_pattern("Iotsitewise", "ID")]] = None
+    iamArn: Optional[Annotated[str, _aws_pattern("Iotsitewise", "IamArn")]] = None
+    nextToken: Optional[Annotated[str, _aws_pattern("Iotsitewise", "NextToken")]] = None
     maxResults: Optional[int] = None
 
 
 # This class is the input for the 'list_actions' function.
 class ListActionsRequestTypeDef(BaseValidatorModel):
     targetResourceType: TargetResourceTypeType
-    targetResourceId: str
-    nextToken: Optional[str] = None
+    targetResourceId: Annotated[str, _aws_pattern("Iotsitewise", "ID")]
+    nextToken: Optional[Annotated[str, _aws_pattern("Iotsitewise", "NextToken")]] = None
     maxResults: Optional[int] = None
     resolveToResourceType: Optional[Literal["ASSET"]] = None
-    resolveToResourceId: Optional[str] = None
+    resolveToResourceId: Optional[Annotated[str, _aws_pattern("Iotsitewise", "ID")]] = None
 
 
 # This class is the input for the 'list_asset_model_composite_models' function.
 class ListAssetModelCompositeModelsRequestTypeDef(BaseValidatorModel):
-    assetModelId: str
-    nextToken: Optional[str] = None
+    assetModelId: Annotated[str, _aws_pattern("Iotsitewise", "CustomID")]
+    nextToken: Optional[Annotated[str, _aws_pattern("Iotsitewise", "NextToken")]] = None
     maxResults: Optional[int] = None
-    assetModelVersion: Optional[str] = None
+    assetModelVersion: Optional[Annotated[str, _aws_pattern("Iotsitewise", "AssetModelVersionFilter")]] = None
 
 
 # This class is the input for the 'list_asset_model_properties' function.
 class ListAssetModelPropertiesRequestTypeDef(BaseValidatorModel):
-    assetModelId: str
-    nextToken: Optional[str] = None
+    assetModelId: Annotated[str, _aws_pattern("Iotsitewise", "CustomID")]
+    nextToken: Optional[Annotated[str, _aws_pattern("Iotsitewise", "NextToken")]] = None
     maxResults: Optional[int] = None
     filter: Optional[ListAssetModelPropertiesFilterType] = None
-    assetModelVersion: Optional[str] = None
+    assetModelVersion: Optional[Annotated[str, _aws_pattern("Iotsitewise", "AssetModelVersionFilter")]] = None
 
 
 # This class is the input for the 'list_asset_models' function.
 class ListAssetModelsRequestTypeDef(BaseValidatorModel):
     assetModelTypes: Optional[List[AssetModelTypeType]] = None
-    nextToken: Optional[str] = None
+    nextToken: Optional[Annotated[str, _aws_pattern("Iotsitewise", "NextToken")]] = None
     maxResults: Optional[int] = None
-    assetModelVersion: Optional[str] = None
+    assetModelVersion: Optional[Annotated[str, _aws_pattern("Iotsitewise", "AssetModelVersionFilter")]] = None
 
 
 # This class is the input for the 'list_asset_properties' function.
 class ListAssetPropertiesRequestTypeDef(BaseValidatorModel):
-    assetId: str
-    nextToken: Optional[str] = None
+    assetId: Annotated[str, _aws_pattern("Iotsitewise", "CustomID")]
+    nextToken: Optional[Annotated[str, _aws_pattern("Iotsitewise", "NextToken")]] = None
     maxResults: Optional[int] = None
     filter: Optional[ListAssetPropertiesFilterType] = None
 
 
 # This class is the input for the 'list_asset_relationships' function.
 class ListAssetRelationshipsRequestTypeDef(BaseValidatorModel):
-    assetId: str
+    assetId: Annotated[str, _aws_pattern("Iotsitewise", "CustomID")]
     traversalType: Literal["PATH_TO_ROOT"]
-    nextToken: Optional[str] = None
+    nextToken: Optional[Annotated[str, _aws_pattern("Iotsitewise", "NextToken")]] = None
     maxResults: Optional[int] = None
 
 
 # This class is the input for the 'list_assets' function.
 class ListAssetsRequestTypeDef(BaseValidatorModel):
-    nextToken: Optional[str] = None
+    nextToken: Optional[Annotated[str, _aws_pattern("Iotsitewise", "NextToken")]] = None
     maxResults: Optional[int] = None
-    assetModelId: Optional[str] = None
+    assetModelId: Optional[Annotated[str, _aws_pattern("Iotsitewise", "CustomID")]] = None
     filter: Optional[ListAssetsFilterType] = None
 
 
 # This class is the input for the 'list_associated_assets' function.
 class ListAssociatedAssetsRequestTypeDef(BaseValidatorModel):
-    assetId: str
-    hierarchyId: Optional[str] = None
+    assetId: Annotated[str, _aws_pattern("Iotsitewise", "CustomID")]
+    hierarchyId: Optional[Annotated[str, _aws_pattern("Iotsitewise", "CustomID")]] = None
     traversalDirection: Optional[TraversalDirectionType] = None
-    nextToken: Optional[str] = None
+    nextToken: Optional[Annotated[str, _aws_pattern("Iotsitewise", "NextToken")]] = None
     maxResults: Optional[int] = None
 
 
 # This class is the input for the 'list_bulk_import_jobs' function.
 class ListBulkImportJobsRequestTypeDef(BaseValidatorModel):
-    nextToken: Optional[str] = None
+    nextToken: Optional[Annotated[str, _aws_pattern("Iotsitewise", "NextToken")]] = None
     maxResults: Optional[int] = None
     filter: Optional[ListBulkImportJobsFilterType] = None
 
 
 # This class is the input for the 'list_composition_relationships' function.
 class ListCompositionRelationshipsRequestTypeDef(BaseValidatorModel):
-    assetModelId: str
-    nextToken: Optional[str] = None
+    assetModelId: Annotated[str, _aws_pattern("Iotsitewise", "ID")]
+    nextToken: Optional[Annotated[str, _aws_pattern("Iotsitewise", "NextToken")]] = None
     maxResults: Optional[int] = None
 
 
 # This class is the input for the 'list_computation_model_resolve_to_resources' function.
 class ListComputationModelResolveToResourcesRequestTypeDef(BaseValidatorModel):
-    computationModelId: str
-    nextToken: Optional[str] = None
+    computationModelId: Annotated[str, _aws_pattern("Iotsitewise", "ID")]
+    nextToken: Optional[Annotated[str, _aws_pattern("Iotsitewise", "NextToken")]] = None
     maxResults: Optional[int] = None
 
 
 # This class is the input for the 'list_computation_models' function.
 class ListComputationModelsRequestTypeDef(BaseValidatorModel):
     computationModelType: Optional[Literal["ANOMALY_DETECTION"]] = None
-    nextToken: Optional[str] = None
+    nextToken: Optional[Annotated[str, _aws_pattern("Iotsitewise", "NextToken")]] = None
     maxResults: Optional[int] = None
 
 
 # This class is the input for the 'list_dashboards' function.
 class ListDashboardsRequestTypeDef(BaseValidatorModel):
-    projectId: str
-    nextToken: Optional[str] = None
+    projectId: Annotated[str, _aws_pattern("Iotsitewise", "ID")]
+    nextToken: Optional[Annotated[str, _aws_pattern("Iotsitewise", "NextToken")]] = None
     maxResults: Optional[int] = None
 
 
 # This class is the input for the 'list_datasets' function.
 class ListDatasetsRequestTypeDef(BaseValidatorModel):
     sourceType: Literal["KENDRA"]
-    nextToken: Optional[str] = None
+    nextToken: Optional[Annotated[str, _aws_pattern("Iotsitewise", "NextToken")]] = None
     maxResults: Optional[int] = None
 
 
 # This class is the input for the 'list_executions' function.
 class ListExecutionsRequestTypeDef(BaseValidatorModel):
     targetResourceType: TargetResourceTypeType
-    targetResourceId: str
+    targetResourceId: Annotated[str, _aws_pattern("Iotsitewise", "ID")]
     resolveToResourceType: Optional[Literal["ASSET"]] = None
-    resolveToResourceId: Optional[str] = None
-    nextToken: Optional[str] = None
+    resolveToResourceId: Optional[Annotated[str, _aws_pattern("Iotsitewise", "ID")]] = None
+    nextToken: Optional[Annotated[str, _aws_pattern("Iotsitewise", "NextToken")]] = None
     maxResults: Optional[int] = None
-    actionType: Optional[str] = None
+    actionType: Optional[Annotated[str, _aws_pattern("Iotsitewise", "Name")]] = None
 
 
 # This class is the input for the 'list_gateways' function.
 class ListGatewaysRequestTypeDef(BaseValidatorModel):
-    nextToken: Optional[str] = None
+    nextToken: Optional[Annotated[str, _aws_pattern("Iotsitewise", "NextToken")]] = None
     maxResults: Optional[int] = None
 
 
 # This class is the input for the 'list_interface_relationships' function.
 class ListInterfaceRelationshipsRequestTypeDef(BaseValidatorModel):
-    interfaceAssetModelId: str
-    nextToken: Optional[str] = None
+    interfaceAssetModelId: Annotated[str, _aws_pattern("Iotsitewise", "CustomID")]
+    nextToken: Optional[Annotated[str, _aws_pattern("Iotsitewise", "NextToken")]] = None
     maxResults: Optional[int] = None
 
 
 # This class is the input for the 'list_portals' function.
 class ListPortalsRequestTypeDef(BaseValidatorModel):
-    nextToken: Optional[str] = None
+    nextToken: Optional[Annotated[str, _aws_pattern("Iotsitewise", "NextToken")]] = None
     maxResults: Optional[int] = None
 
 
 # This class is the input for the 'list_project_assets' function.
 class ListProjectAssetsRequestTypeDef(BaseValidatorModel):
-    projectId: str
-    nextToken: Optional[str] = None
+    projectId: Annotated[str, _aws_pattern("Iotsitewise", "ID")]
+    nextToken: Optional[Annotated[str, _aws_pattern("Iotsitewise", "NextToken")]] = None
     maxResults: Optional[int] = None
 
 
 # This class is the input for the 'list_projects' function.
 class ListProjectsRequestTypeDef(BaseValidatorModel):
-    portalId: str
-    nextToken: Optional[str] = None
+    portalId: Annotated[str, _aws_pattern("Iotsitewise", "ID")]
+    nextToken: Optional[Annotated[str, _aws_pattern("Iotsitewise", "NextToken")]] = None
     maxResults: Optional[int] = None
 
 
 class ProjectSummaryTypeDef(BaseValidatorModel):
-    id: str
-    name: str
-    description: Optional[str] = None
+    id: Annotated[str, _aws_pattern("Iotsitewise", "ID")]
+    name: Annotated[str, _aws_pattern("Iotsitewise", "Name")]
+    description: Optional[Annotated[str, _aws_pattern("Iotsitewise", "Description")]] = None
     creationDate: Optional[datetime] = None
     lastUpdateDate: Optional[datetime] = None
 
@@ -918,10 +922,10 @@ class ListTagsForResourceRequestTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'list_time_series' function.
 class ListTimeSeriesRequestTypeDef(BaseValidatorModel):
-    nextToken: Optional[str] = None
+    nextToken: Optional[Annotated[str, _aws_pattern("Iotsitewise", "NextToken")]] = None
     maxResults: Optional[int] = None
-    assetId: Optional[str] = None
-    aliasPrefix: Optional[str] = None
+    assetId: Optional[Annotated[str, _aws_pattern("Iotsitewise", "CustomID")]] = None
+    aliasPrefix: Optional[Annotated[str, _aws_pattern("Iotsitewise", "PropertyAlias")]] = None
     timeSeriesType: Optional[ListTimeSeriesTypeType] = None
 
 
@@ -930,11 +934,11 @@ class TimeSeriesSummaryTypeDef(BaseValidatorModel):
     dataType: PropertyDataTypeType
     timeSeriesCreationDate: datetime
     timeSeriesLastUpdateDate: datetime
-    timeSeriesArn: str
-    assetId: Optional[str] = None
-    propertyId: Optional[str] = None
-    alias: Optional[str] = None
-    dataTypeSpec: Optional[str] = None
+    timeSeriesArn: Annotated[str, _aws_pattern("Iotsitewise", "ARN")]
+    assetId: Optional[Annotated[str, _aws_pattern("Iotsitewise", "ID")]] = None
+    propertyId: Optional[Annotated[str, _aws_pattern("Iotsitewise", "ID")]] = None
+    alias: Optional[Annotated[str, _aws_pattern("Iotsitewise", "PropertyAlias")]] = None
+    dataTypeSpec: Optional[Annotated[str, _aws_pattern("Iotsitewise", "Name")]] = None
 
 
 class LocationTypeDef(BaseValidatorModel):
@@ -956,15 +960,15 @@ class MonitorErrorDetailsTypeDef(BaseValidatorModel):
 
 
 class PortalResourceTypeDef(BaseValidatorModel):
-    id: str
+    id: Annotated[str, _aws_pattern("Iotsitewise", "ID")]
 
 
 class PortalTypeEntryTypeDef(BaseValidatorModel):
-    portalTools: Optional[List[str]] = None
+    portalTools: Optional[List[Annotated[str, _aws_pattern("Iotsitewise", "Name")]]] = None
 
 
 class ProjectResourceTypeDef(BaseValidatorModel):
-    id: str
+    id: Annotated[str, _aws_pattern("Iotsitewise", "ID")]
 
 
 class PropertyValueNullValueTypeDef(BaseValidatorModel):
@@ -1001,49 +1005,49 @@ class UntagResourceRequestTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'update_asset_property' function.
 class UpdateAssetPropertyRequestTypeDef(BaseValidatorModel):
-    assetId: str
-    propertyId: str
-    propertyAlias: Optional[str] = None
+    assetId: Annotated[str, _aws_pattern("Iotsitewise", "CustomID")]
+    propertyId: Annotated[str, _aws_pattern("Iotsitewise", "CustomID")]
+    propertyAlias: Optional[Annotated[str, _aws_pattern("Iotsitewise", "PropertyAlias")]] = None
     propertyNotificationState: Optional[PropertyNotificationStateType] = None
-    clientToken: Optional[str] = None
-    propertyUnit: Optional[str] = None
+    clientToken: Optional[Annotated[str, _aws_pattern("Iotsitewise", "ClientToken")]] = None
+    propertyUnit: Optional[Annotated[str, _aws_pattern("Iotsitewise", "PropertyUnit")]] = None
 
 
 # This class is the input for the 'update_asset' function.
 class UpdateAssetRequestTypeDef(BaseValidatorModel):
-    assetId: str
-    assetName: str
-    assetExternalId: Optional[str] = None
-    clientToken: Optional[str] = None
-    assetDescription: Optional[str] = None
+    assetId: Annotated[str, _aws_pattern("Iotsitewise", "CustomID")]
+    assetName: Annotated[str, _aws_pattern("Iotsitewise", "Name")]
+    assetExternalId: Optional[Annotated[str, _aws_pattern("Iotsitewise", "ExternalId")]] = None
+    clientToken: Optional[Annotated[str, _aws_pattern("Iotsitewise", "ClientToken")]] = None
+    assetDescription: Optional[Annotated[str, _aws_pattern("Iotsitewise", "Description")]] = None
 
 
 class UpdateDashboardRequestTypeDef(BaseValidatorModel):
-    dashboardId: str
-    dashboardName: str
-    dashboardDefinition: str
-    dashboardDescription: Optional[str] = None
-    clientToken: Optional[str] = None
+    dashboardId: Annotated[str, _aws_pattern("Iotsitewise", "ID")]
+    dashboardName: Annotated[str, _aws_pattern("Iotsitewise", "Name")]
+    dashboardDefinition: Annotated[str, _aws_pattern("Iotsitewise", "DashboardDefinition")]
+    dashboardDescription: Optional[Annotated[str, _aws_pattern("Iotsitewise", "Description")]] = None
+    clientToken: Optional[Annotated[str, _aws_pattern("Iotsitewise", "ClientToken")]] = None
 
 
 # This class is the input for the 'update_gateway_capability_configuration' function.
 class UpdateGatewayCapabilityConfigurationRequestTypeDef(BaseValidatorModel):
-    gatewayId: str
-    capabilityNamespace: str
+    gatewayId: Annotated[str, _aws_pattern("Iotsitewise", "ID")]
+    capabilityNamespace: Annotated[str, _aws_pattern("Iotsitewise", "CapabilityNamespace")]
     capabilityConfiguration: str
 
 
 # This class is the input for the 'update_gateway' function.
 class UpdateGatewayRequestTypeDef(BaseValidatorModel):
-    gatewayId: str
-    gatewayName: str
+    gatewayId: Annotated[str, _aws_pattern("Iotsitewise", "ID")]
+    gatewayName: Annotated[str, _aws_pattern("Iotsitewise", "GatewayName")]
 
 
 class UpdateProjectRequestTypeDef(BaseValidatorModel):
-    projectId: str
-    projectName: str
-    projectDescription: Optional[str] = None
-    clientToken: Optional[str] = None
+    projectId: Annotated[str, _aws_pattern("Iotsitewise", "ID")]
+    projectName: Annotated[str, _aws_pattern("Iotsitewise", "Name")]
+    projectDescription: Optional[Annotated[str, _aws_pattern("Iotsitewise", "Description")]] = None
+    clientToken: Optional[Annotated[str, _aws_pattern("Iotsitewise", "ClientToken")]] = None
 
 
 class ComputationModelResolveToResourceSummaryTypeDef(BaseValidatorModel):
@@ -1051,8 +1055,8 @@ class ComputationModelResolveToResourceSummaryTypeDef(BaseValidatorModel):
 
 
 class ActionSummaryTypeDef(BaseValidatorModel):
-    actionId: Optional[str] = None
-    actionDefinitionId: Optional[str] = None
+    actionId: Optional[Annotated[str, _aws_pattern("Iotsitewise", "ID")]] = None
+    actionDefinitionId: Optional[Annotated[str, _aws_pattern("Iotsitewise", "ID")]] = None
     targetResource: Optional[TargetResourceTypeDef] = None
     resolveTo: Optional[ResolveToTypeDef] = None
 
@@ -1060,9 +1064,9 @@ class ActionSummaryTypeDef(BaseValidatorModel):
 # This class is the input for the 'execute_action' function.
 class ExecuteActionRequestTypeDef(BaseValidatorModel):
     targetResource: TargetResourceTypeDef
-    actionDefinitionId: str
+    actionDefinitionId: Annotated[str, _aws_pattern("Iotsitewise", "ID")]
     actionPayload: ActionPayloadTypeDef
-    clientToken: Optional[str] = None
+    clientToken: Optional[Annotated[str, _aws_pattern("Iotsitewise", "ClientToken")]] = None
     resolveTo: Optional[ResolveToTypeDef] = None
 
 
@@ -1073,12 +1077,12 @@ class AggregatedValueTypeDef(BaseValidatorModel):
 
 
 class AssetCompositeModelSummaryTypeDef(BaseValidatorModel):
-    id: str
-    name: str
-    type: str
-    description: str
+    id: Annotated[str, _aws_pattern("Iotsitewise", "ID")]
+    name: Annotated[str, _aws_pattern("Iotsitewise", "Name")]
+    type: Annotated[str, _aws_pattern("Iotsitewise", "Name")]
+    description: Annotated[str, _aws_pattern("Iotsitewise", "Description")]
     path: List[AssetCompositeModelPathSegmentTypeDef]
-    externalId: Optional[str] = None
+    externalId: Optional[Annotated[str, _aws_pattern("Iotsitewise", "ExternalId")]] = None
 
 
 class AssetRelationshipSummaryTypeDef(BaseValidatorModel):
@@ -1087,11 +1091,11 @@ class AssetRelationshipSummaryTypeDef(BaseValidatorModel):
 
 
 class AssetModelCompositeModelSummaryTypeDef(BaseValidatorModel):
-    id: str
-    name: str
-    type: str
-    externalId: Optional[str] = None
-    description: Optional[str] = None
+    id: Annotated[str, _aws_pattern("Iotsitewise", "ID")]
+    name: Annotated[str, _aws_pattern("Iotsitewise", "Name")]
+    type: Annotated[str, _aws_pattern("Iotsitewise", "Name")]
+    externalId: Optional[Annotated[str, _aws_pattern("Iotsitewise", "ExternalId")]] = None
+    description: Optional[Annotated[str, _aws_pattern("Iotsitewise", "Description")]] = None
     path: Optional[List[AssetModelCompositeModelPathSegmentTypeDef]] = None
 
 
@@ -1102,8 +1106,8 @@ class VariableValueOutputTypeDef(BaseValidatorModel):
 
 
 class VariableValueTypeDef(BaseValidatorModel):
-    propertyId: Optional[str] = None
-    hierarchyId: Optional[str] = None
+    propertyId: Optional[Annotated[str, _aws_pattern("Iotsitewise", "Macro")]] = None
+    hierarchyId: Optional[Annotated[str, _aws_pattern("Iotsitewise", "Macro")]] = None
     propertyPath: Optional[List[AssetModelPropertyPathSegmentTypeDef]] = None
 
 
@@ -1132,24 +1136,24 @@ class DataBindingValueTypeDef(BaseValidatorModel):
 
 
 class AssetPropertySummaryTypeDef(BaseValidatorModel):
-    id: str
-    externalId: Optional[str] = None
-    alias: Optional[str] = None
-    unit: Optional[str] = None
+    id: Annotated[str, _aws_pattern("Iotsitewise", "ID")]
+    externalId: Optional[Annotated[str, _aws_pattern("Iotsitewise", "ExternalId")]] = None
+    alias: Optional[Annotated[str, _aws_pattern("Iotsitewise", "PropertyAlias")]] = None
+    unit: Optional[Annotated[str, _aws_pattern("Iotsitewise", "PropertyUnit")]] = None
     notification: Optional[PropertyNotificationTypeDef] = None
-    assetCompositeModelId: Optional[str] = None
+    assetCompositeModelId: Optional[Annotated[str, _aws_pattern("Iotsitewise", "ID")]] = None
     path: Optional[List[AssetPropertyPathSegmentTypeDef]] = None
 
 
 class AssetPropertyTypeDef(BaseValidatorModel):
-    id: str
-    name: str
+    id: Annotated[str, _aws_pattern("Iotsitewise", "ID")]
+    name: Annotated[str, _aws_pattern("Iotsitewise", "Name")]
     dataType: PropertyDataTypeType
-    externalId: Optional[str] = None
-    alias: Optional[str] = None
+    externalId: Optional[Annotated[str, _aws_pattern("Iotsitewise", "ExternalId")]] = None
+    alias: Optional[Annotated[str, _aws_pattern("Iotsitewise", "PropertyAlias")]] = None
     notification: Optional[PropertyNotificationTypeDef] = None
-    dataTypeSpec: Optional[str] = None
-    unit: Optional[str] = None
+    dataTypeSpec: Optional[Annotated[str, _aws_pattern("Iotsitewise", "Name")]] = None
+    unit: Optional[Annotated[str, _aws_pattern("Iotsitewise", "PropertyUnit")]] = None
     path: Optional[List[AssetPropertyPathSegmentTypeDef]] = None
 
 
@@ -1173,45 +1177,45 @@ class BatchDisassociateProjectAssetsResponseTypeDef(BaseValidatorModel):
 
 # This class is the output for the 'create_access_policy' function.
 class CreateAccessPolicyResponseTypeDef(BaseValidatorModel):
-    accessPolicyId: str
-    accessPolicyArn: str
+    accessPolicyId: Annotated[str, _aws_pattern("Iotsitewise", "ID")]
+    accessPolicyArn: Annotated[str, _aws_pattern("Iotsitewise", "ARN")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 # This class is the output for the 'create_bulk_import_job' function.
 class CreateBulkImportJobResponseTypeDef(BaseValidatorModel):
-    jobId: str
-    jobName: str
+    jobId: Annotated[str, _aws_pattern("Iotsitewise", "ID")]
+    jobName: Annotated[str, _aws_pattern("Iotsitewise", "Name")]
     jobStatus: JobStatusType
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 # This class is the output for the 'create_dashboard' function.
 class CreateDashboardResponseTypeDef(BaseValidatorModel):
-    dashboardId: str
-    dashboardArn: str
+    dashboardId: Annotated[str, _aws_pattern("Iotsitewise", "ID")]
+    dashboardArn: Annotated[str, _aws_pattern("Iotsitewise", "ARN")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 # This class is the output for the 'create_gateway' function.
 class CreateGatewayResponseTypeDef(BaseValidatorModel):
-    gatewayId: str
-    gatewayArn: str
+    gatewayId: Annotated[str, _aws_pattern("Iotsitewise", "ID")]
+    gatewayArn: Annotated[str, _aws_pattern("Iotsitewise", "ARN")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 # This class is the output for the 'create_project' function.
 class CreateProjectResponseTypeDef(BaseValidatorModel):
-    projectId: str
-    projectArn: str
+    projectId: Annotated[str, _aws_pattern("Iotsitewise", "ID")]
+    projectArn: Annotated[str, _aws_pattern("Iotsitewise", "ARN")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 # This class is the output for the 'describe_action' function.
 class DescribeActionResponseTypeDef(BaseValidatorModel):
-    actionId: str
+    actionId: Annotated[str, _aws_pattern("Iotsitewise", "ID")]
     targetResource: TargetResourceTypeDef
-    actionDefinitionId: str
+    actionDefinitionId: Annotated[str, _aws_pattern("Iotsitewise", "ID")]
     actionPayload: ActionPayloadTypeDef
     executionTime: datetime
     resolveTo: ResolveToTypeDef
@@ -1220,7 +1224,7 @@ class DescribeActionResponseTypeDef(BaseValidatorModel):
 
 # This class is the output for the 'describe_computation_model_execution_summary' function.
 class DescribeComputationModelExecutionSummaryResponseTypeDef(BaseValidatorModel):
-    computationModelId: str
+    computationModelId: Annotated[str, _aws_pattern("Iotsitewise", "ID")]
     resolveTo: ResolveToTypeDef
     computationModelExecutionSummary: Dict[str, str]
     ResponseMetadata: ResponseMetadataTypeDef
@@ -1228,12 +1232,12 @@ class DescribeComputationModelExecutionSummaryResponseTypeDef(BaseValidatorModel
 
 # This class is the output for the 'describe_dashboard' function.
 class DescribeDashboardResponseTypeDef(BaseValidatorModel):
-    dashboardId: str
-    dashboardArn: str
-    dashboardName: str
-    projectId: str
-    dashboardDescription: str
-    dashboardDefinition: str
+    dashboardId: Annotated[str, _aws_pattern("Iotsitewise", "ID")]
+    dashboardArn: Annotated[str, _aws_pattern("Iotsitewise", "ARN")]
+    dashboardName: Annotated[str, _aws_pattern("Iotsitewise", "Name")]
+    projectId: Annotated[str, _aws_pattern("Iotsitewise", "ID")]
+    dashboardDescription: Annotated[str, _aws_pattern("Iotsitewise", "Description")]
+    dashboardDefinition: Annotated[str, _aws_pattern("Iotsitewise", "DashboardDefinition")]
     dashboardCreationDate: datetime
     dashboardLastUpdateDate: datetime
     ResponseMetadata: ResponseMetadataTypeDef
@@ -1241,8 +1245,8 @@ class DescribeDashboardResponseTypeDef(BaseValidatorModel):
 
 # This class is the output for the 'describe_gateway_capability_configuration' function.
 class DescribeGatewayCapabilityConfigurationResponseTypeDef(BaseValidatorModel):
-    gatewayId: str
-    capabilityNamespace: str
+    gatewayId: Annotated[str, _aws_pattern("Iotsitewise", "ID")]
+    capabilityNamespace: Annotated[str, _aws_pattern("Iotsitewise", "CapabilityNamespace")]
     capabilityConfiguration: str
     capabilitySyncStatus: CapabilitySyncStatusType
     ResponseMetadata: ResponseMetadataTypeDef
@@ -1250,11 +1254,11 @@ class DescribeGatewayCapabilityConfigurationResponseTypeDef(BaseValidatorModel):
 
 # This class is the output for the 'describe_project' function.
 class DescribeProjectResponseTypeDef(BaseValidatorModel):
-    projectId: str
-    projectArn: str
-    projectName: str
-    portalId: str
-    projectDescription: str
+    projectId: Annotated[str, _aws_pattern("Iotsitewise", "ID")]
+    projectArn: Annotated[str, _aws_pattern("Iotsitewise", "ARN")]
+    projectName: Annotated[str, _aws_pattern("Iotsitewise", "Name")]
+    portalId: Annotated[str, _aws_pattern("Iotsitewise", "ID")]
+    projectDescription: Annotated[str, _aws_pattern("Iotsitewise", "Description")]
     projectCreationDate: datetime
     projectLastUpdateDate: datetime
     ResponseMetadata: ResponseMetadataTypeDef
@@ -1262,15 +1266,15 @@ class DescribeProjectResponseTypeDef(BaseValidatorModel):
 
 # This class is the output for the 'describe_time_series' function.
 class DescribeTimeSeriesResponseTypeDef(BaseValidatorModel):
-    assetId: str
-    propertyId: str
-    alias: str
+    assetId: Annotated[str, _aws_pattern("Iotsitewise", "ID")]
+    propertyId: Annotated[str, _aws_pattern("Iotsitewise", "ID")]
+    alias: Annotated[str, _aws_pattern("Iotsitewise", "PropertyAlias")]
     timeSeriesId: str
     dataType: PropertyDataTypeType
-    dataTypeSpec: str
+    dataTypeSpec: Annotated[str, _aws_pattern("Iotsitewise", "Name")]
     timeSeriesCreationDate: datetime
     timeSeriesLastUpdateDate: datetime
-    timeSeriesArn: str
+    timeSeriesArn: Annotated[str, _aws_pattern("Iotsitewise", "ARN")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
@@ -1281,15 +1285,15 @@ class EmptyResponseMetadataTypeDef(BaseValidatorModel):
 
 # This class is the output for the 'execute_action' function.
 class ExecuteActionResponseTypeDef(BaseValidatorModel):
-    actionId: str
+    actionId: Annotated[str, _aws_pattern("Iotsitewise", "ID")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 # This class is the output for the 'list_project_assets' function.
 class ListProjectAssetsResponseTypeDef(BaseValidatorModel):
-    assetIds: List[str]
+    assetIds: List[Annotated[str, _aws_pattern("Iotsitewise", "ID")]]
     ResponseMetadata: ResponseMetadataTypeDef
-    nextToken: Optional[str] = None
+    nextToken: Optional[Annotated[str, _aws_pattern("Iotsitewise", "NextToken")]] = None
 
 
 # This class is the output for the 'list_tags_for_resource' function.
@@ -1300,29 +1304,29 @@ class ListTagsForResourceResponseTypeDef(BaseValidatorModel):
 
 # This class is the output for the 'update_gateway_capability_configuration' function.
 class UpdateGatewayCapabilityConfigurationResponseTypeDef(BaseValidatorModel):
-    capabilityNamespace: str
+    capabilityNamespace: Annotated[str, _aws_pattern("Iotsitewise", "CapabilityNamespace")]
     capabilitySyncStatus: CapabilitySyncStatusType
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 class BatchGetAssetPropertyAggregatesEntryTypeDef(BaseValidatorModel):
-    entryId: str
+    entryId: Annotated[str, _aws_pattern("Iotsitewise", "EntryId")]
     aggregateTypes: List[AggregateTypeType]
-    resolution: str
+    resolution: Annotated[str, _aws_pattern("Iotsitewise", "Resolution")]
     startDate: TimestampTypeDef
     endDate: TimestampTypeDef
-    assetId: Optional[str] = None
-    propertyId: Optional[str] = None
-    propertyAlias: Optional[str] = None
+    assetId: Optional[Annotated[str, _aws_pattern("Iotsitewise", "ID")]] = None
+    propertyId: Optional[Annotated[str, _aws_pattern("Iotsitewise", "ID")]] = None
+    propertyAlias: Optional[Annotated[str, _aws_pattern("Iotsitewise", "AssetPropertyAlias")]] = None
     qualities: Optional[List[QualityType]] = None
     timeOrdering: Optional[TimeOrderingType] = None
 
 
 class BatchGetAssetPropertyValueHistoryEntryTypeDef(BaseValidatorModel):
-    entryId: str
-    assetId: Optional[str] = None
-    propertyId: Optional[str] = None
-    propertyAlias: Optional[str] = None
+    entryId: Annotated[str, _aws_pattern("Iotsitewise", "EntryId")]
+    assetId: Optional[Annotated[str, _aws_pattern("Iotsitewise", "ID")]] = None
+    propertyId: Optional[Annotated[str, _aws_pattern("Iotsitewise", "ID")]] = None
+    propertyAlias: Optional[Annotated[str, _aws_pattern("Iotsitewise", "AssetPropertyAlias")]] = None
     startDate: Optional[TimestampTypeDef] = None
     endDate: Optional[TimestampTypeDef] = None
     qualities: Optional[List[QualityType]] = None
@@ -1332,33 +1336,33 @@ class BatchGetAssetPropertyValueHistoryEntryTypeDef(BaseValidatorModel):
 # This class is the input for the 'get_asset_property_aggregates' function.
 class GetAssetPropertyAggregatesRequestTypeDef(BaseValidatorModel):
     aggregateTypes: List[AggregateTypeType]
-    resolution: str
+    resolution: Annotated[str, _aws_pattern("Iotsitewise", "Resolution")]
     startDate: TimestampTypeDef
     endDate: TimestampTypeDef
-    assetId: Optional[str] = None
-    propertyId: Optional[str] = None
-    propertyAlias: Optional[str] = None
+    assetId: Optional[Annotated[str, _aws_pattern("Iotsitewise", "ID")]] = None
+    propertyId: Optional[Annotated[str, _aws_pattern("Iotsitewise", "ID")]] = None
+    propertyAlias: Optional[Annotated[str, _aws_pattern("Iotsitewise", "AssetPropertyAlias")]] = None
     qualities: Optional[List[QualityType]] = None
     timeOrdering: Optional[TimeOrderingType] = None
-    nextToken: Optional[str] = None
+    nextToken: Optional[Annotated[str, _aws_pattern("Iotsitewise", "NextToken")]] = None
     maxResults: Optional[int] = None
 
 
 # This class is the input for the 'get_asset_property_value_history' function.
 class GetAssetPropertyValueHistoryRequestTypeDef(BaseValidatorModel):
-    assetId: Optional[str] = None
-    propertyId: Optional[str] = None
-    propertyAlias: Optional[str] = None
+    assetId: Optional[Annotated[str, _aws_pattern("Iotsitewise", "ID")]] = None
+    propertyId: Optional[Annotated[str, _aws_pattern("Iotsitewise", "ID")]] = None
+    propertyAlias: Optional[Annotated[str, _aws_pattern("Iotsitewise", "AssetPropertyAlias")]] = None
     startDate: Optional[TimestampTypeDef] = None
     endDate: Optional[TimestampTypeDef] = None
     qualities: Optional[List[QualityType]] = None
     timeOrdering: Optional[TimeOrderingType] = None
-    nextToken: Optional[str] = None
+    nextToken: Optional[Annotated[str, _aws_pattern("Iotsitewise", "NextToken")]] = None
     maxResults: Optional[int] = None
 
 
 class BatchGetAssetPropertyAggregatesSkippedEntryTypeDef(BaseValidatorModel):
-    entryId: str
+    entryId: Annotated[str, _aws_pattern("Iotsitewise", "EntryId")]
     completionStatus: BatchEntryCompletionStatusType
     errorInfo: Optional[BatchGetAssetPropertyAggregatesErrorInfoTypeDef] = None
 
@@ -1366,17 +1370,17 @@ class BatchGetAssetPropertyAggregatesSkippedEntryTypeDef(BaseValidatorModel):
 # This class is the input for the 'batch_get_asset_property_value' function.
 class BatchGetAssetPropertyValueRequestTypeDef(BaseValidatorModel):
     entries: List[BatchGetAssetPropertyValueEntryTypeDef]
-    nextToken: Optional[str] = None
+    nextToken: Optional[Annotated[str, _aws_pattern("Iotsitewise", "NextToken")]] = None
 
 
 class BatchGetAssetPropertyValueSkippedEntryTypeDef(BaseValidatorModel):
-    entryId: str
+    entryId: Annotated[str, _aws_pattern("Iotsitewise", "EntryId")]
     completionStatus: BatchEntryCompletionStatusType
     errorInfo: Optional[BatchGetAssetPropertyValueErrorInfoTypeDef] = None
 
 
 class BatchGetAssetPropertyValueHistorySkippedEntryTypeDef(BaseValidatorModel):
-    entryId: str
+    entryId: Annotated[str, _aws_pattern("Iotsitewise", "EntryId")]
     completionStatus: BatchEntryCompletionStatusType
     errorInfo: Optional[BatchGetAssetPropertyValueHistoryErrorInfoTypeDef] = None
 
@@ -1399,7 +1403,7 @@ class CompositionDetailsTypeDef(BaseValidatorModel):
 class ListCompositionRelationshipsResponseTypeDef(BaseValidatorModel):
     compositionRelationshipSummaries: List[CompositionRelationshipSummaryTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
-    nextToken: Optional[str] = None
+    nextToken: Optional[Annotated[str, _aws_pattern("Iotsitewise", "NextToken")]] = None
 
 
 class ComputationModelConfigurationTypeDef(BaseValidatorModel):
@@ -1429,7 +1433,7 @@ class MultiLayerStorageTypeDef(BaseValidatorModel):
 class ListDashboardsResponseTypeDef(BaseValidatorModel):
     dashboardSummaries: List[DashboardSummaryTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
-    nextToken: Optional[str] = None
+    nextToken: Optional[Annotated[str, _aws_pattern("Iotsitewise", "NextToken")]] = None
 
 
 class RowPaginatorTypeDef(BaseValidatorModel):
@@ -1446,8 +1450,8 @@ class RowWaiterTypeDef(BaseValidatorModel):
 
 # This class is the output for the 'describe_asset_model_interface_relationship' function.
 class DescribeAssetModelInterfaceRelationshipResponseTypeDef(BaseValidatorModel):
-    assetModelId: str
-    interfaceAssetModelId: str
+    assetModelId: Annotated[str, _aws_pattern("Iotsitewise", "ID")]
+    interfaceAssetModelId: Annotated[str, _aws_pattern("Iotsitewise", "ID")]
     propertyMappings: List[PropertyMappingTypeDef]
     hierarchyMappings: List[HierarchyMappingTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
@@ -1497,30 +1501,30 @@ class DescribePortalRequestWaitTypeDef(BaseValidatorModel):
 
 # This class is the output for the 'describe_execution' function.
 class DescribeExecutionResponseTypeDef(BaseValidatorModel):
-    executionId: str
-    actionType: str
+    executionId: Annotated[str, _aws_pattern("Iotsitewise", "ID")]
+    actionType: Annotated[str, _aws_pattern("Iotsitewise", "Name")]
     targetResource: TargetResourceTypeDef
-    targetResourceVersion: str
+    targetResourceVersion: Annotated[str, _aws_pattern("Iotsitewise", "Version")]
     resolveTo: ResolveToTypeDef
     executionStartTime: datetime
     executionEndTime: datetime
     executionStatus: ExecutionStatusTypeDef
     executionResult: Dict[str, str]
     executionDetails: Dict[str, str]
-    executionEntityVersion: str
+    executionEntityVersion: Annotated[str, _aws_pattern("Iotsitewise", "Version")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 class ExecutionSummaryTypeDef(BaseValidatorModel):
-    executionId: str
+    executionId: Annotated[str, _aws_pattern("Iotsitewise", "ID")]
     targetResource: TargetResourceTypeDef
-    targetResourceVersion: str
+    targetResourceVersion: Annotated[str, _aws_pattern("Iotsitewise", "Version")]
     executionStartTime: datetime
     executionStatus: ExecutionStatusTypeDef
-    actionType: Optional[str] = None
+    actionType: Optional[Annotated[str, _aws_pattern("Iotsitewise", "Name")]] = None
     resolveTo: Optional[ResolveToTypeDef] = None
     executionEndTime: Optional[datetime] = None
-    executionEntityVersion: Optional[str] = None
+    executionEntityVersion: Optional[Annotated[str, _aws_pattern("Iotsitewise", "Version")]] = None
 
 
 class DescribeLoggingOptionsResponseTypeDef(BaseValidatorModel):
@@ -1739,14 +1743,14 @@ class IdentityTypeDef(BaseValidatorModel):
 class ListInterfaceRelationshipsResponseTypeDef(BaseValidatorModel):
     interfaceRelationshipSummaries: List[InterfaceRelationshipSummaryTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
-    nextToken: Optional[str] = None
+    nextToken: Optional[Annotated[str, _aws_pattern("Iotsitewise", "NextToken")]] = None
 
 
 # This class is the output for the 'list_bulk_import_jobs' function.
 class ListBulkImportJobsResponseTypeDef(BaseValidatorModel):
     jobSummaries: List[JobSummaryTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
-    nextToken: Optional[str] = None
+    nextToken: Optional[Annotated[str, _aws_pattern("Iotsitewise", "NextToken")]] = None
 
 
 class SourceDetailTypeDef(BaseValidatorModel):
@@ -1757,14 +1761,14 @@ class SourceDetailTypeDef(BaseValidatorModel):
 class ListProjectsResponseTypeDef(BaseValidatorModel):
     projectSummaries: List[ProjectSummaryTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
-    nextToken: Optional[str] = None
+    nextToken: Optional[Annotated[str, _aws_pattern("Iotsitewise", "NextToken")]] = None
 
 
 # This class is the output for the 'list_time_series' function.
 class ListTimeSeriesResponseTypeDef(BaseValidatorModel):
     TimeSeriesSummaries: List[TimeSeriesSummaryTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
-    nextToken: Optional[str] = None
+    nextToken: Optional[Annotated[str, _aws_pattern("Iotsitewise", "NextToken")]] = None
 
 
 class SourceTypeDef(BaseValidatorModel):
@@ -1801,18 +1805,18 @@ class VariantTypeDef(BaseValidatorModel):
 class ListComputationModelResolveToResourcesResponseTypeDef(BaseValidatorModel):
     computationModelResolveToResourceSummaries: List[ComputationModelResolveToResourceSummaryTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
-    nextToken: Optional[str] = None
+    nextToken: Optional[Annotated[str, _aws_pattern("Iotsitewise", "NextToken")]] = None
 
 
 # This class is the output for the 'list_actions' function.
 class ListActionsResponseTypeDef(BaseValidatorModel):
     actionSummaries: List[ActionSummaryTypeDef]
-    nextToken: str
+    nextToken: Annotated[str, _aws_pattern("Iotsitewise", "NextToken")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 class BatchGetAssetPropertyAggregatesSuccessEntryTypeDef(BaseValidatorModel):
-    entryId: str
+    entryId: Annotated[str, _aws_pattern("Iotsitewise", "EntryId")]
     aggregatedValues: List[AggregatedValueTypeDef]
 
 
@@ -1820,21 +1824,21 @@ class BatchGetAssetPropertyAggregatesSuccessEntryTypeDef(BaseValidatorModel):
 class GetAssetPropertyAggregatesResponseTypeDef(BaseValidatorModel):
     aggregatedValues: List[AggregatedValueTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
-    nextToken: Optional[str] = None
+    nextToken: Optional[Annotated[str, _aws_pattern("Iotsitewise", "NextToken")]] = None
 
 
 # This class is the output for the 'list_asset_relationships' function.
 class ListAssetRelationshipsResponseTypeDef(BaseValidatorModel):
     assetRelationshipSummaries: List[AssetRelationshipSummaryTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
-    nextToken: Optional[str] = None
+    nextToken: Optional[Annotated[str, _aws_pattern("Iotsitewise", "NextToken")]] = None
 
 
 # This class is the output for the 'list_asset_model_composite_models' function.
 class ListAssetModelCompositeModelsResponseTypeDef(BaseValidatorModel):
     assetModelCompositeModelSummaries: List[AssetModelCompositeModelSummaryTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
-    nextToken: Optional[str] = None
+    nextToken: Optional[Annotated[str, _aws_pattern("Iotsitewise", "NextToken")]] = None
 
 
 class ExpressionVariableOutputTypeDef(BaseValidatorModel):
@@ -1853,7 +1857,7 @@ class ListComputationModelDataBindingUsagesRequestPaginateTypeDef(BaseValidatorM
 # This class is the input for the 'list_computation_model_data_binding_usages' function.
 class ListComputationModelDataBindingUsagesRequestTypeDef(BaseValidatorModel):
     dataBindingValueFilter: DataBindingValueFilterTypeDef
-    nextToken: Optional[str] = None
+    nextToken: Optional[Annotated[str, _aws_pattern("Iotsitewise", "NextToken")]] = None
     maxResults: Optional[int] = None
 
 
@@ -1870,27 +1874,27 @@ class MatchedDataBindingTypeDef(BaseValidatorModel):
 class ListAssetPropertiesResponseTypeDef(BaseValidatorModel):
     assetPropertySummaries: List[AssetPropertySummaryTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
-    nextToken: Optional[str] = None
+    nextToken: Optional[Annotated[str, _aws_pattern("Iotsitewise", "NextToken")]] = None
 
 
 class AssetCompositeModelTypeDef(BaseValidatorModel):
-    name: str
-    type: str
+    name: Annotated[str, _aws_pattern("Iotsitewise", "Name")]
+    type: Annotated[str, _aws_pattern("Iotsitewise", "Name")]
     properties: List[AssetPropertyTypeDef]
-    description: Optional[str] = None
-    id: Optional[str] = None
-    externalId: Optional[str] = None
+    description: Optional[Annotated[str, _aws_pattern("Iotsitewise", "Description")]] = None
+    id: Optional[Annotated[str, _aws_pattern("Iotsitewise", "ID")]] = None
+    externalId: Optional[Annotated[str, _aws_pattern("Iotsitewise", "ExternalId")]] = None
 
 
 # This class is the output for the 'describe_asset_composite_model' function.
 class DescribeAssetCompositeModelResponseTypeDef(BaseValidatorModel):
-    assetId: str
-    assetCompositeModelId: str
-    assetCompositeModelExternalId: str
+    assetId: Annotated[str, _aws_pattern("Iotsitewise", "ID")]
+    assetCompositeModelId: Annotated[str, _aws_pattern("Iotsitewise", "ID")]
+    assetCompositeModelExternalId: Annotated[str, _aws_pattern("Iotsitewise", "ExternalId")]
     assetCompositeModelPath: List[AssetCompositeModelPathSegmentTypeDef]
-    assetCompositeModelName: str
-    assetCompositeModelDescription: str
-    assetCompositeModelType: str
+    assetCompositeModelName: Annotated[str, _aws_pattern("Iotsitewise", "Name")]
+    assetCompositeModelDescription: Annotated[str, _aws_pattern("Iotsitewise", "Description")]
+    assetCompositeModelType: Annotated[str, _aws_pattern("Iotsitewise", "Name")]
     assetCompositeModelProperties: List[AssetPropertyTypeDef]
     assetCompositeModelSummaries: List[AssetCompositeModelSummaryTypeDef]
     actionDefinitions: List[ActionDefinitionTypeDef]
@@ -1898,32 +1902,32 @@ class DescribeAssetCompositeModelResponseTypeDef(BaseValidatorModel):
 
 
 class BatchPutAssetPropertyErrorEntryTypeDef(BaseValidatorModel):
-    entryId: str
+    entryId: Annotated[str, _aws_pattern("Iotsitewise", "EntryId")]
     errors: List[BatchPutAssetPropertyErrorTypeDef]
 
 
 # This class is the input for the 'batch_get_asset_property_aggregates' function.
 class BatchGetAssetPropertyAggregatesRequestTypeDef(BaseValidatorModel):
     entries: List[BatchGetAssetPropertyAggregatesEntryTypeDef]
-    nextToken: Optional[str] = None
+    nextToken: Optional[Annotated[str, _aws_pattern("Iotsitewise", "NextToken")]] = None
     maxResults: Optional[int] = None
 
 
 # This class is the input for the 'batch_get_asset_property_value_history' function.
 class BatchGetAssetPropertyValueHistoryRequestTypeDef(BaseValidatorModel):
     entries: List[BatchGetAssetPropertyValueHistoryEntryTypeDef]
-    nextToken: Optional[str] = None
+    nextToken: Optional[Annotated[str, _aws_pattern("Iotsitewise", "NextToken")]] = None
     maxResults: Optional[int] = None
 
 
 class ImageTypeDef(BaseValidatorModel):
-    id: Optional[str] = None
+    id: Optional[Annotated[str, _aws_pattern("Iotsitewise", "ID")]] = None
     file: Optional[ImageFileTypeDef] = None
 
 
 class DescribeDefaultEncryptionConfigurationResponseTypeDef(BaseValidatorModel):
     encryptionType: EncryptionTypeType
-    kmsKeyArn: str
+    kmsKeyArn: Annotated[str, _aws_pattern("Iotsitewise", "ARN")]
     configurationStatus: ConfigurationStatusTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
@@ -1931,7 +1935,7 @@ class DescribeDefaultEncryptionConfigurationResponseTypeDef(BaseValidatorModel):
 # This class is the output for the 'put_default_encryption_configuration' function.
 class PutDefaultEncryptionConfigurationResponseTypeDef(BaseValidatorModel):
     encryptionType: EncryptionTypeType
-    kmsKeyArn: str
+    kmsKeyArn: Annotated[str, _aws_pattern("Iotsitewise", "ARN")]
     configurationStatus: ConfigurationStatusTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
@@ -2005,17 +2009,17 @@ class ExecuteQueryResponseWaiterTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'put_asset_model_interface_relationship' function.
 class PutAssetModelInterfaceRelationshipRequestTypeDef(BaseValidatorModel):
-    assetModelId: str
-    interfaceAssetModelId: str
+    assetModelId: Annotated[str, _aws_pattern("Iotsitewise", "CustomID")]
+    interfaceAssetModelId: Annotated[str, _aws_pattern("Iotsitewise", "CustomID")]
     propertyMappingConfiguration: PropertyMappingConfigurationTypeDef
-    clientToken: Optional[str] = None
+    clientToken: Optional[Annotated[str, _aws_pattern("Iotsitewise", "ClientToken")]] = None
 
 
 # This class is the output for the 'list_executions' function.
 class ListExecutionsResponseTypeDef(BaseValidatorModel):
     executionSummaries: List[ExecutionSummaryTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
-    nextToken: Optional[str] = None
+    nextToken: Optional[Annotated[str, _aws_pattern("Iotsitewise", "NextToken")]] = None
 
 
 class AssetModelStatusTypeDef(BaseValidatorModel):
@@ -2044,19 +2048,19 @@ class MeasurementTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'create_gateway' function.
 class CreateGatewayRequestTypeDef(BaseValidatorModel):
-    gatewayName: str
+    gatewayName: Annotated[str, _aws_pattern("Iotsitewise", "GatewayName")]
     gatewayPlatform: GatewayPlatformTypeDef
-    gatewayVersion: Optional[str] = None
+    gatewayVersion: Optional[Annotated[str, _aws_pattern("Iotsitewise", "GatewayVersion")]] = None
     tags: Optional[Dict[str, str]] = None
 
 
 # This class is the output for the 'describe_gateway' function.
 class DescribeGatewayResponseTypeDef(BaseValidatorModel):
-    gatewayId: str
-    gatewayName: str
-    gatewayArn: str
+    gatewayId: Annotated[str, _aws_pattern("Iotsitewise", "ID")]
+    gatewayName: Annotated[str, _aws_pattern("Iotsitewise", "GatewayName")]
+    gatewayArn: Annotated[str, _aws_pattern("Iotsitewise", "ARN")]
     gatewayPlatform: GatewayPlatformTypeDef
-    gatewayVersion: str
+    gatewayVersion: Annotated[str, _aws_pattern("Iotsitewise", "GatewayVersion")]
     gatewayCapabilitySummaries: List[GatewayCapabilitySummaryTypeDef]
     creationDate: datetime
     lastUpdateDate: datetime
@@ -2064,12 +2068,12 @@ class DescribeGatewayResponseTypeDef(BaseValidatorModel):
 
 
 class GatewaySummaryTypeDef(BaseValidatorModel):
-    gatewayId: str
-    gatewayName: str
+    gatewayId: Annotated[str, _aws_pattern("Iotsitewise", "ID")]
+    gatewayName: Annotated[str, _aws_pattern("Iotsitewise", "GatewayName")]
     creationDate: datetime
     lastUpdateDate: datetime
     gatewayPlatform: Optional[GatewayPlatformTypeDef] = None
-    gatewayVersion: Optional[str] = None
+    gatewayVersion: Optional[Annotated[str, _aws_pattern("Iotsitewise", "GatewayVersion")]] = None
     gatewayCapabilitySummaries: Optional[List[GatewayCapabilitySummaryTypeDef]] = None
 
 
@@ -2086,11 +2090,11 @@ class DataSetReferenceTypeDef(BaseValidatorModel):
 
 # This class is the output for the 'create_portal' function.
 class CreatePortalResponseTypeDef(BaseValidatorModel):
-    portalId: str
-    portalArn: str
-    portalStartUrl: str
+    portalId: Annotated[str, _aws_pattern("Iotsitewise", "ID")]
+    portalArn: Annotated[str, _aws_pattern("Iotsitewise", "ARN")]
+    portalStartUrl: Annotated[str, _aws_pattern("Iotsitewise", "Url")]
     portalStatus: PortalStatusTypeDef
-    ssoApplicationId: str
+    ssoApplicationId: Annotated[str, _aws_pattern("Iotsitewise", "SSOApplicationId")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
@@ -2102,20 +2106,20 @@ class DeletePortalResponseTypeDef(BaseValidatorModel):
 
 # This class is the output for the 'describe_portal' function.
 class DescribePortalResponseTypeDef(BaseValidatorModel):
-    portalId: str
-    portalArn: str
-    portalName: str
-    portalDescription: str
-    portalClientId: str
-    portalStartUrl: str
-    portalContactEmail: str
+    portalId: Annotated[str, _aws_pattern("Iotsitewise", "ID")]
+    portalArn: Annotated[str, _aws_pattern("Iotsitewise", "ARN")]
+    portalName: Annotated[str, _aws_pattern("Iotsitewise", "Name")]
+    portalDescription: Annotated[str, _aws_pattern("Iotsitewise", "Description")]
+    portalClientId: Annotated[str, _aws_pattern("Iotsitewise", "PortalClientId")]
+    portalStartUrl: Annotated[str, _aws_pattern("Iotsitewise", "Url")]
+    portalContactEmail: Annotated[str, _aws_pattern("Iotsitewise", "Email")]
     portalStatus: PortalStatusTypeDef
     portalCreationDate: datetime
     portalLastUpdateDate: datetime
     portalLogoImageLocation: ImageLocationTypeDef
-    roleArn: str
+    roleArn: Annotated[str, _aws_pattern("Iotsitewise", "IamArn")]
     portalAuthMode: AuthModeType
-    notificationSenderEmail: str
+    notificationSenderEmail: Annotated[str, _aws_pattern("Iotsitewise", "Email")]
     alarms: AlarmsTypeDef
     portalType: PortalTypeType
     portalTypeConfiguration: Dict[str, PortalTypeEntryOutputTypeDef]
@@ -2123,14 +2127,14 @@ class DescribePortalResponseTypeDef(BaseValidatorModel):
 
 
 class PortalSummaryTypeDef(BaseValidatorModel):
-    id: str
-    name: str
-    startUrl: str
+    id: Annotated[str, _aws_pattern("Iotsitewise", "ID")]
+    name: Annotated[str, _aws_pattern("Iotsitewise", "Name")]
+    startUrl: Annotated[str, _aws_pattern("Iotsitewise", "Url")]
     status: PortalStatusTypeDef
-    description: Optional[str] = None
+    description: Optional[Annotated[str, _aws_pattern("Iotsitewise", "Description")]] = None
     creationDate: Optional[datetime] = None
     lastUpdateDate: Optional[datetime] = None
-    roleArn: Optional[str] = None
+    roleArn: Optional[Annotated[str, _aws_pattern("Iotsitewise", "IamArn")]] = None
     portalType: Optional[PortalTypeType] = None
 
 
@@ -2142,22 +2146,22 @@ class UpdatePortalResponseTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'create_portal' function.
 class CreatePortalRequestTypeDef(BaseValidatorModel):
-    portalName: str
-    portalContactEmail: str
-    roleArn: str
-    portalDescription: Optional[str] = None
-    clientToken: Optional[str] = None
+    portalName: Annotated[str, _aws_pattern("Iotsitewise", "Name")]
+    portalContactEmail: Annotated[str, _aws_pattern("Iotsitewise", "Email")]
+    roleArn: Annotated[str, _aws_pattern("Iotsitewise", "IamArn")]
+    portalDescription: Optional[Annotated[str, _aws_pattern("Iotsitewise", "Description")]] = None
+    clientToken: Optional[Annotated[str, _aws_pattern("Iotsitewise", "ClientToken")]] = None
     portalLogoImageFile: Optional[ImageFileTypeDef] = None
     tags: Optional[Dict[str, str]] = None
     portalAuthMode: Optional[AuthModeType] = None
-    notificationSenderEmail: Optional[str] = None
+    notificationSenderEmail: Optional[Annotated[str, _aws_pattern("Iotsitewise", "Email")]] = None
     alarms: Optional[AlarmsTypeDef] = None
     portalType: Optional[PortalTypeType] = None
     portalTypeConfiguration: Optional[Dict[str, PortalTypeEntryUnionTypeDef]] = None
 
 
 class AccessPolicySummaryTypeDef(BaseValidatorModel):
-    id: str
+    id: Annotated[str, _aws_pattern("Iotsitewise", "ID")]
     identity: IdentityTypeDef
     resource: ResourceTypeDef
     permission: PermissionType
@@ -2170,14 +2174,14 @@ class CreateAccessPolicyRequestTypeDef(BaseValidatorModel):
     accessPolicyIdentity: IdentityTypeDef
     accessPolicyResource: ResourceTypeDef
     accessPolicyPermission: PermissionType
-    clientToken: Optional[str] = None
+    clientToken: Optional[Annotated[str, _aws_pattern("Iotsitewise", "ClientToken")]] = None
     tags: Optional[Dict[str, str]] = None
 
 
 # This class is the output for the 'describe_access_policy' function.
 class DescribeAccessPolicyResponseTypeDef(BaseValidatorModel):
-    accessPolicyId: str
-    accessPolicyArn: str
+    accessPolicyId: Annotated[str, _aws_pattern("Iotsitewise", "ID")]
+    accessPolicyArn: Annotated[str, _aws_pattern("Iotsitewise", "ARN")]
     accessPolicyIdentity: IdentityTypeDef
     accessPolicyResource: ResourceTypeDef
     accessPolicyPermission: PermissionType
@@ -2187,11 +2191,11 @@ class DescribeAccessPolicyResponseTypeDef(BaseValidatorModel):
 
 
 class UpdateAccessPolicyRequestTypeDef(BaseValidatorModel):
-    accessPolicyId: str
+    accessPolicyId: Annotated[str, _aws_pattern("Iotsitewise", "ID")]
     accessPolicyIdentity: IdentityTypeDef
     accessPolicyResource: ResourceTypeDef
     accessPolicyPermission: PermissionType
-    clientToken: Optional[str] = None
+    clientToken: Optional[Annotated[str, _aws_pattern("Iotsitewise", "ClientToken")]] = None
 
 
 class AssetPropertyValueTypeDef(BaseValidatorModel):
@@ -2211,7 +2215,7 @@ class BatchGetAssetPropertyAggregatesResponseTypeDef(BaseValidatorModel):
     successEntries: List[BatchGetAssetPropertyAggregatesSuccessEntryTypeDef]
     skippedEntries: List[BatchGetAssetPropertyAggregatesSkippedEntryTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
-    nextToken: Optional[str] = None
+    nextToken: Optional[Annotated[str, _aws_pattern("Iotsitewise", "NextToken")]] = None
 
 
 class MetricOutputTypeDef(BaseValidatorModel):
@@ -2228,32 +2232,32 @@ class TransformOutputTypeDef(BaseValidatorModel):
 
 
 class ExpressionVariableTypeDef(BaseValidatorModel):
-    name: str
+    name: Annotated[str, _aws_pattern("Iotsitewise", "VariableName")]
     value: VariableValueUnionTypeDef
 
 
 # This class is the input for the 'create_computation_model' function.
 class CreateComputationModelRequestTypeDef(BaseValidatorModel):
-    computationModelName: str
+    computationModelName: Annotated[str, _aws_pattern("Iotsitewise", "RestrictedName")]
     computationModelConfiguration: ComputationModelConfigurationTypeDef
     computationModelDataBinding: Dict[str, ComputationModelDataBindingValueUnionTypeDef]
-    computationModelDescription: Optional[str] = None
-    clientToken: Optional[str] = None
+    computationModelDescription: Optional[Annotated[str, _aws_pattern("Iotsitewise", "RestrictedDescription")]] = None
+    clientToken: Optional[Annotated[str, _aws_pattern("Iotsitewise", "ClientToken")]] = None
     tags: Optional[Dict[str, str]] = None
 
 
 # This class is the input for the 'update_computation_model' function.
 class UpdateComputationModelRequestTypeDef(BaseValidatorModel):
-    computationModelId: str
-    computationModelName: str
+    computationModelId: Annotated[str, _aws_pattern("Iotsitewise", "ID")]
+    computationModelName: Annotated[str, _aws_pattern("Iotsitewise", "RestrictedName")]
     computationModelConfiguration: ComputationModelConfigurationTypeDef
     computationModelDataBinding: Dict[str, ComputationModelDataBindingValueUnionTypeDef]
-    computationModelDescription: Optional[str] = None
-    clientToken: Optional[str] = None
+    computationModelDescription: Optional[Annotated[str, _aws_pattern("Iotsitewise", "RestrictedDescription")]] = None
+    clientToken: Optional[Annotated[str, _aws_pattern("Iotsitewise", "ClientToken")]] = None
 
 
 class ComputationModelDataBindingUsageSummaryTypeDef(BaseValidatorModel):
-    computationModelIds: List[str]
+    computationModelIds: List[Annotated[str, _aws_pattern("Iotsitewise", "ID")]]
     matchedDataBinding: MatchedDataBindingTypeDef
 
 
@@ -2265,14 +2269,14 @@ class BatchPutAssetPropertyValueResponseTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'update_portal' function.
 class UpdatePortalRequestTypeDef(BaseValidatorModel):
-    portalId: str
-    portalName: str
-    portalContactEmail: str
-    roleArn: str
-    portalDescription: Optional[str] = None
+    portalId: Annotated[str, _aws_pattern("Iotsitewise", "ID")]
+    portalName: Annotated[str, _aws_pattern("Iotsitewise", "Name")]
+    portalContactEmail: Annotated[str, _aws_pattern("Iotsitewise", "Email")]
+    roleArn: Annotated[str, _aws_pattern("Iotsitewise", "IamArn")]
+    portalDescription: Optional[Annotated[str, _aws_pattern("Iotsitewise", "Description")]] = None
     portalLogoImage: Optional[ImageTypeDef] = None
-    clientToken: Optional[str] = None
-    notificationSenderEmail: Optional[str] = None
+    clientToken: Optional[Annotated[str, _aws_pattern("Iotsitewise", "ClientToken")]] = None
+    notificationSenderEmail: Optional[Annotated[str, _aws_pattern("Iotsitewise", "Email")]] = None
     alarms: Optional[AlarmsTypeDef] = None
     portalType: Optional[PortalTypeType] = None
     portalTypeConfiguration: Optional[Dict[str, PortalTypeEntryUnionTypeDef]] = None
@@ -2280,10 +2284,10 @@ class UpdatePortalRequestTypeDef(BaseValidatorModel):
 
 # This class is the output for the 'describe_bulk_import_job' function.
 class DescribeBulkImportJobResponseTypeDef(BaseValidatorModel):
-    jobId: str
-    jobName: str
+    jobId: Annotated[str, _aws_pattern("Iotsitewise", "ID")]
+    jobName: Annotated[str, _aws_pattern("Iotsitewise", "Name")]
     jobStatus: JobStatusType
-    jobRoleArn: str
+    jobRoleArn: Annotated[str, _aws_pattern("Iotsitewise", "ARN")]
     files: List[FileTypeDef]
     errorReportLocation: ErrorReportLocationTypeDef
     jobConfiguration: JobConfigurationOutputTypeDef
@@ -2298,21 +2302,21 @@ JobConfigurationUnionTypeDef = Union[JobConfigurationOutputTypeDef, JobConfigura
 
 
 class AssetModelSummaryTypeDef(BaseValidatorModel):
-    id: str
-    arn: str
-    name: str
-    description: str
+    id: Annotated[str, _aws_pattern("Iotsitewise", "ID")]
+    arn: Annotated[str, _aws_pattern("Iotsitewise", "ARN")]
+    name: Annotated[str, _aws_pattern("Iotsitewise", "Name")]
+    description: Annotated[str, _aws_pattern("Iotsitewise", "Description")]
     creationDate: datetime
     lastUpdateDate: datetime
     status: AssetModelStatusTypeDef
-    externalId: Optional[str] = None
+    externalId: Optional[Annotated[str, _aws_pattern("Iotsitewise", "ExternalId")]] = None
     assetModelType: Optional[AssetModelTypeType] = None
-    version: Optional[str] = None
+    version: Optional[Annotated[str, _aws_pattern("Iotsitewise", "Version")]] = None
 
 
 # This class is the output for the 'create_asset_model_composite_model' function.
 class CreateAssetModelCompositeModelResponseTypeDef(BaseValidatorModel):
-    assetModelCompositeModelId: str
+    assetModelCompositeModelId: Annotated[str, _aws_pattern("Iotsitewise", "ID")]
     assetModelCompositeModelPath: List[AssetModelCompositeModelPathSegmentTypeDef]
     assetModelStatus: AssetModelStatusTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
@@ -2320,8 +2324,8 @@ class CreateAssetModelCompositeModelResponseTypeDef(BaseValidatorModel):
 
 # This class is the output for the 'create_asset_model' function.
 class CreateAssetModelResponseTypeDef(BaseValidatorModel):
-    assetModelId: str
-    assetModelArn: str
+    assetModelId: Annotated[str, _aws_pattern("Iotsitewise", "ID")]
+    assetModelArn: Annotated[str, _aws_pattern("Iotsitewise", "ARN")]
     assetModelStatus: AssetModelStatusTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
@@ -2334,9 +2338,9 @@ class DeleteAssetModelCompositeModelResponseTypeDef(BaseValidatorModel):
 
 # This class is the output for the 'delete_asset_model_interface_relationship' function.
 class DeleteAssetModelInterfaceRelationshipResponseTypeDef(BaseValidatorModel):
-    assetModelId: str
-    interfaceAssetModelId: str
-    assetModelArn: str
+    assetModelId: Annotated[str, _aws_pattern("Iotsitewise", "ID")]
+    interfaceAssetModelId: Annotated[str, _aws_pattern("Iotsitewise", "ID")]
+    assetModelArn: Annotated[str, _aws_pattern("Iotsitewise", "ARN")]
     assetModelStatus: AssetModelStatusTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
@@ -2349,9 +2353,9 @@ class DeleteAssetModelResponseTypeDef(BaseValidatorModel):
 
 # This class is the output for the 'put_asset_model_interface_relationship' function.
 class PutAssetModelInterfaceRelationshipResponseTypeDef(BaseValidatorModel):
-    assetModelId: str
-    interfaceAssetModelId: str
-    assetModelArn: str
+    assetModelId: Annotated[str, _aws_pattern("Iotsitewise", "ID")]
+    interfaceAssetModelId: Annotated[str, _aws_pattern("Iotsitewise", "ID")]
+    assetModelArn: Annotated[str, _aws_pattern("Iotsitewise", "ARN")]
     assetModelStatus: AssetModelStatusTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
@@ -2370,35 +2374,35 @@ class UpdateAssetModelResponseTypeDef(BaseValidatorModel):
 
 
 class AssetSummaryTypeDef(BaseValidatorModel):
-    id: str
-    arn: str
-    name: str
-    assetModelId: str
+    id: Annotated[str, _aws_pattern("Iotsitewise", "ID")]
+    arn: Annotated[str, _aws_pattern("Iotsitewise", "ARN")]
+    name: Annotated[str, _aws_pattern("Iotsitewise", "Name")]
+    assetModelId: Annotated[str, _aws_pattern("Iotsitewise", "ID")]
     creationDate: datetime
     lastUpdateDate: datetime
     status: AssetStatusTypeDef
     hierarchies: List[AssetHierarchyTypeDef]
-    externalId: Optional[str] = None
-    description: Optional[str] = None
+    externalId: Optional[Annotated[str, _aws_pattern("Iotsitewise", "ExternalId")]] = None
+    description: Optional[Annotated[str, _aws_pattern("Iotsitewise", "Description")]] = None
 
 
 class AssociatedAssetsSummaryTypeDef(BaseValidatorModel):
-    id: str
-    arn: str
-    name: str
-    assetModelId: str
+    id: Annotated[str, _aws_pattern("Iotsitewise", "ID")]
+    arn: Annotated[str, _aws_pattern("Iotsitewise", "ARN")]
+    name: Annotated[str, _aws_pattern("Iotsitewise", "Name")]
+    assetModelId: Annotated[str, _aws_pattern("Iotsitewise", "ID")]
     creationDate: datetime
     lastUpdateDate: datetime
     status: AssetStatusTypeDef
     hierarchies: List[AssetHierarchyTypeDef]
-    externalId: Optional[str] = None
-    description: Optional[str] = None
+    externalId: Optional[Annotated[str, _aws_pattern("Iotsitewise", "ExternalId")]] = None
+    description: Optional[Annotated[str, _aws_pattern("Iotsitewise", "Description")]] = None
 
 
 # This class is the output for the 'create_asset' function.
 class CreateAssetResponseTypeDef(BaseValidatorModel):
-    assetId: str
-    assetArn: str
+    assetId: Annotated[str, _aws_pattern("Iotsitewise", "ID")]
+    assetArn: Annotated[str, _aws_pattern("Iotsitewise", "ARN")]
     assetStatus: AssetStatusTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
@@ -2411,18 +2415,18 @@ class DeleteAssetResponseTypeDef(BaseValidatorModel):
 
 # This class is the output for the 'describe_asset' function.
 class DescribeAssetResponseTypeDef(BaseValidatorModel):
-    assetId: str
-    assetExternalId: str
-    assetArn: str
-    assetName: str
-    assetModelId: str
+    assetId: Annotated[str, _aws_pattern("Iotsitewise", "ID")]
+    assetExternalId: Annotated[str, _aws_pattern("Iotsitewise", "ExternalId")]
+    assetArn: Annotated[str, _aws_pattern("Iotsitewise", "ARN")]
+    assetName: Annotated[str, _aws_pattern("Iotsitewise", "Name")]
+    assetModelId: Annotated[str, _aws_pattern("Iotsitewise", "ID")]
     assetProperties: List[AssetPropertyTypeDef]
     assetHierarchies: List[AssetHierarchyTypeDef]
     assetCompositeModels: List[AssetCompositeModelTypeDef]
     assetCreationDate: datetime
     assetLastUpdateDate: datetime
     assetStatus: AssetStatusTypeDef
-    assetDescription: str
+    assetDescription: Annotated[str, _aws_pattern("Iotsitewise", "Description")]
     assetCompositeModelSummaries: List[AssetCompositeModelSummaryTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
 
@@ -2434,21 +2438,21 @@ class UpdateAssetResponseTypeDef(BaseValidatorModel):
 
 
 class ComputationModelSummaryTypeDef(BaseValidatorModel):
-    id: str
-    arn: str
-    name: str
+    id: Annotated[str, _aws_pattern("Iotsitewise", "ID")]
+    arn: Annotated[str, _aws_pattern("Iotsitewise", "ARN")]
+    name: Annotated[str, _aws_pattern("Iotsitewise", "RestrictedName")]
     type: Literal["ANOMALY_DETECTION"]
     creationDate: datetime
     lastUpdateDate: datetime
     status: ComputationModelStatusTypeDef
-    version: str
-    description: Optional[str] = None
+    version: Annotated[str, _aws_pattern("Iotsitewise", "Version")]
+    description: Optional[Annotated[str, _aws_pattern("Iotsitewise", "RestrictedDescription")]] = None
 
 
 # This class is the output for the 'create_computation_model' function.
 class CreateComputationModelResponseTypeDef(BaseValidatorModel):
-    computationModelId: str
-    computationModelArn: str
+    computationModelId: Annotated[str, _aws_pattern("Iotsitewise", "ID")]
+    computationModelArn: Annotated[str, _aws_pattern("Iotsitewise", "ARN")]
     computationModelStatus: ComputationModelStatusTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
@@ -2461,16 +2465,16 @@ class DeleteComputationModelResponseTypeDef(BaseValidatorModel):
 
 # This class is the output for the 'describe_computation_model' function.
 class DescribeComputationModelResponseTypeDef(BaseValidatorModel):
-    computationModelId: str
-    computationModelArn: str
-    computationModelName: str
-    computationModelDescription: str
+    computationModelId: Annotated[str, _aws_pattern("Iotsitewise", "ID")]
+    computationModelArn: Annotated[str, _aws_pattern("Iotsitewise", "ARN")]
+    computationModelName: Annotated[str, _aws_pattern("Iotsitewise", "RestrictedName")]
+    computationModelDescription: Annotated[str, _aws_pattern("Iotsitewise", "RestrictedDescription")]
     computationModelConfiguration: ComputationModelConfigurationTypeDef
     computationModelDataBinding: Dict[str, ComputationModelDataBindingValueOutputTypeDef]
     computationModelCreationDate: datetime
     computationModelLastUpdateDate: datetime
     computationModelStatus: ComputationModelStatusTypeDef
-    computationModelVersion: str
+    computationModelVersion: Annotated[str, _aws_pattern("Iotsitewise", "Version")]
     actionDefinitions: List[ActionDefinitionTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
 
@@ -2483,17 +2487,17 @@ class UpdateComputationModelResponseTypeDef(BaseValidatorModel):
 
 # This class is the output for the 'create_dataset' function.
 class CreateDatasetResponseTypeDef(BaseValidatorModel):
-    datasetId: str
-    datasetArn: str
+    datasetId: Annotated[str, _aws_pattern("Iotsitewise", "ID")]
+    datasetArn: Annotated[str, _aws_pattern("Iotsitewise", "ARN")]
     datasetStatus: DatasetStatusTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 class DatasetSummaryTypeDef(BaseValidatorModel):
-    id: str
-    arn: str
-    name: str
-    description: str
+    id: Annotated[str, _aws_pattern("Iotsitewise", "ID")]
+    arn: Annotated[str, _aws_pattern("Iotsitewise", "ARN")]
+    name: Annotated[str, _aws_pattern("Iotsitewise", "RestrictedName")]
+    description: Annotated[str, _aws_pattern("Iotsitewise", "RestrictedDescription")]
     creationDate: datetime
     lastUpdateDate: datetime
     status: DatasetStatusTypeDef
@@ -2507,8 +2511,8 @@ class DeleteDatasetResponseTypeDef(BaseValidatorModel):
 
 # This class is the output for the 'update_dataset' function.
 class UpdateDatasetResponseTypeDef(BaseValidatorModel):
-    datasetId: str
-    datasetArn: str
+    datasetId: Annotated[str, _aws_pattern("Iotsitewise", "ID")]
+    datasetArn: Annotated[str, _aws_pattern("Iotsitewise", "ARN")]
     datasetStatus: DatasetStatusTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
@@ -2517,40 +2521,40 @@ class UpdateDatasetResponseTypeDef(BaseValidatorModel):
 class ListGatewaysResponseTypeDef(BaseValidatorModel):
     gatewaySummaries: List[GatewaySummaryTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
-    nextToken: Optional[str] = None
+    nextToken: Optional[Annotated[str, _aws_pattern("Iotsitewise", "NextToken")]] = None
 
 
 # This class is the input for the 'create_dataset' function.
 class CreateDatasetRequestTypeDef(BaseValidatorModel):
-    datasetName: str
+    datasetName: Annotated[str, _aws_pattern("Iotsitewise", "RestrictedName")]
     datasetSource: DatasetSourceTypeDef
-    datasetId: Optional[str] = None
-    datasetDescription: Optional[str] = None
-    clientToken: Optional[str] = None
+    datasetId: Optional[Annotated[str, _aws_pattern("Iotsitewise", "ID")]] = None
+    datasetDescription: Optional[Annotated[str, _aws_pattern("Iotsitewise", "RestrictedDescription")]] = None
+    clientToken: Optional[Annotated[str, _aws_pattern("Iotsitewise", "ClientToken")]] = None
     tags: Optional[Dict[str, str]] = None
 
 
 # This class is the output for the 'describe_dataset' function.
 class DescribeDatasetResponseTypeDef(BaseValidatorModel):
-    datasetId: str
-    datasetArn: str
-    datasetName: str
-    datasetDescription: str
+    datasetId: Annotated[str, _aws_pattern("Iotsitewise", "ID")]
+    datasetArn: Annotated[str, _aws_pattern("Iotsitewise", "ARN")]
+    datasetName: Annotated[str, _aws_pattern("Iotsitewise", "RestrictedName")]
+    datasetDescription: Annotated[str, _aws_pattern("Iotsitewise", "RestrictedDescription")]
     datasetSource: DatasetSourceTypeDef
     datasetStatus: DatasetStatusTypeDef
     datasetCreationDate: datetime
     datasetLastUpdateDate: datetime
-    datasetVersion: str
+    datasetVersion: Annotated[str, _aws_pattern("Iotsitewise", "Version")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 # This class is the input for the 'update_dataset' function.
 class UpdateDatasetRequestTypeDef(BaseValidatorModel):
-    datasetId: str
-    datasetName: str
+    datasetId: Annotated[str, _aws_pattern("Iotsitewise", "ID")]
+    datasetName: Annotated[str, _aws_pattern("Iotsitewise", "RestrictedName")]
     datasetSource: DatasetSourceTypeDef
-    datasetDescription: Optional[str] = None
-    clientToken: Optional[str] = None
+    datasetDescription: Optional[Annotated[str, _aws_pattern("Iotsitewise", "RestrictedDescription")]] = None
+    clientToken: Optional[Annotated[str, _aws_pattern("Iotsitewise", "ClientToken")]] = None
 
 
 class ReferenceTypeDef(BaseValidatorModel):
@@ -2561,23 +2565,23 @@ class ReferenceTypeDef(BaseValidatorModel):
 class ListPortalsResponseTypeDef(BaseValidatorModel):
     portalSummaries: List[PortalSummaryTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
-    nextToken: Optional[str] = None
+    nextToken: Optional[Annotated[str, _aws_pattern("Iotsitewise", "NextToken")]] = None
 
 
 # This class is the output for the 'list_access_policies' function.
 class ListAccessPoliciesResponseTypeDef(BaseValidatorModel):
     accessPolicySummaries: List[AccessPolicySummaryTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
-    nextToken: Optional[str] = None
+    nextToken: Optional[Annotated[str, _aws_pattern("Iotsitewise", "NextToken")]] = None
 
 
 class BatchGetAssetPropertyValueHistorySuccessEntryTypeDef(BaseValidatorModel):
-    entryId: str
+    entryId: Annotated[str, _aws_pattern("Iotsitewise", "EntryId")]
     assetPropertyValueHistory: List[AssetPropertyValueTypeDef]
 
 
 class BatchGetAssetPropertyValueSuccessEntryTypeDef(BaseValidatorModel):
-    entryId: str
+    entryId: Annotated[str, _aws_pattern("Iotsitewise", "EntryId")]
     assetPropertyValue: Optional[AssetPropertyValueTypeDef] = None
 
 
@@ -2585,7 +2589,7 @@ class BatchGetAssetPropertyValueSuccessEntryTypeDef(BaseValidatorModel):
 class GetAssetPropertyValueHistoryResponseTypeDef(BaseValidatorModel):
     assetPropertyValueHistory: List[AssetPropertyValueTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
-    nextToken: Optional[str] = None
+    nextToken: Optional[Annotated[str, _aws_pattern("Iotsitewise", "NextToken")]] = None
 
 
 # This class is the output for the 'get_asset_property_value' function.
@@ -2595,18 +2599,18 @@ class GetAssetPropertyValueResponseTypeDef(BaseValidatorModel):
 
 
 class PutAssetPropertyValueEntryTypeDef(BaseValidatorModel):
-    entryId: str
+    entryId: Annotated[str, _aws_pattern("Iotsitewise", "EntryId")]
     propertyValues: List[AssetPropertyValueTypeDef]
-    assetId: Optional[str] = None
-    propertyId: Optional[str] = None
-    propertyAlias: Optional[str] = None
+    assetId: Optional[Annotated[str, _aws_pattern("Iotsitewise", "ID")]] = None
+    propertyId: Optional[Annotated[str, _aws_pattern("Iotsitewise", "ID")]] = None
+    propertyAlias: Optional[Annotated[str, _aws_pattern("Iotsitewise", "AssetPropertyAlias")]] = None
 
 
 # This class is the output for the 'get_interpolated_asset_property_values' function.
 class GetInterpolatedAssetPropertyValuesResponseTypeDef(BaseValidatorModel):
     interpolatedAssetPropertyValues: List[InterpolatedAssetPropertyValueTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
-    nextToken: Optional[str] = None
+    nextToken: Optional[Annotated[str, _aws_pattern("Iotsitewise", "NextToken")]] = None
 
 
 class PropertyTypeOutputTypeDef(BaseValidatorModel):
@@ -2623,13 +2627,13 @@ ExpressionVariableUnionTypeDef = Union[ExpressionVariableOutputTypeDef, Expressi
 class ListComputationModelDataBindingUsagesResponseTypeDef(BaseValidatorModel):
     dataBindingUsageSummaries: List[ComputationModelDataBindingUsageSummaryTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
-    nextToken: Optional[str] = None
+    nextToken: Optional[Annotated[str, _aws_pattern("Iotsitewise", "NextToken")]] = None
 
 
 # This class is the input for the 'create_bulk_import_job' function.
 class CreateBulkImportJobRequestTypeDef(BaseValidatorModel):
-    jobName: str
-    jobRoleArn: str
+    jobName: Annotated[str, _aws_pattern("Iotsitewise", "Name")]
+    jobRoleArn: Annotated[str, _aws_pattern("Iotsitewise", "ARN")]
     files: List[FileTypeDef]
     errorReportLocation: ErrorReportLocationTypeDef
     jobConfiguration: JobConfigurationUnionTypeDef
@@ -2641,35 +2645,35 @@ class CreateBulkImportJobRequestTypeDef(BaseValidatorModel):
 class ListAssetModelsResponseTypeDef(BaseValidatorModel):
     assetModelSummaries: List[AssetModelSummaryTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
-    nextToken: Optional[str] = None
+    nextToken: Optional[Annotated[str, _aws_pattern("Iotsitewise", "NextToken")]] = None
 
 
 # This class is the output for the 'list_assets' function.
 class ListAssetsResponseTypeDef(BaseValidatorModel):
     assetSummaries: List[AssetSummaryTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
-    nextToken: Optional[str] = None
+    nextToken: Optional[Annotated[str, _aws_pattern("Iotsitewise", "NextToken")]] = None
 
 
 # This class is the output for the 'list_associated_assets' function.
 class ListAssociatedAssetsResponseTypeDef(BaseValidatorModel):
     assetSummaries: List[AssociatedAssetsSummaryTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
-    nextToken: Optional[str] = None
+    nextToken: Optional[Annotated[str, _aws_pattern("Iotsitewise", "NextToken")]] = None
 
 
 # This class is the output for the 'list_computation_models' function.
 class ListComputationModelsResponseTypeDef(BaseValidatorModel):
     computationModelSummaries: List[ComputationModelSummaryTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
-    nextToken: Optional[str] = None
+    nextToken: Optional[Annotated[str, _aws_pattern("Iotsitewise", "NextToken")]] = None
 
 
 # This class is the output for the 'list_datasets' function.
 class ListDatasetsResponseTypeDef(BaseValidatorModel):
     datasetSummaries: List[DatasetSummaryTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
-    nextToken: Optional[str] = None
+    nextToken: Optional[Annotated[str, _aws_pattern("Iotsitewise", "NextToken")]] = None
 
 
 class CitationTypeDef(BaseValidatorModel):
@@ -2683,7 +2687,7 @@ class BatchGetAssetPropertyValueHistoryResponseTypeDef(BaseValidatorModel):
     successEntries: List[BatchGetAssetPropertyValueHistorySuccessEntryTypeDef]
     skippedEntries: List[BatchGetAssetPropertyValueHistorySkippedEntryTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
-    nextToken: Optional[str] = None
+    nextToken: Optional[Annotated[str, _aws_pattern("Iotsitewise", "NextToken")]] = None
 
 
 # This class is the output for the 'batch_get_asset_property_value' function.
@@ -2692,7 +2696,7 @@ class BatchGetAssetPropertyValueResponseTypeDef(BaseValidatorModel):
     successEntries: List[BatchGetAssetPropertyValueSuccessEntryTypeDef]
     skippedEntries: List[BatchGetAssetPropertyValueSkippedEntryTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
-    nextToken: Optional[str] = None
+    nextToken: Optional[Annotated[str, _aws_pattern("Iotsitewise", "NextToken")]] = None
 
 
 # This class is the input for the 'batch_put_asset_property_value' function.
@@ -2713,26 +2717,26 @@ class AssetModelPropertyOutputTypeDef(BaseValidatorModel):
 
 
 class AssetModelPropertySummaryTypeDef(BaseValidatorModel):
-    name: str
+    name: Annotated[str, _aws_pattern("Iotsitewise", "Name")]
     dataType: PropertyDataTypeType
     type: PropertyTypeOutputTypeDef
-    id: Optional[str] = None
-    externalId: Optional[str] = None
-    dataTypeSpec: Optional[str] = None
-    unit: Optional[str] = None
-    assetModelCompositeModelId: Optional[str] = None
+    id: Optional[Annotated[str, _aws_pattern("Iotsitewise", "ID")]] = None
+    externalId: Optional[Annotated[str, _aws_pattern("Iotsitewise", "ExternalId")]] = None
+    dataTypeSpec: Optional[Annotated[str, _aws_pattern("Iotsitewise", "Name")]] = None
+    unit: Optional[Annotated[str, _aws_pattern("Iotsitewise", "PropertyUnit")]] = None
+    assetModelCompositeModelId: Optional[Annotated[str, _aws_pattern("Iotsitewise", "ID")]] = None
     path: Optional[List[AssetModelPropertyPathSegmentTypeDef]] = None
     interfaceSummaries: Optional[List[InterfaceSummaryTypeDef]] = None
 
 
 class PropertyTypeDef(BaseValidatorModel):
-    id: str
-    name: str
+    id: Annotated[str, _aws_pattern("Iotsitewise", "ID")]
+    name: Annotated[str, _aws_pattern("Iotsitewise", "Name")]
     dataType: PropertyDataTypeType
-    externalId: Optional[str] = None
-    alias: Optional[str] = None
+    externalId: Optional[Annotated[str, _aws_pattern("Iotsitewise", "ExternalId")]] = None
+    alias: Optional[Annotated[str, _aws_pattern("Iotsitewise", "PropertyAlias")]] = None
     notification: Optional[PropertyNotificationTypeDef] = None
-    unit: Optional[str] = None
+    unit: Optional[Annotated[str, _aws_pattern("Iotsitewise", "PropertyUnit")]] = None
     type: Optional[PropertyTypeOutputTypeDef] = None
     path: Optional[List[AssetPropertyPathSegmentTypeDef]] = None
 
@@ -2766,13 +2770,13 @@ class AssetModelCompositeModelOutputTypeDef(BaseValidatorModel):
 
 # This class is the output for the 'describe_asset_model_composite_model' function.
 class DescribeAssetModelCompositeModelResponseTypeDef(BaseValidatorModel):
-    assetModelId: str
-    assetModelCompositeModelId: str
-    assetModelCompositeModelExternalId: str
+    assetModelId: Annotated[str, _aws_pattern("Iotsitewise", "ID")]
+    assetModelCompositeModelId: Annotated[str, _aws_pattern("Iotsitewise", "ID")]
+    assetModelCompositeModelExternalId: Annotated[str, _aws_pattern("Iotsitewise", "ExternalId")]
     assetModelCompositeModelPath: List[AssetModelCompositeModelPathSegmentTypeDef]
-    assetModelCompositeModelName: str
-    assetModelCompositeModelDescription: str
-    assetModelCompositeModelType: str
+    assetModelCompositeModelName: Annotated[str, _aws_pattern("Iotsitewise", "Name")]
+    assetModelCompositeModelDescription: Annotated[str, _aws_pattern("Iotsitewise", "Description")]
+    assetModelCompositeModelType: Annotated[str, _aws_pattern("Iotsitewise", "Name")]
     assetModelCompositeModelProperties: List[AssetModelPropertyOutputTypeDef]
     compositionDetails: CompositionDetailsTypeDef
     assetModelCompositeModelSummaries: List[AssetModelCompositeModelSummaryTypeDef]
@@ -2784,15 +2788,15 @@ class DescribeAssetModelCompositeModelResponseTypeDef(BaseValidatorModel):
 class ListAssetModelPropertiesResponseTypeDef(BaseValidatorModel):
     assetModelPropertySummaries: List[AssetModelPropertySummaryTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
-    nextToken: Optional[str] = None
+    nextToken: Optional[Annotated[str, _aws_pattern("Iotsitewise", "NextToken")]] = None
 
 
 class CompositeModelPropertyTypeDef(BaseValidatorModel):
-    name: str
-    type: str
+    name: Annotated[str, _aws_pattern("Iotsitewise", "Name")]
+    type: Annotated[str, _aws_pattern("Iotsitewise", "Name")]
     assetProperty: PropertyTypeDef
-    id: Optional[str] = None
-    externalId: Optional[str] = None
+    id: Optional[Annotated[str, _aws_pattern("Iotsitewise", "ID")]] = None
+    externalId: Optional[Annotated[str, _aws_pattern("Iotsitewise", "ExternalId")]] = None
 
 
 MetricUnionTypeDef = Union[MetricOutputTypeDef, MetricTypeDef]
@@ -2814,12 +2818,12 @@ class ResponseStreamTypeDef(BaseValidatorModel):
 
 # This class is the output for the 'describe_asset_model' function.
 class DescribeAssetModelResponseTypeDef(BaseValidatorModel):
-    assetModelId: str
-    assetModelExternalId: str
-    assetModelArn: str
-    assetModelName: str
+    assetModelId: Annotated[str, _aws_pattern("Iotsitewise", "ID")]
+    assetModelExternalId: Annotated[str, _aws_pattern("Iotsitewise", "ExternalId")]
+    assetModelArn: Annotated[str, _aws_pattern("Iotsitewise", "ARN")]
+    assetModelName: Annotated[str, _aws_pattern("Iotsitewise", "Name")]
     assetModelType: AssetModelTypeType
-    assetModelDescription: str
+    assetModelDescription: Annotated[str, _aws_pattern("Iotsitewise", "Description")]
     assetModelProperties: List[AssetModelPropertyOutputTypeDef]
     assetModelHierarchies: List[AssetModelHierarchyTypeDef]
     assetModelCompositeModels: List[AssetModelCompositeModelOutputTypeDef]
@@ -2827,18 +2831,18 @@ class DescribeAssetModelResponseTypeDef(BaseValidatorModel):
     assetModelCreationDate: datetime
     assetModelLastUpdateDate: datetime
     assetModelStatus: AssetModelStatusTypeDef
-    assetModelVersion: str
+    assetModelVersion: Annotated[str, _aws_pattern("Iotsitewise", "Version")]
     interfaceDetails: List[InterfaceRelationshipTypeDef]
-    eTag: str
+    eTag: Annotated[str, _aws_pattern("Iotsitewise", "ETag")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 # This class is the output for the 'describe_asset_property' function.
 class DescribeAssetPropertyResponseTypeDef(BaseValidatorModel):
-    assetId: str
-    assetExternalId: str
-    assetName: str
-    assetModelId: str
+    assetId: Annotated[str, _aws_pattern("Iotsitewise", "ID")]
+    assetExternalId: Annotated[str, _aws_pattern("Iotsitewise", "ExternalId")]
+    assetName: Annotated[str, _aws_pattern("Iotsitewise", "Name")]
+    assetModelId: Annotated[str, _aws_pattern("Iotsitewise", "ID")]
     assetProperty: PropertyTypeDef
     compositeModel: CompositeModelPropertyTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
@@ -2860,49 +2864,49 @@ PropertyTypeUnionTypeDef = Union[PropertyTypeOutputTypeDef, PropertyTypeTypeDef]
 
 
 class AssetModelPropertyDefinitionTypeDef(BaseValidatorModel):
-    name: str
+    name: Annotated[str, _aws_pattern("Iotsitewise", "Name")]
     dataType: PropertyDataTypeType
     type: PropertyTypeUnionTypeDef
-    id: Optional[str] = None
-    externalId: Optional[str] = None
-    dataTypeSpec: Optional[str] = None
-    unit: Optional[str] = None
+    id: Optional[Annotated[str, _aws_pattern("Iotsitewise", "ID")]] = None
+    externalId: Optional[Annotated[str, _aws_pattern("Iotsitewise", "ExternalId")]] = None
+    dataTypeSpec: Optional[Annotated[str, _aws_pattern("Iotsitewise", "Name")]] = None
+    unit: Optional[Annotated[str, _aws_pattern("Iotsitewise", "PropertyUnit")]] = None
 
 
 class AssetModelPropertyTypeDef(BaseValidatorModel):
-    name: str
+    name: Annotated[str, _aws_pattern("Iotsitewise", "Name")]
     dataType: PropertyDataTypeType
     type: PropertyTypeUnionTypeDef
-    id: Optional[str] = None
-    externalId: Optional[str] = None
-    dataTypeSpec: Optional[str] = None
-    unit: Optional[str] = None
+    id: Optional[Annotated[str, _aws_pattern("Iotsitewise", "CustomID")]] = None
+    externalId: Optional[Annotated[str, _aws_pattern("Iotsitewise", "ExternalId")]] = None
+    dataTypeSpec: Optional[Annotated[str, _aws_pattern("Iotsitewise", "Name")]] = None
+    unit: Optional[Annotated[str, _aws_pattern("Iotsitewise", "PropertyUnit")]] = None
     path: Optional[List[AssetModelPropertyPathSegmentTypeDef]] = None
 
 
 class AssetModelCompositeModelDefinitionTypeDef(BaseValidatorModel):
-    name: str
-    type: str
-    id: Optional[str] = None
-    externalId: Optional[str] = None
-    description: Optional[str] = None
+    name: Annotated[str, _aws_pattern("Iotsitewise", "Name")]
+    type: Annotated[str, _aws_pattern("Iotsitewise", "Name")]
+    id: Optional[Annotated[str, _aws_pattern("Iotsitewise", "ID")]] = None
+    externalId: Optional[Annotated[str, _aws_pattern("Iotsitewise", "ExternalId")]] = None
+    description: Optional[Annotated[str, _aws_pattern("Iotsitewise", "Description")]] = None
     properties: Optional[List[AssetModelPropertyDefinitionTypeDef]] = None
 
 
 # This class is the input for the 'create_asset_model_composite_model' function.
 class CreateAssetModelCompositeModelRequestTypeDef(BaseValidatorModel):
-    assetModelId: str
-    assetModelCompositeModelName: str
-    assetModelCompositeModelType: str
-    assetModelCompositeModelExternalId: Optional[str] = None
-    parentAssetModelCompositeModelId: Optional[str] = None
-    assetModelCompositeModelId: Optional[str] = None
-    assetModelCompositeModelDescription: Optional[str] = None
-    clientToken: Optional[str] = None
-    composedAssetModelId: Optional[str] = None
+    assetModelId: Annotated[str, _aws_pattern("Iotsitewise", "CustomID")]
+    assetModelCompositeModelName: Annotated[str, _aws_pattern("Iotsitewise", "Name")]
+    assetModelCompositeModelType: Annotated[str, _aws_pattern("Iotsitewise", "Name")]
+    assetModelCompositeModelExternalId: Optional[Annotated[str, _aws_pattern("Iotsitewise", "ExternalId")]] = None
+    parentAssetModelCompositeModelId: Optional[Annotated[str, _aws_pattern("Iotsitewise", "CustomID")]] = None
+    assetModelCompositeModelId: Optional[Annotated[str, _aws_pattern("Iotsitewise", "ID")]] = None
+    assetModelCompositeModelDescription: Optional[Annotated[str, _aws_pattern("Iotsitewise", "Description")]] = None
+    clientToken: Optional[Annotated[str, _aws_pattern("Iotsitewise", "ClientToken")]] = None
+    composedAssetModelId: Optional[Annotated[str, _aws_pattern("Iotsitewise", "CustomID")]] = None
     assetModelCompositeModelProperties: Optional[List[AssetModelPropertyDefinitionTypeDef]] = None
-    ifMatch: Optional[str] = None
-    ifNoneMatch: Optional[str] = None
+    ifMatch: Optional[Annotated[str, _aws_pattern("Iotsitewise", "ETag")]] = None
+    ifNoneMatch: Optional[Annotated[str, _aws_pattern("Iotsitewise", "SelectAll")]] = None
     matchForVersionType: Optional[AssetModelVersionTypeType] = None
 
 
@@ -2911,38 +2915,38 @@ AssetModelPropertyUnionTypeDef = Union[AssetModelPropertyOutputTypeDef, AssetMod
 
 # This class is the input for the 'create_asset_model' function.
 class CreateAssetModelRequestTypeDef(BaseValidatorModel):
-    assetModelName: str
+    assetModelName: Annotated[str, _aws_pattern("Iotsitewise", "Name")]
     assetModelType: Optional[AssetModelTypeType] = None
-    assetModelId: Optional[str] = None
-    assetModelExternalId: Optional[str] = None
-    assetModelDescription: Optional[str] = None
+    assetModelId: Optional[Annotated[str, _aws_pattern("Iotsitewise", "ID")]] = None
+    assetModelExternalId: Optional[Annotated[str, _aws_pattern("Iotsitewise", "ExternalId")]] = None
+    assetModelDescription: Optional[Annotated[str, _aws_pattern("Iotsitewise", "Description")]] = None
     assetModelProperties: Optional[List[AssetModelPropertyDefinitionTypeDef]] = None
     assetModelHierarchies: Optional[List[AssetModelHierarchyDefinitionTypeDef]] = None
     assetModelCompositeModels: Optional[List[AssetModelCompositeModelDefinitionTypeDef]] = None
-    clientToken: Optional[str] = None
+    clientToken: Optional[Annotated[str, _aws_pattern("Iotsitewise", "ClientToken")]] = None
     tags: Optional[Dict[str, str]] = None
 
 
 class AssetModelCompositeModelTypeDef(BaseValidatorModel):
-    name: str
-    type: str
-    description: Optional[str] = None
+    name: Annotated[str, _aws_pattern("Iotsitewise", "Name")]
+    type: Annotated[str, _aws_pattern("Iotsitewise", "Name")]
+    description: Optional[Annotated[str, _aws_pattern("Iotsitewise", "Description")]] = None
     properties: Optional[List[AssetModelPropertyUnionTypeDef]] = None
-    id: Optional[str] = None
-    externalId: Optional[str] = None
+    id: Optional[Annotated[str, _aws_pattern("Iotsitewise", "CustomID")]] = None
+    externalId: Optional[Annotated[str, _aws_pattern("Iotsitewise", "ExternalId")]] = None
 
 
 # This class is the input for the 'update_asset_model_composite_model' function.
 class UpdateAssetModelCompositeModelRequestTypeDef(BaseValidatorModel):
-    assetModelId: str
-    assetModelCompositeModelId: str
-    assetModelCompositeModelName: str
-    assetModelCompositeModelExternalId: Optional[str] = None
-    assetModelCompositeModelDescription: Optional[str] = None
-    clientToken: Optional[str] = None
+    assetModelId: Annotated[str, _aws_pattern("Iotsitewise", "CustomID")]
+    assetModelCompositeModelId: Annotated[str, _aws_pattern("Iotsitewise", "CustomID")]
+    assetModelCompositeModelName: Annotated[str, _aws_pattern("Iotsitewise", "Name")]
+    assetModelCompositeModelExternalId: Optional[Annotated[str, _aws_pattern("Iotsitewise", "ExternalId")]] = None
+    assetModelCompositeModelDescription: Optional[Annotated[str, _aws_pattern("Iotsitewise", "Description")]] = None
+    clientToken: Optional[Annotated[str, _aws_pattern("Iotsitewise", "ClientToken")]] = None
     assetModelCompositeModelProperties: Optional[List[AssetModelPropertyUnionTypeDef]] = None
-    ifMatch: Optional[str] = None
-    ifNoneMatch: Optional[str] = None
+    ifMatch: Optional[Annotated[str, _aws_pattern("Iotsitewise", "ETag")]] = None
+    ifNoneMatch: Optional[Annotated[str, _aws_pattern("Iotsitewise", "SelectAll")]] = None
     matchForVersionType: Optional[AssetModelVersionTypeType] = None
 
 
@@ -2951,14 +2955,14 @@ AssetModelCompositeModelUnionTypeDef = Union[AssetModelCompositeModelOutputTypeD
 
 # This class is the input for the 'update_asset_model' function.
 class UpdateAssetModelRequestTypeDef(BaseValidatorModel):
-    assetModelId: str
-    assetModelName: str
-    assetModelExternalId: Optional[str] = None
-    assetModelDescription: Optional[str] = None
+    assetModelId: Annotated[str, _aws_pattern("Iotsitewise", "CustomID")]
+    assetModelName: Annotated[str, _aws_pattern("Iotsitewise", "Name")]
+    assetModelExternalId: Optional[Annotated[str, _aws_pattern("Iotsitewise", "ExternalId")]] = None
+    assetModelDescription: Optional[Annotated[str, _aws_pattern("Iotsitewise", "Description")]] = None
     assetModelProperties: Optional[List[AssetModelPropertyUnionTypeDef]] = None
     assetModelHierarchies: Optional[List[AssetModelHierarchyTypeDef]] = None
     assetModelCompositeModels: Optional[List[AssetModelCompositeModelUnionTypeDef]] = None
-    clientToken: Optional[str] = None
-    ifMatch: Optional[str] = None
-    ifNoneMatch: Optional[str] = None
+    clientToken: Optional[Annotated[str, _aws_pattern("Iotsitewise", "ClientToken")]] = None
+    ifMatch: Optional[Annotated[str, _aws_pattern("Iotsitewise", "ETag")]] = None
+    ifNoneMatch: Optional[Annotated[str, _aws_pattern("Iotsitewise", "SelectAll")]] = None
     matchForVersionType: Optional[AssetModelVersionTypeType] = None

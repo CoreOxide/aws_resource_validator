@@ -3,6 +3,7 @@
 from datetime import datetime
 from decimal import Decimal
 from typing import (
+    Annotated,
     Any,
     Callable,
     Dict,
@@ -24,6 +25,7 @@ from botocore.response import StreamingBody
 from pydantic import Field
 
 from aws_resource_validator.core.base_validator_model import BaseValidatorModel, EventStream
+from aws_resource_validator.core.pattern_validation import aws_field_pattern as _aws_pattern
 from aws_resource_validator.pydantic_models.ivs_realtime.ivs_realtime_constants import *  # noqa: F401,F403
 
 # Optional boto3 symbols — imported lazily so services that don't need them
@@ -55,8 +57,8 @@ class ParticipantThumbnailConfigurationTypeDef(BaseValidatorModel):
 
 
 class ChannelDestinationConfigurationTypeDef(BaseValidatorModel):
-    channelArn: str
-    encoderConfigurationArn: Optional[str] = None
+    channelArn: Annotated[str, _aws_pattern("IvsRealtime", "ChannelArn")]
+    encoderConfigurationArn: Optional[Annotated[str, _aws_pattern("IvsRealtime", "EncoderConfigurationArn")]] = None
 
 
 class CompositionRecordingHlsConfigurationTypeDef(BaseValidatorModel):
@@ -98,8 +100,8 @@ class ResponseMetadataTypeDef(BaseValidatorModel):
 # This class is the input for the 'create_ingest_configuration' function.
 class CreateIngestConfigurationRequestTypeDef(BaseValidatorModel):
     ingestProtocol: IngestProtocolType
-    name: Optional[str] = None
-    stageArn: Optional[str] = None
+    name: Optional[Annotated[str, _aws_pattern("IvsRealtime", "IngestConfigurationName")]] = None
+    stageArn: Optional[Annotated[str, _aws_pattern("IvsRealtime", "IngestConfigurationStageArn")]] = None
     userId: Optional[str] = None
     attributes: Optional[Dict[str, str]] = None
     insecureIngest: Optional[bool] = None
@@ -109,7 +111,7 @@ class CreateIngestConfigurationRequestTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'create_participant_token' function.
 class CreateParticipantTokenRequestTypeDef(BaseValidatorModel):
-    stageArn: str
+    stageArn: Annotated[str, _aws_pattern("IvsRealtime", "StageArn")]
     duration: Optional[int] = None
     userId: Optional[str] = None
     attributes: Optional[Dict[str, str]] = None
@@ -117,7 +119,7 @@ class CreateParticipantTokenRequestTypeDef(BaseValidatorModel):
 
 
 class ParticipantTokenTypeDef(BaseValidatorModel):
-    participantId: Optional[str] = None
+    participantId: Optional[Annotated[str, _aws_pattern("IvsRealtime", "ParticipantTokenId")]] = None
     token: Optional[str] = None
     userId: Optional[str] = None
     attributes: Optional[Dict[str, str]] = None
@@ -134,28 +136,28 @@ class ParticipantTokenConfigurationTypeDef(BaseValidatorModel):
 
 
 class S3StorageConfigurationTypeDef(BaseValidatorModel):
-    bucketName: str
+    bucketName: Annotated[str, _aws_pattern("IvsRealtime", "S3BucketName")]
 
 
 class DeleteEncoderConfigurationRequestTypeDef(BaseValidatorModel):
-    arn: str
+    arn: Annotated[str, _aws_pattern("IvsRealtime", "EncoderConfigurationArn")]
 
 
 class DeleteIngestConfigurationRequestTypeDef(BaseValidatorModel):
-    arn: str
+    arn: Annotated[str, _aws_pattern("IvsRealtime", "IngestConfigurationArn")]
     force: Optional[bool] = None
 
 
 class DeletePublicKeyRequestTypeDef(BaseValidatorModel):
-    arn: str
+    arn: Annotated[str, _aws_pattern("IvsRealtime", "PublicKeyArn")]
 
 
 class DeleteStageRequestTypeDef(BaseValidatorModel):
-    arn: str
+    arn: Annotated[str, _aws_pattern("IvsRealtime", "StageArn")]
 
 
 class DeleteStorageConfigurationRequestTypeDef(BaseValidatorModel):
-    arn: str
+    arn: Annotated[str, _aws_pattern("IvsRealtime", "StorageConfigurationArn")]
 
 
 class S3DetailTypeDef(BaseValidatorModel):
@@ -163,14 +165,14 @@ class S3DetailTypeDef(BaseValidatorModel):
 
 
 class DisconnectParticipantRequestTypeDef(BaseValidatorModel):
-    stageArn: str
-    participantId: str
+    stageArn: Annotated[str, _aws_pattern("IvsRealtime", "StageArn")]
+    participantId: Annotated[str, _aws_pattern("IvsRealtime", "ParticipantTokenId")]
     reason: Optional[str] = None
 
 
 class EncoderConfigurationSummaryTypeDef(BaseValidatorModel):
-    arn: str
-    name: Optional[str] = None
+    arn: Annotated[str, _aws_pattern("IvsRealtime", "EncoderConfigurationArn")]
+    name: Optional[Annotated[str, _aws_pattern("IvsRealtime", "EncoderConfigurationName")]] = None
     tags: Optional[Dict[str, str]] = None
 
 
@@ -183,143 +185,147 @@ class ExchangedParticipantTokenTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'get_composition' function.
 class GetCompositionRequestTypeDef(BaseValidatorModel):
-    arn: str
+    arn: Annotated[str, _aws_pattern("IvsRealtime", "CompositionArn")]
 
 
 # This class is the input for the 'get_encoder_configuration' function.
 class GetEncoderConfigurationRequestTypeDef(BaseValidatorModel):
-    arn: str
+    arn: Annotated[str, _aws_pattern("IvsRealtime", "EncoderConfigurationArn")]
 
 
 # This class is the input for the 'get_ingest_configuration' function.
 class GetIngestConfigurationRequestTypeDef(BaseValidatorModel):
-    arn: str
+    arn: Annotated[str, _aws_pattern("IvsRealtime", "IngestConfigurationArn")]
 
 
 # This class is the input for the 'get_participant' function.
 class GetParticipantRequestTypeDef(BaseValidatorModel):
-    stageArn: str
-    sessionId: str
-    participantId: str
+    stageArn: Annotated[str, _aws_pattern("IvsRealtime", "StageArn")]
+    sessionId: Annotated[str, _aws_pattern("IvsRealtime", "StageSessionId")]
+    participantId: Annotated[str, _aws_pattern("IvsRealtime", "ParticipantId")]
 
 
 class ParticipantTypeDef(BaseValidatorModel):
-    participantId: Optional[str] = None
+    participantId: Optional[Annotated[str, _aws_pattern("IvsRealtime", "ParticipantId")]] = None
     userId: Optional[str] = None
     state: Optional[ParticipantStateType] = None
     firstJoinTime: Optional[datetime] = None
     attributes: Optional[Dict[str, str]] = None
     published: Optional[bool] = None
-    ispName: Optional[str] = None
-    osName: Optional[str] = None
-    osVersion: Optional[str] = None
-    browserName: Optional[str] = None
-    browserVersion: Optional[str] = None
-    sdkVersion: Optional[str] = None
-    recordingS3BucketName: Optional[str] = None
-    recordingS3Prefix: Optional[str] = None
+    ispName: Optional[Annotated[str, _aws_pattern("IvsRealtime", "ParticipantClientAttribute")]] = None
+    osName: Optional[Annotated[str, _aws_pattern("IvsRealtime", "ParticipantClientAttribute")]] = None
+    osVersion: Optional[Annotated[str, _aws_pattern("IvsRealtime", "ParticipantClientAttribute")]] = None
+    browserName: Optional[Annotated[str, _aws_pattern("IvsRealtime", "ParticipantClientAttribute")]] = None
+    browserVersion: Optional[Annotated[str, _aws_pattern("IvsRealtime", "ParticipantClientAttribute")]] = None
+    sdkVersion: Optional[Annotated[str, _aws_pattern("IvsRealtime", "ParticipantClientAttribute")]] = None
+    recordingS3BucketName: Optional[Annotated[str, _aws_pattern("IvsRealtime", "ParticipantRecordingS3BucketName")]] = (
+        None
+    )
+    recordingS3Prefix: Optional[Annotated[str, _aws_pattern("IvsRealtime", "ParticipantRecordingS3Prefix")]] = None
     recordingState: Optional[ParticipantRecordingStateType] = None
     protocol: Optional[ParticipantProtocolType] = None
     replicationType: Optional[ReplicationTypeType] = None
     replicationState: Optional[ReplicationStateType] = None
-    sourceStageArn: Optional[str] = None
-    sourceSessionId: Optional[str] = None
+    sourceStageArn: Optional[Annotated[str, _aws_pattern("IvsRealtime", "StageArn")]] = None
+    sourceSessionId: Optional[Annotated[str, _aws_pattern("IvsRealtime", "StageSessionId")]] = None
     redundantIngest: Optional[bool] = None
-    ingestConfigurationArn: Optional[str] = None
+    ingestConfigurationArn: Optional[Annotated[str, _aws_pattern("IvsRealtime", "IngestConfigurationArn")]] = None
 
 
 # This class is the input for the 'get_public_key' function.
 class GetPublicKeyRequestTypeDef(BaseValidatorModel):
-    arn: str
+    arn: Annotated[str, _aws_pattern("IvsRealtime", "PublicKeyArn")]
 
 
 class PublicKeyTypeDef(BaseValidatorModel):
-    arn: Optional[str] = None
-    name: Optional[str] = None
-    publicKeyMaterial: Optional[str] = None
+    arn: Optional[Annotated[str, _aws_pattern("IvsRealtime", "PublicKeyArn")]] = None
+    name: Optional[Annotated[str, _aws_pattern("IvsRealtime", "PublicKeyName")]] = None
+    publicKeyMaterial: Optional[Annotated[str, _aws_pattern("IvsRealtime", "PublicKeyMaterial")]] = None
     fingerprint: Optional[str] = None
     tags: Optional[Dict[str, str]] = None
 
 
 # This class is the input for the 'get_stage' function.
 class GetStageRequestTypeDef(BaseValidatorModel):
-    arn: str
+    arn: Annotated[str, _aws_pattern("IvsRealtime", "StageArn")]
 
 
 # This class is the input for the 'get_stage_session' function.
 class GetStageSessionRequestTypeDef(BaseValidatorModel):
-    stageArn: str
-    sessionId: str
+    stageArn: Annotated[str, _aws_pattern("IvsRealtime", "StageArn")]
+    sessionId: Annotated[str, _aws_pattern("IvsRealtime", "StageSessionId")]
 
 
 class StageSessionTypeDef(BaseValidatorModel):
-    sessionId: Optional[str] = None
+    sessionId: Optional[Annotated[str, _aws_pattern("IvsRealtime", "StageSessionId")]] = None
     startTime: Optional[datetime] = None
     endTime: Optional[datetime] = None
 
 
 # This class is the input for the 'get_storage_configuration' function.
 class GetStorageConfigurationRequestTypeDef(BaseValidatorModel):
-    arn: str
+    arn: Annotated[str, _aws_pattern("IvsRealtime", "StorageConfigurationArn")]
 
 
 class GridConfigurationTypeDef(BaseValidatorModel):
-    featuredParticipantAttribute: Optional[str] = None
+    featuredParticipantAttribute: Optional[Annotated[str, _aws_pattern("IvsRealtime", "AttributeKey")]] = None
     omitStoppedVideo: Optional[bool] = None
     videoAspectRatio: Optional[VideoAspectRatioType] = None
     videoFillMode: Optional[VideoFillModeType] = None
     gridGap: Optional[int] = None
-    participantOrderAttribute: Optional[str] = None
+    participantOrderAttribute: Optional[Annotated[str, _aws_pattern("IvsRealtime", "AttributeKey")]] = None
 
 
 # This class is the input for the 'import_public_key' function.
 class ImportPublicKeyRequestTypeDef(BaseValidatorModel):
-    publicKeyMaterial: str
-    name: Optional[str] = None
+    publicKeyMaterial: Annotated[str, _aws_pattern("IvsRealtime", "PublicKeyMaterial")]
+    name: Optional[Annotated[str, _aws_pattern("IvsRealtime", "PublicKeyName")]] = None
     tags: Optional[Dict[str, str]] = None
 
 
 class IngestConfigurationSummaryTypeDef(BaseValidatorModel):
-    arn: str
+    arn: Annotated[str, _aws_pattern("IvsRealtime", "IngestConfigurationArn")]
     ingestProtocol: IngestProtocolType
-    stageArn: str
-    participantId: str
+    stageArn: Annotated[str, _aws_pattern("IvsRealtime", "IngestConfigurationStageArn")]
+    participantId: Annotated[str, _aws_pattern("IvsRealtime", "ParticipantId")]
     state: IngestConfigurationStateType
-    name: Optional[str] = None
+    name: Optional[Annotated[str, _aws_pattern("IvsRealtime", "IngestConfigurationName")]] = None
     userId: Optional[str] = None
     redundantIngest: Optional[bool] = None
 
 
 class RedundantIngestCredentialTypeDef(BaseValidatorModel):
-    participantId: Optional[str] = None
-    streamKey: Optional[str] = None
+    participantId: Optional[Annotated[str, _aws_pattern("IvsRealtime", "ParticipantId")]] = None
+    streamKey: Optional[Annotated[str, _aws_pattern("IvsRealtime", "StreamKey")]] = None
 
 
 class PipConfigurationTypeDef(BaseValidatorModel):
-    featuredParticipantAttribute: Optional[str] = None
+    featuredParticipantAttribute: Optional[Annotated[str, _aws_pattern("IvsRealtime", "AttributeKey")]] = None
     omitStoppedVideo: Optional[bool] = None
     videoFillMode: Optional[VideoFillModeType] = None
     gridGap: Optional[int] = None
-    pipParticipantAttribute: Optional[str] = None
+    pipParticipantAttribute: Optional[Annotated[str, _aws_pattern("IvsRealtime", "AttributeKey")]] = None
     pipBehavior: Optional[PipBehaviorType] = None
     pipOffset: Optional[int] = None
     pipPosition: Optional[PipPositionType] = None
     pipWidth: Optional[int] = None
     pipHeight: Optional[int] = None
-    participantOrderAttribute: Optional[str] = None
+    participantOrderAttribute: Optional[Annotated[str, _aws_pattern("IvsRealtime", "AttributeKey")]] = None
 
 
 # This class is the input for the 'list_compositions' function.
 class ListCompositionsRequestTypeDef(BaseValidatorModel):
-    filterByStageArn: Optional[str] = None
-    filterByEncoderConfigurationArn: Optional[str] = None
-    nextToken: Optional[str] = None
+    filterByStageArn: Optional[Annotated[str, _aws_pattern("IvsRealtime", "StageArn")]] = None
+    filterByEncoderConfigurationArn: Optional[
+        Annotated[str, _aws_pattern("IvsRealtime", "EncoderConfigurationArn")]
+    ] = None
+    nextToken: Optional[Annotated[str, _aws_pattern("IvsRealtime", "PaginationToken")]] = None
     maxResults: Optional[int] = None
 
 
 # This class is the input for the 'list_encoder_configurations' function.
 class ListEncoderConfigurationsRequestTypeDef(BaseValidatorModel):
-    nextToken: Optional[str] = None
+    nextToken: Optional[Annotated[str, _aws_pattern("IvsRealtime", "PaginationToken")]] = None
     maxResults: Optional[int] = None
 
 
@@ -331,52 +337,52 @@ class PaginatorConfigTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'list_ingest_configurations' function.
 class ListIngestConfigurationsRequestTypeDef(BaseValidatorModel):
-    filterByStageArn: Optional[str] = None
+    filterByStageArn: Optional[Annotated[str, _aws_pattern("IvsRealtime", "StageArn")]] = None
     filterByState: Optional[IngestConfigurationStateType] = None
-    nextToken: Optional[str] = None
+    nextToken: Optional[Annotated[str, _aws_pattern("IvsRealtime", "PaginationToken")]] = None
     maxResults: Optional[int] = None
 
 
 # This class is the input for the 'list_participant_events' function.
 class ListParticipantEventsRequestTypeDef(BaseValidatorModel):
-    stageArn: str
-    sessionId: str
-    participantId: str
-    nextToken: Optional[str] = None
+    stageArn: Annotated[str, _aws_pattern("IvsRealtime", "StageArn")]
+    sessionId: Annotated[str, _aws_pattern("IvsRealtime", "StageSessionId")]
+    participantId: Annotated[str, _aws_pattern("IvsRealtime", "ParticipantId")]
+    nextToken: Optional[Annotated[str, _aws_pattern("IvsRealtime", "PaginationToken")]] = None
     maxResults: Optional[int] = None
 
 
 # This class is the input for the 'list_participant_replicas' function.
 class ListParticipantReplicasRequestTypeDef(BaseValidatorModel):
-    sourceStageArn: str
-    participantId: str
-    nextToken: Optional[str] = None
+    sourceStageArn: Annotated[str, _aws_pattern("IvsRealtime", "StageArn")]
+    participantId: Annotated[str, _aws_pattern("IvsRealtime", "ParticipantId")]
+    nextToken: Optional[Annotated[str, _aws_pattern("IvsRealtime", "PaginationToken")]] = None
     maxResults: Optional[int] = None
 
 
 class ParticipantReplicaTypeDef(BaseValidatorModel):
-    sourceStageArn: str
-    participantId: str
-    sourceSessionId: str
-    destinationStageArn: str
-    destinationSessionId: str
+    sourceStageArn: Annotated[str, _aws_pattern("IvsRealtime", "StageArn")]
+    participantId: Annotated[str, _aws_pattern("IvsRealtime", "ParticipantId")]
+    sourceSessionId: Annotated[str, _aws_pattern("IvsRealtime", "StageSessionId")]
+    destinationStageArn: Annotated[str, _aws_pattern("IvsRealtime", "StageArn")]
+    destinationSessionId: Annotated[str, _aws_pattern("IvsRealtime", "StageSessionId")]
     replicationState: ReplicationStateType
 
 
 # This class is the input for the 'list_participants' function.
 class ListParticipantsRequestTypeDef(BaseValidatorModel):
-    stageArn: str
-    sessionId: str
+    stageArn: Annotated[str, _aws_pattern("IvsRealtime", "StageArn")]
+    sessionId: Annotated[str, _aws_pattern("IvsRealtime", "StageSessionId")]
     filterByUserId: Optional[str] = None
     filterByPublished: Optional[bool] = None
     filterByState: Optional[ParticipantStateType] = None
-    nextToken: Optional[str] = None
+    nextToken: Optional[Annotated[str, _aws_pattern("IvsRealtime", "PaginationToken")]] = None
     maxResults: Optional[int] = None
     filterByRecordingState: Optional[ParticipantRecordingFilterByRecordingStateType] = None
 
 
 class ParticipantSummaryTypeDef(BaseValidatorModel):
-    participantId: Optional[str] = None
+    participantId: Optional[Annotated[str, _aws_pattern("IvsRealtime", "ParticipantId")]] = None
     userId: Optional[str] = None
     state: Optional[ParticipantStateType] = None
     firstJoinTime: Optional[datetime] = None
@@ -384,59 +390,59 @@ class ParticipantSummaryTypeDef(BaseValidatorModel):
     recordingState: Optional[ParticipantRecordingStateType] = None
     replicationType: Optional[ReplicationTypeType] = None
     replicationState: Optional[ReplicationStateType] = None
-    sourceStageArn: Optional[str] = None
-    sourceSessionId: Optional[str] = None
+    sourceStageArn: Optional[Annotated[str, _aws_pattern("IvsRealtime", "StageArn")]] = None
+    sourceSessionId: Optional[Annotated[str, _aws_pattern("IvsRealtime", "StageSessionId")]] = None
     redundantIngest: Optional[bool] = None
-    ingestConfigurationArn: Optional[str] = None
+    ingestConfigurationArn: Optional[Annotated[str, _aws_pattern("IvsRealtime", "IngestConfigurationArn")]] = None
 
 
 # This class is the input for the 'list_public_keys' function.
 class ListPublicKeysRequestTypeDef(BaseValidatorModel):
-    nextToken: Optional[str] = None
+    nextToken: Optional[Annotated[str, _aws_pattern("IvsRealtime", "PaginationToken")]] = None
     maxResults: Optional[int] = None
 
 
 class PublicKeySummaryTypeDef(BaseValidatorModel):
-    arn: Optional[str] = None
-    name: Optional[str] = None
+    arn: Optional[Annotated[str, _aws_pattern("IvsRealtime", "PublicKeyArn")]] = None
+    name: Optional[Annotated[str, _aws_pattern("IvsRealtime", "PublicKeyName")]] = None
     tags: Optional[Dict[str, str]] = None
 
 
 # This class is the input for the 'list_stage_sessions' function.
 class ListStageSessionsRequestTypeDef(BaseValidatorModel):
-    stageArn: str
-    nextToken: Optional[str] = None
+    stageArn: Annotated[str, _aws_pattern("IvsRealtime", "StageArn")]
+    nextToken: Optional[Annotated[str, _aws_pattern("IvsRealtime", "PaginationToken")]] = None
     maxResults: Optional[int] = None
 
 
 class StageSessionSummaryTypeDef(BaseValidatorModel):
-    sessionId: Optional[str] = None
+    sessionId: Optional[Annotated[str, _aws_pattern("IvsRealtime", "StageSessionId")]] = None
     startTime: Optional[datetime] = None
     endTime: Optional[datetime] = None
 
 
 # This class is the input for the 'list_stages' function.
 class ListStagesRequestTypeDef(BaseValidatorModel):
-    nextToken: Optional[str] = None
+    nextToken: Optional[Annotated[str, _aws_pattern("IvsRealtime", "PaginationToken")]] = None
     maxResults: Optional[int] = None
 
 
 class StageSummaryTypeDef(BaseValidatorModel):
-    arn: str
-    name: Optional[str] = None
-    activeSessionId: Optional[str] = None
+    arn: Annotated[str, _aws_pattern("IvsRealtime", "StageArn")]
+    name: Optional[Annotated[str, _aws_pattern("IvsRealtime", "StageName")]] = None
+    activeSessionId: Optional[Annotated[str, _aws_pattern("IvsRealtime", "StageSessionId")]] = None
     tags: Optional[Dict[str, str]] = None
 
 
 # This class is the input for the 'list_storage_configurations' function.
 class ListStorageConfigurationsRequestTypeDef(BaseValidatorModel):
-    nextToken: Optional[str] = None
+    nextToken: Optional[Annotated[str, _aws_pattern("IvsRealtime", "PaginationToken")]] = None
     maxResults: Optional[int] = None
 
 
 # This class is the input for the 'list_tags_for_resource' function.
 class ListTagsForResourceRequestTypeDef(BaseValidatorModel):
-    resourceArn: str
+    resourceArn: Annotated[str, _aws_pattern("IvsRealtime", "ResourceArn")]
 
 
 class StageEndpointsTypeDef(BaseValidatorModel):
@@ -448,38 +454,38 @@ class StageEndpointsTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'start_participant_replication' function.
 class StartParticipantReplicationRequestTypeDef(BaseValidatorModel):
-    sourceStageArn: str
-    destinationStageArn: str
-    participantId: str
+    sourceStageArn: Annotated[str, _aws_pattern("IvsRealtime", "StageArn")]
+    destinationStageArn: Annotated[str, _aws_pattern("IvsRealtime", "StageArn")]
+    participantId: Annotated[str, _aws_pattern("IvsRealtime", "ParticipantId")]
     reconnectWindowSeconds: Optional[int] = None
     attributes: Optional[Dict[str, str]] = None
 
 
 class StopCompositionRequestTypeDef(BaseValidatorModel):
-    arn: str
+    arn: Annotated[str, _aws_pattern("IvsRealtime", "CompositionArn")]
 
 
 # This class is the input for the 'stop_participant_replication' function.
 class StopParticipantReplicationRequestTypeDef(BaseValidatorModel):
-    sourceStageArn: str
-    destinationStageArn: str
-    participantId: str
+    sourceStageArn: Annotated[str, _aws_pattern("IvsRealtime", "StageArn")]
+    destinationStageArn: Annotated[str, _aws_pattern("IvsRealtime", "StageArn")]
+    participantId: Annotated[str, _aws_pattern("IvsRealtime", "ParticipantId")]
 
 
 class TagResourceRequestTypeDef(BaseValidatorModel):
-    resourceArn: str
+    resourceArn: Annotated[str, _aws_pattern("IvsRealtime", "ResourceArn")]
     tags: Dict[str, str]
 
 
 class UntagResourceRequestTypeDef(BaseValidatorModel):
-    resourceArn: str
+    resourceArn: Annotated[str, _aws_pattern("IvsRealtime", "ResourceArn")]
     tagKeys: List[str]
 
 
 # This class is the input for the 'update_ingest_configuration' function.
 class UpdateIngestConfigurationRequestTypeDef(BaseValidatorModel):
-    arn: str
-    stageArn: Optional[str] = None
+    arn: Annotated[str, _aws_pattern("IvsRealtime", "IngestConfigurationArn")]
+    stageArn: Optional[Annotated[str, _aws_pattern("IvsRealtime", "IngestConfigurationStageArn")]] = None
     redundantIngest: Optional[bool] = None
 
 
@@ -493,7 +499,9 @@ class AutoParticipantRecordingConfigurationOutputTypeDef(BaseValidatorModel):
 
 
 class AutoParticipantRecordingConfigurationTypeDef(BaseValidatorModel):
-    storageConfigurationArn: str
+    storageConfigurationArn: Annotated[
+        str, _aws_pattern("IvsRealtime", "AutoParticipantRecordingStorageConfigurationArn")
+    ]
     mediaTypes: Optional[List[ParticipantRecordingMediaTypeType]] = None
     thumbnailConfiguration: Optional[ParticipantThumbnailConfigurationTypeDef] = None
     recordingReconnectWindowSeconds: Optional[int] = None
@@ -507,8 +515,8 @@ class RecordingConfigurationTypeDef(BaseValidatorModel):
 
 
 class CompositionSummaryTypeDef(BaseValidatorModel):
-    arn: str
-    stageArn: str
+    arn: Annotated[str, _aws_pattern("IvsRealtime", "CompositionArn")]
+    stageArn: Annotated[str, _aws_pattern("IvsRealtime", "StageArn")]
     destinations: List[DestinationSummaryTypeDef]
     state: CompositionStateType
     tags: Optional[Dict[str, str]] = None
@@ -523,14 +531,14 @@ CompositionThumbnailConfigurationUnionTypeDef = Union[
 
 # This class is the input for the 'create_encoder_configuration' function.
 class CreateEncoderConfigurationRequestTypeDef(BaseValidatorModel):
-    name: Optional[str] = None
+    name: Optional[Annotated[str, _aws_pattern("IvsRealtime", "EncoderConfigurationName")]] = None
     video: Optional[VideoTypeDef] = None
     tags: Optional[Dict[str, str]] = None
 
 
 class EncoderConfigurationTypeDef(BaseValidatorModel):
-    arn: str
-    name: Optional[str] = None
+    arn: Annotated[str, _aws_pattern("IvsRealtime", "EncoderConfigurationArn")]
+    name: Optional[Annotated[str, _aws_pattern("IvsRealtime", "EncoderConfigurationName")]] = None
     video: Optional[VideoTypeDef] = None
     tags: Optional[Dict[str, str]] = None
 
@@ -574,20 +582,20 @@ class CreateParticipantTokenResponseTypeDef(BaseValidatorModel):
 # This class is the input for the 'create_storage_configuration' function.
 class CreateStorageConfigurationRequestTypeDef(BaseValidatorModel):
     s3: S3StorageConfigurationTypeDef
-    name: Optional[str] = None
+    name: Optional[Annotated[str, _aws_pattern("IvsRealtime", "StorageConfigurationName")]] = None
     tags: Optional[Dict[str, str]] = None
 
 
 class StorageConfigurationSummaryTypeDef(BaseValidatorModel):
-    arn: str
-    name: Optional[str] = None
+    arn: Annotated[str, _aws_pattern("IvsRealtime", "StorageConfigurationArn")]
+    name: Optional[Annotated[str, _aws_pattern("IvsRealtime", "StorageConfigurationName")]] = None
     s3: Optional[S3StorageConfigurationTypeDef] = None
     tags: Optional[Dict[str, str]] = None
 
 
 class StorageConfigurationTypeDef(BaseValidatorModel):
-    arn: str
-    name: Optional[str] = None
+    arn: Annotated[str, _aws_pattern("IvsRealtime", "StorageConfigurationArn")]
+    name: Optional[Annotated[str, _aws_pattern("IvsRealtime", "StorageConfigurationName")]] = None
     s3: Optional[S3StorageConfigurationTypeDef] = None
     tags: Optional[Dict[str, str]] = None
 
@@ -600,17 +608,17 @@ class DestinationDetailTypeDef(BaseValidatorModel):
 class ListEncoderConfigurationsResponseTypeDef(BaseValidatorModel):
     encoderConfigurations: List[EncoderConfigurationSummaryTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
-    nextToken: Optional[str] = None
+    nextToken: Optional[Annotated[str, _aws_pattern("IvsRealtime", "PaginationToken")]] = None
 
 
 class EventTypeDef(BaseValidatorModel):
     name: Optional[EventNameType] = None
-    participantId: Optional[str] = None
+    participantId: Optional[Annotated[str, _aws_pattern("IvsRealtime", "ParticipantId")]] = None
     eventTime: Optional[datetime] = None
-    remoteParticipantId: Optional[str] = None
+    remoteParticipantId: Optional[Annotated[str, _aws_pattern("IvsRealtime", "ParticipantId")]] = None
     errorCode: Optional[EventErrorCodeType] = None
-    destinationStageArn: Optional[str] = None
-    destinationSessionId: Optional[str] = None
+    destinationStageArn: Optional[Annotated[str, _aws_pattern("IvsRealtime", "StageArn")]] = None
+    destinationSessionId: Optional[Annotated[str, _aws_pattern("IvsRealtime", "StageSessionId")]] = None
     replica: Optional[bool] = None
     previousToken: Optional[ExchangedParticipantTokenTypeDef] = None
     newToken: Optional[ExchangedParticipantTokenTypeDef] = None
@@ -644,17 +652,17 @@ class GetStageSessionResponseTypeDef(BaseValidatorModel):
 class ListIngestConfigurationsResponseTypeDef(BaseValidatorModel):
     ingestConfigurations: List[IngestConfigurationSummaryTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
-    nextToken: Optional[str] = None
+    nextToken: Optional[Annotated[str, _aws_pattern("IvsRealtime", "PaginationToken")]] = None
 
 
 class IngestConfigurationTypeDef(BaseValidatorModel):
-    arn: str
+    arn: Annotated[str, _aws_pattern("IvsRealtime", "IngestConfigurationArn")]
     ingestProtocol: IngestProtocolType
-    streamKey: str
-    stageArn: str
-    participantId: str
+    streamKey: Annotated[str, _aws_pattern("IvsRealtime", "StreamKey")]
+    stageArn: Annotated[str, _aws_pattern("IvsRealtime", "IngestConfigurationStageArn")]
+    participantId: Annotated[str, _aws_pattern("IvsRealtime", "ParticipantId")]
     state: IngestConfigurationStateType
-    name: Optional[str] = None
+    name: Optional[Annotated[str, _aws_pattern("IvsRealtime", "IngestConfigurationName")]] = None
     userId: Optional[str] = None
     redundantIngest: Optional[bool] = None
     redundantIngestCredentials: Optional[List[RedundantIngestCredentialTypeDef]] = None
@@ -687,41 +695,41 @@ class ListPublicKeysRequestPaginateTypeDef(BaseValidatorModel):
 class ListParticipantReplicasResponseTypeDef(BaseValidatorModel):
     replicas: List[ParticipantReplicaTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
-    nextToken: Optional[str] = None
+    nextToken: Optional[Annotated[str, _aws_pattern("IvsRealtime", "PaginationToken")]] = None
 
 
 # This class is the output for the 'list_participants' function.
 class ListParticipantsResponseTypeDef(BaseValidatorModel):
     participants: List[ParticipantSummaryTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
-    nextToken: Optional[str] = None
+    nextToken: Optional[Annotated[str, _aws_pattern("IvsRealtime", "PaginationToken")]] = None
 
 
 # This class is the output for the 'list_public_keys' function.
 class ListPublicKeysResponseTypeDef(BaseValidatorModel):
     publicKeys: List[PublicKeySummaryTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
-    nextToken: Optional[str] = None
+    nextToken: Optional[Annotated[str, _aws_pattern("IvsRealtime", "PaginationToken")]] = None
 
 
 # This class is the output for the 'list_stage_sessions' function.
 class ListStageSessionsResponseTypeDef(BaseValidatorModel):
     stageSessions: List[StageSessionSummaryTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
-    nextToken: Optional[str] = None
+    nextToken: Optional[Annotated[str, _aws_pattern("IvsRealtime", "PaginationToken")]] = None
 
 
 # This class is the output for the 'list_stages' function.
 class ListStagesResponseTypeDef(BaseValidatorModel):
     stages: List[StageSummaryTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
-    nextToken: Optional[str] = None
+    nextToken: Optional[Annotated[str, _aws_pattern("IvsRealtime", "PaginationToken")]] = None
 
 
 class StageTypeDef(BaseValidatorModel):
-    arn: str
-    name: Optional[str] = None
-    activeSessionId: Optional[str] = None
+    arn: Annotated[str, _aws_pattern("IvsRealtime", "StageArn")]
+    name: Optional[Annotated[str, _aws_pattern("IvsRealtime", "StageName")]] = None
+    activeSessionId: Optional[Annotated[str, _aws_pattern("IvsRealtime", "StageSessionId")]] = None
     tags: Optional[Dict[str, str]] = None
     autoParticipantRecordingConfiguration: Optional[AutoParticipantRecordingConfigurationOutputTypeDef] = None
     endpoints: Optional[StageEndpointsTypeDef] = None
@@ -743,12 +751,12 @@ class S3DestinationConfigurationOutputTypeDef(BaseValidatorModel):
 class ListCompositionsResponseTypeDef(BaseValidatorModel):
     compositions: List[CompositionSummaryTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
-    nextToken: Optional[str] = None
+    nextToken: Optional[Annotated[str, _aws_pattern("IvsRealtime", "PaginationToken")]] = None
 
 
 class S3DestinationConfigurationTypeDef(BaseValidatorModel):
-    storageConfigurationArn: str
-    encoderConfigurationArns: List[str]
+    storageConfigurationArn: Annotated[str, _aws_pattern("IvsRealtime", "StorageConfigurationArn")]
+    encoderConfigurationArns: List[Annotated[str, _aws_pattern("IvsRealtime", "EncoderConfigurationArn")]]
     recordingConfiguration: Optional[RecordingConfigurationTypeDef] = None
     thumbnailConfigurations: Optional[List[CompositionThumbnailConfigurationUnionTypeDef]] = None
 
@@ -769,7 +777,7 @@ class GetEncoderConfigurationResponseTypeDef(BaseValidatorModel):
 class ListStorageConfigurationsResponseTypeDef(BaseValidatorModel):
     storageConfigurations: List[StorageConfigurationSummaryTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
-    nextToken: Optional[str] = None
+    nextToken: Optional[Annotated[str, _aws_pattern("IvsRealtime", "PaginationToken")]] = None
 
 
 # This class is the output for the 'create_storage_configuration' function.
@@ -788,7 +796,7 @@ class GetStorageConfigurationResponseTypeDef(BaseValidatorModel):
 class ListParticipantEventsResponseTypeDef(BaseValidatorModel):
     events: List[EventTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
-    nextToken: Optional[str] = None
+    nextToken: Optional[Annotated[str, _aws_pattern("IvsRealtime", "PaginationToken")]] = None
 
 
 # This class is the output for the 'create_ingest_configuration' function.
@@ -830,7 +838,7 @@ class UpdateStageResponseTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'create_stage' function.
 class CreateStageRequestTypeDef(BaseValidatorModel):
-    name: Optional[str] = None
+    name: Optional[Annotated[str, _aws_pattern("IvsRealtime", "StageName")]] = None
     participantTokenConfigurations: Optional[List[ParticipantTokenConfigurationTypeDef]] = None
     tags: Optional[Dict[str, str]] = None
     autoParticipantRecordingConfiguration: Optional[AutoParticipantRecordingConfigurationUnionTypeDef] = None
@@ -838,8 +846,8 @@ class CreateStageRequestTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'update_stage' function.
 class UpdateStageRequestTypeDef(BaseValidatorModel):
-    arn: str
-    name: Optional[str] = None
+    arn: Annotated[str, _aws_pattern("IvsRealtime", "StageArn")]
+    name: Optional[Annotated[str, _aws_pattern("IvsRealtime", "StageName")]] = None
     autoParticipantRecordingConfiguration: Optional[AutoParticipantRecordingConfigurationUnionTypeDef] = None
 
 
@@ -864,14 +872,14 @@ class DestinationTypeDef(BaseValidatorModel):
 
 
 class DestinationConfigurationTypeDef(BaseValidatorModel):
-    name: Optional[str] = None
+    name: Optional[Annotated[str, _aws_pattern("IvsRealtime", "DestinationConfigurationName")]] = None
     channel: Optional[ChannelDestinationConfigurationTypeDef] = None
     s3: Optional[S3DestinationConfigurationUnionTypeDef] = None
 
 
 class CompositionTypeDef(BaseValidatorModel):
-    arn: str
-    stageArn: str
+    arn: Annotated[str, _aws_pattern("IvsRealtime", "CompositionArn")]
+    stageArn: Annotated[str, _aws_pattern("IvsRealtime", "StageArn")]
     state: CompositionStateType
     layout: LayoutConfigurationTypeDef
     destinations: List[DestinationTypeDef]
@@ -897,8 +905,8 @@ class StartCompositionResponseTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'start_composition' function.
 class StartCompositionRequestTypeDef(BaseValidatorModel):
-    stageArn: str
+    stageArn: Annotated[str, _aws_pattern("IvsRealtime", "StageArn")]
     destinations: List[DestinationConfigurationUnionTypeDef]
-    idempotencyToken: Optional[str] = None
+    idempotencyToken: Optional[Annotated[str, _aws_pattern("IvsRealtime", "CompositionClientToken")]] = None
     layout: Optional[LayoutConfigurationTypeDef] = None
     tags: Optional[Dict[str, str]] = None

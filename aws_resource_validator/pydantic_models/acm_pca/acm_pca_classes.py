@@ -3,6 +3,7 @@
 from datetime import datetime
 from decimal import Decimal
 from typing import (
+    Annotated,
     Any,
     Callable,
     Dict,
@@ -24,6 +25,7 @@ from botocore.response import StreamingBody
 from pydantic import Field
 
 from aws_resource_validator.core.base_validator_model import BaseValidatorModel, EventStream
+from aws_resource_validator.core.pattern_validation import aws_field_pattern as _aws_pattern
 from aws_resource_validator.pydantic_models.acm_pca.acm_pca_constants import *  # noqa: F401,F403
 
 # Optional boto3 symbols — imported lazily so services that don't need them
@@ -39,12 +41,12 @@ except ImportError:  # pragma: no cover
 
 
 class CustomAttributeTypeDef(BaseValidatorModel):
-    ObjectIdentifier: str
+    ObjectIdentifier: Annotated[str, _aws_pattern("AcmPca", "CustomObjectIdentifier")]
     Value: str
 
 
 class AccessMethodTypeDef(BaseValidatorModel):
-    CustomObjectIdentifier: Optional[str] = None
+    CustomObjectIdentifier: Optional[Annotated[str, _aws_pattern("AcmPca", "CustomObjectIdentifier")]] = None
     AccessMethodType: Optional[AccessMethodTypeType] = None
 
 
@@ -53,7 +55,7 @@ BlobTypeDef = Union[IO[Any], StreamingBody, bytes, str]
 
 # This class is the input for the 'create_certificate_authority_audit_report' function.
 class CreateCertificateAuthorityAuditReportRequestTypeDef(BaseValidatorModel):
-    CertificateAuthorityArn: str
+    CertificateAuthorityArn: Annotated[str, _aws_pattern("AcmPca", "Arn")]
     S3BucketName: str
     AuditReportResponseFormat: AuditReportResponseFormatType
 
@@ -67,16 +69,16 @@ class ResponseMetadataTypeDef(BaseValidatorModel):
 
 
 class TagTypeDef(BaseValidatorModel):
-    Key: str
-    Value: Optional[str] = None
+    Key: Annotated[str, _aws_pattern("AcmPca", "TagKey")]
+    Value: Optional[Annotated[str, _aws_pattern("AcmPca", "TagValue")]] = None
 
 
 # This class is the input for the 'create_permission' function.
 class CreatePermissionRequestTypeDef(BaseValidatorModel):
-    CertificateAuthorityArn: str
-    Principal: str
+    CertificateAuthorityArn: Annotated[str, _aws_pattern("AcmPca", "Arn")]
+    Principal: Annotated[str, _aws_pattern("AcmPca", "Principal")]
     Actions: List[ActionTypeType]
-    SourceAccount: Optional[str] = None
+    SourceAccount: Optional[Annotated[str, _aws_pattern("AcmPca", "AccountId")]] = None
 
 
 class CrlDistributionPointExtensionConfigurationTypeDef(BaseValidatorModel):
@@ -96,33 +98,33 @@ class KeyUsageTypeDef(BaseValidatorModel):
 
 
 class CustomExtensionTypeDef(BaseValidatorModel):
-    ObjectIdentifier: str
-    Value: str
+    ObjectIdentifier: Annotated[str, _aws_pattern("AcmPca", "CustomObjectIdentifier")]
+    Value: Annotated[str, _aws_pattern("AcmPca", "Base64String1To4096")]
     Critical: Optional[bool] = None
 
 
 # This class is the input for the 'delete_certificate_authority' function.
 class DeleteCertificateAuthorityRequestTypeDef(BaseValidatorModel):
-    CertificateAuthorityArn: str
+    CertificateAuthorityArn: Annotated[str, _aws_pattern("AcmPca", "Arn")]
     PermanentDeletionTimeInDays: Optional[int] = None
 
 
 # This class is the input for the 'delete_permission' function.
 class DeletePermissionRequestTypeDef(BaseValidatorModel):
-    CertificateAuthorityArn: str
-    Principal: str
-    SourceAccount: Optional[str] = None
+    CertificateAuthorityArn: Annotated[str, _aws_pattern("AcmPca", "Arn")]
+    Principal: Annotated[str, _aws_pattern("AcmPca", "Principal")]
+    SourceAccount: Optional[Annotated[str, _aws_pattern("AcmPca", "AccountId")]] = None
 
 
 # This class is the input for the 'delete_policy' function.
 class DeletePolicyRequestTypeDef(BaseValidatorModel):
-    ResourceArn: str
+    ResourceArn: Annotated[str, _aws_pattern("AcmPca", "Arn")]
 
 
 # This class is the input for the 'describe_certificate_authority_audit_report' function.
 class DescribeCertificateAuthorityAuditReportRequestTypeDef(BaseValidatorModel):
-    CertificateAuthorityArn: str
-    AuditReportId: str
+    CertificateAuthorityArn: Annotated[str, _aws_pattern("AcmPca", "Arn")]
+    AuditReportId: Annotated[str, _aws_pattern("AcmPca", "AuditReportId")]
 
 
 class WaiterConfigTypeDef(BaseValidatorModel):
@@ -132,7 +134,7 @@ class WaiterConfigTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'describe_certificate_authority' function.
 class DescribeCertificateAuthorityRequestTypeDef(BaseValidatorModel):
-    CertificateAuthorityArn: str
+    CertificateAuthorityArn: Annotated[str, _aws_pattern("AcmPca", "Arn")]
 
 
 class EdiPartyNameTypeDef(BaseValidatorModel):
@@ -142,33 +144,33 @@ class EdiPartyNameTypeDef(BaseValidatorModel):
 
 class ExtendedKeyUsageTypeDef(BaseValidatorModel):
     ExtendedKeyUsageType: Optional[ExtendedKeyUsageTypeType] = None
-    ExtendedKeyUsageObjectIdentifier: Optional[str] = None
+    ExtendedKeyUsageObjectIdentifier: Optional[Annotated[str, _aws_pattern("AcmPca", "CustomObjectIdentifier")]] = None
 
 
 class OtherNameTypeDef(BaseValidatorModel):
-    TypeId: str
+    TypeId: Annotated[str, _aws_pattern("AcmPca", "CustomObjectIdentifier")]
     Value: str
 
 
 # This class is the input for the 'get_certificate_authority_certificate' function.
 class GetCertificateAuthorityCertificateRequestTypeDef(BaseValidatorModel):
-    CertificateAuthorityArn: str
+    CertificateAuthorityArn: Annotated[str, _aws_pattern("AcmPca", "Arn")]
 
 
 # This class is the input for the 'get_certificate_authority_csr' function.
 class GetCertificateAuthorityCsrRequestTypeDef(BaseValidatorModel):
-    CertificateAuthorityArn: str
+    CertificateAuthorityArn: Annotated[str, _aws_pattern("AcmPca", "Arn")]
 
 
 # This class is the input for the 'get_certificate' function.
 class GetCertificateRequestTypeDef(BaseValidatorModel):
-    CertificateAuthorityArn: str
-    CertificateArn: str
+    CertificateAuthorityArn: Annotated[str, _aws_pattern("AcmPca", "Arn")]
+    CertificateArn: Annotated[str, _aws_pattern("AcmPca", "Arn")]
 
 
 # This class is the input for the 'get_policy' function.
 class GetPolicyRequestTypeDef(BaseValidatorModel):
-    ResourceArn: str
+    ResourceArn: Annotated[str, _aws_pattern("AcmPca", "Arn")]
 
 
 class ValidityTypeDef(BaseValidatorModel):
@@ -191,30 +193,30 @@ class ListCertificateAuthoritiesRequestTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'list_permissions' function.
 class ListPermissionsRequestTypeDef(BaseValidatorModel):
-    CertificateAuthorityArn: str
+    CertificateAuthorityArn: Annotated[str, _aws_pattern("AcmPca", "Arn")]
     MaxResults: Optional[int] = None
     NextToken: Optional[str] = None
 
 
 class PermissionTypeDef(BaseValidatorModel):
-    CertificateAuthorityArn: Optional[str] = None
+    CertificateAuthorityArn: Optional[Annotated[str, _aws_pattern("AcmPca", "Arn")]] = None
     CreatedAt: Optional[datetime] = None
-    Principal: Optional[str] = None
-    SourceAccount: Optional[str] = None
+    Principal: Optional[Annotated[str, _aws_pattern("AcmPca", "Principal")]] = None
+    SourceAccount: Optional[Annotated[str, _aws_pattern("AcmPca", "AccountId")]] = None
     Actions: Optional[List[ActionTypeType]] = None
-    Policy: Optional[str] = None
+    Policy: Optional[Annotated[str, _aws_pattern("AcmPca", "AWSPolicy")]] = None
 
 
 # This class is the input for the 'list_tags' function.
 class ListTagsRequestTypeDef(BaseValidatorModel):
-    CertificateAuthorityArn: str
+    CertificateAuthorityArn: Annotated[str, _aws_pattern("AcmPca", "Arn")]
     MaxResults: Optional[int] = None
     NextToken: Optional[str] = None
 
 
 class OcspConfigurationTypeDef(BaseValidatorModel):
     Enabled: bool
-    OcspCustomCname: Optional[str] = None
+    OcspCustomCname: Optional[Annotated[str, _aws_pattern("AcmPca", "CnameString")]] = None
 
 
 class QualifierTypeDef(BaseValidatorModel):
@@ -223,18 +225,18 @@ class QualifierTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'put_policy' function.
 class PutPolicyRequestTypeDef(BaseValidatorModel):
-    ResourceArn: str
-    Policy: str
+    ResourceArn: Annotated[str, _aws_pattern("AcmPca", "Arn")]
+    Policy: Annotated[str, _aws_pattern("AcmPca", "AWSPolicy")]
 
 
 # This class is the input for the 'restore_certificate_authority' function.
 class RestoreCertificateAuthorityRequestTypeDef(BaseValidatorModel):
-    CertificateAuthorityArn: str
+    CertificateAuthorityArn: Annotated[str, _aws_pattern("AcmPca", "Arn")]
 
 
 # This class is the input for the 'revoke_certificate' function.
 class RevokeCertificateRequestTypeDef(BaseValidatorModel):
-    CertificateAuthorityArn: str
+    CertificateAuthorityArn: Annotated[str, _aws_pattern("AcmPca", "Arn")]
     CertificateSerial: str
     RevocationReason: RevocationReasonType
 
@@ -258,13 +260,13 @@ class ASN1SubjectOutputTypeDef(BaseValidatorModel):
 
 
 class ASN1SubjectTypeDef(BaseValidatorModel):
-    Country: Optional[str] = None
+    Country: Optional[Annotated[str, _aws_pattern("AcmPca", "CountryCodeString")]] = None
     Organization: Optional[str] = None
     OrganizationalUnit: Optional[str] = None
-    DistinguishedNameQualifier: Optional[str] = None
+    DistinguishedNameQualifier: Optional[Annotated[str, _aws_pattern("AcmPca", "ASN1PrintableString64")]] = None
     State: Optional[str] = None
     CommonName: Optional[str] = None
-    SerialNumber: Optional[str] = None
+    SerialNumber: Optional[Annotated[str, _aws_pattern("AcmPca", "ASN1PrintableString64")]] = None
     Locality: Optional[str] = None
     Title: Optional[str] = None
     Surname: Optional[str] = None
@@ -277,21 +279,21 @@ class ASN1SubjectTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'import_certificate_authority_certificate' function.
 class ImportCertificateAuthorityCertificateRequestTypeDef(BaseValidatorModel):
-    CertificateAuthorityArn: str
+    CertificateAuthorityArn: Annotated[str, _aws_pattern("AcmPca", "Arn")]
     Certificate: BlobTypeDef
     CertificateChain: Optional[BlobTypeDef] = None
 
 
 # This class is the output for the 'create_certificate_authority_audit_report' function.
 class CreateCertificateAuthorityAuditReportResponseTypeDef(BaseValidatorModel):
-    AuditReportId: str
+    AuditReportId: Annotated[str, _aws_pattern("AcmPca", "AuditReportId")]
     S3Key: str
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 # This class is the output for the 'create_certificate_authority' function.
 class CreateCertificateAuthorityResponseTypeDef(BaseValidatorModel):
-    CertificateAuthorityArn: str
+    CertificateAuthorityArn: Annotated[str, _aws_pattern("AcmPca", "Arn")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
@@ -331,13 +333,13 @@ class GetCertificateResponseTypeDef(BaseValidatorModel):
 
 # This class is the output for the 'get_policy' function.
 class GetPolicyResponseTypeDef(BaseValidatorModel):
-    Policy: str
+    Policy: Annotated[str, _aws_pattern("AcmPca", "AWSPolicy")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 # This class is the output for the 'issue_certificate' function.
 class IssueCertificateResponseTypeDef(BaseValidatorModel):
-    CertificateArn: str
+    CertificateArn: Annotated[str, _aws_pattern("AcmPca", "Arn")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
@@ -350,25 +352,25 @@ class ListTagsResponseTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'tag_certificate_authority' function.
 class TagCertificateAuthorityRequestTypeDef(BaseValidatorModel):
-    CertificateAuthorityArn: str
+    CertificateAuthorityArn: Annotated[str, _aws_pattern("AcmPca", "Arn")]
     Tags: List[TagTypeDef]
 
 
 # This class is the input for the 'untag_certificate_authority' function.
 class UntagCertificateAuthorityRequestTypeDef(BaseValidatorModel):
-    CertificateAuthorityArn: str
+    CertificateAuthorityArn: Annotated[str, _aws_pattern("AcmPca", "Arn")]
     Tags: List[TagTypeDef]
 
 
 class CrlConfigurationTypeDef(BaseValidatorModel):
     Enabled: bool
     ExpirationInDays: Optional[int] = None
-    CustomCname: Optional[str] = None
-    S3BucketName: Optional[str] = None
+    CustomCname: Optional[Annotated[str, _aws_pattern("AcmPca", "CnameString")]] = None
+    S3BucketName: Optional[Annotated[str, _aws_pattern("AcmPca", "S3BucketName3To255")]] = None
     S3ObjectAcl: Optional[S3ObjectAclType] = None
     CrlDistributionPointExtensionConfiguration: Optional[CrlDistributionPointExtensionConfigurationTypeDef] = None
     CrlType: Optional[CrlTypeType] = None
-    CustomPath: Optional[str] = None
+    CustomPath: Optional[Annotated[str, _aws_pattern("AcmPca", "CrlPathString")]] = None
 
 
 class DescribeCertificateAuthorityAuditReportRequestWaitTypeDef(BaseValidatorModel):
@@ -435,7 +437,7 @@ class RevocationConfigurationTypeDef(BaseValidatorModel):
 
 
 class PolicyInformationTypeDef(BaseValidatorModel):
-    CertPolicyId: str
+    CertPolicyId: Annotated[str, _aws_pattern("AcmPca", "CustomObjectIdentifier")]
     PolicyQualifiers: Optional[List[PolicyQualifierInfoTypeDef]] = None
 
 
@@ -452,12 +454,12 @@ class GeneralNameTypeDef(BaseValidatorModel):
     EdiPartyName: Optional[EdiPartyNameTypeDef] = None
     UniformResourceIdentifier: Optional[str] = None
     IpAddress: Optional[str] = None
-    RegisteredId: Optional[str] = None
+    RegisteredId: Optional[Annotated[str, _aws_pattern("AcmPca", "CustomObjectIdentifier")]] = None
 
 
 # This class is the input for the 'update_certificate_authority' function.
 class UpdateCertificateAuthorityRequestTypeDef(BaseValidatorModel):
-    CertificateAuthorityArn: str
+    CertificateAuthorityArn: Annotated[str, _aws_pattern("AcmPca", "Arn")]
     RevocationConfiguration: Optional[RevocationConfigurationTypeDef] = None
     Status: Optional[CertificateAuthorityStatusType] = None
 
@@ -496,8 +498,8 @@ class ExtensionsTypeDef(BaseValidatorModel):
 
 
 class CertificateAuthorityTypeDef(BaseValidatorModel):
-    Arn: Optional[str] = None
-    OwnerAccount: Optional[str] = None
+    Arn: Optional[Annotated[str, _aws_pattern("AcmPca", "Arn")]] = None
+    OwnerAccount: Optional[Annotated[str, _aws_pattern("AcmPca", "AccountId")]] = None
     CreatedAt: Optional[datetime] = None
     LastStateChangeAt: Optional[datetime] = None
     Type: Optional[CertificateAuthorityTypeType] = None
@@ -545,14 +547,14 @@ CertificateAuthorityConfigurationUnionTypeDef = Union[
 
 # This class is the input for the 'issue_certificate' function.
 class IssueCertificateRequestTypeDef(BaseValidatorModel):
-    CertificateAuthorityArn: str
+    CertificateAuthorityArn: Annotated[str, _aws_pattern("AcmPca", "Arn")]
     Csr: BlobTypeDef
     SigningAlgorithm: SigningAlgorithmType
     Validity: ValidityTypeDef
     ApiPassthrough: Optional[ApiPassthroughTypeDef] = None
-    TemplateArn: Optional[str] = None
+    TemplateArn: Optional[Annotated[str, _aws_pattern("AcmPca", "Arn")]] = None
     ValidityNotBefore: Optional[ValidityTypeDef] = None
-    IdempotencyToken: Optional[str] = None
+    IdempotencyToken: Optional[Annotated[str, _aws_pattern("AcmPca", "IdempotencyToken")]] = None
 
 
 # This class is the input for the 'create_certificate_authority' function.
@@ -560,7 +562,7 @@ class CreateCertificateAuthorityRequestTypeDef(BaseValidatorModel):
     CertificateAuthorityConfiguration: CertificateAuthorityConfigurationUnionTypeDef
     CertificateAuthorityType: CertificateAuthorityTypeType
     RevocationConfiguration: Optional[RevocationConfigurationTypeDef] = None
-    IdempotencyToken: Optional[str] = None
+    IdempotencyToken: Optional[Annotated[str, _aws_pattern("AcmPca", "IdempotencyToken")]] = None
     KeyStorageSecurityStandard: Optional[KeyStorageSecurityStandardType] = None
     Tags: Optional[List[TagTypeDef]] = None
     UsageMode: Optional[CertificateAuthorityUsageModeType] = None

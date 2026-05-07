@@ -57,8 +57,10 @@ RouteFerryNoticeCodeType = Literal[
     "Other",
     "PotentialViolatedVehicleRestrictionUsage",
     "SeasonalClosure",
+    "ViolatedAvoidAreas",
     "ViolatedAvoidFerry",
     "ViolatedAvoidRailFerry",
+    "ViolatedVehicleRestriction",
 ]
 RouteFerryTravelStepTypeType = Literal["Arrive", "Continue", "Depart"]
 RouteHazardousCargoTypeType = Literal[
@@ -116,7 +118,12 @@ RouteMatrixTruckTypeType = Literal["LightTruck", "StraightTruck", "Tractor"]
 RouteMatrixZoneCategoryType = Literal["CongestionPricing", "Environmental", "Vignette"]
 RouteNoticeImpactType = Literal["High", "Low"]
 RoutePedestrianNoticeCodeType = Literal[
-    "AccuratePolylineUnavailable", "Other", "ViolatedAvoidDirtRoad", "ViolatedAvoidTunnel", "ViolatedPedestrianOption"
+    "AccuratePolylineUnavailable",
+    "Other",
+    "ViolatedAvoidAreas",
+    "ViolatedAvoidDirtRoad",
+    "ViolatedAvoidTunnel",
+    "ViolatedPedestrianOption",
 ]
 RoutePedestrianTravelStepTypeType = Literal[
     "Arrive", "Continue", "Depart", "Keep", "RoundaboutEnter", "RoundaboutExit", "RoundaboutPass", "Turn"
@@ -206,6 +213,7 @@ RouteVehicleNoticeCodeType = Literal[
     "TollTransponder",
     "TollsDataTemporarilyUnavailable",
     "TollsDataUnavailable",
+    "TravelTimeExceedsDriverWorkHours",
     "ViolatedAvoidControlledAccessHighway",
     "ViolatedAvoidDifficultTurns",
     "ViolatedAvoidDirtRoad",
@@ -450,6 +458,7 @@ ServiceName = Literal[
     "inspector",
     "inspector-scan",
     "inspector2",
+    "interconnect",
     "internetmonitor",
     "invoicing",
     "iot",
@@ -506,6 +515,7 @@ ServiceName = Literal[
     "marketplace-agreement",
     "marketplace-catalog",
     "marketplace-deployment",
+    "marketplace-discovery",
     "marketplace-entitlement",
     "marketplace-reporting",
     "marketplacecommerceanalytics",
@@ -603,6 +613,7 @@ ServiceName = Literal[
     "rum",
     "s3",
     "s3control",
+    "s3files",
     "s3outposts",
     "s3tables",
     "s3vectors",

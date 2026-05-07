@@ -3,6 +3,7 @@
 from datetime import datetime
 from decimal import Decimal
 from typing import (
+    Annotated,
     Any,
     Callable,
     Dict,
@@ -24,6 +25,7 @@ from botocore.response import StreamingBody
 from pydantic import Field
 
 from aws_resource_validator.core.base_validator_model import BaseValidatorModel, EventStream
+from aws_resource_validator.core.pattern_validation import aws_field_pattern as _aws_pattern
 from aws_resource_validator.pydantic_models.resource_explorer_2.resource_explorer_2_constants import *  # noqa: F401,F403
 
 # Optional boto3 symbols — imported lazily so services that don't need them
@@ -69,9 +71,18 @@ class CreateIndexInputTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'create_resource_explorer_setup' function.
 class CreateResourceExplorerSetupInputTypeDef(BaseValidatorModel):
-    RegionList: List[str]
-    ViewName: str
-    AggregatorRegions: Optional[List[str]] = None
+    RegionList: List[
+        Annotated[str, _aws_pattern("ResourceExplorer2", "CreateResourceExplorerSetupInputRegionListListMemberString")]
+    ]
+    ViewName: Annotated[str, _aws_pattern("ResourceExplorer2", "CreateResourceExplorerSetupInputViewNameString")]
+    AggregatorRegions: Optional[
+        List[
+            Annotated[
+                str,
+                _aws_pattern("ResourceExplorer2", "CreateResourceExplorerSetupInputAggregatorRegionsListMemberString"),
+            ]
+        ]
+    ] = None
 
 
 class IncludedPropertyTypeDef(BaseValidatorModel):
@@ -89,7 +100,7 @@ class DeleteIndexInputTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'delete_resource_explorer_setup' function.
 class DeleteResourceExplorerSetupInputTypeDef(BaseValidatorModel):
-    RegionList: Optional[List[str]] = None
+    RegionList: Optional[List[Annotated[str, _aws_pattern("ResourceExplorer2", "RegionListMemberString")]]] = None
     DeleteInAllRegions: Optional[bool] = None
 
 
@@ -121,7 +132,7 @@ class PaginatorConfigTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'get_resource_explorer_setup' function.
 class GetResourceExplorerSetupInputTypeDef(BaseValidatorModel):
-    TaskId: str
+    TaskId: Annotated[str, _aws_pattern("ResourceExplorer2", "GetResourceExplorerSetupInputTaskIdString")]
     MaxResults: Optional[int] = None
     NextToken: Optional[str] = None
 
@@ -159,7 +170,9 @@ class MemberIndexTypeDef(BaseValidatorModel):
 # This class is the input for the 'list_indexes' function.
 class ListIndexesInputTypeDef(BaseValidatorModel):
     Type: Optional[IndexTypeType] = None
-    Regions: Optional[List[str]] = None
+    Regions: Optional[
+        List[Annotated[str, _aws_pattern("ResourceExplorer2", "ListIndexesInputRegionsListMemberString")]]
+    ] = None
     MaxResults: Optional[int] = None
     NextToken: Optional[str] = None
 
@@ -173,7 +186,9 @@ class ListManagedViewsInputTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'list_service_indexes' function.
 class ListServiceIndexesInputTypeDef(BaseValidatorModel):
-    Regions: Optional[List[str]] = None
+    Regions: Optional[
+        List[Annotated[str, _aws_pattern("ResourceExplorer2", "ListServiceIndexesInputRegionsListMemberString")]]
+    ] = None
     MaxResults: Optional[int] = None
     NextToken: Optional[str] = None
 
@@ -268,7 +283,7 @@ class CreateIndexOutputTypeDef(BaseValidatorModel):
 
 # This class is the output for the 'create_resource_explorer_setup' function.
 class CreateResourceExplorerSetupOutputTypeDef(BaseValidatorModel):
-    TaskId: str
+    TaskId: Annotated[str, _aws_pattern("ResourceExplorer2", "CreateResourceExplorerSetupOutputTaskIdString")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
@@ -282,7 +297,7 @@ class DeleteIndexOutputTypeDef(BaseValidatorModel):
 
 # This class is the output for the 'delete_resource_explorer_setup' function.
 class DeleteResourceExplorerSetupOutputTypeDef(BaseValidatorModel):
-    TaskId: str
+    TaskId: Annotated[str, _aws_pattern("ResourceExplorer2", "DeleteResourceExplorerSetupOutputTaskIdString")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
@@ -305,8 +320,8 @@ class GetIndexOutputTypeDef(BaseValidatorModel):
     Arn: str
     Type: IndexTypeType
     State: IndexStateType
-    ReplicatingFrom: List[str]
-    ReplicatingTo: List[str]
+    ReplicatingFrom: List[Annotated[str, _aws_pattern("ResourceExplorer2", "RegionListMemberString")]]
+    ReplicatingTo: List[Annotated[str, _aws_pattern("ResourceExplorer2", "RegionListMemberString")]]
     CreatedAt: datetime
     LastUpdatedAt: datetime
     Tags: Dict[str, str]
@@ -357,7 +372,7 @@ class UpdateIndexTypeOutputTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'create_view' function.
 class CreateViewInputTypeDef(BaseValidatorModel):
-    ViewName: str
+    ViewName: Annotated[str, _aws_pattern("ResourceExplorer2", "ViewName")]
     ClientToken: Optional[str] = None
     IncludedProperties: Optional[List[IncludedPropertyTypeDef]] = None
     Scope: Optional[str] = None
@@ -388,7 +403,7 @@ class ManagedViewTypeDef(BaseValidatorModel):
 
 class ServiceViewTypeDef(BaseValidatorModel):
     ServiceViewArn: str
-    ServiceViewName: Optional[str] = None
+    ServiceViewName: Optional[Annotated[str, _aws_pattern("ResourceExplorer2", "ServiceViewName")]] = None
     Filters: Optional[SearchFilterTypeDef] = None
     IncludedProperties: Optional[List[IncludedPropertyTypeDef]] = None
     StreamingAccessForService: Optional[str] = None
@@ -404,7 +419,7 @@ class UpdateViewInputTypeDef(BaseValidatorModel):
 
 class ViewTypeDef(BaseValidatorModel):
     ViewArn: Optional[str] = None
-    ViewName: Optional[str] = None
+    ViewName: Optional[Annotated[str, _aws_pattern("ResourceExplorer2", "ViewName")]] = None
     Owner: Optional[str] = None
     LastUpdatedAt: Optional[datetime] = None
     Scope: Optional[str] = None
@@ -584,7 +599,7 @@ class SearchOutputTypeDef(BaseValidatorModel):
 
 
 class RegionStatusTypeDef(BaseValidatorModel):
-    Region: Optional[str] = None
+    Region: Optional[Annotated[str, _aws_pattern("ResourceExplorer2", "RegionStatusRegionString")]] = None
     Index: Optional[IndexStatusTypeDef] = None
     View: Optional[ViewStatusTypeDef] = None
 

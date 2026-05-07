@@ -3,6 +3,7 @@
 from datetime import datetime
 from decimal import Decimal
 from typing import (
+    Annotated,
     Any,
     Callable,
     Dict,
@@ -24,6 +25,7 @@ from botocore.response import StreamingBody
 from pydantic import Field
 
 from aws_resource_validator.core.base_validator_model import BaseValidatorModel, EventStream
+from aws_resource_validator.core.pattern_validation import aws_field_pattern as _aws_pattern
 from aws_resource_validator.pydantic_models.route53domains.route53domains_constants import *  # noqa: F401,F403
 
 # Optional boto3 symbols — imported lazily so services that don't need them
@@ -74,7 +76,7 @@ class CancelDomainTransferToAnotherAwsAccountRequestTypeDef(BaseValidatorModel):
 # This class is the input for the 'check_domain_availability' function.
 class CheckDomainAvailabilityRequestTypeDef(BaseValidatorModel):
     DomainName: str
-    IdnLangCode: Optional[str] = None
+    IdnLangCode: Optional[Annotated[str, _aws_pattern("Route53domains", "LangCode")]] = None
 
 
 # This class is the input for the 'check_domain_transferability' function.
@@ -234,7 +236,7 @@ class TagTypeDef(BaseValidatorModel):
 
 
 class NameserverTypeDef(BaseValidatorModel):
-    Name: str
+    Name: Annotated[str, _aws_pattern("Route53domains", "HostName")]
     GlueIps: Optional[List[str]] = None
 
 
@@ -274,7 +276,7 @@ class RetrieveDomainAuthCodeRequestTypeDef(BaseValidatorModel):
 # This class is the input for the 'transfer_domain_to_another_aws_account' function.
 class TransferDomainToAnotherAwsAccountRequestTypeDef(BaseValidatorModel):
     DomainName: str
-    AccountId: str
+    AccountId: Annotated[str, _aws_pattern("Route53domains", "AccountId")]
 
 
 # This class is the input for the 'update_domain_contact_privacy' function.
@@ -625,7 +627,7 @@ class RegisterDomainRequestTypeDef(BaseValidatorModel):
     AdminContact: ContactDetailUnionTypeDef
     RegistrantContact: ContactDetailUnionTypeDef
     TechContact: ContactDetailUnionTypeDef
-    IdnLangCode: Optional[str] = None
+    IdnLangCode: Optional[Annotated[str, _aws_pattern("Route53domains", "LangCode")]] = None
     AutoRenew: Optional[bool] = None
     PrivacyProtectAdminContact: Optional[bool] = None
     PrivacyProtectRegistrantContact: Optional[bool] = None
@@ -637,11 +639,11 @@ class RegisterDomainRequestTypeDef(BaseValidatorModel):
 # This class is the input for the 'transfer_domain' function.
 class TransferDomainRequestTypeDef(BaseValidatorModel):
     DomainName: str
-    DurationInYears: int
     AdminContact: ContactDetailUnionTypeDef
     RegistrantContact: ContactDetailUnionTypeDef
     TechContact: ContactDetailUnionTypeDef
-    IdnLangCode: Optional[str] = None
+    IdnLangCode: Optional[Annotated[str, _aws_pattern("Route53domains", "LangCode")]] = None
+    DurationInYears: Optional[int] = None
     Nameservers: Optional[List[NameserverUnionTypeDef]] = None
     AuthCode: Optional[str] = None
     AutoRenew: Optional[bool] = None

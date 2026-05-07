@@ -3,6 +3,7 @@
 from datetime import datetime
 from decimal import Decimal
 from typing import (
+    Annotated,
     Any,
     Callable,
     Dict,
@@ -24,6 +25,7 @@ from botocore.response import StreamingBody
 from pydantic import Field
 
 from aws_resource_validator.core.base_validator_model import BaseValidatorModel, EventStream
+from aws_resource_validator.core.pattern_validation import aws_field_pattern as _aws_pattern
 from aws_resource_validator.pydantic_models.autoscaling.autoscaling_constants import *  # noqa: F401,F403
 
 # Optional boto3 symbols — imported lazily so services that don't need them
@@ -49,18 +51,18 @@ class AcceleratorTotalMemoryMiBRequestTypeDef(BaseValidatorModel):
 
 
 class ActivityTypeDef(BaseValidatorModel):
-    ActivityId: str
-    AutoScalingGroupName: str
-    Cause: str
+    ActivityId: Annotated[str, _aws_pattern("Autoscaling", "XmlString")]
+    AutoScalingGroupName: Annotated[str, _aws_pattern("Autoscaling", "XmlStringMaxLen255")]
+    Cause: Annotated[str, _aws_pattern("Autoscaling", "XmlStringMaxLen1023")]
     StartTime: datetime
     StatusCode: ScalingActivityStatusCodeType
-    Description: Optional[str] = None
+    Description: Optional[Annotated[str, _aws_pattern("Autoscaling", "XmlString")]] = None
     EndTime: Optional[datetime] = None
-    StatusMessage: Optional[str] = None
+    StatusMessage: Optional[Annotated[str, _aws_pattern("Autoscaling", "XmlStringMaxLen255")]] = None
     Progress: Optional[int] = None
-    Details: Optional[str] = None
+    Details: Optional[Annotated[str, _aws_pattern("Autoscaling", "XmlString")]] = None
     AutoScalingGroupState: Optional[str] = None
-    AutoScalingGroupARN: Optional[str] = None
+    AutoScalingGroupARN: Optional[Annotated[str, _aws_pattern("Autoscaling", "ResourceName")]] = None
 
 
 class ResponseMetadataTypeDef(BaseValidatorModel):
@@ -72,7 +74,7 @@ class ResponseMetadataTypeDef(BaseValidatorModel):
 
 
 class AdjustmentTypeTypeDef(BaseValidatorModel):
-    AdjustmentType: Optional[str] = None
+    AdjustmentType: Optional[Annotated[str, _aws_pattern("Autoscaling", "XmlStringMaxLen255")]] = None
 
 
 class AlarmSpecificationOutputTypeDef(BaseValidatorModel):
@@ -80,38 +82,38 @@ class AlarmSpecificationOutputTypeDef(BaseValidatorModel):
 
 
 class AlarmSpecificationTypeDef(BaseValidatorModel):
-    Alarms: Optional[List[str]] = None
+    Alarms: Optional[List[Annotated[str, _aws_pattern("Autoscaling", "XmlStringMaxLen255")]]] = None
 
 
 class AlarmTypeDef(BaseValidatorModel):
-    AlarmName: Optional[str] = None
-    AlarmARN: Optional[str] = None
+    AlarmName: Optional[Annotated[str, _aws_pattern("Autoscaling", "XmlStringMaxLen255")]] = None
+    AlarmARN: Optional[Annotated[str, _aws_pattern("Autoscaling", "ResourceName")]] = None
 
 
 # This class is the input for the 'attach_instances' function.
 class AttachInstancesQueryTypeDef(BaseValidatorModel):
-    AutoScalingGroupName: str
-    InstanceIds: Optional[List[str]] = None
+    AutoScalingGroupName: Annotated[str, _aws_pattern("Autoscaling", "XmlStringMaxLen255")]
+    InstanceIds: Optional[List[Annotated[str, _aws_pattern("Autoscaling", "XmlStringMaxLen19")]]] = None
 
 
 class AttachLoadBalancerTargetGroupsTypeTypeDef(BaseValidatorModel):
-    AutoScalingGroupName: str
-    TargetGroupARNs: List[str]
+    AutoScalingGroupName: Annotated[str, _aws_pattern("Autoscaling", "XmlStringMaxLen255")]
+    TargetGroupARNs: List[Annotated[str, _aws_pattern("Autoscaling", "XmlStringMaxLen511")]]
 
 
 class AttachLoadBalancersTypeTypeDef(BaseValidatorModel):
-    AutoScalingGroupName: str
-    LoadBalancerNames: List[str]
+    AutoScalingGroupName: Annotated[str, _aws_pattern("Autoscaling", "XmlStringMaxLen255")]
+    LoadBalancerNames: List[Annotated[str, _aws_pattern("Autoscaling", "XmlStringMaxLen255")]]
 
 
 class TrafficSourceIdentifierTypeDef(BaseValidatorModel):
-    Identifier: str
-    Type: Optional[str] = None
+    Identifier: Annotated[str, _aws_pattern("Autoscaling", "XmlStringMaxLen511")]
+    Type: Optional[Annotated[str, _aws_pattern("Autoscaling", "XmlStringMaxLen511")]] = None
 
 
 class FilterTypeDef(BaseValidatorModel):
-    Name: Optional[str] = None
-    Values: Optional[List[str]] = None
+    Name: Optional[Annotated[str, _aws_pattern("Autoscaling", "XmlString")]] = None
+    Values: Optional[List[Annotated[str, _aws_pattern("Autoscaling", "XmlString")]]] = None
 
 
 class PaginatorConfigTypeDef(BaseValidatorModel):
@@ -130,8 +132,8 @@ class AvailabilityZoneImpairmentPolicyTypeDef(BaseValidatorModel):
 
 
 class EnabledMetricTypeDef(BaseValidatorModel):
-    Metric: Optional[str] = None
-    Granularity: Optional[str] = None
+    Metric: Optional[Annotated[str, _aws_pattern("Autoscaling", "XmlStringMaxLen255")]] = None
+    Granularity: Optional[Annotated[str, _aws_pattern("Autoscaling", "XmlStringMaxLen255")]] = None
 
 
 class InstanceMaintenancePolicyTypeDef(BaseValidatorModel):
@@ -140,21 +142,21 @@ class InstanceMaintenancePolicyTypeDef(BaseValidatorModel):
 
 
 class LaunchTemplateSpecificationTypeDef(BaseValidatorModel):
-    LaunchTemplateId: Optional[str] = None
-    LaunchTemplateName: Optional[str] = None
-    Version: Optional[str] = None
+    LaunchTemplateId: Optional[Annotated[str, _aws_pattern("Autoscaling", "XmlStringMaxLen255")]] = None
+    LaunchTemplateName: Optional[Annotated[str, _aws_pattern("Autoscaling", "LaunchTemplateName")]] = None
+    Version: Optional[Annotated[str, _aws_pattern("Autoscaling", "XmlStringMaxLen255")]] = None
 
 
 class SuspendedProcessTypeDef(BaseValidatorModel):
-    ProcessName: Optional[str] = None
-    SuspensionReason: Optional[str] = None
+    ProcessName: Optional[Annotated[str, _aws_pattern("Autoscaling", "XmlStringMaxLen255")]] = None
+    SuspensionReason: Optional[Annotated[str, _aws_pattern("Autoscaling", "XmlStringMaxLen255")]] = None
 
 
 class TagDescriptionTypeDef(BaseValidatorModel):
-    ResourceId: Optional[str] = None
-    ResourceType: Optional[str] = None
-    Key: Optional[str] = None
-    Value: Optional[str] = None
+    ResourceId: Optional[Annotated[str, _aws_pattern("Autoscaling", "XmlString")]] = None
+    ResourceType: Optional[Annotated[str, _aws_pattern("Autoscaling", "XmlString")]] = None
+    Key: Optional[Annotated[str, _aws_pattern("Autoscaling", "TagKey")]] = None
+    Value: Optional[Annotated[str, _aws_pattern("Autoscaling", "TagValue")]] = None
     PropagateAtLaunch: Optional[bool] = None
 
 
@@ -164,19 +166,19 @@ class BaselineEbsBandwidthMbpsRequestTypeDef(BaseValidatorModel):
 
 
 class FailedScheduledUpdateGroupActionRequestTypeDef(BaseValidatorModel):
-    ScheduledActionName: str
-    ErrorCode: Optional[str] = None
-    ErrorMessage: Optional[str] = None
+    ScheduledActionName: Annotated[str, _aws_pattern("Autoscaling", "XmlStringMaxLen255")]
+    ErrorCode: Optional[Annotated[str, _aws_pattern("Autoscaling", "XmlStringMaxLen64")]] = None
+    ErrorMessage: Optional[Annotated[str, _aws_pattern("Autoscaling", "XmlString")]] = None
 
 
 # This class is the input for the 'batch_delete_scheduled_action' function.
 class BatchDeleteScheduledActionTypeTypeDef(BaseValidatorModel):
-    AutoScalingGroupName: str
-    ScheduledActionNames: List[str]
+    AutoScalingGroupName: Annotated[str, _aws_pattern("Autoscaling", "XmlStringMaxLen255")]
+    ScheduledActionNames: List[Annotated[str, _aws_pattern("Autoscaling", "XmlStringMaxLen255")]]
 
 
 class EbsTypeDef(BaseValidatorModel):
-    SnapshotId: Optional[str] = None
+    SnapshotId: Optional[Annotated[str, _aws_pattern("Autoscaling", "XmlStringMaxLen255")]] = None
     VolumeSize: Optional[int] = None
     VolumeType: Optional[str] = None
     DeleteOnTermination: Optional[bool] = None
@@ -187,7 +189,7 @@ class EbsTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'cancel_instance_refresh' function.
 class CancelInstanceRefreshTypeTypeDef(BaseValidatorModel):
-    AutoScalingGroupName: str
+    AutoScalingGroupName: Annotated[str, _aws_pattern("Autoscaling", "XmlStringMaxLen255")]
     WaitForTransitioningInstances: Optional[bool] = None
 
 
@@ -202,16 +204,18 @@ class CapacityReservationTargetOutputTypeDef(BaseValidatorModel):
 
 
 class CapacityReservationTargetTypeDef(BaseValidatorModel):
-    CapacityReservationIds: Optional[List[str]] = None
-    CapacityReservationResourceGroupArns: Optional[List[str]] = None
+    CapacityReservationIds: Optional[List[Annotated[str, _aws_pattern("Autoscaling", "AsciiStringMaxLen255")]]] = None
+    CapacityReservationResourceGroupArns: Optional[
+        List[Annotated[str, _aws_pattern("Autoscaling", "ResourceName")]]
+    ] = None
 
 
 class CompleteLifecycleActionTypeTypeDef(BaseValidatorModel):
-    LifecycleHookName: str
-    AutoScalingGroupName: str
+    LifecycleHookName: Annotated[str, _aws_pattern("Autoscaling", "AsciiStringMaxLen255")]
+    AutoScalingGroupName: Annotated[str, _aws_pattern("Autoscaling", "ResourceName")]
     LifecycleActionResult: str
     LifecycleActionToken: Optional[str] = None
-    InstanceId: Optional[str] = None
+    InstanceId: Optional[Annotated[str, _aws_pattern("Autoscaling", "XmlStringMaxLen19")]] = None
 
 
 class PerformanceFactorReferenceRequestTypeDef(BaseValidatorModel):
@@ -219,20 +223,24 @@ class PerformanceFactorReferenceRequestTypeDef(BaseValidatorModel):
 
 
 class LifecycleHookSpecificationTypeDef(BaseValidatorModel):
-    LifecycleHookName: str
+    LifecycleHookName: Annotated[str, _aws_pattern("Autoscaling", "AsciiStringMaxLen255")]
     LifecycleTransition: str
-    NotificationMetadata: Optional[str] = None
+    NotificationMetadata: Optional[Annotated[str, _aws_pattern("Autoscaling", "AnyPrintableAsciiStringMaxLen4000")]] = (
+        None
+    )
     HeartbeatTimeout: Optional[int] = None
     DefaultResult: Optional[str] = None
-    NotificationTargetARN: Optional[str] = None
-    RoleARN: Optional[str] = None
+    NotificationTargetARN: Optional[Annotated[str, _aws_pattern("Autoscaling", "NotificationTargetResourceName")]] = (
+        None
+    )
+    RoleARN: Optional[Annotated[str, _aws_pattern("Autoscaling", "XmlStringMaxLen255")]] = None
 
 
 class TagTypeDef(BaseValidatorModel):
-    Key: str
-    ResourceId: Optional[str] = None
-    ResourceType: Optional[str] = None
-    Value: Optional[str] = None
+    Key: Annotated[str, _aws_pattern("Autoscaling", "TagKey")]
+    ResourceId: Optional[Annotated[str, _aws_pattern("Autoscaling", "XmlString")]] = None
+    ResourceType: Optional[Annotated[str, _aws_pattern("Autoscaling", "XmlString")]] = None
+    Value: Optional[Annotated[str, _aws_pattern("Autoscaling", "TagValue")]] = None
     PropagateAtLaunch: Optional[bool] = None
 
 
@@ -253,60 +261,64 @@ class MetricDimensionTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'delete_auto_scaling_group' function.
 class DeleteAutoScalingGroupTypeTypeDef(BaseValidatorModel):
-    AutoScalingGroupName: str
+    AutoScalingGroupName: Annotated[str, _aws_pattern("Autoscaling", "XmlStringMaxLen255")]
     ForceDelete: Optional[bool] = None
 
 
 class DeleteLifecycleHookTypeTypeDef(BaseValidatorModel):
-    LifecycleHookName: str
-    AutoScalingGroupName: str
+    LifecycleHookName: Annotated[str, _aws_pattern("Autoscaling", "AsciiStringMaxLen255")]
+    AutoScalingGroupName: Annotated[str, _aws_pattern("Autoscaling", "XmlStringMaxLen255")]
 
 
 # This class is the input for the 'delete_notification_configuration' function.
 class DeleteNotificationConfigurationTypeTypeDef(BaseValidatorModel):
-    AutoScalingGroupName: str
-    TopicARN: str
+    AutoScalingGroupName: Annotated[str, _aws_pattern("Autoscaling", "XmlStringMaxLen255")]
+    TopicARN: Annotated[str, _aws_pattern("Autoscaling", "XmlStringMaxLen255")]
 
 
 # This class is the input for the 'delete_policy' function.
 class DeletePolicyTypeTypeDef(BaseValidatorModel):
-    PolicyName: str
-    AutoScalingGroupName: Optional[str] = None
+    PolicyName: Annotated[str, _aws_pattern("Autoscaling", "ResourceName")]
+    AutoScalingGroupName: Optional[Annotated[str, _aws_pattern("Autoscaling", "XmlStringMaxLen255")]] = None
 
 
 # This class is the input for the 'delete_scheduled_action' function.
 class DeleteScheduledActionTypeTypeDef(BaseValidatorModel):
-    AutoScalingGroupName: str
-    ScheduledActionName: str
+    AutoScalingGroupName: Annotated[str, _aws_pattern("Autoscaling", "XmlStringMaxLen255")]
+    ScheduledActionName: Annotated[str, _aws_pattern("Autoscaling", "XmlStringMaxLen255")]
 
 
 class DeleteWarmPoolTypeTypeDef(BaseValidatorModel):
-    AutoScalingGroupName: str
+    AutoScalingGroupName: Annotated[str, _aws_pattern("Autoscaling", "XmlStringMaxLen255")]
     ForceDelete: Optional[bool] = None
 
 
 # This class is the input for the 'describe_auto_scaling_instances' function.
 class DescribeAutoScalingInstancesTypeTypeDef(BaseValidatorModel):
-    InstanceIds: Optional[List[str]] = None
+    InstanceIds: Optional[List[Annotated[str, _aws_pattern("Autoscaling", "XmlStringMaxLen19")]]] = None
     MaxRecords: Optional[int] = None
-    NextToken: Optional[str] = None
+    NextToken: Optional[Annotated[str, _aws_pattern("Autoscaling", "XmlString")]] = None
 
 
 # This class is the input for the 'describe_instance_refreshes' function.
 class DescribeInstanceRefreshesTypeTypeDef(BaseValidatorModel):
-    AutoScalingGroupName: str
-    InstanceRefreshIds: Optional[List[str]] = None
-    NextToken: Optional[str] = None
+    AutoScalingGroupName: Annotated[str, _aws_pattern("Autoscaling", "XmlStringMaxLen255")]
+    InstanceRefreshIds: Optional[List[Annotated[str, _aws_pattern("Autoscaling", "XmlStringMaxLen255")]]] = None
+    NextToken: Optional[Annotated[str, _aws_pattern("Autoscaling", "XmlString")]] = None
     MaxRecords: Optional[int] = None
 
 
 class LifecycleHookTypeDef(BaseValidatorModel):
-    LifecycleHookName: Optional[str] = None
-    AutoScalingGroupName: Optional[str] = None
+    LifecycleHookName: Optional[Annotated[str, _aws_pattern("Autoscaling", "AsciiStringMaxLen255")]] = None
+    AutoScalingGroupName: Optional[Annotated[str, _aws_pattern("Autoscaling", "XmlStringMaxLen255")]] = None
     LifecycleTransition: Optional[str] = None
-    NotificationTargetARN: Optional[str] = None
-    RoleARN: Optional[str] = None
-    NotificationMetadata: Optional[str] = None
+    NotificationTargetARN: Optional[Annotated[str, _aws_pattern("Autoscaling", "NotificationTargetResourceName")]] = (
+        None
+    )
+    RoleARN: Optional[Annotated[str, _aws_pattern("Autoscaling", "XmlStringMaxLen255")]] = None
+    NotificationMetadata: Optional[Annotated[str, _aws_pattern("Autoscaling", "AnyPrintableAsciiStringMaxLen4000")]] = (
+        None
+    )
     HeartbeatTimeout: Optional[int] = None
     GlobalTimeout: Optional[int] = None
     DefaultResult: Optional[str] = None
@@ -314,61 +326,61 @@ class LifecycleHookTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'describe_lifecycle_hooks' function.
 class DescribeLifecycleHooksTypeTypeDef(BaseValidatorModel):
-    AutoScalingGroupName: str
-    LifecycleHookNames: Optional[List[str]] = None
+    AutoScalingGroupName: Annotated[str, _aws_pattern("Autoscaling", "XmlStringMaxLen255")]
+    LifecycleHookNames: Optional[List[Annotated[str, _aws_pattern("Autoscaling", "AsciiStringMaxLen255")]]] = None
 
 
 # This class is the input for the 'describe_load_balancer_target_groups' function.
 class DescribeLoadBalancerTargetGroupsRequestTypeDef(BaseValidatorModel):
-    AutoScalingGroupName: str
-    NextToken: Optional[str] = None
+    AutoScalingGroupName: Annotated[str, _aws_pattern("Autoscaling", "XmlStringMaxLen255")]
+    NextToken: Optional[Annotated[str, _aws_pattern("Autoscaling", "XmlString")]] = None
     MaxRecords: Optional[int] = None
 
 
 class LoadBalancerTargetGroupStateTypeDef(BaseValidatorModel):
-    LoadBalancerTargetGroupARN: Optional[str] = None
-    State: Optional[str] = None
+    LoadBalancerTargetGroupARN: Optional[Annotated[str, _aws_pattern("Autoscaling", "XmlStringMaxLen511")]] = None
+    State: Optional[Annotated[str, _aws_pattern("Autoscaling", "XmlStringMaxLen255")]] = None
 
 
 # This class is the input for the 'describe_load_balancers' function.
 class DescribeLoadBalancersRequestTypeDef(BaseValidatorModel):
-    AutoScalingGroupName: str
-    NextToken: Optional[str] = None
+    AutoScalingGroupName: Annotated[str, _aws_pattern("Autoscaling", "XmlStringMaxLen255")]
+    NextToken: Optional[Annotated[str, _aws_pattern("Autoscaling", "XmlString")]] = None
     MaxRecords: Optional[int] = None
 
 
 class LoadBalancerStateTypeDef(BaseValidatorModel):
-    LoadBalancerName: Optional[str] = None
-    State: Optional[str] = None
+    LoadBalancerName: Optional[Annotated[str, _aws_pattern("Autoscaling", "XmlStringMaxLen255")]] = None
+    State: Optional[Annotated[str, _aws_pattern("Autoscaling", "XmlStringMaxLen255")]] = None
 
 
 class MetricCollectionTypeTypeDef(BaseValidatorModel):
-    Metric: Optional[str] = None
+    Metric: Optional[Annotated[str, _aws_pattern("Autoscaling", "XmlStringMaxLen255")]] = None
 
 
 class MetricGranularityTypeTypeDef(BaseValidatorModel):
-    Granularity: Optional[str] = None
+    Granularity: Optional[Annotated[str, _aws_pattern("Autoscaling", "XmlStringMaxLen255")]] = None
 
 
 class NotificationConfigurationTypeDef(BaseValidatorModel):
-    AutoScalingGroupName: Optional[str] = None
-    TopicARN: Optional[str] = None
-    NotificationType: Optional[str] = None
+    AutoScalingGroupName: Optional[Annotated[str, _aws_pattern("Autoscaling", "XmlStringMaxLen255")]] = None
+    TopicARN: Optional[Annotated[str, _aws_pattern("Autoscaling", "XmlStringMaxLen255")]] = None
+    NotificationType: Optional[Annotated[str, _aws_pattern("Autoscaling", "XmlStringMaxLen255")]] = None
 
 
 # This class is the input for the 'describe_notification_configurations' function.
 class DescribeNotificationConfigurationsTypeTypeDef(BaseValidatorModel):
-    AutoScalingGroupNames: Optional[List[str]] = None
-    NextToken: Optional[str] = None
+    AutoScalingGroupNames: Optional[List[Annotated[str, _aws_pattern("Autoscaling", "XmlStringMaxLen255")]]] = None
+    NextToken: Optional[Annotated[str, _aws_pattern("Autoscaling", "XmlString")]] = None
     MaxRecords: Optional[int] = None
 
 
 # This class is the input for the 'describe_policies' function.
 class DescribePoliciesTypeTypeDef(BaseValidatorModel):
-    AutoScalingGroupName: Optional[str] = None
-    PolicyNames: Optional[List[str]] = None
-    PolicyTypes: Optional[List[str]] = None
-    NextToken: Optional[str] = None
+    AutoScalingGroupName: Optional[Annotated[str, _aws_pattern("Autoscaling", "XmlStringMaxLen255")]] = None
+    PolicyNames: Optional[List[Annotated[str, _aws_pattern("Autoscaling", "ResourceName")]]] = None
+    PolicyTypes: Optional[List[Annotated[str, _aws_pattern("Autoscaling", "XmlStringMaxLen64")]]] = None
+    NextToken: Optional[Annotated[str, _aws_pattern("Autoscaling", "XmlString")]] = None
     MaxRecords: Optional[int] = None
 
 
@@ -377,67 +389,67 @@ TimestampTypeDef = Union[datetime, str]
 
 # This class is the input for the 'describe_traffic_sources' function.
 class DescribeTrafficSourcesRequestTypeDef(BaseValidatorModel):
-    AutoScalingGroupName: str
-    TrafficSourceType: Optional[str] = None
-    NextToken: Optional[str] = None
+    AutoScalingGroupName: Annotated[str, _aws_pattern("Autoscaling", "XmlStringMaxLen255")]
+    TrafficSourceType: Optional[Annotated[str, _aws_pattern("Autoscaling", "XmlStringMaxLen255")]] = None
+    NextToken: Optional[Annotated[str, _aws_pattern("Autoscaling", "XmlString")]] = None
     MaxRecords: Optional[int] = None
 
 
 class TrafficSourceStateTypeDef(BaseValidatorModel):
-    TrafficSource: Optional[str] = None
-    State: Optional[str] = None
-    Identifier: Optional[str] = None
-    Type: Optional[str] = None
+    TrafficSource: Optional[Annotated[str, _aws_pattern("Autoscaling", "XmlStringMaxLen511")]] = None
+    State: Optional[Annotated[str, _aws_pattern("Autoscaling", "XmlStringMaxLen255")]] = None
+    Identifier: Optional[Annotated[str, _aws_pattern("Autoscaling", "XmlStringMaxLen511")]] = None
+    Type: Optional[Annotated[str, _aws_pattern("Autoscaling", "XmlStringMaxLen511")]] = None
 
 
 # This class is the input for the 'describe_warm_pool' function.
 class DescribeWarmPoolTypeTypeDef(BaseValidatorModel):
-    AutoScalingGroupName: str
+    AutoScalingGroupName: Annotated[str, _aws_pattern("Autoscaling", "XmlStringMaxLen255")]
     MaxRecords: Optional[int] = None
-    NextToken: Optional[str] = None
+    NextToken: Optional[Annotated[str, _aws_pattern("Autoscaling", "XmlString")]] = None
 
 
 # This class is the input for the 'detach_instances' function.
 class DetachInstancesQueryTypeDef(BaseValidatorModel):
-    AutoScalingGroupName: str
+    AutoScalingGroupName: Annotated[str, _aws_pattern("Autoscaling", "XmlStringMaxLen255")]
     ShouldDecrementDesiredCapacity: bool
-    InstanceIds: Optional[List[str]] = None
+    InstanceIds: Optional[List[Annotated[str, _aws_pattern("Autoscaling", "XmlStringMaxLen19")]]] = None
 
 
 class DetachLoadBalancerTargetGroupsTypeTypeDef(BaseValidatorModel):
-    AutoScalingGroupName: str
-    TargetGroupARNs: List[str]
+    AutoScalingGroupName: Annotated[str, _aws_pattern("Autoscaling", "XmlStringMaxLen255")]
+    TargetGroupARNs: List[Annotated[str, _aws_pattern("Autoscaling", "XmlStringMaxLen511")]]
 
 
 class DetachLoadBalancersTypeTypeDef(BaseValidatorModel):
-    AutoScalingGroupName: str
-    LoadBalancerNames: List[str]
+    AutoScalingGroupName: Annotated[str, _aws_pattern("Autoscaling", "XmlStringMaxLen255")]
+    LoadBalancerNames: List[Annotated[str, _aws_pattern("Autoscaling", "XmlStringMaxLen255")]]
 
 
 # This class is the input for the 'disable_metrics_collection' function.
 class DisableMetricsCollectionQueryTypeDef(BaseValidatorModel):
-    AutoScalingGroupName: str
-    Metrics: Optional[List[str]] = None
+    AutoScalingGroupName: Annotated[str, _aws_pattern("Autoscaling", "XmlStringMaxLen255")]
+    Metrics: Optional[List[Annotated[str, _aws_pattern("Autoscaling", "XmlStringMaxLen255")]]] = None
 
 
 # This class is the input for the 'enable_metrics_collection' function.
 class EnableMetricsCollectionQueryTypeDef(BaseValidatorModel):
-    AutoScalingGroupName: str
-    Granularity: str
-    Metrics: Optional[List[str]] = None
+    AutoScalingGroupName: Annotated[str, _aws_pattern("Autoscaling", "XmlStringMaxLen255")]
+    Granularity: Annotated[str, _aws_pattern("Autoscaling", "XmlStringMaxLen255")]
+    Metrics: Optional[List[Annotated[str, _aws_pattern("Autoscaling", "XmlStringMaxLen255")]]] = None
 
 
 # This class is the input for the 'enter_standby' function.
 class EnterStandbyQueryTypeDef(BaseValidatorModel):
-    AutoScalingGroupName: str
+    AutoScalingGroupName: Annotated[str, _aws_pattern("Autoscaling", "XmlStringMaxLen255")]
     ShouldDecrementDesiredCapacity: bool
-    InstanceIds: Optional[List[str]] = None
+    InstanceIds: Optional[List[Annotated[str, _aws_pattern("Autoscaling", "XmlStringMaxLen19")]]] = None
 
 
 # This class is the input for the 'execute_policy' function.
 class ExecutePolicyTypeTypeDef(BaseValidatorModel):
-    PolicyName: str
-    AutoScalingGroupName: Optional[str] = None
+    PolicyName: Annotated[str, _aws_pattern("Autoscaling", "ResourceName")]
+    AutoScalingGroupName: Optional[Annotated[str, _aws_pattern("Autoscaling", "XmlStringMaxLen255")]] = None
     HonorCooldown: Optional[bool] = None
     MetricValue: Optional[float] = None
     BreachThreshold: Optional[float] = None
@@ -445,17 +457,17 @@ class ExecutePolicyTypeTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'exit_standby' function.
 class ExitStandbyQueryTypeDef(BaseValidatorModel):
-    AutoScalingGroupName: str
-    InstanceIds: Optional[List[str]] = None
+    AutoScalingGroupName: Annotated[str, _aws_pattern("Autoscaling", "XmlStringMaxLen255")]
+    InstanceIds: Optional[List[Annotated[str, _aws_pattern("Autoscaling", "XmlStringMaxLen19")]]] = None
 
 
 class InstanceCollectionTypeDef(BaseValidatorModel):
-    InstanceType: Optional[str] = None
-    MarketType: Optional[str] = None
-    SubnetId: Optional[str] = None
-    AvailabilityZone: Optional[str] = None
-    AvailabilityZoneId: Optional[str] = None
-    InstanceIds: Optional[List[str]] = None
+    InstanceType: Optional[Annotated[str, _aws_pattern("Autoscaling", "XmlStringMaxLen255")]] = None
+    MarketType: Optional[Annotated[str, _aws_pattern("Autoscaling", "XmlStringMaxLen64")]] = None
+    SubnetId: Optional[Annotated[str, _aws_pattern("Autoscaling", "XmlStringMaxLen255")]] = None
+    AvailabilityZone: Optional[Annotated[str, _aws_pattern("Autoscaling", "XmlStringMaxLen255")]] = None
+    AvailabilityZoneId: Optional[Annotated[str, _aws_pattern("Autoscaling", "XmlStringMaxLen255")]] = None
+    InstanceIds: Optional[List[Annotated[str, _aws_pattern("Autoscaling", "XmlStringMaxLen19")]]] = None
 
 
 class RetentionTriggersTypeDef(BaseValidatorModel):
@@ -507,87 +519,91 @@ class InstanceReusePolicyTypeDef(BaseValidatorModel):
 
 
 class InstancesDistributionTypeDef(BaseValidatorModel):
-    OnDemandAllocationStrategy: Optional[str] = None
+    OnDemandAllocationStrategy: Optional[Annotated[str, _aws_pattern("Autoscaling", "XmlString")]] = None
     OnDemandBaseCapacity: Optional[int] = None
     OnDemandPercentageAboveBaseCapacity: Optional[int] = None
-    SpotAllocationStrategy: Optional[str] = None
+    SpotAllocationStrategy: Optional[Annotated[str, _aws_pattern("Autoscaling", "XmlString")]] = None
     SpotInstancePools: Optional[int] = None
     SpotMaxPrice: Optional[str] = None
 
 
 # This class is the input for the 'delete_launch_configuration' function.
 class LaunchConfigurationNameTypeTypeDef(BaseValidatorModel):
-    LaunchConfigurationName: str
+    LaunchConfigurationName: Annotated[str, _aws_pattern("Autoscaling", "XmlStringMaxLen255")]
 
 
 # This class is the input for the 'describe_launch_configurations' function.
 class LaunchConfigurationNamesTypeTypeDef(BaseValidatorModel):
-    LaunchConfigurationNames: Optional[List[str]] = None
-    NextToken: Optional[str] = None
+    LaunchConfigurationNames: Optional[List[Annotated[str, _aws_pattern("Autoscaling", "XmlStringMaxLen255")]]] = None
+    NextToken: Optional[Annotated[str, _aws_pattern("Autoscaling", "XmlString")]] = None
     MaxRecords: Optional[int] = None
 
 
 class LaunchInstancesErrorTypeDef(BaseValidatorModel):
-    InstanceType: Optional[str] = None
-    MarketType: Optional[str] = None
-    SubnetId: Optional[str] = None
-    AvailabilityZone: Optional[str] = None
-    AvailabilityZoneId: Optional[str] = None
-    ErrorCode: Optional[str] = None
-    ErrorMessage: Optional[str] = None
+    InstanceType: Optional[Annotated[str, _aws_pattern("Autoscaling", "XmlStringMaxLen255")]] = None
+    MarketType: Optional[Annotated[str, _aws_pattern("Autoscaling", "XmlStringMaxLen64")]] = None
+    SubnetId: Optional[Annotated[str, _aws_pattern("Autoscaling", "XmlStringMaxLen255")]] = None
+    AvailabilityZone: Optional[Annotated[str, _aws_pattern("Autoscaling", "XmlStringMaxLen255")]] = None
+    AvailabilityZoneId: Optional[Annotated[str, _aws_pattern("Autoscaling", "XmlStringMaxLen255")]] = None
+    ErrorCode: Optional[Annotated[str, _aws_pattern("Autoscaling", "XmlStringMaxLen64")]] = None
+    ErrorMessage: Optional[Annotated[str, _aws_pattern("Autoscaling", "XmlString")]] = None
 
 
 # This class is the input for the 'launch_instances' function.
 class LaunchInstancesRequestTypeDef(BaseValidatorModel):
-    AutoScalingGroupName: str
+    AutoScalingGroupName: Annotated[str, _aws_pattern("Autoscaling", "XmlStringMaxLen255")]
     RequestedCapacity: int
-    ClientToken: str
-    AvailabilityZones: Optional[List[str]] = None
-    AvailabilityZoneIds: Optional[List[str]] = None
-    SubnetIds: Optional[List[str]] = None
+    ClientToken: Annotated[str, _aws_pattern("Autoscaling", "ClientToken")]
+    AvailabilityZones: Optional[List[Annotated[str, _aws_pattern("Autoscaling", "XmlStringMaxLen255")]]] = None
+    AvailabilityZoneIds: Optional[List[Annotated[str, _aws_pattern("Autoscaling", "XmlStringMaxLen255")]]] = None
+    SubnetIds: Optional[List[Annotated[str, _aws_pattern("Autoscaling", "XmlStringMaxLen255")]]] = None
     RetryStrategy: Optional[RetryStrategyType] = None
 
 
 class PredefinedMetricSpecificationTypeDef(BaseValidatorModel):
     PredefinedMetricType: MetricTypeType
-    ResourceLabel: Optional[str] = None
+    ResourceLabel: Optional[Annotated[str, _aws_pattern("Autoscaling", "XmlStringMaxLen1023")]] = None
 
 
 class PredictiveScalingPredefinedLoadMetricTypeDef(BaseValidatorModel):
     PredefinedMetricType: PredefinedLoadMetricTypeType
-    ResourceLabel: Optional[str] = None
+    ResourceLabel: Optional[Annotated[str, _aws_pattern("Autoscaling", "XmlStringMaxLen1023")]] = None
 
 
 class PredictiveScalingPredefinedMetricPairTypeDef(BaseValidatorModel):
     PredefinedMetricType: PredefinedMetricPairTypeType
-    ResourceLabel: Optional[str] = None
+    ResourceLabel: Optional[Annotated[str, _aws_pattern("Autoscaling", "XmlStringMaxLen1023")]] = None
 
 
 class PredictiveScalingPredefinedScalingMetricTypeDef(BaseValidatorModel):
     PredefinedMetricType: PredefinedScalingMetricTypeType
-    ResourceLabel: Optional[str] = None
+    ResourceLabel: Optional[Annotated[str, _aws_pattern("Autoscaling", "XmlStringMaxLen1023")]] = None
 
 
 class ProcessTypeTypeDef(BaseValidatorModel):
-    ProcessName: str
+    ProcessName: Annotated[str, _aws_pattern("Autoscaling", "XmlStringMaxLen255")]
 
 
 class PutLifecycleHookTypeTypeDef(BaseValidatorModel):
-    LifecycleHookName: str
-    AutoScalingGroupName: str
+    LifecycleHookName: Annotated[str, _aws_pattern("Autoscaling", "AsciiStringMaxLen255")]
+    AutoScalingGroupName: Annotated[str, _aws_pattern("Autoscaling", "XmlStringMaxLen255")]
     LifecycleTransition: Optional[str] = None
-    RoleARN: Optional[str] = None
-    NotificationTargetARN: Optional[str] = None
-    NotificationMetadata: Optional[str] = None
+    RoleARN: Optional[Annotated[str, _aws_pattern("Autoscaling", "XmlStringMaxLen255")]] = None
+    NotificationTargetARN: Optional[Annotated[str, _aws_pattern("Autoscaling", "NotificationTargetResourceName")]] = (
+        None
+    )
+    NotificationMetadata: Optional[Annotated[str, _aws_pattern("Autoscaling", "AnyPrintableAsciiStringMaxLen4000")]] = (
+        None
+    )
     HeartbeatTimeout: Optional[int] = None
     DefaultResult: Optional[str] = None
 
 
 # This class is the input for the 'put_notification_configuration' function.
 class PutNotificationConfigurationTypeTypeDef(BaseValidatorModel):
-    AutoScalingGroupName: str
-    TopicARN: str
-    NotificationTypes: List[str]
+    AutoScalingGroupName: Annotated[str, _aws_pattern("Autoscaling", "XmlStringMaxLen255")]
+    TopicARN: Annotated[str, _aws_pattern("Autoscaling", "XmlStringMaxLen255")]
+    NotificationTypes: List[Annotated[str, _aws_pattern("Autoscaling", "XmlStringMaxLen255")]]
 
 
 class StepAdjustmentTypeDef(BaseValidatorModel):
@@ -597,15 +613,15 @@ class StepAdjustmentTypeDef(BaseValidatorModel):
 
 
 class RecordLifecycleActionHeartbeatTypeTypeDef(BaseValidatorModel):
-    LifecycleHookName: str
-    AutoScalingGroupName: str
+    LifecycleHookName: Annotated[str, _aws_pattern("Autoscaling", "AsciiStringMaxLen255")]
+    AutoScalingGroupName: Annotated[str, _aws_pattern("Autoscaling", "ResourceName")]
     LifecycleActionToken: Optional[str] = None
-    InstanceId: Optional[str] = None
+    InstanceId: Optional[Annotated[str, _aws_pattern("Autoscaling", "XmlStringMaxLen19")]] = None
 
 
 # This class is the input for the 'rollback_instance_refresh' function.
 class RollbackInstanceRefreshTypeTypeDef(BaseValidatorModel):
-    AutoScalingGroupName: str
+    AutoScalingGroupName: Annotated[str, _aws_pattern("Autoscaling", "XmlStringMaxLen255")]
 
 
 # This class is the input for the 'suspend_processes' function.
@@ -616,47 +632,47 @@ class ScalingProcessQueryRequestTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'resume_processes' function.
 class ScalingProcessQueryTypeDef(BaseValidatorModel):
-    AutoScalingGroupName: str
-    ScalingProcesses: Optional[List[str]] = None
+    AutoScalingGroupName: Annotated[str, _aws_pattern("Autoscaling", "XmlStringMaxLen255")]
+    ScalingProcesses: Optional[List[Annotated[str, _aws_pattern("Autoscaling", "XmlStringMaxLen255")]]] = None
 
 
 class ScheduledUpdateGroupActionTypeDef(BaseValidatorModel):
-    AutoScalingGroupName: Optional[str] = None
-    ScheduledActionName: Optional[str] = None
-    ScheduledActionARN: Optional[str] = None
+    AutoScalingGroupName: Optional[Annotated[str, _aws_pattern("Autoscaling", "XmlStringMaxLen255")]] = None
+    ScheduledActionName: Optional[Annotated[str, _aws_pattern("Autoscaling", "XmlStringMaxLen255")]] = None
+    ScheduledActionARN: Optional[Annotated[str, _aws_pattern("Autoscaling", "ResourceName")]] = None
     Time: Optional[datetime] = None
     StartTime: Optional[datetime] = None
     EndTime: Optional[datetime] = None
-    Recurrence: Optional[str] = None
+    Recurrence: Optional[Annotated[str, _aws_pattern("Autoscaling", "XmlStringMaxLen255")]] = None
     MinSize: Optional[int] = None
     MaxSize: Optional[int] = None
     DesiredCapacity: Optional[int] = None
-    TimeZone: Optional[str] = None
+    TimeZone: Optional[Annotated[str, _aws_pattern("Autoscaling", "XmlStringMaxLen255")]] = None
 
 
 # This class is the input for the 'set_desired_capacity' function.
 class SetDesiredCapacityTypeTypeDef(BaseValidatorModel):
-    AutoScalingGroupName: str
+    AutoScalingGroupName: Annotated[str, _aws_pattern("Autoscaling", "XmlStringMaxLen255")]
     DesiredCapacity: int
     HonorCooldown: Optional[bool] = None
 
 
 # This class is the input for the 'set_instance_health' function.
 class SetInstanceHealthQueryTypeDef(BaseValidatorModel):
-    InstanceId: str
-    HealthStatus: str
+    InstanceId: Annotated[str, _aws_pattern("Autoscaling", "XmlStringMaxLen19")]
+    HealthStatus: Annotated[str, _aws_pattern("Autoscaling", "XmlStringMaxLen32")]
     ShouldRespectGracePeriod: Optional[bool] = None
 
 
 class SetInstanceProtectionQueryTypeDef(BaseValidatorModel):
-    InstanceIds: List[str]
-    AutoScalingGroupName: str
+    InstanceIds: List[Annotated[str, _aws_pattern("Autoscaling", "XmlStringMaxLen19")]]
+    AutoScalingGroupName: Annotated[str, _aws_pattern("Autoscaling", "XmlStringMaxLen255")]
     ProtectedFromScaleIn: bool
 
 
 # This class is the input for the 'terminate_instance_in_auto_scaling_group' function.
 class TerminateInstanceInAutoScalingGroupTypeTypeDef(BaseValidatorModel):
-    InstanceId: str
+    InstanceId: Annotated[str, _aws_pattern("Autoscaling", "XmlStringMaxLen19")]
     ShouldDecrementDesiredCapacity: bool
 
 
@@ -664,7 +680,7 @@ class TerminateInstanceInAutoScalingGroupTypeTypeDef(BaseValidatorModel):
 class ActivitiesTypeTypeDef(BaseValidatorModel):
     Activities: List[ActivityTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
-    NextToken: Optional[str] = None
+    NextToken: Optional[Annotated[str, _aws_pattern("Autoscaling", "XmlString")]] = None
 
 
 # This class is the output for the 'terminate_instance_in_auto_scaling_group' function.
@@ -675,7 +691,7 @@ class ActivityTypeTypeDef(BaseValidatorModel):
 
 # This class is the output for the 'cancel_instance_refresh' function.
 class CancelInstanceRefreshAnswerTypeDef(BaseValidatorModel):
-    InstanceRefreshId: str
+    InstanceRefreshId: Annotated[str, _aws_pattern("Autoscaling", "XmlStringMaxLen255")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
@@ -688,17 +704,17 @@ class DescribeAccountLimitsAnswerTypeDef(BaseValidatorModel):
 
 
 class DescribeAutoScalingNotificationTypesAnswerTypeDef(BaseValidatorModel):
-    AutoScalingNotificationTypes: List[str]
+    AutoScalingNotificationTypes: List[Annotated[str, _aws_pattern("Autoscaling", "XmlStringMaxLen255")]]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 class DescribeLifecycleHookTypesAnswerTypeDef(BaseValidatorModel):
-    LifecycleHookTypes: List[str]
+    LifecycleHookTypes: List[Annotated[str, _aws_pattern("Autoscaling", "XmlStringMaxLen255")]]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 class DescribeTerminationPolicyTypesAnswerTypeDef(BaseValidatorModel):
-    TerminationPolicyTypes: List[str]
+    TerminationPolicyTypes: List[Annotated[str, _aws_pattern("Autoscaling", "XmlStringMaxLen1600")]]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
@@ -727,13 +743,13 @@ class ExitStandbyAnswerTypeDef(BaseValidatorModel):
 
 # This class is the output for the 'rollback_instance_refresh' function.
 class RollbackInstanceRefreshAnswerTypeDef(BaseValidatorModel):
-    InstanceRefreshId: str
+    InstanceRefreshId: Annotated[str, _aws_pattern("Autoscaling", "XmlStringMaxLen255")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 # This class is the output for the 'start_instance_refresh' function.
 class StartInstanceRefreshAnswerTypeDef(BaseValidatorModel):
-    InstanceRefreshId: str
+    InstanceRefreshId: Annotated[str, _aws_pattern("Autoscaling", "XmlStringMaxLen255")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
@@ -772,45 +788,45 @@ class RefreshPreferencesTypeDef(BaseValidatorModel):
 
 # This class is the output for the 'put_scaling_policy' function.
 class PolicyARNTypeTypeDef(BaseValidatorModel):
-    PolicyARN: str
+    PolicyARN: Annotated[str, _aws_pattern("Autoscaling", "ResourceName")]
     Alarms: List[AlarmTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 class AttachTrafficSourcesTypeTypeDef(BaseValidatorModel):
-    AutoScalingGroupName: str
+    AutoScalingGroupName: Annotated[str, _aws_pattern("Autoscaling", "XmlStringMaxLen255")]
     TrafficSources: List[TrafficSourceIdentifierTypeDef]
     SkipZonalShiftValidation: Optional[bool] = None
 
 
 class DetachTrafficSourcesTypeTypeDef(BaseValidatorModel):
-    AutoScalingGroupName: str
+    AutoScalingGroupName: Annotated[str, _aws_pattern("Autoscaling", "XmlStringMaxLen255")]
     TrafficSources: List[TrafficSourceIdentifierTypeDef]
 
 
 # This class is the input for the 'describe_auto_scaling_groups' function.
 class AutoScalingGroupNamesTypeTypeDef(BaseValidatorModel):
-    AutoScalingGroupNames: Optional[List[str]] = None
+    AutoScalingGroupNames: Optional[List[Annotated[str, _aws_pattern("Autoscaling", "XmlStringMaxLen255")]]] = None
     IncludeInstances: Optional[bool] = None
-    NextToken: Optional[str] = None
+    NextToken: Optional[Annotated[str, _aws_pattern("Autoscaling", "XmlString")]] = None
     MaxRecords: Optional[int] = None
     Filters: Optional[List[FilterTypeDef]] = None
 
 
 # This class is the input for the 'describe_scaling_activities' function.
 class DescribeScalingActivitiesTypeTypeDef(BaseValidatorModel):
-    ActivityIds: Optional[List[str]] = None
-    AutoScalingGroupName: Optional[str] = None
+    ActivityIds: Optional[List[Annotated[str, _aws_pattern("Autoscaling", "XmlString")]]] = None
+    AutoScalingGroupName: Optional[Annotated[str, _aws_pattern("Autoscaling", "XmlStringMaxLen255")]] = None
     IncludeDeletedGroups: Optional[bool] = None
     MaxRecords: Optional[int] = None
-    NextToken: Optional[str] = None
+    NextToken: Optional[Annotated[str, _aws_pattern("Autoscaling", "XmlString")]] = None
     Filters: Optional[List[FilterTypeDef]] = None
 
 
 # This class is the input for the 'describe_tags' function.
 class DescribeTagsTypeTypeDef(BaseValidatorModel):
     Filters: Optional[List[FilterTypeDef]] = None
-    NextToken: Optional[str] = None
+    NextToken: Optional[Annotated[str, _aws_pattern("Autoscaling", "XmlString")]] = None
     MaxRecords: Optional[int] = None
 
 
@@ -872,39 +888,39 @@ class LaunchConfigurationNamesTypePaginateTypeDef(BaseValidatorModel):
 
 
 class AutoScalingInstanceDetailsTypeDef(BaseValidatorModel):
-    InstanceId: str
-    AutoScalingGroupName: str
-    AvailabilityZone: str
-    LifecycleState: str
-    HealthStatus: str
+    InstanceId: Annotated[str, _aws_pattern("Autoscaling", "XmlStringMaxLen19")]
+    AutoScalingGroupName: Annotated[str, _aws_pattern("Autoscaling", "XmlStringMaxLen255")]
+    AvailabilityZone: Annotated[str, _aws_pattern("Autoscaling", "XmlStringMaxLen255")]
+    LifecycleState: Annotated[str, _aws_pattern("Autoscaling", "XmlStringMaxLen32")]
+    HealthStatus: Annotated[str, _aws_pattern("Autoscaling", "XmlStringMaxLen32")]
     ProtectedFromScaleIn: bool
-    InstanceType: Optional[str] = None
-    AvailabilityZoneId: Optional[str] = None
-    LaunchConfigurationName: Optional[str] = None
+    InstanceType: Optional[Annotated[str, _aws_pattern("Autoscaling", "XmlStringMaxLen255")]] = None
+    AvailabilityZoneId: Optional[Annotated[str, _aws_pattern("Autoscaling", "XmlStringMaxLen255")]] = None
+    LaunchConfigurationName: Optional[Annotated[str, _aws_pattern("Autoscaling", "XmlStringMaxLen255")]] = None
     LaunchTemplate: Optional[LaunchTemplateSpecificationTypeDef] = None
-    ImageId: Optional[str] = None
-    WeightedCapacity: Optional[str] = None
+    ImageId: Optional[Annotated[str, _aws_pattern("Autoscaling", "XmlStringMaxLen255")]] = None
+    WeightedCapacity: Optional[Annotated[str, _aws_pattern("Autoscaling", "XmlStringMaxLen32")]] = None
 
 
 class InstanceTypeDef(BaseValidatorModel):
-    InstanceId: str
-    AvailabilityZone: str
+    InstanceId: Annotated[str, _aws_pattern("Autoscaling", "XmlStringMaxLen19")]
+    AvailabilityZone: Annotated[str, _aws_pattern("Autoscaling", "XmlStringMaxLen255")]
     LifecycleState: LifecycleStateType
-    HealthStatus: str
+    HealthStatus: Annotated[str, _aws_pattern("Autoscaling", "XmlStringMaxLen32")]
     ProtectedFromScaleIn: bool
-    InstanceType: Optional[str] = None
-    AvailabilityZoneId: Optional[str] = None
-    LaunchConfigurationName: Optional[str] = None
+    InstanceType: Optional[Annotated[str, _aws_pattern("Autoscaling", "XmlStringMaxLen255")]] = None
+    AvailabilityZoneId: Optional[Annotated[str, _aws_pattern("Autoscaling", "XmlStringMaxLen255")]] = None
+    LaunchConfigurationName: Optional[Annotated[str, _aws_pattern("Autoscaling", "XmlStringMaxLen255")]] = None
     LaunchTemplate: Optional[LaunchTemplateSpecificationTypeDef] = None
-    ImageId: Optional[str] = None
-    WeightedCapacity: Optional[str] = None
+    ImageId: Optional[Annotated[str, _aws_pattern("Autoscaling", "XmlStringMaxLen255")]] = None
+    WeightedCapacity: Optional[Annotated[str, _aws_pattern("Autoscaling", "XmlStringMaxLen32")]] = None
 
 
 # This class is the output for the 'describe_tags' function.
 class TagsTypeTypeDef(BaseValidatorModel):
     Tags: List[TagDescriptionTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
-    NextToken: Optional[str] = None
+    NextToken: Optional[Annotated[str, _aws_pattern("Autoscaling", "XmlString")]] = None
 
 
 # This class is the output for the 'batch_delete_scheduled_action' function.
@@ -920,8 +936,8 @@ class BatchPutScheduledUpdateGroupActionAnswerTypeDef(BaseValidatorModel):
 
 
 class BlockDeviceMappingTypeDef(BaseValidatorModel):
-    DeviceName: str
-    VirtualName: Optional[str] = None
+    DeviceName: Annotated[str, _aws_pattern("Autoscaling", "XmlStringMaxLen255")]
+    VirtualName: Optional[Annotated[str, _aws_pattern("Autoscaling", "XmlStringMaxLen255")]] = None
     Ebs: Optional[EbsTypeDef] = None
     NoDevice: Optional[bool] = None
 
@@ -976,14 +992,14 @@ class DescribeLifecycleHooksAnswerTypeDef(BaseValidatorModel):
 class DescribeLoadBalancerTargetGroupsResponseTypeDef(BaseValidatorModel):
     LoadBalancerTargetGroups: List[LoadBalancerTargetGroupStateTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
-    NextToken: Optional[str] = None
+    NextToken: Optional[Annotated[str, _aws_pattern("Autoscaling", "XmlString")]] = None
 
 
 # This class is the output for the 'describe_load_balancers' function.
 class DescribeLoadBalancersResponseTypeDef(BaseValidatorModel):
     LoadBalancers: List[LoadBalancerStateTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
-    NextToken: Optional[str] = None
+    NextToken: Optional[Annotated[str, _aws_pattern("Autoscaling", "XmlString")]] = None
 
 
 class DescribeMetricCollectionTypesAnswerTypeDef(BaseValidatorModel):
@@ -996,7 +1012,7 @@ class DescribeMetricCollectionTypesAnswerTypeDef(BaseValidatorModel):
 class DescribeNotificationConfigurationsAnswerTypeDef(BaseValidatorModel):
     NotificationConfigurations: List[NotificationConfigurationTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
-    NextToken: Optional[str] = None
+    NextToken: Optional[Annotated[str, _aws_pattern("Autoscaling", "XmlString")]] = None
 
 
 class DescribeScheduledActionsTypePaginateTypeDef(BaseValidatorModel):
@@ -1009,52 +1025,52 @@ class DescribeScheduledActionsTypePaginateTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'describe_scheduled_actions' function.
 class DescribeScheduledActionsTypeTypeDef(BaseValidatorModel):
-    AutoScalingGroupName: Optional[str] = None
-    ScheduledActionNames: Optional[List[str]] = None
+    AutoScalingGroupName: Optional[Annotated[str, _aws_pattern("Autoscaling", "XmlStringMaxLen255")]] = None
+    ScheduledActionNames: Optional[List[Annotated[str, _aws_pattern("Autoscaling", "XmlStringMaxLen255")]]] = None
     StartTime: Optional[TimestampTypeDef] = None
     EndTime: Optional[TimestampTypeDef] = None
-    NextToken: Optional[str] = None
+    NextToken: Optional[Annotated[str, _aws_pattern("Autoscaling", "XmlString")]] = None
     MaxRecords: Optional[int] = None
 
 
 # This class is the input for the 'get_predictive_scaling_forecast' function.
 class GetPredictiveScalingForecastTypeTypeDef(BaseValidatorModel):
-    AutoScalingGroupName: str
-    PolicyName: str
+    AutoScalingGroupName: Annotated[str, _aws_pattern("Autoscaling", "XmlStringMaxLen255")]
+    PolicyName: Annotated[str, _aws_pattern("Autoscaling", "XmlStringMaxLen255")]
     StartTime: TimestampTypeDef
     EndTime: TimestampTypeDef
 
 
 # This class is the input for the 'put_scheduled_update_group_action' function.
 class PutScheduledUpdateGroupActionTypeTypeDef(BaseValidatorModel):
-    AutoScalingGroupName: str
-    ScheduledActionName: str
+    AutoScalingGroupName: Annotated[str, _aws_pattern("Autoscaling", "XmlStringMaxLen255")]
+    ScheduledActionName: Annotated[str, _aws_pattern("Autoscaling", "XmlStringMaxLen255")]
     Time: Optional[TimestampTypeDef] = None
     StartTime: Optional[TimestampTypeDef] = None
     EndTime: Optional[TimestampTypeDef] = None
-    Recurrence: Optional[str] = None
+    Recurrence: Optional[Annotated[str, _aws_pattern("Autoscaling", "XmlStringMaxLen255")]] = None
     MinSize: Optional[int] = None
     MaxSize: Optional[int] = None
     DesiredCapacity: Optional[int] = None
-    TimeZone: Optional[str] = None
+    TimeZone: Optional[Annotated[str, _aws_pattern("Autoscaling", "XmlStringMaxLen255")]] = None
 
 
 class ScheduledUpdateGroupActionRequestTypeDef(BaseValidatorModel):
-    ScheduledActionName: str
+    ScheduledActionName: Annotated[str, _aws_pattern("Autoscaling", "XmlStringMaxLen255")]
     StartTime: Optional[TimestampTypeDef] = None
     EndTime: Optional[TimestampTypeDef] = None
-    Recurrence: Optional[str] = None
+    Recurrence: Optional[Annotated[str, _aws_pattern("Autoscaling", "XmlStringMaxLen255")]] = None
     MinSize: Optional[int] = None
     MaxSize: Optional[int] = None
     DesiredCapacity: Optional[int] = None
-    TimeZone: Optional[str] = None
+    TimeZone: Optional[Annotated[str, _aws_pattern("Autoscaling", "XmlStringMaxLen255")]] = None
 
 
 # This class is the output for the 'describe_traffic_sources' function.
 class DescribeTrafficSourcesResponseTypeDef(BaseValidatorModel):
     TrafficSources: List[TrafficSourceStateTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
-    NextToken: Optional[str] = None
+    NextToken: Optional[Annotated[str, _aws_pattern("Autoscaling", "XmlString")]] = None
 
 
 class InstanceLifecyclePolicyTypeDef(BaseValidatorModel):
@@ -1067,7 +1083,7 @@ class InstanceRefreshProgressDetailsTypeDef(BaseValidatorModel):
 
 
 class PutWarmPoolTypeTypeDef(BaseValidatorModel):
-    AutoScalingGroupName: str
+    AutoScalingGroupName: Annotated[str, _aws_pattern("Autoscaling", "XmlStringMaxLen255")]
     MaxGroupPreparedCapacity: Optional[int] = None
     MinSize: Optional[int] = None
     PoolState: Optional[WarmPoolStateType] = None
@@ -1084,8 +1100,8 @@ class WarmPoolConfigurationTypeDef(BaseValidatorModel):
 
 # This class is the output for the 'launch_instances' function.
 class LaunchInstancesResultTypeDef(BaseValidatorModel):
-    AutoScalingGroupName: str
-    ClientToken: str
+    AutoScalingGroupName: Annotated[str, _aws_pattern("Autoscaling", "XmlStringMaxLen255")]
+    ClientToken: Annotated[str, _aws_pattern("Autoscaling", "ClientToken")]
     Instances: List[InstanceCollectionTypeDef]
     Errors: List[LaunchInstancesErrorTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
@@ -1100,7 +1116,7 @@ class ProcessesTypeTypeDef(BaseValidatorModel):
 class ScheduledActionsTypeTypeDef(BaseValidatorModel):
     ScheduledUpdateGroupActions: List[ScheduledUpdateGroupActionTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
-    NextToken: Optional[str] = None
+    NextToken: Optional[Annotated[str, _aws_pattern("Autoscaling", "XmlString")]] = None
 
 
 RefreshPreferencesUnionTypeDef = Union[RefreshPreferencesOutputTypeDef, RefreshPreferencesTypeDef]
@@ -1110,52 +1126,56 @@ RefreshPreferencesUnionTypeDef = Union[RefreshPreferencesOutputTypeDef, RefreshP
 class AutoScalingInstancesTypeTypeDef(BaseValidatorModel):
     AutoScalingInstances: List[AutoScalingInstanceDetailsTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
-    NextToken: Optional[str] = None
+    NextToken: Optional[Annotated[str, _aws_pattern("Autoscaling", "XmlString")]] = None
 
 
 # This class is the input for the 'create_launch_configuration' function.
 class CreateLaunchConfigurationTypeTypeDef(BaseValidatorModel):
-    LaunchConfigurationName: str
-    ImageId: Optional[str] = None
-    KeyName: Optional[str] = None
-    SecurityGroups: Optional[List[str]] = None
-    ClassicLinkVPCId: Optional[str] = None
-    ClassicLinkVPCSecurityGroups: Optional[List[str]] = None
-    UserData: Optional[str] = None
-    InstanceId: Optional[str] = None
-    InstanceType: Optional[str] = None
-    KernelId: Optional[str] = None
-    RamdiskId: Optional[str] = None
+    LaunchConfigurationName: Annotated[str, _aws_pattern("Autoscaling", "XmlStringMaxLen255")]
+    ImageId: Optional[Annotated[str, _aws_pattern("Autoscaling", "XmlStringMaxLen255")]] = None
+    KeyName: Optional[Annotated[str, _aws_pattern("Autoscaling", "XmlStringMaxLen255")]] = None
+    SecurityGroups: Optional[List[Annotated[str, _aws_pattern("Autoscaling", "XmlString")]]] = None
+    ClassicLinkVPCId: Optional[Annotated[str, _aws_pattern("Autoscaling", "XmlStringMaxLen255")]] = None
+    ClassicLinkVPCSecurityGroups: Optional[List[Annotated[str, _aws_pattern("Autoscaling", "XmlStringMaxLen255")]]] = (
+        None
+    )
+    UserData: Optional[Annotated[str, _aws_pattern("Autoscaling", "XmlStringUserData")]] = None
+    InstanceId: Optional[Annotated[str, _aws_pattern("Autoscaling", "XmlStringMaxLen19")]] = None
+    InstanceType: Optional[Annotated[str, _aws_pattern("Autoscaling", "XmlStringMaxLen255")]] = None
+    KernelId: Optional[Annotated[str, _aws_pattern("Autoscaling", "XmlStringMaxLen255")]] = None
+    RamdiskId: Optional[Annotated[str, _aws_pattern("Autoscaling", "XmlStringMaxLen255")]] = None
     BlockDeviceMappings: Optional[List[BlockDeviceMappingTypeDef]] = None
     InstanceMonitoring: Optional[InstanceMonitoringTypeDef] = None
     SpotPrice: Optional[str] = None
-    IamInstanceProfile: Optional[str] = None
+    IamInstanceProfile: Optional[Annotated[str, _aws_pattern("Autoscaling", "XmlStringMaxLen1600")]] = None
     EbsOptimized: Optional[bool] = None
     AssociatePublicIpAddress: Optional[bool] = None
-    PlacementTenancy: Optional[str] = None
+    PlacementTenancy: Optional[Annotated[str, _aws_pattern("Autoscaling", "XmlStringMaxLen64")]] = None
     MetadataOptions: Optional[InstanceMetadataOptionsTypeDef] = None
 
 
 class LaunchConfigurationTypeDef(BaseValidatorModel):
-    LaunchConfigurationName: str
-    ImageId: str
-    InstanceType: str
+    LaunchConfigurationName: Annotated[str, _aws_pattern("Autoscaling", "XmlStringMaxLen255")]
+    ImageId: Annotated[str, _aws_pattern("Autoscaling", "XmlStringMaxLen255")]
+    InstanceType: Annotated[str, _aws_pattern("Autoscaling", "XmlStringMaxLen255")]
     CreatedTime: datetime
-    LaunchConfigurationARN: Optional[str] = None
-    KeyName: Optional[str] = None
-    SecurityGroups: Optional[List[str]] = None
-    ClassicLinkVPCId: Optional[str] = None
-    ClassicLinkVPCSecurityGroups: Optional[List[str]] = None
-    UserData: Optional[str] = None
-    KernelId: Optional[str] = None
-    RamdiskId: Optional[str] = None
+    LaunchConfigurationARN: Optional[Annotated[str, _aws_pattern("Autoscaling", "ResourceName")]] = None
+    KeyName: Optional[Annotated[str, _aws_pattern("Autoscaling", "XmlStringMaxLen255")]] = None
+    SecurityGroups: Optional[List[Annotated[str, _aws_pattern("Autoscaling", "XmlString")]]] = None
+    ClassicLinkVPCId: Optional[Annotated[str, _aws_pattern("Autoscaling", "XmlStringMaxLen255")]] = None
+    ClassicLinkVPCSecurityGroups: Optional[List[Annotated[str, _aws_pattern("Autoscaling", "XmlStringMaxLen255")]]] = (
+        None
+    )
+    UserData: Optional[Annotated[str, _aws_pattern("Autoscaling", "XmlStringUserData")]] = None
+    KernelId: Optional[Annotated[str, _aws_pattern("Autoscaling", "XmlStringMaxLen255")]] = None
+    RamdiskId: Optional[Annotated[str, _aws_pattern("Autoscaling", "XmlStringMaxLen255")]] = None
     BlockDeviceMappings: Optional[List[BlockDeviceMappingTypeDef]] = None
     InstanceMonitoring: Optional[InstanceMonitoringTypeDef] = None
     SpotPrice: Optional[str] = None
-    IamInstanceProfile: Optional[str] = None
+    IamInstanceProfile: Optional[Annotated[str, _aws_pattern("Autoscaling", "XmlStringMaxLen1600")]] = None
     EbsOptimized: Optional[bool] = None
     AssociatePublicIpAddress: Optional[bool] = None
-    PlacementTenancy: Optional[str] = None
+    PlacementTenancy: Optional[Annotated[str, _aws_pattern("Autoscaling", "XmlStringMaxLen64")]] = None
     MetadataOptions: Optional[InstanceMetadataOptionsTypeDef] = None
 
 
@@ -1187,25 +1207,25 @@ class TargetTrackingMetricStatOutputTypeDef(BaseValidatorModel):
 
 class MetricStatTypeDef(BaseValidatorModel):
     Metric: MetricTypeDef
-    Stat: str
+    Stat: Annotated[str, _aws_pattern("Autoscaling", "XmlStringMetricStat")]
     Unit: Optional[str] = None
 
 
 class TargetTrackingMetricStatTypeDef(BaseValidatorModel):
     Metric: MetricTypeDef
-    Stat: str
+    Stat: Annotated[str, _aws_pattern("Autoscaling", "XmlStringMetricStat")]
     Unit: Optional[str] = None
     Period: Optional[int] = None
 
 
 # This class is the input for the 'batch_put_scheduled_update_group_action' function.
 class BatchPutScheduledUpdateGroupActionTypeTypeDef(BaseValidatorModel):
-    AutoScalingGroupName: str
+    AutoScalingGroupName: Annotated[str, _aws_pattern("Autoscaling", "XmlStringMaxLen255")]
     ScheduledUpdateGroupActions: List[ScheduledUpdateGroupActionRequestTypeDef]
 
 
 class RollbackDetailsTypeDef(BaseValidatorModel):
-    RollbackReason: Optional[str] = None
+    RollbackReason: Optional[Annotated[str, _aws_pattern("Autoscaling", "XmlStringMaxLen1023")]] = None
     RollbackStartTime: Optional[datetime] = None
     PercentageCompleteOnRollback: Optional[int] = None
     InstancesToUpdateOnRollback: Optional[int] = None
@@ -1217,14 +1237,14 @@ class DescribeWarmPoolAnswerTypeDef(BaseValidatorModel):
     WarmPoolConfiguration: WarmPoolConfigurationTypeDef
     Instances: List[InstanceTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
-    NextToken: Optional[str] = None
+    NextToken: Optional[Annotated[str, _aws_pattern("Autoscaling", "XmlString")]] = None
 
 
 # This class is the output for the 'describe_launch_configurations' function.
 class LaunchConfigurationsTypeTypeDef(BaseValidatorModel):
     LaunchConfigurations: List[LaunchConfigurationTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
-    NextToken: Optional[str] = None
+    NextToken: Optional[Annotated[str, _aws_pattern("Autoscaling", "XmlString")]] = None
 
 
 class InstanceRequirementsOutputTypeDef(BaseValidatorModel):
@@ -1260,7 +1280,7 @@ class InstanceRequirementsTypeDef(BaseValidatorModel):
     MemoryMiB: MemoryMiBRequestTypeDef
     CpuManufacturers: Optional[List[CpuManufacturerType]] = None
     MemoryGiBPerVCpu: Optional[MemoryGiBPerVCpuRequestTypeDef] = None
-    ExcludedInstanceTypes: Optional[List[str]] = None
+    ExcludedInstanceTypes: Optional[List[Annotated[str, _aws_pattern("Autoscaling", "ExcludedInstance")]]] = None
     InstanceGenerations: Optional[List[InstanceGenerationType]] = None
     SpotMaxPricePercentageOverLowestPrice: Optional[int] = None
     MaxSpotPriceAsPercentageOfOptimalOnDemandPrice: Optional[int] = None
@@ -1279,7 +1299,7 @@ class InstanceRequirementsTypeDef(BaseValidatorModel):
     AcceleratorNames: Optional[List[AcceleratorNameType]] = None
     AcceleratorTotalMemoryMiB: Optional[AcceleratorTotalMemoryMiBRequestTypeDef] = None
     NetworkBandwidthGbps: Optional[NetworkBandwidthGbpsRequestTypeDef] = None
-    AllowedInstanceTypes: Optional[List[str]] = None
+    AllowedInstanceTypes: Optional[List[Annotated[str, _aws_pattern("Autoscaling", "AllowedInstanceType")]]] = None
     BaselinePerformanceFactors: Optional[BaselinePerformanceFactorsRequestTypeDef] = None
 
 
@@ -1301,18 +1321,18 @@ class TargetTrackingMetricDataQueryOutputTypeDef(BaseValidatorModel):
 
 
 class MetricDataQueryTypeDef(BaseValidatorModel):
-    Id: str
-    Expression: Optional[str] = None
+    Id: Annotated[str, _aws_pattern("Autoscaling", "XmlStringMaxLen255")]
+    Expression: Optional[Annotated[str, _aws_pattern("Autoscaling", "XmlStringMaxLen1023")]] = None
     MetricStat: Optional[MetricStatTypeDef] = None
-    Label: Optional[str] = None
+    Label: Optional[Annotated[str, _aws_pattern("Autoscaling", "XmlStringMetricLabel")]] = None
     ReturnData: Optional[bool] = None
 
 
 class TargetTrackingMetricDataQueryTypeDef(BaseValidatorModel):
-    Id: str
-    Expression: Optional[str] = None
+    Id: Annotated[str, _aws_pattern("Autoscaling", "XmlStringMaxLen64")]
+    Expression: Optional[Annotated[str, _aws_pattern("Autoscaling", "XmlStringMaxLen2047")]] = None
     MetricStat: Optional[TargetTrackingMetricStatTypeDef] = None
-    Label: Optional[str] = None
+    Label: Optional[Annotated[str, _aws_pattern("Autoscaling", "XmlStringMetricLabel")]] = None
     Period: Optional[int] = None
     ReturnData: Optional[bool] = None
 
@@ -1326,11 +1346,11 @@ class LaunchTemplateOverridesOutputTypeDef(BaseValidatorModel):
 
 
 class LaunchTemplateOverridesTypeDef(BaseValidatorModel):
-    InstanceType: Optional[str] = None
-    WeightedCapacity: Optional[str] = None
+    InstanceType: Optional[Annotated[str, _aws_pattern("Autoscaling", "XmlStringMaxLen255")]] = None
+    WeightedCapacity: Optional[Annotated[str, _aws_pattern("Autoscaling", "XmlStringMaxLen32")]] = None
     LaunchTemplateSpecification: Optional[LaunchTemplateSpecificationTypeDef] = None
     InstanceRequirements: Optional[InstanceRequirementsTypeDef] = None
-    ImageId: Optional[str] = None
+    ImageId: Optional[Annotated[str, _aws_pattern("Autoscaling", "ImageId")]] = None
 
 
 class PredictiveScalingCustomizedCapacityMetricOutputTypeDef(BaseValidatorModel):
@@ -1459,39 +1479,39 @@ TargetTrackingConfigurationUnionTypeDef = Union[
 
 
 class AutoScalingGroupTypeDef(BaseValidatorModel):
-    AutoScalingGroupName: str
+    AutoScalingGroupName: Annotated[str, _aws_pattern("Autoscaling", "XmlStringMaxLen255")]
     MinSize: int
     MaxSize: int
     DesiredCapacity: int
     DefaultCooldown: int
-    AvailabilityZones: List[str]
-    HealthCheckType: str
+    AvailabilityZones: List[Annotated[str, _aws_pattern("Autoscaling", "XmlStringMaxLen255")]]
+    HealthCheckType: Annotated[str, _aws_pattern("Autoscaling", "XmlStringMaxLen32")]
     CreatedTime: datetime
-    AutoScalingGroupARN: Optional[str] = None
-    LaunchConfigurationName: Optional[str] = None
+    AutoScalingGroupARN: Optional[Annotated[str, _aws_pattern("Autoscaling", "ResourceName")]] = None
+    LaunchConfigurationName: Optional[Annotated[str, _aws_pattern("Autoscaling", "XmlStringMaxLen255")]] = None
     LaunchTemplate: Optional[LaunchTemplateSpecificationTypeDef] = None
     MixedInstancesPolicy: Optional[MixedInstancesPolicyOutputTypeDef] = None
     PredictedCapacity: Optional[int] = None
-    AvailabilityZoneIds: Optional[List[str]] = None
-    LoadBalancerNames: Optional[List[str]] = None
-    TargetGroupARNs: Optional[List[str]] = None
+    AvailabilityZoneIds: Optional[List[Annotated[str, _aws_pattern("Autoscaling", "XmlStringMaxLen255")]]] = None
+    LoadBalancerNames: Optional[List[Annotated[str, _aws_pattern("Autoscaling", "XmlStringMaxLen255")]]] = None
+    TargetGroupARNs: Optional[List[Annotated[str, _aws_pattern("Autoscaling", "XmlStringMaxLen511")]]] = None
     HealthCheckGracePeriod: Optional[int] = None
     Instances: Optional[List[InstanceTypeDef]] = None
     SuspendedProcesses: Optional[List[SuspendedProcessTypeDef]] = None
-    PlacementGroup: Optional[str] = None
-    VPCZoneIdentifier: Optional[str] = None
+    PlacementGroup: Optional[Annotated[str, _aws_pattern("Autoscaling", "XmlStringMaxLen255")]] = None
+    VPCZoneIdentifier: Optional[Annotated[str, _aws_pattern("Autoscaling", "XmlStringMaxLen5000")]] = None
     EnabledMetrics: Optional[List[EnabledMetricTypeDef]] = None
-    Status: Optional[str] = None
+    Status: Optional[Annotated[str, _aws_pattern("Autoscaling", "XmlStringMaxLen255")]] = None
     Tags: Optional[List[TagDescriptionTypeDef]] = None
-    TerminationPolicies: Optional[List[str]] = None
+    TerminationPolicies: Optional[List[Annotated[str, _aws_pattern("Autoscaling", "XmlStringMaxLen1600")]]] = None
     NewInstancesProtectedFromScaleIn: Optional[bool] = None
-    ServiceLinkedRoleARN: Optional[str] = None
+    ServiceLinkedRoleARN: Optional[Annotated[str, _aws_pattern("Autoscaling", "ResourceName")]] = None
     MaxInstanceLifetime: Optional[int] = None
     CapacityRebalance: Optional[bool] = None
     WarmPoolConfiguration: Optional[WarmPoolConfigurationTypeDef] = None
     WarmPoolSize: Optional[int] = None
     Context: Optional[str] = None
-    DesiredCapacityType: Optional[str] = None
+    DesiredCapacityType: Optional[Annotated[str, _aws_pattern("Autoscaling", "XmlStringMaxLen255")]] = None
     DefaultInstanceWarmup: Optional[int] = None
     TrafficSources: Optional[List[TrafficSourceIdentifierTypeDef]] = None
     InstanceMaintenancePolicy: Optional[InstanceMaintenancePolicyTypeDef] = None
@@ -1524,17 +1544,17 @@ class GetPredictiveScalingForecastAnswerTypeDef(BaseValidatorModel):
 
 
 class ScalingPolicyTypeDef(BaseValidatorModel):
-    AutoScalingGroupName: Optional[str] = None
-    PolicyName: Optional[str] = None
-    PolicyARN: Optional[str] = None
-    PolicyType: Optional[str] = None
-    AdjustmentType: Optional[str] = None
+    AutoScalingGroupName: Optional[Annotated[str, _aws_pattern("Autoscaling", "XmlStringMaxLen255")]] = None
+    PolicyName: Optional[Annotated[str, _aws_pattern("Autoscaling", "XmlStringMaxLen255")]] = None
+    PolicyARN: Optional[Annotated[str, _aws_pattern("Autoscaling", "ResourceName")]] = None
+    PolicyType: Optional[Annotated[str, _aws_pattern("Autoscaling", "XmlStringMaxLen64")]] = None
+    AdjustmentType: Optional[Annotated[str, _aws_pattern("Autoscaling", "XmlStringMaxLen255")]] = None
     MinAdjustmentStep: Optional[int] = None
     MinAdjustmentMagnitude: Optional[int] = None
     ScalingAdjustment: Optional[int] = None
     Cooldown: Optional[int] = None
     StepAdjustments: Optional[List[StepAdjustmentTypeDef]] = None
-    MetricAggregationType: Optional[str] = None
+    MetricAggregationType: Optional[Annotated[str, _aws_pattern("Autoscaling", "XmlStringMaxLen32")]] = None
     EstimatedInstanceWarmup: Optional[int] = None
     Alarms: Optional[List[AlarmTypeDef]] = None
     TargetTrackingConfiguration: Optional[TargetTrackingConfigurationOutputTypeDef] = None
@@ -1551,14 +1571,14 @@ PredictiveScalingConfigurationUnionTypeDef = Union[
 class AutoScalingGroupsTypeTypeDef(BaseValidatorModel):
     AutoScalingGroups: List[AutoScalingGroupTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
-    NextToken: Optional[str] = None
+    NextToken: Optional[Annotated[str, _aws_pattern("Autoscaling", "XmlString")]] = None
 
 
 class InstanceRefreshTypeDef(BaseValidatorModel):
-    InstanceRefreshId: Optional[str] = None
-    AutoScalingGroupName: Optional[str] = None
+    InstanceRefreshId: Optional[Annotated[str, _aws_pattern("Autoscaling", "XmlStringMaxLen255")]] = None
+    AutoScalingGroupName: Optional[Annotated[str, _aws_pattern("Autoscaling", "XmlStringMaxLen255")]] = None
     Status: Optional[InstanceRefreshStatusType] = None
-    StatusReason: Optional[str] = None
+    StatusReason: Optional[Annotated[str, _aws_pattern("Autoscaling", "XmlStringMaxLen1023")]] = None
     StartTime: Optional[datetime] = None
     EndTime: Optional[datetime] = None
     PercentageComplete: Optional[int] = None
@@ -1575,33 +1595,33 @@ DesiredConfigurationUnionTypeDef = Union[DesiredConfigurationOutputTypeDef, Desi
 
 # This class is the input for the 'create_auto_scaling_group' function.
 class CreateAutoScalingGroupTypeTypeDef(BaseValidatorModel):
-    AutoScalingGroupName: str
+    AutoScalingGroupName: Annotated[str, _aws_pattern("Autoscaling", "XmlStringMaxLen255")]
     MinSize: int
     MaxSize: int
-    LaunchConfigurationName: Optional[str] = None
+    LaunchConfigurationName: Optional[Annotated[str, _aws_pattern("Autoscaling", "XmlStringMaxLen255")]] = None
     LaunchTemplate: Optional[LaunchTemplateSpecificationTypeDef] = None
     MixedInstancesPolicy: Optional[MixedInstancesPolicyUnionTypeDef] = None
-    InstanceId: Optional[str] = None
+    InstanceId: Optional[Annotated[str, _aws_pattern("Autoscaling", "XmlStringMaxLen19")]] = None
     DesiredCapacity: Optional[int] = None
     DefaultCooldown: Optional[int] = None
-    AvailabilityZones: Optional[List[str]] = None
-    AvailabilityZoneIds: Optional[List[str]] = None
-    LoadBalancerNames: Optional[List[str]] = None
-    TargetGroupARNs: Optional[List[str]] = None
-    HealthCheckType: Optional[str] = None
+    AvailabilityZones: Optional[List[Annotated[str, _aws_pattern("Autoscaling", "XmlStringMaxLen255")]]] = None
+    AvailabilityZoneIds: Optional[List[Annotated[str, _aws_pattern("Autoscaling", "XmlStringMaxLen255")]]] = None
+    LoadBalancerNames: Optional[List[Annotated[str, _aws_pattern("Autoscaling", "XmlStringMaxLen255")]]] = None
+    TargetGroupARNs: Optional[List[Annotated[str, _aws_pattern("Autoscaling", "XmlStringMaxLen511")]]] = None
+    HealthCheckType: Optional[Annotated[str, _aws_pattern("Autoscaling", "XmlStringMaxLen32")]] = None
     HealthCheckGracePeriod: Optional[int] = None
-    PlacementGroup: Optional[str] = None
-    VPCZoneIdentifier: Optional[str] = None
-    TerminationPolicies: Optional[List[str]] = None
+    PlacementGroup: Optional[Annotated[str, _aws_pattern("Autoscaling", "XmlStringMaxLen255")]] = None
+    VPCZoneIdentifier: Optional[Annotated[str, _aws_pattern("Autoscaling", "XmlStringMaxLen5000")]] = None
+    TerminationPolicies: Optional[List[Annotated[str, _aws_pattern("Autoscaling", "XmlStringMaxLen1600")]]] = None
     NewInstancesProtectedFromScaleIn: Optional[bool] = None
     CapacityRebalance: Optional[bool] = None
     LifecycleHookSpecificationList: Optional[List[LifecycleHookSpecificationTypeDef]] = None
     DeletionProtection: Optional[DeletionProtectionType] = None
     Tags: Optional[List[TagTypeDef]] = None
-    ServiceLinkedRoleARN: Optional[str] = None
+    ServiceLinkedRoleARN: Optional[Annotated[str, _aws_pattern("Autoscaling", "ResourceName")]] = None
     MaxInstanceLifetime: Optional[int] = None
     Context: Optional[str] = None
-    DesiredCapacityType: Optional[str] = None
+    DesiredCapacityType: Optional[Annotated[str, _aws_pattern("Autoscaling", "XmlStringMaxLen255")]] = None
     DefaultInstanceWarmup: Optional[int] = None
     TrafficSources: Optional[List[TrafficSourceIdentifierTypeDef]] = None
     InstanceMaintenancePolicy: Optional[InstanceMaintenancePolicyTypeDef] = None
@@ -1614,27 +1634,27 @@ class CreateAutoScalingGroupTypeTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'update_auto_scaling_group' function.
 class UpdateAutoScalingGroupTypeTypeDef(BaseValidatorModel):
-    AutoScalingGroupName: str
-    LaunchConfigurationName: Optional[str] = None
+    AutoScalingGroupName: Annotated[str, _aws_pattern("Autoscaling", "XmlStringMaxLen255")]
+    LaunchConfigurationName: Optional[Annotated[str, _aws_pattern("Autoscaling", "XmlStringMaxLen255")]] = None
     LaunchTemplate: Optional[LaunchTemplateSpecificationTypeDef] = None
     MixedInstancesPolicy: Optional[MixedInstancesPolicyUnionTypeDef] = None
     MinSize: Optional[int] = None
     MaxSize: Optional[int] = None
     DesiredCapacity: Optional[int] = None
     DefaultCooldown: Optional[int] = None
-    AvailabilityZones: Optional[List[str]] = None
-    AvailabilityZoneIds: Optional[List[str]] = None
-    HealthCheckType: Optional[str] = None
+    AvailabilityZones: Optional[List[Annotated[str, _aws_pattern("Autoscaling", "XmlStringMaxLen255")]]] = None
+    AvailabilityZoneIds: Optional[List[Annotated[str, _aws_pattern("Autoscaling", "XmlStringMaxLen255")]]] = None
+    HealthCheckType: Optional[Annotated[str, _aws_pattern("Autoscaling", "XmlStringMaxLen32")]] = None
     HealthCheckGracePeriod: Optional[int] = None
-    PlacementGroup: Optional[str] = None
-    VPCZoneIdentifier: Optional[str] = None
-    TerminationPolicies: Optional[List[str]] = None
+    PlacementGroup: Optional[Annotated[str, _aws_pattern("Autoscaling", "UpdatePlacementGroupParam")]] = None
+    VPCZoneIdentifier: Optional[Annotated[str, _aws_pattern("Autoscaling", "XmlStringMaxLen5000")]] = None
+    TerminationPolicies: Optional[List[Annotated[str, _aws_pattern("Autoscaling", "XmlStringMaxLen1600")]]] = None
     NewInstancesProtectedFromScaleIn: Optional[bool] = None
-    ServiceLinkedRoleARN: Optional[str] = None
+    ServiceLinkedRoleARN: Optional[Annotated[str, _aws_pattern("Autoscaling", "ResourceName")]] = None
     MaxInstanceLifetime: Optional[int] = None
     CapacityRebalance: Optional[bool] = None
     Context: Optional[str] = None
-    DesiredCapacityType: Optional[str] = None
+    DesiredCapacityType: Optional[Annotated[str, _aws_pattern("Autoscaling", "XmlStringMaxLen255")]] = None
     DefaultInstanceWarmup: Optional[int] = None
     InstanceMaintenancePolicy: Optional[InstanceMaintenancePolicyTypeDef] = None
     AvailabilityZoneDistribution: Optional[AvailabilityZoneDistributionTypeDef] = None
@@ -1649,20 +1669,20 @@ class UpdateAutoScalingGroupTypeTypeDef(BaseValidatorModel):
 class PoliciesTypeTypeDef(BaseValidatorModel):
     ScalingPolicies: List[ScalingPolicyTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
-    NextToken: Optional[str] = None
+    NextToken: Optional[Annotated[str, _aws_pattern("Autoscaling", "XmlString")]] = None
 
 
 # This class is the input for the 'put_scaling_policy' function.
 class PutScalingPolicyTypeTypeDef(BaseValidatorModel):
-    AutoScalingGroupName: str
-    PolicyName: str
-    PolicyType: Optional[str] = None
-    AdjustmentType: Optional[str] = None
+    AutoScalingGroupName: Annotated[str, _aws_pattern("Autoscaling", "XmlStringMaxLen255")]
+    PolicyName: Annotated[str, _aws_pattern("Autoscaling", "XmlStringMaxLen255")]
+    PolicyType: Optional[Annotated[str, _aws_pattern("Autoscaling", "XmlStringMaxLen64")]] = None
+    AdjustmentType: Optional[Annotated[str, _aws_pattern("Autoscaling", "XmlStringMaxLen255")]] = None
     MinAdjustmentStep: Optional[int] = None
     MinAdjustmentMagnitude: Optional[int] = None
     ScalingAdjustment: Optional[int] = None
     Cooldown: Optional[int] = None
-    MetricAggregationType: Optional[str] = None
+    MetricAggregationType: Optional[Annotated[str, _aws_pattern("Autoscaling", "XmlStringMaxLen32")]] = None
     StepAdjustments: Optional[List[StepAdjustmentTypeDef]] = None
     EstimatedInstanceWarmup: Optional[int] = None
     TargetTrackingConfiguration: Optional[TargetTrackingConfigurationUnionTypeDef] = None
@@ -1674,12 +1694,12 @@ class PutScalingPolicyTypeTypeDef(BaseValidatorModel):
 class DescribeInstanceRefreshesAnswerTypeDef(BaseValidatorModel):
     InstanceRefreshes: List[InstanceRefreshTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
-    NextToken: Optional[str] = None
+    NextToken: Optional[Annotated[str, _aws_pattern("Autoscaling", "XmlString")]] = None
 
 
 # This class is the input for the 'start_instance_refresh' function.
 class StartInstanceRefreshTypeTypeDef(BaseValidatorModel):
-    AutoScalingGroupName: str
+    AutoScalingGroupName: Annotated[str, _aws_pattern("Autoscaling", "XmlStringMaxLen255")]
     Strategy: Optional[RefreshStrategyType] = None
     DesiredConfiguration: Optional[DesiredConfigurationUnionTypeDef] = None
     Preferences: Optional[RefreshPreferencesUnionTypeDef] = None

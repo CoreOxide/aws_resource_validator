@@ -3,6 +3,7 @@
 from datetime import datetime
 from decimal import Decimal
 from typing import (
+    Annotated,
     Any,
     Callable,
     Dict,
@@ -24,6 +25,7 @@ from botocore.response import StreamingBody
 from pydantic import Field
 
 from aws_resource_validator.core.base_validator_model import BaseValidatorModel, EventStream
+from aws_resource_validator.core.pattern_validation import aws_field_pattern as _aws_pattern
 from aws_resource_validator.pydantic_models.lex_models.lex_models_constants import *  # noqa: F401,F403
 
 # Optional boto3 symbols — imported lazily so services that don't need them
@@ -41,10 +43,10 @@ BlobTypeDef = Union[IO[Any], StreamingBody, bytes, str]
 
 
 class BotChannelAssociationTypeDef(BaseValidatorModel):
-    name: Optional[str] = None
+    name: Optional[Annotated[str, _aws_pattern("LexModels", "BotChannelName")]] = None
     description: Optional[str] = None
-    botAlias: Optional[str] = None
-    botName: Optional[str] = None
+    botAlias: Optional[Annotated[str, _aws_pattern("LexModels", "AliasName")]] = None
+    botName: Optional[Annotated[str, _aws_pattern("LexModels", "BotName")]] = None
     createdDate: Optional[datetime] = None
     type: Optional[ChannelTypeType] = None
     botConfiguration: Optional[Dict[str, str]] = None
@@ -53,12 +55,12 @@ class BotChannelAssociationTypeDef(BaseValidatorModel):
 
 
 class BotMetadataTypeDef(BaseValidatorModel):
-    name: Optional[str] = None
+    name: Optional[Annotated[str, _aws_pattern("LexModels", "BotName")]] = None
     description: Optional[str] = None
     status: Optional[StatusType] = None
     lastUpdatedDate: Optional[datetime] = None
     createdDate: Optional[datetime] = None
-    version: Optional[str] = None
+    version: Optional[Annotated[str, _aws_pattern("LexModels", "Version")]] = None
 
 
 class BuiltinIntentMetadataTypeDef(BaseValidatorModel):
@@ -76,34 +78,34 @@ class BuiltinSlotTypeMetadataTypeDef(BaseValidatorModel):
 
 
 class CodeHookTypeDef(BaseValidatorModel):
-    uri: str
+    uri: Annotated[str, _aws_pattern("LexModels", "LambdaARN")]
     messageVersion: str
 
 
 class LogSettingsRequestTypeDef(BaseValidatorModel):
     logType: LogTypeType
     destination: DestinationType
-    resourceArn: str
-    kmsKeyArn: Optional[str] = None
+    resourceArn: Annotated[str, _aws_pattern("LexModels", "ResourceArn")]
+    kmsKeyArn: Optional[Annotated[str, _aws_pattern("LexModels", "KmsKeyArn")]] = None
 
 
 class LogSettingsResponseTypeDef(BaseValidatorModel):
     logType: Optional[LogTypeType] = None
     destination: Optional[DestinationType] = None
-    kmsKeyArn: Optional[str] = None
-    resourceArn: Optional[str] = None
+    kmsKeyArn: Optional[Annotated[str, _aws_pattern("LexModels", "KmsKeyArn")]] = None
+    resourceArn: Optional[Annotated[str, _aws_pattern("LexModels", "ResourceArn")]] = None
     resourcePrefix: Optional[str] = None
 
 
 # This class is the input for the 'create_bot_version' function.
 class CreateBotVersionRequestTypeDef(BaseValidatorModel):
-    name: str
+    name: Annotated[str, _aws_pattern("LexModels", "BotName")]
     checksum: Optional[str] = None
 
 
 class IntentTypeDef(BaseValidatorModel):
-    intentName: str
-    intentVersion: str
+    intentName: Annotated[str, _aws_pattern("LexModels", "IntentName")]
+    intentVersion: Annotated[str, _aws_pattern("LexModels", "Version")]
 
 
 class ResponseMetadataTypeDef(BaseValidatorModel):
@@ -116,29 +118,29 @@ class ResponseMetadataTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'create_intent_version' function.
 class CreateIntentVersionRequestTypeDef(BaseValidatorModel):
-    name: str
+    name: Annotated[str, _aws_pattern("LexModels", "IntentName")]
     checksum: Optional[str] = None
 
 
 class InputContextTypeDef(BaseValidatorModel):
-    name: str
+    name: Annotated[str, _aws_pattern("LexModels", "InputContextName")]
 
 
 class KendraConfigurationTypeDef(BaseValidatorModel):
-    kendraIndex: str
-    role: str
+    kendraIndex: Annotated[str, _aws_pattern("LexModels", "KendraIndexArn")]
+    role: Annotated[str, _aws_pattern("LexModels", "roleArn")]
     queryFilterString: Optional[str] = None
 
 
 class OutputContextTypeDef(BaseValidatorModel):
-    name: str
+    name: Annotated[str, _aws_pattern("LexModels", "OutputContextName")]
     timeToLiveInSeconds: int
     turnsToLive: int
 
 
 # This class is the input for the 'create_slot_type_version' function.
 class CreateSlotTypeVersionRequestTypeDef(BaseValidatorModel):
-    name: str
+    name: Annotated[str, _aws_pattern("LexModels", "SlotTypeName")]
     checksum: Optional[str] = None
 
 
@@ -149,53 +151,53 @@ class EnumerationValueOutputTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'delete_bot_alias' function.
 class DeleteBotAliasRequestTypeDef(BaseValidatorModel):
-    name: str
-    botName: str
+    name: Annotated[str, _aws_pattern("LexModels", "AliasName")]
+    botName: Annotated[str, _aws_pattern("LexModels", "BotName")]
 
 
 # This class is the input for the 'delete_bot_channel_association' function.
 class DeleteBotChannelAssociationRequestTypeDef(BaseValidatorModel):
-    name: str
-    botName: str
-    botAlias: str
+    name: Annotated[str, _aws_pattern("LexModels", "BotChannelName")]
+    botName: Annotated[str, _aws_pattern("LexModels", "BotName")]
+    botAlias: Annotated[str, _aws_pattern("LexModels", "AliasName")]
 
 
 # This class is the input for the 'delete_bot' function.
 class DeleteBotRequestTypeDef(BaseValidatorModel):
-    name: str
+    name: Annotated[str, _aws_pattern("LexModels", "BotName")]
 
 
 # This class is the input for the 'delete_bot_version' function.
 class DeleteBotVersionRequestTypeDef(BaseValidatorModel):
-    name: str
-    version: str
+    name: Annotated[str, _aws_pattern("LexModels", "BotName")]
+    version: Annotated[str, _aws_pattern("LexModels", "NumericalVersion")]
 
 
 # This class is the input for the 'delete_intent' function.
 class DeleteIntentRequestTypeDef(BaseValidatorModel):
-    name: str
+    name: Annotated[str, _aws_pattern("LexModels", "IntentName")]
 
 
 # This class is the input for the 'delete_intent_version' function.
 class DeleteIntentVersionRequestTypeDef(BaseValidatorModel):
-    name: str
-    version: str
+    name: Annotated[str, _aws_pattern("LexModels", "IntentName")]
+    version: Annotated[str, _aws_pattern("LexModels", "NumericalVersion")]
 
 
 # This class is the input for the 'delete_slot_type' function.
 class DeleteSlotTypeRequestTypeDef(BaseValidatorModel):
-    name: str
+    name: Annotated[str, _aws_pattern("LexModels", "SlotTypeName")]
 
 
 # This class is the input for the 'delete_slot_type_version' function.
 class DeleteSlotTypeVersionRequestTypeDef(BaseValidatorModel):
-    name: str
-    version: str
+    name: Annotated[str, _aws_pattern("LexModels", "SlotTypeName")]
+    version: Annotated[str, _aws_pattern("LexModels", "NumericalVersion")]
 
 
 # This class is the input for the 'delete_utterances' function.
 class DeleteUtterancesRequestTypeDef(BaseValidatorModel):
-    botName: str
+    botName: Annotated[str, _aws_pattern("LexModels", "BotName")]
     userId: str
 
 
@@ -206,8 +208,8 @@ class EnumerationValueTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'get_bot_alias' function.
 class GetBotAliasRequestTypeDef(BaseValidatorModel):
-    name: str
-    botName: str
+    name: Annotated[str, _aws_pattern("LexModels", "AliasName")]
+    botName: Annotated[str, _aws_pattern("LexModels", "BotName")]
 
 
 class PaginatorConfigTypeDef(BaseValidatorModel):
@@ -218,37 +220,37 @@ class PaginatorConfigTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'get_bot_aliases' function.
 class GetBotAliasesRequestTypeDef(BaseValidatorModel):
-    botName: str
+    botName: Annotated[str, _aws_pattern("LexModels", "BotName")]
     nextToken: Optional[str] = None
     maxResults: Optional[int] = None
-    nameContains: Optional[str] = None
+    nameContains: Optional[Annotated[str, _aws_pattern("LexModels", "AliasName")]] = None
 
 
 # This class is the input for the 'get_bot_channel_association' function.
 class GetBotChannelAssociationRequestTypeDef(BaseValidatorModel):
-    name: str
-    botName: str
-    botAlias: str
+    name: Annotated[str, _aws_pattern("LexModels", "BotChannelName")]
+    botName: Annotated[str, _aws_pattern("LexModels", "BotName")]
+    botAlias: Annotated[str, _aws_pattern("LexModels", "AliasName")]
 
 
 # This class is the input for the 'get_bot_channel_associations' function.
 class GetBotChannelAssociationsRequestTypeDef(BaseValidatorModel):
-    botName: str
-    botAlias: str
+    botName: Annotated[str, _aws_pattern("LexModels", "BotName")]
+    botAlias: Annotated[str, _aws_pattern("LexModels", "AliasNameOrListAll")]
     nextToken: Optional[str] = None
     maxResults: Optional[int] = None
-    nameContains: Optional[str] = None
+    nameContains: Optional[Annotated[str, _aws_pattern("LexModels", "BotChannelName")]] = None
 
 
 # This class is the input for the 'get_bot' function.
 class GetBotRequestTypeDef(BaseValidatorModel):
-    name: str
+    name: Annotated[str, _aws_pattern("LexModels", "BotName")]
     versionOrAlias: str
 
 
 # This class is the input for the 'get_bot_versions' function.
 class GetBotVersionsRequestTypeDef(BaseValidatorModel):
-    name: str
+    name: Annotated[str, _aws_pattern("LexModels", "BotName")]
     nextToken: Optional[str] = None
     maxResults: Optional[int] = None
 
@@ -257,7 +259,7 @@ class GetBotVersionsRequestTypeDef(BaseValidatorModel):
 class GetBotsRequestTypeDef(BaseValidatorModel):
     nextToken: Optional[str] = None
     maxResults: Optional[int] = None
-    nameContains: Optional[str] = None
+    nameContains: Optional[Annotated[str, _aws_pattern("LexModels", "BotName")]] = None
 
 
 # This class is the input for the 'get_builtin_intent' function.
@@ -283,8 +285,8 @@ class GetBuiltinSlotTypesRequestTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'get_export' function.
 class GetExportRequestTypeDef(BaseValidatorModel):
-    name: str
-    version: str
+    name: Annotated[str, _aws_pattern("LexModels", "Name")]
+    version: Annotated[str, _aws_pattern("LexModels", "NumericalVersion")]
     resourceType: ResourceTypeType
     exportType: ExportTypeType
 
@@ -296,35 +298,35 @@ class GetImportRequestTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'get_intent' function.
 class GetIntentRequestTypeDef(BaseValidatorModel):
-    name: str
-    version: str
+    name: Annotated[str, _aws_pattern("LexModels", "IntentName")]
+    version: Annotated[str, _aws_pattern("LexModels", "Version")]
 
 
 # This class is the input for the 'get_intent_versions' function.
 class GetIntentVersionsRequestTypeDef(BaseValidatorModel):
-    name: str
+    name: Annotated[str, _aws_pattern("LexModels", "IntentName")]
     nextToken: Optional[str] = None
     maxResults: Optional[int] = None
 
 
 class IntentMetadataTypeDef(BaseValidatorModel):
-    name: Optional[str] = None
+    name: Optional[Annotated[str, _aws_pattern("LexModels", "IntentName")]] = None
     description: Optional[str] = None
     lastUpdatedDate: Optional[datetime] = None
     createdDate: Optional[datetime] = None
-    version: Optional[str] = None
+    version: Optional[Annotated[str, _aws_pattern("LexModels", "Version")]] = None
 
 
 # This class is the input for the 'get_intents' function.
 class GetIntentsRequestTypeDef(BaseValidatorModel):
     nextToken: Optional[str] = None
     maxResults: Optional[int] = None
-    nameContains: Optional[str] = None
+    nameContains: Optional[Annotated[str, _aws_pattern("LexModels", "IntentName")]] = None
 
 
 # This class is the input for the 'get_migration' function.
 class GetMigrationRequestTypeDef(BaseValidatorModel):
-    migrationId: str
+    migrationId: Annotated[str, _aws_pattern("LexModels", "MigrationId")]
 
 
 class MigrationAlertTypeDef(BaseValidatorModel):
@@ -338,19 +340,19 @@ class MigrationAlertTypeDef(BaseValidatorModel):
 class GetMigrationsRequestTypeDef(BaseValidatorModel):
     sortByAttribute: Optional[MigrationSortAttributeType] = None
     sortByOrder: Optional[SortOrderType] = None
-    v1BotNameContains: Optional[str] = None
+    v1BotNameContains: Optional[Annotated[str, _aws_pattern("LexModels", "BotName")]] = None
     migrationStatusEquals: Optional[MigrationStatusType] = None
     maxResults: Optional[int] = None
     nextToken: Optional[str] = None
 
 
 class MigrationSummaryTypeDef(BaseValidatorModel):
-    migrationId: Optional[str] = None
-    v1BotName: Optional[str] = None
-    v1BotVersion: Optional[str] = None
+    migrationId: Optional[Annotated[str, _aws_pattern("LexModels", "MigrationId")]] = None
+    v1BotName: Optional[Annotated[str, _aws_pattern("LexModels", "BotName")]] = None
+    v1BotVersion: Optional[Annotated[str, _aws_pattern("LexModels", "Version")]] = None
     v1BotLocale: Optional[LocaleType] = None
-    v2BotId: Optional[str] = None
-    v2BotRole: Optional[str] = None
+    v2BotId: Optional[Annotated[str, _aws_pattern("LexModels", "V2BotId")]] = None
+    v2BotRole: Optional[Annotated[str, _aws_pattern("LexModels", "IamRoleArn")]] = None
     migrationStatus: Optional[MigrationStatusType] = None
     migrationStrategy: Optional[MigrationStrategyType] = None
     migrationTimestamp: Optional[datetime] = None
@@ -358,36 +360,36 @@ class MigrationSummaryTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'get_slot_type' function.
 class GetSlotTypeRequestTypeDef(BaseValidatorModel):
-    name: str
-    version: str
+    name: Annotated[str, _aws_pattern("LexModels", "SlotTypeName")]
+    version: Annotated[str, _aws_pattern("LexModels", "Version")]
 
 
 # This class is the input for the 'get_slot_type_versions' function.
 class GetSlotTypeVersionsRequestTypeDef(BaseValidatorModel):
-    name: str
+    name: Annotated[str, _aws_pattern("LexModels", "SlotTypeName")]
     nextToken: Optional[str] = None
     maxResults: Optional[int] = None
 
 
 class SlotTypeMetadataTypeDef(BaseValidatorModel):
-    name: Optional[str] = None
+    name: Optional[Annotated[str, _aws_pattern("LexModels", "SlotTypeName")]] = None
     description: Optional[str] = None
     lastUpdatedDate: Optional[datetime] = None
     createdDate: Optional[datetime] = None
-    version: Optional[str] = None
+    version: Optional[Annotated[str, _aws_pattern("LexModels", "Version")]] = None
 
 
 # This class is the input for the 'get_slot_types' function.
 class GetSlotTypesRequestTypeDef(BaseValidatorModel):
     nextToken: Optional[str] = None
     maxResults: Optional[int] = None
-    nameContains: Optional[str] = None
+    nameContains: Optional[Annotated[str, _aws_pattern("LexModels", "SlotTypeName")]] = None
 
 
 # This class is the input for the 'get_utterances_view' function.
 class GetUtterancesViewRequestTypeDef(BaseValidatorModel):
-    botName: str
-    botVersions: List[str]
+    botName: Annotated[str, _aws_pattern("LexModels", "BotName")]
+    botVersions: List[Annotated[str, _aws_pattern("LexModels", "Version")]]
     statusType: StatusTypeType
 
 
@@ -417,10 +419,10 @@ class SlotTypeRegexConfigurationTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'start_migration' function.
 class StartMigrationRequestTypeDef(BaseValidatorModel):
-    v1BotName: str
-    v1BotVersion: str
-    v2BotName: str
-    v2BotRole: str
+    v1BotName: Annotated[str, _aws_pattern("LexModels", "BotName")]
+    v1BotVersion: Annotated[str, _aws_pattern("LexModels", "Version")]
+    v2BotName: Annotated[str, _aws_pattern("LexModels", "V2BotName")]
+    v2BotRole: Annotated[str, _aws_pattern("LexModels", "IamRoleArn")]
     migrationStrategy: MigrationStrategyType
 
 
@@ -444,12 +446,12 @@ class FulfillmentActivityTypeDef(BaseValidatorModel):
 
 class ConversationLogsRequestTypeDef(BaseValidatorModel):
     logSettings: List[LogSettingsRequestTypeDef]
-    iamRoleArn: str
+    iamRoleArn: Annotated[str, _aws_pattern("LexModels", "IamRoleArn")]
 
 
 class ConversationLogsResponseTypeDef(BaseValidatorModel):
     logSettings: Optional[List[LogSettingsResponseTypeDef]] = None
-    iamRoleArn: Optional[str] = None
+    iamRoleArn: Optional[Annotated[str, _aws_pattern("LexModels", "IamRoleArn")]] = None
 
 
 # This class is the output for the 'delete_bot' function.
@@ -459,10 +461,10 @@ class EmptyResponseMetadataTypeDef(BaseValidatorModel):
 
 # This class is the output for the 'get_bot_channel_association' function.
 class GetBotChannelAssociationResponseTypeDef(BaseValidatorModel):
-    name: str
+    name: Annotated[str, _aws_pattern("LexModels", "BotChannelName")]
     description: str
-    botAlias: str
-    botName: str
+    botAlias: Annotated[str, _aws_pattern("LexModels", "AliasName")]
+    botName: Annotated[str, _aws_pattern("LexModels", "BotName")]
     createdDate: datetime
     type: ChannelTypeType
     botConfiguration: Dict[str, str]
@@ -516,8 +518,8 @@ class GetBuiltinSlotTypesResponseTypeDef(BaseValidatorModel):
 
 # This class is the output for the 'get_export' function.
 class GetExportResponseTypeDef(BaseValidatorModel):
-    name: str
-    version: str
+    name: Annotated[str, _aws_pattern("LexModels", "Name")]
+    version: Annotated[str, _aws_pattern("LexModels", "NumericalVersion")]
     resourceType: ResourceTypeType
     exportType: ExportTypeType
     exportStatus: ExportStatusType
@@ -528,7 +530,7 @@ class GetExportResponseTypeDef(BaseValidatorModel):
 
 # This class is the output for the 'get_import' function.
 class GetImportResponseTypeDef(BaseValidatorModel):
-    name: str
+    name: Annotated[str, _aws_pattern("LexModels", "Name")]
     resourceType: ResourceTypeType
     mergeStrategy: MergeStrategyType
     importId: str
@@ -540,12 +542,12 @@ class GetImportResponseTypeDef(BaseValidatorModel):
 
 # This class is the output for the 'start_migration' function.
 class StartMigrationResponseTypeDef(BaseValidatorModel):
-    v1BotName: str
-    v1BotVersion: str
+    v1BotName: Annotated[str, _aws_pattern("LexModels", "BotName")]
+    v1BotVersion: Annotated[str, _aws_pattern("LexModels", "Version")]
     v1BotLocale: LocaleType
-    v2BotId: str
-    v2BotRole: str
-    migrationId: str
+    v2BotId: Annotated[str, _aws_pattern("LexModels", "V2BotId")]
+    v2BotRole: Annotated[str, _aws_pattern("LexModels", "IamRoleArn")]
+    migrationId: Annotated[str, _aws_pattern("LexModels", "MigrationId")]
     migrationStrategy: MigrationStrategyType
     migrationTimestamp: datetime
     ResponseMetadata: ResponseMetadataTypeDef
@@ -625,12 +627,12 @@ class GetIntentsResponseTypeDef(BaseValidatorModel):
 
 # This class is the output for the 'get_migration' function.
 class GetMigrationResponseTypeDef(BaseValidatorModel):
-    migrationId: str
-    v1BotName: str
-    v1BotVersion: str
+    migrationId: Annotated[str, _aws_pattern("LexModels", "MigrationId")]
+    v1BotName: Annotated[str, _aws_pattern("LexModels", "BotName")]
+    v1BotVersion: Annotated[str, _aws_pattern("LexModels", "Version")]
     v1BotLocale: LocaleType
-    v2BotId: str
-    v2BotRole: str
+    v2BotId: Annotated[str, _aws_pattern("LexModels", "V2BotId")]
+    v2BotRole: Annotated[str, _aws_pattern("LexModels", "IamRoleArn")]
     migrationStatus: MigrationStatusType
     migrationStrategy: MigrationStrategyType
     migrationTimestamp: datetime
@@ -675,7 +677,7 @@ class StartImportRequestTypeDef(BaseValidatorModel):
 
 # This class is the output for the 'start_import' function.
 class StartImportResponseTypeDef(BaseValidatorModel):
-    name: str
+    name: Annotated[str, _aws_pattern("LexModels", "Name")]
     resourceType: ResourceTypeType
     mergeStrategy: MergeStrategyType
     importId: str
@@ -725,15 +727,15 @@ class SlotTypeConfigurationTypeDef(BaseValidatorModel):
 
 
 class UtteranceListTypeDef(BaseValidatorModel):
-    botVersion: Optional[str] = None
+    botVersion: Optional[Annotated[str, _aws_pattern("LexModels", "Version")]] = None
     utterances: Optional[List[UtteranceDataTypeDef]] = None
 
 
 # This class is the input for the 'put_bot_alias' function.
 class PutBotAliasRequestTypeDef(BaseValidatorModel):
-    name: str
-    botVersion: str
-    botName: str
+    name: Annotated[str, _aws_pattern("LexModels", "AliasName")]
+    botVersion: Annotated[str, _aws_pattern("LexModels", "Version")]
+    botName: Annotated[str, _aws_pattern("LexModels", "BotName")]
     description: Optional[str] = None
     checksum: Optional[str] = None
     conversationLogs: Optional[ConversationLogsRequestTypeDef] = None
@@ -741,10 +743,10 @@ class PutBotAliasRequestTypeDef(BaseValidatorModel):
 
 
 class BotAliasMetadataTypeDef(BaseValidatorModel):
-    name: Optional[str] = None
+    name: Optional[Annotated[str, _aws_pattern("LexModels", "AliasName")]] = None
     description: Optional[str] = None
-    botVersion: Optional[str] = None
-    botName: Optional[str] = None
+    botVersion: Optional[Annotated[str, _aws_pattern("LexModels", "Version")]] = None
+    botName: Optional[Annotated[str, _aws_pattern("LexModels", "BotName")]] = None
     lastUpdatedDate: Optional[datetime] = None
     createdDate: Optional[datetime] = None
     checksum: Optional[str] = None
@@ -753,10 +755,10 @@ class BotAliasMetadataTypeDef(BaseValidatorModel):
 
 # This class is the output for the 'get_bot_alias' function.
 class GetBotAliasResponseTypeDef(BaseValidatorModel):
-    name: str
+    name: Annotated[str, _aws_pattern("LexModels", "AliasName")]
     description: str
-    botVersion: str
-    botName: str
+    botVersion: Annotated[str, _aws_pattern("LexModels", "Version")]
+    botName: Annotated[str, _aws_pattern("LexModels", "BotName")]
     lastUpdatedDate: datetime
     createdDate: datetime
     checksum: str
@@ -766,10 +768,10 @@ class GetBotAliasResponseTypeDef(BaseValidatorModel):
 
 # This class is the output for the 'put_bot_alias' function.
 class PutBotAliasResponseTypeDef(BaseValidatorModel):
-    name: str
+    name: Annotated[str, _aws_pattern("LexModels", "AliasName")]
     description: str
-    botVersion: str
-    botName: str
+    botVersion: Annotated[str, _aws_pattern("LexModels", "Version")]
+    botName: Annotated[str, _aws_pattern("LexModels", "BotName")]
     lastUpdatedDate: datetime
     createdDate: datetime
     checksum: str
@@ -783,7 +785,7 @@ PromptUnionTypeDef = Union[PromptOutputTypeDef, PromptTypeDef]
 
 # This class is the output for the 'create_bot_version' function.
 class CreateBotVersionResponseTypeDef(BaseValidatorModel):
-    name: str
+    name: Annotated[str, _aws_pattern("LexModels", "BotName")]
     description: str
     intents: List[IntentTypeDef]
     clarificationPrompt: PromptOutputTypeDef
@@ -795,7 +797,7 @@ class CreateBotVersionResponseTypeDef(BaseValidatorModel):
     idleSessionTTLInSeconds: int
     voiceId: str
     checksum: str
-    version: str
+    version: Annotated[str, _aws_pattern("LexModels", "Version")]
     locale: LocaleType
     childDirected: bool
     enableModelImprovements: bool
@@ -810,7 +812,7 @@ class FollowUpPromptOutputTypeDef(BaseValidatorModel):
 
 # This class is the output for the 'get_bot' function.
 class GetBotResponseTypeDef(BaseValidatorModel):
-    name: str
+    name: Annotated[str, _aws_pattern("LexModels", "BotName")]
     description: str
     intents: List[IntentTypeDef]
     enableModelImprovements: bool
@@ -824,7 +826,7 @@ class GetBotResponseTypeDef(BaseValidatorModel):
     idleSessionTTLInSeconds: int
     voiceId: str
     checksum: str
-    version: str
+    version: Annotated[str, _aws_pattern("LexModels", "Version")]
     locale: LocaleType
     childDirected: bool
     detectSentiment: bool
@@ -833,7 +835,7 @@ class GetBotResponseTypeDef(BaseValidatorModel):
 
 # This class is the output for the 'put_bot' function.
 class PutBotResponseTypeDef(BaseValidatorModel):
-    name: str
+    name: Annotated[str, _aws_pattern("LexModels", "BotName")]
     description: str
     intents: List[IntentTypeDef]
     enableModelImprovements: bool
@@ -847,7 +849,7 @@ class PutBotResponseTypeDef(BaseValidatorModel):
     idleSessionTTLInSeconds: int
     voiceId: str
     checksum: str
-    version: str
+    version: Annotated[str, _aws_pattern("LexModels", "Version")]
     locale: LocaleType
     childDirected: bool
     createVersion: bool
@@ -883,65 +885,65 @@ SlotDefaultValueSpecUnionTypeDef = Union[SlotDefaultValueSpecOutputTypeDef, Slot
 
 # This class is the output for the 'create_slot_type_version' function.
 class CreateSlotTypeVersionResponseTypeDef(BaseValidatorModel):
-    name: str
+    name: Annotated[str, _aws_pattern("LexModels", "SlotTypeName")]
     description: str
     enumerationValues: List[EnumerationValueOutputTypeDef]
     lastUpdatedDate: datetime
     createdDate: datetime
-    version: str
+    version: Annotated[str, _aws_pattern("LexModels", "Version")]
     checksum: str
     valueSelectionStrategy: SlotValueSelectionStrategyType
-    parentSlotTypeSignature: str
+    parentSlotTypeSignature: Annotated[str, _aws_pattern("LexModels", "CustomOrBuiltinSlotTypeName")]
     slotTypeConfigurations: List[SlotTypeConfigurationTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 # This class is the output for the 'get_slot_type' function.
 class GetSlotTypeResponseTypeDef(BaseValidatorModel):
-    name: str
+    name: Annotated[str, _aws_pattern("LexModels", "SlotTypeName")]
     description: str
     enumerationValues: List[EnumerationValueOutputTypeDef]
     lastUpdatedDate: datetime
     createdDate: datetime
-    version: str
+    version: Annotated[str, _aws_pattern("LexModels", "Version")]
     checksum: str
     valueSelectionStrategy: SlotValueSelectionStrategyType
-    parentSlotTypeSignature: str
+    parentSlotTypeSignature: Annotated[str, _aws_pattern("LexModels", "CustomOrBuiltinSlotTypeName")]
     slotTypeConfigurations: List[SlotTypeConfigurationTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 # This class is the input for the 'put_slot_type' function.
 class PutSlotTypeRequestTypeDef(BaseValidatorModel):
-    name: str
+    name: Annotated[str, _aws_pattern("LexModels", "SlotTypeName")]
     description: Optional[str] = None
     enumerationValues: Optional[List[EnumerationValueUnionTypeDef]] = None
     checksum: Optional[str] = None
     valueSelectionStrategy: Optional[SlotValueSelectionStrategyType] = None
     createVersion: Optional[bool] = None
-    parentSlotTypeSignature: Optional[str] = None
+    parentSlotTypeSignature: Optional[Annotated[str, _aws_pattern("LexModels", "CustomOrBuiltinSlotTypeName")]] = None
     slotTypeConfigurations: Optional[List[SlotTypeConfigurationTypeDef]] = None
 
 
 # This class is the output for the 'put_slot_type' function.
 class PutSlotTypeResponseTypeDef(BaseValidatorModel):
-    name: str
+    name: Annotated[str, _aws_pattern("LexModels", "SlotTypeName")]
     description: str
     enumerationValues: List[EnumerationValueOutputTypeDef]
     lastUpdatedDate: datetime
     createdDate: datetime
-    version: str
+    version: Annotated[str, _aws_pattern("LexModels", "Version")]
     checksum: str
     valueSelectionStrategy: SlotValueSelectionStrategyType
     createVersion: bool
-    parentSlotTypeSignature: str
+    parentSlotTypeSignature: Annotated[str, _aws_pattern("LexModels", "CustomOrBuiltinSlotTypeName")]
     slotTypeConfigurations: List[SlotTypeConfigurationTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 # This class is the output for the 'get_utterances_view' function.
 class GetUtterancesViewResponseTypeDef(BaseValidatorModel):
-    botName: str
+    botName: Annotated[str, _aws_pattern("LexModels", "BotName")]
     utterances: List[UtteranceListTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
 
@@ -958,7 +960,7 @@ FollowUpPromptUnionTypeDef = Union[FollowUpPromptOutputTypeDef, FollowUpPromptTy
 
 # This class is the input for the 'put_bot' function.
 class PutBotRequestTypeDef(BaseValidatorModel):
-    name: str
+    name: Annotated[str, _aws_pattern("LexModels", "BotName")]
     locale: LocaleType
     childDirected: bool
     description: Optional[str] = None
@@ -978,7 +980,7 @@ class PutBotRequestTypeDef(BaseValidatorModel):
 
 # This class is the output for the 'create_intent_version' function.
 class CreateIntentVersionResponseTypeDef(BaseValidatorModel):
-    name: str
+    name: Annotated[str, _aws_pattern("LexModels", "IntentName")]
     description: str
     slots: List[SlotOutputTypeDef]
     sampleUtterances: List[str]
@@ -991,7 +993,7 @@ class CreateIntentVersionResponseTypeDef(BaseValidatorModel):
     parentIntentSignature: str
     lastUpdatedDate: datetime
     createdDate: datetime
-    version: str
+    version: Annotated[str, _aws_pattern("LexModels", "Version")]
     checksum: str
     kendraConfiguration: KendraConfigurationTypeDef
     inputContexts: List[InputContextTypeDef]
@@ -1001,7 +1003,7 @@ class CreateIntentVersionResponseTypeDef(BaseValidatorModel):
 
 # This class is the output for the 'get_intent' function.
 class GetIntentResponseTypeDef(BaseValidatorModel):
-    name: str
+    name: Annotated[str, _aws_pattern("LexModels", "IntentName")]
     description: str
     slots: List[SlotOutputTypeDef]
     sampleUtterances: List[str]
@@ -1014,7 +1016,7 @@ class GetIntentResponseTypeDef(BaseValidatorModel):
     parentIntentSignature: str
     lastUpdatedDate: datetime
     createdDate: datetime
-    version: str
+    version: Annotated[str, _aws_pattern("LexModels", "Version")]
     checksum: str
     kendraConfiguration: KendraConfigurationTypeDef
     inputContexts: List[InputContextTypeDef]
@@ -1024,7 +1026,7 @@ class GetIntentResponseTypeDef(BaseValidatorModel):
 
 # This class is the output for the 'put_intent' function.
 class PutIntentResponseTypeDef(BaseValidatorModel):
-    name: str
+    name: Annotated[str, _aws_pattern("LexModels", "IntentName")]
     description: str
     slots: List[SlotOutputTypeDef]
     sampleUtterances: List[str]
@@ -1037,7 +1039,7 @@ class PutIntentResponseTypeDef(BaseValidatorModel):
     parentIntentSignature: str
     lastUpdatedDate: datetime
     createdDate: datetime
-    version: str
+    version: Annotated[str, _aws_pattern("LexModels", "Version")]
     checksum: str
     createVersion: bool
     kendraConfiguration: KendraConfigurationTypeDef
@@ -1047,11 +1049,11 @@ class PutIntentResponseTypeDef(BaseValidatorModel):
 
 
 class SlotTypeDef(BaseValidatorModel):
-    name: str
+    name: Annotated[str, _aws_pattern("LexModels", "SlotName")]
     slotConstraint: SlotConstraintType
     description: Optional[str] = None
-    slotType: Optional[str] = None
-    slotTypeVersion: Optional[str] = None
+    slotType: Optional[Annotated[str, _aws_pattern("LexModels", "CustomOrBuiltinSlotTypeName")]] = None
+    slotTypeVersion: Optional[Annotated[str, _aws_pattern("LexModels", "Version")]] = None
     valueElicitationPrompt: Optional[PromptUnionTypeDef] = None
     priority: Optional[int] = None
     sampleUtterances: Optional[List[str]] = None
@@ -1065,7 +1067,7 @@ SlotUnionTypeDef = Union[SlotOutputTypeDef, SlotTypeDef]
 
 # This class is the input for the 'put_intent' function.
 class PutIntentRequestTypeDef(BaseValidatorModel):
-    name: str
+    name: Annotated[str, _aws_pattern("LexModels", "IntentName")]
     description: Optional[str] = None
     slots: Optional[List[SlotUnionTypeDef]] = None
     sampleUtterances: Optional[List[str]] = None

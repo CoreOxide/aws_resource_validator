@@ -3,6 +3,7 @@
 from datetime import datetime
 from decimal import Decimal
 from typing import (
+    Annotated,
     Any,
     Callable,
     Dict,
@@ -24,6 +25,7 @@ from botocore.response import StreamingBody
 from pydantic import Field
 
 from aws_resource_validator.core.base_validator_model import BaseValidatorModel, EventStream
+from aws_resource_validator.core.pattern_validation import aws_field_pattern as _aws_pattern
 from aws_resource_validator.pydantic_models.resource_groups.resource_groups_constants import *  # noqa: F401,F403
 
 # Optional boto3 symbols — imported lazily so services that don't need them
@@ -46,21 +48,21 @@ class AccountSettingsTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'cancel_tag_sync_task' function.
 class CancelTagSyncTaskInputTypeDef(BaseValidatorModel):
-    TaskArn: str
+    TaskArn: Annotated[str, _aws_pattern("ResourceGroups", "TagSyncTaskArn")]
 
 
 class ResourceQueryTypeDef(BaseValidatorModel):
     Type: QueryTypeType
-    Query: str
+    Query: Annotated[str, _aws_pattern("ResourceGroups", "Query")]
 
 
 class GroupTypeDef(BaseValidatorModel):
-    GroupArn: str
-    Name: str
-    Description: Optional[str] = None
+    GroupArn: Annotated[str, _aws_pattern("ResourceGroups", "GroupArnV2")]
+    Name: Annotated[str, _aws_pattern("ResourceGroups", "GroupName")]
+    Description: Optional[Annotated[str, _aws_pattern("ResourceGroups", "Description")]] = None
     Criticality: Optional[int] = None
-    Owner: Optional[str] = None
-    DisplayName: Optional[str] = None
+    Owner: Optional[Annotated[str, _aws_pattern("ResourceGroups", "Owner")]] = None
+    DisplayName: Optional[Annotated[str, _aws_pattern("ResourceGroups", "DisplayName")]] = None
     ApplicationTag: Optional[Dict[str, str]] = None
 
 
@@ -74,41 +76,41 @@ class ResponseMetadataTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'delete_group' function.
 class DeleteGroupInputTypeDef(BaseValidatorModel):
-    GroupName: Optional[str] = None
-    Group: Optional[str] = None
+    GroupName: Optional[Annotated[str, _aws_pattern("ResourceGroups", "GroupName")]] = None
+    Group: Optional[Annotated[str, _aws_pattern("ResourceGroups", "GroupStringV2")]] = None
 
 
 class FailedResourceTypeDef(BaseValidatorModel):
-    ResourceArn: Optional[str] = None
+    ResourceArn: Optional[Annotated[str, _aws_pattern("ResourceGroups", "ResourceArn")]] = None
     ErrorMessage: Optional[str] = None
     ErrorCode: Optional[str] = None
 
 
 # This class is the input for the 'get_group_configuration' function.
 class GetGroupConfigurationInputTypeDef(BaseValidatorModel):
-    Group: Optional[str] = None
+    Group: Optional[Annotated[str, _aws_pattern("ResourceGroups", "GroupString")]] = None
 
 
 # This class is the input for the 'get_group' function.
 class GetGroupInputTypeDef(BaseValidatorModel):
-    GroupName: Optional[str] = None
-    Group: Optional[str] = None
+    GroupName: Optional[Annotated[str, _aws_pattern("ResourceGroups", "GroupName")]] = None
+    Group: Optional[Annotated[str, _aws_pattern("ResourceGroups", "GroupStringV2")]] = None
 
 
 # This class is the input for the 'get_group_query' function.
 class GetGroupQueryInputTypeDef(BaseValidatorModel):
-    GroupName: Optional[str] = None
-    Group: Optional[str] = None
+    GroupName: Optional[Annotated[str, _aws_pattern("ResourceGroups", "GroupName")]] = None
+    Group: Optional[Annotated[str, _aws_pattern("ResourceGroups", "GroupString")]] = None
 
 
 # This class is the input for the 'get_tag_sync_task' function.
 class GetTagSyncTaskInputTypeDef(BaseValidatorModel):
-    TaskArn: str
+    TaskArn: Annotated[str, _aws_pattern("ResourceGroups", "TagSyncTaskArn")]
 
 
 # This class is the input for the 'get_tags' function.
 class GetTagsInputTypeDef(BaseValidatorModel):
-    Arn: str
+    Arn: Annotated[str, _aws_pattern("ResourceGroups", "GroupArnV2")]
 
 
 class GroupConfigurationParameterOutputTypeDef(BaseValidatorModel):
@@ -117,36 +119,36 @@ class GroupConfigurationParameterOutputTypeDef(BaseValidatorModel):
 
 
 class GroupConfigurationParameterTypeDef(BaseValidatorModel):
-    Name: str
-    Values: Optional[List[str]] = None
+    Name: Annotated[str, _aws_pattern("ResourceGroups", "GroupConfigurationParameterName")]
+    Values: Optional[List[Annotated[str, _aws_pattern("ResourceGroups", "GroupConfigurationParameterValue")]]] = None
 
 
 class GroupFilterTypeDef(BaseValidatorModel):
     Name: GroupFilterNameType
-    Values: List[str]
+    Values: List[Annotated[str, _aws_pattern("ResourceGroups", "GroupFilterValue")]]
 
 
 class GroupIdentifierTypeDef(BaseValidatorModel):
-    GroupName: Optional[str] = None
-    GroupArn: Optional[str] = None
-    Description: Optional[str] = None
+    GroupName: Optional[Annotated[str, _aws_pattern("ResourceGroups", "GroupName")]] = None
+    GroupArn: Optional[Annotated[str, _aws_pattern("ResourceGroups", "GroupArn")]] = None
+    Description: Optional[Annotated[str, _aws_pattern("ResourceGroups", "Description")]] = None
     Criticality: Optional[int] = None
-    Owner: Optional[str] = None
-    DisplayName: Optional[str] = None
+    Owner: Optional[Annotated[str, _aws_pattern("ResourceGroups", "Owner")]] = None
+    DisplayName: Optional[Annotated[str, _aws_pattern("ResourceGroups", "DisplayName")]] = None
 
 
 # This class is the input for the 'group_resources' function.
 class GroupResourcesInputTypeDef(BaseValidatorModel):
-    Group: str
-    ResourceArns: List[str]
+    Group: Annotated[str, _aws_pattern("ResourceGroups", "GroupStringV2")]
+    ResourceArns: List[Annotated[str, _aws_pattern("ResourceGroups", "ResourceArn")]]
 
 
 class PendingResourceTypeDef(BaseValidatorModel):
-    ResourceArn: Optional[str] = None
+    ResourceArn: Optional[Annotated[str, _aws_pattern("ResourceGroups", "ResourceArn")]] = None
 
 
 class GroupingStatusesItemTypeDef(BaseValidatorModel):
-    ResourceArn: Optional[str] = None
+    ResourceArn: Optional[Annotated[str, _aws_pattern("ResourceGroups", "ResourceArn")]] = None
     Action: Optional[GroupingTypeType] = None
     Status: Optional[GroupingStatusType] = None
     ErrorMessage: Optional[str] = None
@@ -162,12 +164,12 @@ class PaginatorConfigTypeDef(BaseValidatorModel):
 
 class ResourceFilterTypeDef(BaseValidatorModel):
     Name: Literal["resource-type"]
-    Values: List[str]
+    Values: List[Annotated[str, _aws_pattern("ResourceGroups", "ResourceFilterValue")]]
 
 
 class ResourceIdentifierTypeDef(BaseValidatorModel):
-    ResourceArn: Optional[str] = None
-    ResourceType: Optional[str] = None
+    ResourceArn: Optional[Annotated[str, _aws_pattern("ResourceGroups", "ResourceArn")]] = None
+    ResourceType: Optional[Annotated[str, _aws_pattern("ResourceGroups", "ResourceType")]] = None
 
 
 class ResourceStatusTypeDef(BaseValidatorModel):
@@ -181,30 +183,30 @@ class QueryErrorTypeDef(BaseValidatorModel):
 
 class ListGroupingStatusesFilterTypeDef(BaseValidatorModel):
     Name: ListGroupingStatusesFilterNameType
-    Values: List[str]
+    Values: List[Annotated[str, _aws_pattern("ResourceGroups", "ListGroupingStatusesFilterValue")]]
 
 
 class ListTagSyncTasksFilterTypeDef(BaseValidatorModel):
-    GroupArn: Optional[str] = None
-    GroupName: Optional[str] = None
+    GroupArn: Optional[Annotated[str, _aws_pattern("ResourceGroups", "GroupArnV2")]] = None
+    GroupName: Optional[Annotated[str, _aws_pattern("ResourceGroups", "GroupName")]] = None
 
 
 # This class is the input for the 'tag' function.
 class TagInputTypeDef(BaseValidatorModel):
-    Arn: str
+    Arn: Annotated[str, _aws_pattern("ResourceGroups", "GroupArnV2")]
     Tags: Dict[str, str]
 
 
 # This class is the input for the 'ungroup_resources' function.
 class UngroupResourcesInputTypeDef(BaseValidatorModel):
-    Group: str
-    ResourceArns: List[str]
+    Group: Annotated[str, _aws_pattern("ResourceGroups", "GroupStringV2")]
+    ResourceArns: List[Annotated[str, _aws_pattern("ResourceGroups", "ResourceArn")]]
 
 
 # This class is the input for the 'untag' function.
 class UntagInputTypeDef(BaseValidatorModel):
-    Arn: str
-    Keys: List[str]
+    Arn: Annotated[str, _aws_pattern("ResourceGroups", "GroupArnV2")]
+    Keys: List[Annotated[str, _aws_pattern("ResourceGroups", "TagKey")]]
 
 
 # This class is the input for the 'update_account_settings' function.
@@ -214,16 +216,16 @@ class UpdateAccountSettingsInputTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'update_group' function.
 class UpdateGroupInputTypeDef(BaseValidatorModel):
-    GroupName: Optional[str] = None
-    Group: Optional[str] = None
-    Description: Optional[str] = None
+    GroupName: Optional[Annotated[str, _aws_pattern("ResourceGroups", "GroupName")]] = None
+    Group: Optional[Annotated[str, _aws_pattern("ResourceGroups", "GroupStringV2")]] = None
+    Description: Optional[Annotated[str, _aws_pattern("ResourceGroups", "Description")]] = None
     Criticality: Optional[int] = None
-    Owner: Optional[str] = None
-    DisplayName: Optional[str] = None
+    Owner: Optional[Annotated[str, _aws_pattern("ResourceGroups", "Owner")]] = None
+    DisplayName: Optional[Annotated[str, _aws_pattern("ResourceGroups", "DisplayName")]] = None
 
 
 class GroupQueryTypeDef(BaseValidatorModel):
-    GroupName: str
+    GroupName: Annotated[str, _aws_pattern("ResourceGroups", "GroupName")]
     ResourceQuery: ResourceQueryTypeDef
 
 
@@ -231,26 +233,26 @@ class GroupQueryTypeDef(BaseValidatorModel):
 class SearchResourcesInputTypeDef(BaseValidatorModel):
     ResourceQuery: ResourceQueryTypeDef
     MaxResults: Optional[int] = None
-    NextToken: Optional[str] = None
+    NextToken: Optional[Annotated[str, _aws_pattern("ResourceGroups", "NextToken")]] = None
 
 
 # This class is the input for the 'start_tag_sync_task' function.
 class StartTagSyncTaskInputTypeDef(BaseValidatorModel):
-    Group: str
-    RoleArn: str
-    TagKey: Optional[str] = None
-    TagValue: Optional[str] = None
+    Group: Annotated[str, _aws_pattern("ResourceGroups", "GroupStringV2")]
+    RoleArn: Annotated[str, _aws_pattern("ResourceGroups", "RoleArn")]
+    TagKey: Optional[Annotated[str, _aws_pattern("ResourceGroups", "TagKey")]] = None
+    TagValue: Optional[Annotated[str, _aws_pattern("ResourceGroups", "TagValue")]] = None
     ResourceQuery: Optional[ResourceQueryTypeDef] = None
 
 
 class TagSyncTaskItemTypeDef(BaseValidatorModel):
-    GroupArn: Optional[str] = None
-    GroupName: Optional[str] = None
-    TaskArn: Optional[str] = None
-    TagKey: Optional[str] = None
-    TagValue: Optional[str] = None
+    GroupArn: Optional[Annotated[str, _aws_pattern("ResourceGroups", "GroupArnV2")]] = None
+    GroupName: Optional[Annotated[str, _aws_pattern("ResourceGroups", "GroupName")]] = None
+    TaskArn: Optional[Annotated[str, _aws_pattern("ResourceGroups", "TagSyncTaskArn")]] = None
+    TagKey: Optional[Annotated[str, _aws_pattern("ResourceGroups", "TagKey")]] = None
+    TagValue: Optional[Annotated[str, _aws_pattern("ResourceGroups", "TagValue")]] = None
     ResourceQuery: Optional[ResourceQueryTypeDef] = None
-    RoleArn: Optional[str] = None
+    RoleArn: Optional[Annotated[str, _aws_pattern("ResourceGroups", "RoleArn")]] = None
     Status: Optional[TagSyncTaskStatusType] = None
     ErrorMessage: Optional[str] = None
     CreatedAt: Optional[datetime] = None
@@ -259,8 +261,8 @@ class TagSyncTaskItemTypeDef(BaseValidatorModel):
 # This class is the input for the 'update_group_query' function.
 class UpdateGroupQueryInputTypeDef(BaseValidatorModel):
     ResourceQuery: ResourceQueryTypeDef
-    GroupName: Optional[str] = None
-    Group: Optional[str] = None
+    GroupName: Optional[Annotated[str, _aws_pattern("ResourceGroups", "GroupName")]] = None
+    Group: Optional[Annotated[str, _aws_pattern("ResourceGroups", "GroupString")]] = None
 
 
 # This class is the output for the 'delete_group' function.
@@ -287,13 +289,13 @@ class GetGroupOutputTypeDef(BaseValidatorModel):
 
 # This class is the output for the 'get_tag_sync_task' function.
 class GetTagSyncTaskOutputTypeDef(BaseValidatorModel):
-    GroupArn: str
-    GroupName: str
-    TaskArn: str
-    TagKey: str
-    TagValue: str
+    GroupArn: Annotated[str, _aws_pattern("ResourceGroups", "GroupArnV2")]
+    GroupName: Annotated[str, _aws_pattern("ResourceGroups", "GroupName")]
+    TaskArn: Annotated[str, _aws_pattern("ResourceGroups", "TagSyncTaskArn")]
+    TagKey: Annotated[str, _aws_pattern("ResourceGroups", "TagKey")]
+    TagValue: Annotated[str, _aws_pattern("ResourceGroups", "TagValue")]
     ResourceQuery: ResourceQueryTypeDef
-    RoleArn: str
+    RoleArn: Annotated[str, _aws_pattern("ResourceGroups", "RoleArn")]
     Status: TagSyncTaskStatusType
     ErrorMessage: str
     CreatedAt: datetime
@@ -302,34 +304,34 @@ class GetTagSyncTaskOutputTypeDef(BaseValidatorModel):
 
 # This class is the output for the 'get_tags' function.
 class GetTagsOutputTypeDef(BaseValidatorModel):
-    Arn: str
+    Arn: Annotated[str, _aws_pattern("ResourceGroups", "GroupArnV2")]
     Tags: Dict[str, str]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 # This class is the output for the 'start_tag_sync_task' function.
 class StartTagSyncTaskOutputTypeDef(BaseValidatorModel):
-    GroupArn: str
-    GroupName: str
-    TaskArn: str
-    TagKey: str
-    TagValue: str
+    GroupArn: Annotated[str, _aws_pattern("ResourceGroups", "GroupArnV2")]
+    GroupName: Annotated[str, _aws_pattern("ResourceGroups", "GroupName")]
+    TaskArn: Annotated[str, _aws_pattern("ResourceGroups", "TagSyncTaskArn")]
+    TagKey: Annotated[str, _aws_pattern("ResourceGroups", "TagKey")]
+    TagValue: Annotated[str, _aws_pattern("ResourceGroups", "TagValue")]
     ResourceQuery: ResourceQueryTypeDef
-    RoleArn: str
+    RoleArn: Annotated[str, _aws_pattern("ResourceGroups", "RoleArn")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 # This class is the output for the 'tag' function.
 class TagOutputTypeDef(BaseValidatorModel):
-    Arn: str
+    Arn: Annotated[str, _aws_pattern("ResourceGroups", "GroupArnV2")]
     Tags: Dict[str, str]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 # This class is the output for the 'untag' function.
 class UntagOutputTypeDef(BaseValidatorModel):
-    Arn: str
-    Keys: List[str]
+    Arn: Annotated[str, _aws_pattern("ResourceGroups", "GroupArnV2")]
+    Keys: List[Annotated[str, _aws_pattern("ResourceGroups", "TagKey")]]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
@@ -359,7 +361,7 @@ GroupConfigurationParameterUnionTypeDef = Union[
 class ListGroupsInputTypeDef(BaseValidatorModel):
     Filters: Optional[List[GroupFilterTypeDef]] = None
     MaxResults: Optional[int] = None
-    NextToken: Optional[str] = None
+    NextToken: Optional[Annotated[str, _aws_pattern("ResourceGroups", "NextToken")]] = None
 
 
 # This class is the output for the 'list_groups' function.
@@ -367,12 +369,12 @@ class ListGroupsOutputTypeDef(BaseValidatorModel):
     GroupIdentifiers: List[GroupIdentifierTypeDef]
     Groups: List[GroupTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
-    NextToken: Optional[str] = None
+    NextToken: Optional[Annotated[str, _aws_pattern("ResourceGroups", "NextToken")]] = None
 
 
 # This class is the output for the 'group_resources' function.
 class GroupResourcesOutputTypeDef(BaseValidatorModel):
-    Succeeded: List[str]
+    Succeeded: List[Annotated[str, _aws_pattern("ResourceGroups", "ResourceArn")]]
     Failed: List[FailedResourceTypeDef]
     Pending: List[PendingResourceTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
@@ -380,7 +382,7 @@ class GroupResourcesOutputTypeDef(BaseValidatorModel):
 
 # This class is the output for the 'ungroup_resources' function.
 class UngroupResourcesOutputTypeDef(BaseValidatorModel):
-    Succeeded: List[str]
+    Succeeded: List[Annotated[str, _aws_pattern("ResourceGroups", "ResourceArn")]]
     Failed: List[FailedResourceTypeDef]
     Pending: List[PendingResourceTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
@@ -388,10 +390,10 @@ class UngroupResourcesOutputTypeDef(BaseValidatorModel):
 
 # This class is the output for the 'list_grouping_statuses' function.
 class ListGroupingStatusesOutputTypeDef(BaseValidatorModel):
-    Group: str
+    Group: Annotated[str, _aws_pattern("ResourceGroups", "GroupStringV2")]
     GroupingStatuses: List[GroupingStatusesItemTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
-    NextToken: Optional[str] = None
+    NextToken: Optional[Annotated[str, _aws_pattern("ResourceGroups", "NextToken")]] = None
 
 
 class ListGroupsInputPaginateTypeDef(BaseValidatorModel):
@@ -413,11 +415,11 @@ class ListGroupResourcesInputPaginateTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'list_group_resources' function.
 class ListGroupResourcesInputTypeDef(BaseValidatorModel):
-    GroupName: Optional[str] = None
-    Group: Optional[str] = None
+    GroupName: Optional[Annotated[str, _aws_pattern("ResourceGroups", "GroupName")]] = None
+    Group: Optional[Annotated[str, _aws_pattern("ResourceGroups", "GroupStringV2")]] = None
     Filters: Optional[List[ResourceFilterTypeDef]] = None
     MaxResults: Optional[int] = None
-    NextToken: Optional[str] = None
+    NextToken: Optional[Annotated[str, _aws_pattern("ResourceGroups", "NextToken")]] = None
 
 
 class ListGroupResourcesItemTypeDef(BaseValidatorModel):
@@ -430,7 +432,7 @@ class SearchResourcesOutputTypeDef(BaseValidatorModel):
     ResourceIdentifiers: List[ResourceIdentifierTypeDef]
     QueryErrors: List[QueryErrorTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
-    NextToken: Optional[str] = None
+    NextToken: Optional[Annotated[str, _aws_pattern("ResourceGroups", "NextToken")]] = None
 
 
 class ListGroupingStatusesInputPaginateTypeDef(BaseValidatorModel):
@@ -441,10 +443,10 @@ class ListGroupingStatusesInputPaginateTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'list_grouping_statuses' function.
 class ListGroupingStatusesInputTypeDef(BaseValidatorModel):
-    Group: str
+    Group: Annotated[str, _aws_pattern("ResourceGroups", "GroupStringV2")]
     MaxResults: Optional[int] = None
     Filters: Optional[List[ListGroupingStatusesFilterTypeDef]] = None
-    NextToken: Optional[str] = None
+    NextToken: Optional[Annotated[str, _aws_pattern("ResourceGroups", "NextToken")]] = None
 
 
 class ListTagSyncTasksInputPaginateTypeDef(BaseValidatorModel):
@@ -456,7 +458,7 @@ class ListTagSyncTasksInputPaginateTypeDef(BaseValidatorModel):
 class ListTagSyncTasksInputTypeDef(BaseValidatorModel):
     Filters: Optional[List[ListTagSyncTasksFilterTypeDef]] = None
     MaxResults: Optional[int] = None
-    NextToken: Optional[str] = None
+    NextToken: Optional[Annotated[str, _aws_pattern("ResourceGroups", "NextToken")]] = None
 
 
 # This class is the output for the 'get_group_query' function.
@@ -475,7 +477,7 @@ class UpdateGroupQueryOutputTypeDef(BaseValidatorModel):
 class ListTagSyncTasksOutputTypeDef(BaseValidatorModel):
     TagSyncTasks: List[TagSyncTaskItemTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
-    NextToken: Optional[str] = None
+    NextToken: Optional[Annotated[str, _aws_pattern("ResourceGroups", "NextToken")]] = None
 
 
 class GroupConfigurationTypeDef(BaseValidatorModel):
@@ -486,7 +488,7 @@ class GroupConfigurationTypeDef(BaseValidatorModel):
 
 
 class GroupConfigurationItemTypeDef(BaseValidatorModel):
-    Type: str
+    Type: Annotated[str, _aws_pattern("ResourceGroups", "GroupConfigurationType")]
     Parameters: Optional[List[GroupConfigurationParameterUnionTypeDef]] = None
 
 
@@ -496,7 +498,7 @@ class ListGroupResourcesOutputTypeDef(BaseValidatorModel):
     ResourceIdentifiers: List[ResourceIdentifierTypeDef]
     QueryErrors: List[QueryErrorTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
-    NextToken: Optional[str] = None
+    NextToken: Optional[Annotated[str, _aws_pattern("ResourceGroups", "NextToken")]] = None
 
 
 # This class is the output for the 'create_group' function.
@@ -519,16 +521,16 @@ GroupConfigurationItemUnionTypeDef = Union[GroupConfigurationItemOutputTypeDef, 
 
 # This class is the input for the 'create_group' function.
 class CreateGroupInputTypeDef(BaseValidatorModel):
-    Name: str
-    Description: Optional[str] = None
+    Name: Annotated[str, _aws_pattern("ResourceGroups", "CreateGroupName")]
+    Description: Optional[Annotated[str, _aws_pattern("ResourceGroups", "Description")]] = None
     ResourceQuery: Optional[ResourceQueryTypeDef] = None
     Tags: Optional[Dict[str, str]] = None
     Configuration: Optional[List[GroupConfigurationItemUnionTypeDef]] = None
     Criticality: Optional[int] = None
-    Owner: Optional[str] = None
-    DisplayName: Optional[str] = None
+    Owner: Optional[Annotated[str, _aws_pattern("ResourceGroups", "Owner")]] = None
+    DisplayName: Optional[Annotated[str, _aws_pattern("ResourceGroups", "DisplayName")]] = None
 
 
 class PutGroupConfigurationInputTypeDef(BaseValidatorModel):
-    Group: Optional[str] = None
+    Group: Optional[Annotated[str, _aws_pattern("ResourceGroups", "GroupString")]] = None
     Configuration: Optional[List[GroupConfigurationItemUnionTypeDef]] = None

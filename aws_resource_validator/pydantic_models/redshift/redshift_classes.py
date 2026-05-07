@@ -3,6 +3,7 @@
 from datetime import datetime
 from decimal import Decimal
 from typing import (
+    Annotated,
     Any,
     Callable,
     Dict,
@@ -24,6 +25,7 @@ from botocore.response import StreamingBody
 from pydantic import Field
 
 from aws_resource_validator.core.base_validator_model import BaseValidatorModel, EventStream
+from aws_resource_validator.core.pattern_validation import aws_field_pattern as _aws_pattern
 from aws_resource_validator.pydantic_models.redshift.redshift_constants import *  # noqa: F401,F403
 
 # Optional boto3 symbols — imported lazily so services that don't need them
@@ -81,7 +83,9 @@ class CertificateAssociationTypeDef(BaseValidatorModel):
 
 
 class AuthenticationProfileTypeDef(BaseValidatorModel):
-    AuthenticationProfileName: Optional[str] = None
+    AuthenticationProfileName: Optional[Annotated[str, _aws_pattern("Redshift", "AuthenticationProfileNameString")]] = (
+        None
+    )
     AuthenticationProfileContent: Optional[str] = None
 
 
@@ -301,14 +305,14 @@ class CopyClusterSnapshotMessageTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'create_authentication_profile' function.
 class CreateAuthenticationProfileMessageTypeDef(BaseValidatorModel):
-    AuthenticationProfileName: str
+    AuthenticationProfileName: Annotated[str, _aws_pattern("Redshift", "AuthenticationProfileNameString")]
     AuthenticationProfileContent: str
 
 
 # This class is the input for the 'create_custom_domain_association' function.
 class CreateCustomDomainAssociationMessageTypeDef(BaseValidatorModel):
-    CustomDomainName: str
-    CustomDomainCertificateArn: str
+    CustomDomainName: Annotated[str, _aws_pattern("Redshift", "CustomDomainNameString")]
+    CustomDomainCertificateArn: Annotated[str, _aws_pattern("Redshift", "CustomDomainCertificateArnString")]
     ClusterIdentifier: str
 
 
@@ -342,7 +346,7 @@ class DeauthorizeDataShareMessageTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'delete_authentication_profile' function.
 class DeleteAuthenticationProfileMessageTypeDef(BaseValidatorModel):
-    AuthenticationProfileName: str
+    AuthenticationProfileName: Annotated[str, _aws_pattern("Redshift", "AuthenticationProfileNameString")]
 
 
 # This class is the input for the 'delete_cluster' function.
@@ -377,7 +381,7 @@ class DeleteClusterSubnetGroupMessageTypeDef(BaseValidatorModel):
 # This class is the input for the 'delete_custom_domain_association' function.
 class DeleteCustomDomainAssociationMessageTypeDef(BaseValidatorModel):
     ClusterIdentifier: str
-    CustomDomainName: str
+    CustomDomainName: Annotated[str, _aws_pattern("Redshift", "CustomDomainNameString")]
 
 
 # This class is the input for the 'delete_endpoint_access' function.
@@ -402,7 +406,7 @@ class DeleteHsmConfigurationMessageTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'delete_integration' function.
 class DeleteIntegrationMessageTypeDef(BaseValidatorModel):
-    IntegrationArn: str
+    IntegrationArn: Annotated[str, _aws_pattern("Redshift", "IntegrationArn")]
 
 
 # This class is the input for the 'delete_redshift_idc_application' function.
@@ -448,7 +452,9 @@ class DescribeAccountAttributesMessageTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'describe_authentication_profiles' function.
 class DescribeAuthenticationProfilesMessageTypeDef(BaseValidatorModel):
-    AuthenticationProfileName: Optional[str] = None
+    AuthenticationProfileName: Optional[Annotated[str, _aws_pattern("Redshift", "AuthenticationProfileNameString")]] = (
+        None
+    )
 
 
 class PaginatorConfigTypeDef(BaseValidatorModel):
@@ -535,8 +541,10 @@ class DescribeClustersMessageTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'describe_custom_domain_associations' function.
 class DescribeCustomDomainAssociationsMessageTypeDef(BaseValidatorModel):
-    CustomDomainName: Optional[str] = None
-    CustomDomainCertificateArn: Optional[str] = None
+    CustomDomainName: Optional[Annotated[str, _aws_pattern("Redshift", "CustomDomainNameString")]] = None
+    CustomDomainCertificateArn: Optional[
+        Annotated[str, _aws_pattern("Redshift", "CustomDomainCertificateArnString")]
+    ] = None
     MaxRecords: Optional[int] = None
     Marker: Optional[str] = None
 
@@ -624,8 +632,8 @@ class DescribeHsmConfigurationsMessageTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'describe_inbound_integrations' function.
 class DescribeInboundIntegrationsMessageTypeDef(BaseValidatorModel):
-    IntegrationArn: Optional[str] = None
-    TargetArn: Optional[str] = None
+    IntegrationArn: Optional[Annotated[str, _aws_pattern("Redshift", "InboundIntegrationArn")]] = None
+    TargetArn: Optional[Annotated[str, _aws_pattern("Redshift", "TargetArn")]] = None
     MaxRecords: Optional[int] = None
     Marker: Optional[str] = None
 
@@ -656,17 +664,17 @@ class DescribeOrderableClusterOptionsMessageTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'describe_partners' function.
 class DescribePartnersInputMessageTypeDef(BaseValidatorModel):
-    AccountId: str
-    ClusterIdentifier: str
-    DatabaseName: Optional[str] = None
-    PartnerName: Optional[str] = None
+    AccountId: Annotated[str, _aws_pattern("Redshift", "PartnerIntegrationAccountId")]
+    ClusterIdentifier: Annotated[str, _aws_pattern("Redshift", "PartnerIntegrationClusterIdentifier")]
+    DatabaseName: Optional[Annotated[str, _aws_pattern("Redshift", "PartnerIntegrationDatabaseName")]] = None
+    PartnerName: Optional[Annotated[str, _aws_pattern("Redshift", "PartnerIntegrationPartnerName")]] = None
 
 
 class PartnerIntegrationInfoTypeDef(BaseValidatorModel):
-    DatabaseName: Optional[str] = None
-    PartnerName: Optional[str] = None
+    DatabaseName: Optional[Annotated[str, _aws_pattern("Redshift", "PartnerIntegrationDatabaseName")]] = None
+    PartnerName: Optional[Annotated[str, _aws_pattern("Redshift", "PartnerIntegrationPartnerName")]] = None
     Status: Optional[PartnerIntegrationStatusType] = None
-    StatusMessage: Optional[str] = None
+    StatusMessage: Optional[Annotated[str, _aws_pattern("Redshift", "PartnerIntegrationStatusMessage")]] = None
     CreatedAt: Optional[datetime] = None
     UpdatedAt: Optional[datetime] = None
 
@@ -780,7 +788,7 @@ class DisassociateDataShareConsumerMessageTypeDef(BaseValidatorModel):
 class EnableLoggingMessageTypeDef(BaseValidatorModel):
     ClusterIdentifier: str
     BucketName: Optional[str] = None
-    S3KeyPrefix: Optional[str] = None
+    S3KeyPrefix: Optional[Annotated[str, _aws_pattern("Redshift", "S3KeyPrefixValue")]] = None
     LogDestinationType: Optional[LogDestinationTypeType] = None
     LogExports: Optional[List[str]] = None
 
@@ -903,7 +911,7 @@ class ModifyAquaInputMessageTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'modify_authentication_profile' function.
 class ModifyAuthenticationProfileMessageTypeDef(BaseValidatorModel):
-    AuthenticationProfileName: str
+    AuthenticationProfileName: Annotated[str, _aws_pattern("Redshift", "AuthenticationProfileNameString")]
     AuthenticationProfileContent: str
 
 
@@ -978,8 +986,8 @@ class ModifyClusterSubnetGroupMessageTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'modify_custom_domain_association' function.
 class ModifyCustomDomainAssociationMessageTypeDef(BaseValidatorModel):
-    CustomDomainName: str
-    CustomDomainCertificateArn: str
+    CustomDomainName: Annotated[str, _aws_pattern("Redshift", "CustomDomainNameString")]
+    CustomDomainCertificateArn: Annotated[str, _aws_pattern("Redshift", "CustomDomainCertificateArnString")]
     ClusterIdentifier: str
 
 
@@ -1002,16 +1010,16 @@ class ModifyEventSubscriptionMessageTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'modify_integration' function.
 class ModifyIntegrationMessageTypeDef(BaseValidatorModel):
-    IntegrationArn: str
-    Description: Optional[str] = None
-    IntegrationName: Optional[str] = None
+    IntegrationArn: Annotated[str, _aws_pattern("Redshift", "IntegrationArn")]
+    Description: Optional[Annotated[str, _aws_pattern("Redshift", "IntegrationDescription")]] = None
+    IntegrationName: Optional[Annotated[str, _aws_pattern("Redshift", "IntegrationName")]] = None
 
 
 # This class is the input for the 'modify_lakehouse_configuration' function.
 class ModifyLakehouseConfigurationMessageTypeDef(BaseValidatorModel):
     ClusterIdentifier: str
     LakehouseRegistration: Optional[LakehouseRegistrationType] = None
-    CatalogName: Optional[str] = None
+    CatalogName: Optional[Annotated[str, _aws_pattern("Redshift", "CatalogNameString")]] = None
     LakehouseIdcRegistration: Optional[LakehouseIdcRegistrationType] = None
     LakehouseIdcApplicationArn: Optional[str] = None
     DryRun: Optional[bool] = None
@@ -1071,10 +1079,10 @@ class PartnerIntegrationInputMessageRequestTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'add_partner' function.
 class PartnerIntegrationInputMessageTypeDef(BaseValidatorModel):
-    AccountId: str
-    ClusterIdentifier: str
-    DatabaseName: str
-    PartnerName: str
+    AccountId: Annotated[str, _aws_pattern("Redshift", "PartnerIntegrationAccountId")]
+    ClusterIdentifier: Annotated[str, _aws_pattern("Redshift", "PartnerIntegrationClusterIdentifier")]
+    DatabaseName: Annotated[str, _aws_pattern("Redshift", "PartnerIntegrationDatabaseName")]
+    PartnerName: Annotated[str, _aws_pattern("Redshift", "PartnerIntegrationPartnerName")]
 
 
 # This class is the input for the 'pause_cluster' function.
@@ -1189,7 +1197,7 @@ class RestoreFromClusterSnapshotMessageTypeDef(BaseValidatorModel):
     MasterPasswordSecretKmsKeyId: Optional[str] = None
     IpAddressType: Optional[str] = None
     MultiAZ: Optional[bool] = None
-    CatalogName: Optional[str] = None
+    CatalogName: Optional[Annotated[str, _aws_pattern("Redshift", "CatalogNameString")]] = None
     RedshiftIdcApplicationArn: Optional[str] = None
 
 
@@ -1267,12 +1275,12 @@ class SupportedOperationTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'update_partner_status' function.
 class UpdatePartnerStatusInputMessageTypeDef(BaseValidatorModel):
-    AccountId: str
-    ClusterIdentifier: str
-    DatabaseName: str
-    PartnerName: str
+    AccountId: Annotated[str, _aws_pattern("Redshift", "PartnerIntegrationAccountId")]
+    ClusterIdentifier: Annotated[str, _aws_pattern("Redshift", "PartnerIntegrationClusterIdentifier")]
+    DatabaseName: Annotated[str, _aws_pattern("Redshift", "PartnerIntegrationDatabaseName")]
+    PartnerName: Annotated[str, _aws_pattern("Redshift", "PartnerIntegrationPartnerName")]
     Status: PartnerIntegrationStatusType
-    StatusMessage: Optional[str] = None
+    StatusMessage: Optional[Annotated[str, _aws_pattern("Redshift", "PartnerIntegrationStatusMessage")]] = None
 
 
 # This class is the output for the 'get_cluster_credentials' function.
@@ -1301,15 +1309,15 @@ class ClusterParameterGroupNameMessageTypeDef(BaseValidatorModel):
 
 # This class is the output for the 'create_authentication_profile' function.
 class CreateAuthenticationProfileResultTypeDef(BaseValidatorModel):
-    AuthenticationProfileName: str
+    AuthenticationProfileName: Annotated[str, _aws_pattern("Redshift", "AuthenticationProfileNameString")]
     AuthenticationProfileContent: str
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 # This class is the output for the 'create_custom_domain_association' function.
 class CreateCustomDomainAssociationResultTypeDef(BaseValidatorModel):
-    CustomDomainName: str
-    CustomDomainCertificateArn: str
+    CustomDomainName: Annotated[str, _aws_pattern("Redshift", "CustomDomainNameString")]
+    CustomDomainCertificateArn: Annotated[str, _aws_pattern("Redshift", "CustomDomainCertificateArnString")]
     ClusterIdentifier: str
     CustomDomainCertExpiryTime: str
     ResponseMetadata: ResponseMetadataTypeDef
@@ -1323,7 +1331,7 @@ class CustomerStorageMessageTypeDef(BaseValidatorModel):
 
 # This class is the output for the 'delete_authentication_profile' function.
 class DeleteAuthenticationProfileResultTypeDef(BaseValidatorModel):
-    AuthenticationProfileName: str
+    AuthenticationProfileName: Annotated[str, _aws_pattern("Redshift", "AuthenticationProfileNameString")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
@@ -1372,7 +1380,7 @@ class LakehouseConfigurationTypeDef(BaseValidatorModel):
 class LoggingStatusTypeDef(BaseValidatorModel):
     LoggingEnabled: bool
     BucketName: str
-    S3KeyPrefix: str
+    S3KeyPrefix: Annotated[str, _aws_pattern("Redshift", "S3KeyPrefixValue")]
     LastSuccessfulDeliveryTime: datetime
     LastFailureTime: datetime
     LastFailureMessage: str
@@ -1383,15 +1391,15 @@ class LoggingStatusTypeDef(BaseValidatorModel):
 
 # This class is the output for the 'modify_authentication_profile' function.
 class ModifyAuthenticationProfileResultTypeDef(BaseValidatorModel):
-    AuthenticationProfileName: str
+    AuthenticationProfileName: Annotated[str, _aws_pattern("Redshift", "AuthenticationProfileNameString")]
     AuthenticationProfileContent: str
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 # This class is the output for the 'modify_custom_domain_association' function.
 class ModifyCustomDomainAssociationResultTypeDef(BaseValidatorModel):
-    CustomDomainName: str
-    CustomDomainCertificateArn: str
+    CustomDomainName: Annotated[str, _aws_pattern("Redshift", "CustomDomainNameString")]
+    CustomDomainCertificateArn: Annotated[str, _aws_pattern("Redshift", "CustomDomainCertificateArnString")]
     ClusterIdentifier: str
     CustomDomainCertExpiryTime: str
     ResponseMetadata: ResponseMetadataTypeDef
@@ -1399,8 +1407,8 @@ class ModifyCustomDomainAssociationResultTypeDef(BaseValidatorModel):
 
 # This class is the output for the 'add_partner' function.
 class PartnerIntegrationOutputMessageTypeDef(BaseValidatorModel):
-    DatabaseName: str
-    PartnerName: str
+    DatabaseName: Annotated[str, _aws_pattern("Redshift", "PartnerIntegrationDatabaseName")]
+    PartnerName: Annotated[str, _aws_pattern("Redshift", "PartnerIntegrationPartnerName")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
@@ -1573,7 +1581,7 @@ class CreateClusterMessageTypeDef(BaseValidatorModel):
     IpAddressType: Optional[str] = None
     MultiAZ: Optional[bool] = None
     RedshiftIdcApplicationArn: Optional[str] = None
-    CatalogName: Optional[str] = None
+    CatalogName: Optional[Annotated[str, _aws_pattern("Redshift", "CatalogNameString")]] = None
     ExtraComputeForAutomaticOptimization: Optional[bool] = None
 
 
@@ -1639,13 +1647,13 @@ class CreateHsmConfigurationMessageTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'create_integration' function.
 class CreateIntegrationMessageTypeDef(BaseValidatorModel):
-    SourceArn: str
-    TargetArn: str
-    IntegrationName: str
+    SourceArn: Annotated[str, _aws_pattern("Redshift", "SourceArn")]
+    TargetArn: Annotated[str, _aws_pattern("Redshift", "TargetArn")]
+    IntegrationName: Annotated[str, _aws_pattern("Redshift", "IntegrationName")]
     KMSKeyId: Optional[str] = None
     TagList: Optional[List[TagTypeDef]] = None
     AdditionalEncryptionContext: Optional[Dict[str, str]] = None
-    Description: Optional[str] = None
+    Description: Optional[Annotated[str, _aws_pattern("Redshift", "IntegrationDescription")]] = None
 
 
 # This class is the input for the 'create_snapshot_copy_grant' function.
@@ -2176,7 +2184,7 @@ class DescribeIntegrationsMessagePaginateTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'describe_integrations' function.
 class DescribeIntegrationsMessageTypeDef(BaseValidatorModel):
-    IntegrationArn: Optional[str] = None
+    IntegrationArn: Optional[Annotated[str, _aws_pattern("Redshift", "IntegrationArn")]] = None
     MaxRecords: Optional[int] = None
     Marker: Optional[str] = None
     Filters: Optional[List[DescribeIntegrationsFilterTypeDef]] = None
@@ -2264,9 +2272,9 @@ class PutResourcePolicyResultTypeDef(BaseValidatorModel):
 
 
 class InboundIntegrationTypeDef(BaseValidatorModel):
-    IntegrationArn: Optional[str] = None
+    IntegrationArn: Optional[Annotated[str, _aws_pattern("Redshift", "InboundIntegrationArn")]] = None
     SourceArn: Optional[str] = None
-    TargetArn: Optional[str] = None
+    TargetArn: Optional[Annotated[str, _aws_pattern("Redshift", "TargetArn")]] = None
     Status: Optional[ZeroETLIntegrationStatusType] = None
     Errors: Optional[List[IntegrationErrorTypeDef]] = None
     CreateTime: Optional[datetime] = None
@@ -2289,14 +2297,14 @@ class IntegrationResponseTypeDef(BaseValidatorModel):
 
 
 class IntegrationTypeDef(BaseValidatorModel):
-    IntegrationArn: Optional[str] = None
-    IntegrationName: Optional[str] = None
-    SourceArn: Optional[str] = None
-    TargetArn: Optional[str] = None
+    IntegrationArn: Optional[Annotated[str, _aws_pattern("Redshift", "IntegrationArn")]] = None
+    IntegrationName: Optional[Annotated[str, _aws_pattern("Redshift", "IntegrationName")]] = None
+    SourceArn: Optional[Annotated[str, _aws_pattern("Redshift", "SourceArn")]] = None
+    TargetArn: Optional[Annotated[str, _aws_pattern("Redshift", "TargetArn")]] = None
     Status: Optional[ZeroETLIntegrationStatusType] = None
     Errors: Optional[List[IntegrationErrorTypeDef]] = None
     CreateTime: Optional[datetime] = None
-    Description: Optional[str] = None
+    Description: Optional[Annotated[str, _aws_pattern("Redshift", "Description")]] = None
     KMSKeyId: Optional[str] = None
     AdditionalEncryptionContext: Optional[Dict[str, str]] = None
     Tags: Optional[List[TagTypeDef]] = None
@@ -2896,10 +2904,10 @@ class ClusterTypeDef(BaseValidatorModel):
 
 class RedshiftIdcApplicationTypeDef(BaseValidatorModel):
     IdcInstanceArn: Optional[str] = None
-    RedshiftIdcApplicationName: Optional[str] = None
+    RedshiftIdcApplicationName: Optional[Annotated[str, _aws_pattern("Redshift", "RedshiftIdcApplicationName")]] = None
     RedshiftIdcApplicationArn: Optional[str] = None
-    IdentityNamespace: Optional[str] = None
-    IdcDisplayName: Optional[str] = None
+    IdentityNamespace: Optional[Annotated[str, _aws_pattern("Redshift", "IdentityNamespaceString")]] = None
+    IdcDisplayName: Optional[Annotated[str, _aws_pattern("Redshift", "IdcDisplayNameString")]] = None
     IamRoleArn: Optional[str] = None
     IdcManagedApplicationArn: Optional[str] = None
     IdcOnboardStatus: Optional[str] = None
@@ -3078,10 +3086,10 @@ class ModifyRedshiftIdcApplicationResultTypeDef(BaseValidatorModel):
 # This class is the input for the 'create_redshift_idc_application' function.
 class CreateRedshiftIdcApplicationMessageTypeDef(BaseValidatorModel):
     IdcInstanceArn: str
-    RedshiftIdcApplicationName: str
-    IdcDisplayName: str
+    RedshiftIdcApplicationName: Annotated[str, _aws_pattern("Redshift", "RedshiftIdcApplicationName")]
+    IdcDisplayName: Annotated[str, _aws_pattern("Redshift", "IdcDisplayNameString")]
     IamRoleArn: str
-    IdentityNamespace: Optional[str] = None
+    IdentityNamespace: Optional[Annotated[str, _aws_pattern("Redshift", "IdentityNamespaceString")]] = None
     AuthorizedTokenIssuerList: Optional[List[AuthorizedTokenIssuerUnionTypeDef]] = None
     ServiceIntegrations: Optional[List[ServiceIntegrationsUnionUnionTypeDef]] = None
     ApplicationType: Optional[ApplicationTypeType] = None
@@ -3092,8 +3100,8 @@ class CreateRedshiftIdcApplicationMessageTypeDef(BaseValidatorModel):
 # This class is the input for the 'modify_redshift_idc_application' function.
 class ModifyRedshiftIdcApplicationMessageTypeDef(BaseValidatorModel):
     RedshiftIdcApplicationArn: str
-    IdentityNamespace: Optional[str] = None
+    IdentityNamespace: Optional[Annotated[str, _aws_pattern("Redshift", "IdentityNamespaceString")]] = None
     IamRoleArn: Optional[str] = None
-    IdcDisplayName: Optional[str] = None
+    IdcDisplayName: Optional[Annotated[str, _aws_pattern("Redshift", "IdcDisplayNameString")]] = None
     AuthorizedTokenIssuerList: Optional[List[AuthorizedTokenIssuerUnionTypeDef]] = None
     ServiceIntegrations: Optional[List[ServiceIntegrationsUnionUnionTypeDef]] = None

@@ -3,6 +3,7 @@
 from datetime import datetime
 from decimal import Decimal
 from typing import (
+    Annotated,
     Any,
     Callable,
     Dict,
@@ -24,6 +25,7 @@ from botocore.response import StreamingBody
 from pydantic import Field
 
 from aws_resource_validator.core.base_validator_model import BaseValidatorModel, EventStream
+from aws_resource_validator.core.pattern_validation import aws_field_pattern as _aws_pattern
 from aws_resource_validator.pydantic_models.snowball.snowball_constants import *  # noqa: F401,F403
 
 # Optional boto3 symbols — imported lazily so services that don't need them
@@ -39,36 +41,36 @@ except ImportError:  # pragma: no cover
 
 
 class AddressTypeDef(BaseValidatorModel):
-    AddressId: Optional[str] = None
-    Name: Optional[str] = None
-    Company: Optional[str] = None
-    Street1: Optional[str] = None
-    Street2: Optional[str] = None
-    Street3: Optional[str] = None
-    City: Optional[str] = None
-    StateOrProvince: Optional[str] = None
-    PrefectureOrDistrict: Optional[str] = None
-    Landmark: Optional[str] = None
-    Country: Optional[str] = None
-    PostalCode: Optional[str] = None
-    PhoneNumber: Optional[str] = None
+    AddressId: Optional[Annotated[str, _aws_pattern("Snowball", "AddressId")]] = None
+    Name: Optional[Annotated[str, _aws_pattern("Snowball", "String")]] = None
+    Company: Optional[Annotated[str, _aws_pattern("Snowball", "String")]] = None
+    Street1: Optional[Annotated[str, _aws_pattern("Snowball", "String")]] = None
+    Street2: Optional[Annotated[str, _aws_pattern("Snowball", "String")]] = None
+    Street3: Optional[Annotated[str, _aws_pattern("Snowball", "String")]] = None
+    City: Optional[Annotated[str, _aws_pattern("Snowball", "String")]] = None
+    StateOrProvince: Optional[Annotated[str, _aws_pattern("Snowball", "String")]] = None
+    PrefectureOrDistrict: Optional[Annotated[str, _aws_pattern("Snowball", "String")]] = None
+    Landmark: Optional[Annotated[str, _aws_pattern("Snowball", "String")]] = None
+    Country: Optional[Annotated[str, _aws_pattern("Snowball", "String")]] = None
+    PostalCode: Optional[Annotated[str, _aws_pattern("Snowball", "String")]] = None
+    PhoneNumber: Optional[Annotated[str, _aws_pattern("Snowball", "String")]] = None
     IsRestricted: Optional[bool] = None
     Type: Optional[AddressTypeType] = None
 
 
 class CancelClusterRequestTypeDef(BaseValidatorModel):
-    ClusterId: str
+    ClusterId: Annotated[str, _aws_pattern("Snowball", "ClusterId")]
 
 
 class CancelJobRequestTypeDef(BaseValidatorModel):
-    JobId: str
+    JobId: Annotated[str, _aws_pattern("Snowball", "JobId")]
 
 
 class ClusterListEntryTypeDef(BaseValidatorModel):
-    ClusterId: Optional[str] = None
+    ClusterId: Optional[Annotated[str, _aws_pattern("Snowball", "String")]] = None
     ClusterState: Optional[ClusterStateType] = None
     CreationDate: Optional[datetime] = None
-    Description: Optional[str] = None
+    Description: Optional[Annotated[str, _aws_pattern("Snowball", "String")]] = None
 
 
 class NotificationOutputTypeDef(BaseValidatorModel):
@@ -79,8 +81,8 @@ class NotificationOutputTypeDef(BaseValidatorModel):
 
 
 class CompatibleImageTypeDef(BaseValidatorModel):
-    AmiId: Optional[str] = None
-    Name: Optional[str] = None
+    AmiId: Optional[Annotated[str, _aws_pattern("Snowball", "String")]] = None
+    Name: Optional[Annotated[str, _aws_pattern("Snowball", "String")]] = None
 
 
 class ResponseMetadataTypeDef(BaseValidatorModel):
@@ -92,13 +94,13 @@ class ResponseMetadataTypeDef(BaseValidatorModel):
 
 
 class JobListEntryTypeDef(BaseValidatorModel):
-    JobId: Optional[str] = None
+    JobId: Optional[Annotated[str, _aws_pattern("Snowball", "String")]] = None
     JobState: Optional[JobStateType] = None
     IsMaster: Optional[bool] = None
     JobType: Optional[JobTypeType] = None
     SnowballType: Optional[SnowballTypeType] = None
     CreationDate: Optional[datetime] = None
-    Description: Optional[str] = None
+    Description: Optional[Annotated[str, _aws_pattern("Snowball", "String")]] = None
 
 
 # This class is the input for the 'create_long_term_pricing' function.
@@ -110,7 +112,7 @@ class CreateLongTermPricingRequestTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'create_return_shipping_label' function.
 class CreateReturnShippingLabelRequestTypeDef(BaseValidatorModel):
-    JobId: str
+    JobId: Annotated[str, _aws_pattern("Snowball", "JobId")]
     ShippingOption: Optional[ShippingOptionType] = None
 
 
@@ -122,12 +124,12 @@ class DataTransferTypeDef(BaseValidatorModel):
 
 
 class ServiceVersionTypeDef(BaseValidatorModel):
-    Version: Optional[str] = None
+    Version: Optional[Annotated[str, _aws_pattern("Snowball", "String")]] = None
 
 
 # This class is the input for the 'describe_address' function.
 class DescribeAddressRequestTypeDef(BaseValidatorModel):
-    AddressId: str
+    AddressId: Annotated[str, _aws_pattern("Snowball", "AddressId")]
 
 
 class PaginatorConfigTypeDef(BaseValidatorModel):
@@ -139,61 +141,61 @@ class PaginatorConfigTypeDef(BaseValidatorModel):
 # This class is the input for the 'describe_addresses' function.
 class DescribeAddressesRequestTypeDef(BaseValidatorModel):
     MaxResults: Optional[int] = None
-    NextToken: Optional[str] = None
+    NextToken: Optional[Annotated[str, _aws_pattern("Snowball", "String")]] = None
 
 
 # This class is the input for the 'describe_cluster' function.
 class DescribeClusterRequestTypeDef(BaseValidatorModel):
-    ClusterId: str
+    ClusterId: Annotated[str, _aws_pattern("Snowball", "ClusterId")]
 
 
 # This class is the input for the 'describe_job' function.
 class DescribeJobRequestTypeDef(BaseValidatorModel):
-    JobId: str
+    JobId: Annotated[str, _aws_pattern("Snowball", "JobId")]
 
 
 # This class is the input for the 'describe_return_shipping_label' function.
 class DescribeReturnShippingLabelRequestTypeDef(BaseValidatorModel):
-    JobId: str
+    JobId: Annotated[str, _aws_pattern("Snowball", "JobId")]
 
 
 class EKSOnDeviceServiceConfigurationTypeDef(BaseValidatorModel):
-    KubernetesVersion: Optional[str] = None
-    EKSAnywhereVersion: Optional[str] = None
+    KubernetesVersion: Optional[Annotated[str, _aws_pattern("Snowball", "String")]] = None
+    EKSAnywhereVersion: Optional[Annotated[str, _aws_pattern("Snowball", "String")]] = None
 
 
 class Ec2AmiResourceTypeDef(BaseValidatorModel):
-    AmiId: str
-    SnowballAmiId: Optional[str] = None
+    AmiId: Annotated[str, _aws_pattern("Snowball", "AmiId")]
+    SnowballAmiId: Optional[Annotated[str, _aws_pattern("Snowball", "String")]] = None
 
 
 class EventTriggerDefinitionTypeDef(BaseValidatorModel):
-    EventResourceARN: Optional[str] = None
+    EventResourceARN: Optional[Annotated[str, _aws_pattern("Snowball", "ResourceARN")]] = None
 
 
 # This class is the input for the 'get_job_manifest' function.
 class GetJobManifestRequestTypeDef(BaseValidatorModel):
-    JobId: str
+    JobId: Annotated[str, _aws_pattern("Snowball", "JobId")]
 
 
 # This class is the input for the 'get_job_unlock_code' function.
 class GetJobUnlockCodeRequestTypeDef(BaseValidatorModel):
-    JobId: str
+    JobId: Annotated[str, _aws_pattern("Snowball", "JobId")]
 
 
 # This class is the input for the 'get_software_updates' function.
 class GetSoftwareUpdatesRequestTypeDef(BaseValidatorModel):
-    JobId: str
+    JobId: Annotated[str, _aws_pattern("Snowball", "JobId")]
 
 
 class INDTaxDocumentsTypeDef(BaseValidatorModel):
-    GSTIN: Optional[str] = None
+    GSTIN: Optional[Annotated[str, _aws_pattern("Snowball", "GSTIN")]] = None
 
 
 class JobLogsTypeDef(BaseValidatorModel):
-    JobCompletionReportURI: Optional[str] = None
-    JobSuccessLogURI: Optional[str] = None
-    JobFailureLogURI: Optional[str] = None
+    JobCompletionReportURI: Optional[Annotated[str, _aws_pattern("Snowball", "String")]] = None
+    JobSuccessLogURI: Optional[Annotated[str, _aws_pattern("Snowball", "String")]] = None
+    JobFailureLogURI: Optional[Annotated[str, _aws_pattern("Snowball", "String")]] = None
 
 
 class PickupDetailsOutputTypeDef(BaseValidatorModel):
@@ -207,58 +209,58 @@ class PickupDetailsOutputTypeDef(BaseValidatorModel):
 
 
 class KeyRangeTypeDef(BaseValidatorModel):
-    BeginMarker: Optional[str] = None
-    EndMarker: Optional[str] = None
+    BeginMarker: Optional[Annotated[str, _aws_pattern("Snowball", "String")]] = None
+    EndMarker: Optional[Annotated[str, _aws_pattern("Snowball", "String")]] = None
 
 
 # This class is the input for the 'list_cluster_jobs' function.
 class ListClusterJobsRequestTypeDef(BaseValidatorModel):
-    ClusterId: str
+    ClusterId: Annotated[str, _aws_pattern("Snowball", "ClusterId")]
     MaxResults: Optional[int] = None
-    NextToken: Optional[str] = None
+    NextToken: Optional[Annotated[str, _aws_pattern("Snowball", "String")]] = None
 
 
 # This class is the input for the 'list_clusters' function.
 class ListClustersRequestTypeDef(BaseValidatorModel):
     MaxResults: Optional[int] = None
-    NextToken: Optional[str] = None
+    NextToken: Optional[Annotated[str, _aws_pattern("Snowball", "String")]] = None
 
 
 # This class is the input for the 'list_compatible_images' function.
 class ListCompatibleImagesRequestTypeDef(BaseValidatorModel):
     MaxResults: Optional[int] = None
-    NextToken: Optional[str] = None
+    NextToken: Optional[Annotated[str, _aws_pattern("Snowball", "String")]] = None
 
 
 # This class is the input for the 'list_jobs' function.
 class ListJobsRequestTypeDef(BaseValidatorModel):
     MaxResults: Optional[int] = None
-    NextToken: Optional[str] = None
+    NextToken: Optional[Annotated[str, _aws_pattern("Snowball", "String")]] = None
 
 
 # This class is the input for the 'list_long_term_pricing' function.
 class ListLongTermPricingRequestTypeDef(BaseValidatorModel):
     MaxResults: Optional[int] = None
-    NextToken: Optional[str] = None
+    NextToken: Optional[Annotated[str, _aws_pattern("Snowball", "String")]] = None
 
 
 class LongTermPricingListEntryTypeDef(BaseValidatorModel):
-    LongTermPricingId: Optional[str] = None
+    LongTermPricingId: Optional[Annotated[str, _aws_pattern("Snowball", "LongTermPricingId")]] = None
     LongTermPricingEndDate: Optional[datetime] = None
     LongTermPricingStartDate: Optional[datetime] = None
     LongTermPricingType: Optional[LongTermPricingTypeType] = None
-    CurrentActiveJob: Optional[str] = None
-    ReplacementJob: Optional[str] = None
+    CurrentActiveJob: Optional[Annotated[str, _aws_pattern("Snowball", "JobId")]] = None
+    ReplacementJob: Optional[Annotated[str, _aws_pattern("Snowball", "JobId")]] = None
     IsLongTermPricingAutoRenew: Optional[bool] = None
-    LongTermPricingStatus: Optional[str] = None
+    LongTermPricingStatus: Optional[Annotated[str, _aws_pattern("Snowball", "String")]] = None
     SnowballType: Optional[SnowballTypeType] = None
-    JobIds: Optional[List[str]] = None
+    JobIds: Optional[List[Annotated[str, _aws_pattern("Snowball", "JobId")]]] = None
 
 
 # This class is the input for the 'list_pickup_locations' function.
 class ListPickupLocationsRequestTypeDef(BaseValidatorModel):
     MaxResults: Optional[int] = None
-    NextToken: Optional[str] = None
+    NextToken: Optional[Annotated[str, _aws_pattern("Snowball", "String")]] = None
 
 
 class NFSOnDeviceServiceConfigurationTypeDef(BaseValidatorModel):
@@ -267,10 +269,10 @@ class NFSOnDeviceServiceConfigurationTypeDef(BaseValidatorModel):
 
 
 class NotificationTypeDef(BaseValidatorModel):
-    SnsTopicARN: Optional[str] = None
+    SnsTopicARN: Optional[Annotated[str, _aws_pattern("Snowball", "SnsTopicARN")]] = None
     JobStatesToNotify: Optional[List[JobStateType]] = None
     NotifyAll: Optional[bool] = None
-    DevicePickupSnsTopicARN: Optional[str] = None
+    DevicePickupSnsTopicARN: Optional[Annotated[str, _aws_pattern("Snowball", "SnsTopicARN")]] = None
 
 
 class S3OnDeviceServiceConfigurationTypeDef(BaseValidatorModel):
@@ -294,8 +296,8 @@ class TargetOnDeviceServiceTypeDef(BaseValidatorModel):
 
 
 class ShipmentTypeDef(BaseValidatorModel):
-    Status: Optional[str] = None
-    TrackingNumber: Optional[str] = None
+    Status: Optional[Annotated[str, _aws_pattern("Snowball", "String")]] = None
+    TrackingNumber: Optional[Annotated[str, _aws_pattern("Snowball", "String")]] = None
 
 
 class WirelessConnectionTypeDef(BaseValidatorModel):
@@ -303,13 +305,13 @@ class WirelessConnectionTypeDef(BaseValidatorModel):
 
 
 class UpdateJobShipmentStateRequestTypeDef(BaseValidatorModel):
-    JobId: str
+    JobId: Annotated[str, _aws_pattern("Snowball", "JobId")]
     ShipmentState: ShipmentStateType
 
 
 class UpdateLongTermPricingRequestTypeDef(BaseValidatorModel):
-    LongTermPricingId: str
-    ReplacementJob: Optional[str] = None
+    LongTermPricingId: Annotated[str, _aws_pattern("Snowball", "LongTermPricingId")]
+    ReplacementJob: Optional[Annotated[str, _aws_pattern("Snowball", "JobId")]] = None
     IsLongTermPricingAutoRenew: Optional[bool] = None
 
 
@@ -320,19 +322,19 @@ class CreateAddressRequestTypeDef(BaseValidatorModel):
 
 # This class is the output for the 'create_address' function.
 class CreateAddressResultTypeDef(BaseValidatorModel):
-    AddressId: str
+    AddressId: Annotated[str, _aws_pattern("Snowball", "String")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 # This class is the output for the 'create_job' function.
 class CreateJobResultTypeDef(BaseValidatorModel):
-    JobId: str
+    JobId: Annotated[str, _aws_pattern("Snowball", "JobId")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 # This class is the output for the 'create_long_term_pricing' function.
 class CreateLongTermPricingResultTypeDef(BaseValidatorModel):
-    LongTermPricingId: str
+    LongTermPricingId: Annotated[str, _aws_pattern("Snowball", "LongTermPricingId")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
@@ -352,26 +354,26 @@ class DescribeAddressResultTypeDef(BaseValidatorModel):
 class DescribeAddressesResultTypeDef(BaseValidatorModel):
     Addresses: List[AddressTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
-    NextToken: Optional[str] = None
+    NextToken: Optional[Annotated[str, _aws_pattern("Snowball", "String")]] = None
 
 
 # This class is the output for the 'describe_return_shipping_label' function.
 class DescribeReturnShippingLabelResultTypeDef(BaseValidatorModel):
     Status: ShippingLabelStatusType
     ExpirationDate: datetime
-    ReturnShippingLabelURI: str
+    ReturnShippingLabelURI: Annotated[str, _aws_pattern("Snowball", "String")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 # This class is the output for the 'get_job_manifest' function.
 class GetJobManifestResultTypeDef(BaseValidatorModel):
-    ManifestURI: str
+    ManifestURI: Annotated[str, _aws_pattern("Snowball", "String")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 # This class is the output for the 'get_job_unlock_code' function.
 class GetJobUnlockCodeResultTypeDef(BaseValidatorModel):
-    UnlockCode: str
+    UnlockCode: Annotated[str, _aws_pattern("Snowball", "String")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
@@ -383,7 +385,7 @@ class GetSnowballUsageResultTypeDef(BaseValidatorModel):
 
 # This class is the output for the 'get_software_updates' function.
 class GetSoftwareUpdatesResultTypeDef(BaseValidatorModel):
-    UpdatesURI: str
+    UpdatesURI: Annotated[str, _aws_pattern("Snowball", "String")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
@@ -391,26 +393,26 @@ class GetSoftwareUpdatesResultTypeDef(BaseValidatorModel):
 class ListClustersResultTypeDef(BaseValidatorModel):
     ClusterListEntries: List[ClusterListEntryTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
-    NextToken: Optional[str] = None
+    NextToken: Optional[Annotated[str, _aws_pattern("Snowball", "String")]] = None
 
 
 # This class is the output for the 'list_compatible_images' function.
 class ListCompatibleImagesResultTypeDef(BaseValidatorModel):
     CompatibleImages: List[CompatibleImageTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
-    NextToken: Optional[str] = None
+    NextToken: Optional[Annotated[str, _aws_pattern("Snowball", "String")]] = None
 
 
 # This class is the output for the 'list_pickup_locations' function.
 class ListPickupLocationsResultTypeDef(BaseValidatorModel):
     Addresses: List[AddressTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
-    NextToken: Optional[str] = None
+    NextToken: Optional[Annotated[str, _aws_pattern("Snowball", "String")]] = None
 
 
 # This class is the output for the 'create_cluster' function.
 class CreateClusterResultTypeDef(BaseValidatorModel):
-    ClusterId: str
+    ClusterId: Annotated[str, _aws_pattern("Snowball", "ClusterId")]
     JobListEntries: List[JobListEntryTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
 
@@ -419,14 +421,14 @@ class CreateClusterResultTypeDef(BaseValidatorModel):
 class ListClusterJobsResultTypeDef(BaseValidatorModel):
     JobListEntries: List[JobListEntryTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
-    NextToken: Optional[str] = None
+    NextToken: Optional[Annotated[str, _aws_pattern("Snowball", "String")]] = None
 
 
 # This class is the output for the 'list_jobs' function.
 class ListJobsResultTypeDef(BaseValidatorModel):
     JobListEntries: List[JobListEntryTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
-    NextToken: Optional[str] = None
+    NextToken: Optional[Annotated[str, _aws_pattern("Snowball", "String")]] = None
 
 
 class DependentServiceTypeDef(BaseValidatorModel):
@@ -465,7 +467,7 @@ class LambdaResourceOutputTypeDef(BaseValidatorModel):
 
 
 class LambdaResourceTypeDef(BaseValidatorModel):
-    LambdaArn: Optional[str] = None
+    LambdaArn: Optional[Annotated[str, _aws_pattern("Snowball", "ResourceARN")]] = None
     EventTriggers: Optional[List[EventTriggerDefinitionTypeDef]] = None
 
 
@@ -477,7 +479,7 @@ class TaxDocumentsTypeDef(BaseValidatorModel):
 class ListLongTermPricingResultTypeDef(BaseValidatorModel):
     LongTermPricingEntries: List[LongTermPricingListEntryTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
-    NextToken: Optional[str] = None
+    NextToken: Optional[Annotated[str, _aws_pattern("Snowball", "String")]] = None
 
 
 NotificationUnionTypeDef = Union[NotificationOutputTypeDef, NotificationTypeDef]
@@ -491,13 +493,13 @@ class OnDeviceServiceConfigurationTypeDef(BaseValidatorModel):
 
 
 class PickupDetailsTypeDef(BaseValidatorModel):
-    Name: Optional[str] = None
-    PhoneNumber: Optional[str] = None
-    Email: Optional[str] = None
-    IdentificationNumber: Optional[str] = None
+    Name: Optional[Annotated[str, _aws_pattern("Snowball", "String")]] = None
+    PhoneNumber: Optional[Annotated[str, _aws_pattern("Snowball", "PhoneNumber")]] = None
+    Email: Optional[Annotated[str, _aws_pattern("Snowball", "Email")]] = None
+    IdentificationNumber: Optional[Annotated[str, _aws_pattern("Snowball", "String")]] = None
     IdentificationExpirationDate: Optional[TimestampTypeDef] = None
-    IdentificationIssuingOrg: Optional[str] = None
-    DevicePickupId: Optional[str] = None
+    IdentificationIssuingOrg: Optional[Annotated[str, _aws_pattern("Snowball", "String")]] = None
+    DevicePickupId: Optional[Annotated[str, _aws_pattern("Snowball", "DevicePickupId")]] = None
 
 
 class S3ResourceOutputTypeDef(BaseValidatorModel):
@@ -507,7 +509,7 @@ class S3ResourceOutputTypeDef(BaseValidatorModel):
 
 
 class S3ResourceTypeDef(BaseValidatorModel):
-    BucketArn: Optional[str] = None
+    BucketArn: Optional[Annotated[str, _aws_pattern("Snowball", "ResourceARN")]] = None
     KeyRange: Optional[KeyRangeTypeDef] = None
     TargetOnDeviceServices: Optional[List[TargetOnDeviceServiceTypeDef]] = None
 
@@ -527,7 +529,7 @@ class ListServiceVersionsRequestTypeDef(BaseValidatorModel):
     ServiceName: ServiceNameType
     DependentServices: Optional[List[DependentServiceTypeDef]] = None
     MaxResults: Optional[int] = None
-    NextToken: Optional[str] = None
+    NextToken: Optional[Annotated[str, _aws_pattern("Snowball", "String")]] = None
 
 
 # This class is the output for the 'list_service_versions' function.
@@ -536,7 +538,7 @@ class ListServiceVersionsResultTypeDef(BaseValidatorModel):
     ServiceName: ServiceNameType
     DependentServices: List[DependentServiceTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
-    NextToken: Optional[str] = None
+    NextToken: Optional[Annotated[str, _aws_pattern("Snowball", "String")]] = None
 
 
 PickupDetailsUnionTypeDef = Union[PickupDetailsOutputTypeDef, PickupDetailsTypeDef]
@@ -559,19 +561,19 @@ class DeviceConfigurationTypeDef(BaseValidatorModel):
 
 
 class ClusterMetadataTypeDef(BaseValidatorModel):
-    ClusterId: Optional[str] = None
-    Description: Optional[str] = None
-    KmsKeyARN: Optional[str] = None
-    RoleARN: Optional[str] = None
+    ClusterId: Optional[Annotated[str, _aws_pattern("Snowball", "String")]] = None
+    Description: Optional[Annotated[str, _aws_pattern("Snowball", "String")]] = None
+    KmsKeyARN: Optional[Annotated[str, _aws_pattern("Snowball", "KmsKeyARN")]] = None
+    RoleARN: Optional[Annotated[str, _aws_pattern("Snowball", "RoleARN")]] = None
     ClusterState: Optional[ClusterStateType] = None
     JobType: Optional[JobTypeType] = None
     SnowballType: Optional[SnowballTypeType] = None
     CreationDate: Optional[datetime] = None
     Resources: Optional[JobResourceOutputTypeDef] = None
-    AddressId: Optional[str] = None
+    AddressId: Optional[Annotated[str, _aws_pattern("Snowball", "AddressId")]] = None
     ShippingOption: Optional[ShippingOptionType] = None
     Notification: Optional[NotificationOutputTypeDef] = None
-    ForwardingAddressId: Optional[str] = None
+    ForwardingAddressId: Optional[Annotated[str, _aws_pattern("Snowball", "AddressId")]] = None
     TaxDocuments: Optional[TaxDocumentsTypeDef] = None
     OnDeviceServiceConfiguration: Optional[OnDeviceServiceConfigurationTypeDef] = None
 
@@ -580,31 +582,31 @@ JobResourceUnionTypeDef = Union[JobResourceOutputTypeDef, JobResourceTypeDef]
 
 
 class JobMetadataTypeDef(BaseValidatorModel):
-    JobId: Optional[str] = None
+    JobId: Optional[Annotated[str, _aws_pattern("Snowball", "String")]] = None
     JobState: Optional[JobStateType] = None
     JobType: Optional[JobTypeType] = None
     SnowballType: Optional[SnowballTypeType] = None
     CreationDate: Optional[datetime] = None
     Resources: Optional[JobResourceOutputTypeDef] = None
-    Description: Optional[str] = None
-    KmsKeyARN: Optional[str] = None
-    RoleARN: Optional[str] = None
-    AddressId: Optional[str] = None
+    Description: Optional[Annotated[str, _aws_pattern("Snowball", "String")]] = None
+    KmsKeyARN: Optional[Annotated[str, _aws_pattern("Snowball", "KmsKeyARN")]] = None
+    RoleARN: Optional[Annotated[str, _aws_pattern("Snowball", "RoleARN")]] = None
+    AddressId: Optional[Annotated[str, _aws_pattern("Snowball", "AddressId")]] = None
     ShippingDetails: Optional[ShippingDetailsTypeDef] = None
     SnowballCapacityPreference: Optional[SnowballCapacityType] = None
     Notification: Optional[NotificationOutputTypeDef] = None
     DataTransferProgress: Optional[DataTransferTypeDef] = None
     JobLogInfo: Optional[JobLogsTypeDef] = None
-    ClusterId: Optional[str] = None
-    ForwardingAddressId: Optional[str] = None
+    ClusterId: Optional[Annotated[str, _aws_pattern("Snowball", "String")]] = None
+    ForwardingAddressId: Optional[Annotated[str, _aws_pattern("Snowball", "AddressId")]] = None
     TaxDocuments: Optional[TaxDocumentsTypeDef] = None
     DeviceConfiguration: Optional[DeviceConfigurationTypeDef] = None
     RemoteManagement: Optional[RemoteManagementType] = None
-    LongTermPricingId: Optional[str] = None
+    LongTermPricingId: Optional[Annotated[str, _aws_pattern("Snowball", "LongTermPricingId")]] = None
     OnDeviceServiceConfiguration: Optional[OnDeviceServiceConfigurationTypeDef] = None
     ImpactLevel: Optional[ImpactLevelType] = None
     PickupDetails: Optional[PickupDetailsOutputTypeDef] = None
-    SnowballId: Optional[str] = None
+    SnowballId: Optional[Annotated[str, _aws_pattern("Snowball", "String")]] = None
 
 
 # This class is the output for the 'describe_cluster' function.
@@ -616,21 +618,21 @@ class DescribeClusterResultTypeDef(BaseValidatorModel):
 # This class is the input for the 'create_cluster' function.
 class CreateClusterRequestTypeDef(BaseValidatorModel):
     JobType: JobTypeType
-    AddressId: str
+    AddressId: Annotated[str, _aws_pattern("Snowball", "AddressId")]
     SnowballType: SnowballTypeType
     ShippingOption: ShippingOptionType
     Resources: Optional[JobResourceUnionTypeDef] = None
     OnDeviceServiceConfiguration: Optional[OnDeviceServiceConfigurationTypeDef] = None
-    Description: Optional[str] = None
-    KmsKeyARN: Optional[str] = None
-    RoleARN: Optional[str] = None
+    Description: Optional[Annotated[str, _aws_pattern("Snowball", "String")]] = None
+    KmsKeyARN: Optional[Annotated[str, _aws_pattern("Snowball", "KmsKeyARN")]] = None
+    RoleARN: Optional[Annotated[str, _aws_pattern("Snowball", "RoleARN")]] = None
     Notification: Optional[NotificationUnionTypeDef] = None
-    ForwardingAddressId: Optional[str] = None
+    ForwardingAddressId: Optional[Annotated[str, _aws_pattern("Snowball", "AddressId")]] = None
     TaxDocuments: Optional[TaxDocumentsTypeDef] = None
     RemoteManagement: Optional[RemoteManagementType] = None
     InitialClusterSize: Optional[int] = None
     ForceCreateJobs: Optional[bool] = None
-    LongTermPricingIds: Optional[List[str]] = None
+    LongTermPricingIds: Optional[List[Annotated[str, _aws_pattern("Snowball", "LongTermPricingId")]]] = None
     SnowballCapacityPreference: Optional[SnowballCapacityType] = None
 
 
@@ -639,47 +641,47 @@ class CreateJobRequestTypeDef(BaseValidatorModel):
     JobType: Optional[JobTypeType] = None
     Resources: Optional[JobResourceUnionTypeDef] = None
     OnDeviceServiceConfiguration: Optional[OnDeviceServiceConfigurationTypeDef] = None
-    Description: Optional[str] = None
-    AddressId: Optional[str] = None
-    KmsKeyARN: Optional[str] = None
-    RoleARN: Optional[str] = None
+    Description: Optional[Annotated[str, _aws_pattern("Snowball", "String")]] = None
+    AddressId: Optional[Annotated[str, _aws_pattern("Snowball", "AddressId")]] = None
+    KmsKeyARN: Optional[Annotated[str, _aws_pattern("Snowball", "KmsKeyARN")]] = None
+    RoleARN: Optional[Annotated[str, _aws_pattern("Snowball", "RoleARN")]] = None
     SnowballCapacityPreference: Optional[SnowballCapacityType] = None
     ShippingOption: Optional[ShippingOptionType] = None
     Notification: Optional[NotificationUnionTypeDef] = None
-    ClusterId: Optional[str] = None
+    ClusterId: Optional[Annotated[str, _aws_pattern("Snowball", "ClusterId")]] = None
     SnowballType: Optional[SnowballTypeType] = None
-    ForwardingAddressId: Optional[str] = None
+    ForwardingAddressId: Optional[Annotated[str, _aws_pattern("Snowball", "AddressId")]] = None
     TaxDocuments: Optional[TaxDocumentsTypeDef] = None
     DeviceConfiguration: Optional[DeviceConfigurationTypeDef] = None
     RemoteManagement: Optional[RemoteManagementType] = None
-    LongTermPricingId: Optional[str] = None
+    LongTermPricingId: Optional[Annotated[str, _aws_pattern("Snowball", "LongTermPricingId")]] = None
     ImpactLevel: Optional[ImpactLevelType] = None
     PickupDetails: Optional[PickupDetailsUnionTypeDef] = None
 
 
 class UpdateClusterRequestTypeDef(BaseValidatorModel):
-    ClusterId: str
-    RoleARN: Optional[str] = None
-    Description: Optional[str] = None
+    ClusterId: Annotated[str, _aws_pattern("Snowball", "ClusterId")]
+    RoleARN: Optional[Annotated[str, _aws_pattern("Snowball", "RoleARN")]] = None
+    Description: Optional[Annotated[str, _aws_pattern("Snowball", "String")]] = None
     Resources: Optional[JobResourceUnionTypeDef] = None
     OnDeviceServiceConfiguration: Optional[OnDeviceServiceConfigurationTypeDef] = None
-    AddressId: Optional[str] = None
+    AddressId: Optional[Annotated[str, _aws_pattern("Snowball", "AddressId")]] = None
     ShippingOption: Optional[ShippingOptionType] = None
     Notification: Optional[NotificationUnionTypeDef] = None
-    ForwardingAddressId: Optional[str] = None
+    ForwardingAddressId: Optional[Annotated[str, _aws_pattern("Snowball", "AddressId")]] = None
 
 
 class UpdateJobRequestTypeDef(BaseValidatorModel):
-    JobId: str
-    RoleARN: Optional[str] = None
+    JobId: Annotated[str, _aws_pattern("Snowball", "JobId")]
+    RoleARN: Optional[Annotated[str, _aws_pattern("Snowball", "RoleARN")]] = None
     Notification: Optional[NotificationUnionTypeDef] = None
     Resources: Optional[JobResourceUnionTypeDef] = None
     OnDeviceServiceConfiguration: Optional[OnDeviceServiceConfigurationTypeDef] = None
-    AddressId: Optional[str] = None
+    AddressId: Optional[Annotated[str, _aws_pattern("Snowball", "AddressId")]] = None
     ShippingOption: Optional[ShippingOptionType] = None
-    Description: Optional[str] = None
+    Description: Optional[Annotated[str, _aws_pattern("Snowball", "String")]] = None
     SnowballCapacityPreference: Optional[SnowballCapacityType] = None
-    ForwardingAddressId: Optional[str] = None
+    ForwardingAddressId: Optional[Annotated[str, _aws_pattern("Snowball", "AddressId")]] = None
     PickupDetails: Optional[PickupDetailsUnionTypeDef] = None
 
 

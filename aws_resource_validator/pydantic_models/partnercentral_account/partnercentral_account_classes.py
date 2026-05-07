@@ -3,6 +3,7 @@
 from datetime import datetime
 from decimal import Decimal
 from typing import (
+    Annotated,
     Any,
     Callable,
     Dict,
@@ -24,6 +25,7 @@ from botocore.response import StreamingBody
 from pydantic import Field
 
 from aws_resource_validator.core.base_validator_model import BaseValidatorModel, EventStream
+from aws_resource_validator.core.pattern_validation import aws_field_pattern as _aws_pattern
 from aws_resource_validator.pydantic_models.partnercentral_account.partnercentral_account_constants import *  # noqa: F401,F403
 
 # Optional boto3 symbols — imported lazily so services that don't need them
@@ -40,9 +42,9 @@ except ImportError:  # pragma: no cover
 
 # This class is the input for the 'accept_connection_invitation' function.
 class AcceptConnectionInvitationRequestTypeDef(BaseValidatorModel):
-    Catalog: str
-    Identifier: str
-    ClientToken: str
+    Catalog: Annotated[str, _aws_pattern("PartnercentralAccount", "Catalog")]
+    Identifier: Annotated[str, _aws_pattern("PartnercentralAccount", "ConnectionInvitationId")]
+    ClientToken: Annotated[str, _aws_pattern("PartnercentralAccount", "ClientToken")]
 
 
 class ResponseMetadataTypeDef(BaseValidatorModel):
@@ -54,53 +56,55 @@ class ResponseMetadataTypeDef(BaseValidatorModel):
 
 
 class AccountSummaryTypeDef(BaseValidatorModel):
-    Name: str
+    Name: Annotated[str, _aws_pattern("PartnercentralAccount", "UnicodeString")]
 
 
 class AllianceLeadContactTypeDef(BaseValidatorModel):
-    FirstName: str
-    LastName: str
-    Email: str
-    BusinessTitle: str
+    FirstName: Annotated[str, _aws_pattern("PartnercentralAccount", "SensitiveUnicodeString")]
+    LastName: Annotated[str, _aws_pattern("PartnercentralAccount", "SensitiveUnicodeString")]
+    Email: Annotated[str, _aws_pattern("PartnercentralAccount", "Email")]
+    BusinessTitle: Annotated[str, _aws_pattern("PartnercentralAccount", "SensitiveUnicodeString")]
 
 
 class AssociateAwsTrainingCertificationEmailDomainRequestTypeDef(BaseValidatorModel):
-    Catalog: str
-    Identifier: str
-    Email: str
-    EmailVerificationCode: str
-    ClientToken: Optional[str] = None
+    Catalog: Annotated[str, _aws_pattern("PartnercentralAccount", "Catalog")]
+    Identifier: Annotated[str, _aws_pattern("PartnercentralAccount", "PartnerIdentifier")]
+    Email: Annotated[str, _aws_pattern("PartnercentralAccount", "Email")]
+    EmailVerificationCode: Annotated[str, _aws_pattern("PartnercentralAccount", "EmailVerificationCode")]
+    ClientToken: Optional[Annotated[str, _aws_pattern("PartnercentralAccount", "ClientToken")]] = None
 
 
 class BusinessVerificationDetailsTypeDef(BaseValidatorModel):
-    LegalName: str
-    RegistrationId: str
-    CountryCode: str
-    JurisdictionOfIncorporation: Optional[str] = None
+    LegalName: Annotated[str, _aws_pattern("PartnercentralAccount", "LegalName")]
+    RegistrationId: Annotated[str, _aws_pattern("PartnercentralAccount", "RegistrationId")]
+    CountryCode: Annotated[str, _aws_pattern("PartnercentralAccount", "CountryCode")]
+    JurisdictionOfIncorporation: Optional[Annotated[str, _aws_pattern("PartnercentralAccount", "JurisdictionCode")]] = (
+        None
+    )
 
 
 # This class is the input for the 'cancel_connection_invitation' function.
 class CancelConnectionInvitationRequestTypeDef(BaseValidatorModel):
-    Catalog: str
-    Identifier: str
-    ClientToken: str
+    Catalog: Annotated[str, _aws_pattern("PartnercentralAccount", "Catalog")]
+    Identifier: Annotated[str, _aws_pattern("PartnercentralAccount", "ConnectionInvitationId")]
+    ClientToken: Annotated[str, _aws_pattern("PartnercentralAccount", "ClientToken")]
 
 
 # This class is the input for the 'cancel_connection' function.
 class CancelConnectionRequestTypeDef(BaseValidatorModel):
-    Catalog: str
-    Identifier: str
+    Catalog: Annotated[str, _aws_pattern("PartnercentralAccount", "Catalog")]
+    Identifier: Annotated[str, _aws_pattern("PartnercentralAccount", "ConnectionId")]
     ConnectionType: ConnectionTypeType
     Reason: str
-    ClientToken: str
+    ClientToken: Annotated[str, _aws_pattern("PartnercentralAccount", "ClientToken")]
 
 
 # This class is the input for the 'cancel_profile_update_task' function.
 class CancelProfileUpdateTaskRequestTypeDef(BaseValidatorModel):
-    Catalog: str
-    Identifier: str
-    TaskId: str
-    ClientToken: Optional[str] = None
+    Catalog: Annotated[str, _aws_pattern("PartnercentralAccount", "Catalog")]
+    Identifier: Annotated[str, _aws_pattern("PartnercentralAccount", "PartnerIdentifier")]
+    TaskId: Annotated[str, _aws_pattern("PartnercentralAccount", "ProfileTaskId")]
+    ClientToken: Optional[Annotated[str, _aws_pattern("PartnercentralAccount", "ClientToken")]] = None
 
 
 class ErrorDetailTypeDef(BaseValidatorModel):
@@ -110,28 +114,28 @@ class ErrorDetailTypeDef(BaseValidatorModel):
 
 
 class ConnectionInvitationSummaryTypeDef(BaseValidatorModel):
-    Catalog: str
-    Id: str
-    Arn: str
+    Catalog: Annotated[str, _aws_pattern("PartnercentralAccount", "Catalog")]
+    Id: Annotated[str, _aws_pattern("PartnercentralAccount", "ConnectionInvitationId")]
+    Arn: Annotated[str, _aws_pattern("PartnercentralAccount", "ConnectionInvitationArn")]
     ConnectionType: ConnectionTypeType
     CreatedAt: datetime
     UpdatedAt: datetime
-    OtherParticipantIdentifier: str
+    OtherParticipantIdentifier: Annotated[str, _aws_pattern("PartnercentralAccount", "ParticipantIdentifier")]
     ParticipantType: ParticipantTypeType
     Status: InvitationStatusType
-    ConnectionId: Optional[str] = None
+    ConnectionId: Optional[Annotated[str, _aws_pattern("PartnercentralAccount", "ConnectionId")]] = None
     ExpiresAt: Optional[datetime] = None
 
 
 # This class is the input for the 'create_connection_invitation' function.
 class CreateConnectionInvitationRequestTypeDef(BaseValidatorModel):
-    Catalog: str
-    ClientToken: str
+    Catalog: Annotated[str, _aws_pattern("PartnercentralAccount", "Catalog")]
+    ClientToken: Annotated[str, _aws_pattern("PartnercentralAccount", "ClientToken")]
     ConnectionType: ConnectionTypeType
-    Email: str
-    Message: str
-    Name: str
-    ReceiverIdentifier: str
+    Email: Annotated[str, _aws_pattern("PartnercentralAccount", "Email")]
+    Message: Annotated[str, _aws_pattern("PartnercentralAccount", "CreateConnectionInvitationRequestMessageString")]
+    Name: Annotated[str, _aws_pattern("PartnercentralAccount", "SensitiveUnicodeString")]
+    ReceiverIdentifier: Annotated[str, _aws_pattern("PartnercentralAccount", "ParticipantIdentifier")]
 
 
 class TagTypeDef(BaseValidatorModel):
@@ -140,56 +144,56 @@ class TagTypeDef(BaseValidatorModel):
 
 
 class PartnerDomainTypeDef(BaseValidatorModel):
-    DomainName: str
+    DomainName: Annotated[str, _aws_pattern("PartnercentralAccount", "DomainName")]
     RegisteredAt: datetime
 
 
 class DisassociateAwsTrainingCertificationEmailDomainRequestTypeDef(BaseValidatorModel):
-    Catalog: str
-    Identifier: str
-    DomainName: str
-    ClientToken: Optional[str] = None
+    Catalog: Annotated[str, _aws_pattern("PartnercentralAccount", "Catalog")]
+    Identifier: Annotated[str, _aws_pattern("PartnercentralAccount", "PartnerIdentifier")]
+    DomainName: Annotated[str, _aws_pattern("PartnercentralAccount", "DomainName")]
+    ClientToken: Optional[Annotated[str, _aws_pattern("PartnercentralAccount", "ClientToken")]] = None
 
 
 # This class is the input for the 'get_alliance_lead_contact' function.
 class GetAllianceLeadContactRequestTypeDef(BaseValidatorModel):
-    Catalog: str
-    Identifier: str
+    Catalog: Annotated[str, _aws_pattern("PartnercentralAccount", "Catalog")]
+    Identifier: Annotated[str, _aws_pattern("PartnercentralAccount", "PartnerIdentifier")]
 
 
 # This class is the input for the 'get_connection_invitation' function.
 class GetConnectionInvitationRequestTypeDef(BaseValidatorModel):
-    Catalog: str
-    Identifier: str
+    Catalog: Annotated[str, _aws_pattern("PartnercentralAccount", "Catalog")]
+    Identifier: Annotated[str, _aws_pattern("PartnercentralAccount", "ConnectionInvitationId")]
 
 
 # This class is the input for the 'get_connection_preferences' function.
 class GetConnectionPreferencesRequestTypeDef(BaseValidatorModel):
-    Catalog: str
+    Catalog: Annotated[str, _aws_pattern("PartnercentralAccount", "Catalog")]
 
 
 # This class is the input for the 'get_connection' function.
 class GetConnectionRequestTypeDef(BaseValidatorModel):
-    Catalog: str
-    Identifier: str
+    Catalog: Annotated[str, _aws_pattern("PartnercentralAccount", "Catalog")]
+    Identifier: Annotated[str, _aws_pattern("PartnercentralAccount", "ConnectionId")]
 
 
 # This class is the input for the 'get_partner' function.
 class GetPartnerRequestTypeDef(BaseValidatorModel):
-    Catalog: str
-    Identifier: str
+    Catalog: Annotated[str, _aws_pattern("PartnercentralAccount", "Catalog")]
+    Identifier: Annotated[str, _aws_pattern("PartnercentralAccount", "PartnerIdentifier")]
 
 
 # This class is the input for the 'get_profile_update_task' function.
 class GetProfileUpdateTaskRequestTypeDef(BaseValidatorModel):
-    Catalog: str
-    Identifier: str
+    Catalog: Annotated[str, _aws_pattern("PartnercentralAccount", "Catalog")]
+    Identifier: Annotated[str, _aws_pattern("PartnercentralAccount", "PartnerIdentifier")]
 
 
 # This class is the input for the 'get_profile_visibility' function.
 class GetProfileVisibilityRequestTypeDef(BaseValidatorModel):
-    Catalog: str
-    Identifier: str
+    Catalog: Annotated[str, _aws_pattern("PartnercentralAccount", "Catalog")]
+    Identifier: Annotated[str, _aws_pattern("PartnercentralAccount", "PartnerIdentifier")]
 
 
 # This class is the input for the 'get_verification' function.
@@ -205,65 +209,69 @@ class PaginatorConfigTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'list_connection_invitations' function.
 class ListConnectionInvitationsRequestTypeDef(BaseValidatorModel):
-    Catalog: str
-    NextToken: Optional[str] = None
+    Catalog: Annotated[str, _aws_pattern("PartnercentralAccount", "Catalog")]
+    NextToken: Optional[Annotated[str, _aws_pattern("PartnercentralAccount", "NextToken")]] = None
     ConnectionType: Optional[ConnectionTypeType] = None
     MaxResults: Optional[int] = None
-    OtherParticipantIdentifiers: Optional[List[str]] = None
+    OtherParticipantIdentifiers: Optional[
+        List[Annotated[str, _aws_pattern("PartnercentralAccount", "ParticipantIdentifier")]]
+    ] = None
     ParticipantType: Optional[ParticipantTypeType] = None
     Status: Optional[InvitationStatusType] = None
 
 
 # This class is the input for the 'list_connections' function.
 class ListConnectionsRequestTypeDef(BaseValidatorModel):
-    Catalog: str
-    NextToken: Optional[str] = None
-    ConnectionType: Optional[str] = None
+    Catalog: Annotated[str, _aws_pattern("PartnercentralAccount", "Catalog")]
+    NextToken: Optional[Annotated[str, _aws_pattern("PartnercentralAccount", "NextToken")]] = None
+    ConnectionType: Optional[Annotated[str, _aws_pattern("PartnercentralAccount", "ConnectionTypeFilter")]] = None
     MaxResults: Optional[int] = None
-    OtherParticipantIdentifiers: Optional[List[str]] = None
+    OtherParticipantIdentifiers: Optional[
+        List[Annotated[str, _aws_pattern("PartnercentralAccount", "ParticipantIdentifier")]]
+    ] = None
 
 
 # This class is the input for the 'list_partners' function.
 class ListPartnersRequestTypeDef(BaseValidatorModel):
-    Catalog: str
-    NextToken: Optional[str] = None
+    Catalog: Annotated[str, _aws_pattern("PartnercentralAccount", "Catalog")]
+    NextToken: Optional[Annotated[str, _aws_pattern("PartnercentralAccount", "NextToken")]] = None
 
 
 class PartnerSummaryTypeDef(BaseValidatorModel):
-    Catalog: str
-    Arn: str
-    Id: str
-    LegalName: str
+    Catalog: Annotated[str, _aws_pattern("PartnercentralAccount", "Catalog")]
+    Arn: Annotated[str, _aws_pattern("PartnercentralAccount", "PartnerArn")]
+    Id: Annotated[str, _aws_pattern("PartnercentralAccount", "PartnerId")]
+    LegalName: Annotated[str, _aws_pattern("PartnercentralAccount", "SensitiveUnicodeString")]
     CreatedAt: datetime
 
 
 # This class is the input for the 'list_tags_for_resource' function.
 class ListTagsForResourceRequestTypeDef(BaseValidatorModel):
-    ResourceArn: str
+    ResourceArn: Annotated[str, _aws_pattern("PartnercentralAccount", "TaggableResourceArn")]
 
 
 class LocalizedContentTypeDef(BaseValidatorModel):
-    DisplayName: str
-    Description: str
-    WebsiteUrl: str
-    LogoUrl: str
-    Locale: str
+    DisplayName: Annotated[str, _aws_pattern("PartnercentralAccount", "UnicodeString")]
+    Description: Annotated[str, _aws_pattern("PartnercentralAccount", "LocalizedContentDescriptionString")]
+    WebsiteUrl: Annotated[str, _aws_pattern("PartnercentralAccount", "Url")]
+    LogoUrl: Annotated[str, _aws_pattern("PartnercentralAccount", "Url")]
+    Locale: Annotated[str, _aws_pattern("PartnercentralAccount", "Locale")]
 
 
 class PartnerProfileSummaryTypeDef(BaseValidatorModel):
-    Id: str
-    Name: str
+    Id: Annotated[str, _aws_pattern("PartnercentralAccount", "PartnerProfileId")]
+    Name: Annotated[str, _aws_pattern("PartnercentralAccount", "UnicodeString")]
 
 
 class SellerProfileSummaryTypeDef(BaseValidatorModel):
-    Id: str
-    Name: str
+    Id: Annotated[str, _aws_pattern("PartnercentralAccount", "SellerProfileId")]
+    Name: Annotated[str, _aws_pattern("PartnercentralAccount", "UnicodeString")]
 
 
 # This class is the input for the 'put_profile_visibility' function.
 class PutProfileVisibilityRequestTypeDef(BaseValidatorModel):
-    Catalog: str
-    Identifier: str
+    Catalog: Annotated[str, _aws_pattern("PartnercentralAccount", "Catalog")]
+    Identifier: Annotated[str, _aws_pattern("PartnercentralAccount", "PartnerIdentifier")]
     Visibility: ProfileVisibilityType
 
 
@@ -274,93 +282,101 @@ class RegistrantVerificationResponseTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'reject_connection_invitation' function.
 class RejectConnectionInvitationRequestTypeDef(BaseValidatorModel):
-    Catalog: str
-    Identifier: str
-    ClientToken: str
+    Catalog: Annotated[str, _aws_pattern("PartnercentralAccount", "Catalog")]
+    Identifier: Annotated[str, _aws_pattern("PartnercentralAccount", "ConnectionInvitationId")]
+    ClientToken: Annotated[str, _aws_pattern("PartnercentralAccount", "ClientToken")]
     Reason: Optional[str] = None
 
 
 class SendEmailVerificationCodeRequestTypeDef(BaseValidatorModel):
-    Catalog: str
-    Email: str
+    Catalog: Annotated[str, _aws_pattern("PartnercentralAccount", "Catalog")]
+    Email: Annotated[str, _aws_pattern("PartnercentralAccount", "Email")]
 
 
 class UntagResourceRequestTypeDef(BaseValidatorModel):
-    ResourceArn: str
+    ResourceArn: Annotated[str, _aws_pattern("PartnercentralAccount", "TaggableResourceArn")]
     TagKeys: List[str]
 
 
 # This class is the input for the 'update_connection_preferences' function.
 class UpdateConnectionPreferencesRequestTypeDef(BaseValidatorModel):
-    Catalog: str
+    Catalog: Annotated[str, _aws_pattern("PartnercentralAccount", "Catalog")]
     Revision: int
     AccessType: AccessTypeType
-    ExcludedParticipantIdentifiers: Optional[List[str]] = None
+    ExcludedParticipantIdentifiers: Optional[
+        List[Annotated[str, _aws_pattern("PartnercentralAccount", "ParticipantIdentifier")]]
+    ] = None
 
 
 # This class is the output for the 'cancel_connection_invitation' function.
 class CancelConnectionInvitationResponseTypeDef(BaseValidatorModel):
-    Catalog: str
-    Id: str
-    Arn: str
-    ConnectionId: str
+    Catalog: Annotated[str, _aws_pattern("PartnercentralAccount", "Catalog")]
+    Id: Annotated[str, _aws_pattern("PartnercentralAccount", "ConnectionInvitationId")]
+    Arn: Annotated[str, _aws_pattern("PartnercentralAccount", "ConnectionInvitationArn")]
+    ConnectionId: Annotated[str, _aws_pattern("PartnercentralAccount", "ConnectionId")]
     ConnectionType: ConnectionTypeType
     CreatedAt: datetime
     UpdatedAt: datetime
     ExpiresAt: datetime
-    OtherParticipantIdentifier: str
+    OtherParticipantIdentifier: Annotated[str, _aws_pattern("PartnercentralAccount", "ParticipantIdentifier")]
     ParticipantType: ParticipantTypeType
     Status: InvitationStatusType
-    InvitationMessage: str
-    InviterEmail: str
-    InviterName: str
+    InvitationMessage: Annotated[
+        str, _aws_pattern("PartnercentralAccount", "CancelConnectionInvitationResponseInvitationMessageString")
+    ]
+    InviterEmail: Annotated[str, _aws_pattern("PartnercentralAccount", "Email")]
+    InviterName: Annotated[str, _aws_pattern("PartnercentralAccount", "SensitiveUnicodeString")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 # This class is the output for the 'create_connection_invitation' function.
 class CreateConnectionInvitationResponseTypeDef(BaseValidatorModel):
-    Catalog: str
-    Id: str
-    Arn: str
-    ConnectionId: str
+    Catalog: Annotated[str, _aws_pattern("PartnercentralAccount", "Catalog")]
+    Id: Annotated[str, _aws_pattern("PartnercentralAccount", "ConnectionInvitationId")]
+    Arn: Annotated[str, _aws_pattern("PartnercentralAccount", "ConnectionInvitationArn")]
+    ConnectionId: Annotated[str, _aws_pattern("PartnercentralAccount", "ConnectionId")]
     ConnectionType: ConnectionTypeType
     CreatedAt: datetime
     UpdatedAt: datetime
     ExpiresAt: datetime
-    OtherParticipantIdentifier: str
+    OtherParticipantIdentifier: Annotated[str, _aws_pattern("PartnercentralAccount", "ParticipantIdentifier")]
     ParticipantType: ParticipantTypeType
     Status: InvitationStatusType
-    InvitationMessage: str
-    InviterEmail: str
-    InviterName: str
+    InvitationMessage: Annotated[
+        str, _aws_pattern("PartnercentralAccount", "CreateConnectionInvitationResponseInvitationMessageString")
+    ]
+    InviterEmail: Annotated[str, _aws_pattern("PartnercentralAccount", "Email")]
+    InviterName: Annotated[str, _aws_pattern("PartnercentralAccount", "SensitiveUnicodeString")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 # This class is the output for the 'get_connection_invitation' function.
 class GetConnectionInvitationResponseTypeDef(BaseValidatorModel):
-    Catalog: str
-    Id: str
-    Arn: str
-    ConnectionId: str
+    Catalog: Annotated[str, _aws_pattern("PartnercentralAccount", "Catalog")]
+    Id: Annotated[str, _aws_pattern("PartnercentralAccount", "ConnectionInvitationId")]
+    Arn: Annotated[str, _aws_pattern("PartnercentralAccount", "ConnectionInvitationArn")]
+    ConnectionId: Annotated[str, _aws_pattern("PartnercentralAccount", "ConnectionId")]
     ConnectionType: ConnectionTypeType
     CreatedAt: datetime
     UpdatedAt: datetime
     ExpiresAt: datetime
-    OtherParticipantIdentifier: str
+    OtherParticipantIdentifier: Annotated[str, _aws_pattern("PartnercentralAccount", "ParticipantIdentifier")]
     ParticipantType: ParticipantTypeType
     Status: InvitationStatusType
-    InvitationMessage: str
-    InviterEmail: str
-    InviterName: str
+    InvitationMessage: Annotated[
+        str, _aws_pattern("PartnercentralAccount", "GetConnectionInvitationResponseInvitationMessageString")
+    ]
+    InviterEmail: Annotated[str, _aws_pattern("PartnercentralAccount", "Email")]
+    InviterName: Annotated[str, _aws_pattern("PartnercentralAccount", "SensitiveUnicodeString")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 # This class is the output for the 'get_connection_preferences' function.
 class GetConnectionPreferencesResponseTypeDef(BaseValidatorModel):
-    Catalog: str
-    Arn: str
+    Catalog: Annotated[str, _aws_pattern("PartnercentralAccount", "Catalog")]
+    Arn: Annotated[str, _aws_pattern("PartnercentralAccount", "ConnectionPreferencesArn")]
     AccessType: AccessTypeType
-    ExcludedParticipantIds: List[str]
+    ExcludedParticipantIds: List[Annotated[str, _aws_pattern("PartnercentralAccount", "ParticipantIdentifier")]]
     UpdatedAt: datetime
     Revision: int
     ResponseMetadata: ResponseMetadataTypeDef
@@ -368,49 +384,51 @@ class GetConnectionPreferencesResponseTypeDef(BaseValidatorModel):
 
 # This class is the output for the 'get_profile_visibility' function.
 class GetProfileVisibilityResponseTypeDef(BaseValidatorModel):
-    Catalog: str
-    Arn: str
-    Id: str
+    Catalog: Annotated[str, _aws_pattern("PartnercentralAccount", "Catalog")]
+    Arn: Annotated[str, _aws_pattern("PartnercentralAccount", "PartnerArn")]
+    Id: Annotated[str, _aws_pattern("PartnercentralAccount", "PartnerId")]
     Visibility: ProfileVisibilityType
-    ProfileId: str
+    ProfileId: Annotated[str, _aws_pattern("PartnercentralAccount", "PartnerProfileId")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 # This class is the output for the 'put_profile_visibility' function.
 class PutProfileVisibilityResponseTypeDef(BaseValidatorModel):
-    Catalog: str
-    Arn: str
-    Id: str
+    Catalog: Annotated[str, _aws_pattern("PartnercentralAccount", "Catalog")]
+    Arn: Annotated[str, _aws_pattern("PartnercentralAccount", "PartnerArn")]
+    Id: Annotated[str, _aws_pattern("PartnercentralAccount", "PartnerId")]
     Visibility: ProfileVisibilityType
-    ProfileId: str
+    ProfileId: Annotated[str, _aws_pattern("PartnercentralAccount", "PartnerProfileId")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 # This class is the output for the 'reject_connection_invitation' function.
 class RejectConnectionInvitationResponseTypeDef(BaseValidatorModel):
-    Catalog: str
-    Id: str
-    Arn: str
-    ConnectionId: str
+    Catalog: Annotated[str, _aws_pattern("PartnercentralAccount", "Catalog")]
+    Id: Annotated[str, _aws_pattern("PartnercentralAccount", "ConnectionInvitationId")]
+    Arn: Annotated[str, _aws_pattern("PartnercentralAccount", "ConnectionInvitationArn")]
+    ConnectionId: Annotated[str, _aws_pattern("PartnercentralAccount", "ConnectionId")]
     ConnectionType: ConnectionTypeType
     CreatedAt: datetime
     UpdatedAt: datetime
     ExpiresAt: datetime
-    OtherParticipantIdentifier: str
+    OtherParticipantIdentifier: Annotated[str, _aws_pattern("PartnercentralAccount", "ParticipantIdentifier")]
     ParticipantType: ParticipantTypeType
     Status: InvitationStatusType
-    InvitationMessage: str
-    InviterEmail: str
-    InviterName: str
+    InvitationMessage: Annotated[
+        str, _aws_pattern("PartnercentralAccount", "RejectConnectionInvitationResponseInvitationMessageString")
+    ]
+    InviterEmail: Annotated[str, _aws_pattern("PartnercentralAccount", "Email")]
+    InviterName: Annotated[str, _aws_pattern("PartnercentralAccount", "SensitiveUnicodeString")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 # This class is the output for the 'update_connection_preferences' function.
 class UpdateConnectionPreferencesResponseTypeDef(BaseValidatorModel):
-    Catalog: str
-    Arn: str
+    Catalog: Annotated[str, _aws_pattern("PartnercentralAccount", "Catalog")]
+    Arn: Annotated[str, _aws_pattern("PartnercentralAccount", "ConnectionPreferencesArn")]
     AccessType: AccessTypeType
-    ExcludedParticipantIds: List[str]
+    ExcludedParticipantIds: List[Annotated[str, _aws_pattern("PartnercentralAccount", "ParticipantIdentifier")]]
     UpdatedAt: datetime
     Revision: int
     ResponseMetadata: ResponseMetadataTypeDef
@@ -418,26 +436,28 @@ class UpdateConnectionPreferencesResponseTypeDef(BaseValidatorModel):
 
 # This class is the output for the 'get_alliance_lead_contact' function.
 class GetAllianceLeadContactResponseTypeDef(BaseValidatorModel):
-    Catalog: str
-    Arn: str
-    Id: str
+    Catalog: Annotated[str, _aws_pattern("PartnercentralAccount", "Catalog")]
+    Arn: Annotated[str, _aws_pattern("PartnercentralAccount", "PartnerArn")]
+    Id: Annotated[str, _aws_pattern("PartnercentralAccount", "PartnerId")]
     AllianceLeadContact: AllianceLeadContactTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 # This class is the input for the 'put_alliance_lead_contact' function.
 class PutAllianceLeadContactRequestTypeDef(BaseValidatorModel):
-    Catalog: str
-    Identifier: str
+    Catalog: Annotated[str, _aws_pattern("PartnercentralAccount", "Catalog")]
+    Identifier: Annotated[str, _aws_pattern("PartnercentralAccount", "PartnerIdentifier")]
     AllianceLeadContact: AllianceLeadContactTypeDef
-    EmailVerificationCode: Optional[str] = None
+    EmailVerificationCode: Optional[Annotated[str, _aws_pattern("PartnercentralAccount", "EmailVerificationCode")]] = (
+        None
+    )
 
 
 # This class is the output for the 'put_alliance_lead_contact' function.
 class PutAllianceLeadContactResponseTypeDef(BaseValidatorModel):
-    Catalog: str
-    Arn: str
-    Id: str
+    Catalog: Annotated[str, _aws_pattern("PartnercentralAccount", "Catalog")]
+    Arn: Annotated[str, _aws_pattern("PartnercentralAccount", "PartnerArn")]
+    Id: Annotated[str, _aws_pattern("PartnercentralAccount", "PartnerId")]
     AllianceLeadContact: AllianceLeadContactTypeDef
     ResponseMetadata: ResponseMetadataTypeDef
 
@@ -457,29 +477,29 @@ class VerificationDetailsTypeDef(BaseValidatorModel):
 class ListConnectionInvitationsResponseTypeDef(BaseValidatorModel):
     ConnectionInvitationSummaries: List[ConnectionInvitationSummaryTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
-    NextToken: Optional[str] = None
+    NextToken: Optional[Annotated[str, _aws_pattern("PartnercentralAccount", "NextToken")]] = None
 
 
 # This class is the input for the 'create_partner' function.
 class CreatePartnerRequestTypeDef(BaseValidatorModel):
-    Catalog: str
-    LegalName: str
+    Catalog: Annotated[str, _aws_pattern("PartnercentralAccount", "Catalog")]
+    LegalName: Annotated[str, _aws_pattern("PartnercentralAccount", "SensitiveUnicodeString")]
     PrimarySolutionType: PrimarySolutionTypeType
     AllianceLeadContact: AllianceLeadContactTypeDef
-    EmailVerificationCode: str
-    ClientToken: Optional[str] = None
+    EmailVerificationCode: Annotated[str, _aws_pattern("PartnercentralAccount", "EmailVerificationCode")]
+    ClientToken: Optional[Annotated[str, _aws_pattern("PartnercentralAccount", "ClientToken")]] = None
     Tags: Optional[List[TagTypeDef]] = None
 
 
 # This class is the output for the 'list_tags_for_resource' function.
 class ListTagsForResourceResponseTypeDef(BaseValidatorModel):
-    ResourceArn: str
+    ResourceArn: Annotated[str, _aws_pattern("PartnercentralAccount", "TaggableResourceArn")]
     Tags: List[TagTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 class TagResourceRequestTypeDef(BaseValidatorModel):
-    ResourceArn: str
+    ResourceArn: Annotated[str, _aws_pattern("PartnercentralAccount", "TaggableResourceArn")]
     Tags: List[TagTypeDef]
 
 
@@ -508,19 +528,19 @@ class ListPartnersRequestPaginateTypeDef(BaseValidatorModel):
 class ListPartnersResponseTypeDef(BaseValidatorModel):
     PartnerSummaryList: List[PartnerSummaryTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
-    NextToken: Optional[str] = None
+    NextToken: Optional[Annotated[str, _aws_pattern("PartnercentralAccount", "NextToken")]] = None
 
 
 class PartnerProfileTypeDef(BaseValidatorModel):
-    DisplayName: str
-    Description: str
-    WebsiteUrl: str
-    LogoUrl: str
+    DisplayName: Annotated[str, _aws_pattern("PartnercentralAccount", "UnicodeString")]
+    Description: Annotated[str, _aws_pattern("PartnercentralAccount", "PartnerProfileDescriptionString")]
+    WebsiteUrl: Annotated[str, _aws_pattern("PartnercentralAccount", "Url")]
+    LogoUrl: Annotated[str, _aws_pattern("PartnercentralAccount", "Url")]
     PrimarySolutionType: PrimarySolutionTypeType
     IndustrySegments: List[IndustrySegmentType]
-    TranslationSourceLocale: str
+    TranslationSourceLocale: Annotated[str, _aws_pattern("PartnercentralAccount", "Locale")]
     LocalizedContents: Optional[List[LocalizedContentTypeDef]] = None
-    ProfileId: Optional[str] = None
+    ProfileId: Optional[Annotated[str, _aws_pattern("PartnercentralAccount", "PartnerProfileId")]] = None
 
 
 class TaskDetailsOutputTypeDef(BaseValidatorModel):
@@ -535,13 +555,13 @@ class TaskDetailsOutputTypeDef(BaseValidatorModel):
 
 
 class TaskDetailsTypeDef(BaseValidatorModel):
-    DisplayName: str
-    Description: str
-    WebsiteUrl: str
-    LogoUrl: str
+    DisplayName: Annotated[str, _aws_pattern("PartnercentralAccount", "UnicodeString")]
+    Description: Annotated[str, _aws_pattern("PartnercentralAccount", "TaskDetailsDescriptionString")]
+    WebsiteUrl: Annotated[str, _aws_pattern("PartnercentralAccount", "Url")]
+    LogoUrl: Annotated[str, _aws_pattern("PartnercentralAccount", "Url")]
     PrimarySolutionType: PrimarySolutionTypeType
     IndustrySegments: List[IndustrySegmentType]
-    TranslationSourceLocale: str
+    TranslationSourceLocale: Annotated[str, _aws_pattern("PartnercentralAccount", "Locale")]
     LocalizedContents: Optional[List[LocalizedContentTypeDef]] = None
 
 
@@ -558,16 +578,16 @@ class VerificationResponseDetailsTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'start_verification' function.
 class StartVerificationRequestTypeDef(BaseValidatorModel):
-    ClientToken: Optional[str] = None
+    ClientToken: Optional[Annotated[str, _aws_pattern("PartnercentralAccount", "ClientToken")]] = None
     VerificationDetails: Optional[VerificationDetailsTypeDef] = None
 
 
 # This class is the output for the 'create_partner' function.
 class CreatePartnerResponseTypeDef(BaseValidatorModel):
-    Catalog: str
-    Arn: str
-    Id: str
-    LegalName: str
+    Catalog: Annotated[str, _aws_pattern("PartnercentralAccount", "Catalog")]
+    Arn: Annotated[str, _aws_pattern("PartnercentralAccount", "PartnerArn")]
+    Id: Annotated[str, _aws_pattern("PartnercentralAccount", "PartnerId")]
+    LegalName: Annotated[str, _aws_pattern("PartnercentralAccount", "SensitiveUnicodeString")]
     CreatedAt: datetime
     Profile: PartnerProfileTypeDef
     AwsTrainingCertificationEmailDomains: List[PartnerDomainTypeDef]
@@ -577,10 +597,10 @@ class CreatePartnerResponseTypeDef(BaseValidatorModel):
 
 # This class is the output for the 'get_partner' function.
 class GetPartnerResponseTypeDef(BaseValidatorModel):
-    Catalog: str
-    Arn: str
-    Id: str
-    LegalName: str
+    Catalog: Annotated[str, _aws_pattern("PartnercentralAccount", "Catalog")]
+    Arn: Annotated[str, _aws_pattern("PartnercentralAccount", "PartnerArn")]
+    Id: Annotated[str, _aws_pattern("PartnercentralAccount", "PartnerId")]
+    LegalName: Annotated[str, _aws_pattern("PartnercentralAccount", "SensitiveUnicodeString")]
     CreatedAt: datetime
     Profile: PartnerProfileTypeDef
     AwsTrainingCertificationEmailDomains: List[PartnerDomainTypeDef]
@@ -589,10 +609,10 @@ class GetPartnerResponseTypeDef(BaseValidatorModel):
 
 # This class is the output for the 'cancel_profile_update_task' function.
 class CancelProfileUpdateTaskResponseTypeDef(BaseValidatorModel):
-    Catalog: str
-    Arn: str
-    Id: str
-    TaskId: str
+    Catalog: Annotated[str, _aws_pattern("PartnercentralAccount", "Catalog")]
+    Arn: Annotated[str, _aws_pattern("PartnercentralAccount", "PartnerArn")]
+    Id: Annotated[str, _aws_pattern("PartnercentralAccount", "PartnerId")]
+    TaskId: Annotated[str, _aws_pattern("PartnercentralAccount", "ProfileTaskId")]
     TaskDetails: TaskDetailsOutputTypeDef
     StartedAt: datetime
     Status: ProfileTaskStatusType
@@ -603,10 +623,10 @@ class CancelProfileUpdateTaskResponseTypeDef(BaseValidatorModel):
 
 # This class is the output for the 'get_profile_update_task' function.
 class GetProfileUpdateTaskResponseTypeDef(BaseValidatorModel):
-    Catalog: str
-    Arn: str
-    Id: str
-    TaskId: str
+    Catalog: Annotated[str, _aws_pattern("PartnercentralAccount", "Catalog")]
+    Arn: Annotated[str, _aws_pattern("PartnercentralAccount", "PartnerArn")]
+    Id: Annotated[str, _aws_pattern("PartnercentralAccount", "PartnerId")]
+    TaskId: Annotated[str, _aws_pattern("PartnercentralAccount", "ProfileTaskId")]
     TaskDetails: TaskDetailsOutputTypeDef
     StartedAt: datetime
     Status: ProfileTaskStatusType
@@ -617,10 +637,10 @@ class GetProfileUpdateTaskResponseTypeDef(BaseValidatorModel):
 
 # This class is the output for the 'start_profile_update_task' function.
 class StartProfileUpdateTaskResponseTypeDef(BaseValidatorModel):
-    Catalog: str
-    Arn: str
-    Id: str
-    TaskId: str
+    Catalog: Annotated[str, _aws_pattern("PartnercentralAccount", "Catalog")]
+    Arn: Annotated[str, _aws_pattern("PartnercentralAccount", "PartnerArn")]
+    Id: Annotated[str, _aws_pattern("PartnercentralAccount", "PartnerId")]
+    TaskId: Annotated[str, _aws_pattern("PartnercentralAccount", "ProfileTaskId")]
     TaskDetails: TaskDetailsOutputTypeDef
     StartedAt: datetime
     Status: ProfileTaskStatusType
@@ -634,12 +654,12 @@ TaskDetailsUnionTypeDef = Union[TaskDetailsOutputTypeDef, TaskDetailsTypeDef]
 
 class ConnectionTypeDetailTypeDef(BaseValidatorModel):
     CreatedAt: datetime
-    InviterEmail: str
-    InviterName: str
+    InviterEmail: Annotated[str, _aws_pattern("PartnercentralAccount", "Email")]
+    InviterName: Annotated[str, _aws_pattern("PartnercentralAccount", "SensitiveUnicodeString")]
     Status: ConnectionTypeStatusType
     OtherParticipant: ParticipantTypeDef
     CanceledAt: Optional[datetime] = None
-    CanceledBy: Optional[str] = None
+    CanceledBy: Optional[Annotated[str, _aws_pattern("PartnercentralAccount", "AwsAccountId")]] = None
 
 
 class ConnectionTypeSummaryTypeDef(BaseValidatorModel):
@@ -651,7 +671,7 @@ class ConnectionTypeSummaryTypeDef(BaseValidatorModel):
 class GetVerificationResponseTypeDef(BaseValidatorModel):
     VerificationType: VerificationTypeType
     VerificationStatus: VerificationStatusType
-    VerificationStatusReason: str
+    VerificationStatusReason: Annotated[str, _aws_pattern("PartnercentralAccount", "VerificationStatusReason")]
     VerificationResponseDetails: VerificationResponseDetailsTypeDef
     StartedAt: datetime
     CompletedAt: datetime
@@ -662,7 +682,7 @@ class GetVerificationResponseTypeDef(BaseValidatorModel):
 class StartVerificationResponseTypeDef(BaseValidatorModel):
     VerificationType: VerificationTypeType
     VerificationStatus: VerificationStatusType
-    VerificationStatusReason: str
+    VerificationStatusReason: Annotated[str, _aws_pattern("PartnercentralAccount", "VerificationStatusReason")]
     VerificationResponseDetails: VerificationResponseDetailsTypeDef
     StartedAt: datetime
     CompletedAt: datetime
@@ -671,48 +691,48 @@ class StartVerificationResponseTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'start_profile_update_task' function.
 class StartProfileUpdateTaskRequestTypeDef(BaseValidatorModel):
-    Catalog: str
-    Identifier: str
+    Catalog: Annotated[str, _aws_pattern("PartnercentralAccount", "Catalog")]
+    Identifier: Annotated[str, _aws_pattern("PartnercentralAccount", "PartnerIdentifier")]
     TaskDetails: TaskDetailsUnionTypeDef
-    ClientToken: Optional[str] = None
+    ClientToken: Optional[Annotated[str, _aws_pattern("PartnercentralAccount", "ClientToken")]] = None
 
 
 # This class is the output for the 'cancel_connection' function.
 class CancelConnectionResponseTypeDef(BaseValidatorModel):
-    Catalog: str
-    Id: str
-    Arn: str
-    OtherParticipantAccountId: str
+    Catalog: Annotated[str, _aws_pattern("PartnercentralAccount", "Catalog")]
+    Id: Annotated[str, _aws_pattern("PartnercentralAccount", "ConnectionId")]
+    Arn: Annotated[str, _aws_pattern("PartnercentralAccount", "ConnectionArn")]
+    OtherParticipantAccountId: Annotated[str, _aws_pattern("PartnercentralAccount", "AwsAccountId")]
     UpdatedAt: datetime
     ConnectionTypes: Dict[ConnectionTypeType, ConnectionTypeDetailTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 class ConnectionTypeDef(BaseValidatorModel):
-    Catalog: str
-    Id: str
-    Arn: str
-    OtherParticipantAccountId: str
+    Catalog: Annotated[str, _aws_pattern("PartnercentralAccount", "Catalog")]
+    Id: Annotated[str, _aws_pattern("PartnercentralAccount", "ConnectionId")]
+    Arn: Annotated[str, _aws_pattern("PartnercentralAccount", "ConnectionArn")]
+    OtherParticipantAccountId: Annotated[str, _aws_pattern("PartnercentralAccount", "AwsAccountId")]
     UpdatedAt: datetime
     ConnectionTypes: Dict[ConnectionTypeType, ConnectionTypeDetailTypeDef]
 
 
 # This class is the output for the 'get_connection' function.
 class GetConnectionResponseTypeDef(BaseValidatorModel):
-    Catalog: str
-    Id: str
-    Arn: str
-    OtherParticipantAccountId: str
+    Catalog: Annotated[str, _aws_pattern("PartnercentralAccount", "Catalog")]
+    Id: Annotated[str, _aws_pattern("PartnercentralAccount", "ConnectionId")]
+    Arn: Annotated[str, _aws_pattern("PartnercentralAccount", "ConnectionArn")]
+    OtherParticipantAccountId: Annotated[str, _aws_pattern("PartnercentralAccount", "AwsAccountId")]
     UpdatedAt: datetime
     ConnectionTypes: Dict[ConnectionTypeType, ConnectionTypeDetailTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 class ConnectionSummaryTypeDef(BaseValidatorModel):
-    Catalog: str
-    Id: str
-    Arn: str
-    OtherParticipantAccountId: str
+    Catalog: Annotated[str, _aws_pattern("PartnercentralAccount", "Catalog")]
+    Id: Annotated[str, _aws_pattern("PartnercentralAccount", "ConnectionId")]
+    Arn: Annotated[str, _aws_pattern("PartnercentralAccount", "ConnectionArn")]
+    OtherParticipantAccountId: Annotated[str, _aws_pattern("PartnercentralAccount", "AwsAccountId")]
     UpdatedAt: datetime
     ConnectionTypes: Dict[ConnectionTypeType, ConnectionTypeSummaryTypeDef]
 
@@ -727,4 +747,4 @@ class AcceptConnectionInvitationResponseTypeDef(BaseValidatorModel):
 class ListConnectionsResponseTypeDef(BaseValidatorModel):
     ConnectionSummaries: List[ConnectionSummaryTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
-    NextToken: Optional[str] = None
+    NextToken: Optional[Annotated[str, _aws_pattern("PartnercentralAccount", "NextToken")]] = None

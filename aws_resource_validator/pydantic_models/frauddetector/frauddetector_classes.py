@@ -3,6 +3,7 @@
 from datetime import datetime
 from decimal import Decimal
 from typing import (
+    Annotated,
     Any,
     Callable,
     Dict,
@@ -24,6 +25,7 @@ from botocore.response import StreamingBody
 from pydantic import Field
 
 from aws_resource_validator.core.base_validator_model import BaseValidatorModel, EventStream
+from aws_resource_validator.core.pattern_validation import aws_field_pattern as _aws_pattern
 from aws_resource_validator.pydantic_models.frauddetector.frauddetector_constants import *  # noqa: F401,F403
 
 # Optional boto3 symbols — imported lazily so services that don't need them
@@ -61,12 +63,12 @@ class AggregatedVariablesImpactExplanationTypeDef(BaseValidatorModel):
 
 
 class AllowDenyListTypeDef(BaseValidatorModel):
-    name: str
+    name: Annotated[str, _aws_pattern("Frauddetector", "noDashIdentifier")]
     description: Optional[str] = None
-    variableType: Optional[str] = None
+    variableType: Optional[Annotated[str, _aws_pattern("Frauddetector", "variableType")]] = None
     createdTime: Optional[str] = None
     updatedTime: Optional[str] = None
-    arn: Optional[str] = None
+    arn: Optional[Annotated[str, _aws_pattern("Frauddetector", "fraudDetectorArn")]] = None
 
 
 class BatchCreateVariableErrorTypeDef(BaseValidatorModel):
@@ -76,7 +78,7 @@ class BatchCreateVariableErrorTypeDef(BaseValidatorModel):
 
 
 class TagTypeDef(BaseValidatorModel):
-    key: str
+    key: Annotated[str, _aws_pattern("Frauddetector", "tagKey")]
     value: str
 
 
@@ -117,39 +119,39 @@ class VariableTypeDef(BaseValidatorModel):
     variableType: Optional[str] = None
     lastUpdatedTime: Optional[str] = None
     createdTime: Optional[str] = None
-    arn: Optional[str] = None
+    arn: Optional[Annotated[str, _aws_pattern("Frauddetector", "fraudDetectorArn")]] = None
 
 
 class BatchImportTypeDef(BaseValidatorModel):
-    jobId: Optional[str] = None
+    jobId: Optional[Annotated[str, _aws_pattern("Frauddetector", "identifier")]] = None
     status: Optional[AsyncJobStatusType] = None
     failureReason: Optional[str] = None
     startTime: Optional[str] = None
     completionTime: Optional[str] = None
-    inputPath: Optional[str] = None
-    outputPath: Optional[str] = None
-    eventTypeName: Optional[str] = None
-    iamRoleArn: Optional[str] = None
-    arn: Optional[str] = None
+    inputPath: Optional[Annotated[str, _aws_pattern("Frauddetector", "s3BucketLocation")]] = None
+    outputPath: Optional[Annotated[str, _aws_pattern("Frauddetector", "s3BucketLocation")]] = None
+    eventTypeName: Optional[Annotated[str, _aws_pattern("Frauddetector", "identifier")]] = None
+    iamRoleArn: Optional[Annotated[str, _aws_pattern("Frauddetector", "iamRoleArn")]] = None
+    arn: Optional[Annotated[str, _aws_pattern("Frauddetector", "fraudDetectorArn")]] = None
     processedRecordsCount: Optional[int] = None
     failedRecordsCount: Optional[int] = None
     totalRecordsCount: Optional[int] = None
 
 
 class BatchPredictionTypeDef(BaseValidatorModel):
-    jobId: Optional[str] = None
+    jobId: Optional[Annotated[str, _aws_pattern("Frauddetector", "identifier")]] = None
     status: Optional[AsyncJobStatusType] = None
     failureReason: Optional[str] = None
     startTime: Optional[str] = None
     completionTime: Optional[str] = None
     lastHeartbeatTime: Optional[str] = None
-    inputPath: Optional[str] = None
-    outputPath: Optional[str] = None
-    eventTypeName: Optional[str] = None
-    detectorName: Optional[str] = None
-    detectorVersion: Optional[str] = None
-    iamRoleArn: Optional[str] = None
-    arn: Optional[str] = None
+    inputPath: Optional[Annotated[str, _aws_pattern("Frauddetector", "s3BucketLocation")]] = None
+    outputPath: Optional[Annotated[str, _aws_pattern("Frauddetector", "s3BucketLocation")]] = None
+    eventTypeName: Optional[Annotated[str, _aws_pattern("Frauddetector", "identifier")]] = None
+    detectorName: Optional[Annotated[str, _aws_pattern("Frauddetector", "identifier")]] = None
+    detectorVersion: Optional[Annotated[str, _aws_pattern("Frauddetector", "floatVersionString")]] = None
+    iamRoleArn: Optional[Annotated[str, _aws_pattern("Frauddetector", "iamRoleArn")]] = None
+    arn: Optional[Annotated[str, _aws_pattern("Frauddetector", "fraudDetectorArn")]] = None
     processedRecordsCount: Optional[int] = None
     totalRecordsCount: Optional[int] = None
 
@@ -158,29 +160,29 @@ BlobTypeDef = Union[IO[Any], StreamingBody, bytes, str]
 
 
 class CancelBatchImportJobRequestTypeDef(BaseValidatorModel):
-    jobId: str
+    jobId: Annotated[str, _aws_pattern("Frauddetector", "identifier")]
 
 
 class CancelBatchPredictionJobRequestTypeDef(BaseValidatorModel):
-    jobId: str
+    jobId: Annotated[str, _aws_pattern("Frauddetector", "identifier")]
 
 
 class ModelVersionTypeDef(BaseValidatorModel):
-    modelId: str
+    modelId: Annotated[str, _aws_pattern("Frauddetector", "modelIdentifier")]
     modelType: ModelTypeEnumType
-    modelVersionNumber: str
-    arn: Optional[str] = None
+    modelVersionNumber: Annotated[str, _aws_pattern("Frauddetector", "floatVersionString")]
+    arn: Optional[Annotated[str, _aws_pattern("Frauddetector", "fraudDetectorArn")]] = None
 
 
 class RuleTypeDef(BaseValidatorModel):
-    detectorId: str
-    ruleId: str
-    ruleVersion: str
+    detectorId: Annotated[str, _aws_pattern("Frauddetector", "identifier")]
+    ruleId: Annotated[str, _aws_pattern("Frauddetector", "identifier")]
+    ruleVersion: Annotated[str, _aws_pattern("Frauddetector", "wholeNumberVersionString")]
 
 
 class ExternalEventsDetailTypeDef(BaseValidatorModel):
-    dataLocation: str
-    dataAccessRoleArn: str
+    dataLocation: Annotated[str, _aws_pattern("Frauddetector", "s3BucketLocation")]
+    dataAccessRoleArn: Annotated[str, _aws_pattern("Frauddetector", "iamRoleArn")]
 
 
 class FieldValidationMessageTypeDef(BaseValidatorModel):
@@ -198,66 +200,66 @@ class FileValidationMessageTypeDef(BaseValidatorModel):
 
 
 class DeleteBatchImportJobRequestTypeDef(BaseValidatorModel):
-    jobId: str
+    jobId: Annotated[str, _aws_pattern("Frauddetector", "identifier")]
 
 
 class DeleteBatchPredictionJobRequestTypeDef(BaseValidatorModel):
-    jobId: str
+    jobId: Annotated[str, _aws_pattern("Frauddetector", "identifier")]
 
 
 class DeleteDetectorRequestTypeDef(BaseValidatorModel):
-    detectorId: str
+    detectorId: Annotated[str, _aws_pattern("Frauddetector", "identifier")]
 
 
 class DeleteDetectorVersionRequestTypeDef(BaseValidatorModel):
-    detectorId: str
-    detectorVersionId: str
+    detectorId: Annotated[str, _aws_pattern("Frauddetector", "identifier")]
+    detectorVersionId: Annotated[str, _aws_pattern("Frauddetector", "wholeNumberVersionString")]
 
 
 class DeleteEntityTypeRequestTypeDef(BaseValidatorModel):
-    name: str
+    name: Annotated[str, _aws_pattern("Frauddetector", "identifier")]
 
 
 class DeleteEventRequestTypeDef(BaseValidatorModel):
-    eventId: str
-    eventTypeName: str
+    eventId: Annotated[str, _aws_pattern("Frauddetector", "identifier")]
+    eventTypeName: Annotated[str, _aws_pattern("Frauddetector", "identifier")]
     deleteAuditHistory: Optional[bool] = None
 
 
 class DeleteEventTypeRequestTypeDef(BaseValidatorModel):
-    name: str
+    name: Annotated[str, _aws_pattern("Frauddetector", "identifier")]
 
 
 # This class is the input for the 'delete_events_by_event_type' function.
 class DeleteEventsByEventTypeRequestTypeDef(BaseValidatorModel):
-    eventTypeName: str
+    eventTypeName: Annotated[str, _aws_pattern("Frauddetector", "identifier")]
 
 
 class DeleteExternalModelRequestTypeDef(BaseValidatorModel):
-    modelEndpoint: str
+    modelEndpoint: Annotated[str, _aws_pattern("Frauddetector", "sageMakerEndpointIdentifier")]
 
 
 class DeleteLabelRequestTypeDef(BaseValidatorModel):
-    name: str
+    name: Annotated[str, _aws_pattern("Frauddetector", "identifier")]
 
 
 class DeleteListRequestTypeDef(BaseValidatorModel):
-    name: str
+    name: Annotated[str, _aws_pattern("Frauddetector", "noDashIdentifier")]
 
 
 class DeleteModelRequestTypeDef(BaseValidatorModel):
-    modelId: str
+    modelId: Annotated[str, _aws_pattern("Frauddetector", "modelIdentifier")]
     modelType: ModelTypeEnumType
 
 
 class DeleteModelVersionRequestTypeDef(BaseValidatorModel):
-    modelId: str
+    modelId: Annotated[str, _aws_pattern("Frauddetector", "modelIdentifier")]
     modelType: ModelTypeEnumType
-    modelVersionNumber: str
+    modelVersionNumber: Annotated[str, _aws_pattern("Frauddetector", "floatVersionString")]
 
 
 class DeleteOutcomeRequestTypeDef(BaseValidatorModel):
-    name: str
+    name: Annotated[str, _aws_pattern("Frauddetector", "identifier")]
 
 
 class DeleteVariableRequestTypeDef(BaseValidatorModel):
@@ -266,13 +268,13 @@ class DeleteVariableRequestTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'describe_detector' function.
 class DescribeDetectorRequestTypeDef(BaseValidatorModel):
-    detectorId: str
+    detectorId: Annotated[str, _aws_pattern("Frauddetector", "identifier")]
     nextToken: Optional[str] = None
     maxResults: Optional[int] = None
 
 
 class DetectorVersionSummaryTypeDef(BaseValidatorModel):
-    detectorVersionId: Optional[str] = None
+    detectorVersionId: Optional[Annotated[str, _aws_pattern("Frauddetector", "wholeNumberVersionString")]] = None
     status: Optional[DetectorVersionStatusType] = None
     description: Optional[str] = None
     lastUpdatedTime: Optional[str] = None
@@ -280,25 +282,25 @@ class DetectorVersionSummaryTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'describe_model_versions' function.
 class DescribeModelVersionsRequestTypeDef(BaseValidatorModel):
-    modelId: Optional[str] = None
-    modelVersionNumber: Optional[str] = None
+    modelId: Optional[Annotated[str, _aws_pattern("Frauddetector", "modelIdentifier")]] = None
+    modelVersionNumber: Optional[Annotated[str, _aws_pattern("Frauddetector", "floatVersionString")]] = None
     modelType: Optional[ModelTypeEnumType] = None
     nextToken: Optional[str] = None
     maxResults: Optional[int] = None
 
 
 class DetectorTypeDef(BaseValidatorModel):
-    detectorId: Optional[str] = None
+    detectorId: Optional[Annotated[str, _aws_pattern("Frauddetector", "identifier")]] = None
     description: Optional[str] = None
-    eventTypeName: Optional[str] = None
+    eventTypeName: Optional[Annotated[str, _aws_pattern("Frauddetector", "identifier")]] = None
     lastUpdatedTime: Optional[str] = None
     createdTime: Optional[str] = None
-    arn: Optional[str] = None
+    arn: Optional[Annotated[str, _aws_pattern("Frauddetector", "fraudDetectorArn")]] = None
 
 
 class EntityTypeDef(BaseValidatorModel):
     entityType: str
-    entityId: str
+    entityId: Annotated[str, _aws_pattern("Frauddetector", "entityRestrictedString")]
 
 
 class EntityTypeTypeDef(BaseValidatorModel):
@@ -306,7 +308,7 @@ class EntityTypeTypeDef(BaseValidatorModel):
     description: Optional[str] = None
     lastUpdatedTime: Optional[str] = None
     createdTime: Optional[str] = None
-    arn: Optional[str] = None
+    arn: Optional[Annotated[str, _aws_pattern("Frauddetector", "fraudDetectorArn")]] = None
 
 
 class EvaluatedExternalModelTypeDef(BaseValidatorModel):
@@ -317,8 +319,8 @@ class EvaluatedExternalModelTypeDef(BaseValidatorModel):
 
 
 class EvaluatedRuleTypeDef(BaseValidatorModel):
-    ruleId: Optional[str] = None
-    ruleVersion: Optional[str] = None
+    ruleId: Optional[Annotated[str, _aws_pattern("Frauddetector", "identifier")]] = None
+    ruleVersion: Optional[Annotated[str, _aws_pattern("Frauddetector", "wholeNumberVersionString")]] = None
     expression: Optional[str] = None
     expressionWithValues: Optional[str] = None
     outcomes: Optional[List[str]] = None
@@ -331,12 +333,12 @@ class EventOrchestrationTypeDef(BaseValidatorModel):
 
 
 class EventPredictionSummaryTypeDef(BaseValidatorModel):
-    eventId: Optional[str] = None
-    eventTypeName: Optional[str] = None
+    eventId: Optional[Annotated[str, _aws_pattern("Frauddetector", "identifier")]] = None
+    eventTypeName: Optional[Annotated[str, _aws_pattern("Frauddetector", "identifier")]] = None
     eventTimestamp: Optional[str] = None
     predictionTimestamp: Optional[str] = None
-    detectorId: Optional[str] = None
-    detectorVersionId: Optional[str] = None
+    detectorId: Optional[Annotated[str, _aws_pattern("Frauddetector", "identifier")]] = None
+    detectorVersionId: Optional[Annotated[str, _aws_pattern("Frauddetector", "wholeNumberVersionString")]] = None
 
 
 class IngestedEventStatisticsTypeDef(BaseValidatorModel):
@@ -360,7 +362,7 @@ class ExternalModelSummaryTypeDef(BaseValidatorModel):
 
 class ModelInputConfigurationTypeDef(BaseValidatorModel):
     useEventVariables: bool
-    eventTypeName: Optional[str] = None
+    eventTypeName: Optional[Annotated[str, _aws_pattern("Frauddetector", "identifier")]] = None
     format: Optional[ModelInputDataFormatType] = None
     jsonInputTemplate: Optional[str] = None
     csvInputTemplate: Optional[str] = None
@@ -373,54 +375,54 @@ class ModelOutputConfigurationOutputTypeDef(BaseValidatorModel):
 
 
 class FilterConditionTypeDef(BaseValidatorModel):
-    value: Optional[str] = None
+    value: Optional[Annotated[str, _aws_pattern("Frauddetector", "filterString")]] = None
 
 
 # This class is the input for the 'get_batch_import_jobs' function.
 class GetBatchImportJobsRequestTypeDef(BaseValidatorModel):
-    jobId: Optional[str] = None
+    jobId: Optional[Annotated[str, _aws_pattern("Frauddetector", "identifier")]] = None
     maxResults: Optional[int] = None
     nextToken: Optional[str] = None
 
 
 # This class is the input for the 'get_batch_prediction_jobs' function.
 class GetBatchPredictionJobsRequestTypeDef(BaseValidatorModel):
-    jobId: Optional[str] = None
+    jobId: Optional[Annotated[str, _aws_pattern("Frauddetector", "identifier")]] = None
     maxResults: Optional[int] = None
     nextToken: Optional[str] = None
 
 
 # This class is the input for the 'get_delete_events_by_event_type_status' function.
 class GetDeleteEventsByEventTypeStatusRequestTypeDef(BaseValidatorModel):
-    eventTypeName: str
+    eventTypeName: Annotated[str, _aws_pattern("Frauddetector", "identifier")]
 
 
 # This class is the input for the 'get_detector_version' function.
 class GetDetectorVersionRequestTypeDef(BaseValidatorModel):
-    detectorId: str
-    detectorVersionId: str
+    detectorId: Annotated[str, _aws_pattern("Frauddetector", "identifier")]
+    detectorVersionId: Annotated[str, _aws_pattern("Frauddetector", "wholeNumberVersionString")]
 
 
 # This class is the input for the 'get_detectors' function.
 class GetDetectorsRequestTypeDef(BaseValidatorModel):
-    detectorId: Optional[str] = None
+    detectorId: Optional[Annotated[str, _aws_pattern("Frauddetector", "identifier")]] = None
     nextToken: Optional[str] = None
     maxResults: Optional[int] = None
 
 
 # This class is the input for the 'get_entity_types' function.
 class GetEntityTypesRequestTypeDef(BaseValidatorModel):
-    name: Optional[str] = None
+    name: Optional[Annotated[str, _aws_pattern("Frauddetector", "identifier")]] = None
     nextToken: Optional[str] = None
     maxResults: Optional[int] = None
 
 
 # This class is the input for the 'get_event_prediction_metadata' function.
 class GetEventPredictionMetadataRequestTypeDef(BaseValidatorModel):
-    eventId: str
-    eventTypeName: str
-    detectorId: str
-    detectorVersionId: str
+    eventId: Annotated[str, _aws_pattern("Frauddetector", "identifier")]
+    eventTypeName: Annotated[str, _aws_pattern("Frauddetector", "identifier")]
+    detectorId: Annotated[str, _aws_pattern("Frauddetector", "identifier")]
+    detectorVersionId: Annotated[str, _aws_pattern("Frauddetector", "wholeNumberVersionString")]
     predictionTimestamp: str
 
 
@@ -437,7 +439,7 @@ class GetEventRequestTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'get_event_types' function.
 class GetEventTypesRequestTypeDef(BaseValidatorModel):
-    name: Optional[str] = None
+    name: Optional[Annotated[str, _aws_pattern("Frauddetector", "identifier")]] = None
     nextToken: Optional[str] = None
     maxResults: Optional[int] = None
 
@@ -450,12 +452,12 @@ class GetExternalModelsRequestTypeDef(BaseValidatorModel):
 
 
 class KMSKeyTypeDef(BaseValidatorModel):
-    kmsEncryptionKeyArn: Optional[str] = None
+    kmsEncryptionKeyArn: Optional[Annotated[str, _aws_pattern("Frauddetector", "KmsEncryptionKeyArn")]] = None
 
 
 # This class is the input for the 'get_labels' function.
 class GetLabelsRequestTypeDef(BaseValidatorModel):
-    name: Optional[str] = None
+    name: Optional[Annotated[str, _aws_pattern("Frauddetector", "identifier")]] = None
     nextToken: Optional[str] = None
     maxResults: Optional[int] = None
 
@@ -465,83 +467,83 @@ class LabelTypeDef(BaseValidatorModel):
     description: Optional[str] = None
     lastUpdatedTime: Optional[str] = None
     createdTime: Optional[str] = None
-    arn: Optional[str] = None
+    arn: Optional[Annotated[str, _aws_pattern("Frauddetector", "fraudDetectorArn")]] = None
 
 
 # This class is the input for the 'get_list_elements' function.
 class GetListElementsRequestTypeDef(BaseValidatorModel):
-    name: str
-    nextToken: Optional[str] = None
+    name: Annotated[str, _aws_pattern("Frauddetector", "noDashIdentifier")]
+    nextToken: Optional[Annotated[str, _aws_pattern("Frauddetector", "nextToken")]] = None
     maxResults: Optional[int] = None
 
 
 # This class is the input for the 'get_lists_metadata' function.
 class GetListsMetadataRequestTypeDef(BaseValidatorModel):
-    name: Optional[str] = None
-    nextToken: Optional[str] = None
+    name: Optional[Annotated[str, _aws_pattern("Frauddetector", "noDashIdentifier")]] = None
+    nextToken: Optional[Annotated[str, _aws_pattern("Frauddetector", "nextToken")]] = None
     maxResults: Optional[int] = None
 
 
 # This class is the input for the 'get_model_version' function.
 class GetModelVersionRequestTypeDef(BaseValidatorModel):
-    modelId: str
+    modelId: Annotated[str, _aws_pattern("Frauddetector", "modelIdentifier")]
     modelType: ModelTypeEnumType
-    modelVersionNumber: str
+    modelVersionNumber: Annotated[str, _aws_pattern("Frauddetector", "floatVersionString")]
 
 
 # This class is the input for the 'get_models' function.
 class GetModelsRequestTypeDef(BaseValidatorModel):
-    modelId: Optional[str] = None
+    modelId: Optional[Annotated[str, _aws_pattern("Frauddetector", "modelIdentifier")]] = None
     modelType: Optional[ModelTypeEnumType] = None
     nextToken: Optional[str] = None
     maxResults: Optional[int] = None
 
 
 class ModelTypeDef(BaseValidatorModel):
-    modelId: Optional[str] = None
+    modelId: Optional[Annotated[str, _aws_pattern("Frauddetector", "modelIdentifier")]] = None
     modelType: Optional[ModelTypeEnumType] = None
     description: Optional[str] = None
     eventTypeName: Optional[str] = None
     createdTime: Optional[str] = None
     lastUpdatedTime: Optional[str] = None
-    arn: Optional[str] = None
+    arn: Optional[Annotated[str, _aws_pattern("Frauddetector", "fraudDetectorArn")]] = None
 
 
 # This class is the input for the 'get_outcomes' function.
 class GetOutcomesRequestTypeDef(BaseValidatorModel):
-    name: Optional[str] = None
+    name: Optional[Annotated[str, _aws_pattern("Frauddetector", "identifier")]] = None
     nextToken: Optional[str] = None
     maxResults: Optional[int] = None
 
 
 class OutcomeTypeDef(BaseValidatorModel):
-    name: Optional[str] = None
+    name: Optional[Annotated[str, _aws_pattern("Frauddetector", "identifier")]] = None
     description: Optional[str] = None
     lastUpdatedTime: Optional[str] = None
     createdTime: Optional[str] = None
-    arn: Optional[str] = None
+    arn: Optional[Annotated[str, _aws_pattern("Frauddetector", "fraudDetectorArn")]] = None
 
 
 # This class is the input for the 'get_rules' function.
 class GetRulesRequestTypeDef(BaseValidatorModel):
-    detectorId: str
-    ruleId: Optional[str] = None
-    ruleVersion: Optional[str] = None
+    detectorId: Annotated[str, _aws_pattern("Frauddetector", "identifier")]
+    ruleId: Optional[Annotated[str, _aws_pattern("Frauddetector", "identifier")]] = None
+    ruleVersion: Optional[Annotated[str, _aws_pattern("Frauddetector", "wholeNumberVersionString")]] = None
     nextToken: Optional[str] = None
     maxResults: Optional[int] = None
 
 
 class RuleDetailTypeDef(BaseValidatorModel):
-    ruleId: Optional[str] = None
+    ruleId: Optional[Annotated[str, _aws_pattern("Frauddetector", "identifier")]] = None
     description: Optional[str] = None
-    detectorId: Optional[str] = None
-    ruleVersion: Optional[str] = None
+    detectorId: Optional[Annotated[str, _aws_pattern("Frauddetector", "identifier")]] = None
+    ruleVersion: Optional[Annotated[str, _aws_pattern("Frauddetector", "wholeNumberVersionString")]] = None
     expression: Optional[str] = None
     language: Optional[Literal["DETECTORPL"]] = None
     outcomes: Optional[List[str]] = None
     lastUpdatedTime: Optional[str] = None
     createdTime: Optional[str] = None
-    arn: Optional[str] = None
+    arn: Optional[Annotated[str, _aws_pattern("Frauddetector", "fraudDetectorArn")]] = None
 
 
 # This class is the input for the 'get_variables' function.
@@ -573,7 +575,7 @@ class PredictionTimeRangeTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'list_tags_for_resource' function.
 class ListTagsForResourceRequestTypeDef(BaseValidatorModel):
-    resourceARN: str
+    resourceARN: Annotated[str, _aws_pattern("Frauddetector", "fraudDetectorArn")]
     nextToken: Optional[str] = None
     maxResults: Optional[int] = None
 
@@ -616,7 +618,7 @@ class VariableImpactExplanationTypeDef(BaseValidatorModel):
 
 
 class PutKMSEncryptionKeyRequestTypeDef(BaseValidatorModel):
-    kmsEncryptionKeyArn: str
+    kmsEncryptionKeyArn: Annotated[str, _aws_pattern("Frauddetector", "KmsEncryptionKeyArn")]
 
 
 class TFIMetricDataPointTypeDef(BaseValidatorModel):
@@ -627,47 +629,47 @@ class TFIMetricDataPointTypeDef(BaseValidatorModel):
 
 
 class UntagResourceRequestTypeDef(BaseValidatorModel):
-    resourceARN: str
-    tagKeys: List[str]
+    resourceARN: Annotated[str, _aws_pattern("Frauddetector", "fraudDetectorArn")]
+    tagKeys: List[Annotated[str, _aws_pattern("Frauddetector", "tagKey")]]
 
 
 class UpdateDetectorVersionMetadataRequestTypeDef(BaseValidatorModel):
-    detectorId: str
-    detectorVersionId: str
+    detectorId: Annotated[str, _aws_pattern("Frauddetector", "identifier")]
+    detectorVersionId: Annotated[str, _aws_pattern("Frauddetector", "wholeNumberVersionString")]
     description: str
 
 
 class UpdateDetectorVersionStatusRequestTypeDef(BaseValidatorModel):
-    detectorId: str
-    detectorVersionId: str
+    detectorId: Annotated[str, _aws_pattern("Frauddetector", "identifier")]
+    detectorVersionId: Annotated[str, _aws_pattern("Frauddetector", "wholeNumberVersionString")]
     status: DetectorVersionStatusType
 
 
 class UpdateEventLabelRequestTypeDef(BaseValidatorModel):
-    eventId: str
-    eventTypeName: str
-    assignedLabel: str
+    eventId: Annotated[str, _aws_pattern("Frauddetector", "identifier")]
+    eventTypeName: Annotated[str, _aws_pattern("Frauddetector", "identifier")]
+    assignedLabel: Annotated[str, _aws_pattern("Frauddetector", "identifier")]
     labelTimestamp: str
 
 
 class UpdateListRequestTypeDef(BaseValidatorModel):
-    name: str
-    elements: Optional[List[str]] = None
+    name: Annotated[str, _aws_pattern("Frauddetector", "noDashIdentifier")]
+    elements: Optional[List[Annotated[str, _aws_pattern("Frauddetector", "Elements")]]] = None
     description: Optional[str] = None
     updateMode: Optional[ListUpdateModeType] = None
-    variableType: Optional[str] = None
+    variableType: Optional[Annotated[str, _aws_pattern("Frauddetector", "variableType")]] = None
 
 
 class UpdateModelRequestTypeDef(BaseValidatorModel):
-    modelId: str
+    modelId: Annotated[str, _aws_pattern("Frauddetector", "modelIdentifier")]
     modelType: ModelTypeEnumType
     description: Optional[str] = None
 
 
 class UpdateModelVersionStatusRequestTypeDef(BaseValidatorModel):
-    modelId: str
+    modelId: Annotated[str, _aws_pattern("Frauddetector", "modelIdentifier")]
     modelType: ModelTypeEnumType
-    modelVersionNumber: str
+    modelVersionNumber: Annotated[str, _aws_pattern("Frauddetector", "floatVersionString")]
     status: ModelVersionStatusType
 
 
@@ -688,35 +690,35 @@ class AggregatedVariablesImportanceMetricsTypeDef(BaseValidatorModel):
 
 
 class CreateBatchImportJobRequestTypeDef(BaseValidatorModel):
-    jobId: str
-    inputPath: str
-    outputPath: str
-    eventTypeName: str
-    iamRoleArn: str
+    jobId: Annotated[str, _aws_pattern("Frauddetector", "identifier")]
+    inputPath: Annotated[str, _aws_pattern("Frauddetector", "s3BucketLocation")]
+    outputPath: Annotated[str, _aws_pattern("Frauddetector", "s3BucketLocation")]
+    eventTypeName: Annotated[str, _aws_pattern("Frauddetector", "identifier")]
+    iamRoleArn: Annotated[str, _aws_pattern("Frauddetector", "iamRoleArn")]
     tags: Optional[List[TagTypeDef]] = None
 
 
 class CreateBatchPredictionJobRequestTypeDef(BaseValidatorModel):
-    jobId: str
-    inputPath: str
-    outputPath: str
-    eventTypeName: str
-    detectorName: str
-    iamRoleArn: str
-    detectorVersion: Optional[str] = None
+    jobId: Annotated[str, _aws_pattern("Frauddetector", "identifier")]
+    inputPath: Annotated[str, _aws_pattern("Frauddetector", "s3BucketLocation")]
+    outputPath: Annotated[str, _aws_pattern("Frauddetector", "s3BucketLocation")]
+    eventTypeName: Annotated[str, _aws_pattern("Frauddetector", "identifier")]
+    detectorName: Annotated[str, _aws_pattern("Frauddetector", "identifier")]
+    iamRoleArn: Annotated[str, _aws_pattern("Frauddetector", "iamRoleArn")]
+    detectorVersion: Optional[Annotated[str, _aws_pattern("Frauddetector", "wholeNumberVersionString")]] = None
     tags: Optional[List[TagTypeDef]] = None
 
 
 class CreateListRequestTypeDef(BaseValidatorModel):
-    name: str
-    elements: Optional[List[str]] = None
-    variableType: Optional[str] = None
+    name: Annotated[str, _aws_pattern("Frauddetector", "noDashIdentifier")]
+    elements: Optional[List[Annotated[str, _aws_pattern("Frauddetector", "Elements")]]] = None
+    variableType: Optional[Annotated[str, _aws_pattern("Frauddetector", "variableType")]] = None
     description: Optional[str] = None
     tags: Optional[List[TagTypeDef]] = None
 
 
 class CreateModelRequestTypeDef(BaseValidatorModel):
-    modelId: str
+    modelId: Annotated[str, _aws_pattern("Frauddetector", "modelIdentifier")]
     modelType: ModelTypeEnumType
     eventTypeName: str
     description: Optional[str] = None
@@ -725,8 +727,8 @@ class CreateModelRequestTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'create_rule' function.
 class CreateRuleRequestTypeDef(BaseValidatorModel):
-    ruleId: str
-    detectorId: str
+    ruleId: Annotated[str, _aws_pattern("Frauddetector", "identifier")]
+    detectorId: Annotated[str, _aws_pattern("Frauddetector", "identifier")]
     expression: str
     language: Literal["DETECTORPL"]
     outcomes: List[str]
@@ -745,32 +747,32 @@ class CreateVariableRequestTypeDef(BaseValidatorModel):
 
 
 class PutDetectorRequestTypeDef(BaseValidatorModel):
-    detectorId: str
-    eventTypeName: str
+    detectorId: Annotated[str, _aws_pattern("Frauddetector", "identifier")]
+    eventTypeName: Annotated[str, _aws_pattern("Frauddetector", "identifier")]
     description: Optional[str] = None
     tags: Optional[List[TagTypeDef]] = None
 
 
 class PutEntityTypeRequestTypeDef(BaseValidatorModel):
-    name: str
+    name: Annotated[str, _aws_pattern("Frauddetector", "identifier")]
     description: Optional[str] = None
     tags: Optional[List[TagTypeDef]] = None
 
 
 class PutLabelRequestTypeDef(BaseValidatorModel):
-    name: str
+    name: Annotated[str, _aws_pattern("Frauddetector", "identifier")]
     description: Optional[str] = None
     tags: Optional[List[TagTypeDef]] = None
 
 
 class PutOutcomeRequestTypeDef(BaseValidatorModel):
-    name: str
+    name: Annotated[str, _aws_pattern("Frauddetector", "identifier")]
     description: Optional[str] = None
     tags: Optional[List[TagTypeDef]] = None
 
 
 class TagResourceRequestTypeDef(BaseValidatorModel):
-    resourceARN: str
+    resourceARN: Annotated[str, _aws_pattern("Frauddetector", "fraudDetectorArn")]
     tags: List[TagTypeDef]
 
 
@@ -788,47 +790,47 @@ class BatchCreateVariableResultTypeDef(BaseValidatorModel):
 
 # This class is the output for the 'create_detector_version' function.
 class CreateDetectorVersionResultTypeDef(BaseValidatorModel):
-    detectorId: str
-    detectorVersionId: str
+    detectorId: Annotated[str, _aws_pattern("Frauddetector", "identifier")]
+    detectorVersionId: Annotated[str, _aws_pattern("Frauddetector", "wholeNumberVersionString")]
     status: DetectorVersionStatusType
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 # This class is the output for the 'create_model_version' function.
 class CreateModelVersionResultTypeDef(BaseValidatorModel):
-    modelId: str
+    modelId: Annotated[str, _aws_pattern("Frauddetector", "modelIdentifier")]
     modelType: ModelTypeEnumType
-    modelVersionNumber: str
+    modelVersionNumber: Annotated[str, _aws_pattern("Frauddetector", "floatVersionString")]
     status: str
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 # This class is the output for the 'delete_events_by_event_type' function.
 class DeleteEventsByEventTypeResultTypeDef(BaseValidatorModel):
-    eventTypeName: str
+    eventTypeName: Annotated[str, _aws_pattern("Frauddetector", "identifier")]
     eventsDeletionStatus: str
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 # This class is the output for the 'get_delete_events_by_event_type_status' function.
 class GetDeleteEventsByEventTypeStatusResultTypeDef(BaseValidatorModel):
-    eventTypeName: str
+    eventTypeName: Annotated[str, _aws_pattern("Frauddetector", "identifier")]
     eventsDeletionStatus: AsyncJobStatusType
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 # This class is the output for the 'get_list_elements' function.
 class GetListElementsResultTypeDef(BaseValidatorModel):
-    elements: List[str]
+    elements: List[Annotated[str, _aws_pattern("Frauddetector", "Elements")]]
     ResponseMetadata: ResponseMetadataTypeDef
-    nextToken: Optional[str] = None
+    nextToken: Optional[Annotated[str, _aws_pattern("Frauddetector", "nextToken")]] = None
 
 
 # This class is the output for the 'get_lists_metadata' function.
 class GetListsMetadataResultTypeDef(BaseValidatorModel):
     lists: List[AllowDenyListTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
-    nextToken: Optional[str] = None
+    nextToken: Optional[Annotated[str, _aws_pattern("Frauddetector", "nextToken")]] = None
 
 
 # This class is the output for the 'list_tags_for_resource' function.
@@ -840,9 +842,9 @@ class ListTagsForResourceResultTypeDef(BaseValidatorModel):
 
 # This class is the output for the 'update_model_version' function.
 class UpdateModelVersionResultTypeDef(BaseValidatorModel):
-    modelId: str
+    modelId: Annotated[str, _aws_pattern("Frauddetector", "modelIdentifier")]
     modelType: ModelTypeEnumType
-    modelVersionNumber: str
+    modelVersionNumber: Annotated[str, _aws_pattern("Frauddetector", "floatVersionString")]
     status: str
     ResponseMetadata: ResponseMetadataTypeDef
 
@@ -887,7 +889,7 @@ class ModelScoresTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'create_detector_version' function.
 class CreateDetectorVersionRequestTypeDef(BaseValidatorModel):
-    detectorId: str
+    detectorId: Annotated[str, _aws_pattern("Frauddetector", "identifier")]
     rules: List[RuleTypeDef]
     description: Optional[str] = None
     externalModelEndpoints: Optional[List[str]] = None
@@ -908,8 +910,8 @@ class DeleteRuleRequestTypeDef(BaseValidatorModel):
 
 # This class is the output for the 'get_detector_version' function.
 class GetDetectorVersionResultTypeDef(BaseValidatorModel):
-    detectorId: str
-    detectorVersionId: str
+    detectorId: Annotated[str, _aws_pattern("Frauddetector", "identifier")]
+    detectorVersionId: Annotated[str, _aws_pattern("Frauddetector", "wholeNumberVersionString")]
     description: str
     externalModelEndpoints: List[str]
     modelVersions: List[ModelVersionTypeDef]
@@ -918,13 +920,13 @@ class GetDetectorVersionResultTypeDef(BaseValidatorModel):
     lastUpdatedTime: str
     createdTime: str
     ruleExecutionMode: RuleExecutionModeType
-    arn: str
+    arn: Annotated[str, _aws_pattern("Frauddetector", "fraudDetectorArn")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 class UpdateDetectorVersionRequestTypeDef(BaseValidatorModel):
-    detectorId: str
-    detectorVersionId: str
+    detectorId: Annotated[str, _aws_pattern("Frauddetector", "identifier")]
+    detectorVersionId: Annotated[str, _aws_pattern("Frauddetector", "wholeNumberVersionString")]
     externalModelEndpoints: List[str]
     rules: List[RuleTypeDef]
     description: Optional[str] = None
@@ -960,9 +962,9 @@ class DataValidationMetricsTypeDef(BaseValidatorModel):
 
 # This class is the output for the 'describe_detector' function.
 class DescribeDetectorResultTypeDef(BaseValidatorModel):
-    detectorId: str
+    detectorId: Annotated[str, _aws_pattern("Frauddetector", "identifier")]
     detectorVersionSummaries: List[DetectorVersionSummaryTypeDef]
-    arn: str
+    arn: Annotated[str, _aws_pattern("Frauddetector", "fraudDetectorArn")]
     ResponseMetadata: ResponseMetadataTypeDef
     nextToken: Optional[str] = None
 
@@ -985,12 +987,12 @@ class EventTypeDef(BaseValidatorModel):
 
 
 class SendEventRequestTypeDef(BaseValidatorModel):
-    eventId: str
-    eventTypeName: str
+    eventId: Annotated[str, _aws_pattern("Frauddetector", "identifier")]
+    eventTypeName: Annotated[str, _aws_pattern("Frauddetector", "identifier")]
     eventTimestamp: str
     eventVariables: Dict[str, str]
     entities: List[EntityTypeDef]
-    assignedLabel: Optional[str] = None
+    assignedLabel: Optional[Annotated[str, _aws_pattern("Frauddetector", "identifier")]] = None
     labelTimestamp: Optional[str] = None
 
 
@@ -1002,7 +1004,7 @@ class GetEntityTypesResultTypeDef(BaseValidatorModel):
 
 
 class PutEventTypeRequestTypeDef(BaseValidatorModel):
-    name: str
+    name: Annotated[str, _aws_pattern("Frauddetector", "identifier")]
     eventVariables: List[str]
     entityTypes: List[str]
     description: Optional[str] = None
@@ -1029,7 +1031,7 @@ class EventTypeTypeDef(BaseValidatorModel):
     ingestedEventStatistics: Optional[IngestedEventStatisticsTypeDef] = None
     lastUpdatedTime: Optional[str] = None
     createdTime: Optional[str] = None
-    arn: Optional[str] = None
+    arn: Optional[Annotated[str, _aws_pattern("Frauddetector", "fraudDetectorArn")]] = None
     eventOrchestration: Optional[EventOrchestrationTypeDef] = None
 
 
@@ -1047,7 +1049,7 @@ class ExternalModelTypeDef(BaseValidatorModel):
     modelEndpointStatus: Optional[ModelEndpointStatusType] = None
     lastUpdatedTime: Optional[str] = None
     createdTime: Optional[str] = None
-    arn: Optional[str] = None
+    arn: Optional[Annotated[str, _aws_pattern("Frauddetector", "fraudDetectorArn")]] = None
 
 
 class GetKMSEncryptionKeyResultTypeDef(BaseValidatorModel):
@@ -1143,7 +1145,7 @@ class GetEventPredictionRequestTypeDef(BaseValidatorModel):
     entities: List[EntityTypeDef]
     eventTimestamp: str
     eventVariables: Dict[str, str]
-    detectorVersionId: Optional[str] = None
+    detectorVersionId: Optional[Annotated[str, _aws_pattern("Frauddetector", "wholeNumberVersionString")]] = None
     externalModelEndpointDataBlobs: Optional[Dict[str, ModelEndpointDataBlobTypeDef]] = None
 
 
@@ -1177,9 +1179,9 @@ class GetExternalModelsResultTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'update_model_version' function.
 class UpdateModelVersionRequestTypeDef(BaseValidatorModel):
-    modelId: str
+    modelId: Annotated[str, _aws_pattern("Frauddetector", "modelIdentifier")]
     modelType: ModelTypeEnumType
-    majorVersionNumber: str
+    majorVersionNumber: Annotated[str, _aws_pattern("Frauddetector", "wholeNumberVersionString")]
     externalEventsDetail: Optional[ExternalEventsDetailTypeDef] = None
     ingestedEventsDetail: Optional[IngestedEventsDetailTypeDef] = None
     tags: Optional[List[TagTypeDef]] = None
@@ -1187,15 +1189,15 @@ class UpdateModelVersionRequestTypeDef(BaseValidatorModel):
 
 # This class is the output for the 'get_model_version' function.
 class GetModelVersionResultTypeDef(BaseValidatorModel):
-    modelId: str
+    modelId: Annotated[str, _aws_pattern("Frauddetector", "modelIdentifier")]
     modelType: ModelTypeEnumType
-    modelVersionNumber: str
+    modelVersionNumber: Annotated[str, _aws_pattern("Frauddetector", "floatVersionString")]
     trainingDataSource: TrainingDataSourceEnumType
     trainingDataSchema: TrainingDataSchemaOutputTypeDef
     externalEventsDetail: ExternalEventsDetailTypeDef
     ingestedEventsDetail: IngestedEventsDetailTypeDef
     status: str
-    arn: str
+    arn: Annotated[str, _aws_pattern("Frauddetector", "fraudDetectorArn")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
@@ -1209,7 +1211,7 @@ class TrainingResultTypeDef(BaseValidatorModel):
 
 
 class PutExternalModelRequestTypeDef(BaseValidatorModel):
-    modelEndpoint: str
+    modelEndpoint: Annotated[str, _aws_pattern("Frauddetector", "sageMakerEndpointIdentifier")]
     modelSource: Literal["SAGEMAKER"]
     invokeModelEndpointRoleArn: str
     inputConfiguration: ModelInputConfigurationTypeDef
@@ -1236,7 +1238,7 @@ class ModelVersionEvaluationTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'create_model_version' function.
 class CreateModelVersionRequestTypeDef(BaseValidatorModel):
-    modelId: str
+    modelId: Annotated[str, _aws_pattern("Frauddetector", "modelIdentifier")]
     modelType: ModelTypeEnumType
     trainingDataSource: TrainingDataSourceEnumType
     trainingDataSchema: TrainingDataSchemaUnionTypeDef
@@ -1267,13 +1269,13 @@ class TrainingResultV2TypeDef(BaseValidatorModel):
 
 # This class is the output for the 'get_event_prediction_metadata' function.
 class GetEventPredictionMetadataResultTypeDef(BaseValidatorModel):
-    eventId: str
-    eventTypeName: str
+    eventId: Annotated[str, _aws_pattern("Frauddetector", "identifier")]
+    eventTypeName: Annotated[str, _aws_pattern("Frauddetector", "identifier")]
     entityId: str
     entityType: str
     eventTimestamp: str
-    detectorId: str
-    detectorVersionId: str
+    detectorId: Annotated[str, _aws_pattern("Frauddetector", "identifier")]
+    detectorVersionId: Annotated[str, _aws_pattern("Frauddetector", "wholeNumberVersionString")]
     detectorVersionStatus: str
     eventVariables: List[EventVariableSummaryTypeDef]
     rules: List[EvaluatedRuleTypeDef]
@@ -1286,9 +1288,9 @@ class GetEventPredictionMetadataResultTypeDef(BaseValidatorModel):
 
 
 class ModelVersionDetailTypeDef(BaseValidatorModel):
-    modelId: Optional[str] = None
+    modelId: Optional[Annotated[str, _aws_pattern("Frauddetector", "modelIdentifier")]] = None
     modelType: Optional[ModelTypeEnumType] = None
-    modelVersionNumber: Optional[str] = None
+    modelVersionNumber: Optional[Annotated[str, _aws_pattern("Frauddetector", "floatVersionString")]] = None
     status: Optional[str] = None
     trainingDataSource: Optional[TrainingDataSourceEnumType] = None
     trainingDataSchema: Optional[TrainingDataSchemaOutputTypeDef] = None
@@ -1297,7 +1299,7 @@ class ModelVersionDetailTypeDef(BaseValidatorModel):
     trainingResult: Optional[TrainingResultTypeDef] = None
     lastUpdatedTime: Optional[str] = None
     createdTime: Optional[str] = None
-    arn: Optional[str] = None
+    arn: Optional[Annotated[str, _aws_pattern("Frauddetector", "fraudDetectorArn")]] = None
     trainingResultV2: Optional[TrainingResultV2TypeDef] = None
 
 

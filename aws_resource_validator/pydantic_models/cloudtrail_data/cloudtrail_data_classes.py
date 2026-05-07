@@ -3,6 +3,7 @@
 from datetime import datetime
 from decimal import Decimal
 from typing import (
+    Annotated,
     Any,
     Callable,
     Dict,
@@ -24,6 +25,7 @@ from botocore.response import StreamingBody
 from pydantic import Field
 
 from aws_resource_validator.core.base_validator_model import BaseValidatorModel, EventStream
+from aws_resource_validator.core.pattern_validation import aws_field_pattern as _aws_pattern
 from aws_resource_validator.pydantic_models.cloudtrail_data.cloudtrail_data_constants import *  # noqa: F401,F403
 
 # Optional boto3 symbols — imported lazily so services that don't need them
@@ -39,13 +41,13 @@ except ImportError:  # pragma: no cover
 
 
 class AuditEventResultEntryTypeDef(BaseValidatorModel):
-    eventID: str
-    id: str
+    eventID: Annotated[str, _aws_pattern("CloudtrailData", "Uuid")]
+    id: Annotated[str, _aws_pattern("CloudtrailData", "Uuid")]
 
 
 class AuditEventTypeDef(BaseValidatorModel):
     eventData: str
-    id: str
+    id: Annotated[str, _aws_pattern("CloudtrailData", "Uuid")]
     eventDataChecksum: Optional[str] = None
 
 
@@ -60,14 +62,14 @@ class ResponseMetadataTypeDef(BaseValidatorModel):
 class ResultErrorEntryTypeDef(BaseValidatorModel):
     errorCode: str
     errorMessage: str
-    id: str
+    id: Annotated[str, _aws_pattern("CloudtrailData", "Uuid")]
 
 
 # This class is the input for the 'put_audit_events' function.
 class PutAuditEventsRequestTypeDef(BaseValidatorModel):
     auditEvents: List[AuditEventTypeDef]
-    channelArn: str
-    externalId: Optional[str] = None
+    channelArn: Annotated[str, _aws_pattern("CloudtrailData", "ChannelArn")]
+    externalId: Optional[Annotated[str, _aws_pattern("CloudtrailData", "ExternalId")]] = None
 
 
 # This class is the output for the 'put_audit_events' function.

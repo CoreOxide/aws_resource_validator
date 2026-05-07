@@ -3,6 +3,7 @@
 from datetime import datetime
 from decimal import Decimal
 from typing import (
+    Annotated,
     Any,
     Callable,
     Dict,
@@ -24,6 +25,7 @@ from botocore.response import StreamingBody
 from pydantic import Field
 
 from aws_resource_validator.core.base_validator_model import BaseValidatorModel, EventStream
+from aws_resource_validator.core.pattern_validation import aws_field_pattern as _aws_pattern
 from aws_resource_validator.pydantic_models.rtbfabric.rtbfabric_constants import *  # noqa: F401,F403
 
 # Optional boto3 symbols — imported lazily so services that don't need them
@@ -57,7 +59,7 @@ class NoBidActionTypeDef(BaseValidatorModel):
 
 class HealthCheckConfigTypeDef(BaseValidatorModel):
     port: int
-    path: str
+    path: Annotated[str, _aws_pattern("Rtbfabric", "HealthCheckConfigPathString")]
     protocol: Optional[ProtocolType] = None
     timeoutMs: Optional[int] = None
     intervalSeconds: Optional[int] = None
@@ -68,11 +70,13 @@ class HealthCheckConfigTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'create_requester_gateway' function.
 class CreateRequesterGatewayRequestTypeDef(BaseValidatorModel):
-    vpcId: str
-    subnetIds: List[str]
-    securityGroupIds: List[str]
+    vpcId: Annotated[str, _aws_pattern("Rtbfabric", "VpcId")]
+    subnetIds: List[Annotated[str, _aws_pattern("Rtbfabric", "SubnetId")]]
+    securityGroupIds: List[Annotated[str, _aws_pattern("Rtbfabric", "SecurityGroupId")]]
     clientToken: str
-    description: Optional[str] = None
+    description: Optional[
+        Annotated[str, _aws_pattern("Rtbfabric", "CreateRequesterGatewayRequestDescriptionString")]
+    ] = None
     tags: Optional[Dict[str, str]] = None
 
 
@@ -82,39 +86,39 @@ class ListenerConfigOutputTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'delete_inbound_external_link' function.
 class DeleteInboundExternalLinkRequestTypeDef(BaseValidatorModel):
-    gatewayId: str
-    linkId: str
+    gatewayId: Annotated[str, _aws_pattern("Rtbfabric", "GatewayId")]
+    linkId: Annotated[str, _aws_pattern("Rtbfabric", "LinkId")]
 
 
 # This class is the input for the 'delete_link' function.
 class DeleteLinkRequestTypeDef(BaseValidatorModel):
-    gatewayId: str
-    linkId: str
+    gatewayId: Annotated[str, _aws_pattern("Rtbfabric", "GatewayId")]
+    linkId: Annotated[str, _aws_pattern("Rtbfabric", "LinkId")]
 
 
 # This class is the input for the 'delete_outbound_external_link' function.
 class DeleteOutboundExternalLinkRequestTypeDef(BaseValidatorModel):
-    gatewayId: str
-    linkId: str
+    gatewayId: Annotated[str, _aws_pattern("Rtbfabric", "GatewayId")]
+    linkId: Annotated[str, _aws_pattern("Rtbfabric", "LinkId")]
 
 
 # This class is the input for the 'delete_requester_gateway' function.
 class DeleteRequesterGatewayRequestTypeDef(BaseValidatorModel):
-    gatewayId: str
+    gatewayId: Annotated[str, _aws_pattern("Rtbfabric", "GatewayId")]
 
 
 # This class is the input for the 'delete_responder_gateway' function.
 class DeleteResponderGatewayRequestTypeDef(BaseValidatorModel):
-    gatewayId: str
+    gatewayId: Annotated[str, _aws_pattern("Rtbfabric", "GatewayId")]
 
 
 class EksEndpointsConfigurationTypeDef(BaseValidatorModel):
-    endpointsResourceName: str
-    endpointsResourceNamespace: str
-    clusterApiServerEndpointUri: str
+    endpointsResourceName: Annotated[str, _aws_pattern("Rtbfabric", "KubernetesEndpointsResourceName")]
+    endpointsResourceNamespace: Annotated[str, _aws_pattern("Rtbfabric", "KubernetesNamespace")]
+    clusterApiServerEndpointUri: Annotated[str, _aws_pattern("Rtbfabric", "URI")]
     clusterApiServerCaCertificateChain: str
-    clusterName: str
-    roleArn: str
+    clusterName: Annotated[str, _aws_pattern("Rtbfabric", "KubernetesClusterName")]
+    roleArn: Annotated[str, _aws_pattern("Rtbfabric", "EksEndpointsConfigurationRoleArnString")]
 
 
 class FilterCriterionOutputTypeDef(BaseValidatorModel):
@@ -129,8 +133,8 @@ class FilterCriterionTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'get_inbound_external_link' function.
 class GetInboundExternalLinkRequestTypeDef(BaseValidatorModel):
-    gatewayId: str
-    linkId: str
+    gatewayId: Annotated[str, _aws_pattern("Rtbfabric", "GatewayId")]
+    linkId: Annotated[str, _aws_pattern("Rtbfabric", "LinkId")]
 
 
 class WaiterConfigTypeDef(BaseValidatorModel):
@@ -140,24 +144,24 @@ class WaiterConfigTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'get_link' function.
 class GetLinkRequestTypeDef(BaseValidatorModel):
-    gatewayId: str
-    linkId: str
+    gatewayId: Annotated[str, _aws_pattern("Rtbfabric", "GatewayId")]
+    linkId: Annotated[str, _aws_pattern("Rtbfabric", "LinkId")]
 
 
 # This class is the input for the 'get_outbound_external_link' function.
 class GetOutboundExternalLinkRequestTypeDef(BaseValidatorModel):
-    gatewayId: str
-    linkId: str
+    gatewayId: Annotated[str, _aws_pattern("Rtbfabric", "GatewayId")]
+    linkId: Annotated[str, _aws_pattern("Rtbfabric", "LinkId")]
 
 
 # This class is the input for the 'get_requester_gateway' function.
 class GetRequesterGatewayRequestTypeDef(BaseValidatorModel):
-    gatewayId: str
+    gatewayId: Annotated[str, _aws_pattern("Rtbfabric", "GatewayId")]
 
 
 # This class is the input for the 'get_responder_gateway' function.
 class GetResponderGatewayRequestTypeDef(BaseValidatorModel):
-    gatewayId: str
+    gatewayId: Annotated[str, _aws_pattern("Rtbfabric", "GatewayId")]
 
 
 class TrustStoreConfigurationOutputTypeDef(BaseValidatorModel):
@@ -177,7 +181,7 @@ class ResponderErrorMaskingForHttpCodeOutputTypeDef(BaseValidatorModel):
 
 
 class ResponderErrorMaskingForHttpCodeTypeDef(BaseValidatorModel):
-    httpCode: str
+    httpCode: Annotated[str, _aws_pattern("Rtbfabric", "ResponderErrorMaskingForHttpCodeHttpCodeString")]
     action: ResponderErrorMaskingActionType
     loggingTypes: List[ResponderErrorMaskingLoggingTypeType]
     responseLoggingPercentage: Optional[float] = None
@@ -191,7 +195,7 @@ class PaginatorConfigTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'list_links' function.
 class ListLinksRequestTypeDef(BaseValidatorModel):
-    gatewayId: str
+    gatewayId: Annotated[str, _aws_pattern("Rtbfabric", "GatewayId")]
     nextToken: Optional[str] = None
     maxResults: Optional[int] = None
 
@@ -210,7 +214,7 @@ class ListResponderGatewaysRequestTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'list_tags_for_resource' function.
 class ListTagsForResourceRequestTypeDef(BaseValidatorModel):
-    resourceArn: str
+    resourceArn: Annotated[str, _aws_pattern("Rtbfabric", "RtbTaggableResourceArn")]
 
 
 class ListenerConfigTypeDef(BaseValidatorModel):
@@ -218,7 +222,7 @@ class ListenerConfigTypeDef(BaseValidatorModel):
 
 
 class NoBidModuleParametersTypeDef(BaseValidatorModel):
-    reason: Optional[str] = None
+    reason: Optional[Annotated[str, _aws_pattern("Rtbfabric", "NoBidModuleParametersReasonString")]] = None
     reasonCode: Optional[int] = None
     passThroughPercentage: Optional[float] = None
 
@@ -229,12 +233,12 @@ class RateLimiterModuleParametersTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'reject_link' function.
 class RejectLinkRequestTypeDef(BaseValidatorModel):
-    gatewayId: str
-    linkId: str
+    gatewayId: Annotated[str, _aws_pattern("Rtbfabric", "GatewayId")]
+    linkId: Annotated[str, _aws_pattern("Rtbfabric", "LinkId")]
 
 
 class TagResourceRequestTypeDef(BaseValidatorModel):
-    resourceArn: str
+    resourceArn: Annotated[str, _aws_pattern("Rtbfabric", "RtbTaggableResourceArn")]
     tags: Dict[str, str]
 
 
@@ -243,73 +247,75 @@ class TrustStoreConfigurationTypeDef(BaseValidatorModel):
 
 
 class UntagResourceRequestTypeDef(BaseValidatorModel):
-    resourceArn: str
-    tagKeys: List[str]
+    resourceArn: Annotated[str, _aws_pattern("Rtbfabric", "RtbTaggableResourceArn")]
+    tagKeys: List[Annotated[str, _aws_pattern("Rtbfabric", "TagKey")]]
 
 
 # This class is the input for the 'update_requester_gateway' function.
 class UpdateRequesterGatewayRequestTypeDef(BaseValidatorModel):
     clientToken: str
-    gatewayId: str
-    description: Optional[str] = None
+    gatewayId: Annotated[str, _aws_pattern("Rtbfabric", "GatewayId")]
+    description: Optional[
+        Annotated[str, _aws_pattern("Rtbfabric", "UpdateRequesterGatewayRequestDescriptionString")]
+    ] = None
 
 
 # This class is the output for the 'create_inbound_external_link' function.
 class CreateInboundExternalLinkResponseTypeDef(BaseValidatorModel):
-    gatewayId: str
-    linkId: str
+    gatewayId: Annotated[str, _aws_pattern("Rtbfabric", "GatewayId")]
+    linkId: Annotated[str, _aws_pattern("Rtbfabric", "LinkId")]
     status: LinkStatusType
-    domainName: str
+    domainName: Annotated[str, _aws_pattern("Rtbfabric", "DomainName")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 # This class is the output for the 'create_outbound_external_link' function.
 class CreateOutboundExternalLinkResponseTypeDef(BaseValidatorModel):
-    gatewayId: str
-    linkId: str
+    gatewayId: Annotated[str, _aws_pattern("Rtbfabric", "GatewayId")]
+    linkId: Annotated[str, _aws_pattern("Rtbfabric", "LinkId")]
     status: LinkStatusType
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 # This class is the output for the 'create_requester_gateway' function.
 class CreateRequesterGatewayResponseTypeDef(BaseValidatorModel):
-    gatewayId: str
-    domainName: str
+    gatewayId: Annotated[str, _aws_pattern("Rtbfabric", "GatewayId")]
+    domainName: Annotated[str, _aws_pattern("Rtbfabric", "DomainName")]
     status: RequesterGatewayStatusType
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 # This class is the output for the 'delete_inbound_external_link' function.
 class DeleteInboundExternalLinkResponseTypeDef(BaseValidatorModel):
-    linkId: str
+    linkId: Annotated[str, _aws_pattern("Rtbfabric", "LinkId")]
     status: LinkStatusType
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 # This class is the output for the 'delete_link' function.
 class DeleteLinkResponseTypeDef(BaseValidatorModel):
-    linkId: str
+    linkId: Annotated[str, _aws_pattern("Rtbfabric", "LinkId")]
     status: LinkStatusType
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 # This class is the output for the 'delete_outbound_external_link' function.
 class DeleteOutboundExternalLinkResponseTypeDef(BaseValidatorModel):
-    linkId: str
+    linkId: Annotated[str, _aws_pattern("Rtbfabric", "LinkId")]
     status: LinkStatusType
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 # This class is the output for the 'delete_requester_gateway' function.
 class DeleteRequesterGatewayResponseTypeDef(BaseValidatorModel):
-    gatewayId: str
+    gatewayId: Annotated[str, _aws_pattern("Rtbfabric", "GatewayId")]
     status: RequesterGatewayStatusType
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 # This class is the output for the 'delete_responder_gateway' function.
 class DeleteResponderGatewayResponseTypeDef(BaseValidatorModel):
-    gatewayId: str
+    gatewayId: Annotated[str, _aws_pattern("Rtbfabric", "GatewayId")]
     status: ResponderGatewayStatusType
     ResponseMetadata: ResponseMetadataTypeDef
 
@@ -317,14 +323,14 @@ class DeleteResponderGatewayResponseTypeDef(BaseValidatorModel):
 # This class is the output for the 'get_requester_gateway' function.
 class GetRequesterGatewayResponseTypeDef(BaseValidatorModel):
     status: RequesterGatewayStatusType
-    domainName: str
-    description: str
+    domainName: Annotated[str, _aws_pattern("Rtbfabric", "DomainName")]
+    description: Annotated[str, _aws_pattern("Rtbfabric", "GetRequesterGatewayResponseDescriptionString")]
     createdAt: datetime
     updatedAt: datetime
-    vpcId: str
-    subnetIds: List[str]
-    securityGroupIds: List[str]
-    gatewayId: str
+    vpcId: Annotated[str, _aws_pattern("Rtbfabric", "VpcId")]
+    subnetIds: List[Annotated[str, _aws_pattern("Rtbfabric", "SubnetId")]]
+    securityGroupIds: List[Annotated[str, _aws_pattern("Rtbfabric", "SecurityGroupId")]]
+    gatewayId: Annotated[str, _aws_pattern("Rtbfabric", "GatewayId")]
     tags: Dict[str, str]
     activeLinksCount: int
     totalLinksCount: int
@@ -333,14 +339,14 @@ class GetRequesterGatewayResponseTypeDef(BaseValidatorModel):
 
 # This class is the output for the 'list_requester_gateways' function.
 class ListRequesterGatewaysResponseTypeDef(BaseValidatorModel):
-    gatewayIds: List[str]
+    gatewayIds: List[Annotated[str, _aws_pattern("Rtbfabric", "GatewayId")]]
     ResponseMetadata: ResponseMetadataTypeDef
     nextToken: Optional[str] = None
 
 
 # This class is the output for the 'list_responder_gateways' function.
 class ListResponderGatewaysResponseTypeDef(BaseValidatorModel):
-    gatewayIds: List[str]
+    gatewayIds: List[Annotated[str, _aws_pattern("Rtbfabric", "GatewayId")]]
     ResponseMetadata: ResponseMetadataTypeDef
     nextToken: Optional[str] = None
 
@@ -353,29 +359,29 @@ class ListTagsForResourceResponseTypeDef(BaseValidatorModel):
 
 # This class is the output for the 'update_link_module_flow' function.
 class UpdateLinkModuleFlowResponseTypeDef(BaseValidatorModel):
-    gatewayId: str
-    linkId: str
+    gatewayId: Annotated[str, _aws_pattern("Rtbfabric", "GatewayId")]
+    linkId: Annotated[str, _aws_pattern("Rtbfabric", "LinkId")]
     status: LinkStatusType
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 # This class is the output for the 'update_link' function.
 class UpdateLinkResponseTypeDef(BaseValidatorModel):
-    linkId: str
+    linkId: Annotated[str, _aws_pattern("Rtbfabric", "LinkId")]
     status: LinkStatusType
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 # This class is the output for the 'update_requester_gateway' function.
 class UpdateRequesterGatewayResponseTypeDef(BaseValidatorModel):
-    gatewayId: str
+    gatewayId: Annotated[str, _aws_pattern("Rtbfabric", "GatewayId")]
     status: RequesterGatewayStatusType
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 # This class is the output for the 'update_responder_gateway' function.
 class UpdateResponderGatewayResponseTypeDef(BaseValidatorModel):
-    gatewayId: str
+    gatewayId: Annotated[str, _aws_pattern("Rtbfabric", "GatewayId")]
     status: ResponderGatewayStatusType
     ResponseMetadata: ResponseMetadataTypeDef
 
@@ -393,16 +399,16 @@ class AutoScalingGroupsConfigurationOutputTypeDef(BaseValidatorModel):
 
 class AutoScalingGroupsConfigurationTypeDef(BaseValidatorModel):
     autoScalingGroupNames: List[str]
-    roleArn: str
+    roleArn: Annotated[str, _aws_pattern("Rtbfabric", "AutoScalingGroupsConfigurationRoleArnString")]
     healthCheckConfig: Optional[HealthCheckConfigTypeDef] = None
 
 
 # This class is the output for the 'create_responder_gateway' function.
 class CreateResponderGatewayResponseTypeDef(BaseValidatorModel):
-    gatewayId: str
+    gatewayId: Annotated[str, _aws_pattern("Rtbfabric", "GatewayId")]
     status: ResponderGatewayStatusType
     listenerConfig: ListenerConfigOutputTypeDef
-    externalInboundEndpoint: str
+    externalInboundEndpoint: Annotated[str, _aws_pattern("Rtbfabric", "DomainName")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
@@ -486,7 +492,7 @@ class LinkAttributesOutputTypeDef(BaseValidatorModel):
 
 class LinkAttributesTypeDef(BaseValidatorModel):
     responderErrorMasking: Optional[List[ResponderErrorMaskingForHttpCodeTypeDef]] = None
-    customerProvidedId: Optional[str] = None
+    customerProvidedId: Optional[Annotated[str, _aws_pattern("Rtbfabric", "CustomerProvidedId")]] = None
 
 
 class ListLinksRequestPaginateTypeDef(BaseValidatorModel):
@@ -537,26 +543,26 @@ LinkAttributesUnionTypeDef = Union[LinkAttributesOutputTypeDef, LinkAttributesTy
 
 # This class is the output for the 'get_responder_gateway' function.
 class GetResponderGatewayResponseTypeDef(BaseValidatorModel):
-    vpcId: str
-    subnetIds: List[str]
-    securityGroupIds: List[str]
+    vpcId: Annotated[str, _aws_pattern("Rtbfabric", "VpcId")]
+    subnetIds: List[Annotated[str, _aws_pattern("Rtbfabric", "SubnetId")]]
+    securityGroupIds: List[Annotated[str, _aws_pattern("Rtbfabric", "SecurityGroupId")]]
     status: ResponderGatewayStatusType
-    description: str
+    description: Annotated[str, _aws_pattern("Rtbfabric", "GetResponderGatewayResponseDescriptionString")]
     createdAt: datetime
     updatedAt: datetime
-    domainName: str
+    domainName: Annotated[str, _aws_pattern("Rtbfabric", "DomainName")]
     port: int
     protocol: ProtocolType
     listenerConfig: ListenerConfigOutputTypeDef
     trustStoreConfiguration: TrustStoreConfigurationOutputTypeDef
     managedEndpointConfiguration: ManagedEndpointConfigurationOutputTypeDef
-    gatewayId: str
+    gatewayId: Annotated[str, _aws_pattern("Rtbfabric", "GatewayId")]
     tags: Dict[str, str]
     activeLinksCount: int
     totalLinksCount: int
     inboundLinksCount: int
     gatewayType: GatewayTypeType
-    externalInboundEndpoint: str
+    externalInboundEndpoint: Annotated[str, _aws_pattern("Rtbfabric", "DomainName")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
@@ -576,16 +582,16 @@ FilterUnionTypeDef = Union[FilterOutputTypeDef, FilterTypeDef]
 
 # This class is the input for the 'update_link' function.
 class UpdateLinkRequestTypeDef(BaseValidatorModel):
-    gatewayId: str
-    linkId: str
+    gatewayId: Annotated[str, _aws_pattern("Rtbfabric", "GatewayId")]
+    linkId: Annotated[str, _aws_pattern("Rtbfabric", "LinkId")]
     logSettings: Optional[LinkLogSettingsTypeDef] = None
     timeoutInMillis: Optional[int] = None
 
 
 # This class is the input for the 'accept_link' function.
 class AcceptLinkRequestTypeDef(BaseValidatorModel):
-    gatewayId: str
-    linkId: str
+    gatewayId: Annotated[str, _aws_pattern("Rtbfabric", "GatewayId")]
+    linkId: Annotated[str, _aws_pattern("Rtbfabric", "LinkId")]
     logSettings: LinkLogSettingsTypeDef
     attributes: Optional[LinkAttributesUnionTypeDef] = None
     timeoutInMillis: Optional[int] = None
@@ -594,7 +600,7 @@ class AcceptLinkRequestTypeDef(BaseValidatorModel):
 # This class is the input for the 'create_inbound_external_link' function.
 class CreateInboundExternalLinkRequestTypeDef(BaseValidatorModel):
     clientToken: str
-    gatewayId: str
+    gatewayId: Annotated[str, _aws_pattern("Rtbfabric", "GatewayId")]
     logSettings: LinkLogSettingsTypeDef
     attributes: Optional[LinkAttributesUnionTypeDef] = None
     tags: Optional[Dict[str, str]] = None
@@ -602,8 +608,8 @@ class CreateInboundExternalLinkRequestTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'create_link' function.
 class CreateLinkRequestTypeDef(BaseValidatorModel):
-    gatewayId: str
-    peerGatewayId: str
+    gatewayId: Annotated[str, _aws_pattern("Rtbfabric", "GatewayId")]
+    peerGatewayId: Annotated[str, _aws_pattern("Rtbfabric", "GatewayId")]
     logSettings: LinkLogSettingsTypeDef
     attributes: Optional[LinkAttributesUnionTypeDef] = None
     httpResponderAllowed: Optional[bool] = None
@@ -614,8 +620,8 @@ class CreateLinkRequestTypeDef(BaseValidatorModel):
 # This class is the input for the 'create_outbound_external_link' function.
 class CreateOutboundExternalLinkRequestTypeDef(BaseValidatorModel):
     clientToken: str
-    gatewayId: str
-    publicEndpoint: str
+    gatewayId: Annotated[str, _aws_pattern("Rtbfabric", "GatewayId")]
+    publicEndpoint: Annotated[str, _aws_pattern("Rtbfabric", "URL")]
     logSettings: LinkLogSettingsTypeDef
     attributes: Optional[LinkAttributesUnionTypeDef] = None
     tags: Optional[Dict[str, str]] = None
@@ -623,17 +629,19 @@ class CreateOutboundExternalLinkRequestTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'create_responder_gateway' function.
 class CreateResponderGatewayRequestTypeDef(BaseValidatorModel):
-    vpcId: str
-    subnetIds: List[str]
-    securityGroupIds: List[str]
+    vpcId: Annotated[str, _aws_pattern("Rtbfabric", "VpcId")]
+    subnetIds: List[Annotated[str, _aws_pattern("Rtbfabric", "SubnetId")]]
+    securityGroupIds: List[Annotated[str, _aws_pattern("Rtbfabric", "SecurityGroupId")]]
     port: int
     protocol: ProtocolType
     clientToken: str
-    domainName: Optional[str] = None
+    domainName: Optional[Annotated[str, _aws_pattern("Rtbfabric", "DomainName")]] = None
     listenerConfig: Optional[ListenerConfigUnionTypeDef] = None
     trustStoreConfiguration: Optional[TrustStoreConfigurationUnionTypeDef] = None
     managedEndpointConfiguration: Optional[ManagedEndpointConfigurationUnionTypeDef] = None
-    description: Optional[str] = None
+    description: Optional[
+        Annotated[str, _aws_pattern("Rtbfabric", "CreateResponderGatewayRequestDescriptionString")]
+    ] = None
     tags: Optional[Dict[str, str]] = None
     gatewayType: Optional[GatewayTypeType] = None
 
@@ -643,12 +651,14 @@ class UpdateResponderGatewayRequestTypeDef(BaseValidatorModel):
     port: int
     protocol: ProtocolType
     clientToken: str
-    gatewayId: str
-    domainName: Optional[str] = None
+    gatewayId: Annotated[str, _aws_pattern("Rtbfabric", "GatewayId")]
+    domainName: Optional[Annotated[str, _aws_pattern("Rtbfabric", "DomainName")]] = None
     listenerConfig: Optional[ListenerConfigUnionTypeDef] = None
     trustStoreConfiguration: Optional[TrustStoreConfigurationUnionTypeDef] = None
     managedEndpointConfiguration: Optional[ManagedEndpointConfigurationUnionTypeDef] = None
-    description: Optional[str] = None
+    description: Optional[
+        Annotated[str, _aws_pattern("Rtbfabric", "UpdateResponderGatewayRequestDescriptionString")]
+    ] = None
 
 
 class ModuleConfigurationOutputTypeDef(BaseValidatorModel):
@@ -667,8 +677,8 @@ class OpenRtbAttributeModuleParametersTypeDef(BaseValidatorModel):
 
 # This class is the output for the 'accept_link' function.
 class AcceptLinkResponseTypeDef(BaseValidatorModel):
-    gatewayId: str
-    peerGatewayId: str
+    gatewayId: Annotated[str, _aws_pattern("Rtbfabric", "GatewayId")]
+    peerGatewayId: Annotated[str, _aws_pattern("Rtbfabric", "GatewayId")]
     status: LinkStatusType
     createdAt: datetime
     updatedAt: datetime
@@ -678,14 +688,14 @@ class AcceptLinkResponseTypeDef(BaseValidatorModel):
     attributes: LinkAttributesOutputTypeDef
     logSettings: LinkLogSettingsTypeDef
     connectivityType: ConnectivityTypeType
-    linkId: str
+    linkId: Annotated[str, _aws_pattern("Rtbfabric", "LinkId")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 # This class is the output for the 'create_link' function.
 class CreateLinkResponseTypeDef(BaseValidatorModel):
-    gatewayId: str
-    peerGatewayId: str
+    gatewayId: Annotated[str, _aws_pattern("Rtbfabric", "GatewayId")]
+    peerGatewayId: Annotated[str, _aws_pattern("Rtbfabric", "GatewayId")]
     status: LinkStatusType
     createdAt: datetime
     updatedAt: datetime
@@ -695,17 +705,17 @@ class CreateLinkResponseTypeDef(BaseValidatorModel):
     attributes: LinkAttributesOutputTypeDef
     logSettings: LinkLogSettingsTypeDef
     connectivityType: ConnectivityTypeType
-    linkId: str
-    customerProvidedId: str
+    linkId: Annotated[str, _aws_pattern("Rtbfabric", "LinkId")]
+    customerProvidedId: Annotated[str, _aws_pattern("Rtbfabric", "CreateLinkResponseCustomerProvidedIdString")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 # This class is the output for the 'get_inbound_external_link' function.
 class GetInboundExternalLinkResponseTypeDef(BaseValidatorModel):
-    gatewayId: str
-    linkId: str
+    gatewayId: Annotated[str, _aws_pattern("Rtbfabric", "GatewayId")]
+    linkId: Annotated[str, _aws_pattern("Rtbfabric", "LinkId")]
     status: LinkStatusType
-    domainName: str
+    domainName: Annotated[str, _aws_pattern("Rtbfabric", "DomainName")]
     flowModules: List[ModuleConfigurationOutputTypeDef]
     pendingFlowModules: List[ModuleConfigurationOutputTypeDef]
     attributes: LinkAttributesOutputTypeDef
@@ -719,8 +729,8 @@ class GetInboundExternalLinkResponseTypeDef(BaseValidatorModel):
 
 # This class is the output for the 'get_link' function.
 class GetLinkResponseTypeDef(BaseValidatorModel):
-    gatewayId: str
-    peerGatewayId: str
+    gatewayId: Annotated[str, _aws_pattern("Rtbfabric", "GatewayId")]
+    peerGatewayId: Annotated[str, _aws_pattern("Rtbfabric", "GatewayId")]
     status: LinkStatusType
     createdAt: datetime
     updatedAt: datetime
@@ -730,7 +740,7 @@ class GetLinkResponseTypeDef(BaseValidatorModel):
     attributes: LinkAttributesOutputTypeDef
     logSettings: LinkLogSettingsTypeDef
     connectivityType: ConnectivityTypeType
-    linkId: str
+    linkId: Annotated[str, _aws_pattern("Rtbfabric", "LinkId")]
     tags: Dict[str, str]
     httpResponderAllowed: bool
     timeoutInMillis: int
@@ -739,10 +749,10 @@ class GetLinkResponseTypeDef(BaseValidatorModel):
 
 # This class is the output for the 'get_outbound_external_link' function.
 class GetOutboundExternalLinkResponseTypeDef(BaseValidatorModel):
-    gatewayId: str
-    linkId: str
+    gatewayId: Annotated[str, _aws_pattern("Rtbfabric", "GatewayId")]
+    linkId: Annotated[str, _aws_pattern("Rtbfabric", "LinkId")]
     status: LinkStatusType
-    publicEndpoint: str
+    publicEndpoint: Annotated[str, _aws_pattern("Rtbfabric", "URL")]
     flowModules: List[ModuleConfigurationOutputTypeDef]
     pendingFlowModules: List[ModuleConfigurationOutputTypeDef]
     attributes: LinkAttributesOutputTypeDef
@@ -755,12 +765,12 @@ class GetOutboundExternalLinkResponseTypeDef(BaseValidatorModel):
 
 
 class ListLinksResponseStructureTypeDef(BaseValidatorModel):
-    gatewayId: str
-    peerGatewayId: str
+    gatewayId: Annotated[str, _aws_pattern("Rtbfabric", "GatewayId")]
+    peerGatewayId: Annotated[str, _aws_pattern("Rtbfabric", "GatewayId")]
     status: LinkStatusType
     createdAt: datetime
     updatedAt: datetime
-    linkId: str
+    linkId: Annotated[str, _aws_pattern("Rtbfabric", "LinkId")]
     direction: Optional[LinkDirectionType] = None
     flowModules: Optional[List[ModuleConfigurationOutputTypeDef]] = None
     pendingFlowModules: Optional[List[ModuleConfigurationOutputTypeDef]] = None
@@ -768,13 +778,13 @@ class ListLinksResponseStructureTypeDef(BaseValidatorModel):
     logSettings: Optional[LinkLogSettingsTypeDef] = None
     connectivityType: Optional[ConnectivityTypeType] = None
     tags: Optional[Dict[str, str]] = None
-    publicEndpoint: Optional[str] = None
+    publicEndpoint: Optional[Annotated[str, _aws_pattern("Rtbfabric", "URL")]] = None
 
 
 # This class is the output for the 'reject_link' function.
 class RejectLinkResponseTypeDef(BaseValidatorModel):
-    gatewayId: str
-    peerGatewayId: str
+    gatewayId: Annotated[str, _aws_pattern("Rtbfabric", "GatewayId")]
+    peerGatewayId: Annotated[str, _aws_pattern("Rtbfabric", "GatewayId")]
     status: LinkStatusType
     createdAt: datetime
     updatedAt: datetime
@@ -784,7 +794,7 @@ class RejectLinkResponseTypeDef(BaseValidatorModel):
     attributes: LinkAttributesOutputTypeDef
     logSettings: LinkLogSettingsTypeDef
     connectivityType: ConnectivityTypeType
-    linkId: str
+    linkId: Annotated[str, _aws_pattern("Rtbfabric", "LinkId")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
@@ -810,9 +820,9 @@ ModuleParametersUnionTypeDef = Union[ModuleParametersOutputTypeDef, ModuleParame
 
 
 class ModuleConfigurationTypeDef(BaseValidatorModel):
-    name: str
-    version: Optional[str] = None
-    dependsOn: Optional[List[str]] = None
+    name: Annotated[str, _aws_pattern("Rtbfabric", "FlowModuleName")]
+    version: Optional[Annotated[str, _aws_pattern("Rtbfabric", "Version")]] = None
+    dependsOn: Optional[List[Annotated[str, _aws_pattern("Rtbfabric", "FlowModuleName")]]] = None
     moduleParameters: Optional[ModuleParametersUnionTypeDef] = None
 
 
@@ -822,6 +832,6 @@ ModuleConfigurationUnionTypeDef = Union[ModuleConfigurationOutputTypeDef, Module
 # This class is the input for the 'update_link_module_flow' function.
 class UpdateLinkModuleFlowRequestTypeDef(BaseValidatorModel):
     clientToken: str
-    gatewayId: str
-    linkId: str
+    gatewayId: Annotated[str, _aws_pattern("Rtbfabric", "GatewayId")]
+    linkId: Annotated[str, _aws_pattern("Rtbfabric", "LinkId")]
     modules: List[ModuleConfigurationUnionTypeDef]

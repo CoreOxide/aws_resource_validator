@@ -3,6 +3,7 @@
 from datetime import datetime
 from decimal import Decimal
 from typing import (
+    Annotated,
     Any,
     Callable,
     Dict,
@@ -24,6 +25,7 @@ from botocore.response import StreamingBody
 from pydantic import Field
 
 from aws_resource_validator.core.base_validator_model import BaseValidatorModel, EventStream
+from aws_resource_validator.core.pattern_validation import aws_field_pattern as _aws_pattern
 from aws_resource_validator.pydantic_models.route53_recovery_control_config.route53_recovery_control_config_constants import *  # noqa: F401,F403
 
 # Optional boto3 symbols — imported lazily so services that don't need them
@@ -45,30 +47,38 @@ class RuleConfigTypeDef(BaseValidatorModel):
 
 
 class AssertionRuleUpdateTypeDef(BaseValidatorModel):
-    Name: str
-    SafetyRuleArn: str
+    Name: Annotated[str, _aws_pattern("Route53RecoveryControlConfig", "__stringMin1Max64PatternS")]
+    SafetyRuleArn: Annotated[str, _aws_pattern("Route53RecoveryControlConfig", "__stringMin1Max256PatternAZaZ09")]
     WaitPeriodMs: int
 
 
 class ClusterEndpointTypeDef(BaseValidatorModel):
-    Endpoint: Optional[str] = None
-    Region: Optional[str] = None
+    Endpoint: Optional[
+        Annotated[str, _aws_pattern("Route53RecoveryControlConfig", "__stringMin1Max128PatternAZaZ09")]
+    ] = None
+    Region: Optional[Annotated[str, _aws_pattern("Route53RecoveryControlConfig", "__stringMin1Max32PatternS")]] = None
 
 
 class ControlPanelTypeDef(BaseValidatorModel):
-    ClusterArn: Optional[str] = None
-    ControlPanelArn: Optional[str] = None
+    ClusterArn: Optional[
+        Annotated[str, _aws_pattern("Route53RecoveryControlConfig", "__stringMin1Max256PatternAZaZ09")]
+    ] = None
+    ControlPanelArn: Optional[
+        Annotated[str, _aws_pattern("Route53RecoveryControlConfig", "__stringMin1Max256PatternAZaZ09")]
+    ] = None
     DefaultControlPanel: Optional[bool] = None
-    Name: Optional[str] = None
+    Name: Optional[Annotated[str, _aws_pattern("Route53RecoveryControlConfig", "__stringMin1Max64PatternS")]] = None
     RoutingControlCount: Optional[int] = None
     Status: Optional[StatusType] = None
-    Owner: Optional[str] = None
+    Owner: Optional[Annotated[str, _aws_pattern("Route53RecoveryControlConfig", "__stringMin12Max12PatternD12")]] = None
 
 
 # This class is the input for the 'create_cluster' function.
 class CreateClusterRequestTypeDef(BaseValidatorModel):
-    ClusterName: str
-    ClientToken: Optional[str] = None
+    ClusterName: Annotated[str, _aws_pattern("Route53RecoveryControlConfig", "__stringMin1Max64PatternS")]
+    ClientToken: Optional[Annotated[str, _aws_pattern("Route53RecoveryControlConfig", "__stringMin1Max64PatternS")]] = (
+        None
+    )
     Tags: Optional[Dict[str, str]] = None
     NetworkType: Optional[NetworkTypeType] = None
 
@@ -83,26 +93,36 @@ class ResponseMetadataTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'create_control_panel' function.
 class CreateControlPanelRequestTypeDef(BaseValidatorModel):
-    ClusterArn: str
-    ControlPanelName: str
-    ClientToken: Optional[str] = None
+    ClusterArn: Annotated[str, _aws_pattern("Route53RecoveryControlConfig", "__stringMin1Max256PatternAZaZ09")]
+    ControlPanelName: Annotated[str, _aws_pattern("Route53RecoveryControlConfig", "__stringMin1Max64PatternS")]
+    ClientToken: Optional[Annotated[str, _aws_pattern("Route53RecoveryControlConfig", "__stringMin1Max64PatternS")]] = (
+        None
+    )
     Tags: Optional[Dict[str, str]] = None
 
 
 # This class is the input for the 'create_routing_control' function.
 class CreateRoutingControlRequestTypeDef(BaseValidatorModel):
-    ClusterArn: str
-    RoutingControlName: str
-    ClientToken: Optional[str] = None
-    ControlPanelArn: Optional[str] = None
+    ClusterArn: Annotated[str, _aws_pattern("Route53RecoveryControlConfig", "__stringMin1Max256PatternAZaZ09")]
+    RoutingControlName: Annotated[str, _aws_pattern("Route53RecoveryControlConfig", "__stringMin1Max64PatternS")]
+    ClientToken: Optional[Annotated[str, _aws_pattern("Route53RecoveryControlConfig", "__stringMin1Max64PatternS")]] = (
+        None
+    )
+    ControlPanelArn: Optional[
+        Annotated[str, _aws_pattern("Route53RecoveryControlConfig", "__stringMin1Max256PatternAZaZ09")]
+    ] = None
 
 
 class RoutingControlTypeDef(BaseValidatorModel):
-    ControlPanelArn: Optional[str] = None
-    Name: Optional[str] = None
-    RoutingControlArn: Optional[str] = None
+    ControlPanelArn: Optional[
+        Annotated[str, _aws_pattern("Route53RecoveryControlConfig", "__stringMin1Max256PatternAZaZ09")]
+    ] = None
+    Name: Optional[Annotated[str, _aws_pattern("Route53RecoveryControlConfig", "__stringMin1Max64PatternS")]] = None
+    RoutingControlArn: Optional[
+        Annotated[str, _aws_pattern("Route53RecoveryControlConfig", "__stringMin1Max256PatternAZaZ09")]
+    ] = None
     Status: Optional[StatusType] = None
-    Owner: Optional[str] = None
+    Owner: Optional[Annotated[str, _aws_pattern("Route53RecoveryControlConfig", "__stringMin12Max12PatternD12")]] = None
 
 
 class DeleteClusterRequestTypeDef(BaseValidatorModel):
@@ -147,8 +167,8 @@ class DescribeSafetyRuleRequestTypeDef(BaseValidatorModel):
 
 
 class GatingRuleUpdateTypeDef(BaseValidatorModel):
-    Name: str
-    SafetyRuleArn: str
+    Name: Annotated[str, _aws_pattern("Route53RecoveryControlConfig", "__stringMin1Max64PatternS")]
+    SafetyRuleArn: Annotated[str, _aws_pattern("Route53RecoveryControlConfig", "__stringMin1Max256PatternAZaZ09")]
     WaitPeriodMs: int
 
 
@@ -214,68 +234,82 @@ class UntagResourceRequestTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'update_cluster' function.
 class UpdateClusterRequestTypeDef(BaseValidatorModel):
-    ClusterArn: str
+    ClusterArn: Annotated[str, _aws_pattern("Route53RecoveryControlConfig", "__stringMin1Max256PatternAZaZ09")]
     NetworkType: NetworkTypeType
 
 
 # This class is the input for the 'update_control_panel' function.
 class UpdateControlPanelRequestTypeDef(BaseValidatorModel):
-    ControlPanelArn: str
-    ControlPanelName: str
+    ControlPanelArn: Annotated[str, _aws_pattern("Route53RecoveryControlConfig", "__stringMin1Max256PatternAZaZ09")]
+    ControlPanelName: Annotated[str, _aws_pattern("Route53RecoveryControlConfig", "__stringMin1Max64PatternS")]
 
 
 # This class is the input for the 'update_routing_control' function.
 class UpdateRoutingControlRequestTypeDef(BaseValidatorModel):
-    RoutingControlArn: str
-    RoutingControlName: str
+    RoutingControlArn: Annotated[str, _aws_pattern("Route53RecoveryControlConfig", "__stringMin1Max256PatternAZaZ09")]
+    RoutingControlName: Annotated[str, _aws_pattern("Route53RecoveryControlConfig", "__stringMin1Max64PatternS")]
 
 
 class AssertionRuleTypeDef(BaseValidatorModel):
-    AssertedControls: List[str]
-    ControlPanelArn: str
-    Name: str
+    AssertedControls: List[
+        Annotated[str, _aws_pattern("Route53RecoveryControlConfig", "__stringMin1Max256PatternAZaZ09")]
+    ]
+    ControlPanelArn: Annotated[str, _aws_pattern("Route53RecoveryControlConfig", "__stringMin1Max256PatternAZaZ09")]
+    Name: Annotated[str, _aws_pattern("Route53RecoveryControlConfig", "__stringMin1Max64PatternS")]
     RuleConfig: RuleConfigTypeDef
-    SafetyRuleArn: str
+    SafetyRuleArn: Annotated[str, _aws_pattern("Route53RecoveryControlConfig", "__stringMin1Max256PatternAZaZ09")]
     Status: StatusType
     WaitPeriodMs: int
-    Owner: Optional[str] = None
+    Owner: Optional[Annotated[str, _aws_pattern("Route53RecoveryControlConfig", "__stringMin12Max12PatternD12")]] = None
 
 
 class GatingRuleTypeDef(BaseValidatorModel):
-    ControlPanelArn: str
-    GatingControls: List[str]
-    Name: str
+    ControlPanelArn: Annotated[str, _aws_pattern("Route53RecoveryControlConfig", "__stringMin1Max256PatternAZaZ09")]
+    GatingControls: List[
+        Annotated[str, _aws_pattern("Route53RecoveryControlConfig", "__stringMin1Max256PatternAZaZ09")]
+    ]
+    Name: Annotated[str, _aws_pattern("Route53RecoveryControlConfig", "__stringMin1Max64PatternS")]
     RuleConfig: RuleConfigTypeDef
-    SafetyRuleArn: str
+    SafetyRuleArn: Annotated[str, _aws_pattern("Route53RecoveryControlConfig", "__stringMin1Max256PatternAZaZ09")]
     Status: StatusType
-    TargetControls: List[str]
+    TargetControls: List[
+        Annotated[str, _aws_pattern("Route53RecoveryControlConfig", "__stringMin1Max256PatternAZaZ09")]
+    ]
     WaitPeriodMs: int
-    Owner: Optional[str] = None
+    Owner: Optional[Annotated[str, _aws_pattern("Route53RecoveryControlConfig", "__stringMin12Max12PatternD12")]] = None
 
 
 class NewAssertionRuleTypeDef(BaseValidatorModel):
-    AssertedControls: List[str]
-    ControlPanelArn: str
-    Name: str
+    AssertedControls: List[
+        Annotated[str, _aws_pattern("Route53RecoveryControlConfig", "__stringMin1Max256PatternAZaZ09")]
+    ]
+    ControlPanelArn: Annotated[str, _aws_pattern("Route53RecoveryControlConfig", "__stringMin1Max256PatternAZaZ09")]
+    Name: Annotated[str, _aws_pattern("Route53RecoveryControlConfig", "__stringMin1Max64PatternS")]
     RuleConfig: RuleConfigTypeDef
     WaitPeriodMs: int
 
 
 class NewGatingRuleTypeDef(BaseValidatorModel):
-    ControlPanelArn: str
-    GatingControls: List[str]
-    Name: str
+    ControlPanelArn: Annotated[str, _aws_pattern("Route53RecoveryControlConfig", "__stringMin1Max256PatternAZaZ09")]
+    GatingControls: List[
+        Annotated[str, _aws_pattern("Route53RecoveryControlConfig", "__stringMin1Max256PatternAZaZ09")]
+    ]
+    Name: Annotated[str, _aws_pattern("Route53RecoveryControlConfig", "__stringMin1Max64PatternS")]
     RuleConfig: RuleConfigTypeDef
-    TargetControls: List[str]
+    TargetControls: List[
+        Annotated[str, _aws_pattern("Route53RecoveryControlConfig", "__stringMin1Max256PatternAZaZ09")]
+    ]
     WaitPeriodMs: int
 
 
 class ClusterTypeDef(BaseValidatorModel):
-    ClusterArn: Optional[str] = None
+    ClusterArn: Optional[
+        Annotated[str, _aws_pattern("Route53RecoveryControlConfig", "__stringMin1Max256PatternAZaZ09")]
+    ] = None
     ClusterEndpoints: Optional[List[ClusterEndpointTypeDef]] = None
-    Name: Optional[str] = None
+    Name: Optional[Annotated[str, _aws_pattern("Route53RecoveryControlConfig", "__stringMin1Max64PatternS")]] = None
     Status: Optional[StatusType] = None
-    Owner: Optional[str] = None
+    Owner: Optional[Annotated[str, _aws_pattern("Route53RecoveryControlConfig", "__stringMin12Max12PatternD12")]] = None
     NetworkType: Optional[NetworkTypeType] = None
 
 
@@ -293,22 +327,26 @@ class DescribeControlPanelResponseTypeDef(BaseValidatorModel):
 
 # This class is the output for the 'get_resource_policy' function.
 class GetResourcePolicyResponseTypeDef(BaseValidatorModel):
-    Policy: str
+    Policy: Annotated[str, _aws_pattern("Route53RecoveryControlConfig", "__policy")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 # This class is the output for the 'list_associated_route53_health_checks' function.
 class ListAssociatedRoute53HealthChecksResponseTypeDef(BaseValidatorModel):
-    HealthCheckIds: List[str]
+    HealthCheckIds: List[Annotated[str, _aws_pattern("Route53RecoveryControlConfig", "__stringMax36PatternS")]]
     ResponseMetadata: ResponseMetadataTypeDef
-    NextToken: Optional[str] = None
+    NextToken: Optional[Annotated[str, _aws_pattern("Route53RecoveryControlConfig", "__stringMin1Max8096PatternS")]] = (
+        None
+    )
 
 
 # This class is the output for the 'list_control_panels' function.
 class ListControlPanelsResponseTypeDef(BaseValidatorModel):
     ControlPanels: List[ControlPanelTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
-    NextToken: Optional[str] = None
+    NextToken: Optional[Annotated[str, _aws_pattern("Route53RecoveryControlConfig", "__stringMin1Max8096PatternS")]] = (
+        None
+    )
 
 
 # This class is the output for the 'list_tags_for_resource' function.
@@ -339,7 +377,9 @@ class DescribeRoutingControlResponseTypeDef(BaseValidatorModel):
 class ListRoutingControlsResponseTypeDef(BaseValidatorModel):
     RoutingControls: List[RoutingControlTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
-    NextToken: Optional[str] = None
+    NextToken: Optional[Annotated[str, _aws_pattern("Route53RecoveryControlConfig", "__stringMin1Max8096PatternS")]] = (
+        None
+    )
 
 
 # This class is the output for the 'update_routing_control' function.
@@ -437,7 +477,9 @@ class UpdateSafetyRuleResponseTypeDef(BaseValidatorModel):
 # This class is the input for the 'create_safety_rule' function.
 class CreateSafetyRuleRequestTypeDef(BaseValidatorModel):
     AssertionRule: Optional[NewAssertionRuleTypeDef] = None
-    ClientToken: Optional[str] = None
+    ClientToken: Optional[Annotated[str, _aws_pattern("Route53RecoveryControlConfig", "__stringMin1Max64PatternS")]] = (
+        None
+    )
     GatingRule: Optional[NewGatingRuleTypeDef] = None
     Tags: Optional[Dict[str, str]] = None
 
@@ -458,7 +500,9 @@ class DescribeClusterResponseTypeDef(BaseValidatorModel):
 class ListClustersResponseTypeDef(BaseValidatorModel):
     Clusters: List[ClusterTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
-    NextToken: Optional[str] = None
+    NextToken: Optional[Annotated[str, _aws_pattern("Route53RecoveryControlConfig", "__stringMin1Max8096PatternS")]] = (
+        None
+    )
 
 
 # This class is the output for the 'update_cluster' function.
@@ -471,4 +515,6 @@ class UpdateClusterResponseTypeDef(BaseValidatorModel):
 class ListSafetyRulesResponseTypeDef(BaseValidatorModel):
     SafetyRules: List[RuleTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
-    NextToken: Optional[str] = None
+    NextToken: Optional[Annotated[str, _aws_pattern("Route53RecoveryControlConfig", "__stringMin1Max8096PatternS")]] = (
+        None
+    )

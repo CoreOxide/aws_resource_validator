@@ -3,6 +3,7 @@
 from datetime import datetime
 from decimal import Decimal
 from typing import (
+    Annotated,
     Any,
     Callable,
     Dict,
@@ -24,6 +25,7 @@ from botocore.response import StreamingBody
 from pydantic import Field
 
 from aws_resource_validator.core.base_validator_model import BaseValidatorModel, EventStream
+from aws_resource_validator.core.pattern_validation import aws_field_pattern as _aws_pattern
 from aws_resource_validator.pydantic_models.fis.fis_constants import *  # noqa: F401,F403
 
 # Optional boto3 symbols — imported lazily so services that don't need them
@@ -39,20 +41,20 @@ except ImportError:  # pragma: no cover
 
 
 class ActionParameterTypeDef(BaseValidatorModel):
-    description: Optional[str] = None
+    description: Optional[Annotated[str, _aws_pattern("Fis", "ActionParameterDescription")]] = None
     required: Optional[bool] = None
 
 
 class ActionTargetTypeDef(BaseValidatorModel):
-    resourceType: Optional[str] = None
+    resourceType: Optional[Annotated[str, _aws_pattern("Fis", "TargetResourceTypeId")]] = None
 
 
 class CreateExperimentTemplateActionInputTypeDef(BaseValidatorModel):
-    actionId: str
-    description: Optional[str] = None
+    actionId: Annotated[str, _aws_pattern("Fis", "ActionId")]
+    description: Optional[Annotated[str, _aws_pattern("Fis", "ExperimentTemplateActionDescription")]] = None
     parameters: Optional[Dict[str, str]] = None
     targets: Optional[Dict[str, str]] = None
-    startAfter: Optional[List[str]] = None
+    startAfter: Optional[List[Annotated[str, _aws_pattern("Fis", "ExperimentTemplateActionStartAfter")]]] = None
 
 
 class CreateExperimentTemplateExperimentOptionsInputTypeDef(BaseValidatorModel):
@@ -61,17 +63,17 @@ class CreateExperimentTemplateExperimentOptionsInputTypeDef(BaseValidatorModel):
 
 
 class ExperimentTemplateCloudWatchLogsLogConfigurationInputTypeDef(BaseValidatorModel):
-    logGroupArn: str
+    logGroupArn: Annotated[str, _aws_pattern("Fis", "CloudWatchLogGroupArn")]
 
 
 class ExperimentTemplateS3LogConfigurationInputTypeDef(BaseValidatorModel):
-    bucketName: str
-    prefix: Optional[str] = None
+    bucketName: Annotated[str, _aws_pattern("Fis", "S3BucketName")]
+    prefix: Optional[Annotated[str, _aws_pattern("Fis", "S3ObjectKey")]] = None
 
 
 class CreateExperimentTemplateStopConditionInputTypeDef(BaseValidatorModel):
-    source: str
-    value: Optional[str] = None
+    source: Annotated[str, _aws_pattern("Fis", "StopConditionSource")]
+    value: Optional[Annotated[str, _aws_pattern("Fis", "StopConditionValue")]] = None
 
 
 class ResponseMetadataTypeDef(BaseValidatorModel):
@@ -83,54 +85,54 @@ class ResponseMetadataTypeDef(BaseValidatorModel):
 
 
 class ExperimentTemplateTargetInputFilterTypeDef(BaseValidatorModel):
-    path: str
-    values: List[str]
+    path: Annotated[str, _aws_pattern("Fis", "ExperimentTemplateTargetFilterPath")]
+    values: List[Annotated[str, _aws_pattern("Fis", "ExperimentTemplateTargetFilterValue")]]
 
 
 # This class is the input for the 'create_target_account_configuration' function.
 class CreateTargetAccountConfigurationRequestTypeDef(BaseValidatorModel):
-    experimentTemplateId: str
-    accountId: str
-    roleArn: str
-    clientToken: Optional[str] = None
-    description: Optional[str] = None
+    experimentTemplateId: Annotated[str, _aws_pattern("Fis", "ExperimentTemplateId")]
+    accountId: Annotated[str, _aws_pattern("Fis", "TargetAccountId")]
+    roleArn: Annotated[str, _aws_pattern("Fis", "RoleArn")]
+    clientToken: Optional[Annotated[str, _aws_pattern("Fis", "ClientToken")]] = None
+    description: Optional[Annotated[str, _aws_pattern("Fis", "TargetAccountConfigurationDescription")]] = None
 
 
 class TargetAccountConfigurationTypeDef(BaseValidatorModel):
-    roleArn: Optional[str] = None
-    accountId: Optional[str] = None
-    description: Optional[str] = None
+    roleArn: Optional[Annotated[str, _aws_pattern("Fis", "RoleArn")]] = None
+    accountId: Optional[Annotated[str, _aws_pattern("Fis", "TargetAccountId")]] = None
+    description: Optional[Annotated[str, _aws_pattern("Fis", "TargetAccountConfigurationDescription")]] = None
 
 
 # This class is the input for the 'delete_experiment_template' function.
 class DeleteExperimentTemplateRequestTypeDef(BaseValidatorModel):
-    id: str
+    id: Annotated[str, _aws_pattern("Fis", "ExperimentTemplateId")]
 
 
 # This class is the input for the 'delete_target_account_configuration' function.
 class DeleteTargetAccountConfigurationRequestTypeDef(BaseValidatorModel):
-    experimentTemplateId: str
-    accountId: str
+    experimentTemplateId: Annotated[str, _aws_pattern("Fis", "ExperimentTemplateId")]
+    accountId: Annotated[str, _aws_pattern("Fis", "TargetAccountId")]
 
 
 class ExperimentActionStateTypeDef(BaseValidatorModel):
     status: Optional[ExperimentActionStatusType] = None
-    reason: Optional[str] = None
+    reason: Optional[Annotated[str, _aws_pattern("Fis", "ExperimentActionStatusReason")]] = None
 
 
 class ExperimentCloudWatchLogsLogConfigurationTypeDef(BaseValidatorModel):
-    logGroupArn: Optional[str] = None
+    logGroupArn: Optional[Annotated[str, _aws_pattern("Fis", "CloudWatchLogGroupArn")]] = None
 
 
 class ExperimentErrorTypeDef(BaseValidatorModel):
     accountId: Optional[str] = None
-    code: Optional[str] = None
+    code: Optional[Annotated[str, _aws_pattern("Fis", "ExperimentErrorCode")]] = None
     location: Optional[str] = None
 
 
 class ExperimentS3LogConfigurationTypeDef(BaseValidatorModel):
-    bucketName: Optional[str] = None
-    prefix: Optional[str] = None
+    bucketName: Optional[Annotated[str, _aws_pattern("Fis", "S3BucketName")]] = None
+    prefix: Optional[Annotated[str, _aws_pattern("Fis", "S3ObjectKey")]] = None
 
 
 class ExperimentOptionsTypeDef(BaseValidatorModel):
@@ -140,55 +142,57 @@ class ExperimentOptionsTypeDef(BaseValidatorModel):
 
 
 class ExperimentReportConfigurationCloudWatchDashboardTypeDef(BaseValidatorModel):
-    dashboardIdentifier: Optional[str] = None
+    dashboardIdentifier: Optional[
+        Annotated[str, _aws_pattern("Fis", "ReportConfigurationCloudWatchDashboardIdentifier")]
+    ] = None
 
 
 class ExperimentReportConfigurationOutputsS3ConfigurationTypeDef(BaseValidatorModel):
-    bucketName: Optional[str] = None
-    prefix: Optional[str] = None
+    bucketName: Optional[Annotated[str, _aws_pattern("Fis", "S3BucketName")]] = None
+    prefix: Optional[Annotated[str, _aws_pattern("Fis", "ReportConfigurationS3OutputPrefix")]] = None
 
 
 class ExperimentReportErrorTypeDef(BaseValidatorModel):
-    code: Optional[str] = None
+    code: Optional[Annotated[str, _aws_pattern("Fis", "ExperimentReportErrorCode")]] = None
 
 
 class ExperimentReportS3ReportTypeDef(BaseValidatorModel):
-    arn: Optional[str] = None
-    reportType: Optional[str] = None
+    arn: Optional[Annotated[str, _aws_pattern("Fis", "ExperimentReportS3ReportArn")]] = None
+    reportType: Optional[Annotated[str, _aws_pattern("Fis", "ExperimentReportS3ReportType")]] = None
 
 
 class ExperimentStopConditionTypeDef(BaseValidatorModel):
-    source: Optional[str] = None
-    value: Optional[str] = None
+    source: Optional[Annotated[str, _aws_pattern("Fis", "StopConditionSource")]] = None
+    value: Optional[Annotated[str, _aws_pattern("Fis", "StopConditionValue")]] = None
 
 
 class ExperimentTargetAccountConfigurationSummaryTypeDef(BaseValidatorModel):
-    roleArn: Optional[str] = None
-    accountId: Optional[str] = None
-    description: Optional[str] = None
+    roleArn: Optional[Annotated[str, _aws_pattern("Fis", "RoleArn")]] = None
+    accountId: Optional[Annotated[str, _aws_pattern("Fis", "TargetAccountId")]] = None
+    description: Optional[Annotated[str, _aws_pattern("Fis", "TargetAccountConfigurationDescription")]] = None
 
 
 class ExperimentTargetAccountConfigurationTypeDef(BaseValidatorModel):
-    roleArn: Optional[str] = None
-    accountId: Optional[str] = None
-    description: Optional[str] = None
+    roleArn: Optional[Annotated[str, _aws_pattern("Fis", "RoleArn")]] = None
+    accountId: Optional[Annotated[str, _aws_pattern("Fis", "TargetAccountId")]] = None
+    description: Optional[Annotated[str, _aws_pattern("Fis", "TargetAccountConfigurationDescription")]] = None
 
 
 class ExperimentTargetFilterTypeDef(BaseValidatorModel):
-    path: Optional[str] = None
-    values: Optional[List[str]] = None
+    path: Optional[Annotated[str, _aws_pattern("Fis", "ExperimentTargetFilterPath")]] = None
+    values: Optional[List[Annotated[str, _aws_pattern("Fis", "ExperimentTargetFilterValue")]]] = None
 
 
 class ExperimentTemplateActionTypeDef(BaseValidatorModel):
-    actionId: Optional[str] = None
-    description: Optional[str] = None
+    actionId: Optional[Annotated[str, _aws_pattern("Fis", "ActionId")]] = None
+    description: Optional[Annotated[str, _aws_pattern("Fis", "ExperimentTemplateActionDescription")]] = None
     parameters: Optional[Dict[str, str]] = None
     targets: Optional[Dict[str, str]] = None
-    startAfter: Optional[List[str]] = None
+    startAfter: Optional[List[Annotated[str, _aws_pattern("Fis", "ExperimentTemplateActionStartAfter")]]] = None
 
 
 class ExperimentTemplateCloudWatchLogsLogConfigurationTypeDef(BaseValidatorModel):
-    logGroupArn: Optional[str] = None
+    logGroupArn: Optional[Annotated[str, _aws_pattern("Fis", "CloudWatchLogGroupArn")]] = None
 
 
 class ExperimentTemplateExperimentOptionsTypeDef(BaseValidatorModel):
@@ -197,82 +201,86 @@ class ExperimentTemplateExperimentOptionsTypeDef(BaseValidatorModel):
 
 
 class ExperimentTemplateS3LogConfigurationTypeDef(BaseValidatorModel):
-    bucketName: Optional[str] = None
-    prefix: Optional[str] = None
+    bucketName: Optional[Annotated[str, _aws_pattern("Fis", "S3BucketName")]] = None
+    prefix: Optional[Annotated[str, _aws_pattern("Fis", "S3ObjectKey")]] = None
 
 
 class ExperimentTemplateReportConfigurationCloudWatchDashboardTypeDef(BaseValidatorModel):
-    dashboardIdentifier: Optional[str] = None
+    dashboardIdentifier: Optional[
+        Annotated[str, _aws_pattern("Fis", "ReportConfigurationCloudWatchDashboardIdentifier")]
+    ] = None
 
 
 class ReportConfigurationCloudWatchDashboardInputTypeDef(BaseValidatorModel):
-    dashboardIdentifier: Optional[str] = None
+    dashboardIdentifier: Optional[
+        Annotated[str, _aws_pattern("Fis", "ReportConfigurationCloudWatchDashboardIdentifier")]
+    ] = None
 
 
 class ReportConfigurationS3OutputInputTypeDef(BaseValidatorModel):
-    bucketName: Optional[str] = None
-    prefix: Optional[str] = None
+    bucketName: Optional[Annotated[str, _aws_pattern("Fis", "S3BucketName")]] = None
+    prefix: Optional[Annotated[str, _aws_pattern("Fis", "ReportConfigurationS3OutputPrefix")]] = None
 
 
 class ReportConfigurationS3OutputTypeDef(BaseValidatorModel):
-    bucketName: Optional[str] = None
-    prefix: Optional[str] = None
+    bucketName: Optional[Annotated[str, _aws_pattern("Fis", "S3BucketName")]] = None
+    prefix: Optional[Annotated[str, _aws_pattern("Fis", "ReportConfigurationS3OutputPrefix")]] = None
 
 
 class ExperimentTemplateStopConditionTypeDef(BaseValidatorModel):
-    source: Optional[str] = None
-    value: Optional[str] = None
+    source: Optional[Annotated[str, _aws_pattern("Fis", "StopConditionSource")]] = None
+    value: Optional[Annotated[str, _aws_pattern("Fis", "StopConditionValue")]] = None
 
 
 class ExperimentTemplateSummaryTypeDef(BaseValidatorModel):
-    id: Optional[str] = None
-    arn: Optional[str] = None
-    description: Optional[str] = None
+    id: Optional[Annotated[str, _aws_pattern("Fis", "ExperimentTemplateId")]] = None
+    arn: Optional[Annotated[str, _aws_pattern("Fis", "ResourceArn")]] = None
+    description: Optional[Annotated[str, _aws_pattern("Fis", "ExperimentTemplateDescription")]] = None
     creationTime: Optional[datetime] = None
     lastUpdateTime: Optional[datetime] = None
     tags: Optional[Dict[str, str]] = None
 
 
 class ExperimentTemplateTargetFilterTypeDef(BaseValidatorModel):
-    path: Optional[str] = None
-    values: Optional[List[str]] = None
+    path: Optional[Annotated[str, _aws_pattern("Fis", "ExperimentTemplateTargetFilterPath")]] = None
+    values: Optional[List[Annotated[str, _aws_pattern("Fis", "ExperimentTemplateTargetFilterValue")]]] = None
 
 
 # This class is the input for the 'get_action' function.
 class GetActionRequestTypeDef(BaseValidatorModel):
-    id: str
+    id: Annotated[str, _aws_pattern("Fis", "ActionId")]
 
 
 # This class is the input for the 'get_experiment' function.
 class GetExperimentRequestTypeDef(BaseValidatorModel):
-    id: str
+    id: Annotated[str, _aws_pattern("Fis", "ExperimentId")]
 
 
 # This class is the input for the 'get_experiment_target_account_configuration' function.
 class GetExperimentTargetAccountConfigurationRequestTypeDef(BaseValidatorModel):
-    experimentId: str
-    accountId: str
+    experimentId: Annotated[str, _aws_pattern("Fis", "ExperimentId")]
+    accountId: Annotated[str, _aws_pattern("Fis", "TargetAccountId")]
 
 
 # This class is the input for the 'get_experiment_template' function.
 class GetExperimentTemplateRequestTypeDef(BaseValidatorModel):
-    id: str
+    id: Annotated[str, _aws_pattern("Fis", "ExperimentTemplateId")]
 
 
 # This class is the input for the 'get_safety_lever' function.
 class GetSafetyLeverRequestTypeDef(BaseValidatorModel):
-    id: str
+    id: Annotated[str, _aws_pattern("Fis", "SafetyLeverId")]
 
 
 # This class is the input for the 'get_target_account_configuration' function.
 class GetTargetAccountConfigurationRequestTypeDef(BaseValidatorModel):
-    experimentTemplateId: str
-    accountId: str
+    experimentTemplateId: Annotated[str, _aws_pattern("Fis", "ExperimentTemplateId")]
+    accountId: Annotated[str, _aws_pattern("Fis", "TargetAccountId")]
 
 
 # This class is the input for the 'get_target_resource_type' function.
 class GetTargetResourceTypeRequestTypeDef(BaseValidatorModel):
-    resourceType: str
+    resourceType: Annotated[str, _aws_pattern("Fis", "TargetResourceTypeId")]
 
 
 class PaginatorConfigTypeDef(BaseValidatorModel):
@@ -284,69 +292,69 @@ class PaginatorConfigTypeDef(BaseValidatorModel):
 # This class is the input for the 'list_actions' function.
 class ListActionsRequestTypeDef(BaseValidatorModel):
     maxResults: Optional[int] = None
-    nextToken: Optional[str] = None
+    nextToken: Optional[Annotated[str, _aws_pattern("Fis", "NextToken")]] = None
 
 
 # This class is the input for the 'list_experiment_resolved_targets' function.
 class ListExperimentResolvedTargetsRequestTypeDef(BaseValidatorModel):
-    experimentId: str
+    experimentId: Annotated[str, _aws_pattern("Fis", "ExperimentId")]
     maxResults: Optional[int] = None
-    nextToken: Optional[str] = None
-    targetName: Optional[str] = None
+    nextToken: Optional[Annotated[str, _aws_pattern("Fis", "NextToken")]] = None
+    targetName: Optional[Annotated[str, _aws_pattern("Fis", "TargetName")]] = None
 
 
 class ResolvedTargetTypeDef(BaseValidatorModel):
-    resourceType: Optional[str] = None
-    targetName: Optional[str] = None
+    resourceType: Optional[Annotated[str, _aws_pattern("Fis", "TargetResourceTypeId")]] = None
+    targetName: Optional[Annotated[str, _aws_pattern("Fis", "TargetName")]] = None
     targetInformation: Optional[Dict[str, str]] = None
 
 
 # This class is the input for the 'list_experiment_target_account_configurations' function.
 class ListExperimentTargetAccountConfigurationsRequestTypeDef(BaseValidatorModel):
-    experimentId: str
-    nextToken: Optional[str] = None
+    experimentId: Annotated[str, _aws_pattern("Fis", "ExperimentId")]
+    nextToken: Optional[Annotated[str, _aws_pattern("Fis", "NextToken")]] = None
 
 
 # This class is the input for the 'list_experiment_templates' function.
 class ListExperimentTemplatesRequestTypeDef(BaseValidatorModel):
     maxResults: Optional[int] = None
-    nextToken: Optional[str] = None
+    nextToken: Optional[Annotated[str, _aws_pattern("Fis", "NextToken")]] = None
 
 
 # This class is the input for the 'list_experiments' function.
 class ListExperimentsRequestTypeDef(BaseValidatorModel):
     maxResults: Optional[int] = None
-    nextToken: Optional[str] = None
-    experimentTemplateId: Optional[str] = None
+    nextToken: Optional[Annotated[str, _aws_pattern("Fis", "NextToken")]] = None
+    experimentTemplateId: Optional[Annotated[str, _aws_pattern("Fis", "ExperimentTemplateId")]] = None
 
 
 # This class is the input for the 'list_tags_for_resource' function.
 class ListTagsForResourceRequestTypeDef(BaseValidatorModel):
-    resourceArn: str
+    resourceArn: Annotated[str, _aws_pattern("Fis", "ResourceArn")]
 
 
 # This class is the input for the 'list_target_account_configurations' function.
 class ListTargetAccountConfigurationsRequestTypeDef(BaseValidatorModel):
-    experimentTemplateId: str
+    experimentTemplateId: Annotated[str, _aws_pattern("Fis", "ExperimentTemplateId")]
     maxResults: Optional[int] = None
-    nextToken: Optional[str] = None
+    nextToken: Optional[Annotated[str, _aws_pattern("Fis", "NextToken")]] = None
 
 
 class TargetAccountConfigurationSummaryTypeDef(BaseValidatorModel):
-    roleArn: Optional[str] = None
-    accountId: Optional[str] = None
-    description: Optional[str] = None
+    roleArn: Optional[Annotated[str, _aws_pattern("Fis", "RoleArn")]] = None
+    accountId: Optional[Annotated[str, _aws_pattern("Fis", "TargetAccountId")]] = None
+    description: Optional[Annotated[str, _aws_pattern("Fis", "TargetAccountConfigurationDescription")]] = None
 
 
 # This class is the input for the 'list_target_resource_types' function.
 class ListTargetResourceTypesRequestTypeDef(BaseValidatorModel):
     maxResults: Optional[int] = None
-    nextToken: Optional[str] = None
+    nextToken: Optional[Annotated[str, _aws_pattern("Fis", "NextToken")]] = None
 
 
 class TargetResourceTypeSummaryTypeDef(BaseValidatorModel):
-    resourceType: Optional[str] = None
-    description: Optional[str] = None
+    resourceType: Optional[Annotated[str, _aws_pattern("Fis", "TargetResourceTypeId")]] = None
+    description: Optional[Annotated[str, _aws_pattern("Fis", "TargetResourceTypeDescription")]] = None
 
 
 class SafetyLeverStateTypeDef(BaseValidatorModel):
@@ -360,30 +368,30 @@ class StartExperimentExperimentOptionsInputTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'stop_experiment' function.
 class StopExperimentRequestTypeDef(BaseValidatorModel):
-    id: str
+    id: Annotated[str, _aws_pattern("Fis", "ExperimentId")]
 
 
 class TagResourceRequestTypeDef(BaseValidatorModel):
-    resourceArn: str
+    resourceArn: Annotated[str, _aws_pattern("Fis", "ResourceArn")]
     tags: Dict[str, str]
 
 
 class TargetResourceTypeParameterTypeDef(BaseValidatorModel):
-    description: Optional[str] = None
+    description: Optional[Annotated[str, _aws_pattern("Fis", "TargetResourceTypeParameterDescription")]] = None
     required: Optional[bool] = None
 
 
 class UntagResourceRequestTypeDef(BaseValidatorModel):
-    resourceArn: str
-    tagKeys: Optional[List[str]] = None
+    resourceArn: Annotated[str, _aws_pattern("Fis", "ResourceArn")]
+    tagKeys: Optional[List[Annotated[str, _aws_pattern("Fis", "TagKey")]]] = None
 
 
 class UpdateExperimentTemplateActionInputItemTypeDef(BaseValidatorModel):
-    actionId: Optional[str] = None
-    description: Optional[str] = None
+    actionId: Optional[Annotated[str, _aws_pattern("Fis", "ActionId")]] = None
+    description: Optional[Annotated[str, _aws_pattern("Fis", "ExperimentTemplateActionDescription")]] = None
     parameters: Optional[Dict[str, str]] = None
     targets: Optional[Dict[str, str]] = None
-    startAfter: Optional[List[str]] = None
+    startAfter: Optional[List[Annotated[str, _aws_pattern("Fis", "ExperimentTemplateActionStartAfter")]]] = None
 
 
 class UpdateExperimentTemplateExperimentOptionsInputTypeDef(BaseValidatorModel):
@@ -391,8 +399,8 @@ class UpdateExperimentTemplateExperimentOptionsInputTypeDef(BaseValidatorModel):
 
 
 class UpdateExperimentTemplateStopConditionInputTypeDef(BaseValidatorModel):
-    source: str
-    value: Optional[str] = None
+    source: Annotated[str, _aws_pattern("Fis", "StopConditionSource")]
+    value: Optional[Annotated[str, _aws_pattern("Fis", "StopConditionValue")]] = None
 
 
 class UpdateSafetyLeverStateInputTypeDef(BaseValidatorModel):
@@ -402,24 +410,24 @@ class UpdateSafetyLeverStateInputTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'update_target_account_configuration' function.
 class UpdateTargetAccountConfigurationRequestTypeDef(BaseValidatorModel):
-    experimentTemplateId: str
-    accountId: str
-    roleArn: Optional[str] = None
-    description: Optional[str] = None
+    experimentTemplateId: Annotated[str, _aws_pattern("Fis", "ExperimentTemplateId")]
+    accountId: Annotated[str, _aws_pattern("Fis", "TargetAccountId")]
+    roleArn: Optional[Annotated[str, _aws_pattern("Fis", "RoleArn")]] = None
+    description: Optional[Annotated[str, _aws_pattern("Fis", "TargetAccountConfigurationDescription")]] = None
 
 
 class ActionSummaryTypeDef(BaseValidatorModel):
-    id: Optional[str] = None
-    arn: Optional[str] = None
-    description: Optional[str] = None
+    id: Optional[Annotated[str, _aws_pattern("Fis", "ActionId")]] = None
+    arn: Optional[Annotated[str, _aws_pattern("Fis", "ResourceArn")]] = None
+    description: Optional[Annotated[str, _aws_pattern("Fis", "ActionDescription")]] = None
     targets: Optional[Dict[str, ActionTargetTypeDef]] = None
     tags: Optional[Dict[str, str]] = None
 
 
 class ActionTypeDef(BaseValidatorModel):
-    id: Optional[str] = None
-    arn: Optional[str] = None
-    description: Optional[str] = None
+    id: Optional[Annotated[str, _aws_pattern("Fis", "ActionId")]] = None
+    arn: Optional[Annotated[str, _aws_pattern("Fis", "ResourceArn")]] = None
+    description: Optional[Annotated[str, _aws_pattern("Fis", "ActionDescription")]] = None
     parameters: Optional[Dict[str, ActionParameterTypeDef]] = None
     targets: Optional[Dict[str, ActionTargetTypeDef]] = None
     tags: Optional[Dict[str, str]] = None
@@ -444,18 +452,18 @@ class ListTagsForResourceResponseTypeDef(BaseValidatorModel):
 
 
 class CreateExperimentTemplateTargetInputTypeDef(BaseValidatorModel):
-    resourceType: str
-    selectionMode: str
-    resourceArns: Optional[List[str]] = None
+    resourceType: Annotated[str, _aws_pattern("Fis", "TargetResourceTypeId")]
+    selectionMode: Annotated[str, _aws_pattern("Fis", "ExperimentTemplateTargetSelectionMode")]
+    resourceArns: Optional[List[Annotated[str, _aws_pattern("Fis", "ResourceArn")]]] = None
     resourceTags: Optional[Dict[str, str]] = None
     filters: Optional[List[ExperimentTemplateTargetInputFilterTypeDef]] = None
     parameters: Optional[Dict[str, str]] = None
 
 
 class UpdateExperimentTemplateTargetInputTypeDef(BaseValidatorModel):
-    resourceType: str
-    selectionMode: str
-    resourceArns: Optional[List[str]] = None
+    resourceType: Annotated[str, _aws_pattern("Fis", "TargetResourceTypeId")]
+    selectionMode: Annotated[str, _aws_pattern("Fis", "ExperimentTemplateTargetSelectionMode")]
+    resourceArns: Optional[List[Annotated[str, _aws_pattern("Fis", "ResourceArn")]]] = None
     resourceTags: Optional[Dict[str, str]] = None
     filters: Optional[List[ExperimentTemplateTargetInputFilterTypeDef]] = None
     parameters: Optional[Dict[str, str]] = None
@@ -486,11 +494,11 @@ class UpdateTargetAccountConfigurationResponseTypeDef(BaseValidatorModel):
 
 
 class ExperimentActionTypeDef(BaseValidatorModel):
-    actionId: Optional[str] = None
-    description: Optional[str] = None
+    actionId: Optional[Annotated[str, _aws_pattern("Fis", "ActionId")]] = None
+    description: Optional[Annotated[str, _aws_pattern("Fis", "ExperimentActionDescription")]] = None
     parameters: Optional[Dict[str, str]] = None
     targets: Optional[Dict[str, str]] = None
-    startAfter: Optional[List[str]] = None
+    startAfter: Optional[List[Annotated[str, _aws_pattern("Fis", "ExperimentActionStartAfter")]]] = None
     state: Optional[ExperimentActionStateTypeDef] = None
     startTime: Optional[datetime] = None
     endTime: Optional[datetime] = None
@@ -498,7 +506,7 @@ class ExperimentActionTypeDef(BaseValidatorModel):
 
 class ExperimentStateTypeDef(BaseValidatorModel):
     status: Optional[ExperimentStatusType] = None
-    reason: Optional[str] = None
+    reason: Optional[Annotated[str, _aws_pattern("Fis", "ExperimentStatusReason")]] = None
     error: Optional[ExperimentErrorTypeDef] = None
 
 
@@ -518,7 +526,7 @@ class ExperimentReportConfigurationOutputsTypeDef(BaseValidatorModel):
 
 class ExperimentReportStateTypeDef(BaseValidatorModel):
     status: Optional[ExperimentReportStatusType] = None
-    reason: Optional[str] = None
+    reason: Optional[Annotated[str, _aws_pattern("Fis", "ExperimentReportReason")]] = None
     error: Optional[ExperimentReportErrorTypeDef] = None
 
 
@@ -526,7 +534,7 @@ class ExperimentReportStateTypeDef(BaseValidatorModel):
 class ListExperimentTargetAccountConfigurationsResponseTypeDef(BaseValidatorModel):
     targetAccountConfigurations: List[ExperimentTargetAccountConfigurationSummaryTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
-    nextToken: Optional[str] = None
+    nextToken: Optional[Annotated[str, _aws_pattern("Fis", "NextToken")]] = None
 
 
 # This class is the output for the 'get_experiment_target_account_configuration' function.
@@ -536,11 +544,11 @@ class GetExperimentTargetAccountConfigurationResponseTypeDef(BaseValidatorModel)
 
 
 class ExperimentTargetTypeDef(BaseValidatorModel):
-    resourceType: Optional[str] = None
-    resourceArns: Optional[List[str]] = None
+    resourceType: Optional[Annotated[str, _aws_pattern("Fis", "TargetResourceTypeId")]] = None
+    resourceArns: Optional[List[Annotated[str, _aws_pattern("Fis", "ResourceArn")]]] = None
     resourceTags: Optional[Dict[str, str]] = None
     filters: Optional[List[ExperimentTargetFilterTypeDef]] = None
-    selectionMode: Optional[str] = None
+    selectionMode: Optional[Annotated[str, _aws_pattern("Fis", "ExperimentTargetSelectionMode")]] = None
     parameters: Optional[Dict[str, str]] = None
 
 
@@ -570,15 +578,15 @@ class ExperimentTemplateReportConfigurationOutputsTypeDef(BaseValidatorModel):
 class ListExperimentTemplatesResponseTypeDef(BaseValidatorModel):
     experimentTemplates: List[ExperimentTemplateSummaryTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
-    nextToken: Optional[str] = None
+    nextToken: Optional[Annotated[str, _aws_pattern("Fis", "NextToken")]] = None
 
 
 class ExperimentTemplateTargetTypeDef(BaseValidatorModel):
-    resourceType: Optional[str] = None
-    resourceArns: Optional[List[str]] = None
+    resourceType: Optional[Annotated[str, _aws_pattern("Fis", "TargetResourceTypeId")]] = None
+    resourceArns: Optional[List[Annotated[str, _aws_pattern("Fis", "ResourceArn")]]] = None
     resourceTags: Optional[Dict[str, str]] = None
     filters: Optional[List[ExperimentTemplateTargetFilterTypeDef]] = None
-    selectionMode: Optional[str] = None
+    selectionMode: Optional[Annotated[str, _aws_pattern("Fis", "ExperimentTemplateTargetSelectionMode")]] = None
     parameters: Optional[Dict[str, str]] = None
 
 
@@ -614,46 +622,46 @@ class ListTargetResourceTypesRequestPaginateTypeDef(BaseValidatorModel):
 class ListExperimentResolvedTargetsResponseTypeDef(BaseValidatorModel):
     resolvedTargets: List[ResolvedTargetTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
-    nextToken: Optional[str] = None
+    nextToken: Optional[Annotated[str, _aws_pattern("Fis", "NextToken")]] = None
 
 
 # This class is the output for the 'list_target_account_configurations' function.
 class ListTargetAccountConfigurationsResponseTypeDef(BaseValidatorModel):
     targetAccountConfigurations: List[TargetAccountConfigurationSummaryTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
-    nextToken: Optional[str] = None
+    nextToken: Optional[Annotated[str, _aws_pattern("Fis", "NextToken")]] = None
 
 
 # This class is the output for the 'list_target_resource_types' function.
 class ListTargetResourceTypesResponseTypeDef(BaseValidatorModel):
     targetResourceTypes: List[TargetResourceTypeSummaryTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
-    nextToken: Optional[str] = None
+    nextToken: Optional[Annotated[str, _aws_pattern("Fis", "NextToken")]] = None
 
 
 class SafetyLeverTypeDef(BaseValidatorModel):
-    id: Optional[str] = None
-    arn: Optional[str] = None
+    id: Optional[Annotated[str, _aws_pattern("Fis", "SafetyLeverId")]] = None
+    arn: Optional[Annotated[str, _aws_pattern("Fis", "ResourceArn")]] = None
     state: Optional[SafetyLeverStateTypeDef] = None
 
 
 # This class is the input for the 'start_experiment' function.
 class StartExperimentRequestTypeDef(BaseValidatorModel):
-    clientToken: str
-    experimentTemplateId: str
+    clientToken: Annotated[str, _aws_pattern("Fis", "ClientToken")]
+    experimentTemplateId: Annotated[str, _aws_pattern("Fis", "ExperimentTemplateId")]
     experimentOptions: Optional[StartExperimentExperimentOptionsInputTypeDef] = None
     tags: Optional[Dict[str, str]] = None
 
 
 class TargetResourceTypeTypeDef(BaseValidatorModel):
-    resourceType: Optional[str] = None
-    description: Optional[str] = None
+    resourceType: Optional[Annotated[str, _aws_pattern("Fis", "TargetResourceTypeId")]] = None
+    description: Optional[Annotated[str, _aws_pattern("Fis", "TargetResourceTypeDescription")]] = None
     parameters: Optional[Dict[str, TargetResourceTypeParameterTypeDef]] = None
 
 
 # This class is the input for the 'update_safety_lever_state' function.
 class UpdateSafetyLeverStateRequestTypeDef(BaseValidatorModel):
-    id: str
+    id: Annotated[str, _aws_pattern("Fis", "SafetyLeverId")]
     state: UpdateSafetyLeverStateInputTypeDef
 
 
@@ -661,7 +669,7 @@ class UpdateSafetyLeverStateRequestTypeDef(BaseValidatorModel):
 class ListActionsResponseTypeDef(BaseValidatorModel):
     actions: List[ActionSummaryTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
-    nextToken: Optional[str] = None
+    nextToken: Optional[Annotated[str, _aws_pattern("Fis", "NextToken")]] = None
 
 
 # This class is the output for the 'get_action' function.
@@ -671,9 +679,9 @@ class GetActionResponseTypeDef(BaseValidatorModel):
 
 
 class ExperimentSummaryTypeDef(BaseValidatorModel):
-    id: Optional[str] = None
-    arn: Optional[str] = None
-    experimentTemplateId: Optional[str] = None
+    id: Optional[Annotated[str, _aws_pattern("Fis", "ExperimentId")]] = None
+    arn: Optional[Annotated[str, _aws_pattern("Fis", "ResourceArn")]] = None
+    experimentTemplateId: Optional[Annotated[str, _aws_pattern("Fis", "ExperimentTemplateId")]] = None
     state: Optional[ExperimentStateTypeDef] = None
     creationTime: Optional[datetime] = None
     tags: Optional[Dict[str, str]] = None
@@ -683,8 +691,8 @@ class ExperimentSummaryTypeDef(BaseValidatorModel):
 class ExperimentReportConfigurationTypeDef(BaseValidatorModel):
     outputs: Optional[ExperimentReportConfigurationOutputsTypeDef] = None
     dataSources: Optional[ExperimentReportConfigurationDataSourcesTypeDef] = None
-    preExperimentDuration: Optional[str] = None
-    postExperimentDuration: Optional[str] = None
+    preExperimentDuration: Optional[Annotated[str, _aws_pattern("Fis", "ReportConfigurationDuration")]] = None
+    postExperimentDuration: Optional[Annotated[str, _aws_pattern("Fis", "ReportConfigurationDuration")]] = None
 
 
 class ExperimentReportTypeDef(BaseValidatorModel):
@@ -695,22 +703,22 @@ class ExperimentReportTypeDef(BaseValidatorModel):
 class CreateExperimentTemplateReportConfigurationInputTypeDef(BaseValidatorModel):
     outputs: Optional[ExperimentTemplateReportConfigurationOutputsInputTypeDef] = None
     dataSources: Optional[ExperimentTemplateReportConfigurationDataSourcesInputTypeDef] = None
-    preExperimentDuration: Optional[str] = None
-    postExperimentDuration: Optional[str] = None
+    preExperimentDuration: Optional[Annotated[str, _aws_pattern("Fis", "ReportConfigurationDuration")]] = None
+    postExperimentDuration: Optional[Annotated[str, _aws_pattern("Fis", "ReportConfigurationDuration")]] = None
 
 
 class UpdateExperimentTemplateReportConfigurationInputTypeDef(BaseValidatorModel):
     outputs: Optional[ExperimentTemplateReportConfigurationOutputsInputTypeDef] = None
     dataSources: Optional[ExperimentTemplateReportConfigurationDataSourcesInputTypeDef] = None
-    preExperimentDuration: Optional[str] = None
-    postExperimentDuration: Optional[str] = None
+    preExperimentDuration: Optional[Annotated[str, _aws_pattern("Fis", "ReportConfigurationDuration")]] = None
+    postExperimentDuration: Optional[Annotated[str, _aws_pattern("Fis", "ReportConfigurationDuration")]] = None
 
 
 class ExperimentTemplateReportConfigurationTypeDef(BaseValidatorModel):
     outputs: Optional[ExperimentTemplateReportConfigurationOutputsTypeDef] = None
     dataSources: Optional[ExperimentTemplateReportConfigurationDataSourcesTypeDef] = None
-    preExperimentDuration: Optional[str] = None
-    postExperimentDuration: Optional[str] = None
+    preExperimentDuration: Optional[Annotated[str, _aws_pattern("Fis", "ReportConfigurationDuration")]] = None
+    postExperimentDuration: Optional[Annotated[str, _aws_pattern("Fis", "ReportConfigurationDuration")]] = None
 
 
 # This class is the output for the 'get_safety_lever' function.
@@ -735,14 +743,14 @@ class GetTargetResourceTypeResponseTypeDef(BaseValidatorModel):
 class ListExperimentsResponseTypeDef(BaseValidatorModel):
     experiments: List[ExperimentSummaryTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
-    nextToken: Optional[str] = None
+    nextToken: Optional[Annotated[str, _aws_pattern("Fis", "NextToken")]] = None
 
 
 class ExperimentTypeDef(BaseValidatorModel):
-    id: Optional[str] = None
-    arn: Optional[str] = None
-    experimentTemplateId: Optional[str] = None
-    roleArn: Optional[str] = None
+    id: Optional[Annotated[str, _aws_pattern("Fis", "ExperimentId")]] = None
+    arn: Optional[Annotated[str, _aws_pattern("Fis", "ResourceArn")]] = None
+    experimentTemplateId: Optional[Annotated[str, _aws_pattern("Fis", "ExperimentTemplateId")]] = None
+    roleArn: Optional[Annotated[str, _aws_pattern("Fis", "RoleArn")]] = None
     state: Optional[ExperimentStateTypeDef] = None
     targets: Optional[Dict[str, ExperimentTargetTypeDef]] = None
     actions: Optional[Dict[str, ExperimentActionTypeDef]] = None
@@ -760,11 +768,11 @@ class ExperimentTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'create_experiment_template' function.
 class CreateExperimentTemplateRequestTypeDef(BaseValidatorModel):
-    clientToken: str
-    description: str
+    clientToken: Annotated[str, _aws_pattern("Fis", "ClientToken")]
+    description: Annotated[str, _aws_pattern("Fis", "ExperimentTemplateDescription")]
     stopConditions: List[CreateExperimentTemplateStopConditionInputTypeDef]
     actions: Dict[str, CreateExperimentTemplateActionInputTypeDef]
-    roleArn: str
+    roleArn: Annotated[str, _aws_pattern("Fis", "RoleArn")]
     targets: Optional[Dict[str, CreateExperimentTemplateTargetInputTypeDef]] = None
     tags: Optional[Dict[str, str]] = None
     logConfiguration: Optional[CreateExperimentTemplateLogConfigurationInputTypeDef] = None
@@ -774,27 +782,27 @@ class CreateExperimentTemplateRequestTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'update_experiment_template' function.
 class UpdateExperimentTemplateRequestTypeDef(BaseValidatorModel):
-    id: str
-    description: Optional[str] = None
+    id: Annotated[str, _aws_pattern("Fis", "ExperimentTemplateId")]
+    description: Optional[Annotated[str, _aws_pattern("Fis", "ExperimentTemplateDescription")]] = None
     stopConditions: Optional[List[UpdateExperimentTemplateStopConditionInputTypeDef]] = None
     targets: Optional[Dict[str, UpdateExperimentTemplateTargetInputTypeDef]] = None
     actions: Optional[Dict[str, UpdateExperimentTemplateActionInputItemTypeDef]] = None
-    roleArn: Optional[str] = None
+    roleArn: Optional[Annotated[str, _aws_pattern("Fis", "RoleArn")]] = None
     logConfiguration: Optional[UpdateExperimentTemplateLogConfigurationInputTypeDef] = None
     experimentOptions: Optional[UpdateExperimentTemplateExperimentOptionsInputTypeDef] = None
     experimentReportConfiguration: Optional[UpdateExperimentTemplateReportConfigurationInputTypeDef] = None
 
 
 class ExperimentTemplateTypeDef(BaseValidatorModel):
-    id: Optional[str] = None
-    arn: Optional[str] = None
-    description: Optional[str] = None
+    id: Optional[Annotated[str, _aws_pattern("Fis", "ExperimentTemplateId")]] = None
+    arn: Optional[Annotated[str, _aws_pattern("Fis", "ResourceArn")]] = None
+    description: Optional[Annotated[str, _aws_pattern("Fis", "ExperimentTemplateDescription")]] = None
     targets: Optional[Dict[str, ExperimentTemplateTargetTypeDef]] = None
     actions: Optional[Dict[str, ExperimentTemplateActionTypeDef]] = None
     stopConditions: Optional[List[ExperimentTemplateStopConditionTypeDef]] = None
     creationTime: Optional[datetime] = None
     lastUpdateTime: Optional[datetime] = None
-    roleArn: Optional[str] = None
+    roleArn: Optional[Annotated[str, _aws_pattern("Fis", "RoleArn")]] = None
     tags: Optional[Dict[str, str]] = None
     logConfiguration: Optional[ExperimentTemplateLogConfigurationTypeDef] = None
     experimentOptions: Optional[ExperimentTemplateExperimentOptionsTypeDef] = None

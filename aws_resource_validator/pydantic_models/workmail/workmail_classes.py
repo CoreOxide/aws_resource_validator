@@ -3,6 +3,7 @@
 from datetime import datetime
 from decimal import Decimal
 from typing import (
+    Annotated,
     Any,
     Callable,
     Dict,
@@ -24,6 +25,7 @@ from botocore.response import StreamingBody
 from pydantic import Field
 
 from aws_resource_validator.core.base_validator_model import BaseValidatorModel, EventStream
+from aws_resource_validator.core.pattern_validation import aws_field_pattern as _aws_pattern
 from aws_resource_validator.pydantic_models.workmail.workmail_constants import *  # noqa: F401,F403
 
 # Optional boto3 symbols — imported lazily so services that don't need them
@@ -39,37 +41,37 @@ except ImportError:  # pragma: no cover
 
 
 class AccessControlRuleTypeDef(BaseValidatorModel):
-    Name: Optional[str] = None
+    Name: Optional[Annotated[str, _aws_pattern("Workmail", "AccessControlRuleName")]] = None
     Effect: Optional[AccessControlRuleEffectType] = None
-    Description: Optional[str] = None
-    IpRanges: Optional[List[str]] = None
-    NotIpRanges: Optional[List[str]] = None
-    Actions: Optional[List[str]] = None
-    NotActions: Optional[List[str]] = None
+    Description: Optional[Annotated[str, _aws_pattern("Workmail", "AccessControlRuleDescription")]] = None
+    IpRanges: Optional[List[Annotated[str, _aws_pattern("Workmail", "IpRange")]]] = None
+    NotIpRanges: Optional[List[Annotated[str, _aws_pattern("Workmail", "IpRange")]]] = None
+    Actions: Optional[List[Annotated[str, _aws_pattern("Workmail", "AccessControlRuleAction")]]] = None
+    NotActions: Optional[List[Annotated[str, _aws_pattern("Workmail", "AccessControlRuleAction")]]] = None
     UserIds: Optional[List[str]] = None
     NotUserIds: Optional[List[str]] = None
     DateCreated: Optional[datetime] = None
     DateModified: Optional[datetime] = None
-    ImpersonationRoleIds: Optional[List[str]] = None
-    NotImpersonationRoleIds: Optional[List[str]] = None
+    ImpersonationRoleIds: Optional[List[Annotated[str, _aws_pattern("Workmail", "ImpersonationRoleId")]]] = None
+    NotImpersonationRoleIds: Optional[List[Annotated[str, _aws_pattern("Workmail", "ImpersonationRoleId")]]] = None
 
 
 class AssociateDelegateToResourceRequestTypeDef(BaseValidatorModel):
-    OrganizationId: str
-    ResourceId: str
-    EntityId: str
+    OrganizationId: Annotated[str, _aws_pattern("Workmail", "OrganizationId")]
+    ResourceId: Annotated[str, _aws_pattern("Workmail", "EntityIdentifier")]
+    EntityId: Annotated[str, _aws_pattern("Workmail", "EntityIdentifier")]
 
 
 class AssociateMemberToGroupRequestTypeDef(BaseValidatorModel):
-    OrganizationId: str
-    GroupId: str
-    MemberId: str
+    OrganizationId: Annotated[str, _aws_pattern("Workmail", "OrganizationId")]
+    GroupId: Annotated[str, _aws_pattern("Workmail", "EntityIdentifier")]
+    MemberId: Annotated[str, _aws_pattern("Workmail", "EntityIdentifier")]
 
 
 # This class is the input for the 'assume_impersonation_role' function.
 class AssumeImpersonationRoleRequestTypeDef(BaseValidatorModel):
-    OrganizationId: str
-    ImpersonationRoleId: str
+    OrganizationId: Annotated[str, _aws_pattern("Workmail", "OrganizationId")]
+    ImpersonationRoleId: Annotated[str, _aws_pattern("Workmail", "ImpersonationRoleId")]
 
 
 class ResponseMetadataTypeDef(BaseValidatorModel):
@@ -81,12 +83,12 @@ class ResponseMetadataTypeDef(BaseValidatorModel):
 
 
 class LambdaAvailabilityProviderTypeDef(BaseValidatorModel):
-    LambdaArn: str
+    LambdaArn: Annotated[str, _aws_pattern("Workmail", "LambdaArn")]
 
 
 class RedactedEwsAvailabilityProviderTypeDef(BaseValidatorModel):
-    EwsEndpoint: Optional[str] = None
-    EwsUsername: Optional[str] = None
+    EwsEndpoint: Optional[Annotated[str, _aws_pattern("Workmail", "Url")]] = None
+    EwsUsername: Optional[Annotated[str, _aws_pattern("Workmail", "ExternalUserName")]] = None
 
 
 class BookingOptionsTypeDef(BaseValidatorModel):
@@ -96,63 +98,63 @@ class BookingOptionsTypeDef(BaseValidatorModel):
 
 
 class CancelMailboxExportJobRequestTypeDef(BaseValidatorModel):
-    ClientToken: str
-    JobId: str
-    OrganizationId: str
+    ClientToken: Annotated[str, _aws_pattern("Workmail", "IdempotencyClientToken")]
+    JobId: Annotated[str, _aws_pattern("Workmail", "MailboxExportJobId")]
+    OrganizationId: Annotated[str, _aws_pattern("Workmail", "OrganizationId")]
 
 
 class CreateAliasRequestTypeDef(BaseValidatorModel):
-    OrganizationId: str
+    OrganizationId: Annotated[str, _aws_pattern("Workmail", "OrganizationId")]
     EntityId: str
-    Alias: str
+    Alias: Annotated[str, _aws_pattern("Workmail", "EmailAddress")]
 
 
 class EwsAvailabilityProviderTypeDef(BaseValidatorModel):
-    EwsEndpoint: str
-    EwsUsername: str
-    EwsPassword: str
+    EwsEndpoint: Annotated[str, _aws_pattern("Workmail", "Url")]
+    EwsUsername: Annotated[str, _aws_pattern("Workmail", "ExternalUserName")]
+    EwsPassword: Annotated[str, _aws_pattern("Workmail", "Password")]
 
 
 # This class is the input for the 'create_group' function.
 class CreateGroupRequestTypeDef(BaseValidatorModel):
-    OrganizationId: str
-    Name: str
+    OrganizationId: Annotated[str, _aws_pattern("Workmail", "OrganizationId")]
+    Name: Annotated[str, _aws_pattern("Workmail", "GroupName")]
     HiddenFromGlobalAddressList: Optional[bool] = None
 
 
 # This class is the input for the 'create_identity_center_application' function.
 class CreateIdentityCenterApplicationRequestTypeDef(BaseValidatorModel):
-    Name: str
-    InstanceArn: str
-    ClientToken: Optional[str] = None
+    Name: Annotated[str, _aws_pattern("Workmail", "IdentityCenterApplicationName")]
+    InstanceArn: Annotated[str, _aws_pattern("Workmail", "InstanceArn")]
+    ClientToken: Optional[Annotated[str, _aws_pattern("Workmail", "IdempotencyClientToken")]] = None
 
 
 # This class is the input for the 'create_mobile_device_access_rule' function.
 class CreateMobileDeviceAccessRuleRequestTypeDef(BaseValidatorModel):
-    OrganizationId: str
-    Name: str
+    OrganizationId: Annotated[str, _aws_pattern("Workmail", "OrganizationId")]
+    Name: Annotated[str, _aws_pattern("Workmail", "MobileDeviceAccessRuleName")]
     Effect: MobileDeviceAccessRuleEffectType
-    ClientToken: Optional[str] = None
-    Description: Optional[str] = None
-    DeviceTypes: Optional[List[str]] = None
-    NotDeviceTypes: Optional[List[str]] = None
-    DeviceModels: Optional[List[str]] = None
-    NotDeviceModels: Optional[List[str]] = None
-    DeviceOperatingSystems: Optional[List[str]] = None
-    NotDeviceOperatingSystems: Optional[List[str]] = None
-    DeviceUserAgents: Optional[List[str]] = None
-    NotDeviceUserAgents: Optional[List[str]] = None
+    ClientToken: Optional[Annotated[str, _aws_pattern("Workmail", "IdempotencyClientToken")]] = None
+    Description: Optional[Annotated[str, _aws_pattern("Workmail", "MobileDeviceAccessRuleDescription")]] = None
+    DeviceTypes: Optional[List[Annotated[str, _aws_pattern("Workmail", "DeviceType")]]] = None
+    NotDeviceTypes: Optional[List[Annotated[str, _aws_pattern("Workmail", "DeviceType")]]] = None
+    DeviceModels: Optional[List[Annotated[str, _aws_pattern("Workmail", "DeviceModel")]]] = None
+    NotDeviceModels: Optional[List[Annotated[str, _aws_pattern("Workmail", "DeviceModel")]]] = None
+    DeviceOperatingSystems: Optional[List[Annotated[str, _aws_pattern("Workmail", "DeviceOperatingSystem")]]] = None
+    NotDeviceOperatingSystems: Optional[List[Annotated[str, _aws_pattern("Workmail", "DeviceOperatingSystem")]]] = None
+    DeviceUserAgents: Optional[List[Annotated[str, _aws_pattern("Workmail", "DeviceUserAgent")]]] = None
+    NotDeviceUserAgents: Optional[List[Annotated[str, _aws_pattern("Workmail", "DeviceUserAgent")]]] = None
 
 
 class DomainTypeDef(BaseValidatorModel):
-    DomainName: str
-    HostedZoneId: Optional[str] = None
+    DomainName: Annotated[str, _aws_pattern("Workmail", "DomainName")]
+    HostedZoneId: Optional[Annotated[str, _aws_pattern("Workmail", "HostedZoneId")]] = None
 
 
 # This class is the input for the 'create_resource' function.
 class CreateResourceRequestTypeDef(BaseValidatorModel):
-    OrganizationId: str
-    Name: str
+    OrganizationId: Annotated[str, _aws_pattern("Workmail", "OrganizationId")]
+    Name: Annotated[str, _aws_pattern("Workmail", "ResourceName")]
     Type: ResourceTypeType
     Description: Optional[str] = None
     HiddenFromGlobalAddressList: Optional[bool] = None
@@ -160,15 +162,15 @@ class CreateResourceRequestTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'create_user' function.
 class CreateUserRequestTypeDef(BaseValidatorModel):
-    OrganizationId: str
-    Name: str
+    OrganizationId: Annotated[str, _aws_pattern("Workmail", "OrganizationId")]
+    Name: Annotated[str, _aws_pattern("Workmail", "UserName")]
     DisplayName: str
-    Password: Optional[str] = None
+    Password: Optional[Annotated[str, _aws_pattern("Workmail", "Password")]] = None
     Role: Optional[UserRoleType] = None
     FirstName: Optional[str] = None
     LastName: Optional[str] = None
     HiddenFromGlobalAddressList: Optional[bool] = None
-    IdentityProviderUserId: Optional[str] = None
+    IdentityProviderUserId: Optional[Annotated[str, _aws_pattern("Workmail", "IdentityProviderUserId")]] = None
 
 
 class DelegateTypeDef(BaseValidatorModel):
@@ -177,124 +179,124 @@ class DelegateTypeDef(BaseValidatorModel):
 
 
 class DeleteAccessControlRuleRequestTypeDef(BaseValidatorModel):
-    OrganizationId: str
-    Name: str
+    OrganizationId: Annotated[str, _aws_pattern("Workmail", "OrganizationId")]
+    Name: Annotated[str, _aws_pattern("Workmail", "AccessControlRuleName")]
 
 
 class DeleteAliasRequestTypeDef(BaseValidatorModel):
-    OrganizationId: str
+    OrganizationId: Annotated[str, _aws_pattern("Workmail", "OrganizationId")]
     EntityId: str
-    Alias: str
+    Alias: Annotated[str, _aws_pattern("Workmail", "EmailAddress")]
 
 
 class DeleteAvailabilityConfigurationRequestTypeDef(BaseValidatorModel):
-    OrganizationId: str
-    DomainName: str
+    OrganizationId: Annotated[str, _aws_pattern("Workmail", "OrganizationId")]
+    DomainName: Annotated[str, _aws_pattern("Workmail", "DomainName")]
 
 
 class DeleteEmailMonitoringConfigurationRequestTypeDef(BaseValidatorModel):
-    OrganizationId: str
+    OrganizationId: Annotated[str, _aws_pattern("Workmail", "OrganizationId")]
 
 
 class DeleteGroupRequestTypeDef(BaseValidatorModel):
-    OrganizationId: str
-    GroupId: str
+    OrganizationId: Annotated[str, _aws_pattern("Workmail", "OrganizationId")]
+    GroupId: Annotated[str, _aws_pattern("Workmail", "EntityIdentifier")]
 
 
 class DeleteIdentityCenterApplicationRequestTypeDef(BaseValidatorModel):
-    ApplicationArn: str
+    ApplicationArn: Annotated[str, _aws_pattern("Workmail", "ApplicationArn")]
 
 
 class DeleteIdentityProviderConfigurationRequestTypeDef(BaseValidatorModel):
-    OrganizationId: str
+    OrganizationId: Annotated[str, _aws_pattern("Workmail", "OrganizationId")]
 
 
 class DeleteImpersonationRoleRequestTypeDef(BaseValidatorModel):
-    OrganizationId: str
-    ImpersonationRoleId: str
+    OrganizationId: Annotated[str, _aws_pattern("Workmail", "OrganizationId")]
+    ImpersonationRoleId: Annotated[str, _aws_pattern("Workmail", "ImpersonationRoleId")]
 
 
 class DeleteMailboxPermissionsRequestTypeDef(BaseValidatorModel):
-    OrganizationId: str
-    EntityId: str
-    GranteeId: str
+    OrganizationId: Annotated[str, _aws_pattern("Workmail", "OrganizationId")]
+    EntityId: Annotated[str, _aws_pattern("Workmail", "EntityIdentifier")]
+    GranteeId: Annotated[str, _aws_pattern("Workmail", "EntityIdentifier")]
 
 
 class DeleteMobileDeviceAccessOverrideRequestTypeDef(BaseValidatorModel):
-    OrganizationId: str
-    UserId: str
-    DeviceId: str
+    OrganizationId: Annotated[str, _aws_pattern("Workmail", "OrganizationId")]
+    UserId: Annotated[str, _aws_pattern("Workmail", "EntityIdentifier")]
+    DeviceId: Annotated[str, _aws_pattern("Workmail", "DeviceId")]
 
 
 class DeleteMobileDeviceAccessRuleRequestTypeDef(BaseValidatorModel):
-    OrganizationId: str
-    MobileDeviceAccessRuleId: str
+    OrganizationId: Annotated[str, _aws_pattern("Workmail", "OrganizationId")]
+    MobileDeviceAccessRuleId: Annotated[str, _aws_pattern("Workmail", "MobileDeviceAccessRuleId")]
 
 
 # This class is the input for the 'delete_organization' function.
 class DeleteOrganizationRequestTypeDef(BaseValidatorModel):
-    OrganizationId: str
+    OrganizationId: Annotated[str, _aws_pattern("Workmail", "OrganizationId")]
     DeleteDirectory: bool
-    ClientToken: Optional[str] = None
+    ClientToken: Optional[Annotated[str, _aws_pattern("Workmail", "IdempotencyClientToken")]] = None
     ForceDelete: Optional[bool] = None
     DeleteIdentityCenterApplication: Optional[bool] = None
 
 
 class DeletePersonalAccessTokenRequestTypeDef(BaseValidatorModel):
-    OrganizationId: str
-    PersonalAccessTokenId: str
+    OrganizationId: Annotated[str, _aws_pattern("Workmail", "OrganizationId")]
+    PersonalAccessTokenId: Annotated[str, _aws_pattern("Workmail", "PersonalAccessTokenId")]
 
 
 class DeleteResourceRequestTypeDef(BaseValidatorModel):
-    OrganizationId: str
-    ResourceId: str
+    OrganizationId: Annotated[str, _aws_pattern("Workmail", "OrganizationId")]
+    ResourceId: Annotated[str, _aws_pattern("Workmail", "EntityIdentifier")]
 
 
 class DeleteRetentionPolicyRequestTypeDef(BaseValidatorModel):
-    OrganizationId: str
-    Id: str
+    OrganizationId: Annotated[str, _aws_pattern("Workmail", "OrganizationId")]
+    Id: Annotated[str, _aws_pattern("Workmail", "ShortString")]
 
 
 class DeleteUserRequestTypeDef(BaseValidatorModel):
-    OrganizationId: str
-    UserId: str
+    OrganizationId: Annotated[str, _aws_pattern("Workmail", "OrganizationId")]
+    UserId: Annotated[str, _aws_pattern("Workmail", "EntityIdentifier")]
 
 
 class DeregisterFromWorkMailRequestTypeDef(BaseValidatorModel):
-    OrganizationId: str
-    EntityId: str
+    OrganizationId: Annotated[str, _aws_pattern("Workmail", "OrganizationId")]
+    EntityId: Annotated[str, _aws_pattern("Workmail", "EntityIdentifier")]
 
 
 class DeregisterMailDomainRequestTypeDef(BaseValidatorModel):
-    OrganizationId: str
-    DomainName: str
+    OrganizationId: Annotated[str, _aws_pattern("Workmail", "OrganizationId")]
+    DomainName: Annotated[str, _aws_pattern("Workmail", "WorkMailDomainName")]
 
 
 # This class is the input for the 'describe_email_monitoring_configuration' function.
 class DescribeEmailMonitoringConfigurationRequestTypeDef(BaseValidatorModel):
-    OrganizationId: str
+    OrganizationId: Annotated[str, _aws_pattern("Workmail", "OrganizationId")]
 
 
 # This class is the input for the 'describe_entity' function.
 class DescribeEntityRequestTypeDef(BaseValidatorModel):
-    OrganizationId: str
-    Email: str
+    OrganizationId: Annotated[str, _aws_pattern("Workmail", "OrganizationId")]
+    Email: Annotated[str, _aws_pattern("Workmail", "EmailAddress")]
 
 
 # This class is the input for the 'describe_group' function.
 class DescribeGroupRequestTypeDef(BaseValidatorModel):
-    OrganizationId: str
-    GroupId: str
+    OrganizationId: Annotated[str, _aws_pattern("Workmail", "OrganizationId")]
+    GroupId: Annotated[str, _aws_pattern("Workmail", "EntityIdentifier")]
 
 
 # This class is the input for the 'describe_identity_provider_configuration' function.
 class DescribeIdentityProviderConfigurationRequestTypeDef(BaseValidatorModel):
-    OrganizationId: str
+    OrganizationId: Annotated[str, _aws_pattern("Workmail", "OrganizationId")]
 
 
 class IdentityCenterConfigurationTypeDef(BaseValidatorModel):
-    InstanceArn: str
-    ApplicationArn: str
+    InstanceArn: Annotated[str, _aws_pattern("Workmail", "InstanceArn")]
+    ApplicationArn: Annotated[str, _aws_pattern("Workmail", "ApplicationArn")]
 
 
 class PersonalAccessTokenConfigurationTypeDef(BaseValidatorModel):
@@ -304,42 +306,42 @@ class PersonalAccessTokenConfigurationTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'describe_inbound_dmarc_settings' function.
 class DescribeInboundDmarcSettingsRequestTypeDef(BaseValidatorModel):
-    OrganizationId: str
+    OrganizationId: Annotated[str, _aws_pattern("Workmail", "OrganizationId")]
 
 
 # This class is the input for the 'describe_mailbox_export_job' function.
 class DescribeMailboxExportJobRequestTypeDef(BaseValidatorModel):
-    JobId: str
-    OrganizationId: str
+    JobId: Annotated[str, _aws_pattern("Workmail", "MailboxExportJobId")]
+    OrganizationId: Annotated[str, _aws_pattern("Workmail", "OrganizationId")]
 
 
 # This class is the input for the 'describe_organization' function.
 class DescribeOrganizationRequestTypeDef(BaseValidatorModel):
-    OrganizationId: str
+    OrganizationId: Annotated[str, _aws_pattern("Workmail", "OrganizationId")]
 
 
 # This class is the input for the 'describe_resource' function.
 class DescribeResourceRequestTypeDef(BaseValidatorModel):
-    OrganizationId: str
-    ResourceId: str
+    OrganizationId: Annotated[str, _aws_pattern("Workmail", "OrganizationId")]
+    ResourceId: Annotated[str, _aws_pattern("Workmail", "EntityIdentifier")]
 
 
 # This class is the input for the 'describe_user' function.
 class DescribeUserRequestTypeDef(BaseValidatorModel):
-    OrganizationId: str
-    UserId: str
+    OrganizationId: Annotated[str, _aws_pattern("Workmail", "OrganizationId")]
+    UserId: Annotated[str, _aws_pattern("Workmail", "EntityIdentifier")]
 
 
 class DisassociateDelegateFromResourceRequestTypeDef(BaseValidatorModel):
-    OrganizationId: str
-    ResourceId: str
-    EntityId: str
+    OrganizationId: Annotated[str, _aws_pattern("Workmail", "OrganizationId")]
+    ResourceId: Annotated[str, _aws_pattern("Workmail", "EntityIdentifier")]
+    EntityId: Annotated[str, _aws_pattern("Workmail", "EntityIdentifier")]
 
 
 class DisassociateMemberFromGroupRequestTypeDef(BaseValidatorModel):
-    OrganizationId: str
-    GroupId: str
-    MemberId: str
+    OrganizationId: Annotated[str, _aws_pattern("Workmail", "OrganizationId")]
+    GroupId: Annotated[str, _aws_pattern("Workmail", "EntityIdentifier")]
+    MemberId: Annotated[str, _aws_pattern("Workmail", "EntityIdentifier")]
 
 
 class DnsRecordTypeDef(BaseValidatorModel):
@@ -356,34 +358,34 @@ class FolderConfigurationTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'get_access_control_effect' function.
 class GetAccessControlEffectRequestTypeDef(BaseValidatorModel):
-    OrganizationId: str
-    IpAddress: str
-    Action: str
+    OrganizationId: Annotated[str, _aws_pattern("Workmail", "OrganizationId")]
+    IpAddress: Annotated[str, _aws_pattern("Workmail", "IpAddress")]
+    Action: Annotated[str, _aws_pattern("Workmail", "AccessControlRuleAction")]
     UserId: Optional[str] = None
-    ImpersonationRoleId: Optional[str] = None
+    ImpersonationRoleId: Optional[Annotated[str, _aws_pattern("Workmail", "ImpersonationRoleId")]] = None
 
 
 # This class is the input for the 'get_default_retention_policy' function.
 class GetDefaultRetentionPolicyRequestTypeDef(BaseValidatorModel):
-    OrganizationId: str
+    OrganizationId: Annotated[str, _aws_pattern("Workmail", "OrganizationId")]
 
 
 # This class is the input for the 'get_impersonation_role_effect' function.
 class GetImpersonationRoleEffectRequestTypeDef(BaseValidatorModel):
-    OrganizationId: str
-    ImpersonationRoleId: str
-    TargetUser: str
+    OrganizationId: Annotated[str, _aws_pattern("Workmail", "OrganizationId")]
+    ImpersonationRoleId: Annotated[str, _aws_pattern("Workmail", "ImpersonationRoleId")]
+    TargetUser: Annotated[str, _aws_pattern("Workmail", "EntityIdentifier")]
 
 
 class ImpersonationMatchedRuleTypeDef(BaseValidatorModel):
-    ImpersonationRuleId: Optional[str] = None
-    Name: Optional[str] = None
+    ImpersonationRuleId: Optional[Annotated[str, _aws_pattern("Workmail", "ImpersonationRuleId")]] = None
+    Name: Optional[Annotated[str, _aws_pattern("Workmail", "ImpersonationRuleName")]] = None
 
 
 # This class is the input for the 'get_impersonation_role' function.
 class GetImpersonationRoleRequestTypeDef(BaseValidatorModel):
-    OrganizationId: str
-    ImpersonationRoleId: str
+    OrganizationId: Annotated[str, _aws_pattern("Workmail", "OrganizationId")]
+    ImpersonationRoleId: Annotated[str, _aws_pattern("Workmail", "ImpersonationRoleId")]
 
 
 class ImpersonationRuleOutputTypeDef(BaseValidatorModel):
@@ -397,77 +399,77 @@ class ImpersonationRuleOutputTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'get_mail_domain' function.
 class GetMailDomainRequestTypeDef(BaseValidatorModel):
-    OrganizationId: str
-    DomainName: str
+    OrganizationId: Annotated[str, _aws_pattern("Workmail", "OrganizationId")]
+    DomainName: Annotated[str, _aws_pattern("Workmail", "WorkMailDomainName")]
 
 
 # This class is the input for the 'get_mailbox_details' function.
 class GetMailboxDetailsRequestTypeDef(BaseValidatorModel):
-    OrganizationId: str
-    UserId: str
+    OrganizationId: Annotated[str, _aws_pattern("Workmail", "OrganizationId")]
+    UserId: Annotated[str, _aws_pattern("Workmail", "EntityIdentifier")]
 
 
 # This class is the input for the 'get_mobile_device_access_effect' function.
 class GetMobileDeviceAccessEffectRequestTypeDef(BaseValidatorModel):
-    OrganizationId: str
-    DeviceType: Optional[str] = None
-    DeviceModel: Optional[str] = None
-    DeviceOperatingSystem: Optional[str] = None
-    DeviceUserAgent: Optional[str] = None
+    OrganizationId: Annotated[str, _aws_pattern("Workmail", "OrganizationId")]
+    DeviceType: Optional[Annotated[str, _aws_pattern("Workmail", "DeviceType")]] = None
+    DeviceModel: Optional[Annotated[str, _aws_pattern("Workmail", "DeviceModel")]] = None
+    DeviceOperatingSystem: Optional[Annotated[str, _aws_pattern("Workmail", "DeviceOperatingSystem")]] = None
+    DeviceUserAgent: Optional[Annotated[str, _aws_pattern("Workmail", "DeviceUserAgent")]] = None
 
 
 class MobileDeviceAccessMatchedRuleTypeDef(BaseValidatorModel):
-    MobileDeviceAccessRuleId: Optional[str] = None
-    Name: Optional[str] = None
+    MobileDeviceAccessRuleId: Optional[Annotated[str, _aws_pattern("Workmail", "MobileDeviceAccessRuleId")]] = None
+    Name: Optional[Annotated[str, _aws_pattern("Workmail", "MobileDeviceAccessRuleName")]] = None
 
 
 # This class is the input for the 'get_mobile_device_access_override' function.
 class GetMobileDeviceAccessOverrideRequestTypeDef(BaseValidatorModel):
-    OrganizationId: str
-    UserId: str
-    DeviceId: str
+    OrganizationId: Annotated[str, _aws_pattern("Workmail", "OrganizationId")]
+    UserId: Annotated[str, _aws_pattern("Workmail", "EntityIdentifier")]
+    DeviceId: Annotated[str, _aws_pattern("Workmail", "DeviceId")]
 
 
 # This class is the input for the 'get_personal_access_token_metadata' function.
 class GetPersonalAccessTokenMetadataRequestTypeDef(BaseValidatorModel):
-    OrganizationId: str
-    PersonalAccessTokenId: str
+    OrganizationId: Annotated[str, _aws_pattern("Workmail", "OrganizationId")]
+    PersonalAccessTokenId: Annotated[str, _aws_pattern("Workmail", "PersonalAccessTokenId")]
 
 
 class GroupIdentifierTypeDef(BaseValidatorModel):
     GroupId: Optional[str] = None
-    GroupName: Optional[str] = None
+    GroupName: Optional[Annotated[str, _aws_pattern("Workmail", "GroupName")]] = None
 
 
 class GroupTypeDef(BaseValidatorModel):
     Id: Optional[str] = None
-    Email: Optional[str] = None
-    Name: Optional[str] = None
+    Email: Optional[Annotated[str, _aws_pattern("Workmail", "EmailAddress")]] = None
+    Name: Optional[Annotated[str, _aws_pattern("Workmail", "GroupName")]] = None
     State: Optional[EntityStateType] = None
     EnabledDate: Optional[datetime] = None
     DisabledDate: Optional[datetime] = None
 
 
 class ImpersonationRoleTypeDef(BaseValidatorModel):
-    ImpersonationRoleId: Optional[str] = None
-    Name: Optional[str] = None
+    ImpersonationRoleId: Optional[Annotated[str, _aws_pattern("Workmail", "ImpersonationRoleId")]] = None
+    Name: Optional[Annotated[str, _aws_pattern("Workmail", "ImpersonationRoleName")]] = None
     Type: Optional[ImpersonationRoleTypeType] = None
     DateCreated: Optional[datetime] = None
     DateModified: Optional[datetime] = None
 
 
 class ImpersonationRuleTypeDef(BaseValidatorModel):
-    ImpersonationRuleId: str
+    ImpersonationRuleId: Annotated[str, _aws_pattern("Workmail", "ImpersonationRuleId")]
     Effect: AccessEffectType
-    Name: Optional[str] = None
-    Description: Optional[str] = None
-    TargetUsers: Optional[List[str]] = None
-    NotTargetUsers: Optional[List[str]] = None
+    Name: Optional[Annotated[str, _aws_pattern("Workmail", "ImpersonationRuleName")]] = None
+    Description: Optional[Annotated[str, _aws_pattern("Workmail", "ImpersonationRuleDescription")]] = None
+    TargetUsers: Optional[List[Annotated[str, _aws_pattern("Workmail", "EntityIdentifier")]]] = None
+    NotTargetUsers: Optional[List[Annotated[str, _aws_pattern("Workmail", "EntityIdentifier")]]] = None
 
 
 # This class is the input for the 'list_access_control_rules' function.
 class ListAccessControlRulesRequestTypeDef(BaseValidatorModel):
-    OrganizationId: str
+    OrganizationId: Annotated[str, _aws_pattern("Workmail", "OrganizationId")]
 
 
 class PaginatorConfigTypeDef(BaseValidatorModel):
@@ -478,24 +480,24 @@ class PaginatorConfigTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'list_aliases' function.
 class ListAliasesRequestTypeDef(BaseValidatorModel):
-    OrganizationId: str
+    OrganizationId: Annotated[str, _aws_pattern("Workmail", "OrganizationId")]
     EntityId: str
-    NextToken: Optional[str] = None
+    NextToken: Optional[Annotated[str, _aws_pattern("Workmail", "NextToken")]] = None
     MaxResults: Optional[int] = None
 
 
 # This class is the input for the 'list_availability_configurations' function.
 class ListAvailabilityConfigurationsRequestTypeDef(BaseValidatorModel):
-    OrganizationId: str
+    OrganizationId: Annotated[str, _aws_pattern("Workmail", "OrganizationId")]
     MaxResults: Optional[int] = None
-    NextToken: Optional[str] = None
+    NextToken: Optional[Annotated[str, _aws_pattern("Workmail", "NextToken")]] = None
 
 
 # This class is the input for the 'list_group_members' function.
 class ListGroupMembersRequestTypeDef(BaseValidatorModel):
-    OrganizationId: str
-    GroupId: str
-    NextToken: Optional[str] = None
+    OrganizationId: Annotated[str, _aws_pattern("Workmail", "OrganizationId")]
+    GroupId: Annotated[str, _aws_pattern("Workmail", "EntityIdentifier")]
+    NextToken: Optional[Annotated[str, _aws_pattern("Workmail", "NextToken")]] = None
     MaxResults: Optional[int] = None
 
 
@@ -520,36 +522,36 @@ class ListGroupsForEntityFiltersTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'list_impersonation_roles' function.
 class ListImpersonationRolesRequestTypeDef(BaseValidatorModel):
-    OrganizationId: str
-    NextToken: Optional[str] = None
+    OrganizationId: Annotated[str, _aws_pattern("Workmail", "OrganizationId")]
+    NextToken: Optional[Annotated[str, _aws_pattern("Workmail", "NextToken")]] = None
     MaxResults: Optional[int] = None
 
 
 # This class is the input for the 'list_mail_domains' function.
 class ListMailDomainsRequestTypeDef(BaseValidatorModel):
-    OrganizationId: str
+    OrganizationId: Annotated[str, _aws_pattern("Workmail", "OrganizationId")]
     MaxResults: Optional[int] = None
-    NextToken: Optional[str] = None
+    NextToken: Optional[Annotated[str, _aws_pattern("Workmail", "NextToken")]] = None
 
 
 class MailDomainSummaryTypeDef(BaseValidatorModel):
-    DomainName: Optional[str] = None
+    DomainName: Optional[Annotated[str, _aws_pattern("Workmail", "DomainName")]] = None
     DefaultDomain: Optional[bool] = None
 
 
 # This class is the input for the 'list_mailbox_export_jobs' function.
 class ListMailboxExportJobsRequestTypeDef(BaseValidatorModel):
-    OrganizationId: str
-    NextToken: Optional[str] = None
+    OrganizationId: Annotated[str, _aws_pattern("Workmail", "OrganizationId")]
+    NextToken: Optional[Annotated[str, _aws_pattern("Workmail", "NextToken")]] = None
     MaxResults: Optional[int] = None
 
 
 class MailboxExportJobTypeDef(BaseValidatorModel):
-    JobId: Optional[str] = None
+    JobId: Optional[Annotated[str, _aws_pattern("Workmail", "MailboxExportJobId")]] = None
     EntityId: Optional[str] = None
-    Description: Optional[str] = None
-    S3BucketName: Optional[str] = None
-    S3Path: Optional[str] = None
+    Description: Optional[Annotated[str, _aws_pattern("Workmail", "Description")]] = None
+    S3BucketName: Optional[Annotated[str, _aws_pattern("Workmail", "S3BucketName")]] = None
+    S3Path: Optional[Annotated[str, _aws_pattern("Workmail", "S3ObjectKey")]] = None
     EstimatedProgress: Optional[int] = None
     State: Optional[MailboxExportJobStateType] = None
     StartTime: Optional[datetime] = None
@@ -558,9 +560,9 @@ class MailboxExportJobTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'list_mailbox_permissions' function.
 class ListMailboxPermissionsRequestTypeDef(BaseValidatorModel):
-    OrganizationId: str
-    EntityId: str
-    NextToken: Optional[str] = None
+    OrganizationId: Annotated[str, _aws_pattern("Workmail", "OrganizationId")]
+    EntityId: Annotated[str, _aws_pattern("Workmail", "EntityIdentifier")]
+    NextToken: Optional[Annotated[str, _aws_pattern("Workmail", "NextToken")]] = None
     MaxResults: Optional[int] = None
 
 
@@ -572,81 +574,81 @@ class PermissionTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'list_mobile_device_access_overrides' function.
 class ListMobileDeviceAccessOverridesRequestTypeDef(BaseValidatorModel):
-    OrganizationId: str
-    UserId: Optional[str] = None
-    DeviceId: Optional[str] = None
-    NextToken: Optional[str] = None
+    OrganizationId: Annotated[str, _aws_pattern("Workmail", "OrganizationId")]
+    UserId: Optional[Annotated[str, _aws_pattern("Workmail", "EntityIdentifier")]] = None
+    DeviceId: Optional[Annotated[str, _aws_pattern("Workmail", "DeviceId")]] = None
+    NextToken: Optional[Annotated[str, _aws_pattern("Workmail", "NextToken")]] = None
     MaxResults: Optional[int] = None
 
 
 class MobileDeviceAccessOverrideTypeDef(BaseValidatorModel):
     UserId: Optional[str] = None
-    DeviceId: Optional[str] = None
+    DeviceId: Optional[Annotated[str, _aws_pattern("Workmail", "DeviceId")]] = None
     Effect: Optional[MobileDeviceAccessRuleEffectType] = None
-    Description: Optional[str] = None
+    Description: Optional[Annotated[str, _aws_pattern("Workmail", "MobileDeviceAccessRuleDescription")]] = None
     DateCreated: Optional[datetime] = None
     DateModified: Optional[datetime] = None
 
 
 # This class is the input for the 'list_mobile_device_access_rules' function.
 class ListMobileDeviceAccessRulesRequestTypeDef(BaseValidatorModel):
-    OrganizationId: str
+    OrganizationId: Annotated[str, _aws_pattern("Workmail", "OrganizationId")]
 
 
 class MobileDeviceAccessRuleTypeDef(BaseValidatorModel):
-    MobileDeviceAccessRuleId: Optional[str] = None
-    Name: Optional[str] = None
-    Description: Optional[str] = None
+    MobileDeviceAccessRuleId: Optional[Annotated[str, _aws_pattern("Workmail", "MobileDeviceAccessRuleId")]] = None
+    Name: Optional[Annotated[str, _aws_pattern("Workmail", "MobileDeviceAccessRuleName")]] = None
+    Description: Optional[Annotated[str, _aws_pattern("Workmail", "MobileDeviceAccessRuleDescription")]] = None
     Effect: Optional[MobileDeviceAccessRuleEffectType] = None
-    DeviceTypes: Optional[List[str]] = None
-    NotDeviceTypes: Optional[List[str]] = None
-    DeviceModels: Optional[List[str]] = None
-    NotDeviceModels: Optional[List[str]] = None
-    DeviceOperatingSystems: Optional[List[str]] = None
-    NotDeviceOperatingSystems: Optional[List[str]] = None
-    DeviceUserAgents: Optional[List[str]] = None
-    NotDeviceUserAgents: Optional[List[str]] = None
+    DeviceTypes: Optional[List[Annotated[str, _aws_pattern("Workmail", "DeviceType")]]] = None
+    NotDeviceTypes: Optional[List[Annotated[str, _aws_pattern("Workmail", "DeviceType")]]] = None
+    DeviceModels: Optional[List[Annotated[str, _aws_pattern("Workmail", "DeviceModel")]]] = None
+    NotDeviceModels: Optional[List[Annotated[str, _aws_pattern("Workmail", "DeviceModel")]]] = None
+    DeviceOperatingSystems: Optional[List[Annotated[str, _aws_pattern("Workmail", "DeviceOperatingSystem")]]] = None
+    NotDeviceOperatingSystems: Optional[List[Annotated[str, _aws_pattern("Workmail", "DeviceOperatingSystem")]]] = None
+    DeviceUserAgents: Optional[List[Annotated[str, _aws_pattern("Workmail", "DeviceUserAgent")]]] = None
+    NotDeviceUserAgents: Optional[List[Annotated[str, _aws_pattern("Workmail", "DeviceUserAgent")]]] = None
     DateCreated: Optional[datetime] = None
     DateModified: Optional[datetime] = None
 
 
 # This class is the input for the 'list_organizations' function.
 class ListOrganizationsRequestTypeDef(BaseValidatorModel):
-    NextToken: Optional[str] = None
+    NextToken: Optional[Annotated[str, _aws_pattern("Workmail", "NextToken")]] = None
     MaxResults: Optional[int] = None
 
 
 class OrganizationSummaryTypeDef(BaseValidatorModel):
-    OrganizationId: Optional[str] = None
-    Alias: Optional[str] = None
-    DefaultMailDomain: Optional[str] = None
+    OrganizationId: Optional[Annotated[str, _aws_pattern("Workmail", "OrganizationId")]] = None
+    Alias: Optional[Annotated[str, _aws_pattern("Workmail", "OrganizationName")]] = None
+    DefaultMailDomain: Optional[Annotated[str, _aws_pattern("Workmail", "DomainName")]] = None
     ErrorMessage: Optional[str] = None
     State: Optional[str] = None
 
 
 # This class is the input for the 'list_personal_access_tokens' function.
 class ListPersonalAccessTokensRequestTypeDef(BaseValidatorModel):
-    OrganizationId: str
-    UserId: Optional[str] = None
-    NextToken: Optional[str] = None
+    OrganizationId: Annotated[str, _aws_pattern("Workmail", "OrganizationId")]
+    UserId: Optional[Annotated[str, _aws_pattern("Workmail", "EntityIdentifier")]] = None
+    NextToken: Optional[Annotated[str, _aws_pattern("Workmail", "NextToken")]] = None
     MaxResults: Optional[int] = None
 
 
 class PersonalAccessTokenSummaryTypeDef(BaseValidatorModel):
-    PersonalAccessTokenId: Optional[str] = None
+    PersonalAccessTokenId: Optional[Annotated[str, _aws_pattern("Workmail", "PersonalAccessTokenId")]] = None
     UserId: Optional[str] = None
-    Name: Optional[str] = None
+    Name: Optional[Annotated[str, _aws_pattern("Workmail", "PersonalAccessTokenName")]] = None
     DateCreated: Optional[datetime] = None
     DateLastUsed: Optional[datetime] = None
     ExpiresTime: Optional[datetime] = None
-    Scopes: Optional[List[str]] = None
+    Scopes: Optional[List[Annotated[str, _aws_pattern("Workmail", "PersonalAccessTokenScope")]]] = None
 
 
 # This class is the input for the 'list_resource_delegates' function.
 class ListResourceDelegatesRequestTypeDef(BaseValidatorModel):
-    OrganizationId: str
-    ResourceId: str
-    NextToken: Optional[str] = None
+    OrganizationId: Annotated[str, _aws_pattern("Workmail", "OrganizationId")]
+    ResourceId: Annotated[str, _aws_pattern("Workmail", "EntityIdentifier")]
+    NextToken: Optional[Annotated[str, _aws_pattern("Workmail", "NextToken")]] = None
     MaxResults: Optional[int] = None
 
 
@@ -658,8 +660,8 @@ class ListResourcesFiltersTypeDef(BaseValidatorModel):
 
 class ResourceTypeDef(BaseValidatorModel):
     Id: Optional[str] = None
-    Email: Optional[str] = None
-    Name: Optional[str] = None
+    Email: Optional[Annotated[str, _aws_pattern("Workmail", "EmailAddress")]] = None
+    Name: Optional[Annotated[str, _aws_pattern("Workmail", "ResourceName")]] = None
     Type: Optional[ResourceTypeType] = None
     State: Optional[EntityStateType] = None
     EnabledDate: Optional[datetime] = None
@@ -669,7 +671,7 @@ class ResourceTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'list_tags_for_resource' function.
 class ListTagsForResourceRequestTypeDef(BaseValidatorModel):
-    ResourceARN: str
+    ResourceARN: Annotated[str, _aws_pattern("Workmail", "AmazonResourceName")]
 
 
 class TagTypeDef(BaseValidatorModel):
@@ -682,140 +684,144 @@ class ListUsersFiltersTypeDef(BaseValidatorModel):
     DisplayNamePrefix: Optional[str] = None
     PrimaryEmailPrefix: Optional[str] = None
     State: Optional[EntityStateType] = None
-    IdentityProviderUserIdPrefix: Optional[str] = None
+    IdentityProviderUserIdPrefix: Optional[Annotated[str, _aws_pattern("Workmail", "IdentityProviderUserIdPrefix")]] = (
+        None
+    )
 
 
 class UserTypeDef(BaseValidatorModel):
     Id: Optional[str] = None
-    Email: Optional[str] = None
-    Name: Optional[str] = None
+    Email: Optional[Annotated[str, _aws_pattern("Workmail", "EmailAddress")]] = None
+    Name: Optional[Annotated[str, _aws_pattern("Workmail", "UserName")]] = None
     DisplayName: Optional[str] = None
     State: Optional[EntityStateType] = None
     UserRole: Optional[UserRoleType] = None
     EnabledDate: Optional[datetime] = None
     DisabledDate: Optional[datetime] = None
-    IdentityProviderUserId: Optional[str] = None
-    IdentityProviderIdentityStoreId: Optional[str] = None
+    IdentityProviderUserId: Optional[Annotated[str, _aws_pattern("Workmail", "IdentityProviderUserId")]] = None
+    IdentityProviderIdentityStoreId: Optional[
+        Annotated[str, _aws_pattern("Workmail", "IdentityProviderIdentityStoreId")]
+    ] = None
 
 
 class PutAccessControlRuleRequestTypeDef(BaseValidatorModel):
-    Name: str
+    Name: Annotated[str, _aws_pattern("Workmail", "AccessControlRuleName")]
     Effect: AccessControlRuleEffectType
-    Description: str
-    OrganizationId: str
-    IpRanges: Optional[List[str]] = None
-    NotIpRanges: Optional[List[str]] = None
-    Actions: Optional[List[str]] = None
-    NotActions: Optional[List[str]] = None
+    Description: Annotated[str, _aws_pattern("Workmail", "AccessControlRuleDescription")]
+    OrganizationId: Annotated[str, _aws_pattern("Workmail", "OrganizationId")]
+    IpRanges: Optional[List[Annotated[str, _aws_pattern("Workmail", "IpRange")]]] = None
+    NotIpRanges: Optional[List[Annotated[str, _aws_pattern("Workmail", "IpRange")]]] = None
+    Actions: Optional[List[Annotated[str, _aws_pattern("Workmail", "AccessControlRuleAction")]]] = None
+    NotActions: Optional[List[Annotated[str, _aws_pattern("Workmail", "AccessControlRuleAction")]]] = None
     UserIds: Optional[List[str]] = None
     NotUserIds: Optional[List[str]] = None
-    ImpersonationRoleIds: Optional[List[str]] = None
-    NotImpersonationRoleIds: Optional[List[str]] = None
+    ImpersonationRoleIds: Optional[List[Annotated[str, _aws_pattern("Workmail", "ImpersonationRoleId")]]] = None
+    NotImpersonationRoleIds: Optional[List[Annotated[str, _aws_pattern("Workmail", "ImpersonationRoleId")]]] = None
 
 
 class PutEmailMonitoringConfigurationRequestTypeDef(BaseValidatorModel):
-    OrganizationId: str
-    LogGroupArn: str
-    RoleArn: Optional[str] = None
+    OrganizationId: Annotated[str, _aws_pattern("Workmail", "OrganizationId")]
+    LogGroupArn: Annotated[str, _aws_pattern("Workmail", "LogGroupArn")]
+    RoleArn: Optional[Annotated[str, _aws_pattern("Workmail", "RoleArn")]] = None
 
 
 class PutInboundDmarcSettingsRequestTypeDef(BaseValidatorModel):
-    OrganizationId: str
+    OrganizationId: Annotated[str, _aws_pattern("Workmail", "OrganizationId")]
     Enforced: bool
 
 
 class PutMailboxPermissionsRequestTypeDef(BaseValidatorModel):
-    OrganizationId: str
-    EntityId: str
-    GranteeId: str
+    OrganizationId: Annotated[str, _aws_pattern("Workmail", "OrganizationId")]
+    EntityId: Annotated[str, _aws_pattern("Workmail", "EntityIdentifier")]
+    GranteeId: Annotated[str, _aws_pattern("Workmail", "EntityIdentifier")]
     PermissionValues: List[PermissionTypeType]
 
 
 class PutMobileDeviceAccessOverrideRequestTypeDef(BaseValidatorModel):
-    OrganizationId: str
-    UserId: str
-    DeviceId: str
+    OrganizationId: Annotated[str, _aws_pattern("Workmail", "OrganizationId")]
+    UserId: Annotated[str, _aws_pattern("Workmail", "EntityIdentifier")]
+    DeviceId: Annotated[str, _aws_pattern("Workmail", "DeviceId")]
     Effect: MobileDeviceAccessRuleEffectType
-    Description: Optional[str] = None
+    Description: Optional[Annotated[str, _aws_pattern("Workmail", "MobileDeviceAccessRuleDescription")]] = None
 
 
 class RegisterMailDomainRequestTypeDef(BaseValidatorModel):
-    OrganizationId: str
-    DomainName: str
-    ClientToken: Optional[str] = None
+    OrganizationId: Annotated[str, _aws_pattern("Workmail", "OrganizationId")]
+    DomainName: Annotated[str, _aws_pattern("Workmail", "WorkMailDomainName")]
+    ClientToken: Optional[Annotated[str, _aws_pattern("Workmail", "IdempotencyClientToken")]] = None
 
 
 class RegisterToWorkMailRequestTypeDef(BaseValidatorModel):
-    OrganizationId: str
-    EntityId: str
-    Email: str
+    OrganizationId: Annotated[str, _aws_pattern("Workmail", "OrganizationId")]
+    EntityId: Annotated[str, _aws_pattern("Workmail", "EntityIdentifier")]
+    Email: Annotated[str, _aws_pattern("Workmail", "EmailAddress")]
 
 
 class ResetPasswordRequestTypeDef(BaseValidatorModel):
-    OrganizationId: str
+    OrganizationId: Annotated[str, _aws_pattern("Workmail", "OrganizationId")]
     UserId: str
-    Password: str
+    Password: Annotated[str, _aws_pattern("Workmail", "Password")]
 
 
 # This class is the input for the 'start_mailbox_export_job' function.
 class StartMailboxExportJobRequestTypeDef(BaseValidatorModel):
-    ClientToken: str
-    OrganizationId: str
-    EntityId: str
-    RoleArn: str
-    KmsKeyArn: str
-    S3BucketName: str
-    S3Prefix: str
-    Description: Optional[str] = None
+    ClientToken: Annotated[str, _aws_pattern("Workmail", "IdempotencyClientToken")]
+    OrganizationId: Annotated[str, _aws_pattern("Workmail", "OrganizationId")]
+    EntityId: Annotated[str, _aws_pattern("Workmail", "EntityIdentifier")]
+    RoleArn: Annotated[str, _aws_pattern("Workmail", "RoleArn")]
+    KmsKeyArn: Annotated[str, _aws_pattern("Workmail", "KmsKeyArn")]
+    S3BucketName: Annotated[str, _aws_pattern("Workmail", "S3BucketName")]
+    S3Prefix: Annotated[str, _aws_pattern("Workmail", "S3ObjectKey")]
+    Description: Optional[Annotated[str, _aws_pattern("Workmail", "Description")]] = None
 
 
 class UntagResourceRequestTypeDef(BaseValidatorModel):
-    ResourceARN: str
+    ResourceARN: Annotated[str, _aws_pattern("Workmail", "AmazonResourceName")]
     TagKeys: List[str]
 
 
 class UpdateDefaultMailDomainRequestTypeDef(BaseValidatorModel):
-    OrganizationId: str
-    DomainName: str
+    OrganizationId: Annotated[str, _aws_pattern("Workmail", "OrganizationId")]
+    DomainName: Annotated[str, _aws_pattern("Workmail", "WorkMailDomainName")]
 
 
 class UpdateGroupRequestTypeDef(BaseValidatorModel):
-    OrganizationId: str
-    GroupId: str
+    OrganizationId: Annotated[str, _aws_pattern("Workmail", "OrganizationId")]
+    GroupId: Annotated[str, _aws_pattern("Workmail", "EntityIdentifier")]
     HiddenFromGlobalAddressList: Optional[bool] = None
 
 
 class UpdateMailboxQuotaRequestTypeDef(BaseValidatorModel):
-    OrganizationId: str
-    UserId: str
+    OrganizationId: Annotated[str, _aws_pattern("Workmail", "OrganizationId")]
+    UserId: Annotated[str, _aws_pattern("Workmail", "EntityIdentifier")]
     MailboxQuota: int
 
 
 class UpdateMobileDeviceAccessRuleRequestTypeDef(BaseValidatorModel):
-    OrganizationId: str
-    MobileDeviceAccessRuleId: str
-    Name: str
+    OrganizationId: Annotated[str, _aws_pattern("Workmail", "OrganizationId")]
+    MobileDeviceAccessRuleId: Annotated[str, _aws_pattern("Workmail", "MobileDeviceAccessRuleId")]
+    Name: Annotated[str, _aws_pattern("Workmail", "MobileDeviceAccessRuleName")]
     Effect: MobileDeviceAccessRuleEffectType
-    Description: Optional[str] = None
-    DeviceTypes: Optional[List[str]] = None
-    NotDeviceTypes: Optional[List[str]] = None
-    DeviceModels: Optional[List[str]] = None
-    NotDeviceModels: Optional[List[str]] = None
-    DeviceOperatingSystems: Optional[List[str]] = None
-    NotDeviceOperatingSystems: Optional[List[str]] = None
-    DeviceUserAgents: Optional[List[str]] = None
-    NotDeviceUserAgents: Optional[List[str]] = None
+    Description: Optional[Annotated[str, _aws_pattern("Workmail", "MobileDeviceAccessRuleDescription")]] = None
+    DeviceTypes: Optional[List[Annotated[str, _aws_pattern("Workmail", "DeviceType")]]] = None
+    NotDeviceTypes: Optional[List[Annotated[str, _aws_pattern("Workmail", "DeviceType")]]] = None
+    DeviceModels: Optional[List[Annotated[str, _aws_pattern("Workmail", "DeviceModel")]]] = None
+    NotDeviceModels: Optional[List[Annotated[str, _aws_pattern("Workmail", "DeviceModel")]]] = None
+    DeviceOperatingSystems: Optional[List[Annotated[str, _aws_pattern("Workmail", "DeviceOperatingSystem")]]] = None
+    NotDeviceOperatingSystems: Optional[List[Annotated[str, _aws_pattern("Workmail", "DeviceOperatingSystem")]]] = None
+    DeviceUserAgents: Optional[List[Annotated[str, _aws_pattern("Workmail", "DeviceUserAgent")]]] = None
+    NotDeviceUserAgents: Optional[List[Annotated[str, _aws_pattern("Workmail", "DeviceUserAgent")]]] = None
 
 
 class UpdatePrimaryEmailAddressRequestTypeDef(BaseValidatorModel):
-    OrganizationId: str
-    EntityId: str
-    Email: str
+    OrganizationId: Annotated[str, _aws_pattern("Workmail", "OrganizationId")]
+    EntityId: Annotated[str, _aws_pattern("Workmail", "EntityIdentifier")]
+    Email: Annotated[str, _aws_pattern("Workmail", "EmailAddress")]
 
 
 class UpdateUserRequestTypeDef(BaseValidatorModel):
-    OrganizationId: str
-    UserId: str
+    OrganizationId: Annotated[str, _aws_pattern("Workmail", "OrganizationId")]
+    UserId: Annotated[str, _aws_pattern("Workmail", "EntityIdentifier")]
     Role: Optional[UserRoleType] = None
     DisplayName: Optional[str] = None
     FirstName: Optional[str] = None
@@ -831,12 +837,12 @@ class UpdateUserRequestTypeDef(BaseValidatorModel):
     Department: Optional[str] = None
     Country: Optional[str] = None
     Office: Optional[str] = None
-    IdentityProviderUserId: Optional[str] = None
+    IdentityProviderUserId: Optional[Annotated[str, _aws_pattern("Workmail", "IdentityProviderUserIdForUpdate")]] = None
 
 
 # This class is the output for the 'assume_impersonation_role' function.
 class AssumeImpersonationRoleResponseTypeDef(BaseValidatorModel):
-    Token: str
+    Token: Annotated[str, _aws_pattern("Workmail", "ImpersonationToken")]
     ExpiresIn: int
     ResponseMetadata: ResponseMetadataTypeDef
 
@@ -849,31 +855,31 @@ class CreateGroupResponseTypeDef(BaseValidatorModel):
 
 # This class is the output for the 'create_identity_center_application' function.
 class CreateIdentityCenterApplicationResponseTypeDef(BaseValidatorModel):
-    ApplicationArn: str
+    ApplicationArn: Annotated[str, _aws_pattern("Workmail", "ApplicationArn")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 # This class is the output for the 'create_impersonation_role' function.
 class CreateImpersonationRoleResponseTypeDef(BaseValidatorModel):
-    ImpersonationRoleId: str
+    ImpersonationRoleId: Annotated[str, _aws_pattern("Workmail", "ImpersonationRoleId")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 # This class is the output for the 'create_mobile_device_access_rule' function.
 class CreateMobileDeviceAccessRuleResponseTypeDef(BaseValidatorModel):
-    MobileDeviceAccessRuleId: str
+    MobileDeviceAccessRuleId: Annotated[str, _aws_pattern("Workmail", "MobileDeviceAccessRuleId")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 # This class is the output for the 'create_organization' function.
 class CreateOrganizationResponseTypeDef(BaseValidatorModel):
-    OrganizationId: str
+    OrganizationId: Annotated[str, _aws_pattern("Workmail", "OrganizationId")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 # This class is the output for the 'create_resource' function.
 class CreateResourceResponseTypeDef(BaseValidatorModel):
-    ResourceId: str
+    ResourceId: Annotated[str, _aws_pattern("Workmail", "ResourceId")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
@@ -885,15 +891,15 @@ class CreateUserResponseTypeDef(BaseValidatorModel):
 
 # This class is the output for the 'delete_organization' function.
 class DeleteOrganizationResponseTypeDef(BaseValidatorModel):
-    OrganizationId: str
+    OrganizationId: Annotated[str, _aws_pattern("Workmail", "OrganizationId")]
     State: str
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 # This class is the output for the 'describe_email_monitoring_configuration' function.
 class DescribeEmailMonitoringConfigurationResponseTypeDef(BaseValidatorModel):
-    RoleArn: str
-    LogGroupArn: str
+    RoleArn: Annotated[str, _aws_pattern("Workmail", "RoleArn")]
+    LogGroupArn: Annotated[str, _aws_pattern("Workmail", "LogGroupArn")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
@@ -908,8 +914,8 @@ class DescribeEntityResponseTypeDef(BaseValidatorModel):
 # This class is the output for the 'describe_group' function.
 class DescribeGroupResponseTypeDef(BaseValidatorModel):
     GroupId: str
-    Name: str
-    Email: str
+    Name: Annotated[str, _aws_pattern("Workmail", "GroupName")]
+    Email: Annotated[str, _aws_pattern("Workmail", "EmailAddress")]
     State: EntityStateType
     EnabledDate: datetime
     DisabledDate: datetime
@@ -926,15 +932,15 @@ class DescribeInboundDmarcSettingsResponseTypeDef(BaseValidatorModel):
 # This class is the output for the 'describe_mailbox_export_job' function.
 class DescribeMailboxExportJobResponseTypeDef(BaseValidatorModel):
     EntityId: str
-    Description: str
-    RoleArn: str
-    KmsKeyArn: str
-    S3BucketName: str
-    S3Prefix: str
-    S3Path: str
+    Description: Annotated[str, _aws_pattern("Workmail", "Description")]
+    RoleArn: Annotated[str, _aws_pattern("Workmail", "RoleArn")]
+    KmsKeyArn: Annotated[str, _aws_pattern("Workmail", "KmsKeyArn")]
+    S3BucketName: Annotated[str, _aws_pattern("Workmail", "S3BucketName")]
+    S3Prefix: Annotated[str, _aws_pattern("Workmail", "S3ObjectKey")]
+    S3Path: Annotated[str, _aws_pattern("Workmail", "S3ObjectKey")]
     EstimatedProgress: int
     State: MailboxExportJobStateType
-    ErrorInfo: str
+    ErrorInfo: Annotated[str, _aws_pattern("Workmail", "MailboxExportErrorInfo")]
     StartTime: datetime
     EndTime: datetime
     ResponseMetadata: ResponseMetadataTypeDef
@@ -942,15 +948,15 @@ class DescribeMailboxExportJobResponseTypeDef(BaseValidatorModel):
 
 # This class is the output for the 'describe_organization' function.
 class DescribeOrganizationResponseTypeDef(BaseValidatorModel):
-    OrganizationId: str
-    Alias: str
+    OrganizationId: Annotated[str, _aws_pattern("Workmail", "OrganizationId")]
+    Alias: Annotated[str, _aws_pattern("Workmail", "OrganizationName")]
     State: str
     DirectoryId: str
     DirectoryType: str
     DefaultMailDomain: str
     CompletedDate: datetime
     ErrorMessage: str
-    ARN: str
+    ARN: Annotated[str, _aws_pattern("Workmail", "AmazonResourceName")]
     MigrationAdmin: str
     InteroperabilityEnabled: bool
     ResponseMetadata: ResponseMetadataTypeDef
@@ -959,8 +965,8 @@ class DescribeOrganizationResponseTypeDef(BaseValidatorModel):
 # This class is the output for the 'describe_user' function.
 class DescribeUserResponseTypeDef(BaseValidatorModel):
     UserId: str
-    Name: str
-    Email: str
+    Name: Annotated[str, _aws_pattern("Workmail", "UserName")]
+    Email: Annotated[str, _aws_pattern("Workmail", "EmailAddress")]
     DisplayName: str
     State: EntityStateType
     UserRole: UserRoleType
@@ -981,15 +987,15 @@ class DescribeUserResponseTypeDef(BaseValidatorModel):
     Department: str
     Country: str
     Office: str
-    IdentityProviderUserId: str
-    IdentityProviderIdentityStoreId: str
+    IdentityProviderUserId: Annotated[str, _aws_pattern("Workmail", "IdentityProviderUserId")]
+    IdentityProviderIdentityStoreId: Annotated[str, _aws_pattern("Workmail", "IdentityProviderIdentityStoreId")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 # This class is the output for the 'get_access_control_effect' function.
 class GetAccessControlEffectResponseTypeDef(BaseValidatorModel):
     Effect: AccessControlRuleEffectType
-    MatchedRules: List[str]
+    MatchedRules: List[Annotated[str, _aws_pattern("Workmail", "AccessControlRuleName")]]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
@@ -1003,9 +1009,9 @@ class GetMailboxDetailsResponseTypeDef(BaseValidatorModel):
 # This class is the output for the 'get_mobile_device_access_override' function.
 class GetMobileDeviceAccessOverrideResponseTypeDef(BaseValidatorModel):
     UserId: str
-    DeviceId: str
+    DeviceId: Annotated[str, _aws_pattern("Workmail", "DeviceId")]
     Effect: MobileDeviceAccessRuleEffectType
-    Description: str
+    Description: Annotated[str, _aws_pattern("Workmail", "MobileDeviceAccessRuleDescription")]
     DateCreated: datetime
     DateModified: datetime
     ResponseMetadata: ResponseMetadataTypeDef
@@ -1013,13 +1019,13 @@ class GetMobileDeviceAccessOverrideResponseTypeDef(BaseValidatorModel):
 
 # This class is the output for the 'get_personal_access_token_metadata' function.
 class GetPersonalAccessTokenMetadataResponseTypeDef(BaseValidatorModel):
-    PersonalAccessTokenId: str
+    PersonalAccessTokenId: Annotated[str, _aws_pattern("Workmail", "PersonalAccessTokenId")]
     UserId: str
-    Name: str
+    Name: Annotated[str, _aws_pattern("Workmail", "PersonalAccessTokenName")]
     DateCreated: datetime
     DateLastUsed: datetime
     ExpiresTime: datetime
-    Scopes: List[str]
+    Scopes: List[Annotated[str, _aws_pattern("Workmail", "PersonalAccessTokenScope")]]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
@@ -1031,14 +1037,14 @@ class ListAccessControlRulesResponseTypeDef(BaseValidatorModel):
 
 # This class is the output for the 'list_aliases' function.
 class ListAliasesResponseTypeDef(BaseValidatorModel):
-    Aliases: List[str]
+    Aliases: List[Annotated[str, _aws_pattern("Workmail", "EmailAddress")]]
     ResponseMetadata: ResponseMetadataTypeDef
-    NextToken: Optional[str] = None
+    NextToken: Optional[Annotated[str, _aws_pattern("Workmail", "NextToken")]] = None
 
 
 # This class is the output for the 'start_mailbox_export_job' function.
 class StartMailboxExportJobResponseTypeDef(BaseValidatorModel):
-    JobId: str
+    JobId: Annotated[str, _aws_pattern("Workmail", "MailboxExportJobId")]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
@@ -1050,7 +1056,7 @@ class TestAvailabilityConfigurationResponseTypeDef(BaseValidatorModel):
 
 
 class AvailabilityConfigurationTypeDef(BaseValidatorModel):
-    DomainName: Optional[str] = None
+    DomainName: Optional[Annotated[str, _aws_pattern("Workmail", "DomainName")]] = None
     ProviderType: Optional[AvailabilityProviderTypeType] = None
     EwsProvider: Optional[RedactedEwsAvailabilityProviderTypeDef] = None
     LambdaProvider: Optional[LambdaAvailabilityProviderTypeDef] = None
@@ -1060,9 +1066,9 @@ class AvailabilityConfigurationTypeDef(BaseValidatorModel):
 
 # This class is the output for the 'describe_resource' function.
 class DescribeResourceResponseTypeDef(BaseValidatorModel):
-    ResourceId: str
-    Email: str
-    Name: str
+    ResourceId: Annotated[str, _aws_pattern("Workmail", "ResourceId")]
+    Email: Annotated[str, _aws_pattern("Workmail", "EmailAddress")]
+    Name: Annotated[str, _aws_pattern("Workmail", "ResourceName")]
     Type: ResourceTypeType
     BookingOptions: BookingOptionsTypeDef
     State: EntityStateType
@@ -1074,9 +1080,9 @@ class DescribeResourceResponseTypeDef(BaseValidatorModel):
 
 
 class UpdateResourceRequestTypeDef(BaseValidatorModel):
-    OrganizationId: str
-    ResourceId: str
-    Name: Optional[str] = None
+    OrganizationId: Annotated[str, _aws_pattern("Workmail", "OrganizationId")]
+    ResourceId: Annotated[str, _aws_pattern("Workmail", "EntityIdentifier")]
+    Name: Optional[Annotated[str, _aws_pattern("Workmail", "ResourceName")]] = None
     BookingOptions: Optional[BookingOptionsTypeDef] = None
     Description: Optional[str] = None
     Type: Optional[ResourceTypeType] = None
@@ -1084,35 +1090,35 @@ class UpdateResourceRequestTypeDef(BaseValidatorModel):
 
 
 class CreateAvailabilityConfigurationRequestTypeDef(BaseValidatorModel):
-    OrganizationId: str
-    DomainName: str
-    ClientToken: Optional[str] = None
+    OrganizationId: Annotated[str, _aws_pattern("Workmail", "OrganizationId")]
+    DomainName: Annotated[str, _aws_pattern("Workmail", "DomainName")]
+    ClientToken: Optional[Annotated[str, _aws_pattern("Workmail", "IdempotencyClientToken")]] = None
     EwsProvider: Optional[EwsAvailabilityProviderTypeDef] = None
     LambdaProvider: Optional[LambdaAvailabilityProviderTypeDef] = None
 
 
 # This class is the input for the 'test_availability_configuration' function.
 class TestAvailabilityConfigurationRequestTypeDef(BaseValidatorModel):
-    OrganizationId: str
-    DomainName: Optional[str] = None
+    OrganizationId: Annotated[str, _aws_pattern("Workmail", "OrganizationId")]
+    DomainName: Optional[Annotated[str, _aws_pattern("Workmail", "DomainName")]] = None
     EwsProvider: Optional[EwsAvailabilityProviderTypeDef] = None
     LambdaProvider: Optional[LambdaAvailabilityProviderTypeDef] = None
 
 
 class UpdateAvailabilityConfigurationRequestTypeDef(BaseValidatorModel):
-    OrganizationId: str
-    DomainName: str
+    OrganizationId: Annotated[str, _aws_pattern("Workmail", "OrganizationId")]
+    DomainName: Annotated[str, _aws_pattern("Workmail", "DomainName")]
     EwsProvider: Optional[EwsAvailabilityProviderTypeDef] = None
     LambdaProvider: Optional[LambdaAvailabilityProviderTypeDef] = None
 
 
 # This class is the input for the 'create_organization' function.
 class CreateOrganizationRequestTypeDef(BaseValidatorModel):
-    Alias: str
-    DirectoryId: Optional[str] = None
-    ClientToken: Optional[str] = None
+    Alias: Annotated[str, _aws_pattern("Workmail", "OrganizationName")]
+    DirectoryId: Optional[Annotated[str, _aws_pattern("Workmail", "DirectoryId")]] = None
+    ClientToken: Optional[Annotated[str, _aws_pattern("Workmail", "IdempotencyClientToken")]] = None
     Domains: Optional[List[DomainTypeDef]] = None
-    KmsKeyArn: Optional[str] = None
+    KmsKeyArn: Optional[Annotated[str, _aws_pattern("Workmail", "KmsKeyArn")]] = None
     EnableInteroperability: Optional[bool] = None
 
 
@@ -1120,7 +1126,7 @@ class CreateOrganizationRequestTypeDef(BaseValidatorModel):
 class ListResourceDelegatesResponseTypeDef(BaseValidatorModel):
     Delegates: List[DelegateTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
-    NextToken: Optional[str] = None
+    NextToken: Optional[Annotated[str, _aws_pattern("Workmail", "NextToken")]] = None
 
 
 # This class is the output for the 'describe_identity_provider_configuration' function.
@@ -1132,7 +1138,7 @@ class DescribeIdentityProviderConfigurationResponseTypeDef(BaseValidatorModel):
 
 
 class PutIdentityProviderConfigurationRequestTypeDef(BaseValidatorModel):
-    OrganizationId: str
+    OrganizationId: Annotated[str, _aws_pattern("Workmail", "OrganizationId")]
     AuthenticationMode: IdentityProviderAuthenticationModeType
     IdentityCenterConfiguration: IdentityCenterConfigurationTypeDef
     PersonalAccessTokenConfiguration: PersonalAccessTokenConfigurationTypeDef
@@ -1150,19 +1156,19 @@ class GetMailDomainResponseTypeDef(BaseValidatorModel):
 
 # This class is the output for the 'get_default_retention_policy' function.
 class GetDefaultRetentionPolicyResponseTypeDef(BaseValidatorModel):
-    Id: str
-    Name: str
+    Id: Annotated[str, _aws_pattern("Workmail", "ShortString")]
+    Name: Annotated[str, _aws_pattern("Workmail", "ShortString")]
     Description: str
     FolderConfigurations: List[FolderConfigurationTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
 
 
 class PutRetentionPolicyRequestTypeDef(BaseValidatorModel):
-    OrganizationId: str
-    Name: str
+    OrganizationId: Annotated[str, _aws_pattern("Workmail", "OrganizationId")]
+    Name: Annotated[str, _aws_pattern("Workmail", "ShortString")]
     FolderConfigurations: List[FolderConfigurationTypeDef]
-    Id: Optional[str] = None
-    Description: Optional[str] = None
+    Id: Optional[Annotated[str, _aws_pattern("Workmail", "ShortString")]] = None
+    Description: Optional[Annotated[str, _aws_pattern("Workmail", "PolicyDescription")]] = None
 
 
 # This class is the output for the 'get_impersonation_role_effect' function.
@@ -1175,10 +1181,10 @@ class GetImpersonationRoleEffectResponseTypeDef(BaseValidatorModel):
 
 # This class is the output for the 'get_impersonation_role' function.
 class GetImpersonationRoleResponseTypeDef(BaseValidatorModel):
-    ImpersonationRoleId: str
-    Name: str
+    ImpersonationRoleId: Annotated[str, _aws_pattern("Workmail", "ImpersonationRoleId")]
+    Name: Annotated[str, _aws_pattern("Workmail", "ImpersonationRoleName")]
     Type: ImpersonationRoleTypeType
-    Description: str
+    Description: Annotated[str, _aws_pattern("Workmail", "ImpersonationRoleDescription")]
     Rules: List[ImpersonationRuleOutputTypeDef]
     DateCreated: datetime
     DateModified: datetime
@@ -1196,21 +1202,21 @@ class GetMobileDeviceAccessEffectResponseTypeDef(BaseValidatorModel):
 class ListGroupsForEntityResponseTypeDef(BaseValidatorModel):
     Groups: List[GroupIdentifierTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
-    NextToken: Optional[str] = None
+    NextToken: Optional[Annotated[str, _aws_pattern("Workmail", "NextToken")]] = None
 
 
 # This class is the output for the 'list_groups' function.
 class ListGroupsResponseTypeDef(BaseValidatorModel):
     Groups: List[GroupTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
-    NextToken: Optional[str] = None
+    NextToken: Optional[Annotated[str, _aws_pattern("Workmail", "NextToken")]] = None
 
 
 # This class is the output for the 'list_impersonation_roles' function.
 class ListImpersonationRolesResponseTypeDef(BaseValidatorModel):
     Roles: List[ImpersonationRoleTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
-    NextToken: Optional[str] = None
+    NextToken: Optional[Annotated[str, _aws_pattern("Workmail", "NextToken")]] = None
 
 
 ImpersonationRuleUnionTypeDef = Union[ImpersonationRuleOutputTypeDef, ImpersonationRuleTypeDef]
@@ -1259,7 +1265,7 @@ class ListResourceDelegatesRequestPaginateTypeDef(BaseValidatorModel):
 class ListGroupMembersResponseTypeDef(BaseValidatorModel):
     Members: List[MemberTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
-    NextToken: Optional[str] = None
+    NextToken: Optional[Annotated[str, _aws_pattern("Workmail", "NextToken")]] = None
 
 
 class ListGroupsRequestPaginateTypeDef(BaseValidatorModel):
@@ -1270,18 +1276,18 @@ class ListGroupsRequestPaginateTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'list_groups' function.
 class ListGroupsRequestTypeDef(BaseValidatorModel):
-    OrganizationId: str
-    NextToken: Optional[str] = None
+    OrganizationId: Annotated[str, _aws_pattern("Workmail", "OrganizationId")]
+    NextToken: Optional[Annotated[str, _aws_pattern("Workmail", "NextToken")]] = None
     MaxResults: Optional[int] = None
     Filters: Optional[ListGroupsFiltersTypeDef] = None
 
 
 # This class is the input for the 'list_groups_for_entity' function.
 class ListGroupsForEntityRequestTypeDef(BaseValidatorModel):
-    OrganizationId: str
-    EntityId: str
+    OrganizationId: Annotated[str, _aws_pattern("Workmail", "OrganizationId")]
+    EntityId: Annotated[str, _aws_pattern("Workmail", "EntityIdentifier")]
     Filters: Optional[ListGroupsForEntityFiltersTypeDef] = None
-    NextToken: Optional[str] = None
+    NextToken: Optional[Annotated[str, _aws_pattern("Workmail", "NextToken")]] = None
     MaxResults: Optional[int] = None
 
 
@@ -1289,28 +1295,28 @@ class ListGroupsForEntityRequestTypeDef(BaseValidatorModel):
 class ListMailDomainsResponseTypeDef(BaseValidatorModel):
     MailDomains: List[MailDomainSummaryTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
-    NextToken: Optional[str] = None
+    NextToken: Optional[Annotated[str, _aws_pattern("Workmail", "NextToken")]] = None
 
 
 # This class is the output for the 'list_mailbox_export_jobs' function.
 class ListMailboxExportJobsResponseTypeDef(BaseValidatorModel):
     Jobs: List[MailboxExportJobTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
-    NextToken: Optional[str] = None
+    NextToken: Optional[Annotated[str, _aws_pattern("Workmail", "NextToken")]] = None
 
 
 # This class is the output for the 'list_mailbox_permissions' function.
 class ListMailboxPermissionsResponseTypeDef(BaseValidatorModel):
     Permissions: List[PermissionTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
-    NextToken: Optional[str] = None
+    NextToken: Optional[Annotated[str, _aws_pattern("Workmail", "NextToken")]] = None
 
 
 # This class is the output for the 'list_mobile_device_access_overrides' function.
 class ListMobileDeviceAccessOverridesResponseTypeDef(BaseValidatorModel):
     Overrides: List[MobileDeviceAccessOverrideTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
-    NextToken: Optional[str] = None
+    NextToken: Optional[Annotated[str, _aws_pattern("Workmail", "NextToken")]] = None
 
 
 # This class is the output for the 'list_mobile_device_access_rules' function.
@@ -1323,14 +1329,14 @@ class ListMobileDeviceAccessRulesResponseTypeDef(BaseValidatorModel):
 class ListOrganizationsResponseTypeDef(BaseValidatorModel):
     OrganizationSummaries: List[OrganizationSummaryTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
-    NextToken: Optional[str] = None
+    NextToken: Optional[Annotated[str, _aws_pattern("Workmail", "NextToken")]] = None
 
 
 # This class is the output for the 'list_personal_access_tokens' function.
 class ListPersonalAccessTokensResponseTypeDef(BaseValidatorModel):
     PersonalAccessTokenSummaries: List[PersonalAccessTokenSummaryTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
-    NextToken: Optional[str] = None
+    NextToken: Optional[Annotated[str, _aws_pattern("Workmail", "NextToken")]] = None
 
 
 class ListResourcesRequestPaginateTypeDef(BaseValidatorModel):
@@ -1341,8 +1347,8 @@ class ListResourcesRequestPaginateTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'list_resources' function.
 class ListResourcesRequestTypeDef(BaseValidatorModel):
-    OrganizationId: str
-    NextToken: Optional[str] = None
+    OrganizationId: Annotated[str, _aws_pattern("Workmail", "OrganizationId")]
+    NextToken: Optional[Annotated[str, _aws_pattern("Workmail", "NextToken")]] = None
     MaxResults: Optional[int] = None
     Filters: Optional[ListResourcesFiltersTypeDef] = None
 
@@ -1351,7 +1357,7 @@ class ListResourcesRequestTypeDef(BaseValidatorModel):
 class ListResourcesResponseTypeDef(BaseValidatorModel):
     Resources: List[ResourceTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
-    NextToken: Optional[str] = None
+    NextToken: Optional[Annotated[str, _aws_pattern("Workmail", "NextToken")]] = None
 
 
 # This class is the output for the 'list_tags_for_resource' function.
@@ -1361,7 +1367,7 @@ class ListTagsForResourceResponseTypeDef(BaseValidatorModel):
 
 
 class TagResourceRequestTypeDef(BaseValidatorModel):
-    ResourceARN: str
+    ResourceARN: Annotated[str, _aws_pattern("Workmail", "AmazonResourceName")]
     Tags: List[TagTypeDef]
 
 
@@ -1373,8 +1379,8 @@ class ListUsersRequestPaginateTypeDef(BaseValidatorModel):
 
 # This class is the input for the 'list_users' function.
 class ListUsersRequestTypeDef(BaseValidatorModel):
-    OrganizationId: str
-    NextToken: Optional[str] = None
+    OrganizationId: Annotated[str, _aws_pattern("Workmail", "OrganizationId")]
+    NextToken: Optional[Annotated[str, _aws_pattern("Workmail", "NextToken")]] = None
     MaxResults: Optional[int] = None
     Filters: Optional[ListUsersFiltersTypeDef] = None
 
@@ -1383,30 +1389,30 @@ class ListUsersRequestTypeDef(BaseValidatorModel):
 class ListUsersResponseTypeDef(BaseValidatorModel):
     Users: List[UserTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
-    NextToken: Optional[str] = None
+    NextToken: Optional[Annotated[str, _aws_pattern("Workmail", "NextToken")]] = None
 
 
 # This class is the output for the 'list_availability_configurations' function.
 class ListAvailabilityConfigurationsResponseTypeDef(BaseValidatorModel):
     AvailabilityConfigurations: List[AvailabilityConfigurationTypeDef]
     ResponseMetadata: ResponseMetadataTypeDef
-    NextToken: Optional[str] = None
+    NextToken: Optional[Annotated[str, _aws_pattern("Workmail", "NextToken")]] = None
 
 
 # This class is the input for the 'create_impersonation_role' function.
 class CreateImpersonationRoleRequestTypeDef(BaseValidatorModel):
-    OrganizationId: str
-    Name: str
+    OrganizationId: Annotated[str, _aws_pattern("Workmail", "OrganizationId")]
+    Name: Annotated[str, _aws_pattern("Workmail", "ImpersonationRoleName")]
     Type: ImpersonationRoleTypeType
     Rules: List[ImpersonationRuleUnionTypeDef]
-    ClientToken: Optional[str] = None
-    Description: Optional[str] = None
+    ClientToken: Optional[Annotated[str, _aws_pattern("Workmail", "IdempotencyClientToken")]] = None
+    Description: Optional[Annotated[str, _aws_pattern("Workmail", "ImpersonationRoleDescription")]] = None
 
 
 class UpdateImpersonationRoleRequestTypeDef(BaseValidatorModel):
-    OrganizationId: str
-    ImpersonationRoleId: str
-    Name: str
+    OrganizationId: Annotated[str, _aws_pattern("Workmail", "OrganizationId")]
+    ImpersonationRoleId: Annotated[str, _aws_pattern("Workmail", "ImpersonationRoleId")]
+    Name: Annotated[str, _aws_pattern("Workmail", "ImpersonationRoleName")]
     Type: ImpersonationRoleTypeType
     Rules: List[ImpersonationRuleUnionTypeDef]
-    Description: Optional[str] = None
+    Description: Optional[Annotated[str, _aws_pattern("Workmail", "ImpersonationRoleDescription")]] = None
