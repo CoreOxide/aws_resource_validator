@@ -61,8 +61,8 @@ class GitHubBotocoreSource:
         self._timeout = request_timeout
 
     @property
-    def _headers(self) -> dict[str, str]:
-        headers = {"Accept": "application/vnd.github+json"}
+    def _headers(self) -> dict[str, str | bytes]:
+        headers: dict[str, str | bytes] = {"Accept": "application/vnd.github+json"}
         if self._token:
             headers["Authorization"] = f"Bearer {self._token}"
         return headers
