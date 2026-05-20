@@ -42,47 +42,64 @@ jobs:
         excluded_paths: 'tests,aws_resource_validator/pydantic_models,aws_resource_validator/class_definitions.py'
         skips: 'B101'
 
-    - name: Check for Issues in SARIF
-      id: check_sarif
-      run: |
-        if grep -q '"level": "\(error\|warning\|note\)"' results.sarif; then
-          echo "issues_found=true" >> $GITHUB_ENV
-        else
-          echo "issues_found=false" >> $GITHUB_ENV
-        fi
-
-    - name: Auto-create GitHub Issues for Security Vulnerabilities
-      if: env.issues_found == 'true'
-      uses: actions/github-script@v5
+    - name: Reconcile GitHub Issues with SARIF findings
+      if: github.event_name != 'pull_request'
+      uses: actions/github-script@v7
       with:
         script: |
           const fs = require('fs');
           const sarifPath = 'results.sarif';
-          if (fs.existsSync(sarifPath)) {
-            const sarif = JSON.parse(fs.readFileSync(sarifPath));
-            const { owner, repo } = context.repo;
-            const existingIssues = await github.rest.issues.listForRepo({
+          if (!fs.existsSync(sarifPath)) {
+            core.setFailed('SARIF file does not exist; refusing to reconcile issues.');
+            return;
+          }
+          const sarif = JSON.parse(fs.readFileSync(sarifPath));
+          const { owner, repo } = context.repo;
+
+          const currentFindings = new Map();
+          for (const result of sarif.runs[0].results || []) {
+            const title = `[Security] ${result.ruleId}: ${result.message.text}`;
+            const body = `## Issue Description\n- **Severity**: ${result.level}\n- **Path**: ${result.locations[0].physicalLocation.artifactLocation.uri}\n- **Line**: ${result.locations[0].physicalLocation.region.startLine}\n\nPlease address this issue as soon as possible.`;
+            currentFindings.set(title, body);
+          }
+
+          const existingIssues = await github.paginate(github.rest.issues.listForRepo, {
+            owner,
+            repo,
+            state: 'open',
+            labels: 'security',
+            per_page: 100,
+          });
+          const existingTitles = new Set(existingIssues.map(issue => issue.title));
+
+          for (const [title, body] of currentFindings) {
+            if (existingTitles.has(title)) {
+              console.log(`Issue "${title}" already exists. Not opening a new one.`);
+              continue;
+            }
+            await github.rest.issues.create({
               owner,
               repo,
-              state: 'open'
+              title,
+              body,
+              labels: ['security'],
             });
-            sarif.runs[0].results.forEach(result => {
-              const title = `[Security] ${result.ruleId}: ${result.message.text}`;
-              const body = `## Issue Description\n- **Severity**: ${result.level}\n- **Path**: ${result.locations[0].physicalLocation.artifactLocation.uri}\n- **Line**: ${result.locations[0].physicalLocation.region.startLine}\n\nPlease address this issue as soon as possible.`;
-              const issueExists = existingIssues.data.some(issue => issue.title === title);
-              if (!issueExists) {
-                github.rest.issues.create({
-                  owner,
-                  repo,
-                  title,
-                  body,
-                  labels: ['security']
-                });
-              } else {
-                console.log(`Issue "${title}" already exists. Not opening a new one.`);
-              }
+          }
+
+          for (const issue of existingIssues) {
+            if (currentFindings.has(issue.title)) continue;
+            console.log(`Closing resolved security issue #${issue.number}: ${issue.title}`);
+            await github.rest.issues.createComment({
+              owner,
+              repo,
+              issue_number: issue.number,
+              body: `Closed automatically: this finding no longer appears in the latest Bandit scan (commit ${context.sha}).`,
             });
-          } else {
-            console.log('SARIF file does not exist.');
-            process.exit(1);
+            await github.rest.issues.update({
+              owner,
+              repo,
+              issue_number: issue.number,
+              state: 'closed',
+              state_reason: 'completed',
+            });
           }
