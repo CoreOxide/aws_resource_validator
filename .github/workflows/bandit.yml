@@ -33,7 +33,7 @@ jobs:
         pip install -e '.[generator]'
 
     - name: Bandit Scan
-      uses: shundor/python-bandit-scan@9cc5aa4a006482b8a7f91134412df6772dbda22c
+      uses: shundor/python-bandit-scan@9955228c1cbdc5aeb5e511e0fa232154e2ed2b67
       with:
         exit_zero: true  # optional, default is DEFAULT
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}  # Needed to get PR information.
@@ -44,7 +44,7 @@ jobs:
 
     - name: Reconcile GitHub Issues with SARIF findings
       if: github.event_name != 'pull_request'
-      uses: actions/github-script@v7
+      uses: actions/github-script@v8
       with:
         script: |
           const fs = require('fs');
