@@ -13,6 +13,7 @@
 
 ## Features
 
+- **Developer CLI (`arv`)**: Validate names, inspect AWS constraints, and generate synthetic test values directly in your terminal with Rich UI output.
 - **Validation**: Check if a given AWS resource name meets the AWS naming constraints.
 - **Constraint Display**: Display constraints for different AWS resource names.
 - **Pattern Generation**: Generate compatible patterns for AWS resource names for testing purposes.
@@ -53,7 +54,37 @@ pip install 'aws-resource-validator[generator]'
 See [`docs/packaging.md`](docs/packaging.md) for the full list of standalone
 service packages, shard membership, and the detailed install matrix.
 
-## Usage Example
+## Developer CLI (`arv`)
+
+The package includes a command-line tool, `arv`, providing instant terminal validation, constraint inspection, and test data generation powered by [Rich](https://github.com/Textualize/rich).
+
+```sh
+# Validate an AWS resource name against AWS constraints
+arv validate lambda FunctionName "my-lambda-function"
+
+# Enforce strict end-to-end regex matching (rather than botocore prefix matching)
+arv validate lambda FunctionName "invalid func! name" --strict
+
+# Inspect naming limits, regex patterns, and sample values
+arv inspect lambda FunctionName
+
+# Inspect all patterned shapes available for a service
+arv inspect dynamodb
+
+# Generate compliant synthetic test names
+arv generate lambda FunctionName --count 3
+
+# Raw output for shell scripts and pipelines
+arv generate lambda FunctionName --plain
+
+# Machine-readable JSON output for CI/CD checks
+arv validate lambda FunctionName "my-func" --json
+
+# List registered AWS services and shape counts
+arv list --search s3
+```
+
+## Python Usage Example
 
 Here's a simple example demonstrating how to use `aws_resource_validator`:
 
