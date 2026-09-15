@@ -38,7 +38,7 @@ jobs:
         run: ruff check aws_resource_validator tests
 
       - name: Mypy
-        run: mypy aws_resource_validator/core aws_resource_validator/generator
+        run: mypy aws_resource_validator/core aws_resource_validator/generator aws_resource_validator/cli
 
   test:
     runs-on: ubuntu-latest

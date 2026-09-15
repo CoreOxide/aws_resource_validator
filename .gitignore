@@ -44,3 +44,4 @@ Thumbs.db
 # Local scratch
 *.tmp
 /tmp_*
+.agents/
