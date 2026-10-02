@@ -40,7 +40,8 @@ class AWSValidationError(ValueError, ParamValidationError):
         self.value = value
         self.diagnostics = diagnostics or []
         self.validation_result = validation_result
-        super().__init__(report=message)
+        ValueError.__init__(self, message)
+        ParamValidationError.__init__(self, report=message)
 
     def __str__(self) -> str:
         return self.message

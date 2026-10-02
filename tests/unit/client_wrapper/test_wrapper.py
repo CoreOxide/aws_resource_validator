@@ -24,6 +24,15 @@ from aws_resource_validator import (
 )
 
 
+@pytest.fixture(autouse=True)
+def _aws_credentials(monkeypatch: pytest.MonkeyPatch) -> None:
+    monkeypatch.setenv("AWS_ACCESS_KEY_ID", "testing")
+    monkeypatch.setenv("AWS_SECRET_ACCESS_KEY", "testing")
+    monkeypatch.setenv("AWS_SECURITY_TOKEN", "testing")
+    monkeypatch.setenv("AWS_SESSION_TOKEN", "testing")
+    monkeypatch.setenv("AWS_DEFAULT_REGION", "us-east-1")
+
+
 def test_wrap_client_raises_aws_validation_error() -> None:
     session = botocore.session.get_session()
     raw_s3 = session.create_client("s3", region_name="us-east-1")
@@ -64,7 +73,7 @@ def test_wrap_client_mode_warn() -> None:
 
     with (
         pytest.warns(AWSValidationWarning, match="BucketName"),
-        contextlib.suppress(botocore.exceptions.ClientError),
+        contextlib.suppress(botocore.exceptions.ClientError, botocore.exceptions.BotoCoreError),
     ):
         wrapped.create_bucket(Bucket="INVALID_UPPERCASE")
 
@@ -74,7 +83,10 @@ def test_wrap_client_mode_log(caplog: pytest.LogCaptureFixture) -> None:
     client = session.create_client("s3", region_name="us-east-1")
     wrapped = wrap_client(client, mode="log")
 
-    with caplog.at_level(logging.WARNING), contextlib.suppress(botocore.exceptions.ClientError):
+    with (
+        caplog.at_level(logging.WARNING),
+        contextlib.suppress(botocore.exceptions.ClientError, botocore.exceptions.BotoCoreError),
+    ):
         wrapped.create_bucket(Bucket="INVALID_UPPERCASE")
 
     assert any("failed pre-flight validation" in r.message for r in caplog.records)
@@ -98,10 +110,11 @@ def test_unwrap_client() -> None:
     with pytest.raises(AWSValidationError):
         client.create_bucket(Bucket="INVALID_UPPERCASE")
 
-    # After unwrapping: no longer raises AWSValidationError (reaches AWS / ClientError)
+    # After unwrapping: no longer raises AWSValidationError (reaches AWS / BotoCoreError)
     unwrap_client(client)
     try:
-        client.create_bucket(Bucket="INVALID_UPPERCASE")
+        with contextlib.suppress(botocore.exceptions.ClientError, botocore.exceptions.BotoCoreError):
+            client.create_bucket(Bucket="INVALID_UPPERCASE")
     except Exception as e:
         assert not isinstance(e, AWSValidationError)
 
