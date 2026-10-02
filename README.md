@@ -14,6 +14,7 @@
 ## Features
 
 - **Developer CLI (`arv`)**: Validate names, inspect AWS constraints, and generate synthetic test values directly in your terminal with Rich UI output.
+- **Pre-Flight Boto3 Client Wrapper (`wrap_client`)**: Catch invalid parameters, illegal characters, and bad bucket names locally in < 0.01ms before network roundtrips to AWS.
 - **Validation**: Check if a given AWS resource name meets the AWS naming constraints.
 - **Constraint Display**: Display constraints for different AWS resource names.
 - **Pattern Generation**: Generate compatible patterns for AWS resource names for testing purposes.
@@ -83,6 +84,51 @@ arv validate lambda FunctionName "my-func" --json
 # List registered AWS services and shape counts
 arv list --search s3
 ```
+
+## Pre-Flight Boto3 Client Wrapper (`wrap_client`)
+
+Botocore does not validate parameter regex patterns or length bounds locally by default. Calling AWS with an invalid parameter transmits a network request, incurs TLS latency, and burns API rate limits before AWS returns a `400 ValidationException` hundreds of milliseconds later.
+
+`wrap_client` intercepts AWS API calls in memory before the HTTP request is built or sent, validating parameters against AWS constraints in **under 0.01ms**:
+
+```python
+import boto3
+from aws_resource_validator import wrap_client, AWSValidationError
+
+# Intercept and validate calls locally before the HTTP network request:
+s3 = wrap_client(boto3.client("s3"))
+
+# Fails in < 0.01ms locally instead of waiting for a network handshake,
+# API Gateway routing, and receiving an AWS 400 ClientError 800ms later:
+try:
+    s3.create_bucket(Bucket="INVALID_BUCKET_NAME")
+except AWSValidationError as e:
+    print(e.message)
+    # Parameter 'Bucket' failed pre-flight validation for S3 shape 'BucketName':
+    # Value 'INVALID_BUCKET_NAME' is invalid. Value does not match required regex pattern: ^[a-z0-9][a-z0-9.-]{1,61}[a-z0-9]$
+```
+
+### Wrapping Sessions
+
+You can also wrap an entire `boto3.Session` or `botocore.session.Session` so every client created inherits pre-flight validation automatically:
+
+```python
+import boto3
+from aws_resource_validator import wrap_session
+
+session = wrap_session(boto3.Session())
+s3 = session.client("s3")
+lam = session.client("lambda")
+```
+
+### Validation Modes & Configuration
+
+- **`mode="raise"` (default)**: Raises `AWSValidationError` (subclasses both `ValueError` and `botocore.exceptions.ParamValidationError`).
+- **`mode="warn"`**: Emits an `AWSValidationWarning` without aborting the call.
+- **`mode="log"`**: Logs a warning via standard Python `logging`.
+- **`strict=True` (default)**: Enforces end-to-end regex match (`re.fullmatch`). Set `strict=False` to allow prefix matching.
+- **`custom_rules`**: Supply custom `(service, shape)` regex/length constraints for organization-specific naming standards.
+- **`unwrap_client(client)` / `unwrap_session(session)`**: Cleanly detach validation hooks at any time.
 
 ## Python Usage Example
 

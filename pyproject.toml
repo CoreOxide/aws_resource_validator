@@ -48,6 +48,7 @@ requests = "*"
 jinja2 = "*"
 typer = "*"
 black = "*"
+boto3 = "*"
 boto3-stubs = { extras = ["all"], version = "*" }
 
 # Test & lint.
