@@ -5,10 +5,14 @@ from __future__ import annotations
 import contextlib
 import logging
 
-import boto3
 import botocore.exceptions
 import botocore.session
 import pytest
+
+try:
+    import boto3
+except ImportError:
+    boto3 = None  # type: ignore[assignment]
 
 from aws_resource_validator import (
     AWSValidationError,
@@ -42,7 +46,9 @@ def test_wrap_client_raises_aws_validation_error() -> None:
     assert "Value does not match required regex pattern" in str(err)
 
 
+@pytest.mark.skipif(boto3 is None, reason="boto3 not installed")
 def test_wrap_client_boto3_integration() -> None:
+    assert boto3 is not None
     s3 = wrap_client(boto3.client("s3", region_name="us-east-1"))
 
     with pytest.raises(AWSValidationError) as exc_info:
@@ -129,7 +135,9 @@ def test_wrap_session() -> None:
     unwrap_session(session)
 
 
+@pytest.mark.skipif(boto3 is None, reason="boto3 not installed")
 def test_wrap_boto3_session() -> None:
+    assert boto3 is not None
     boto3_session = boto3.Session()
     wrap_session(boto3_session)
 
@@ -140,7 +148,9 @@ def test_wrap_boto3_session() -> None:
     unwrap_session(boto3_session)
 
 
+@pytest.mark.skipif(boto3 is None, reason="boto3 not installed")
 def test_wrap_boto3_resource() -> None:
+    assert boto3 is not None
     resource = boto3.resource("s3", region_name="us-east-1")
     wrapped_resource = wrap_client(resource)
     assert wrapped_resource is resource
