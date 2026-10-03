@@ -5,6 +5,7 @@ from __future__ import annotations
 import logging
 import warnings
 from collections.abc import Mapping
+from contextlib import suppress
 from typing import Any, TypeVar
 
 from aws_resource_validator.client_wrapper.exceptions import AWSValidationError, AWSValidationWarning
@@ -38,17 +39,13 @@ def _resolve_session_emitter(session: Any) -> Any:
     """Extract the event emitter from a botocore or boto3 Session."""
     # 1. botocore.session.Session
     if hasattr(session, "get_component"):
-        try:
+        with suppress(Exception):
             return session.get_component("event_emitter")
-        except Exception:  # pragma: no cover
-            pass
 
     # 2. boto3.session.Session (wraps botocore session in ._session)
     if hasattr(session, "_session") and hasattr(session._session, "get_component"):
-        try:
+        with suppress(Exception):
             return session._session.get_component("event_emitter")
-        except Exception:  # pragma: no cover
-            pass
 
     raise TypeError(f"Expected a boto3.Session or botocore.session.Session, got {type(session).__name__}")
 

@@ -2,12 +2,12 @@
 
 from __future__ import annotations
 
-import contextlib
 import logging
 
 import botocore.exceptions
 import botocore.session
 import pytest
+from botocore.stub import Stubber
 
 try:
     import boto3
@@ -69,25 +69,23 @@ def test_wrap_client_boto3_integration() -> None:
 def test_wrap_client_mode_warn() -> None:
     session = botocore.session.get_session()
     client = session.create_client("s3", region_name="us-east-1")
-    wrapped = wrap_client(client, mode="warn")
+    with Stubber(client) as stubber:
+        stubber.add_response("create_bucket", {})
+        wrapped = wrap_client(client, mode="warn")
 
-    with (
-        pytest.warns(AWSValidationWarning, match="BucketName"),
-        contextlib.suppress(botocore.exceptions.ClientError, botocore.exceptions.BotoCoreError),
-    ):
-        wrapped.create_bucket(Bucket="INVALID_UPPERCASE")
+        with pytest.warns(AWSValidationWarning, match="BucketName"):
+            wrapped.create_bucket(Bucket="INVALID_UPPERCASE")
 
 
 def test_wrap_client_mode_log(caplog: pytest.LogCaptureFixture) -> None:
     session = botocore.session.get_session()
     client = session.create_client("s3", region_name="us-east-1")
-    wrapped = wrap_client(client, mode="log")
+    with Stubber(client) as stubber:
+        stubber.add_response("create_bucket", {})
+        wrapped = wrap_client(client, mode="log")
 
-    with (
-        caplog.at_level(logging.WARNING),
-        contextlib.suppress(botocore.exceptions.ClientError, botocore.exceptions.BotoCoreError),
-    ):
-        wrapped.create_bucket(Bucket="INVALID_UPPERCASE")
+        with caplog.at_level(logging.WARNING):
+            wrapped.create_bucket(Bucket="INVALID_UPPERCASE")
 
     assert any("failed pre-flight validation" in r.message for r in caplog.records)
 
@@ -110,13 +108,11 @@ def test_unwrap_client() -> None:
     with pytest.raises(AWSValidationError):
         client.create_bucket(Bucket="INVALID_UPPERCASE")
 
-    # After unwrapping: no longer raises AWSValidationError (reaches AWS / BotoCoreError)
+    # After unwrapping: no longer raises AWSValidationError
     unwrap_client(client)
-    try:
-        with contextlib.suppress(botocore.exceptions.ClientError, botocore.exceptions.BotoCoreError):
-            client.create_bucket(Bucket="INVALID_UPPERCASE")
-    except Exception as e:
-        assert not isinstance(e, AWSValidationError)
+    with Stubber(client) as stubber:
+        stubber.add_response("create_bucket", {})
+        client.create_bucket(Bucket="INVALID_UPPERCASE")
 
 
 def test_wrap_client_idempotent() -> None:
