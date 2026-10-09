@@ -135,3 +135,56 @@ def test_list_delegates_to_inspect_when_service_provided() -> None:
     result = runner.invoke(app, ["list", "lambda"])
     assert result.exit_code == 0
     assert "Shapes in Lambda" in result.stdout
+
+
+def test_arn_valid() -> None:
+    result = runner.invoke(app, ["arn", "arn:aws:iam::123456789012:role/service-role/MyRole"])
+    assert result.exit_code == 0
+    assert "VALID" in result.stdout
+    assert "service-role/MyRole" in result.stdout
+
+
+def test_arn_valid_json_with_shapes() -> None:
+    result = runner.invoke(app, ["arn", "arn:aws:s3:us-east-1:123456789012:job/abc", "--json"])
+    assert result.exit_code == 0
+    data = json.loads(result.stdout)
+    assert data["is_valid"] is True
+    assert data["service"] == "s3"
+    assert data["resource_type"] == "job"
+    assert {"service": "S3control", "shape": "JobArn"} in data["matching_shapes"]
+
+
+def test_arn_no_shapes_json() -> None:
+    result = runner.invoke(app, ["arn", "arn:aws:sqs:us-east-1:123456789012:q", "--no-shapes", "--json"])
+    assert result.exit_code == 0
+    assert "matching_shapes" not in json.loads(result.stdout)
+
+
+def test_arn_invalid_component() -> None:
+    result = runner.invoke(app, ["arn", "arn:aws:iam::12345:role/x", "--json"])
+    assert result.exit_code == 1
+    data = json.loads(result.stdout)
+    assert data["is_valid"] is False
+    assert any("12 digits" in e for e in data["errors"])
+
+
+def test_arn_invalid_rich() -> None:
+    result = runner.invoke(app, ["arn", "arn:aws:iam::12345:role/x", "--no-shapes"])
+    assert result.exit_code == 1
+    assert "INVALID" in result.stdout
+
+
+def test_arn_unparseable() -> None:
+    result = runner.invoke(app, ["arn", "not-an-arn"])
+    assert result.exit_code == 2
+    assert "Not an ARN" in result.stdout
+
+    json_result = runner.invoke(app, ["arn", "not-an-arn", "--json"])
+    assert json_result.exit_code == 2
+    assert json.loads(json_result.stdout)["value"] == "not-an-arn"
+
+
+def test_arn_strict_fails_on_warnings() -> None:
+    value = "arn:aws-future:s3:::bucket"
+    assert runner.invoke(app, ["arn", value, "--no-shapes"]).exit_code == 0
+    assert runner.invoke(app, ["arn", value, "--no-shapes", "--strict"]).exit_code == 1

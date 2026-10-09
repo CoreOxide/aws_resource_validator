@@ -62,3 +62,34 @@ validator, so the regex + length bounds are always consistent with
 shapes (`Dict[str, T]`, `Union[str, int]`, nested containers) pass
 through unchanged. Unknown `(service, shape)` pairs resolve to a
 permissive no-op so a stale emitter never breaks a caller.
+
+## Parsing, validating, and building ARNs
+
+`ARN` replaces fragile `arn.split(":")` code. It splits on at most five
+colons (so S3 keys, alarm names, and Lambda aliases containing `:` stay
+intact), validates each segment, and decomposes the resource:
+
+```python
+from aws_resource_validator import ARN, ARNParseError
+
+arn = ARN.parse("arn:aws:s3:::my-bucket/logs/2026:10:09.gz")
+arn.resource       # 'my-bucket/logs/2026:10:09.gz'
+arn.is_valid       # True
+
+ARN.parse("arn:aws:iam::12345:role/x").errors
+# ("Account ID '12345' must be exactly 12 digits (got 5 characters), 'aws', or empty.",)
+
+ARN.build(service="iam", account_id="123456789012", resource_type="role", resource_id="MyRole")
+# ARN(partition='aws', service='iam', region='', account_id='123456789012', resource='role/MyRole')
+```
+
+- `ARN.parse(value)` raises `ARNParseError` only when `value` cannot be split
+  into six ARN segments; segment problems are reported via `errors` /
+  `is_valid`. Pass `strict=True` to raise on any error.
+- `ARN.build(...)` raises on invalid results unless `strict=False`.
+- `arn.validate_against(service, shape)` checks a specific botocore `*Arn`
+  shape and returns a `ValidationResult`; `arn.matching_shapes()` lists every
+  service-specific botocore shape the ARN satisfies. Both load the class
+  registry lazily — plain parsing never does.
+- `ARN` can be used directly as a Pydantic v2 field type.
+- CLI: `arv arn "<arn>" [--json] [--strict] [--no-shapes]`.
