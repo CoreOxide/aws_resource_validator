@@ -14,6 +14,7 @@ from aws_resource_validator import __version__
 from aws_resource_validator.cli.diagnostics import diagnose_validation
 from aws_resource_validator.cli.formatters import (
     get_console,
+    print_arn_result,
     print_error,
     print_generated_values,
     print_inspect_service,
@@ -27,6 +28,7 @@ from aws_resource_validator.cli.resolver import (
     resolve_service,
     resolve_shape,
 )
+from aws_resource_validator.core.arn import ARN, ARNParseError
 
 app = typer.Typer(
     name="arv",
@@ -221,6 +223,42 @@ def list_cmd(
         _output_json(data)
     else:
         print_services_list(console, services, total_count=total_registry_count)
+
+
+@app.command("arn")
+def arn_cmd(
+    value: str = typer.Argument(..., help="ARN to parse and validate (e.g. arn:aws:iam::123456789012:role/MyRole)."),
+    strict: bool = typer.Option(False, "--strict", "-s", help="Treat warnings (e.g. unknown partition) as failures."),
+    shapes: bool = typer.Option(
+        True,
+        "--shapes/--no-shapes",
+        help="Also list botocore *Arn shapes that this ARN satisfies.",
+    ),
+    json_output: bool = typer.Option(False, "--json", help="Output result as JSON."),
+) -> None:
+    """Parse an ARN into its components and validate each segment."""
+    console = get_console()
+    try:
+        parsed = ARN.parse(value)
+    except ARNParseError as exc:
+        if json_output:
+            _output_json({"error": str(exc), "value": value})
+        else:
+            print_error(console, str(exc))
+        raise typer.Exit(code=2) from exc
+
+    matches = parsed.matching_shapes() if shapes else None
+
+    if json_output:
+        data = parsed.to_dict()
+        if matches is not None:
+            data["matching_shapes"] = [{"service": s, "shape": n} for s, n in matches]
+        _output_json(data)
+    else:
+        print_arn_result(console, parsed, matches)
+
+    if not parsed.is_valid or (strict and parsed.warnings):
+        raise typer.Exit(code=1)
 
 
 @app.command("version")

@@ -6,14 +6,17 @@ that consume these abstractions.
 """
 
 from aws_resource_validator.core.api_object import APIObject
+from aws_resource_validator.core.arn import ARN, ARNParseError
 from aws_resource_validator.core.base_validator_model import BaseValidatorModel, EventStream
 from aws_resource_validator.core.diagnostics import ValidationResult, diagnose_validation
 from aws_resource_validator.core.registry import APIRegistry
 from aws_resource_validator.core.service import Service
 
 __all__ = [
+    "ARN",
     "APIObject",
     "APIRegistry",
+    "ARNParseError",
     "BaseValidatorModel",
     "EventStream",
     "Service",

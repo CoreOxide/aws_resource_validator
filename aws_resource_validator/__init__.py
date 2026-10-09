@@ -16,8 +16,10 @@ from aws_resource_validator.client_wrapper import (
     wrap_session,
 )
 from aws_resource_validator.core import (
+    ARN,
     APIObject,
     APIRegistry,
+    ARNParseError,
     BaseValidatorModel,
     EventStream,
     Service,
@@ -26,8 +28,10 @@ from aws_resource_validator.core import (
 )
 
 __all__ = [
+    "ARN",
     "APIObject",
     "APIRegistry",
+    "ARNParseError",
     "AWSValidationError",
     "AWSValidationWarning",
     "BaseValidatorModel",

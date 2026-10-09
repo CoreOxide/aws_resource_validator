@@ -15,6 +15,7 @@
 
 - **Developer CLI (`arv`)**: Validate names, inspect AWS constraints, and generate synthetic test values directly in your terminal with Rich UI output.
 - **Pre-Flight Boto3 Client Wrapper (`wrap_client`)**: Catch invalid parameters, illegal characters, and bad bucket names locally in < 0.01ms before network roundtrips to AWS.
+- **Universal ARN Parser (`ARN`)**: Parse, validate, and build ARNs safely — no more fragile `arn.split(":")`.
 - **Validation**: Check if a given AWS resource name meets the AWS naming constraints.
 - **Constraint Display**: Display constraints for different AWS resource names.
 - **Pattern Generation**: Generate compatible patterns for AWS resource names for testing purposes.
@@ -129,6 +130,65 @@ lam = session.client("lambda")
 - **`strict=True` (default)**: Enforces end-to-end regex match (`re.fullmatch`). Set `strict=False` to allow prefix matching.
 - **`custom_rules`**: Supply custom `(service, shape)` regex/length constraints for organization-specific naming standards.
 - **`unwrap_client(client)` / `unwrap_session(session)`**: Cleanly detach validation hooks at any time.
+
+## Universal ARN Parser (`ARN`)
+
+`arn.split(":")` silently breaks on S3 object keys, CloudWatch alarm names, Lambda aliases, and anything else whose resource segment contains a colon. `ARN` splits on at most five colons, decomposes the resource into type and id, and validates every segment:
+
+```python
+from aws_resource_validator import ARN
+
+arn = ARN.parse("arn:aws:iam::123456789012:role/service-role/MyRole")
+arn.partition, arn.service, arn.region, arn.account_id
+# ('aws', 'iam', '', '123456789012')
+arn.resource_type, arn.resource_id
+# ('role', 'service-role/MyRole')
+arn.is_valid  # True
+
+bad = ARN.parse("arn:aws:iam::12345:role/x")
+bad.is_valid  # False
+bad.errors    # ("Account ID '12345' must be exactly 12 digits (got 5 characters), 'aws', or empty.",)
+
+# Build ARNs programmatically (raises ARNParseError if the result is invalid)
+ARN.build(service="sqs", region="us-east-1", account_id="123456789012", resource="my-queue")
+ARN.build(service="lambda", region="us-east-1", account_id="123456789012",
+          resource_type="function", resource_id="my-fn:prod", delimiter=":")
+
+# Immutable; derive variants safely
+arn.replace(account_id="210987654321")
+```
+
+| ARN | `resource_type` | `resource_id` | Why `split(":")` breaks |
+| :--- | :--- | :--- | :--- |
+| `arn:aws:s3:::my-bucket/logs/2026:10:09.gz` | `None` | `my-bucket/logs/2026:10:09.gz` | Colons in the object key |
+| `arn:aws:cloudwatch:us-east-1:123456789012:alarm:CPU:High` | `alarm` | `CPU:High` | Alarm names may contain `:` |
+| `arn:aws:lambda:us-east-1:123456789012:function:fn:prod` | `function` | `fn:prod` | Alias / version suffix |
+
+**Generic vs. botocore validation.** `is_valid` checks the generic ARN grammar (partition, service, region, 12-digit account, resource, max length 2048) with zero I/O. This covers services such as IAM, SQS, SNS, and KMS whose botocore models publish no ARN regex. Botocore's own `*Arn` shape patterns are available on demand:
+
+```python
+job = ARN.parse("arn:aws:s3:us-east-1:123456789012:job/abc")
+job.validate_against("s3control", "JobArn").is_valid  # True — returns a ValidationResult
+job.matching_shapes()  # [('S3control', 'JobArn'), ('S3control', 'S3ResourceArn')]
+```
+
+`ARN` is also a Pydantic v2 field type — strings are parsed and validated, and serialized back to strings:
+
+```python
+from pydantic import BaseModel
+
+class Config(BaseModel):
+    role_arn: ARN
+
+Config(role_arn="arn:aws:iam::123456789012:role/MyRole").role_arn.resource_id  # 'MyRole'
+```
+
+From the terminal:
+
+```sh
+arv arn "arn:aws:iam::123456789012:role/service-role/MyRole"   # exit 0 / 1 (invalid) / 2 (not an ARN)
+arv arn "arn:aws:s3:us-east-1:123456789012:job/abc" --json
+```
 
 ## Python Usage Example
 

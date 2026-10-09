@@ -14,6 +14,7 @@ from rich.text import Text
 if TYPE_CHECKING:
     from aws_resource_validator.cli.diagnostics import ValidationResult
     from aws_resource_validator.core.api_object import APIObject
+    from aws_resource_validator.core.arn import ARN
     from aws_resource_validator.core.service import Service
 
 
@@ -199,3 +200,52 @@ def print_error(
     if suggestions:
         suggest_str = ", ".join(f"[bold cyan]{escape(s)}[/bold cyan]" for s in suggestions)
         console.print(f"  [dim]Did you mean:[/dim] {suggest_str}?")
+
+
+def print_arn_result(
+    console: Console,
+    arn: ARN,
+    matching_shapes: list[tuple[str, str]] | None = None,
+) -> None:
+    """Render a Rich panel showing ARN components, diagnostics, and matching botocore shapes."""
+    if arn.is_valid:
+        status_badge = "[bold white on green]  VALID  [/bold white on green]"
+        border_style = "green"
+    else:
+        status_badge = "[bold white on red]  INVALID  [/bold white on red]"
+        border_style = "red"
+
+    def _show(value: str | None, empty: str) -> str:
+        return f"[white]{escape(value)}[/white]" if value else f"[dim italic]{empty}[/dim italic]"
+
+    grid = Table.grid(padding=(0, 1))
+    grid.add_column(style="bold cyan", justify="right", width=16)
+    grid.add_column()
+
+    grid.add_row("Status:", status_badge)
+    grid.add_row("ARN:", f"[bold white]{escape(str(arn))}[/bold white]")
+    grid.add_row("Partition:", _show(arn.partition, "(empty)"))
+    grid.add_row("Service:", _show(arn.service, "(empty)"))
+    grid.add_row("Region:", _show(arn.region, "(global)"))
+    grid.add_row("Account ID:", _show(arn.account_id, "(none)"))
+    grid.add_row("Resource:", _show(arn.resource, "(empty)"))
+    grid.add_row("Resource Type:", _show(arn.resource_type, "(none)"))
+    grid.add_row("Resource ID:", _show(arn.resource_id, "(empty)"))
+
+    if arn.errors:
+        grid.add_row("Errors:", "\n".join(f"[bold red]• {escape(e)}[/bold red]" for e in arn.errors))
+    if arn.warnings:
+        grid.add_row("Warnings:", "\n".join(f"[bold yellow]• {escape(w)}[/bold yellow]" for w in arn.warnings))
+
+    if matching_shapes is not None:
+        if matching_shapes:
+            shown = matching_shapes[:10]
+            lines = "\n".join(f"[green]✔ {escape(svc)}.{escape(shape)}[/green]" for svc, shape in shown)
+            if len(matching_shapes) > len(shown):
+                lines += f"\n[dim]… and {len(matching_shapes) - len(shown)} more[/dim]"
+            grid.add_row("Botocore Shapes:", lines)
+        else:
+            grid.add_row("Botocore Shapes:", "[dim italic]No service-specific ARN shapes matched.[/dim italic]")
+
+    panel = Panel(grid, title="[bold]ARN Inspection[/bold]", border_style=border_style, expand=False)
+    console.print(panel)
