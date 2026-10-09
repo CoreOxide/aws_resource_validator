@@ -19,7 +19,6 @@ Validation happens in two layers:
 
 from __future__ import annotations
 
-import dataclasses
 import re
 from collections.abc import Iterable
 from dataclasses import dataclass, field
@@ -69,6 +68,9 @@ class ARNParseError(ValueError):
         super().__init__(message)
         self.value = value
         self.errors = errors
+
+
+_UNSET: Any = object()
 
 
 @dataclass(frozen=True, slots=True)
@@ -172,9 +174,23 @@ class ARN:
             arn._raise_if_invalid()
         return arn
 
-    def replace(self, **changes: str) -> ARN:
+    def replace(
+        self,
+        *,
+        partition: str = _UNSET,
+        service: str = _UNSET,
+        region: str = _UNSET,
+        account_id: str = _UNSET,
+        resource: str = _UNSET,
+    ) -> ARN:
         """Return a copy with the given components replaced, re-validated."""
-        return dataclasses.replace(self, **changes)
+        return ARN(
+            partition=self.partition if partition is _UNSET else partition,
+            service=self.service if service is _UNSET else service,
+            region=self.region if region is _UNSET else region,
+            account_id=self.account_id if account_id is _UNSET else account_id,
+            resource=self.resource if resource is _UNSET else resource,
+        )
 
     # ------------------------------------------------------------------ #
     # Derived views
@@ -239,6 +255,7 @@ class ARN:
         add noise. Pass ``services`` to restrict the search to specific
         services, in which case all of their ``*Arn`` shapes are checked.
         """
+        pins: tuple[str, ...]
         if services is None:
             candidates: Iterable[Service] = get_registry().services.values()
             pins = (f":{self.service}:", ":" + self.service.replace("-", "\\-") + ":")
