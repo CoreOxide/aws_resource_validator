@@ -60,6 +60,12 @@ def print_validation_result(console: Console, result: ValidationResult) -> None:
         error_lines = "\n".join(f"[bold red]• {escape(err)}[/bold red]" for err in result.errors)
         grid.add_row("Errors:", error_lines)
 
+    if result.visual_pointer:
+        grid.add_row("Visual Pointer:", f"[bold yellow]{escape(result.visual_pointer)}[/bold yellow]")
+
+    if result.suggested_fix:
+        grid.add_row("Suggested Fix:", f"[bold cyan]{escape(result.suggested_fix)}[/bold cyan]")
+
     if result.warnings:
         warn_lines = "\n".join(f"[bold yellow]• {escape(w)}[/bold yellow]" for w in result.warnings)
         grid.add_row("Warnings:", warn_lines)

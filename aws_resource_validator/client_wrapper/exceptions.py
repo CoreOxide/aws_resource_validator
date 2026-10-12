@@ -31,6 +31,8 @@ class AWSValidationError(ValueError, ParamValidationError):
         value: Any = None,
         diagnostics: list[str] | None = None,
         validation_result: ValidationResult | None = None,
+        suggested_fix: str | None = None,
+        visual_pointer: str | None = None,
     ) -> None:
         self.message = message
         self.service_name = service_name
@@ -38,8 +40,12 @@ class AWSValidationError(ValueError, ParamValidationError):
         self.param_name = param_name
         self.shape_name = shape_name
         self.value = value
-        self.diagnostics = diagnostics or []
         self.validation_result = validation_result
+        self.suggested_fix = suggested_fix or (validation_result.suggested_fix if validation_result else None)
+        self.visual_pointer = visual_pointer or (validation_result.visual_pointer if validation_result else None)
+        self.diagnostics = (
+            diagnostics if diagnostics is not None else (validation_result.diagnostics if validation_result else [])
+        )
         ValueError.__init__(self, message)
         ParamValidationError.__init__(self, report=message)
 
