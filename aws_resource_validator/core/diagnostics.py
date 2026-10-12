@@ -6,16 +6,18 @@ on constraint violations.
 
 from __future__ import annotations
 
+import importlib
 import re
 from dataclasses import asdict, dataclass, field
 from typing import TYPE_CHECKING, Any
 
+_re_compiler: Any = None
+_re_parser: Any = None
 try:
-    import re._compiler as _re_compiler
-    import re._parser as _re_parser
+    _re_compiler = importlib.import_module("re._compiler")
+    _re_parser = importlib.import_module("re._parser")
 except ImportError:  # pragma: no cover
-    _re_compiler = None  # type: ignore[assignment]
-    _re_parser = None  # type: ignore[assignment]
+    pass
 
 if TYPE_CHECKING:
     from aws_resource_validator.core.api_object import APIObject
