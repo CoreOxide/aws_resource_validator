@@ -7,6 +7,7 @@ from types import MappingProxyType
 from typing import TYPE_CHECKING
 
 if TYPE_CHECKING:
+    from aws_resource_validator.core.diagnostics import ValidationResult
     from aws_resource_validator.core.service import Service
 
 
@@ -38,6 +39,17 @@ class APIRegistry(Mapping[str, "Service"]):
         Remove once Pipeline A regenerates the file.
         """
         self.add(service)
+
+    def validate_detailed(
+        self,
+        service: str,
+        shape: str,
+        value: str,
+        *,
+        strict: bool = False,
+    ) -> ValidationResult:
+        """Perform detailed validation on an API shape in the specified service."""
+        return self[service].validate_detailed(shape, value, strict=strict)
 
     def __getitem__(self, name: str) -> Service:
         return self._services[name]

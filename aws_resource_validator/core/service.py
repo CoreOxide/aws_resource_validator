@@ -4,9 +4,13 @@ from __future__ import annotations
 
 from collections.abc import Iterable, Iterator, Mapping
 from types import MappingProxyType
+from typing import TYPE_CHECKING
 
 from aws_resource_validator.core.api_object import APIObject
 from aws_resource_validator.core.naming import to_pascal_case, to_snake_case
+
+if TYPE_CHECKING:
+    from aws_resource_validator.core.diagnostics import ValidationResult
 
 
 class Service:
@@ -52,10 +56,22 @@ class Service:
             raise TypeError(f"expected APIObject, got {type(obj).__name__}")
         pascal = obj.name
         snake = to_snake_case(pascal)
+        if obj.service_name is None:
+            object.__setattr__(obj, "service_name", self._service_name)
         self._api_objects[pascal] = obj
         self._aliases[pascal] = pascal
         if snake != pascal:
             self._aliases[snake] = pascal
+
+    def validate_detailed(
+        self,
+        shape: str,
+        value: str,
+        *,
+        strict: bool = False,
+    ) -> ValidationResult:
+        """Perform detailed validation on an API shape belonging to this service."""
+        return self[shape].validate_detailed(value, strict=strict)
 
     def __getitem__(self, name: str) -> APIObject:
         canonical = self._aliases.get(name)
