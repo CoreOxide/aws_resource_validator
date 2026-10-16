@@ -13,6 +13,7 @@
 
 ## Features
 
+- **Pre-Commit Hook & IaC Scanner (`arv scan`)**: Prevent 15-minute CloudFormation rollbacks and Terraform failures by scanning `.tf`, `.yaml`, `.json`, and `.env` files for invalid AWS resource names and ARNs before commits.
 - **Developer CLI (`arv`)**: Validate names, inspect AWS constraints, and generate synthetic test values directly in your terminal with Rich UI output.
 - **Pre-Flight Boto3 Client Wrapper (`wrap_client`)**: Catch invalid parameters, illegal characters, and bad bucket names locally in < 0.01ms before network roundtrips to AWS.
 - **Universal ARN Parser (`ARN`)**: Parse, validate, and build ARNs safely — no more fragile `arn.split(":")`.
@@ -84,6 +85,62 @@ arv validate lambda FunctionName "my-func" --json
 
 # List registered AWS services and shape counts
 arv list --search s3
+```
+
+## Pre-Commit Hook & IaC Scanner (`arv scan`)
+
+Waiting 15–20 minutes for a CloudFormation stack or Terraform deployment to fail and roll back due to an uppercase character in an S3 bucket or invalid character in an IAM role name wastes developer time.
+
+`arv scan` statically inspects **Terraform** (`.tf`, `.tfvars`), **CloudFormation / SAM / Serverless** (`.yaml`, `.yml`, `.json`, `.template`), and **Environment** (`.env`, `.env.*`) files before changes are committed:
+
+```sh
+# Scan the current repository or directory
+arv scan
+
+# Scan specific files or directories
+arv scan main.tf template.yaml .env
+
+# Exclude patterns
+arv scan --exclude "tests/fixtures/*" --exclude "examples/*"
+
+# Machine-readable JSON output for CI/CD gates
+arv scan --json
+
+# SARIF v2.1.0 output for GitHub Code Scanning / Security tab
+arv scan --format sarif > results.sarif
+
+# GitHub Actions workflow annotations on PR diffs
+arv scan --format github
+```
+
+### Pre-Commit Integration
+
+Add `aws_resource_validator` to your `.pre-commit-config.yaml`:
+
+```yaml
+repos:
+  - repo: https://github.com/CoreOxide/aws_resource_validator
+    rev: v2.5.0
+    hooks:
+      - id: aws-resource-lint
+```
+
+### Smart Detection & Zero False Positives
+
+- **Dynamic expressions are ignored**: Variable interpolations (`${var.bucket}`), local references (`local.name`), module outputs, and CloudFormation intrinsics (`!Ref`, `!Sub`, `!GetAtt`, `!Join`, `Fn::Sub`) are automatically skipped so you never get false positives.
+- **Hardcoded ARNs**: String literals matching `arn:...` are automatically extracted and validated against AWS ARN grammar and service constraints.
+- **Inline directives**:
+  - `# arv: ignore` or `// arv: ignore`: Suppresses validation on that line or next line.
+  - `# arv: service=s3 shape=BucketName`: Validates custom variables or parameters against a specific service shape.
+
+```hcl
+# .tf example
+resource "aws_s3_bucket" "my_bucket" {
+  bucket = "INVALID_UPPERCASE" # Will fail scan with character caret pointer!
+}
+
+# arv: service=s3 shape=BucketName
+custom_bucket_var = "my-custom-bucket-name"
 ```
 
 ## Pre-Flight Boto3 Client Wrapper (`wrap_client`)

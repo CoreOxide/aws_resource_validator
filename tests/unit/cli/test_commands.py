@@ -3,6 +3,7 @@
 from __future__ import annotations
 
 import json
+from pathlib import Path
 
 from typer.testing import CliRunner
 
@@ -188,3 +189,72 @@ def test_arn_strict_fails_on_warnings() -> None:
     value = "arn:aws-future:s3:::bucket"
     assert runner.invoke(app, ["arn", value, "--no-shapes"]).exit_code == 0
     assert runner.invoke(app, ["arn", value, "--no-shapes", "--strict"]).exit_code == 1
+
+
+def test_validate_and_inspect_s3_builtin() -> None:
+    res = runner.invoke(app, ["validate", "s3", "BucketName", "valid-s3-bucket"])
+    assert res.exit_code == 0
+    assert "PASS" in res.stdout
+
+    res_inspect = runner.invoke(app, ["inspect", "s3", "BucketName"])
+    assert res_inspect.exit_code == 0
+    assert "Inspect: S3.BucketName" in res_inspect.stdout
+
+
+def test_scan_clean_directory(tmp_path: Path) -> None:
+    f = tmp_path / "valid.tf"
+    f.write_text('resource "aws_s3_bucket" "b" { bucket = "clean-bucket-123" }', encoding="utf-8")
+
+    result = runner.invoke(app, ["scan", str(tmp_path)])
+    assert result.exit_code == 0
+    assert "SCAN PASSED" in result.stdout
+
+
+def test_scan_violations_rich(tmp_path: Path) -> None:
+    f = tmp_path / "invalid.tf"
+    f.write_text('resource "aws_s3_bucket" "b" { bucket = "INVALID_BUCKET" }', encoding="utf-8")
+
+    result = runner.invoke(app, ["scan", str(tmp_path)])
+    assert result.exit_code == 1
+    assert "SCAN FAILED" in result.stdout
+    assert "FAIL" in result.stdout
+    assert "BucketName" in result.stdout
+
+
+def test_scan_violations_json(tmp_path: Path) -> None:
+    f = tmp_path / "invalid.tf"
+    f.write_text('resource "aws_s3_bucket" "b" { bucket = "INVALID_BUCKET" }', encoding="utf-8")
+
+    result = runner.invoke(app, ["scan", str(tmp_path), "--json"])
+    assert result.exit_code == 1
+    data = json.loads(result.stdout)
+    assert data["is_valid"] is False
+    assert data["error_count"] >= 1
+    assert data["findings"][0]["shape"] == "BucketName"
+
+
+def test_scan_sarif_format(tmp_path: Path) -> None:
+    f = tmp_path / "invalid.tf"
+    f.write_text('resource "aws_s3_bucket" "b" { bucket = "INVALID_BUCKET" }', encoding="utf-8")
+
+    result = runner.invoke(app, ["scan", str(tmp_path), "--format", "sarif"])
+    assert result.exit_code == 1
+    data = json.loads(result.stdout)
+    assert data["version"] == "2.1.0"
+    assert len(data["runs"][0]["results"]) >= 1
+
+
+def test_scan_github_format(tmp_path: Path) -> None:
+    f = tmp_path / "invalid.tf"
+    f.write_text('resource "aws_s3_bucket" "b" { bucket = "INVALID_BUCKET" }', encoding="utf-8")
+
+    result = runner.invoke(app, ["scan", str(tmp_path), "--format", "github"])
+    assert result.exit_code == 1
+    assert "::error file=" in result.stdout
+    assert "Validation Violation" in result.stdout
+
+
+def test_scan_invalid_format(tmp_path: Path) -> None:
+    result = runner.invoke(app, ["scan", str(tmp_path), "--format", "unknown_format"])
+    assert result.exit_code == 2
+    assert "Invalid format 'unknown_format'" in result.stdout

@@ -278,7 +278,13 @@ ignore = ["PLR0913", "PLR0917", "PLR2004"]
 [tool.mypy]
 python_version = "3.11"
 strict = true
-files = ["aws_resource_validator/core", "aws_resource_validator/generator", "aws_resource_validator/cli"]
+files = [
+    "aws_resource_validator/core",
+    "aws_resource_validator/client_wrapper",
+    "aws_resource_validator/generator",
+    "aws_resource_validator/cli",
+    "aws_resource_validator/scanner",
+]
 
 [[tool.mypy.overrides]]
 module = ["exrex.*", "responses.*", "botocore.*", "requests.*"]

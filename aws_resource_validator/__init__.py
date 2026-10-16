@@ -7,6 +7,8 @@ lives under :mod:`aws_resource_validator.generator` and is not part of the
 runtime surface.
 """
 
+__version__ = "2.5.0"
+
 from aws_resource_validator.client_wrapper import (
     AWSValidationError,
     AWSValidationWarning,
@@ -26,6 +28,14 @@ from aws_resource_validator.core import (
     ValidationResult,
     diagnose_validation,
 )
+from aws_resource_validator.scanner import (
+    ScanCandidate,
+    ScanFinding,
+    ScanReport,
+    scan_file,
+    scan_paths,
+    scan_text,
+)
 
 __all__ = [
     "ARN",
@@ -36,13 +46,17 @@ __all__ = [
     "AWSValidationWarning",
     "BaseValidatorModel",
     "EventStream",
+    "ScanCandidate",
+    "ScanFinding",
+    "ScanReport",
     "Service",
     "ValidationResult",
     "diagnose_validation",
+    "scan_file",
+    "scan_paths",
+    "scan_text",
     "unwrap_client",
     "unwrap_session",
     "wrap_client",
     "wrap_session",
 ]
-
-__version__ = "2.5.0"

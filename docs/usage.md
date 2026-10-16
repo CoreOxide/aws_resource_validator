@@ -93,3 +93,44 @@ ARN.build(service="iam", account_id="123456789012", resource_type="role", resour
   registry lazily — plain parsing never does.
 - `ARN` can be used directly as a Pydantic v2 field type.
 - CLI: `arv arn "<arn>" [--json] [--strict] [--no-shapes]`.
+
+## Scanning IaC and configuration files (`arv scan`)
+
+`aws_resource_validator` provides static scanning for Infrastructure as Code (Terraform, CloudFormation, SAM, Serverless) and `.env` files:
+
+```python
+from aws_resource_validator import scan_file, scan_paths, scan_text
+
+# Scan text directly
+candidate_count, findings = scan_text(
+    '''
+    resource "aws_s3_bucket" "b" {
+      bucket = "INVALID_NAME"
+    }
+    ''',
+    file_path="main.tf",
+)
+
+# Recursively scan directories or files
+report = scan_paths(["infra/"], exclude=["node_modules/*"])
+print(report.is_valid)       # False
+print(report.error_count)    # Number of naming violations
+print(report.to_dict())      # JSON-serializable report
+print(report.to_sarif())     # SARIF v2.1.0 output
+```
+
+CLI usage:
+
+```sh
+arv scan [paths]... [--format text|json|sarif|github] [--strict] [--exclude <glob>]
+```
+
+Pre-commit configuration (`.pre-commit-config.yaml`):
+
+```yaml
+repos:
+  - repo: https://github.com/CoreOxide/aws_resource_validator
+    rev: v2.5.0
+    hooks:
+      - id: aws-resource-lint
+```
