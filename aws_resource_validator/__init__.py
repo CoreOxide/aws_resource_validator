@@ -7,7 +7,7 @@ lives under :mod:`aws_resource_validator.generator` and is not part of the
 runtime surface.
 """
 
-__version__ = "2.5.0"
+__version__ = "2.6.0"
 
 from aws_resource_validator.client_wrapper import (
     AWSValidationError,
