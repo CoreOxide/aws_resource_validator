@@ -1,0 +1,15 @@
+- id: aws-resource-lint
+  name: AWS Resource Validator (IaC & Config Lint)
+  description: Validate hardcoded AWS resource names and ARNs in Terraform, CloudFormation, and .env files against botocore constraints.
+  entry: arv scan
+  language: python
+  files: (\.(tf|tfvars|yaml|yml|json|template|env)$|(^|/)\.env\.)
+  require_serial: true
+
+- id: arv-scan
+  name: arv scan (AWS Resource Validator)
+  description: Alias for aws-resource-lint.
+  entry: arv scan
+  language: python
+  files: (\.(tf|tfvars|yaml|yml|json|template|env)$|(^|/)\.env\.)
+  require_serial: true

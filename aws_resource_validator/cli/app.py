@@ -5,6 +5,7 @@ from __future__ import annotations
 import json
 import platform
 import sys
+from pathlib import Path
 from typing import Any
 
 import rich
@@ -19,6 +20,7 @@ from aws_resource_validator.cli.formatters import (
     print_generated_values,
     print_inspect_service,
     print_inspect_shape,
+    print_scan_report,
     print_services_list,
     print_validation_result,
 )
@@ -258,6 +260,61 @@ def arn_cmd(
         print_arn_result(console, parsed, matches)
 
     if not parsed.is_valid or (strict and parsed.warnings):
+        raise typer.Exit(code=1)
+
+
+@app.command("scan")
+def scan(
+    paths: list[Path] = typer.Argument(
+        None,
+        help="Files or directories to scan (defaults to current directory).",
+    ),
+    format_opt: str = typer.Option(
+        "text",
+        "--format",
+        "-f",
+        help="Output format: text, json, sarif, or github.",
+    ),
+    json_output: bool = typer.Option(False, "--json", help="Shorthand for --format json."),
+    strict: bool = typer.Option(
+        True,
+        "--strict/--no-strict",
+        help="Enforce end-to-end regex matching (default: True for IaC scanning).",
+    ),
+    exclude: list[str] = typer.Option(
+        [],
+        "--exclude",
+        "-e",
+        help="Glob patterns to exclude from scanning.",
+    ),
+) -> None:
+    """Scan Terraform, CloudFormation, and environment files for AWS naming violations."""
+    from aws_resource_validator.scanner import scan_paths
+
+    selected_format = "json" if json_output else format_opt.lower()
+    valid_formats = {"text", "json", "sarif", "github"}
+    if selected_format not in valid_formats:
+        console = get_console()
+        print_error(
+            console,
+            f"Invalid format '{selected_format}'. Supported formats: {', '.join(sorted(valid_formats))}.",
+        )
+        raise typer.Exit(code=2)
+
+    report = scan_paths(paths or [Path.cwd()], strict=strict, exclude=exclude)
+
+    if selected_format == "json":
+        _output_json(report.to_dict())
+    elif selected_format == "sarif":
+        _output_json(report.to_sarif())
+    elif selected_format == "github":
+        for finding in report.findings:
+            print(finding.to_github_annotation())
+    else:
+        console = get_console()
+        print_scan_report(console, report)
+
+    if not report.is_valid:
         raise typer.Exit(code=1)
 
 

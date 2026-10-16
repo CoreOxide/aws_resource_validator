@@ -16,6 +16,7 @@ if TYPE_CHECKING:
     from aws_resource_validator.core.api_object import APIObject
     from aws_resource_validator.core.arn import ARN
     from aws_resource_validator.core.service import Service
+    from aws_resource_validator.scanner.models import ScanReport
 
 
 def get_console() -> Console:
@@ -255,3 +256,74 @@ def print_arn_result(
 
     panel = Panel(grid, title="[bold]ARN Inspection[/bold]", border_style=border_style, expand=False)
     console.print(panel)
+
+
+def print_scan_report(console: Console, report: ScanReport) -> None:
+    """Render scan findings and summary status across scanned files."""
+    if report.findings:
+        for idx, finding in enumerate(report.findings, start=1):
+            cand = finding.candidate
+            status_style = "bold white on red" if finding.errors else "bold black on yellow"
+            status_label = " FAIL " if finding.errors else " WARN "
+            border = "red" if finding.errors else "yellow"
+
+            grid = Table.grid(padding=(0, 1))
+            grid.add_column(style="bold cyan", justify="right", width=16)
+            grid.add_column()
+
+            loc_str = (
+                f"[bold white]{escape(str(cand.file_path))}[/bold white]:"
+                f"[yellow]{cand.line}[/yellow]:[yellow]{cand.column}[/yellow]"
+            )
+            grid.add_row("Location:", loc_str)
+            grid.add_row("Status:", f"[{status_style}] {status_label} [/{status_style}]")
+
+            res_desc = (
+                f"[bold white]{escape(cand.resource_type)}.{escape(cand.resource_name)}[/bold white] "
+                f"-> [cyan]{escape(cand.property_name)}[/cyan]"
+            )
+            rule_desc = f"[magenta]{escape(cand.service)}.{escape(cand.shape)}[/magenta]"
+            grid.add_row("Resource:", f"{res_desc} ({rule_desc})")
+            grid.add_row("Value:", f"[bold white]{escape(cand.value)}[/bold white]")
+
+            if finding.errors:
+                err_text = "\n".join(f"[bold red]• {escape(err)}[/bold red]" for err in finding.errors)
+                grid.add_row("Errors:", err_text)
+
+            if finding.visual_pointer:
+                grid.add_row("Visual Pointer:", f"[bold yellow]{escape(finding.visual_pointer)}[/bold yellow]")
+
+            if finding.suggested_fix:
+                grid.add_row("Suggested Fix:", f"[bold cyan]{escape(finding.suggested_fix)}[/bold cyan]")
+
+            if finding.warnings:
+                warn_text = "\n".join(f"[bold yellow]• {escape(w)}[/bold yellow]" for w in finding.warnings)
+                grid.add_row("Warnings:", warn_text)
+
+            panel = Panel(
+                grid,
+                title=f"[bold]Finding #{idx} — {escape(cand.resource_name)}[/bold]",
+                border_style=border,
+                expand=False,
+            )
+            console.print(panel)
+
+    # Summary bar
+    unique_files = len({f.candidate.file_path for f in report.findings if f.errors})
+    if report.is_valid:
+        msg = (
+            f"[bold white on green]  SCAN PASSED  [/bold white on green]  "
+            f"No AWS naming violations found across [bold green]{report.files_scanned}[/bold green] file(s) "
+            f"([cyan]{report.candidates_checked}[/cyan] candidate(s) checked)."
+        )
+        if report.warning_count > 0:
+            msg += f" [yellow]({report.warning_count} warning(s))[/yellow]"
+        console.print(Panel(msg, border_style="green", expand=False))
+    else:
+        msg = (
+            f"[bold white on red]  SCAN FAILED  [/bold white on red]  "
+            f"Found [bold red]{report.error_count}[/bold red] violation(s) "
+            f"across [bold red]{unique_files}[/bold red] file(s) "
+            f"([dim]{report.files_scanned} files scanned, {report.candidates_checked} candidates checked[/dim])."
+        )
+        console.print(Panel(msg, border_style="red", expand=False))
