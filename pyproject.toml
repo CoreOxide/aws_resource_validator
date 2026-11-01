@@ -33,6 +33,9 @@ dependencies = [
 arv = "aws_resource_validator.cli.__main__:main"
 arv-generate = "aws_resource_validator.generator.__main__:main"
 
+[project.entry-points.pytest11]
+aws_resource_validator = "aws_resource_validator.testing.plugin"
+
 [tool.poetry]
 # PEP 621 [project] above owns name / version / description / authors /
 # dependencies. This table only carries Poetry-specific tuning that PEP
@@ -52,6 +55,7 @@ boto3 = "*"
 boto3-stubs = { extras = ["all"], version = "*" }
 
 # Test & lint.
+hypothesis = "*"
 pytest = "^9.1"
 pytest-xdist = "*"
 pytest-cov = "*"
@@ -79,6 +83,10 @@ generator = [
     "jinja2",
     "typer",
     "black",
+]
+testing = [
+    "hypothesis",
+    "pytest",
 ]
 
 # Individual services (popular — curated in popular_services.txt).
@@ -284,6 +292,7 @@ files = [
     "aws_resource_validator/generator",
     "aws_resource_validator/cli",
     "aws_resource_validator/scanner",
+    "aws_resource_validator/testing",
 ]
 
 [[tool.mypy.overrides]]

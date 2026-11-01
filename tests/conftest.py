@@ -12,6 +12,8 @@ from aws_resource_validator.core.api_object import APIObject
 from aws_resource_validator.core.registry import APIRegistry
 from aws_resource_validator.core.service import Service
 
+pytest_plugins = ["aws_resource_validator.testing.plugin"]
+
 
 @pytest.fixture
 def sample_api_object() -> APIObject:

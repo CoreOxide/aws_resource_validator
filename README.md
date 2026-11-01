@@ -17,6 +17,7 @@
 - **Developer CLI (`arv`)**: Validate names, inspect AWS constraints, and generate synthetic test values directly in your terminal with Rich UI output.
 - **Pre-Flight Boto3 Client Wrapper (`wrap_client`)**: Catch invalid parameters, illegal characters, and bad bucket names locally in < 0.01ms before network roundtrips to AWS.
 - **Universal ARN Parser (`ARN`)**: Parse, validate, and build ARNs safely — no more fragile `arn.split(":")`.
+- **Hypothesis Strategies & Pytest Fixtures**: Fuzz AWS pipelines and test resource names with property-based testing strategies (`resource_names`, `arns`, `invalid_resource_names`) and auto-registered Pytest fixtures (`aws_name_factory`, `aws_arn_factory`, `aws_validator`, `validated_boto3_session`).
 - **Validation**: Check if a given AWS resource name meets the AWS naming constraints.
 - **Constraint Display**: Display constraints for different AWS resource names.
 - **Pattern Generation**: Generate compatible patterns for AWS resource names for testing purposes.
@@ -33,6 +34,9 @@ download what you need.
 ```sh
 # Core only (validators, generators, BaseValidatorModel).
 pip install aws-resource-validator
+
+# Property-based testing extras (Hypothesis strategies + Pytest fixtures).
+pip install 'aws-resource-validator[testing]'
 
 # One or more individual services.
 pip install 'aws-resource-validator[s3,ec2,lambda]'
@@ -245,6 +249,63 @@ From the terminal:
 ```sh
 arv arn "arn:aws:iam::123456789012:role/service-role/MyRole"   # exit 0 / 1 (invalid) / 2 (not an ARN)
 arv arn "arn:aws:s3:us-east-1:123456789012:job/abc" --json
+```
+
+## Property-Based Testing & Pytest Fixtures
+
+Writing cloud automation or data pipelines with hardcoded string constants (`"my-bucket"`) misses edge cases like length bounds, hyphens, dots, and partition differences. `aws_resource_validator.testing` provides native [Hypothesis](https://hypothesis.readthedocs.io/) strategies and automatic Pytest fixtures:
+
+```sh
+pip install 'aws-resource-validator[testing]'
+```
+
+### Hypothesis Strategies (`aws_resource_validator.testing.strategies`)
+
+```python
+from hypothesis import given
+from aws_resource_validator.testing import strategies as aws_st
+
+# Fuzz your functions with valid edge-case AWS resource names:
+@given(bucket=aws_st.resource_names("s3", "BucketName"))
+def test_s3_pipeline(bucket: str):
+    assert process_bucket(bucket) is True
+
+# Generate valid ARNs (or strings) across AWS partitions, regions, and services:
+@given(arn=aws_st.arns(service="lambda", resource_type="function"))
+def test_lambda_arn_handler(arn):
+    assert arn.is_valid is True
+    assert arn.service == "lambda"
+
+# Negative testing: generate inputs guaranteed to violate AWS naming constraints
+@given(bad_name=aws_st.invalid_resource_names("rds", "DBInstanceIdentifier"))
+def test_rds_rejection(bad_name: str):
+    assert is_valid_rds_identifier(bad_name) is False
+```
+
+### Pytest Fixtures
+
+The plugin is auto-registered with Pytest (`pytest11` entry point) so fixtures are immediately available:
+
+```python
+from aws_resource_validator import assert_valid, assert_invalid
+
+def test_cloud_infrastructure(aws_name_factory, aws_arn_factory, aws_validator, validated_boto3_session):
+    # 1. Generate compliant names on demand:
+    bucket = aws_name_factory("s3", "BucketName")
+    fn_name = aws_name_factory("lambda", "FunctionName")
+
+    # 2. Build pre-configured valid ARNs with sensible defaults:
+    role_arn = aws_arn_factory("iam", resource_type="role", resource_id="MyRole")
+    queue_arn = aws_arn_factory("sqs", resource="my-queue")
+
+    # 3. Assert naming compliance with rich diagnostic pointers on failure:
+    aws_validator.assert_valid("s3", "BucketName", bucket)
+    assert_valid("s3", "BucketName", "valid-bucket-name")
+    assert_invalid("s3", "BucketName", "INVALID_UPPERCASE")
+
+    # 4. Pre-flight validated Boto3 session:
+    s3 = validated_boto3_session.client("s3")
+    # Invalid calls fail locally before transmitting HTTP requests!
 ```
 
 ## Python Usage Example
