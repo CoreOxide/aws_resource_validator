@@ -31,14 +31,14 @@ jobs:
       - name: Install project + dev deps
         run: |
           python -m pip install --upgrade pip
-          pip install -e '.[generator]'
-          pip install ruff mypy pytest pytest-xdist pytest-cov responses boto3 "boto3-stubs[all]"
+          pip install -e '.[generator,testing]'
+          pip install ruff mypy pytest pytest-xdist pytest-cov responses boto3 "boto3-stubs[all]" hypothesis
 
       - name: Ruff
         run: ruff check aws_resource_validator tests
 
       - name: Mypy
-        run: mypy aws_resource_validator/core aws_resource_validator/client_wrapper aws_resource_validator/generator aws_resource_validator/cli aws_resource_validator/scanner
+        run: mypy aws_resource_validator/core aws_resource_validator/client_wrapper aws_resource_validator/generator aws_resource_validator/cli aws_resource_validator/scanner aws_resource_validator/testing
 
   test:
     runs-on: ubuntu-latest
@@ -57,8 +57,8 @@ jobs:
       - name: Install project + dev deps
         run: |
           python -m pip install --upgrade pip
-          pip install -e '.[generator]'
-          pip install pytest pytest-xdist pytest-cov responses boto3 "boto3-stubs[all]"
+          pip install -e '.[generator,testing]'
+          pip install pytest pytest-xdist pytest-cov responses boto3 "boto3-stubs[all]" hypothesis
 
       - name: Unit and integration tests
         run: pytest tests/unit tests/integration

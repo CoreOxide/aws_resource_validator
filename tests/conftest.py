@@ -12,6 +12,15 @@ from aws_resource_validator.core.api_object import APIObject
 from aws_resource_validator.core.registry import APIRegistry
 from aws_resource_validator.core.service import Service
 
+# In non-installed runs, import fixtures directly so they are discovered;
+# in installed runs, entry point `aws_resource_validator` provides them.
+from aws_resource_validator.testing.plugin import (  # noqa: F401
+    aws_arn_factory,
+    aws_name_factory,
+    aws_validator,
+    validated_boto3_session,
+)
+
 
 @pytest.fixture
 def sample_api_object() -> APIObject:

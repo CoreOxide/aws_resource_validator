@@ -134,3 +134,43 @@ repos:
     hooks:
       - id: aws-resource-lint
 ```
+
+## Property-based testing with Hypothesis and Pytest
+
+Install with testing extras:
+
+```sh
+pip install 'aws-resource-validator[testing]'
+```
+
+### Hypothesis strategies
+
+```python
+from hypothesis import given
+from aws_resource_validator.testing import strategies as aws_st
+
+# Fuzz your functions with valid edge-case AWS resource names:
+@given(bucket=aws_st.resource_names("s3", "BucketName"))
+def test_s3_pipeline(bucket: str):
+    ...
+
+# Generate valid ARNs (or strings) across AWS partitions, regions, and services:
+@given(arn=aws_st.arns(service="sqs"))
+def test_sqs_arn_processor(arn):
+    ...
+```
+
+### Pytest fixtures and assertions
+
+The plugin is auto-registered with Pytest (`pytest11` entry point):
+
+```python
+from aws_resource_validator import assert_valid, assert_invalid
+
+def test_service_setup(aws_name_factory, aws_arn_factory, aws_validator):
+    bucket = aws_name_factory("s3", "BucketName")
+    role_arn = aws_arn_factory("iam", resource_type="role", resource_id="AppRole")
+
+    assert_valid("s3", "BucketName", bucket)
+    assert_invalid("s3", "BucketName", "BAD_NAME")
+```

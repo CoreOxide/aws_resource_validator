@@ -36,6 +36,10 @@ from aws_resource_validator.scanner import (
     scan_paths,
     scan_text,
 )
+from aws_resource_validator.testing import (
+    assert_invalid,
+    assert_valid,
+)
 
 __all__ = [
     "ARN",
@@ -51,6 +55,8 @@ __all__ = [
     "ScanReport",
     "Service",
     "ValidationResult",
+    "assert_invalid",
+    "assert_valid",
     "diagnose_validation",
     "scan_file",
     "scan_paths",

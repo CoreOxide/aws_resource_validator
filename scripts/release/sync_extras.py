@@ -26,6 +26,7 @@ EXTRAS_BEGIN = "# --- BEGIN GENERATED EXTRAS ---"
 EXTRAS_END = "# --- END GENERATED EXTRAS ---"
 
 GENERATOR_EXTRA = ("requests", "jinja2", "typer", "black")
+TESTING_EXTRA = ("hypothesis", "pytest")
 
 
 def _extra(key: str, entries: list[str]) -> list[str]:
@@ -44,6 +45,7 @@ def render_extras(manifest: Manifest) -> str:
     lines: list[str] = [EXTRAS_BEGIN, "[project.optional-dependencies]"]
 
     lines.extend(_extra("generator", list(GENERATOR_EXTRA)))
+    lines.extend(_extra("testing", list(TESTING_EXTRA)))
     lines.append("")
 
     lines.append("# Individual services (popular — curated in popular_services.txt).")

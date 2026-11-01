@@ -32,9 +32,11 @@ def test_render_extras_emits_pep621_table() -> None:
     assert block.startswith(EXTRAS_BEGIN)
     assert block.rstrip().endswith(EXTRAS_END)
     assert "[project.optional-dependencies]" in block
-    # Generator extra is hand-curated and always present.
+    # Generator and testing extras are hand-curated and always present.
     assert '"requests"' in block
     assert '"black"' in block
+    assert '"hypothesis"' in block
+    assert '"pytest"' in block
     # Service extras emit PEP 508 strings with strict pins.
     assert '"aws-resource-validator-s3==2.1.0"' in block
     assert '"aws-resource-validator-lambda==2.1.0"' in block
