@@ -39,7 +39,12 @@ jobs:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}  # Needed to get PR information.
         # Tests rely on pytest's `assert`, and the generated trees are excluded
         # from every other linter (see CLAUDE.md) so Bandit matches.
-        excluded_paths: 'tests,aws_resource_validator/pydantic_models,aws_resource_validator/class_definitions.py'
+        # NOTE: entries must be prefixed with "./" — Bandit walks "-r ." and
+        # joins each dir-style exclusion with "/*", so a bare "tests" never
+        # matches the "./tests/..." paths it discovers and silently scans
+        # them anyway. See https://github.com/PyCQA/bandit/issues (exclude
+        # matching against os.walk results that start with "./").
+        excluded_paths: './tests,./aws_resource_validator/pydantic_models,./aws_resource_validator/class_definitions.py'
         skips: 'B101'
 
     - name: Reconcile GitHub Issues with SARIF findings
