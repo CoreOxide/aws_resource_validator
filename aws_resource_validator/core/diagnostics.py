@@ -6,6 +6,7 @@ on constraint violations.
 
 from __future__ import annotations
 
+import contextlib
 import importlib
 import re
 from dataclasses import asdict, dataclass, field
@@ -238,13 +239,13 @@ def _build_suggested_fix(
         len_rec = f"Maximum length is {api_object.max_length} (shorten by {diff} characters)."
         fix = f"{fix} {len_rec}" if fix else len_rec
 
-    try:
+    # Sample generation is best-effort: any failure here must not break the
+    # diagnostic message, so the error is intentionally swallowed.
+    with contextlib.suppress(Exception):
         sample = api_object.generate()
         if sample and len(sample) <= 80:
             sample_tip = f" Example valid value: '{sample}'."
             fix = (fix + sample_tip) if fix else sample_tip.strip()
-    except Exception:
-        pass
     return fix
 
 
