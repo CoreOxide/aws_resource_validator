@@ -13,6 +13,7 @@
 
 ## Features
 
+- **AI Agent / LLM Tool-Call Guardrails (`guardrails`)**: Validate LLM-generated AWS tool arguments offline before execution and return structured self-correction feedback (`to_llm_feedback()`, `to_tool_message()`, `@guard_tool`).
 - **Pre-Commit Hook & IaC Scanner (`arv scan`)**: Prevent 15-minute CloudFormation rollbacks and Terraform failures by scanning `.tf`, `.yaml`, `.json`, and `.env` files for invalid AWS resource names and ARNs before commits.
 - **Developer CLI (`arv`)**: Validate names, inspect AWS constraints, and generate synthetic test values directly in your terminal with Rich UI output.
 - **Pre-Flight Boto3 Client Wrapper (`wrap_client`)**: Catch invalid parameters, illegal characters, and bad bucket names locally in < 0.01ms before network roundtrips to AWS.
@@ -306,6 +307,30 @@ def test_cloud_infrastructure(aws_name_factory, aws_arn_factory, aws_validator, 
     # 4. Pre-flight validated Boto3 session:
     s3 = validated_boto3_session.client("s3")
     # Invalid calls fail locally before transmitting HTTP requests!
+```
+
+## AI Agent / LLM Tool-Call Guardrails
+
+AI agents calling AWS tools often hallucinate invalid S3 bucket names, malformed ARNs, wrong enum values, or misspelled parameters. `aws_resource_validator.guardrails` validates tool arguments offline against botocore models and AWS naming rules before execution, returning structured feedback for in-context LLM self-correction:
+
+```python
+from aws_resource_validator.guardrails import validate_tool_arguments, validate_tool_call, guard_tool
+
+# 1. Validate raw arguments (dict or JSON string) before executing a tool:
+raw_args = {"Bucket": "INVALID_NAME", "Key": "data.csv"}
+validation = validate_tool_arguments("s3", "PutObject", raw_args)
+if not validation.is_valid:
+    retry_prompt = validation.to_llm_feedback()
+
+# 2. Validate OpenAI / Anthropic / Gemini tool-call payloads directly:
+openai_call = {"function": {"name": "s3.PutObject", "arguments": '{"Bucket": "INVALID_NAME", "Key": "data.csv"}'}}
+res = validate_tool_call(openai_call)
+tool_msg = res.to_tool_message(tool_call_id="call_123", format="openai")
+
+# 3. Decorate sync or async agent tool functions:
+@guard_tool("s3", "PutObject")
+def put_s3_object(bucket: str, key: str, body: str = "") -> str:
+    return f"Uploaded {key} to {bucket}"
 ```
 
 ## Python Usage Example
