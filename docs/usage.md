@@ -174,3 +174,62 @@ def test_service_setup(aws_name_factory, aws_arn_factory, aws_validator):
     assert_valid("s3", "BucketName", bucket)
     assert_invalid("s3", "BucketName", "BAD_NAME")
 ```
+
+## AI Agent / LLM Tool-Call Guardrails
+
+`aws_resource_validator.guardrails` validates LLM-generated AWS tool arguments offline against botocore operation shapes, AWS regex/length constraints, enum choices, required parameters, and unknown/misspelled keys.
+
+### Validating tool arguments
+
+```python
+from aws_resource_validator.guardrails import validate_tool_arguments
+
+result = validate_tool_arguments(
+    "s3",
+    "PutObject",
+    {"Bucket": "INVALID_NAME", "Key": "data.csv"},
+)
+
+if not result.is_valid:
+    # Structured prompt for LLM self-correction
+    print(result.to_llm_feedback())
+    # Machine-readable JSON / dict
+    payload = result.to_dict()
+```
+
+### Provider tool-call payloads (`validate_tool_call` & `to_tool_message`)
+
+`validate_tool_call()` accepts OpenAI (`function.name` / `function.arguments`), Anthropic (`name` / `input`), Gemini (`name` / `args`), and generic dicts or SDK objects:
+
+```python
+from aws_resource_validator.guardrails import validate_tool_call
+
+result = validate_tool_call(
+    {"name": "s3_put_object", "input": {"Bucket": "INVALID_NAME", "Key": "data.csv"}},
+)
+if not result.is_valid:
+    anthropic_msg = result.to_tool_message(tool_call_id="toolu_01", format="anthropic")
+    openai_msg = result.to_tool_message(tool_call_id="call_01", format="openai")
+    gemini_msg = result.to_tool_message(format="gemini")
+```
+
+### Guarding Python tool functions (`@guard_tool` & `AWSToolGuardrail`)
+
+```python
+from aws_resource_validator.guardrails import AWSToolGuardrail, ToolGuardrailError, guard_tool
+
+@guard_tool("s3", "PutObject")
+def upload_object(bucket: str, key: str) -> str:
+    return f"s3://{bucket}/{key}"
+
+# Invalid call short-circuits and returns LLM feedback string:
+feedback = upload_object(bucket="INVALID_NAME", key="data.csv")
+
+# Or raise ToolGuardrailError on invalid calls:
+@guard_tool("s3", "PutObject", on_error="raise")
+async def upload_object_async(bucket: str, key: str) -> str:
+    return f"s3://{bucket}/{key}"
+
+# Reusable guardrail instance with custom configuration:
+guardrail = AWSToolGuardrail(strict=True, check_required=True, check_unknown=True)
+```

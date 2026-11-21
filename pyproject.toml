@@ -291,6 +291,7 @@ files = [
     "aws_resource_validator/client_wrapper",
     "aws_resource_validator/generator",
     "aws_resource_validator/cli",
+    "aws_resource_validator/guardrails",
     "aws_resource_validator/scanner",
     "aws_resource_validator/testing",
 ]
